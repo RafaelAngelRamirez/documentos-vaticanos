@@ -29,13 +29,27 @@
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Dropdown
+            <i class="fas fa-cog    "></i> Configuraciones
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li>
+              <a 
+              (click)="temaClaro = !temaClaro; tema(temaClaro)"
+              class="dropdown-item" href="javascript:void(0)">
+                
+                Cambiar a tema 
+
+                <ng-container *ngIf="!temaClaro; else elseTemplate">
+                   claro <i class="fas fa-sun    "></i>
+                </ng-container>
+                <ng-template #elseTemplate>
+                  oscuro <i class="fas fa-moon    "></i>
+                </ng-template>
+                
+
+
+
+            </a></li>
           </ul>
         </li>
         <li class="nav-item">
