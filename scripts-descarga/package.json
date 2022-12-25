@@ -1,0 +1,16 @@
+{
+  "name": "scripts-descarga",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "descarga-catecismo": "node descargar_catecismo.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cli-progress": "^3.11.2",
+    "linkedom": "^0.14.21",
+    "string-strip-html": "^8.4.0"
+  }
+}
