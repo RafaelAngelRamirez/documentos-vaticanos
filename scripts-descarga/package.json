@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "catecismo": "node descargar_catecismo.js",
+    "catecismo": "node descargar_catecismo.js && npm run copiar",
+    "copiar": "cp -r documentos/* ../frontend/src/assets/documentos",
     "release": "standard-version"
   },
   "author": "",
