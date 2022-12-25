@@ -19,8 +19,9 @@ const cli_progress_bar = new cliProgress.SingleBar(
 );
 
 //Pagina base de donde se estructura el documento.
-const url_de_documento_a_descargar = "https://www.vatican.va/archive/catechism_sp";
-const nombre_fichero_final = "catecismo"
+const url_de_documento_a_descargar =
+  "https://www.vatican.va/archive/catechism_sp";
+const nombre_fichero_final = "catecismo";
 // La pagina que contiene el indice.
 
 let dir = "documentos";
@@ -65,7 +66,7 @@ function obtener_pagina(url) {
 }
 
 // Nos conectamos al indice para empezar todo el merequetengue
-console.log(`[i] Indice: ${indice}`)
+console.log(`[i] Indice: ${indice}`);
 obtener_pagina(indice)
   .then((r) => obtenerIndice(r))
   .catch((_) => console.log("[ERROR]=>", _));
@@ -178,21 +179,12 @@ function obtenerDiferenciaDePuntos(doc) {
   return { total, masAlto, totalDePuntos, puntosInexistentes };
 }
 
-function separarPuntosEnPartes(elementos, doc) {
-  // let contador = 1
-  // while (doc.length > 0) {
-
-  const nombre = `${dir}/${nombre_fichero_final}.json`;
-  fs.appendFile(
-    nombre,
-    // JSON.stringify(doc.splice(0, elementos)),
-    JSON.stringify(doc),
-    function (err) {
-      if (err) return console.error(err);
-      console.log(`[ i ] ${nombre_fichero_final} guardado`);
-    }
-  );
-  // }
+function escribir_fichero_principal(datos) {
+  const nombre = `${datos.dir}/${datos.nombre_fichero_final}.json`;
+  fs.appendFile(nombre, JSON.stringify(datos.documento), function (err) {
+    if (err) return console.error(err);
+    console.log(`[ i ] ${datos.nombre_fichero_final} guardado`);
+  });
 }
 
 function separarReferencias(doc) {
@@ -232,7 +224,11 @@ function terminar(doc) {
   diferencias[urls] = urlsRegistro;
 
   console.log("[ + ] Escribiendo documentos");
-  separarPuntosEnPartes(500, docLimpio);
+  escribir_fichero_principal({
+    documento: docLimpio,
+    dir,
+    nombre_fichero_final,
+  });
 
   console.log("[ + ] Escribiendo diferencias en un fichero");
   fs.appendFile(

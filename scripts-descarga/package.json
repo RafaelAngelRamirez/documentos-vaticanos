@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "descarga-catecismo": "node descargar_catecismo.js"
+    "catecismo": "node descargar_catecismo.js"
   },
   "author": "",
   "license": "ISC",
