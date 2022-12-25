@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "catecismo": "node descargar_catecismo.js"
+    "catecismo": "node descargar_catecismo.js",
+    "release": "standard-version"
   },
   "author": "",
   "license": "ISC",
@@ -12,5 +13,8 @@
     "cli-progress": "^3.11.2",
     "linkedom": "^0.14.21",
     "string-strip-html": "^8.4.0"
+  },
+  "devDependencies": {
+    "standard-version": "^9.5.0"
   }
 }
