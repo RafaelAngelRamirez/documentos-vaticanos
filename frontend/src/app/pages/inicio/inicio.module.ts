@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './inicio.component';
+import { PuntoModule } from 'src/app/components/punto/punto.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { InicioComponent } from './inicio.component';
   ],
   imports: [
     CommonModule,
-    InicioRoutingModule
+    InicioRoutingModule,
+    PuntoModule
   ]
 })
 export class InicioModule { }
