@@ -7,7 +7,7 @@ console.log("[ + ] Preparando descarga del Catecismo");
 const https = require("https");
 const strip = require("string-strip-html").stripHtml;
 const fs = require("fs");
-const axios = require('axios').default;
+const axios = require("axios").default;
 
 const cliProgress = require("cli-progress");
 
@@ -44,22 +44,32 @@ const documento = [];
  */
 function obtener_pagina(url) {
   return new Promise((resolve, reject) => {
-    axios.get(url)
-    .then(respuesta=>resolve(respuesta.data))
-    .catch(_=>reject(_))
+    axios
+      .get(url)
+      .then((respuesta) => resolve(respuesta.data))
+      .catch((_) => reject(_));
   });
 }
 
 // Nos conectamos al indice para empezar todo el merequetengue
 console.log(`[i] Indice: ${indice}`);
-obtener_pagina(indice)
-  .then((r) => obtenerIndice(r))
-  .catch((_) => console.log("[ERROR]=>", _));
 
 let urls = [];
 let urlsRegistro = [];
+obtener_pagina(indice)
+  .then((r) => {
+    urlsRegistro = obtenerIndice(r);
+    console.log(
+      `[ + ] ${urlsRegistro.length} entradas del indice para procesarse.`
+    );
+    cli_progress_bar.start(urls.length, 0);
+    obtenerPuntos(urls.shift());
+  })
+  .catch((_) => console.log("[ERROR]=>", _));
+
+
 function obtenerIndice(res_doc_html) {
-  console.log("[ + ] Procesando indice: ", res_doc_html);
+  console.log("[ + ] Procesando indice: ");
 
   // Convertimos el texto en html
   const { document } = require("linkedom").parseHTML(res_doc_html);
@@ -83,12 +93,7 @@ function obtenerIndice(res_doc_html) {
   // Quitamos los duplicados
   urls = Array.from(new Set(urls));
 
-  urlsRegistro = [...urls];
-  console.log(
-    `[ + ] ${urlsRegistro.length} entradas del indice para procesarse.`
-  );
-  cli_progress_bar.start(urls.length, 0);
-  obtenerPuntos(urls.shift());
+  return [...urls];
 }
 
 /**
@@ -166,10 +171,15 @@ function obtenerDiferenciaDePuntos(doc) {
 
 function escribir_fichero_principal(datos) {
   const nombre = `${datos.dir}/${datos.nombre_fichero_final}.json`;
-  fs.appendFile(nombre, JSON.stringify(datos.documento), function (err) {
-    if (err) return console.error(err);
-    console.log(`[ i ] ${datos.nombre_fichero_final} guardado`);
-  });
+  fs.writeFile(
+    nombre,
+    JSON.stringify(datos.documento),
+    "utf-8",
+    function (err) {
+      if (err) return console.error(err);
+      console.log(`[ i ] ${datos.nombre_fichero_final} guardado`);
+    }
+  );
 }
 
 function separarReferencias(doc) {
