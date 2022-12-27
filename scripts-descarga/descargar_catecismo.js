@@ -3,10 +3,11 @@ console.log(
   "+ DESCARGA DE DOCUMENTOS VATICANOS v" + require("./package.json").version
 );
 console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
-console.log("[ + ] Preparando descarga de " + process.argv[2]);
+console.log("[ + ] Preparando descarga del Catecismo");
 const https = require("https");
 const strip = require("string-strip-html").stripHtml;
 const fs = require("fs");
+const axios = require('axios').default;
 
 const cliProgress = require("cli-progress");
 
@@ -43,25 +44,9 @@ const documento = [];
  */
 function obtener_pagina(url) {
   return new Promise((resolve, reject) => {
-    https
-      .get(url, (res) => {
-        let body = "";
-
-        res.on("data", (chunk) => {
-          body += chunk;
-        });
-
-        res.on("end", () => {
-          try {
-            resolve(body);
-          } catch (error) {
-            reject(error);
-          }
-        });
-      })
-      .on("error", (error) => {
-        reject(error);
-      });
+    axios.get(url)
+    .then(respuesta=>resolve(respuesta.data))
+    .catch(_=>reject(_))
   });
 }
 

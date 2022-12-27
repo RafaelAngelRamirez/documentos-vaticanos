@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.2.1",
     "cli-progress": "^3.11.2",
     "linkedom": "^0.14.21",
     "string-strip-html": "^8.4.0"
