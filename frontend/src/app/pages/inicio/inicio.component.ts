@@ -10,11 +10,10 @@ import {
   styleUrls: ['./inicio.component.css'],
 })
 export class InicioComponent implements OnInit {
-  constructor(private docs: CargarDocumentosJsonService) {}
+  constructor(public docService: CargarDocumentosJsonService) {}
 
   catecismo: Punto[] = [];
 
   ngOnInit(): void {
-    this.catecismo = this.docs.catecismo
   }
 }

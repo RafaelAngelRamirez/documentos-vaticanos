@@ -1,7 +1,14 @@
 <h1>Bienvenido</h1>
 <p>
   Documentos vaticanos en un proyecto que busca facilitar el accesso a los
-  documentos.
+  documentos de la Iglesia Católica.
 </p>
 
-<app-punto *ngFor="let punto of catecismo" [punto]="punto"></app-punto>
+
+<h2>Documentos disponibles</h2>
+
+
+<ul>
+  <li *ngFor="let item of docService.documentos_disponibles"> {{item.nombre}}
+  </li>
+</ul>
