@@ -67,7 +67,6 @@ obtener_pagina(indice)
   })
   .catch((_) => console.log("[ERROR]=>", _));
 
-
 function obtenerIndice(res_doc_html) {
   console.log("[ + ] Procesando indice: ");
 
@@ -171,15 +170,8 @@ function obtenerDiferenciaDePuntos(doc) {
 
 function escribir_fichero_principal(datos) {
   const nombre = `${datos.dir}/${datos.nombre_fichero_final}.json`;
-  fs.writeFile(
-    nombre,
-    JSON.stringify(datos.documento),
-    "utf-8",
-    function (err) {
-      if (err) return console.error(err);
-      console.log(`[ i ] ${datos.nombre_fichero_final} guardado`);
-    }
-  );
+  fs.writeFileSync(nombre, JSON.stringify(datos.documento), "utf-8");
+  console.log(`[ i ] ${datos.nombre_fichero_final} guardado`);
 }
 
 function separarReferencias(doc) {
@@ -225,13 +217,27 @@ function terminar(doc) {
     nombre_fichero_final,
   });
 
-  console.log("[ + ] Escribiendo diferencias en un fichero");
-  fs.appendFile(
-    `${dir}/diferencias_${nombre_fichero_final}.json`,
-    JSON.stringify(diferencias),
-    function (err) {
-      if (err) return console.error(err);
-      console.log("[i] diferencias.json guarado");
-    }
+  // console.log("[ + ] Escribiendo diferencias en un fichero");
+  // fs.appendFile(
+  //   `${dir}/diferencias_${nombre_fichero_final}.json`,
+  //   JSON.stringify(diferencias),
+  //   function (err) {
+  //     if (err) return console.error(err);
+  //     console.log("[i] diferencias.json guarado");
+  //   }
+  // );
+
+  // Copiamos el resultado a la carpeta de documentos
+  // del front.
+  let ruta_front = "../frontend/src/assets/documentos";
+  console.log(`[i] Copiando fichero a frontend`);
+
+  fs.rmSync(`${ruta_front}/${nombre_fichero_final}.json`, {
+    force: true,
+  });
+
+  fs.copyFileSync(
+    `${dir}/${nombre_fichero_final}.json`,
+    `${ruta_front}/${nombre_fichero_final}.json`
   );
 }
