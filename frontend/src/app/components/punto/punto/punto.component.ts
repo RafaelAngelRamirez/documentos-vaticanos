@@ -8,8 +8,9 @@ import { Punto } from 'src/app/services/cargar-documentos-json.service';
 })
 export class PuntoComponent implements OnInit {
   private _punto: Punto | undefined = undefined;
+  mostrar_opciones = false;
 
-  ver_raw = false
+  ver_raw = false;
   public get punto(): Punto | undefined {
     return this._punto;
   }
@@ -35,20 +36,29 @@ export class PuntoComponent implements OnInit {
     let cadena_de_remplazo = (i: number) => `[+[${i}]+]`;
     procesado.referencias.forEach((referencia, i) => {
       let remplazar = cadena_de_remplazo(i);
-      procesado.contenido = procesado.contenido.replace(remplazar, referencia.descripcion);
+      procesado.contenido = procesado.contenido.replace(
+        remplazar,
+        referencia.descripcion
+      );
     });
 
     return procesado;
   }
 
+  obtener_consecutivo(consecutivo: string | undefined) {
+    if (!consecutivo) return consecutivo;
 
-  obtener_consecutivo(consecutivo:string | undefined){
+    let valor = consecutivo.trim();
 
-    if(!consecutivo) return consecutivo
-    
-    let valor = consecutivo.trim()
+    if (valor === 'no-encontrado') valor = '';
+    return valor;
+  }
 
-    if(valor==='no-encontrado') valor = ''
-    return valor
+  ocultar_consecutivo(punto: Punto | undefined) {
+    if (!punto) return '';
+    let contenido = punto.contenido;
+    let consecutivo = punto.consecutivo.trim();
+
+    return contenido.replace(consecutivo + ' ', '');
   }
 }
