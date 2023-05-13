@@ -168,9 +168,12 @@ function obtenerDiferenciaDePuntos(doc) {
   return { total, masAlto, totalDePuntos, puntosInexistentes };
 }
 
-function escribir_fichero_principal(datos) {
-  const nombre = `${datos.dir}/${datos.nombre_fichero_final}.json`;
-  fs.writeFileSync(nombre, JSON.stringify(datos.documento), "utf-8");
+function escribir_fichero_principal_e_indice(datos) {
+  const nombre_documento = `${datos.dir}/${datos.nombre_fichero_final}.json`;
+  const nombre_indice = `${datos.dir}/${datos.nombre_fichero_final}.index.json`;
+
+  fs.writeFileSync(nombre_documento, JSON.stringify(datos.documento), "utf-8");
+  fs.writeFileSync(nombre_indice, JSON.stringify(datos.indice), "utf-8");
   console.log(`[ i ] ${datos.nombre_fichero_final} guardado`);
 }
 
@@ -210,11 +213,15 @@ function terminar(doc) {
   const diferencias = obtenerDiferenciaDePuntos(docLimpio);
   diferencias[urls] = urlsRegistro;
 
+  console.log("[ + ] Generando indice");
+  const indice = require('./generacion_de_indices').generar_indice(docLimpio)
+
   console.log("[ + ] Escribiendo documentos");
-  escribir_fichero_principal({
+  escribir_fichero_principal_e_indice({
     documento: docLimpio,
     dir,
     nombre_fichero_final,
+    indice
   });
 
   // console.log("[ + ] Escribiendo diferencias en un fichero");
