@@ -68,8 +68,10 @@
           >
         </li> -->
       </ul>
-      <form class="d-flex">
+      <form [formGroup]="form" class="d-flex">
         <input
+          formControlName="buscador"
+
           class="form-control me-2"
           type="search"
           placeholder="Ingresa terminos separados por coma"

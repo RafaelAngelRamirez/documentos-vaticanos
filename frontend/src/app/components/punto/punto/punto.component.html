@@ -1,10 +1,11 @@
-<ng-container *ngIf="punto?.contenido?.trim()?.length">
+<ng-container *ngIf="infoPunto.punto">
 
-  <h5 class="card-title">{{ obtener_consecutivo(punto?.consecutivo) }}</h5>
+  <h5 class="card-title">{{ obtener_consecutivo(infoPunto.punto.consecutivo) }}
+  </h5>
 
-  <p (click)="ver_raw = !ver_raw">{{ ocultar_consecutivo(punto) }}
+  <p (click)="ver_raw = !ver_raw">{{ ocultar_consecutivo(infoPunto.punto) }}
   </p>
-  <pre *ngIf="ver_raw">{{ punto | json }}</pre>
+  <pre *ngIf="ver_raw">{{ infoPunto | json }}</pre>
   <!-- Posiblemente aquí pongamos algo -->
   <!-- <ul class="list-group list-group-flush">
     <li *ngFor="let referencia of punto?.referencias" class="list-group-item">

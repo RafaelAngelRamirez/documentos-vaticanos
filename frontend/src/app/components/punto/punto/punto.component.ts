@@ -7,36 +7,40 @@ import { Punto } from 'src/app/services/cargar-documentos-json.service';
   styleUrls: ['./punto.component.css'],
 })
 export class PuntoComponent implements OnInit {
-  private _punto: Punto | undefined = undefined;
+  private _infoPunto!: InfoPunto;
   mostrar_opciones = false;
 
   ver_raw = false;
-  public get punto(): Punto | undefined {
-    return this._punto;
+  public get infoPunto(): InfoPunto {
+    return this._infoPunto;
   }
   @Input()
-  public set punto(value: Punto | undefined) {
-    this._punto = this.procesar(value);
+  public set infoPunto(value: InfoPunto) {
+    this._infoPunto = this.procesar(value);
   }
+
+  terminos_de_busqueda: string[] = [];
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  procesar(value: Punto | undefined): Punto | undefined {
+  procesar(value: InfoPunto): InfoPunto {
     if (!value) return value;
-    let procesado: Punto = value;
+    let procesado = value;
 
     procesado = this.popularReferencias(procesado);
+    if (this.terminos_de_busqueda)
+      procesado = this.terminos_de_busqueda_procesar(procesado);
 
     return procesado;
   }
 
-  popularReferencias(procesado: Punto): Punto {
+  popularReferencias(procesado: InfoPunto): InfoPunto {
     let cadena_de_remplazo = (i: number) => `[+[${i}]+]`;
-    procesado.referencias.forEach((referencia, i) => {
+    procesado.punto.referencias.forEach((referencia, i) => {
       let remplazar = cadena_de_remplazo(i);
-      procesado.contenido = procesado.contenido.replace(
+      procesado.punto.contenido = procesado.punto.contenido.replace(
         remplazar,
         referencia.descripcion
       );
@@ -45,6 +49,15 @@ export class PuntoComponent implements OnInit {
     return procesado;
   }
 
+  /**
+   *Obtenemos el consecutivo cuando existe. El consecutivo
+   * se refiere al valor que se asigna como un control
+   * numérico para referencia del docuemento.
+   *
+   * @param {(string | undefined)} consecutivo
+   * @return {*}
+   * @memberof PuntoComponent
+   */
   obtener_consecutivo(consecutivo: string | undefined) {
     if (!consecutivo) return consecutivo;
 
@@ -54,6 +67,15 @@ export class PuntoComponent implements OnInit {
     return valor;
   }
 
+  /**
+   *El texto origianl del punto incluye la descripción del
+   * del punto. Como no queremos que se duplique con esta
+   * función lo eliminamos de nuestro resultado a mostrar.
+   *
+   * @param {(Punto | undefined)} punto
+   * @return {*}
+   * @memberof PuntoComponent
+   */
   ocultar_consecutivo(punto: Punto | undefined) {
     if (!punto) return '';
     let contenido = punto.contenido;
@@ -61,4 +83,13 @@ export class PuntoComponent implements OnInit {
 
     return contenido.replace(consecutivo + ' ', '');
   }
+
+  terminos_de_busqueda_procesar(infoPunto: InfoPunto): InfoPunto {
+    return infoPunto;
+  }
+}
+
+interface InfoPunto {
+  punto: Punto;
+  terminos?: string[];
 }

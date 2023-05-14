@@ -1,20 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DarkReaderService } from 'src/app/services/dark-reader.service';
+import { BuscadorService } from '../buscador/buscador.service';
+import { Subscription } from 'rxjs';
 
 @Component({
+  standalone: true,
+  imports: [ReactiveFormsModule],
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(public darkModeService: DarkReaderService) {}
+  control_buscador = new FormControl<string>('');
 
-  temaClaro = true;
-  tema(claro = this.temaClaro) {
-    console.log({ claro });
-    if (!claro) this.darkModeService.dark();
-    else this.darkModeService.disable();
+  form = new FormGroup({
+    buscador: this.control_buscador,
+  });
+
+  subscripciones: Subscription[] = [];
+
+  constructor(private buscadorService: BuscadorService) {}
+
+  ngOnInit(): void {
+    let s = this.control_buscador.valueChanges.subscribe((v) => {
+      this.buscadorService.buscar(v)
+    });
+    this.subscripciones.push(s);
   }
-
-  ngOnInit(): void {}
 }

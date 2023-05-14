@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BuscadorService } from 'src/app/components/buscador/buscador.service';
 import {
   CargarDocumentosJsonService,
   Punto,
@@ -10,10 +11,12 @@ import {
   styleUrls: ['./inicio.component.css'],
 })
 export class InicioComponent implements OnInit {
-  constructor(public docService: CargarDocumentosJsonService) {}
+  constructor(
+    public buscadorService: BuscadorService,
+    public docService: CargarDocumentosJsonService
+  ) {}
 
   catecismo: Punto[] = [];
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 }
