@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { MensajesService } from 'src/services/mensajes.service';
 
 @Injectable({
@@ -8,10 +8,12 @@ export class BuscadorService {
   constructor(private mensajeService: MensajesService) {}
 
   terminos: TerminosProcesados = {};
+  terminos_emit = new EventEmitter<TerminosProcesados>();
 
   buscar(v: string | null) {
     if (v) this.terminos = this.procesar_cadena_de_terminos(v);
     else this.terminos = {};
+    this.terminos_emit.emit(this.terminos);
   }
 
   /**
@@ -94,7 +96,7 @@ export class BuscadorService {
   }
 }
 
-interface TerminosProcesados {
+export interface TerminosProcesados {
   terminos?: string[];
   puntos?: number[];
 }

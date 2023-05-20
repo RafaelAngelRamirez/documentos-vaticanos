@@ -16,6 +16,9 @@ export class InicioComponent implements OnInit {
     public docService: CargarDocumentosJsonService
   ) {}
 
+
+
+  keys = Object.keys
   catecismo: Punto[] = [];
 
   ngOnInit(): void {}

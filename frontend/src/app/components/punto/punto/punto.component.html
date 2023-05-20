@@ -3,7 +3,10 @@
   <h5 class="card-title">{{ obtener_consecutivo(infoPunto.punto.consecutivo) }}
   </h5>
 
-  <p (click)="ver_raw = !ver_raw">{{ ocultar_consecutivo(infoPunto.punto) }}
+  <p
+    (click)="ver_raw = !ver_raw"
+    [innerHTML]="ocultar_consecutivo(infoPunto.punto)"
+  >
   </p>
   <pre *ngIf="ver_raw">{{ infoPunto | json }}</pre>
   <!-- Posiblemente aquí pongamos algo -->

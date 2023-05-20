@@ -58,6 +58,11 @@ function eliminar_consecutivo_de_punto(texto, consecutivo) {
 function generar_indice(documento) {
   if (!documento) throw new Error("No se recibio ningún documento");
   let indice = {};
+  // Esta es una referencia rápida para encontrar el
+  // punto contra el indice del arreglo en que está almacenado.
+  // Esto lo hago así principalmente para que en la interfaz
+  // obtengamos de manera rápida la ubiación del punto.
+  let indice_por_punto = {};
   let i = -1;
   for (const punto of documento) {
     let contenido = punto.contenido;
@@ -68,22 +73,30 @@ function generar_indice(documento) {
     modificado = eliminar_consecutivo_de_punto(modificado, punto.consecutivo);
     i++;
 
+    // Si existe un punto (diferente de 'no-encontrado') entonces
+    // gurdamos su indice.
+
+    if (punto.consecutivo !== "no-encontrado") {
+      indice_por_punto[i] = parseInt(punto.consecutivo);
+    }
+
     if (modificado.length === 0) continue;
+
     modificado.split(" ").forEach((palabra) => {
       if (!indice.hasOwnProperty(palabra)) indice[palabra] = new Set();
       indice[palabra].add(i);
     });
   }
-    
-    let llaves = Object.keys(indice);
-    // Necesitamos que e set sea un arreglo
-    llaves.forEach((k) => {
-      indice[k] = [...indice[k]];
-    });
+
+  let llaves = Object.keys(indice);
+  // Necesitamos que e set sea un arreglo
+  llaves.forEach((k) => {
+    indice[k] = [...indice[k]];
+  });
   let longitud = llaves.length;
   console.log(`[ index ] Longitud: ${longitud}`);
 
-  return indice;
+  return { indice, indice_por_punto };
 }
 
 module.exports = {

@@ -9,9 +9,23 @@
 
 
 <ul>
-  <li *ngFor="let item of docService.documentos_disponibles"> {{item.nombre}}
+  <li *ngFor="let item of docService.documentos_disponibles">
+
+    Documento: {{item.nombre}}
+    <hr>
+    Palabras indexadas: {{keys(item.indice.indice).length | number}}
   </li>
 </ul>
 
 
 {{buscadorService.terminos | json}}
+
+
+<app-buscador></app-buscador>
+
+
+
+
+
+
+

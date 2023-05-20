@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { InicioRoutingModule } from './inicio-routing.module';
 import { InicioComponent } from './inicio.component';
 import { PuntoModule } from 'src/app/components/punto/punto.module';
+import { BuscadorComponent } from 'src/app/components/buscador/buscador.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { PuntoModule } from 'src/app/components/punto/punto.module';
   imports: [
     CommonModule,
     InicioRoutingModule,
-    PuntoModule
+    PuntoModule,
+    BuscadorComponent
   ]
 })
 export class InicioModule { }

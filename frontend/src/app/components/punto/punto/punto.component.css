@@ -2,3 +2,8 @@ p {
   text-align: justify;
   text-justify: inter-word;
 }
+
+.resaltar {
+  background-color: yellow;
+  font-weight: 800;
+}

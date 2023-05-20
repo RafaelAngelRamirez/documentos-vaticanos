@@ -214,14 +214,14 @@ function terminar(doc) {
   diferencias[urls] = urlsRegistro;
 
   console.log("[ + ] Generando indice");
-  const indice = require('./generacion_de_indices').generar_indice(docLimpio)
+  const indice = require("./generacion_de_indices").generar_indice(docLimpio);
 
   console.log("[ + ] Escribiendo documentos");
   escribir_fichero_principal_e_indice({
     documento: docLimpio,
     dir,
     nombre_fichero_final,
-    indice
+    indice,
   });
 
   // console.log("[ + ] Escribiendo diferencias en un fichero");
@@ -237,14 +237,15 @@ function terminar(doc) {
   // Copiamos el resultado a la carpeta de documentos
   // del front.
   let ruta_front = "../frontend/src/assets/documentos";
-  console.log(`[i] Copiando fichero a frontend`);
+  console.log(`[i] Copiando ficheros a frontend`);
 
-  fs.rmSync(`${ruta_front}/${nombre_fichero_final}.json`, {
-    force: true,
+  ficheros = [nombre_fichero_final, nombre_fichero_final + ".index"];
+
+  ficheros.forEach((fichero) => {
+    fs.rmSync(`${ruta_front}/${fichero}.json`, {
+      force: true,
+    });
+
+    fs.copyFileSync(`${dir}/${fichero}.json`, `${ruta_front}/${fichero}.json`);
   });
-
-  fs.copyFileSync(
-    `${dir}/${nombre_fichero_final}.json`,
-    `${ruta_front}/${nombre_fichero_final}.json`
-  );
 }

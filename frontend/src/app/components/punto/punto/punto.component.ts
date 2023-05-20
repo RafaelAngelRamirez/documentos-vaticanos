@@ -1,10 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Punto } from 'src/app/services/cargar-documentos-json.service';
+import { TerminosProcesados } from '../../buscador/buscador.service';
+import { UtilidadesService } from 'src/app/services/utilidades.service';
 
 @Component({
   selector: 'app-punto',
   templateUrl: './punto.component.html',
   styleUrls: ['./punto.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class PuntoComponent implements OnInit {
   private _infoPunto!: InfoPunto;
@@ -21,7 +24,7 @@ export class PuntoComponent implements OnInit {
 
   terminos_de_busqueda: string[] = [];
 
-  constructor() {}
+  constructor(private utilidadesService: UtilidadesService) {}
 
   ngOnInit(): void {}
 
@@ -31,7 +34,9 @@ export class PuntoComponent implements OnInit {
 
     procesado = this.popularReferencias(procesado);
     if (this.terminos_de_busqueda)
-      procesado = this.terminos_de_busqueda_procesar(procesado);
+      procesado = this.terminos_de_busqueda_procesar(
+        JSON.parse(JSON.stringify(procesado))
+      );
 
     return procesado;
   }
@@ -85,11 +90,60 @@ export class PuntoComponent implements OnInit {
   }
 
   terminos_de_busqueda_procesar(infoPunto: InfoPunto): InfoPunto {
+    let punto = infoPunto.punto.contenido;
+    let terminos = infoPunto.terminos_crudos;
+    console.log(terminos);
+    let punto_transformado = this.utilidadesService.texto
+      .eliminar_diacriticos(punto)
+      .toLowerCase();
+
+    let caracter_inicio = '@';
+    let caracter_fin = '$';
+
+    terminos?.forEach((termino) => {
+      let remplazo = termino.split('').fill('%');
+      remplazo[0] = caracter_inicio;
+      remplazo[termino.length] = caracter_fin;
+      let remplazo_str = remplazo.join('');
+      punto_transformado = punto_transformado.replaceAll(termino, remplazo_str);
+    });
+
+    console.log(punto_transformado);
+
+    let indices: number[] = [];
+
+    punto_transformado.split('').forEach((l, i) => {
+      console.log(l);
+      if (l === caracter_inicio) {
+        console.log('entro');
+        indices.push(i);
+      }
+      if (l === caracter_fin) {
+        console.log('entro');
+        indices.push(i);
+      }
+    });
+
+    let es_final = true;
+
+    let etiqueta_inicio = '<span class="resaltar">';
+    let etiqueta_fin = '</span>';
+    indices.reverse().forEach((indice) => {
+      const primera_parte = punto.slice(0, indice);
+      const segunda_parte = punto.slice(indice);
+      const etiqueta = es_final ? etiqueta_fin : etiqueta_inicio;
+      punto = primera_parte + etiqueta + segunda_parte;
+      es_final = !es_final;
+    });
+
+    infoPunto.punto.contenido = punto;
+
     return infoPunto;
   }
 }
 
-interface InfoPunto {
+export interface InfoPunto {
   punto: Punto;
-  terminos?: string[];
+  terminos?: TerminosProcesados;
+  terminos_crudos: string[];
 }

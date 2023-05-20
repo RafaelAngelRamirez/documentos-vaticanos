@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DarkReaderService } from 'src/app/services/dark-reader.service';
 import { BuscadorService } from '../buscador/buscador.service';
-import { Subscription } from 'rxjs';
+import { Subscription, debounceTime } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -23,9 +23,11 @@ export class NavbarComponent implements OnInit {
   constructor(private buscadorService: BuscadorService) {}
 
   ngOnInit(): void {
-    let s = this.control_buscador.valueChanges.subscribe((v) => {
-      this.buscadorService.buscar(v)
-    });
+    let s = this.control_buscador.valueChanges
+      .pipe(debounceTime(1000))
+      .subscribe((v) => {
+        this.buscadorService.buscar(v);
+      });
     this.subscripciones.push(s);
   }
 }
