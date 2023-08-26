@@ -1,11 +1,11 @@
-<ng-container *ngIf="infoPunto.punto">
+<ng-container *ngIf="infoPunto.article">
 
-  <h5 class="card-title">{{ obtener_consecutivo(infoPunto.punto.consecutivo) }}
+  <h5 class="card-title">{{ obtener_consecutivo(infoPunto.article.consecutivo) }}
   </h5>
 
   <p
     (click)="ver_raw = !ver_raw"
-    [innerHTML]="ocultar_consecutivo(infoPunto.punto)"
+    [innerHTML]="ocultar_consecutivo(infoPunto.article)"
   >
   </p>
   <pre *ngIf="ver_raw">{{ infoPunto | json }}</pre>

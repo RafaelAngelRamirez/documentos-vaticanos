@@ -4,10 +4,30 @@
     {{doc_resultado.puntos.length}} resultados encontrados.
   </span>
 
-  <app-punto
-    *ngFor="let punto of doc_resultado.puntos_paginados"
-    [infoPunto]="punto"
-  ></app-punto>
+
+  <ng-container *ngFor="let punto of doc_resultado.puntos_paginados">
+
+
+    <app-punto [infoPunto]="punto"></app-punto>
+
+    <div class="row">
+      <div class="col-12 ">
+        <button
+          class="btn btn-small btn-info btn-rounded"
+          (click)="navigate_to_read(punto, doc_resultado)"
+        >
+
+          <i
+            class="fa fa-eye"
+            aria-hidden="true"
+          ></i>
+
+        </button>
+      </div>
+    </div>
+
+
+  </ng-container>
 
   <ng-container *ngTemplateOutlet="paginator"></ng-container>
   <ng-template #paginator>

@@ -7,8 +7,8 @@ import { MensajesService } from 'src/services/mensajes.service';
 export class BuscadorService {
   constructor(private mensajeService: MensajesService) {}
 
-  terminos: TerminosProcesados = {};
-  terminos_emit = new EventEmitter<TerminosProcesados>();
+  terminos: TermsProcessed = {};
+  terminos_emit = new EventEmitter<TermsProcessed>();
 
   buscar(v: string | null) {
     if (v) this.terminos = this.procesar_cadena_de_terminos(v);
@@ -30,7 +30,7 @@ export class BuscadorService {
    * @param {string} t El termino
    * @memberof BuscadorService
    */
-  procesar_cadena_de_terminos(t: string): TerminosProcesados {
+  procesar_cadena_de_terminos(t: string): TermsProcessed {
     let valores = t
       .split(',')
       .map((v) => v.trim())
@@ -96,7 +96,7 @@ export class BuscadorService {
   }
 }
 
-export interface TerminosProcesados {
+export interface TermsProcessed {
   terminos?: string[];
   puntos?: number[];
 }

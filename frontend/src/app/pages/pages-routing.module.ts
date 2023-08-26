@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LectorComponent } from '../components/lector/lector.component';
-
+import { ROUTE } from '../services/navigation.service';
 LectorComponent;
 
 const routes: Routes = [
   {
-    path: 'inicio',
+    path: ROUTE.inicio,
     loadChildren: () =>
       import('./inicio/inicio.module').then((m) => m.InicioModule),
   },
   {
-    path: 'leyendo/:documento',
+    path: `${ROUTE.leyendo}/:documento`,
     component: LectorComponent,
   },
   {
-    path: 'leyendo/:id/punto/:user',
+    path: `${ROUTE.leyendo}/:id/${ROUTE.punto}/:user`,
     component: LectorComponent,
   },
 
-  { path: '**', redirectTo: '/inicio', pathMatch: 'full' },
+  { path: '**', redirectTo: `/${ROUTE.inicio}`, pathMatch: 'full' },
 ];
 
 @NgModule({

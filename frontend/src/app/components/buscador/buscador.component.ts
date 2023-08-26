@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import { BuscadorService, TerminosProcesados } from './buscador.service';
+import { BuscadorService, TermsProcessed } from './buscador.service';
 import {
   CargarDocumentosJsonService,
   IndiceDocumentos as DocumentoDatos,
-  Punto,
+  Article,
 } from 'src/app/services/cargar-documentos-json.service';
 import { PuntoModule } from '../punto/punto.module';
 import { CommonModule } from '@angular/common';
-import { InfoPunto } from '../punto/punto/punto.component';
+import { ArticleInfo } from '../punto/punto/punto.component';
 import { UtilidadesService } from 'src/app/services/utilidades.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { Router } from '@angular/router';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   standalone: true,
@@ -19,7 +21,7 @@ import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
   imports: [PuntoModule, CommonModule, MatPaginatorModule],
 })
 export class BuscadorComponent {
-  terminos: TerminosProcesados = {};
+  terminos: TermsProcessed = {};
 
   docs_resultados: ResultadoDeBusqueda[] = [];
 
@@ -29,7 +31,8 @@ export class BuscadorComponent {
   constructor(
     public busadorService: BuscadorService,
     private documentosService: CargarDocumentosJsonService,
-    private utilidadesService: UtilidadesService
+    private utilidadesService: UtilidadesService,
+    private navigationService: NavigationService
   ) {
     this.busadorService.terminos_emit.subscribe((terminos) => {
       this.terminos = terminos;
@@ -38,7 +41,7 @@ export class BuscadorComponent {
     });
   }
 
-  procesar_busqueda(terminos: TerminosProcesados) {
+  procesar_busqueda(terminos: TermsProcessed) {
     this.docs_resultados = [];
     for (const doc of this.documentosService.documentos_disponibles) {
       let indice_puntos_seleccionados: number[] = [];
@@ -62,14 +65,13 @@ export class BuscadorComponent {
 
       palabras_a_buscar.forEach((palabra) => {
         let p = doc.indice.indice[palabra];
-        console.log({ p });
         if (p) indice_puntos_seleccionados.push(...p);
       });
 
       let puntos_completos = indice_puntos_seleccionados
         .map((p) => doc.documento[p])
-        .map((punto) => {
-          return { punto, terminos_crudos: palabras_a_buscar } as InfoPunto;
+        .map((article) => {
+          return { article, terms_pure: palabras_a_buscar } as ArticleInfo;
         });
 
       let resultado = {
@@ -99,10 +101,17 @@ export class BuscadorComponent {
     let end = $event.pageIndex * this.page_size + this.page_size;
     doc_resultado.puntos_paginados = doc_resultado.puntos.slice(init, end);
   }
+
+  navigate_to_read(punto: ArticleInfo, resultado: ResultadoDeBusqueda) {
+    this.navigationService.leer_punto(
+      punto,
+      resultado,
+    );
+  }
 }
 
-interface ResultadoDeBusqueda {
+export interface ResultadoDeBusqueda {
   doc: DocumentoDatos;
-  puntos: InfoPunto[];
-  puntos_paginados: InfoPunto[];
+  puntos: ArticleInfo[];
+  puntos_paginados: ArticleInfo[];
 }

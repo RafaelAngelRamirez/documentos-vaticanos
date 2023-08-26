@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BuscadorService } from 'src/app/components/buscador/buscador.service';
 import {
   CargarDocumentosJsonService,
-  Punto,
+  Article,
 } from 'src/app/services/cargar-documentos-json.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class InicioComponent implements OnInit {
 
 
   keys = Object.keys
-  catecismo: Punto[] = [];
+  catecismo: Article[] = [];
 
   ngOnInit(): void {}
 }

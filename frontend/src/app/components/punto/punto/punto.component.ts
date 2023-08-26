@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { Punto } from 'src/app/services/cargar-documentos-json.service';
-import { TerminosProcesados } from '../../buscador/buscador.service';
+import { Article } from 'src/app/services/cargar-documentos-json.service';
+import { TermsProcessed } from '../../buscador/buscador.service';
 import { UtilidadesService } from 'src/app/services/utilidades.service';
 
 @Component({
@@ -10,15 +10,15 @@ import { UtilidadesService } from 'src/app/services/utilidades.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class PuntoComponent implements OnInit {
-  private _infoPunto!: InfoPunto;
+  private _infoPunto!: ArticleInfo;
   mostrar_opciones = false;
 
   ver_raw = false;
-  public get infoPunto(): InfoPunto {
+  public get infoPunto(): ArticleInfo {
     return this._infoPunto;
   }
   @Input()
-  public set infoPunto(value: InfoPunto) {
+  public set infoPunto(value: ArticleInfo) {
     this._infoPunto = this.procesar(value);
   }
 
@@ -28,7 +28,7 @@ export class PuntoComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  procesar(value: InfoPunto): InfoPunto {
+  procesar(value: ArticleInfo): ArticleInfo {
     if (!value) return value;
     let procesado = value;
 
@@ -41,11 +41,11 @@ export class PuntoComponent implements OnInit {
     return procesado;
   }
 
-  popularReferencias(procesado: InfoPunto): InfoPunto {
+  popularReferencias(procesado: ArticleInfo): ArticleInfo {
     let cadena_de_remplazo = (i: number) => `[+[${i}]+]`;
-    procesado.punto.referencias.forEach((referencia, i) => {
+    procesado.article.referencias.forEach((referencia, i) => {
       let remplazar = cadena_de_remplazo(i);
-      procesado.punto.contenido = procesado.punto.contenido.replace(
+      procesado.article.contenido = procesado.article.contenido.replace(
         remplazar,
         referencia.descripcion
       );
@@ -77,11 +77,11 @@ export class PuntoComponent implements OnInit {
    * del punto. Como no queremos que se duplique con esta
    * función lo eliminamos de nuestro resultado a mostrar.
    *
-   * @param {(Punto | undefined)} punto
+   * @param {(Article | undefined)} punto
    * @return {*}
    * @memberof PuntoComponent
    */
-  ocultar_consecutivo(punto: Punto | undefined) {
+  ocultar_consecutivo(punto: Article | undefined) {
     if (!punto) return '';
     let contenido = punto.contenido;
     let consecutivo = punto.consecutivo.trim();
@@ -89,9 +89,9 @@ export class PuntoComponent implements OnInit {
     return contenido.replace(consecutivo + ' ', '');
   }
 
-  terminos_de_busqueda_procesar(infoPunto: InfoPunto): InfoPunto {
-    let punto = infoPunto.punto.contenido;
-    let terminos = infoPunto.terminos_crudos;
+  terminos_de_busqueda_procesar(infoPunto: ArticleInfo): ArticleInfo {
+    let punto = infoPunto.article.contenido;
+    let terminos = infoPunto.terms_pure;
     let punto_transformado = this.utilidadesService.texto
       .eliminar_diacriticos(punto)
       .toLowerCase();
@@ -131,14 +131,14 @@ export class PuntoComponent implements OnInit {
       es_final = !es_final;
     });
 
-    infoPunto.punto.contenido = punto;
+    infoPunto.article.contenido = punto;
 
     return infoPunto;
   }
 }
 
-export interface InfoPunto {
-  punto: Punto;
-  terminos?: TerminosProcesados;
-  terminos_crudos: string[];
+export interface ArticleInfo {
+  article: Article;
+  termns?: TermsProcessed;
+  terms_pure: string[];
 }
