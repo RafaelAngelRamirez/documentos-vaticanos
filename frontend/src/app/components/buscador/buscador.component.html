@@ -1,9 +1,26 @@
-<h1>Resultados de busqueda</h1>
-
 <ng-container *ngFor="let doc_resultado of docs_resultados">
-    <app-punto
-        *ngFor="let punto of doc_resultado.puntos"
-        [infoPunto]="punto"
-    ></app-punto>
+  <h2>{{doc_resultado.doc.nombre}}</h2>
+  <span class="text-small text-muted">
+    {{doc_resultado.puntos.length}} resultados encontrados.
+  </span>
+
+  <app-punto
+    *ngFor="let punto of doc_resultado.puntos_paginados"
+    [infoPunto]="punto"
+  ></app-punto>
+
+  <ng-container *ngTemplateOutlet="paginator"></ng-container>
+  <ng-template #paginator>
+
+    <mat-paginator
+      *ngIf="doc_resultado.puntos.length"
+      [length]="doc_resultado.puntos.length"
+      [pageSize]="page_size"
+      [pageSizeOptions]="page_size_options"
+      (page)="handlePageEvent($event, doc_resultado)"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </ng-template>
 
 </ng-container>

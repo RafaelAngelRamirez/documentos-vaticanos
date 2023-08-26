@@ -9,18 +9,22 @@ import { PuntoModule } from '../punto/punto.module';
 import { CommonModule } from '@angular/common';
 import { InfoPunto } from '../punto/punto/punto.component';
 import { UtilidadesService } from 'src/app/services/utilidades.service';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 
 @Component({
   standalone: true,
   selector: 'app-buscador',
   templateUrl: './buscador.component.html',
   styleUrls: ['./buscador.component.css'],
-  imports: [PuntoModule, CommonModule],
+  imports: [PuntoModule, CommonModule, MatPaginatorModule],
 })
 export class BuscadorComponent {
   terminos: TerminosProcesados = {};
 
   docs_resultados: ResultadoDeBusqueda[] = [];
+
+  page_size = 10;
+  page_size_options = [5, 10, 25, 100];
 
   constructor(
     public busadorService: BuscadorService,
@@ -50,9 +54,11 @@ export class BuscadorComponent {
       });
 
       // Las palabras a buscar.
-      let palabras_a_buscar = (terminos.terminos ?? []).map((palabra) =>
-        this.utilidadesService.texto.eliminar_diacriticos(palabra)
-      ).map(x=>x.toLowerCase())
+      let palabras_a_buscar = (terminos.terminos ?? [])
+        .map((palabra) =>
+          this.utilidadesService.texto.eliminar_diacriticos(palabra)
+        )
+        .map((x) => x.toLowerCase());
 
       palabras_a_buscar.forEach((palabra) => {
         let p = doc.indice.indice[palabra];
@@ -69,16 +75,10 @@ export class BuscadorComponent {
       let resultado = {
         doc,
         puntos: puntos_completos,
+        puntos_paginados: puntos_completos.slice(0, -1 + this.page_size),
       };
 
-
       this.docs_resultados.push(resultado);
-
-      console.log({
-        puntos_senalados,
-        palabras_a_buscar,
-        puntos: indice_puntos_seleccionados,
-      });
     }
   }
 
@@ -93,9 +93,16 @@ export class BuscadorComponent {
     }
     return undefined;
   }
+
+  handlePageEvent($event: PageEvent, doc_resultado: ResultadoDeBusqueda) {
+    let init = $event.pageIndex * this.page_size;
+    let end = $event.pageIndex * this.page_size + this.page_size;
+    doc_resultado.puntos_paginados = doc_resultado.puntos.slice(init, end);
+  }
 }
 
 interface ResultadoDeBusqueda {
   doc: DocumentoDatos;
   puntos: InfoPunto[];
+  puntos_paginados: InfoPunto[];
 }

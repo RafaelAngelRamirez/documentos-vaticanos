@@ -92,7 +92,6 @@ export class PuntoComponent implements OnInit {
   terminos_de_busqueda_procesar(infoPunto: InfoPunto): InfoPunto {
     let punto = infoPunto.punto.contenido;
     let terminos = infoPunto.terminos_crudos;
-    console.log(terminos);
     let punto_transformado = this.utilidadesService.texto
       .eliminar_diacriticos(punto)
       .toLowerCase();
@@ -108,18 +107,14 @@ export class PuntoComponent implements OnInit {
       punto_transformado = punto_transformado.replaceAll(termino, remplazo_str);
     });
 
-    console.log(punto_transformado);
 
     let indices: number[] = [];
 
     punto_transformado.split('').forEach((l, i) => {
-      console.log(l);
       if (l === caracter_inicio) {
-        console.log('entro');
         indices.push(i);
       }
       if (l === caracter_fin) {
-        console.log('entro');
         indices.push(i);
       }
     });

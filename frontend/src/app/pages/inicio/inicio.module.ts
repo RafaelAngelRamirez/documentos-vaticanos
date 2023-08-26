@@ -6,7 +6,6 @@ import { InicioComponent } from './inicio.component';
 import { PuntoModule } from 'src/app/components/punto/punto.module';
 import { BuscadorComponent } from 'src/app/components/buscador/buscador.component';
 
-
 @NgModule({
   declarations: [
     InicioComponent
@@ -15,7 +14,7 @@ import { BuscadorComponent } from 'src/app/components/buscador/buscador.componen
     CommonModule,
     InicioRoutingModule,
     PuntoModule,
-    BuscadorComponent
+    BuscadorComponent,
   ]
 })
 export class InicioModule { }
