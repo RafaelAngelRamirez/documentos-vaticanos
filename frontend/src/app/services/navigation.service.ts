@@ -28,7 +28,7 @@ export class NavigationService {
   article_selected: ArticleInfo | undefined = undefined;
   actual_index: number = 0;
 
-  leer_punto(article: ArticleInfo, result: ResultadoDeBusqueda) {
+  go_to_read_article(article: ArticleInfo, result: ResultadoDeBusqueda) {
     this.document_selected = result.doc;
     this.article_selected = article;
     this.actual_index = article.article.index_array;
@@ -75,5 +75,9 @@ export class NavigationService {
       console.log(string_value_to_save);
       localStorage.setItem(key, string_value_to_save);
     });
+  }
+
+  go_to_search() {
+    this.router.navigate(['/', ROUTE.inicio]);
   }
 }

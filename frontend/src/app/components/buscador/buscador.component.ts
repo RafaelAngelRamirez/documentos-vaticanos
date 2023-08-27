@@ -103,7 +103,7 @@ export class BuscadorComponent {
   }
 
   navigate_to_read(punto: ArticleInfo, resultado: ResultadoDeBusqueda) {
-    this.navigationService.leer_punto(
+    this.navigationService.go_to_read_article(
       punto,
       resultado,
     );
