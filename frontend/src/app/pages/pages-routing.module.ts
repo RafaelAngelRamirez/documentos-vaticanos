@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LectorComponent } from '../components/lector/lector.component';
 import { ROUTE } from '../services/navigation.service';
+import { InicioComponent } from './inicio/inicio.component';
 LectorComponent;
 
 const routes: Routes = [
   {
     path: ROUTE.inicio,
-    loadChildren: () =>
-      import('./inicio/inicio.module').then((m) => m.InicioModule),
+    component:InicioComponent
   },
   {
     path: `${ROUTE.leyendo}/:documento`,
