@@ -105,7 +105,6 @@ export class LectorComponent {
   }
 
   load_before() {
-    console.log('Estamos load');
     // Never can be negative.
     let new_inferior_limit = this.actual_inferior_limit - this.quantity_to_load;
     if (new_inferior_limit < 0) new_inferior_limit = 0;
@@ -118,7 +117,6 @@ export class LectorComponent {
   }
 
   load_next() {
-    console.log('Estamos load next');
     // Never can be negative.
     let new_superior_limit = this.actual_superior_limit + this.quantity_to_load;
 
