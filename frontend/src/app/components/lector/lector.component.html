@@ -1,7 +1,54 @@
-<div class="row col-12">
-  <app-punto
-    *ngFor="let article of actual_articles"
-    [infoPunto]="article"
-  ></app-punto>
+<div class="row mt-5 text-center">
+  <div class="col-12">
+    <a
+      (click)="load_before()"
+      href="javascript:void(0)"
+      class="btn btn-sm btn-primary"
+    >Cargar {{quantity_to_load}} anteriores <i
+        class="fa fa-arrow-circle-up"
+        aria-hidden="true"
+      ></i></a>
+  </div>
+</div>
+
+<ng-container *ngIf="false;else divisor"></ng-container>
+
+
+<div class="row">
+  <div class="col-12">
+    <app-punto
+      *ngFor="let article of actual_articles"
+      [infoPunto]="article"
+    ></app-punto>
+
+  </div>
 
 </div>
+
+<ng-container *ngIf="false;else divisor"></ng-container>
+
+
+<div class="row mb-5 text-center">
+  <div class="col-12">
+    <a
+      (click)="load_next()"
+      href="javascript:void(0)"
+      class="btn btn-sm btn-primary"
+    >Cargar {{quantity_to_load}} siguientes <i
+        class="fa fa-arrow-circle-down"
+        aria-hidden="true"
+      ></i></a>
+  </div>
+  <div class="col-12 mt-5"></div>
+</div>
+
+
+
+<ng-template #divisor>
+  <div class="row">
+    <div class="col-12">
+      <br>
+
+    </div>
+  </div>
+</ng-template>

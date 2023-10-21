@@ -26,6 +26,10 @@ export class LectorComponent {
   actual_articles: ArticleInfo[] = [];
   actual_index = 0;
   focus_article: ArticleInfo | undefined = undefined;
+  quantity_to_load = 10;
+
+  actual_inferior_limit = 0;
+  actual_superior_limit = 0;
 
   constructor(
     route: ActivatedRoute,
@@ -68,16 +72,16 @@ export class LectorComponent {
     superior_limit =
       superior_limit <= document_length ? superior_limit : document_length;
 
-    let articles =
-      this.document?.documento.slice(inferior_limit, superior_limit) ?? [];
-
-    // We need "ArticleInfo" not "Article" to show article
-    // in app-punto component.
-    this.actual_articles = articles.map((article) => {
-      return { article, terms_pure: [] } as ArticleInfo;
-    });
+    // For purpose of facility, we are goin to save this en the component
+    // scope. (Check load_* functions)
+    this.actual_inferior_limit = inferior_limit;
+    this.actual_superior_limit = superior_limit;
 
     // For UX we going to add search terms.
+    this.actual_articles = this._get_articles(
+      this.actual_inferior_limit,
+      this.actual_superior_limit
+    );
 
     const actual_article_in_list = this.actual_articles.find(
       (article) => article.article.index_array === this.actual_index
@@ -87,5 +91,45 @@ export class LectorComponent {
       actual_article_in_list.termns = this.focus_article?.termns;
       actual_article_in_list.terms_pure = this.focus_article?.terms_pure ?? [];
     }
+  }
+
+  private _get_articles(inferior_limit = 0, superior_limit = 0) {
+    let articles =
+      this.document?.documento.slice(inferior_limit, superior_limit) ?? [];
+
+    // We need "ArticleInfo" not "Article" to show article
+    // in app-punto component.
+    return articles.map((article) => {
+      return { article, terms_pure: [] } as ArticleInfo;
+    });
+  }
+
+  load_before() {
+    console.log('Estamos load');
+    // Never can be negative.
+    let new_inferior_limit = this.actual_inferior_limit - this.quantity_to_load;
+    if (new_inferior_limit < 0) new_inferior_limit = 0;
+    this.actual_inferior_limit = new_inferior_limit;
+
+    this.actual_articles = this._get_articles(
+      this.actual_inferior_limit,
+      this.actual_superior_limit
+    );
+  }
+
+  load_next() {
+    console.log('Estamos load next');
+    // Never can be negative.
+    let new_superior_limit = this.actual_superior_limit + this.quantity_to_load;
+
+    const document_size = this.document?.documento.length ?? 0;
+
+    if (new_superior_limit > document_size) new_superior_limit = document_size;
+    this.actual_superior_limit = new_superior_limit;
+
+    this.actual_articles = this._get_articles(
+      this.actual_inferior_limit,
+      this.actual_superior_limit
+    );
   }
 }
