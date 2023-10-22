@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.10](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.9...v0.0.10) (2023-10-22)
+
+
+### Features
+
+* Versioning ([537481e](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/537481e1913d76ad9e91ee821885dac85520af99))
+
+
+### Bug Fixes
+
+* Examples not working ([23acae9](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/23acae91c7f00eadbf30b94ab9fdd5c1529115c7))
+* Term expasiín fixed format ([d092d6d](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/d092d6dec5edb9bd3f9fd8ba2ff8d550aaf8bf51))
+* Version position fixed ([d33f304](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/d33f304b567604571d0cf934a9126957b6cfdb80))
+
 ### [0.0.9](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.8...v0.0.9) (2023-10-22)
 
 
