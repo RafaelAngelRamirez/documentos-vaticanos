@@ -4,6 +4,8 @@ import { DarkReaderService } from 'src/app/services/dark-reader.service';
 import { BuscadorService } from '../buscador/buscador.service';
 import { Subscription, debounceTime } from 'rxjs';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   standalone: true,
@@ -17,6 +19,8 @@ export class NavbarComponent implements OnInit {
     this.navigationService.go_to_search();
   }
   control_buscador = new FormControl<string>('');
+
+  version = environment.version
 
   form = new FormGroup({
     buscador: this.control_buscador,

@@ -60,7 +60,10 @@
   </div>
 </div>
 
-<div class="row">
+<div
+  *ngIf="buscadorService.terminos != {}"
+  class="row"
+>
   <div class="col-12">
     Expansión de los términos
     <pre>

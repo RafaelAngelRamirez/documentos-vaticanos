@@ -13,6 +13,14 @@
       "updater": "standard-version-updater.js"
     },
     {
+      "filename": "frontend/src/environments/environment.prod.ts",
+      "updater": "standard-version-updater.js"
+    },
+    {
+      "filename": "frontend/src/environments/environment.ts",
+      "updater": "standard-version-updater.js"
+    },
+    {
       "filename": "easy_version",
       "updater": "standard-version-updater.js"
     }
