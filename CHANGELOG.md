@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.8...v0.0.9) (2023-10-22)
+
+
+### Bug Fixes
+
+* Bad speligns ([322109d](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/322109de4a411c1d09811fb479d3c75b4b09d87f))
+* Redirectión prolem nginx ([2d55d54](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/2d55d542bab651d3b1563780b1b6405c165a7aa0))
+
 ### [0.0.8](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.7...v0.0.8) (2023-10-22)
 
 
