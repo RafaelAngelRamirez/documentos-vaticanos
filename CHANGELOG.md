@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.5...v0.0.6) (2023-10-22)
+
+
+### Bug Fixes
+
+* Not ready for localize ([9794b66](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/9794b66194cfaf99074f895be16a3864c6569f2c))
+
 ### [0.0.5](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.4...v0.0.5) (2023-10-22)
 
 
