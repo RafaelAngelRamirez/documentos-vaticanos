@@ -1,5 +1,12 @@
 {
+  "name": "documentos-vaticanos",
+  "version": "0.0.1",
   "dependencies": {
-    "bootstrap": "^5.3.1"
+    "standard-version": "^9.5.0"
+  },
+  "scripts": {
+    "release": "standard-version && git push --follow-tags origin main && npm run build-docker production && ssh eforsatec@eforsatec.mx './update-app'",
+    "build-docker": "./docker-compilar.sh production",
+    "build-docker-dev": "./docker-compilar.sh dev"
   }
 }

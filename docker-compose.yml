@@ -1,0 +1,17 @@
+version: "3"
+services:
+  # Servicio para Nginx
+  nginx:
+    image: legna37/documentos-vaticanos:front-latest
+    volumes:
+      - ./nginx_configuracion:/etc/nginx/conf.d
+    ports:
+      # - 80:80
+      - 443:443
+    restart: always
+
+
+volumes:
+  volumen_mongodb: # Volumen para almacenar los datos de MongoDB
+  # volumen_jenkins: # data from jenkins
+
