@@ -26,10 +26,11 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private buscadorService: BuscadorService,
-    private navigationService: NavigationService
+    public navigationService: NavigationService
   ) {}
 
   ngOnInit(): void {
+    this.buscadorService.global_control_search_input = this.control_buscador;
     let s = this.control_buscador.valueChanges
       .pipe(debounceTime(1000))
       .subscribe((v) => {
@@ -37,5 +38,9 @@ export class NavbarComponent implements OnInit {
         this.navigationService.go_to_search();
       });
     this.subscripciones.push(s);
+  }
+
+  navigate_to_documents() {
+    this.navigationService.go_to_documents();
   }
 }

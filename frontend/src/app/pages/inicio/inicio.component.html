@@ -1,31 +1,73 @@
-<h1>Bienvenido</h1>
-<p>
-  Documentos vaticanos en un proyecto que busca facilitar el accesso a los
-  documentos de la Iglesia Católica.
-</p>
+<div class="row">
+  <div class="col-12">
+
+    <ng-container *ngIf="first_view()">
+      <h1>Bienvenido</h1>
+      <p>
+        Documentos vaticanos en un proyecto que busca facilitar el accesso a los
+        documentos de la Iglesia Católica.
+      </p>
+
+      <h3>Ejemplos de búsquedas</h3>
+
+      <a
+        (click)="help_many_terms()"
+        class="btn btn-primary"
+        href="javascript:void(0)"
+        role="button"
+      >
+        <i
+          class="fa fa-search"
+          aria-hidden="true"
+        ></i>
+        Buscar varios términos</a>
+      <br>Términos: muerte, resurección.
+      <br>
+      <br>
+      <a
+        (click)="help_many_dots()"
+        class="btn btn-primary"
+        href="javascript:void(0)"
+        role="button"
+      >
+        <i
+          class="fa fa-search"
+          aria-hidden="true"
+        ></i>
+        Buscar varios puntos</a>
+      <br> Puntos: .100-105, .299-303
+      <br>
+      <br>
+      <a
+        (click)="help_mixed_terms()"
+        class="btn btn-primary"
+        href="javascript:void(0)"
+        role="button"
+      >
+        <i
+          class="fa fa-search"
+          aria-hidden="true"
+        ></i>
+        Buscar terminos mezclados</a>
+      <br> Puntos: jesucristo, .100-105, .299-303
+      <br>
 
 
-<h2>Documentos disponibles</h2>
+    </ng-container>
 
 
-<ul>
-  <li *ngFor="let item of docService.documentos_disponibles">
 
-    Documento: {{item.nombre}}
-    <hr>
-    Palabras indexadas: {{keys(item.indice.indice).length | number}}
-  </li>
-</ul>
+  </div>
+</div>
 
+<div class="row">
+  <div class="col-12">
+    Expanción de los términos
+    <pre>
+      {{buscadorService.terminos | json}}
+    </pre>
 
-{{buscadorService.terminos | json}}
-
+  </div>
+</div>
 
 <app-buscador></app-buscador>
-
-
-
-
-
-
-

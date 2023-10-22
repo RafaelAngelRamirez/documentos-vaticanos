@@ -28,50 +28,14 @@
             (click)="navigate_to_beginning()"
           >Inicio</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <i class="fas fa-cog    "></i> Configuraciones
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <a
-              (click)="temaClaro = !temaClaro; tema(temaClaro)"
-              class="dropdown-item" href="javascript:void(0)">
-
-                Cambiar a tema
-
-                <ng-container *ngIf="!temaClaro; else elseTemplate">
-                   claro <i class="fas fa-sun    "></i>
-                </ng-container>
-                <ng-template #elseTemplate>
-                  oscuro <i class="fas fa-moon    "></i>
-                </ng-template>
-
-
-
-
-            </a></li>
-          </ul>
-        </li>
         <li class="nav-item">
           <a
-            class="nav-link disabled"
-            href="#"
-            tabindex="-1"
-            aria-disabled="true"
-            >Disabled</a
-          >
-        </li> -->
+            class="nav-link"
+            href="javascript:void(0)"
+            (click)="navigate_to_documents()"
+          >Listar documentos</a>
+        </li>
+
       </ul>
       <form
         [formGroup]="form"

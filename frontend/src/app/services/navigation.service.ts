@@ -8,6 +8,7 @@ export enum ROUTE {
   'leyendo' = 'leyendo',
   'punto' = 'punto',
   'inicio' = 'inicio',
+  'list_documents' = 'documentos/listar',
 }
 
 export const LOCALSTORAGE_KEYS = [
@@ -28,7 +29,11 @@ export class NavigationService {
   article_selected: ArticleInfo | undefined = undefined;
   actual_index: number = 0;
 
+  routes = ROUTE;
+
   go_to_read_article(article: ArticleInfo, result: ResultadoDeBusqueda) {
+
+    console.log({article, result})
     this.document_selected = result.doc;
     this.article_selected = article;
     this.actual_index = article.article.index_array;
@@ -79,5 +84,10 @@ export class NavigationService {
 
   go_to_search() {
     this.router.navigate(['/', ROUTE.inicio]);
+  }
+
+  go_to_documents() {
+    const route = ['/', ...ROUTE.list_documents.split('/')];
+    this.router.navigate(route);
   }
 }

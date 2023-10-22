@@ -1,4 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MensajesService } from 'src/services/mensajes.service';
 
 @Injectable({
@@ -6,6 +7,7 @@ import { MensajesService } from 'src/services/mensajes.service';
 })
 export class BuscadorService {
   constructor(private mensajeService: MensajesService) {}
+  global_control_search_input!: FormControl;
 
   terminos: TermsProcessed = {};
   terminos_emit = new EventEmitter<TermsProcessed>();

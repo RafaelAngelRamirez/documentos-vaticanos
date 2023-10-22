@@ -3,12 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { LectorComponent } from '../components/lector/lector.component';
 import { ROUTE } from '../services/navigation.service';
 import { InicioComponent } from './inicio/inicio.component';
+import { ListDocumentsPagesComponent } from './list-documents-pages/list-documents-pages.component';
 LectorComponent;
 
 const routes: Routes = [
   {
     path: ROUTE.inicio,
-    component:InicioComponent
+    component: InicioComponent,
+  },
+  {
+    path: ROUTE.list_documents,
+    component: ListDocumentsPagesComponent,
   },
   {
     path: `${ROUTE.leyendo}/:documento`,
@@ -19,7 +24,7 @@ const routes: Routes = [
     component: LectorComponent,
   },
 
-  { path: '**', redirectTo: `/${ROUTE.inicio}`, pathMatch: 'full' },
+  // { path: '**', redirectTo: `/${ROUTE.inicio}`, pathMatch: 'full' },
 ];
 
 @NgModule({
