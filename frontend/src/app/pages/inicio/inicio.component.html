@@ -61,15 +61,24 @@
 </div>
 
 <div
-  *ngIf="buscadorService.terminos != {}"
+  *ngIf="!first_view()"
   class="row"
 >
   <div class="col-12">
-    Expansión de los términos
-    <pre>
-      {{buscadorService.terminos | json}}
-    </pre>
 
+    <div class="card shadow">
+      <div class="card-body">
+        <h4 class="card-title"><i class="fas fa-code"></i>
+          Expansión de los términos
+        </h4>
+        <div class="card-text">
+          <pre>
+{{buscadorService.terminos | json}}
+          </pre>
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>
 
