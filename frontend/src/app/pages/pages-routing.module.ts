@@ -24,7 +24,7 @@ const routes: Routes = [
     component: LectorComponent,
   },
 
-  // { path: '**', redirectTo: `/${ROUTE.inicio}`, pathMatch: 'full' },
+  { path: '**', redirectTo: `/${ROUTE.inicio}`, pathMatch: 'full' },
 ];
 
 @NgModule({
