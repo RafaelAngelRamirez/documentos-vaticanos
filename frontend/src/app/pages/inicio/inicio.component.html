@@ -4,11 +4,11 @@
     <ng-container *ngIf="first_view()">
       <h1>Bienvenido</h1>
       <p>
-        Documentos vaticanos en un proyecto que busca facilitar el accesso a los
+        Documentos vaticanos en un proyecto que busca facilitar el acceso a los
         documentos de la Iglesia Católica.
       </p>
 
-      <h3>Ejemplos de búsquedas</h3>
+      <h3>Ejemplo de búsquedas</h3>
 
       <a
         (click)="help_many_terms()"
@@ -21,7 +21,7 @@
           aria-hidden="true"
         ></i>
         Buscar varios términos</a>
-      <br>Términos: muerte, resurección.
+      <br>Términos: muerte, resurrección.
       <br>
       <br>
       <a
@@ -62,7 +62,7 @@
 
 <div class="row">
   <div class="col-12">
-    Expanción de los términos
+    Expansión de los términos
     <pre>
       {{buscadorService.terminos | json}}
     </pre>
