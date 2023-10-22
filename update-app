@@ -1,0 +1,6 @@
+#!/bin/bash
+#This script update 
+
+docker compose pull
+docker compose up -d --no-deps nginx
+
