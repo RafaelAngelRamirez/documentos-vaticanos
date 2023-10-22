@@ -88,11 +88,11 @@ echo
 
 cd $gui_path
 
-# if [ "$es_modo_producion" == true ]; then
-#     npm run build
-# else 
-#     npm run build-dev
-# fi
+if [ "$es_modo_producion" == true ]; then
+    npm run build
+else 
+    npm run build-dev
+fi
 
 echo
 echo ---------------------------------------------------

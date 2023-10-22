@@ -5,7 +5,7 @@
     "standard-version": "^9.5.0"
   },
   "scripts": {
-    "release": "standard-version && git push --follow-tags origin master && npm run build-docker production && ssh eforsatec@eforsatec.mx './update-app'",
+    "release": "standard-version && git push --follow-tags origin master && npm run build-docker production && ssh documentos@documentos-vaticanos.mx './update-app'",
     "build-docker": "./docker-compilar.sh production",
     "build-docker-dev": "./docker-compilar.sh dev"
   }
