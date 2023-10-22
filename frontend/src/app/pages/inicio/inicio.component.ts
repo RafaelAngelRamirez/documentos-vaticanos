@@ -33,12 +33,13 @@ export class InicioComponent implements OnInit {
     );
   }
 
-  help_many_dots() {
+  help_many_terms() {
     this.buscadorService.global_control_search_input.setValue(
       'muerte, resurección'
     );
   }
-  help_many_terms() {
+
+  help_many_dots() {
     this.buscadorService.global_control_search_input.setValue(
       '.100-105, .299-300'
     );
