@@ -1,0 +1,24 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.0.2](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.1...v0.0.2) (2023-10-22)
+
+
+### Features
+
+* Beetter navigation and help search improvements ([9040d05](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/9040d059a3382beb322007f30641bce4997410af))
+* DevOps added ([43b398a](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/43b398af3a4278fb1d0001251e27b0eefe0fcf24))
+* DevOps update app script added ([65d9198](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/65d9198fe0201fdbbf1a06b1f4789ff430619547))
+* Generación de indice de texto ([7d23676](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/7d236760eba6d03f3d1d131dd356fd55f40e87f2))
+* Indice funcional ([edf67b1](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/edf67b1fcd064f6d6435ce2ef16ef2e49e95e61c))
+* Navigation to the search view ([f5a230d](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/f5a230db9134287f586be18a6c73a373acad115f))
+* Paginator added ([09e6d43](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/09e6d431942541fc38f032bd4b68ab841ca1b1cc))
+* Reader working ([3cd944b](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/3cd944b6dc0451d79e212517ba22509e589e0534))
+* Readers load previews and next articles ([cb8444c](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/cb8444c8553df399990ea18b6883496c1fbf8f60))
+
+
+### Bug Fixes
+
+* Init component refactoring ([976933f](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/976933f611cb578e32827c798e3c20b8fd089eef))
+* Patch match redirect not working ([3d05e2d](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/3d05e2d5901d642d85c33d9bd4da3ebc934e4e69))
