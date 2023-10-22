@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.7...v0.0.8) (2023-10-22)
+
+
+### Bug Fixes
+
+* script bad domain ([8a025a4](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/8a025a4c3567f489b34acf4590a6576499de2a88))
+
 ### [0.0.7](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.6...v0.0.7) (2023-10-22)
 
 
