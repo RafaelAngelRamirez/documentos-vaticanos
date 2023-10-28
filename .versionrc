@@ -9,6 +9,10 @@
       "type": "json"
     },
     {
+      "filename": "scripts-descarga/package.json",
+      "type": "json"
+    },
+    {
       "filename": "README.md",
       "updater": "standard-version-updater.js"
     },
