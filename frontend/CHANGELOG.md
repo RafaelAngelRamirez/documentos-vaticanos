@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.10...v0.0.11) (2023-10-28)
+
+
+### Features
+
+* About page ([8617ad1](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/8617ad1d20b2530cd63048d91ee90c4aca225c5d))
+
 ### [0.0.1](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v1.1.0...v0.0.1) (2022-12-27)
 
 
