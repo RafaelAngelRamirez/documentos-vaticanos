@@ -6,7 +6,8 @@
   "scripts": {
     "catecismo": "node descargar_catecismo.js && npm run copiar",
     "copiar": "cp -r documentos/* ../frontend/src/assets/documentos",
-   
+
+    "dev-biblia": "nodemon descargar_biblia.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,7 +15,7 @@
     "axios": "^1.2.1",
     "cli-progress": "^3.11.2",
     "linkedom": "^0.14.21",
+    "nodemon": "^3.0.1",
     "string-strip-html": "^8.4.0"
-  },
-  "devDependencies": {}
+  }
 }
