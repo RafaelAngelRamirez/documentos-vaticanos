@@ -4,9 +4,10 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { ListDocumentsPagesComponent } from './list-documents-pages/list-documents-pages.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
-  declarations: [PagesComponent, ListDocumentsPagesComponent],
+  declarations: [PagesComponent, ListDocumentsPagesComponent, AboutComponent],
   imports: [CommonModule, PagesRoutingModule, NavbarComponent],
 })
 export class PagesModule {}

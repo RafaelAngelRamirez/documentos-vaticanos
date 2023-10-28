@@ -6,7 +6,6 @@ import { Subscription, debounceTime } from 'rxjs';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { environment } from 'src/environments/environment';
 
-
 @Component({
   standalone: true,
   imports: [ReactiveFormsModule],
@@ -20,7 +19,7 @@ export class NavbarComponent implements OnInit {
   }
   control_buscador = new FormControl<string>('');
 
-  version = environment.version
+  version = environment.version;
 
   form = new FormGroup({
     buscador: this.control_buscador,
@@ -46,5 +45,9 @@ export class NavbarComponent implements OnInit {
 
   navigate_to_documents() {
     this.navigationService.go_to_documents();
+  }
+
+  navigate_to_about() {
+    this.navigationService.go_to_about()
   }
 }

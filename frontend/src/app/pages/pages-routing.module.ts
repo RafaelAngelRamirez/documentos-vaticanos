@@ -4,12 +4,17 @@ import { LectorComponent } from '../components/lector/lector.component';
 import { ROUTE } from '../services/navigation.service';
 import { InicioComponent } from './inicio/inicio.component';
 import { ListDocumentsPagesComponent } from './list-documents-pages/list-documents-pages.component';
+import { AboutComponent } from './about/about.component';
 LectorComponent;
 
 const routes: Routes = [
   {
     path: ROUTE.inicio,
     component: InicioComponent,
+  },
+  {
+    path: ROUTE.about,
+    component: AboutComponent,
   },
   {
     path: ROUTE.list_documents,
