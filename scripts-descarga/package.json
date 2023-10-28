@@ -1,6 +1,6 @@
 {
   "name": "scripts-descarga",
-  "version": "1.1.0",
+  "version": "0.0.11",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,5 @@
     "linkedom": "^0.14.21",
     "string-strip-html": "^8.4.0"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
