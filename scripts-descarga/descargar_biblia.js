@@ -2,7 +2,9 @@ const fs = require("fs");
 const axios = require("axios").default;
 const linkedom = require("linkedom");
 
-console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
+const abreviaciones = console.log(
+  "+++++++++++++++++++++++++++++++++++++++++++++++"
+);
 console.log(
   "+ DESCARGA DE DOCUMENTOS VATICANOS v" + require("./package.json").version
 );
@@ -214,10 +216,90 @@ function ejecutar_proceso(pagina_actual, pagina_anterior) {
 
       const siguiente_pagina = obtener_siguiente_pagina(document);
       if (siguiente_pagina === pagina_anterior) {
-        fs.writeFileSync("documentos/biblia.json", JSON.stringify(biblia, null, 4), "utf-8");
+        fs.writeFileSync(
+          "documentos/biblia.json",
+          JSON.stringify(biblia, null, 4),
+          "utf-8"
+        );
+        generar_estructura_tipo_puntos();
       } else ejecutar_proceso(siguiente_pagina, pagina_actual);
     })
     .catch((_) => console.log("[ERROR]=>", _));
 }
 
-ejecutar_proceso(pagina_actual, pagina_anterior);
+function generar_punto(datos) {
+  const libro = datos.k_libro_abr;
+  const capitulo = datos.k_capitulo;
+  let versiculo = datos.versiculo.versiculo;
+  console.log(datos.versiculo);
+
+  try {
+    versiculo = parseInt(versiculo);
+  } catch (error) {}
+
+  const punto = {
+    consecutivo: "",
+    contenido: "",
+    referencias: [],
+    biblia: {
+      versiculo,
+      capitulo,
+      libro: datos.k_libro,
+      index_general: datos.index_general,
+    },
+  };
+
+  punto.consecutivo = `${libro} ${capitulo}, ${versiculo}`;
+  punto.contenido = datos.versiculo.contenido;
+
+  return punto;
+}
+
+// ejecutar_proceso(pagina_actual, pagina_anterior);
+function generar_estructura_tipo_puntos() {
+  const BIBLIA = require("./documentos/biblia.json");
+  const ABREVIATURAS = require("./abreviaciones_biblia.json");
+  const puntos = [];
+  let index_general = 0;
+
+  for (const k_testamento in BIBLIA) {
+    const testamento = BIBLIA[k_testamento];
+
+    for (const k_libro in testamento) {
+      const libro = testamento[k_libro];
+      const abr = ABREVIATURAS.find((a) => a.libro === k_libro);
+
+      for (const k_capitulo in libro) {
+        const capitulo = libro[k_capitulo];
+
+        for (const versiculo of capitulo.versiculos) {
+          const punto = generar_punto({
+            k_testamento,
+            k_libro,
+            k_libro_abr: abr.abreviacion,
+            k_capitulo,
+            versiculo,
+            index_general,
+          });
+          puntos.push(punto);
+          index_general++;
+
+        }
+      }
+    }
+  }
+
+  fs.writeFileSync(
+    "documentos/biblia_en_puntos.json",
+    JSON.stringify(puntos),
+    "utf-8"
+  );
+}
+
+// generar_estructura_tipo_puntos();
+
+function generar_indice()
+{ 
+  
+  
+}
