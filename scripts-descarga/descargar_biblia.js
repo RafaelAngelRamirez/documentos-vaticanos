@@ -17,9 +17,12 @@ const url_de_documento_a_descargar =
 const nombre_fichero_final = "biblia_pueblo_de_Dios";
 // La pagina que contiene el indice.
 
-let dir = "documentos";
-if (!fs.existsSync(dir)) {
-  fs.mkdirSync(dir);
+let DIR = "documentos";
+
+const NOMBRE_DOCUMENTO = "biblia";
+
+if (!fs.existsSync(DIR)) {
+  fs.mkdirSync(DIR);
 }
 
 /**
@@ -231,7 +234,6 @@ function generar_punto(datos) {
   const libro = datos.k_libro_abr;
   const capitulo = datos.k_capitulo;
   let versiculo = datos.versiculo.versiculo;
-  console.log(datos.versiculo);
 
   try {
     versiculo = parseInt(versiculo);
@@ -242,6 +244,7 @@ function generar_punto(datos) {
     contenido: "",
     referencias: [],
     biblia: {
+      consecutivo_versiculo : `${libro} ${capitulo}, ${versiculo}`,
       versiculo,
       capitulo,
       libro: datos.k_libro,
@@ -249,16 +252,42 @@ function generar_punto(datos) {
     },
   };
 
-  punto.consecutivo = `${libro} ${capitulo}, ${versiculo}`;
   punto.contenido = datos.versiculo.contenido;
 
   return punto;
 }
 
 // ejecutar_proceso(pagina_actual, pagina_anterior);
+
+function generar_indice(docLimpio) {
+  console.log("[+] Generando indice");
+  const indice = require("./generacion_de_indices").generar_indice(docLimpio);
+
+  // No queremos nulos.
+
+  for (const key_indice in indice) {
+    const sub_indice = indice[key_indice];
+
+    for (const key in sub_indice) {
+      const valor = sub_indice[key];
+    
+      if (valor == "null") {
+        console.log("eliminando: ", key, "valor; ", indice[key]);
+        delete sub_indice[key];
+      }
+    }
+  }
+
+  fs.writeFileSync(
+    `${DIR}/${NOMBRE_DOCUMENTO}.index.json`,
+    JSON.stringify(indice),
+    "utf-8"
+  );
+}
+
 function generar_estructura_tipo_puntos() {
-  const BIBLIA = require("./documentos/biblia.json");
-  const ABREVIATURAS = require("./abreviaciones_biblia.json");
+  const BIBLIA = require(`./documentos/${NOMBRE_DOCUMENTO}.json`);
+  const ABREVIATURAS = require(`./abreviaciones_${NOMBRE_DOCUMENTO}.json`);
   const puntos = [];
   let index_general = 0;
 
@@ -281,25 +310,23 @@ function generar_estructura_tipo_puntos() {
             versiculo,
             index_general,
           });
+          punto.index_array = index_general;
+          punto.consecutivo = index_general + ''; //Nescesita ser un string
           puntos.push(punto);
           index_general++;
-
         }
       }
     }
   }
 
   fs.writeFileSync(
-    "documentos/biblia_en_puntos.json",
+    `${DIR}/${NOMBRE_DOCUMENTO}_en_puntos.json`,
     JSON.stringify(puntos),
     "utf-8"
   );
+  generar_indice(puntos);
 }
 
-// generar_estructura_tipo_puntos();
+generar_estructura_tipo_puntos();
 
-function generar_indice()
-{ 
-  
-  
-}
+// generar_indice(require('./documentos/biblia_en_puntos.json'))

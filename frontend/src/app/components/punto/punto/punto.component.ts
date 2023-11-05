@@ -43,7 +43,7 @@ export class PuntoComponent implements OnInit {
 
   popularReferencias(procesado: ArticleInfo): ArticleInfo {
     let cadena_de_remplazo = (i: number) => `[+[${i}]+]`;
-    procesado.article.referencias.forEach((referencia, i) => {
+    procesado.article.referencias?.forEach((referencia, i) => {
       let remplazar = cadena_de_remplazo(i);
       procesado.article.contenido = procesado.article.contenido.replace(
         remplazar,

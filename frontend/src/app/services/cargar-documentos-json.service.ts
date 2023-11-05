@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 
 import Catecismo from '../../assets/documentos/catecismo.json';
 import Catecismo_index from '../../assets/documentos/catecismo.index.json';
+import Biblia from '../../assets/documentos/biblia_en_puntos.json';
+import Biblia_index from '../../assets/documentos/biblia.index.json';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +11,9 @@ import Catecismo_index from '../../assets/documentos/catecismo.index.json';
 export class CargarDocumentosJsonService {
   catecismo: Article[] = Catecismo as Article[];
   catecismo_index = Catecismo_index as Indice;
+
+  biblia: Article[] = Biblia as Article[];
+  biblia_index = Biblia_index as Indice;
 
   documentos_disponibles: IndiceDocumentos[] = [];
 
@@ -21,6 +26,12 @@ export class CargarDocumentosJsonService {
       nombre: 'Catecismo',
       documento: this.catecismo,
       indice: this.catecismo_index,
+    });
+
+    this.documentos_disponibles.push({
+      nombre: 'Biblia',
+      documento: this.biblia,
+      indice: this.biblia_index,
     });
 
     this.documentos_disponibles.forEach((doc) => {
@@ -69,14 +80,21 @@ export interface Article {
   index_array: number;
   consecutivo: string;
   contenido: string;
-  referencias: [
-    {
-      descripcion: string;
-      url: string;
-      local: {
-        idDocumento: '';
-        idPunto: '';
-      };
-    }
-  ];
+  referencias?: Referencia[];
+  biblia?: {
+    consecutivo_versiculo: string;
+    versiculo: number;
+    capitulo: string;
+    libro: string;
+    index_general: number;
+  };
+}
+
+export interface Referencia {
+  descripcion: string;
+  url: string;
+  local: {
+    idDocumento: '';
+    idPunto: '';
+  };
 }

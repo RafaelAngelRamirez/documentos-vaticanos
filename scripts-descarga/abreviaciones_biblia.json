@@ -1,0 +1,306 @@
+[
+  {
+    "libro": "abdias",
+    "abreviacion": "Ab"
+  },
+  {
+    "libro": "ageo",
+    "abreviacion": "Ag"
+  },
+  {
+    "libro": "amos",
+    "abreviacion": "Am"
+  },
+  {
+    "libro": "apocalipsis",
+    "abreviacion": "Ap"
+  },
+  {
+    "libro": "baruc",
+    "abreviacion": "Ba"
+  },
+  {
+    "libro": "cantar de los cantares",
+    "abreviacion": "Ba"
+  },
+  {
+    "libro": "carta a filemon",
+    "abreviacion": "Ct"
+  },
+  {
+    "libro": "carta a los colosenses",
+    "abreviacion": "Flm"
+  },
+  {
+    "libro": "carta a los efesios",
+    "abreviacion": "Col"
+  },
+  {
+    "libro": "carta a los filipenses",
+    "abreviacion": "Ef"
+  },
+  {
+    "libro": "carta a los galatas",
+    "abreviacion": "Flp"
+  },
+  {
+    "libro": "carta a los hebreos",
+    "abreviacion": "Ga"
+  },
+  {
+    "libro": "carta a los romanos",
+    "abreviacion": "Heb"
+  },
+  {
+    "libro": "carta a tito",
+    "abreviacion": "Ro"
+  },
+  {
+    "libro": "carta de jeremias",
+    "abreviacion": "Tit"
+  },
+  {
+    "libro": "carta de san judas",
+    "abreviacion": "Jds"
+  },
+  {
+    "libro": "carta de santiago",
+    "abreviacion": "Sant"
+  },
+  {
+    "libro": "daniel",
+    "abreviacion": "Dn"
+  },
+  {
+    "libro": "daniel suplementos griegos",
+    "abreviacion": "Dn"
+  },
+  {
+    "libro": "deuteronomio",
+    "abreviacion": "Dt"
+  },
+  {
+    "libro": "eclesiastes",
+    "abreviacion": "Qo"
+  },
+  {
+    "libro": "eclesiastico",
+    "abreviacion": "Sir"
+  },
+  {
+    "libro": "esdras",
+    "abreviacion": "Esd"
+  },
+  {
+    "libro": "ester",
+    "abreviacion": "Est"
+  },
+  {
+    "libro": "ester suplementos griegos",
+    "abreviacion": "Est"
+  },
+  {
+    "libro": "evangelio segun san juan",
+    "abreviacion": "Jn"
+  },
+  {
+    "libro": "evangelio segun san lucas",
+    "abreviacion": "Lc"
+  },
+  {
+    "libro": "evangelio segun san marcos",
+    "abreviacion": "Mc"
+  },
+  {
+    "libro": "evangelio segun san mateo",
+    "abreviacion": "Mt"
+  },
+  {
+    "libro": "exodo",
+    "abreviacion": "Ex"
+  },
+  {
+    "libro": "ezequiel",
+    "abreviacion": "Ez"
+  },
+  {
+    "libro": "genesis",
+    "abreviacion": "Gn"
+  },
+  {
+    "libro": "habacuc",
+    "abreviacion": "Ha"
+  },
+  {
+    "libro": "hechos de los apostoles",
+    "abreviacion": "He"
+  },
+  {
+    "libro": "isaias",
+    "abreviacion": "Is"
+  },
+  {
+    "libro": "jeremias",
+    "abreviacion": "Jr"
+  },
+  {
+    "libro": "job",
+    "abreviacion": "Job"
+  },
+  {
+    "libro": "joel",
+    "abreviacion": "Jl"
+  },
+  {
+    "libro": "jonas",
+    "abreviacion": "Jon"
+  },
+  {
+    "libro": "josue",
+    "abreviacion": "Jos"
+  },
+  {
+    "libro": "judit",
+    "abreviacion": "Jdt"
+  },
+  {
+    "libro": "jueces",
+    "abreviacion": "Jue"
+  },
+  {
+    "libro": "lamentaciones",
+    "abreviacion": "Lm"
+  },
+  {
+    "libro": "levitico",
+    "abreviacion": "Lv"
+  },
+  {
+    "libro": "malaquias",
+    "abreviacion": "Ml"
+  },
+  {
+    "libro": "miqueas",
+    "abreviacion": "Mi"
+  },
+  {
+    "libro": "nahum",
+    "abreviacion": "Na"
+  },
+  {
+    "libro": "nehemias",
+    "abreviacion": "Ne"
+  },
+  {
+    "libro": "numeros",
+    "abreviacion": "Nm"
+  },
+  {
+    "libro": "oseas",
+    "abreviacion": "Os"
+  },
+  {
+    "libro": "primer libro de las cronicas",
+    "abreviacion": "1 Cr"
+  },
+  {
+    "libro": "primer libro de los macabeos",
+    "abreviacion": "1 Mac"
+  },
+  {
+    "libro": "primer libro de los reyes",
+    "abreviacion": "1 Re"
+  },
+  {
+    "libro": "primer libro de samuel",
+    "abreviacion": "1 Sam"
+  },
+  {
+    "libro": "primera carta a los corintios",
+    "abreviacion": "1 Cor"
+  },
+  {
+    "libro": "primera carta a los tesalonicenses",
+    "abreviacion": "1 Te"
+  },
+  {
+    "libro": "primera carta a timoteo",
+    "abreviacion": "1 Tim"
+  },
+  {
+    "libro": "primera carta de san juan",
+    "abreviacion": "3 Tim"
+  },
+  {
+    "libro": "primera carta de san pedro",
+    "abreviacion": "1 Pe"
+  },
+  {
+    "libro": "proverbios",
+    "abreviacion": "Pr"
+  },
+  {
+    "libro": "rut",
+    "abreviacion": "Rut"
+  },
+  {
+    "libro": "sabiduria",
+    "abreviacion": "Sb"
+  },
+  {
+    "libro": "salmos",
+    "abreviacion": "Sl"
+  },
+  {
+    "libro": "segunda carta a los corintios",
+    "abreviacion": "2 Cor"
+  },
+  {
+    "libro": "segunda carta a los tesalonicenses",
+    "abreviacion": "2 Te"
+  },
+  {
+    "libro": "segunda carta a timoteo",
+    "abreviacion": "2 Tim"
+  },
+  {
+    "libro": "segunda carta de san juan",
+    "abreviacion": "1 Jn"
+  },
+  {
+    "libro": "segunda carta de san pedro",
+    "abreviacion": "2 Pe"
+  },
+  {
+    "libro": "segundo libro de las cronicas",
+    "abreviacion": "2 Cr"
+  },
+  {
+    "libro": "segundo libro de los macabeos",
+    "abreviacion": "2 Mac"
+  },
+  {
+    "libro": "segundo libro de los reyes",
+    "abreviacion": "2 Re"
+  },
+  {
+    "libro": "segundo libro de samuel",
+    "abreviacion": "2 Sam"
+  },
+  {
+    "libro": "sofonias",
+    "abreviacion": "So"
+  },
+  {
+    "libro": "tercera carta de san juan",
+    "abreviacion": "2 Jn"
+  },
+  {
+    "libro": "tobias",
+    "abreviacion": "Tb"
+  },
+  {
+    "libro": "zacarias",
+    "abreviacion": "Za"
+  }
+]
