@@ -1,13 +1,12 @@
 {
   "name": "scripts-descarga",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "",
   "main": "index.js",
   "scripts": {
     "catecismo": "node descargar_catecismo.js && npm run copiar",
     "biblia": "node descargar_biblia.js && npm run copiar",
     "copiar": "cp -r documentos/* ../frontend/src/assets/documentos",
-
     "dev-biblia": "nodemon descargar_biblia.js"
   },
   "author": "",

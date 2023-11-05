@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.12...v0.0.13) (2023-11-05)
+
+
+### Features
+
+* Biblia funcionando ([14c20eb](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/14c20ebe81decf192b8da6a9648a2007db7e1a89))
+* Descarga de biblia ([3bf253d](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/3bf253dd288051cfcdb1a29cf6ad0b4eec49da7b))
+* Versiculos a puntos ([1e403a5](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/1e403a53d14f4a845bcf35e306bdce21bbe9b138))
+
 ### [0.0.12](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.11...v0.0.12) (2023-10-28)
 
 ### [0.0.10](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.9...v0.0.10) (2023-10-22)
