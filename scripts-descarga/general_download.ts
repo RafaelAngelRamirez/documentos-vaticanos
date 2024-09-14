@@ -34,7 +34,7 @@ export class GeneralDownload {
    * @param {*} url
    * @returns
    */
-  fetch_page(url: string): Promise<{ data: unknown; url: string }> {
+  fetch_page(url: string): Promise<{ data: string; url: string }> {
     return new Promise((resolve, reject) => {
       axios
         .get(url)
@@ -45,9 +45,6 @@ export class GeneralDownload {
     });
   }
 
-  
-
-
   _clean_special_characters(texto: string) {
     let procesado = texto;
     if (procesado) procesado = procesado.replace("\n", " ");
@@ -55,14 +52,118 @@ export class GeneralDownload {
     return procesado;
   }
 
+  /**
+   * Elimina todos los diacriticos menos la Ñ.
+   * https://es.stackoverflow.com/questions/62031/eliminar-signos-diacríticos-en-javascript-eliminar-tildes-acentos-ortográficos
+   * @param {string} texto
+   * @returns El texto sin acentos, diacritos, menos Ñ
+   */
+  eliminar_diacriticos(texto: string) {
+    return texto
+      .normalize("NFD")
+      .replace(
+        /([^n\u0300-\u036f]|n(?!\u0303(?![\u0300-\u036f])))[\u0300-\u036f]+/gi,
+        "$1"
+      )
+      .normalize();
+  }
+
+  /**
+   *Elimina una lista de caracteres innecesarios como comas, puntos,
+   * comillas francesas.
+   *
+   * @param {*} texto
+   * @return El texto limpio.
+   */
+  eliminar_caracteres_innecesarios_para_indice(texto: string) {
+    return (
+      texto
+        .replace(/[,"\.«»“”:;!¡¿?—']/gi, "")
+        // Eliminamos el formato de la referencia que creamos
+        // al descargar el documento.
+        .replace(/\( \[\+\[\d*\]\+\] \)/gi, "")
+        //   Para poder eliminar los espacios dobles primero
+        //   remplazamos todos los no caracteres con ###, para
+        //   luego poder seleccionar todas las coincidencias de #
+        //   mayores de 3 y remplazarlas por un espacio.
+        .replace(/\s/gi, "###")
+        .replace(/#{3,21}/gi, " ")
+        .replace(/[\[\]”]/gi, "")
+        //   Estos caracteres necesitan estar en este punto.
+        .replace(/[-\(\)\*\/`‘–…]/gi, "")
+        .trim()
+    );
+  }
+
+  eliminar_consecutivo_de_punto(texto: string, consecutivo: string) {
+    return texto.replace(consecutivo + " ", "");
+  }
+
+  /**
+   *Genera un indice en función del documento que se le pase.
+   * Se espera que el documento sea un estandar, talcual la
+   * actual estructura de "El Catecismo"
+   *
+   * @param {*} documento
+   * @return {*} El indice generado
+   */
+  _generar_indice(documento: TrasnportData[]) {
+    if (!documento) throw new Error("No se recibio ningún documento");
+    let indice: any = {};
+    // Esta es una referencia rápida para encontrar el
+    // punto contra el indice del arreglo en que está almacenado.
+    // Esto lo hago así principalmente para que en la interfaz
+    // obtengamos de manera rápida la ubiación del punto.
+    let indice_por_punto: any = {};
+    let i = -1;
+    for (const punto of documento) {
+      let contenido = punto.contenido;
+      let modificado = contenido;
+      modificado = this.eliminar_diacriticos(modificado);
+      modificado =
+        this.eliminar_caracteres_innecesarios_para_indice(modificado);
+      modificado = modificado.toLowerCase();
+      modificado = this.eliminar_consecutivo_de_punto(
+        modificado,
+        punto.consecutivo
+      );
+      i++;
+
+      // Si existe un punto (diferente de 'no-encontrado') entonces
+      // gurdamos su indice.
+
+      if (punto.consecutivo !== "no-encontrado") {
+        indice_por_punto[i] = parseInt(punto.consecutivo);
+      }
+
+      if (modificado.length === 0) continue;
+
+      modificado.split(" ").forEach((palabra) => {
+        if (!indice.hasOwnProperty(palabra)) indice[palabra] = new Set();
+        indice[palabra].add(i);
+      });
+    }
+
+    let llaves = Object.keys(indice);
+    // Necesitamos que e set sea un arreglo
+    llaves.forEach((k) => {
+      indice[k] = [...indice[k]];
+    });
+    let longitud = llaves.length;
+    console.log(`[ index ] Longitud: ${longitud}`);
+
+    return { indice, indice_por_punto };
+  }
+
   generar_indice(docLimpio: TrasnportData[]) {
     this.general_service.log("[+] Generando indice");
-    const indice = require("./generacion_de_indices").generar_indice(docLimpio);
+    const indice = this._generar_indice(docLimpio);
 
     // No queremos nulos.
 
+    type keyi = keyof typeof indice
     for (const key_indice in indice) {
-      const sub_indice = indice[key_indice];
+      const sub_indice = indice[key_indice as keyi];
 
       for (const key in sub_indice) {
         const valor = sub_indice[key];
@@ -72,7 +173,7 @@ export class GeneralDownload {
             "eliminando: ",
             key,
             "valor; ",
-            indice[key],
+            indice[key as keyi],
           ]);
           delete sub_indice[key];
         }
@@ -84,6 +185,21 @@ export class GeneralDownload {
         this.get_download_data().local_directory
       }.index.json`,
       JSON.stringify(indice),
+      "utf-8"
+    );
+  }
+
+  escribir_fichero(datos: {
+    documento: TrasnportData[];
+    nombre_fichero_final: any;
+  }) {
+    const nombre_documento = `documentos/${
+      this.get_download_data().file_name
+    }.json`;
+
+    fs.writeFileSync(
+      nombre_documento,
+      JSON.stringify(datos.documento),
       "utf-8"
     );
   }

@@ -17,7 +17,7 @@ class Bible extends GeneralDownload {
     };
   }
 
-  execute_download(): void {
+  execute_download() {
     this.general_service.log(
       "[ + ] Preparando descarga de Biblia Pueblo de Dios"
     );
@@ -270,15 +270,12 @@ class Bible extends GeneralDownload {
       }
     }
 
-    fs.writeFileSync(
-      `${DIR}/${NOMBRE_DOCUMENTO}_en_puntos.json`,
-      JSON.stringify(puntos),
-      "utf-8"
-    );
+    this.escribir_fichero({
+      documento: puntos,
+      nombre_fichero_final: `${DIR}/${NOMBRE_DOCUMENTO}_en_puntos.json`,
+    });
     this.generar_indice(puntos);
   }
-
-  // generar_indice(require('./documentos/biblia_en_puntos.json'))
 }
 
 new Bible().donwload();

@@ -1,238 +1,212 @@
-console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
-console.log(
-  "+ DESCARGA DE DOCUMENTOS VATICANOS v" + require("./package.json").version
-);
-console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
-console.log("[ + ] Preparando descarga del Catecismo");
-const https = require("https");
-const strip = require("string-strip-html").stripHtml;
-const fs = require("fs");
-const axios = require("axios").default;
+import { DonwloadData, GeneralDownload } from "./general_download";
+import { GeneralService } from "./services/services";
+import fs from "fs";
 
-const cliProgress = require("cli-progress");
+import cliProgress from "cli-progress";
+import { CatechismArquetype } from "./models/catechism-arquetype.model";
+import { TrasnportData } from "./models/transport_data.model";
 
-// create a new progress bar instance and use shades_classic theme
-const cli_progress_bar = new cliProgress.SingleBar(
-  {
-    format: "{bar} | {percentage}% | ETA: {eta}s | {fileName}",
-  },
-  cliProgress.Presets.legacy
-);
+export class Catechism extends GeneralDownload {
+  log = GeneralService.log;
+  urls: (string | undefined)[] = [];
 
-//Pagina base de donde se estructura el documento.
-const url_de_documento_a_descargar =
-  "https://www.vatican.va/archive/catechism_sp";
-const nombre_fichero_final = "catecismo";
-// La pagina que contiene el indice.
+  get_download_data(): DonwloadData {
+    return {
+      url_to_donwload: "https://www.vatican.va/archive/catechism_sp",
+      file_name: "catecismo",
+      local_directory: "documentos",
+      document_name: "catecismo",
+    };
+  }
 
-let dir = "documentos";
-if (!fs.existsSync(dir)) {
-  fs.mkdirSync(dir);
-}
+  cli_progress_bar = new cliProgress.SingleBar(
+    {
+      format: "{bar} | {percentage}% | ETA: {eta}s | {fileName}",
+    },
+    cliProgress.Presets.legacy
+  );
 
-const indice = `${url_de_documento_a_descargar}/index_sp.html`;
-const totalDePuntos = 2865;
+  totalDePuntos = 2865;
+  // Cached clean document
+  documento: CatechismArquetype[] = [];
+  urlsRegistro: string[] = [];
 
-// Cache del documento limpio
-const documento = [];
+  execute_download(data: DonwloadData): void {
+    this.log("[ + ] Preparando descarga del Catecismo");
 
+    const indice = this.get_download_data().url_to_donwload + "/indice_sp.htm";
 
+    // Nos conectamos al indice para empezar todo el merequetengue
+    this.log(`[i] Indice: ${indice}`);
 
-// Nos conectamos al indice para empezar todo el merequetengue
-console.log(`[i] Indice: ${indice}`);
+    let urls: string[] = [];
+    let urlsRegistro: string[] = [];
+    this.fetch_page(indice)
+      .then((r) => {
+        urlsRegistro = this.obtenerIndice(r).filter((x) => x !== undefined);
+        this.log(
+          `[ + ] ${urlsRegistro.length} entradas del indice para procesarse.`
+        );
+        this.cli_progress_bar.start(urls.length, 0);
+        this.obtenerPuntos(urls.shift());
+      })
+      .catch((_) => this.log(["[ERROR]=>", _]));
+  }
 
-let urls = [];
-let urlsRegistro = [];
-obtener_pagina(indice)
-  .then((r) => {
-    urlsRegistro = obtenerIndice(r);
-    console.log(
-      `[ + ] ${urlsRegistro.length} entradas del indice para procesarse.`
-    );
-    cli_progress_bar.start(urls.length, 0);
-    obtenerPuntos(urls.shift());
-  })
-  .catch((_) => console.log("[ERROR]=>", _));
+  obtenerIndice(res_doc_html: unknown) {
+    this.log("[ + ] Procesando indice: ");
 
-function obtenerIndice(res_doc_html: unknown) {
-  console.log("[ + ] Procesando indice: ");
+    // Convertimos el texto en html
+    const { document } = require("linkedom").parseHTML(res_doc_html);
+    // Buscamos unicamente las url que es lo que nos intersa.
+    const todasLasUrl = document.querySelectorAll("a") as HTMLAnchorElement[];
+    const urlArreglo = Array.from(todasLasUrl);
 
-  // Convertimos el texto en html
-  const { document } = require("linkedom").parseHTML(res_doc_html);
-  // Buscamos unicamente las url que es lo que nos intersa.
-  const todasLasUrl = document.querySelectorAll("a");
-  // Convertivmos en arreglo las coincidencias.
-  const urlArreglo = Array.from(todasLasUrl);
+    // Obtenemos solo las url que contengan esta estructura y eliminamos
+    // Las que no nos interesan.
+    this.urls = urlArreglo
+      // Obtenemos solo el valor de href
+      .map((x) => x.href)
+      .map((x) => {
+        const d = "html#";
+        if (!x.includes(d)) return x;
+        return x.split("#").shift();
+      })
+      // Debe estar nombrada como sp
+      .filter((x) => x?.includes("_sp"));
+    // Quitamos los duplicados
+    this.urls = Array.from(new Set(this.urls));
 
-  // Obtenemos solo las url que contengan esta estructura y eliminamos
-  // Las que no nos interesan.
-  urls = urlArreglo
-    // Obtenemos solo el valor de href
-    .map((x) => x.href)
-    .map((x) => {
-      const d = "html#";
-      if (!x.includes(d)) return x;
-      return x.split("#").shift();
-    })
-    // Debe estar nombrada como sp
-    .filter((x) => x.includes("_sp"));
-  // Quitamos los duplicados
-  urls = Array.from(new Set(urls));
+    return [...this.urls];
+  }
 
-  return [...urls];
-}
+  /**
+   *Obtiene los puntos de cada una de las url obtenidoas en el indice.
+   *
+   * @param {*} url
+   */
 
-/**
- *Obtiene los puntos de cada una de las url obtenidoas en el indice.
- *
- * @param {*} url
- */
-
-let contador = 0;
-function obtenerPuntos(url: undefined) {
-  contador++;
-  cli_progress_bar.update(contador, {
-    fileName: `Por procesar: ${urlsRegistro.length - contador} , URL: ${url}`,
-  });
-  // Obtenemos una url para evaluarla.
-  const nuevaUrl = url_de_documento_a_descargar.concat(`/${url}`);
-  // Nos conectamos
-  obtener_pagina(nuevaUrl)
-    .then((htmlString) => {
-      const etiquetas = buscarEtiquetaObjetivo(htmlString)
-        // Limpiamos y reorganizamos
-
-        .map((x: { innerText: any; }) => {
-          let consecutivo = obtenerConsecutivo(x);
-          let contenido = x.innerText;
-
-          return {
-            consecutivo,
-            contenido,
-          };
-        });
-
-      documento.push(...etiquetas);
-      if (urls.length) obtenerPuntos(urls.shift());
-      else terminar(documento);
-    })
-    .catch((_) => console.log(_));
-}
-
-function buscarEtiquetaObjetivo(htmlString: unknown) {
-  const { document } = require("linkedom").parseHTML(htmlString);
-  return document.querySelectorAll("p");
-}
-
-function obtenerConsecutivo(etiqueta: { querySelector: (arg0: string) => { (): any; new(): any; innerText: any; }; }) {
-  //Los consecutivos son los puntos con los que se documenta
-  // el texto y por tanto debe ser un digito
-  let consecutivo = etiqueta.querySelector("b")?.innerText;
-  if (isNaN(consecutivo) || !consecutivo) return "no-encontrado";
-  return consecutivo;
-}
-
-function obtenerDiferenciaDePuntos(doc: any[]) {
-  const soloPuntosExistentes = doc
-    .map((x: { consecutivo: number; }) => x.consecutivo * 1)
-    .sort((a: number, b: number) => a - b);
-  const masAlto = soloPuntosExistentes[soloPuntosExistentes.length - 1];
-
-  let contador = 1;
-  const puntosInexistentes = Array.from(
-    Array(totalDePuntos),
-    () => contador++
-  ).filter((x) => !soloPuntosExistentes.includes(x));
-
-  const total = doc.length;
-  console.log("[ i ] -----------------------------");
-  console.log("[ ! ] Puntos capturados: " + total);
-  console.log("[ ! ] Puntos estimados: " + masAlto);
-  console.log("[ + ] Total de puntos: " + totalDePuntos);
-  console.log("[ + ] Puntos inexistentes: " + puntosInexistentes);
-  console.log("[ i ] -----------------------------");
-
-  return { total, masAlto, totalDePuntos, puntosInexistentes };
-}
-
-function escribir_fichero_principal_e_indice(datos: { documento: any; dir: any; nombre_fichero_final: any; indice: any; }) {
-  const nombre_documento = `${datos.dir}/${datos.nombre_fichero_final}.json`;
-  const nombre_indice = `${datos.dir}/${datos.nombre_fichero_final}.index.json`;
-
-  fs.writeFileSync(nombre_documento, JSON.stringify(datos.documento), "utf-8");
-  fs.writeFileSync(nombre_indice, JSON.stringify(datos.indice), "utf-8");
-  console.log(`[ i ] ${datos.nombre_fichero_final} guardado`);
-}
-
-function separarReferencias(doc: any[]) {
-  const regex = /\((.*?)\)/gm;
-  return doc.map((x: { referencias: { descripcion: any; }[]; contenido: string; }) => {
-    // Definimos el objeto referencias
-    x.referencias = [];
-
-    // Obtenemos todas las posibles referencias ()
-    let m: any[] | null;
-
-    do {
-      m = regex.exec(x.contenido);
-      if (m) {
-        x.referencias.push({
-          descripcion: m[1],
-        });
-      }
-    } while (m);
-
-    let contador = 0;
-    x.contenido = x.contenido.replace(
-      /\(.*?\)/gm,
-      (fullmatch: any, n: any) => `( [+[${contador++}]+] )`
-    );
-
-    return x;
-  });
-}
-
-function terminar(doc: never[]) {
-  let docLimpio = separarReferencias(doc);
-
-  cli_progress_bar.stop();
-
-  const diferencias = obtenerDiferenciaDePuntos(docLimpio);
-  diferencias[urls] = urlsRegistro;
-
-  console.log("[ + ] Generando indice");
-  const indice = require("./generacion_de_indices").generar_indice(docLimpio);
-
-  console.log("[ + ] Escribiendo documentos");
-  escribir_fichero_principal_e_indice({
-    documento: docLimpio,
-    dir,
-    nombre_fichero_final,
-    indice,
-  });
-
-  // console.log("[ + ] Escribiendo diferencias en un fichero");
-  // fs.appendFile(
-  //   `${dir}/diferencias_${nombre_fichero_final}.json`,
-  //   JSON.stringify(diferencias),
-  //   function (err) {
-  //     if (err) return console.error(err);
-  //     console.log("[i] diferencias.json guarado");
-  //   }
-  // );
-
-  // Copiamos el resultado a la carpeta de documentos
-  // del front.
-  let ruta_front = "../frontend/src/assets/documentos";
-  console.log(`[i] Copiando ficheros a frontend`);
-
-  ficheros = [nombre_fichero_final, nombre_fichero_final + ".index"];
-
-  ficheros.forEach((fichero: any) => {
-    fs.rmSync(`${ruta_front}/${fichero}.json`, {
-      force: true,
+  contador = 0;
+  obtenerPuntos(url: string | undefined) {
+    this.contador++;
+    this.cli_progress_bar.update(this.contador, {
+      fileName: `Por procesar: ${
+        this.urlsRegistro.length - this.contador
+      } , URL: ${url}`,
     });
+    // Obtenemos una url para evaluarla.
+    const nuevaUrl = this.get_download_data().url_to_donwload.concat(`/${url}`);
+    // Nos conectamos
+    this.fetch_page(nuevaUrl)
+      .then((response) => {
+        const etiquetas = this.buscarEtiquetaObjetivo(response.data)
+          // Limpiamos y reorganizamos
 
-    fs.copyFileSync(`${dir}/${fichero}.json`, `${ruta_front}/${fichero}.json`);
-  });
+          .map((x) => {
+            let consecutivo = this.obtenerConsecutivo(x);
+            let contenido = x.innerText;
+
+            return {
+              consecutivo,
+              contenido,
+            };
+          });
+
+        this.documento.push(...etiquetas);
+        if (this.urls.length) this.obtenerPuntos(this.urls?.shift());
+        else this.terminar(this.documento);
+      })
+      .catch((_) => this.log(_));
+  }
+
+  buscarEtiquetaObjetivo(htmlString: string) {
+    const { document } = require("linkedom").parseHTML(htmlString);
+    return document.querySelectorAll("p") as HTMLParagraphElement[];
+  }
+
+  obtenerConsecutivo(etiqueta: {
+    querySelector: (arg0: string) => { (): any; new (): any; innerText: any };
+  }) {
+    //Los consecutivos son los puntos con los que se documenta
+    // el texto y por tanto debe ser un digito
+    let consecutivo = etiqueta.querySelector("b")?.innerText;
+    if (isNaN(consecutivo) || !consecutivo) return "no-encontrado";
+    return consecutivo;
+  }
+
+  obtenerDiferenciaDePuntos(doc: any[]) {
+    const soloPuntosExistentes = doc
+      .map((x: { consecutivo: number }) => x.consecutivo * 1)
+      .sort((a: number, b: number) => a - b);
+    const masAlto = soloPuntosExistentes[soloPuntosExistentes.length - 1];
+
+    let contador = 1;
+    const puntosInexistentes = Array.from(
+      Array(this.totalDePuntos),
+      () => contador++
+    ).filter((x) => !soloPuntosExistentes.includes(x));
+
+    const total = doc.length;
+    this.log("[ i ] -----------------------------");
+    this.log("[ ! ] Puntos capturados: " + total);
+    this.log("[ ! ] Puntos estimados: " + masAlto);
+    this.log("[ + ] Total de puntos: " + this.totalDePuntos);
+    this.log("[ + ] Puntos inexistentes: " + puntosInexistentes);
+    this.log("[ i ] -----------------------------");
+
+    return {
+      total,
+      masAlto,
+      totalDePuntos: this.totalDePuntos,
+      puntosInexistentes,
+    };
+  }
+
+  separarReferencias(doc: CatechismArquetype[]) {
+    const regex = /\((.*?)\)/gm;
+    return doc.map((x) => {
+      // Definimos el objeto referencias
+
+      const transport_data: TrasnportData = {
+        contenido: x.contenido,
+        referencias: [],
+        consecutivo: x.consecutivo + "",
+      };
+
+      // Obtenemos todas las posibles referencias ()
+      let m: any[] | null;
+
+      do {
+        m = regex.exec(x.contenido);
+        if (m) {
+          transport_data?.referencias?.push({
+            descripcion: m[1],
+          });
+        }
+      } while (m);
+
+      let contador = 0;
+      transport_data.contenido = transport_data.contenido.replace(
+        /\(.*?\)/gm,
+        (fullmatch: any, n: any) => `( [+[${contador++}]+] )`
+      );
+
+      return transport_data;
+    });
+  }
+
+  terminar(doc: CatechismArquetype[]) {
+    let docLimpio = this.separarReferencias(doc);
+
+    this.cli_progress_bar.stop();
+
+    this.log("[ + ] Escribiendo documentos");
+    const data = this.get_download_data();
+    this.escribir_fichero({
+      documento: docLimpio,
+      nombre_fichero_final: data.file_name,
+    });
+  }
 }
+
+new Catechism().donwload();
