@@ -2,7 +2,7 @@ import * as fs from "fs";
 import axios from "axios";
 import { DOMParser, parseHTML } from "linkedom";
 import { DonwloadData, GeneralDownload } from "./general_download";
-import { BibleBook, TrasnportData } from "./models";
+import { BibleBook, TrasnportData } from "./models/transport_data.model";
 import { AxiosResponse, ResponseType } from "axios";
 import { AbreviacionesBiblia } from "./models/abreviaciones_biblia.model";
 import { GenerarPuntoBiblia } from "./models/punto-versiculo.model";

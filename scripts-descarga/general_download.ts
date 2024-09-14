@@ -1,7 +1,7 @@
 import { GeneralService } from "./services/services";
 import axios, { AxiosResponse } from "axios";
 import fs from "fs";
-import { TrasnportData } from "./models";
+import { TrasnportData } from "./models/transport_data.model";
 import { Biblia } from "./models/biblia.model";
 
 export class DonwloadData {
