@@ -144,6 +144,20 @@ class Bible extends GeneralDownload {
     return { versiculos: transpor_data };
   }
 
+  get_next_page(document: Document) {
+    const a_elemnt = Array.from(document.querySelectorAll("a")).reverse();
+    if (!a_elemnt) return null;
+
+    let url = a_elemnt[0].href;
+
+    let ruta = this.get_download_data().url_to_donwload.split("/");
+    ruta.pop();
+    ruta.push(url);
+    url = ruta.join("/");
+
+    return url;
+  }
+
   ejecutar_proceso(
     pagina_actual: string | null = null,
     pagina_anterior: string | null = null
@@ -267,4 +281,4 @@ class Bible extends GeneralDownload {
   // generar_indice(require('./documentos/biblia_en_puntos.json'))
 }
 
-new Bible().execute_download();
+new Bible().donwload();

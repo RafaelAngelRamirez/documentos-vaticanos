@@ -7,7 +7,7 @@ class Service {
     }
   }
 
-  init_banner(msg: string) {
+  init_banner(msg: string = "Docuementos vaticanos") {
     console.log("+++++++++++++++++++++++++++++++++++++++++++++++");
     console.log(msg);
     console.log("+++++++++++++++++++++++++++++++++++++++++++++++");

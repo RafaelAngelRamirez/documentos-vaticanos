@@ -45,20 +45,8 @@ export class GeneralDownload {
     });
   }
 
-  get_next_page(document: Document) {
-    const a_elemnt = Array.from(document.querySelectorAll("a")).reverse();
+  
 
-    if (!a_elemnt) return null;
-
-    let url = a_elemnt[0].href;
-
-    let ruta = this.get_download_data().url_to_donwload.split("/");
-    ruta.pop();
-    ruta.push(url);
-    url = ruta.join("/");
-
-    return url;
-  }
 
   _clean_special_characters(texto: string) {
     let procesado = texto;
