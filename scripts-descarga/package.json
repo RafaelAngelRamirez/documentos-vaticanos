@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "catecismo": "node descargar_catecismo.js && npm run copiar",
-    "biblia": "npx ts-node descargar_biblia.ts && npm run copiar",
+    "biblia": "npx ts-node-dev --transpile-only --project tsconfig.json descargar_biblia.ts && npm run copiar",
     "copiar": "cp -r documentos/* ../frontend/src/assets/documentos",
     "dev-biblia": "nodemon descargar_biblia.js"
   },
