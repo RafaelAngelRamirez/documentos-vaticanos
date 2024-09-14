@@ -34,30 +34,29 @@ export class Catechism extends GeneralDownload {
   execute_download(data: DonwloadData): void {
     this.log("[ + ] Preparando descarga del Catecismo");
 
-    const indice = this.get_download_data().url_to_donwload + "/indice_sp.htm";
+    const indice = this.get_download_data().url_to_donwload + "/index_sp.html";
 
     // Nos conectamos al indice para empezar todo el merequetengue
     this.log(`[i] Indice: ${indice}`);
 
-    let urls: string[] = [];
-    let urlsRegistro: string[] = [];
     this.fetch_page(indice)
       .then((r) => {
-        urlsRegistro = this.obtenerIndice(r).filter((x) => x !== undefined);
+        this.urlsRegistro = this.obtenerIndice(r).filter((x) => x !== undefined);
+        this.urls = JSON.parse(JSON.stringify(this.urlsRegistro)) as string[];
         this.log(
-          `[ + ] ${urlsRegistro.length} entradas del indice para procesarse.`
+          `[ + ] ${this.urlsRegistro.length} entradas del indice para procesarse.`
         );
-        this.cli_progress_bar.start(urls.length, 0);
-        this.obtenerPuntos(urls.shift());
+        this.cli_progress_bar.start(this.urls.length, 0);
+        this.obtenerPuntos(this.urls.shift());
       })
       .catch((_) => this.log(["[ERROR]=>", _]));
   }
 
-  obtenerIndice(res_doc_html: unknown) {
+  obtenerIndice(res_doc_html: {data: string, url:string}) {
     this.log("[ + ] Procesando indice: ");
 
     // Convertimos el texto en html
-    const { document } = require("linkedom").parseHTML(res_doc_html);
+    const { document } = require("linkedom").parseHTML(res_doc_html.data);
     // Buscamos unicamente las url que es lo que nos intersa.
     const todasLasUrl = document.querySelectorAll("a") as HTMLAnchorElement[];
     const urlArreglo = Array.from(todasLasUrl);
