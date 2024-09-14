@@ -36,20 +36,7 @@ const totalDePuntos = 2865;
 // Cache del documento limpio
 const documento = [];
 
-/**
- *Obtiene la pagina que se le pase como url.
- *
- * @param {*} url
- * @returns
- */
-function obtener_pagina(url) {
-  return new Promise((resolve, reject) => {
-    axios
-      .get(url)
-      .then((respuesta) => resolve(respuesta.data))
-      .catch((_) => reject(_));
-  });
-}
+
 
 // Nos conectamos al indice para empezar todo el merequetengue
 console.log(`[i] Indice: ${indice}`);
@@ -67,7 +54,7 @@ obtener_pagina(indice)
   })
   .catch((_) => console.log("[ERROR]=>", _));
 
-function obtenerIndice(res_doc_html) {
+function obtenerIndice(res_doc_html: unknown) {
   console.log("[ + ] Procesando indice: ");
 
   // Convertimos el texto en html
@@ -102,7 +89,7 @@ function obtenerIndice(res_doc_html) {
  */
 
 let contador = 0;
-function obtenerPuntos(url) {
+function obtenerPuntos(url: undefined) {
   contador++;
   cli_progress_bar.update(contador, {
     fileName: `Por procesar: ${urlsRegistro.length - contador} , URL: ${url}`,
@@ -115,7 +102,7 @@ function obtenerPuntos(url) {
       const etiquetas = buscarEtiquetaObjetivo(htmlString)
         // Limpiamos y reorganizamos
 
-        .map((x) => {
+        .map((x: { innerText: any; }) => {
           let consecutivo = obtenerConsecutivo(x);
           let contenido = x.innerText;
 
@@ -132,12 +119,12 @@ function obtenerPuntos(url) {
     .catch((_) => console.log(_));
 }
 
-function buscarEtiquetaObjetivo(htmlString) {
+function buscarEtiquetaObjetivo(htmlString: unknown) {
   const { document } = require("linkedom").parseHTML(htmlString);
   return document.querySelectorAll("p");
 }
 
-function obtenerConsecutivo(etiqueta) {
+function obtenerConsecutivo(etiqueta: { querySelector: (arg0: string) => { (): any; new(): any; innerText: any; }; }) {
   //Los consecutivos son los puntos con los que se documenta
   // el texto y por tanto debe ser un digito
   let consecutivo = etiqueta.querySelector("b")?.innerText;
@@ -145,10 +132,10 @@ function obtenerConsecutivo(etiqueta) {
   return consecutivo;
 }
 
-function obtenerDiferenciaDePuntos(doc) {
+function obtenerDiferenciaDePuntos(doc: any[]) {
   const soloPuntosExistentes = doc
-    .map((x) => x.consecutivo * 1)
-    .sort((a, b) => a - b);
+    .map((x: { consecutivo: number; }) => x.consecutivo * 1)
+    .sort((a: number, b: number) => a - b);
   const masAlto = soloPuntosExistentes[soloPuntosExistentes.length - 1];
 
   let contador = 1;
@@ -168,7 +155,7 @@ function obtenerDiferenciaDePuntos(doc) {
   return { total, masAlto, totalDePuntos, puntosInexistentes };
 }
 
-function escribir_fichero_principal_e_indice(datos) {
+function escribir_fichero_principal_e_indice(datos: { documento: any; dir: any; nombre_fichero_final: any; indice: any; }) {
   const nombre_documento = `${datos.dir}/${datos.nombre_fichero_final}.json`;
   const nombre_indice = `${datos.dir}/${datos.nombre_fichero_final}.index.json`;
 
@@ -177,14 +164,14 @@ function escribir_fichero_principal_e_indice(datos) {
   console.log(`[ i ] ${datos.nombre_fichero_final} guardado`);
 }
 
-function separarReferencias(doc) {
+function separarReferencias(doc: any[]) {
   const regex = /\((.*?)\)/gm;
-  return doc.map((x) => {
+  return doc.map((x: { referencias: { descripcion: any; }[]; contenido: string; }) => {
     // Definimos el objeto referencias
     x.referencias = [];
 
     // Obtenemos todas las posibles referencias ()
-    let m;
+    let m: any[] | null;
 
     do {
       m = regex.exec(x.contenido);
@@ -198,14 +185,14 @@ function separarReferencias(doc) {
     let contador = 0;
     x.contenido = x.contenido.replace(
       /\(.*?\)/gm,
-      (fullmatch, n) => `( [+[${contador++}]+] )`
+      (fullmatch: any, n: any) => `( [+[${contador++}]+] )`
     );
 
     return x;
   });
 }
 
-function terminar(doc) {
+function terminar(doc: never[]) {
   let docLimpio = separarReferencias(doc);
 
   cli_progress_bar.stop();
@@ -241,7 +228,7 @@ function terminar(doc) {
 
   ficheros = [nombre_fichero_final, nombre_fichero_final + ".index"];
 
-  ficheros.forEach((fichero) => {
+  ficheros.forEach((fichero: any) => {
     fs.rmSync(`${ruta_front}/${fichero}.json`, {
       force: true,
     });
