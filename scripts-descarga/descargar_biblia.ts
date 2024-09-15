@@ -6,6 +6,7 @@ import { BibleBook, TrasnportData } from "./models/transport_data.model";
 import { AxiosResponse, ResponseType } from "axios";
 import { AbreviacionesBiblia } from "./models/abreviaciones_biblia.model";
 import { GenerarPuntoBiblia } from "./models/punto-versiculo.model";
+import { Biblia, Versiculo } from "./models/biblia.model";
 
 class Bible extends GeneralDownload {
   get_download_data(): DonwloadData {
@@ -202,7 +203,7 @@ class Bible extends GeneralDownload {
             JSON.stringify(this.document_processed, null, 4),
             "utf-8"
           );
-          this.generar_estructura_tipo_puntos();
+          this.generar_estructura_tipo_puntos(this.document_processed);
         } else this.ejecutar_proceso(siguiente_pagina, pagina_actual);
       })
       .catch((_) => this.general_service.log(["[ERROR]=>", _]));
@@ -233,10 +234,8 @@ class Bible extends GeneralDownload {
 
   // ejecutar_proceso(pagina_actual, pagina_anterior);
 
-  generar_estructura_tipo_puntos() {
+  generar_estructura_tipo_puntos(BIBLIA: Biblia) {
     const NOMBRE_DOCUMENTO = this.get_download_data().document_name;
-    const DIR = this.get_download_data().local_directory;
-    const BIBLIA = require(`./documentos/${NOMBRE_DOCUMENTO}.json`);
     const ABREVIATURAS =
       require(`./models/data/abreviaciones_${NOMBRE_DOCUMENTO}.json`) as AbreviacionesBiblia[];
     const puntos: TrasnportData[] = [];
@@ -258,7 +257,7 @@ class Bible extends GeneralDownload {
               k_libro,
               k_libro_abr: abr?.abreviacion ?? "",
               k_capitulo,
-              versiculo,
+              versiculo: versiculo as Versiculo,
               index_general: index_general + "",
             });
             punto.index_array = index_general;
@@ -272,8 +271,9 @@ class Bible extends GeneralDownload {
 
     this.escribir_fichero({
       documento: puntos,
-      nombre_fichero_final: `${DIR}/${NOMBRE_DOCUMENTO}_en_puntos.json`,
+      nombre_fichero_final: `${NOMBRE_DOCUMENTO}_en_puntos.json`,
     });
+
     this.generar_indice(puntos);
   }
 }
