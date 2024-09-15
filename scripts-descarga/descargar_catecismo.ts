@@ -196,15 +196,10 @@ export class Catechism extends GeneralDownload {
 
   terminar(doc: CatechismArquetype[]) {
     let docLimpio = this.separarReferencias(doc);
-
     this.cli_progress_bar.stop();
-
     this.log("[ + ] Escribiendo documentos");
-    const data = this.get_download_data();
-    this.escribir_fichero({
-      documento: docLimpio,
-      nombre_fichero_final: data.file_name,
-    });
+    this.escribir_fichero(docLimpio);
+    this.generar_indice(docLimpio);
   }
 }
 

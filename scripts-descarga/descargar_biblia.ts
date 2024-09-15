@@ -198,11 +198,8 @@ class Bible extends GeneralDownload {
 
         const siguiente_pagina = this.get_next_page(document);
         if (siguiente_pagina === pagina_anterior) {
-          fs.writeFileSync(
-            "documentos/biblia.json",
-            JSON.stringify(this.document_processed, null, 4),
-            "utf-8"
-          );
+          // Creates original structure.  
+          this.escribir_fichero(this.document_processed as any, false, 'original_structure');
           this.generar_estructura_tipo_puntos(this.document_processed);
         } else this.ejecutar_proceso(siguiente_pagina, pagina_actual);
       })
@@ -269,11 +266,7 @@ class Bible extends GeneralDownload {
       }
     }
 
-    this.escribir_fichero({
-      documento: puntos,
-      nombre_fichero_final: `${NOMBRE_DOCUMENTO}_en_puntos.json`,
-    });
-
+    this.escribir_fichero(puntos);
     this.generar_indice(puntos);
   }
 }

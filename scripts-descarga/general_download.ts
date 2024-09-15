@@ -161,7 +161,7 @@ export class GeneralDownload {
 
     // No queremos nulos.
 
-    type keyi = keyof typeof indice
+    type keyi = keyof typeof indice;
     for (const key_indice in indice) {
       const sub_indice = indice[key_indice as keyi];
 
@@ -180,28 +180,23 @@ export class GeneralDownload {
       }
     }
 
-    fs.writeFileSync(
-      `${this.get_download_data().local_directory}/${
-        this.get_download_data().local_directory
-      }.index.json`,
-      JSON.stringify(indice),
-      "utf-8"
-    );
+    this.escribir_fichero(indice.indice, true);
   }
 
-  escribir_fichero(datos: {
-    documento: TrasnportData[];
-    nombre_fichero_final: any;
-  }) {
-    const nombre_documento = `documentos/${
-      this.get_download_data().file_name
-    }.json`;
+  escribir_fichero(
+    documento: TrasnportData[] | any[],
+    is_index = false,
+    special_name = "",
+    file_format = "json"
+  ) {
+    const file_name = this.get_download_data().file_name;
+    const index_name = is_index ? ".index" : "";
+    const special_name_final = special_name ? `.${special_name}` : "";
+    const all_name = `${file_name}${index_name}${special_name_final}.${file_format}`;
 
-    fs.writeFileSync(
-      nombre_documento,
-      JSON.stringify(datos.documento),
-      "utf-8"
-    );
+    const nombre_documento = `documentos/${all_name}`;
+
+    fs.writeFileSync(nombre_documento, JSON.stringify(documento), "utf-8");
   }
 
   /********************************************
