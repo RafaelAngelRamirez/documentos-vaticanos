@@ -7,6 +7,8 @@ import { TermsProcessed } from '../../buscador/buscador.service';
 import { UtilidadesService } from 'src/app/services/utilidades.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { environment } from 'src/environments/environment';
+import { AuthService } from 'src/app/core/auth/auth.service';
+import { ReferencesService } from 'src/app/core/account/references.service';
 
 /** Placeholder pattern produced by the scraper: `[+[0]+]`, `[+[1]+]`, … */
 const REF_PLACEHOLDER = /\[\+\[(\d+)\]\+\]/g;
@@ -38,6 +40,12 @@ export class PuntoComponent implements OnInit {
   /** Rendered content pieces (escaped text + ref links). */
   segments: ContentSegment[] = [];
 
+  /** Optional corpus document id for ★ save (set by lector). */
+  @Input() documentId: string | undefined;
+
+  saveMsg: string | null = null;
+  saveError: string | null = null;
+
   public get infoPunto(): ArticleInfo {
     return this._infoPunto;
   }
@@ -50,7 +58,9 @@ export class PuntoComponent implements OnInit {
 
   constructor(
     private utilidadesService: UtilidadesService,
-    private navigationService: NavigationService
+    private navigationService: NavigationService,
+    public auth: AuthService,
+    private references: ReferencesService
   ) {}
 
   ngOnInit(): void {}
@@ -283,6 +293,50 @@ export class PuntoComponent implements OnInit {
     event.preventDefault();
     event.stopPropagation();
     this.ver_raw = !this.ver_raw;
+  }
+
+  get canSave(): boolean {
+    return (
+      this.auth.isLoggedIn &&
+      Boolean(environment.apiBaseUrl) &&
+      Boolean(this.documentId) &&
+      this.infoPunto?.article != null
+    );
+  }
+
+  saveReference(event: Event): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.saveMsg = null;
+    this.saveError = null;
+    if (!this.canSave || !this.documentId) {
+      this.saveError = this.auth.isLoggedIn
+        ? 'No se puede guardar (falta documentId o API)'
+        : 'Inicia sesión en Cuenta para guardar';
+      return;
+    }
+    const a = this.infoPunto.article;
+    const label =
+      a.biblia?.consecutivo_versiculo ||
+      (a.consecutivo && a.consecutivo !== 'no-encontrado'
+        ? String(a.consecutivo)
+        : undefined);
+    this.references
+      .save({
+        documentId: this.documentId,
+        unitIndex: a.index_array ?? 0,
+        unitLabel: label,
+      })
+      .subscribe({
+        next: () => {
+          this.saveMsg = 'Guardada';
+          setTimeout(() => (this.saveMsg = null), 2000);
+        },
+        error: (err) => {
+          this.saveError =
+            err?.error?.error || err?.message || 'Error al guardar';
+        },
+      });
   }
 }
 

@@ -5,7 +5,10 @@ import { ROUTE } from '../services/navigation.service';
 import { InicioComponent } from './inicio/inicio.component';
 import { ListDocumentsPagesComponent } from './list-documents-pages/list-documents-pages.component';
 import { AboutComponent } from './about/about.component';
-LectorComponent;
+import { CuentaComponent } from './cuenta/cuenta.component';
+import { MisReferenciasComponent } from './mis-referencias/mis-referencias.component';
+import { MisTemasComponent } from './mis-temas/mis-temas.component';
+import { TemaDetalleComponent } from './tema-detalle/tema-detalle.component';
 
 const routes: Routes = [
   {
@@ -19,6 +22,22 @@ const routes: Routes = [
   {
     path: ROUTE.list_documents,
     component: ListDocumentsPagesComponent,
+  },
+  {
+    path: 'cuenta',
+    component: CuentaComponent,
+  },
+  {
+    path: 'cuenta/referencias',
+    component: MisReferenciasComponent,
+  },
+  {
+    path: 'cuenta/temas',
+    component: MisTemasComponent,
+  },
+  {
+    path: 'cuenta/temas/:id',
+    component: TemaDetalleComponent,
   },
   {
     path: `${ROUTE.leyendo}/:documento`,

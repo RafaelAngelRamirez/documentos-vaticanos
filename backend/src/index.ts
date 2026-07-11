@@ -8,12 +8,15 @@ import { authRouter } from './routes/auth';
 import { meRouter } from './routes/me';
 import { healthRouter } from './routes/health';
 import { uploadsRouter } from './routes/uploads';
+import { referencesRouter } from './routes/references';
+import { themesRouter } from './routes/themes';
 
 const app = express();
 
 app.use(
   cors({
-    origin: config.corsOrigin,
+    origin:
+      config.corsOrigin.length === 1 ? config.corsOrigin[0] : config.corsOrigin,
     credentials: true,
   }),
 );
@@ -28,6 +31,8 @@ const api = express.Router();
 api.use(healthRouter);
 api.use(authRouter);
 api.use(meRouter);
+api.use(referencesRouter);
+api.use(themesRouter);
 api.use(uploadsRouter);
 
 app.use('/api/v1', api);

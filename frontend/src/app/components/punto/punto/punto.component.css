@@ -34,6 +34,38 @@ p.punto-contenido {
   hyphens: auto;
 }
 
+.punto-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.punto-save-btn {
+  padding: 0 0.35rem;
+  font-size: 1rem;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--reader-link, #1a5f7a);
+}
+
+.punto-save-msg {
+  font-size: 0.7rem;
+  color: #2e7d32;
+}
+
+.punto-save-err {
+  font-size: 0.7rem;
+  color: #c62828;
+  max-width: 10rem;
+}
+
+.punto-bible-label {
+  font-weight: 500;
+  margin-left: 0.35rem;
+  opacity: 0.85;
+}
+
 .punto-raw-toggle {
   padding: 0 0.25rem;
   line-height: 1;

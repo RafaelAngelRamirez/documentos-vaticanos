@@ -1,0 +1,100 @@
+<div class="cuenta container py-4" style="max-width: 520px">
+  <h1 class="h3 mb-3">Cuenta</h1>
+
+  <div *ngIf="!apiEnabled" class="alert alert-warning">
+    API no configurada (<code>apiBaseUrl</code>). El lector offline sigue
+    disponible.
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <ng-container *ngIf="auth.user as user; else loginTpl">
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex align-items-center gap-3">
+          <img
+            *ngIf="user.pictureUrl"
+            [src]="user.pictureUrl"
+            alt=""
+            width="48"
+            height="48"
+            class="rounded-circle"
+          />
+          <div>
+            <div class="fw-semibold">{{ user.name }}</div>
+            <div class="text-muted small">{{ user.email }}</div>
+            <span class="badge bg-secondary">{{ user.role }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-grid gap-2 mb-3">
+      <button type="button" class="btn btn-outline-primary" (click)="goRefs()">
+        Mis referencias
+      </button>
+      <button type="button" class="btn btn-outline-primary" (click)="goThemes()">
+        Mis temas
+      </button>
+      <button
+        *ngIf="user.role !== 'teacher'"
+        type="button"
+        class="btn btn-outline-secondary"
+        [disabled]="loading"
+        (click)="upgrade()"
+      >
+        Convertirme en maestro
+      </button>
+      <button type="button" class="btn btn-link text-danger" (click)="logout()">
+        Cerrar sesión
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-template #loginTpl>
+    <p class="text-muted">
+      Inicia sesión para guardar referencias y crear temas de estudio. El
+      corpus se puede leer sin cuenta.
+    </p>
+
+    <div *ngIf="devAuth && apiEnabled" class="card mb-3">
+      <div class="card-body">
+        <h2 class="h6">Login dev (local)</h2>
+        <form [formGroup]="form" (ngSubmit)="loginDev()" class="d-grid gap-2">
+          <input
+            class="form-control"
+            type="email"
+            formControlName="email"
+            placeholder="email"
+          />
+          <input
+            class="form-control"
+            type="text"
+            formControlName="name"
+            placeholder="nombre"
+          />
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="loading || form.invalid"
+          >
+            Entrar (dev)
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="btn btn-outline-dark w-100"
+      [disabled]="!apiEnabled"
+      (click)="loginGoogleHint()"
+    >
+      Continuar con Google
+    </button>
+    <p class="small text-muted mt-2">
+      Google Auth: configura <code>googleClientId</code> en environment y
+      credenciales OAuth (web/Android).
+    </p>
+  </ng-template>
+</div>

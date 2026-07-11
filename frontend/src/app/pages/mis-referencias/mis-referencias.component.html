@@ -1,0 +1,37 @@
+<div class="container py-4" style="max-width: 720px">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0">Mis referencias</h1>
+    <a routerLink="/cuenta" class="btn btn-sm btn-link">← Cuenta</a>
+  </div>
+
+  <div *ngIf="loading" class="text-muted">Cargando…</div>
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div *ngIf="!loading && !items.length" class="text-muted">
+    Aún no tienes referencias. Abre un documento y usa ★ Guardar.
+  </div>
+
+  <ul class="list-group">
+    <li
+      *ngFor="let item of items"
+      class="list-group-item d-flex justify-content-between align-items-start gap-2"
+    >
+      <div class="flex-grow-1" style="cursor: pointer" (click)="open(item)">
+        <div class="fw-semibold">
+          {{ item.unitLabel || item.documentId + ' #' + item.unitIndex }}
+        </div>
+        <div class="small text-muted">
+          {{ item.documentId }} · índice {{ item.unitIndex }}
+        </div>
+        <div *ngIf="item.note" class="small mt-1">{{ item.note }}</div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-danger"
+        (click)="remove(item)"
+      >
+        Quitar
+      </button>
+    </li>
+  </ul>
+</div>

@@ -98,6 +98,7 @@
         <app-punto
           *ngFor="let article of actual_articles"
           [infoPunto]="article"
+          [documentId]="document?.id || navigationService.document_id || undefined"
         ></app-punto>
       </div>
 

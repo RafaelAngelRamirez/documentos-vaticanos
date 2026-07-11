@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { BuscadorService } from '../buscador/buscador.service';
 import { Subscription, debounceTime } from 'rxjs';
 import { NavigationService } from 'src/app/services/navigation.service';
@@ -9,6 +10,7 @@ import {
   ReaderPreferencesService,
 } from 'src/app/services/reader-preferences.service';
 import { environment } from 'src/environments/environment';
+import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Component({
   standalone: true,
@@ -36,7 +38,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(
     private buscadorService: BuscadorService,
     public navigationService: NavigationService,
-    private readerPrefs: ReaderPreferencesService
+    private readerPrefs: ReaderPreferencesService,
+    public auth: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -66,6 +70,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   navigate_to_about() {
     this.navigationService.go_to_about();
+  }
+
+  navigate_to_account(): void {
+    this.router.navigate(['/cuenta']);
   }
 
   cycleTheme(): void {

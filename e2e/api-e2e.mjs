@@ -67,6 +67,77 @@ async function main() {
     assert(role === 'teacher', `role teacher got ${role}`);
   }
 
+  // personal reference
+  {
+    const r = await fetch(`${API}/api/v1/me/references`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${globalThis.__token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        documentId: 'cic-es',
+        unitIndex: 100,
+        unitLabel: 'CIC test',
+      }),
+    });
+    assert(r.ok, `ref create ${r.status}`);
+    const j = await r.json();
+    assert(j.item?.id, 'ref id');
+    globalThis.__refId = j.item.id;
+  }
+
+  {
+    const r = await fetch(`${API}/api/v1/me/references`, {
+      headers: { Authorization: `Bearer ${globalThis.__token}` },
+    });
+    assert(r.ok, `ref list ${r.status}`);
+    const j = await r.json();
+    assert(Array.isArray(j.items) && j.items.length >= 1, 'ref list non-empty');
+  }
+
+  // theme
+  {
+    const r = await fetch(`${API}/api/v1/me/themes`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${globalThis.__token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ title: 'Tema e2e', description: 'test' }),
+    });
+    assert(r.ok, `theme create ${r.status}`);
+    const j = await r.json();
+    assert(j.item?.id, 'theme id');
+    globalThis.__themeId = j.item.id;
+  }
+
+  {
+    const r = await fetch(
+      `${API}/api/v1/me/themes/${globalThis.__themeId}/steps`,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${globalThis.__token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          steps: [
+            {
+              documentId: 'cic-es',
+              unitIndex: 100,
+              unitLabel: 'CIC test',
+              userComment: 'nota',
+            },
+          ],
+        }),
+      }
+    );
+    assert(r.ok, `theme steps ${r.status}`);
+    const j = await r.json();
+    assert(j.item?.steps?.length === 1, 'theme has 1 step');
+  }
+
   console.log('=== api e2e DONE ===');
 }
 

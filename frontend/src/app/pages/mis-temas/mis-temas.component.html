@@ -1,0 +1,55 @@
+<div class="container py-4" style="max-width: 720px">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0">Mis temas</h1>
+    <a routerLink="/cuenta" class="btn btn-sm btn-link">← Cuenta</a>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <form [formGroup]="form" (ngSubmit)="create()" class="card card-body mb-4">
+    <h2 class="h6">Nuevo tema</h2>
+    <input
+      class="form-control mb-2"
+      formControlName="title"
+      placeholder="Título del tema"
+    />
+    <textarea
+      class="form-control mb-2"
+      formControlName="description"
+      rows="2"
+      placeholder="Descripción (opcional)"
+    ></textarea>
+    <button class="btn btn-primary" type="submit" [disabled]="form.invalid">
+      Crear
+    </button>
+  </form>
+
+  <div *ngIf="loading" class="text-muted">Cargando…</div>
+
+  <div *ngIf="!loading && !items.length" class="text-muted">
+    Crea un tema y añade pasos desde el lector o el editor.
+  </div>
+
+  <ul class="list-group">
+    <li
+      *ngFor="let t of items"
+      class="list-group-item list-group-item-action d-flex justify-content-between"
+      (click)="open(t)"
+      style="cursor: pointer"
+    >
+      <div>
+        <div class="fw-semibold">{{ t.title }}</div>
+        <div class="small text-muted">
+          {{ t.steps?.length || 0 }} pasos · {{ t.visibility }}
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-danger"
+        (click)="remove(t, $event)"
+      >
+        Borrar
+      </button>
+    </li>
+  </ul>
+</div>
