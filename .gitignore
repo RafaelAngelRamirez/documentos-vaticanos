@@ -45,3 +45,7 @@ testem.log
 .DS_Store
 Thumbs.db
 .vscode
+# Built APK artifacts
+*.apk
+frontend/android/local.properties
+
