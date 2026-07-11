@@ -285,12 +285,6 @@ export class PuntoComponent implements OnInit {
     });
   }
 
-  toggleRaw(event: Event): void {
-    event.preventDefault();
-    event.stopPropagation();
-    this.ver_raw = !this.ver_raw;
-  }
-
   get canSave(): boolean {
     return (
       this.auth.isLoggedIn &&
