@@ -1,13 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { BuscadorService } from 'src/app/components/buscador/buscador.service';
 import {
   CargarDocumentosJsonService,
   IndiceDocumentos,
 } from 'src/app/services/cargar-documentos-json.service';
 import { NavigationService, ROUTE } from 'src/app/services/navigation.service';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
+import {
+  catalogDisplayFor,
+  catalogMetaLine,
+} from 'src/app/core/corpus/catalog.display';
 
 @Component({
   selector: 'app-list-documents-pages',
@@ -15,18 +18,17 @@ import { CorpusService } from 'src/app/core/corpus/corpus.service';
   styleUrls: ['./list-documents-pages.component.css'],
 })
 export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
+  query = '';
+  loading = false;
+  load_error: string | null = null;
+  private sub = new Subscription();
+
   constructor(
-    public buscadorService: BuscadorService,
     public docService: CargarDocumentosJsonService,
     public navigationService: NavigationService,
     private router: Router,
     private corpus: CorpusService
   ) {}
-
-  keys = Object.keys;
-  loading = false;
-  load_error: string | null = null;
-  private sub = new Subscription();
 
   ngOnInit(): void {
     this.loading = true;
@@ -50,6 +52,31 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  get filtered(): IndiceDocumentos[] {
+    const all = this.docService.documentos_disponibles || [];
+    const q = this.query.trim().toLowerCase();
+    if (!q) return all;
+    return all.filter((item) => {
+      const title = this.displayTitle(item).toLowerCase();
+      const meta = this.metaLine(item).toLowerCase();
+      const short = (item.shortTitle || '').toLowerCase();
+      return title.includes(q) || meta.includes(q) || short.includes(q);
+    });
+  }
+
+  get sinResultados(): boolean {
+    return (
+      !this.loading &&
+      !this.load_error &&
+      (this.docService.documentos_disponibles?.length || 0) > 0 &&
+      this.filtered.length === 0
+    );
+  }
+
+  onQuery(ev: Event): void {
+    this.query = (ev.target as HTMLInputElement).value;
+  }
+
   displayTitle(item: IndiceDocumentos): string {
     return (
       item.title ||
@@ -60,12 +87,10 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
     );
   }
 
-  shortLabel(item: IndiceDocumentos): string | null {
-    const short =
-      item.shortTitle || this.corpus.getMeta(item.id || '')?.shortTitle;
-    const full = this.displayTitle(item);
-    if (!short || short === full) return null;
-    return short;
+  metaLine(item: IndiceDocumentos): string {
+    const meta = this.corpus.getMeta(item.id || '');
+    const display = catalogDisplayFor(item.id, meta?.kind);
+    return catalogMetaLine(display);
   }
 
   localeLabel(item: IndiceDocumentos): string {
@@ -76,6 +101,18 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
 
   sourceUrl(item: IndiceDocumentos): string | null {
     return item.sourceUrl || this.corpus.getMeta(item.id || '')?.sourceUrl || null;
+  }
+
+  goHome(): void {
+    this.navigationService.go_to_search();
+  }
+
+  goFullTextSearch(): void {
+    this.router.navigate(['/buscar']);
+  }
+
+  goAccount(): void {
+    this.router.navigate(['/cuenta']);
   }
 
   read(item: IndiceDocumentos) {

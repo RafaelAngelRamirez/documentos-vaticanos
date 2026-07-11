@@ -12,6 +12,7 @@ import { TemaDetalleComponent } from './tema-detalle/tema-detalle.component';
 import { EstudiosComponent } from './estudios/estudios.component';
 import { EstudioDetalleComponent } from './estudio-detalle/estudio-detalle.component';
 import { EstudioEditarComponent } from './estudio-editar/estudio-editar.component';
+import { BuscarComponent } from './buscar/buscar.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: ROUTE.list_documents,
     component: ListDocumentsPagesComponent,
+  },
+  {
+    path: 'buscar',
+    component: BuscarComponent,
   },
   {
     path: 'cuenta',

@@ -1,20 +1,17 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { BuscadorService } from '../buscador/buscador.service';
-import { Subscription, debounceTime } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { NavigationService } from 'src/app/services/navigation.service';
 import {
   ReaderPreferences,
   ReaderPreferencesService,
 } from 'src/app/services/reader-preferences.service';
-import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Component({
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [CommonModule],
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
@@ -22,27 +19,15 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 export class NavbarComponent implements OnInit, OnDestroy {
   menuOpen = false;
 
-  navigate_to_beginning() {
-    this.navigationService.go_to_search();
-  }
-  control_buscador = new FormControl<string>('');
-
-  version = environment.version;
-
-  form = new FormGroup({
-    buscador: this.control_buscador,
-  });
-
   prefs: ReaderPreferences = this.readerPrefs.snapshot;
 
-  subscripciones: Subscription[] = [];
+  private sub = new Subscription();
 
   closeMenu(): void {
     this.menuOpen = false;
   }
 
   constructor(
-    private buscadorService: BuscadorService,
     public navigationService: NavigationService,
     private readerPrefs: ReaderPreferencesService,
     public auth: AuthService,
@@ -50,16 +35,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.buscadorService.global_control_search_input = this.control_buscador;
-    let s = this.control_buscador.valueChanges
-      .pipe(debounceTime(1000))
-      .subscribe((v) => {
-        this.buscadorService.buscar(v);
-        this.navigationService.go_to_search();
-      });
-    this.subscripciones.push(s);
-
-    this.subscripciones.push(
+    this.sub.add(
       this.readerPrefs.prefs$.subscribe((p) => {
         this.prefs = p;
       })
@@ -67,7 +43,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscripciones.forEach((s) => s.unsubscribe());
+    this.sub.unsubscribe();
+  }
+
+  navigate_to_beginning() {
+    this.navigationService.go_to_search();
   }
 
   navigate_to_documents() {

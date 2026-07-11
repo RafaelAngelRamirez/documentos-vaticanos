@@ -107,8 +107,13 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.navigationService.goBack();
   }
 
+  /** Design label "← Buscar" returns to the library (catalog), not home. */
+  goToLibrary(): void {
+    this.navigationService.go_to_documents();
+  }
+
   goToSearch(): void {
-    this.navigationService.go_to_search();
+    this.navigationService.go_to_documents();
   }
 
   togglePrefs(): void {

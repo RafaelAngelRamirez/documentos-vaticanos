@@ -1,8 +1,12 @@
-<app-navbar *ngIf="!isReaderRoute"></app-navbar>
+<!--
+  Design IA (lectura): Inicio | Biblioteca | Lector — sin navbar global.
+  Cuentas/estudios/about: chrome ligero de app (navbar).
+-->
+<app-navbar *ngIf="showAppChrome"></app-navbar>
 
 <div
-  [class.app-surface]="!isReaderRoute"
-  [class.reader-page]="isReaderRoute"
+  [class.reader-page]="isImmersiveRoute"
+  [class.app-surface]="!isImmersiveRoute && showAppChrome"
 >
   <router-outlet></router-outlet>
 </div>

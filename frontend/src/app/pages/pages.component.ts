@@ -10,8 +10,14 @@ import { ROUTE } from '../services/navigation.service';
   styleUrls: ['./pages.component.css'],
 })
 export class PagesComponent implements OnInit, OnDestroy {
-  /** True while the active route is the offline reader (`/leyendo/...`). */
-  isReaderRoute = false;
+  /**
+   * Immersive reading shell (matches design): home, library, full-text search, reader.
+   * No global navbar — each view owns its topbar.
+   */
+  isImmersiveRoute = false;
+
+  /** Secondary product chrome (cuenta, estudios, about). */
+  showAppChrome = false;
 
   private sub = new Subscription();
 
@@ -21,9 +27,7 @@ export class PagesComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // Ensure reader CSS vars are applied app-wide (navbar theme toggle too).
     this.readerPrefs.applyToDom();
-
     this.syncRoute(this.router.url);
     this.sub.add(
       this.router.events
@@ -43,14 +47,24 @@ export class PagesComponent implements OnInit, OnDestroy {
       path === `/${ROUTE.leyendo}` ||
       path.startsWith(`/${ROUTE.leyendo}/`) ||
       path.includes(`/${ROUTE.leyendo}/`);
-    this.isReaderRoute = isReader;
-    this.setReaderMode(isReader);
+
+    const isHome = path === `/${ROUTE.inicio}` || path === '/' || path === '';
+    const isLib =
+      path === `/${ROUTE.list_documents}` ||
+      path.startsWith(`/${ROUTE.list_documents}`);
+    const isFullTextSearch = path === '/buscar' || path.startsWith('/buscar/');
+
+    this.isImmersiveRoute = isReader || isHome || isLib || isFullTextSearch;
+    this.showAppChrome = !this.isImmersiveRoute;
+    this.setReaderMode(isReader || isHome || isLib || isFullTextSearch);
   }
 
   private setReaderMode(on: boolean): void {
     if (typeof document === 'undefined') {
       return;
     }
+    // Apply reading tokens / bg on immersive routes (sepia shell).
     document.body.classList.toggle('reader-mode', on);
+    document.body.classList.toggle('dv-immersive', on);
   }
 }

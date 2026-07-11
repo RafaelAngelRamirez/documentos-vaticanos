@@ -2,12 +2,44 @@
 
 Reglas obligatorias para agentes y contribuidores que toquen la app **web** (Angular en `frontend/`). Las vistas **Android / Capacitor** pueden seguir su chrome nativo; no forzar rediseño móvil nativo aquí.
 
+## 0. Arquitectura de pantallas (lectura) — obligatoria
+
+Fuente de verdad del **flujo y estructura**:
+
+- Handoff: `Aplicación Documentos Vaticanos-handoff.zip` → `project/Documentos Vaticanos.dc.html` / `export/app-src.html`
+- Pantallas de producto (cuenta/estudios): `Pantallas de Diseño.dc.html` / `export/pantallas-src.html`
+- Arquitectura: `project/ARQUITECTURA.md` (web + Capacitor)
+
+### Flujo de lectura (3 vistas)
+
+```
+Inicio (portada)  →  Biblioteca (catálogo)  →  Lector
+     ↑                    ↑                       │
+     └────────────────────┴── ← Buscar / ← Inicio ─┘
+```
+
+| Vista | Ruta | Chrome | Contenido |
+|-------|------|--------|-----------|
+| **Inicio** | `/inicio` | **Ninguno** (sin navbar) | Eyebrow + H1 + lede + `Abrir la biblioteca` + rule + footer de beneficios |
+| **Biblioteca** | `/documentos/listar` | Topbar `← Inicio \| Biblioteca` | Search “por título o autor…”, filas doc (título completo + tipo · autor · año + ›) |
+| **Lector** | `/leyendo/...` | Topbar `← Buscar \| título \| Aa` | Texto + panel preferencias |
+
+- **No** meter ejemplos de búsqueda ni buscador de texto en la portada (eso no está en el diseño).
+- **No** mostrar navbar Bootstrap multi-link en Inicio / Biblioteca / Lector.
+- Búsqueda full-text del corpus (términos/puntos) vive en **`/buscar`**, enlazada desde el pie de Biblioteca como “Buscar en el texto”.
+- Cuentas / estudios / about usan chrome ligero (`app-navbar`) y tokens del mismo sistema.
+
+### Textos de portada (no cambiar sin actualizar diseño)
+
+- Eyebrow: `Biblioteca de lectura`
+- Título: `Documentos Vaticanos`
+- Lede: *Los grandes textos del magisterio… para leer con calma.*
+- CTA: `Abrir la biblioteca`
+- Footer: `Lectura sin distracciones · Tamaño, tema y fuente ajustables · Funciona sin conexión`
+
 ## 1. Design system (web) — obligatorio
 
-Fuente de tokens: prototipos de diseño
-
-- `~/Descargas/Documentos Vaticanos (standalone).html`
-- `~/Descargas/Pantallas de Diseño (standalone).html`
+Fuente de tokens: prototipos de diseño (mismos archivos del handoff).
 
 Implementación en código:
 
@@ -39,12 +71,13 @@ Implementación en código:
 
 ### Reglas al crear un componente web nuevo
 
-1. **Usar solo tokens y clases del sistema** (o variables `--app-*` / `--reader-*`). Prohibido Bootstrap `btn-primary` azul, Material “pink”, o grises genéricos `#333` / `#f5f5f5` sin mapear a tokens.
-2. **Misma familia visual que el lector**: fondo de lectura, acento cálido, serif en texto largo, sans en chrome.
-3. **No mezclar estilos de producto distinto** (p. ej. cards Material con sombras fuertes) salvo wrapping mínimo.
-4. **Temas**: el componente debe verse bien en sepia, paper y night (probar con el toggle de tema).
-5. **Responsive web**: priorizar lectura y densidad de texto; el menú colapsable del navbar es el patrón de navegación.
-6. Si necesitas un patrón nuevo, **añádelo a `styles.css` + documentarlo aquí**, no como CSS aislado en un solo componente sin reutilizar.
+1. **Respetar la IA de §0** (qué pantalla es, qué chrome lleva). No reintroducir navbar global en el flujo de lectura.
+2. **Usar solo tokens y clases del sistema** (o variables `--app-*` / `--reader-*`). Prohibido Bootstrap `btn-primary` azul, Material “pink”, o grises genéricos `#333` / `#f5f5f5` sin mapear a tokens.
+3. **Misma familia visual que el lector**: fondo de lectura, acento cálido, serif en texto largo, sans en chrome.
+4. **Topbars de lectura**: patrón sticky 56px, `← back` + título centrado, sin hamburger en Biblioteca/Lector.
+5. **Temas**: el componente debe verse bien en sepia, paper y night.
+6. **Responsive web**: priorizar lectura; áreas táctiles ≥ 44px.
+7. Si necesitas un patrón nuevo, **añádelo a `styles.css` + documentarlo aquí**.
 
 ### Alcance
 

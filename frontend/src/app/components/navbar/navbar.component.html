@@ -1,7 +1,8 @@
-<nav class="app-nav" aria-label="Principal">
-  <div class="app-nav-inner">
+<!-- Chrome for secondary routes only (cuenta, estudios, about). Reading IA has no global nav. -->
+<nav class="dv-app-nav hair" aria-label="Principal">
+  <div class="dv-app-nav-inner">
     <a
-      class="app-nav-brand"
+      class="dv-app-brand"
       href="javascript:void(0)"
       (click)="navigate_to_beginning()"
       >Documentos Vaticanos</a
@@ -9,21 +10,17 @@
 
     <button
       type="button"
-      class="app-nav-toggle"
+      class="dv-app-toggle"
       (click)="menuOpen = !menuOpen"
       [attr.aria-expanded]="menuOpen"
-      aria-controls="app-nav-menu"
+      aria-controls="dv-app-menu"
       aria-label="Menú"
     >
-      <span aria-hidden="true">☰</span>
+      ☰
     </button>
 
-    <div
-      id="app-nav-menu"
-      class="app-nav-menu"
-      [class.is-open]="menuOpen"
-    >
-      <ul class="app-nav-links">
+    <div id="dv-app-menu" class="dv-app-menu" [class.is-open]="menuOpen">
+      <ul class="dv-app-links">
         <li>
           <a href="javascript:void(0)" (click)="navigate_to_beginning(); closeMenu()"
             >Inicio</a
@@ -31,7 +28,7 @@
         </li>
         <li>
           <a href="javascript:void(0)" (click)="navigate_to_documents(); closeMenu()"
-            >Documentos</a
+            >Biblioteca</a
           >
         </li>
         <li>
@@ -49,30 +46,19 @@
             >{{ auth.user ? auth.user.name || 'Cuenta' : 'Cuenta' }}</a
           >
         </li>
-        <li class="app-nav-version" aria-hidden="true">v{{ version }}</li>
       </ul>
-
-      <form [formGroup]="form" class="app-nav-search" (ngSubmit)="$event.preventDefault()">
-        <button
-          type="button"
-          class="app-btn app-btn-sm navbar-theme-btn"
-          (click)="cycleTheme()"
-          [title]="themeTitle()"
-          aria-label="Cambiar tema de lectura"
-        >
-          <span *ngIf="prefs.theme === 'night'">☾</span>
-          <span *ngIf="prefs.theme === 'sepia'">◐</span>
-          <span *ngIf="prefs.theme === 'paper'">☀</span>
-          <span *ngIf="prefs.theme === 'system'">◌</span>
-        </button>
-        <input
-          formControlName="buscador"
-          class="app-search-input app-nav-input"
-          type="search"
-          placeholder="Términos o puntos, separados por coma"
-          aria-label="Buscar"
-        />
-      </form>
+      <button
+        type="button"
+        class="app-btn app-btn-sm"
+        (click)="cycleTheme()"
+        [title]="themeTitle()"
+        aria-label="Cambiar tema"
+      >
+        <span *ngIf="prefs.theme === 'night'">☾</span>
+        <span *ngIf="prefs.theme === 'sepia'">◐</span>
+        <span *ngIf="prefs.theme === 'paper'">☀</span>
+        <span *ngIf="prefs.theme === 'system'">◌</span>
+      </button>
     </div>
   </div>
 </nav>

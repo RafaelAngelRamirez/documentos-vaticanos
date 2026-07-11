@@ -1,76 +1,18 @@
-<div class="app-home app-measure">
-  <ng-container *ngIf="first_view()">
-    <p class="app-eyebrow">Biblioteca de lectura</p>
-    <h1 class="app-title app-title-lg">Documentos Vaticanos</h1>
-    <p class="app-lede">
-      Los grandes textos del magisterio de la Iglesia — concilios, catecismo y
-      Escritura — reunidos para leer con calma, offline y con referencias
-      entre documentos.
-    </p>
-
-    <div class="home-actions">
-      <a
-        class="app-btn app-btn-primary"
-        href="javascript:void(0)"
-        role="button"
-        (click)="goDocuments()"
-      >
-        Abrir la biblioteca
-      </a>
-    </div>
-
-    <hr class="app-rule" />
-
-    <h2 class="home-section-title">Ejemplos de búsqueda</h2>
-    <p class="app-muted home-section-hint">
-      Escribe términos o puntos (con punto delante) separados por coma.
-    </p>
-
-    <ul class="home-examples">
-      <li>
-        <button type="button" class="app-btn" (click)="help_many_terms()">
-          Varios términos
-        </button>
-        <span class="example-meta">muerte, resurrección</span>
-      </li>
-      <li>
-        <button type="button" class="app-btn" (click)="help_many_dots()">
-          Varios puntos
-        </button>
-        <span class="example-meta">.100-105, .299-300</span>
-      </li>
-      <li>
-        <button type="button" class="app-btn" (click)="help_mixed_terms()">
-          Términos mezclados
-        </button>
-        <span class="example-meta">jesucristo, .100-105, .299-300</span>
-      </li>
-    </ul>
-  </ng-container>
-
-  <ng-container *ngIf="!first_view()">
-    <div class="terms-panel" *ngIf="buscadorService.terminos as t">
-      <h2>Expansión de la búsqueda</h2>
-      <p class="app-muted" style="margin: 0 0 0.5rem; font-size: 0.9rem">
-        Así se interpretó la consulta (términos y puntos del catecismo u otros
-        documentos).
-      </p>
-      <div class="terms-chips" *ngIf="t.terminos?.length">
-        <span class="chip-label">Términos</span>
-        <span class="chip" *ngFor="let w of t.terminos">{{ w }}</span>
-      </div>
-      <div class="terms-chips" *ngIf="t.puntos?.length">
-        <span class="chip-label">Puntos</span>
-        <span class="chip" *ngFor="let p of t.puntos">.{{ p }}</span>
-      </div>
-      <details class="terms-raw">
-        <summary>Ver JSON</summary>
-        <pre>{{ t | json }}</pre>
-      </details>
-    </div>
-  </ng-container>
-</div>
-
-<div class="app-measure search-wrap">
-  <app-buscador></app-buscador>
+<!-- Design: view "inicio" — portada sin chrome ni búsqueda -->
+<div class="dv-home">
+  <p class="dv-eyebrow">Biblioteca de lectura</p>
+  <h1 class="dv-h1">Documentos Vaticanos</h1>
+  <p class="dv-lede">
+    Los grandes textos del magisterio de la Iglesia — concilios, encíclicas,
+    exhortaciones y el Catecismo — reunidos en un solo lugar, para leer con
+    calma.
+  </p>
+  <button type="button" class="dv-btnacc" (click)="goDocuments()">
+    Abrir la biblioteca
+  </button>
+  <div class="dv-rule" aria-hidden="true"></div>
+  <p class="dv-homefoot">
+    Lectura sin distracciones · Tamaño, tema y fuente ajustables · Funciona sin
+    conexión
+  </p>
 </div>

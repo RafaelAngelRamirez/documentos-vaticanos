@@ -1,54 +1,62 @@
-<div class="app-measure lib-page">
-  <header class="lib-header">
-    <p class="app-eyebrow">Biblioteca</p>
-    <h1 class="app-title app-title-md">Documentos disponibles</h1>
-    <p class="app-lede" style="margin-left: 0; text-align: left">
-      Cada entrada muestra el nombre completo y un enlace a la fuente oficial
-      en el idioma del corpus.
-    </p>
+<!-- Design: view "biblioteca" -->
+<div class="dv-lib-page">
+  <header class="dv-topbar hair">
+    <button type="button" class="dv-back" (click)="goHome()">← Inicio</button>
+    <div class="dv-ttl">Biblioteca</div>
+    <div class="dv-topbar-spacer" aria-hidden="true"></div>
   </header>
 
-  <div *ngIf="loading" class="app-status" role="status">
-    Cargando listado de documentos…
-  </div>
+  <div class="dv-lib">
+    <input
+      class="dv-search"
+      type="search"
+      placeholder="Buscar por título o autor…"
+      [value]="query"
+      (input)="onQuery($event)"
+      aria-label="Buscar por título o autor"
+    />
 
-  <div *ngIf="load_error" class="app-status app-status-error" role="alert">
-    {{ load_error }}
-  </div>
-
-  <div class="lib-list" *ngIf="!loading && !load_error">
-    <div
-      *ngFor="let item of docService.documentos_disponibles"
-      class="app-doc-row lib-item"
-    >
-      <div class="lib-item-body">
-        <h2 class="app-doc-title">{{ displayTitle(item) }}</h2>
-        <div class="app-doc-meta">
-          <span *ngIf="shortLabel(item) as abbr" class="abbr-badge">{{
-            abbr
-          }}</span>
-          <span
-            >{{ keys(item.indice.indice).length | number }} palabras
-            indexadas</span
-          >
-          <a
-            *ngIf="sourceUrl(item) as href"
-            class="app-lang-link"
-            [href]="href"
-            target="_blank"
-            rel="noopener noreferrer"
-            (click)="$event.stopPropagation()"
-          >
-            {{ localeLabel(item) }} · fuente oficial
-          </a>
-          <span *ngIf="!sourceUrl(item)">{{ localeLabel(item) }}</span>
-        </div>
-        <div class="lib-actions">
-          <button type="button" class="app-btn app-btn-sm app-btn-primary" (click)="read(item)">
-            Leer desde el inicio
-          </button>
-        </div>
-      </div>
+    <div *ngIf="loading" class="dv-empty" role="status">Cargando documentos…</div>
+    <div *ngIf="load_error" class="dv-empty dv-error" role="alert">
+      {{ load_error }}
     </div>
+
+    <ng-container *ngIf="!loading && !load_error">
+      <button
+        type="button"
+        class="dv-docrow"
+        *ngFor="let item of filtered"
+        (click)="read(item)"
+      >
+        <div class="dv-docrow-body">
+          <div class="dv-dt">{{ displayTitle(item) }}</div>
+          <div class="dv-dm">
+            {{ metaLine(item) }}
+            <ng-container *ngIf="sourceUrl(item) as href">
+              ·
+              <a
+                class="dv-lang"
+                [href]="href"
+                target="_blank"
+                rel="noopener noreferrer"
+                (click)="$event.stopPropagation()"
+                >{{ localeLabel(item) }}</a
+              >
+            </ng-container>
+          </div>
+        </div>
+        <span class="dv-chev" aria-hidden="true">›</span>
+      </button>
+
+      <div *ngIf="sinResultados" class="dv-empty">
+        Ningún documento coincide con la búsqueda.
+      </div>
+
+      <p class="dv-lib-foot">
+        <a href="javascript:void(0)" (click)="goFullTextSearch()">Buscar en el texto</a>
+        de todos los documentos ·
+        <a href="javascript:void(0)" (click)="goAccount()">Cuenta</a>
+      </p>
+    </ng-container>
   </div>
 </div>
