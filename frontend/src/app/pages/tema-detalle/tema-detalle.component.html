@@ -8,6 +8,23 @@
   <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
   <div *ngIf="message" class="alert alert-success py-2">{{ message }}</div>
 
+  <div class="card card-body mb-3">
+    <h2 class="h6">Portada</h2>
+    <img
+      *ngIf="coverUrl() as src"
+      [src]="src"
+      alt=""
+      class="img-fluid rounded mb-2"
+      style="max-height: 160px; object-fit: cover; width: 100%"
+    />
+    <input
+      type="file"
+      accept="image/jpeg,image/png,image/webp"
+      (change)="onCover($event)"
+    />
+    <span *ngIf="uploading" class="small text-muted">Optimizando con sharp…</span>
+  </div>
+
   <h2 class="h6 mt-4">Pasos</h2>
   <ol class="list-group list-group-numbered mb-4">
     <li

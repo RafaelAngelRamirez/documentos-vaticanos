@@ -31,7 +31,7 @@ async function main() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        idToken: 'dev:e2e-user@example.com|E2E User',
+        idToken: 'dev:e2e-user@example.com:E2E User',
       }),
     });
     if (!r.ok) {
@@ -136,6 +136,82 @@ async function main() {
     assert(r.ok, `theme steps ${r.status}`);
     const j = await r.json();
     assert(j.item?.steps?.length === 1, 'theme has 1 step');
+  }
+
+  // study as teacher
+  {
+    const r = await fetch(`${API}/api/v1/studies`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${globalThis.__token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ title: 'Estudio e2e', description: 'demo' }),
+    });
+    assert(r.ok, `study create ${r.status}`);
+    const j = await r.json();
+    assert(j.item?.id, 'study id');
+    globalThis.__studyId = j.item.id;
+  }
+
+  {
+    const r = await fetch(`${API}/api/v1/studies/${globalThis.__studyId}/steps`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${globalThis.__token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        steps: [
+          {
+            documentId: 'cic-es',
+            unitIndex: 100,
+            unitLabel: 'CIC test',
+            teacherNote: 'lee esto',
+          },
+        ],
+      }),
+    });
+    assert(r.ok, `study steps ${r.status}`);
+  }
+
+  {
+    const r = await fetch(
+      `${API}/api/v1/studies/${globalThis.__studyId}/publish`,
+      {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${globalThis.__token}` },
+      }
+    );
+    assert(r.ok, `study publish ${r.status}`);
+    const j = await r.json();
+    assert(j.item?.status === 'published', 'published status');
+  }
+
+  {
+    const r = await fetch(`${API}/api/v1/studies`);
+    assert(r.ok, `studies list ${r.status}`);
+    const j = await r.json();
+    assert(Array.isArray(j.items), 'studies array');
+  }
+
+  // second student enrolls
+  {
+    const login = await fetch(`${API}/api/v1/auth/google`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ idToken: 'dev:alumno@example.com:Alumno E2E' }),
+    });
+    assert(login.ok, 'student login');
+    const { accessToken } = await login.json();
+    const r = await fetch(
+      `${API}/api/v1/studies/${globalThis.__studyId}/enroll`,
+      {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${accessToken}` },
+      }
+    );
+    assert(r.ok, `enroll ${r.status}`);
   }
 
   console.log('=== api e2e DONE ===');

@@ -9,6 +9,9 @@ import { CuentaComponent } from './cuenta/cuenta.component';
 import { MisReferenciasComponent } from './mis-referencias/mis-referencias.component';
 import { MisTemasComponent } from './mis-temas/mis-temas.component';
 import { TemaDetalleComponent } from './tema-detalle/tema-detalle.component';
+import { EstudiosComponent } from './estudios/estudios.component';
+import { EstudioDetalleComponent } from './estudio-detalle/estudio-detalle.component';
+import { EstudioEditarComponent } from './estudio-editar/estudio-editar.component';
 
 const routes: Routes = [
   {
@@ -38,6 +41,18 @@ const routes: Routes = [
   {
     path: 'cuenta/temas/:id',
     component: TemaDetalleComponent,
+  },
+  {
+    path: 'estudios',
+    component: EstudiosComponent,
+  },
+  {
+    path: 'estudios/:id/editar',
+    component: EstudioEditarComponent,
+  },
+  {
+    path: 'estudios/:id',
+    component: EstudioDetalleComponent,
   },
   {
     path: `${ROUTE.leyendo}/:documento`,

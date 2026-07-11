@@ -76,6 +76,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.router.navigate(['/cuenta']);
   }
 
+  navigate_to_studies(): void {
+    this.router.navigate(['/estudios']);
+  }
+
   cycleTheme(): void {
     this.readerPrefs.cycleTheme();
   }

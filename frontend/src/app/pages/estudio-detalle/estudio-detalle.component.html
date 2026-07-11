@@ -1,0 +1,77 @@
+<div class="container py-4" style="max-width: 720px" *ngIf="!loading && study">
+  <div class="d-flex justify-content-between align-items-start mb-3">
+    <div>
+      <a routerLink="/estudios" class="btn btn-sm btn-link px-0">← Estudios</a>
+      <h1 class="h3">{{ study.title }}</h1>
+      <p class="text-muted small mb-0">
+        {{ study.teacher?.name }} ·
+        <span class="badge bg-secondary">{{ study.status }}</span>
+        · {{ study._count?.enrollments || 0 }} alumnos
+      </p>
+    </div>
+    <a
+      *ngIf="isOwner"
+      class="btn btn-sm btn-outline-primary"
+      [routerLink]="['/estudios', study.id, 'editar']"
+      >Editar</a
+    >
+  </div>
+
+  <img
+    *ngIf="cover() as src"
+    [src]="src"
+    alt=""
+    class="img-fluid rounded mb-3 study-hero"
+  />
+
+  <p *ngIf="study.description">{{ study.description }}</p>
+
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <div *ngIf="message" class="alert alert-success py-2">{{ message }}</div>
+
+  <div class="mb-3" *ngIf="study.status === 'published' && !isOwner">
+    <button
+      *ngIf="!enrolled"
+      type="button"
+      class="btn btn-primary"
+      (click)="enroll()"
+      [disabled]="!auth.isLoggedIn"
+    >
+      Inscribirme
+    </button>
+    <span *ngIf="enrolled" class="badge bg-success">Inscrito</span>
+    <span *ngIf="!auth.isLoggedIn" class="small text-muted ms-2">
+      <a routerLink="/cuenta">Inicia sesión</a> para inscribirte
+    </span>
+  </div>
+
+  <h2 class="h6">Pasos</h2>
+  <ol class="list-group list-group-numbered mb-4">
+    <li
+      *ngFor="let s of study.steps"
+      class="list-group-item"
+      style="cursor: pointer"
+      (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)"
+    >
+      <div class="fw-semibold">
+        {{ s.unitLabel || s.documentId + ' #' + s.unitIndex }}
+      </div>
+      <div class="small text-muted">{{ s.documentId }} · {{ s.unitIndex }}</div>
+      <div *ngIf="s.teacherNote" class="small mt-1 text-primary">
+        {{ s.teacherNote }}
+      </div>
+    </li>
+  </ol>
+
+  <section *ngIf="isOwner">
+    <h2 class="h6">Alumnos</h2>
+    <div *ngIf="!students.length" class="text-muted small">Sin alumnos aún.</div>
+    <ul class="list-group">
+      <li *ngFor="let e of students" class="list-group-item">
+        {{ e.student?.name }}
+        <span class="small text-muted">{{ e.student?.email }}</span>
+      </li>
+    </ul>
+  </section>
+</div>
+<div *ngIf="loading" class="container py-4 text-muted">Cargando…</div>

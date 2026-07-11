@@ -12,9 +12,32 @@
 ## Arranque
 
 ```bash
-# desde la raíz del repo
-docker compose -f docker-compose.dev.yml up --build
+# desde la raíz del repo (npm o yarn) — levanta postgres + api + web en Docker
+yarn dev
+# o
+npm run dev
+
+# rebuild imágenes
+yarn dev:build
+
+# solo API + Postgres (sin Angular)
+yarn dev:api-only
+
+# logs / estado / bajar
+yarn dev:logs
+yarn dev:status
+yarn dev:down
 ```
+
+El entrypoint es `scripts/dev.sh` (detach por defecto; espera health de la API).
+
+| Script | Acción |
+|--------|--------|
+| `yarn dev` | `docker compose up -d` postgres, api, web |
+| `yarn dev:build` | igual con `--build` |
+| `yarn dev:api-only` | solo postgres + api |
+| `yarn dev:down` | `compose down` |
+| `yarn test:api` | smoke e2e del backend |
 
 API health: http://localhost:3000/api/v1/health  
 Web: http://localhost:4200  
@@ -27,17 +50,19 @@ curl -s -X POST http://localhost:3000/api/v1/auth/google \
   -d '{"idToken":"dev:yo@example.com:Mi Nombre"}'
 ```
 
+En la UI: **Cuenta** → login dev con `email` + nombre (backend `DEV_AUTH_BYPASS=true`).
+
 ## Tests
 
 ```bash
 # scrapers offline (fixtures)
-npm run test:scrape
+yarn test:scrape
 
 # API (con stack api+postgres arriba)
-npm run test:api
+yarn test:api
 
 # Playwright vía compose
-docker compose -f docker-compose.dev.yml --profile e2e run --rm e2e
+yarn test:e2e
 ```
 
 ## Android

@@ -1,0 +1,86 @@
+<div class="container py-4" style="max-width: 800px">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 mb-0">Estudios</h1>
+    <button
+      *ngIf="auth.isTeacher"
+      type="button"
+      class="btn btn-primary btn-sm"
+      (click)="createMine()"
+    >
+      + Crear estudio
+    </button>
+  </div>
+
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+  <div *ngIf="loading" class="text-muted">Cargando…</div>
+
+  <section *ngIf="auth.isLoggedIn && enrolled.length" class="mb-4">
+    <h2 class="h6">Mis inscripciones</h2>
+    <ul class="list-group">
+      <li
+        *ngFor="let s of enrolled"
+        class="list-group-item list-group-item-action"
+        style="cursor: pointer"
+        (click)="open(s)"
+      >
+        {{ s.title }}
+        <span class="small text-muted d-block">{{ s.teacher?.name }}</span>
+      </li>
+    </ul>
+  </section>
+
+  <section *ngIf="auth.isTeacher" class="mb-4">
+    <h2 class="h6">Mis estudios (maestro)</h2>
+    <div *ngIf="!mine.length" class="text-muted small">Aún no has creado estudios.</div>
+    <ul class="list-group">
+      <li
+        *ngFor="let s of mine"
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <div style="cursor: pointer" (click)="open(s)">
+          <span class="fw-semibold">{{ s.title }}</span>
+          <span class="badge bg-secondary ms-2">{{ s.status }}</span>
+          <span class="small text-muted d-block">
+            {{ s.steps?.length || 0 }} pasos ·
+            {{ s._count?.enrollments || 0 }} alumnos
+          </span>
+        </div>
+        <a
+          class="btn btn-sm btn-outline-primary"
+          [routerLink]="['/estudios', s.id, 'editar']"
+          >Editar</a
+        >
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="h6">Publicados</h2>
+    <div *ngIf="!loading && !published.length" class="text-muted">
+      No hay estudios publicados todavía.
+    </div>
+    <div class="row g-3">
+      <div *ngFor="let s of published" class="col-md-6">
+        <div class="card h-100 study-card" style="cursor: pointer" (click)="open(s)">
+          <img
+            *ngIf="cover(s) as src"
+            [src]="src"
+            class="card-img-top study-cover"
+            alt=""
+          />
+          <div class="card-body">
+            <h3 class="h6 card-title">{{ s.title }}</h3>
+            <p class="card-text small text-muted mb-1">
+              {{ s.teacher?.name || 'Maestro' }} ·
+              {{ s.steps?.length || 0 }} pasos ·
+              {{ s._count?.enrollments || 0 }} alumnos
+            </p>
+            <p *ngIf="s.description" class="card-text small">
+              {{ s.description | slice : 0 : 120 }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

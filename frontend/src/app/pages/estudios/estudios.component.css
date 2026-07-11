@@ -1,0 +1,7 @@
+.study-cover {
+  max-height: 140px;
+  object-fit: cover;
+}
+.study-card:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}

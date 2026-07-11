@@ -10,6 +10,8 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Theme, ThemesService } from 'src/app/core/account/themes.service';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { StudiesService } from 'src/app/core/account/studies.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   standalone: true,
@@ -23,6 +25,7 @@ export class TemaDetalleComponent implements OnInit {
   loading = false;
   error: string | null = null;
   message: string | null = null;
+  uploading = false;
 
   stepForm = new FormGroup({
     documentId: new FormControl('cic-es', {
@@ -42,7 +45,8 @@ export class TemaDetalleComponent implements OnInit {
     private router: Router,
     public auth: AuthService,
     private themes: ThemesService,
-    private nav: NavigationService
+    private nav: NavigationService,
+    private studies: StudiesService
   ) {}
 
   ngOnInit(): void {
@@ -104,6 +108,40 @@ export class TemaDetalleComponent implements OnInit {
   openStep(documentId: string, unitIndex: number, label?: string | null): void {
     this.nav.navigateToUnit(documentId, unitIndex, {
       label: label ?? undefined,
+    });
+  }
+
+  coverUrl(): string | null {
+    if (!this.theme?.coverImageKey) return null;
+    const origin = environment.apiBaseUrl.replace(/\/api\/v1\/?$/, '');
+    return `${origin}/uploads/${this.theme.coverImageKey}`;
+  }
+
+  onCover(ev: Event): void {
+    const input = ev.target as HTMLInputElement;
+    const file = input.files?.[0];
+    if (!file || !this.theme) return;
+    this.uploading = true;
+    this.studies.uploadImage(file).subscribe({
+      next: (up) => {
+        this.themes
+          .update(this.theme!.id, { coverImageKey: up.key })
+          .subscribe({
+            next: (t) => {
+              this.theme = t;
+              this.uploading = false;
+              this.message = `Portada optimizada (${Math.round(up.bytes / 1024)} KB)`;
+            },
+            error: (err) => {
+              this.uploading = false;
+              this.error = err?.error?.error || err?.message || 'Error';
+            },
+          });
+      },
+      error: (err) => {
+        this.uploading = false;
+        this.error = err?.error?.error || err?.message || 'Error al subir';
+      },
     });
   }
 
