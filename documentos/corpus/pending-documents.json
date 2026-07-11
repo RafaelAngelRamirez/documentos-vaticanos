@@ -1,12 +1,6 @@
 {
-  "generatedAt": "2026-07-11T21:48:19.888Z",
+  "generatedAt": "2026-07-11T22:29:29.474Z",
   "pending": [
-    {
-      "code": "AA",
-      "title": "Apostolicam actuositatem",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
     {
       "code": "AG",
       "title": "Ad gentes",
@@ -34,12 +28,6 @@
     {
       "code": "PO",
       "title": "Presbyterorum ordinis",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "UR",
-      "title": "Unitatis redintegratio",
       "kind": "magisterium",
       "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
     },
@@ -185,9 +173,11 @@
   "corpusDocumentIds": [
     "cic-es",
     "bible-pueblo-de-dios-es",
-    "lg-es",
-    "gs-es",
     "dv-es",
-    "sc-es"
+    "sc-es",
+    "ur-es",
+    "aa-es",
+    "lg-es",
+    "gs-es"
   ]
 }

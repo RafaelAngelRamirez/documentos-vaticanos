@@ -12,6 +12,7 @@ import type {
 } from "../../models/corpus.model";
 import type { SourceConfig } from "../adapters/types";
 import { buildIndex } from "./build_index";
+import { upsertDownload } from "./document_registry";
 
 const REPO = path.resolve(__dirname, "../../..");
 const SCRIPTS = path.resolve(__dirname, "../..");
@@ -119,6 +120,31 @@ export function writeCorpusDocument(
 
   if (config.docCode) {
     updateDocCodes(config.docCode, config.corpusDocId);
+  }
+
+  // Track download in repo-local registry (documentos/registry/downloaded-documents.json)
+  try {
+    upsertDownload({
+      id: config.corpusDocId,
+      sourceId: config.id,
+      title: config.title,
+      kind: config.kind,
+      locale: config.locale,
+      sourceUrls: config.seedUrls ?? [],
+      unitCount,
+      status: "active",
+      corpusPaths: {
+        content: relBody,
+        index: relIndex,
+        meta: relMeta,
+      },
+      notes: config.notes ?? "",
+    });
+  } catch (err) {
+    console.warn(
+      `[warn] document registry upsert failed:`,
+      (err as Error).message,
+    );
   }
 
   return { meta, index, unitCount, termCount, roots: CORPUS_ROOTS };

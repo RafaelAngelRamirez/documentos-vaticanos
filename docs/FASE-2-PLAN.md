@@ -485,8 +485,21 @@ model RefreshToken {
 
 ---
 
-## 14. Primer paso de implementación (inmediato)
+## 14. Implementación iniciada (local)
 
-**F2-PR1:** scaffold `/backend` + Postgres + `POST /auth/google` + `/me` + Docker Compose.
+| Pieza | Estado |
+|-------|--------|
+| `/backend` Express + Prisma + Google/dev auth | ✅ scaffold |
+| Docker Compose dev (postgres, api, web, e2e) | ✅ `docker-compose.dev.yml` |
+| Registro de descargas en repo | ✅ `documentos/registry/downloaded-documents.json` |
+| E2E scrape offline | ✅ `e2e/scrape-e2e.mjs` |
+| E2E API (DEV_AUTH_BYPASS) | ✅ `e2e/api-e2e.mjs` |
+| E2E Playwright web | ✅ `e2e/tests/*` |
+| Más scrapers (UR, AA, …) | ✅ en curso vía `sources.json` |
 
-A continuación F2-PR2 (UI login) en paralelo con el diseño de OAuth en Google Console (manual).
+Ver también: [`DEV-DOCKER.md`](./DEV-DOCKER.md).
+
+### Siguiente
+
+**F2-PR2:** UI login Google en Angular + interceptor JWT.  
+Configurar OAuth client IDs en Google Cloud (manual).

@@ -16,7 +16,11 @@
     "scrape:gs": "npx ts-node --transpile-only scrape_source.ts --source gs",
     "scrape:dv": "npx ts-node --transpile-only scrape_source.ts --source dv",
     "scrape:sc": "npx ts-node --transpile-only scrape_source.ts --source sc",
+    "scrape:ur": "npx ts-node --transpile-only scrape_source.ts --source ur",
+    "scrape:aa": "npx ts-node --transpile-only scrape_source.ts --source aa",
     "scrape:v2": "npm run scrape:lg && npm run scrape:gs && npm run scrape:dv && npm run scrape:sc && npm run resolve:refs",
+    "scrape:decrees": "npm run scrape:ur && npm run scrape:aa && npm run resolve:refs",
+    "test:scrape": "npx ts-node --transpile-only scrape_source.ts --source ur --offline --skip-write && npx ts-node --transpile-only scrape_source.ts --source aa --offline --skip-write",
     "fix:bible-labels": "npx ts-node --transpile-only fix_bible_labels.ts",
     "pipeline:corpus": "npm run migrate:corpus && npm run resolve:refs"
   },

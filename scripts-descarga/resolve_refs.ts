@@ -27,6 +27,7 @@ import {
   parseRefGroup,
   SINGLE_CHAPTER_SLUGS,
 } from "./src/refs/ref-parser";
+import { markResolvedMany } from "./src/pipeline/document_registry";
 
 const ROOT = path.resolve(__dirname);
 const REPO = path.resolve(ROOT, "..");
@@ -532,6 +533,21 @@ function main() {
     "utf8",
   );
   console.log(`\nWrote ${pendingPath}`);
+
+  // Registry: mark every corpus doc we processed (had refs and was written)
+  const resolvedIds = allStats.map((s) => s.docId);
+  // Also mark docs present in corpus even if skipped (no refs) as "seen" only
+  // when they were processed with refs — user asked markResolved for docs processed.
+  if (resolvedIds.length) {
+    try {
+      markResolvedMany(resolvedIds);
+    } catch (err) {
+      console.warn(
+        `[warn] document registry markResolved failed:`,
+        (err as Error).message,
+      );
+    }
+  }
 
   console.log("\n=== multi-document resolve summary ===");
   console.log(

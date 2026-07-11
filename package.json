@@ -1,12 +1,23 @@
 {
   "name": "documentos-vaticanos",
   "version": "0.0.13",
+  "private": true,
   "dependencies": {
     "standard-version": "^9.5.0"
   },
   "scripts": {
     "release": "standard-version && git push --follow-tags origin master && npm run build-docker production && ssh documentos@documentosvaticanos.digital './update-app'",
     "build-docker": "./docker-compilar.sh production",
-    "build-docker-dev": "./docker-compilar.sh dev"
+    "build-docker-dev": "./docker-compilar.sh dev",
+    "dev:docker": "docker compose -f docker-compose.dev.yml up --build",
+    "dev:docker:down": "docker compose -f docker-compose.dev.yml down",
+    "test:e2e": "docker compose -f docker-compose.dev.yml --profile e2e run --rm e2e",
+    "test:scrape": "node e2e/scrape-e2e.mjs",
+    "test:scrape:unit": "npm --prefix scripts-descarga run test:scrape",
+    "test:api": "node e2e/api-e2e.mjs",
+    "test:refs": "npm --prefix scripts-descarga run test:refs",
+    "dev:api": "npm --prefix backend run dev",
+    "scrape": "npm --prefix scripts-descarga run scrape --",
+    "resolve:refs": "npm --prefix scripts-descarga run resolve:refs"
   }
 }

@@ -77,7 +77,7 @@
         "AA"
       ],
       "title": "Apostolicam actuositatem",
-      "corpusDocId": null,
+      "corpusDocId": "aa-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -137,7 +137,7 @@
         "UR"
       ],
       "title": "Unitatis redintegratio",
-      "corpusDocId": null,
+      "corpusDocId": "ur-es",
       "locatorType": "number",
       "kind": "magisterium"
     },

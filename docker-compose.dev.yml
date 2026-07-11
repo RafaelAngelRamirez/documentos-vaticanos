@@ -1,0 +1,89 @@
+# Local full-stack dev: Postgres + API + Angular + optional Playwright e2e
+# Usage:
+#   docker compose -f docker-compose.dev.yml up --build
+#   docker compose -f docker-compose.dev.yml --profile e2e run --rm e2e
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: documentos-postgres
+    environment:
+      POSTGRES_USER: documentos
+      POSTGRES_PASSWORD: documentos
+      POSTGRES_DB: documentos
+    ports:
+      - "5432:5432"
+    volumes:
+      - documentos_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U documentos -d documentos"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: documentos-api
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://documentos:documentos@postgres:5432/documentos?schema=public
+      DEV_AUTH_BYPASS: "true"
+      JWT_SECRET: dev-only-change-me
+      PORT: "3000"
+      NODE_ENV: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend/src:/app/src:ro
+      - ./backend/prisma:/app/prisma:ro
+      - api_uploads:/app/uploads
+    command:
+      [
+        "bash",
+        "-lc",
+        "npx prisma generate && npx prisma migrate deploy && npx tsx src/index.ts",
+      ]
+
+  web:
+    image: node:20-bookworm
+    container_name: documentos-web
+    working_dir: /app
+    depends_on:
+      - api
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+      NODE_OPTIONS: "--max_old_space_size=4096"
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./frontend:/app
+      - web_node_modules:/app/node_modules
+    command: >
+      bash -lc "if [ ! -d node_modules/@angular/core ]; then npm install; fi &&
+      npx ng serve --host 0.0.0.0 --port 4200 --disable-host-check"
+
+  e2e:
+    profiles: ["e2e"]
+    image: mcr.microsoft.com/playwright:v1.49.1-jammy
+    container_name: documentos-e2e
+    working_dir: /e2e
+    depends_on:
+      - web
+      - api
+    environment:
+      BASE_URL: http://web:4200
+      API_URL: http://api:3000
+    volumes:
+      - ./e2e:/e2e
+    command: >
+      bash -lc "npm install --no-fund --no-audit 2>/dev/null || true;
+      npx playwright test --config=playwright.config.ts"
+
+volumes:
+  documentos_pg_data:
+  api_uploads:
+  web_node_modules:

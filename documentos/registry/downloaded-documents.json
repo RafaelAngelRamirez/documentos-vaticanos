@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-11T22:29:29.475Z",
+  "documents": [
+    {
+      "id": "aa-es",
+      "sourceId": "aa",
+      "title": "Apostolicam actuositatem",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651118_apostolicam-actuositatem_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-11T22:24:16.411Z",
+      "lastDownloadedAt": "2026-07-11T22:24:16.411Z",
+      "unitCount": 33,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/aa-es/content.json",
+        "index": "documents/aa-es/index.json",
+        "meta": "documents/aa-es/meta.json"
+      },
+      "notes": "Decree on the Apostolate of the Laity (Vat. II). Numbered §§1–33. Official path uses decree_ (not const_).",
+      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+    },
+    {
+      "id": "bible-pueblo-de-dios-es",
+      "sourceId": "bible",
+      "title": "Biblia (Pueblo de Dios)",
+      "kind": "bible",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/ESL0506/__P1.HTM"
+      ],
+      "firstDownloadedAt": null,
+      "lastDownloadedAt": "2026-07-11T21:48:18.597Z",
+      "unitCount": 35652,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/bible-pueblo-de-dios-es/content.json",
+        "index": "documents/bible-pueblo-de-dios-es/index.json"
+      },
+      "notes": "Seeded from existing corpus (migrated)."
+    },
+    {
+      "id": "cic-es",
+      "sourceId": "catechism",
+      "title": "Catecismo de la Iglesia Católica",
+      "kind": "catechism",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/catechism_sp/index_sp.html"
+      ],
+      "firstDownloadedAt": null,
+      "lastDownloadedAt": "2026-07-11T21:48:19.865Z",
+      "unitCount": 5092,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cic-es/content.json",
+        "index": "documents/cic-es/index.json"
+      },
+      "notes": "Seeded from existing corpus (migrated).",
+      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+    },
+    {
+      "id": "dv-es",
+      "sourceId": "dv",
+      "title": "Dei verbum",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_sp.html"
+      ],
+      "firstDownloadedAt": null,
+      "lastDownloadedAt": "2026-07-11T21:48:19.881Z",
+      "unitCount": 25,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dv-es/content.json",
+        "index": "documents/dv-es/index.json"
+      },
+      "notes": "Seeded from existing corpus (migrated).",
+      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+    },
+    {
+      "id": "gs-es",
+      "sourceId": "gs",
+      "title": "Gaudium et spes",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-11T22:27:33.300Z",
+      "lastDownloadedAt": "2026-07-11T22:27:33.300Z",
+      "unitCount": 92,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/gs-es/content.json",
+        "index": "documents/gs-es/index.json",
+        "meta": "documents/gs-es/meta.json"
+      },
+      "notes": "Pastoral constitution. Numbered §§1–93 (approx).",
+      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+    },
+    {
+      "id": "lg-es",
+      "sourceId": "lg",
+      "title": "Lumen gentium",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-11T22:27:31.198Z",
+      "lastDownloadedAt": "2026-07-11T22:27:31.198Z",
+      "unitCount": 69,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lg-es/content.json",
+        "index": "documents/lg-es/index.json",
+        "meta": "documents/lg-es/meta.json"
+      },
+      "notes": "Single-page Vatican II dogmatic constitution. Numbered §§1–69.",
+      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+    },
+    {
+      "id": "sc-es",
+      "sourceId": "sc",
+      "title": "Sacrosanctum Concilium",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19631204_sacrosanctum-concilium_sp.html"
+      ],
+      "firstDownloadedAt": null,
+      "lastDownloadedAt": "2026-07-11T21:48:19.881Z",
+      "unitCount": 129,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/sc-es/content.json",
+        "index": "documents/sc-es/index.json"
+      },
+      "notes": "Seeded from existing corpus (migrated).",
+      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+    },
+    {
+      "id": "ur-es",
+      "sourceId": "ur",
+      "title": "Unitatis redintegratio",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-11T22:24:15.312Z",
+      "lastDownloadedAt": "2026-07-11T22:24:15.312Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ur-es/content.json",
+        "index": "documents/ur-es/index.json",
+        "meta": "documents/ur-es/meta.json"
+      },
+      "notes": "Decree on Ecumenism (Vat. II). Numbered §§1–24. Official path uses decree_ (not const_).",
+      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+    }
+  ]
+}

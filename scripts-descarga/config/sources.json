@@ -95,6 +95,38 @@
       "fixturePath": "fixtures/sc-es/source.html",
       "expectedUnitCount": 130,
       "notes": "Constitution on the Sacred Liturgy. Numbered §§1–130."
+    },
+    {
+      "id": "ur",
+      "title": "Unitatis redintegratio",
+      "shortTitle": "UR",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ur-es",
+      "docCode": "UR",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_sp.html"
+      ],
+      "fixturePath": "fixtures/ur-es/source.html",
+      "expectedUnitCount": 24,
+      "notes": "Decree on Ecumenism (Vat. II). Numbered §§1–24. Official path uses decree_ (not const_)."
+    },
+    {
+      "id": "aa",
+      "title": "Apostolicam actuositatem",
+      "shortTitle": "AA",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "aa-es",
+      "docCode": "AA",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651118_apostolicam-actuositatem_sp.html"
+      ],
+      "fixturePath": "fixtures/aa-es/source.html",
+      "expectedUnitCount": 33,
+      "notes": "Decree on the Apostolate of the Laity (Vat. II). Numbered §§1–33. Official path uses decree_ (not const_)."
     }
   ]
 }
