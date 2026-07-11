@@ -84,14 +84,38 @@ Adapters: ${listAdapterIds().join(", ")}
 
 async function fetchHtml(url: string): Promise<string> {
   // Vatican pages are often iso-8859-1 with HTML entities; latin1 + linkedom is reliable.
+  // Prefer curl when available — axios sometimes truncates large vatican.va responses.
+  try {
+    const { execFileSync } = require("child_process") as typeof import("child_process");
+    const buf = execFileSync(
+      "curl",
+      [
+        "-sL",
+        "--max-time",
+        "90",
+        "-A",
+        "Mozilla/5.0 documentos-vaticanos-scraper/0.1",
+        url,
+      ],
+      { maxBuffer: 20 * 1024 * 1024 },
+    );
+    if (buf && buf.length > 1000) {
+      return Buffer.from(buf).toString("latin1");
+    }
+  } catch {
+    /* fall through to axios */
+  }
+
   const res: AxiosResponse<ArrayBuffer> = await axios.get(url, {
     responseType: "arraybuffer",
     headers: {
       "User-Agent":
-        "documentos-vaticanos-scraper/0.1 (+https://github.com/local; research)",
+        "Mozilla/5.0 documentos-vaticanos-scraper/0.1 (+research)",
       Accept: "text/html,application/xhtml+xml",
     },
-    timeout: 60_000,
+    timeout: 90_000,
+    maxContentLength: 20 * 1024 * 1024,
+    maxBodyLength: 20 * 1024 * 1024,
   });
   const buf = Buffer.from(res.data);
   return buf.toString("latin1");

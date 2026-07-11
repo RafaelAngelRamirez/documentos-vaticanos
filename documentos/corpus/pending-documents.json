@@ -1,24 +1,6 @@
 {
-  "generatedAt": "2026-07-11T21:39:53.785Z",
+  "generatedAt": "2026-07-11T21:48:19.888Z",
   "pending": [
-    {
-      "code": "GS",
-      "title": "Gaudium et spes",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "DV",
-      "title": "Dei verbum",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "SC",
-      "title": "Sacrosanctum Concilium",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
     {
       "code": "AA",
       "title": "Apostolicam actuositatem",
@@ -203,6 +185,9 @@
   "corpusDocumentIds": [
     "cic-es",
     "bible-pueblo-de-dios-es",
-    "lg-es"
+    "lg-es",
+    "gs-es",
+    "dv-es",
+    "sc-es"
   ]
 }

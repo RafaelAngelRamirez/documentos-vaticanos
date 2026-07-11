@@ -46,7 +46,55 @@
       ],
       "fixturePath": "fixtures/lg-es/source.html",
       "expectedUnitCount": 69,
-      "notes": "Single-page Vatican II dogmatic constitution. Numbered §§1–69. Wire doc-codes.corpusDocId to lg-es after successful scrape."
+      "notes": "Single-page Vatican II dogmatic constitution. Numbered §§1–69."
+    },
+    {
+      "id": "gs",
+      "title": "Gaudium et spes",
+      "shortTitle": "GS",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "gs-es",
+      "docCode": "GS",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_sp.html"
+      ],
+      "fixturePath": "fixtures/gs-es/source.html",
+      "expectedUnitCount": 93,
+      "notes": "Pastoral constitution. Numbered §§1–93 (approx)."
+    },
+    {
+      "id": "dv",
+      "title": "Dei verbum",
+      "shortTitle": "DV",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "dv-es",
+      "docCode": "DV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_sp.html"
+      ],
+      "fixturePath": "fixtures/dv-es/source.html",
+      "expectedUnitCount": 26,
+      "notes": "Dogmatic constitution on divine revelation. Numbered §§1–26."
+    },
+    {
+      "id": "sc",
+      "title": "Sacrosanctum Concilium",
+      "shortTitle": "SC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "sc-es",
+      "docCode": "SC",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19631204_sacrosanctum-concilium_sp.html"
+      ],
+      "fixturePath": "fixtures/sc-es/source.html",
+      "expectedUnitCount": 130,
+      "notes": "Constitution on the Sacred Liturgy. Numbered §§1–130."
     }
   ]
 }

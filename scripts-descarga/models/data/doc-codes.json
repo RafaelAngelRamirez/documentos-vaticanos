@@ -45,7 +45,7 @@
         "Gaudium et spes"
       ],
       "title": "Gaudium et spes",
-      "corpusDocId": null,
+      "corpusDocId": "gs-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -56,7 +56,7 @@
         "Dei verbum"
       ],
       "title": "Dei verbum",
-      "corpusDocId": null,
+      "corpusDocId": "dv-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -67,7 +67,7 @@
         "Sacrosanctum Concilium"
       ],
       "title": "Sacrosanctum Concilium",
-      "corpusDocId": null,
+      "corpusDocId": "sc-es",
       "locatorType": "number",
       "kind": "magisterium"
     },

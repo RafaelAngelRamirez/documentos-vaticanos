@@ -13,6 +13,11 @@
     "test:refs": "npx ts-node --transpile-only ref_parser.test.ts",
     "scrape": "npx ts-node --transpile-only scrape_source.ts",
     "scrape:lg": "npx ts-node --transpile-only scrape_source.ts --source lg",
+    "scrape:gs": "npx ts-node --transpile-only scrape_source.ts --source gs",
+    "scrape:dv": "npx ts-node --transpile-only scrape_source.ts --source dv",
+    "scrape:sc": "npx ts-node --transpile-only scrape_source.ts --source sc",
+    "scrape:v2": "npm run scrape:lg && npm run scrape:gs && npm run scrape:dv && npm run scrape:sc && npm run resolve:refs",
+    "fix:bible-labels": "npx ts-node --transpile-only fix_bible_labels.ts",
     "pipeline:corpus": "npm run migrate:corpus && npm run resolve:refs"
   },
   "author": "",
