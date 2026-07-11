@@ -18,16 +18,6 @@
       </button>
       <span *ngIf="saveMsg" class="punto-save-msg">{{ saveMsg }}</span>
       <span *ngIf="saveError" class="punto-save-err">{{ saveError }}</span>
-      <button
-        *ngIf="showDebugToggle"
-        type="button"
-        class="punto-raw-toggle"
-        (click)="toggleRaw($event)"
-        title="Ver JSON crudo"
-        aria-label="Ver JSON crudo"
-      >
-        ⋯
-      </button>
     </div>
   </div>
 
@@ -50,6 +40,4 @@
       >
     </ng-container>
   </p>
-
-  <pre *ngIf="ver_raw" class="punto-raw">{{ infoPunto | json }}</pre>
 </ng-container>

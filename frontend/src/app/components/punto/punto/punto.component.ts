@@ -33,10 +33,6 @@ export class PuntoComponent implements OnInit {
   private _infoPunto!: ArticleInfo;
   mostrar_opciones = false;
 
-  ver_raw = false;
-  /** True only outside production builds (debug raw JSON toggle). */
-  readonly showDebugToggle = !environment.production;
-
   /** Rendered content pieces (escaped text + ref links). */
   segments: ContentSegment[] = [];
 

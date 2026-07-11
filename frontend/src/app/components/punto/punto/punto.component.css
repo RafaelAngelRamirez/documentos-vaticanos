@@ -73,29 +73,6 @@ p.punto-contenido {
   opacity: 0.85;
 }
 
-.punto-raw-toggle {
-  appearance: none;
-  background: none;
-  border: none;
-  padding: 0 0.25rem;
-  line-height: 1;
-  opacity: 0.45;
-  cursor: pointer;
-  color: var(--reader-muted, var(--app-muted));
-  font-size: 1rem;
-}
-
-.punto-raw-toggle:hover {
-  opacity: 1;
-}
-
-.punto-raw {
-  font-size: 0.75rem;
-  max-height: 20rem;
-  overflow: auto;
-  color: var(--reader-muted, #5c5c5c);
-}
-
 /* Fallback when CSS vars are not applied (non-reader pages) */
 .resaltar {
   background: var(--reader-highlight, yellow);
