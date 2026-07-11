@@ -44,3 +44,15 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Capacitor / Android local files
+android/.gradle
+android/app/build
+android/build
+android/local.properties
+android/captures
+android/.idea
+*.apk
+*.aab
+*.ap_
+*.dex
