@@ -4,7 +4,12 @@
   "documents": [
     {
       "code": "CIC",
-      "aliases": ["CIC", "CEC", "Catecismo", "Catecismo de la Iglesia Católica"],
+      "aliases": [
+        "CIC",
+        "CEC",
+        "Catecismo",
+        "Catecismo de la Iglesia Católica"
+      ],
       "title": "Catecismo de la Iglesia Católica",
       "corpusDocId": "cic-es",
       "locatorType": "number",
@@ -12,7 +17,11 @@
     },
     {
       "code": "BIBLIA",
-      "aliases": ["Sagrada Escritura", "Escritura", "Biblia"],
+      "aliases": [
+        "Sagrada Escritura",
+        "Escritura",
+        "Biblia"
+      ],
       "title": "Biblia (Pueblo de Dios)",
       "corpusDocId": "bible-pueblo-de-dios-es",
       "locatorType": "bible",
@@ -20,15 +29,21 @@
     },
     {
       "code": "LG",
-      "aliases": ["LG", "Lumen gentium"],
+      "aliases": [
+        "LG",
+        "Lumen gentium"
+      ],
       "title": "Lumen gentium",
-      "corpusDocId": null,
+      "corpusDocId": "lg-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
     {
       "code": "GS",
-      "aliases": ["GS", "Gaudium et spes"],
+      "aliases": [
+        "GS",
+        "Gaudium et spes"
+      ],
       "title": "Gaudium et spes",
       "corpusDocId": null,
       "locatorType": "number",
@@ -36,7 +51,10 @@
     },
     {
       "code": "DV",
-      "aliases": ["DV", "Dei verbum"],
+      "aliases": [
+        "DV",
+        "Dei verbum"
+      ],
       "title": "Dei verbum",
       "corpusDocId": null,
       "locatorType": "number",
@@ -44,7 +62,10 @@
     },
     {
       "code": "SC",
-      "aliases": ["SC", "Sacrosanctum Concilium"],
+      "aliases": [
+        "SC",
+        "Sacrosanctum Concilium"
+      ],
       "title": "Sacrosanctum Concilium",
       "corpusDocId": null,
       "locatorType": "number",
@@ -52,7 +73,9 @@
     },
     {
       "code": "AA",
-      "aliases": ["AA"],
+      "aliases": [
+        "AA"
+      ],
       "title": "Apostolicam actuositatem",
       "corpusDocId": null,
       "locatorType": "number",
@@ -60,7 +83,9 @@
     },
     {
       "code": "AG",
-      "aliases": ["AG"],
+      "aliases": [
+        "AG"
+      ],
       "title": "Ad gentes",
       "corpusDocId": null,
       "locatorType": "number",
@@ -68,7 +93,9 @@
     },
     {
       "code": "CD",
-      "aliases": ["CD"],
+      "aliases": [
+        "CD"
+      ],
       "title": "Christus Dominus",
       "corpusDocId": null,
       "locatorType": "number",
@@ -76,7 +103,9 @@
     },
     {
       "code": "OT",
-      "aliases": ["OT"],
+      "aliases": [
+        "OT"
+      ],
       "title": "Optatam totius",
       "corpusDocId": null,
       "locatorType": "number",
@@ -84,7 +113,9 @@
     },
     {
       "code": "PC",
-      "aliases": ["PC"],
+      "aliases": [
+        "PC"
+      ],
       "title": "Perfectae caritatis",
       "corpusDocId": null,
       "locatorType": "number",
@@ -92,7 +123,9 @@
     },
     {
       "code": "PO",
-      "aliases": ["PO"],
+      "aliases": [
+        "PO"
+      ],
       "title": "Presbyterorum ordinis",
       "corpusDocId": null,
       "locatorType": "number",
@@ -100,7 +133,9 @@
     },
     {
       "code": "UR",
-      "aliases": ["UR"],
+      "aliases": [
+        "UR"
+      ],
       "title": "Unitatis redintegratio",
       "corpusDocId": null,
       "locatorType": "number",
@@ -108,7 +143,9 @@
     },
     {
       "code": "NA",
-      "aliases": ["NA"],
+      "aliases": [
+        "NA"
+      ],
       "title": "Nostra aetate",
       "corpusDocId": null,
       "locatorType": "number",
@@ -116,7 +153,9 @@
     },
     {
       "code": "DH",
-      "aliases": ["DH"],
+      "aliases": [
+        "DH"
+      ],
       "title": "Dignitatis humanae",
       "corpusDocId": null,
       "locatorType": "number",
@@ -124,7 +163,9 @@
     },
     {
       "code": "GE",
-      "aliases": ["GE"],
+      "aliases": [
+        "GE"
+      ],
       "title": "Gravissimum educationis",
       "corpusDocId": null,
       "locatorType": "number",
@@ -132,7 +173,9 @@
     },
     {
       "code": "IM",
-      "aliases": ["IM"],
+      "aliases": [
+        "IM"
+      ],
       "title": "Inter mirifica",
       "corpusDocId": null,
       "locatorType": "number",
@@ -140,7 +183,10 @@
     },
     {
       "code": "CT",
-      "aliases": ["CT", "Catechesi tradendae"],
+      "aliases": [
+        "CT",
+        "Catechesi tradendae"
+      ],
       "title": "Catechesi tradendae",
       "corpusDocId": null,
       "locatorType": "number",
@@ -148,7 +194,10 @@
     },
     {
       "code": "EN",
-      "aliases": ["EN", "Evangelii nuntiandi"],
+      "aliases": [
+        "EN",
+        "Evangelii nuntiandi"
+      ],
       "title": "Evangelii nuntiandi",
       "corpusDocId": null,
       "locatorType": "number",
@@ -156,7 +205,11 @@
     },
     {
       "code": "RM",
-      "aliases": ["RM", "RMi", "Redemptoris missio"],
+      "aliases": [
+        "RM",
+        "RMi",
+        "Redemptoris missio"
+      ],
       "title": "Redemptoris missio",
       "corpusDocId": null,
       "locatorType": "number",
@@ -164,7 +217,10 @@
     },
     {
       "code": "FC",
-      "aliases": ["FC", "Familiaris consortio"],
+      "aliases": [
+        "FC",
+        "Familiaris consortio"
+      ],
       "title": "Familiaris consortio",
       "corpusDocId": null,
       "locatorType": "number",
@@ -172,7 +228,11 @@
     },
     {
       "code": "CL",
-      "aliases": ["CL", "ChL", "Christifideles laici"],
+      "aliases": [
+        "CL",
+        "ChL",
+        "Christifideles laici"
+      ],
       "title": "Christifideles laici",
       "corpusDocId": null,
       "locatorType": "number",
@@ -180,7 +240,10 @@
     },
     {
       "code": "VS",
-      "aliases": ["VS", "Veritatis splendor"],
+      "aliases": [
+        "VS",
+        "Veritatis splendor"
+      ],
       "title": "Veritatis splendor",
       "corpusDocId": null,
       "locatorType": "number",
@@ -188,7 +251,10 @@
     },
     {
       "code": "EV",
-      "aliases": ["EV", "Evangelium vitae"],
+      "aliases": [
+        "EV",
+        "Evangelium vitae"
+      ],
       "title": "Evangelium vitae",
       "corpusDocId": null,
       "locatorType": "number",
@@ -196,7 +262,10 @@
     },
     {
       "code": "DS",
-      "aliases": ["DS", "Denzinger"],
+      "aliases": [
+        "DS",
+        "Denzinger"
+      ],
       "title": "Denzinger-Schönmetzer",
       "corpusDocId": null,
       "locatorType": "number",
@@ -204,7 +273,9 @@
     },
     {
       "code": "CCEO",
-      "aliases": ["CCEO"],
+      "aliases": [
+        "CCEO"
+      ],
       "title": "Código de Cánones de las Iglesias Orientales",
       "corpusDocId": null,
       "locatorType": "number",
@@ -212,7 +283,10 @@
     },
     {
       "code": "HV",
-      "aliases": ["HV", "Humanae vitae"],
+      "aliases": [
+        "HV",
+        "Humanae vitae"
+      ],
       "title": "Humanae vitae",
       "corpusDocId": null,
       "locatorType": "number",
@@ -220,7 +294,10 @@
     },
     {
       "code": "MD",
-      "aliases": ["MD", "Mulieris dignitatem"],
+      "aliases": [
+        "MD",
+        "Mulieris dignitatem"
+      ],
       "title": "Mulieris dignitatem",
       "corpusDocId": null,
       "locatorType": "number",
@@ -228,7 +305,10 @@
     },
     {
       "code": "MC",
-      "aliases": ["MC", "Marialis cultus"],
+      "aliases": [
+        "MC",
+        "Marialis cultus"
+      ],
       "title": "Marialis cultus",
       "corpusDocId": null,
       "locatorType": "number",
@@ -236,7 +316,10 @@
     },
     {
       "code": "CA",
-      "aliases": ["CA", "Centesimus annus"],
+      "aliases": [
+        "CA",
+        "Centesimus annus"
+      ],
       "title": "Centesimus annus",
       "corpusDocId": null,
       "locatorType": "number",
@@ -244,7 +327,10 @@
     },
     {
       "code": "LE",
-      "aliases": ["LE", "Laborem exercens"],
+      "aliases": [
+        "LE",
+        "Laborem exercens"
+      ],
       "title": "Laborem exercens",
       "corpusDocId": null,
       "locatorType": "number",
@@ -252,7 +338,10 @@
     },
     {
       "code": "SRS",
-      "aliases": ["SRS", "Sollicitudo rei socialis"],
+      "aliases": [
+        "SRS",
+        "Sollicitudo rei socialis"
+      ],
       "title": "Sollicitudo rei socialis",
       "corpusDocId": null,
       "locatorType": "number",
@@ -260,7 +349,10 @@
     },
     {
       "code": "PP",
-      "aliases": ["PP", "Populorum progressio"],
+      "aliases": [
+        "PP",
+        "Populorum progressio"
+      ],
       "title": "Populorum progressio",
       "corpusDocId": null,
       "locatorType": "number",
@@ -268,7 +360,10 @@
     },
     {
       "code": "RH",
-      "aliases": ["RH", "Redemptor hominis"],
+      "aliases": [
+        "RH",
+        "Redemptor hominis"
+      ],
       "title": "Redemptor hominis",
       "corpusDocId": null,
       "locatorType": "number",
@@ -276,7 +371,10 @@
     },
     {
       "code": "PDV",
-      "aliases": ["PDV", "Pastores dabo vobis"],
+      "aliases": [
+        "PDV",
+        "Pastores dabo vobis"
+      ],
       "title": "Pastores dabo vobis",
       "corpusDocId": null,
       "locatorType": "number",
@@ -284,7 +382,10 @@
     },
     {
       "code": "NMI",
-      "aliases": ["NMI", "Novo millennio ineunte"],
+      "aliases": [
+        "NMI",
+        "Novo millennio ineunte"
+      ],
       "title": "Novo millennio ineunte",
       "corpusDocId": null,
       "locatorType": "number",

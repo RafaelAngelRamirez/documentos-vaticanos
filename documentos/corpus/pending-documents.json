@@ -1,12 +1,6 @@
 {
-  "generatedAt": "2026-07-11T21:36:42.061Z",
+  "generatedAt": "2026-07-11T21:39:53.785Z",
   "pending": [
-    {
-      "code": "LG",
-      "title": "Lumen gentium",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
     {
       "code": "GS",
       "title": "Gaudium et spes",
@@ -208,6 +202,7 @@
   ],
   "corpusDocumentIds": [
     "cic-es",
-    "bible-pueblo-de-dios-es"
+    "bible-pueblo-de-dios-es",
+    "lg-es"
   ]
 }

@@ -10,7 +10,10 @@
     "copiar": "cp -r documentos/* ../frontend/src/assets/documentos",
     "migrate:corpus": "npx ts-node --transpile-only migrate_to_corpus.ts",
     "resolve:refs": "npx ts-node --transpile-only resolve_refs.ts",
-    "test:refs": "npx ts-node --transpile-only ref_parser.test.ts"
+    "test:refs": "npx ts-node --transpile-only ref_parser.test.ts",
+    "scrape": "npx ts-node --transpile-only scrape_source.ts",
+    "scrape:lg": "npx ts-node --transpile-only scrape_source.ts --source lg",
+    "pipeline:corpus": "npm run migrate:corpus && npm run resolve:refs"
   },
   "author": "",
   "license": "ISC",

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "description": "Multi-source scrape registry. Each entry maps a logical source to seed URLs, corpus docId, and adapter id. Bible/catechism keep legacy npm scripts; new docs use scrape_source.ts.",
+  "sources": [
+    {
+      "id": "bible",
+      "title": "Biblia (Pueblo de Dios)",
+      "shortTitle": "Biblia",
+      "kind": "bible",
+      "locale": "es",
+      "corpusDocId": "bible-pueblo-de-dios-es",
+      "docCode": "BIBLIA",
+      "adapter": "bible",
+      "seedUrls": [
+        "https://www.vatican.va/archive/ESL0506/__P1.HTM"
+      ],
+      "legacyScript": "biblia",
+      "notes": "Full scrape still via `npm run biblia`. Adapter is a registry stub until a future rewrite."
+    },
+    {
+      "id": "catechism",
+      "title": "Catecismo de la Iglesia Católica",
+      "shortTitle": "Catecismo",
+      "kind": "catechism",
+      "locale": "es",
+      "corpusDocId": "cic-es",
+      "docCode": "CIC",
+      "adapter": "catechism",
+      "seedUrls": [
+        "https://www.vatican.va/archive/catechism_sp/index_sp.html"
+      ],
+      "legacyScript": "catecismo",
+      "notes": "Full scrape still via `npm run catecismo`. Adapter is a registry stub until a future rewrite."
+    },
+    {
+      "id": "lg",
+      "title": "Lumen gentium",
+      "shortTitle": "LG",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "lg-es",
+      "docCode": "LG",
+      "adapter": "lg",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_sp.html"
+      ],
+      "fixturePath": "fixtures/lg-es/source.html",
+      "expectedUnitCount": 69,
+      "notes": "Single-page Vatican II dogmatic constitution. Numbered §§1–69. Wire doc-codes.corpusDocId to lg-es after successful scrape."
+    }
+  ]
+}
