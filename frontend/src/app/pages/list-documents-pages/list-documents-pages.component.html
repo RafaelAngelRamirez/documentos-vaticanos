@@ -1,3 +1,11 @@
+<div *ngIf="loading" class="alert alert-info my-3" role="status">
+  Cargando listado de documentos…
+</div>
+
+<div *ngIf="load_error" class="alert alert-danger my-3" role="alert">
+  {{ load_error }}
+</div>
+
 <div class="row">
   <div class="col-12 mt-3 ">
     <div

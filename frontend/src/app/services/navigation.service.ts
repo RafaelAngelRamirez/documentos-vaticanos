@@ -12,11 +12,12 @@ export enum ROUTE {
   about = 'about',
 }
 
+/** Keys persisted to localStorage (avoid full multi-MB document JSON). */
 export const LOCALSTORAGE_KEYS = [
-  'document_selected',
+  'document_id',
   'article_selected',
   'actual_index',
-];
+] as const;
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +27,10 @@ export class NavigationService {
     this.load_actual_index();
   }
 
+  /** Stable corpus id (preferred) or legacy display name. */
+  document_id: string | undefined = undefined;
+
+  /** In-memory only; rebuilt via CorpusService when missing after reload. */
   document_selected: IndiceDocumentos | undefined = undefined;
   article_selected: ArticleInfo | undefined = undefined;
   actual_index: number = 0;
@@ -33,11 +38,15 @@ export class NavigationService {
   routes = ROUTE;
 
   go_to_read_article(article: ArticleInfo, result: ResultadoDeBusqueda) {
-    console.log({ article, result });
     this.document_selected = result.doc;
-    this.article_selected = article;
+    this.document_id = result.doc.id ?? result.doc.nombre;
+    this.article_selected = {
+      article: article.article,
+      terms_pure: article.terms_pure ?? [],
+      termns: article.termns,
+    };
     this.actual_index = article.article.index_array;
-    const documento = result.doc.nombre;
+    const documento = this.document_id;
 
     this.save_actual_index();
 
@@ -50,36 +59,73 @@ export class NavigationService {
   }
 
   /**
-   *If exist, restore all data to continue with
-   * the read
-   *
-   * @memberof NavigationService
+   * If present, restore lightweight navigation state to continue reading.
    */
   load_actual_index() {
-    type ObjectKey = keyof typeof this;
-    LOCALSTORAGE_KEYS.forEach((key) => {
-      const value = localStorage.getItem(key);
-      if (value) {
-        this[key as ObjectKey] = JSON.parse(value);
+    const documentId = localStorage.getItem('document_id');
+    if (documentId) {
+      try {
+        // Prefer plain string; accept JSON-stringified legacy values.
+        this.document_id = JSON.parse(documentId);
+      } catch {
+        this.document_id = documentId;
       }
-    });
+    } else {
+      // Migrate legacy full-document localStorage entries.
+      const legacyDoc = localStorage.getItem('document_selected');
+      if (legacyDoc) {
+        try {
+          const parsed = JSON.parse(legacyDoc) as IndiceDocumentos;
+          this.document_id = parsed?.id ?? parsed?.nombre;
+          localStorage.removeItem('document_selected');
+        } catch {
+          localStorage.removeItem('document_selected');
+        }
+      }
+    }
+
+    const articleRaw = localStorage.getItem('article_selected');
+    if (articleRaw) {
+      try {
+        this.article_selected = JSON.parse(articleRaw);
+      } catch {
+        this.article_selected = undefined;
+      }
+    }
+
+    const indexRaw = localStorage.getItem('actual_index');
+    if (indexRaw) {
+      try {
+        this.actual_index = JSON.parse(indexRaw);
+      } catch {
+        const n = Number(indexRaw);
+        this.actual_index = Number.isFinite(n) ? n : 0;
+      }
+    }
   }
 
   /**
-   *Save actual data in local storage to comeback if the page it is
-   * reloaded.
-   *
-   * @memberof NavigationService
+   * Persist navigation pointers (not full document bodies).
    */
   save_actual_index() {
-    type ObjectKey = keyof typeof this;
+    if (this.document_id) {
+      localStorage.setItem('document_id', JSON.stringify(this.document_id));
+    } else {
+      localStorage.removeItem('document_id');
+    }
+    // Drop any leftover full-document blob.
+    localStorage.removeItem('document_selected');
 
-    LOCALSTORAGE_KEYS.forEach((key) => {
-      localStorage.removeItem(key);
-      const string_value_to_save = JSON.stringify(this[key as ObjectKey]);
-      console.log(string_value_to_save);
-      localStorage.setItem(key, string_value_to_save);
-    });
+    if (this.article_selected) {
+      localStorage.setItem(
+        'article_selected',
+        JSON.stringify(this.article_selected)
+      );
+    } else {
+      localStorage.removeItem('article_selected');
+    }
+
+    localStorage.setItem('actual_index', JSON.stringify(this.actual_index));
   }
 
   go_to_search() {

@@ -1,3 +1,11 @@
+<div *ngIf="loading_docs" class="alert alert-info my-3" role="status">
+  Cargando documentos para la búsqueda…
+</div>
+
+<div *ngIf="load_error" class="alert alert-danger my-3" role="alert">
+  {{ load_error }}
+</div>
+
 <ng-container *ngFor="let doc_resultado of docs_resultados">
   <h2>{{doc_resultado.doc.nombre}}</h2>
   <span class="text-small text-muted">
