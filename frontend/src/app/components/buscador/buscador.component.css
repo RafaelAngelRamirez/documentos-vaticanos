@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+.abbr-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--app-muted);
+  border: 1px solid var(--app-btnb);
+  border-radius: 6px;
+  padding: 0.1rem 0.4rem;
+}

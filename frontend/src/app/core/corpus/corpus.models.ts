@@ -2,11 +2,18 @@ export type DocumentKind = 'catechism' | 'bible' | string;
 
 export interface DocumentMeta {
   id: string;
+  /** Full display title (prefer over shortTitle in UI). */
   title: string;
+  /** Abbreviation / legacy short label (DV, LG, CIC…). */
   shortTitle?: string;
   kind: DocumentKind;
-  /** Optional locale from corpus pack. */
+  /** BCP-47-ish locale of this pack (e.g. `es`). */
   locale?: string;
+  /**
+   * Official source page for this locale (typically vatican.va).
+   * UI should link language label here.
+   */
+  sourceUrl?: string;
   /**
    * Path to body JSON. May be relative to the corpus root
    * (`documents/...`) or an absolute assets path (`assets/...`).
@@ -73,8 +80,15 @@ export interface Indice {
 export interface IndiceDocumentos {
   /** Document id (stable). */
   id?: string;
-  /** Display name (historically `nombre`). */
+  /** Display name (full title preferred). */
   nombre: string;
+  /** Full official title when known. */
+  title?: string;
+  /** Abbreviation for compact UI. */
+  shortTitle?: string;
+  locale?: string;
+  /** Official source URL for the document language. */
+  sourceUrl?: string;
   documento: Article[];
   indice: Indice;
 }

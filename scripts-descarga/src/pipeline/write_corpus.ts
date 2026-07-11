@@ -77,6 +77,7 @@ export function writeCorpusDocument(
     shortTitle: config.shortTitle,
     kind: config.kind,
     locale: config.locale,
+    sourceUrl: config.seedUrls?.[0],
     bodyPath: relBody,
     indexPath: relIndex,
     unitCount,

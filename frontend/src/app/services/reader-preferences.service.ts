@@ -15,19 +15,20 @@ export interface ReaderPreferences {
 export const READER_PREFS_STORAGE_KEY = 'reader.prefs.v1';
 
 export const DEFAULT_READER_PREFERENCES: ReaderPreferences = {
-  theme: 'paper',
+  theme: 'sepia',
   font: 'serif',
   fontSizePx: 18,
   lineHeight: 1.65,
   maxWidthCh: 65,
 };
 
-const THEME_CYCLE: ReaderTheme[] = ['paper', 'sepia', 'night', 'system'];
+const THEME_CYCLE: ReaderTheme[] = ['sepia', 'paper', 'night', 'system'];
 const FONT_CYCLE: ReaderFont[] = ['serif', 'sans'];
 
-const FONT_SERIF = 'Georgia, "Times New Roman", "Palatino Linotype", serif';
+const FONT_SERIF =
+  '"EB Garamond", Georgia, "Times New Roman", "Palatino Linotype", serif';
 const FONT_SANS =
-  'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
+  '"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
 
 @Injectable({
   providedIn: 'root',

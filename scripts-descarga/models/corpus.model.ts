@@ -16,6 +16,8 @@ export interface DocumentMeta {
   shortTitle: string;
   kind: DocumentKind;
   locale: string;
+  /** Official source URL for this locale (e.g. vatican.va). */
+  sourceUrl?: string;
   /** Relative path to body JSON (Article[]). */
   bodyPath: string;
   /** Relative path to index JSON ({ indice, indice_por_punto }). */

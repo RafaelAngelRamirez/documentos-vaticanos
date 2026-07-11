@@ -1,1 +1,1 @@
-{"id":"cic-es","title":"Catecismo de la Iglesia Católica","shortTitle":"Catecismo","kind":"catechism","locale":"es","bodyPath":"documents/cic-es/content.json","indexPath":"documents/cic-es/index.json","unitCount":5092}
+{"id": "cic-es", "title": "Catecismo de la Iglesia Católica", "shortTitle": "Catecismo", "kind": "catechism", "locale": "es", "bodyPath": "documents/cic-es/content.json", "indexPath": "documents/cic-es/index.json", "unitCount": 5092, "sourceUrl": "https://www.vatican.va/archive/catechism_sp/index_sp.html"}

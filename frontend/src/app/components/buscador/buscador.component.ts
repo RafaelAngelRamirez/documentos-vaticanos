@@ -11,6 +11,7 @@ import { ArticleInfo } from '../punto/punto/punto.component';
 import { UtilidadesService } from 'src/app/services/utilidades.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { CorpusService } from 'src/app/core/corpus/corpus.service';
 
 @Component({
   standalone: true,
@@ -37,7 +38,8 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     public busadorService: BuscadorService,
     private documentosService: CargarDocumentosJsonService,
     private utilidadesService: UtilidadesService,
-    private navigationService: NavigationService
+    private navigationService: NavigationService,
+    private corpus: CorpusService
   ) {}
 
   ngOnInit(): void {
@@ -74,6 +76,49 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  get hasQuery(): boolean {
+    return Boolean(
+      (this.terminos.terminos && this.terminos.terminos.length) ||
+        (this.terminos.puntos && this.terminos.puntos.length)
+    );
+  }
+
+  get hasAnyHits(): boolean {
+    return this.docs_resultados.some((r) => r.puntos.length > 0);
+  }
+
+  displayTitle(r: ResultadoDeBusqueda): string {
+    return (
+      r.doc.title ||
+      r.doc.nombre ||
+      this.corpus.getMeta(r.doc.id || '')?.title ||
+      r.doc.id ||
+      'Documento'
+    );
+  }
+
+  shortLabel(r: ResultadoDeBusqueda): string | null {
+    const short =
+      r.doc.shortTitle || this.corpus.getMeta(r.doc.id || '')?.shortTitle;
+    const full = this.displayTitle(r);
+    if (!short || short === full) return null;
+    return short;
+  }
+
+  localeLabel(r: ResultadoDeBusqueda): string {
+    const locale =
+      r.doc.locale || this.corpus.getMeta(r.doc.id || '')?.locale || 'es';
+    return CorpusService.localeLabel(locale);
+  }
+
+  sourceUrl(r: ResultadoDeBusqueda): string | null {
+    return (
+      r.doc.sourceUrl ||
+      this.corpus.getMeta(r.doc.id || '')?.sourceUrl ||
+      null
+    );
+  }
+
   procesar_busqueda(terminos: TermsProcessed) {
     if (!this.docs_ready) {
       this.pending_terminos = terminos;
@@ -84,42 +129,45 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     for (const doc of this.documentosService.documentos_disponibles) {
       let indice_puntos_seleccionados: number[] = [];
 
-      // Obtenemos los puntos señalados.
-      let puntos_senalados = terminos.puntos ?? [];
-      // Obtener el indice contra el punto señalado.
-      let indice_por_puntos = doc.indice.indice_por_punto;
+      const puntos_senalados = terminos.puntos ?? [];
+      const indice_por_puntos = doc.indice.indice_por_punto;
 
       puntos_senalados.forEach((p) => {
-        let i = this.buscar_por_valor_una_llave(p, indice_por_puntos);
+        const i = this.buscar_por_valor_una_llave(p, indice_por_puntos);
         if (i !== undefined) indice_puntos_seleccionados.push(i);
       });
 
-      // Las palabras a buscar.
-      let palabras_a_buscar = (terminos.terminos ?? [])
+      const palabras_a_buscar = (terminos.terminos ?? [])
         .map((palabra) =>
           this.utilidadesService.texto.eliminar_diacriticos(palabra)
         )
         .map((x) => x.toLowerCase());
 
       palabras_a_buscar.forEach((palabra) => {
-        let p = doc.indice.indice[palabra];
+        const p = doc.indice.indice[palabra];
         if (p) indice_puntos_seleccionados.push(...p);
       });
 
-      let puntos_completos = indice_puntos_seleccionados
+      // de-dupe while preserving order
+      const seen = new Set<number>();
+      indice_puntos_seleccionados = indice_puntos_seleccionados.filter((i) => {
+        if (seen.has(i)) return false;
+        seen.add(i);
+        return true;
+      });
+
+      const puntos_completos = indice_puntos_seleccionados
         .map((p) => doc.documento[p])
         .filter((article) => !!article)
         .map((article) => {
           return { article, terms_pure: palabras_a_buscar } as ArticleInfo;
         });
 
-      let resultado = {
+      this.docs_resultados.push({
         doc,
         puntos: puntos_completos,
         puntos_paginados: puntos_completos.slice(0, this.page_size),
-      };
-
-      this.docs_resultados.push(resultado);
+      });
     }
   }
 
@@ -127,8 +175,8 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     valor: number,
     objeto: { [key: number]: number | null }
   ) {
-    for (let llave in objeto) {
-      let llave_num = parseInt(llave, 10);
+    for (const llave in objeto) {
+      const llave_num = parseInt(llave, 10);
       if (objeto.hasOwnProperty(llave_num) && objeto[llave_num] === valor)
         return llave_num;
     }
@@ -136,8 +184,8 @@ export class BuscadorComponent implements OnInit, OnDestroy {
   }
 
   handlePageEvent($event: PageEvent, doc_resultado: ResultadoDeBusqueda) {
-    let init = $event.pageIndex * this.page_size;
-    let end = $event.pageIndex * this.page_size + this.page_size;
+    const init = $event.pageIndex * this.page_size;
+    const end = $event.pageIndex * this.page_size + this.page_size;
     doc_resultado.puntos_paginados = doc_resultado.puntos.slice(init, end);
   }
 

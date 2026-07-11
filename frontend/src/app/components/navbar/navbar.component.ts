@@ -20,6 +20,8 @@ import { AuthService } from 'src/app/core/auth/auth.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit, OnDestroy {
+  menuOpen = false;
+
   navigate_to_beginning() {
     this.navigationService.go_to_search();
   }
@@ -34,6 +36,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
   prefs: ReaderPreferences = this.readerPrefs.snapshot;
 
   subscripciones: Subscription[] = [];
+
+  closeMenu(): void {
+    this.menuOpen = false;
+  }
 
   constructor(
     private buscadorService: BuscadorService,
@@ -86,9 +92,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   themeTitle(): string {
     const t = this.prefs.theme;
-    if (t === 'paper') return 'Tema: Papel (clic para cambiar)';
+    if (t === 'paper') return 'Tema: Claro (clic para cambiar)';
     if (t === 'sepia') return 'Tema: Sepia (clic para cambiar)';
-    if (t === 'night') return 'Tema: Noche (clic para cambiar)';
+    if (t === 'night') return 'Tema: Oscuro (clic para cambiar)';
     return 'Tema: Sistema (clic para cambiar)';
   }
 }

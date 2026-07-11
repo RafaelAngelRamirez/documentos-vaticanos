@@ -128,11 +128,31 @@ export class CorpusService {
   toIndiceDocumentos(loaded: LoadedDocument): IndiceDocumentos {
     return {
       id: loaded.meta.id,
-      // Prefer shortTitle for routes/labels that historically used "Catecismo" / "Biblia".
-      nombre: loaded.meta.shortTitle || loaded.meta.title,
+      // Full title for UI; shortTitle kept for compact labels / legacy routes.
+      nombre: loaded.meta.title || loaded.meta.shortTitle || loaded.meta.id,
+      title: loaded.meta.title,
+      shortTitle: loaded.meta.shortTitle,
+      locale: loaded.meta.locale,
+      sourceUrl: loaded.meta.sourceUrl,
       documento: loaded.documento,
       indice: loaded.indice,
     };
+  }
+
+  /** Human label for locale codes used in the corpus. */
+  static localeLabel(locale?: string | null): string {
+    if (!locale) return 'Idioma';
+    const code = locale.toLowerCase();
+    const map: Record<string, string> = {
+      es: 'Español',
+      en: 'English',
+      la: 'Latina',
+      it: 'Italiano',
+      fr: 'Français',
+      de: 'Deutsch',
+      pt: 'Português',
+    };
+    return map[code] || locale.toUpperCase();
   }
 
   getArticle(

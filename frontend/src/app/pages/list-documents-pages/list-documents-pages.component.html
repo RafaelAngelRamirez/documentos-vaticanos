@@ -1,28 +1,53 @@
-<div *ngIf="loading" class="alert alert-info my-3" role="status">
-  Cargando listado de documentos…
-</div>
+<div class="app-measure lib-page">
+  <header class="lib-header">
+    <p class="app-eyebrow">Biblioteca</p>
+    <h1 class="app-title app-title-md">Documentos disponibles</h1>
+    <p class="app-lede" style="margin-left: 0; text-align: left">
+      Cada entrada muestra el nombre completo y un enlace a la fuente oficial
+      en el idioma del corpus.
+    </p>
+  </header>
 
-<div *ngIf="load_error" class="alert alert-danger my-3" role="alert">
-  {{ load_error }}
-</div>
+  <div *ngIf="loading" class="app-status" role="status">
+    Cargando listado de documentos…
+  </div>
 
-<div class="row">
-  <div class="col-12 mt-3 ">
+  <div *ngIf="load_error" class="app-status app-status-error" role="alert">
+    {{ load_error }}
+  </div>
+
+  <div class="lib-list" *ngIf="!loading && !load_error">
     <div
       *ngFor="let item of docService.documentos_disponibles"
-      class="card shadow mb-3"
+      class="app-doc-row lib-item"
     >
-      <div class="card-body">
-        <h1 class="card-title"><i class="fas fa-book-open"></i>
-          {{item.nombre}}</h1>
-        <p class="card-text">
-          Palabras indexadas: {{keys(item.indice.indice).length | number}}
-        </p>
-        <a
-          (click)="read(item)"
-          href="javascript:void(0)"
-          class="btn btn-sm btn-secondary"
-        >Leer desde el inicio </a>
+      <div class="lib-item-body">
+        <h2 class="app-doc-title">{{ displayTitle(item) }}</h2>
+        <div class="app-doc-meta">
+          <span *ngIf="shortLabel(item) as abbr" class="abbr-badge">{{
+            abbr
+          }}</span>
+          <span
+            >{{ keys(item.indice.indice).length | number }} palabras
+            indexadas</span
+          >
+          <a
+            *ngIf="sourceUrl(item) as href"
+            class="app-lang-link"
+            [href]="href"
+            target="_blank"
+            rel="noopener noreferrer"
+            (click)="$event.stopPropagation()"
+          >
+            {{ localeLabel(item) }} · fuente oficial
+          </a>
+          <span *ngIf="!sourceUrl(item)">{{ localeLabel(item) }}</span>
+        </div>
+        <div class="lib-actions">
+          <button type="button" class="app-btn app-btn-sm app-btn-primary" (click)="read(item)">
+            Leer desde el inicio
+          </button>
+        </div>
       </div>
     </div>
   </div>

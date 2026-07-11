@@ -1,5 +1,8 @@
 <app-navbar *ngIf="!isReaderRoute"></app-navbar>
 
-<div [class.container]="!isReaderRoute" [class.reader-page]="isReaderRoute">
+<div
+  [class.app-surface]="!isReaderRoute"
+  [class.reader-page]="isReaderRoute"
+>
   <router-outlet></router-outlet>
 </div>

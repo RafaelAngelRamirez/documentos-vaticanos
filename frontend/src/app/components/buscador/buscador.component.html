@@ -1,54 +1,87 @@
-<div *ngIf="loading_docs" class="alert alert-info my-3" role="status">
-  Cargando documentos para la búsqueda…
-</div>
+<div class="search-results">
+  <div *ngIf="loading_docs" class="app-status" role="status">
+    Cargando documentos para la búsqueda…
+  </div>
 
-<div *ngIf="load_error" class="alert alert-danger my-3" role="alert">
-  {{ load_error }}
-</div>
+  <div *ngIf="load_error" class="app-status app-status-error" role="alert">
+    {{ load_error }}
+  </div>
 
-<ng-container *ngFor="let doc_resultado of docs_resultados">
-  <h2>{{doc_resultado.doc.nombre}}</h2>
-  <span class="text-small text-muted">
-    {{doc_resultado.puntos.length}} resultados encontrados.
-  </span>
+  <ng-container *ngFor="let doc_resultado of docs_resultados">
+    <ng-container *ngIf="doc_resultado.puntos.length">
+      <header class="result-doc">
+        <h2 class="result-doc-title">{{ displayTitle(doc_resultado) }}</h2>
+        <div class="result-doc-meta">
+          <span
+            >{{ doc_resultado.puntos.length }}
+            {{
+              doc_resultado.puntos.length === 1
+                ? 'resultado'
+                : 'resultados'
+            }}</span
+          >
+          <span *ngIf="shortLabel(doc_resultado) as abbr" class="abbr-badge">{{
+            abbr
+          }}</span>
+          <a
+            *ngIf="sourceUrl(doc_resultado) as href"
+            class="app-lang-link"
+            [href]="href"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.title]="'Fuente oficial · ' + localeLabel(doc_resultado)"
+            (click)="$event.stopPropagation()"
+          >
+            {{ localeLabel(doc_resultado) }} · fuente
+          </a>
+          <span *ngIf="!sourceUrl(doc_resultado)" class="app-muted">
+            {{ localeLabel(doc_resultado) }}
+          </span>
+        </div>
+      </header>
 
+      <article
+        class="result-hit"
+        *ngFor="let punto of doc_resultado.puntos_paginados"
+      >
+        <app-punto
+          [infoPunto]="punto"
+          [documentId]="doc_resultado.doc.id"
+        ></app-punto>
+        <div class="result-hit-actions">
+          <button
+            type="button"
+            class="app-btn app-btn-sm"
+            (click)="navigate_to_read(punto, doc_resultado)"
+            title="Leer en contexto"
+          >
+            Leer en contexto
+          </button>
+        </div>
+      </article>
 
-  <ng-container *ngFor="let punto of doc_resultado.puntos_paginados">
-
-
-    <app-punto [infoPunto]="punto"></app-punto>
-
-    <div class="row">
-      <div class="col-12 ">
-        <button
-          class="btn btn-small btn-info btn-rounded"
-          (click)="navigate_to_read(punto, doc_resultado)"
-        >
-
-          <i
-            class="fa fa-eye"
-            aria-hidden="true"
-          ></i>
-
-        </button>
-      </div>
-    </div>
-
-
+      <mat-paginator
+        *ngIf="doc_resultado.puntos.length > page_size"
+        [length]="doc_resultado.puntos.length"
+        [pageSize]="page_size"
+        [pageSizeOptions]="page_size_options"
+        (page)="handlePageEvent($event, doc_resultado)"
+        aria-label="Página de resultados"
+      >
+      </mat-paginator>
+    </ng-container>
   </ng-container>
 
-  <ng-container *ngTemplateOutlet="paginator"></ng-container>
-  <ng-template #paginator>
-
-    <mat-paginator
-      *ngIf="doc_resultado.puntos.length"
-      [length]="doc_resultado.puntos.length"
-      [pageSize]="page_size"
-      [pageSizeOptions]="page_size_options"
-      (page)="handlePageEvent($event, doc_resultado)"
-      aria-label="Select page"
-    >
-    </mat-paginator>
-  </ng-template>
-
-</ng-container>
+  <p
+    *ngIf="
+      !loading_docs &&
+      !load_error &&
+      hasQuery &&
+      !hasAnyHits
+    "
+    class="app-muted"
+    style="margin-top: 1.5rem"
+  >
+    No hay resultados para esta búsqueda en los documentos cargados.
+  </p>
+</div>

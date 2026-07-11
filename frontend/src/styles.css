@@ -1,4 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+/* ═══════════════════════════════════════════════════════════════════════════
+   Documentos Vaticanos — design system (web)
+   Source of truth: design prototypes (sepia / claro / oscuro) + reading UX.
+   New UI must use these tokens; see AGENTS.md.
+   ═══════════════════════════════════════════════════════════════════════════ */
 
 html,
 body {
@@ -7,102 +11,418 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: var(--app-font-sans);
+  background: var(--app-bg);
+  color: var(--app-ink);
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
-/* ── Reader preferences (CSS custom properties) ─────────────────────────── */
+/* ── Core tokens (default = sepia / paper reading) ───────────────────────── */
 
 :root {
+  /* App shell (matches design .t-sepia) */
+  --app-bg: #f8f1de;
+  --app-ink: #43382a;
+  --app-muted: #8a7c66;
+  --app-line: #e3d8bd;
+  --app-card: #fdf8ea;
+  --app-btn: #f3e9cf;
+  --app-btnb: #cdbd9c;
+  --app-acc: #8a5a2b;
+  --app-acc-ink: #fdf8ea;
+  --app-ok: #5a7a4a;
+  --app-danger: #8b3a3a;
+
+  --app-font-serif: 'EB Garamond', Georgia, 'Times New Roman', 'Palatino Linotype', serif;
+  --app-font-sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --app-radius: 8px;
+  --app-radius-lg: 10px;
+  --app-measure: 40rem; /* ~640px */
+  --app-space: 1.5rem;
+
+  /* Reader (legacy names kept for existing components) */
   --reader-font-size: 18px;
   --reader-line-height: 1.65;
   --reader-max-width: 65ch;
-  --reader-font-family: Georgia, 'Times New Roman', 'Palatino Linotype', serif;
-  --reader-bg: #f7f3ea;
-  --reader-fg: #1a1a1a;
-  --reader-muted: #5c5c5c;
-  --reader-highlight: #ffe566;
-  --reader-link: #1a5f7a;
-  --reader-chrome-bg: rgba(247, 243, 234, 0.95);
-  --reader-chrome-border: rgba(0, 0, 0, 0.08);
+  --reader-font-family: var(--app-font-serif);
+  --reader-bg: var(--app-bg);
+  --reader-fg: var(--app-ink);
+  --reader-muted: var(--app-muted);
+  --reader-highlight: #e8c547;
+  --reader-link: var(--app-acc);
+  --reader-chrome-bg: color-mix(in srgb, var(--app-bg) 95%, transparent);
+  --reader-chrome-border: var(--app-line);
   --reader-surface-pad: 1.25rem;
 }
 
-/* Explicit themes */
+/* Claro (paper) */
 html[data-reader-theme='paper'],
 html[data-reader-resolved='paper'] {
-  --reader-bg: #f7f3ea;
-  --reader-fg: #1a1a1a;
-  --reader-muted: #5c5c5c;
+  --app-bg: #fdfdfb;
+  --app-ink: #2c2a26;
+  --app-muted: #8b877e;
+  --app-line: #e8e6e0;
+  --app-card: #ffffff;
+  --app-btn: #f4f2ec;
+  --app-btnb: #d6d2c8;
+  --app-acc: #7a5a33;
+  --app-acc-ink: #fdfdfb;
   --reader-highlight: #ffe566;
-  --reader-link: #1a5f7a;
-  --reader-chrome-bg: rgba(247, 243, 234, 0.95);
-  --reader-chrome-border: rgba(0, 0, 0, 0.08);
 }
 
+/* Sepia */
 html[data-reader-theme='sepia'],
 html[data-reader-resolved='sepia'] {
-  --reader-bg: #f4ecd8;
-  --reader-fg: #3b2f2f;
-  --reader-muted: #6b5b4b;
+  --app-bg: #f8f1de;
+  --app-ink: #43382a;
+  --app-muted: #8a7c66;
+  --app-line: #e3d8bd;
+  --app-card: #fdf8ea;
+  --app-btn: #f3e9cf;
+  --app-btnb: #cdbd9c;
+  --app-acc: #8a5a2b;
+  --app-acc-ink: #fdf8ea;
   --reader-highlight: #e8c547;
-  --reader-link: #6b3e26;
-  --reader-chrome-bg: rgba(244, 236, 216, 0.96);
-  --reader-chrome-border: rgba(59, 47, 47, 0.12);
 }
 
+/* Oscuro (night) */
 html[data-reader-theme='night'],
 html[data-reader-resolved='night'] {
-  --reader-bg: #12141a;
-  --reader-fg: #e6e6e6;
-  --reader-muted: #9aa0a6;
+  --app-bg: #201c15;
+  --app-ink: #e2d8c4;
+  --app-muted: #9a8f7a;
+  --app-line: #3a3428;
+  --app-card: #282318;
+  --app-btn: #302a1d;
+  --app-btnb: #4d4433;
+  --app-acc: #d0a45f;
+  --app-acc-ink: #201c15;
   --reader-highlight: #6b5a1e;
-  --reader-link: #7ec8e3;
-  --reader-chrome-bg: rgba(18, 20, 26, 0.96);
-  --reader-chrome-border: rgba(255, 255, 255, 0.1);
 }
 
-/* system: follow OS preference when not overridden by resolved attr cascade */
+/* system → paper light / night dark */
 html[data-reader-theme='system'] {
-  --reader-bg: #f7f3ea;
-  --reader-fg: #1a1a1a;
-  --reader-muted: #5c5c5c;
+  --app-bg: #fdfdfb;
+  --app-ink: #2c2a26;
+  --app-muted: #8b877e;
+  --app-line: #e8e6e0;
+  --app-card: #ffffff;
+  --app-btn: #f4f2ec;
+  --app-btnb: #d6d2c8;
+  --app-acc: #7a5a33;
+  --app-acc-ink: #fdfdfb;
   --reader-highlight: #ffe566;
-  --reader-link: #1a5f7a;
-  --reader-chrome-bg: rgba(247, 243, 234, 0.95);
-  --reader-chrome-border: rgba(0, 0, 0, 0.08);
 }
 
 @media (prefers-color-scheme: dark) {
   html[data-reader-theme='system'] {
-    --reader-bg: #12141a;
-    --reader-fg: #e6e6e6;
-    --reader-muted: #9aa0a6;
+    --app-bg: #201c15;
+    --app-ink: #e2d8c4;
+    --app-muted: #9a8f7a;
+    --app-line: #3a3428;
+    --app-card: #282318;
+    --app-btn: #302a1d;
+    --app-btnb: #4d4433;
+    --app-acc: #d0a45f;
+    --app-acc-ink: #201c15;
     --reader-highlight: #6b5a1e;
-    --reader-link: #7ec8e3;
-    --reader-chrome-bg: rgba(18, 20, 26, 0.96);
-    --reader-chrome-border: rgba(255, 255, 255, 0.1);
   }
 }
 
-/* Resolved overrides system media defaults when service sets them */
 html[data-reader-theme='system'][data-reader-resolved='night'] {
-  --reader-bg: #12141a;
-  --reader-fg: #e6e6e6;
-  --reader-muted: #9aa0a6;
+  --app-bg: #201c15;
+  --app-ink: #e2d8c4;
+  --app-muted: #9a8f7a;
+  --app-line: #3a3428;
+  --app-card: #282318;
+  --app-btn: #302a1d;
+  --app-btnb: #4d4433;
+  --app-acc: #d0a45f;
+  --app-acc-ink: #201c15;
   --reader-highlight: #6b5a1e;
-  --reader-link: #7ec8e3;
-  --reader-chrome-bg: rgba(18, 20, 26, 0.96);
-  --reader-chrome-border: rgba(255, 255, 255, 0.1);
 }
 
 html[data-reader-theme='system'][data-reader-resolved='paper'] {
-  --reader-bg: #f7f3ea;
-  --reader-fg: #1a1a1a;
-  --reader-muted: #5c5c5c;
+  --app-bg: #fdfdfb;
+  --app-ink: #2c2a26;
+  --app-muted: #8b877e;
+  --app-line: #e8e6e0;
+  --app-card: #ffffff;
+  --app-btn: #f4f2ec;
+  --app-btnb: #d6d2c8;
+  --app-acc: #7a5a33;
+  --app-acc-ink: #fdfdfb;
   --reader-highlight: #ffe566;
-  --reader-link: #1a5f7a;
-  --reader-chrome-bg: rgba(247, 243, 234, 0.95);
-  --reader-chrome-border: rgba(0, 0, 0, 0.08);
+}
+
+/* Keep reader-* aliases in sync with app tokens for all themes */
+html[data-reader-theme],
+html[data-reader-resolved] {
+  --reader-bg: var(--app-bg);
+  --reader-fg: var(--app-ink);
+  --reader-muted: var(--app-muted);
+  --reader-link: var(--app-acc);
+  --reader-chrome-bg: color-mix(in srgb, var(--app-bg) 96%, transparent);
+  --reader-chrome-border: var(--app-line);
+}
+
+/* ── Utility / shared components ─────────────────────────────────────────── */
+
+.app-surface {
+  background: var(--app-bg);
+  color: var(--app-ink);
+  font-family: var(--app-font-sans);
+  min-height: 100%;
+}
+
+.app-measure {
+  max-width: var(--app-measure);
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--app-space);
+}
+
+.app-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--app-muted);
+  font-family: var(--app-font-sans);
+}
+
+.app-title {
+  font-family: var(--app-font-serif);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--app-ink);
+  margin: 0.5rem 0 0;
+}
+
+.app-title-lg {
+  font-size: clamp(2rem, 6vw, 3.4rem);
+}
+
+.app-title-md {
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+}
+
+.app-lede {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--app-muted);
+  max-width: 46ch;
+  margin: 1.1rem 0 1.5rem;
+}
+
+.app-rule {
+  width: 3.5rem;
+  height: 1px;
+  background: var(--app-btnb);
+  margin: 1.75rem auto;
+  border: 0;
+}
+
+.app-muted {
+  color: var(--app-muted);
+}
+
+.app-card {
+  background: var(--app-card);
+  border: 1px solid var(--app-line);
+  border-radius: var(--app-radius-lg);
+  padding: 1rem 1.15rem;
+}
+
+.app-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  font-family: var(--app-font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--app-ink);
+  background: var(--app-btn);
+  border: 1px solid var(--app-btnb);
+  border-radius: var(--app-radius);
+  padding: 0.65rem 1.15rem;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.app-btn:hover {
+  filter: brightness(0.98);
+  color: var(--app-ink);
+  text-decoration: none;
+}
+
+.app-btn:focus-visible {
+  outline: 2px solid var(--app-acc);
+  outline-offset: 2px;
+}
+
+.app-btn-primary {
+  background: var(--app-acc);
+  border-color: var(--app-acc);
+  color: var(--app-acc-ink);
+}
+
+.app-btn-primary:hover {
+  color: var(--app-acc-ink);
+  filter: brightness(1.05);
+}
+
+.app-btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--app-muted);
+}
+
+.app-btn-ghost:hover {
+  color: var(--app-ink);
+}
+
+.app-btn-sm {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.7rem;
+}
+
+.app-doc-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--app-line);
+  padding: 1.1rem 0.15rem;
+  color: var(--app-ink);
+  font-family: var(--app-font-sans);
+  cursor: pointer;
+}
+
+.app-doc-row:hover {
+  background: color-mix(in srgb, var(--app-btn) 55%, transparent);
+}
+
+.app-doc-title {
+  font-family: var(--app-font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.2rem;
+  color: var(--app-ink);
+}
+
+.app-doc-meta {
+  font-size: 0.85rem;
+  color: var(--app-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+  align-items: center;
+}
+
+.app-lang-link {
+  color: var(--app-acc);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--app-acc) 40%, transparent);
+  font-weight: 500;
+}
+
+.app-lang-link:hover {
+  border-bottom-color: var(--app-acc);
+  color: var(--app-acc);
+}
+
+.app-status {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: var(--app-radius);
+  border: 1px solid var(--app-line);
+  font-family: var(--app-font-sans);
+  font-size: 0.95rem;
+  background: var(--app-card);
+  color: var(--app-ink);
+}
+
+.app-status-error {
+  border-color: var(--app-danger);
+  color: var(--app-danger);
+}
+
+.app-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--app-font-sans);
+  font-size: 0.95rem;
+  color: var(--app-ink);
+  background: var(--app-card);
+  border: 1px solid var(--app-line);
+  border-radius: var(--app-radius-lg);
+  padding: 0.7rem 1rem;
+  outline: none;
+}
+
+.app-search-input:focus {
+  border-color: var(--app-acc);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--app-acc) 20%, transparent);
+}
+
+.app-search-input::placeholder {
+  color: var(--app-muted);
+}
+
+/* Soften Bootstrap/Material on web shell */
+body:not(.reader-mode) .container {
+  max-width: var(--app-measure);
+  color: var(--app-ink);
+}
+
+body .btn-primary {
+  background: var(--app-acc) !important;
+  border-color: var(--app-acc) !important;
+  color: var(--app-acc-ink) !important;
+}
+
+body .btn-outline-success,
+body .btn-outline-secondary,
+body .btn-outline-primary {
+  color: var(--app-ink) !important;
+  border-color: var(--app-btnb) !important;
+  background: var(--app-btn) !important;
+}
+
+body .btn-outline-success:hover,
+body .btn-outline-secondary:hover,
+body .btn-outline-primary:hover {
+  background: var(--app-card) !important;
+  color: var(--app-ink) !important;
+}
+
+body .alert-info {
+  background: var(--app-card);
+  border-color: var(--app-line);
+  color: var(--app-ink);
+}
+
+body .alert-danger {
+  background: color-mix(in srgb, var(--app-danger) 12%, var(--app-card));
+  border-color: var(--app-danger);
+  color: var(--app-danger);
+}
+
+body .card {
+  background: var(--app-card);
+  border-color: var(--app-line);
+  color: var(--app-ink);
+}
+
+body .text-muted {
+  color: var(--app-muted) !important;
 }
 
 /* ── Reading surface ────────────────────────────────────────────────────── */
@@ -164,7 +484,7 @@ body.reader-mode .navbar {
   margin: 0;
 }
 
-/* ── Reader chrome (compact sticky header + prefs) ──────────────────────── */
+/* ── Reader chrome ──────────────────────────────────────────────────────── */
 
 .reader-chrome {
   position: sticky;
@@ -203,8 +523,30 @@ body.reader-mode .navbar {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-family: system-ui, sans-serif;
+  font-family: var(--app-font-sans);
   font-weight: 500;
+}
+
+.reader-chrome-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.reader-chrome-lang {
+  font-size: 0.72rem;
+  font-family: var(--app-font-sans);
+  color: var(--app-acc);
+  text-decoration: none;
+  border-bottom: 1px dotted color-mix(in srgb, var(--app-acc) 50%, transparent);
+}
+
+.reader-chrome-lang:hover {
+  border-bottom-style: solid;
+  color: var(--app-acc);
 }
 
 .reader-btn {
@@ -217,7 +559,7 @@ body.reader-mode .navbar {
   font-size: 0.8rem;
   line-height: 1.3;
   cursor: pointer;
-  font-family: system-ui, sans-serif;
+  font-family: var(--app-font-sans);
 }
 
 .reader-btn:hover {
@@ -253,7 +595,7 @@ body.reader-mode .navbar {
   margin: 0 auto;
   padding: 0.5rem 0.85rem 0.75rem;
   border-top: 1px solid var(--reader-chrome-border);
-  font-family: system-ui, sans-serif;
+  font-family: var(--app-font-sans);
   font-size: 0.85rem;
 }
 
@@ -289,19 +631,19 @@ body.reader-mode .navbar {
   padding: 0.75rem 1rem;
   border-radius: 0.4rem;
   border: 1px solid var(--reader-chrome-border);
-  font-family: system-ui, sans-serif;
+  font-family: var(--app-font-sans);
   font-size: 0.95rem;
 }
 
 .reader-status-error {
-  border-color: #c0392b;
-  color: #c0392b;
+  border-color: var(--app-danger);
+  color: var(--app-danger);
 }
 
 .reader-load-link {
   text-align: center;
   padding: 1rem 0 1.25rem;
-  font-family: system-ui, sans-serif;
+  font-family: var(--app-font-sans);
   font-size: 0.85rem;
 }
 
@@ -324,4 +666,82 @@ body.reader-mode .navbar {
 
 .reader-content {
   padding-bottom: 2rem;
+}
+
+/* Search results share reading typography */
+.search-results {
+  font-family: var(--app-font-sans);
+}
+
+.search-results .result-doc {
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--app-line);
+}
+
+.search-results .result-doc-title {
+  font-family: var(--app-font-serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+  color: var(--app-ink);
+}
+
+.search-results .result-doc-meta {
+  font-size: 0.85rem;
+  color: var(--app-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.search-results .result-hit {
+  padding: 0.35rem 0 0.85rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--app-line) 70%, transparent);
+}
+
+.search-results .result-hit-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.25rem;
+}
+
+.search-results app-punto .punto-contenido {
+  font-family: var(--app-font-serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--app-ink);
+}
+
+/* Terms debug panel */
+.terms-panel {
+  background: var(--app-card);
+  border: 1px solid var(--app-line);
+  border-radius: var(--app-radius-lg);
+  padding: 1rem 1.15rem;
+  margin-bottom: 1.25rem;
+}
+
+.terms-panel h2 {
+  font-family: var(--app-font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.terms-panel pre {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--app-muted);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Material paginator blend */
+.search-results .mat-mdc-paginator {
+  background: transparent;
+  color: var(--app-muted);
+  font-family: var(--app-font-sans);
 }

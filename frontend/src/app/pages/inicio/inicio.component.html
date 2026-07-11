@@ -1,85 +1,76 @@
-<div class="row">
-  <div class="col-12">
+<div class="app-home app-measure">
+  <ng-container *ngIf="first_view()">
+    <p class="app-eyebrow">Biblioteca de lectura</p>
+    <h1 class="app-title app-title-lg">Documentos Vaticanos</h1>
+    <p class="app-lede">
+      Los grandes textos del magisterio de la Iglesia — concilios, catecismo y
+      Escritura — reunidos para leer con calma, offline y con referencias
+      entre documentos.
+    </p>
 
-    <ng-container *ngIf="first_view()">
-      <h1>Bienvenido</h1>
-      <p>
-        Documentos vaticanos en un proyecto que busca facilitar el acceso a los
-        documentos de la Iglesia Católica.
-      </p>
-
-      <h3>Ejemplo de búsquedas</h3>
-
+    <div class="home-actions">
       <a
-        (click)="help_many_terms()"
-        class="btn btn-primary"
+        class="app-btn app-btn-primary"
         href="javascript:void(0)"
         role="button"
+        (click)="goDocuments()"
       >
-        <i
-          class="fa fa-search"
-          aria-hidden="true"
-        ></i>
-        Buscar varios términos</a>
-      <br>Términos: muerte, resurrección.
-      <br>
-      <br>
-      <a
-        (click)="help_many_dots()"
-        class="btn btn-primary"
-        href="javascript:void(0)"
-        role="button"
-      >
-        <i
-          class="fa fa-search"
-          aria-hidden="true"
-        ></i>
-        Buscar varios puntos</a>
-      <br> Puntos: .100-105, .299-303
-      <br>
-      <br>
-      <a
-        (click)="help_mixed_terms()"
-        class="btn btn-primary"
-        href="javascript:void(0)"
-        role="button"
-      >
-        <i
-          class="fa fa-search"
-          aria-hidden="true"
-        ></i>
-        Buscar terminos mezclados</a>
-      <br> Puntos: jesucristo, .100-105, .299-303
-      <br>
-
-
-    </ng-container>
-
-
-
-  </div>
-</div>
-
-<div
-  *ngIf="!first_view()"
-  class="row"
->
-  <div class="col-12">
-
-    <div class="card shadow">
-      <div class="card-body">
-        <h4 class="card-title"><i class="fas fa-code"></i>
-          Expansión de los términos
-        </h4>
-        <div class="card-text">
-          <pre>
-{{buscadorService.terminos | json}}
-          </pre>
-        </div>
-
-      </div>
+        Abrir la biblioteca
+      </a>
     </div>
-  </div>
+
+    <hr class="app-rule" />
+
+    <h2 class="home-section-title">Ejemplos de búsqueda</h2>
+    <p class="app-muted home-section-hint">
+      Escribe términos o puntos (con punto delante) separados por coma.
+    </p>
+
+    <ul class="home-examples">
+      <li>
+        <button type="button" class="app-btn" (click)="help_many_terms()">
+          Varios términos
+        </button>
+        <span class="example-meta">muerte, resurrección</span>
+      </li>
+      <li>
+        <button type="button" class="app-btn" (click)="help_many_dots()">
+          Varios puntos
+        </button>
+        <span class="example-meta">.100-105, .299-300</span>
+      </li>
+      <li>
+        <button type="button" class="app-btn" (click)="help_mixed_terms()">
+          Términos mezclados
+        </button>
+        <span class="example-meta">jesucristo, .100-105, .299-300</span>
+      </li>
+    </ul>
+  </ng-container>
+
+  <ng-container *ngIf="!first_view()">
+    <div class="terms-panel" *ngIf="buscadorService.terminos as t">
+      <h2>Expansión de la búsqueda</h2>
+      <p class="app-muted" style="margin: 0 0 0.5rem; font-size: 0.9rem">
+        Así se interpretó la consulta (términos y puntos del catecismo u otros
+        documentos).
+      </p>
+      <div class="terms-chips" *ngIf="t.terminos?.length">
+        <span class="chip-label">Términos</span>
+        <span class="chip" *ngFor="let w of t.terminos">{{ w }}</span>
+      </div>
+      <div class="terms-chips" *ngIf="t.puntos?.length">
+        <span class="chip-label">Puntos</span>
+        <span class="chip" *ngFor="let p of t.puntos">.{{ p }}</span>
+      </div>
+      <details class="terms-raw">
+        <summary>Ver JSON</summary>
+        <pre>{{ t | json }}</pre>
+      </details>
+    </div>
+  </ng-container>
 </div>
 
-<app-buscador></app-buscador>
+<div class="app-measure search-wrap">
+  <app-buscador></app-buscador>
+</div>

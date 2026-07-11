@@ -7,6 +7,7 @@ import {
   IndiceDocumentos,
 } from 'src/app/services/cargar-documentos-json.service';
 import { NavigationService, ROUTE } from 'src/app/services/navigation.service';
+import { CorpusService } from 'src/app/core/corpus/corpus.service';
 
 @Component({
   selector: 'app-list-documents-pages',
@@ -18,7 +19,8 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
     public buscadorService: BuscadorService,
     public docService: CargarDocumentosJsonService,
     public navigationService: NavigationService,
-    private router: Router
+    private router: Router,
+    private corpus: CorpusService
   ) {}
 
   keys = Object.keys;
@@ -46,6 +48,34 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+  }
+
+  displayTitle(item: IndiceDocumentos): string {
+    return (
+      item.title ||
+      item.nombre ||
+      this.corpus.getMeta(item.id || '')?.title ||
+      item.id ||
+      'Documento'
+    );
+  }
+
+  shortLabel(item: IndiceDocumentos): string | null {
+    const short =
+      item.shortTitle || this.corpus.getMeta(item.id || '')?.shortTitle;
+    const full = this.displayTitle(item);
+    if (!short || short === full) return null;
+    return short;
+  }
+
+  localeLabel(item: IndiceDocumentos): string {
+    const locale =
+      item.locale || this.corpus.getMeta(item.id || '')?.locale || 'es';
+    return CorpusService.localeLabel(locale);
+  }
+
+  sourceUrl(item: IndiceDocumentos): string | null {
+    return item.sourceUrl || this.corpus.getMeta(item.id || '')?.sourceUrl || null;
   }
 
   read(item: IndiceDocumentos) {

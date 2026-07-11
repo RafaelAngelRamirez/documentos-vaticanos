@@ -21,8 +21,20 @@
         </button>
       </div>
 
-      <div class="reader-chrome-title" [attr.title]="documentTitle">
-        {{ documentTitle }}
+      <div class="reader-chrome-meta">
+        <div class="reader-chrome-title" [attr.title]="documentTitle">
+          {{ documentTitle }}
+        </div>
+        <a
+          *ngIf="sourceUrl as href"
+          class="reader-chrome-lang"
+          [href]="href"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.title]="'Fuente oficial · ' + localeLabel"
+        >
+          {{ localeLabel }} · fuente
+        </a>
       </div>
 
       <div class="reader-chrome-right">

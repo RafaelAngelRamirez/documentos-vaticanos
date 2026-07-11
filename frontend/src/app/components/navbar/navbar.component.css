@@ -1,4 +1,135 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+.app-nav {
+  background: color-mix(in srgb, var(--app-bg) 94%, transparent);
+  border-bottom: 1px solid var(--app-line);
+  backdrop-filter: blur(10px);
+  color: var(--app-ink);
+  font-family: var(--app-font-sans);
+}
+
+.app-nav-inner {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0.65rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+.app-nav-brand {
+  font-family: var(--app-font-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--app-ink);
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.app-nav-brand:hover {
+  color: var(--app-acc);
+}
+
+.app-nav-toggle {
+  display: none;
+  appearance: none;
+  border: 1px solid var(--app-btnb);
+  background: var(--app-btn);
+  color: var(--app-ink);
+  border-radius: var(--app-radius);
+  padding: 0.35rem 0.65rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.app-nav-menu {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.app-nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.85rem;
+  align-items: center;
+}
+
+.app-nav-links a {
+  color: var(--app-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.app-nav-links a:hover {
+  color: var(--app-ink);
+}
+
+.app-nav-version {
+  font-size: 0.75rem;
+  color: var(--app-muted);
+  opacity: 0.75;
+}
+
+.app-nav-search {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-left: auto;
+  flex: 1 1 16rem;
+  max-width: 28rem;
+}
+
+.app-nav-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.9rem;
+}
+
 .navbar-theme-btn {
   min-width: 2.25rem;
   flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .app-nav-toggle {
+    display: inline-flex;
+  }
+
+  .app-nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .app-nav-menu.is-open {
+    display: flex;
+  }
+
+  .app-nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.55rem;
+  }
+
+  .app-nav-search {
+    margin-left: 0;
+    max-width: none;
+    width: 100%;
+  }
 }

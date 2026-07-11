@@ -13,6 +13,7 @@ import {
 } from 'src/app/services/reader-preferences.service';
 import { ArticleInfo } from '../punto/punto/punto.component';
 import { PuntoModule } from '../punto/punto.module';
+import { CorpusService } from 'src/app/core/corpus/corpus.service';
 
 const CONTEXT_SIZE = 5;
 
@@ -46,7 +47,8 @@ export class LectorComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     public navigationService: NavigationService,
     private cargarDocumentosJsonService: CargarDocumentosJsonService,
-    private readerPrefs: ReaderPreferencesService
+    private readerPrefs: ReaderPreferencesService,
+    private corpus: CorpusService
   ) {
     this.sub.add(
       combineLatest([this.route.paramMap, this.route.url]).subscribe(() => {
@@ -69,7 +71,27 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   get documentTitle(): string {
-    return this.document?.nombre ?? this.document?.id ?? '';
+    return (
+      this.document?.title ||
+      this.document?.nombre ||
+      this.meta?.title ||
+      this.document?.id ||
+      ''
+    );
+  }
+
+  get meta() {
+    const id = this.document?.id || this.navigationService.document_id;
+    return id ? this.corpus.getMeta(id) : undefined;
+  }
+
+  get localeLabel(): string {
+    const locale = this.document?.locale || this.meta?.locale || 'es';
+    return CorpusService.localeLabel(locale);
+  }
+
+  get sourceUrl(): string | null {
+    return this.document?.sourceUrl || this.meta?.sourceUrl || null;
   }
 
   get canLoadBefore(): boolean {
@@ -116,7 +138,7 @@ export class LectorComponent implements OnInit, OnDestroy {
   themeLabel(theme: ReaderPreferences['theme']): string {
     switch (theme) {
       case 'paper':
-        return 'Papel';
+        return 'Claro';
       case 'sepia':
         return 'Sepia';
       case 'night':
