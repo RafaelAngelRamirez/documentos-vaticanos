@@ -13,7 +13,20 @@ export interface TrasnportData {
 }
 
 export interface Reference {
-  descripcion:string
+  descripcion: string;
+  url?: string;
+  local?: {
+    idDocumento: string;
+    idPunto: string;
+  };
+  resolvedAtoms?: Array<{
+    raw: string;
+    kind: string;
+    bookSlug?: string;
+    chapter?: number;
+    verse?: number;
+    idPunto?: string;
+  }>;
 }
 
 export interface BibleBook {
