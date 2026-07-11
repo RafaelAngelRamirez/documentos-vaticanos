@@ -1,9 +1,54 @@
-p {
+p.punto-contenido {
   text-align: justify;
   text-justify: inter-word;
+}
+
+.punto-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.punto-header .card-title {
+  margin-bottom: 0.25rem;
+  flex: 1 1 auto;
+}
+
+.punto-raw-toggle {
+  padding: 0 0.25rem;
+  line-height: 1;
+  opacity: 0.45;
+}
+
+.punto-raw-toggle:hover {
+  opacity: 1;
+}
+
+.punto-raw {
+  font-size: 0.75rem;
+  max-height: 20rem;
+  overflow: auto;
 }
 
 .resaltar {
   background-color: yellow;
   font-weight: 800;
+}
+
+.ref-link {
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--bs-link-color, #0d6efd);
+  font-weight: 500;
+}
+
+.ref-link:hover {
+  color: var(--bs-link-hover-color, #0a58ca);
+}
+
+.ref-unresolved {
+  text-decoration: underline dashed;
+  text-underline-offset: 2px;
+  color: var(--bs-secondary-color, #6c757d);
+  cursor: help;
 }

@@ -1,0 +1,458 @@
+[
+  {
+    "bookSlug": "genesis",
+    "bookCode": "Gn",
+    "aliases": ["Gn", "Gen", "Gén", "Genesis", "Génesis"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "exodo",
+    "bookCode": "Ex",
+    "aliases": ["Ex", "Exo", "Éx", "Exodo", "Éxodo"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "levitico",
+    "bookCode": "Lv",
+    "aliases": ["Lv", "Lev", "Levitico", "Levítico"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "numeros",
+    "bookCode": "Nm",
+    "aliases": ["Nm", "Num", "Núm", "Numeros", "Números"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "deuteronomio",
+    "bookCode": "Dt",
+    "aliases": ["Dt", "Deut", "Deuteronomio"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "josue",
+    "bookCode": "Jos",
+    "aliases": ["Jos", "Josh", "Josue", "Josué"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "jueces",
+    "bookCode": "Jc",
+    "aliases": ["Jc", "Jue", "Jueces"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "rut",
+    "bookCode": "Rut",
+    "aliases": ["Rut", "Rt", "Ruth"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "primer libro de samuel",
+    "bookCode": "1 S",
+    "aliases": ["1 S", "1S", "1 Sam", "1Sam", "1 Samuel", "1Sm"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "segundo libro de samuel",
+    "bookCode": "2 S",
+    "aliases": ["2 S", "2S", "2 Sam", "2Sam", "2 Samuel", "2Sm"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "primer libro de los reyes",
+    "bookCode": "1 R",
+    "aliases": ["1 R", "1R", "1 Re", "1Re", "1 Rey", "1 Reyes", "1Rs"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "segundo libro de los reyes",
+    "bookCode": "2 R",
+    "aliases": ["2 R", "2R", "2 Re", "2Re", "2 Rey", "2 Reyes", "2Rs"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "primer libro de las cronicas",
+    "bookCode": "1 Cro",
+    "aliases": ["1 Cro", "1Cro", "1 Cr", "1Cr", "1 Cron", "1 Crónicas", "1 Cronicas"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "segundo libro de las cronicas",
+    "bookCode": "2 Cro",
+    "aliases": ["2 Cro", "2Cro", "2 Cr", "2Cr", "2 Cron", "2 Crónicas", "2 Cronicas"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "esdras",
+    "bookCode": "Esd",
+    "aliases": ["Esd", "Esr", "Esdras", "Ezra"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "nehemias",
+    "bookCode": "Ne",
+    "aliases": ["Ne", "Neh", "Nehemias", "Nehemías"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "tobias",
+    "bookCode": "Tb",
+    "aliases": ["Tb", "Tob", "Tobias", "Tobías"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "judit",
+    "bookCode": "Jdt",
+    "aliases": ["Jdt", "Judit", "Judith"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "ester",
+    "bookCode": "Est",
+    "aliases": ["Est", "Ester", "Esther"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "ester suplementos griegos",
+    "bookCode": "Est",
+    "aliases": ["Est gr", "Est G", "Ester griego", "Ester suplementos griegos"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "primer libro de los macabeos",
+    "bookCode": "1 M",
+    "aliases": ["1 M", "1M", "1 Mac", "1Mac", "1 Ma", "1 Macabeos"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "segundo libro de los macabeos",
+    "bookCode": "2 M",
+    "aliases": ["2 M", "2M", "2 Mac", "2Mac", "2 Ma", "2 Macabeos"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "job",
+    "bookCode": "Job",
+    "aliases": ["Job", "Jb"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "salmos",
+    "bookCode": "Sal",
+    "aliases": ["Sal", "Sl", "Salmo", "Salmos", "Ps", "Psalm"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "proverbios",
+    "bookCode": "Pr",
+    "aliases": ["Pr", "Prov", "Proverbios"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "eclesiastes",
+    "bookCode": "Qo",
+    "aliases": ["Qo", "Ecl", "Ec", "Eclesiastés", "Eclesiastes", "Qoh", "Qohelet"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "cantar de los cantares",
+    "bookCode": "Ct",
+    "aliases": ["Ct", "Cant", "Cantar", "Cantares", "Cantar de los Cantares", "Cant de los Cant"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "sabiduria",
+    "bookCode": "Sb",
+    "aliases": ["Sb", "Sab", "Sabiduria", "Sabiduría", "Wis"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "eclesiastico",
+    "bookCode": "Si",
+    "aliases": ["Si", "Sir", "Eclo", "Eclesiastico", "Eclesiástico", "Siracida", "Sirácida", "Ecclo"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "isaias",
+    "bookCode": "Is",
+    "aliases": ["Is", "Isa", "Isaias", "Isaías"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "jeremias",
+    "bookCode": "Jr",
+    "aliases": ["Jr", "Jer", "Jeremias", "Jeremías"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "lamentaciones",
+    "bookCode": "Lm",
+    "aliases": ["Lm", "Lam", "Lamentaciones"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "baruc",
+    "bookCode": "Ba",
+    "aliases": ["Ba", "Bar", "Baruc", "Baruch"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "carta de jeremias",
+    "bookCode": "CJr",
+    "aliases": ["CJr", "Carta Jr", "Ep Jr", "Carta de Jeremias", "Carta de Jeremías"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "ezequiel",
+    "bookCode": "Ez",
+    "aliases": ["Ez", "Eze", "Ezequiel"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "daniel",
+    "bookCode": "Dn",
+    "aliases": ["Dn", "Dan", "Daniel"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "daniel suplementos griegos",
+    "bookCode": "Dn",
+    "aliases": ["Dn gr", "Dn G", "Daniel griego", "Daniel suplementos griegos"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "oseas",
+    "bookCode": "Os",
+    "aliases": ["Os", "Hos", "Oseas", "Oseas", "Oséas"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "joel",
+    "bookCode": "Jl",
+    "aliases": ["Jl", "Joel"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "amos",
+    "bookCode": "Am",
+    "aliases": ["Am", "Amos", "Amós"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "abdias",
+    "bookCode": "Ab",
+    "aliases": ["Ab", "Abd", "Abdias", "Abdías", "Obad"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "jonas",
+    "bookCode": "Jon",
+    "aliases": ["Jon", "Jonas", "Jonás", "Jonah"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "miqueas",
+    "bookCode": "Mi",
+    "aliases": ["Mi", "Miq", "Miqueas", "Mic"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "nahum",
+    "bookCode": "Na",
+    "aliases": ["Na", "Nah", "Nahum", "Nahúm"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "habacuc",
+    "bookCode": "Ha",
+    "aliases": ["Ha", "Hab", "Habacuc", "Habakkuk"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "sofonias",
+    "bookCode": "So",
+    "aliases": ["So", "Sof", "Sofonias", "Sofonías", "Zeph"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "ageo",
+    "bookCode": "Ag",
+    "aliases": ["Ag", "Age", "Ageo", "Ageo", "Hag"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "zacarias",
+    "bookCode": "Za",
+    "aliases": ["Za", "Zac", "Zacarias", "Zacarías", "Zech"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "malaquias",
+    "bookCode": "Ml",
+    "aliases": ["Ml", "Mal", "Malaquias", "Malaquías"],
+    "testament": "ot"
+  },
+  {
+    "bookSlug": "evangelio segun san mateo",
+    "bookCode": "Mt",
+    "aliases": ["Mt", "Mat", "Mateo", "Matthew"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "evangelio segun san marcos",
+    "bookCode": "Mc",
+    "aliases": ["Mc", "Mar", "Marcos", "Mark"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "evangelio segun san lucas",
+    "bookCode": "Lc",
+    "aliases": ["Lc", "Luc", "Lucas", "Luke"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "evangelio segun san juan",
+    "bookCode": "Jn",
+    "aliases": ["Jn", "Juan", "John"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "hechos de los apostoles",
+    "bookCode": "Hch",
+    "aliases": ["Hch", "Hech", "He", "Hchos", "Hechos", "Act", "Acts"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "carta a los romanos",
+    "bookCode": "Rm",
+    "aliases": ["Rm", "Rom", "Ro", "Romanos", "Romans"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "primera carta a los corintios",
+    "bookCode": "1 Co",
+    "aliases": ["1 Co", "1Co", "1 Cor", "1Cor", "1 Corintios", "1Co."],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "segunda carta a los corintios",
+    "bookCode": "2 Co",
+    "aliases": ["2 Co", "2Co", "2 Cor", "2Cor", "2 Corintios"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "carta a los galatas",
+    "bookCode": "Ga",
+    "aliases": ["Ga", "Gal", "Gál", "Galatas", "Gálatas"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "carta a los efesios",
+    "bookCode": "Ef",
+    "aliases": ["Ef", "Eph", "Efesios"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "carta a los filipenses",
+    "bookCode": "Flp",
+    "aliases": ["Flp", "Fil", "Filip", "Filipenses", "Phil"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "carta a los colosenses",
+    "bookCode": "Col",
+    "aliases": ["Col", "Colosenses"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "primera carta a los tesalonicenses",
+    "bookCode": "1 Ts",
+    "aliases": ["1 Ts", "1Ts", "1 Te", "1Te", "1 Tes", "1Tes", "1 Tesalonicenses"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "segunda carta a los tesalonicenses",
+    "bookCode": "2 Ts",
+    "aliases": ["2 Ts", "2Ts", "2 Te", "2Te", "2 Tes", "2Tes", "2 Tesalonicenses"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "primera carta a timoteo",
+    "bookCode": "1 Tm",
+    "aliases": ["1 Tm", "1Tm", "1 Tim", "1Tim", "1 Timoteo", "1 Tm."],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "segunda carta a timoteo",
+    "bookCode": "2 Tm",
+    "aliases": ["2 Tm", "2Tm", "2 Tim", "2Tim", "2 Timoteo"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "carta a tito",
+    "bookCode": "Tt",
+    "aliases": ["Tt", "Tit", "Tito", "Titus"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "carta a filemon",
+    "bookCode": "Flm",
+    "aliases": ["Flm", "Film", "Filem", "Filemon", "Filemón", "Phlm"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "carta a los hebreos",
+    "bookCode": "Hb",
+    "aliases": ["Hb", "Heb", "Hebr", "Hebreos", "Hebrews"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "carta de santiago",
+    "bookCode": "St",
+    "aliases": ["St", "Sant", "Stg", "Santiago", "James", "Iac"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "primera carta de san pedro",
+    "bookCode": "1 P",
+    "aliases": ["1 P", "1P", "1 Pe", "1Pe", "1 Ped", "1Pedro", "1 Pedro", "1 Pet"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "segunda carta de san pedro",
+    "bookCode": "2 P",
+    "aliases": ["2 P", "2P", "2 Pe", "2Pe", "2 Ped", "2Pedro", "2 Pedro", "2 Pet"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "primera carta de san juan",
+    "bookCode": "1 Jn",
+    "aliases": ["1 Jn", "1Jn", "1 Juan", "1Juan"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "segunda carta de san juan",
+    "bookCode": "2 Jn",
+    "aliases": ["2 Jn", "2Jn", "2 Juan", "2Juan"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "tercera carta de san juan",
+    "bookCode": "3 Jn",
+    "aliases": ["3 Jn", "3Jn", "3 Juan", "3Juan"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "carta de san judas",
+    "bookCode": "Jds",
+    "aliases": ["Jds", "Jud", "Judas", "Jude"],
+    "testament": "nt"
+  },
+  {
+    "bookSlug": "apocalipsis",
+    "bookCode": "Ap",
+    "aliases": ["Ap", "Apoc", "Apocalipsis", "Rev", "Revelation"],
+    "testament": "nt"
+  }
+]

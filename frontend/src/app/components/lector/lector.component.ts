@@ -37,7 +37,7 @@ export class LectorComponent implements OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private navigationService: NavigationService,
+    public navigationService: NavigationService,
     private cargarDocumentosJsonService: CargarDocumentosJsonService
   ) {
     this.sub.add(
@@ -49,6 +49,10 @@ export class LectorComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+  }
+
+  goBackFromRef(): void {
+    this.navigationService.goBack();
   }
 
   load_data() {
@@ -75,13 +79,19 @@ export class LectorComponent implements OnDestroy {
       return;
     }
 
+    // Prefer the route document when it differs from the in-memory selection
+    // (e.g. following a cross-document reference).
+    const effectiveKey = routeDoc ?? documentKey;
+
     // If we already have the full document in memory, use it.
     if (
       this.navigationService.document_selected &&
-      (this.navigationService.document_selected.id === documentKey ||
-        this.navigationService.document_selected.nombre === documentKey)
+      (this.navigationService.document_selected.id === effectiveKey ||
+        this.navigationService.document_selected.nombre === effectiveKey)
     ) {
       this.document = this.navigationService.document_selected;
+      this.navigationService.document_id =
+        this.document.id ?? this.document.nombre;
       this.applyRoutePunto(routePunto);
       this.generate_context_for_article();
       return;
@@ -90,7 +100,7 @@ export class LectorComponent implements OnDestroy {
     this.loading = true;
     this.load_error = null;
     this.sub.add(
-      this.cargarDocumentosJsonService.ensureLoaded(documentKey).subscribe({
+      this.cargarDocumentosJsonService.ensureLoaded(effectiveKey).subscribe({
         next: (doc) => {
           this.loading = false;
           this.document = doc;
@@ -102,7 +112,7 @@ export class LectorComponent implements OnDestroy {
         error: (err) => {
           this.loading = false;
           this.load_error =
-            err?.message ?? `No se pudo cargar el documento: ${documentKey}`;
+            err?.message ?? `No se pudo cargar el documento: ${effectiveKey}`;
           console.error(err);
         },
       })
@@ -114,7 +124,29 @@ export class LectorComponent implements OnDestroy {
       return;
     }
 
-    // Prefer navigation index when it already matches a loaded article.
+    // Prefer navigationService.actual_index when it already points at an article
+    // consistent with the route (set by navigateToUnit / go_to_read_article).
+    const navIdx = this.navigationService.actual_index;
+    const atNav = this.document.documento[navIdx];
+    if (atNav) {
+      const matchesRoute =
+        String(navIdx) === String(routePunto) ||
+        atNav.consecutivo === routePunto ||
+        String(atNav.index_array) === String(routePunto);
+      if (matchesRoute) {
+        this.actual_index = navIdx;
+        // Keep focus_article only when it still refers to this unit.
+        if (
+          this.focus_article &&
+          this.focus_article.article?.index_array !== atNav.index_array
+        ) {
+          this.focus_article = undefined;
+        }
+        return;
+      }
+    }
+
+    // Prefer navigation index when focus_article already matches a loaded article.
     if (
       this.focus_article &&
       this.document.documento[this.actual_index]?.index_array ===
@@ -128,6 +160,7 @@ export class LectorComponent implements OnDestroy {
       if (this.document.documento[asNumber]) {
         this.actual_index = asNumber;
         this.navigationService.actual_index = asNumber;
+        this.focus_article = undefined;
         return;
       }
     }
@@ -138,6 +171,7 @@ export class LectorComponent implements OnDestroy {
     if (foundIdx >= 0) {
       this.actual_index = foundIdx;
       this.navigationService.actual_index = foundIdx;
+      this.focus_article = undefined;
     }
   }
 
@@ -170,6 +204,14 @@ export class LectorComponent implements OnDestroy {
       actual_article_in_list.termns = this.focus_article?.termns;
       actual_article_in_list.terms_pure = this.focus_article?.terms_pure ?? [];
     }
+
+    // Keep navigation service in sync for subsequent ref pushes.
+    this.navigationService.actual_index = this.actual_index;
+    if (this.document) {
+      this.navigationService.document_id =
+        this.document.id ?? this.document.nombre;
+    }
+    this.navigationService.save_actual_index();
   }
 
   private _get_articles(inferior_limit = 0, superior_limit = 0) {

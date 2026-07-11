@@ -6,6 +6,19 @@
   {{ load_error }}
 </div>
 
+<div
+  *ngIf="navigationService.canGoBack()"
+  class="ref-back-bar my-2"
+>
+  <button
+    type="button"
+    class="btn btn-sm btn-outline-secondary ref-back-btn"
+    (click)="goBackFromRef()"
+  >
+    ← Volver a la cita
+  </button>
+</div>
+
 <ng-container *ngIf="!loading && document">
   <div class="row mt-5 text-center">
     <div class="col-12">

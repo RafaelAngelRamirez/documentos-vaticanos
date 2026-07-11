@@ -1,18 +1,39 @@
-<ng-container *ngIf="infoPunto.article">
+<ng-container *ngIf="infoPunto?.article">
+  <div class="punto-header">
+    <h5 class="card-title">
+      {{ obtener_consecutivo(infoPunto.article.consecutivo) }}
+    </h5>
+    <button
+      *ngIf="showDebugToggle"
+      type="button"
+      class="btn btn-link btn-sm punto-raw-toggle"
+      (click)="toggleRaw($event)"
+      title="Ver JSON crudo"
+      aria-label="Ver JSON crudo"
+    >
+      <i class="fa fa-bug" aria-hidden="true"></i>
+    </button>
+  </div>
 
-  <h5 class="card-title">{{ obtener_consecutivo(infoPunto.article.consecutivo) }}
-  </h5>
-
-  <p
-    (click)="ver_raw = !ver_raw"
-    [innerHTML]="ocultar_consecutivo(infoPunto.article)"
-  >
+  <p class="punto-contenido">
+    <ng-container *ngFor="let seg of segments">
+      <span *ngIf="seg.type === 'text'" [innerHTML]="seg.html"></span>
+      <a
+        *ngIf="seg.type === 'ref' && seg.local"
+        href="javascript:void(0)"
+        class="ref-link"
+        [attr.title]="seg.label"
+        (click)="openRef(seg, $event)"
+        >{{ seg.label }}</a
+      >
+      <span
+        *ngIf="seg.type === 'ref' && !seg.local"
+        class="ref-unresolved"
+        title="Sin destino offline"
+        >{{ seg.label }}</span
+      >
+    </ng-container>
   </p>
-  <pre *ngIf="ver_raw">{{ infoPunto | json }}</pre>
-  <!-- Posiblemente aquí pongamos algo -->
-  <!-- <ul class="list-group list-group-flush">
-    <li *ngFor="let referencia of punto?.referencias" class="list-group-item">
-    {{ referencia?.descripcion }}
-    </li>
-  </ul> -->
+
+  <pre *ngIf="ver_raw" class="punto-raw">{{ infoPunto | json }}</pre>
 </ng-container>

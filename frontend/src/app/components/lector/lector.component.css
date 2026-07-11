@@ -1,0 +1,13 @@
+.ref-back-bar {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ref-back-btn {
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.ref-back-btn:hover {
+  opacity: 1;
+}

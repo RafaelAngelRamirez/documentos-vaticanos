@@ -27,9 +27,10 @@ export interface CorpusManifest {
 
 export interface Referencia {
   descripcion: string;
-  url: string;
-  local: {
+  url?: string;
+  local?: {
     idDocumento: string;
+    /** Array index preferred (stringified number), or consecutivo. */
     idPunto: string;
   };
 }

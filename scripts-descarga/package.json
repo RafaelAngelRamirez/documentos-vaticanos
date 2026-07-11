@@ -8,7 +8,9 @@
     "biblia": "npx ts-node-dev --transpile-only --project tsconfig.json descargar_biblia.ts && npm run copiar",
     "reindex": "npx ts-node --transpile-only reindex_offline.ts",
     "copiar": "cp -r documentos/* ../frontend/src/assets/documentos",
-    "migrate:corpus": "npx ts-node --transpile-only migrate_to_corpus.ts"
+    "migrate:corpus": "npx ts-node --transpile-only migrate_to_corpus.ts",
+    "resolve:refs": "npx ts-node --transpile-only resolve_refs.ts",
+    "test:refs": "npx ts-node --transpile-only ref_parser.test.ts"
   },
   "author": "",
   "license": "ISC",

@@ -1,7 +1,25 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { Article } from 'src/app/services/cargar-documentos-json.service';
+import {
+  Article,
+  Referencia,
+} from 'src/app/services/cargar-documentos-json.service';
 import { TermsProcessed } from '../../buscador/buscador.service';
 import { UtilidadesService } from 'src/app/services/utilidades.service';
+import { NavigationService } from 'src/app/services/navigation.service';
+import { environment } from 'src/environments/environment';
+
+/** Placeholder pattern produced by the scraper: `[+[0]+]`, `[+[1]+]`, … */
+const REF_PLACEHOLDER = /\[\+\[(\d+)\]\+\]/g;
+
+export type ContentSegment =
+  | { type: 'text'; html: string }
+  | {
+      type: 'ref';
+      label: string;
+      index: number;
+      local?: { idDocumento: string; idPunto: string };
+      url?: string;
+    };
 
 @Component({
   selector: 'app-punto',
@@ -14,6 +32,12 @@ export class PuntoComponent implements OnInit {
   mostrar_opciones = false;
 
   ver_raw = false;
+  /** True only outside production builds (debug raw JSON toggle). */
+  readonly showDebugToggle = !environment.production;
+
+  /** Rendered content pieces (escaped text + ref links). */
+  segments: ContentSegment[] = [];
+
   public get infoPunto(): ArticleInfo {
     return this._infoPunto;
   }
@@ -24,44 +48,202 @@ export class PuntoComponent implements OnInit {
 
   terminos_de_busqueda: string[] = [];
 
-  constructor(private utilidadesService: UtilidadesService) {}
+  constructor(
+    private utilidadesService: UtilidadesService,
+    private navigationService: NavigationService
+  ) {}
 
   ngOnInit(): void {}
 
   procesar(value: ArticleInfo): ArticleInfo {
-    if (!value) return value;
-    let procesado = value;
+    if (!value) {
+      this.segments = [];
+      return value;
+    }
 
-    procesado = this.popularReferencias(procesado);
-    if (this.terminos_de_busqueda)
-      procesado = this.terminos_de_busqueda_procesar(
-        JSON.parse(JSON.stringify(procesado))
-      );
+    // Shallow copy so shared corpus articles are not mutated in place.
+    const procesado: ArticleInfo = {
+      ...value,
+      article: { ...value.article },
+      terms_pure: value.terms_pure ?? [],
+    };
 
-    return procesado;
-  }
+    const terms =
+      procesado.terms_pure?.length > 0 ? procesado.terms_pure : undefined;
 
-  popularReferencias(procesado: ArticleInfo): ArticleInfo {
-    let cadena_de_remplazo = (i: number) => `[+[${i}]+]`;
-    procesado.article.referencias?.forEach((referencia, i) => {
-      let remplazar = cadena_de_remplazo(i);
-      procesado.article.contenido = procesado.article.contenido.replace(
-        remplazar,
-        referencia.descripcion
-      );
-    });
+    this.segments = this.buildSegments(procesado.article, terms);
 
     return procesado;
   }
 
   /**
-   *Obtenemos el consecutivo cuando existe. El consecutivo
+   * Split article content on ref placeholders and produce safe segments.
+   * Text is HTML-escaped; search-term highlights are injected only into text.
+   */
+  private buildSegments(
+    article: Article,
+    terms?: string[]
+  ): ContentSegment[] {
+    const raw = this.stripConsecutivoPrefix(
+      article.contenido ?? '',
+      article.consecutivo
+    );
+    const refs = article.referencias ?? [];
+    const segments: ContentSegment[] = [];
+
+    let lastIndex = 0;
+    REF_PLACEHOLDER.lastIndex = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = REF_PLACEHOLDER.exec(raw)) !== null) {
+      const textBefore = raw.slice(lastIndex, match.index);
+      if (textBefore) {
+        segments.push({
+          type: 'text',
+          html: this.formatTextSegment(textBefore, terms),
+        });
+      }
+
+      const refIndex = Number(match[1]);
+      const ref: Referencia | undefined = refs[refIndex];
+      segments.push(this.refSegmentFrom(ref, refIndex));
+
+      lastIndex = match.index + match[0].length;
+    }
+
+    const tail = raw.slice(lastIndex);
+    if (tail || segments.length === 0) {
+      segments.push({
+        type: 'text',
+        html: this.formatTextSegment(tail, terms),
+      });
+    }
+
+    return segments;
+  }
+
+  private refSegmentFrom(
+    ref: Referencia | undefined,
+    index: number
+  ): ContentSegment {
+    const label = ref?.descripcion?.trim() || `[ref ${index}]`;
+    const local =
+      ref?.local?.idDocumento && ref?.local?.idPunto
+        ? {
+            idDocumento: ref.local.idDocumento,
+            idPunto: ref.local.idPunto,
+          }
+        : undefined;
+
+    return {
+      type: 'ref',
+      label,
+      index,
+      local,
+      url: ref?.url,
+    };
+  }
+
+  private formatTextSegment(text: string, terms?: string[]): string {
+    const escaped = this.escapeHtml(text);
+    if (!terms?.length) {
+      return escaped;
+    }
+    return this.highlightTerms(escaped, terms);
+  }
+
+  /**
+   * Highlight search terms on already-escaped HTML text.
+   * Matching uses diacritic folding; ranges that would cut HTML entities are skipped.
+   */
+  private highlightTerms(escaped: string, terms: string[]): string {
+    if (!terms.length) return escaped;
+
+    const folded = this.utilidadesService.texto
+      .eliminar_diacriticos(escaped)
+      .toLowerCase();
+
+    type Range = { start: number; end: number };
+    const ranges: Range[] = [];
+
+    for (const term of terms) {
+      const t = this.utilidadesService.texto
+        .eliminar_diacriticos(term)
+        .toLowerCase();
+      if (!t) continue;
+
+      let from = 0;
+      while (from < folded.length) {
+        const idx = folded.indexOf(t, from);
+        if (idx < 0) break;
+        ranges.push({ start: idx, end: idx + t.length });
+        from = idx + t.length;
+      }
+    }
+
+    if (!ranges.length) return escaped;
+
+    ranges.sort((a, b) => a.start - b.start || b.end - a.end);
+    const merged: Range[] = [];
+    for (const r of ranges) {
+      const last = merged[merged.length - 1];
+      if (last && r.start < last.end) {
+        last.end = Math.max(last.end, r.end);
+      } else {
+        merged.push({ ...r });
+      }
+    }
+
+    const safe = merged.filter((r) => !this.rangeTouchesEntity(escaped, r));
+
+    let out = '';
+    let cursor = 0;
+    for (const r of safe) {
+      out += escaped.slice(cursor, r.start);
+      out += '<span class="resaltar">';
+      out += escaped.slice(r.start, r.end);
+      out += '</span>';
+      cursor = r.end;
+    }
+    out += escaped.slice(cursor);
+    return out;
+  }
+
+  private rangeTouchesEntity(
+    text: string,
+    r: { start: number; end: number }
+  ): boolean {
+    const amp = text.lastIndexOf('&', r.start);
+    if (amp < 0) return false;
+    const semi = text.indexOf(';', amp);
+    return semi >= r.start && amp < r.end;
+  }
+
+  private escapeHtml(text: string): string {
+    return text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  private stripConsecutivoPrefix(
+    contenido: string,
+    consecutivo: string | undefined
+  ): string {
+    if (!consecutivo) return contenido;
+    const valor = consecutivo.trim();
+    if (!valor || valor === 'no-encontrado') return contenido;
+    if (contenido.startsWith(valor + ' ')) {
+      return contenido.slice(valor.length + 1);
+    }
+    return contenido.replace(valor + ' ', '');
+  }
+
+  /**
+   * Obtenemos el consecutivo cuando existe. El consecutivo
    * se refiere al valor que se asigna como un control
-   * numérico para referencia del docuemento.
-   *
-   * @param {(string | undefined)} consecutivo
-   * @return {*}
-   * @memberof PuntoComponent
+   * numérico para referencia del documento.
    */
   obtener_consecutivo(consecutivo: string | undefined) {
     if (!consecutivo) return consecutivo;
@@ -73,67 +255,34 @@ export class PuntoComponent implements OnInit {
   }
 
   /**
-   *El texto origianl del punto incluye la descripción del
-   * del punto. Como no queremos que se duplique con esta
-   * función lo eliminamos de nuestro resultado a mostrar.
-   *
-   * @param {(Article | undefined)} punto
-   * @return {*}
-   * @memberof PuntoComponent
+   * Follow a resolved local reference: push current unit and navigate.
    */
-  ocultar_consecutivo(punto: Article | undefined) {
-    if (!punto) return '';
-    let contenido = punto.contenido;
-    let consecutivo = punto.consecutivo.trim();
+  openRef(seg: ContentSegment, event?: Event): void {
+    event?.preventDefault();
+    event?.stopPropagation();
 
-    return contenido.replace(consecutivo + ' ', '');
+    if (seg.type !== 'ref' || !seg.local) {
+      return;
+    }
+
+    const { idDocumento, idPunto } = seg.local;
+    const asIndex = Number(idPunto);
+    if (!Number.isFinite(asIndex)) {
+      return;
+    }
+
+    // idPunto is the array index in the target document (from resolve_refs).
+    // Prefer the index in the route so bible verse numbers like "13" never collide.
+    this.navigationService.navigateToUnit(idDocumento, asIndex, {
+      fromRef: true,
+      label: seg.label,
+    });
   }
 
-  terminos_de_busqueda_procesar(infoPunto: ArticleInfo): ArticleInfo {
-    let punto = infoPunto.article.contenido;
-    let terminos = infoPunto.terms_pure;
-    let punto_transformado = this.utilidadesService.texto
-      .eliminar_diacriticos(punto)
-      .toLowerCase();
-
-    let caracter_inicio = '@';
-    let caracter_fin = '$';
-
-    terminos?.forEach((termino) => {
-      let remplazo = termino.split('').fill('%');
-      remplazo[0] = caracter_inicio;
-      remplazo[termino.length] = caracter_fin;
-      let remplazo_str = remplazo.join('');
-      punto_transformado = punto_transformado.replaceAll(termino, remplazo_str);
-    });
-
-
-    let indices: number[] = [];
-
-    punto_transformado.split('').forEach((l, i) => {
-      if (l === caracter_inicio) {
-        indices.push(i);
-      }
-      if (l === caracter_fin) {
-        indices.push(i);
-      }
-    });
-
-    let es_final = true;
-
-    let etiqueta_inicio = '<span class="resaltar">';
-    let etiqueta_fin = '</span>';
-    indices.reverse().forEach((indice) => {
-      const primera_parte = punto.slice(0, indice);
-      const segunda_parte = punto.slice(indice);
-      const etiqueta = es_final ? etiqueta_fin : etiqueta_inicio;
-      punto = primera_parte + etiqueta + segunda_parte;
-      es_final = !es_final;
-    });
-
-    infoPunto.article.contenido = punto;
-
-    return infoPunto;
+  toggleRaw(event: Event): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.ver_raw = !this.ver_raw;
   }
 }
 
