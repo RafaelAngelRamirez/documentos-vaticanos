@@ -1,5 +1,18 @@
 # Fase 2 — Estudios compartidos, roles y cuenta de usuario
 
+## 0. Estado de implementación (web)
+
+| Área | Estado |
+|------|--------|
+| Auth dev + upgrade maestro | Hecho (`/cuenta`, API) |
+| Referencias personales ★ | Hecho |
+| Temas + portada (multer/sharp) | Hecho |
+| Estudios publish/enroll/alumnos | Hecho |
+| UI design system (sin Bootstrap) | Hecho |
+| Google OAuth real | Pendiente (`googleClientId` + GIS) |
+| Seguir maestro (sin estudio) | Pendiente v2.1 |
+| Hilos de dudas por paso | Fuera de v2.0 |
+
 ## 1. Contexto y principios
 
 La **Fase 1** deja una app de lectura **offline-first** con corpus empaquetado (CIC, Biblia, LG, GS, DV, SC) y referencias locales por:

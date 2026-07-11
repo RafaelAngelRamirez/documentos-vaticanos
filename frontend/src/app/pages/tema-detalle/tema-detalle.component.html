@@ -1,66 +1,69 @@
-<div class="container py-4" style="max-width: 720px" *ngIf="!loading">
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1 class="h3 mb-0">{{ theme?.title || 'Tema' }}</h1>
-    <a routerLink="/cuenta/temas" class="btn btn-sm btn-link">← Temas</a>
-  </div>
+<div class="app-page" *ngIf="!loading">
+  <header class="app-page-head">
+    <h1 class="app-page-title">{{ theme?.title || 'Tema' }}</h1>
+    <a routerLink="/cuenta/temas" class="app-btn-link">← Temas</a>
+  </header>
 
-  <p *ngIf="theme?.description" class="text-muted">{{ theme?.description }}</p>
-  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-  <div *ngIf="message" class="alert alert-success py-2">{{ message }}</div>
+  <p *ngIf="theme?.description" class="app-muted app-fs14">{{ theme?.description }}</p>
+  <div *ngIf="error" class="app-status app-status-error">{{ error }}</div>
+  <div *ngIf="message" class="app-status app-status-ok">{{ message }}</div>
 
-  <div class="card card-body mb-3">
-    <h2 class="h6">Portada</h2>
-    <img
-      *ngIf="coverUrl() as src"
-      [src]="src"
-      alt=""
-      class="img-fluid rounded mb-2"
-      style="max-height: 160px; object-fit: cover; width: 100%"
-    />
+  <div class="app-card" style="margin-bottom: 1.25rem">
+    <h2 class="app-section-title" style="margin-top: 0">Portada</h2>
+    <img *ngIf="coverUrl() as src" [src]="src" alt="" class="app-cover" />
     <input
       type="file"
       accept="image/jpeg,image/png,image/webp"
       (change)="onCover($event)"
     />
-    <span *ngIf="uploading" class="small text-muted">Optimizando con sharp…</span>
+    <span *ngIf="uploading" class="app-muted app-fs13">Optimizando…</span>
   </div>
 
-  <h2 class="h6 mt-4">Pasos</h2>
-  <ol class="list-group list-group-numbered mb-4">
-    <li
-      *ngFor="let s of theme?.steps; let i = index"
-      class="list-group-item d-flex justify-content-between align-items-start"
-    >
-      <div class="ms-2 me-auto" style="cursor: pointer" (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)">
-        <div class="fw-semibold">
+  <h2 class="app-section-title">Pasos</h2>
+  <ol class="app-steps">
+    <li *ngFor="let s of theme?.steps; let i = index" class="app-step">
+      <span class="app-step-num"></span>
+      <div
+        class="app-step-body"
+        (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)"
+      >
+        <div class="app-step-title">
           {{ s.unitLabel || s.documentId + ' #' + s.unitIndex }}
         </div>
-        <div class="small text-muted">{{ s.documentId }} · {{ s.unitIndex }}</div>
-        <div *ngIf="s.userComment" class="small mt-1">{{ s.userComment }}</div>
+        <div class="app-step-meta">{{ s.documentId }} · {{ s.unitIndex }}</div>
+        <div *ngIf="s.userComment" class="app-step-note">{{ s.userComment }}</div>
       </div>
-      <button type="button" class="btn btn-sm btn-outline-danger" (click)="removeStep(i)">
+      <button type="button" class="app-btn app-btn-sm app-btn-danger" (click)="removeStep(i)">
         Quitar
       </button>
     </li>
   </ol>
 
-  <form [formGroup]="stepForm" (ngSubmit)="addStep()" class="card card-body">
-    <h2 class="h6">Añadir paso</h2>
-    <label class="form-label small">documentId</label>
-    <input class="form-control mb-2" formControlName="documentId" />
-    <label class="form-label small">unitIndex</label>
-    <input class="form-control mb-2" type="number" formControlName="unitIndex" />
-    <label class="form-label small">Etiqueta</label>
-    <input class="form-control mb-2" formControlName="unitLabel" placeholder="CIC 27" />
-    <label class="form-label small">Comentario</label>
-    <textarea class="form-control mb-2" rows="2" formControlName="userComment"></textarea>
-    <button class="btn btn-primary" type="submit" [disabled]="stepForm.invalid">
+  <form [formGroup]="stepForm" (ngSubmit)="addStep()" class="app-card">
+    <h2 class="app-section-title" style="margin-top: 0">Añadir paso</h2>
+    <div class="app-field-group">
+      <label class="app-label">documentId</label>
+      <input class="app-field" formControlName="documentId" />
+    </div>
+    <div class="app-field-group">
+      <label class="app-label">unitIndex</label>
+      <input class="app-field" type="number" formControlName="unitIndex" />
+    </div>
+    <div class="app-field-group">
+      <label class="app-label">Etiqueta</label>
+      <input class="app-field" formControlName="unitLabel" placeholder="CIC 27" />
+    </div>
+    <div class="app-field-group">
+      <label class="app-label">Comentario</label>
+      <textarea class="app-field" rows="2" formControlName="userComment"></textarea>
+    </div>
+    <button class="app-btn app-btn-primary" type="submit" [disabled]="stepForm.invalid">
       Añadir al tema
     </button>
-    <p class="small text-muted mt-2 mb-0">
-      Tip: desde el lector, copia documentId e índice (o usa ★ para referencias y
-      reutiliza los ids aquí).
+    <p class="app-muted app-fs13" style="margin: 0.75rem 0 0">
+      Tip: usa ★ en el lector para guardar referencias y reutiliza documentId e
+      índice aquí.
     </p>
   </form>
 </div>
-<div *ngIf="loading" class="container py-4 text-muted">Cargando tema…</div>
+<div *ngIf="loading" class="app-page app-muted">Cargando tema…</div>

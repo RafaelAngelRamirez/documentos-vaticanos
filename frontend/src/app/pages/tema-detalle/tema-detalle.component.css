@@ -1,1 +1,5 @@
-/* intentionally minimal */
+:host {
+  display: block;
+  background: var(--app-bg);
+  min-height: 100%;
+}

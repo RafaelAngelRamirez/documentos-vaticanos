@@ -72,7 +72,7 @@ Implementación en código:
 ### Reglas al crear un componente web nuevo
 
 1. **Respetar la IA de §0** (qué pantalla es, qué chrome lleva). No reintroducir navbar global en el flujo de lectura.
-2. **Usar solo tokens y clases del sistema** (o variables `--app-*` / `--reader-*`). Prohibido Bootstrap `btn-primary` azul, Material “pink”, o grises genéricos `#333` / `#f5f5f5` sin mapear a tokens.
+2. **Usar solo tokens y clases del sistema** (o variables `--app-*` / `--reader-*`). **Bootstrap y Font Awesome están eliminados** — no reintroducirlos. Prohibido Material “pink” o hex sueltos sin tokens.
 3. **Misma familia visual que el lector**: fondo de lectura, acento cálido, serif en texto largo, sans en chrome.
 4. **Topbars de lectura**: patrón sticky 56px, `← back` + título centrado, sin hamburger en Biblioteca/Lector.
 5. **Temas**: el componente debe verse bien en sepia, paper y night.

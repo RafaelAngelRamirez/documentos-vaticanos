@@ -1,5 +1,5 @@
-.cover-preview {
-  max-height: 180px;
-  object-fit: cover;
-  width: 100%;
+:host {
+  display: block;
+  background: var(--app-bg);
+  min-height: 100%;
 }

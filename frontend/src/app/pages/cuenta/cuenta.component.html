@@ -1,101 +1,124 @@
-<div class="cuenta container py-4" style="max-width: 520px">
-  <h1 class="h3 mb-3">Cuenta</h1>
-
-  <div *ngIf="!apiEnabled" class="alert alert-warning">
-    API no configurada (<code>apiBaseUrl</code>). El lector offline sigue
-    disponible.
-  </div>
-
-  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-
+<div class="app-page app-page-narrow">
   <ng-container *ngIf="auth.user as user; else loginTpl">
-    <div class="card mb-3">
-      <div class="card-body">
-        <div class="d-flex align-items-center gap-3">
-          <img
-            *ngIf="user.pictureUrl"
-            [src]="user.pictureUrl"
-            alt=""
-            width="48"
-            height="48"
-            class="rounded-circle"
-          />
-          <div>
-            <div class="fw-semibold">{{ user.name }}</div>
-            <div class="text-muted small">{{ user.email }}</div>
-            <span class="badge bg-secondary">{{ user.role }}</span>
-          </div>
-        </div>
+    <header class="app-page-head">
+      <h1 class="app-page-title">Cuenta</h1>
+    </header>
+
+    <div *ngIf="error" class="app-status app-status-error">{{ error }}</div>
+
+    <div class="app-card app-row" style="margin-bottom: 1.25rem">
+      <img
+        *ngIf="user.pictureUrl"
+        [src]="user.pictureUrl"
+        alt=""
+        class="app-avatar"
+        width="44"
+        height="44"
+      />
+      <div *ngIf="!user.pictureUrl" class="app-avatar" aria-hidden="true">
+        {{ (user.name || '?').charAt(0) }}
+      </div>
+      <div class="app-list-body">
+        <div class="app-list-name">{{ user.name }}</div>
+        <div class="app-list-meta">{{ user.email }}</div>
+        <span class="app-badge" style="margin-top: 6px">{{ user.role }}</span>
       </div>
     </div>
 
-    <div class="d-grid gap-2 mb-3">
-      <button type="button" class="btn btn-outline-primary" (click)="goRefs()">
+    <div class="app-stack">
+      <button type="button" class="app-btn app-btn-block" (click)="goRefs()">
         Mis referencias
       </button>
-      <button type="button" class="btn btn-outline-primary" (click)="goThemes()">
+      <button type="button" class="app-btn app-btn-block" (click)="goThemes()">
         Mis temas
       </button>
-      <a routerLink="/estudios" class="btn btn-outline-primary">Estudios</a>
+      <a routerLink="/estudios" class="app-btn app-btn-block app-tc">Estudios</a>
+      <a routerLink="/documentos/listar" class="app-btn app-btn-block app-tc"
+        >Biblioteca</a
+      >
       <button
         *ngIf="user.role !== 'teacher'"
         type="button"
-        class="btn btn-outline-secondary"
+        class="app-btn app-btn-block"
         [disabled]="loading"
         (click)="upgrade()"
       >
         Convertirme en maestro
       </button>
-      <button type="button" class="btn btn-link text-danger" (click)="logout()">
+      <button type="button" class="app-btn-link" (click)="logout()">
         Cerrar sesión
       </button>
     </div>
   </ng-container>
 
   <ng-template #loginTpl>
-    <p class="text-muted">
-      Inicia sesión para guardar referencias y crear temas de estudio. El
-      corpus se puede leer sin cuenta.
-    </p>
-
-    <div *ngIf="devAuth && apiEnabled" class="card mb-3">
-      <div class="card-body">
-        <h2 class="h6">Login dev (local)</h2>
-        <form [formGroup]="form" (ngSubmit)="loginDev()" class="d-grid gap-2">
-          <input
-            class="form-control"
-            type="email"
-            formControlName="email"
-            placeholder="email"
-          />
-          <input
-            class="form-control"
-            type="text"
-            formControlName="name"
-            placeholder="nombre"
-          />
-          <button
-            class="btn btn-primary"
-            type="submit"
-            [disabled]="loading || form.invalid"
-          >
-            Entrar (dev)
-          </button>
-        </form>
-      </div>
+    <!-- Design 1B · ACCESO -->
+    <div class="app-tc">
+      <div class="app-mark">DV</div>
+      <h1 class="app-page-title" style="margin-bottom: 0.35rem">
+        Documentos Vaticanos
+      </h1>
+      <p class="app-muted app-fs14" style="margin: 0 0 1.5rem">
+        Su biblioteca de lectura y estudio
+      </p>
     </div>
+
+    <div *ngIf="!apiEnabled" class="app-status app-status-warn">
+      API no configurada. El lector offline sigue disponible.
+    </div>
+    <div *ngIf="error" class="app-status app-status-error">{{ error }}</div>
 
     <button
       type="button"
-      class="btn btn-outline-dark w-100"
+      class="app-btn app-btn-block"
       [disabled]="!apiEnabled"
       (click)="loginGoogleHint()"
     >
       Continuar con Google
     </button>
-    <p class="small text-muted mt-2">
-      Google Auth: configura <code>googleClientId</code> en environment y
-      credenciales OAuth (web/Android).
+
+    <div class="app-divider">o con su correo</div>
+
+    <form
+      *ngIf="devAuth && apiEnabled"
+      [formGroup]="form"
+      (ngSubmit)="loginDev()"
+    >
+      <p class="app-muted app-fs13" style="margin: 0 0 0.75rem">
+        Login dev (local, <code>DEV_AUTH_BYPASS</code>)
+      </p>
+      <div class="app-field-group">
+        <label class="app-label" for="login-email">Correo electrónico</label>
+        <input
+          id="login-email"
+          class="app-field"
+          type="email"
+          formControlName="email"
+          placeholder="nombre@ejemplo.com"
+        />
+      </div>
+      <div class="app-field-group">
+        <label class="app-label" for="login-name">Nombre</label>
+        <input
+          id="login-name"
+          class="app-field"
+          type="text"
+          formControlName="name"
+          placeholder="Su nombre"
+        />
+      </div>
+      <button
+        class="app-btn app-btn-primary app-btn-block"
+        type="submit"
+        [disabled]="loading || form.invalid"
+      >
+        Entrar
+      </button>
+    </form>
+
+    <p class="app-muted app-fs13 app-tc" style="margin-top: 1.5rem">
+      Sin cuenta puede
+      <a class="app-link" routerLink="/inicio">leer el corpus offline</a>.
     </p>
   </ng-template>
 </div>

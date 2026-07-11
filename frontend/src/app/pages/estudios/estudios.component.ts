@@ -85,4 +85,17 @@ export class EstudiosComponent implements OnInit {
   cover(s: Study): string | null {
     return this.studies.coverUrl(s);
   }
+
+  get greeting(): string {
+    const h = new Date().getHours();
+    if (h < 12) return 'Buenos días';
+    if (h < 19) return 'Buenas tardes';
+    return 'Buenas noches';
+  }
+
+  initials(title: string | undefined): string {
+    if (!title?.trim()) return '·';
+    const parts = title.trim().split(/\s+/).slice(0, 2);
+    return parts.map((p) => p.charAt(0).toUpperCase()).join('');
+  }
 }

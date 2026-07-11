@@ -1,77 +1,77 @@
-<div class="container py-4" style="max-width: 720px" *ngIf="!loading && study">
-  <div class="d-flex justify-content-between align-items-start mb-3">
+<div class="app-page" *ngIf="!loading && study">
+  <header class="app-page-head">
     <div>
-      <a routerLink="/estudios" class="btn btn-sm btn-link px-0">← Estudios</a>
-      <h1 class="h3">{{ study.title }}</h1>
-      <p class="text-muted small mb-0">
+      <a routerLink="/estudios" class="app-btn-link" style="padding-left: 0"
+        >← Estudios</a
+      >
+      <h1 class="app-page-title" style="margin-top: 0.35rem">{{ study.title }}</h1>
+      <p class="app-list-meta" style="margin: 0.35rem 0 0">
         {{ study.teacher?.name }} ·
-        <span class="badge bg-secondary">{{ study.status }}</span>
+        <span class="app-badge">{{ study.status }}</span>
         · {{ study._count?.enrollments || 0 }} alumnos
       </p>
     </div>
     <a
       *ngIf="isOwner"
-      class="btn btn-sm btn-outline-primary"
+      class="app-btn app-btn-sm"
       [routerLink]="['/estudios', study.id, 'editar']"
       >Editar</a
     >
-  </div>
+  </header>
 
-  <img
-    *ngIf="cover() as src"
-    [src]="src"
-    alt=""
-    class="img-fluid rounded mb-3 study-hero"
-  />
+  <img *ngIf="cover() as src" [src]="src" alt="" class="app-cover" />
+  <p *ngIf="study.description" class="app-fs14">{{ study.description }}</p>
 
-  <p *ngIf="study.description">{{ study.description }}</p>
+  <div *ngIf="error" class="app-status app-status-error">{{ error }}</div>
+  <div *ngIf="message" class="app-status app-status-ok">{{ message }}</div>
 
-  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-  <div *ngIf="message" class="alert alert-success py-2">{{ message }}</div>
-
-  <div class="mb-3" *ngIf="study.status === 'published' && !isOwner">
+  <div style="margin: 1rem 0" *ngIf="study.status === 'published' && !isOwner">
     <button
       *ngIf="!enrolled"
       type="button"
-      class="btn btn-primary"
+      class="app-btn app-btn-primary"
       (click)="enroll()"
       [disabled]="!auth.isLoggedIn"
     >
       Inscribirme
     </button>
-    <span *ngIf="enrolled" class="badge bg-success">Inscrito</span>
-    <span *ngIf="!auth.isLoggedIn" class="small text-muted ms-2">
-      <a routerLink="/cuenta">Inicia sesión</a> para inscribirte
+    <span *ngIf="enrolled" class="app-badge app-badge-ok">Inscrito</span>
+    <span *ngIf="!auth.isLoggedIn" class="app-muted app-fs13" style="margin-left: 0.5rem">
+      <a class="app-link" routerLink="/cuenta">Inicia sesión</a> para inscribirte
     </span>
   </div>
 
-  <h2 class="h6">Pasos</h2>
-  <ol class="list-group list-group-numbered mb-4">
+  <h2 class="app-section-title">Lecciones / pasos</h2>
+  <ol class="app-steps">
     <li
       *ngFor="let s of study.steps"
-      class="list-group-item"
-      style="cursor: pointer"
+      class="app-step"
       (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)"
     >
-      <div class="fw-semibold">
-        {{ s.unitLabel || s.documentId + ' #' + s.unitIndex }}
+      <span class="app-step-num"></span>
+      <div class="app-step-body">
+        <div class="app-step-title">
+          {{ s.unitLabel || s.documentId + ' #' + s.unitIndex }}
+        </div>
+        <div class="app-step-meta">{{ s.documentId }} · {{ s.unitIndex }}</div>
+        <div *ngIf="s.teacherNote" class="app-step-note">{{ s.teacherNote }}</div>
       </div>
-      <div class="small text-muted">{{ s.documentId }} · {{ s.unitIndex }}</div>
-      <div *ngIf="s.teacherNote" class="small mt-1 text-primary">
-        {{ s.teacherNote }}
-      </div>
+      <span class="app-list-chev">›</span>
     </li>
   </ol>
 
   <section *ngIf="isOwner">
-    <h2 class="h6">Alumnos</h2>
-    <div *ngIf="!students.length" class="text-muted small">Sin alumnos aún.</div>
-    <ul class="list-group">
-      <li *ngFor="let e of students" class="list-group-item">
-        {{ e.student?.name }}
-        <span class="small text-muted">{{ e.student?.email }}</span>
+    <h2 class="app-section-title">Alumnos</h2>
+    <div *ngIf="!students.length" class="app-muted app-fs13">Sin alumnos aún.</div>
+    <ul class="app-list">
+      <li *ngFor="let e of students" class="app-list-item">
+        <span class="app-avatar">{{ (e.student?.name || '?').charAt(0) }}</span>
+        <div class="app-list-body">
+          <div class="app-list-name">{{ e.student?.name }}</div>
+          <div class="app-list-meta">{{ e.student?.email }}</div>
+        </div>
       </li>
     </ul>
   </section>
 </div>
-<div *ngIf="loading" class="container py-4 text-muted">Cargando…</div>
+<div *ngIf="loading" class="app-page app-muted">Cargando…</div>

@@ -1,71 +1,82 @@
-<div class="container py-4" style="max-width: 720px" *ngIf="!loading && study">
-  <div class="d-flex justify-content-between mb-3">
-    <h1 class="h3">Editar estudio</h1>
-    <a [routerLink]="['/estudios', study.id]" class="btn btn-sm btn-link">Ver</a>
-  </div>
+<div class="app-page" *ngIf="!loading && study">
+  <header class="app-page-head">
+    <h1 class="app-page-title">Editar estudio</h1>
+    <a [routerLink]="['/estudios', study.id]" class="app-btn-link">Ver</a>
+  </header>
 
-  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
-  <div *ngIf="message" class="alert alert-success py-2">{{ message }}</div>
+  <div *ngIf="error" class="app-status app-status-error">{{ error }}</div>
+  <div *ngIf="message" class="app-status app-status-ok">{{ message }}</div>
 
-  <form [formGroup]="metaForm" (ngSubmit)="saveMeta()" class="card card-body mb-3">
-    <label class="form-label">Título</label>
-    <input class="form-control mb-2" formControlName="title" />
-    <label class="form-label">Descripción</label>
-    <textarea class="form-control mb-2" rows="3" formControlName="description"></textarea>
-    <button class="btn btn-primary" type="submit" [disabled]="metaForm.invalid">
+  <form [formGroup]="metaForm" (ngSubmit)="saveMeta()" class="app-card" style="margin-bottom: 1rem">
+    <div class="app-field-group">
+      <label class="app-label">Título</label>
+      <input class="app-field" formControlName="title" />
+    </div>
+    <div class="app-field-group">
+      <label class="app-label">Descripción</label>
+      <textarea class="app-field" rows="3" formControlName="description"></textarea>
+    </div>
+    <button class="app-btn app-btn-primary" type="submit" [disabled]="metaForm.invalid">
       Guardar datos
     </button>
   </form>
 
-  <div class="card card-body mb-3">
-    <h2 class="h6">Portada (multer + sharp)</h2>
-    <img *ngIf="cover() as src" [src]="src" alt="" class="img-fluid rounded mb-2 cover-preview" />
+  <div class="app-card" style="margin-bottom: 1rem">
+    <h2 class="app-section-title" style="margin-top: 0">Portada</h2>
+    <img *ngIf="cover() as src" [src]="src" alt="" class="app-cover" />
     <input type="file" accept="image/jpeg,image/png,image/webp" (change)="onFile($event)" />
-    <span *ngIf="uploading" class="small text-muted d-block mt-1">Subiendo y optimizando…</span>
+    <span *ngIf="uploading" class="app-muted app-fs13">Subiendo y optimizando…</span>
   </div>
 
-  <h2 class="h6">Pasos</h2>
-  <ol class="list-group list-group-numbered mb-3">
-    <li
-      *ngFor="let s of study.steps; let i = index"
-      class="list-group-item d-flex justify-content-between"
-    >
-      <div>
-        <div class="fw-semibold">
+  <h2 class="app-section-title">Pasos</h2>
+  <ol class="app-steps">
+    <li *ngFor="let s of study.steps; let i = index" class="app-step" style="cursor: default">
+      <span class="app-step-num"></span>
+      <div class="app-step-body">
+        <div class="app-step-title">
           {{ s.unitLabel || s.documentId + ' #' + s.unitIndex }}
         </div>
-        <div class="small text-muted">{{ s.teacherNote }}</div>
+        <div class="app-step-meta" *ngIf="s.teacherNote">{{ s.teacherNote }}</div>
       </div>
-      <button type="button" class="btn btn-sm btn-outline-danger" (click)="removeStep(i)">
+      <button type="button" class="app-btn app-btn-sm app-btn-danger" (click)="removeStep(i)">
         Quitar
       </button>
     </li>
   </ol>
 
-  <form [formGroup]="stepForm" (ngSubmit)="addStep()" class="card card-body mb-3">
-    <h2 class="h6">Añadir paso</h2>
-    <input class="form-control mb-2" formControlName="documentId" placeholder="documentId" />
-    <input class="form-control mb-2" type="number" formControlName="unitIndex" placeholder="unitIndex" />
-    <input class="form-control mb-2" formControlName="unitLabel" placeholder="Etiqueta" />
-    <textarea class="form-control mb-2" rows="2" formControlName="teacherNote" placeholder="Nota del maestro"></textarea>
-    <button class="btn btn-outline-primary" type="submit" [disabled]="stepForm.invalid">
-      Añadir paso
-    </button>
+  <form [formGroup]="stepForm" (ngSubmit)="addStep()" class="app-card" style="margin-bottom: 1rem">
+    <h2 class="app-section-title" style="margin-top: 0">Añadir paso</h2>
+    <div class="app-field-group">
+      <input class="app-field" formControlName="documentId" placeholder="documentId" />
+    </div>
+    <div class="app-field-group">
+      <input class="app-field" type="number" formControlName="unitIndex" placeholder="unitIndex" />
+    </div>
+    <div class="app-field-group">
+      <input class="app-field" formControlName="unitLabel" placeholder="Etiqueta" />
+    </div>
+    <div class="app-field-group">
+      <textarea
+        class="app-field"
+        rows="2"
+        formControlName="teacherNote"
+        placeholder="Nota del maestro"
+      ></textarea>
+    </div>
+    <button class="app-btn" type="submit" [disabled]="stepForm.invalid">Añadir paso</button>
   </form>
 
-  <div class="d-flex gap-2">
+  <div class="app-row">
     <button
       type="button"
-      class="btn btn-success"
+      class="app-btn app-btn-primary"
       (click)="publish()"
-      [disabled]="!study.steps?.length"
+      [disabled]="!(study.steps && study.steps.length)"
     >
       Publicar
     </button>
-    <button type="button" class="btn btn-outline-secondary" (click)="archive()">
-      Archivar
-    </button>
-    <span class="badge align-self-center bg-secondary">{{ study.status }}</span>
+    <button type="button" class="app-btn" (click)="archive()">Archivar</button>
+    <span class="app-badge">{{ study.status }}</span>
   </div>
 </div>
-<div *ngIf="loading" class="container py-4 text-muted">Cargando…</div>
+<div *ngIf="loading" class="app-page app-muted">Cargando…</div>

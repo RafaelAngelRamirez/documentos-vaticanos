@@ -1,6 +1,6 @@
 <ng-container *ngIf="infoPunto?.article">
   <div class="punto-header">
-    <h5 class="card-title">
+    <h5 class="punto-label">
       {{ obtener_consecutivo(infoPunto.article.consecutivo) }}
       <span *ngIf="infoPunto.article.biblia" class="punto-bible-label">
         {{ infoPunto.article.biblia.consecutivo_versiculo }}
@@ -10,7 +10,7 @@
       <button
         *ngIf="canSave"
         type="button"
-        class="btn btn-link btn-sm punto-save-btn"
+        class="punto-save-btn"
         (click)="saveReference($event)"
         title="Guardar referencia personal"
       >
@@ -21,12 +21,12 @@
       <button
         *ngIf="showDebugToggle"
         type="button"
-        class="btn btn-link btn-sm punto-raw-toggle"
+        class="punto-raw-toggle"
         (click)="toggleRaw($event)"
         title="Ver JSON crudo"
         aria-label="Ver JSON crudo"
       >
-        <i class="fa fa-bug" aria-hidden="true"></i>
+        ⋯
       </button>
     </div>
   </div>
