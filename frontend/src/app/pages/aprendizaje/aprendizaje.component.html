@@ -1,0 +1,75 @@
+<div class="app-product">
+  <app-fbar title="Aprendizaje"></app-fbar>
+  <div class="fbody">
+    <ng-container *ngIf="!auth.isLoggedIn">
+      <div class="fs13 muted">Inicie sesión para ver su curso activo.</div>
+      <button type="button" class="primary" style="margin-top: 20px" (click)="goCuenta()">
+        Ir a acceso
+      </button>
+    </ng-container>
+
+    <ng-container *ngIf="auth.isLoggedIn">
+      <div *ngIf="loading" class="fs13 muted">Cargando…</div>
+      <div *ngIf="error" class="empty" style="color: #8b3a3a">{{ error }}</div>
+
+      <ng-container *ngIf="!loading && study as s">
+        <div class="card">
+          <div class="fx ac jb">
+            <div class="fs12 upper muted" style="letter-spacing: 0.14em">
+              Curso activo
+            </div>
+            <span class="fs12" style="color: var(--ok)"
+              >{{ doneCount }} de {{ total }}</span
+            >
+          </div>
+          <div class="serif fw6" style="font-size: 20px; margin-top: 6px">
+            {{ s.title }}
+          </div>
+          <div class="prog">
+            <div class="progfill" [style.width.%]="pct"></div>
+          </div>
+        </div>
+
+        <div class="sect">Lecciones</div>
+        <div
+          class="lrow"
+          *ngFor="let step of steps; let i = index"
+          (click)="openStep(i)"
+          style="cursor: pointer"
+        >
+          <span class="lnum" [class.done]="isDone(i)">
+            {{ isDone(i) ? '✓' : i + 1 }}
+          </span>
+          <span [class.fw5]="isNext(i)" [class.muted]="!isDone(i) && !isNext(i)">
+            {{ step.unitLabel || step.documentId + ' #' + step.unitIndex }}
+          </span>
+          <span
+            class="chev fs12"
+            [style.color]="isNext(i) ? 'var(--acc)' : undefined"
+          >
+            {{ isDone(i) ? 'Hecho' : isNext(i) ? 'Siguiente' : '' }}
+          </span>
+        </div>
+
+        <button
+          type="button"
+          class="primary"
+          style="margin-top: 26px"
+          (click)="continueNext()"
+          *ngIf="steps.length"
+        >
+          Continuar la lección {{ nextIndex + 1 }}
+        </button>
+      </ng-container>
+
+      <ng-container *ngIf="!loading && !study">
+        <div class="fs13 muted">
+          No está inscrito en ningún estudio todavía.
+        </div>
+        <button type="button" class="primary" style="margin-top: 20px" (click)="goEstudio()">
+          Ver planes de estudio
+        </button>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

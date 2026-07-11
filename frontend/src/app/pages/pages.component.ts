@@ -10,14 +10,8 @@ import { ROUTE } from '../services/navigation.service';
   styleUrls: ['./pages.component.css'],
 })
 export class PagesComponent implements OnInit, OnDestroy {
-  /**
-   * Immersive reading shell (matches design): home, library, full-text search, reader.
-   * No global navbar — each view owns its topbar.
-   */
+  /** Home, library, reader, full-text search — no outer chrome. */
   isImmersiveRoute = false;
-
-  /** Secondary product chrome (cuenta, estudios, about). */
-  showAppChrome = false;
 
   private sub = new Subscription();
 
@@ -38,33 +32,19 @@ export class PagesComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
-    this.setReaderMode(false);
+    document.body.classList.remove('reader-mode', 'dv-immersive');
   }
 
   private syncRoute(url: string): void {
     const path = (url || '').split('?')[0].split('#')[0];
     const isReader =
       path === `/${ROUTE.leyendo}` ||
-      path.startsWith(`/${ROUTE.leyendo}/`) ||
-      path.includes(`/${ROUTE.leyendo}/`);
-
+      path.startsWith(`/${ROUTE.leyendo}/`);
     const isHome = path === `/${ROUTE.inicio}` || path === '/' || path === '';
     const isLib =
-      path === `/${ROUTE.list_documents}` ||
-      path.startsWith(`/${ROUTE.list_documents}`);
-    const isFullTextSearch = path === '/buscar' || path.startsWith('/buscar/');
-
-    this.isImmersiveRoute = isReader || isHome || isLib || isFullTextSearch;
-    this.showAppChrome = !this.isImmersiveRoute;
-    this.setReaderMode(isReader || isHome || isLib || isFullTextSearch);
-  }
-
-  private setReaderMode(on: boolean): void {
-    if (typeof document === 'undefined') {
-      return;
-    }
-    // Apply reading tokens / bg on immersive routes (sepia shell).
-    document.body.classList.toggle('reader-mode', on);
-    document.body.classList.toggle('dv-immersive', on);
+      path.includes('documentos/listar') || path.startsWith('/biblioteca');
+    const isSearch = path.startsWith('/buscar');
+    this.isImmersiveRoute = isReader || isHome || isLib || isSearch;
+    document.body.classList.toggle('reader-mode', this.isImmersiveRoute);
   }
 }

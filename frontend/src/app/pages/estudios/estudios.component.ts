@@ -4,34 +4,53 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { Study, StudiesService } from 'src/app/core/account/studies.service';
 import { environment } from 'src/environments/environment';
+import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
+import {
+  LastRead,
+  ReadingProgressService,
+} from 'src/app/services/reading-progress.service';
+import { ROUTE } from 'src/app/services/navigation.service';
 
 @Component({
   standalone: true,
   selector: 'app-estudios',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, AppFbarComponent],
   templateUrl: './estudios.component.html',
   styleUrls: ['./estudios.component.css'],
 })
 export class EstudiosComponent implements OnInit {
-  published: Study[] = [];
-  mine: Study[] = [];
-  enrolled: Study[] = [];
+  plans: Study[] = [];
   loading = false;
   error: string | null = null;
   apiEnabled = Boolean(environment.apiBaseUrl);
+  lastRead: LastRead | null = null;
+  topicChips = ['Fe', 'Liturgia', 'Oración', 'Moral', 'Doctrina social'];
 
   constructor(
     public auth: AuthService,
     private studies: StudiesService,
-    private router: Router
+    private router: Router,
+    private progress: ReadingProgressService
   ) {}
 
   ngOnInit(): void {
+    this.lastRead = this.progress.getLastRead();
     if (!this.apiEnabled) {
-      this.error = 'API no configurada';
+      this.error = null;
       return;
     }
     this.reload();
+  }
+
+  get greeting(): string {
+    const h = new Date().getHours();
+    if (h < 12) return 'Buenos días';
+    if (h < 19) return 'Buenas tardes';
+    return 'Buenas noches';
+  }
+
+  get progressPct(): number {
+    return this.progress.percent(this.lastRead);
   }
 
   reload(): void {
@@ -39,30 +58,49 @@ export class EstudiosComponent implements OnInit {
     this.error = null;
     this.studies.listPublished().subscribe({
       next: (items) => {
-        this.published = items;
+        this.plans = items;
         this.loading = false;
+        if (this.auth.isTeacher) {
+          this.studies.listMine().subscribe({
+            next: (mine) => {
+              const ids = new Set(this.plans.map((p) => p.id));
+              for (const m of mine) {
+                if (!ids.has(m.id)) this.plans = [m, ...this.plans];
+              }
+            },
+          });
+        }
       },
       error: (err) => {
         this.loading = false;
-        this.error = err?.error?.error || err?.message || 'Error al cargar estudios';
+        this.error =
+          err?.error?.error || err?.message || 'Error al cargar estudios';
       },
     });
-    if (this.auth.isTeacher) {
-      this.studies.listMine().subscribe({
-        next: (items) => (this.mine = items),
-        error: () => undefined,
-      });
-    }
-    if (this.auth.isLoggedIn) {
-      this.studies.myEnrollments().subscribe({
-        next: (items) => {
-          this.enrolled = items
-            .map((e) => e.study)
-            .filter((s): s is Study => Boolean(s));
-        },
-        error: () => undefined,
-      });
-    }
+  }
+
+  initials(title: string | undefined): string {
+    if (!title?.trim()) return '·';
+    return title
+      .trim()
+      .split(/\s+/)
+      .slice(0, 2)
+      .map((p) => p.charAt(0).toUpperCase())
+      .join('');
+  }
+
+  continueReading(): void {
+    if (!this.lastRead) return;
+    this.router.navigate([
+      ROUTE.leyendo,
+      this.lastRead.documentId,
+      ROUTE.punto,
+      this.lastRead.unitIndex,
+    ]);
+  }
+
+  goLibrary(): void {
+    this.router.navigate(['/biblioteca']);
   }
 
   open(s: Study): void {
@@ -82,20 +120,7 @@ export class EstudiosComponent implements OnInit {
     });
   }
 
-  cover(s: Study): string | null {
-    return this.studies.coverUrl(s);
-  }
-
-  get greeting(): string {
-    const h = new Date().getHours();
-    if (h < 12) return 'Buenos días';
-    if (h < 19) return 'Buenas tardes';
-    return 'Buenas noches';
-  }
-
-  initials(title: string | undefined): string {
-    if (!title?.trim()) return '·';
-    const parts = title.trim().split(/\s+/).slice(0, 2);
-    return parts.map((p) => p.charAt(0).toUpperCase()).join('');
+  chipSearch(term: string): void {
+    this.router.navigate(['/buscar'], { queryParams: { q: term } });
   }
 }

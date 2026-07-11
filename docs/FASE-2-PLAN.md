@@ -4,14 +4,16 @@
 
 | Área | Estado |
 |------|--------|
-| Auth dev + upgrade maestro | Hecho (`/cuenta`, API) |
-| Referencias personales ★ | Hecho |
-| Temas + portada (multer/sharp) | Hecho |
-| Estudios publish/enroll/alumnos | Hecho |
-| UI design system (sin Bootstrap) | Hecho |
-| Google OAuth real | Pendiente (`googleClientId` + GIS) |
-| Seguir maestro (sin estudio) | Pendiente v2.1 |
-| Hilos de dudas por paso | Fuera de v2.0 |
+| UI handoff app-src (Inicio/Biblioteca/Lector) | Hecho (clases canónicas) |
+| UI handoff 1B Acceso | Hecho (layout; password visual / Google stub) |
+| UI handoff 1C Estudio | Hecho (continuar lectura + planes API) |
+| UI handoff 1D Aprendizaje | Hecho (inscripción + progreso local) |
+| UI handoff 1E Explorar | Hecho (maestros/temas/épocas) |
+| Auth dev + upgrade maestro | Hecho |
+| Referencias / temas / estudios API | Hecho |
+| Google OAuth real | Pendiente |
+| Password auth real | Pendiente |
+| Hilos de dudas | Fuera de v2.0 |
 
 ## 1. Contexto y principios
 

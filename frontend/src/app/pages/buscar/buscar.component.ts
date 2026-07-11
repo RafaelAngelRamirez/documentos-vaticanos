@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { BuscadorComponent } from 'src/app/components/buscador/buscador.component';
 import { BuscadorService } from 'src/app/components/buscador/buscador.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { ActivatedRoute } from '@angular/router';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime } from 'rxjs';
 
@@ -22,13 +23,19 @@ export class BuscarComponent {
 
   constructor(
     public buscadorService: BuscadorService,
-    private navigation: NavigationService
+    private navigation: NavigationService,
+    private route: ActivatedRoute
   ) {
     // Keep global control in sync (legacy consumers / deep links).
     this.buscadorService.global_control_search_input = this.control;
     this.control.valueChanges.pipe(debounceTime(400)).subscribe((v) => {
       this.buscadorService.buscar(v);
     });
+    const q = this.route.snapshot.queryParamMap.get('q');
+    if (q) {
+      this.control.setValue(q);
+      this.buscadorService.buscar(q);
+    }
   }
 
   goLib(): void {

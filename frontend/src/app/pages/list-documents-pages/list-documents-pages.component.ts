@@ -42,7 +42,6 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
           this.loading = false;
           this.load_error =
             err?.message ?? 'No se pudieron cargar los documentos.';
-          console.error(err);
         },
       })
     );
@@ -89,30 +88,11 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
 
   metaLine(item: IndiceDocumentos): string {
     const meta = this.corpus.getMeta(item.id || '');
-    const display = catalogDisplayFor(item.id, meta?.kind);
-    return catalogMetaLine(display);
-  }
-
-  localeLabel(item: IndiceDocumentos): string {
-    const locale =
-      item.locale || this.corpus.getMeta(item.id || '')?.locale || 'es';
-    return CorpusService.localeLabel(locale);
-  }
-
-  sourceUrl(item: IndiceDocumentos): string | null {
-    return item.sourceUrl || this.corpus.getMeta(item.id || '')?.sourceUrl || null;
+    return catalogMetaLine(catalogDisplayFor(item.id, meta?.kind));
   }
 
   goHome(): void {
     this.navigationService.go_to_search();
-  }
-
-  goFullTextSearch(): void {
-    this.router.navigate(['/buscar']);
-  }
-
-  goAccount(): void {
-    this.router.navigate(['/cuenta']);
   }
 
   read(item: IndiceDocumentos) {
@@ -121,7 +101,6 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
     this.navigationService.actual_index = 0;
     this.navigationService.article_selected = undefined;
     this.navigationService.save_actual_index();
-
     this.router.navigate([
       ROUTE.leyendo,
       this.navigationService.document_id,

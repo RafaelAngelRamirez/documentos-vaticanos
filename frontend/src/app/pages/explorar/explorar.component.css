@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbody {
+  padding: 28px 24px 32px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.tab {
+  appearance: none;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-family: 'IBM Plex Sans', sans-serif;
+  cursor: pointer;
+  padding: 10px 2px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.tab.on {
+  color: var(--ink);
+  border-bottom-color: var(--acc);
+  font-weight: 500;
+}
+
+.chip {
+  cursor: pointer;
+}

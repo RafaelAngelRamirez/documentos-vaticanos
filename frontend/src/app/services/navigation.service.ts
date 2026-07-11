@@ -343,8 +343,7 @@ export class NavigationService {
   }
 
   go_to_documents() {
-    const route = ['/', ...ROUTE.list_documents.split('/')];
-    this.router.navigate(route);
+    this.router.navigate(['/biblioteca']);
   }
 
   go_to_about() {

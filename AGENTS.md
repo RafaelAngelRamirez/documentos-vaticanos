@@ -2,40 +2,37 @@
 
 Reglas obligatorias para agentes y contribuidores que toquen la app **web** (Angular en `frontend/`). Las vistas **Android / Capacitor** pueden seguir su chrome nativo; no forzar rediseño móvil nativo aquí.
 
-## 0. Arquitectura de pantallas (lectura) — obligatoria
+## 0. Arquitectura de pantallas — obligatoria (handoff canónico)
 
-Fuente de verdad del **flujo y estructura**:
+**Fuente de verdad visual** (copiar en el repo):
 
-- Handoff: `Aplicación Documentos Vaticanos-handoff.zip` → `project/Documentos Vaticanos.dc.html` / `export/app-src.html`
-- Pantallas de producto (cuenta/estudios): `Pantallas de Diseño.dc.html` / `export/pantallas-src.html`
-- Arquitectura: `project/ARQUITECTURA.md` (web + Capacitor)
+- `docs/design/handoff/app-src.html` — lectura
+- `docs/design/handoff/pantallas-src.html` — producto 1B–1E
+- `docs/design/handoff/ARQUITECTURA.md` — capas + `dv.*`
+- CSS canónico: `frontend/src/styles/design-reading.css` + `design-product.css`
 
-### Flujo de lectura (3 vistas)
+### Flujo de lectura (app-src)
 
 ```
-Inicio (portada)  →  Biblioteca (catálogo)  →  Lector
-     ↑                    ↑                       │
-     └────────────────────┴── ← Buscar / ← Inicio ─┘
+/inicio  →  /biblioteca  →  /leyendo/...
 ```
 
-| Vista | Ruta | Chrome | Contenido |
-|-------|------|--------|-----------|
-| **Inicio** | `/inicio` | **Ninguno** (sin navbar) | Eyebrow + H1 + lede + `Abrir la biblioteca` + rule + footer de beneficios |
-| **Biblioteca** | `/documentos/listar` | Topbar `← Inicio \| Biblioteca` | Search “por título o autor…”, filas doc (título completo + tipo · autor · año + ›) |
-| **Lector** | `/leyendo/...` | Topbar `← Buscar \| título \| Aa` | Texto + panel preferencias |
+Clases: `.home .eyebrow .h1 .lede .btnacc .rule .homefoot` · `.topbar .lib .search .docrow .dt .dm .chev` · `.reader .rstart .rdoc .rend .panel .prow`
 
-- **No** meter ejemplos de búsqueda ni buscador de texto en la portada (eso no está en el diseño).
-- **No** mostrar navbar Bootstrap multi-link en Inicio / Biblioteca / Lector.
-- Búsqueda full-text del corpus (términos/puntos) vive en **`/buscar`**, enlazada desde el pie de Biblioteca como “Buscar en el texto”.
-- Cuentas / estudios / about usan chrome ligero (`app-navbar`) y tokens del mismo sistema.
+### Flujo producto (pantallas-src)
 
-### Textos de portada (no cambiar sin actualizar diseño)
+| Ruta | Pantalla diseño |
+|------|-----------------|
+| `/cuenta` | 1B Acceso (login) / perfil |
+| `/estudio` | 1C Estudio (continuar + planes + chips) |
+| `/aprendizaje` | 1D Aprendizaje (curso + lecciones) |
+| `/explorar` | 1E Explorar (Maestros \| Temas \| Épocas) |
 
-- Eyebrow: `Biblioteca de lectura`
-- Título: `Documentos Vaticanos`
-- Lede: *Los grandes textos del magisterio… para leer con calma.*
-- CTA: `Abrir la biblioteca`
-- Footer: `Lectura sin distracciones · Tamaño, tema y fuente ajustables · Funciona sin conexión`
+Clases: `.mark .gbtn .field .primary .fbar .ftitle .dot .card .prog .mrow .avatar .tabs .tab .chip .lrow .lnum .sect .greet`
+
+- **Sin Bootstrap / Font Awesome / themes Material de color.**
+- Usar **los mismos nombres de clase** del handoff; no inventar `dv-*` / `app-*` nuevos si ya existe clase de diseño.
+- Textos de portada del handoff no se reescriben sin actualizar el diseño.
 
 ## 1. Design system (web) — obligatorio
 

@@ -1,5 +1,27 @@
 :host {
   display: block;
-  min-height: 100%;
-  background: var(--app-bg);
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbody {
+  padding: 28px 24px 32px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.gap12 {
+  gap: 12px;
+}
+
+a.gbtn {
+  display: flex;
+  box-sizing: border-box;
 }

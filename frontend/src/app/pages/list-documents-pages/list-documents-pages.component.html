@@ -1,14 +1,13 @@
-<!-- Design: view "biblioteca" -->
-<div class="dv-lib-page">
-  <header class="dv-topbar hair">
-    <button type="button" class="dv-back" (click)="goHome()">← Inicio</button>
-    <div class="dv-ttl">Biblioteca</div>
-    <div class="dv-topbar-spacer" aria-hidden="true"></div>
-  </header>
+<div class="app t-current">
+  <div class="topbar hair fx ac jb">
+    <button type="button" class="back" (click)="goHome()">← Inicio</button>
+    <div class="ttl">Biblioteca</div>
+    <div style="width: 52px" aria-hidden="true"></div>
+  </div>
 
-  <div class="dv-lib">
+  <div class="lib">
     <input
-      class="dv-search"
+      class="search"
       type="search"
       placeholder="Buscar por título o autor…"
       [value]="query"
@@ -16,47 +15,26 @@
       aria-label="Buscar por título o autor"
     />
 
-    <div *ngIf="loading" class="dv-empty" role="status">Cargando documentos…</div>
-    <div *ngIf="load_error" class="dv-empty dv-error" role="alert">
-      {{ load_error }}
-    </div>
+    <div *ngIf="loading" class="empty" role="status">Cargando documentos…</div>
+    <div *ngIf="load_error" class="empty" role="alert">{{ load_error }}</div>
 
     <ng-container *ngIf="!loading && !load_error">
       <button
         type="button"
-        class="dv-docrow"
+        class="docrow"
         *ngFor="let item of filtered"
         (click)="read(item)"
       >
-        <div class="dv-docrow-body">
-          <div class="dv-dt">{{ displayTitle(item) }}</div>
-          <div class="dv-dm">
-            {{ metaLine(item) }}
-            <ng-container *ngIf="sourceUrl(item) as href">
-              ·
-              <a
-                class="dv-lang"
-                [href]="href"
-                target="_blank"
-                rel="noopener noreferrer"
-                (click)="$event.stopPropagation()"
-                >{{ localeLabel(item) }}</a
-              >
-            </ng-container>
-          </div>
+        <div class="f1">
+          <div class="dt">{{ displayTitle(item) }}</div>
+          <div class="dm">{{ metaLine(item) }}</div>
         </div>
-        <span class="dv-chev" aria-hidden="true">›</span>
+        <span class="chev" aria-hidden="true">›</span>
       </button>
 
-      <div *ngIf="sinResultados" class="dv-empty">
+      <div *ngIf="sinResultados" class="empty">
         Ningún documento coincide con la búsqueda.
       </div>
-
-      <p class="dv-lib-foot">
-        <a href="javascript:void(0)" (click)="goFullTextSearch()">Buscar en el texto</a>
-        de todos los documentos ·
-        <a href="javascript:void(0)" (click)="goAccount()">Cuenta</a>
-      </p>
     </ng-container>
   </div>
 </div>

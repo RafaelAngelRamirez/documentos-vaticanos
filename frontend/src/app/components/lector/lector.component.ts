@@ -14,6 +14,7 @@ import {
 import { ArticleInfo } from '../punto/punto/punto.component';
 import { PuntoModule } from '../punto/punto.module';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
+import { ReadingProgressService } from 'src/app/services/reading-progress.service';
 
 const CONTEXT_SIZE = 5;
 
@@ -48,7 +49,8 @@ export class LectorComponent implements OnInit, OnDestroy {
     public navigationService: NavigationService,
     private cargarDocumentosJsonService: CargarDocumentosJsonService,
     private readerPrefs: ReaderPreferencesService,
-    private corpus: CorpusService
+    private corpus: CorpusService,
+    private progress: ReadingProgressService
   ) {
     this.sub.add(
       combineLatest([this.route.paramMap, this.route.url]).subscribe(() => {
@@ -316,6 +318,20 @@ export class LectorComponent implements OnInit, OnDestroy {
         this.document.id ?? this.document.nombre;
     }
     this.navigationService.save_actual_index();
+    this.persistProgress();
+  }
+
+  private persistProgress(): void {
+    if (!this.document) return;
+    const id = this.document.id ?? this.document.nombre;
+    if (!id) return;
+    this.progress.setLastRead({
+      documentId: id,
+      title: this.documentTitle,
+      unitIndex: this.actual_index,
+      unitCount: this.document.documento?.length ?? 0,
+    });
+    this.progress.saveScroll(id, typeof window !== 'undefined' ? window.scrollY : 0);
   }
 
   private _get_articles(inferior_limit = 0, superior_limit = 0) {

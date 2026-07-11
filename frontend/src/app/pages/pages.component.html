@@ -1,12 +1,7 @@
 <!--
-  Design IA (lectura): Inicio | Biblioteca | Lector — sin navbar global.
-  Cuentas/estudios/about: chrome ligero de app (navbar).
+  Lectura (inicio / biblioteca / lector / buscar): sin chrome global.
+  Producto (estudio, aprendizaje, explorar, cuenta…): cada pantalla trae su fbar.
 -->
-<app-navbar *ngIf="showAppChrome"></app-navbar>
-
-<div
-  [class.reader-page]="isImmersiveRoute"
-  [class.app-surface]="!isImmersiveRoute && showAppChrome"
->
+<div [class.reader-page]="isImmersiveRoute">
   <router-outlet></router-outlet>
 </div>

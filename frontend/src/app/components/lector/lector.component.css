@@ -1,3 +1,40 @@
 :host {
   display: block;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.ttl {
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 8px;
+}
+
+.rdoc a.muted,
+.rstart a.muted {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--muted);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+}
+
+.rdoc a.muted:hover,
+.rstart a.muted:hover {
+  color: var(--acc);
+  border-bottom-color: var(--acc);
+}
+
+.panel {
+  font-family: 'IBM Plex Sans', sans-serif;
 }

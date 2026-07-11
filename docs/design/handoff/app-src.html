@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#f8f1de">
+<svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+<rect x="36" y="16" width="48" height="48" rx="12" fill="#8a5a2b"></rect>
+<text x="60" y="48" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="600" fill="#f8f1de">DV</text>
+</svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+body{margin:0}
+.app{min-height:100vh;font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--ink);transition:background .25s,color .25s}
+.t-sepia{--bg:#f8f1de;--ink:#43382a;--muted:#8a7c66;--line:#e3d8bd;--card:#fdf8ea;--btn:#f3e9cf;--btnb:#cdbd9c;--acc:#8a5a2b}
+.t-claro{--bg:#fdfdfb;--ink:#2c2a26;--muted:#8b877e;--line:#e8e6e0;--card:#ffffff;--btn:#f4f2ec;--btnb:#d6d2c8;--acc:#7a5a33}
+.t-oscuro{--bg:#201c15;--ink:#e2d8c4;--muted:#9a8f7a;--line:#3a3428;--card:#282318;--btn:#302a1d;--btnb:#4d4433;--acc:#d0a45f}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+.f-serif{font-family:'EB Garamond',serif}
+.muted{color:var(--muted)}
+.hair{border-bottom:1px solid var(--line)}
+.btn{font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:var(--ink);background:var(--btn);border:1px solid var(--btnb);border-radius:8px;padding:8px 14px;cursor:pointer;min-height:40px}
+.btn:hover{border-color:var(--acc)}
+.btn,.btnacc,.back{white-space:nowrap}
+.btnacc{background:var(--acc);color:var(--bg);border:1px solid var(--acc);border-radius:8px;font-size:15px;font-weight:500;padding:12px 26px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif}
+.topbar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 20px;min-height:56px}
+.back{background:none;border:none;color:var(--ink);font-size:14px;cursor:pointer;padding:10px 4px;font-family:'IBM Plex Sans',sans-serif}
+.back:hover{color:var(--acc)}
+.ttl{font-size:15px;font-weight:500;letter-spacing:.01em}
+.panel{background:var(--bg);border-bottom:1px solid var(--line);padding:10px 20px 18px}
+.prow{display:flex;align-items:center;gap:14px;padding:7px 0;max-width:560px;margin:0 auto}
+.plabel{width:96px;font-size:14px;color:var(--muted);flex-shrink:0}
+.home{max-width:640px;margin:0 auto;padding:14vh 24px 60px;text-align:center}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.h1{font-family:'EB Garamond',serif;font-size:clamp(38px,7vw,58px);font-weight:500;line-height:1.1;margin:18px 0 0}
+.lede{font-size:17px;line-height:1.7;color:var(--muted);max-width:46ch;margin:22px auto 34px}
+.rule{width:56px;height:1px;background:var(--btnb);margin:34px auto}
+.homefoot{font-size:13px;color:var(--muted)}
+.lib{max-width:640px;margin:0 auto;padding:20px 24px 80px}
+.search{width:100%;box-sizing:border-box;font-family:'IBM Plex Sans',sans-serif;font-size:15px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;outline:none;margin:14px 0 8px}
+.search:focus{border-color:var(--acc)}
+.search::placeholder{color:var(--muted)}
+.docrow{display:flex;align-items:center;gap:16px;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);padding:18px 2px;cursor:pointer;color:var(--ink);font-family:'IBM Plex Sans',sans-serif}
+.docrow:hover .dt{color:var(--acc)}
+.dt{font-family:'EB Garamond',serif;font-size:21px;font-weight:500;line-height:1.25}
+.dm{font-size:13px;color:var(--muted);margin-top:5px}
+.chev{color:var(--muted);font-size:18px;flex-shrink:0}
+.empty{text-align:center;color:var(--muted);font-size:14px;padding:40px 0}
+.reader{padding:36px 24px 120px}
+.rdoc{margin:0 auto;line-height:1.65;text-align:justify;hyphens:auto}
+.rstart{text-align:center;font-size:13px;color:var(--muted);font-family:'IBM Plex Sans',sans-serif;margin-bottom:56px}
+.bh{font-weight:600;text-align:left;margin:2.2em 0 0}
+.bsub{margin:2.2em 0 0}
+.bp{margin:2.2em 0 0}
+.rend{text-align:center;font-size:13px;color:var(--muted);font-family:'IBM Plex Sans',sans-serif;margin-top:72px}
+</style>
+</helmet>
+<div class="app {{themeClass}}">
+<sc-if value="{{isInicio}}" hint-placeholder-val="{{ true }}">
+<div class="home">
+<div class="eyebrow">Biblioteca de lectura</div>
+<h1 class="h1">Documentos Vaticanos</h1>
+<p class="lede">Los grandes textos del magisterio de la Iglesia — concilios, encíclicas, exhortaciones y el Catecismo — reunidos en un solo lugar, para leer con calma.</p>
+<button class="btnacc" onClick="{{irBiblioteca}}">Abrir la biblioteca</button>
+<div class="rule"></div>
+<div class="homefoot">Lectura sin distracciones · Tamaño, tema y fuente ajustables · Funciona sin conexión</div>
+</div>
+</sc-if>
+<sc-if value="{{isBiblioteca}}" hint-placeholder-val="{{ false }}">
+<div class="topbar hair fx ac jb">
+<button class="back" onClick="{{irInicio}}">← Inicio</button>
+<div class="ttl">Biblioteca</div>
+<div style="width:52px"></div>
+</div>
+<div class="lib">
+<input class="search" type="search" placeholder="Buscar por título o autor…" value="{{query}}" onChange="{{onQuery}}">
+<sc-for list="{{docs}}" as="d" hint-placeholder-count="4">
+<button class="docrow" data-doc-id="{{d.id}}" onClick="{{abrirDoc}}">
+<div class="f1"><div class="dt">{{d.titulo}}</div><div class="dm">{{d.tipo}} · {{d.autor}} · {{d.anio}}</div></div>
+<span class="chev">›</span>
+</button>
+</sc-for>
+<sc-if value="{{sinResultados}}" hint-placeholder-val="{{ false }}"><div class="empty">Ningún documento coincide con la búsqueda.</div></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{isLector}}" hint-placeholder-val="{{ false }}">
+<div class="topbar hair fx ac jb">
+<button class="back" onClick="{{irBiblioteca}}">← Buscar</button>
+<div class="ttl">{{docTitulo}}</div>
+<button class="btn f-serif" style="padding:6px 12px;min-height:36px" onClick="{{togglePanel}}">Aa</button>
+</div>
+<sc-if value="{{panelAbierto}}" hint-placeholder-val="{{ false }}">
+<div class="panel">
+<div class="prow"><span class="plabel">Tamaño</span><button class="btn" onClick="{{menosTam}}">A−</button><span class="fs14">{{sizePx}}</span><button class="btn" onClick="{{masTam}}">A+</button></div>
+<div class="prow"><span class="plabel">Tema</span><button class="btn" onClick="{{cicloTema}}">{{temaNombre}}</button></div>
+<div class="prow"><span class="plabel">Fuente</span><button class="btn" onClick="{{cicloFuente}}">{{fuenteNombre}}</button></div>
+<div class="prow fx jb"><span class="fs13 muted">Interlineado 1.65 · Ancho 65ch</span><button class="back fs13" onClick="{{restablecer}}">Restablecer</button></div>
+</div>
+</sc-if>
+<div class="reader">
+<div class="rstart">Inicio del documento</div>
+<div class="rdoc {{fontClass}}" style="font-size: {{sizePx}}; max-width: 65ch;">
+<sc-for list="{{bloques}}" as="b" hint-placeholder-count="6">
+<p class="{{b.cls}}">{{b.x}}</p>
+</sc-for>
+</div>
+<div class="rend">· · ·</div>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    let s = {}, n = {};
+    try { s = JSON.parse(localStorage.getItem('dv.settings') || '{}'); } catch (e) {}
+    try { n = JSON.parse(localStorage.getItem('dv.nav') || '{}'); } catch (e) {}
+    this.state = {
+      view: n.view || 'inicio',
+      docId: n.docId || null,
+      docs: [],
+      query: '',
+      panel: false,
+      size: s.size || 18,
+      theme: s.theme || 'sepia',
+      font: s.font || 'serif'
+    };
+    this.temas = ['sepia', 'claro', 'oscuro'];
+    this.nombres = { sepia: 'Sepia', claro: 'Claro', oscuro: 'Oscuro' };
+  }
+  async componentDidMount() {
+    const m = { DOCUMENTOS: [
+  {
+    id: "catecismo",
+    titulo: "Catecismo de la Iglesia Católica",
+    subtitulo: "Carta apostólica « Laetamur Magnopere »",
+    tipo: "Catecismo",
+    autor: "Juan Pablo II",
+    anio: 1997,
+    bloques: [
+      { t: "h", x: "CARTA APOSTÓLICA « LAETAMUR MAGNOPERE »" },
+      { t: "sub", x: "por la que se aprueba la edición típica latina del Catecismo de la Iglesia Católica" },
+      { t: "p", x: "A los Venerables Hermanos Cardenales, Patriarcas, Arzobispos, Obispos, Presbíteros, Diáconos y demás miembros del Pueblo de Dios" },
+      { t: "h", x: "JUAN PABLO II, OBISPO," },
+      { t: "h", x: "SIERVO DE LOS SIERVOS DE DIOS PARA PERPETUA MEMORIA" },
+      { t: "p", x: "[TEXTO PENDIENTE] Aquí se carga el texto completo del documento. Sustituya este bloque por el contenido íntegro en formato de párrafos." }
+    ]
+  },
+  {
+    id: "dei-verbum",
+    titulo: "Dei Verbum",
+    subtitulo: "Constitución dogmática sobre la divina revelación",
+    tipo: "Concilio Vaticano II",
+    autor: "Pablo VI",
+    anio: 1965,
+    bloques: [
+      { t: "h", x: "DEI VERBUM" },
+      { t: "sub", x: "Constitución dogmática sobre la divina revelación" },
+      { t: "p", x: "[TEXTO PENDIENTE] Sustituya este bloque por el contenido íntegro del documento." }
+    ]
+  },
+  {
+    id: "lumen-gentium",
+    titulo: "Lumen Gentium",
+    subtitulo: "Constitución dogmática sobre la Iglesia",
+    tipo: "Concilio Vaticano II",
+    autor: "Pablo VI",
+    anio: 1964,
+    bloques: [
+      { t: "h", x: "LUMEN GENTIUM" },
+      { t: "sub", x: "Constitución dogmática sobre la Iglesia" },
+      { t: "p", x: "[TEXTO PENDIENTE] Sustituya este bloque por el contenido íntegro del documento." }
+    ]
+  },
+  {
+    id: "gaudium-et-spes",
+    titulo: "Gaudium et Spes",
+    subtitulo: "Constitución pastoral sobre la Iglesia en el mundo actual",
+    tipo: "Concilio Vaticano II",
+    autor: "Pablo VI",
+    anio: 1965,
+    bloques: [
+      { t: "h", x: "GAUDIUM ET SPES" },
+      { t: "sub", x: "Constitución pastoral sobre la Iglesia en el mundo actual" },
+      { t: "p", x: "[TEXTO PENDIENTE] Sustituya este bloque por el contenido íntegro del documento." }
+    ]
+  },
+  {
+    id: "evangelii-gaudium",
+    titulo: "Evangelii Gaudium",
+    subtitulo: "Exhortación apostólica sobre el anuncio del Evangelio",
+    tipo: "Exhortación apostólica",
+    autor: "Francisco",
+    anio: 2013,
+    bloques: [
+      { t: "h", x: "EVANGELII GAUDIUM" },
+      { t: "sub", x: "Exhortación apostólica sobre el anuncio del Evangelio en el mundo actual" },
+      { t: "p", x: "[TEXTO PENDIENTE] Sustituya este bloque por el contenido íntegro del documento." }
+    ]
+  },
+  {
+    id: "laudato-si",
+    titulo: "Laudato Si'",
+    subtitulo: "Carta encíclica sobre el cuidado de la casa común",
+    tipo: "Encíclica",
+    autor: "Francisco",
+    anio: 2015,
+    bloques: [
+      { t: "h", x: "LAUDATO SI'" },
+      { t: "sub", x: "Carta encíclica sobre el cuidado de la casa común" },
+      { t: "p", x: "[TEXTO PENDIENTE] Sustituya este bloque por el contenido íntegro del documento." }
+    ]
+  }
+] };
+    this.setState({ docs: m.DOCUMENTOS }, () => this.restaurarPos());
+  }
+  guardar() {
+    const { size, theme, font, view, docId } = this.state;
+    localStorage.setItem('dv.settings', JSON.stringify({ size, theme, font }));
+    localStorage.setItem('dv.nav', JSON.stringify({ view, docId }));
+  }
+  nav(view, docId) {
+    if (this.state.view === 'lector' && this.state.docId) {
+      localStorage.setItem('dv.pos.' + this.state.docId, String(window.scrollY));
+    }
+    this.setState({ view, docId: docId !== undefined ? docId : this.state.docId, panel: false }, () => {
+      this.guardar();
+      if (view === 'lector') this.restaurarPos(); else window.scrollTo(0, 0);
+    });
+  }
+  restaurarPos() {
+    if (this.state.view !== 'lector' || !this.state.docId) return;
+    const y = parseFloat(localStorage.getItem('dv.pos.' + this.state.docId) || '0');
+    requestAnimationFrame(() => window.scrollTo(0, y));
+  }
+  componentDidUpdate() {
+    if (this.state.view === 'lector' && this.state.docId) {
+      clearTimeout(this._t);
+      this._t = setTimeout(() => {
+        if (this.state.view === 'lector' && this.state.docId)
+          localStorage.setItem('dv.pos.' + this.state.docId, String(window.scrollY));
+      }, 800);
+    }
+  }
+  renderVals() {
+    const st = this.state;
+    const q = st.query.trim().toLowerCase();
+    const docs = st.docs.filter(d => !q || (d.titulo + ' ' + d.autor + ' ' + d.tipo).toLowerCase().includes(q));
+    const doc = st.docs.find(d => d.id === st.docId);
+    const bloques = doc ? doc.bloques.map(b => ({ x: b.x, cls: b.t === 'h' ? 'bh' : b.t === 'sub' ? 'bsub' : 'bp' })) : [];
+    return {
+      isInicio: st.view === 'inicio',
+      isBiblioteca: st.view === 'biblioteca',
+      isLector: st.view === 'lector' && !!doc,
+      themeClass: 't-' + st.theme,
+      fontClass: st.font === 'serif' ? 'f-serif' : '',
+      docs, bloques,
+      sinResultados: docs.length === 0 && st.docs.length > 0,
+      query: st.query,
+      docTitulo: doc ? doc.titulo : '',
+      panelAbierto: st.panel,
+      sizePx: st.size + 'px',
+      temaNombre: this.nombres[st.theme],
+      fuenteNombre: st.font === 'serif' ? 'Serif' : 'Sans',
+      irInicio: () => this.nav('inicio'),
+      irBiblioteca: () => this.nav('biblioteca'),
+      abrirDoc: (e) => this.nav('lector', e.currentTarget.dataset.docId),
+      onQuery: (e) => this.setState({ query: e.target.value }),
+      togglePanel: () => this.setState(s => ({ panel: !s.panel })),
+      menosTam: () => this.setState(s => ({ size: Math.max(14, s.size - 1) }), () => this.guardar()),
+      masTam: () => this.setState(s => ({ size: Math.min(26, s.size + 1) }), () => this.guardar()),
+      cicloTema: () => this.setState(s => ({ theme: this.temas[(this.temas.indexOf(s.theme) + 1) % 3] }), () => this.guardar()),
+      cicloFuente: () => this.setState(s => ({ font: s.font === 'serif' ? 'sans' : 'serif' }), () => this.guardar()),
+      restablecer: () => this.setState({ size: 18, theme: 'sepia', font: 'serif' }, () => this.guardar())
+    };
+  }
+}
+</script>
+</body>
+</html>

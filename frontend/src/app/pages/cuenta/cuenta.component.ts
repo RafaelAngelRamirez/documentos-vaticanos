@@ -1,14 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { environment } from 'src/environments/environment';
+import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 
 @Component({
   standalone: true,
   selector: 'app-cuenta',
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, AppFbarComponent],
   templateUrl: './cuenta.component.html',
   styleUrls: ['./cuenta.component.css'],
 })
@@ -24,6 +30,7 @@ export class CuentaComponent implements OnInit {
       validators: [Validators.required, Validators.email],
     }),
     name: new FormControl('Usuario Dev', { nonNullable: true }),
+    password: new FormControl('', { nonNullable: true }),
   });
 
   constructor(public auth: AuthService, private router: Router) {}
@@ -39,9 +46,11 @@ export class CuentaComponent implements OnInit {
     this.loading = true;
     this.error = null;
     const { email, name } = this.form.getRawValue();
+    // Password field is visual (1B); DEV_AUTH_BYPASS ignores it.
     this.auth.loginDev(email, name).subscribe({
       next: () => {
         this.loading = false;
+        this.router.navigate(['/estudio']);
       },
       error: (err) => {
         this.loading = false;
@@ -50,10 +59,16 @@ export class CuentaComponent implements OnInit {
     });
   }
 
-  /** Placeholder until Google GIS script is configured with client id. */
   loginGoogleHint(): void {
     this.error =
-      'Configura environment.googleClientId y el script de Google Identity Services, o usa login dev.';
+      'Configure environment.googleClientId y Google Identity Services, o use el acceso con correo (dev).';
+  }
+
+  hintSoon(kind: string): void {
+    this.error =
+      kind === 'registro'
+        ? 'El registro con contraseña llegará con Google Auth real. Use “Continuar con Google” o login dev.'
+        : 'La recuperación de contraseña no está disponible en esta versión. Use login dev o Google.';
   }
 
   upgrade(): void {
@@ -65,7 +80,8 @@ export class CuentaComponent implements OnInit {
       },
       error: (err) => {
         this.loading = false;
-        this.error = err?.error?.error || err?.message || 'No se pudo actualizar el rol';
+        this.error =
+          err?.error?.error || err?.message || 'No se pudo actualizar el rol';
       },
     });
   }

@@ -28,7 +28,8 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles/design-reading.css",
+              "src/styles/design-product.css",
               "src/styles.css"
             ],
             "scripts": [],
@@ -99,7 +100,8 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "src/styles/design-reading.css",
+              "src/styles/design-product.css",
               "src/styles.css"
             ],
             "scripts": []

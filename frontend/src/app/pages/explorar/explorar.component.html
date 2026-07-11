@@ -1,0 +1,74 @@
+<div class="app-product">
+  <app-fbar title="Explorar"></app-fbar>
+  <div class="fbody">
+    <div class="tabs">
+      <button
+        type="button"
+        class="tab"
+        [class.on]="tab === 'maestros'"
+        (click)="setTab('maestros')"
+      >
+        Maestros
+      </button>
+      <button
+        type="button"
+        class="tab"
+        [class.on]="tab === 'temas'"
+        (click)="setTab('temas')"
+      >
+        Temas
+      </button>
+      <button
+        type="button"
+        class="tab"
+        [class.on]="tab === 'epocas'"
+        (click)="setTab('epocas')"
+      >
+        Épocas
+      </button>
+    </div>
+
+    <div *ngIf="loading" class="fs13 muted">Cargando…</div>
+
+    <ng-container *ngIf="tab === 'maestros'">
+      <div
+        class="mrow"
+        *ngFor="let t of teachers"
+        style="cursor: pointer"
+        (click)="openTeacher(t)"
+      >
+        <span class="avatar">{{ t.initials }}</span>
+        <div>
+          <div class="mname">{{ t.name }}</div>
+          <div class="mmeta">{{ t.meta }}</div>
+        </div>
+        <span class="chev">›</span>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="tab === 'temas'">
+      <div class="sect">Temas</div>
+      <div class="chips">
+        <span class="chip" *ngFor="let c of topicChips" (click)="chip(c)">{{
+          c
+        }}</span>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="tab === 'epocas'">
+      <div
+        class="mrow"
+        *ngFor="let e of epochs"
+        style="cursor: pointer"
+        (click)="openEpoch(e)"
+      >
+        <span class="avatar">{{ e.docIds.length }}</span>
+        <div>
+          <div class="mname">{{ e.label }}</div>
+          <div class="mmeta">{{ e.meta }}</div>
+        </div>
+        <span class="chev">›</span>
+      </div>
+    </ng-container>
+  </div>
+</div>
