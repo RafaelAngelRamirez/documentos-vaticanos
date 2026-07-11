@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "description": "Ecclesial / magisterial document abbreviations → corpus docId when available. locatorType: number = section/paragraph number (CIC-like); free = unresolved until specialized parser.",
+  "documents": [
+    {
+      "code": "CIC",
+      "aliases": ["CIC", "CEC", "Catecismo", "Catecismo de la Iglesia Católica"],
+      "title": "Catecismo de la Iglesia Católica",
+      "corpusDocId": "cic-es",
+      "locatorType": "number",
+      "kind": "catechism"
+    },
+    {
+      "code": "BIBLIA",
+      "aliases": ["Sagrada Escritura", "Escritura", "Biblia"],
+      "title": "Biblia (Pueblo de Dios)",
+      "corpusDocId": "bible-pueblo-de-dios-es",
+      "locatorType": "bible",
+      "kind": "bible"
+    },
+    {
+      "code": "LG",
+      "aliases": ["LG", "Lumen gentium"],
+      "title": "Lumen gentium",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "GS",
+      "aliases": ["GS", "Gaudium et spes"],
+      "title": "Gaudium et spes",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "DV",
+      "aliases": ["DV", "Dei verbum"],
+      "title": "Dei verbum",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "SC",
+      "aliases": ["SC", "Sacrosanctum Concilium"],
+      "title": "Sacrosanctum Concilium",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "AA",
+      "aliases": ["AA"],
+      "title": "Apostolicam actuositatem",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "AG",
+      "aliases": ["AG"],
+      "title": "Ad gentes",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "CD",
+      "aliases": ["CD"],
+      "title": "Christus Dominus",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "OT",
+      "aliases": ["OT"],
+      "title": "Optatam totius",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "PC",
+      "aliases": ["PC"],
+      "title": "Perfectae caritatis",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "PO",
+      "aliases": ["PO"],
+      "title": "Presbyterorum ordinis",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "UR",
+      "aliases": ["UR"],
+      "title": "Unitatis redintegratio",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "NA",
+      "aliases": ["NA"],
+      "title": "Nostra aetate",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "DH",
+      "aliases": ["DH"],
+      "title": "Dignitatis humanae",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "GE",
+      "aliases": ["GE"],
+      "title": "Gravissimum educationis",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "IM",
+      "aliases": ["IM"],
+      "title": "Inter mirifica",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "CT",
+      "aliases": ["CT", "Catechesi tradendae"],
+      "title": "Catechesi tradendae",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "EN",
+      "aliases": ["EN", "Evangelii nuntiandi"],
+      "title": "Evangelii nuntiandi",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "RM",
+      "aliases": ["RM", "RMi", "Redemptoris missio"],
+      "title": "Redemptoris missio",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "FC",
+      "aliases": ["FC", "Familiaris consortio"],
+      "title": "Familiaris consortio",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "CL",
+      "aliases": ["CL", "ChL", "Christifideles laici"],
+      "title": "Christifideles laici",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "VS",
+      "aliases": ["VS", "Veritatis splendor"],
+      "title": "Veritatis splendor",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "EV",
+      "aliases": ["EV", "Evangelium vitae"],
+      "title": "Evangelium vitae",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "DS",
+      "aliases": ["DS", "Denzinger"],
+      "title": "Denzinger-Schönmetzer",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "CCEO",
+      "aliases": ["CCEO"],
+      "title": "Código de Cánones de las Iglesias Orientales",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "HV",
+      "aliases": ["HV", "Humanae vitae"],
+      "title": "Humanae vitae",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "MD",
+      "aliases": ["MD", "Mulieris dignitatem"],
+      "title": "Mulieris dignitatem",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "MC",
+      "aliases": ["MC", "Marialis cultus"],
+      "title": "Marialis cultus",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "CA",
+      "aliases": ["CA", "Centesimus annus"],
+      "title": "Centesimus annus",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "LE",
+      "aliases": ["LE", "Laborem exercens"],
+      "title": "Laborem exercens",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "SRS",
+      "aliases": ["SRS", "Sollicitudo rei socialis"],
+      "title": "Sollicitudo rei socialis",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "PP",
+      "aliases": ["PP", "Populorum progressio"],
+      "title": "Populorum progressio",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "RH",
+      "aliases": ["RH", "Redemptor hominis"],
+      "title": "Redemptor hominis",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "PDV",
+      "aliases": ["PDV", "Pastores dabo vobis"],
+      "title": "Pastores dabo vobis",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "NMI",
+      "aliases": ["NMI", "Novo millennio ineunte"],
+      "title": "Novo millennio ineunte",
+      "corpusDocId": null,
+      "locatorType": "number",
+      "kind": "magisterium"
+    }
+  ]
+}

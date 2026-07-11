@@ -3,12 +3,16 @@
  * Run: npx ts-node --transpile-only ref_parser.test.ts
  */
 import bookCodes from "./models/data/book-codes.json";
+import docCodesFile from "./models/data/doc-codes.json";
 import {
   BookCodeEntry,
+  DocCodeEntry,
   buildBookIndex,
+  buildDocIndex,
   isNoise,
   normalizeAbbr,
   parseBibleCitation,
+  parseEcclesialCitation,
   parseRefGroup,
 } from "./src/refs/ref-parser";
 
@@ -17,6 +21,9 @@ function assert(cond: unknown, msg: string): void {
 }
 
 const index = buildBookIndex(bookCodes as BookCodeEntry[]);
+const docIndex = buildDocIndex(
+  (docCodesFile as { documents: DocCodeEntry[] }).documents,
+);
 
 // normalizeAbbr
 assert(normalizeAbbr("1 Tm") === "1tm", "normalize 1 Tm");
@@ -132,3 +139,52 @@ console.log("ref_parser.test.ts: all asserts passed");
 }
 
 console.log("ref_parser.test.ts: extended asserts passed");
+
+// --- multi-document / ecclesial ---
+{
+  const c = parseEcclesialCitation("LG 16", docIndex);
+  assert(c?.code === "LG" && c?.locator === "16", "LG 16 ecclesial");
+}
+{
+  const c = parseEcclesialCitation("CIC 1992", docIndex);
+  assert(c?.code === "CIC" && c?.corpusDocId === "cic-es", "CIC → cic-es");
+}
+{
+  // Must NOT steal Marcos
+  const c = parseEcclesialCitation("Mc 16,20", docIndex);
+  assert(c === null, "Mc mixed-case is not Marialis cultus");
+  const b = parseBibleCitation("Mc 16,20", index);
+  assert(b?.bookSlug?.includes("marcos"), "Mc → Marcos bible");
+}
+{
+  const atoms = parseRefGroup("LG 16; Mt 5,3", {
+    bookIndex: index,
+    docIndex,
+  });
+  assert(atoms[0].kind === "ecclesial", "LG first");
+  assert(atoms[1].kind === "bible", "Mt second");
+}
+{
+  const atoms = parseRefGroup("Mt 28,19-20; Mc 16,20", {
+    bookIndex: index,
+    docIndex,
+  });
+  assert(
+    atoms.every((a) => a.kind === "bible"),
+    "Mt+Mc both bible",
+  );
+}
+{
+  const atoms = parseRefGroup("LG 56; cf. 61", {
+    bookIndex: index,
+    docIndex,
+  });
+  assert(atoms[0].kind === "ecclesial" && atoms[0].citation.locator === "56", "LG 56");
+  assert(
+    atoms[1].kind === "ecclesial" &&
+      atoms[1].citation.code === "LG" &&
+      atoms[1].citation.locator === "61",
+    "carry LG to 61",
+  );
+}
+console.log("ref_parser.test.ts: multi-doc asserts passed");

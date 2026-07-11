@@ -27,12 +27,39 @@ export interface BibleCitation {
   verseOnly?: boolean;
 }
 
+export interface EcclesialCitation {
+  raw: string;
+  /** Canonical code e.g. LG, CIC, DS */
+  code: string;
+  /** Section / paragraph / number when present */
+  locator: string | null;
+  /** Optional secondary range end */
+  locatorEnd?: string;
+  cf: boolean;
+  title?: string;
+  /** Target corpus id when known and present in pack */
+  corpusDocId?: string | null;
+  locatorType?: "number" | "bible" | "free" | string;
+}
+
 export type ParsedAtom =
   | { kind: "bible"; raw: string; citation: BibleCitation }
+  | { kind: "ecclesial"; raw: string; citation: EcclesialCitation }
   | { kind: "noise"; raw: string }
   | { kind: "unresolved"; raw: string };
 
 export type BookIndex = Map<string, BookCodeEntry>;
+
+export interface DocCodeEntry {
+  code: string;
+  aliases: string[];
+  title: string;
+  corpusDocId: string | null;
+  locatorType: "number" | "bible" | "free" | string;
+  kind: string;
+}
+
+export type DocIndex = Map<string, DocCodeEntry>;
 
 /** Single-chapter books often stored as capitulo "0" in this corpus. */
 export const SINGLE_CHAPTER_SLUGS = new Set([
@@ -45,9 +72,9 @@ export const SINGLE_CHAPTER_SLUGS = new Set([
 ]);
 
 /**
- * CCC magisterial / legal codes often written ALL CAPS and collide with bible
- * abbreviations when lowercased (CT→Ct, AG→Ag, RM→Rm, MC→Mc, NA→Na, …).
- * Only rejected when the source token is fully uppercase (no lowercase letters).
+ * @deprecated Prefer doc-codes.json + parseEcclesialCitation.
+ * Kept for tests that still reference the old name; ALL-CAPS magisterial
+ * tokens are now parsed as ecclesial, not discarded.
  */
 export const DOCUMENT_BLOCKLIST = new Set(
   [
@@ -174,6 +201,113 @@ export function buildBookIndex(books: BookCodeEntry[]): BookIndex {
     }
   }
   return index;
+}
+
+/**
+ * Build alias → ecclesial document entry.
+ * Keys: uppercase code, normalized alias (no diacritics/spaces).
+ */
+export function buildDocIndex(docs: DocCodeEntry[]): DocIndex {
+  const index: DocIndex = new Map();
+  for (const doc of docs) {
+    const keys = new Set<string>();
+    keys.add(doc.code.toUpperCase());
+    keys.add(normalizeAbbr(doc.code));
+    for (const alias of doc.aliases ?? []) {
+      keys.add(alias.toUpperCase());
+      keys.add(normalizeAbbr(alias));
+    }
+    for (const key of keys) {
+      if (!key) continue;
+      if (!index.has(key)) index.set(key, doc);
+    }
+  }
+  return index;
+}
+
+/**
+ * Whether a code token should be treated as an ecclesial abbreviation.
+ * Short mixed-case tokens like "Mc", "Rm", "Ct" are biblical; CCC uses
+ * ALL-CAPS for magisterial docs (LG, GS, CT, MC, RM…). Longer aliases
+ * ("Lumen gentium", "Catechesi tradendae") are always ecclesial.
+ */
+function isEcclesialTokenForm(token: string): boolean {
+  const letters = token.replace(/[^A-Za-zÁÉÍÓÚáéíóúÜüñÑ]/gu, "");
+  if (letters.length >= 2 && letters === letters.toUpperCase()) return true;
+  // Multi-word / long titles
+  if (/\s/.test(token) || token.length > 4) return true;
+  // Explicit long codes even if mixed (CIC, CCEO, CCEO)
+  const upper = letters.toUpperCase();
+  if (upper === "CIC" || upper === "CCEO" || upper === "DS") return true;
+  return false;
+}
+
+/**
+ * Parse magisterial / CIC-style citations: "LG 16", "cf. CIC 1992", "DS 3004",
+ * "CT 20-22", "CIC 27". Does NOT claim "Mc 16,20" (Marcos) as Marialis cultus.
+ */
+export function parseEcclesialCitation(
+  atom: string,
+  docIndex: DocIndex,
+): EcclesialCitation | null {
+  let raw = atom.trim();
+  if (!raw) return null;
+
+  let cf = false;
+  const cfMatch = raw.match(/^(?:cf\.?|véase|vease)\s+/i);
+  if (cfMatch) {
+    cf = true;
+    raw = raw.slice(cfMatch[0].length).trim();
+  }
+  raw = raw.replace(/^también\s+/i, "").trim();
+  raw = stripTrailingProse(raw);
+  if (!raw) return null;
+
+  // "LG 16" / "CIC 1992" / "DS 3004" / "CT 20-22" / "LG 8/11" (take first)
+  const m = raw.match(
+    /^(?<code>[A-Za-zÁÉÍÓÚáéíóúÜüñÑ.]{1,24}(?:\s+[A-Za-zÁÉÍÓÚáéíóúÜüñÑ.]{1,24}){0,4})\s+(?<loc>\d{1,5})(?:\s*[-–—/]\s*(?<locEnd>\d{1,5}))?/,
+  );
+  if (!m?.groups) {
+    // Code alone: "CIC" without number
+    const codeOnly = raw.match(/^(?<code>[A-Za-zÁÉÍÓÚáéíóúÜüñÑ.]{2,12})\.?$/);
+    if (codeOnly?.groups) {
+      const token = codeOnly.groups.code;
+      if (!isEcclesialTokenForm(token)) return null;
+      const entry =
+        docIndex.get(token.toUpperCase()) ??
+        docIndex.get(normalizeAbbr(token));
+      if (!entry) return null;
+      return {
+        raw: atom.trim(),
+        code: entry.code,
+        locator: null,
+        cf,
+        title: entry.title,
+        corpusDocId: entry.corpusDocId,
+        locatorType: entry.locatorType,
+      };
+    }
+    return null;
+  }
+
+  const token = m.groups.code.trim();
+  if (!isEcclesialTokenForm(token)) return null;
+
+  const entry =
+    docIndex.get(token.toUpperCase()) ??
+    docIndex.get(normalizeAbbr(token));
+  if (!entry) return null;
+
+  return {
+    raw: atom.trim(),
+    code: entry.code,
+    locator: m.groups.loc,
+    locatorEnd: m.groups.locEnd,
+    cf,
+    title: entry.title,
+    corpusDocId: entry.corpusDocId,
+    locatorType: entry.locatorType,
+  };
 }
 
 /**
@@ -324,7 +458,8 @@ export function parseBibleCitation(
   const mBook = raw.match(withBook);
   if (mBook?.groups) {
     const bookRaw = mBook.groups.book.trim();
-    // ALL-CAPS tokens that are known magisterial docs (CT, AG, RM, MC, …)
+    // ALL-CAPS magisterial codes (LG, CT, DS…) must not be parsed as bible books
+    // even when they collide with lowercase bible abbreviations (Ct, Ag, …).
     const lettersOnly = bookRaw.replace(/[^A-Za-zÁÉÍÓÚáéíóúÜüñÑ]/gu, "");
     const isAllCapsDoc =
       lettersOnly.length >= 2 &&
@@ -436,13 +571,50 @@ export function parseBibleCitation(
   return null;
 }
 
+export interface ParseRefGroupOptions {
+  bookIndex: BookIndex;
+  docIndex?: DocIndex;
+  /**
+   * When parsing refs inside the CIC (or any numbered doc), bare numbers like
+   * "cf. 123" can mean a point of that same document — only if no ecclesial
+   * document context was carried (e.g. after "LG 56; cf. 61" → LG 61).
+   */
+  defaultNumberedDoc?: {
+    code: string;
+    corpusDocId: string;
+    title?: string;
+  };
+}
+
 /**
  * Parse a full ref.descripcion into typed atoms, carrying book context across `;`.
+ * Resolution order per atom: noise → ecclesial (doc-codes) → bible → bare number
+ * (optional default numbered doc) → unresolved.
  */
-export function parseRefGroup(raw: string, bookIndex: BookIndex): ParsedAtom[] {
+export function parseRefGroup(
+  raw: string,
+  bookIndexOrOpts: BookIndex | ParseRefGroupOptions,
+  maybeDocIndex?: DocIndex,
+): ParsedAtom[] {
+  // Backward-compatible signature: parseRefGroup(raw, bookIndex)
+  // New: parseRefGroup(raw, { bookIndex, docIndex, defaultNumberedDoc })
+  let bookIndex: BookIndex;
+  let docIndex: DocIndex | undefined;
+  let defaultNumberedDoc: ParseRefGroupOptions["defaultNumberedDoc"];
+
+  if (bookIndexOrOpts instanceof Map) {
+    bookIndex = bookIndexOrOpts;
+    docIndex = maybeDocIndex;
+  } else {
+    bookIndex = bookIndexOrOpts.bookIndex;
+    docIndex = bookIndexOrOpts.docIndex;
+    defaultNumberedDoc = bookIndexOrOpts.defaultNumberedDoc;
+  }
+
   const atoms = atomizeRefGroup(raw);
   const out: ParsedAtom[] = [];
   let lastBook: BookCodeEntry | null = null;
+  let lastEcclesial: EcclesialCitation | null = null;
 
   for (const atom of atoms) {
     if (isNoise(atom)) {
@@ -450,6 +622,18 @@ export function parseRefGroup(raw: string, bookIndex: BookIndex): ParsedAtom[] {
       continue;
     }
 
+    // 1) Ecclesial / magisterial (ALL-CAPS / long aliases only)
+    if (docIndex) {
+      const ecc = parseEcclesialCitation(atom, docIndex);
+      if (ecc) {
+        lastEcclesial = ecc;
+        lastBook = null;
+        out.push({ kind: "ecclesial", raw: atom, citation: ecc });
+        continue;
+      }
+    }
+
+    // 2) Biblical
     const citation = parseBibleCitation(atom, bookIndex, lastBook);
     if (citation) {
       lastBook = {
@@ -458,14 +642,59 @@ export function parseRefGroup(raw: string, bookIndex: BookIndex): ParsedAtom[] {
         aliases: [],
         testament: "",
       };
-      // Prefer full entry from index for slug fidelity
       const full = bookIndex.get(normalizeAbbr(citation.bookCode));
       if (full) lastBook = full;
+      lastEcclesial = null;
 
       out.push({ kind: "bible", raw: atom, citation });
-    } else {
-      out.push({ kind: "unresolved", raw: atom });
+      continue;
     }
+
+    // 3) Bare number continuation:
+    //    - after "LG 56; cf. 61" → LG 61 (carry ecclesial)
+    //    - else optional same-doc CIC point when defaultNumberedDoc set
+    const bare = atom
+      .trim()
+      .replace(/^(?:cf\.?|véase|vease)\s+/i, "")
+      .trim();
+    const mBare = bare.match(/^(\d{1,4})(?:\s*[-–—]\s*(\d{1,4}))?\.?$/);
+    if (mBare) {
+      if (lastEcclesial) {
+        const carried: EcclesialCitation = {
+          ...lastEcclesial,
+          raw: atom.trim(),
+          locator: mBare[1],
+          locatorEnd: mBare[2],
+          cf: /^(?:cf\.?|véase)/i.test(atom.trim()),
+        };
+        out.push({ kind: "ecclesial", raw: atom, citation: carried });
+        continue;
+      }
+      if (defaultNumberedDoc) {
+        // Only treat bare numbers as CIC points when they look like paragraph
+        // numbers (3–4 digits) to avoid hijacking "cf. 1" style noise leftovers.
+        const n = parseInt(mBare[1], 10);
+        if (n >= 100) {
+          out.push({
+            kind: "ecclesial",
+            raw: atom,
+            citation: {
+              raw: atom.trim(),
+              code: defaultNumberedDoc.code,
+              locator: mBare[1],
+              locatorEnd: mBare[2],
+              cf: /^(?:cf\.?|véase)/i.test(atom.trim()),
+              title: defaultNumberedDoc.title,
+              corpusDocId: defaultNumberedDoc.corpusDocId,
+              locatorType: "number",
+            },
+          });
+          continue;
+        }
+      }
+    }
+
+    out.push({ kind: "unresolved", raw: atom });
   }
 
   return out;

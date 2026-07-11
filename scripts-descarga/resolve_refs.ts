@@ -1,33 +1,55 @@
 /**
- * Offline script: resolve CCC biblical footnotes to local bible corpus units.
+ * Offline multi-document reference resolver.
  *
- * Usage: npx ts-node --transpile-only resolve_refs.ts
- *    or: npm run resolve:refs
+ * For every corpus document that has `referencias[]`, parse each citation and
+ * attach `local: { idDocumento, idPunto }` when the target exists in the pack:
+ *   - biblical cites  → bible-pueblo-de-dios-es (verse map)
+ *   - CIC / numbered  → cic-es (and any future numbered docs)
+ *   - magisterial LG… → only when that doc is in the corpus (doc-codes corpusDocId)
+ *
+ * Works in any direction: CIC→Bible, Bible→CIC (when bible has refs), LG→CIC,
+ * future docs among themselves. Re-run after adding documents to the corpus.
+ *
+ * Usage: npm run resolve:refs
  */
 import fs from "fs";
 import path from "path";
 import bookCodes from "./models/data/book-codes.json";
+import docCodesFile from "./models/data/doc-codes.json";
 import {
   BookCodeEntry,
-  buildBookIndex,
-  parseRefGroup,
-  ParsedAtom,
+  DocCodeEntry,
   BibleCitation,
+  EcclesialCitation,
+  ParsedAtom,
+  buildBookIndex,
+  buildDocIndex,
+  parseRefGroup,
   SINGLE_CHAPTER_SLUGS,
 } from "./src/refs/ref-parser";
 
 const ROOT = path.resolve(__dirname);
 const REPO = path.resolve(ROOT, "..");
+const CORPUS_ROOT = path.join(REPO, "documentos/corpus");
+const ASSETS_ROOT = path.join(REPO, "frontend/src/assets/corpus");
 
 const BIBLE_ID = "bible-pueblo-de-dios-es";
-const BIBLE_CONTENT = path.join(
-  REPO,
-  "documentos/corpus/documents/bible-pueblo-de-dios-es/content.json",
-);
-const CIC_PATHS = [
-  path.join(REPO, "documentos/corpus/documents/cic-es/content.json"),
-  path.join(REPO, "frontend/src/assets/corpus/documents/cic-es/content.json"),
-];
+const CIC_ID = "cic-es";
+
+interface DocumentMeta {
+  id: string;
+  title: string;
+  shortTitle?: string;
+  kind: string;
+  bodyPath: string;
+  indexPath: string;
+  unitCount?: number;
+}
+
+interface CorpusManifest {
+  version: string | number;
+  documents: DocumentMeta[];
+}
 
 interface BibliaMeta {
   consecutivo_versiculo: string;
@@ -55,31 +77,42 @@ interface Reference {
     bookSlug?: string;
     chapter?: number;
     verse?: number;
+    code?: string;
+    locator?: string | null;
+    idDocumento?: string;
     idPunto?: string;
   }>;
 }
 
-function verseKey(slug: string, chapter: string | number, verse: string | number): string {
-  return `${slug}|${String(chapter)}|${String(verse)}`;
+interface LocalTarget {
+  idDocumento: string;
+  idPunto: string;
+}
+
+interface CorpusIndexes {
+  /** bible: slug|ch|v → arrayIndex */
+  verseMap: Map<string, number>;
+  codeSlugs: Map<string, string[]>;
+  /** docId → consecutivo/number string → arrayIndex (first match) */
+  byNumber: Map<string, Map<string, number>>;
+  /** loaded units by docId */
+  units: Map<string, TransportUnit[]>;
+  /** meta by id */
+  meta: Map<string, DocumentMeta>;
 }
 
 function loadJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
 }
 
-function buildVerseMap(bible: TransportUnit[]): Map<string, number> {
-  const map = new Map<string, number>();
-  for (let i = 0; i < bible.length; i++) {
-    const b = bible[i]?.biblia;
-    if (!b) continue;
-    const key = verseKey(b.libro, b.capitulo, b.versiculo);
-    // Keep first occurrence for duplicates
-    if (!map.has(key)) map.set(key, i);
-  }
-  return map;
+function verseKey(
+  slug: string,
+  chapter: string | number,
+  verse: string | number,
+): string {
+  return `${slug}|${String(chapter)}|${String(verse)}`;
 }
 
-/** Map bookCode → all slugs (primary first) for fallback to Greek supplements. */
 function slugsByCode(books: BookCodeEntry[]): Map<string, string[]> {
   const m = new Map<string, string[]>();
   const sorted = [...books].sort((a, b) => {
@@ -95,6 +128,65 @@ function slugsByCode(books: BookCodeEntry[]): Map<string, string[]> {
   return m;
 }
 
+function buildVerseMap(bible: TransportUnit[]): Map<string, number> {
+  const map = new Map<string, number>();
+  for (let i = 0; i < bible.length; i++) {
+    const b = bible[i]?.biblia;
+    if (!b) continue;
+    const key = verseKey(b.libro, b.capitulo, b.versiculo);
+    if (!map.has(key)) map.set(key, i);
+  }
+  return map;
+}
+
+/** Map display numbers (consecutivo) → first array index. */
+function buildNumberMap(units: TransportUnit[]): Map<string, number> {
+  const map = new Map<string, number>();
+  for (let i = 0; i < units.length; i++) {
+    const c = units[i]?.consecutivo;
+    if (!c || c === "no-encontrado") continue;
+    if (!map.has(c)) map.set(c, i);
+  }
+  return map;
+}
+
+function resolveCorpusPath(bodyPath: string, root: string): string {
+  const cleaned = bodyPath.replace(/^\//, "");
+  if (cleaned.startsWith("assets/")) {
+    return path.join(REPO, "frontend/src", cleaned);
+  }
+  return path.join(root, cleaned);
+}
+
+function loadCorpusIndexes(
+  manifest: CorpusManifest,
+  books: BookCodeEntry[],
+): CorpusIndexes {
+  const meta = new Map<string, DocumentMeta>();
+  const units = new Map<string, TransportUnit[]>();
+  const byNumber = new Map<string, Map<string, number>>();
+  let verseMap = new Map<string, number>();
+  const codeSlugs = slugsByCode(books);
+
+  for (const doc of manifest.documents) {
+    meta.set(doc.id, doc);
+    const contentPath = resolveCorpusPath(doc.bodyPath, CORPUS_ROOT);
+    if (!fs.existsSync(contentPath)) {
+      console.warn(`[warn] missing content: ${contentPath}`);
+      continue;
+    }
+    const list = loadJson<TransportUnit[]>(contentPath);
+    units.set(doc.id, list);
+    byNumber.set(doc.id, buildNumberMap(list));
+
+    if (doc.id === BIBLE_ID || doc.kind === "bible") {
+      verseMap = buildVerseMap(list);
+    }
+  }
+
+  return { verseMap, codeSlugs, byNumber, units, meta };
+}
+
 function lookupVerse(
   citation: BibleCitation,
   verseMap: Map<string, number>,
@@ -105,17 +197,11 @@ function lookupVerse(
     [citation.bookSlug].filter(Boolean);
 
   const chaptersToTry: Array<string | number> = [citation.chapter];
-  // Corpus stores some single-chapter books as capitulo "0"
-  if (citation.chapter === 1 || citation.verseOnly) {
-    chaptersToTry.push(0);
-  }
+  if (citation.chapter === 1 || citation.verseOnly) chaptersToTry.push(0);
   if (SINGLE_CHAPTER_SLUGS.has(citation.bookSlug) && !chaptersToTry.includes(0)) {
     chaptersToTry.push(0);
   }
-  // Also try chapter as given when verseOnly used chapter 0
-  if (citation.verseOnly && citation.chapter === 0) {
-    chaptersToTry.push(1);
-  }
+  if (citation.verseOnly && citation.chapter === 0) chaptersToTry.push(1);
 
   const versesToTry = [citation.verseStart];
   if (citation.verses) {
@@ -130,7 +216,6 @@ function lookupVerse(
         const idx = verseMap.get(verseKey(slug, ch, v));
         if (idx !== undefined) return idx;
       }
-      // Chapter-only: accept any first verse found in chapter
       if (citation.chapterOnly) {
         for (const [k, idx] of verseMap) {
           if (k.startsWith(`${slug}|${ch}|`)) return idx;
@@ -141,225 +226,329 @@ function lookupVerse(
   return null;
 }
 
-function resolveCicContent(
+function lookupNumbered(
+  docId: string,
+  locator: string | null,
+  byNumber: Map<string, Map<string, number>>,
+): number | null {
+  if (!locator) return null;
+  const map = byNumber.get(docId);
+  if (!map) return null;
+  const idx = map.get(String(locator));
+  return idx === undefined ? null : idx;
+}
+
+function resolveAtom(
+  atom: ParsedAtom,
+  indexes: CorpusIndexes,
+): LocalTarget | null {
+  if (atom.kind === "bible") {
+    const idx = lookupVerse(
+      atom.citation,
+      indexes.verseMap,
+      indexes.codeSlugs,
+    );
+    if (idx === null) return null;
+    return { idDocumento: BIBLE_ID, idPunto: String(idx) };
+  }
+
+  if (atom.kind === "ecclesial") {
+    const c = atom.citation as EcclesialCitation;
+    const docId = c.corpusDocId;
+    if (!docId) return null; // known abbr but doc not in corpus yet
+    if (!indexes.units.has(docId)) return null;
+    if (c.locatorType === "bible") {
+      // rare; treat as unresolved without verse
+      return null;
+    }
+    const idx = lookupNumbered(docId, c.locator, indexes.byNumber);
+    if (idx === null) return null;
+    return { idDocumento: docId, idPunto: String(idx) };
+  }
+
+  return null;
+}
+
+function atomDetail(
+  atom: ParsedAtom,
+  target: LocalTarget | null,
+): NonNullable<Reference["resolvedAtoms"]>[number] {
+  if (atom.kind === "bible") {
+    return {
+      raw: atom.raw,
+      kind: target ? "bible" : "unresolved-bible",
+      bookSlug: atom.citation.bookSlug,
+      chapter: atom.citation.chapter,
+      verse: atom.citation.verseStart,
+      idDocumento: target?.idDocumento,
+      idPunto: target?.idPunto,
+    };
+  }
+  if (atom.kind === "ecclesial") {
+    return {
+      raw: atom.raw,
+      kind: target
+        ? "ecclesial"
+        : atom.citation.corpusDocId
+          ? "missing-locator"
+          : "pending-document",
+      code: atom.citation.code,
+      locator: atom.citation.locator,
+      idDocumento: target?.idDocumento ?? atom.citation.corpusDocId ?? undefined,
+      idPunto: target?.idPunto,
+    };
+  }
+  return { raw: atom.raw, kind: atom.kind };
+}
+
+interface DocStats {
+  docId: string;
+  totalRefs: number;
+  resolved: number;
+  unresolved: number;
+  noise: number;
+  pendingDocument: number;
+  samples: Array<{ from: string; descripcion: string; local: LocalTarget }>;
+}
+
+function resolveDocument(
+  docId: string,
   units: TransportUnit[],
-  verseMap: Map<string, number>,
+  indexes: CorpusIndexes,
   bookIndex: ReturnType<typeof buildBookIndex>,
-  codeSlugs: Map<string, string[]>,
-) {
-  let totalRefs = 0;
-  let resolved = 0;
-  let unresolved = 0;
-  let noise = 0;
-  let bibleAtoms = 0;
-  let noiseAtoms = 0;
-  let unresolvedAtoms = 0;
-  const samples: Array<{ descripcion: string; local: Reference["local"] }> = [];
-  const unresolvedSamples: string[] = [];
+  docIndex: ReturnType<typeof buildDocIndex>,
+): DocStats {
+  const stats: DocStats = {
+    docId,
+    totalRefs: 0,
+    resolved: 0,
+    unresolved: 0,
+    noise: 0,
+    pendingDocument: 0,
+    samples: [],
+  };
+
+  const defaultNumbered =
+    docId === CIC_ID
+      ? {
+          code: "CIC",
+          corpusDocId: CIC_ID,
+          title: "Catecismo de la Iglesia Católica",
+        }
+      : indexes.meta.get(docId)?.kind === "catechism" ||
+          indexes.meta.get(docId)?.kind === "magisterium"
+        ? {
+            code: docId,
+            corpusDocId: docId,
+            title: indexes.meta.get(docId)?.title,
+          }
+        : undefined;
 
   for (const unit of units) {
     if (!unit.referencias?.length) continue;
 
     for (const ref of unit.referencias) {
-      totalRefs++;
-      const atoms: ParsedAtom[] = parseRefGroup(ref.descripcion ?? "", bookIndex);
+      stats.totalRefs++;
+      const atoms = parseRefGroup(ref.descripcion ?? "", {
+        bookIndex,
+        docIndex,
+        defaultNumberedDoc: defaultNumbered,
+      });
 
-      let primaryIndex: number | null = null;
+      let primary: LocalTarget | null = null;
       const resolvedAtoms: NonNullable<Reference["resolvedAtoms"]> = [];
+      let pendingDoc = false;
 
       for (const atom of atoms) {
         if (atom.kind === "noise") {
-          noiseAtoms++;
-          resolvedAtoms.push({ raw: atom.raw, kind: "noise" });
+          resolvedAtoms.push(atomDetail(atom, null));
           continue;
         }
-        if (atom.kind === "unresolved") {
-          unresolvedAtoms++;
-          resolvedAtoms.push({ raw: atom.raw, kind: "unresolved" });
+        if (
+          atom.kind === "ecclesial" &&
+          !atom.citation.corpusDocId
+        ) {
+          pendingDoc = true;
+          resolvedAtoms.push(atomDetail(atom, null));
           continue;
         }
 
-        bibleAtoms++;
-        const idx = lookupVerse(atom.citation, verseMap, codeSlugs);
-        if (idx !== null) {
-          if (primaryIndex === null) primaryIndex = idx;
-          resolvedAtoms.push({
-            raw: atom.raw,
-            kind: "bible",
-            bookSlug: atom.citation.bookSlug,
-            chapter: atom.citation.chapter,
-            verse: atom.citation.verseStart,
-            idPunto: String(idx),
-          });
-        } else {
-          unresolvedAtoms++;
-          resolvedAtoms.push({
-            raw: atom.raw,
-            kind: "unresolved-bible",
-            bookSlug: atom.citation.bookSlug,
-            chapter: atom.citation.chapter,
-            verse: atom.citation.verseStart,
-          });
-        }
+        const target = resolveAtom(atom, indexes);
+        if (target && !primary) primary = target;
+        resolvedAtoms.push(atomDetail(atom, target));
       }
 
-      const hasBible = atoms.some((a) => a.kind === "bible");
-      const onlyNoise = atoms.length > 0 && atoms.every((a) => a.kind === "noise");
+      const onlyNoise =
+        atoms.length > 0 && atoms.every((a) => a.kind === "noise");
 
-      if (primaryIndex !== null) {
-        resolved++;
-        ref.local = {
-          idDocumento: BIBLE_ID,
-          idPunto: String(primaryIndex),
-        };
+      if (primary) {
+        stats.resolved++;
+        ref.local = primary;
         ref.url = "";
-        // Keep multi-cite detail without bloating every ref excessively
-        if (resolvedAtoms.length > 1) {
-          ref.resolvedAtoms = resolvedAtoms;
-        } else {
-          delete ref.resolvedAtoms;
+        if (resolvedAtoms.length > 1) ref.resolvedAtoms = resolvedAtoms;
+        else delete ref.resolvedAtoms;
+        if (stats.samples.length < 8) {
+          stats.samples.push({
+            from: `${docId}:${unit.consecutivo}`,
+            descripcion: ref.descripcion,
+            local: primary,
+          });
         }
-        if (samples.length < 12) {
-          samples.push({ descripcion: ref.descripcion, local: ref.local });
-        }
-      } else if (onlyNoise || (!hasBible && atoms.every((a) => a.kind === "noise"))) {
-        noise++;
+      } else if (onlyNoise) {
+        stats.noise++;
         delete ref.local;
         delete ref.resolvedAtoms;
+      } else if (pendingDoc) {
+        stats.pendingDocument++;
+        delete ref.local;
+        if (resolvedAtoms.length) ref.resolvedAtoms = resolvedAtoms;
       } else {
-        unresolved++;
+        stats.unresolved++;
         delete ref.local;
         delete ref.resolvedAtoms;
-        if (unresolvedSamples.length < 15) {
-          unresolvedSamples.push(ref.descripcion);
-        }
       }
     }
   }
 
-  return {
-    totalRefs,
-    resolved,
-    unresolved,
-    noise,
-    bibleAtoms,
-    noiseAtoms,
-    unresolvedAtoms,
-    samples,
-    unresolvedSamples,
-  };
+  return stats;
 }
 
-/** Minimal inline asserts (also see ref_parser.test.ts). */
-function runInlineAsserts(bookIndex: ReturnType<typeof buildBookIndex>): void {
-  const cases: Array<[string, (a: ParsedAtom[]) => boolean]> = [
-    [
-      "Mt 10,32",
-      (a) =>
-        a.length === 1 &&
-        a[0].kind === "bible" &&
-        a[0].citation.bookSlug === "evangelio segun san mateo" &&
-        a[0].citation.chapter === 10 &&
-        a[0].citation.verseStart === 32,
-    ],
-    [
-      "cf. Gn 1,26-28",
-      (a) =>
-        a[0].kind === "bible" &&
-        a[0].citation.bookSlug === "genesis" &&
-        a[0].citation.chapter === 1 &&
-        a[0].citation.verseStart === 26 &&
-        a[0].citation.verseEnd === 28 &&
-        a[0].citation.cf === true,
-    ],
-    [
-      "1Tm 2,3-4",
-      (a) =>
-        a[0].kind === "bible" &&
-        a[0].citation.bookSlug === "primera carta a timoteo" &&
-        a[0].citation.chapter === 2 &&
-        a[0].citation.verseStart === 3,
-    ],
-    [
-      "Rom 10,9",
-      (a) =>
-        a[0].kind === "bible" &&
-        a[0].citation.bookSlug === "carta a los romanos" &&
-        a[0].citation.chapter === 10 &&
-        a[0].citation.verseStart === 9,
-    ],
-    ["1992", (a) => a.length === 1 && a[0].kind === "noise"],
-    ["primera sección", (a) => a.length === 1 && a[0].kind === "noise"],
-  ];
-
-  for (const [input, check] of cases) {
-    const parsed = parseRefGroup(input, bookIndex);
-    if (!check(parsed)) {
-      throw new Error(
-        `Inline assert failed for ${JSON.stringify(input)} → ${JSON.stringify(parsed)}`,
-      );
-    }
+function writeDocumentBoth(docId: string, bodyPath: string, units: TransportUnit[]) {
+  const payload = JSON.stringify(units);
+  const corpusPath = resolveCorpusPath(bodyPath, CORPUS_ROOT);
+  const assetsPath = resolveCorpusPath(bodyPath, ASSETS_ROOT);
+  for (const out of [corpusPath, assetsPath]) {
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    fs.writeFileSync(out, payload, "utf8");
+    console.log(`  wrote ${out}`);
   }
-  console.log("Inline asserts: OK");
+  // Keep id stable
+  void docId;
 }
 
 function main() {
   const books = bookCodes as BookCodeEntry[];
+  const docEntries = (docCodesFile as { documents: DocCodeEntry[] }).documents;
   const bookIndex = buildBookIndex(books);
-  const codeSlugs = slugsByCode(books);
+  const docIndex = buildDocIndex(docEntries);
 
-  runInlineAsserts(bookIndex);
-
-  console.log(`Loading bible: ${BIBLE_CONTENT}`);
-  const bible = loadJson<TransportUnit[]>(BIBLE_CONTENT);
-  const verseMap = buildVerseMap(bible);
-  console.log(`Bible units: ${bible.length}, verse keys: ${verseMap.size}`);
-  console.log(`Book codes: ${books.length}, alias keys: ${bookIndex.size}`);
-
-  // Resolve once from the first CIC path, then write to all.
-  const primaryPath = CIC_PATHS[0];
-  console.log(`Loading CIC: ${primaryPath}`);
-  const cic = loadJson<TransportUnit[]>(primaryPath);
-
-  const stats = resolveCicContent(cic, verseMap, bookIndex, codeSlugs);
-
-  const payload = JSON.stringify(cic);
-  for (const outPath of CIC_PATHS) {
-    fs.mkdirSync(path.dirname(outPath), { recursive: true });
-    fs.writeFileSync(outPath, payload, "utf8");
-    console.log(`Wrote ${outPath}`);
+  // Align doc-codes corpusDocId with manifest when present
+  const manifestPath = path.join(CORPUS_ROOT, "manifest.json");
+  const manifest = loadJson<CorpusManifest>(manifestPath);
+  for (const entry of docEntries) {
+    if (entry.corpusDocId && !manifest.documents.some((d) => d.id === entry.corpusDocId)) {
+      // keep catalog but mark unavailable at resolve time via units map
+    }
   }
 
-  console.log("\n=== resolve_refs stats ===");
+  console.log(
+    `Corpus docs: ${manifest.documents.map((d) => d.id).join(", ")}`,
+  );
+  console.log(
+    `Book codes: ${books.length}, ecclesial codes: ${docEntries.length}`,
+  );
+
+  const indexes = loadCorpusIndexes(manifest, books);
+  console.log(
+    `Bible verse keys: ${indexes.verseMap.size}; numbered maps: ${[
+      ...indexes.byNumber.entries(),
+    ]
+      .map(([id, m]) => `${id}:${m.size}`)
+      .join(", ")}`,
+  );
+
+  const allStats: DocStats[] = [];
+  let totalResolved = 0;
+  let totalRefs = 0;
+
+  for (const doc of manifest.documents) {
+    const units = indexes.units.get(doc.id);
+    if (!units) continue;
+
+    const hasRefs = units.some((u) => u.referencias && u.referencias.length > 0);
+    if (!hasRefs) {
+      console.log(`\n[skip] ${doc.id}: no referencias[]`);
+      continue;
+    }
+
+    console.log(`\n[resolve] ${doc.id} (${units.length} units)`);
+    const stats = resolveDocument(
+      doc.id,
+      units,
+      indexes,
+      bookIndex,
+      docIndex,
+    );
+    allStats.push(stats);
+    totalResolved += stats.resolved;
+    totalRefs += stats.totalRefs;
+    writeDocumentBoth(doc.id, doc.bodyPath, units);
+
+    console.log(
+      JSON.stringify(
+        {
+          totalRefs: stats.totalRefs,
+          resolved: stats.resolved,
+          unresolved: stats.unresolved,
+          noise: stats.noise,
+          pendingDocument: stats.pendingDocument,
+          rate:
+            stats.totalRefs > 0
+              ? `${((100 * stats.resolved) / stats.totalRefs).toFixed(1)}%`
+              : "n/a",
+        },
+        null,
+        2,
+      ),
+    );
+    for (const s of stats.samples) {
+      console.log(
+        `  ${s.from} | ${s.descripcion} → ${s.local.idDocumento}#${s.local.idPunto}`,
+      );
+    }
+  }
+
+  // pending report for docs cited but not in corpus
+  const pendingPath = path.join(CORPUS_ROOT, "pending-documents.json");
+  const pendingCodes = docEntries
+    .filter((d) => !d.corpusDocId)
+    .map((d) => ({
+      code: d.code,
+      title: d.title,
+      kind: d.kind,
+      note: "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set",
+    }));
+  fs.writeFileSync(
+    pendingPath,
+    JSON.stringify(
+      {
+        generatedAt: new Date().toISOString(),
+        pending: pendingCodes,
+        corpusDocumentIds: manifest.documents.map((d) => d.id),
+      },
+      null,
+      2,
+    ),
+    "utf8",
+  );
+  console.log(`\nWrote ${pendingPath}`);
+
+  console.log("\n=== multi-document resolve summary ===");
   console.log(
     JSON.stringify(
       {
-        totalRefs: stats.totalRefs,
-        resolved: stats.resolved,
-        unresolved: stats.unresolved,
-        noise: stats.noise,
-        bibleAtoms: stats.bibleAtoms,
-        noiseAtoms: stats.noiseAtoms,
-        unresolvedAtoms: stats.unresolvedAtoms,
-        resolveRate:
-          stats.totalRefs > 0
-            ? `${((100 * stats.resolved) / stats.totalRefs).toFixed(1)}%`
+        documentsProcessed: allStats.length,
+        totalRefs,
+        totalResolved,
+        overallRate:
+          totalRefs > 0
+            ? `${((100 * totalResolved) / totalRefs).toFixed(1)}%`
             : "n/a",
       },
       null,
       2,
     ),
   );
-  console.log("\nSample resolved refs:");
-  for (const s of stats.samples) {
-    console.log(`  ${s.descripcion} → ${s.local?.idDocumento}#${s.local?.idPunto}`);
-  }
-  if (stats.unresolvedSamples.length) {
-    console.log("\nSample unresolved:");
-    for (const u of stats.unresolvedSamples) {
-      console.log(`  ${u}`);
-    }
-  }
 }
 
 main();

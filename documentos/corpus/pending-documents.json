@@ -1,0 +1,213 @@
+{
+  "generatedAt": "2026-07-11T21:36:42.061Z",
+  "pending": [
+    {
+      "code": "LG",
+      "title": "Lumen gentium",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "GS",
+      "title": "Gaudium et spes",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "DV",
+      "title": "Dei verbum",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "SC",
+      "title": "Sacrosanctum Concilium",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "AA",
+      "title": "Apostolicam actuositatem",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "AG",
+      "title": "Ad gentes",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "CD",
+      "title": "Christus Dominus",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "OT",
+      "title": "Optatam totius",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "PC",
+      "title": "Perfectae caritatis",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "PO",
+      "title": "Presbyterorum ordinis",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "UR",
+      "title": "Unitatis redintegratio",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "NA",
+      "title": "Nostra aetate",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "DH",
+      "title": "Dignitatis humanae",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "GE",
+      "title": "Gravissimum educationis",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "IM",
+      "title": "Inter mirifica",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "CT",
+      "title": "Catechesi tradendae",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "EN",
+      "title": "Evangelii nuntiandi",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "RM",
+      "title": "Redemptoris missio",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "FC",
+      "title": "Familiaris consortio",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "CL",
+      "title": "Christifideles laici",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "VS",
+      "title": "Veritatis splendor",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "EV",
+      "title": "Evangelium vitae",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "DS",
+      "title": "Denzinger-Schönmetzer",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "CCEO",
+      "title": "Código de Cánones de las Iglesias Orientales",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "HV",
+      "title": "Humanae vitae",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "MD",
+      "title": "Mulieris dignitatem",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "MC",
+      "title": "Marialis cultus",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "CA",
+      "title": "Centesimus annus",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "LE",
+      "title": "Laborem exercens",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "SRS",
+      "title": "Sollicitudo rei socialis",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "PP",
+      "title": "Populorum progressio",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "RH",
+      "title": "Redemptor hominis",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "PDV",
+      "title": "Pastores dabo vobis",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    },
+    {
+      "code": "NMI",
+      "title": "Novo millennio ineunte",
+      "kind": "magisterium",
+      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
+    }
+  ],
+  "corpusDocumentIds": [
+    "cic-es",
+    "bible-pueblo-de-dios-es"
+  ]
+}
