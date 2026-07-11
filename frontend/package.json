@@ -7,7 +7,10 @@
     "serve": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng serve",
     "build": "ng build --configuration production",
     "build-dev": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "build:cap": "ng build --configuration production && npx cap sync",
+    "cap:sync": "npx cap sync",
+    "cap:android": "npx cap open android"
   },
   "private": true,
   "dependencies": {
@@ -22,9 +25,13 @@
     "@angular/platform-browser-dynamic": "^16.0.1",
     "@angular/router": "^16.0.1",
     "@angular/service-worker": "^16.0.1",
+    "@capacitor/android": "^5.7.8",
+    "@capacitor/app": "^5.0.8",
+    "@capacitor/core": "^5.7.8",
+    "@capacitor/preferences": "^5.0.8",
+    "@capacitor/status-bar": "^5.0.8",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "bootstrap": "^5.3.2",
-    "darkreader": "^4.9.43",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
@@ -33,6 +40,7 @@
     "@angular-devkit/build-angular": "^16.0.1",
     "@angular/cli": "^16.0.1",
     "@angular/compiler-cli": "^16.0.1",
+    "@capacitor/cli": "^5.7.8",
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
     "@types/jasmine": "~3.10.0",

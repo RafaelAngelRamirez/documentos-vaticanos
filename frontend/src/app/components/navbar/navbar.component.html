@@ -49,12 +49,23 @@
             (click)="navigate_to_about()"
           >Acerca de</a>
         </li>
-
       </ul>
       <form
         [formGroup]="form"
-        class="d-flex"
+        class="d-flex align-items-center gap-2"
       >
+        <button
+          type="button"
+          class="btn btn-outline-secondary btn-sm navbar-theme-btn"
+          (click)="cycleTheme()"
+          [title]="themeTitle()"
+          aria-label="Cambiar tema de lectura"
+        >
+          <span *ngIf="prefs.theme === 'night'">☾</span>
+          <span *ngIf="prefs.theme === 'sepia'">◐</span>
+          <span *ngIf="prefs.theme === 'paper'">☀</span>
+          <span *ngIf="prefs.theme === 'system'">◌</span>
+        </button>
         <input
           formControlName="buscador"
           class="form-control me-2"

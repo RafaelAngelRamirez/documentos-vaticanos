@@ -1,17 +1,37 @@
-p.punto-contenido {
-  text-align: justify;
-  text-justify: inter-word;
+/* Spacing tuned for long-form offline reading */
+
+app-punto,
+.punto-block {
+  display: block;
 }
 
 .punto-header {
   display: flex;
   align-items: baseline;
   gap: 0.35rem;
+  margin-top: 1.35em;
+  margin-bottom: 0.35em;
 }
 
 .punto-header .card-title {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;
   flex: 1 1 auto;
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--reader-muted, #5c5c5c);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+p.punto-contenido {
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 0 0 0.85em;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  color: inherit;
+  hyphens: auto;
 }
 
 .punto-raw-toggle {
@@ -28,27 +48,30 @@ p.punto-contenido {
   font-size: 0.75rem;
   max-height: 20rem;
   overflow: auto;
+  color: var(--reader-muted, #5c5c5c);
 }
 
+/* Fallback when CSS vars are not applied (non-reader pages) */
 .resaltar {
-  background-color: yellow;
+  background: var(--reader-highlight, yellow);
   font-weight: 800;
 }
 
 .ref-link {
   text-decoration: underline;
   cursor: pointer;
-  color: var(--bs-link-color, #0d6efd);
+  color: var(--reader-link, var(--bs-link-color, #0d6efd));
   font-weight: 500;
 }
 
 .ref-link:hover {
-  color: var(--bs-link-hover-color, #0a58ca);
+  color: var(--reader-link, var(--bs-link-hover-color, #0a58ca));
+  filter: brightness(1.05);
 }
 
 .ref-unresolved {
   text-decoration: underline dashed;
   text-underline-offset: 2px;
-  color: var(--bs-secondary-color, #6c757d);
+  color: var(--reader-muted, var(--bs-secondary-color, #6c757d));
   cursor: help;
 }

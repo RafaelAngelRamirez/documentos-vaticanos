@@ -1,4 +1,327 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+/* ── Reader preferences (CSS custom properties) ─────────────────────────── */
+
+:root {
+  --reader-font-size: 18px;
+  --reader-line-height: 1.65;
+  --reader-max-width: 65ch;
+  --reader-font-family: Georgia, 'Times New Roman', 'Palatino Linotype', serif;
+  --reader-bg: #f7f3ea;
+  --reader-fg: #1a1a1a;
+  --reader-muted: #5c5c5c;
+  --reader-highlight: #ffe566;
+  --reader-link: #1a5f7a;
+  --reader-chrome-bg: rgba(247, 243, 234, 0.95);
+  --reader-chrome-border: rgba(0, 0, 0, 0.08);
+  --reader-surface-pad: 1.25rem;
+}
+
+/* Explicit themes */
+html[data-reader-theme='paper'],
+html[data-reader-resolved='paper'] {
+  --reader-bg: #f7f3ea;
+  --reader-fg: #1a1a1a;
+  --reader-muted: #5c5c5c;
+  --reader-highlight: #ffe566;
+  --reader-link: #1a5f7a;
+  --reader-chrome-bg: rgba(247, 243, 234, 0.95);
+  --reader-chrome-border: rgba(0, 0, 0, 0.08);
+}
+
+html[data-reader-theme='sepia'],
+html[data-reader-resolved='sepia'] {
+  --reader-bg: #f4ecd8;
+  --reader-fg: #3b2f2f;
+  --reader-muted: #6b5b4b;
+  --reader-highlight: #e8c547;
+  --reader-link: #6b3e26;
+  --reader-chrome-bg: rgba(244, 236, 216, 0.96);
+  --reader-chrome-border: rgba(59, 47, 47, 0.12);
+}
+
+html[data-reader-theme='night'],
+html[data-reader-resolved='night'] {
+  --reader-bg: #12141a;
+  --reader-fg: #e6e6e6;
+  --reader-muted: #9aa0a6;
+  --reader-highlight: #6b5a1e;
+  --reader-link: #7ec8e3;
+  --reader-chrome-bg: rgba(18, 20, 26, 0.96);
+  --reader-chrome-border: rgba(255, 255, 255, 0.1);
+}
+
+/* system: follow OS preference when not overridden by resolved attr cascade */
+html[data-reader-theme='system'] {
+  --reader-bg: #f7f3ea;
+  --reader-fg: #1a1a1a;
+  --reader-muted: #5c5c5c;
+  --reader-highlight: #ffe566;
+  --reader-link: #1a5f7a;
+  --reader-chrome-bg: rgba(247, 243, 234, 0.95);
+  --reader-chrome-border: rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  html[data-reader-theme='system'] {
+    --reader-bg: #12141a;
+    --reader-fg: #e6e6e6;
+    --reader-muted: #9aa0a6;
+    --reader-highlight: #6b5a1e;
+    --reader-link: #7ec8e3;
+    --reader-chrome-bg: rgba(18, 20, 26, 0.96);
+    --reader-chrome-border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Resolved overrides system media defaults when service sets them */
+html[data-reader-theme='system'][data-reader-resolved='night'] {
+  --reader-bg: #12141a;
+  --reader-fg: #e6e6e6;
+  --reader-muted: #9aa0a6;
+  --reader-highlight: #6b5a1e;
+  --reader-link: #7ec8e3;
+  --reader-chrome-bg: rgba(18, 20, 26, 0.96);
+  --reader-chrome-border: rgba(255, 255, 255, 0.1);
+}
+
+html[data-reader-theme='system'][data-reader-resolved='paper'] {
+  --reader-bg: #f7f3ea;
+  --reader-fg: #1a1a1a;
+  --reader-muted: #5c5c5c;
+  --reader-highlight: #ffe566;
+  --reader-link: #1a5f7a;
+  --reader-chrome-bg: rgba(247, 243, 234, 0.95);
+  --reader-chrome-border: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Reading surface ────────────────────────────────────────────────────── */
+
+.reader-surface {
+  background: var(--reader-bg);
+  color: var(--reader-fg);
+  font-family: var(--reader-font-family);
+  font-size: var(--reader-font-size);
+  line-height: var(--reader-line-height);
+  min-height: 100vh;
+}
+
+.reader-surface .reader-measure {
+  max-width: var(--reader-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--reader-surface-pad);
+}
+
+.reader-surface .punto-contenido,
+.reader-surface p {
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+
+.resaltar {
+  background: var(--reader-highlight);
+  font-weight: 700;
+  color: inherit;
+}
+
+.ref-link {
+  color: var(--reader-link);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.ref-link:hover {
+  filter: brightness(1.1);
+}
+
+body.reader-mode {
+  background: var(--reader-bg);
+  color: var(--reader-fg);
+}
+
+body.reader-mode .navbar {
+  background: var(--reader-chrome-bg) !important;
+  border-bottom: 1px solid var(--reader-chrome-border);
+}
+
+.reader-page {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ── Reader chrome (compact sticky header + prefs) ──────────────────────── */
+
+.reader-chrome {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--reader-chrome-bg);
+  border-bottom: 1px solid var(--reader-chrome-border);
+  backdrop-filter: blur(8px);
+  color: var(--reader-fg);
+}
+
+.reader-chrome-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: var(--reader-max-width);
+  margin: 0 auto;
+  padding: 0.45rem 0.85rem;
+  min-height: 2.5rem;
+}
+
+.reader-chrome-left,
+.reader-chrome-right {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex: 0 0 auto;
+}
+
+.reader-chrome-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--reader-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: system-ui, sans-serif;
+  font-weight: 500;
+}
+
+.reader-btn {
+  appearance: none;
+  border: 1px solid var(--reader-chrome-border);
+  background: transparent;
+  color: var(--reader-fg);
+  border-radius: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.8rem;
+  line-height: 1.3;
+  cursor: pointer;
+  font-family: system-ui, sans-serif;
+}
+
+.reader-btn:hover {
+  opacity: 0.85;
+}
+
+.reader-btn:focus-visible {
+  outline: 2px solid var(--reader-link);
+  outline-offset: 2px;
+}
+
+.reader-btn-ghost {
+  border-color: transparent;
+  color: var(--reader-muted);
+}
+
+.reader-btn-ghost:hover {
+  color: var(--reader-fg);
+}
+
+.reader-btn-aa {
+  font-weight: 700;
+  min-width: 2.25rem;
+}
+
+.reader-btn-aa.active {
+  border-color: var(--reader-link);
+  color: var(--reader-link);
+}
+
+.reader-prefs {
+  max-width: var(--reader-max-width);
+  margin: 0 auto;
+  padding: 0.5rem 0.85rem 0.75rem;
+  border-top: 1px solid var(--reader-chrome-border);
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+}
+
+.reader-prefs-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 0.25rem 0;
+}
+
+.reader-prefs-label {
+  min-width: 5rem;
+  color: var(--reader-muted);
+  font-size: 0.8rem;
+}
+
+.reader-prefs-value {
+  min-width: 2.5rem;
+  text-align: center;
+  color: var(--reader-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.reader-prefs-meta {
+  justify-content: space-between;
+  color: var(--reader-muted);
+  font-size: 0.75rem;
+}
+
+.reader-status {
+  margin: 1.5rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 0.4rem;
+  border: 1px solid var(--reader-chrome-border);
+  font-family: system-ui, sans-serif;
+  font-size: 0.95rem;
+}
+
+.reader-status-error {
+  border-color: #c0392b;
+  color: #c0392b;
+}
+
+.reader-load-link {
+  text-align: center;
+  padding: 1rem 0 1.25rem;
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+}
+
+.reader-load-link a {
+  color: var(--reader-muted);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--reader-muted);
+}
+
+.reader-load-link a:hover {
+  color: var(--reader-link);
+  border-bottom-color: var(--reader-link);
+}
+
+.reader-load-muted {
+  color: var(--reader-muted);
+  opacity: 0.65;
+  font-size: 0.8rem;
+}
+
+.reader-content {
+  padding-bottom: 2rem;
+}

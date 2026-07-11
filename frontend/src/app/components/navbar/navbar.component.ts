@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { DarkReaderService } from 'src/app/services/dark-reader.service';
+import { CommonModule } from '@angular/common';
 import { BuscadorService } from '../buscador/buscador.service';
 import { Subscription, debounceTime } from 'rxjs';
 import { NavigationService } from 'src/app/services/navigation.service';
+import {
+  ReaderPreferences,
+  ReaderPreferencesService,
+} from 'src/app/services/reader-preferences.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   navigate_to_beginning() {
     this.navigationService.go_to_search();
   }
@@ -25,11 +29,14 @@ export class NavbarComponent implements OnInit {
     buscador: this.control_buscador,
   });
 
+  prefs: ReaderPreferences = this.readerPrefs.snapshot;
+
   subscripciones: Subscription[] = [];
 
   constructor(
     private buscadorService: BuscadorService,
-    public navigationService: NavigationService
+    public navigationService: NavigationService,
+    private readerPrefs: ReaderPreferencesService
   ) {}
 
   ngOnInit(): void {
@@ -41,6 +48,16 @@ export class NavbarComponent implements OnInit {
         this.navigationService.go_to_search();
       });
     this.subscripciones.push(s);
+
+    this.subscripciones.push(
+      this.readerPrefs.prefs$.subscribe((p) => {
+        this.prefs = p;
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subscripciones.forEach((s) => s.unsubscribe());
   }
 
   navigate_to_documents() {
@@ -48,6 +65,18 @@ export class NavbarComponent implements OnInit {
   }
 
   navigate_to_about() {
-    this.navigationService.go_to_about()
+    this.navigationService.go_to_about();
+  }
+
+  cycleTheme(): void {
+    this.readerPrefs.cycleTheme();
+  }
+
+  themeTitle(): string {
+    const t = this.prefs.theme;
+    if (t === 'paper') return 'Tema: Papel (clic para cambiar)';
+    if (t === 'sepia') return 'Tema: Sepia (clic para cambiar)';
+    if (t === 'night') return 'Tema: Noche (clic para cambiar)';
+    return 'Tema: Sistema (clic para cambiar)';
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription, combineLatest } from 'rxjs';
@@ -7,6 +7,10 @@ import {
   IndiceDocumentos,
 } from 'src/app/services/cargar-documentos-json.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import {
+  ReaderPreferences,
+  ReaderPreferencesService,
+} from 'src/app/services/reader-preferences.service';
 import { ArticleInfo } from '../punto/punto/punto.component';
 import { PuntoModule } from '../punto/punto.module';
 
@@ -19,7 +23,7 @@ const CONTEXT_SIZE = 5;
   templateUrl: './lector.component.html',
   styleUrls: ['./lector.component.css'],
 })
-export class LectorComponent implements OnDestroy {
+export class LectorComponent implements OnInit, OnDestroy {
   document: IndiceDocumentos | undefined = undefined;
 
   actual_articles: ArticleInfo[] = [];
@@ -33,12 +37,16 @@ export class LectorComponent implements OnDestroy {
   loading = false;
   load_error: string | null = null;
 
+  prefsOpen = false;
+  prefs: ReaderPreferences = this.readerPrefs.snapshot;
+
   private sub = new Subscription();
 
   constructor(
     private route: ActivatedRoute,
     public navigationService: NavigationService,
-    private cargarDocumentosJsonService: CargarDocumentosJsonService
+    private cargarDocumentosJsonService: CargarDocumentosJsonService,
+    private readerPrefs: ReaderPreferencesService
   ) {
     this.sub.add(
       combineLatest([this.route.paramMap, this.route.url]).subscribe(() => {
@@ -47,12 +55,81 @@ export class LectorComponent implements OnDestroy {
     );
   }
 
+  ngOnInit(): void {
+    this.readerPrefs.applyToDom();
+    this.sub.add(
+      this.readerPrefs.prefs$.subscribe((p) => {
+        this.prefs = p;
+      })
+    );
+  }
+
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 
+  get documentTitle(): string {
+    return this.document?.nombre ?? this.document?.id ?? '';
+  }
+
+  get canLoadBefore(): boolean {
+    return this.actual_inferior_limit > 0;
+  }
+
+  get canLoadNext(): boolean {
+    const len = this.document?.documento.length ?? 0;
+    return this.actual_superior_limit < len;
+  }
+
   goBackFromRef(): void {
     this.navigationService.goBack();
+  }
+
+  goToSearch(): void {
+    this.navigationService.go_to_search();
+  }
+
+  togglePrefs(): void {
+    this.prefsOpen = !this.prefsOpen;
+  }
+
+  decreaseFont(): void {
+    this.readerPrefs.bumpFontSize(-1);
+  }
+
+  increaseFont(): void {
+    this.readerPrefs.bumpFontSize(1);
+  }
+
+  cycleTheme(): void {
+    this.readerPrefs.cycleTheme();
+  }
+
+  cycleFont(): void {
+    this.readerPrefs.cycleFont();
+  }
+
+  resetPrefs(): void {
+    this.readerPrefs.reset();
+  }
+
+  themeLabel(theme: ReaderPreferences['theme']): string {
+    switch (theme) {
+      case 'paper':
+        return 'Papel';
+      case 'sepia':
+        return 'Sepia';
+      case 'night':
+        return 'Noche';
+      case 'system':
+        return 'Sistema';
+      default:
+        return theme;
+    }
+  }
+
+  fontLabel(font: ReaderPreferences['font']): string {
+    return font === 'serif' ? 'Serif' : 'Sans';
   }
 
   load_data() {
