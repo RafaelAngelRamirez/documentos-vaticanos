@@ -1,6 +1,5 @@
-const fs = require("fs");
-
-
-module.exports = {
-  generar_indice,
-};
+/**
+ * Legacy stub. Index generation lives in GeneralDownload._generar_indice
+ * and offline rebuild in reindex_offline.ts.
+ */
+export {};

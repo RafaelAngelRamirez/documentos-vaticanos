@@ -1,16 +1,17 @@
-import { DonwloadData, GeneralDownload } from "./general_download";
+import { DownloadData, GeneralDownload } from "./general_download";
 import { GeneralService } from "./services/services";
 import fs from "fs";
 
 import cliProgress from "cli-progress";
 import { CatechismArquetype } from "./models/catechism-arquetype.model";
 import { TrasnportData } from "./models/transport_data.model";
+import { ConfigDocumento } from "./models/config_documento.model";
 
 export class Catechism extends GeneralDownload {
   log = GeneralService.log;
   urls: (string | undefined)[] = [];
 
-  get_download_data(): DonwloadData {
+  get_download_data(): DownloadData {
     return {
       url_to_donwload: "https://www.vatican.va/archive/catechism_sp",
       file_name: "catecismo",
@@ -19,6 +20,24 @@ export class Catechism extends GeneralDownload {
     };
   }
 
+  get_config(): ConfigDocumento {
+    return {
+      baseUrl: "https://www.vatican.va",
+      selectors: {
+        content: "body",
+        links: "a[href]",
+        // No nextPage for index-based
+      },
+      linkFilters: {
+        includePattern: /vatican\.va/,
+        excludePattern: /javascript:|mailto:/
+      },
+      maxDepth: 3,
+      documentType: "catechism"
+    };
+  }
+
+  get_title(): string { return "Catecismo"; }
   cli_progress_bar = new cliProgress.SingleBar(
     {
       format: "{bar} | {percentage}% | ETA: {eta}s | {fileName}",
@@ -31,7 +50,7 @@ export class Catechism extends GeneralDownload {
   documento: CatechismArquetype[] = [];
   urlsRegistro: string[] = [];
 
-  execute_download(data: DonwloadData): void {
+  execute_download(data: DownloadData): void {
     this.log("[ + ] Preparando descarga del Catecismo");
 
     const indice = this.get_download_data().url_to_donwload + "/index_sp.html";

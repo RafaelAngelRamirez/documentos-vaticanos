@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 import Catecismo from '../../assets/documentos/catecismo.json';
 import Catecismo_index from '../../assets/documentos/catecismo.index.json';
-import Biblia from '../../assets/documentos/biblia_en_puntos.json';
-import Biblia_index from '../../assets/documentos/biblia.index.json';
+import Biblia from '../../assets/documentos/biblia_pueblo_de_Dios.json';
+import Biblia_index from '../../assets/documentos/biblia_pueblo_de_Dios.index.json';
 
 @Injectable({
   providedIn: 'root',
@@ -86,7 +86,7 @@ export interface Article {
     versiculo: number;
     capitulo: string;
     libro: string;
-    index_general: number;
+    index_general: string;
   };
 }
 

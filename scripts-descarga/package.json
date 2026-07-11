@@ -2,10 +2,11 @@
   "name": "scripts-descarga",
   "version": "0.0.13",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "catecismo": "npx ts-node-dev --transpile-only --project tsconfig.json descargar_catecismo.ts && npm run copiar",
     "biblia": "npx ts-node-dev --transpile-only --project tsconfig.json descargar_biblia.ts && npm run copiar",
+    "reindex": "npx ts-node --transpile-only reindex_offline.ts",
     "copiar": "cp -r documentos/* ../frontend/src/assets/documentos"
   },
   "author": "",

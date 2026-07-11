@@ -1,15 +1,17 @@
 import * as fs from "fs";
 import axios from "axios";
 import { DOMParser, parseHTML } from "linkedom";
-import { DonwloadData, GeneralDownload } from "./general_download";
+import { DownloadData, GeneralDownload } from "./general_download";
 import { BibleBook, TrasnportData } from "./models/transport_data.model";
 import { AxiosResponse, ResponseType } from "axios";
 import { AbreviacionesBiblia } from "./models/abreviaciones_biblia.model";
 import { GenerarPuntoBiblia } from "./models/punto-versiculo.model";
 import { Biblia, Versiculo } from "./models/biblia.model";
+import abreviaciones from "./models/data/abreviaciones_biblia.json";
+import { ConfigDocumento } from "./models/config_documento.model";
 
-class Bible extends GeneralDownload {
-  get_download_data(): DonwloadData {
+export class Bible extends GeneralDownload {
+  get_download_data(): DownloadData {
     return {
       url_to_donwload: "https://www.vatican.va/archive/ESL0506/__P1.HTM",
       file_name: "biblia_pueblo_de_Dios",
@@ -18,26 +20,47 @@ class Bible extends GeneralDownload {
     };
   }
 
-  execute_download() {
+  get_config(): ConfigDocumento {
+    return {
+      baseUrl: "https://www.vatican.va",
+      selectors: {
+        content: "body",
+        links: "a[href]",
+        nextPage: "a:contains('Siguiente')" // Assuming next link text
+      },
+      linkFilters: {
+        includePattern: /vatican\.va/,
+        excludePattern: /javascript:|mailto:/
+      },
+      maxDepth: 3,
+      documentType: "bible"
+    };
+  }
+
+  async execute_download(data: any): Promise<void> {
     this.general_service.log(
-      "[ + ] Preparando descarga de Biblia Pueblo de Dios"
+      "Preparando descarga de Biblia Pueblo de Dios"
     );
 
-    this.ejecutar_proceso(this.get_download_data().url_to_donwload);
+    await this.ejecutar_proceso(this.get_download_data().url_to_donwload);
+    this.general_service.log("Cola tiene " + this.cola.size() + " enlaces para procesar");
+    await this.process_pending_links();
   }
+
+  get_title(): string { return "Biblia Pueblo de Dios"; }
 
   _formatear_resultado_general(texto: string) {
     return texto.trim().toLowerCase();
   }
 
-  obtener_testamento(document: Document) {
+  obtener_testamento(document: any) {
     const li = document.querySelector("font > font > ul > li");
     const hijo = li?.querySelector("ul");
     if (hijo) li?.removeChild(hijo);
     return this._formatear_resultado_general(li?.textContent ?? "");
   }
 
-  obtener_titulo_libro(document: Document) {
+  obtener_titulo_libro(document: any) {
     const ul = document.querySelector("font > font > ul > li > ul >li");
 
     const hijo = ul?.querySelector("ul");
@@ -46,7 +69,7 @@ class Bible extends GeneralDownload {
     return this._formatear_resultado_general(ul?.textContent ?? "");
   }
 
-  obtener_capitulo(document: Document) {
+  obtener_capitulo(document: any) {
     const ul = document.querySelector("font > font > ul > li > ul >li > ul");
     // Las introducciones no tienen este nodo.
     if (!ul) return this._formatear_resultado_general("0");
@@ -73,7 +96,7 @@ class Bible extends GeneralDownload {
       try {
         let vers = parseInt(tres_caracteres.trim());
         return vers;
-      } catch (error) {
+       } catch (error: any) {
         return undefined;
       }
     }
@@ -145,7 +168,7 @@ class Bible extends GeneralDownload {
     return { versiculos: transpor_data };
   }
 
-  get_next_page(document: Document) {
+  get_next_page(document: any) {
     const a_elemnt = Array.from(document.querySelectorAll("a")).reverse();
     if (!a_elemnt) return null;
 
@@ -159,51 +182,58 @@ class Bible extends GeneralDownload {
     return url;
   }
 
-  ejecutar_proceso(
+  async ejecutar_proceso(
     pagina_actual: string | null = null,
     pagina_anterior: string | null = null
-  ) {
-    this.general_service.log([
-      "Descargando página: " + pagina_actual,
-      this.steps,
-    ]);
-    this.fetch_page(pagina_actual ?? "")
-      .then((response) => {
-        {
-        }
-        const { document } = parseHTML(response.data);
-        // El orden es importante por que eliminamos elementos
-        // del documento.
-        const _capitulo = this.obtener_capitulo(document);
-        const _libro = this.obtener_titulo_libro(document);
-        const _testamento = this.obtener_testamento(document);
+  ): Promise<void> {
+    try {
+      this.general_service.log([
+        "Descargando página: " + pagina_actual,
+        this.steps,
+      ]);
+      const response = await this.fetch_page(pagina_actual ?? "");
+      const { document } = parseHTML(response.data);
+      // El orden es importante por que eliminamos elementos
+      // del documento.
+      const _capitulo = this.obtener_capitulo(document);
+      const _libro = this.obtener_titulo_libro(document);
+      const _testamento = this.obtener_testamento(document);
 
-        this.general_service.log({ _testamento, _libro, _capitulo });
+      this.general_service.log({ _testamento, _libro, _capitulo });
 
-        if (!(_testamento in this.document_processed))
-          this.document_processed[_testamento] = {};
-        const testamento = this.document_processed[_testamento];
+      if (!(_testamento in this.document_processed))
+        this.document_processed[_testamento] = {};
+      const testamento = this.document_processed[_testamento];
 
-        if (!(_libro in testamento)) testamento[_libro] = {};
-        const libro = testamento[_libro];
+      if (!(_libro in testamento)) testamento[_libro] = {};
+      const libro = testamento[_libro];
 
-        libro[_capitulo] = this.get_chapter_contains({
-          _capitulo,
-          _libro,
-          _testamento,
-          document,
-        });
+      libro[_capitulo] = this.get_chapter_contains({
+        _capitulo,
+        _libro,
+        _testamento,
+        document,
+      });
 
-        this.steps++;
+      // Extract links
+      const links = this.extract_links(document, pagina_actual ?? "", this.get_config());
+      for (const link of links) {
+        this.cola.add(link, 0, pagina_actual ?? "");
+      }
 
-        const siguiente_pagina = this.get_next_page(document);
-        if (siguiente_pagina === pagina_anterior) {
-          // Creates original structure.  
-          this.escribir_fichero(this.document_processed as any, false, 'original_structure');
-          this.generar_estructura_tipo_puntos(this.document_processed);
-        } else this.ejecutar_proceso(siguiente_pagina, pagina_actual);
-      })
-      .catch((_) => this.general_service.log(["[ERROR]=>", _]));
+      this.steps++;
+
+      const siguiente_pagina = this.get_next_page(document);
+      if (siguiente_pagina === pagina_anterior) {
+        // Creates original structure.
+        this.escribir_fichero(this.document_processed as any, false, "original_structure");
+        this.generar_estructura_tipo_puntos(this.document_processed);
+      } else {
+        await this.ejecutar_proceso(siguiente_pagina, pagina_actual);
+      }
+     } catch (error: any) {
+      this.general_service.log(["[ERROR]=>", error]);
+    }
   }
 
   generar_punto(datos: GenerarPuntoBiblia) {
@@ -234,7 +264,7 @@ class Bible extends GeneralDownload {
   generar_estructura_tipo_puntos(BIBLIA: Biblia) {
     const NOMBRE_DOCUMENTO = this.get_download_data().document_name;
     const ABREVIATURAS =
-      require(`./models/data/abreviaciones_${NOMBRE_DOCUMENTO}.json`) as AbreviacionesBiblia[];
+      abreviaciones as AbreviacionesBiblia[];
     const puntos: TrasnportData[] = [];
     let index_general = 0;
 
