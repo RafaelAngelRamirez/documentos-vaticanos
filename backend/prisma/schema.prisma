@@ -10,6 +10,7 @@ datasource db {
 enum Role {
   reader
   teacher
+  admin
 }
 
 model User {
@@ -65,11 +66,18 @@ model Theme {
   description   String?
   coverImageKey String?
   visibility    String      @default("private") // private | unlisted | public
+  /** Diseño 6A–6D: none | pending | approved | changes | rejected */
+  reviewStatus  String      @default("none")
+  reviewNote    String?
+  submittedAt   DateTime?
+  reviewedAt    DateTime?
+  downloads     Int         @default(0)
   steps         ThemeStep[]
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
 
   @@index([ownerId])
+  @@index([reviewStatus])
 }
 
 model ThemeStep {
