@@ -6,29 +6,43 @@ Reglas obligatorias para agentes y contribuidores que toquen la app **web** (Ang
 
 **Fuente de verdad visual** (copiar en el repo):
 
-- `docs/design/handoff/app-src.html` — lectura
-- `docs/design/handoff/pantallas-src.html` — producto 1B–1E
+- `docs/design/handoff/pantallas-diseno-src.html` — **canónico**: 34 pantallas (grupos 1A–6D) + paleta claro/oscuro
+- `docs/design/handoff/app-src.html` — lectura (legado; subconjunto del canónico)
+- `docs/design/handoff/pantallas-src.html` — producto 1B–1E (legado; subconjunto del canónico)
 - `docs/design/handoff/ARQUITECTURA.md` — capas + `dv.*`
-- CSS canónico: `frontend/src/styles/design-reading.css` + `design-product.css`
+- CSS canónico en código: `frontend/src/styles.css` (tokens + clases del diseño, inlined)
 
-### Flujo de lectura (app-src)
+### Flujo de lectura (pantallas 3A · 3D · 3E · 2A · 2B · 3F · 4A · 4B)
 
 ```
-/inicio  →  /biblioteca  →  /leyendo/...
+/inicio (3A)  →  /biblioteca (3D)  →  /documento/:id (2A)  →  /leyendo/... (2B)
 ```
 
-Clases: `.home .eyebrow .h1 .lede .btnacc .rule .homefoot` · `.topbar .lib .search .docrow .dt .dm .chev` · `.reader .rstart .rdoc .rend .panel .prow`
+- Navegación inferior móvil `.bnav` (⌂ Inicio · ▤ Biblioteca · ✎ Estudio · ☰ Ajustes) en pantallas de app; el **lector permanece inmersivo** (sin bnav ni navbar).
+- Ajustes de lectura como `.sheet` (3F); selección de texto `.pop/.selx` (4A) y crear nota `.sheet` (4B).
+- Búsqueda `/buscar` (3E).
 
-### Flujo producto (pantallas-src)
+Clases: `.topbar .search .docrow .dt .dm .chev` · `.reader .rpaper .rhead .rtxt .rfoot` · `.toc .tsec .dcover .dtitle .dsub .dkind` · `.sheet .pop .popb .selx .notearea` · `.bnav .bitem .bico`
+
+### Flujo producto (pantallas 1B–1E · 3B 3C 3G 3H 3I · 4C 4D · 6A–6D · 2C 2D)
 
 | Ruta | Pantalla diseño |
 |------|-----------------|
-| `/cuenta` | 1B Acceso (login) / perfil |
+| `/cuenta` | 1B Acceso (login) · 3H Perfil y ajustes |
+| `/cuenta/crear` | 3B Crear cuenta |
+| `/cuenta/recuperar` | 3C Recuperar contraseña |
 | `/estudio` | 1C Estudio (continuar + planes + chips) |
 | `/aprendizaje` | 1D Aprendizaje (curso + lecciones) |
 | `/explorar` | 1E Explorar (Maestros \| Temas \| Épocas) |
+| `/cuenta/referencias` | 3G Notas y marcadores |
+| `/cuenta/temas` | 6A Mis temas (estados `p-ok/p-rev/p-no`) |
+| `/cuenta/temas/:id` | 3I·4C Tema (lector/maestro) · 6B Cambios solicitados · 4D Publicar |
+| `/padres` · `/padres/:id` | 2C·2D Padres de la Iglesia |
+| `/admin/revision` · `/admin/revision/:id` | 6C·6D Cola de revisión (admin) |
 
-Clases: `.mark .gbtn .field .primary .fbar .ftitle .dot .card .prog .mrow .avatar .tabs .tab .chip .lrow .lnum .sect .greet`
+Web ≥1024px: shell `.wbar .wside .wmain .wcols .wsearch .wname .wmark .wlink` (pantallas 5A–5H); narrador de lectura 5D (`.narr .nfill .play`).
+
+Clases: `.mark .gbtn .field .flabel .primary .fbar .ftitle .dot .card .bookcard .notecard .refcard .quote .prog .mrow .mname .mmeta .avatar .tabs .tab .chip .lrow .lnum .sect .greet .pill .seg .segbtn .badge .p-ok .p-rev .p-no .qrow .com .stepbtn .dlbar .revnote .era .setrow .setk .seth .iconb .dots .dotp`
 
 - **Sin Bootstrap / Font Awesome / themes Material de color.**
 - Usar **los mismos nombres de clase** del handoff; no inventar `dv-*` / `app-*` nuevos si ya existe clase de diseño.
@@ -41,7 +55,7 @@ Fuente de tokens: prototipos de diseño (mismos archivos del handoff).
 Implementación en código:
 
 - Tokens globales: `frontend/src/styles.css` (`--app-*` y aliases `--reader-*`)
-- Temas: **sepia** (default), **claro/paper**, **oscuro/night**, **system**
+- Temas: **claro** (default), **oscuro**, **system** (auto). `sepia`/`paper`/`night` son valores legado que migran a `claro`/`claro`/`oscuro`; la lectura conserva la superficie sepia vía `--paper` (`.rpaper`)
 - Tipografías: **EB Garamond** (títulos y cuerpo de lectura), **IBM Plex Sans** (chrome UI)
 
 ### Tokens (no inventar hex sueltos)
@@ -72,7 +86,7 @@ Implementación en código:
 2. **Usar solo tokens y clases del sistema** (o variables `--app-*` / `--reader-*`). **Bootstrap y Font Awesome están eliminados** — no reintroducirlos. Prohibido Material “pink” o hex sueltos sin tokens.
 3. **Misma familia visual que el lector**: fondo de lectura, acento cálido, serif en texto largo, sans en chrome.
 4. **Topbars de lectura**: patrón sticky 56px, `← back` + título centrado, sin hamburger en Biblioteca/Lector.
-5. **Temas**: el componente debe verse bien en sepia, paper y night.
+5. **Temas**: el componente debe verse bien en claro y oscuro (y `system`).
 6. **Responsive web**: priorizar lectura; áreas táctiles ≥ 44px.
 7. Si necesitas un patrón nuevo, **añádelo a `styles.css` + documentarlo aquí**.
 
@@ -113,6 +127,6 @@ Ver `docs/DEV-DOCKER.md`.
 - [ ] ¿Colores solo con tokens?
 - [ ] ¿Títulos de documentos completos?
 - [ ] ¿Enlace de idioma/fuente si hay `sourceUrl`?
-- [ ] ¿Se ve bien en tema sepia y night?
+- [ ] ¿Se ve bien en tema claro y oscuro?
 - [ ] ¿Clases reutilizables en vez de CSS one-off?
 - [ ] ¿Android nativo sin regresión forzada?
