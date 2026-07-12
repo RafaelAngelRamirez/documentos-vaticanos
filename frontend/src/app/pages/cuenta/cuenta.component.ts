@@ -11,6 +11,9 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 import { environment } from 'src/environments/environment';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 
+/** Vistas de autenticación: 1B acceso, 3B crear cuenta, 3C recuperar. */
+type AuthView = 'login' | 'registro' | 'recuperar';
+
 @Component({
   standalone: true,
   selector: 'app-cuenta',
@@ -23,6 +26,11 @@ export class CuentaComponent implements OnInit {
   loading = false;
   apiEnabled = environment.apiBaseUrl;
   devAuth = environment.devAuthBypass;
+
+  view: AuthView = 'login';
+
+  /** 3C: mostrar la tarjeta «Enlace enviado». */
+  sent = false;
 
   form = new FormGroup({
     email: new FormControl('dev@local.test', {
@@ -39,6 +47,12 @@ export class CuentaComponent implements OnInit {
     if (this.auth.isLoggedIn) {
       this.auth.refreshMe().subscribe();
     }
+  }
+
+  switchView(view: AuthView): void {
+    this.view = view;
+    this.error = null;
+    this.sent = false;
   }
 
   loginDev(): void {
@@ -59,16 +73,50 @@ export class CuentaComponent implements OnInit {
     });
   }
 
+  /** 3B · Crear cuenta (dev-auth crea el usuario con nombre + correo). */
+  registrar(): void {
+    const { email, name } = this.form.getRawValue();
+    if (this.form.controls.email.invalid) {
+      this.error = 'Ingrese un correo válido.';
+      return;
+    }
+    if (!name.trim()) {
+      this.error = 'Ingrese su nombre.';
+      return;
+    }
+    if (!(this.devAuth && this.apiEnabled)) {
+      this.error =
+        'El registro con contraseña llegará con Google Auth real. Use “Continuar con Google” o login dev.';
+      return;
+    }
+    this.loading = true;
+    this.error = null;
+    this.auth.loginDev(email, name).subscribe({
+      next: () => {
+        this.loading = false;
+        this.router.navigate(['/estudio']);
+      },
+      error: (err) => {
+        this.loading = false;
+        this.error =
+          err?.error?.error || err?.message || 'Error al crear la cuenta';
+      },
+    });
+  }
+
+  /** 3C · Recuperar contraseña. */
+  recuperar(): void {
+    if (this.form.controls.email.invalid) {
+      this.error = 'Ingrese un correo válido.';
+      return;
+    }
+    this.error = null;
+    this.sent = true;
+  }
+
   loginGoogleHint(): void {
     this.error =
       'Configure environment.googleClientId y Google Identity Services, o use el acceso con correo (dev).';
-  }
-
-  hintSoon(kind: string): void {
-    this.error =
-      kind === 'registro'
-        ? 'El registro con contraseña llegará con Google Auth real. Use “Continuar con Google” o login dev.'
-        : 'La recuperación de contraseña no está disponible en esta versión. Use login dev o Google.';
   }
 
   upgrade(): void {

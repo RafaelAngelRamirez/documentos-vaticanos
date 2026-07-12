@@ -1,0 +1,35 @@
+<div class="app" *ngIf="padre as p">
+  <app-wbar active="padres"></app-wbar>
+
+  <div class="fbar hair">
+    <span class="fs14 back" routerLink="/padres">← Padres</span>
+    <span class="iconb" title="Favorito">♡</span>
+  </div>
+
+  <div class="dcover">
+    <div class="dkind">{{ p.eraLabel }} · {{ p.years }}</div>
+    <div class="dtitle">{{ p.name }}</div>
+    <div class="dsub">{{ p.role }}</div>
+  </div>
+
+  <div class="fbody">
+    <div class="quote" *ngIf="p.quote">«{{ p.quote }}»</div>
+    <div class="fs12 muted" style="margin-top: 8px" *ngIf="p.quoteSource">
+      {{ p.quoteSource }}
+    </div>
+
+    <div class="sect">Obras en la biblioteca</div>
+    <div class="toc" *ngFor="let w of p.works; let i = index">
+      <span class="tnum">{{ i + 1 }}</span>
+      <span>{{ w.title }}</span>
+    </div>
+    <div class="fs13 muted" *ngIf="!p.works.length" style="margin-top: 8px">
+      Obras próximamente en el corpus.
+    </div>
+
+    <div class="sect">Temas</div>
+    <div class="chips">
+      <span class="chip" *ngFor="let t of p.themes">{{ t }}</span>
+    </div>
+  </div>
+</div>

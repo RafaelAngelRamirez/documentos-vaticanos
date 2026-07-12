@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-export type ReaderTheme = 'paper' | 'sepia' | 'night' | 'system';
+/** Temas del diseño (Ajustes 4A): Sepia · Claro · Oscuro · Sistema. */
+export type ReaderTheme = 'claro' | 'sepia' | 'oscuro' | 'system';
 export type ReaderFont = 'serif' | 'sans';
 
 export interface ReaderPreferences {
@@ -10,20 +11,34 @@ export interface ReaderPreferences {
   fontSizePx: number; // 14-28
   lineHeight: number; // 1.4-2.0
   maxWidthCh: number; // 55-80
+  /** Ajustes 4A: "Mantener pantalla encendida" (Wake Lock). */
+  keepAwake: boolean;
 }
 
 export const READER_PREFS_STORAGE_KEY = 'reader.prefs.v1';
 
 export const DEFAULT_READER_PREFERENCES: ReaderPreferences = {
-  theme: 'sepia',
+  theme: 'claro',
   font: 'serif',
   fontSizePx: 18,
   lineHeight: 1.65,
   maxWidthCh: 65,
+  keepAwake: false,
 };
 
-const THEME_CYCLE: ReaderTheme[] = ['sepia', 'paper', 'night', 'system'];
+export const THEME_CYCLE: ReaderTheme[] = [
+  'claro',
+  'sepia',
+  'oscuro',
+  'system',
+];
 const FONT_CYCLE: ReaderFont[] = ['serif', 'sans'];
+
+/** Valores guardados por versiones previas de la app. */
+const LEGACY_THEME_MAP: Record<string, ReaderTheme> = {
+  paper: 'claro',
+  night: 'oscuro',
+};
 
 const FONT_SERIF =
   '"EB Garamond", Georgia, "Times New Roman", "Palatino Linotype", serif';
@@ -63,6 +78,14 @@ export class ReaderPreferencesService {
     this.update({ ...DEFAULT_READER_PREFERENCES });
   }
 
+  setTheme(theme: ReaderTheme): void {
+    this.update({ theme });
+  }
+
+  setFont(font: ReaderFont): void {
+    this.update({ font });
+  }
+
   cycleTheme(): void {
     const current = this.prefsSubject.value.theme;
     const idx = THEME_CYCLE.indexOf(current);
@@ -83,7 +106,7 @@ export class ReaderPreferencesService {
     });
   }
 
-  /** Resolve paper/sepia/night from prefs + system preference. */
+  /** Resolve claro/sepia/oscuro from prefs + system preference. */
   resolveTheme(prefs: ReaderPreferences = this.prefsSubject.value): Exclude<
     ReaderTheme,
     'system'
@@ -93,10 +116,10 @@ export class ReaderPreferencesService {
     }
     if (typeof window !== 'undefined' && window.matchMedia) {
       return window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'night'
-        : 'paper';
+        ? 'oscuro'
+        : 'claro';
     }
-    return 'paper';
+    return 'claro';
   }
 
   applyToDom(prefs: ReaderPreferences = this.prefsSubject.value): void {
@@ -121,8 +144,10 @@ export class ReaderPreferencesService {
   }
 
   private clamp(prefs: ReaderPreferences): ReaderPreferences {
+    const migrated =
+      LEGACY_THEME_MAP[prefs.theme as string] ?? (prefs.theme as ReaderTheme);
     return {
-      theme: THEME_CYCLE.includes(prefs.theme) ? prefs.theme : 'paper',
+      theme: THEME_CYCLE.includes(migrated) ? migrated : 'claro',
       font: FONT_CYCLE.includes(prefs.font) ? prefs.font : 'serif',
       fontSizePx: Math.min(28, Math.max(14, Math.round(prefs.fontSizePx))),
       lineHeight: Math.min(
@@ -130,6 +155,7 @@ export class ReaderPreferencesService {
         Math.max(1.4, Math.round(prefs.lineHeight * 100) / 100)
       ),
       maxWidthCh: Math.min(80, Math.max(55, Math.round(prefs.maxWidthCh))),
+      keepAwake: prefs.keepAwake === true,
     };
   }
 

@@ -1,5 +1,25 @@
 :host {
   display: block;
-  background: var(--app-bg);
-  min-height: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbody {
+  padding: 28px 24px 40px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.errline {
+  color: #b0563a;
+}
+
+.st {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.sx {
+  font-size: 12px;
+  color: var(--muted);
 }

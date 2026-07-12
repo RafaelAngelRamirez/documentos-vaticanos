@@ -1,0 +1,54 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 22px;
+}
+
+.fbar > * {
+  flex-shrink: 0;
+}
+
+.dcover .inner,
+.cuerpo {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.cuerpo {
+  padding: 20px 24px 60px;
+}
+
+.pos {
+  margin-top: 14px;
+}
+
+.primary {
+  display: block;
+  width: 100%;
+  margin-top: 22px;
+}
+
+.reinicio {
+  display: block;
+  margin: 14px auto 0;
+  color: var(--muted);
+}
+
+.fav-on {
+  color: var(--acc);
+}
+
+.tc {
+  text-align: center;
+}

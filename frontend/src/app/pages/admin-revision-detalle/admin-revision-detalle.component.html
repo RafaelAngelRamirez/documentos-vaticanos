@@ -1,0 +1,110 @@
+<div class="admin-shell">
+  <div class="wbar">
+    <span class="wmark">DV</span>
+    <span class="wname">Documentos Vaticanos</span>
+    <span class="pill p-rev" style="margin-left: 4px">Admin</span>
+    <a routerLink="/explorar" class="wlink">Temas publicados</a>
+    <a routerLink="/admin/revision" class="wlink on">Revisión</a>
+    <input class="wsearch" type="search" placeholder="Buscar…" disabled />
+    <span class="dot">{{ initials() }}</span>
+  </div>
+
+  <div class="wmain">
+    <div class="wbody full">
+      <div class="fs13" style="margin-bottom: 16px">
+        <a routerLink="/admin/revision">← Cola de revisión</a>
+      </div>
+
+      <div *ngIf="loading" class="fs13 muted">Cargando…</div>
+      <div *ngIf="error" class="fs13" style="color: #b0563a">{{ error }}</div>
+      <div *ngIf="message" class="fs13" style="color: var(--ok); margin-bottom: 12px">
+        {{ message }}
+      </div>
+
+      <ng-container *ngIf="theme as t">
+        <div class="wcols">
+          <div class="col-main">
+            <div class="fx ac gap12">
+              <span [class]="pillClass()">{{ pillLabel() }}</span>
+              <span class="fs12 muted">{{ submittedLabel() }}</span>
+            </div>
+            <div class="serif fw6 title">{{ t.title }}</div>
+            <div class="fs14 muted">
+              {{ t.owner?.name || 'Autor' }}
+              <ng-container *ngIf="t.owner?.email"> · {{ t.owner?.email }}</ng-container>
+              · {{ steps.length }} págs · {{ docCount }} documento{{ docCount === 1 ? '' : 's' }}
+              citados
+            </div>
+
+            <p class="fs14 muted" *ngIf="t.description" style="line-height: 1.7; margin-top: 16px">
+              {{ t.description }}
+            </p>
+
+            <div class="tsec" *ngIf="steps.length">Pasajes</div>
+            <div
+              class="refcard"
+              *ngFor="let s of steps"
+              (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)"
+            >
+              <span class="refn">{{ s.unitLabel || s.documentId + ' #' + s.unitIndex }}</span>
+              <span class="f1">
+                <ng-container *ngIf="s.userComment">«{{ s.userComment }}»</ng-container>
+                <ng-container *ngIf="!s.userComment">
+                  {{ s.documentId }} · unidad {{ s.unitIndex }}
+                </ng-container>
+              </span>
+              <span class="fs12" style="color: var(--ok)">✓ cita</span>
+            </div>
+            <div class="fs13 muted" *ngIf="!steps.length" style="margin-top: 16px">
+              Sin pasajes.
+            </div>
+          </div>
+
+          <div class="col-side">
+            <div class="card">
+              <div class="fs12 upper muted" style="letter-spacing: 0.14em">Decisión</div>
+              <button
+                type="button"
+                class="primary"
+                style="padding: 12px"
+                [disabled]="busy"
+                (click)="decide('approved')"
+              >
+                Aprobar y publicar
+              </button>
+              <button
+                type="button"
+                class="gbtn"
+                style="margin-top: 10px; padding: 12px"
+                [disabled]="busy"
+                (click)="decide('changes')"
+              >
+                Solicitar cambios
+              </button>
+              <button
+                type="button"
+                class="gbtn"
+                style="margin-top: 10px; padding: 12px; color: #b0563a"
+                [disabled]="busy"
+                (click)="decide('rejected')"
+              >
+                Rechazar
+              </button>
+            </div>
+            <div class="sect">Observaciones al autor</div>
+            <textarea
+              class="notearea"
+              [(ngModel)]="note"
+              placeholder="Visible para el autor si solicita cambios o rechaza…"
+            ></textarea>
+            <div class="sect">Verificaciones</div>
+            <div class="fs13 muted" style="line-height: 1.6">
+              {{ steps.length }} referencia{{ steps.length === 1 ? '' : 's' }} ·
+              {{ docCount }} documento{{ docCount === 1 ? '' : 's' }} distintos
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,45 +1,44 @@
-<div class="dv-search-page">
-  <header class="dv-topbar hair">
-    <button type="button" class="dv-back" (click)="goLib()">← Biblioteca</button>
-    <div class="dv-ttl">Buscar en el texto</div>
-    <div class="dv-topbar-spacer" aria-hidden="true"></div>
-  </header>
+<div class="app">
+  <div class="fbar hair">
+    <button
+      type="button"
+      class="back"
+      (click)="goLib()"
+      aria-label="Volver a la biblioteca"
+    >
+      ←
+    </button>
+    <span class="ftitle">Buscar</span>
+    <span class="fspacer" aria-hidden="true"></span>
+  </div>
 
-  <div class="dv-search-body">
+  <div class="fbody">
     <input
-      class="dv-search"
+      class="field"
       type="search"
       placeholder="Términos o puntos (.100-105), separados por coma"
       [formControl]="control"
       aria-label="Búsqueda en el texto"
     />
 
-    <div class="dv-examples" *ngIf="!hasQuery">
-      <p class="dv-hint">Ejemplos</p>
-      <button type="button" class="dv-chip" (click)="runExample('muerte, resurrección')">
+    <div class="exrow" *ngIf="!hasQuery">
+      <button
+        type="button"
+        class="exbtn"
+        (click)="runExample('muerte, resurrección')"
+      >
         muerte, resurrección
-      </button>
-      <button type="button" class="dv-chip" (click)="runExample('.100-105, .299-300')">
-        .100-105, .299-300
       </button>
       <button
         type="button"
-        class="dv-chip"
-        (click)="runExample('jesucristo, .100-105, .299-300')"
+        class="exbtn"
+        (click)="runExample('.100-105, .299-300')"
       >
-        jesucristo, .100-105
+        .100-105, .299-300
       </button>
-    </div>
-
-    <div class="terms-panel" *ngIf="hasQuery && buscadorService.terminos as t">
-      <div class="terms-chips" *ngIf="t.terminos?.length">
-        <span class="chip-label">Términos</span>
-        <span class="chip" *ngFor="let w of t.terminos">{{ w }}</span>
-      </div>
-      <div class="terms-chips" *ngIf="t.puntos?.length">
-        <span class="chip-label">Puntos</span>
-        <span class="chip" *ngFor="let p of t.puntos">.{{ p }}</span>
-      </div>
+      <button type="button" class="exbtn" (click)="runExample('esperanza')">
+        esperanza
+      </button>
     </div>
 
     <app-buscador></app-buscador>

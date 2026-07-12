@@ -1,33 +1,14 @@
-/* Spacing tuned for long-form offline reading */
+/* Spacing tuned for long-form offline reading (diseño 2B: número inline). */
 
 app-punto,
 .punto-block {
   display: block;
 }
 
-.punto-header {
-  display: flex;
-  align-items: baseline;
-  gap: 0.35rem;
-  margin-top: 1.35em;
-  margin-bottom: 0.35em;
-}
-
-.punto-header .punto-label,
-.punto-header .card-title {
-  margin-bottom: 0;
-  flex: 1 1 auto;
-  font-size: 0.8em;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--reader-muted, var(--app-muted, #5c5c5c));
-  font-family: var(--app-font-sans, system-ui, sans-serif);
-}
-
 p.punto-contenido {
   text-align: justify;
   text-justify: inter-word;
-  margin: 0 0 0.85em;
+  margin: 0 0 0.95em;
   font-size: inherit;
   line-height: inherit;
   font-family: inherit;
@@ -35,48 +16,56 @@ p.punto-contenido {
   hyphens: auto;
 }
 
-.punto-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  flex-shrink: 0;
+.punto-num {
+  font-weight: 700;
+  margin-right: 0.4em;
 }
 
 .punto-save-btn {
   appearance: none;
   background: none;
   border: none;
-  padding: 0 0.35rem;
-  font-size: 1rem;
+  padding: 0 0.3em;
+  font-size: 0.8em;
   line-height: 1;
   text-decoration: none;
-  color: var(--reader-link, var(--app-acc, #8a5a2b));
+  color: var(--reader-muted, var(--muted, #5c5c5c));
+  opacity: 0.75;
   cursor: pointer;
-  min-height: 32px;
-  min-width: 32px;
+  vertical-align: baseline;
+}
+
+.punto-save-btn:hover {
+  color: var(--reader-link, var(--acc, #8a5a2b));
+  opacity: 1;
 }
 
 .punto-save-msg {
   font-size: 0.7rem;
   color: #2e7d32;
+  font-family: 'IBM Plex Sans', sans-serif;
+  margin-left: 0.3em;
 }
 
 .punto-save-err {
   font-size: 0.7rem;
   color: #c62828;
   max-width: 10rem;
-}
-
-.punto-bible-label {
-  font-weight: 500;
-  margin-left: 0.35rem;
-  opacity: 0.85;
+  font-family: 'IBM Plex Sans', sans-serif;
+  margin-left: 0.3em;
 }
 
 /* Fallback when CSS vars are not applied (non-reader pages) */
 .resaltar {
   background: var(--reader-highlight, yellow);
-  font-weight: 800;
+  font-weight: 700;
+}
+
+/* Subrayado del usuario (4A); la clase global .hl aporta el estilo base. */
+.hl {
+  background: color-mix(in oklab, var(--acc, #8a5a2b) 22%, transparent);
+  border-radius: 3px;
+  padding: 0 2px;
 }
 
 .ref-link {

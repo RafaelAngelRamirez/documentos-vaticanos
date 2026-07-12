@@ -1,18 +1,31 @@
 :host {
   display: block;
   min-height: 100vh;
-  background: var(--bg);
+  background: var(--paper);
   color: var(--ink);
 }
 
-.topbar {
+.app.rpaper {
+  min-height: 100vh;
+}
+
+.fbar {
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 15;
+  background: color-mix(in srgb, var(--paper) 96%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 22px;
 }
 
 .ttl {
   flex: 1;
+  min-width: 0;
   text-align: center;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -20,8 +33,32 @@
   padding: 0 8px;
 }
 
-.rdoc a.muted,
-.rstart a.muted {
+.reader {
+  padding: 26px 24px 180px;
+}
+
+.narr {
+  position: sticky;
+  bottom: 0;
+  z-index: 12;
+}
+
+.narr .npill {
+  font-family: inherit;
+  background: transparent;
+}
+
+.rtxt {
+  margin: 0 auto;
+}
+
+.rtxt.sans {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.rtxt a.muted,
+.rstart a.muted,
+.rend a.muted {
   color: var(--muted);
   text-decoration: none;
   border-bottom: 1px dotted var(--muted);
@@ -29,12 +66,128 @@
   font-size: 13px;
 }
 
-.rdoc a.muted:hover,
-.rstart a.muted:hover {
+.rtxt a.muted:hover,
+.rstart a.muted:hover,
+.rend a.muted:hover {
   color: var(--acc);
   border-bottom-color: var(--acc);
 }
 
-.panel {
+.error {
+  color: var(--app-danger);
+}
+
+.sentinel {
+  height: 1px;
+}
+
+/* rfoot fijo (diseño 2B): posición + porcentaje siempre visibles. */
+.rfoot {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 12;
+  background: var(--paper);
+  padding: 12px 22px calc(12px + env(safe-area-inset-bottom));
+  margin-top: 0;
+}
+
+/* 4A · popover de selección: coordenadas fijas sobre la selección. */
+.selpop {
+  position: fixed;
+  transform: translate(-50%, -100%);
+  z-index: 40;
+}
+
+.selfeedback {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(64px + env(safe-area-inset-bottom));
+  z-index: 40;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 9px;
+  padding: 8px 14px;
   font-family: 'IBM Plex Sans', sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* 4B · crear nota */
+.nquote {
+  font-size: 15px;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.nmeta {
+  margin-top: 6px;
+}
+
+.notearea {
+  width: 100%;
+  min-height: 96px;
+  margin-top: 14px;
+  background: var(--card, var(--paper));
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.notearea:focus {
+  outline: none;
+  border-color: var(--acc);
+}
+
+.nbtns {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.nbtn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.nbtn.pri {
+  background: var(--acc);
+  border-color: var(--acc);
+  color: var(--paper);
+}
+
+.nfoot {
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* Contenido del sheet de ajustes (clases visuales globales del handoff). */
+.shead {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.flabel.first {
+  margin-top: 12px;
+}
+
+.srowx {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 16px;
 }

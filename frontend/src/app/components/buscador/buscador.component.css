@@ -2,13 +2,35 @@
   display: block;
 }
 
-.abbr-badge {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--app-muted);
-  border: 1px solid var(--app-btnb);
-  border-radius: 6px;
-  padding: 0.1rem 0.4rem;
+.count {
+  margin: 14px 0 4px;
+}
+
+.error {
+  color: var(--app-danger, #b3261e);
+}
+
+.empty {
+  margin-top: 18px;
+}
+
+.more {
+  padding: 14px 2px;
+}
+
+.more a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--muted);
+  font-size: 13px;
+}
+
+.more a:hover {
+  color: var(--acc);
+  border-bottom-color: var(--acc);
+}
+
+/* La última fila del diseño no lleva separador. */
+.srow:last-of-type {
+  border-bottom: none;
 }

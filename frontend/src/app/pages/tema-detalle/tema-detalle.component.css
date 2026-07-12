@@ -1,5 +1,74 @@
 :host {
   display: block;
-  background: var(--app-bg);
-  min-height: 100%;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 22px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.hair {
+  border-bottom: 1px solid var(--line);
+}
+
+.back {
+  cursor: pointer;
+}
+
+.back:hover {
+  color: var(--acc);
+}
+
+.fbody {
+  padding: 28px 24px 40px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.dcover.compact {
+  padding: 26px 24px;
+}
+
+.dtitle.sm {
+  font-size: 26px;
+}
+
+.cover {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.xdel {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0 2px;
+  flex-shrink: 0;
+}
+
+.xdel:hover {
+  color: #b0563a;
+}
+
+.errline {
+  color: #b0563a;
+}
+
+.okline {
+  color: var(--ok);
+}
+
+.setrow {
+  cursor: pointer;
 }

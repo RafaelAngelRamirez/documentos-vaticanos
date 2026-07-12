@@ -1,0 +1,91 @@
+<div class="admin-shell">
+  <!-- 6C · wbar -->
+  <div class="wbar">
+    <span class="wmark">DV</span>
+    <span class="wname">Documentos Vaticanos</span>
+    <span class="pill p-rev" style="margin-left: 4px">Admin</span>
+    <a routerLink="/explorar" class="wlink">Temas publicados</a>
+    <a routerLink="/admin/revision" class="wlink on">Revisión</a>
+    <input
+      class="wsearch"
+      type="search"
+      placeholder="Buscar tema o autor…"
+      [(ngModel)]="q"
+      [ngModelOptions]="{ standalone: true }"
+    />
+    <span class="dot">{{ initials() }}</span>
+  </div>
+
+  <div class="wmain">
+    <div class="wside">
+      <button
+        type="button"
+        class="sitem"
+        [class.on]="filter === 'pending'"
+        (click)="setFilter('pending')"
+      >
+        Pendientes · {{ countOf('pending') }}
+      </button>
+      <button
+        type="button"
+        class="sitem"
+        [class.on]="filter === 'changes'"
+        (click)="setFilter('changes')"
+      >
+        Con cambios · {{ countOf('changes') }}
+      </button>
+      <button
+        type="button"
+        class="sitem"
+        [class.on]="filter === 'approved'"
+        (click)="setFilter('approved')"
+      >
+        Aprobados · {{ countOf('approved') }}
+      </button>
+      <button
+        type="button"
+        class="sitem"
+        [class.on]="filter === 'rejected'"
+        (click)="setFilter('rejected')"
+      >
+        Rechazados · {{ countOf('rejected') }}
+      </button>
+      <a routerLink="/cuenta/temas" class="sitem" style="margin-top: 18px">← Mis temas</a>
+    </div>
+
+    <div class="wbody">
+      <div class="fx ac jb" style="margin-bottom: 8px">
+        <h2 class="h2">Cola de revisión</h2>
+        <span class="fs13 muted">Solo temas marcados como públicos</span>
+      </div>
+
+      <div *ngIf="error" class="fs13" style="color: #b0563a; margin: 12px 0">
+        {{ error }}
+      </div>
+      <div *ngIf="loading" class="fs13 muted">Cargando…</div>
+
+      <ng-container *ngIf="!loading && !error">
+        <div
+          class="qrow"
+          *ngFor="let t of filtered; let last = last"
+          [style.border-bottom]="last ? 'none' : null"
+          (click)="open(t)"
+          role="button"
+          tabindex="0"
+          (keydown.enter)="open(t)"
+        >
+          <div class="f1">
+            <div class="st">{{ t.title }}</div>
+            <div class="sx" style="margin-top: 4px">{{ meta(t) }}</div>
+          </div>
+          <span class="fs12 muted">{{ when(t) }}</span>
+          <span [class]="pillClass(t)">{{ pillLabel(t) }}</span>
+          <span class="chev">›</span>
+        </div>
+        <div class="fs13 muted" *ngIf="!filtered.length" style="margin-top: 20px">
+          No hay temas en este filtro.
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

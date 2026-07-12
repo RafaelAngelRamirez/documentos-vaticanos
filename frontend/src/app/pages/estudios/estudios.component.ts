@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 import { Study, StudiesService } from 'src/app/core/account/studies.service';
 import { environment } from 'src/environments/environment';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
+import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import {
   LastRead,
   ReadingProgressService,
@@ -14,7 +15,7 @@ import { ROUTE } from 'src/app/services/navigation.service';
 @Component({
   standalone: true,
   selector: 'app-estudios',
-  imports: [CommonModule, RouterModule, AppFbarComponent],
+  imports: [CommonModule, RouterModule, AppFbarComponent, WbarComponent],
   templateUrl: './estudios.component.html',
   styleUrls: ['./estudios.component.css'],
 })

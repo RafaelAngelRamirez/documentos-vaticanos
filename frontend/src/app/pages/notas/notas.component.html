@@ -1,0 +1,132 @@
+<div class="app-product">
+  <app-fbar title="Mis notas"></app-fbar>
+  <div class="fbody">
+    <div class="tabs">
+      <button
+        type="button"
+        class="tab"
+        [class.on]="tab === 'subrayados'"
+        (click)="setTab('subrayados')"
+      >
+        Subrayados
+      </button>
+      <button
+        type="button"
+        class="tab"
+        [class.on]="tab === 'marcadores'"
+        (click)="setTab('marcadores')"
+      >
+        Marcadores
+      </button>
+      <button
+        type="button"
+        class="tab"
+        [class.on]="tab === 'notas'"
+        (click)="setTab('notas')"
+      >
+        Notas
+      </button>
+    </div>
+
+    <div class="nlist">
+      <!-- Subrayados (local, diseño 3G) -->
+      <ng-container *ngIf="tab === 'subrayados'">
+        <div class="notecard" *ngFor="let a of subrayados" (click)="open(a)">
+          <div class="fs14 lh16"><span class="hl">«{{ a.excerpt }}»</span></div>
+          <div class="nsrc fx ac jb">
+            <span>{{ src(a, a.createdAt) }}</span>
+            <button
+              type="button"
+              class="xdel"
+              title="Quitar"
+              (click)="removeAnotacion($event, a.id)"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+        <div class="fs13 muted" *ngIf="!subrayados.length">
+          Aún no hay subrayados. Seleccione un pasaje en el lector para
+          guardarlo.
+        </div>
+      </ng-container>
+
+      <!-- Marcadores (★ referencias, API) -->
+      <ng-container *ngIf="tab === 'marcadores'">
+        <ng-container *ngIf="auth.isLoggedIn && apiEnabled; else refsOff">
+          <div *ngIf="refsLoading" class="fs13 muted">Cargando…</div>
+          <div *ngIf="refsError" class="fs13 errline">{{ refsError }}</div>
+          <div class="notecard" *ngFor="let r of refs" (click)="open(r)">
+            <div class="fs14 lh16 serif fw5">
+              ★ {{ r.unitLabel || r.documentId }}
+            </div>
+            <div class="fs13 muted" *ngIf="r.note" style="margin-top: 4px">
+              {{ r.note }}
+            </div>
+            <div class="nsrc fx ac jb">
+              <span>{{ src(r, r.createdAt) }}</span>
+              <button
+                type="button"
+                class="xdel"
+                title="Quitar"
+                (click)="removeRef($event, r.id)"
+              >
+                ×
+              </button>
+            </div>
+          </div>
+          <div
+            class="fs13 muted"
+            *ngIf="!refsLoading && !refs.length && !refsError"
+          >
+            Sin marcadores todavía. Use ★ en el lector para guardar
+            referencias.
+          </div>
+        </ng-container>
+        <ng-template #refsOff>
+          <div class="fs13 muted">
+            Inicie sesión para sincronizar sus marcadores.
+          </div>
+          <button
+            type="button"
+            class="gbtn"
+            style="margin-top: 12px"
+            (click)="goCuenta()"
+          >
+            Ir a acceso
+          </button>
+        </ng-template>
+      </ng-container>
+
+      <!-- Notas (subrayado + comentario) -->
+      <ng-container *ngIf="tab === 'notas'">
+        <div class="notecard" *ngFor="let a of notas" (click)="open(a)">
+          <div class="fs14 lh16"><span class="hl">«{{ a.excerpt }}»</span></div>
+          <div class="fs14 lh16" style="margin-top: 6px" *ngIf="a.nota">
+            {{ a.nota }}
+          </div>
+          <div class="nsrc fx ac jb">
+            <span>{{ src(a, a.createdAt) }}</span>
+            <button
+              type="button"
+              class="xdel"
+              title="Quitar"
+              (click)="removeAnotacion($event, a.id)"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+        <div class="fs13 muted" *ngIf="!notas.length">
+          Aún no hay notas. Añada un comentario a un subrayado desde el lector.
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="fs13 tcenter exp" *ngIf="hasAny">
+      <a href="javascript:void(0)" (click)="exportAll()"
+        >Exportar todas las notas</a
+      >
+    </div>
+  </div>
+</div>

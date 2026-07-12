@@ -25,3 +25,40 @@ a.gbtn {
   display: flex;
   box-sizing: border-box;
 }
+
+.errtx {
+  color: #8b3a3a;
+}
+
+/* 3B / 3C */
+.backlink {
+  cursor: pointer;
+  margin-bottom: 18px;
+}
+
+.backlink:hover {
+  color: var(--acc);
+}
+
+.vtitle {
+  font-size: 26px;
+}
+
+.vsub {
+  margin: 8px 0 20px;
+  line-height: 1.6;
+}
+
+.terms {
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+.sentcard {
+  margin-top: 22px;
+  border-color: var(--acc);
+}
+
+.demonote {
+  margin-top: 10px;
+}

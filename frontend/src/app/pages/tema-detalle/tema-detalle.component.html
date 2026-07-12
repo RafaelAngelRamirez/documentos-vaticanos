@@ -1,69 +1,253 @@
-<div class="app-page" *ngIf="!loading">
-  <header class="app-page-head">
-    <h1 class="app-page-title">{{ theme?.title || 'Tema' }}</h1>
-    <a routerLink="/cuenta/temas" class="app-btn-link">← Temas</a>
-  </header>
+<div class="app-product">
+  <!-- 4D · PUBLICAR -->
+  <ng-container *ngIf="mode === 'publish' && theme as t">
+    <div class="fbar hair">
+      <span class="fs14 back" (click)="cancelPublish()" role="button" tabindex="0">← Mis temas</span>
+      <span class="ftitle" style="font-size: 16px">{{ needsChanges ? 'Editar y reenviar' : 'Publicar tema' }}</span>
+      <span style="width: 34px"></span>
+    </div>
+    <div class="fbody">
+      <div class="fs13 errline" *ngIf="error">{{ error }}</div>
+      <form [formGroup]="publishForm" (ngSubmit)="submitForReview()">
+        <div class="flabel" style="margin-top: 0">Título del tema</div>
+        <input class="field" type="text" formControlName="title" />
+        <div class="flabel">Introducción</div>
+        <textarea
+          class="notearea"
+          formControlName="description"
+          placeholder="Presente el tema…"
+        ></textarea>
 
-  <p *ngIf="theme?.description" class="app-muted app-fs14">{{ theme?.description }}</p>
-  <div *ngIf="error" class="app-status app-status-error">{{ error }}</div>
-  <div *ngIf="message" class="app-status app-status-ok">{{ message }}</div>
-
-  <div class="app-card" style="margin-bottom: 1.25rem">
-    <h2 class="app-section-title" style="margin-top: 0">Portada</h2>
-    <img *ngIf="coverUrl() as src" [src]="src" alt="" class="app-cover" />
-    <input
-      type="file"
-      accept="image/jpeg,image/png,image/webp"
-      (change)="onCover($event)"
-    />
-    <span *ngIf="uploading" class="app-muted app-fs13">Optimizando…</span>
-  </div>
-
-  <h2 class="app-section-title">Pasos</h2>
-  <ol class="app-steps">
-    <li *ngFor="let s of theme?.steps; let i = index" class="app-step">
-      <span class="app-step-num"></span>
-      <div
-        class="app-step-body"
-        (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)"
-      >
-        <div class="app-step-title">
-          {{ s.unitLabel || s.documentId + ' #' + s.unitIndex }}
+        <div class="sect">Secciones · pasajes del tema</div>
+        <div class="notecard" *ngFor="let s of steps; let i = index">
+          <div class="fw5 fs14">
+            {{ i + 1 }} · {{ s.unitLabel || s.documentId + ' #' + s.unitIndex }}
+          </div>
+          <div class="nsrc" *ngIf="s.userComment">{{ s.userComment }}</div>
+          <div class="nsrc" *ngIf="!s.userComment">
+            {{ s.documentId }} · Nº {{ s.unitIndex }}
+          </div>
         </div>
-        <div class="app-step-meta">{{ s.documentId }} · {{ s.unitIndex }}</div>
-        <div *ngIf="s.userComment" class="app-step-note">{{ s.userComment }}</div>
-      </div>
-      <button type="button" class="app-btn app-btn-sm app-btn-danger" (click)="removeStep(i)">
-        Quitar
-      </button>
-    </li>
-  </ol>
+        <div class="fs13 muted" *ngIf="!steps.length">
+          Añada pasajes en la vista del tema antes de publicar.
+        </div>
 
-  <form [formGroup]="stepForm" (ngSubmit)="addStep()" class="app-card">
-    <h2 class="app-section-title" style="margin-top: 0">Añadir paso</h2>
-    <div class="app-field-group">
-      <label class="app-label">documentId</label>
-      <input class="app-field" formControlName="documentId" />
+        <div class="setrow" style="margin-top: 10px" (click)="togglePublic()">
+          <span class="setk">
+            Visible para la comunidad
+            <span class="seth">Se enviará a revisión antes de publicarse</span>
+          </span>
+          <span class="sw2" [class.on]="publicToggle"></span>
+        </div>
+
+        <button
+          class="primary"
+          type="submit"
+          [disabled]="busy || publishForm.invalid || !steps.length"
+        >
+          {{ publicToggle ? 'Enviar a revisión' : 'Guardar como privado' }}
+        </button>
+        <button
+          type="button"
+          class="gbtn"
+          style="margin-top: 10px"
+          (click)="cancelPublish()"
+        >
+          Cancelar
+        </button>
+      </form>
     </div>
-    <div class="app-field-group">
-      <label class="app-label">unitIndex</label>
-      <input class="app-field" type="number" formControlName="unitIndex" />
+  </ng-container>
+
+  <!-- 3I / 4C / 6B · LECTURA -->
+  <ng-container *ngIf="mode === 'read'">
+    <div class="fbar hair">
+      <span class="fs14 back" routerLink="/cuenta/temas">← Temas</span>
+      <span *ngIf="pillLabel()" [class]="pillClass()">{{ pillLabel() }}</span>
+      <span *ngIf="!pillLabel()" class="iconb" title="Tema">♡</span>
     </div>
-    <div class="app-field-group">
-      <label class="app-label">Etiqueta</label>
-      <input class="app-field" formControlName="unitLabel" placeholder="CIC 27" />
-    </div>
-    <div class="app-field-group">
-      <label class="app-label">Comentario</label>
-      <textarea class="app-field" rows="2" formControlName="userComment"></textarea>
-    </div>
-    <button class="app-btn app-btn-primary" type="submit" [disabled]="stepForm.invalid">
-      Añadir al tema
-    </button>
-    <p class="app-muted app-fs13" style="margin: 0.75rem 0 0">
-      Tip: usa ★ en el lector para guardar referencias y reutiliza documentId e
-      índice aquí.
-    </p>
-  </form>
+
+    <ng-container *ngIf="theme as t">
+      <div class="dcover" [class.compact]="needsChanges">
+        <div class="dkind">{{ kindLabel() }}</div>
+        <div class="dtitle" [class.sm]="needsChanges">{{ t.title }}</div>
+        <div class="dsub">
+          <ng-container *ngIf="needsChanges && submittedLabel(); else defaultSub">
+            {{ submittedLabel() }}
+          </ng-container>
+          <ng-template #defaultSub>
+            {{ steps.length }} pasaje{{ steps.length === 1 ? '' : 's' }} ·
+            {{ docCount }} documento{{ docCount === 1 ? '' : 's' }}
+            <ng-container *ngIf="isApproved && t.downloads != null">
+              · {{ t.downloads }} descarga{{ t.downloads === 1 ? '' : 's' }}
+            </ng-container>
+          </ng-template>
+        </div>
+      </div>
+
+      <div class="fbody">
+        <p class="fs13 muted" *ngIf="t.description && !needsChanges" style="margin: 0 0 4px">
+          {{ t.description }}
+        </p>
+        <div class="fs13 errline" *ngIf="error">{{ error }}</div>
+        <div class="fs13 okline" *ngIf="message">{{ message }}</div>
+
+        <!-- 6B · Observaciones del revisor -->
+        <ng-container *ngIf="needsChanges">
+          <div class="sect" style="margin-top: 2px">Observaciones del revisor</div>
+          <div class="revnote" *ngIf="t.reviewNote">{{ t.reviewNote }}</div>
+          <div class="revnote" *ngIf="!t.reviewNote">
+            El revisor solicitó cambios. Revise el contenido y vuelva a enviar.
+          </div>
+          <div class="fs12 muted" style="margin-top: 12px" *ngIf="t.reviewedAt">
+            Revisado
+            {{ t.reviewedAt | date: 'd · MMM · y' }}
+          </div>
+          <button
+            type="button"
+            class="primary"
+            style="margin-top: 20px"
+            [disabled]="busy"
+            (click)="resubmit()"
+          >
+            Editar y reenviar
+          </button>
+          <button
+            type="button"
+            class="gbtn"
+            style="margin-top: 10px"
+            [disabled]="busy"
+            (click)="makePrivate()"
+          >
+            Mantener como privado
+          </button>
+        </ng-container>
+
+        <!-- 4C · Disponible para la comunidad -->
+        <div class="dlbar" *ngIf="isApproved && !needsChanges">
+          <span class="fs13 f1" style="line-height: 1.5">
+            Disponible para toda la comunidad
+          </span>
+          <button
+            type="button"
+            class="primary"
+            style="margin: 0; width: auto; padding: 10px 18px; font-size: 14px"
+            (click)="download()"
+          >
+            Descargar
+          </button>
+        </div>
+
+        <div class="fs13 muted" *ngIf="isPending" style="margin: 8px 0 12px; line-height: 1.6">
+          Este tema está en cola de revisión. Podrá editarlo cuando el revisor
+          responda.
+        </div>
+
+        <ng-container *ngIf="!needsChanges">
+          <div class="sect" style="margin-top: 4px">Documentos sobre este tema</div>
+          <div
+            class="refcard"
+            *ngFor="let s of steps; let i = index"
+            (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)"
+          >
+            <span class="refn">{{ s.unitLabel || '#' + s.unitIndex }}</span>
+            <span class="f1">
+              <ng-container *ngIf="s.userComment">«{{ s.userComment }}»</ng-container>
+              <ng-container *ngIf="!s.userComment">
+                {{ s.documentId }} · Nº {{ s.unitIndex }}
+              </ng-container>
+            </span>
+            <button
+              type="button"
+              class="xdel"
+              title="Quitar"
+              *ngIf="!isPending"
+              (click)="onRemove($event, i)"
+            >
+              ×
+            </button>
+            <span class="chev" *ngIf="isPending">›</span>
+          </div>
+          <div class="fs13 muted" *ngIf="!steps.length && !loading">
+            Todavía no hay pasajes en este tema.
+          </div>
+
+          <!-- Lectura sugerida (3I) -->
+          <ng-container *ngIf="steps.length">
+            <div class="sect">Lectura sugerida</div>
+            <div class="card">
+              <div class="fs12 upper muted" style="letter-spacing: 0.14em">
+                Plan de {{ steps.length }} paso{{ steps.length === 1 ? '' : 's' }}
+              </div>
+              <div class="serif fw6" style="font-size: 19px; margin-top: 6px">
+                {{ t.title }}
+              </div>
+              <div class="fs13 muted" style="margin-top: 4px">
+                Siga los pasajes en orden desde el lector
+              </div>
+              <button
+                type="button"
+                class="primary"
+                style="margin-top: 14px; padding: 12px"
+                (click)="startPlan()"
+              >
+                Empezar el plan
+              </button>
+            </div>
+          </ng-container>
+
+          <!-- Editor (owner, not pending) -->
+          <ng-container *ngIf="!isPending">
+            <div class="sect">Portada</div>
+            <div class="card">
+              <img *ngIf="coverUrl() as src" [src]="src" alt="" class="cover" />
+              <input
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                (change)="onCover($event)"
+              />
+              <div class="fs13 muted" *ngIf="uploading" style="margin-top: 8px">
+                Optimizando…
+              </div>
+            </div>
+
+            <div class="sect">Añadir pasaje</div>
+            <form [formGroup]="stepForm" (ngSubmit)="addStep()" class="card">
+              <label class="flabel">Documento</label>
+              <input class="field" formControlName="documentId" />
+              <label class="flabel">Nº de unidad</label>
+              <input class="field" type="number" formControlName="unitIndex" />
+              <label class="flabel">Etiqueta</label>
+              <input class="field" formControlName="unitLabel" placeholder="CIC 27" />
+              <label class="flabel">Comentario</label>
+              <textarea
+                class="field"
+                rows="2"
+                formControlName="userComment"
+              ></textarea>
+              <button
+                class="primary"
+                type="submit"
+                [disabled]="stepForm.invalid"
+                style="margin-top: 14px; padding: 12px"
+              >
+                Añadir al tema
+              </button>
+            </form>
+
+            <button
+              type="button"
+              class="primary"
+              style="margin-top: 18px"
+              (click)="openPublish()"
+            >
+              {{ isApproved ? 'Actualizar publicación' : 'Publicar tema' }}
+            </button>
+          </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+
+    <div class="fbody fs13 muted" *ngIf="loading">Cargando tema…</div>
+  </ng-container>
 </div>
-<div *ngIf="loading" class="app-page app-muted">Cargando tema…</div>

@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
-import { ListDocumentsPagesComponent } from './list-documents-pages/list-documents-pages.component';
 import { AboutComponent } from './about/about.component';
 
 @NgModule({
-  declarations: [PagesComponent, ListDocumentsPagesComponent, AboutComponent],
+  declarations: [PagesComponent, AboutComponent],
   imports: [CommonModule, PagesRoutingModule, NavbarComponent],
 })
 export class PagesModule {}

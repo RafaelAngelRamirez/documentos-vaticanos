@@ -35,7 +35,11 @@ export class AuthService {
   }
 
   get isTeacher(): boolean {
-    return this.user?.role === 'teacher';
+    return this.user?.role === 'teacher' || this.user?.role === 'admin';
+  }
+
+  get isAdmin(): boolean {
+    return this.user?.role === 'admin';
   }
 
   /**

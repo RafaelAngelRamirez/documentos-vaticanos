@@ -1,0 +1,37 @@
+<div class="app has-bnav">
+  <app-wbar active="padres"></app-wbar>
+  <div class="mobile-only">
+    <app-fbar title="Padres de la Iglesia"></app-fbar>
+  </div>
+
+  <div class="fbody">
+    <div class="desktop-only page-head">
+      <h2 class="h2">Padres de la Iglesia</h2>
+    </div>
+    <div class="fs14 muted" style="line-height: 1.6">
+      Los primeros maestros de la fe: sus vidas y sus obras esenciales.
+    </div>
+
+    <ng-container *ngFor="let g of groups">
+      <div class="era">{{ g.era }}</div>
+      <div
+        class="mrow"
+        *ngFor="let p of g.items"
+        role="button"
+        tabindex="0"
+        (click)="open(p)"
+        (keydown.enter)="open(p)"
+        style="cursor: pointer"
+      >
+        <span class="avatar">{{ p.initials }}</span>
+        <div class="f1">
+          <div class="mname">{{ p.name }}</div>
+          <div class="mmeta">{{ p.meta }}</div>
+        </div>
+        <span class="chev">›</span>
+      </div>
+    </ng-container>
+  </div>
+
+  <app-bnav></app-bnav>
+</div>

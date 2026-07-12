@@ -4,8 +4,28 @@
   background: var(--bg);
 }
 
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 5;
+.lib {
+  padding-top: 8px;
+}
+
+.tabs {
+  margin-top: 16px;
+}
+
+/* Las clases visuales (.tab, .srow, .st, .sx, .field) vienen del handoff
+   en styles.css; aquí solo resets para usarlas sobre <button>. */
+button.tab {
+  background: none;
+  font-family: inherit;
+}
+
+button.srow {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-family: inherit;
+  cursor: pointer;
 }

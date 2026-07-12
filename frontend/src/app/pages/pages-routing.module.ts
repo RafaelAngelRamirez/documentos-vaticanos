@@ -15,6 +15,13 @@ import { EstudioEditarComponent } from './estudio-editar/estudio-editar.componen
 import { BuscarComponent } from './buscar/buscar.component';
 import { AprendizajeComponent } from './aprendizaje/aprendizaje.component';
 import { ExplorarComponent } from './explorar/explorar.component';
+import { AjustesComponent } from './ajustes/ajustes.component';
+import { DocumentoDetalleComponent } from './documento-detalle/documento-detalle.component';
+import { NotasComponent } from './notas/notas.component';
+import { AdminRevisionComponent } from './admin-revision/admin-revision.component';
+import { AdminRevisionDetalleComponent } from './admin-revision-detalle/admin-revision-detalle.component';
+import { PadresComponent } from './padres/padres.component';
+import { PadreDetalleComponent } from './padre-detalle/padre-detalle.component';
 
 const routes: Routes = [
   { path: ROUTE.inicio, component: InicioComponent },
@@ -26,6 +33,8 @@ const routes: Routes = [
   { path: 'cuenta', component: CuentaComponent },
   { path: 'cuenta/referencias', component: MisReferenciasComponent },
   { path: 'cuenta/temas', component: MisTemasComponent },
+  /** Design 3G */
+  { path: 'notas', component: NotasComponent },
   { path: 'cuenta/temas/:id', component: TemaDetalleComponent },
   /** Design hub 1C */
   { path: 'estudio', component: EstudiosComponent },
@@ -35,6 +44,14 @@ const routes: Routes = [
   /** Design 1D / 1E */
   { path: 'aprendizaje', component: AprendizajeComponent },
   { path: 'explorar', component: ExplorarComponent },
+  { path: 'ajustes', component: AjustesComponent },
+  { path: 'documento/:id', component: DocumentoDetalleComponent },
+  /** Diseño 6C · 6D · cola de revisión (admin) */
+  { path: 'admin/revision', component: AdminRevisionComponent },
+  { path: 'admin/revision/:id', component: AdminRevisionDetalleComponent },
+  /** Diseño 2C · 2D · Padres de la Iglesia */
+  { path: 'padres', component: PadresComponent },
+  { path: 'padres/:id', component: PadreDetalleComponent },
   {
     path: `${ROUTE.leyendo}/:documento`,
     component: LectorComponent,

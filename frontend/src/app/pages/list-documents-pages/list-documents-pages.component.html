@@ -1,19 +1,30 @@
-<div class="app t-current">
-  <div class="topbar hair fx ac jb">
-    <button type="button" class="back" (click)="goHome()">← Inicio</button>
-    <div class="ttl">Biblioteca</div>
-    <div style="width: 52px" aria-hidden="true"></div>
-  </div>
+<div class="app has-bnav">
+  <app-wbar active="biblioteca"></app-wbar>
+  <app-fbar title="Biblioteca"></app-fbar>
 
   <div class="lib">
     <input
-      class="search"
+      class="field"
       type="search"
-      placeholder="Buscar por título o autor…"
+      placeholder="Buscar por título, autor o tema…"
       [value]="query"
       (input)="onQuery($event)"
-      aria-label="Buscar por título o autor"
+      aria-label="Buscar por título, autor o tema"
     />
+
+    <div class="tabs" role="tablist" aria-label="Filtrar por tipo">
+      <button
+        type="button"
+        class="tab"
+        role="tab"
+        *ngFor="let t of tabs"
+        [class.on]="activeTab === t"
+        [attr.aria-selected]="activeTab === t"
+        (click)="setTab(t)"
+      >
+        {{ t }}
+      </button>
+    </div>
 
     <div *ngIf="loading" class="empty" role="status">Cargando documentos…</div>
     <div *ngIf="load_error" class="empty" role="alert">{{ load_error }}</div>
@@ -21,15 +32,12 @@
     <ng-container *ngIf="!loading && !load_error">
       <button
         type="button"
-        class="docrow"
+        class="srow"
         *ngFor="let item of filtered"
-        (click)="read(item)"
+        (click)="open(item)"
       >
-        <div class="f1">
-          <div class="dt">{{ displayTitle(item) }}</div>
-          <div class="dm">{{ metaLine(item) }}</div>
-        </div>
-        <span class="chev" aria-hidden="true">›</span>
+        <span class="st">{{ displayTitle(item) }}</span>
+        <span class="sx">{{ metaLine(item) }}</span>
       </button>
 
       <div *ngIf="sinResultados" class="empty">
@@ -37,4 +45,6 @@
       </div>
     </ng-container>
   </div>
+
+  <app-bnav current="biblioteca"></app-bnav>
 </div>

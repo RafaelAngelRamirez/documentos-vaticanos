@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
 import {
   Article,
   Referencia,
@@ -9,6 +16,7 @@ import { NavigationService } from 'src/app/services/navigation.service';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { ReferencesService } from 'src/app/core/account/references.service';
+import { AnotacionesService } from 'src/app/services/anotaciones.service';
 
 /** Placeholder pattern produced by the scraper: `[+[0]+]`, `[+[1]+]`, … */
 const REF_PLACEHOLDER = /\[\+\[(\d+)\]\+\]/g;
@@ -29,7 +37,7 @@ export type ContentSegment =
   styleUrls: ['./punto.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class PuntoComponent implements OnInit {
+export class PuntoComponent implements OnInit, OnDestroy {
   private _infoPunto!: ArticleInfo;
   mostrar_opciones = false;
 
@@ -52,14 +60,43 @@ export class PuntoComponent implements OnInit {
 
   terminos_de_busqueda: string[] = [];
 
+  private lastTerms: string[] | undefined;
+  private hlSub?: Subscription;
+
   constructor(
     private utilidadesService: UtilidadesService,
     private navigationService: NavigationService,
     public auth: AuthService,
-    private references: ReferencesService
+    private references: ReferencesService,
+    private anotaciones: AnotacionesService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Re-render highlights when local annotations change (BehaviorSubject
+    // emits immediately, covering the case where documentId arrived after
+    // the first infoPunto set).
+    this.hlSub = this.anotaciones.anotaciones$.subscribe(() => {
+      if (this._infoPunto?.article) {
+        this.segments = this.buildSegments(
+          this._infoPunto.article,
+          this.lastTerms
+        );
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.hlSub?.unsubscribe();
+  }
+
+  /** Número inline al inicio del párrafo (diseño 2B: «17.»). */
+  get numLabel(): string {
+    const a = this._infoPunto?.article;
+    if (!a) return '';
+    const bib = a.biblia?.consecutivo_versiculo;
+    if (bib) return bib;
+    return this.obtener_consecutivo(a.consecutivo) || '';
+  }
 
   procesar(value: ArticleInfo): ArticleInfo {
     if (!value) {
@@ -76,6 +113,7 @@ export class PuntoComponent implements OnInit {
 
     const terms =
       procesado.terms_pure?.length > 0 ? procesado.terms_pure : undefined;
+    this.lastTerms = terms;
 
     this.segments = this.buildSegments(procesado.article, terms);
 
@@ -84,7 +122,8 @@ export class PuntoComponent implements OnInit {
 
   /**
    * Split article content on ref placeholders and produce safe segments.
-   * Text is HTML-escaped; search-term highlights are injected only into text.
+   * Text is HTML-escaped; search-term and user-highlight spans are injected
+   * only into text segments.
    */
   private buildSegments(
     article: Article,
@@ -95,6 +134,7 @@ export class PuntoComponent implements OnInit {
       article.consecutivo
     );
     const refs = article.referencias ?? [];
+    const userHl = this.userHighlightsFor(article);
     const segments: ContentSegment[] = [];
 
     let lastIndex = 0;
@@ -106,7 +146,7 @@ export class PuntoComponent implements OnInit {
       if (textBefore) {
         segments.push({
           type: 'text',
-          html: this.formatTextSegment(textBefore, terms),
+          html: this.formatTextSegment(textBefore, terms, userHl),
         });
       }
 
@@ -121,11 +161,18 @@ export class PuntoComponent implements OnInit {
     if (tail || segments.length === 0) {
       segments.push({
         type: 'text',
-        html: this.formatTextSegment(tail, terms),
+        html: this.formatTextSegment(tail, terms, userHl),
       });
     }
 
     return segments;
+  }
+
+  /** Subrayados del usuario para esta unidad (diseño 4A). */
+  private userHighlightsFor(article: Article): string[] {
+    const idx = article.index_array;
+    if (!this.documentId || idx == null || idx < 0) return [];
+    return this.anotaciones.highlightsFor(this.documentId, idx);
   }
 
   private refSegmentFrom(
@@ -150,63 +197,82 @@ export class PuntoComponent implements OnInit {
     };
   }
 
-  private formatTextSegment(text: string, terms?: string[]): string {
+  private formatTextSegment(
+    text: string,
+    terms: string[] | undefined,
+    userHl: string[]
+  ): string {
     const escaped = this.escapeHtml(text);
-    if (!terms?.length) {
+    const sources: { terms: string[]; cls: string }[] = [];
+    if (userHl.length) {
+      // Escape the stored excerpts the same way the text was escaped so the
+      // folded indexOf matching stays aligned.
+      sources.push({ terms: userHl.map((h) => this.escapeHtml(h)), cls: 'hl' });
+    }
+    if (terms?.length) {
+      sources.push({ terms, cls: 'resaltar' });
+    }
+    if (!sources.length) {
       return escaped;
     }
-    return this.highlightTerms(escaped, terms);
+    return this.injectHighlights(escaped, sources);
   }
 
   /**
-   * Highlight search terms on already-escaped HTML text.
-   * Matching uses diacritic folding; ranges that would cut HTML entities are skipped.
+   * Inject highlight spans on already-escaped HTML text.
+   * Matching uses diacritic folding; ranges that would cut HTML entities are
+   * skipped; overlapping ranges keep the first source (user highlights win).
    */
-  private highlightTerms(escaped: string, terms: string[]): string {
-    if (!terms.length) return escaped;
-
+  private injectHighlights(
+    escaped: string,
+    sources: { terms: string[]; cls: string }[]
+  ): string {
     const folded = this.utilidadesService.texto
       .eliminar_diacriticos(escaped)
       .toLowerCase();
 
-    type Range = { start: number; end: number };
+    type Range = { start: number; end: number; cls: string };
     const ranges: Range[] = [];
 
-    for (const term of terms) {
-      const t = this.utilidadesService.texto
-        .eliminar_diacriticos(term)
-        .toLowerCase();
-      if (!t) continue;
+    for (const src of sources) {
+      for (const term of src.terms) {
+        const t = this.utilidadesService.texto
+          .eliminar_diacriticos(term)
+          .toLowerCase();
+        if (!t) continue;
 
-      let from = 0;
-      while (from < folded.length) {
-        const idx = folded.indexOf(t, from);
-        if (idx < 0) break;
-        ranges.push({ start: idx, end: idx + t.length });
-        from = idx + t.length;
+        let from = 0;
+        while (from < folded.length) {
+          const idx = folded.indexOf(t, from);
+          if (idx < 0) break;
+          ranges.push({ start: idx, end: idx + t.length, cls: src.cls });
+          from = idx + t.length;
+        }
       }
     }
 
     if (!ranges.length) return escaped;
 
     ranges.sort((a, b) => a.start - b.start || b.end - a.end);
-    const merged: Range[] = [];
+    const kept: Range[] = [];
     for (const r of ranges) {
-      const last = merged[merged.length - 1];
+      const last = kept[kept.length - 1];
       if (last && r.start < last.end) {
-        last.end = Math.max(last.end, r.end);
-      } else {
-        merged.push({ ...r });
+        if (last.cls === r.cls) {
+          last.end = Math.max(last.end, r.end);
+        }
+        continue;
       }
+      kept.push({ ...r });
     }
 
-    const safe = merged.filter((r) => !this.rangeTouchesEntity(escaped, r));
+    const safe = kept.filter((r) => !this.rangeTouchesEntity(escaped, r));
 
     let out = '';
     let cursor = 0;
     for (const r of safe) {
       out += escaped.slice(cursor, r.start);
-      out += '<span class="resaltar">';
+      out += `<span class="${r.cls}">`;
       out += escaped.slice(r.start, r.end);
       out += '</span>';
       cursor = r.end;

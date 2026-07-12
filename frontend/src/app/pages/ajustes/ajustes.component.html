@@ -1,0 +1,173 @@
+<div class="app has-bnav">
+  <app-fbar title="Ajustes"></app-fbar>
+
+  <div class="inner">
+    <!-- Perfil (3H) -->
+    <div class="profrow" *ngIf="auth.user as user; else anonTpl">
+      <img
+        *ngIf="user.pictureUrl"
+        [src]="user.pictureUrl"
+        alt=""
+        class="avatar av54"
+      />
+      <span *ngIf="!user.pictureUrl" class="avatar av54">{{
+        initials(user.name)
+      }}</span>
+      <div>
+        <div class="profname">{{ user.name }}</div>
+        <div class="fs13 muted profmail">
+          {{ user.email
+          }}<ng-container *ngIf="user.role === 'teacher'"> · Maestro</ng-container>
+        </div>
+      </div>
+    </div>
+    <ng-template #anonTpl>
+      <div class="profrow">
+        <span class="avatar av54">DV</span>
+        <div>
+          <div class="profname">Sin sesión</div>
+          <div class="fs13 muted profmail">La lectura funciona sin cuenta</div>
+        </div>
+      </div>
+    </ng-template>
+
+    <div class="sect">Apariencia</div>
+    <div class="setrow nb">
+      <span class="setk"
+        >Tema de la aplicación<span class="seth"
+          >Sepia, claro, oscuro o según el sistema</span
+        ></span
+      >
+    </div>
+    <div class="stepbtn themerow">
+      <button
+        *ngFor="let t of themes"
+        type="button"
+        class="szbtn"
+        [class.on]="prefs.theme === t.value"
+        (click)="setTheme(t.value)"
+      >
+        {{ t.label }}
+      </button>
+    </div>
+
+    <div class="sect">Lectura</div>
+    <div class="offok hair">
+      ✓<span class="offtx"
+        >Todos los documentos vienen incluidos en la app — no requiere
+        conexión</span
+      >
+    </div>
+    <div class="setrow">
+      <span class="setk">Tamaño del texto</span>
+      <span class="stepbtn mini">
+        <button
+          type="button"
+          class="szbtn"
+          (click)="bumpFont(-1)"
+          aria-label="Reducir tamaño del texto"
+        >
+          A−
+        </button>
+        <span class="szbtn on" aria-live="polite">{{ prefs.fontSizePx }}</span>
+        <button
+          type="button"
+          class="szbtn"
+          (click)="bumpFont(1)"
+          aria-label="Aumentar tamaño del texto"
+        >
+          A+
+        </button>
+      </span>
+    </div>
+    <div class="setrow">
+      <span class="setk">Fuente</span>
+      <span class="stepbtn mini">
+        <button
+          type="button"
+          class="szbtn serif"
+          [class.on]="prefs.font === 'serif'"
+          (click)="setFont('serif')"
+        >
+          Serif
+        </button>
+        <button
+          type="button"
+          class="szbtn"
+          [class.on]="prefs.font === 'sans'"
+          (click)="setFont('sans')"
+        >
+          Sans
+        </button>
+      </span>
+    </div>
+    <div class="setrow">
+      <span>Mantener pantalla encendida</span>
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        [class.on]="prefs.keepAwake"
+        [attr.aria-checked]="prefs.keepAwake"
+        (click)="toggleKeepAwake()"
+        aria-label="Mantener pantalla encendida"
+      ></button>
+    </div>
+
+    <div class="sect">Cuenta</div>
+    <ng-container *ngIf="auth.user; else anonAcct">
+      <div
+        class="setrow linkrow"
+        role="link"
+        tabindex="0"
+        (click)="goRefs()"
+        (keyup.enter)="goRefs()"
+      >
+        <span>Mis referencias</span><span class="fs13 muted">›</span>
+      </div>
+      <div
+        class="setrow linkrow"
+        role="link"
+        tabindex="0"
+        (click)="goThemes()"
+        (keyup.enter)="goThemes()"
+      >
+        <span>Mis temas</span><span class="fs13 muted">›</span>
+      </div>
+      <div
+        class="setrow last linkrow"
+        role="button"
+        tabindex="0"
+        (click)="logout()"
+        (keyup.enter)="logout()"
+      >
+        <span class="danger">Cerrar sesión</span><span></span>
+      </div>
+    </ng-container>
+    <ng-template #anonAcct>
+      <div
+        class="setrow last linkrow"
+        role="link"
+        tabindex="0"
+        (click)="goCuenta()"
+        (keyup.enter)="goCuenta()"
+      >
+        <span>Iniciar sesión</span><span class="fs13 muted">›</span>
+      </div>
+    </ng-template>
+
+    <div
+      class="rtxt preview"
+      [style.fontFamily]="previewFontFamily"
+      [style.fontSize.px]="prefs.fontSizePx"
+    >
+      <p>
+        La lectura atenta de los documentos requiere serenidad, tiempo y una
+        tipografía cómoda. Este es un texto de muestra para previsualizar los
+        ajustes elegidos.
+      </p>
+    </div>
+  </div>
+
+  <app-bnav current="ajustes"></app-bnav>
+</div>

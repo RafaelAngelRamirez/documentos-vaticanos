@@ -1,27 +1,6 @@
 <ng-container *ngIf="infoPunto?.article">
-  <div class="punto-header">
-    <h5 class="punto-label">
-      {{ obtener_consecutivo(infoPunto.article.consecutivo) }}
-      <span *ngIf="infoPunto.article.biblia" class="punto-bible-label">
-        {{ infoPunto.article.biblia.consecutivo_versiculo }}
-      </span>
-    </h5>
-    <div class="punto-actions">
-      <button
-        *ngIf="canSave"
-        type="button"
-        class="punto-save-btn"
-        (click)="saveReference($event)"
-        title="Guardar referencia personal"
-      >
-        ★
-      </button>
-      <span *ngIf="saveMsg" class="punto-save-msg">{{ saveMsg }}</span>
-      <span *ngIf="saveError" class="punto-save-err">{{ saveError }}</span>
-    </div>
-  </div>
-
-  <p class="punto-contenido">
+  <p class="punto-contenido" [attr.data-unit]="infoPunto.article.index_array">
+    <b class="punto-num" *ngIf="numLabel">{{ numLabel }}.</b>
     <ng-container *ngFor="let seg of segments">
       <span *ngIf="seg.type === 'text'" [innerHTML]="seg.html"></span>
       <a
@@ -39,5 +18,17 @@
         >{{ seg.label }}</span
       >
     </ng-container>
+    <button
+      *ngIf="canSave"
+      type="button"
+      class="punto-save-btn"
+      (click)="saveReference($event)"
+      title="Guardar referencia personal"
+      aria-label="Guardar referencia personal"
+    >
+      ★
+    </button>
+    <span *ngIf="saveMsg" class="punto-save-msg">{{ saveMsg }}</span>
+    <span *ngIf="saveError" class="punto-save-err">{{ saveError }}</span>
   </p>
 </ng-container>

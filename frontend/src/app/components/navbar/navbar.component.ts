@@ -72,9 +72,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   themeTitle(): string {
     const t = this.prefs.theme;
-    if (t === 'paper') return 'Tema: Claro (clic para cambiar)';
+    if (t === 'claro') return 'Tema: Claro (clic para cambiar)';
     if (t === 'sepia') return 'Tema: Sepia (clic para cambiar)';
-    if (t === 'night') return 'Tema: Oscuro (clic para cambiar)';
+    if (t === 'oscuro') return 'Tema: Oscuro (clic para cambiar)';
     return 'Tema: Sistema (clic para cambiar)';
   }
 }

@@ -5,28 +5,37 @@ import {
   CargarDocumentosJsonService,
   IndiceDocumentos as DocumentoDatos,
 } from 'src/app/services/cargar-documentos-json.service';
-import { PuntoModule } from '../punto/punto.module';
 import { CommonModule } from '@angular/common';
 import { ArticleInfo } from '../punto/punto/punto.component';
 import { UtilidadesService } from 'src/app/services/utilidades.service';
-import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
+
+const PAGE = 50;
+
+/** Fila plana de resultado (diseño 3E: doc · Nº + fragmento). */
+export interface SearchRow {
+  title: string;
+  snippetHtml: string;
+  punto: ArticleInfo;
+  resultado: ResultadoDeBusqueda;
+}
 
 @Component({
   standalone: true,
   selector: 'app-buscador',
   templateUrl: './buscador.component.html',
   styleUrls: ['./buscador.component.css'],
-  imports: [PuntoModule, CommonModule, MatPaginatorModule],
+  imports: [CommonModule],
 })
 export class BuscadorComponent implements OnInit, OnDestroy {
   terminos: TermsProcessed = {};
 
   docs_resultados: ResultadoDeBusqueda[] = [];
 
-  page_size = 10;
-  page_size_options = [5, 10, 25, 100];
+  /** Diseño 3E: lista plana de filas. */
+  rows: SearchRow[] = [];
+  visibleCount = PAGE;
 
   loading_docs = false;
   load_error: string | null = null;
@@ -83,8 +92,29 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     );
   }
 
-  get hasAnyHits(): boolean {
-    return this.docs_resultados.some((r) => r.puntos.length > 0);
+  get visibleRows(): SearchRow[] {
+    return this.rows.slice(0, this.visibleCount);
+  }
+
+  get remaining(): number {
+    return Math.max(0, this.rows.length - this.visibleCount);
+  }
+
+  /** «14 resultados en 5 documentos». */
+  get countLabel(): string {
+    const total = this.rows.length;
+    const docs = this.docs_resultados.filter((r) => r.puntos.length > 0).length;
+    const res = total === 1 ? 'resultado' : 'resultados';
+    const dcs = docs === 1 ? 'documento' : 'documentos';
+    return `${total} ${res} en ${docs} ${dcs}`;
+  }
+
+  showMore(): void {
+    this.visibleCount += PAGE;
+  }
+
+  openRow(row: SearchRow): void {
+    this.navigationService.go_to_read_article(row.punto, row.resultado);
   }
 
   displayTitle(r: ResultadoDeBusqueda): string {
@@ -97,25 +127,11 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     );
   }
 
-  shortLabel(r: ResultadoDeBusqueda): string | null {
-    const short =
-      r.doc.shortTitle || this.corpus.getMeta(r.doc.id || '')?.shortTitle;
-    const full = this.displayTitle(r);
-    if (!short || short === full) return null;
-    return short;
-  }
-
-  localeLabel(r: ResultadoDeBusqueda): string {
-    const locale =
-      r.doc.locale || this.corpus.getMeta(r.doc.id || '')?.locale || 'es';
-    return CorpusService.localeLabel(locale);
-  }
-
-  sourceUrl(r: ResultadoDeBusqueda): string | null {
+  shortLabel(r: ResultadoDeBusqueda): string {
     return (
-      r.doc.sourceUrl ||
-      this.corpus.getMeta(r.doc.id || '')?.sourceUrl ||
-      null
+      r.doc.shortTitle ||
+      this.corpus.getMeta(r.doc.id || '')?.shortTitle ||
+      this.displayTitle(r)
     );
   }
 
@@ -166,9 +182,119 @@ export class BuscadorComponent implements OnInit, OnDestroy {
       this.docs_resultados.push({
         doc,
         puntos: puntos_completos,
-        puntos_paginados: puntos_completos.slice(0, this.page_size),
+        puntos_paginados: puntos_completos,
       });
     }
+
+    this.buildRows();
+  }
+
+  /** Aplana los resultados por documento en filas del diseño 3E. */
+  private buildRows(): void {
+    const rows: SearchRow[] = [];
+    for (const resultado of this.docs_resultados) {
+      const docLabel = this.shortLabel(resultado);
+      for (const punto of resultado.puntos) {
+        const art = punto.article;
+        const unidad =
+          art.biblia?.consecutivo_versiculo ||
+          (art.consecutivo && art.consecutivo !== 'no-encontrado'
+            ? art.consecutivo
+            : String((art.index_array ?? 0) + 1));
+        rows.push({
+          title: `${docLabel} · Nº ${unidad}`,
+          snippetHtml: this.buildSnippet(
+            art.contenido ?? '',
+            punto.terms_pure ?? []
+          ),
+          punto,
+          resultado,
+        });
+      }
+    }
+    this.rows = rows;
+    this.visibleCount = PAGE;
+  }
+
+  /**
+   * Fragmento con término resaltado (diseño 3E). Los rangos se calculan
+   * sobre el texto plano y cada tramo se escapa por separado, de modo que
+   * el HTML resultante solo contiene nuestros <b class="hl">.
+   */
+  private buildSnippet(contenido: string, terms: string[]): string {
+    const raw = contenido
+      .replace(/\[\+\[\d+\]\+\]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const fold = (s: string) =>
+      this.utilidadesService.texto.eliminar_diacriticos(s).toLowerCase();
+    const foldedRaw = fold(raw);
+
+    let firstIdx = -1;
+    let firstLen = 0;
+    for (const t of terms) {
+      const ft = fold(t);
+      if (!ft) continue;
+      const i = foldedRaw.indexOf(ft);
+      if (i >= 0 && (firstIdx < 0 || i < firstIdx)) {
+        firstIdx = i;
+        firstLen = ft.length;
+      }
+    }
+
+    let start = 0;
+    let end = Math.min(raw.length, 170);
+    if (firstIdx >= 0) {
+      start = Math.max(0, firstIdx - 70);
+      end = Math.min(raw.length, firstIdx + firstLen + 100);
+    }
+    const slice = raw.slice(start, end);
+    const foldedSlice = foldedRaw.slice(start, end);
+
+    type R = { s: number; e: number };
+    const ranges: R[] = [];
+    for (const t of terms) {
+      const ft = fold(t);
+      if (!ft) continue;
+      let from = 0;
+      while (from < foldedSlice.length) {
+        const i = foldedSlice.indexOf(ft, from);
+        if (i < 0) break;
+        ranges.push({ s: i, e: i + ft.length });
+        from = i + ft.length;
+      }
+    }
+    ranges.sort((a, b) => a.s - b.s || b.e - a.e);
+    const merged: R[] = [];
+    for (const r of ranges) {
+      const last = merged[merged.length - 1];
+      if (last && r.s < last.e) {
+        last.e = Math.max(last.e, r.e);
+      } else {
+        merged.push({ ...r });
+      }
+    }
+
+    let html = '';
+    let cursor = 0;
+    for (const r of merged) {
+      html += this.escapeHtml(slice.slice(cursor, r.s));
+      html += '<b class="hl">' + this.escapeHtml(slice.slice(r.s, r.e)) + '</b>';
+      cursor = r.e;
+    }
+    html += this.escapeHtml(slice.slice(cursor));
+
+    const pre = start > 0 ? '…' : '';
+    const post = end < raw.length ? '…' : '';
+    return `${pre}${html}${post}`;
+  }
+
+  private escapeHtml(text: string): string {
+    return text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
   }
 
   buscar_por_valor_una_llave(
@@ -181,16 +307,6 @@ export class BuscadorComponent implements OnInit, OnDestroy {
         return llave_num;
     }
     return undefined;
-  }
-
-  handlePageEvent($event: PageEvent, doc_resultado: ResultadoDeBusqueda) {
-    const init = $event.pageIndex * this.page_size;
-    const end = $event.pageIndex * this.page_size + this.page_size;
-    doc_resultado.puntos_paginados = doc_resultado.puntos.slice(init, end);
-  }
-
-  navigate_to_read(punto: ArticleInfo, resultado: ResultadoDeBusqueda) {
-    this.navigationService.go_to_read_article(punto, resultado);
   }
 }
 

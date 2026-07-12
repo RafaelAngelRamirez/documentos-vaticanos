@@ -1,0 +1,69 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.admin-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wmain {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.wbody.full {
+  flex: 1;
+  padding: 28px 32px 48px;
+  overflow: auto;
+}
+
+.wcols {
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+}
+
+.col-main {
+  flex: 1;
+  max-width: 640px;
+  min-width: 0;
+}
+
+.col-side {
+  width: 330px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-size: 32px;
+  line-height: 1.15;
+  margin: 12px 0 6px;
+}
+
+.fx {
+  display: flex;
+}
+
+.ac {
+  align-items: center;
+}
+
+.gap12 {
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .wcols {
+    flex-direction: column;
+  }
+
+  .col-side {
+    width: 100%;
+  }
+}

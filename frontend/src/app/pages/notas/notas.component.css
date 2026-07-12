@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbody {
+  padding: 28px 24px 32px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.nlist {
+  margin-top: 16px;
+}
+
+.lh16 {
+  line-height: 1.6;
+}
+
+.notecard {
+  cursor: pointer;
+}
+
+.xdel {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0 2px;
+}
+
+.xdel:hover {
+  color: var(--danger, #8b3a3a);
+}
+
+.errline {
+  color: #8b3a3a;
+}
+
+.tcenter {
+  text-align: center;
+}
+
+.exp {
+  margin-top: 8px;
+}
+
+.exp a {
+  color: var(--acc);
+}

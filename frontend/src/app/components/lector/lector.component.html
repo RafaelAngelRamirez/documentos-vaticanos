@@ -1,59 +1,31 @@
-<div class="app t-current">
-  <div class="topbar hair fx ac jb">
-    <button type="button" class="back" (click)="goToLibrary()">← Buscar</button>
-    <div class="ttl" [attr.title]="documentTitle">{{ documentTitle }}</div>
+<div class="app rpaper">
+  <div class="fbar hair">
+    <button type="button" class="back" (click)="goBack()" aria-label="Volver">
+      ←
+    </button>
+    <div class="ttl fs13 muted" [attr.title]="documentTitle">
+      {{ headerTitle }}
+    </div>
     <button
       type="button"
-      class="btn f-serif"
-      style="padding: 6px 12px; min-height: 36px"
+      class="iconb serif"
       (click)="togglePrefs()"
       [attr.aria-expanded]="prefsOpen"
+      aria-label="Ajustes de lectura"
     >
       Aa
     </button>
   </div>
 
-  <div *ngIf="prefsOpen" class="panel">
-    <div class="prow">
-      <span class="plabel">Tamaño</span>
-      <button type="button" class="btn" (click)="decreaseFont()">A−</button>
-      <span class="fs14">{{ prefs.fontSizePx }}px</span>
-      <button type="button" class="btn" (click)="increaseFont()">A+</button>
-    </div>
-    <div class="prow">
-      <span class="plabel">Tema</span>
-      <button type="button" class="btn" (click)="cycleTheme()">
-        {{ themeLabel(prefs.theme) }}
-      </button>
-    </div>
-    <div class="prow">
-      <span class="plabel">Fuente</span>
-      <button type="button" class="btn" (click)="cycleFont()">
-        {{ fontLabel(prefs.font) }}
-      </button>
-    </div>
-    <div class="prow fx jb">
-      <span class="fs13 muted"
-        >Interlineado {{ prefs.lineHeight }} · Ancho {{ prefs.maxWidthCh }}ch</span
-      >
-      <button type="button" class="back fs13" (click)="resetPrefs()">
-        Restablecer
-      </button>
-    </div>
-    <div class="prow" *ngIf="navigationService.canGoBack()">
-      <button type="button" class="back" (click)="goBackFromRef()">
-        ← Cita anterior
-      </button>
-    </div>
-  </div>
-
   <div class="reader">
-    <div *ngIf="loading" class="rstart">Cargando documento…</div>
-    <div *ngIf="load_error" class="rstart" style="color: #8b3a3a">
+    <div *ngIf="loading" class="rstart" role="status">Cargando documento…</div>
+    <div *ngIf="load_error" class="rstart error" role="alert">
       {{ load_error }}
     </div>
 
     <ng-container *ngIf="!loading && document">
+      <div class="rhead" *ngIf="rangoLabel">{{ rangoLabel }}</div>
+
       <div class="rstart" *ngIf="canLoadBefore">
         <a href="javascript:void(0)" class="muted" (click)="load_before()"
           >↑ Cargar {{ quantity_to_load }} anteriores</a
@@ -62,24 +34,178 @@
       <div class="rstart" *ngIf="!canLoadBefore">Inicio del documento</div>
 
       <div
-        class="rdoc"
-        [class.f-serif]="prefs.font === 'serif'"
+        class="rtxt"
+        [class.sans]="prefs.font === 'sans'"
         [style.font-size.px]="prefs.fontSizePx"
+        [style.line-height]="prefs.lineHeight"
         [style.max-width]="prefs.maxWidthCh + 'ch'"
       >
         <app-punto
           *ngFor="let article of actual_articles"
           [infoPunto]="article"
-          [documentId]="document?.id || navigationService.document_id || undefined"
+          [documentId]="document.id || navigationService.document_id || undefined"
         ></app-punto>
       </div>
 
+      <div #sentinel class="sentinel" aria-hidden="true"></div>
+
       <div class="rend" *ngIf="canLoadNext">
         <a href="javascript:void(0)" class="muted" (click)="load_next()"
-          >↓ Cargar {{ quantity_to_load }} siguientes</a
+          >· el texto continúa al desplazar ·</a
         >
       </div>
       <div class="rend" *ngIf="!canLoadNext">· · ·</div>
     </ng-container>
   </div>
+
+  <div class="rfoot" *ngIf="!loading && document">
+    <span>{{ posLabel }}</span>
+    <span>{{ percent }} %</span>
+  </div>
+
+  <!-- 5D · Narrador (web / desktop; también usable en móvil) -->
+  <div class="narr" *ngIf="!loading && document && narrSupported" role="region" aria-label="Narrador">
+    <button
+      type="button"
+      class="play"
+      (click)="toggleNarrator()"
+      [attr.aria-label]="narrPlaying ? 'Pausar narración' : 'Reproducir narración'"
+    >
+      {{ narrPlaying ? '❚❚' : '▶' }}
+    </button>
+    <div>
+      <div class="fs13 fw5" style="white-space: nowrap">Narrador</div>
+      <div class="nlabel">{{ narrLabel }}</div>
+    </div>
+    <div class="nline" aria-hidden="true">
+      <div class="nfill" [style.width.%]="narrProgressPct"></div>
+    </div>
+    <span class="nlabel">{{ percent }} %</span>
+    <button type="button" class="npill" (click)="cycleRate()">
+      {{ narrRateLabel }}
+    </button>
+  </div>
+
+  <!-- 4A · Popover de selección -->
+  <div
+    class="pop selpop"
+    *ngIf="selPop"
+    [style.top.px]="selPop.top"
+    [style.left.px]="selPop.left"
+    role="menu"
+    aria-label="Acciones de selección"
+  >
+    <button type="button" class="popb" (click)="subrayar()">Subrayar</button>
+    <button type="button" class="popb" (click)="abrirNota()">Nota</button>
+    <button type="button" class="popb" (click)="copiarSeleccion()">
+      Copiar
+    </button>
+    <button type="button" class="popb" (click)="compartirSeleccion()">
+      Compartir
+    </button>
+  </div>
+
+  <div class="selfeedback fs13" *ngIf="selFeedback" role="status">
+    {{ selFeedback }}
+  </div>
+
+  <!-- 4B · Crear nota -->
+  <dv-sheet *ngIf="notaOpen" label="Nueva nota" (closed)="cancelarNota()">
+    <div class="fs12 muted shead">Nueva nota · privada</div>
+    <div class="nquote">«{{ selExcerpt }}»</div>
+    <div class="fs12 muted nmeta">{{ notaMeta }}</div>
+    <textarea
+      class="notearea"
+      [(ngModel)]="notaText"
+      placeholder="Escriba su reflexión…"
+      rows="4"
+    ></textarea>
+    <div class="nbtns">
+      <button type="button" class="nbtn" (click)="guardarNota(true)">
+        Solo subrayar
+      </button>
+      <button type="button" class="nbtn pri" (click)="guardarNota()">
+        Guardar nota
+      </button>
+    </div>
+    <div class="fs12 muted nfoot">Las notas se guardan en este dispositivo</div>
+  </dv-sheet>
+
+  <dv-sheet
+    *ngIf="prefsOpen"
+    label="Ajustes de lectura"
+    (closed)="togglePrefs()"
+  >
+    <div class="fs12 muted shead">Ajustes de lectura</div>
+
+    <div class="flabel first">Tamaño del texto</div>
+    <div class="stepbtn">
+      <button
+        type="button"
+        class="szbtn"
+        (click)="decreaseFont()"
+        aria-label="Reducir tamaño del texto"
+      >
+        A−
+      </button>
+      <span class="szbtn on" aria-live="polite">{{ prefs.fontSizePx }}</span>
+      <button
+        type="button"
+        class="szbtn"
+        (click)="increaseFont()"
+        aria-label="Aumentar tamaño del texto"
+      >
+        A+
+      </button>
+    </div>
+
+    <div class="flabel">Tema</div>
+    <div class="stepbtn">
+      <button
+        *ngFor="let t of themeOptions"
+        type="button"
+        class="szbtn"
+        [class.on]="prefs.theme === t.value"
+        (click)="setTheme(t.value)"
+      >
+        {{ t.label }}
+      </button>
+    </div>
+
+    <div class="flabel">Fuente</div>
+    <div class="stepbtn">
+      <button
+        type="button"
+        class="szbtn serif"
+        [class.on]="prefs.font === 'serif'"
+        (click)="setFont('serif')"
+      >
+        Serif
+      </button>
+      <button
+        type="button"
+        class="szbtn"
+        [class.on]="prefs.font === 'sans'"
+        (click)="setFont('sans')"
+      >
+        Sans
+      </button>
+    </div>
+
+    <div class="srowx">
+      <span class="fs13 muted"
+        >Interlineado {{ prefs.lineHeight }} · Ancho
+        {{ prefs.maxWidthCh }}ch</span
+      >
+      <button type="button" class="back fs13" (click)="resetPrefs()">
+        Restablecer
+      </button>
+    </div>
+
+    <div class="srowx" *ngIf="navigationService.canGoBack()">
+      <button type="button" class="back" (click)="goBackFromRef()">
+        ← Cita anterior
+      </button>
+    </div>
+  </dv-sheet>
 </div>

@@ -1,19 +1,22 @@
-<div class="app t-current">
-  <div class="home">
-    <div class="eyebrow">Biblioteca de lectura</div>
-    <h1 class="h1">Documentos Vaticanos</h1>
-    <p class="lede">
-      Los grandes textos del magisterio de la Iglesia — concilios, encíclicas,
-      exhortaciones y el Catecismo — reunidos en un solo lugar, para leer con
-      calma.
+<div class="app welcome">
+  <div class="wbody">
+    <div class="mark">DV</div>
+    <div class="wtitle serif">
+      Los grandes textos,<br />para leer con calma
+    </div>
+    <p class="fs14 muted wlede">
+      Concilios, encíclicas, el Catecismo y los Padres de la Iglesia. Sin
+      distracciones, también sin conexión.
     </p>
-    <button type="button" class="btnacc" (click)="goDocuments()">
-      Abrir la biblioteca
+    <div class="dots" aria-hidden="true">
+      <span class="dotp on"></span><span class="dotp"></span
+      ><span class="dotp"></span>
+    </div>
+    <button type="button" class="primary wbtn" (click)="goDocuments()">
+      Empezar
     </button>
-    <div class="rule" aria-hidden="true"></div>
-    <div class="homefoot">
-      Lectura sin distracciones · Tamaño, tema y fuente ajustables · Funciona sin
-      conexión
+    <div class="fs13 wlink">
+      <a href="javascript:void(0)" (click)="goCuenta()">Ya tengo cuenta</a>
     </div>
   </div>
 </div>
