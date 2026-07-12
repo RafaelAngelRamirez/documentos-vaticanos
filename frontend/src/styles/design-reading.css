@@ -34,7 +34,8 @@ a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
 .search:focus{border-color:var(--acc)}
 .search::placeholder{color:var(--muted)}
 .docrow{display:flex;align-items:center;gap:16px;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);padding:18px 2px;cursor:pointer;color:var(--ink);font-family:'IBM Plex Sans',sans-serif}
-.docrow:hover .dt{font-family:'EB Garamond',serif;font-size:21px;font-weight:500;line-height:1.25;color:var(--ink)}
+.docrow:hover .dt{color:var(--acc)}
+.dt{font-family:'EB Garamond',serif;font-size:21px;font-weight:500;line-height:1.25;color:var(--ink)}
 .dm{font-size:13px;color:var(--muted);margin-top:5px}
 .chev{color:var(--muted);font-size:18px;flex-shrink:0}
 .empty{text-align:center;color:var(--muted);font-size:14px;padding:40px 0}

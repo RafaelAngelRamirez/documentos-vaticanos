@@ -99,7 +99,13 @@ if (( FOREGROUND )); then
   exec "${COMPOSE[@]}" up "${BUILD_FLAG[@]}" "${SERVICES[@]}"
 fi
 
-"${COMPOSE[@]}" up "${BUILD_FLAG[@]}" -d "${SERVICES[@]}"
+# angular.json / styles changes need a full web recreate (ng serve caches entry styles)
+if ((${#BUILD_FLAG[@]})) || [[ "${DEV_RECREATE_WEB:-}" == "1" ]]; then
+  echo "[dev] recreando contenedor web (estilos limpios)…"
+  "${COMPOSE[@]}" up "${BUILD_FLAG[@]}" -d --force-recreate "${SERVICES[@]}"
+else
+  "${COMPOSE[@]}" up -d "${SERVICES[@]}"
+fi
 
 echo "[dev] esperando health de la API (hasta ${WAIT_SECS}s)…"
 deadline=$((SECONDS + WAIT_SECS))

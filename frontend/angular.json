@@ -28,8 +28,6 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles/design-reading.css",
-              "src/styles/design-product.css",
               "src/styles.css"
             ],
             "scripts": [],
@@ -100,8 +98,6 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
-              "src/styles/design-reading.css",
-              "src/styles/design-product.css",
               "src/styles.css"
             ],
             "scripts": []
