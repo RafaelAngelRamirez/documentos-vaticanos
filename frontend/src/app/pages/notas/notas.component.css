@@ -51,3 +51,22 @@
 .exp a {
   color: var(--acc);
 }
+
+.fx {
+  display: flex;
+}
+.ac {
+  align-items: center;
+}
+.jb {
+  justify-content: space-between;
+}
+.gap8 {
+  gap: 8px;
+}
+
+@media (min-width: 1024px) {
+  .nlist {
+    max-width: 720px;
+  }
+}

@@ -72,3 +72,42 @@
 .setrow {
   cursor: pointer;
 }
+
+.tema-title {
+  font-size: 34px;
+  line-height: 1.15;
+  margin: 10px 0 6px;
+}
+
+.tema-main {
+  flex: 1;
+  max-width: 660px;
+  min-width: 0;
+}
+
+.tema-side {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+.fx {
+  display: flex;
+}
+.ac {
+  align-items: center;
+}
+.gap12 {
+  gap: 12px;
+}
+
+@media (min-width: 1024px) {
+  .tema-web {
+    flex: 1;
+  }
+}
+
+@media (max-width: 1023px) {
+  app-wbar {
+    display: none;
+  }
+}

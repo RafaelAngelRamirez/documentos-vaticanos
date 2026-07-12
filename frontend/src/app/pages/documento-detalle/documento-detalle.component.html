@@ -1,65 +1,134 @@
-<div class="app">
-  <div class="fbar hair">
-    <button type="button" class="back" (click)="volver()">← Biblioteca</button>
-    <button
-      type="button"
-      class="iconb"
-      [class.fav-on]="fav"
-      [attr.aria-pressed]="fav"
-      (click)="toggleFav()"
-      aria-label="Marcar como favorito"
-    >
-      {{ fav ? '♥' : '♡' }}
-    </button>
-  </div>
+<div class="app web-shell">
+  <app-wbar active="biblioteca"></app-wbar>
 
-  <div *ngIf="loading" class="empty" role="status">Cargando…</div>
-  <div *ngIf="error" class="empty" role="alert">{{ error }}</div>
-
-  <ng-container *ngIf="!loading && meta">
-    <div class="dcover">
-      <div class="inner">
-        <div class="dkind">{{ kindLine }}</div>
-        <div class="dtitle">{{ meta!.title }}</div>
-        <div class="dsub" *ngIf="display.subtitulo">{{ display.subtitulo }}</div>
-      </div>
-    </div>
-
-    <div class="cuerpo">
-      <div class="meta2">
-        <div class="mcell">
-          <div class="mk">Autor</div>
-          <div class="mv">{{ display.autor || '—' }}</div>
-        </div>
-        <div class="mcell">
-          <div class="mk">Año</div>
-          <div class="mv">{{ display.anio || '—' }}</div>
-        </div>
-        <div class="mcell">
-          <div class="mk">Contenido</div>
-          <div class="mv">{{ unidadesLabel }}</div>
-        </div>
-        <div class="mcell">
-          <div class="mk">Lectura</div>
-          <div class="mv">{{ lecturaEstimada }}</div>
-        </div>
-      </div>
-
-      <div class="fs13 muted tc pos" *ngIf="posicionLabel">
-        {{ posicionLabel }}
-      </div>
-
-      <button type="button" class="primary" (click)="comenzar()">
-        {{ ctaLabel }}
-      </button>
+  <!-- 2A móvil -->
+  <div class="only-mobile">
+    <div class="fbar hair">
+      <button type="button" class="back" (click)="volver()">← Biblioteca</button>
       <button
         type="button"
-        class="back reinicio"
-        *ngIf="puedeContinuar"
-        (click)="reiniciar()"
+        class="iconb"
+        [class.fav-on]="fav"
+        [attr.aria-pressed]="fav"
+        (click)="toggleFav()"
+        aria-label="Marcar como favorito"
       >
-        Empezar desde el principio
+        {{ fav ? '♥' : '♡' }}
       </button>
     </div>
-  </ng-container>
+
+    <div *ngIf="loading" class="empty" role="status">Cargando…</div>
+    <div *ngIf="error" class="empty" role="alert">{{ error }}</div>
+
+    <ng-container *ngIf="!loading && meta">
+      <div class="dcover">
+        <div class="inner">
+          <div class="dkind">{{ kindLine }}</div>
+          <div class="dtitle">{{ meta!.title }}</div>
+          <div class="dsub" *ngIf="display.subtitulo">{{ display.subtitulo }}</div>
+        </div>
+      </div>
+
+      <div class="cuerpo">
+        <div class="meta2">
+          <div class="mcell">
+            <div class="mk">Autor</div>
+            <div class="mv">{{ display.autor || '—' }}</div>
+          </div>
+          <div class="mcell">
+            <div class="mk">Año</div>
+            <div class="mv">{{ display.anio || '—' }}</div>
+          </div>
+          <div class="mcell">
+            <div class="mk">Contenido</div>
+            <div class="mv">{{ unidadesLabel }}</div>
+          </div>
+          <div class="mcell">
+            <div class="mk">Lectura</div>
+            <div class="mv">{{ lecturaEstimada }}</div>
+          </div>
+        </div>
+
+        <div class="fs13 muted tc pos" *ngIf="posicionLabel">
+          {{ posicionLabel }}
+        </div>
+
+        <button type="button" class="primary" (click)="comenzar()">
+          {{ ctaLabel }}
+        </button>
+        <button
+          type="button"
+          class="back reinicio"
+          *ngIf="puedeContinuar"
+          (click)="reiniciar()"
+        >
+          Empezar desde el principio
+        </button>
+      </div>
+    </ng-container>
+  </div>
+
+  <!-- 5C web -->
+  <div class="wmain only-desktop">
+    <div class="wbody">
+      <div class="fs13" style="margin-bottom: 20px">
+        <a href="javascript:void(0)" (click)="volver()">← Biblioteca</a>
+      </div>
+      <div *ngIf="loading" class="fs13 muted">Cargando…</div>
+      <div *ngIf="error" class="fs13" style="color: #b0563a">{{ error }}</div>
+
+      <div class="wcols" *ngIf="!loading && meta">
+        <div class="col-main">
+          <div class="dkind">{{ kindLine }}</div>
+          <div class="serif fw6 web-title">{{ meta!.title }}</div>
+          <div class="dsub web-sub" *ngIf="display.subtitulo">{{ display.subtitulo }}</div>
+          <div class="fx gap8 actions">
+            <button type="button" class="primary cta" (click)="comenzar()">
+              {{ ctaLabel }}
+            </button>
+            <button type="button" class="gbtn listen" (click)="comenzarNarrador()">
+              ▶ Escuchar con narrador
+            </button>
+            <button
+              type="button"
+              class="iconb fav-box"
+              [class.fav-on]="fav"
+              (click)="toggleFav()"
+              aria-label="Marcar como favorito"
+            >
+              {{ fav ? '♥' : '♡' }}
+            </button>
+          </div>
+          <div class="meta2" style="max-width: 480px">
+            <div class="mcell">
+              <div class="mk">Autor</div>
+              <div class="mv">{{ display.autor || '—' }}</div>
+            </div>
+            <div class="mcell">
+              <div class="mk">Fecha</div>
+              <div class="mv">{{ display.anio || '—' }}</div>
+            </div>
+            <div class="mcell">
+              <div class="mk">Contenido</div>
+              <div class="mv">{{ unidadesLabel }}</div>
+            </div>
+            <div class="mcell">
+              <div class="mk">Audio</div>
+              <div class="mv">{{ audioEstimado }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-side">
+          <div class="sect" style="margin-top: 4px">Índice</div>
+          <div class="toc" *ngFor="let c of chapters; let i = index" (click)="comenzar()">
+            <span class="tnum">{{ c.num }}</span>
+            <span>{{ c.title }}</span>
+          </div>
+          <div class="fs13 muted" *ngIf="!chapters.length" style="margin-top: 8px">
+            {{ unidadesLabel }} · abra el lector para navegar por unidades.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

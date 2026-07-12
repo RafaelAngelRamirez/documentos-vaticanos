@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
+import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import {
   Anotacion,
   AnotacionesService,
@@ -13,14 +14,15 @@ import {
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { ROUTE } from 'src/app/services/navigation.service';
 import { environment } from 'src/environments/environment';
+import { RouterModule } from '@angular/router';
 
 type Tab = 'subrayados' | 'marcadores' | 'notas';
 
-/** Diseño 3G · Notas y marcadores. */
+/** Diseño 3G · Notas y marcadores + 5H web. */
 @Component({
   standalone: true,
   selector: 'app-notas',
-  imports: [CommonModule, AppFbarComponent],
+  imports: [CommonModule, RouterModule, AppFbarComponent, WbarComponent],
   templateUrl: './notas.component.html',
   styleUrls: ['./notas.component.css'],
 })

@@ -48,6 +48,18 @@
   background: transparent;
 }
 
+@media (min-width: 1024px) {
+  .reader {
+    flex: 1;
+    padding: 44px 36px 120px;
+  }
+
+  .rcolw {
+    max-width: 62ch;
+    margin: 0 auto;
+  }
+}
+
 .rtxt {
   margin: 0 auto;
 }

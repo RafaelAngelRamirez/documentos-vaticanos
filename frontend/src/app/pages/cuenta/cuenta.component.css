@@ -62,3 +62,34 @@ a.gbtn {
 .demonote {
   margin-top: 10px;
 }
+
+.login-title {
+  font-size: 24px;
+}
+
+@media (min-width: 1024px) {
+  .auth-stage {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 58px);
+  }
+
+  .auth-card {
+    width: 360px;
+    max-width: 100%;
+    padding: 40px 0 48px;
+    margin: 0;
+  }
+
+  .login-title {
+    font-size: 26px;
+  }
+
+  /* Perfil en desktop centrado bajo wbar */
+  .fbody {
+    max-width: 480px;
+    padding-top: 36px;
+  }
+}

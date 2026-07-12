@@ -376,3 +376,20 @@ app-bnav{display:block}
 app-bnav .bnav{position:fixed;left:0;right:0;bottom:0;z-index:30;padding-bottom:env(safe-area-inset-bottom)}
 .has-bnav{padding-bottom:96px}
 @media (min-width:1024px){app-bnav{display:none}}
+
+/* Shell web 5A–5H */
+.web-shell{min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--ink)}
+.web-shell .wmain{flex:1;min-height:0}
+.only-desktop{display:none}
+.only-mobile{display:block}
+@media (min-width:1024px){
+  .only-desktop{display:block}
+  .only-mobile{display:none}
+  .hide-desktop{display:none !important}
+  .web-shell .wbody{flex:1}
+  button.sitem,button.bookcard{
+    background:none;border:none;font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%
+  }
+  button.bookcard{display:flex;flex-direction:column;align-items:stretch}
+  a.sitem{text-decoration:none;color:inherit}
+}

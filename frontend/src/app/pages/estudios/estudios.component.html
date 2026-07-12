@@ -1,99 +1,121 @@
-<div class="app-product">
+<div class="app-product web-shell">
   <app-wbar active="estudio"></app-wbar>
-  <app-fbar title="Estudio"></app-fbar>
-  <div class="fbody">
+  <app-fbar title="Estudio" class="hide-desktop"></app-fbar>
+
+  <!-- 1C móvil (contenido estrecho) + 5E desktop (wcols) -->
+  <div class="fbody estudio-body">
     <div class="fs13 muted" *ngIf="auth.user">
       {{ greeting }}, {{ auth.user.name }}
     </div>
-    <div class="greet">
+    <div class="greet estudio-greet">
       {{ auth.isLoggedIn ? 'Continúe donde lo dejó' : 'Estudio' }}
     </div>
 
     <div *ngIf="error" class="empty" style="color: #8b3a3a">{{ error }}</div>
 
-    <!-- Continue reading card (design 1C) -->
-    <div class="card" *ngIf="lastRead as lr">
-      <div class="fs12 upper muted" style="letter-spacing: 0.14em">
-        {{ lr.label || 'Lectura' }}
-      </div>
-      <div class="serif fw6" style="font-size: 20px; margin-top: 6px">
-        {{ lr.title }}
-      </div>
-      <div class="fs13 muted" style="margin-top: 4px">
-        Unidad {{ lr.unitIndex }} · {{ progressPct }} % leído
-      </div>
-      <div class="prog">
-        <div class="progfill" [style.width.%]="progressPct"></div>
-      </div>
-      <button
-        type="button"
-        class="primary"
-        style="margin-top: 16px; padding: 12px"
-        (click)="continueReading()"
-      >
-        Continuar la lectura
-      </button>
-    </div>
+    <div class="estudio-cols">
+      <div class="estudio-main">
+        <div class="card" *ngIf="lastRead as lr">
+          <div class="fx ac jb">
+            <div class="fs12 upper muted" style="letter-spacing: 0.14em">
+              Lectura en curso
+            </div>
+            <span class="fs12" style="color: var(--ok)" *ngIf="progressPct"
+              >{{ progressPct }} %</span
+            >
+          </div>
+          <div class="serif fw6" style="font-size: 20px; margin-top: 6px">
+            {{ lr.title }}
+          </div>
+          <div class="fs13 muted" style="margin-top: 4px">
+            Unidad {{ lr.unitIndex }} · {{ progressPct }} % leído
+          </div>
+          <div class="prog">
+            <div class="progfill" [style.width.%]="progressPct"></div>
+          </div>
+          <div class="fx gap8 cont-actions">
+            <button
+              type="button"
+              class="primary cont-btn"
+              (click)="continueReading()"
+            >
+              Continuar
+            </button>
+            <button
+              type="button"
+              class="gbtn cont-btn"
+              (click)="continueWithNarrator()"
+            >
+              ▶ Narrador
+            </button>
+          </div>
+        </div>
 
-    <div class="card" *ngIf="!lastRead && !loading">
-      <div class="fs13 muted">Aún no hay lectura en curso.</div>
-      <button
-        type="button"
-        class="primary"
-        style="margin-top: 16px; padding: 12px"
-        (click)="goLibrary()"
-      >
-        Abrir la biblioteca
-      </button>
-    </div>
-
-    <div class="sect">Planes de estudio</div>
-    <div *ngIf="loading" class="fs13 muted">Cargando…</div>
-    <div *ngIf="!loading && !plans.length" class="fs13 muted">
-      No hay planes publicados todavía.
-      <button
-        *ngIf="auth.isTeacher"
-        type="button"
-        class="gbtn"
-        style="margin-top: 12px"
-        (click)="createMine()"
-      >
-        Crear estudio
-      </button>
-    </div>
-
-    <div
-      class="mrow"
-      *ngFor="let s of plans"
-      style="cursor: pointer"
-      (click)="open(s)"
-    >
-      <span class="avatar">{{ initials(s.title) }}</span>
-      <div>
-        <div class="mname">{{ s.title }}</div>
-        <div class="mmeta">
-          {{ s.steps ? s.steps.length : 0 }} pasos ·
-          {{ s.teacher?.name || 'Maestro' }}
-          <span *ngIf="s.status === 'draft'"> · borrador</span>
+        <div class="card" *ngIf="!lastRead && !loading">
+          <div class="fs13 muted">Aún no hay lectura en curso.</div>
+          <button
+            type="button"
+            class="primary"
+            style="margin-top: 16px; padding: 12px"
+            (click)="goLibrary()"
+          >
+            Abrir la biblioteca
+          </button>
         </div>
       </div>
-      <span class="chev">›</span>
-    </div>
 
-    <div class="sect">Temas frecuentes</div>
-    <div class="chips">
-      <span
-        class="chip"
-        *ngFor="let c of topicChips"
-        (click)="chipSearch(c)"
-        >{{ c }}</span
-      >
-    </div>
+      <div class="estudio-side">
+        <div class="sect side-first">Planes de estudio</div>
+        <div *ngIf="loading" class="fs13 muted">Cargando…</div>
+        <div *ngIf="!loading && !plans.length" class="fs13 muted">
+          No hay planes publicados todavía.
+          <button
+            *ngIf="auth.isTeacher"
+            type="button"
+            class="gbtn"
+            style="margin-top: 12px"
+            (click)="createMine()"
+          >
+            Crear estudio
+          </button>
+        </div>
 
-    <div class="fx ac gap12 wrap" style="margin-top: 28px" *ngIf="auth.isTeacher">
-      <button type="button" class="primary" style="width: auto; margin: 0; padding: 12px 24px" (click)="createMine()">
-        + Nuevo estudio
-      </button>
+        <div
+          class="mrow"
+          *ngFor="let s of plans"
+          style="cursor: pointer"
+          (click)="open(s)"
+        >
+          <span class="avatar">{{ initials(s.title) }}</span>
+          <div>
+            <div class="mname">{{ s.title }}</div>
+            <div class="mmeta">
+              {{ s.steps ? s.steps.length : 0 }} pasos ·
+              {{ s.teacher?.name || 'Maestro' }}
+              <span *ngIf="s.status === 'draft'"> · borrador</span>
+            </div>
+          </div>
+          <span class="chev">›</span>
+        </div>
+
+        <div class="sect">Temas frecuentes</div>
+        <div class="chips">
+          <span class="chip" *ngFor="let c of topicChips" (click)="chipSearch(c)">{{
+            c
+          }}</span>
+        </div>
+
+        <div class="fx ac gap12 wrap" style="margin-top: 28px" *ngIf="auth.isTeacher">
+          <button
+            type="button"
+            class="primary"
+            style="width: auto; margin: 0; padding: 12px 24px"
+            (click)="createMine()"
+          >
+            + Nuevo estudio
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

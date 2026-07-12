@@ -1,4 +1,6 @@
-<div class="app-product">
+<div class="app-product web-shell">
+  <app-wbar active="temas"></app-wbar>
+
   <!-- 4D · PUBLICAR -->
   <ng-container *ngIf="mode === 'publish' && theme as t">
     <div class="fbar hair">
@@ -59,15 +61,117 @@
     </div>
   </ng-container>
 
-  <!-- 3I / 4C / 6B · LECTURA -->
+  <!-- 3I / 4C / 5G / 6B · LECTURA -->
   <ng-container *ngIf="mode === 'read'">
-    <div class="fbar hair">
+    <div class="fbar hair hide-desktop">
       <span class="fs14 back" routerLink="/cuenta/temas">← Temas</span>
       <span *ngIf="pillLabel()" [class]="pillClass()">{{ pillLabel() }}</span>
       <span *ngIf="!pillLabel()" class="iconb" title="Tema">♡</span>
     </div>
 
     <ng-container *ngIf="theme as t">
+      <!-- 5G desktop layout -->
+      <div class="wmain only-desktop tema-web">
+        <div class="wbody">
+          <div class="fs13" style="margin-bottom: 18px">
+            <a routerLink="/cuenta/temas">← Temas de la comunidad</a>
+          </div>
+          <div class="wcols">
+            <div class="tema-main">
+              <div class="fx ac gap12" *ngIf="pillLabel()">
+                <span [class]="pillClass()">{{ pillLabel() }}</span>
+              </div>
+              <div class="dkind">{{ kindLabel() }}</div>
+              <div class="serif fw6 tema-title">{{ t.title }}</div>
+              <div class="fs14 muted">
+                {{ steps.length }} pasaje{{ steps.length === 1 ? '' : 's' }} ·
+                {{ docCount }} documento{{ docCount === 1 ? '' : 's' }} citados
+                <ng-container *ngIf="isApproved && t.downloads != null">
+                  · {{ t.downloads }} descarga{{ t.downloads === 1 ? '' : 's' }}
+                </ng-container>
+              </div>
+              <p class="fs14 muted" *ngIf="t.description" style="line-height: 1.7; margin-top: 14px">
+                {{ t.description }}
+              </p>
+              <div class="fs13 errline" *ngIf="error">{{ error }}</div>
+              <div class="fs13 okline" *ngIf="message">{{ message }}</div>
+
+              <ng-container *ngIf="needsChanges">
+                <div class="sect">Observaciones del revisor</div>
+                <div class="revnote" *ngIf="t.reviewNote">{{ t.reviewNote }}</div>
+                <button type="button" class="primary" style="margin-top: 16px" (click)="resubmit()">
+                  Editar y reenviar
+                </button>
+              </ng-container>
+
+              <ng-container *ngIf="!needsChanges">
+                <div class="tsec" *ngIf="steps.length">Pasajes</div>
+                <div
+                  class="refcard"
+                  *ngFor="let s of steps; let i = index"
+                  (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)"
+                >
+                  <span class="refn">{{ s.unitLabel || '#' + s.unitIndex }}</span>
+                  <span class="f1">
+                    <ng-container *ngIf="s.userComment">«{{ s.userComment }}»</ng-container>
+                    <ng-container *ngIf="!s.userComment">
+                      {{ s.documentId }} · Nº {{ s.unitIndex }}
+                    </ng-container>
+                  </span>
+                  <span class="chev">›</span>
+                </div>
+              </ng-container>
+            </div>
+            <div class="tema-side">
+              <div class="card">
+                <div class="fs13" style="line-height: 1.6" *ngIf="isApproved">
+                  Disponible para toda la comunidad. Al descargarlo queda en su dispositivo con sus referencias.
+                </div>
+                <div class="fs13 muted" style="line-height: 1.6" *ngIf="!isApproved">
+                  Gestione la publicación de este tema.
+                </div>
+                <button
+                  type="button"
+                  class="primary"
+                  style="padding: 12px"
+                  *ngIf="isApproved"
+                  (click)="download()"
+                >
+                  Descargar tema
+                </button>
+                <button
+                  type="button"
+                  class="primary"
+                  style="padding: 12px"
+                  *ngIf="!isApproved && !isPending"
+                  (click)="openPublish()"
+                >
+                  Publicar tema
+                </button>
+                <button
+                  type="button"
+                  class="gbtn"
+                  style="margin-top: 10px; padding: 12px"
+                  *ngIf="steps.length"
+                  (click)="startPlan()"
+                >
+                  ▶ Empezar el plan
+                </button>
+              </div>
+              <div class="sect">Referencias</div>
+              <div class="fs13 muted" style="line-height: 2">
+                <ng-container *ngFor="let s of steps">
+                  {{ s.unitLabel || s.documentId + ' · Nº ' + s.unitIndex }}<br />
+                </ng-container>
+                <ng-container *ngIf="!steps.length">Sin pasajes todavía.</ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- móvil 3I/4C -->
+      <div class="only-mobile">
       <div class="dcover" [class.compact]="needsChanges">
         <div class="dkind">{{ kindLabel() }}</div>
         <div class="dtitle" [class.sm]="needsChanges">{{ t.title }}</div>
@@ -245,6 +349,7 @@
             </button>
           </ng-container>
         </ng-container>
+      </div>
       </div>
     </ng-container>
 

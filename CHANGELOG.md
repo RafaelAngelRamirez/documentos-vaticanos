@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file. See [standa
 * Design handoff **Pantallas de Diseño** (1A–6D): tokens claro/oscuro, flujo lectura 3A/3D/3E/2A/2B, producto 1B–1E, notas 3G, ajustes 3H
 * Temas con cola de revisión (6A–6D): `reviewStatus`, rol `admin`, APIs `/me/themes/.../submit` y `/admin/themes`
 * Padres de la Iglesia (2C/2D) en `/padres` y `/padres/:id`
-* Shell web `app-wbar` (≥1024px) y narrador de lectura 5D (Web Speech API)
+* Shell web 5A–5H (`app-wbar` modes nav/auth/reader, biblioteca cardgrid + wside, detalle wcols, estudio wcols, padres grid, tema dual, notas wside) y narrador 5D (Web Speech API)
 
 ### [0.0.13](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.12...v0.0.13) (2023-11-05)
 

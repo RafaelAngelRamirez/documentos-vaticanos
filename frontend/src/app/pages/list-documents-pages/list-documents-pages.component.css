@@ -5,15 +5,15 @@
 }
 
 .lib {
-  padding-top: 8px;
+  padding: 8px 24px 24px;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .tabs {
   margin-top: 16px;
 }
 
-/* Las clases visuales (.tab, .srow, .st, .sx, .field) vienen del handoff
-   en styles.css; aquí solo resets para usarlas sobre <button>. */
 button.tab {
   background: none;
   font-family: inherit;
@@ -28,4 +28,20 @@ button.srow {
   border-top: none;
   font-family: inherit;
   cursor: pointer;
+}
+
+.fx {
+  display: flex;
+}
+.ac {
+  align-items: center;
+}
+.jb {
+  justify-content: space-between;
+}
+
+@media (min-width: 1024px) {
+  .cardgrid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
 }

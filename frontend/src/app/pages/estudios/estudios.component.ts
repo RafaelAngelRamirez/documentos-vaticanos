@@ -100,6 +100,15 @@ export class EstudiosComponent implements OnInit {
     ]);
   }
 
+  continueWithNarrator(): void {
+    try {
+      sessionStorage.setItem('dv.autoNarr', '1');
+    } catch {
+      // ignore
+    }
+    this.continueReading();
+  }
+
   goLibrary(): void {
     this.router.navigate(['/biblioteca']);
   }

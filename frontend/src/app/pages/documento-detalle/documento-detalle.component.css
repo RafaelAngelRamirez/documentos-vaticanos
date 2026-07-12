@@ -19,6 +19,23 @@
   flex-shrink: 0;
 }
 
+.hair {
+  border-bottom: 1px solid var(--line);
+}
+
+.back {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.back:hover {
+  color: var(--acc);
+}
+
 .dcover .inner,
 .cuerpo {
   max-width: 640px;
@@ -51,4 +68,70 @@
 
 .tc {
   text-align: center;
+}
+
+.empty {
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.web-title {
+  font-size: 40px;
+  line-height: 1.1;
+  margin: 12px 0 8px;
+}
+
+.web-sub {
+  font-size: 19px;
+}
+
+.actions {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.cta {
+  margin: 0;
+  width: auto;
+  padding: 13px 26px;
+  display: inline-block;
+}
+
+.listen {
+  width: auto;
+  padding: 13px 20px;
+}
+
+.fav-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+}
+
+.col-main {
+  flex: 1;
+  max-width: 620px;
+  min-width: 0;
+}
+
+.col-side {
+  width: 340px;
+  flex-shrink: 0;
+}
+
+.fx {
+  display: flex;
+}
+.gap8 {
+  gap: 8px;
+}
+
+@media (max-width: 1100px) {
+  .col-side {
+    width: 280px;
+  }
 }

@@ -4,35 +4,22 @@
   background: var(--bg);
 }
 
-.fbody {
+.fbody,
+.padres-body {
   padding: 28px 24px 40px;
   max-width: 640px;
   margin: 0 auto;
 }
 
-.page-head {
-  margin-bottom: 8px;
-}
-
-.mobile-only {
-  display: block;
-}
-
-.desktop-only {
-  display: none;
-}
-
 @media (min-width: 1024px) {
-  .mobile-only {
-    display: none;
+  .padres-body {
+    max-width: 960px;
+    padding: 36px 40px 56px;
   }
 
-  .desktop-only {
-    display: block;
-  }
-
-  .fbody {
-    max-width: 720px;
-    padding: 36px 40px 48px;
+  .cardgrid {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 }

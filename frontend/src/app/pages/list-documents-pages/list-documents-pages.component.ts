@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import {
   CargarDocumentosJsonService,
@@ -14,6 +14,11 @@ import {
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { BnavComponent } from 'src/app/components/bnav/bnav.component';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
+import {
+  LastRead,
+  ReadingProgressService,
+} from 'src/app/services/reading-progress.service';
+import { ROUTE } from 'src/app/services/navigation.service';
 
 /** Orden preferente de pestañas (solo se muestran las presentes). */
 const TAB_ORDER = [
@@ -34,11 +39,17 @@ const TAB_BY_TIPO: Record<string, string> = {
   'Padres de la Iglesia': 'Padres',
 };
 
-/** Pantalla 3D · Biblioteca. */
+/** Pantalla 3D · Biblioteca + 5B web. */
 @Component({
   standalone: true,
   selector: 'app-list-documents-pages',
-  imports: [CommonModule, AppFbarComponent, BnavComponent, WbarComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    AppFbarComponent,
+    BnavComponent,
+    WbarComponent,
+  ],
   templateUrl: './list-documents-pages.component.html',
   styleUrls: ['./list-documents-pages.component.css'],
 })
@@ -47,16 +58,19 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
   activeTab = 'Todos';
   loading = false;
   load_error: string | null = null;
+  lastRead: LastRead | null = null;
 
   private sub = new Subscription();
 
   constructor(
     public docService: CargarDocumentosJsonService,
     private router: Router,
-    private corpus: CorpusService
+    private corpus: CorpusService,
+    private progress: ReadingProgressService
   ) {}
 
   ngOnInit(): void {
+    this.lastRead = this.progress.getLastRead();
     this.loading = true;
     this.sub.add(
       this.docService.ensureAllLoaded().subscribe({
@@ -85,6 +99,11 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
     return ['Todos', ...TAB_ORDER.filter((t) => present.has(t))];
   }
 
+  /** 5B sidebar labels closer to design (tipo completo cuando existe). */
+  get sideTabs(): string[] {
+    return this.tabs;
+  }
+
   get filtered(): IndiceDocumentos[] {
     const all = this.docService.documentos_disponibles || [];
     const q = this.query.trim().toLowerCase();
@@ -98,6 +117,20 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
       const short = (item.shortTitle || '').toLowerCase();
       return title.includes(q) || meta.includes(q) || short.includes(q);
     });
+  }
+
+  get docCount(): number {
+    return this.docService.documentos_disponibles?.length || 0;
+  }
+
+  get lastReadLabel(): string {
+    if (!this.lastRead) return '';
+    const meta = this.corpus.getMeta(this.lastRead.documentId);
+    const short =
+      meta?.shortTitle ||
+      this.lastRead.label ||
+      this.lastRead.documentId;
+    return `${short} ${this.lastRead.unitIndex + 1}`;
   }
 
   get sinResultados(): boolean {
@@ -132,7 +165,35 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
     return catalogMetaLine(catalogDisplayFor(item.id, meta?.kind));
   }
 
-  /** Flujo del diseño: Biblioteca → Detalle (2A), no directo al lector. */
+  kindOf(item: IndiceDocumentos): string {
+    const meta = this.corpus.getMeta(item.id || '');
+    const d = catalogDisplayFor(item.id, meta?.kind);
+    // Compact kind for bookcard badge
+    if (d.tipo.startsWith('Concilio')) return 'Concilio';
+    return d.tipo;
+  }
+
+  progressOf(item: IndiceDocumentos): number | null {
+    if (!this.lastRead || this.lastRead.documentId !== (item.id || item.nombre)) {
+      return null;
+    }
+    const pct = this.progress.percent(this.lastRead);
+    return pct > 0 ? pct : null;
+  }
+
+  goContinue(): void {
+    if (!this.lastRead) {
+      return;
+    }
+    this.router.navigate([
+      ROUTE.leyendo,
+      this.lastRead.documentId,
+      ROUTE.punto,
+      this.lastRead.unitIndex,
+    ]);
+  }
+
+  /** Flujo del diseño: Biblioteca → Detalle (2A/5C), no directo al lector. */
   open(item: IndiceDocumentos): void {
     this.router.navigate(['/documento', item.id ?? item.nombre]);
   }

@@ -16,17 +16,19 @@ import { AuthService } from 'src/app/core/auth/auth.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { StudiesService } from 'src/app/core/account/studies.service';
 import { environment } from 'src/environments/environment';
+import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 
 /**
  * Diseño 3I · Tema (lector)
  * 4C · Tema de maestro (compartido + descarga)
  * 4D · Publicar tema
+ * 5G · Web tema maestro
  * 6B · Cambios solicitados
  */
 @Component({
   standalone: true,
   selector: 'app-tema-detalle',
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, WbarComponent],
   templateUrl: './tema-detalle.component.html',
   styleUrls: ['./tema-detalle.component.css'],
 })

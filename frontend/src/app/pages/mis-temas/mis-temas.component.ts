@@ -14,12 +14,19 @@ import {
 } from 'src/app/core/account/themes.service';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
+import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 
 /** Diseño 6A · Mis temas · estados p-ok / p-rev / p-no */
 @Component({
   standalone: true,
   selector: 'app-mis-temas',
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, AppFbarComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    AppFbarComponent,
+    WbarComponent,
+  ],
   templateUrl: './mis-temas.component.html',
   styleUrls: ['./mis-temas.component.css'],
 })

@@ -10,6 +10,7 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { environment } from 'src/environments/environment';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
+import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 
 /** Vistas de autenticación: 1B acceso, 3B crear cuenta, 3C recuperar. */
 type AuthView = 'login' | 'registro' | 'recuperar';
@@ -17,7 +18,13 @@ type AuthView = 'login' | 'registro' | 'recuperar';
 @Component({
   standalone: true,
   selector: 'app-cuenta',
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, AppFbarComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    AppFbarComponent,
+    WbarComponent,
+  ],
   templateUrl: './cuenta.component.html',
   styleUrls: ['./cuenta.component.css'],
 })

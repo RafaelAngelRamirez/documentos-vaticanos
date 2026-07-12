@@ -13,14 +13,15 @@ import {
   LastRead,
   ReadingProgressService,
 } from 'src/app/services/reading-progress.service';
+import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 
 const FAVS_KEY = 'dv.favs';
 
-/** Pantalla 2A · Detalle del documento. */
+/** Pantalla 2A · Detalle del documento + 5C web. */
 @Component({
   standalone: true,
   selector: 'app-documento-detalle',
-  imports: [CommonModule],
+  imports: [CommonModule, WbarComponent],
   templateUrl: './documento-detalle.component.html',
   styleUrls: ['./documento-detalle.component.css'],
 })
@@ -96,9 +97,58 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     }`;
   }
 
+  /** Estimación de audio ≈ lectura. */
+  get audioEstimado(): string {
+    return this.lecturaEstimada.replace('≈', '≈').replace(' min', ' min narradas').replace(' h', ' h narradas');
+  }
+
+  /**
+   * Índice ligero 5C: si el display tiene subtitulo/chapters conocidos usamos
+   * placeholders por documento; si no, lista vacía (el lector es la fuente).
+   */
+  get chapters(): { num: string; title: string }[] {
+    const id = this.meta?.id || '';
+    const known: Record<string, { num: string; title: string }[]> = {
+      'ls-es': [
+        { num: '—', title: 'Introducción' },
+        { num: 'I', title: 'Lo que le está pasando a nuestra casa' },
+        { num: 'II', title: 'El Evangelio de la creación' },
+        { num: 'III', title: 'Raíz humana de la crisis ecológica' },
+        { num: 'IV', title: 'Una ecología integral' },
+        { num: 'V', title: 'Líneas de orientación y acción' },
+        { num: 'VI', title: 'Educación y espiritualidad ecológica' },
+      ],
+      'cic-es': [
+        { num: 'I', title: 'La profesión de la fe' },
+        { num: 'II', title: 'La celebración del misterio cristiano' },
+        { num: 'III', title: 'La vida en Cristo' },
+        { num: 'IV', title: 'La oración cristiana' },
+      ],
+      'dv-es': [
+        { num: 'I', title: 'La revelación misma' },
+        { num: 'II', title: 'La transmisión de la revelación divina' },
+        { num: 'III', title: 'La inspiración e interpretación de la Sagrada Escritura' },
+        { num: 'IV', title: 'El Antiguo Testamento' },
+        { num: 'V', title: 'El Nuevo Testamento' },
+        { num: 'VI', title: 'La Sagrada Escritura en la vida de la Iglesia' },
+      ],
+    };
+    return known[id] || [];
+  }
+
   comenzar(): void {
     const idx = this.puedeContinuar ? this.lastRead!.unitIndex : 0;
     this.irALector(idx);
+  }
+
+  /** 5C: misma entrada al lector; el narrador se activa en 5D. */
+  comenzarNarrador(): void {
+    try {
+      sessionStorage.setItem('dv.autoNarr', '1');
+    } catch {
+      // ignore
+    }
+    this.comenzar();
   }
 
   reiniciar(): void {

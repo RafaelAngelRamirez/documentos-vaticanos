@@ -26,6 +26,7 @@ import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { ReadingProgressService } from 'src/app/services/reading-progress.service';
 import { AnotacionesService } from 'src/app/services/anotaciones.service';
 import { DvSheetComponent } from '../dv-sheet/dv-sheet.component';
+import { WbarComponent } from '../wbar/wbar.component';
 
 const CONTEXT_SIZE = 5;
 
@@ -38,7 +39,7 @@ interface ThemeOption {
 @Component({
   selector: 'app-lector',
   standalone: true,
-  imports: [CommonModule, FormsModule, PuntoModule, DvSheetComponent],
+  imports: [CommonModule, FormsModule, PuntoModule, DvSheetComponent, WbarComponent],
   templateUrl: './lector.component.html',
   styleUrls: ['./lector.component.css'],
 })
@@ -283,6 +284,13 @@ export class LectorComponent implements OnInit, OnDestroy {
   /** Título compacto para la fbar (diseño 2B). */
   get headerTitle(): string {
     return this.document?.shortTitle || this.documentTitle;
+  }
+
+  /** 5D wbar: «Laudato Si' · Capítulo…» */
+  get readerChromeTitle(): string {
+    const base = this.headerTitle;
+    if (this.rangoLabel) return `${base} · ${this.rangoLabel}`;
+    return base;
   }
 
   get meta() {
@@ -671,6 +679,19 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.navigationService.save_actual_index();
     this.visibleIndex = this.actual_index;
     this.persistProgress(this.visibleIndex);
+    this.maybeAutoNarr();
+  }
+
+  /** 5C → 5D: si se pidió «Escuchar con narrador», arrancar al cargar. */
+  private maybeAutoNarr(): void {
+    try {
+      if (sessionStorage.getItem('dv.autoNarr') === '1') {
+        sessionStorage.removeItem('dv.autoNarr');
+        setTimeout(() => this.startNarrator(), 400);
+      }
+    } catch {
+      // ignore
+    }
   }
 
   load_before() {

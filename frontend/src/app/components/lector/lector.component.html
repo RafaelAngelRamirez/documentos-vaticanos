@@ -1,5 +1,14 @@
-<div class="app rpaper">
-  <div class="fbar hair">
+<div class="app rpaper web-shell">
+  <!-- 5D desktop chrome -->
+  <app-wbar
+    mode="reader"
+    [readerTitle]="readerChromeTitle"
+    (prefsClick)="togglePrefs()"
+    (indexClick)="goBack()"
+  ></app-wbar>
+
+  <!-- 2B mobile chrome -->
+  <div class="fbar hair only-mobile">
     <button type="button" class="back" (click)="goBack()" aria-label="Volver">
       ←
     </button>
@@ -18,6 +27,7 @@
   </div>
 
   <div class="reader">
+    <div class="rcolw">
     <div *ngIf="loading" class="rstart" role="status">Cargando documento…</div>
     <div *ngIf="load_error" class="rstart error" role="alert">
       {{ load_error }}
@@ -55,10 +65,14 @@
         >
       </div>
       <div class="rend" *ngIf="!canLoadNext">· · ·</div>
+      <div class="fs12 muted tc only-desktop" style="margin-top: 20px" *ngIf="!loading && document">
+        · scroll infinito — el texto continúa al desplazar · el narrador avanza por numeral ·
+      </div>
     </ng-container>
+    </div>
   </div>
 
-  <div class="rfoot" *ngIf="!loading && document">
+  <div class="rfoot only-mobile" *ngIf="!loading && document">
     <span>{{ posLabel }}</span>
     <span>{{ percent }} %</span>
   </div>

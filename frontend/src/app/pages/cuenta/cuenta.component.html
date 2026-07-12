@@ -1,7 +1,8 @@
-<div class="app-product">
+<div class="app-product web-shell">
   <!-- Perfil (sesión iniciada) -->
   <ng-container *ngIf="auth.user as user; else authTpl">
-    <app-fbar title="Cuenta"></app-fbar>
+    <app-wbar></app-wbar>
+    <app-fbar title="Cuenta" class="hide-desktop"></app-fbar>
     <div class="fbody">
       <div *ngIf="error" class="empty errtx">{{ error }}</div>
       <div class="card" style="margin-bottom: 16px">
@@ -72,13 +73,20 @@
   </ng-container>
 
   <ng-template #authTpl>
-    <div class="fbody" [ngSwitch]="view">
-      <!-- 1B · ACCESO -->
+    <!-- 5A · wbar mínima en desktop -->
+    <app-wbar mode="auth" (createAccount)="switchView('registro')"></app-wbar>
+    <div class="auth-stage">
+    <div class="fbody auth-card" [ngSwitch]="view">
+      <!-- 1B / 5A · ACCESO -->
       <ng-container *ngSwitchCase="'login'">
-        <div class="mark">DV</div>
-        <div class="tc serif fw6" style="font-size: 24px">Documentos Vaticanos</div>
+        <div class="mark only-mobile">DV</div>
+        <div class="tc serif fw6 login-title">
+          <span class="only-mobile">Documentos Vaticanos</span>
+          <span class="only-desktop">Bienvenido de nuevo</span>
+        </div>
         <div class="tc fs14 muted" style="margin: 8px 0 26px">
-          Su biblioteca de lectura y estudio
+          <span class="only-mobile">Su biblioteca de lectura y estudio</span>
+          <span class="only-desktop">Su biblioteca, su progreso y sus notas</span>
         </div>
 
         <div *ngIf="!apiEnabled" class="empty">
@@ -142,7 +150,7 @@
             >¿Olvidó su contraseña?</a
           >
         </div>
-        <div class="tc fs13 muted" style="margin-top: auto; padding-top: 24px">
+        <div class="tc fs13 muted only-mobile" style="margin-top: auto; padding-top: 24px">
           ¿Aún no tiene cuenta?
           <a href="javascript:void(0)" (click)="switchView('registro')">Crear cuenta</a>
         </div>
@@ -245,6 +253,7 @@
           Demo: el envío real requiere el servidor de cuentas.
         </div>
       </ng-container>
+    </div>
     </div>
   </ng-template>
 </div>
