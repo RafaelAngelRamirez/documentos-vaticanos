@@ -57,3 +57,6 @@ documentos/crawl/**/cache/
 documentos/padres-source/pdf/
 documentos/padres-source/raw/
 
+
+# Scrape work copies (canonical corpus is documentos/corpus + frontend assets)
+scripts-descarga/documentos/

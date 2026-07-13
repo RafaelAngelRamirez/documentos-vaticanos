@@ -81,6 +81,7 @@ export const DOCUMENT_BLOCKLIST = new Set(
     "LG", "GS", "SC", "DV", "AA", "AG", "CD", "OT", "PC", "PO", "UR", "NA",
     "DH", "GE", "IM", "CT", "EN", "RM", "CA", "FC", "CL", "VS", "EV", "LE",
     "SRS", "RP", "MD", "MC", "HV", "PT", "MF", "OE", "PG", "MM", "CIC", "CCEO",
+    "CDS", "CDC", "CICL", "CDSI",
     "DS", "RH", "PP", "DCG", "DeV", "ChL", "TMA", "NMI", "EE", "SA", "PDV",
     "RMi", "CT", "CAN",
   ].map((s) => s.toUpperCase()),

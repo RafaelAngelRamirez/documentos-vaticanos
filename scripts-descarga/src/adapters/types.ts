@@ -24,6 +24,12 @@ export interface SourceConfig {
   expectedUnitCount?: number;
   legacyScript?: string;
   notes?: string;
+  /** Author of the work (Church Father, etc.). */
+  author?: string;
+  /** Compiler / curator of the digital collection. */
+  compiler?: string;
+  /** Provenance note (edition, collection). */
+  sourceNote?: string;
 }
 
 export interface SourcesFile {
