@@ -1,19 +1,6 @@
 {
-  "generatedAt": "2026-07-13T06:36:35.518Z",
-  "pending": [
-    {
-      "code": "DS",
-      "title": "Denzinger-Schönmetzer",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "CCEO",
-      "title": "Código de Cánones de las Iglesias Orientales",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    }
-  ],
+  "generatedAt": "2026-07-13T08:56:08.981Z",
+  "pending": [],
   "corpusDocumentIds": [
     "cic-es",
     "bible-pueblo-de-dios-es",
@@ -95,6 +82,8 @@
     "srs-es",
     "rh-es",
     "pdv-es",
-    "nmi-es"
+    "nmi-es",
+    "cceo-la",
+    "ds-es"
   ]
 }

@@ -267,7 +267,7 @@
         "Denzinger"
       ],
       "title": "Denzinger-Schönmetzer",
-      "corpusDocId": null,
+      "corpusDocId": "ds-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -305,9 +305,9 @@
         "CCEO"
       ],
       "title": "Código de Cánones de las Iglesias Orientales",
-      "corpusDocId": null,
+      "corpusDocId": "cceo-la",
       "locatorType": "number",
-      "kind": "magisterium"
+      "kind": "canon-law"
     },
     {
       "code": "HV",

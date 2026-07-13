@@ -549,6 +549,38 @@
       ],
       "expectedUnitCount": 59,
       "notes": "JPII apostolic letter at the close of the Great Jubilee 2000."
+    },
+    {
+      "id": "cceo",
+      "title": "Código de los Cánones de las Iglesias Orientales",
+      "shortTitle": "CCEO",
+      "kind": "canon-law",
+      "locale": "la",
+      "corpusDocId": "cceo-la",
+      "docCode": "CCEO",
+      "adapter": "cceo",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/la/apost_constitutions/documents/hf_jp-ii_apc_19901018_index-codex-can-eccl-orient.html"
+      ],
+      "fixturePath": "fixtures/cceo-la",
+      "expectedUnitCount": 1514,
+      "notes": "CCEO (1990). Full official Latin text on vatican.va (3 pages). Spanish full HTML not published on vatican.va (index stubs only). ~1546 canons (some reserved/missing in HTML)."
+    },
+    {
+      "id": "ds",
+      "title": "Enchiridion symbolorum (Denzinger-Schönmetzer)",
+      "shortTitle": "DS",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ds-es",
+      "docCode": "DS",
+      "adapter": "plain_text",
+      "seedUrls": [
+        "https://archive.org/details/denzinger-schonmetzer"
+      ],
+      "fixturePath": "fixtures/ds-es/source.txt",
+      "expectedUnitCount": 1140,
+      "notes": "Spanish Denzinger-Schönmetzer from Internet Archive (Public Domain Mark 1.0). Import via import_denzinger.ts (not HTML scrape)."
     }
   ]
 }

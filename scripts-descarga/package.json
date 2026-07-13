@@ -36,7 +36,9 @@
     "padres:ocr-fast": "bash ocr_fast_pool.sh --jobs 8 --import",
     "padres:download": "bash download_padres_queue.sh --all-missing --jobs 4",
     "padres:download:daemon": "bash download_padres_queue.sh --all-missing --jobs 3 --daemon --interval 90",
-    "padres:process-local": "bash batch_agustin_pending.sh --skip-download"
+    "padres:process-local": "bash batch_agustin_pending.sh --skip-download",
+    "import:ds": "npx ts-node --transpile-only import_denzinger.ts",
+    "scrape:cceo": "npx ts-node --transpile-only scrape_source.ts --source cceo"
   },
   "author": "",
   "license": "ISC",

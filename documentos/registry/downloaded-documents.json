@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-13T06:36:35.520Z",
+  "updatedAt": "2026-07-13T08:56:08.983Z",
   "documents": [
     {
       "id": "aa-es",
@@ -21,7 +21,7 @@
         "meta": "documents/aa-es/meta.json"
       },
       "notes": "Decree on the Apostolate of the Laity (Vat. II). Numbered §§1–33. Official path uses decree_ (not const_).",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "ag-es",
@@ -42,7 +42,7 @@
         "meta": "documents/ag-es/meta.json"
       },
       "notes": "Vat. II decree on missionary activity. §§1–42.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "agustin-01-primeros-escritos-es",
@@ -882,7 +882,7 @@
         "meta": "documents/ca-es/meta.json"
       },
       "notes": "JPII encyclical on the 100th anniversary of Rerum novarum.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "carta-diogneto-es",
@@ -905,6 +905,26 @@
       "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpc3ppVWstMWdpSEU/view. Edición: Iglesia Viva / Ruiz Bueno (BAC 1950, adaptada). Edición/traducción de referencia: Iglesia Viva / Ruiz Bueno (BAC 1950, adaptada). Iglesia Viva / Ruiz Bueno BAC. 11 caps. romanos."
     },
     {
+      "id": "cceo-la",
+      "sourceId": "cceo",
+      "title": "Código de los Cánones de las Iglesias Orientales",
+      "kind": "canon-law",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/la/apost_constitutions/documents/hf_jp-ii_apc_19901018_index-codex-can-eccl-orient.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T08:55:08.998Z",
+      "lastDownloadedAt": "2026-07-13T08:55:42.906Z",
+      "unitCount": 1514,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cceo-la/content.json",
+        "index": "documents/cceo-la/index.json",
+        "meta": "documents/cceo-la/meta.json"
+      },
+      "notes": "CCEO (1990). Full official Latin text on vatican.va (3 pages). Spanish full HTML not published on vatican.va (index stubs only). ~1546 canons (some reserved/missing in HTML)."
+    },
+    {
       "id": "cd-es",
       "sourceId": "cd",
       "title": "Christus Dominus",
@@ -923,7 +943,7 @@
         "meta": "documents/cd-es/meta.json"
       },
       "notes": "Vat. II decree on pastoral office of bishops.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "cdc-es",
@@ -964,7 +984,7 @@
         "meta": "documents/cds-es/meta.json"
       },
       "notes": "Single-page Compendium of the Social Doctrine of the Church. Numbered §§1–583. Dual markup (named anchors + bare bold numbers).",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "cic-es",
@@ -984,7 +1004,7 @@
         "index": "documents/cic-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated).",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "cipriano-cartas-es",
@@ -1045,7 +1065,7 @@
         "meta": "documents/cl-es/meta.json"
       },
       "notes": "JPII apostolic exhortation on the laity.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "clemente-alejandria-pedagogo-es",
@@ -1086,7 +1106,7 @@
         "meta": "documents/ct-es/meta.json"
       },
       "notes": "JPII apostolic exhortation on catechesis.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "dh-es",
@@ -1107,7 +1127,27 @@
         "meta": "documents/dh-es/meta.json"
       },
       "notes": "Vat. II declaration on religious freedom.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
+    },
+    {
+      "id": "ds-es",
+      "sourceId": "ds",
+      "title": "Enchiridion symbolorum (Denzinger-Schönmetzer)",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://archive.org/details/denzinger-schonmetzer"
+      ],
+      "firstDownloadedAt": "2026-07-13T08:55:14.485Z",
+      "lastDownloadedAt": "2026-07-13T08:56:07.711Z",
+      "unitCount": 1140,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ds-es/content.json",
+        "index": "documents/ds-es/index.json",
+        "meta": "documents/ds-es/meta.json"
+      },
+      "notes": "Enchiridion symbolorum (Denzinger-Schönmetzer), texto español. Fuente pública Internet Archive (Public Domain Mark 1.0)."
     },
     {
       "id": "dv-es",
@@ -1127,7 +1167,7 @@
         "index": "documents/dv-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated).",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "en-es",
@@ -1148,7 +1188,7 @@
         "meta": "documents/en-es/meta.json"
       },
       "notes": "Paul VI apostolic exhortation on evangelization.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "ev-es",
@@ -1169,7 +1209,7 @@
         "meta": "documents/ev-es/meta.json"
       },
       "notes": "JPII encyclical on the value and inviolability of human life.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "fc-es",
@@ -1190,7 +1230,7 @@
         "meta": "documents/fc-es/meta.json"
       },
       "notes": "JPII apostolic exhortation on the family.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "ge-es",
@@ -1251,7 +1291,7 @@
         "meta": "documents/gs-es/meta.json"
       },
       "notes": "Pastoral constitution. Numbered §§1–93 (approx).",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "hv-es",
@@ -1272,7 +1312,7 @@
         "meta": "documents/hv-es/meta.json"
       },
       "notes": "Paul VI encyclical on regulation of birth.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "im-es",
@@ -1293,7 +1333,7 @@
         "meta": "documents/im-es/meta.json"
       },
       "notes": "Vat. II decree on social communication.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "le-es",
@@ -1314,7 +1354,7 @@
         "meta": "documents/le-es/meta.json"
       },
       "notes": "JPII encyclical on human work.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "lg-es",
@@ -1335,7 +1375,7 @@
         "meta": "documents/lg-es/meta.json"
       },
       "notes": "Single-page Vatican II dogmatic constitution. Numbered §§1–69.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "mc-es",
@@ -1356,7 +1396,7 @@
         "meta": "documents/mc-es/meta.json"
       },
       "notes": "Paul VI apostolic exhortation on Marian devotion. Numbered sections vary.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "md-es",
@@ -1377,7 +1417,7 @@
         "meta": "documents/md-es/meta.json"
       },
       "notes": "JPII apostolic letter on the dignity of women.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "na-es",
@@ -1398,7 +1438,7 @@
         "meta": "documents/na-es/meta.json"
       },
       "notes": "Vat. II declaration on non-Christian religions.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "nmi-es",
@@ -1419,7 +1459,7 @@
         "meta": "documents/nmi-es/meta.json"
       },
       "notes": "JPII apostolic letter at the close of the Great Jubilee 2000.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "ot-es",
@@ -1440,7 +1480,7 @@
         "meta": "documents/ot-es/meta.json"
       },
       "notes": "Vat. II decree on priestly training.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "pc-es",
@@ -1461,7 +1501,7 @@
         "meta": "documents/pc-es/meta.json"
       },
       "notes": "Vat. II decree on renewal of religious life.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "pdv-es",
@@ -1482,7 +1522,7 @@
         "meta": "documents/pdv-es/meta.json"
       },
       "notes": "JPII apostolic exhortation on formation of priests.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "po-es",
@@ -1503,7 +1543,7 @@
         "meta": "documents/po-es/meta.json"
       },
       "notes": "Vat. II decree on ministry of priests.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "pp-es",
@@ -1524,7 +1564,7 @@
         "meta": "documents/pp-es/meta.json"
       },
       "notes": "Paul VI encyclical on development of peoples.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "rh-es",
@@ -1545,7 +1585,7 @@
         "meta": "documents/rh-es/meta.json"
       },
       "notes": "JPII first encyclical on the Redeemer of man.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "rm-es",
@@ -1566,7 +1606,7 @@
         "meta": "documents/rm-es/meta.json"
       },
       "notes": "JPII encyclical on permanent validity of missionary mandate.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "sc-es",
@@ -1586,7 +1626,7 @@
         "index": "documents/sc-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated).",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "srs-es",
@@ -1607,7 +1647,7 @@
         "meta": "documents/srs-es/meta.json"
       },
       "notes": "JPII encyclical on social concern.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "ur-es",
@@ -1628,7 +1668,7 @@
         "meta": "documents/ur-es/meta.json"
       },
       "notes": "Decree on Ecumenism (Vat. II). Numbered §§1–24. Official path uses decree_ (not const_).",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
       "id": "vs-es",
@@ -1649,7 +1689,7 @@
         "meta": "documents/vs-es/meta.json"
       },
       "notes": "JPII encyclical on fundamental questions of moral teaching.",
-      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+      "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     }
   ]
 }
