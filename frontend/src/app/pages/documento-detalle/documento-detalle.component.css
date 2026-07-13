@@ -36,6 +36,20 @@
   color: var(--acc);
 }
 
+.fuente-block {
+  margin-top: 16px;
+  line-height: 1.45;
+}
+
+.fuente-block .fuente-nota {
+  margin-top: 4px;
+}
+
+.fuente-block .app-lang-link {
+  display: inline-block;
+  margin-top: 8px;
+}
+
 .dcover .inner,
 .cuerpo {
   max-width: 640px;

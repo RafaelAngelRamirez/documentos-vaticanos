@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-11T22:29:29.475Z",
+  "updatedAt": "2026-07-13T06:22:24.498Z",
   "documents": [
     {
       "id": "aa-es",
@@ -21,7 +21,807 @@
         "meta": "documents/aa-es/meta.json"
       },
       "notes": "Decree on the Apostolate of the Laity (Vat. II). Numbered §§1–33. Official path uses decree_ (not const_).",
-      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
+    },
+    {
+      "id": "agustin-01-primeros-escritos-es",
+      "sourceId": "agustin-1",
+      "title": "San Agustín Introducción y primeros escritos",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpWTFzcXUzcHU2QWM/view"
+      ],
+      "firstDownloadedAt": "2026-07-12T22:39:07.512Z",
+      "lastDownloadedAt": "2026-07-12T22:39:14.643Z",
+      "unitCount": 2181,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-01-primeros-escritos-es/content.json",
+        "index": "documents/agustin-01-primeros-escritos-es/index.json",
+        "meta": "documents/agustin-01-primeros-escritos-es/meta.json"
+      },
+      "notes": "Tomo BAC n=1: 01 San Agustín - Introducción y primeros escritos.pdf"
+    },
+    {
+      "id": "agustin-02-confesiones-es",
+      "sourceId": "agustin-2",
+      "title": "Confesiones",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpR0xsOUdvQmJXbFk/view"
+      ],
+      "firstDownloadedAt": "2026-07-12T22:28:24.961Z",
+      "lastDownloadedAt": "2026-07-12T22:28:24.961Z",
+      "unitCount": 1952,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-02-confesiones-es/content.json",
+        "index": "documents/agustin-02-confesiones-es/index.json",
+        "meta": "documents/agustin-02-confesiones-es/meta.json"
+      },
+      "notes": "Tomo BAC n=2: 02 Confesiones.pdf"
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-es",
+      "sourceId": "agustin-3",
+      "title": "Obras Filosóficas",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpS3cxY1RrVkFHS3c/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:08:27.645Z",
+      "lastDownloadedAt": "2026-07-13T00:08:27.645Z",
+      "unitCount": 2878,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-03-obras-filosoficas-es/content.json",
+        "index": "documents/agustin-03-obras-filosoficas-es/index.json",
+        "meta": "documents/agustin-03-obras-filosoficas-es/meta.json"
+      },
+      "notes": "Tomo BAC n=3: 03 Obras Filosóficas.pdf"
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-es",
+      "sourceId": "agustin-4",
+      "title": "Obras apologeticas",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpWS1vaU1vM0N1dWc/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:08:50.741Z",
+      "lastDownloadedAt": "2026-07-13T00:08:50.741Z",
+      "unitCount": 2880,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-04-obras-apologeticas-es/content.json",
+        "index": "documents/agustin-04-obras-apologeticas-es/index.json",
+        "meta": "documents/agustin-04-obras-apologeticas-es/meta.json"
+      },
+      "notes": "Tomo BAC n=4: 04 Obras apologeticas.pdf"
+    },
+    {
+      "id": "agustin-05-de-trinitate-es",
+      "sourceId": "agustin-5",
+      "title": "De Trinitate",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpX0FjYVd0cVRseFk/view"
+      ],
+      "firstDownloadedAt": "2026-07-12T22:29:48.045Z",
+      "lastDownloadedAt": "2026-07-12T22:29:48.045Z",
+      "unitCount": 3030,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-05-de-trinitate-es/content.json",
+        "index": "documents/agustin-05-de-trinitate-es/index.json",
+        "meta": "documents/agustin-05-de-trinitate-es/meta.json"
+      },
+      "notes": "Tomo BAC n=5: 05 De Trinitate.pdf"
+    },
+    {
+      "id": "agustin-06-gracia-1-es",
+      "sourceId": "agustin-6",
+      "title": "Tratados sobre la gracia 1",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpZk1UdVVXMl9YZnc/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:09:12.842Z",
+      "lastDownloadedAt": "2026-07-13T00:09:12.842Z",
+      "unitCount": 3070,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-06-gracia-1-es/content.json",
+        "index": "documents/agustin-06-gracia-1-es/index.json",
+        "meta": "documents/agustin-06-gracia-1-es/meta.json"
+      },
+      "notes": "Tomo BAC n=6: 06 Tratados sobre la gracia-1.pdf"
+    },
+    {
+      "id": "agustin-07-sermones-1-es",
+      "sourceId": "agustin-7",
+      "title": "Sermones 1",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpSVV3aVZVaWkxdXM/view"
+      ],
+      "firstDownloadedAt": "2026-07-12T22:39:41.541Z",
+      "lastDownloadedAt": "2026-07-12T22:39:41.541Z",
+      "unitCount": 2181,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-07-sermones-1-es/content.json",
+        "index": "documents/agustin-07-sermones-1-es/index.json",
+        "meta": "documents/agustin-07-sermones-1-es/meta.json"
+      },
+      "notes": "Tomo BAC n=7: 07 Sermones-1.pdf"
+    },
+    {
+      "id": "agustin-08-cartas-1-es",
+      "sourceId": "agustin-8",
+      "title": "Cartas 1",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpLUI0RERtTWk3Qm8/view"
+      ],
+      "firstDownloadedAt": "2026-07-12T22:39:29.465Z",
+      "lastDownloadedAt": "2026-07-12T22:39:29.465Z",
+      "unitCount": 2468,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-08-cartas-1-es/content.json",
+        "index": "documents/agustin-08-cartas-1-es/index.json",
+        "meta": "documents/agustin-08-cartas-1-es/meta.json"
+      },
+      "notes": "Tomo BAC n=8: 08 Cartas-1.pdf"
+    },
+    {
+      "id": "agustin-09-gracia-2-es",
+      "sourceId": "agustin-9",
+      "title": "Tratados sobre la gracia 2",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpZXpnemI1c3dVVVk/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:09:43.795Z",
+      "lastDownloadedAt": "2026-07-13T00:09:43.795Z",
+      "unitCount": 2673,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-09-gracia-2-es/content.json",
+        "index": "documents/agustin-09-gracia-2-es/index.json",
+        "meta": "documents/agustin-09-gracia-2-es/meta.json"
+      },
+      "notes": "Tomo BAC n=9: 09 Tratados-sobre-la-gracia-2.pdf"
+    },
+    {
+      "id": "agustin-10-sermones-2-es",
+      "sourceId": "agustin-10",
+      "title": "Sermones 2",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpd1E4Y0YteDdhSjA/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:09:51.947Z",
+      "lastDownloadedAt": "2026-07-13T00:09:51.947Z",
+      "unitCount": 2512,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-10-sermones-2-es/content.json",
+        "index": "documents/agustin-10-sermones-2-es/index.json",
+        "meta": "documents/agustin-10-sermones-2-es/meta.json"
+      },
+      "notes": "Tomo BAC n=10: 10 Sermones-2.pdf"
+    },
+    {
+      "id": "agustin-11-cartas-2-es",
+      "sourceId": "agustin-11",
+      "title": "Cartas 2",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpaUkxamx0aWgteFU/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:10:11.999Z",
+      "lastDownloadedAt": "2026-07-13T00:10:11.999Z",
+      "unitCount": 2451,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-11-cartas-2-es/content.json",
+        "index": "documents/agustin-11-cartas-2-es/index.json",
+        "meta": "documents/agustin-11-cartas-2-es/meta.json"
+      },
+      "notes": "Tomo BAC n=11: 11 Cartas-2.pdf"
+    },
+    {
+      "id": "agustin-12-tratados-morales-es",
+      "sourceId": "agustin-12-tratados-morales-es",
+      "title": "Tratados morales",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpNGpQaWhOdFdmc2c/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:00:29.053Z",
+      "lastDownloadedAt": "2026-07-13T00:00:58.424Z",
+      "unitCount": 1828,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-12-tratados-morales-es/content.json",
+        "index": "documents/agustin-12-tratados-morales-es/index.json",
+        "meta": "documents/agustin-12-tratados-morales-es/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-es",
+      "sourceId": "agustin-13",
+      "title": "Tratados sobre el Evangelio de San Juan (1)",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpQUVzY0hNckNhTWc/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T01:32:34.878Z",
+      "lastDownloadedAt": "2026-07-13T01:32:34.878Z",
+      "unitCount": 2318,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-13-evangelio-juan-1-es/content.json",
+        "index": "documents/agustin-13-evangelio-juan-1-es/index.json",
+        "meta": "documents/agustin-13-evangelio-juan-1-es/meta.json"
+      },
+      "notes": "Tomo BAC n=13: 13 Tratados-sobre-el-evangelio-de-San-Juan_San-Agustin.pdf"
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-es",
+      "sourceId": "agustin-14",
+      "title": "Sobre el Evangelio de San Juan (36–124)",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpcy1FM1ByY1BxTG8/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T01:32:38.520Z",
+      "lastDownloadedAt": "2026-07-13T01:32:38.520Z",
+      "unitCount": 2199,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-14-evangelio-juan-2-es/content.json",
+        "index": "documents/agustin-14-evangelio-juan-2-es/index.json",
+        "meta": "documents/agustin-14-evangelio-juan-2-es/meta.json"
+      },
+      "notes": "Tomo BAC n=14: 14 Sobre-el-evangelio-de-San-Juan-36-124_San-Agustin.pdf"
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-es",
+      "sourceId": "agustin-15",
+      "title": "Tratados escriturarios",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpY1hxUE16SW5PZmc/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:11:19.150Z",
+      "lastDownloadedAt": "2026-07-13T00:14:22.676Z",
+      "unitCount": 4847,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-15-tratados-escriturarios-es/content.json",
+        "index": "documents/agustin-15-tratados-escriturarios-es/index.json",
+        "meta": "documents/agustin-15-tratados-escriturarios-es/meta.json"
+      },
+      "notes": "Tomo BAC n=15: 15 Tratados-escriturarios.pdf"
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-es",
+      "sourceId": "agustin-16",
+      "title": "La ciudad de Dios I",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpVEp1RFdhekt4R0k/view"
+      ],
+      "firstDownloadedAt": "2026-07-12T22:28:52.857Z",
+      "lastDownloadedAt": "2026-07-12T22:28:52.857Z",
+      "unitCount": 3344,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-16-ciudad-de-dios-1-es/content.json",
+        "index": "documents/agustin-16-ciudad-de-dios-1-es/index.json",
+        "meta": "documents/agustin-16-ciudad-de-dios-1-es/meta.json"
+      },
+      "notes": "Tomo BAC n=16: 16 La-ciudad-de-Dios-I.pdf"
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-es",
+      "sourceId": "agustin-17",
+      "title": "La ciudad de Dios II",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpLTAwTHU0NHh3czA/view"
+      ],
+      "firstDownloadedAt": "2026-07-12T22:29:25.927Z",
+      "lastDownloadedAt": "2026-07-12T22:29:25.927Z",
+      "unitCount": 3310,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-17-ciudad-de-dios-2-es/content.json",
+        "index": "documents/agustin-17-ciudad-de-dios-2-es/index.json",
+        "meta": "documents/agustin-17-ciudad-de-dios-2-es/meta.json"
+      },
+      "notes": "Tomo BAC n=17: 17 La-ciudad-de-Dios-II.pdf"
+    },
+    {
+      "id": "agustin-18-epistolas-indices-es",
+      "sourceId": "agustin-18",
+      "title": "Exposicion de varias epistolas Indices San Agustin",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpNWdrZ3VUZ1JPNHc/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:11:26.035Z",
+      "lastDownloadedAt": "2026-07-13T00:14:27.720Z",
+      "unitCount": 1916,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-18-epistolas-indices-es/content.json",
+        "index": "documents/agustin-18-epistolas-indices-es/index.json",
+        "meta": "documents/agustin-18-epistolas-indices-es/meta.json"
+      },
+      "notes": "Tomo BAC n=18: 18 Exposicion-de-varias-epistolas-Indices-San-Agustin.pdf"
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-es",
+      "sourceId": "agustin-19",
+      "title": "Enarraciones sobre los Salmos 1",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpUDJfN0I2MWhZTVk/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:11:33.574Z",
+      "lastDownloadedAt": "2026-07-13T00:14:33.488Z",
+      "unitCount": 2714,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-19-enarraciones-salmos-1-es/content.json",
+        "index": "documents/agustin-19-enarraciones-salmos-1-es/index.json",
+        "meta": "documents/agustin-19-enarraciones-salmos-1-es/meta.json"
+      },
+      "notes": "Tomo BAC n=19: 19 Enarraciones sobre los Salmos 1.pdf"
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-es",
+      "sourceId": "agustin-20",
+      "title": "Narraciones sobre los salmos 2",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbjRlR1JJVkJtYlU/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:11:39.445Z",
+      "lastDownloadedAt": "2026-07-13T00:14:40.691Z",
+      "unitCount": 3050,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-20-enarraciones-salmos-2-es/content.json",
+        "index": "documents/agustin-20-enarraciones-salmos-2-es/index.json",
+        "meta": "documents/agustin-20-enarraciones-salmos-2-es/meta.json"
+      },
+      "notes": "Tomo BAC n=20: 20 Narraciones-sobre-los-salmos-2.pdf"
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-es",
+      "sourceId": "agustin-21",
+      "title": "Narraciones sobre los salmos 3",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpaGdheFVxa3haNFU/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:11:45.303Z",
+      "lastDownloadedAt": "2026-07-13T00:14:46.890Z",
+      "unitCount": 3168,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-21-enarraciones-salmos-3-es/content.json",
+        "index": "documents/agustin-21-enarraciones-salmos-3-es/index.json",
+        "meta": "documents/agustin-21-enarraciones-salmos-3-es/meta.json"
+      },
+      "notes": "Tomo BAC n=21: 21 Narraciones-sobre-los-salmos-3.pdf"
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-es",
+      "sourceId": "agustin-22",
+      "title": "Narraciones sobre los salmos 4",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpNFNidE1DMGlwZW8/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:11:54.249Z",
+      "lastDownloadedAt": "2026-07-13T00:14:52.336Z",
+      "unitCount": 3002,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-22-enarraciones-salmos-4-es/content.json",
+        "index": "documents/agustin-22-enarraciones-salmos-4-es/index.json",
+        "meta": "documents/agustin-22-enarraciones-salmos-4-es/meta.json"
+      },
+      "notes": "Tomo BAC n=22: 22 Narraciones-sobre-los-salmos-4.pdf"
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-es",
+      "sourceId": "agustin-23",
+      "title": "Sermones (Juan, Hechos, Cartas)",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpd3ZHdmZuYWJWRFk/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:08:38.326Z",
+      "lastDownloadedAt": "2026-07-13T00:08:38.326Z",
+      "unitCount": 2277,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-23-sermones-juan-hechos-es/content.json",
+        "index": "documents/agustin-23-sermones-juan-hechos-es/index.json",
+        "meta": "documents/agustin-23-sermones-juan-hechos-es/meta.json"
+      },
+      "notes": "Tomo BAC n=23: 23 Sermones-Juan-Hechos-Cartas.pdf"
+    },
+    {
+      "id": "agustin-24-sermones-4-es",
+      "sourceId": "agustin-24",
+      "title": "Sermones 4 (184–272)",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpQ2IyczZ0UkU3RHM/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:09:00.276Z",
+      "lastDownloadedAt": "2026-07-13T00:09:00.276Z",
+      "unitCount": 2460,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-24-sermones-4-es/content.json",
+        "index": "documents/agustin-24-sermones-4-es/index.json",
+        "meta": "documents/agustin-24-sermones-4-es/meta.json"
+      },
+      "notes": "Tomo BAC n=24: 24 Sermones-4-184-a-272.pdf"
+    },
+    {
+      "id": "agustin-25-sermones-5-es",
+      "sourceId": "agustin-25",
+      "title": "Sermones 5 (273–338)",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpZzR6czFIMDVYOHM/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:09:23.232Z",
+      "lastDownloadedAt": "2026-07-13T00:09:23.232Z",
+      "unitCount": 2285,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-25-sermones-5-es/content.json",
+        "index": "documents/agustin-25-sermones-5-es/index.json",
+        "meta": "documents/agustin-25-sermones-5-es/meta.json"
+      },
+      "notes": "Tomo BAC n=25: 25 Sermones-5-273-a-338.pdf"
+    },
+    {
+      "id": "agustin-26-sermones-6-es",
+      "sourceId": "agustin-26",
+      "title": "Sermones 6",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbHpGdml5blVCUkk/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:10:00.609Z",
+      "lastDownloadedAt": "2026-07-13T00:10:00.609Z",
+      "unitCount": 3149,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-26-sermones-6-es/content.json",
+        "index": "documents/agustin-26-sermones-6-es/index.json",
+        "meta": "documents/agustin-26-sermones-6-es/meta.json"
+      },
+      "notes": "Tomo BAC n=26: 26 Sermones-6.pdf"
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-es",
+      "sourceId": "agustin-27",
+      "title": "Escritos Bíblicos 3",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpdnczaDRBb0NKaTA/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:10:05.807Z",
+      "lastDownloadedAt": "2026-07-13T00:10:05.807Z",
+      "unitCount": 1625,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-27-escritos-biblicos-3-es/content.json",
+        "index": "documents/agustin-27-escritos-biblicos-3-es/index.json",
+        "meta": "documents/agustin-27-escritos-biblicos-3-es/meta.json"
+      },
+      "notes": "Tomo BAC n=27: 27 Escritos-Biblicos-3.pdf"
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-es",
+      "sourceId": "agustin-28",
+      "title": "Escritos Bíblicos 4",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpU3o1ZkgtSXNqaGM/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:11:25.023Z",
+      "lastDownloadedAt": "2026-07-13T00:11:25.023Z",
+      "unitCount": 2414,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-28-escritos-biblicos-4-es/content.json",
+        "index": "documents/agustin-28-escritos-biblicos-4-es/index.json",
+        "meta": "documents/agustin-28-escritos-biblicos-4-es/meta.json"
+      },
+      "notes": "Tomo BAC n=28: 28 Escritos-Biblicos-4.pdf"
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-es",
+      "sourceId": "agustin-29",
+      "title": "Escritos Bíblicos 5",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpcVR1NmRfZ3QwM1E/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:11:29.986Z",
+      "lastDownloadedAt": "2026-07-13T00:11:29.986Z",
+      "unitCount": 2221,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-29-escritos-biblicos-5-es/content.json",
+        "index": "documents/agustin-29-escritos-biblicos-5-es/index.json",
+        "meta": "documents/agustin-29-escritos-biblicos-5-es/meta.json"
+      },
+      "notes": "Tomo BAC n=29: 29 Escritos Biblicos 5.pdf"
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-es",
+      "sourceId": "agustin-30",
+      "title": "Escritos antimaniqueos 01",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpNFl5cy1LblR1bE0/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:08:27.215Z",
+      "lastDownloadedAt": "2026-07-13T00:08:27.215Z",
+      "unitCount": 1997,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-30-antimaniqueos-1-es/content.json",
+        "index": "documents/agustin-30-antimaniqueos-1-es/index.json",
+        "meta": "documents/agustin-30-antimaniqueos-1-es/meta.json"
+      },
+      "notes": "Tomo BAC n=30: 30 Escritos-antimaniqueos-01.pdf"
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-es",
+      "sourceId": "agustin-31-antimaniqueos-2-es",
+      "title": "Escritos antimaniqueos (2.º) — Contra Fausto",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://amadoresdecristo.org/LIBROS/sAgustin/31.pdf"
+      ],
+      "firstDownloadedAt": "2026-07-13T02:55:53.823Z",
+      "lastDownloadedAt": "2026-07-13T06:22:22.985Z",
+      "unitCount": 3951,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-31-antimaniqueos-2-es/content.json",
+        "index": "documents/agustin-31-antimaniqueos-2-es/index.json",
+        "meta": "documents/agustin-31-antimaniqueos-2-es/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-es",
+      "sourceId": "agustin-32-antidonatistas-1-es",
+      "title": "Escritos antidonatistas (1.º)",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://archive.org/details/obras-de-san-agustin-xxxii-escritos-antidonatistas-1o"
+      ],
+      "firstDownloadedAt": "2026-07-13T02:55:58.660Z",
+      "lastDownloadedAt": "2026-07-13T06:22:24.498Z",
+      "unitCount": 6797,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-32-antidonatistas-1-es/content.json",
+        "index": "documents/agustin-32-antidonatistas-1-es/index.json",
+        "meta": "documents/agustin-32-antidonatistas-1-es/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-es",
+      "sourceId": "agustin-33-antidonatistas-2-es",
+      "title": "Escritos Antidonatistas 2",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpRTI3SWFiZGlNSGc/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:01:08.735Z",
+      "lastDownloadedAt": "2026-07-13T00:01:08.735Z",
+      "unitCount": 884,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-33-antidonatistas-2-es/content.json",
+        "index": "documents/agustin-33-antidonatistas-2-es/index.json",
+        "meta": "documents/agustin-33-antidonatistas-2-es/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-es",
+      "sourceId": "agustin-34-antidonatistas-3-es",
+      "title": "34 Escritos Antidonatistas 3",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbm5SMFdveXZEVFU/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:34:48.946Z",
+      "lastDownloadedAt": "2026-07-13T00:34:48.946Z",
+      "unitCount": 1987,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-34-antidonatistas-3-es/content.json",
+        "index": "documents/agustin-34-antidonatistas-3-es/index.json",
+        "meta": "documents/agustin-34-antidonatistas-3-es/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-es",
+      "sourceId": "agustin-35-antipelagianos-3-es",
+      "title": "Escritos Antipelagianos 3",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpcnpQc1RPQXRJODg/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:53:49.685Z",
+      "lastDownloadedAt": "2026-07-13T00:53:49.685Z",
+      "unitCount": 1948,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-35-antipelagianos-3-es/content.json",
+        "index": "documents/agustin-35-antipelagianos-3-es/index.json",
+        "meta": "documents/agustin-35-antipelagianos-3-es/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-es",
+      "sourceId": "agustin-36-antipelagianos-4-es",
+      "title": "Escritos Antipelagianos 4",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpWEhwQUJfYlBROEk/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T00:02:48.610Z",
+      "lastDownloadedAt": "2026-07-13T00:04:09.908Z",
+      "unitCount": 1056,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-36-antipelagianos-4-es/content.json",
+        "index": "documents/agustin-36-antipelagianos-4-es/index.json",
+        "meta": "documents/agustin-36-antipelagianos-4-es/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-es",
+      "sourceId": "agustin-37-antipelagianos-5-es",
+      "title": "Escritos Antipelagianos 5",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpTkhZSEhFZEd0Z0E/view"
+      ],
+      "firstDownloadedAt": "2026-07-12T23:41:46.929Z",
+      "lastDownloadedAt": "2026-07-12T23:41:46.929Z",
+      "unitCount": 944,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-37-antipelagianos-5-es/content.json",
+        "index": "documents/agustin-37-antipelagianos-5-es/index.json",
+        "meta": "documents/agustin-37-antipelagianos-5-es/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "agustin-38-antiarrianos-es",
+      "sourceId": "agustin-38-antiarrianos-es",
+      "title": "Escritos Antiarrianos y otros herejes",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpTnNra0N0WXNfRVk/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T01:06:22.508Z",
+      "lastDownloadedAt": "2026-07-13T01:06:22.508Z",
+      "unitCount": 1691,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-38-antiarrianos-es/content.json",
+        "index": "documents/agustin-38-antiarrianos-es/index.json",
+        "meta": "documents/agustin-38-antiarrianos-es/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "agustin-39-varios-1-es",
+      "sourceId": "agustin-39-varios-1-es",
+      "title": "Escritos varios 1",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpdEhRRFhtcGRBWGs/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T01:14:39.982Z",
+      "lastDownloadedAt": "2026-07-13T01:14:39.982Z",
+      "unitCount": 1230,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-39-varios-1-es/content.json",
+        "index": "documents/agustin-39-varios-1-es/index.json",
+        "meta": "documents/agustin-39-varios-1-es/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "agustin-40-varios-2-es",
+      "sourceId": "agustin-40-varios-2-es",
+      "title": "Escritos varios 2",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbEktREJoTEs5NWM/view"
+      ],
+      "firstDownloadedAt": "2026-07-13T01:25:33.594Z",
+      "lastDownloadedAt": "2026-07-13T01:25:35.668Z",
+      "unitCount": 1559,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-40-varios-2-es/content.json",
+        "index": "documents/agustin-40-varios-2-es/index.json",
+        "meta": "documents/agustin-40-varios-2-es/meta.json"
+      },
+      "notes": ""
     },
     {
       "id": "bible-pueblo-de-dios-es",
@@ -43,6 +843,67 @@
       "notes": "Seeded from existing corpus (migrated)."
     },
     {
+      "id": "carta-diogneto-es",
+      "sourceId": "carta-diogneto",
+      "title": "Carta a Diogneto",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpc3ppVWstMWdpSEU/view"
+      ],
+      "firstDownloadedAt": "2026-07-12T22:09:21.258Z",
+      "lastDownloadedAt": "2026-07-12T22:27:13.574Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/carta-diogneto-es/content.json",
+        "index": "documents/carta-diogneto-es/index.json",
+        "meta": "documents/carta-diogneto-es/meta.json"
+      },
+      "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpc3ppVWstMWdpSEU/view. Edición: Iglesia Viva / Ruiz Bueno (BAC 1950, adaptada). Edición/traducción de referencia: Iglesia Viva / Ruiz Bueno (BAC 1950, adaptada). Iglesia Viva / Ruiz Bueno BAC. 11 caps. romanos."
+    },
+    {
+      "id": "cdc-es",
+      "sourceId": "cdc",
+      "title": "Código de Derecho Canónico",
+      "kind": "canon-law",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-12T21:20:34.231Z",
+      "lastDownloadedAt": "2026-07-12T21:21:36.375Z",
+      "unitCount": 1744,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cdc-es/content.json",
+        "index": "documents/cdc-es/index.json",
+        "meta": "documents/cdc-es/meta.json"
+      },
+      "notes": "1983 Code of Canon Law (Latin Church). Multi-page (~251). docCode CDC (not CIC — CIC is the Catechism in this repo). ~1744 canons (some numbers reserved/abrogated in source HTML). Markup: <b>N</b>, <b>N.</b>, <b>Can. N -</b>, bare leading numbers."
+    },
+    {
+      "id": "cds-es",
+      "sourceId": "cds",
+      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-12T21:15:27.591Z",
+      "lastDownloadedAt": "2026-07-12T21:15:53.763Z",
+      "unitCount": 583,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cds-es/content.json",
+        "index": "documents/cds-es/index.json",
+        "meta": "documents/cds-es/meta.json"
+      },
+      "notes": "Single-page Compendium of the Social Doctrine of the Church. Numbered §§1–583. Dual markup (named anchors + bare bold numbers).",
+      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
+    },
+    {
       "id": "cic-es",
       "sourceId": "catechism",
       "title": "Catecismo de la Iglesia Católica",
@@ -60,7 +921,67 @@
         "index": "documents/cic-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated).",
-      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
+    },
+    {
+      "id": "cipriano-cartas-es",
+      "sourceId": "cipriano-cartas",
+      "title": "Cartas",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpV0lydDFGd2RqNVE/view"
+      ],
+      "firstDownloadedAt": "2026-07-12T22:09:26.361Z",
+      "lastDownloadedAt": "2026-07-12T22:27:22.511Z",
+      "unitCount": 829,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cipriano-cartas-es/content.json",
+        "index": "documents/cipriano-cartas-es/index.json",
+        "meta": "documents/cipriano-cartas-es/meta.json"
+      },
+      "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpV0lydDFGd2RqNVE/view. Edición: Biblioteca Clásica Gredos. Edición/traducción de referencia: Biblioteca Clásica Gredos. Gredos. Párrafos + tope unidad."
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-es",
+      "sourceId": "cirilo-catequesis",
+      "title": "Catequesis",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpOERXcEQ5eU85Ykk/view"
+      ],
+      "firstDownloadedAt": "2026-07-12T22:09:22.638Z",
+      "lastDownloadedAt": "2026-07-12T22:27:20.146Z",
+      "unitCount": 1015,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cirilo-jerusalen-catequesis-es/content.json",
+        "index": "documents/cirilo-jerusalen-catequesis-es/index.json",
+        "meta": "documents/cirilo-jerusalen-catequesis-es/meta.json"
+      },
+      "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpOERXcEQ5eU85Ykk/view. Edición: Edición castellana con introducción y notas (PG 33 / Migne). Edición/traducción de referencia: Edición castellana con introducción y notas (PG 33 / Migne). Procatequesis + Catequesis. Texto con notas."
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-es",
+      "sourceId": "clemente-pedagogo",
+      "title": "El Pedagogo",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbnNFLUF5eTRiM28/view"
+      ],
+      "firstDownloadedAt": "2026-07-12T22:09:24.051Z",
+      "lastDownloadedAt": "2026-07-12T22:27:21.314Z",
+      "unitCount": 776,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/clemente-alejandria-pedagogo-es/content.json",
+        "index": "documents/clemente-alejandria-pedagogo-es/index.json",
+        "meta": "documents/clemente-alejandria-pedagogo-es/meta.json"
+      },
+      "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpbnNFLUF5eTRiM28/view. Edición: Biblioteca Clásica Gredos. Edición/traducción de referencia: Biblioteca Clásica Gredos. Biblioteca Clásica Gredos. Párrafos + tope unidad."
     },
     {
       "id": "dv-es",
@@ -80,7 +1001,27 @@
         "index": "documents/dv-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated).",
-      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-es",
+      "sourceId": "gregorio-nisa-gran-catequesis-es",
+      "title": "Gran Catequesis",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpYVcycVFMNHpvVUE/view"
+      ],
+      "firstDownloadedAt": "2026-07-12T23:06:33.752Z",
+      "lastDownloadedAt": "2026-07-12T23:06:38.142Z",
+      "unitCount": 250,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/gregorio-nisa-gran-catequesis-es/content.json",
+        "index": "documents/gregorio-nisa-gran-catequesis-es/index.json",
+        "meta": "documents/gregorio-nisa-gran-catequesis-es/meta.json"
+      },
+      "notes": ""
     },
     {
       "id": "gs-es",
@@ -101,7 +1042,7 @@
         "meta": "documents/gs-es/meta.json"
       },
       "notes": "Pastoral constitution. Numbered §§1–93 (approx).",
-      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
     },
     {
       "id": "lg-es",
@@ -122,7 +1063,7 @@
         "meta": "documents/lg-es/meta.json"
       },
       "notes": "Single-page Vatican II dogmatic constitution. Numbered §§1–69.",
-      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
     },
     {
       "id": "sc-es",
@@ -142,7 +1083,7 @@
         "index": "documents/sc-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated).",
-      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
     },
     {
       "id": "ur-es",
@@ -163,7 +1104,7 @@
         "meta": "documents/ur-es/meta.json"
       },
       "notes": "Decree on Ecumenism (Vat. II). Numbered §§1–24. Official path uses decree_ (not const_).",
-      "lastResolvedAt": "2026-07-11T22:29:29.475Z"
+      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
     }
   ]
 }

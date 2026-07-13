@@ -69,6 +69,66 @@ Offline pack pipeline (legacy migrate + resolve):
 npm run pipeline:corpus
 ```
 
+## Crawl discovery (Curia Romana → depth 8)
+
+Separate from the **reading corpus**. Discovers organs + document URLs for offline referenceability.
+
+```bash
+# Depth 2 (organs only, quick QA)
+npm run crawl -- --seed romancuria-es --max-depth 2
+
+# Full phase target
+npm run crawl:romancuria
+# or
+npm run crawl -- --seed romancuria-es --max-depth 8
+
+# Resume after interrupt
+npm run crawl -- --seed romancuria-es --max-depth 8 --resume
+
+# Re-fetch known nodes when content may have changed
+npm run crawl:update -- --seed romancuria-es
+```
+
+**Outputs** (under repo `documentos/`, not Angular assets):
+
+| Path | Content |
+|------|---------|
+| `documentos/crawl/<seedId>/graph.jsonl` | One node per URL (depth, pageType, hash) |
+| `documentos/crawl/<seedId>/state.json` | Queue + visited + stats (resume) |
+| `documentos/crawl/<seedId>/cache/` | HTML by content hash |
+| `documentos/organs/<seedId>.json` | Curia organ tree |
+| `documentos/discoveries/<seedId>-documents.json` | Docs grouped by family + locales |
+
+**Policy:** allowlist `vatican.va`; prefer **ES**; other languages cataloged without body fetch; external hosts catalog-only; URLs already in reading corpus → `skipped-corpus`.
+
+**Promote to corpus** (later): pick a discovery with `preferredLocale: es` and add a `sources.json` entry / adapter scrape — do not bulk-copy discoveries into `frontend/src/assets/corpus`.
+
+## CDS (Compendio Doctrina Social) & CDC (Código de Derecho Canónico)
+
+```bash
+# Live scrape → corpus (idempotent re-scrape: same corpusDocId, no duplicates)
+npm run scrape:cds
+npm run scrape:cdc
+
+# Offline from fixtures/
+npm run scrape -- --source cds --offline
+npm run scrape -- --source cdc --offline --force   # sample pages only offline
+
+# Re-scrape even if unitCount << expected
+npm run scrape -- --source cds --force
+```
+
+| Source | corpusDocId | Units | Notes |
+|--------|-------------|-------|-------|
+| `cds` | `cds-es` | ~583 | Single page; adapter `cds` |
+| `cdc` | `cdc-es` | ~1752 canons | Multi-page (~251); adapter `cdc` |
+
+**Naming:** In this repo `CIC` = **Catecismo** (`cic-es`). The Code of Canon Law uses **`CDC`** (alias `CICL`). Do not reassign `CIC` to the Code.
+
+**Re-scrape catechism (legacy):** `npm run catecismo` then `npm run migrate:corpus` if needed. Prefer not re-running full bible/catechism crawl casually (noisy multi-page).
+
+**Language catalog:** `documentos/registry/source-catalog.json` lists ES + other locales (html/pdf). Only ES bodies are scraped in this phase.
+
 ## How to add another magisterial doc (e.g. GS, DV)
 
 1. **Add source** in `config/sources.json`:

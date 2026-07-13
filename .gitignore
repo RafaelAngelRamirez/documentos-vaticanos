@@ -49,3 +49,11 @@ Thumbs.db
 *.apk
 frontend/android/local.properties
 
+
+# Crawl HTML cache (large)
+documentos/crawl/**/cache/
+
+# Padres: keep inventory + clean text + corpus JSON; skip heavy PDFs and raw extracts
+documentos/padres-source/pdf/
+documentos/padres-source/raw/
+

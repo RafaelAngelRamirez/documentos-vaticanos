@@ -82,6 +82,10 @@ export function writeCorpusDocument(
     indexPath: relIndex,
     unitCount,
   };
+  if (config.author) meta.author = config.author;
+  if (config.compiler) meta.compiler = config.compiler;
+  if (config.sourceNote) meta.sourceNote = config.sourceNote;
+  else if (config.notes) meta.sourceNote = config.notes;
 
   for (const root of CORPUS_ROOTS) {
     ensureDir(path.join(root, "documents", config.corpusDocId));

@@ -183,7 +183,11 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
           if (!this.meta) {
             this.error = `Documento no encontrado: ${this.docId}`;
           } else {
-            this.display = catalogDisplayFor(this.meta.id, this.meta.kind);
+            this.display = catalogDisplayFor(this.meta.id, this.meta.kind, {
+              author: this.meta.author,
+              compiler: this.meta.compiler,
+              sourceNote: this.meta.sourceNote,
+            });
             const last = this.progress.getLastRead();
             this.lastRead =
               last && last.documentId === this.meta.id ? last : null;

@@ -14,6 +14,12 @@ export interface DocumentMeta {
    * UI should link language label here.
    */
   sourceUrl?: string;
+  /** Author of the work (e.g. Church Father). */
+  author?: string;
+  /** Compiler / curator of the digital pack (e.g. A. Cedano). */
+  compiler?: string;
+  /** Human-readable provenance (edition, collection). */
+  sourceNote?: string;
   /**
    * Path to body JSON. May be relative to the corpus root
    * (`documents/...`) or an absolute assets path (`assets/...`).

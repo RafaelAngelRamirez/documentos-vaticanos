@@ -49,6 +49,20 @@
           </div>
         </div>
 
+        <div class="fs13 muted fuente-block" *ngIf="display.compilador || meta?.sourceUrl || display.fuenteNota">
+          <div *ngIf="display.compilador">
+            Compilación: <strong>{{ display.compilador }}</strong>
+          </div>
+          <div *ngIf="display.fuenteNota" class="fuente-nota">{{ display.fuenteNota }}</div>
+          <a
+            *ngIf="meta?.sourceUrl"
+            class="app-lang-link"
+            [href]="meta!.sourceUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Español · fuente</a>
+        </div>
+
         <div class="fs13 muted tc pos" *ngIf="posicionLabel">
           {{ posicionLabel }}
         </div>
@@ -116,6 +130,19 @@
               <div class="mk">Audio</div>
               <div class="mv">{{ audioEstimado }}</div>
             </div>
+          </div>
+          <div class="fs13 muted fuente-block" *ngIf="display.compilador || meta?.sourceUrl || display.fuenteNota">
+            <div *ngIf="display.compilador">
+              Compilación: <strong>{{ display.compilador }}</strong>
+            </div>
+            <div *ngIf="display.fuenteNota" class="fuente-nota">{{ display.fuenteNota }}</div>
+            <a
+              *ngIf="meta?.sourceUrl"
+              class="app-lang-link"
+              [href]="meta!.sourceUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Español · fuente</a>
           </div>
         </div>
         <div class="col-side">
