@@ -87,7 +87,7 @@
         "AG"
       ],
       "title": "Ad gentes",
-      "corpusDocId": null,
+      "corpusDocId": "ag-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -97,7 +97,7 @@
         "CD"
       ],
       "title": "Christus Dominus",
-      "corpusDocId": null,
+      "corpusDocId": "cd-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -107,7 +107,7 @@
         "OT"
       ],
       "title": "Optatam totius",
-      "corpusDocId": null,
+      "corpusDocId": "ot-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -117,7 +117,7 @@
         "PC"
       ],
       "title": "Perfectae caritatis",
-      "corpusDocId": null,
+      "corpusDocId": "pc-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -127,7 +127,7 @@
         "PO"
       ],
       "title": "Presbyterorum ordinis",
-      "corpusDocId": null,
+      "corpusDocId": "po-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -147,7 +147,7 @@
         "NA"
       ],
       "title": "Nostra aetate",
-      "corpusDocId": null,
+      "corpusDocId": "na-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -157,7 +157,7 @@
         "DH"
       ],
       "title": "Dignitatis humanae",
-      "corpusDocId": null,
+      "corpusDocId": "dh-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -167,7 +167,7 @@
         "GE"
       ],
       "title": "Gravissimum educationis",
-      "corpusDocId": null,
+      "corpusDocId": "ge-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -177,7 +177,7 @@
         "IM"
       ],
       "title": "Inter mirifica",
-      "corpusDocId": null,
+      "corpusDocId": "im-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -188,7 +188,7 @@
         "Catechesi tradendae"
       ],
       "title": "Catechesi tradendae",
-      "corpusDocId": null,
+      "corpusDocId": "ct-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -199,7 +199,7 @@
         "Evangelii nuntiandi"
       ],
       "title": "Evangelii nuntiandi",
-      "corpusDocId": null,
+      "corpusDocId": "en-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -211,7 +211,7 @@
         "Redemptoris missio"
       ],
       "title": "Redemptoris missio",
-      "corpusDocId": null,
+      "corpusDocId": "rm-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -222,7 +222,7 @@
         "Familiaris consortio"
       ],
       "title": "Familiaris consortio",
-      "corpusDocId": null,
+      "corpusDocId": "fc-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -234,7 +234,7 @@
         "Christifideles laici"
       ],
       "title": "Christifideles laici",
-      "corpusDocId": null,
+      "corpusDocId": "cl-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -245,7 +245,7 @@
         "Veritatis splendor"
       ],
       "title": "Veritatis splendor",
-      "corpusDocId": null,
+      "corpusDocId": "vs-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -256,7 +256,7 @@
         "Evangelium vitae"
       ],
       "title": "Evangelium vitae",
-      "corpusDocId": null,
+      "corpusDocId": "ev-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -270,6 +270,34 @@
       "corpusDocId": null,
       "locatorType": "number",
       "kind": "magisterium"
+    },
+    {
+      "code": "CDS",
+      "aliases": [
+        "CDS",
+        "CDSI",
+        "Compendio",
+        "Compendio de la Doctrina Social",
+        "Compendio de la Doctrina Social de la Iglesia"
+      ],
+      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "corpusDocId": "cds-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "CDC",
+      "aliases": [
+        "CDC",
+        "CICL",
+        "Código de Derecho Canónico",
+        "Codex Iuris Canonici",
+        "Código"
+      ],
+      "title": "Código de Derecho Canónico",
+      "corpusDocId": "cdc-es",
+      "locatorType": "number",
+      "kind": "canon-law"
     },
     {
       "code": "CCEO",
@@ -288,7 +316,7 @@
         "Humanae vitae"
       ],
       "title": "Humanae vitae",
-      "corpusDocId": null,
+      "corpusDocId": "hv-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -299,7 +327,7 @@
         "Mulieris dignitatem"
       ],
       "title": "Mulieris dignitatem",
-      "corpusDocId": null,
+      "corpusDocId": "md-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -310,7 +338,7 @@
         "Marialis cultus"
       ],
       "title": "Marialis cultus",
-      "corpusDocId": null,
+      "corpusDocId": "mc-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -321,7 +349,7 @@
         "Centesimus annus"
       ],
       "title": "Centesimus annus",
-      "corpusDocId": null,
+      "corpusDocId": "ca-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -332,7 +360,7 @@
         "Laborem exercens"
       ],
       "title": "Laborem exercens",
-      "corpusDocId": null,
+      "corpusDocId": "le-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -343,7 +371,7 @@
         "Sollicitudo rei socialis"
       ],
       "title": "Sollicitudo rei socialis",
-      "corpusDocId": null,
+      "corpusDocId": "srs-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -354,7 +382,7 @@
         "Populorum progressio"
       ],
       "title": "Populorum progressio",
-      "corpusDocId": null,
+      "corpusDocId": "pp-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -365,7 +393,7 @@
         "Redemptor hominis"
       ],
       "title": "Redemptor hominis",
-      "corpusDocId": null,
+      "corpusDocId": "rh-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -376,7 +404,7 @@
         "Pastores dabo vobis"
       ],
       "title": "Pastores dabo vobis",
-      "corpusDocId": null,
+      "corpusDocId": "pdv-es",
       "locatorType": "number",
       "kind": "magisterium"
     },
@@ -387,7 +415,7 @@
         "Novo millennio ineunte"
       ],
       "title": "Novo millennio ineunte",
-      "corpusDocId": null,
+      "corpusDocId": "nmi-es",
       "locatorType": "number",
       "kind": "magisterium"
     }

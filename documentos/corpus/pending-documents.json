@@ -1,102 +1,6 @@
 {
-  "generatedAt": "2026-07-11T22:29:29.474Z",
+  "generatedAt": "2026-07-13T06:36:35.518Z",
   "pending": [
-    {
-      "code": "AG",
-      "title": "Ad gentes",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "CD",
-      "title": "Christus Dominus",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "OT",
-      "title": "Optatam totius",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "PC",
-      "title": "Perfectae caritatis",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "PO",
-      "title": "Presbyterorum ordinis",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "NA",
-      "title": "Nostra aetate",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "DH",
-      "title": "Dignitatis humanae",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "GE",
-      "title": "Gravissimum educationis",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "IM",
-      "title": "Inter mirifica",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "CT",
-      "title": "Catechesi tradendae",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "EN",
-      "title": "Evangelii nuntiandi",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "RM",
-      "title": "Redemptoris missio",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "FC",
-      "title": "Familiaris consortio",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "CL",
-      "title": "Christifideles laici",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "VS",
-      "title": "Veritatis splendor",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "EV",
-      "title": "Evangelium vitae",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
     {
       "code": "DS",
       "title": "Denzinger-Schönmetzer",
@@ -106,66 +10,6 @@
     {
       "code": "CCEO",
       "title": "Código de Cánones de las Iglesias Orientales",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "HV",
-      "title": "Humanae vitae",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "MD",
-      "title": "Mulieris dignitatem",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "MC",
-      "title": "Marialis cultus",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "CA",
-      "title": "Centesimus annus",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "LE",
-      "title": "Laborem exercens",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "SRS",
-      "title": "Sollicitudo rei socialis",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "PP",
-      "title": "Populorum progressio",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "RH",
-      "title": "Redemptor hominis",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "PDV",
-      "title": "Pastores dabo vobis",
-      "kind": "magisterium",
-      "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
-    },
-    {
-      "code": "NMI",
-      "title": "Novo millennio ineunte",
       "kind": "magisterium",
       "note": "Not in corpus yet; refs stay unresolved until scraped and corpusDocId is set"
     }
@@ -178,6 +22,79 @@
     "ur-es",
     "aa-es",
     "lg-es",
-    "gs-es"
+    "gs-es",
+    "cds-es",
+    "cdc-es",
+    "carta-diogneto-es",
+    "cirilo-jerusalen-catequesis-es",
+    "clemente-alejandria-pedagogo-es",
+    "cipriano-cartas-es",
+    "agustin-02-confesiones-es",
+    "agustin-16-ciudad-de-dios-1-es",
+    "agustin-17-ciudad-de-dios-2-es",
+    "agustin-05-de-trinitate-es",
+    "agustin-01-primeros-escritos-es",
+    "agustin-08-cartas-1-es",
+    "agustin-07-sermones-1-es",
+    "gregorio-nisa-gran-catequesis-es",
+    "agustin-37-antipelagianos-5-es",
+    "agustin-12-tratados-morales-es",
+    "agustin-33-antidonatistas-2-es",
+    "agustin-36-antipelagianos-4-es",
+    "agustin-30-antimaniqueos-1-es",
+    "agustin-03-obras-filosoficas-es",
+    "agustin-23-sermones-juan-hechos-es",
+    "agustin-04-obras-apologeticas-es",
+    "agustin-24-sermones-4-es",
+    "agustin-06-gracia-1-es",
+    "agustin-25-sermones-5-es",
+    "agustin-09-gracia-2-es",
+    "agustin-10-sermones-2-es",
+    "agustin-26-sermones-6-es",
+    "agustin-27-escritos-biblicos-3-es",
+    "agustin-11-cartas-2-es",
+    "agustin-28-escritos-biblicos-4-es",
+    "agustin-29-escritos-biblicos-5-es",
+    "agustin-15-tratados-escriturarios-es",
+    "agustin-18-epistolas-indices-es",
+    "agustin-19-enarraciones-salmos-1-es",
+    "agustin-20-enarraciones-salmos-2-es",
+    "agustin-21-enarraciones-salmos-3-es",
+    "agustin-22-enarraciones-salmos-4-es",
+    "agustin-34-antidonatistas-3-es",
+    "agustin-35-antipelagianos-3-es",
+    "agustin-38-antiarrianos-es",
+    "agustin-39-varios-1-es",
+    "agustin-40-varios-2-es",
+    "agustin-13-evangelio-juan-1-es",
+    "agustin-14-evangelio-juan-2-es",
+    "agustin-31-antimaniqueos-2-es",
+    "agustin-32-antidonatistas-1-es",
+    "ag-es",
+    "cd-es",
+    "ot-es",
+    "pc-es",
+    "po-es",
+    "na-es",
+    "dh-es",
+    "ge-es",
+    "im-es",
+    "hv-es",
+    "en-es",
+    "pp-es",
+    "mc-es",
+    "ct-es",
+    "fc-es",
+    "cl-es",
+    "rm-es",
+    "vs-es",
+    "ev-es",
+    "md-es",
+    "ca-es",
+    "le-es",
+    "srs-es",
+    "rh-es",
+    "pdv-es",
+    "nmi-es"
   ]
 }

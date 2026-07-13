@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-13T06:22:24.498Z",
+  "updatedAt": "2026-07-13T06:36:35.520Z",
   "documents": [
     {
       "id": "aa-es",
@@ -21,7 +21,28 @@
         "meta": "documents/aa-es/meta.json"
       },
       "notes": "Decree on the Apostolate of the Laity (Vat. II). Numbered §§1–33. Official path uses decree_ (not const_).",
-      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "ag-es",
+      "sourceId": "ag",
+      "title": "Ad gentes",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_ad-gentes_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:18.959Z",
+      "lastDownloadedAt": "2026-07-13T06:35:18.959Z",
+      "unitCount": 42,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ag-es/content.json",
+        "index": "documents/ag-es/index.json",
+        "meta": "documents/ag-es/meta.json"
+      },
+      "notes": "Vat. II decree on missionary activity. §§1–42.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
     },
     {
       "id": "agustin-01-primeros-escritos-es",
@@ -843,6 +864,27 @@
       "notes": "Seeded from existing corpus (migrated)."
     },
     {
+      "id": "ca-es",
+      "sourceId": "ca",
+      "title": "Centesimus annus",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_01051991_centesimus-annus.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:36:09.401Z",
+      "lastDownloadedAt": "2026-07-13T06:36:09.401Z",
+      "unitCount": 114,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ca-es/content.json",
+        "index": "documents/ca-es/index.json",
+        "meta": "documents/ca-es/meta.json"
+      },
+      "notes": "JPII encyclical on the 100th anniversary of Rerum novarum.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
       "id": "carta-diogneto-es",
       "sourceId": "carta-diogneto",
       "title": "Carta a Diogneto",
@@ -861,6 +903,27 @@
         "meta": "documents/carta-diogneto-es/meta.json"
       },
       "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpc3ppVWstMWdpSEU/view. Edición: Iglesia Viva / Ruiz Bueno (BAC 1950, adaptada). Edición/traducción de referencia: Iglesia Viva / Ruiz Bueno (BAC 1950, adaptada). Iglesia Viva / Ruiz Bueno BAC. 11 caps. romanos."
+    },
+    {
+      "id": "cd-es",
+      "sourceId": "cd",
+      "title": "Christus Dominus",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_christus-dominus_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:21.129Z",
+      "lastDownloadedAt": "2026-07-13T06:35:21.129Z",
+      "unitCount": 43,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cd-es/content.json",
+        "index": "documents/cd-es/index.json",
+        "meta": "documents/cd-es/meta.json"
+      },
+      "notes": "Vat. II decree on pastoral office of bishops.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
     },
     {
       "id": "cdc-es",
@@ -901,7 +964,7 @@
         "meta": "documents/cds-es/meta.json"
       },
       "notes": "Single-page Compendium of the Social Doctrine of the Church. Numbered §§1–583. Dual markup (named anchors + bare bold numbers).",
-      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
     },
     {
       "id": "cic-es",
@@ -921,7 +984,7 @@
         "index": "documents/cic-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated).",
-      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
     },
     {
       "id": "cipriano-cartas-es",
@@ -964,6 +1027,27 @@
       "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpOERXcEQ5eU85Ykk/view. Edición: Edición castellana con introducción y notas (PG 33 / Migne). Edición/traducción de referencia: Edición castellana con introducción y notas (PG 33 / Migne). Procatequesis + Catequesis. Texto con notas."
     },
     {
+      "id": "cl-es",
+      "sourceId": "cl",
+      "title": "Christifideles laici",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_30121988_christifideles-laici.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:53.284Z",
+      "lastDownloadedAt": "2026-07-13T06:35:53.284Z",
+      "unitCount": 64,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cl-es/content.json",
+        "index": "documents/cl-es/index.json",
+        "meta": "documents/cl-es/meta.json"
+      },
+      "notes": "JPII apostolic exhortation on the laity.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
       "id": "clemente-alejandria-pedagogo-es",
       "sourceId": "clemente-pedagogo",
       "title": "El Pedagogo",
@@ -984,6 +1068,48 @@
       "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpbnNFLUF5eTRiM28/view. Edición: Biblioteca Clásica Gredos. Edición/traducción de referencia: Biblioteca Clásica Gredos. Biblioteca Clásica Gredos. Párrafos + tope unidad."
     },
     {
+      "id": "ct-es",
+      "sourceId": "ct",
+      "title": "Catechesi tradendae",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_16101979_catechesi-tradendae.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:46.235Z",
+      "lastDownloadedAt": "2026-07-13T06:35:46.235Z",
+      "unitCount": 73,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ct-es/content.json",
+        "index": "documents/ct-es/index.json",
+        "meta": "documents/ct-es/meta.json"
+      },
+      "notes": "JPII apostolic exhortation on catechesis.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "dh-es",
+      "sourceId": "dh",
+      "title": "Dignitatis humanae",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651207_dignitatis-humanae_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:31.609Z",
+      "lastDownloadedAt": "2026-07-13T06:35:31.609Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dh-es/content.json",
+        "index": "documents/dh-es/index.json",
+        "meta": "documents/dh-es/meta.json"
+      },
+      "notes": "Vat. II declaration on religious freedom.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
       "id": "dv-es",
       "sourceId": "dv",
       "title": "Dei verbum",
@@ -1001,7 +1127,90 @@
         "index": "documents/dv-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated).",
-      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "en-es",
+      "sourceId": "en",
+      "title": "Evangelii nuntiandi",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/es/apost_exhortations/documents/hf_p-vi_exh_19751208_evangelii-nuntiandi.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:40.047Z",
+      "lastDownloadedAt": "2026-07-13T06:35:40.047Z",
+      "unitCount": 82,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/en-es/content.json",
+        "index": "documents/en-es/index.json",
+        "meta": "documents/en-es/meta.json"
+      },
+      "notes": "Paul VI apostolic exhortation on evangelization.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "ev-es",
+      "sourceId": "ev",
+      "title": "Evangelium vitae",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_25031995_evangelium-vitae.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:36:04.077Z",
+      "lastDownloadedAt": "2026-07-13T06:36:04.077Z",
+      "unitCount": 142,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ev-es/content.json",
+        "index": "documents/ev-es/index.json",
+        "meta": "documents/ev-es/meta.json"
+      },
+      "notes": "JPII encyclical on the value and inviolability of human life.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "fc-es",
+      "sourceId": "fc",
+      "title": "Familiaris consortio",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_19811122_familiaris-consortio.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:50.402Z",
+      "lastDownloadedAt": "2026-07-13T06:35:50.402Z",
+      "unitCount": 86,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/fc-es/content.json",
+        "index": "documents/fc-es/index.json",
+        "meta": "documents/fc-es/meta.json"
+      },
+      "notes": "JPII apostolic exhortation on the family.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "ge-es",
+      "sourceId": "ge",
+      "title": "Gravissimum educationis",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_gravissimum-educationis_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:33.550Z",
+      "lastDownloadedAt": "2026-07-13T06:35:33.550Z",
+      "unitCount": 12,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ge-es/content.json",
+        "index": "documents/ge-es/index.json",
+        "meta": "documents/ge-es/meta.json"
+      },
+      "notes": "Vat. II declaration on Christian education."
     },
     {
       "id": "gregorio-nisa-gran-catequesis-es",
@@ -1042,7 +1251,70 @@
         "meta": "documents/gs-es/meta.json"
       },
       "notes": "Pastoral constitution. Numbered §§1–93 (approx).",
-      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "hv-es",
+      "sourceId": "hv",
+      "title": "Humanae vitae",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/es/encyclicals/documents/hf_p-vi_enc_25071968_humanae-vitae.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:38.054Z",
+      "lastDownloadedAt": "2026-07-13T06:35:38.054Z",
+      "unitCount": 30,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/hv-es/content.json",
+        "index": "documents/hv-es/index.json",
+        "meta": "documents/hv-es/meta.json"
+      },
+      "notes": "Paul VI encyclical on regulation of birth.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "im-es",
+      "sourceId": "im",
+      "title": "Inter mirifica",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19631204_inter-mirifica_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:36.015Z",
+      "lastDownloadedAt": "2026-07-13T06:35:36.015Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/im-es/content.json",
+        "index": "documents/im-es/index.json",
+        "meta": "documents/im-es/meta.json"
+      },
+      "notes": "Vat. II decree on social communication.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "le-es",
+      "sourceId": "le",
+      "title": "Laborem exercens",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_14091981_laborem-exercens.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:36:12.058Z",
+      "lastDownloadedAt": "2026-07-13T06:36:12.058Z",
+      "unitCount": 87,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/le-es/content.json",
+        "index": "documents/le-es/index.json",
+        "meta": "documents/le-es/meta.json"
+      },
+      "notes": "JPII encyclical on human work.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
     },
     {
       "id": "lg-es",
@@ -1063,7 +1335,238 @@
         "meta": "documents/lg-es/meta.json"
       },
       "notes": "Single-page Vatican II dogmatic constitution. Numbered §§1–69.",
-      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "mc-es",
+      "sourceId": "mc",
+      "title": "Marialis cultus",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/es/apost_exhortations/documents/hf_p-vi_exh_19740202_marialis-cultus.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:44.159Z",
+      "lastDownloadedAt": "2026-07-13T06:35:44.159Z",
+      "unitCount": 102,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/mc-es/content.json",
+        "index": "documents/mc-es/index.json",
+        "meta": "documents/mc-es/meta.json"
+      },
+      "notes": "Paul VI apostolic exhortation on Marian devotion. Numbered sections vary.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "md-es",
+      "sourceId": "md",
+      "title": "Mulieris dignitatem",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_letters/1988/documents/hf_jp-ii_apl_15081988_mulieris-dignitatem.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:36:07.188Z",
+      "lastDownloadedAt": "2026-07-13T06:36:07.188Z",
+      "unitCount": 31,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/md-es/content.json",
+        "index": "documents/md-es/index.json",
+        "meta": "documents/md-es/meta.json"
+      },
+      "notes": "JPII apostolic letter on the dignity of women.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "na-es",
+      "sourceId": "na",
+      "title": "Nostra aetate",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:29.839Z",
+      "lastDownloadedAt": "2026-07-13T06:35:29.839Z",
+      "unitCount": 5,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/na-es/content.json",
+        "index": "documents/na-es/index.json",
+        "meta": "documents/na-es/meta.json"
+      },
+      "notes": "Vat. II declaration on non-Christian religions.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "nmi-es",
+      "sourceId": "nmi",
+      "title": "Novo millennio ineunte",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_letters/2001/documents/hf_jp-ii_apl_20010106_novo-millennio-ineunte.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:36:27.301Z",
+      "lastDownloadedAt": "2026-07-13T06:36:27.301Z",
+      "unitCount": 59,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/nmi-es/content.json",
+        "index": "documents/nmi-es/index.json",
+        "meta": "documents/nmi-es/meta.json"
+      },
+      "notes": "JPII apostolic letter at the close of the Great Jubilee 2000.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "ot-es",
+      "sourceId": "ot",
+      "title": "Optatam totius",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_optatam-totius_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:23.357Z",
+      "lastDownloadedAt": "2026-07-13T06:35:23.357Z",
+      "unitCount": 22,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ot-es/content.json",
+        "index": "documents/ot-es/index.json",
+        "meta": "documents/ot-es/meta.json"
+      },
+      "notes": "Vat. II decree on priestly training.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "pc-es",
+      "sourceId": "pc",
+      "title": "Perfectae caritatis",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_perfectae-caritatis_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:25.492Z",
+      "lastDownloadedAt": "2026-07-13T06:35:25.492Z",
+      "unitCount": 25,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/pc-es/content.json",
+        "index": "documents/pc-es/index.json",
+        "meta": "documents/pc-es/meta.json"
+      },
+      "notes": "Vat. II decree on renewal of religious life.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "pdv-es",
+      "sourceId": "pdv",
+      "title": "Pastores dabo vobis",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_25031992_pastores-dabo-vobis.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:36:23.288Z",
+      "lastDownloadedAt": "2026-07-13T06:36:23.288Z",
+      "unitCount": 82,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/pdv-es/content.json",
+        "index": "documents/pdv-es/index.json",
+        "meta": "documents/pdv-es/meta.json"
+      },
+      "notes": "JPII apostolic exhortation on formation of priests.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "po-es",
+      "sourceId": "po",
+      "title": "Presbyterorum ordinis",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_presbyterorum-ordinis_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:27.822Z",
+      "lastDownloadedAt": "2026-07-13T06:35:27.822Z",
+      "unitCount": 22,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/po-es/content.json",
+        "index": "documents/po-es/index.json",
+        "meta": "documents/po-es/meta.json"
+      },
+      "notes": "Vat. II decree on ministry of priests.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "pp-es",
+      "sourceId": "pp",
+      "title": "Populorum progressio",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/es/encyclicals/documents/hf_p-vi_enc_26031967_populorum.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:41.822Z",
+      "lastDownloadedAt": "2026-07-13T06:35:41.822Z",
+      "unitCount": 87,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/pp-es/content.json",
+        "index": "documents/pp-es/index.json",
+        "meta": "documents/pp-es/meta.json"
+      },
+      "notes": "Paul VI encyclical on development of peoples.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "rh-es",
+      "sourceId": "rh",
+      "title": "Redemptor hominis",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_04031979_redemptor-hominis.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:36:19.850Z",
+      "lastDownloadedAt": "2026-07-13T06:36:19.850Z",
+      "unitCount": 136,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/rh-es/content.json",
+        "index": "documents/rh-es/index.json",
+        "meta": "documents/rh-es/meta.json"
+      },
+      "notes": "JPII first encyclical on the Redeemer of man.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "rm-es",
+      "sourceId": "rm",
+      "title": "Redemptoris missio",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_07121990_redemptoris-missio.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:35:57.088Z",
+      "lastDownloadedAt": "2026-07-13T06:35:57.088Z",
+      "unitCount": 92,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/rm-es/content.json",
+        "index": "documents/rm-es/index.json",
+        "meta": "documents/rm-es/meta.json"
+      },
+      "notes": "JPII encyclical on permanent validity of missionary mandate.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
     },
     {
       "id": "sc-es",
@@ -1083,7 +1586,28 @@
         "index": "documents/sc-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated).",
-      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "srs-es",
+      "sourceId": "srs",
+      "title": "Sollicitudo rei socialis",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_30121987_sollicitudo-rei-socialis.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:36:16.183Z",
+      "lastDownloadedAt": "2026-07-13T06:36:16.183Z",
+      "unitCount": 49,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/srs-es/content.json",
+        "index": "documents/srs-es/index.json",
+        "meta": "documents/srs-es/meta.json"
+      },
+      "notes": "JPII encyclical on social concern.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
     },
     {
       "id": "ur-es",
@@ -1104,7 +1628,28 @@
         "meta": "documents/ur-es/meta.json"
       },
       "notes": "Decree on Ecumenism (Vat. II). Numbered §§1–24. Official path uses decree_ (not const_).",
-      "lastResolvedAt": "2026-07-12T21:21:37.251Z"
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
+    },
+    {
+      "id": "vs-es",
+      "sourceId": "vs",
+      "title": "Veritatis splendor",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_06081993_veritatis-splendor.html"
+      ],
+      "firstDownloadedAt": "2026-07-13T06:36:00.204Z",
+      "lastDownloadedAt": "2026-07-13T06:36:00.204Z",
+      "unitCount": 184,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vs-es/content.json",
+        "index": "documents/vs-es/index.json",
+        "meta": "documents/vs-es/meta.json"
+      },
+      "notes": "JPII encyclical on fundamental questions of moral teaching.",
+      "lastResolvedAt": "2026-07-13T06:36:35.520Z"
     }
   ]
 }

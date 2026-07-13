@@ -127,6 +127,428 @@
       "fixturePath": "fixtures/aa-es/source.html",
       "expectedUnitCount": 33,
       "notes": "Decree on the Apostolate of the Laity (Vat. II). Numbered §§1–33. Official path uses decree_ (not const_)."
+    },
+    {
+      "id": "cds",
+      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "shortTitle": "CDS",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "cds-es",
+      "docCode": "CDS",
+      "adapter": "cds",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sp.html"
+      ],
+      "fixturePath": "fixtures/cds-es/source.html",
+      "expectedUnitCount": 583,
+      "notes": "Single-page Compendium of the Social Doctrine of the Church. Numbered §§1–583. Dual markup (named anchors + bare bold numbers)."
+    },
+    {
+      "id": "cdc",
+      "title": "Código de Derecho Canónico",
+      "shortTitle": "CDC",
+      "kind": "canon-law",
+      "locale": "es",
+      "corpusDocId": "cdc-es",
+      "docCode": "CDC",
+      "adapter": "cdc",
+      "seedUrls": [
+        "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html"
+      ],
+      "fixturePath": "fixtures/cdc-es",
+      "expectedUnitCount": 1744,
+      "notes": "1983 Code of Canon Law (Latin Church). Multi-page (~251). docCode CDC (not CIC — CIC is the Catechism in this repo). ~1744 canons (some numbers reserved/abrogated in source HTML). Markup: <b>N</b>, <b>N.</b>, <b>Can. N -</b>, bare leading numbers."
+    },
+    {
+      "id": "ag",
+      "title": "Ad gentes",
+      "shortTitle": "AG",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ag-es",
+      "docCode": "AG",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_ad-gentes_sp.html"
+      ],
+      "expectedUnitCount": 42,
+      "notes": "Vat. II decree on missionary activity. §§1–42."
+    },
+    {
+      "id": "cd",
+      "title": "Christus Dominus",
+      "shortTitle": "CD",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "cd-es",
+      "docCode": "CD",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_christus-dominus_sp.html"
+      ],
+      "expectedUnitCount": 44,
+      "notes": "Vat. II decree on pastoral office of bishops."
+    },
+    {
+      "id": "ot",
+      "title": "Optatam totius",
+      "shortTitle": "OT",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ot-es",
+      "docCode": "OT",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_optatam-totius_sp.html"
+      ],
+      "expectedUnitCount": 22,
+      "notes": "Vat. II decree on priestly training."
+    },
+    {
+      "id": "pc",
+      "title": "Perfectae caritatis",
+      "shortTitle": "PC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "pc-es",
+      "docCode": "PC",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_perfectae-caritatis_sp.html"
+      ],
+      "expectedUnitCount": 25,
+      "notes": "Vat. II decree on renewal of religious life."
+    },
+    {
+      "id": "po",
+      "title": "Presbyterorum ordinis",
+      "shortTitle": "PO",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "po-es",
+      "docCode": "PO",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_presbyterorum-ordinis_sp.html"
+      ],
+      "expectedUnitCount": 22,
+      "notes": "Vat. II decree on ministry of priests."
+    },
+    {
+      "id": "na",
+      "title": "Nostra aetate",
+      "shortTitle": "NA",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "na-es",
+      "docCode": "NA",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_sp.html"
+      ],
+      "expectedUnitCount": 5,
+      "notes": "Vat. II declaration on non-Christian religions."
+    },
+    {
+      "id": "dh",
+      "title": "Dignitatis humanae",
+      "shortTitle": "DH",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "dh-es",
+      "docCode": "DH",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651207_dignitatis-humanae_sp.html"
+      ],
+      "expectedUnitCount": 15,
+      "notes": "Vat. II declaration on religious freedom."
+    },
+    {
+      "id": "ge",
+      "title": "Gravissimum educationis",
+      "shortTitle": "GE",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ge-es",
+      "docCode": "GE",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_gravissimum-educationis_sp.html"
+      ],
+      "expectedUnitCount": 12,
+      "notes": "Vat. II declaration on Christian education."
+    },
+    {
+      "id": "im",
+      "title": "Inter mirifica",
+      "shortTitle": "IM",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "im-es",
+      "docCode": "IM",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19631204_inter-mirifica_sp.html"
+      ],
+      "expectedUnitCount": 24,
+      "notes": "Vat. II decree on social communication."
+    },
+    {
+      "id": "hv",
+      "title": "Humanae vitae",
+      "shortTitle": "HV",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "hv-es",
+      "docCode": "HV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/encyclicals/documents/hf_p-vi_enc_25071968_humanae-vitae.html"
+      ],
+      "expectedUnitCount": 31,
+      "notes": "Paul VI encyclical on regulation of birth."
+    },
+    {
+      "id": "en",
+      "title": "Evangelii nuntiandi",
+      "shortTitle": "EN",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "en-es",
+      "docCode": "EN",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/apost_exhortations/documents/hf_p-vi_exh_19751208_evangelii-nuntiandi.html"
+      ],
+      "expectedUnitCount": 82,
+      "notes": "Paul VI apostolic exhortation on evangelization."
+    },
+    {
+      "id": "pp",
+      "title": "Populorum progressio",
+      "shortTitle": "PP",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "pp-es",
+      "docCode": "PP",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/encyclicals/documents/hf_p-vi_enc_26031967_populorum.html"
+      ],
+      "expectedUnitCount": 87,
+      "notes": "Paul VI encyclical on development of peoples."
+    },
+    {
+      "id": "mc",
+      "title": "Marialis cultus",
+      "shortTitle": "MC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "mc-es",
+      "docCode": "MC",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/apost_exhortations/documents/hf_p-vi_exh_19740202_marialis-cultus.html"
+      ],
+      "expectedUnitCount": 58,
+      "notes": "Paul VI apostolic exhortation on Marian devotion. Numbered sections vary."
+    },
+    {
+      "id": "ct",
+      "title": "Catechesi tradendae",
+      "shortTitle": "CT",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ct-es",
+      "docCode": "CT",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_16101979_catechesi-tradendae.html"
+      ],
+      "expectedUnitCount": 73,
+      "notes": "JPII apostolic exhortation on catechesis."
+    },
+    {
+      "id": "fc",
+      "title": "Familiaris consortio",
+      "shortTitle": "FC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "fc-es",
+      "docCode": "FC",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_19811122_familiaris-consortio.html"
+      ],
+      "expectedUnitCount": 86,
+      "notes": "JPII apostolic exhortation on the family."
+    },
+    {
+      "id": "cl",
+      "title": "Christifideles laici",
+      "shortTitle": "CL",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "cl-es",
+      "docCode": "CL",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_30121988_christifideles-laici.html"
+      ],
+      "expectedUnitCount": 64,
+      "notes": "JPII apostolic exhortation on the laity."
+    },
+    {
+      "id": "rm",
+      "title": "Redemptoris missio",
+      "shortTitle": "RM",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "rm-es",
+      "docCode": "RM",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_07121990_redemptoris-missio.html"
+      ],
+      "expectedUnitCount": 92,
+      "notes": "JPII encyclical on permanent validity of missionary mandate."
+    },
+    {
+      "id": "vs",
+      "title": "Veritatis splendor",
+      "shortTitle": "VS",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "vs-es",
+      "docCode": "VS",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_06081993_veritatis-splendor.html"
+      ],
+      "expectedUnitCount": 120,
+      "notes": "JPII encyclical on fundamental questions of moral teaching."
+    },
+    {
+      "id": "ev",
+      "title": "Evangelium vitae",
+      "shortTitle": "EV",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ev-es",
+      "docCode": "EV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_25031995_evangelium-vitae.html"
+      ],
+      "expectedUnitCount": 105,
+      "notes": "JPII encyclical on the value and inviolability of human life."
+    },
+    {
+      "id": "md",
+      "title": "Mulieris dignitatem",
+      "shortTitle": "MD",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "md-es",
+      "docCode": "MD",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_letters/1988/documents/hf_jp-ii_apl_15081988_mulieris-dignitatem.html"
+      ],
+      "expectedUnitCount": 31,
+      "notes": "JPII apostolic letter on the dignity of women."
+    },
+    {
+      "id": "ca",
+      "title": "Centesimus annus",
+      "shortTitle": "CA",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ca-es",
+      "docCode": "CA",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_01051991_centesimus-annus.html"
+      ],
+      "expectedUnitCount": 62,
+      "notes": "JPII encyclical on the 100th anniversary of Rerum novarum."
+    },
+    {
+      "id": "le",
+      "title": "Laborem exercens",
+      "shortTitle": "LE",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "le-es",
+      "docCode": "LE",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_14091981_laborem-exercens.html"
+      ],
+      "expectedUnitCount": 27,
+      "notes": "JPII encyclical on human work."
+    },
+    {
+      "id": "srs",
+      "title": "Sollicitudo rei socialis",
+      "shortTitle": "SRS",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "srs-es",
+      "docCode": "SRS",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_30121987_sollicitudo-rei-socialis.html"
+      ],
+      "expectedUnitCount": 49,
+      "notes": "JPII encyclical on social concern."
+    },
+    {
+      "id": "rh",
+      "title": "Redemptor hominis",
+      "shortTitle": "RH",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "rh-es",
+      "docCode": "RH",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_04031979_redemptor-hominis.html"
+      ],
+      "expectedUnitCount": 22,
+      "notes": "JPII first encyclical on the Redeemer of man."
+    },
+    {
+      "id": "pdv",
+      "title": "Pastores dabo vobis",
+      "shortTitle": "PDV",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "pdv-es",
+      "docCode": "PDV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_25031992_pastores-dabo-vobis.html"
+      ],
+      "expectedUnitCount": 82,
+      "notes": "JPII apostolic exhortation on formation of priests."
+    },
+    {
+      "id": "nmi",
+      "title": "Novo millennio ineunte",
+      "shortTitle": "NMI",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "nmi-es",
+      "docCode": "NMI",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_letters/2001/documents/hf_jp-ii_apl_20010106_novo-millennio-ineunte.html"
+      ],
+      "expectedUnitCount": 59,
+      "notes": "JPII apostolic letter at the close of the Great Jubilee 2000."
     }
   ]
 }
