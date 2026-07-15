@@ -1,0 +1,20 @@
+# Optional compose fragment for hosting docvat on the codice-progressio stack.
+# Prefer scripts/ci-deploy-docvat.sh (docker run) used by n8n; this file is the
+# declarative equivalent if you want a long-lived service in compose.yml.
+services:
+  docvat-web:
+    image: legna37/documentos-vaticanos:front-latest
+    container_name: docvat-web
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=docvat.codice-progressio.online
+      - VIRTUAL_PORT=80
+      - LETSENCRYPT_HOST=docvat.codice-progressio.online
+      - LETSENCRYPT_EMAIL=rafa.yael@gmail.com
+    networks:
+      - default
+
+networks:
+  default:
+    name: codice-progressio_default
+    external: true

@@ -1,6 +1,10 @@
 {
   "name": "documentos-vaticanos",
   "version": "0.0.13",
+  "private": true,
+  "description": "Documentos Vaticanos — lector offline (web, Android, Electron)",
+  "author": "Documentos Vaticanos",
+  "main": "electron/main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,9 +14,14 @@
     "watch": "ng build --watch --configuration development",
     "build:cap": "ng build --configuration production && npx cap sync",
     "cap:sync": "npx cap sync",
-    "cap:android": "npx cap open android"
+    "cap:android": "npx cap open android",
+    "build:apk": "npm run build:cap && cd android && ./gradlew assembleDebug --no-daemon",
+    "electron": "electron .",
+    "electron:smoke": "DV_ELECTRON_SMOKE_MS=4000 DV_ELECTRON_NO_SANDBOX=1 electron . --no-sandbox",
+    "electron:pack": "electron-builder --linux dir",
+    "test:electron-paths": "node electron/paths.test.js",
+    "test:downloads": "node src/app/core/downloads/downloads.paths.test.js"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^16.0.1",
     "@angular/cdk": "^16.2.1",
@@ -47,6 +56,8 @@
     "@commitlint/config-conventional": "^16.0.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8",
     "husky": "^7.0.4",
     "jasmine-core": "~3.10.0",
     "karma": "~6.3.0",
@@ -55,5 +66,45 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~5.0.4"
+  },
+  "build": {
+    "appId": "digital.documentosvaticanos.app",
+    "productName": "Documentos Vaticanos",
+    "copyright": "Copyright © Documentos Vaticanos",
+    "directories": {
+      "output": "../dist/electron",
+      "buildResources": "electron/build-resources"
+    },
+    "files": [
+      "electron/**/*",
+      "dist/documentos-vaticanos/**/*",
+      "package.json",
+      "!**/*.map",
+      "!**/node_modules/**/*"
+    ],
+    "asar": true,
+    "linux": {
+      "target": [
+        "dir",
+        "AppImage"
+      ],
+      "category": "Education",
+      "artifactName": "documentos-vaticanos-${version}-${arch}.${ext}"
+    },
+    "win": {
+      "target": [
+        "portable",
+        "nsis"
+      ],
+      "signAndEditExecutable": false,
+      "artifactName": "documentos-vaticanos-${version}-${arch}.${ext}"
+    },
+    "mac": {
+      "target": [
+        "dir",
+        "dmg"
+      ],
+      "artifactName": "documentos-vaticanos-${version}-${arch}.${ext}"
+    }
   }
 }

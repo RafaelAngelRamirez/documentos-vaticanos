@@ -24,6 +24,46 @@
     </p>
   </div>
 
+  <div class="app-card" style="margin-bottom: 1.25rem">
+    <h2 class="app-section-title" style="margin-top: 0">Descargas</h2>
+    <p class="app-fs14" style="margin: 0 0 0.75rem">
+      Instala la app en tu dispositivo. Misma lectura offline en Android y
+      escritorio.
+      <span class="app-muted" *ngIf="links.version"
+        >Versión {{ links.version }}</span
+      >
+    </p>
+    <ul class="download-list">
+      <li>
+        <a
+          class="app-link"
+          [href]="links.apk"
+          download="documentos-vaticanos.apk"
+          >Android (APK)</a
+        >
+        <span class="app-muted app-fs14"> · instalable</span>
+      </li>
+      <li>
+        <a
+          class="app-link"
+          [href]="links.linux"
+          download="documentos-vaticanos-linux.AppImage"
+          >Linux (AppImage)</a
+        >
+        <span class="app-muted app-fs14"> · escritorio</span>
+      </li>
+      <li>
+        <a
+          class="app-link"
+          [href]="links.windows"
+          [attr.download]="windowsDownloadName"
+          >Windows (escritorio)</a
+        >
+        <span class="app-muted app-fs14"> · portable / instalador</span>
+      </li>
+    </ul>
+  </div>
+
   <div class="app-card">
     <h2 class="app-section-title" style="margin-top: 0">Recursos</h2>
     <p class="app-fs14" style="margin: 0 0 0.5rem">Preguntas sobre la fe católica:</p>

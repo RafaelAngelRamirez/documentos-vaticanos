@@ -45,9 +45,15 @@ testem.log
 .DS_Store
 Thumbs.db
 .vscode
-# Built APK artifacts
+# Built installers / package artifacts (serve from CI image, not git)
 *.apk
+*.AppImage
+*.exe
+*.nsis.7z
 frontend/android/local.properties
+frontend/dist/
+# monorepo package:all output
+/dist/
 
 
 # Crawl HTML cache (large)
@@ -64,3 +70,6 @@ documentos/concilios-source/raw/
 
 # Scrape work copies (canonical corpus is documentos/corpus + frontend assets)
 scripts-descarga/documentos/
+
+# electron-builder / tooling caches
+.cache/

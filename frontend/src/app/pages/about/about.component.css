@@ -3,3 +3,15 @@
   background: var(--app-bg);
   min-height: 100%;
 }
+
+.download-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  list-style: disc;
+}
+
+.download-list li {
+  margin: 0.4rem 0;
+  line-height: 1.45;
+}
+

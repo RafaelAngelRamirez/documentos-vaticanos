@@ -1,0 +1,10 @@
+{
+  "app": "documentos-vaticanos",
+  "version": "0.0.13",
+  "builtAt": null,
+  "downloads": {
+    "apk": "/downloads/documentos-vaticanos.apk",
+    "linux": "/downloads/documentos-vaticanos-linux.AppImage",
+    "windows": "/downloads/documentos-vaticanos-windows.exe"
+  }
+}
