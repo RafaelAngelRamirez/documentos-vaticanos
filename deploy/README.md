@@ -25,6 +25,7 @@ UI links live under **Acerca de** (`/about`).
 - Runner: `imperium-build-runner:latest` (glibc sidecar) with volumes:
   - `codice-progressio_n8n_build`, `_android_sdk`, `_gradle`, `_electron`
 - Entry: `.ci-build.sh` → package web/apk/electron → collect downloads → `ci-docker-push.sh` → `ci-deploy-docvat.sh`
+- **Lock:** `/tmp/docvat-build.lock` inside the `n8n` container. Concurrent runs **wait** up to `DOCVAT_LOCK_WAIT_SEC` (default **7200** s) via `flock -w` instead of failing immediately with “another DOCVAT build holds…”. Only one clone/build mutates the shared volume at a time.
 
 ### Import / activate
 
