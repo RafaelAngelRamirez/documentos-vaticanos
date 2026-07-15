@@ -23,7 +23,8 @@
     "test:downloads": "node src/app/core/downloads/downloads.paths.test.js",
     "test:app-update": "node --experimental-strip-types src/app/core/downloads/app-update.logic.test.js",
     "test:corpus-persist": "node --experimental-strip-types src/app/core/corpus/corpus-persist.test.js",
-    "test:safe-area": "node --experimental-strip-types src/app/core/shell/safe-area.logic.test.js"
+    "test:safe-area": "node --experimental-strip-types src/app/core/shell/safe-area.logic.test.js",
+    "test:narrator-grok": "node --experimental-strip-types src/app/services/narrator-grok.logic.test.js"
   },
   "dependencies": {
     "@angular/animations": "^16.0.1",

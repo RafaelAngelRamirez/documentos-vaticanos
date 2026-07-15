@@ -12,6 +12,8 @@ import { referencesRouter } from './routes/references';
 import { themesRouter } from './routes/themes';
 import { studiesRouter } from './routes/studies';
 import { syncRouter } from './routes/sync';
+import { ttsRouter } from './routes/tts';
+import { isGrokTtsConfigured } from './config';
 
 const app = express();
 
@@ -38,6 +40,7 @@ api.use(themesRouter);
 api.use(studiesRouter);
 api.use(syncRouter);
 api.use(uploadsRouter);
+api.use(ttsRouter);
 
 app.use('/api/v1', api);
 
@@ -62,7 +65,7 @@ app.use(
 
 const server = app.listen(config.port, () => {
   console.log(
-    `[backend] listening on :${config.port} (cors=${config.corsOrigin}, devAuth=${config.devAuthBypass})`,
+    `[backend] listening on :${config.port} (cors=${config.corsOrigin}, devAuth=${config.devAuthBypass}, grokTts=${isGrokTtsConfigured()})`,
   );
   console.log(
     `[backend] uploads → ${path.relative(process.cwd(), config.uploadDir) || config.uploadDir}`,

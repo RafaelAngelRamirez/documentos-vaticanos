@@ -52,6 +52,21 @@ curl -s -X POST http://localhost:3000/api/v1/auth/google \
 
 En la UI: **Cuenta** → login dev con `email` + nombre (backend `DEV_AUTH_BYPASS=true`).
 
+### Voces Grok del narrador (opcional)
+
+El narrador 5D puede ofrecer voces **Grok** (xAI TTS) cuando el API tiene clave:
+
+```bash
+# en el host, antes de yarn dev / yarn dev:api-only
+export XAI_API_KEY=xai-...   # de https://console.x.ai — no es SuperGrok
+yarn dev:api-only
+```
+
+- SuperGrok / SuperGrok Heavy **no** sustituyen `XAI_API_KEY` (API de pago aparte, ~$15/1M caracteres).
+- Endpoints: `GET /api/v1/tts/voices`, `POST /api/v1/tts/speak` (proxy; la clave no va al browser).
+- Sin clave: el narrador usa solo voces del sistema (Web Speech / Capacitor).
+- Compose pasa `XAI_API_KEY` del host al servicio `api` si está exportada.
+
 ## Tests
 
 ```bash
@@ -60,6 +75,10 @@ yarn test:scrape
 
 # API (con stack api+postgres arriba)
 yarn test:api
+
+# Proxy TTS Grok + lógica del narrador (sin clave real; stubs de red)
+yarn test:tts
+yarn test:narrator-grok
 
 # Playwright vía compose
 yarn test:e2e

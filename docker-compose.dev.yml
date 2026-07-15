@@ -35,6 +35,8 @@ services:
       JWT_SECRET: dev-only-change-me
       PORT: "3000"
       NODE_ENV: development
+      # Opcional: voces Grok del narrador (console.x.ai API key, no SuperGrok)
+      XAI_API_KEY: ${XAI_API_KEY:-}
     ports:
       - "3000:3000"
     volumes:

@@ -45,4 +45,20 @@ export const config = {
 
   uploadDir: path.resolve(process.cwd(), process.env.UPLOAD_DIR ?? 'uploads'),
   uploadMaxBytes: Number(process.env.UPLOAD_MAX_BYTES ?? 5 * 1024 * 1024),
+
+  /**
+   * xAI TTS (Grok Voice) — API de console.x.ai, NO SuperGrok/SuperGrok Heavy.
+   * SuperGrok es suscripción del chat Grok; el TTS requiere `XAI_API_KEY` con
+   * facturación API aparte (~$15/1M chars). La clave solo vive en el servidor.
+   * @see https://docs.x.ai/developers/model-capabilities/audio/text-to-speech
+   */
+  xaiApiKey: (process.env.XAI_API_KEY ?? '').trim(),
+  xaiTtsBaseUrl: (
+    process.env.XAI_TTS_BASE_URL ?? 'https://api.x.ai/v1'
+  ).replace(/\/$/, ''),
 } as const;
+
+/** True when the server can proxy Grok TTS (key present). */
+export function isGrokTtsConfigured(): boolean {
+  return Boolean(config.xaiApiKey);
+}

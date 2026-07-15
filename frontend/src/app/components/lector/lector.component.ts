@@ -32,6 +32,7 @@ import { WbarComponent } from '../wbar/wbar.component';
 import {
   NarratorService,
   NarratorVoice,
+  narrVoicePillLabel,
 } from 'src/app/services/narrator.service';
 import { NarracionFgService } from 'src/app/services/narracion-fg.service';
 
@@ -309,13 +310,9 @@ export class LectorComponent implements OnInit, OnDestroy {
     return this.narrVoice?.name ?? 'Voz del sistema';
   }
 
-  /** Etiqueta corta para la pastilla: lang + posición si hay duplicados. */
+  /** Etiqueta corta para la pastilla: Grok · id o lang del sistema. */
   get narrVoiceLabel(): string {
-    const v = this.narrVoice;
-    if (!v) return 'Voz';
-    const sameLang = this.narrVoices.filter((x) => x.lang === v.lang);
-    if (sameLang.length < 2) return v.lang;
-    return `${v.lang} ${sameLang.findIndex((x) => x.id === v.id) + 1}`;
+    return narrVoicePillLabel(this.narrVoice, this.narrVoices);
   }
 
   /** Ahorro: al volver a primer plano, re-sincroniza la vista con la narración. */
