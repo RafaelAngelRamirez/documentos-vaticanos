@@ -1,6 +1,6 @@
 [
   {
-    "updatedAt": "2026-07-15T19:51:41.000Z",
+    "updatedAt": "2026-07-15T20:44:56.000Z",
     "createdAt": "2026-07-15T16:13:30.000Z",
     "id": "DOCVATBuildV1sc",
     "name": "DOCVAT-build v1 (sidecar)",
@@ -263,7 +263,7 @@
       },
       {
         "parameters": {
-          "command": "BRANCH_CANDIDATE=\"\"\n# n8n may leave the expression unexpanded as literal {{ ... }}; strip that\nif [[ -f /tmp/docvat-branch.txt ]]; then BRANCH_CANDIDATE=$(cat /tmp/docvat-branch.txt); fi\nexport DOCVAT_BRANCH=\"${BRANCH_CANDIDATE:-typescript-migration}\"\nset -euo pipefail\nLOCK=/tmp/docvat-build.lock\nexec 9>\"$LOCK\"\nif ! flock -n 9; then\n  echo \"ERROR: another DOCVAT build is running (lock $LOCK)\" >&2\n  exit 75\nfi\necho \"==> lock acquired $$\"\n\nBRANCH=\"${DOCVAT_BRANCH:-typescript-migration}\"\n# Prefer branch from n8n expression injected as env by wrapping - see below\n# Nuclear clean of shared volume /tmp/repo\nif [[ -d /tmp/repo ]]; then\n  find /tmp/repo -mindepth 1 -maxdepth 1 -exec rm -rf {} + 2>/dev/null || true\n  rm -rf /tmp/repo/.[!.]* /tmp/repo/..?* 2>/dev/null || true\nfi\nmkdir -p /tmp/repo\ncd /tmp/repo\n\necho \"==> clone branch=$BRANCH\"\ngit clone --depth 1 --branch \"$BRANCH\" \\\n  https://github.com/RafaelAngelRamirez/documentos-vaticanos.git .\n# Ensure .git is healthy\ntest -f package.json\ntest -f scripts/package-apk.sh\ntest -f frontend/android/app/capacitor.build.gradle\necho \"==> checkout OK: $(git rev-parse --short HEAD) $(git log -1 --oneline)\"\n\n# Write CI script into repo\ncat > /tmp/repo/.ci-build.sh <<'CIEOF'\n#!/usr/bin/env bash\nset -euo pipefail\nexport HOME=/cache/gradle/.home_runner\nmkdir -p \"$HOME\"\ngit config --global --add safe.directory /work\ngit config --global user.name \"Mr. Nochon\"\ngit config --global user.email \"mr.nochon@codice-progressio.online\"\ncd /work\nCURRENT_STAGE=\"iniciando\"\nif [[ -f /work/scripts/notify-build.sh ]]; then\n  source /work/scripts/notify-build.sh\n  set -E\n  trap 'notify_fail \"$CURRENT_STAGE\"' ERR\n  notify_init \"Documentos Vaticanos CI\" 7\nelse\n  notify_step(){ :; }; notify_done(){ :; }; notify_fail(){ :; }; notify_init(){ :; }\nfi\nif [[ ! -f /work/package.json ]] || [[ ! -f /work/scripts/package-apk.sh ]]; then\n  echo \"ERROR: /work missing package files\" >&2\n  ls -la /work >&2 || true\n  exit 2\nfi\nif [[ ! -f /work/frontend/android/app/capacitor.build.gradle ]]; then\n  echo \"WARN: capacitor.build.gradle missing \u2014 package-apk will restore\"\nfi\necho \"==> [1/7] Dependencias\"\nCURRENT_STAGE=\"Dependencias\"; notify_step \"$CURRENT_STAGE\"\nif command -v yarn >/dev/null 2>&1; then yarn install --production=false || true; fi\n( cd frontend && (yarn install --production=false || npm ci || npm install) )\n( cd backend && (yarn install --production=false || npm ci || npm install) || true )\necho \"==> [2/7] Release standard-version\"\nCURRENT_STAGE=\"Release\"; notify_step \"$CURRENT_STAGE\"\nif [[ \"${DV_SKIP_RELEASE:-0}\" != \"1\" ]]; then\n  npx standard-version || yarn standard-version || true\nfi\nVERSION=\"v$(node -p \"require('./package.json').version\")\"\necho \"::DOCVAT_VERSION::${VERSION}\"\necho \"==> [3/7] Web\"\nCURRENT_STAGE=\"Web\"; notify_step \"$CURRENT_STAGE\"\nbash scripts/package-web.sh\necho \"==> [4/7] APK\"\nCURRENT_STAGE=\"APK\"; notify_step \"$CURRENT_STAGE\"\nbash scripts/package-apk.sh\necho \"==> [5/7] Electron linux+win\"\nCURRENT_STAGE=\"Electron\"; notify_step \"$CURRENT_STAGE\"\nexport DV_ELECTRON_TARGETS=linux,win\nexport DV_REQUIRE_WIN=1\nbash scripts/package-electron.sh\necho \"==> [6/7] Collect downloads\"\nCURRENT_STAGE=\"Downloads\"; notify_step \"$CURRENT_STAGE\"\nexport DV_REQUIRE_ALL_DOWNLOADS=1\nbash scripts/package-collect-downloads.sh\necho \"==> [7/7] Docker push + deploy docvat\"\nCURRENT_STAGE=\"Deploy\"; notify_step \"$CURRENT_STAGE\"\nbash scripts/ci-docker-push.sh\nbash scripts/ci-deploy-docvat.sh\nnotify_done\necho \"::DOCVAT_BUILD_DONE::${VERSION}\"\nCIEOF\nchmod +x /tmp/repo/.ci-build.sh\n\nif ! docker image inspect imperium-build-runner:latest >/dev/null 2>&1; then\n  if [[ -d /tmp/repo/docker/build-runner ]]; then\n    docker build -t imperium-build-runner:latest /tmp/repo/docker/build-runner\n  else\n    echo \"WARN: imperium-build-runner missing\"\n  fi\nfi\n\nSOCK_GID=$(stat -c %g /var/run/docker.sock)\ndocker run --rm --network codice-progressio_default --user 1000:1000 --group-add \"$SOCK_GID\" \\\n  -v /var/run/docker.sock:/var/run/docker.sock \\\n  -v codice-progressio_n8n_build:/work \\\n  -v codice-progressio_n8n_android_sdk:/work/frontend/.android-build-tools \\\n  -v codice-progressio_n8n_gradle:/cache/gradle \\\n  -v codice-progressio_n8n_electron:/cache/electron \\\n  -e HOME=/cache/gradle/.home_runner \\\n  -e GRADLE_USER_HOME=/cache/gradle \\\n  -e ELECTRON_BUILDER_CACHE=/cache/electron \\\n  -e DOCKER_USERNAME=\"$DOCKER_USERNAME\" \\\n  -e DOCKER_TOKEN=\"$DOCKER_TOKEN\" \\\n  -e JAVA_HOME=/usr/lib/jvm/temurin-21-jdk-amd64 \\\n  -e DV_SKIP_RELEASE=1 \\\n  -e DV_REQUIRE_WIN=1 \\\n  -e DV_REQUIRE_ALL_DOWNLOADS=1 \\\n  -e BUILD_NOTIFY_WEBHOOK=http://n8n:5678/webhook/build-progress \\\n  -w /work imperium-build-runner:latest bash /work/.ci-build.sh\nrc=$?\nrm -f /tmp/repo/.ci-build.sh\necho \"==> build exit $rc\"\nexit $rc\n"
+          "command": "set -euo pipefail\nLOCK=/tmp/docvat-build.lock\nexec 9>\"$LOCK\"\nif ! flock -n 9; then\n  echo \"ERROR: another DOCVAT build holds $LOCK\" >&2\n  exit 75\nfi\necho \"==> lock acquired $$\"\n\nBRANCH=\"${DOCVAT_BRANCH:-typescript-migration}\"\nif [[ -f /tmp/docvat-branch.txt ]]; then\n  BRANCH=$(cat /tmp/docvat-branch.txt)\nfi\n# Isolate from Imperium files that share codice-progressio_n8n_build\nWORKDIR=/tmp/repo/docvat\necho \"==> WORKDIR=$WORKDIR branch=$BRANCH\"\n# Nuclear clean of ONLY the docvat subdir\nrm -rf \"$WORKDIR\"\nmkdir -p \"$WORKDIR\"\ncd \"$WORKDIR\"\n\necho \"==> clone\"\ngit clone --depth 1 --branch \"$BRANCH\" \\\n  https://github.com/RafaelAngelRamirez/documentos-vaticanos.git .\ntest -f package.json\ntest -f scripts/package-apk.sh\ntest -f frontend/android/app/capacitor.build.gradle\necho \"==> checkout $(git rev-parse --short HEAD) $(git log -1 --oneline)\"\n\ncat > \"$WORKDIR/.ci-build.sh\" <<'CIEOF'\n#!/usr/bin/env bash\nset -euo pipefail\nexport HOME=/cache/gradle/.home_runner\nmkdir -p \"$HOME\"\ngit config --global --add safe.directory /work\ngit config --global user.name \"Mr. Nochon\"\ngit config --global user.email \"mr.nochon@codice-progressio.online\"\ncd /work\nCURRENT_STAGE=\"iniciando\"\nnotify_step(){ :; }; notify_done(){ :; }; notify_fail(){ :; }; notify_init(){ :; }\nif [[ -f /work/scripts/notify-build.sh ]]; then\n  # shellcheck disable=SC1091\n  source /work/scripts/notify-build.sh || true\n  set -E\n  trap 'notify_fail \"$CURRENT_STAGE\" 2>/dev/null || true' ERR\n  notify_init \"Documentos Vaticanos CI\" 7 || true\nfi\ntest -f /work/package.json\ntest -f /work/scripts/package-apk.sh\necho \"==> [1/7] Dependencias\"\nCURRENT_STAGE=\"Dependencias\"; notify_step \"$CURRENT_STAGE\" || true\nif command -v yarn >/dev/null 2>&1; then yarn install --production=false || true; fi\n( cd frontend && (yarn install --production=false || npm ci || npm install) )\n( cd backend && (yarn install --production=false || npm ci || npm install) || true )\necho \"==> [2/7] Release\"\nCURRENT_STAGE=\"Release\"; notify_step \"$CURRENT_STAGE\" || true\nif [[ \"${DV_SKIP_RELEASE:-0}\" != \"1\" ]]; then\n  npx standard-version || yarn standard-version || true\nfi\nVERSION=\"v$(node -p \"require('./package.json').version\")\"\necho \"::DOCVAT_VERSION::${VERSION}\"\necho \"==> [3/7] Web\"\nCURRENT_STAGE=\"Web\"; notify_step \"$CURRENT_STAGE\" || true\nbash scripts/package-web.sh\necho \"==> [4/7] APK\"\nCURRENT_STAGE=\"APK\"; notify_step \"$CURRENT_STAGE\" || true\nbash scripts/package-apk.sh\necho \"==> [5/7] Electron linux+win\"\nCURRENT_STAGE=\"Electron\"; notify_step \"$CURRENT_STAGE\" || true\nexport DV_ELECTRON_TARGETS=linux,win\nexport DV_REQUIRE_WIN=1\nbash scripts/package-electron.sh\necho \"==> [6/7] Collect downloads\"\nCURRENT_STAGE=\"Downloads\"; notify_step \"$CURRENT_STAGE\" || true\nexport DV_REQUIRE_ALL_DOWNLOADS=1\nbash scripts/package-collect-downloads.sh\necho \"==> [7/7] Docker + deploy\"\nCURRENT_STAGE=\"Deploy\"; notify_step \"$CURRENT_STAGE\" || true\nbash scripts/ci-docker-push.sh\nbash scripts/ci-deploy-docvat.sh\nnotify_done || true\necho \"::DOCVAT_BUILD_DONE::${VERSION}\"\nCIEOF\nchmod +x \"$WORKDIR/.ci-build.sh\"\n\nif ! docker image inspect imperium-build-runner:latest >/dev/null 2>&1; then\n  echo \"ERROR: imperium-build-runner:latest missing\" >&2\n  exit 3\nfi\n\nSOCK_GID=$(stat -c %g /var/run/docker.sock)\necho \"==> docker run sidecar (mount subdir /tmp/repo/docvat -> /work)\"\ndocker run --rm --network codice-progressio_default --user 1000:1000 --group-add \"$SOCK_GID\" \\\n  -v /var/run/docker.sock:/var/run/docker.sock \\\n  -v codice-progressio_n8n_build:/tmp/repo \\\n  -v codice-progressio_n8n_android_sdk:/tmp/repo/docvat/frontend/.android-build-tools \\\n  -v codice-progressio_n8n_gradle:/cache/gradle \\\n  -v codice-progressio_n8n_electron:/cache/electron \\\n  -e HOME=/cache/gradle/.home_runner \\\n  -e GRADLE_USER_HOME=/cache/gradle \\\n  -e ELECTRON_BUILDER_CACHE=/cache/electron \\\n  -e DOCKER_USERNAME=\"$DOCKER_USERNAME\" \\\n  -e DOCKER_TOKEN=\"$DOCKER_TOKEN\" \\\n  -e JAVA_HOME=/usr/lib/jvm/temurin-21-jdk-amd64 \\\n  -e DV_SKIP_RELEASE=1 \\\n  -e DV_REQUIRE_WIN=1 \\\n  -e DV_REQUIRE_ALL_DOWNLOADS=1 \\\n  -e BUILD_NOTIFY_WEBHOOK=http://n8n:5678/webhook/build-progress \\\n  -w /tmp/repo/docvat \\\n  imperium-build-runner:latest bash /tmp/repo/docvat/.ci-build.sh\nrc=$?\necho \"==> build exit $rc\"\nexit $rc\n"
         },
         "type": "n8n-nodes-base.executeCommand",
         "typeVersion": 1,
@@ -343,7 +343,8 @@
           -912
         ],
         "id": "docvat-artifact-commit",
-        "name": "Artifact commit"
+        "name": "Artifact commit",
+        "onError": "continueRegularOutput"
       },
       {
         "parameters": {
@@ -367,7 +368,8 @@
             "id": "weXoomWVmnfIMxUT",
             "name": "Git account"
           }
-        }
+        },
+        "onError": "continueRegularOutput"
       },
       {
         "parameters": {
@@ -381,7 +383,8 @@
           -912
         ],
         "id": "docvat-push-tags",
-        "name": "Push tags"
+        "name": "Push tags",
+        "onError": "continueRegularOutput"
       },
       {
         "parameters": {
@@ -611,6 +614,17 @@
           [
             {
               "node": "Build sidecar",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Version a compilar": {
+        "main": [
+          [
+            {
+              "node": "Finalizacion",
               "type": "main",
               "index": 0
             }
