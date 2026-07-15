@@ -64,7 +64,7 @@ const DISMISS_VELOCITY = 0.5;
         max-width: 520px;
         margin: 0 auto;
         box-sizing: border-box;
-        padding-bottom: calc(26px + env(safe-area-inset-bottom));
+        padding-bottom: calc(26px + var(--safe-area-inset-bottom));
         animation: dv-sheet-up 0.18s ease-out;
       }
       .sheet.dragging {

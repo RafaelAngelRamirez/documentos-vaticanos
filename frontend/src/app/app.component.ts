@@ -9,6 +9,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { AppUpdateService } from './core/downloads/app-update.service';
+import { SafeAreaService } from './core/shell/safe-area.service';
 import { BackService } from './services/back.service';
 
 /**
@@ -55,9 +56,15 @@ export class AppComponent {
     typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  constructor(back: BackService, appUpdate: AppUpdateService) {
+  constructor(
+    back: BackService,
+    appUpdate: AppUpdateService,
+    safeArea: SafeAreaService
+  ) {
     // 7A · Back predecible (Android + web) — una sola inicialización.
     back.init();
+    // Edge-to-edge: re-apply Android bridge insets onto CSS variables.
+    safeArea.init();
     // APK / Electron: consultan manifest remoto (no-op en navegador web).
     // Inyectar el servicio dispara el check en su constructor; re-assert aquí
     // por si el árbol de providers se rehidrata sin re-construir el singleton.

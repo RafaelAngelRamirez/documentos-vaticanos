@@ -48,6 +48,13 @@ body {
   --reader-fg: var(--ink);
   --reader-muted: var(--muted);
   --reader-link: var(--acc);
+  /* Edge-to-edge system insets (env() + Android bridge via --safe-area-inset-*). */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+  /* Fixed app bottom nav content clearance (bar chrome, not system inset). */
+  --bnav-height: 96px;
   --reader-highlight: #ffe566;
   --reader-chrome-bg: color-mix(in srgb, var(--bg) 96%, transparent);
   --reader-chrome-border: var(--line);
@@ -393,10 +400,24 @@ a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
 .revnote{background:var(--card);border:1px solid var(--line);border-left:3px solid #9a7328;border-radius:10px;padding:13px 16px;font-size:13px;line-height:1.6}
 
 /* --- Adaptaciones app (fuera del canvas del mock) --- */
+/* Bottom chrome: sit above Android system nav / gesture bar (Grupo 7B + edge-to-edge). */
 app-bnav{display:block}
-app-bnav .bnav{position:fixed;left:0;right:0;bottom:0;z-index:30;padding-bottom:env(safe-area-inset-bottom)}
-.has-bnav{padding-bottom:96px}
-@media (min-width:1024px){app-bnav{display:none}}
+app-bnav .bnav{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  padding-bottom:var(--safe-area-inset-bottom)
+}
+/* Content reserve = bnav height + system bottom inset (same token as chrome). */
+.has-bnav{padding-bottom:calc(var(--bnav-height) + var(--safe-area-inset-bottom))}
+/* Sticky product/reader tops clear status bar when edge-to-edge. */
+app-fbar{padding-top:var(--safe-area-inset-top)}
+.topbar{padding-top:calc(12px + var(--safe-area-inset-top))}
+@media (min-width:1024px){
+  app-bnav{display:none}
+  /* Desktop shell: no system-nav overlap; keep sticky tops flush. */
+  app-fbar{padding-top:0}
+  .topbar{padding-top:12px}
+  .has-bnav{padding-bottom:0}
+}
 
 /* Shell web 5A–5H */
 .web-shell{min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--ink)}
@@ -417,7 +438,7 @@ app-bnav .bnav{position:fixed;left:0;right:0;bottom:0;z-index:30;padding-bottom:
 
 /* 7A · Toast de salida (doble-back) */
 .dv-toast{
-  position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%);
+  position:fixed;left:50%;bottom:calc(24px + var(--safe-area-inset-bottom));transform:translateX(-50%);
   z-index:80;max-width:min(320px,86vw);padding:10px 18px;border-radius:999px;
   background:color-mix(in oklab,var(--ink) 92%,transparent);color:var(--bg);
   font-family:'IBM Plex Sans',sans-serif;font-size:13px;line-height:1.4;text-align:center;
