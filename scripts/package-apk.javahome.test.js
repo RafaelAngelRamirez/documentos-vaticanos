@@ -29,6 +29,20 @@ function main() {
   assert.ok(body.includes('sed -i'), 'sed removes invalid pin');
   assert.ok(body.includes('.android-build-tools/sdk'), 'CI sdk nested path');
 
+  section('Gradle wrapper supports Java 21 (class file 65)');
+  const wrapper = fs.readFileSync(
+    path.join(ROOT, 'frontend/android/gradle/wrapper/gradle-wrapper.properties'),
+    'utf8'
+  );
+  const m = wrapper.match(/gradle-(\d+)\.(\d+)/);
+  assert.ok(m, 'gradle version in wrapper properties');
+  const major = Number(m[1]);
+  const minor = Number(m[2]);
+  assert.ok(
+    major > 8 || (major === 8 && minor >= 5),
+    `Gradle ${major}.${minor} must be >= 8.5 for Java 21`
+  );
+
   section('simulate rewrite of a bad pin (temp file)');
   const tmp = path.join(ROOT, 'frontend/android/.gradle.properties.javahome-test');
   fs.writeFileSync(
