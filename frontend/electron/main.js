@@ -2,11 +2,21 @@
  * Electron main process — loads the same production Angular web tree offline.
  * One web base (AGENTS.md): Electron only wraps frontend/dist/documentos-vaticanos.
  */
-const { app, BrowserWindow, shell } = require('electron');
+const { app, BrowserWindow, ipcMain, shell } = require('electron');
 const fs = require('fs');
 const path = require('path');
 const { assertWebDistReady } = require('./paths');
 const { startStaticServer } = require('./static-server');
+
+/** Manual installer downloads: renderer asks main to open the system browser. */
+ipcMain.on('dv:open-external', (_event, url) => {
+  if (typeof url === 'string' && /^https?:\/\//i.test(url)) {
+    shell.openExternal(url).catch((err) => {
+      console.error('[electron] openExternal failed:', err);
+    });
+  }
+});
+
 
 /** @type {BrowserWindow | null} */
 let mainWindow = null;

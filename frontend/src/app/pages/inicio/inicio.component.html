@@ -24,6 +24,37 @@
     </p>
 
     <div
+      class="wupdate"
+      *ngIf="appUpdate as u"
+      data-testid="inicio-update"
+      role="status"
+    >
+      <div class="wupdate-title">Actualización v{{ u.version }}</div>
+      <p class="wupdate-lede muted">
+        Hay documentos y mejoras nuevas. Descarga el instalador e instálalo
+        manualmente.
+      </p>
+      <div class="wupdate-actions">
+        <button
+          type="button"
+          class="primary wupdate-btn"
+          data-testid="inicio-update-download"
+          (click)="downloadUpdate()"
+        >
+          Descargar
+        </button>
+        <button
+          type="button"
+          class="wupdate-skip"
+          data-testid="inicio-update-dismiss"
+          (click)="dismissUpdate()"
+        >
+          Ahora no
+        </button>
+      </div>
+    </div>
+
+    <div
       class="wdl"
       *ngIf="showDownloads"
       data-testid="inicio-downloads"

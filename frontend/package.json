@@ -20,7 +20,8 @@
     "electron:smoke": "DV_ELECTRON_SMOKE_MS=4000 DV_ELECTRON_NO_SANDBOX=1 electron . --no-sandbox",
     "electron:pack": "electron-builder --linux dir",
     "test:electron-paths": "node electron/paths.test.js",
-    "test:downloads": "node src/app/core/downloads/downloads.paths.test.js"
+    "test:downloads": "node src/app/core/downloads/downloads.paths.test.js",
+    "test:app-update": "node --experimental-strip-types src/app/core/downloads/app-update.logic.test.js"
   },
   "dependencies": {
     "@angular/animations": "^16.0.1",

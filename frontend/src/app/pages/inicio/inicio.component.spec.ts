@@ -8,6 +8,7 @@ import {
   formatVersionLabel,
   isWebDownloadShell,
 } from './inicio.component';
+import { AppUpdateService } from 'src/app/core/downloads/app-update.service';
 import { DownloadsService } from 'src/app/core/downloads/downloads.service';
 import { STABLE_DOWNLOAD_PATHS } from 'src/app/core/downloads/downloads.models';
 
@@ -45,10 +46,19 @@ describe('InicioComponent', () => {
         .createSpy('getLinks')
         .and.returnValue(of({ ...STUB_LINKS })),
     };
+    const appUpdateStub = {
+      availableUpdate$: of(null),
+      openDownload: jasmine.createSpy('openDownload'),
+      dismiss: jasmine.createSpy('dismiss'),
+      checkForUpdate: jasmine.createSpy('checkForUpdate'),
+    };
 
     await TestBed.configureTestingModule({
       imports: [InicioComponent, HttpClientTestingModule, RouterTestingModule],
-      providers: [{ provide: DownloadsService, useValue: downloadsStub }],
+      providers: [
+        { provide: DownloadsService, useValue: downloadsStub },
+        { provide: AppUpdateService, useValue: appUpdateStub },
+      ],
     }).compileComponents();
   });
 

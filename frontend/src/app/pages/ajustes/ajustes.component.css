@@ -120,3 +120,25 @@ button.sw2 {
   opacity: 0.55;
   margin-top: 26px;
 }
+
+/* Actualización de instalador (APK / Electron) */
+.update-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--acc);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 4px 0 12px;
+}
+
+.update-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.update-lede {
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 8px 0 12px;
+}

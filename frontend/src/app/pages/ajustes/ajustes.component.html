@@ -115,6 +115,46 @@
       ></button>
     </div>
 
+    <div
+      class="sect"
+      *ngIf="appUpdate"
+      data-testid="ajustes-update-sect"
+    >
+      Aplicación
+    </div>
+    <div
+      class="update-card"
+      *ngIf="appUpdate as u"
+      data-testid="ajustes-update-card"
+      role="status"
+    >
+      <div class="update-title">Actualización disponible</div>
+      <p class="update-lede muted">
+        Hay una versión nueva (v{{ u.version }}) con documentos y mejoras.
+        Estás en v{{ u.localVersion || localVersion }}. Descarga el instalador
+        de {{ platformLabel(u.platform) }} e instálalo manualmente; la lectura
+        offline sigue funcionando mientras tanto.
+      </p>
+      <div class="stepbtn databtns">
+        <button
+          type="button"
+          class="szbtn on"
+          data-testid="ajustes-update-download"
+          (click)="downloadUpdate()"
+        >
+          Descargar instalador
+        </button>
+        <button
+          type="button"
+          class="szbtn"
+          data-testid="ajustes-update-dismiss"
+          (click)="dismissUpdate()"
+        >
+          Ahora no
+        </button>
+      </div>
+    </div>
+
     <div class="sect">Datos</div>
     <div class="setrow nb">
       <span class="setk"

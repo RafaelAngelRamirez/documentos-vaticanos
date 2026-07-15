@@ -5,6 +5,10 @@ import { Subscription } from 'rxjs';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { BnavComponent } from 'src/app/components/bnav/bnav.component';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import {
+  UpdateAvailable,
+} from 'src/app/core/downloads/app-update.logic';
+import { AppUpdateService } from 'src/app/core/downloads/app-update.service';
 import { BackupService } from 'src/app/services/backup.service';
 import {
   ReaderFont,
@@ -12,6 +16,7 @@ import {
   ReaderPreferencesService,
   ReaderTheme,
 } from 'src/app/services/reader-preferences.service';
+import { environment } from 'src/environments/environment';
 
 interface ThemeOption {
   value: ReaderTheme;
@@ -53,11 +58,16 @@ export class AjustesComponent implements OnInit, OnDestroy {
   dataMsgError = false;
   importando = false;
 
+  /** Actualización de instalador (APK / Electron) — null en web o sin update. */
+  appUpdate: UpdateAvailable | null = null;
+  readonly localVersion = environment.version || '';
+
   constructor(
     private readerPrefs: ReaderPreferencesService,
     private backup: BackupService,
     public auth: AuthService,
-    private router: Router
+    private router: Router,
+    private appUpdateSvc: AppUpdateService
   ) {}
 
   ngOnInit(): void {
@@ -66,9 +76,41 @@ export class AjustesComponent implements OnInit, OnDestroy {
         this.prefs = p;
       })
     );
+    this.sub.add(
+      this.appUpdateSvc.availableUpdate$.subscribe((u) => {
+        this.appUpdate = u;
+      })
+    );
     document.addEventListener('visibilitychange', this.visibilityListener);
     if (this.prefs.keepAwake) {
       void this.requestWakeLock();
+    }
+  }
+
+  downloadUpdate(): void {
+    if (!this.appUpdate?.downloadUrl) {
+      return;
+    }
+    this.appUpdateSvc.openDownload(this.appUpdate.downloadUrl);
+  }
+
+  dismissUpdate(): void {
+    if (this.appUpdate?.version) {
+      this.appUpdateSvc.dismiss(this.appUpdate.version);
+    }
+    this.appUpdate = null;
+  }
+
+  platformLabel(platform: string | undefined): string {
+    switch (platform) {
+      case 'apk':
+        return 'Android (APK)';
+      case 'linux':
+        return 'Linux (AppImage)';
+      case 'windows':
+        return 'Windows';
+      default:
+        return 'instalador';
     }
   }
 

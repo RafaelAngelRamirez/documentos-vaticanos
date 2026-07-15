@@ -8,6 +8,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { AppUpdateService } from './core/downloads/app-update.service';
 import { BackService } from './services/back.service';
 
 /**
@@ -54,9 +55,13 @@ export class AppComponent {
     typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  constructor(back: BackService) {
+  constructor(back: BackService, appUpdate: AppUpdateService) {
     // 7A · Back predecible (Android + web) — una sola inicialización.
     back.init();
+    // APK / Electron: consultan manifest remoto (no-op en navegador web).
+    // Inyectar el servicio dispara el check en su constructor; re-assert aquí
+    // por si el árbol de providers se rehidrata sin re-construir el singleton.
+    appUpdate.checkForUpdate();
   }
 
   prepareRoute(outlet: RouterOutlet): string {

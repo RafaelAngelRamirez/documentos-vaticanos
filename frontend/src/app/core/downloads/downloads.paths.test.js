@@ -154,6 +154,33 @@ function main() {
     'inicio formats version with v prefix'
   );
 
+  section('app-update remote check module + service exist');
+  const updateLogic = path.join(__dirname, 'app-update.logic.ts');
+  const updateService = path.join(__dirname, 'app-update.service.ts');
+  assert.ok(fs.existsSync(updateLogic), 'app-update.logic.ts');
+  assert.ok(fs.existsSync(updateService), 'app-update.service.ts');
+  const updateLogicBody = fs.readFileSync(updateLogic, 'utf8');
+  assert.ok(updateLogicBody.includes('resolveUpdate'), 'resolveUpdate export');
+  assert.ok(updateLogicBody.includes('compareSemver'), 'compareSemver export');
+  const updateSvcBody = fs.readFileSync(updateService, 'utf8');
+  assert.ok(
+    updateSvcBody.includes('downloadsPublicOrigin') ||
+      updateSvcBody.includes('docvat.codice-progressio.online'),
+    'update service uses remote public origin'
+  );
+  assert.ok(
+    updateSvcBody.includes('shouldAutoCheckAppUpdate') ||
+      updateSvcBody.includes('isNativePlatform'),
+    'update service gated to native/electron'
+  );
+
+  section('nginx CORS allows shell fetch of /downloads manifest');
+  const nginxCors = fs.readFileSync(path.join(FRONTEND, 'nginx.conf'), 'utf8');
+  assert.ok(
+    nginxCors.includes('Access-Control-Allow-Origin'),
+    'CORS header for downloads'
+  );
+
   console.log('\nAll downloads path tests passed.');
 }
 

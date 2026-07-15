@@ -1,11 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Capacitor } from '@capacitor/core';
+import { Subscription } from 'rxjs';
+import { UpdateAvailable } from 'src/app/core/downloads/app-update.logic';
+import { AppUpdateService } from 'src/app/core/downloads/app-update.service';
 import { DownloadsService } from 'src/app/core/downloads/downloads.service';
 import { STABLE_DOWNLOAD_PATHS } from 'src/app/core/downloads/downloads.models';
+import {
+  detectElectronShell,
+  isWebDownloadShell as isWebDownloadShellCore,
+} from 'src/app/core/shell/shell.util';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { environment } from 'src/environments/environment';
+
+// Re-export for existing unit tests / external imports.
+export { detectElectronShell };
 
 /**
  * Browser web shell only: not Capacitor native, not Electron packaged app.
@@ -15,24 +25,7 @@ export function isWebDownloadShell(
   isNativePlatform: boolean = Capacitor.isNativePlatform(),
   isElectron: boolean = detectElectronShell()
 ): boolean {
-  return !isNativePlatform && !isElectron;
-}
-
-/** Same Electron detection pattern as `app.module.ts` (preload flag or userAgent). */
-export function detectElectronShell(): boolean {
-  if (typeof window !== 'undefined') {
-    const shell = (
-      window as Window & {
-        documentosVaticanosShell?: { kind?: string };
-      }
-    ).documentosVaticanosShell;
-    if (shell?.kind === 'electron') {
-      return true;
-    }
-  }
-  return (
-    typeof navigator !== 'undefined' && /Electron/i.test(navigator.userAgent)
-  );
+  return isWebDownloadShellCore(isNativePlatform, isElectron);
 }
 
 /** Format app version for the welcome screen: `v` + semver. */
@@ -52,7 +45,7 @@ export function formatVersionLabel(version: string | null | undefined): string {
   styleUrls: ['./inicio.component.css'],
   imports: [CommonModule],
 })
-export class InicioComponent implements OnInit {
+export class InicioComponent implements OnInit, OnDestroy {
   /** Quick-download icons only on public web (not native / Electron shell). */
   showDownloads = false;
 
@@ -71,6 +64,11 @@ export class InicioComponent implements OnInit {
   /** e.g. `v0.0.13` — always from known app version, never hard-coded in the template. */
   versionLabel = formatVersionLabel(environment.version);
 
+  /** Packaged shell (APK/Electron): non-blocking update offer. */
+  appUpdate: UpdateAvailable | null = null;
+
+  private sub = new Subscription();
+
   get windowsDownloadName(): string {
     const href = this.links.windows || '';
     if (href.endsWith('.zip')) {
@@ -82,22 +80,49 @@ export class InicioComponent implements OnInit {
   constructor(
     private navigation: NavigationService,
     private router: Router,
-    private downloads: DownloadsService
+    private downloads: DownloadsService,
+    private appUpdateSvc: AppUpdateService
   ) {}
 
   ngOnInit(): void {
     this.showDownloads = this.resolveShowDownloads();
-    this.downloads.getLinks().subscribe((links) => {
-      this.links = links;
-      this.versionLabel = formatVersionLabel(
-        links.version || environment.version
-      );
-    });
+    this.sub.add(
+      this.downloads.getLinks().subscribe((links) => {
+        this.links = links;
+        this.versionLabel = formatVersionLabel(
+          links.version || environment.version
+        );
+      })
+    );
+    // Only meaningful on APK/Electron (service is no-op on pure web).
+    this.sub.add(
+      this.appUpdateSvc.availableUpdate$.subscribe((u) => {
+        this.appUpdate = u;
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   /** Platform gate; overridden in unit tests for web vs native shells. */
   resolveShowDownloads(): boolean {
     return isWebDownloadShell();
+  }
+
+  downloadUpdate(): void {
+    if (!this.appUpdate?.downloadUrl) {
+      return;
+    }
+    this.appUpdateSvc.openDownload(this.appUpdate.downloadUrl);
+  }
+
+  dismissUpdate(): void {
+    if (this.appUpdate?.version) {
+      this.appUpdateSvc.dismiss(this.appUpdate.version);
+    }
+    this.appUpdate = null;
   }
 
   goDocuments(): void {
