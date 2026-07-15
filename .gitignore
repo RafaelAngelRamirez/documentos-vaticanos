@@ -57,6 +57,10 @@ documentos/crawl/**/cache/
 documentos/padres-source/pdf/
 documentos/padres-source/raw/
 
+# Concilios: same policy (Mansi OCR dumps / PDFs are large)
+documentos/concilios-source/pdf/
+documentos/concilios-source/raw/
+
 
 # Scrape work copies (canonical corpus is documentos/corpus + frontend assets)
 scripts-descarga/documentos/

@@ -129,6 +129,23 @@ npm run scrape -- --source cds --force
 
 **Language catalog:** `documentos/registry/source-catalog.json` lists ES + other locales (html/pdf). Only ES bodies are scraped in this phase.
 
+## Concilios ecuménicos (latín → corpus → app)
+
+Misma estructura que Padres: `../documentos/concilios-source/{inventory,pdf,raw,clean}/`.
+
+**Todo lo que sea imagen debe pasar a texto** antes del corpus (la app solo lee JSON).
+
+| Paso | Comando |
+|------|---------|
+| Listar / importar | `npm run concilios:list` · `concilios:import -- --id nicea-i` |
+| Descargar Mansi (Archive.org `*_djvu.txt`) | `npm run concilios:download -- --id nicea-i` |
+| PDF texto | `npm run concilios:extract -- --pdf … --out-id nicea-i-la` |
+| PDF imagen → OCR | `npm run source:ocr -- --pdf … --doc-id nicea-i-la --source-root concilios-source --lang lat+eng` |
+| Recorte desde dump | `npm run concilios:slice -- --id nicea-i` |
+
+OCR genérico: `ocr_volume.sh` (`--source-root padres-source|concilios-source`).  
+`kind: council` · locale `la`. Vat. II ES ya en corpus; no reimportar.
+
 ## How to add another magisterial doc (e.g. GS, DV)
 
 1. **Add source** in `config/sources.json`:

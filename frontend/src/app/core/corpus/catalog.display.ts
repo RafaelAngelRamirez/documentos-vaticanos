@@ -419,6 +419,48 @@ const BY_ID: Record<string, CatalogDisplay> = {
     fuenteNota:
       'Compilación P. A. Cedano · BAC Obras de San Agustín (tomo 40)',
   },
+  'cdc-es': {
+    tipo: 'Derecho canónico',
+    autor: 'Juan Pablo II',
+    anio: 1983,
+    subtitulo: 'Constitución apostólica « Sacrae disciplinae leges »',
+  },
+  'cceo-la': {
+    tipo: 'Derecho canónico',
+    autor: 'Juan Pablo II',
+    anio: 1990,
+    subtitulo: 'Constitución apostólica « Sacri canones »',
+  },
+  'jerusalen-la': {
+    tipo: 'Concilios ecuménicos',
+    anio: 50,
+    subtitulo: 'Actus Apostolorum 15 (Vulgata)',
+  },
+  'nicea-i-la': {
+    tipo: 'Concilios ecuménicos',
+    anio: 325,
+    subtitulo: 'Symbolum + Canones XX',
+  },
+  'nicea-i-es': {
+    tipo: 'Concilios ecuménicos',
+    anio: 325,
+    subtitulo: 'Traducción al español generada por IA',
+  },
+  'jerusalen-es': {
+    tipo: 'Concilios ecuménicos',
+    anio: 50,
+    subtitulo: 'Traducción al español generada por IA (Hch 15)',
+  },
+  'trento-es': {
+    tipo: 'Concilios ecuménicos',
+    anio: 1545,
+    subtitulo: 'Traducción al español generada por IA',
+  },
+  'vat-i-es': {
+    tipo: 'Concilios ecuménicos',
+    anio: 1870,
+    subtitulo: 'Traducción al español generada por IA',
+  },
 };
 
 const KIND_FALLBACK: Record<string, string> = {
@@ -426,6 +468,8 @@ const KIND_FALLBACK: Record<string, string> = {
   bible: 'Sagrada Escritura',
   magisterium: 'Magisterio',
   patristic: 'Padres de la Iglesia',
+  'canon-law': 'Derecho canónico',
+  council: 'Concilios ecuménicos',
 };
 
 export function catalogDisplayFor(

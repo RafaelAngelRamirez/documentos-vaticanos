@@ -418,6 +418,139 @@
       "corpusDocId": "nmi-es",
       "locatorType": "number",
       "kind": "magisterium"
+    },
+    {
+      "code": "Nicaea",
+      "aliases": [
+        "Nicaea",
+        "Nicea",
+        "Nicea I",
+        "Nicaenum I",
+        "Concilium Nicaenum I"
+      ],
+      "title": "Concilium Nicaenum I",
+      "corpusDocId": "nicea-i-la",
+      "locatorType": "number",
+      "kind": "council"
+    },
+    {
+      "code": "ConstI",
+      "aliases": [
+        "ConstI",
+        "Constantinopla I",
+        "Constantinopolitanum I"
+      ],
+      "title": "Concilium Constantinopolitanum I",
+      "corpusDocId": "constantinopla-i-la",
+      "locatorType": "number",
+      "kind": "council"
+    },
+    {
+      "code": "Ephes",
+      "aliases": [
+        "Ephes",
+        "Éfeso",
+        "Ephesus",
+        "Ephesinum"
+      ],
+      "title": "Concilium Ephesinum",
+      "corpusDocId": "efeso-la",
+      "locatorType": "number",
+      "kind": "council"
+    },
+    {
+      "code": "Chalc",
+      "aliases": [
+        "Chalc",
+        "Calcedonia",
+        "Chalcedon",
+        "Chalcedonense"
+      ],
+      "title": "Concilium Chalcedonense",
+      "corpusDocId": "calcedonia-la",
+      "locatorType": "number",
+      "kind": "council"
+    },
+    {
+      "code": "ConstII",
+      "aliases": [
+        "ConstII",
+        "Constantinopla II"
+      ],
+      "title": "Concilium Constantinopolitanum II",
+      "corpusDocId": "constantinopla-ii-la",
+      "locatorType": "number",
+      "kind": "council"
+    },
+    {
+      "code": "ConstIII",
+      "aliases": [
+        "ConstIII",
+        "Constantinopla III"
+      ],
+      "title": "Concilium Constantinopolitanum III",
+      "corpusDocId": "constantinopla-iii-la",
+      "locatorType": "number",
+      "kind": "council"
+    },
+    {
+      "code": "NicaeaII",
+      "aliases": [
+        "NicaeaII",
+        "Nicea II",
+        "Nicaenum II"
+      ],
+      "title": "Concilium Nicaenum II",
+      "corpusDocId": "nicea-ii-la",
+      "locatorType": "number",
+      "kind": "council"
+    },
+    {
+      "code": "ConstIV",
+      "aliases": [
+        "ConstIV",
+        "Constantinopla IV"
+      ],
+      "title": "Concilium Constantinopolitanum IV",
+      "corpusDocId": "constantinopla-iv-la",
+      "locatorType": "number",
+      "kind": "council"
+    },
+    {
+      "code": "LatIV",
+      "aliases": [
+        "LatIV",
+        "Letrán IV",
+        "Lateranense IV"
+      ],
+      "title": "Concilium Lateranense IV",
+      "corpusDocId": "lateran-iv-la",
+      "locatorType": "number",
+      "kind": "council"
+    },
+    {
+      "code": "Trent",
+      "aliases": [
+        "Trent",
+        "Trento",
+        "Tridentinum"
+      ],
+      "title": "Concilium Tridentinum",
+      "corpusDocId": "trento-la",
+      "locatorType": "number",
+      "kind": "council"
+    },
+    {
+      "code": "VatI",
+      "aliases": [
+        "VatI",
+        "Vaticano I",
+        "Vaticanum I"
+      ],
+      "title": "Concilium Vaticanum I",
+      "corpusDocId": "vat-i-la",
+      "locatorType": "number",
+      "kind": "council"
     }
   ]
 }

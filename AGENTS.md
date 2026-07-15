@@ -145,6 +145,9 @@ Rutas inmersivas (sin chrome de producto exterior): inicio, biblioteca, buscar, 
 4. No borrar del manifest documentos ajenos al scrape actual (merge).
 5. Tras scrape de magisterio: resolver refs cruzadas (`resolve:refs`) cuando corresponda.
 6. Registry multi-fuente: `scripts-descarga/config/sources.json` + adapters en `src/adapters/`.
+7. **Concilios ecuménicos** (`kind: council`, latín `*-la`): inventario y clean en `documentos/concilios-source/` (misma plantilla que Padres: `pdf/` → `raw/` → `clean/` → corpus). Import: `npm run concilios:import -- --id <id>`. Vat. II ES document-level ya en corpus; no reimportar.
+8. **Imagen → texto (obligatorio):** la app solo empaqueta JSON de lectura. PDF con capa de texto → `extract_source_text.ts` / `pdftotext`. PDF solo imagen → `ocr_volume.sh` (tesseract; Padres `spa_fast`, Concilios `lat`/`lat+eng`). Preferir Archive.org `*_djvu.txt` cuando exista (ya OCR). Nunca servir páginas escaneadas en el lector.
+9. **Concilios ES:** packs `*-es` paralelos a `*-la`; `sourceNote` debe indicar traducción generada por IA (no oficial). Import: `npm run concilios:import-es`. No reasignar `doc-codes` al ES (citas → latín). Vat. II ES oficiales ya en corpus.
 
 ### 2.3 UI de documentos
 

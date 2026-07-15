@@ -9,7 +9,11 @@ export type PlainSplitMode =
   | "paragraphs"
   | "roman-chapters"
   | "numbered-sections"
-  | "lines";
+  | "lines"
+  /** Council canons: "Canon 1", "Can. I", "CANON II", etc. */
+  | "canons"
+  /** Session / sessionem headings for long council acta */
+  | "sessions";
 
 export interface PlainTextParseOptions {
   mode?: PlainSplitMode;
@@ -45,6 +49,14 @@ const NUMBERED_PARA =
 
 const HEADING_LINE =
   /^(?:PROCATEQUESIS|CATEQUESIS\s+[IVXLCDM0-9]+|LIBRO\s+[IVXLCDM0-9]+|HOMIL[ÍI]A\s+\d+|SERM[ÓO]N\s+\d+|CARTA\s+\d+|CAP[ÍI]TULO\s+[IVXLCDM0-9]+)\b.*$/im;
+
+/** Start of a council canon or session block (lookahead for split). */
+const CANON_START =
+  /(?=^(?:Canon|Canones|Can\.?|CANON|CANONES|Sessio|Session|SESSIO|SESSION)\s+\S)/im;
+
+/** Session / sessio headings in long acta. */
+const SESSION_START =
+  /(?=^(?:Sessio|Session|SESSIO|SESSION)\s+\S)/im;
 
 function normalizeNewlines(text: string): string {
   return text.replace(/\r\n/g, "\n").replace(/\r/g, "\n");
@@ -214,6 +226,97 @@ function splitNumberedSections(text: string, captureHeadings: boolean): string[]
 }
 
 /**
+ * Split on "Canon 1" / "Can. I" / "CANON II" blocks.
+ * Leading material before the first canon (e.g. Symbolum) is kept as its own unit(s).
+ */
+function splitCanons(text: string): string[] {
+  const t = softNormalize(text);
+  const parts = t.split(CANON_START);
+  const chunks: string[] = [];
+  for (const part of parts) {
+    const cleaned = part.trim();
+    if (!cleaned) continue;
+    // Canon body may still have blank-line paragraphs; keep as one unit per canon
+    // unless the front matter (no "Canon" header) is multi-paragraph.
+    if (
+      /^(?:Canon|Canones|Can\.?|CANON|CANONES|Sessio|Session)\s+/i.test(cleaned)
+    ) {
+      chunks.push(cleaned.replace(/\n+/g, " ").replace(/\s+/g, " ").trim());
+    } else {
+      // Prefatory symbol / intro: one unit per blank-line paragraph
+      chunks.push(...splitParagraphs(cleaned));
+    }
+  }
+  return chunks;
+}
+
+/**
+ * Split on Sessio / Session N headings; fall back to paragraphs inside.
+ */
+function splitSessions(text: string): string[] {
+  const t = softNormalize(text);
+  const parts = t.split(SESSION_START);
+  const chunks: string[] = [];
+  for (const part of parts) {
+    const cleaned = part.trim();
+    if (!cleaned) continue;
+    if (/^(?:Sessio|Session)\s+/i.test(cleaned)) {
+      chunks.push(cleaned.replace(/\n+/g, " ").replace(/\s+/g, " ").trim());
+    } else {
+      chunks.push(...splitParagraphs(cleaned));
+    }
+  }
+  return chunks;
+}
+
+/**
+ * Prefer consecutivo from "Canon 6" / "1." when present.
+ */
+function toUnitsWithLabels(
+  chunks: string[],
+  minLength: number,
+  sequential: boolean,
+  mode: PlainSplitMode,
+): TrasnportData[] {
+  if (mode !== "canons") {
+    return toUnits(chunks, minLength, sequential);
+  }
+  const units: TrasnportData[] = [];
+  let n = 0;
+  for (const raw of chunks) {
+    const contenido = softNormalize(raw);
+    if (contenido.length < minLength) continue;
+    n += 1;
+    const canonM = contenido.match(
+      /^(?:Canon|Canones|Can\.?|CANON|CANONES)\s+([IVXLCDM]+|\d+)\b/i,
+    );
+    const sessM = contenido.match(
+      /^(?:Sessio|Session)\s+([IVXLCDM]+|\d+|[^\s:]+)/i,
+    );
+    const numM = contenido.match(/^(\d+)\.\s+/);
+    let consecutivo: string;
+    if (!sequential && canonM) {
+      consecutivo = canonM[1];
+    } else if (!sequential && sessM) {
+      consecutivo = sessM[1];
+    } else if (!sequential && numM) {
+      consecutivo = numM[1];
+    } else if (canonM) {
+      const label = canonM[1];
+      consecutivo = /^\d+$/.test(label) ? label : String(n);
+    } else {
+      consecutivo = String(n);
+    }
+    units.push({
+      consecutivo,
+      contenido,
+      referencias: [],
+    });
+  }
+  return units;
+}
+
+/**
  * Parse cleaned plain text into corpus units.
  */
 export function plainTextToUnits(
@@ -233,6 +336,12 @@ export function plainTextToUnits(
     case "numbered-sections":
       chunks = splitNumberedSections(prepared, opts.captureHeadings);
       break;
+    case "canons":
+      chunks = splitCanons(prepared);
+      break;
+    case "sessions":
+      chunks = splitSessions(prepared);
+      break;
     case "lines":
       chunks = prepared.split("\n").map((l) => l.trim()).filter(Boolean);
       break;
@@ -246,5 +355,10 @@ export function plainTextToUnits(
     chunks = capUnitLength(chunks, opts.maxUnitLength);
   }
 
-  return toUnits(chunks, opts.minLength, opts.sequentialConsecutivo);
+  return toUnitsWithLabels(
+    chunks,
+    opts.minLength,
+    opts.sequentialConsecutivo,
+    opts.mode,
+  );
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-13T08:56:08.983Z",
+  "updatedAt": "2026-07-14T18:21:54.440Z",
   "documents": [
     {
       "id": "aa-es",
@@ -885,6 +885,46 @@
       "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
+      "id": "calcedonia-es",
+      "sourceId": "calcedonia-es",
+      "title": "Concilio de Calcedonia",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:21:54.440Z",
+      "lastDownloadedAt": "2026-07-14T18:21:54.440Z",
+      "unitCount": 35,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/calcedonia-es/content.json",
+        "index": "documents/calcedonia-es/index.json",
+        "meta": "documents/calcedonia-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Chalcedonense» (calcedonia-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "calcedonia-la",
+      "sourceId": "calcedonia",
+      "title": "Concilium Chalcedonense",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:15:33.996Z",
+      "lastDownloadedAt": "2026-07-14T17:44:08.116Z",
+      "unitCount": 35,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/calcedonia-la/content.json",
+        "index": "documents/calcedonia-la/index.json",
+        "meta": "documents/calcedonia-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
       "id": "carta-diogneto-es",
       "sourceId": "carta-diogneto",
       "title": "Carta a Diogneto",
@@ -1088,6 +1128,206 @@
       "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpbnNFLUF5eTRiM28/view. Edición: Biblioteca Clásica Gredos. Edición/traducción de referencia: Biblioteca Clásica Gredos. Biblioteca Clásica Gredos. Párrafos + tope unidad."
     },
     {
+      "id": "constantinopla-i-es",
+      "sourceId": "constantinopla-i-es",
+      "title": "Concilio de Constantinopla I",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:21:50.134Z",
+      "lastDownloadedAt": "2026-07-14T18:21:50.134Z",
+      "unitCount": 11,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-i-es/content.json",
+        "index": "documents/constantinopla-i-es/index.json",
+        "meta": "documents/constantinopla-i-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantinopolitanum I» (constantinopla-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "constantinopla-i-la",
+      "sourceId": "constantinopla-i",
+      "title": "Concilium Constantinopolitanum I",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:15:31.353Z",
+      "lastDownloadedAt": "2026-07-14T17:44:04.882Z",
+      "unitCount": 11,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-i-la/content.json",
+        "index": "documents/constantinopla-i-la/index.json",
+        "meta": "documents/constantinopla-i-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "constantinopla-ii-es",
+      "sourceId": "constantinopla-ii-es",
+      "title": "Concilio de Constantinopla II",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:21:04.635Z",
+      "lastDownloadedAt": "2026-07-14T18:21:04.635Z",
+      "unitCount": 16,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-ii-es/content.json",
+        "index": "documents/constantinopla-ii-es/index.json",
+        "meta": "documents/constantinopla-ii-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantinopolitanum II» (constantinopla-ii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "constantinopla-ii-la",
+      "sourceId": "constantinopla-ii",
+      "title": "Concilium Constantinopolitanum II",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:41.769Z",
+      "lastDownloadedAt": "2026-07-14T17:44:09.160Z",
+      "unitCount": 16,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-ii-la/content.json",
+        "index": "documents/constantinopla-ii-la/index.json",
+        "meta": "documents/constantinopla-ii-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "constantinopla-iii-es",
+      "sourceId": "constantinopla-iii-es",
+      "title": "Concilio de Constantinopla III",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:21:05.989Z",
+      "lastDownloadedAt": "2026-07-14T18:21:05.989Z",
+      "unitCount": 13,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-iii-es/content.json",
+        "index": "documents/constantinopla-iii-es/index.json",
+        "meta": "documents/constantinopla-iii-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantinopolitanum III» (constantinopla-iii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "constantinopla-iii-la",
+      "sourceId": "constantinopla-iii",
+      "title": "Concilium Constantinopolitanum III",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:41.816Z",
+      "lastDownloadedAt": "2026-07-14T17:44:10.102Z",
+      "unitCount": 13,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-iii-la/content.json",
+        "index": "documents/constantinopla-iii-la/index.json",
+        "meta": "documents/constantinopla-iii-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "constantinopla-iv-es",
+      "sourceId": "constantinopla-iv-es",
+      "title": "Concilio de Constantinopla IV",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:21:08.176Z",
+      "lastDownloadedAt": "2026-07-14T18:21:24.751Z",
+      "unitCount": 26,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-iv-es/content.json",
+        "index": "documents/constantinopla-iv-es/index.json",
+        "meta": "documents/constantinopla-iv-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantinopolitanum IV» (constantinopla-iv-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "constantinopla-iv-la",
+      "sourceId": "constantinopla-iv",
+      "title": "Concilium Constantinopolitanum IV",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:41.866Z",
+      "lastDownloadedAt": "2026-07-14T17:48:32.556Z",
+      "unitCount": 26,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-iv-la/content.json",
+        "index": "documents/constantinopla-iv-la/index.json",
+        "meta": "documents/constantinopla-iv-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "constanza-es",
+      "sourceId": "constanza-es",
+      "title": "Concilio de Constanza",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:21:39.004Z",
+      "lastDownloadedAt": "2026-07-14T18:21:39.004Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constanza-es/content.json",
+        "index": "documents/constanza-es/index.json",
+        "meta": "documents/constanza-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantiense» (constanza-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "constanza-la",
+      "sourceId": "constanza",
+      "title": "Concilium Constantiense",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:42.037Z",
+      "lastDownloadedAt": "2026-07-14T17:48:24.478Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constanza-la/content.json",
+        "index": "documents/constanza-la/index.json",
+        "meta": "documents/constanza-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
       "id": "ct-es",
       "sourceId": "ct",
       "title": "Catechesi tradendae",
@@ -1170,6 +1410,46 @@
       "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
+      "id": "efeso-es",
+      "sourceId": "efeso-es",
+      "title": "Concilio de Éfeso",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:21:52.462Z",
+      "lastDownloadedAt": "2026-07-14T18:21:52.462Z",
+      "unitCount": 11,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/efeso-es/content.json",
+        "index": "documents/efeso-es/index.json",
+        "meta": "documents/efeso-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Ephesinum» (efeso-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "efeso-la",
+      "sourceId": "efeso",
+      "title": "Concilium Ephesinum",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:15:32.806Z",
+      "lastDownloadedAt": "2026-07-14T17:48:33.567Z",
+      "unitCount": 11,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/efeso-la/content.json",
+        "index": "documents/efeso-la/index.json",
+        "meta": "documents/efeso-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
       "id": "en-es",
       "sourceId": "en",
       "title": "Evangelii nuntiandi",
@@ -1231,6 +1511,46 @@
       },
       "notes": "JPII apostolic exhortation on the family.",
       "lastResolvedAt": "2026-07-13T08:56:08.982Z"
+    },
+    {
+      "id": "florencia-es",
+      "sourceId": "florencia-es",
+      "title": "Concilio de Basilea-Ferrara-Florencia",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:21:39.923Z",
+      "lastDownloadedAt": "2026-07-14T18:21:39.923Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/florencia-es/content.json",
+        "index": "documents/florencia-es/index.json",
+        "meta": "documents/florencia-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Basileense-Ferrariense-Florentinum» (florencia-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "florencia-la",
+      "sourceId": "florencia",
+      "title": "Concilium Basileense-Ferrariense-Florentinum",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:42.052Z",
+      "lastDownloadedAt": "2026-07-14T17:48:25.071Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/florencia-la/content.json",
+        "index": "documents/florencia-la/index.json",
+        "meta": "documents/florencia-la/meta.json"
+      },
+      "notes": ""
     },
     {
       "id": "ge-es",
@@ -1336,6 +1656,246 @@
       "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
+      "id": "jerusalen-es",
+      "sourceId": "jerusalen-es",
+      "title": "Concilio de Jerusalén",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/bible/index_sp.htm"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:20:18.954Z",
+      "lastDownloadedAt": "2026-07-14T18:21:45.547Z",
+      "unitCount": 41,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/jerusalen-es/content.json",
+        "index": "documents/jerusalen-es/index.json",
+        "meta": "documents/jerusalen-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Hierosolymitanum» (jerusalen-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "jerusalen-la",
+      "sourceId": "jerusalen",
+      "title": "Concilium Hierosolymitanum",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/bible/index_sp.htm"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:11:24.616Z",
+      "lastDownloadedAt": "2026-07-14T17:44:37.010Z",
+      "unitCount": 41,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/jerusalen-la/content.json",
+        "index": "documents/jerusalen-la/index.json",
+        "meta": "documents/jerusalen-la/meta.json"
+      },
+      "notes": "Hechos 15 (Vulgata). Pack del relato apostólico."
+    },
+    {
+      "id": "lateran-i-es",
+      "sourceId": "lateran-i-es",
+      "title": "Concilio de Letrán I",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:20:37.528Z",
+      "lastDownloadedAt": "2026-07-14T18:21:21.581Z",
+      "unitCount": 14,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-i-es/content.json",
+        "index": "documents/lateran-i-es/index.json",
+        "meta": "documents/lateran-i-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense I» (lateran-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "lateran-i-la",
+      "sourceId": "lateran-i",
+      "title": "Concilium Lateranense I",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:41.901Z",
+      "lastDownloadedAt": "2026-07-14T17:48:27.685Z",
+      "unitCount": 14,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-i-la/content.json",
+        "index": "documents/lateran-i-la/index.json",
+        "meta": "documents/lateran-i-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "lateran-ii-es",
+      "sourceId": "lateran-ii-es",
+      "title": "Concilio de Letrán II",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:20:38.364Z",
+      "lastDownloadedAt": "2026-07-14T18:21:22.757Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-ii-es/content.json",
+        "index": "documents/lateran-ii-es/index.json",
+        "meta": "documents/lateran-ii-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense II» (lateran-ii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "lateran-ii-la",
+      "sourceId": "lateran-ii",
+      "title": "Concilium Lateranense II",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:41.915Z",
+      "lastDownloadedAt": "2026-07-14T17:48:28.620Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-ii-la/content.json",
+        "index": "documents/lateran-ii-la/index.json",
+        "meta": "documents/lateran-ii-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "lateran-iii-es",
+      "sourceId": "lateran-iii-es",
+      "title": "Concilio de Letrán III",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:20:39.226Z",
+      "lastDownloadedAt": "2026-07-14T18:21:24.394Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-iii-es/content.json",
+        "index": "documents/lateran-iii-es/index.json",
+        "meta": "documents/lateran-iii-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense III» (lateran-iii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "lateran-iii-la",
+      "sourceId": "lateran-iii",
+      "title": "Concilium Lateranense III",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:41.933Z",
+      "lastDownloadedAt": "2026-07-14T17:48:29.624Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-iii-la/content.json",
+        "index": "documents/lateran-iii-la/index.json",
+        "meta": "documents/lateran-iii-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "lateran-iv-es",
+      "sourceId": "lateran-iv-es",
+      "title": "Concilio de Letrán IV",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:20:40.073Z",
+      "lastDownloadedAt": "2026-07-14T18:20:40.073Z",
+      "unitCount": 18,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-iv-es/content.json",
+        "index": "documents/lateran-iv-es/index.json",
+        "meta": "documents/lateran-iv-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense IV» (lateran-iv-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "lateran-iv-la",
+      "sourceId": "lateran-iv",
+      "title": "Concilium Lateranense IV",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:41.970Z",
+      "lastDownloadedAt": "2026-07-14T17:48:26.887Z",
+      "unitCount": 18,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-iv-la/content.json",
+        "index": "documents/lateran-iv-la/index.json",
+        "meta": "documents/lateran-iv-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "lateran-v-es",
+      "sourceId": "lateran-v-es",
+      "title": "Concilio de Letrán V",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:20:40.960Z",
+      "lastDownloadedAt": "2026-07-14T18:20:40.960Z",
+      "unitCount": 23,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-v-es/content.json",
+        "index": "documents/lateran-v-es/index.json",
+        "meta": "documents/lateran-v-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense V» (lateran-v-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "lateran-v-la",
+      "sourceId": "lateran-v",
+      "title": "Concilium Lateranense V",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:42.066Z",
+      "lastDownloadedAt": "2026-07-14T17:48:26.247Z",
+      "unitCount": 23,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-v-la/content.json",
+        "index": "documents/lateran-v-la/index.json",
+        "meta": "documents/lateran-v-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
       "id": "le-es",
       "sourceId": "le",
       "title": "Laborem exercens",
@@ -1376,6 +1936,86 @@
       },
       "notes": "Single-page Vatican II dogmatic constitution. Numbered §§1–69.",
       "lastResolvedAt": "2026-07-13T08:56:08.982Z"
+    },
+    {
+      "id": "lyon-i-es",
+      "sourceId": "lyon-i-es",
+      "title": "Concilio de Lyon I",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:20:41.832Z",
+      "lastDownloadedAt": "2026-07-14T18:20:41.832Z",
+      "unitCount": 14,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lyon-i-es/content.json",
+        "index": "documents/lyon-i-es/index.json",
+        "meta": "documents/lyon-i-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lugdunense I» (lyon-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "lyon-i-la",
+      "sourceId": "lyon-i",
+      "title": "Concilium Lugdunense I",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:41.990Z",
+      "lastDownloadedAt": "2026-07-14T17:48:30.665Z",
+      "unitCount": 14,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lyon-i-la/content.json",
+        "index": "documents/lyon-i-la/index.json",
+        "meta": "documents/lyon-i-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "lyon-ii-es",
+      "sourceId": "lyon-ii-es",
+      "title": "Concilio de Lyon II",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:20:42.889Z",
+      "lastDownloadedAt": "2026-07-14T18:20:42.889Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lyon-ii-es/content.json",
+        "index": "documents/lyon-ii-es/index.json",
+        "meta": "documents/lyon-ii-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lugdunense II» (lyon-ii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "lyon-ii-la",
+      "sourceId": "lyon-ii",
+      "title": "Concilium Lugdunense II",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:42.007Z",
+      "lastDownloadedAt": "2026-07-14T17:48:31.625Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lyon-ii-la/content.json",
+        "index": "documents/lyon-ii-la/index.json",
+        "meta": "documents/lyon-ii-la/meta.json"
+      },
+      "notes": ""
     },
     {
       "id": "mc-es",
@@ -1439,6 +2079,86 @@
       },
       "notes": "Vat. II declaration on non-Christian religions.",
       "lastResolvedAt": "2026-07-13T08:56:08.982Z"
+    },
+    {
+      "id": "nicea-i-es",
+      "sourceId": "nicea-i-es",
+      "title": "Concilio de Nicea I",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/01_10_0325-0325-_Concilium_Nicaenum_I.html"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:20:19.901Z",
+      "lastDownloadedAt": "2026-07-14T18:21:47.802Z",
+      "unitCount": 25,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/nicea-i-es/content.json",
+        "index": "documents/nicea-i-es/index.json",
+        "meta": "documents/nicea-i-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Nicaenum I» (nicea-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "nicea-i-la",
+      "sourceId": "nicea-i",
+      "title": "Concilium Nicaenum I",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/01_10_0325-0325-_Concilium_Nicaenum_I.html"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:11:25.868Z",
+      "lastDownloadedAt": "2026-07-14T17:44:03.475Z",
+      "unitCount": 25,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/nicea-i-la/content.json",
+        "index": "documents/nicea-i-la/index.json",
+        "meta": "documents/nicea-i-la/meta.json"
+      },
+      "notes": "Símbolo + 20 cánones. Mansi Vol. 2."
+    },
+    {
+      "id": "nicea-ii-es",
+      "sourceId": "nicea-ii-es",
+      "title": "Concilio de Nicea II",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:21:07.320Z",
+      "lastDownloadedAt": "2026-07-14T18:21:07.320Z",
+      "unitCount": 27,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/nicea-ii-es/content.json",
+        "index": "documents/nicea-ii-es/index.json",
+        "meta": "documents/nicea-ii-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Nicaenum II» (nicea-ii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "nicea-ii-la",
+      "sourceId": "nicea-ii",
+      "title": "Concilium Nicaenum II",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:41.842Z",
+      "lastDownloadedAt": "2026-07-14T17:44:11.037Z",
+      "unitCount": 27,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/nicea-ii-la/content.json",
+        "index": "documents/nicea-ii-la/index.json",
+        "meta": "documents/nicea-ii-la/meta.json"
+      },
+      "notes": ""
     },
     {
       "id": "nmi-es",
@@ -1650,6 +2370,48 @@
       "lastResolvedAt": "2026-07-13T08:56:08.982Z"
     },
     {
+      "id": "trento-es",
+      "sourceId": "trento-es",
+      "title": "Concilio de Trento",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/",
+        "https://archive.org/details/Mansi33"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:21:40.990Z",
+      "lastDownloadedAt": "2026-07-14T18:21:40.990Z",
+      "unitCount": 48,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/trento-es/content.json",
+        "index": "documents/trento-es/index.json",
+        "meta": "documents/trento-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Tridentinum» (trento-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "trento-la",
+      "sourceId": "trento",
+      "title": "Concilium Tridentinum",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/",
+        "https://archive.org/details/Mansi33"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:42.091Z",
+      "lastDownloadedAt": "2026-07-14T17:48:23.308Z",
+      "unitCount": 48,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/trento-la/content.json",
+        "index": "documents/trento-la/index.json",
+        "meta": "documents/trento-la/meta.json"
+      },
+      "notes": "Preferir decretos/cánones; subdividir por sesión si hace falta."
+    },
+    {
       "id": "ur-es",
       "sourceId": "ur",
       "title": "Unitatis redintegratio",
@@ -1669,6 +2431,88 @@
       },
       "notes": "Decree on Ecumenism (Vat. II). Numbered §§1–24. Official path uses decree_ (not const_).",
       "lastResolvedAt": "2026-07-13T08:56:08.982Z"
+    },
+    {
+      "id": "vat-i-es",
+      "sourceId": "vat-i-es",
+      "title": "Concilio Vaticano I",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/",
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:21:43.227Z",
+      "lastDownloadedAt": "2026-07-14T18:21:43.227Z",
+      "unitCount": 23,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vat-i-es/content.json",
+        "index": "documents/vat-i-es/index.json",
+        "meta": "documents/vat-i-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Vaticanum I» (vat-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "vat-i-la",
+      "sourceId": "vat-i",
+      "title": "Concilium Vaticanum I",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.vatican.va/",
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:42.122Z",
+      "lastDownloadedAt": "2026-07-14T17:48:23.900Z",
+      "unitCount": 23,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vat-i-la/content.json",
+        "index": "documents/vat-i-la/index.json",
+        "meta": "documents/vat-i-la/meta.json"
+      },
+      "notes": "Preferir Dei Filius + Pastor Aeternus como docs sueltos."
+    },
+    {
+      "id": "vienne-es",
+      "sourceId": "vienne-es",
+      "title": "Concilio de Vienne",
+      "kind": "council",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T18:21:37.664Z",
+      "lastDownloadedAt": "2026-07-14T18:21:37.664Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vienne-es/content.json",
+        "index": "documents/vienne-es/index.json",
+        "meta": "documents/vienne-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Viennense» (vienne-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "vienne-la",
+      "sourceId": "vienne",
+      "title": "Concilium Viennense",
+      "kind": "council",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-14T16:24:42.023Z",
+      "lastDownloadedAt": "2026-07-14T17:48:25.642Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vienne-la/content.json",
+        "index": "documents/vienne-la/index.json",
+        "meta": "documents/vienne-la/meta.json"
+      },
+      "notes": ""
     },
     {
       "id": "vs-es",
