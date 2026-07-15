@@ -1,57 +1,71 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
-import { map, shareReplay, switchMap, tap } from 'rxjs/operators';
+import { Observable, firstValueFrom, from, of } from 'rxjs';
+import { shareReplay } from 'rxjs/operators';
 import {
   Article,
-  CorpusManifest,
   DocumentMeta,
   Indice,
   IndiceDocumentos,
   LoadedDocument,
 } from './corpus.models';
-
-const CORPUS_ROOT = 'assets/corpus';
-const MANIFEST_URL = `${CORPUS_ROOT}/manifest.json`;
+import { IndexedDbCorpusStore } from './corpus-durable-idb.store';
+import { CorpusLoadEngine } from './corpus-load.logic';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CorpusService {
-  private manifest: DocumentMeta[] | null = null;
-  private manifestInflight: Observable<DocumentMeta[]> | null = null;
+  private readonly engine: CorpusLoadEngine;
 
-  private readonly cache = new Map<string, LoadedDocument>();
-  private readonly inflight = new Map<string, Observable<LoadedDocument>>();
+  /** In-flight Observable wrappers so concurrent subscribers share one request. */
+  private manifestInflight$: Observable<DocumentMeta[]> | null = null;
+  private readonly inflight$ = new Map<string, Observable<LoadedDocument>>();
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(
+    private readonly http: HttpClient,
+    durableStore: IndexedDbCorpusStore
+  ) {
+    this.engine = new CorpusLoadEngine({
+      httpGet: <T>(url: string) => firstValueFrom(this.http.get<T>(url)),
+      store: durableStore,
+    });
+  }
+
+  /** Drop in-memory only (durable kept). Used by tests simulating reload. */
+  clearMemoryCache(): void {
+    this.engine.clearMemory();
+    this.manifestInflight$ = null;
+    this.inflight$.clear();
+  }
 
   loadManifest(): Observable<DocumentMeta[]> {
-    if (this.manifest) {
-      return of(this.manifest);
+    if (this.engine.hasManifestInMemory()) {
+      return of(this.engine.listDocuments());
     }
-    if (this.manifestInflight) {
-      return this.manifestInflight;
+    if (this.manifestInflight$) {
+      return this.manifestInflight$;
     }
 
-    this.manifestInflight = this.http.get<CorpusManifest>(MANIFEST_URL).pipe(
-      map((manifest) => manifest?.documents ?? []),
-      tap((documents) => {
-        this.manifest = documents;
-        this.manifestInflight = null;
-      }),
-      shareReplay(1)
-    );
-
-    return this.manifestInflight;
+    const request$ = from(this.engine.loadManifest()).pipe(shareReplay(1));
+    this.manifestInflight$ = request$;
+    request$.subscribe({
+      complete: () => {
+        this.manifestInflight$ = null;
+      },
+      error: () => {
+        this.manifestInflight$ = null;
+      },
+    });
+    return request$;
   }
 
   listDocuments(): DocumentMeta[] {
-    return this.manifest ? [...this.manifest] : [];
+    return this.engine.listDocuments() as DocumentMeta[];
   }
 
   getMeta(documentId: string): DocumentMeta | undefined {
-    return this.manifest?.find((d) => this.matchesMeta(d, documentId));
+    return this.engine.getMeta(documentId) as DocumentMeta | undefined;
   }
 
   /**
@@ -62,67 +76,31 @@ export class CorpusService {
   }
 
   ensureLoaded(documentId: string): Observable<LoadedDocument> {
-    const cached = this.cache.get(documentId);
+    const cached = this.engine.getLoaded(documentId);
     if (cached) {
-      return of(cached);
+      return of(cached as LoadedDocument);
     }
 
-    const pending = this.inflight.get(documentId);
+    const pending = this.inflight$.get(documentId);
     if (pending) {
       return pending;
     }
 
-    const request$ = this.loadManifest().pipe(
-      switchMap((metas) => {
-        const meta = metas.find((m) => this.matchesMeta(m, documentId));
+    const request$ = from(
+      this.engine.ensureLoaded(documentId) as Promise<LoadedDocument>
+    ).pipe(shareReplay(1));
 
-        if (!meta) {
-          return throwError(
-            () => new Error(`Document not found in manifest: ${documentId}`)
-          );
-        }
+    this.inflight$.set(documentId, request$);
+    request$.subscribe({
+      complete: () => this.inflight$.delete(documentId),
+      error: () => this.inflight$.delete(documentId),
+    });
 
-        const byId = this.cache.get(meta.id);
-        if (byId) {
-          return of(byId);
-        }
-
-        const bodyUrl = this.resolveAssetPath(meta.bodyPath);
-        const indexUrl = this.resolveAssetPath(meta.indexPath);
-
-        return this.http.get<Article[]>(bodyUrl).pipe(
-          switchMap((body) =>
-            this.http.get<unknown>(indexUrl).pipe(
-              map((rawIndex) => {
-                const documento = this.stampIndexArray(
-                  Array.isArray(body) ? ([...body] as Article[]) : []
-                );
-                const indice = this.normalizeIndex(rawIndex);
-                const loaded: LoadedDocument = {
-                  meta,
-                  documento,
-                  indice,
-                };
-                this.remember(loaded);
-                return loaded;
-              })
-            )
-          )
-        );
-      }),
-      tap({
-        next: () => this.inflight.delete(documentId),
-        error: () => this.inflight.delete(documentId),
-      }),
-      shareReplay(1)
-    );
-
-    this.inflight.set(documentId, request$);
     return request$;
   }
 
   getLoaded(documentId: string): LoadedDocument | undefined {
-    return this.cache.get(documentId);
+    return this.engine.getLoaded(documentId) as LoadedDocument | undefined;
   }
 
   toIndiceDocumentos(loaded: LoadedDocument): IndiceDocumentos {
@@ -159,13 +137,13 @@ export class CorpusService {
     documentId: string,
     indexOrConsecutivo: number | string
   ): Article | undefined {
-    const loaded = this.cache.get(documentId);
+    const loaded = this.engine.getLoaded(documentId);
     if (!loaded) {
       return undefined;
     }
 
     if (typeof indexOrConsecutivo === 'number') {
-      return loaded.documento[indexOrConsecutivo];
+      return loaded.documento[indexOrConsecutivo] as Article | undefined;
     }
 
     const asNumber = Number(indexOrConsecutivo);
@@ -176,73 +154,23 @@ export class CorpusService {
     ) {
       const byIndex = loaded.documento[asNumber];
       if (byIndex) {
-        return byIndex;
+        return byIndex as Article;
       }
     }
 
-    return loaded.documento.find((a) => a.consecutivo === indexOrConsecutivo);
+    return loaded.documento.find(
+      (a) => a.consecutivo === indexOrConsecutivo
+    ) as Article | undefined;
   }
 
   normalizeIndex(raw: unknown): Indice {
-    if (!raw || typeof raw !== 'object') {
-      return { indice: {}, indice_por_punto: {} };
-    }
-
-    const obj = raw as Record<string, unknown>;
-
-    if (
-      obj['indice'] &&
-      typeof obj['indice'] === 'object' &&
-      !Array.isArray(obj['indice'])
-    ) {
-      const indice = obj['indice'] as Indice['indice'];
-      const indice_por_punto =
-        obj['indice_por_punto'] &&
-        typeof obj['indice_por_punto'] === 'object' &&
-        !Array.isArray(obj['indice_por_punto'])
-          ? (obj['indice_por_punto'] as Indice['indice_por_punto'])
-          : {};
-      return { indice, indice_por_punto };
-    }
-
-    // Flat word → positions map (legacy / simplified index files).
-    return {
-      indice: obj as Indice['indice'],
-      indice_por_punto: {},
-    };
+    return this.engine.normalizeIndex(raw) as Indice;
   }
 
   /**
    * Paths may be absolute under `assets/...` or relative to the corpus root.
    */
   resolveAssetPath(path: string): string {
-    const cleaned = path.replace(/^\//, '');
-    if (cleaned.startsWith('assets/')) {
-      return cleaned;
-    }
-    return `${CORPUS_ROOT}/${cleaned}`;
-  }
-
-  private matchesMeta(meta: DocumentMeta, idOrTitle: string): boolean {
-    return (
-      meta.id === idOrTitle ||
-      meta.title === idOrTitle ||
-      meta.shortTitle === idOrTitle
-    );
-  }
-
-  private remember(loaded: LoadedDocument): void {
-    this.cache.set(loaded.meta.id, loaded);
-    this.cache.set(loaded.meta.title, loaded);
-    if (loaded.meta.shortTitle) {
-      this.cache.set(loaded.meta.shortTitle, loaded);
-    }
-  }
-
-  private stampIndexArray(articles: Article[]): Article[] {
-    articles.forEach((article, i) => {
-      article.index_array = i;
-    });
-    return articles;
+    return this.engine.resolveAssetPath(path);
   }
 }
