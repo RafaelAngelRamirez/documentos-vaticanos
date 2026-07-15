@@ -32,7 +32,8 @@
     "package:electron": "bash scripts/package-electron.sh",
     "package:downloads": "bash scripts/package-collect-downloads.sh",
     "package:all": "bash scripts/package-all.sh",
-    "test:downloads": "node frontend/src/app/core/downloads/downloads.paths.test.js"
+    "test:downloads": "node frontend/src/app/core/downloads/downloads.paths.test.js",
+    "test:apk-javahome": "node scripts/package-apk.javahome.test.js"
   },
   "packageManager": "yarn@1.22.22"
 }
