@@ -16,6 +16,12 @@ npm run build
 
 Artifacts go to `dist/documentos-vaticanos/`.
 
+From the monorepo root (copies into stable `dist/web/`):
+
+```bash
+npm run package:web
+```
+
 ## Android (Capacitor 5)
 
 Requirements: [Android Studio](https://developer.android.com/studio) with Android SDK, JDK 17 recommended.
@@ -28,8 +34,18 @@ npm run build:cap
 npm run build
 npx cap sync
 
+# Debug APK
+npm run build:apk
+# → android/app/build/outputs/apk/debug/app-debug.apk
+
 # Open in Android Studio (after android/ platform exists)
 npm run cap:android
+```
+
+Monorepo one-shot (also copies APK to `dist/documentos-vaticanos-debug.apk`):
+
+```bash
+npm run package:apk
 ```
 
 First-time platform setup (if `android/` is missing):
@@ -47,8 +63,27 @@ Then in Android Studio: wait for Gradle sync, pick a device/emulator, and Run.
 
 - `appId`: `digital.documentosvaticanos.app`
 - Web assets: `dist/documentos-vaticanos` (`webDir` in `capacitor.config.ts`)
-- Service worker is **disabled on native** (`Capacitor.isNativePlatform()`); it still runs for the web PWA.
+- Service worker is **disabled on native** (`Capacitor.isNativePlatform()`) and on the **Electron** shell; it still runs for the web PWA.
 - Do not commit `android/local.properties` or other machine-specific Android files.
+
+## Electron (desktop)
+
+Same production web tree, loaded offline via a local static server in the main process (`electron/`).
+
+```bash
+# Requires production web dist
+npm run build
+npm run electron            # launch
+npm run electron:smoke      # load then exit (CI)
+npm run electron:pack       # electron-builder → ../dist/electron
+npm run test:electron-paths # path + static-server unit tests
+```
+
+Monorepo:
+
+```bash
+npm run package:electron
+```
 
 ## Code scaffolding
 

@@ -128,6 +128,32 @@ function main() {
     'about page exposes download links'
   );
 
+  section('Inicio (3A) web-only quick downloads + version');
+  const inicioHtml = fs.readFileSync(
+    path.join(FRONTEND, 'src/app/pages/inicio/inicio.component.html'),
+    'utf8'
+  );
+  const inicioTs = fs.readFileSync(
+    path.join(FRONTEND, 'src/app/pages/inicio/inicio.component.ts'),
+    'utf8'
+  );
+  assert.ok(inicioHtml.includes('showDownloads'), 'inicio gates downloads');
+  assert.ok(inicioHtml.includes('versionLabel'), 'inicio shows version label');
+  assert.ok(inicioHtml.includes('inicio-dl-android'), 'inicio android download');
+  assert.ok(inicioHtml.includes('inicio-dl-windows'), 'inicio windows download');
+  assert.ok(inicioHtml.includes('inicio-dl-linux'), 'inicio linux download');
+  assert.ok(inicioHtml.includes('links.apk'), 'inicio uses resolved apk path');
+  assert.ok(inicioHtml.includes('links.windows'), 'inicio uses resolved windows path');
+  assert.ok(inicioHtml.includes('links.linux'), 'inicio uses resolved linux path');
+  assert.ok(
+    inicioTs.includes('isWebDownloadShell') && inicioTs.includes('DownloadsService'),
+    'inicio wires DownloadsService + web-only shell gate'
+  );
+  assert.ok(
+    inicioTs.includes('formatVersionLabel') || inicioTs.includes("v${"),
+    'inicio formats version with v prefix'
+  );
+
   console.log('\nAll downloads path tests passed.');
 }
 

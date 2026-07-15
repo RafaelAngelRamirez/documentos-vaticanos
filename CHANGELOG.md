@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
+* Empaquetado distribuible **web + APK + Electron** desde la misma build de producción Angular: scripts monorepo `package:web` / `package:apk` / `package:electron` / `package:all` → `dist/web`, `dist/documentos-vaticanos-debug.apk`, `dist/electron/` (AppImage + linux-unpacked); shell Electron en `frontend/electron/` con corpus offline embebido
 * Design handoff **Pantallas de Diseño** (1A–6D): tokens claro/oscuro, flujo lectura 3A/3D/3E/2A/2B, producto 1B–1E, notas 3G, ajustes 3H
 * Temas con cola de revisión (6A–6D): `reviewStatus`, rol `admin`, APIs `/me/themes/.../submit` y `/admin/themes`
 * Padres de la Iglesia (2C/2D) en `/padres` y `/padres/:id`

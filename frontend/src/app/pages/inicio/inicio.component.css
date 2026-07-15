@@ -57,3 +57,82 @@
 .wlink a:hover {
   text-decoration: underline;
 }
+
+/* Version (v0.0.x) under account link */
+.wver {
+  margin: 18px 0 0;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  font-family: var(--app-font-sans, 'IBM Plex Sans', sans-serif);
+}
+
+/* Quick downloads: Android / Windows / Linux (web only) */
+.wdl {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.wdl-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 72px;
+  min-height: 56px;
+  padding: 10px 12px;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1px solid var(--line, var(--app-line));
+  background: var(--card, var(--app-card));
+  color: var(--ink, var(--app-ink));
+  text-decoration: none;
+  font-family: var(--app-font-sans, 'IBM Plex Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wdl-item:hover {
+  border-color: color-mix(in srgb, var(--acc, var(--app-acc)) 45%, var(--line, var(--app-line)));
+  background: color-mix(in srgb, var(--card, var(--app-card)) 88%, var(--acc, var(--app-acc)));
+}
+
+.wdl-item:active {
+  transform: scale(0.97);
+}
+
+.wdl-item:focus-visible {
+  outline: 2px solid var(--acc, var(--app-acc));
+  outline-offset: 2px;
+}
+
+.wdl-ico {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: var(--ink, var(--app-ink));
+  opacity: 0.9;
+}
+
+.wdl-label {
+  color: var(--muted, var(--app-muted));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wdl-item {
+    transition: none;
+  }
+
+  .wdl-item:active {
+    transform: none;
+  }
+}

@@ -1,10 +1,10 @@
 [
   {
-    "updatedAt": "2026-07-15T20:44:56.000Z",
+    "updatedAt": "2026-07-15T21:00:00.000Z",
     "createdAt": "2026-07-15T16:13:30.000Z",
     "id": "DOCVATBuildV1sc",
     "name": "DOCVAT-build v1 (sidecar)",
-    "description": "Build + deploy Documentos Vaticanos \u2192 https://docvat.codice-progressio.online (web + APK + Electron Linux/Windows downloads)",
+    "description": "Build + deploy Documentos Vaticanos → https://docvat.codice-progressio.online (web + APK + Electron Linux/Windows downloads)",
     "active": false,
     "isArchived": false,
     "nodes": [
@@ -188,7 +188,7 @@
       {
         "parameters": {
           "chatId": "-5285820658",
-          "text": "={{ \"\ud83d\ude80 Build Documentos Vaticanos iniciado\\n\ud83d\udcc2 RafaelAngelRamirez/documentos-vaticanos\\n\ud83c\udf3f Rama: \" + $(\"Nombre de la rama\").item.json.branch_name }}",
+          "text": "={{ \"🚀 Build Documentos Vaticanos iniciado\\n📂 RafaelAngelRamirez/documentos-vaticanos\\n🌿 Rama: \" + $(\"Nombre de la rama\").item.json.branch_name }}",
           "additionalFields": {}
         },
         "type": "n8n-nodes-base.telegram",
@@ -210,7 +210,7 @@
       {
         "parameters": {
           "executeOnce": false,
-          "command": "set -euo pipefail\nLOCK=/tmp/docvat-build.lock\nexec 9>\"$LOCK\"\nif ! flock -n 9; then\n  echo \"ERROR: another DOCVAT build holds $LOCK \u2014 abort to avoid volume corruption\" >&2\n  exit 75\nfi\n# Keep lock for the rest of this n8n execution by writing a marker; child docker run does not need the flock\necho \"$$ $(date -Iseconds)\" > /tmp/docvat-build.owner\n# Nuclear clean of the shared n8n_build volume mounted at /tmp/repo\n# (cannot rmdir the mountpoint; wipe all contents including .git)\nif [[ -d /tmp/repo ]]; then\n  # Prefer find (handles deep trees); fall back to rm\n  find /tmp/repo -mindepth 1 -maxdepth 1 -exec rm -rf {} + 2>/dev/null || true\n  rm -rf /tmp/repo/.[!.]* /tmp/repo/..?* 2>/dev/null || true\nfi\nmkdir -p /tmp/repo\n# Prove pack path is writable\nmkdir -p /tmp/repo/.git-write-test && rmdir /tmp/repo/.git-write-test\necho \"clean ok; free: $(df -h /tmp/repo | tail -1)\"\n"
+          "command": "set -euo pipefail\nLOCK=/tmp/docvat-build.lock\nexec 9>\"$LOCK\"\nif ! flock -n 9; then\n  echo \"ERROR: another DOCVAT build holds $LOCK — abort to avoid volume corruption\" >&2\n  exit 75\nfi\n# Keep lock for the rest of this n8n execution by writing a marker; child docker run does not need the flock\necho \"$$ $(date -Iseconds)\" > /tmp/docvat-build.owner\n# Nuclear clean of the shared n8n_build volume mounted at /tmp/repo\n# (cannot rmdir the mountpoint; wipe all contents including .git)\nif [[ -d /tmp/repo ]]; then\n  # Prefer find (handles deep trees); fall back to rm\n  find /tmp/repo -mindepth 1 -maxdepth 1 -exec rm -rf {} + 2>/dev/null || true\n  rm -rf /tmp/repo/.[!.]* /tmp/repo/..?* 2>/dev/null || true\nfi\nmkdir -p /tmp/repo\n# Prove pack path is writable\nmkdir -p /tmp/repo/.git-write-test && rmdir /tmp/repo/.git-write-test\necho \"clean ok; free: $(df -h /tmp/repo | tail -1)\"\n"
         },
         "type": "n8n-nodes-base.executeCommand",
         "typeVersion": 1,
@@ -263,7 +263,7 @@
       },
       {
         "parameters": {
-          "command": "set -euo pipefail\nLOCK=/tmp/docvat-build.lock\nexec 9>\"$LOCK\"\nif ! flock -n 9; then\n  echo \"ERROR: another DOCVAT build holds $LOCK\" >&2\n  exit 75\nfi\necho \"==> lock acquired $$\"\n\nBRANCH=\"${DOCVAT_BRANCH:-typescript-migration}\"\nif [[ -f /tmp/docvat-branch.txt ]]; then\n  BRANCH=$(cat /tmp/docvat-branch.txt)\nfi\n# Isolate from Imperium files that share codice-progressio_n8n_build\nWORKDIR=/tmp/repo/docvat\necho \"==> WORKDIR=$WORKDIR branch=$BRANCH\"\n# Nuclear clean of ONLY the docvat subdir\nrm -rf \"$WORKDIR\"\nmkdir -p \"$WORKDIR\"\ncd \"$WORKDIR\"\n\necho \"==> clone\"\ngit clone --depth 1 --branch \"$BRANCH\" \\\n  https://github.com/RafaelAngelRamirez/documentos-vaticanos.git .\ntest -f package.json\ntest -f scripts/package-apk.sh\ntest -f frontend/android/app/capacitor.build.gradle\necho \"==> checkout $(git rev-parse --short HEAD) $(git log -1 --oneline)\"\n\ncat > \"$WORKDIR/.ci-build.sh\" <<'CIEOF'\n#!/usr/bin/env bash\nset -euo pipefail\nexport HOME=/cache/gradle/.home_runner\nmkdir -p \"$HOME\"\ngit config --global --add safe.directory /work\ngit config --global user.name \"Mr. Nochon\"\ngit config --global user.email \"mr.nochon@codice-progressio.online\"\ncd /work\nCURRENT_STAGE=\"iniciando\"\nnotify_step(){ :; }; notify_done(){ :; }; notify_fail(){ :; }; notify_init(){ :; }\nif [[ -f /work/scripts/notify-build.sh ]]; then\n  # shellcheck disable=SC1091\n  source /work/scripts/notify-build.sh || true\n  set -E\n  trap 'notify_fail \"$CURRENT_STAGE\" 2>/dev/null || true' ERR\n  notify_init \"Documentos Vaticanos CI\" 7 || true\nfi\ntest -f /work/package.json\ntest -f /work/scripts/package-apk.sh\necho \"==> [1/7] Dependencias\"\nCURRENT_STAGE=\"Dependencias\"; notify_step \"$CURRENT_STAGE\" || true\nif command -v yarn >/dev/null 2>&1; then yarn install --production=false || true; fi\n( cd frontend && (yarn install --production=false || npm ci || npm install) )\n( cd backend && (yarn install --production=false || npm ci || npm install) || true )\necho \"==> [2/7] Release\"\nCURRENT_STAGE=\"Release\"; notify_step \"$CURRENT_STAGE\" || true\nif [[ \"${DV_SKIP_RELEASE:-0}\" != \"1\" ]]; then\n  npx standard-version || yarn standard-version || true\nfi\nVERSION=\"v$(node -p \"require('./package.json').version\")\"\necho \"::DOCVAT_VERSION::${VERSION}\"\necho \"==> [3/7] Web\"\nCURRENT_STAGE=\"Web\"; notify_step \"$CURRENT_STAGE\" || true\nbash scripts/package-web.sh\necho \"==> [4/7] APK\"\nCURRENT_STAGE=\"APK\"; notify_step \"$CURRENT_STAGE\" || true\nbash scripts/package-apk.sh\necho \"==> [5/7] Electron linux+win\"\nCURRENT_STAGE=\"Electron\"; notify_step \"$CURRENT_STAGE\" || true\nexport DV_ELECTRON_TARGETS=linux,win\nexport DV_REQUIRE_WIN=1\nbash scripts/package-electron.sh\necho \"==> [6/7] Collect downloads\"\nCURRENT_STAGE=\"Downloads\"; notify_step \"$CURRENT_STAGE\" || true\nexport DV_REQUIRE_ALL_DOWNLOADS=1\nbash scripts/package-collect-downloads.sh\necho \"==> [7/7] Docker + deploy\"\nCURRENT_STAGE=\"Deploy\"; notify_step \"$CURRENT_STAGE\" || true\nbash scripts/ci-docker-push.sh\nbash scripts/ci-deploy-docvat.sh\nnotify_done || true\necho \"::DOCVAT_BUILD_DONE::${VERSION}\"\nCIEOF\nchmod +x \"$WORKDIR/.ci-build.sh\"\n\nif ! docker image inspect imperium-build-runner:latest >/dev/null 2>&1; then\n  echo \"ERROR: imperium-build-runner:latest missing\" >&2\n  exit 3\nfi\n\nSOCK_GID=$(stat -c %g /var/run/docker.sock)\necho \"==> docker run sidecar (mount subdir /tmp/repo/docvat -> /work)\"\ndocker run --rm --network codice-progressio_default --user 1000:1000 --group-add \"$SOCK_GID\" \\\n  -v /var/run/docker.sock:/var/run/docker.sock \\\n  -v codice-progressio_n8n_build:/tmp/repo \\\n  -v codice-progressio_n8n_android_sdk:/tmp/repo/docvat/frontend/.android-build-tools \\\n  -v codice-progressio_n8n_gradle:/cache/gradle \\\n  -v codice-progressio_n8n_electron:/cache/electron \\\n  -e HOME=/cache/gradle/.home_runner \\\n  -e GRADLE_USER_HOME=/cache/gradle \\\n  -e ELECTRON_BUILDER_CACHE=/cache/electron \\\n  -e DOCKER_USERNAME=\"$DOCKER_USERNAME\" \\\n  -e DOCKER_TOKEN=\"$DOCKER_TOKEN\" \\\n  -e JAVA_HOME=/usr/lib/jvm/temurin-21-jdk-amd64 \\\n  -e DV_SKIP_RELEASE=1 \\\n  -e DV_REQUIRE_WIN=1 \\\n  -e DV_REQUIRE_ALL_DOWNLOADS=1 \\\n  -e BUILD_NOTIFY_WEBHOOK=http://n8n:5678/webhook/build-progress \\\n  -w /tmp/repo/docvat \\\n  imperium-build-runner:latest bash /tmp/repo/docvat/.ci-build.sh\nrc=$?\necho \"==> build exit $rc\"\nexit $rc\n"
+          "command": "set -euo pipefail\nLOCK=/tmp/docvat-build.lock\nexec 9>\"$LOCK\"\nif ! flock -n 9; then\n  echo \"ERROR: another DOCVAT build holds $LOCK\" >&2\n  exit 75\nfi\necho \"==> lock acquired $$\"\n\nBRANCH=\"${DOCVAT_BRANCH:-typescript-migration}\"\nif [[ -f /tmp/docvat-branch.txt ]]; then\n  BRANCH=$(cat /tmp/docvat-branch.txt)\nfi\n# Isolate from Imperium files that share codice-progressio_n8n_build\n# n8n sees volume at /tmp/repo; runner will mount same volume at /work\nWORKDIR=/tmp/repo/docvat\necho \"==> WORKDIR=$WORKDIR branch=$BRANCH\"\nrm -rf \"$WORKDIR\"\nmkdir -p \"$WORKDIR\"\ncd \"$WORKDIR\"\n\necho \"==> clone\"\ngit clone --depth 1 --branch \"$BRANCH\" \\\n  https://github.com/RafaelAngelRamirez/documentos-vaticanos.git .\ntest -f package.json\ntest -f scripts/package-apk.sh\ntest -f frontend/android/app/capacitor.build.gradle\necho \"==> checkout $(git rev-parse --short HEAD) $(git log -1 --oneline)\"\n\ncat > \"$WORKDIR/.ci-build.sh\" <<'CIEOF'\n#!/usr/bin/env bash\nset -euo pipefail\nexport HOME=/cache/gradle/.home_runner\nmkdir -p \"$HOME\"\n# Runner mounts n8n_build volume at /work; repo is under /work/docvat\nROOT=/work/docvat\ngit config --global --add safe.directory \"$ROOT\"\ngit config --global user.name \"Mr. Nochon\"\ngit config --global user.email \"mr.nochon@codice-progressio.online\"\ncd \"$ROOT\"\nCURRENT_STAGE=\"iniciando\"\nnotify_step(){ :; }; notify_done(){ :; }; notify_fail(){ :; }; notify_init(){ :; }\nif [[ -f \"$ROOT/scripts/notify-build.sh\" ]]; then\n  # shellcheck disable=SC1091\n  source \"$ROOT/scripts/notify-build.sh\" || true\n  set -E\n  trap 'notify_fail \"$CURRENT_STAGE\" 2>/dev/null || true' ERR\n  notify_init \"Documentos Vaticanos CI\" 7 || true\nfi\ntest -f \"$ROOT/package.json\"\ntest -f \"$ROOT/scripts/package-apk.sh\"\necho \"==> [1/7] Dependencias\"\nCURRENT_STAGE=\"Dependencias\"; notify_step \"$CURRENT_STAGE\" || true\nif command -v yarn >/dev/null 2>&1; then yarn install --production=false || true; fi\n( cd frontend && (yarn install --production=false || npm ci || npm install) )\n( cd backend && (yarn install --production=false || npm ci || npm install) || true )\necho \"==> [2/7] Release\"\nCURRENT_STAGE=\"Release\"; notify_step \"$CURRENT_STAGE\" || true\nif [[ \"${DV_SKIP_RELEASE:-0}\" != \"1\" ]]; then\n  npx standard-version || yarn standard-version || true\nfi\nVERSION=\"v$(node -p \"require('./package.json').version\")\"\necho \"::DOCVAT_VERSION::${VERSION}\"\necho \"==> [3/7] Web\"\nCURRENT_STAGE=\"Web\"; notify_step \"$CURRENT_STAGE\" || true\nbash scripts/package-web.sh\necho \"==> [4/7] APK\"\nCURRENT_STAGE=\"APK\"; notify_step \"$CURRENT_STAGE\" || true\nbash scripts/package-apk.sh\necho \"==> [5/7] Electron linux+win\"\nCURRENT_STAGE=\"Electron\"; notify_step \"$CURRENT_STAGE\" || true\nexport DV_ELECTRON_TARGETS=linux,win\nexport DV_REQUIRE_WIN=1\nbash scripts/package-electron.sh\necho \"==> [6/7] Collect downloads\"\nCURRENT_STAGE=\"Downloads\"; notify_step \"$CURRENT_STAGE\" || true\nexport DV_REQUIRE_ALL_DOWNLOADS=1\nbash scripts/package-collect-downloads.sh\necho \"==> [7/7] Docker + deploy\"\nCURRENT_STAGE=\"Deploy\"; notify_step \"$CURRENT_STAGE\" || true\nbash scripts/ci-docker-push.sh\nbash scripts/ci-deploy-docvat.sh\nnotify_done || true\necho \"::DOCVAT_BUILD_DONE::${VERSION}\"\nCIEOF\nchmod +x \"$WORKDIR/.ci-build.sh\"\n\nif ! docker image inspect imperium-build-runner:latest >/dev/null 2>&1; then\n  echo \"ERROR: imperium-build-runner:latest missing\" >&2\n  exit 3\nfi\n\nSOCK_GID=$(stat -c %g /var/run/docker.sock)\necho \"==> docker run sidecar (volume at /work, repo at /work/docvat)\"\ndocker run --rm --network codice-progressio_default --user 1000:1000 --group-add \"$SOCK_GID\" \\\n  -v /var/run/docker.sock:/var/run/docker.sock \\\n  -v codice-progressio_n8n_build:/work \\\n  -v codice-progressio_n8n_android_sdk:/work/docvat/frontend/.android-build-tools \\\n  -v codice-progressio_n8n_gradle:/cache/gradle \\\n  -v codice-progressio_n8n_electron:/cache/electron \\\n  -e HOME=/cache/gradle/.home_runner \\\n  -e GRADLE_USER_HOME=/cache/gradle \\\n  -e ELECTRON_BUILDER_CACHE=/cache/electron \\\n  -e DOCKER_USERNAME=\"$DOCKER_USERNAME\" \\\n  -e DOCKER_TOKEN=\"$DOCKER_TOKEN\" \\\n  -e JAVA_HOME=/usr/lib/jvm/temurin-21-jdk-amd64 \\\n  -e DV_SKIP_RELEASE=1 \\\n  -e DV_REQUIRE_WIN=1 \\\n  -e DV_REQUIRE_ALL_DOWNLOADS=1 \\\n  -e BUILD_NOTIFY_WEBHOOK=http://n8n:5678/webhook/build-progress \\\n  -w /work/docvat \\\n  imperium-build-runner:latest bash /work/docvat/.ci-build.sh\nrc=$?\necho \"==> build exit $rc\"\nexit $rc\n"
         },
         "type": "n8n-nodes-base.executeCommand",
         "typeVersion": 1,
@@ -277,7 +277,7 @@
       },
       {
         "parameters": {
-          "jsCode": "const data = $input.first().json;\nconst out = (data.stdout || \"\") + \"\\n\" + (data.stderr || \"\");\nconst m = out.match(/::DOCVAT_VERSION::(v[\\d.]+)/);\ndata.app_version = m ? m[1] : \"desconocida\";\nreturn data;\n"
+          "jsCode": "const data = $input.first().json;\nconst out = (data.stdout || \"\") + \"\\n\" + (data.stderr || \"\");\nif (!out.includes(\"::DOCVAT_BUILD_DONE::\")) {\n  throw new Error(\"Build sidecar finished without ::DOCVAT_BUILD_DONE:: marker (false success blocked)\");\n}\nconst m = out.match(/::DOCVAT_VERSION::(v[\\d.]+)/);\nconst done = out.match(/::DOCVAT_BUILD_DONE::(v[\\d.]+)/);\ndata.app_version = (done && done[1]) || (m && m[1]) || \"desconocida\";\ndata.build_ok = true;\nreturn data;\n"
         },
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
@@ -286,12 +286,12 @@
           -912
         ],
         "id": "docvat-extract-ver",
-        "name": "Extraer versi\u00f3n"
+        "name": "Extraer versión"
       },
       {
         "parameters": {
           "chatId": "-5285820658",
-          "text": "={{ \"\ud83d\udce6 Documentos Vaticanos versi\u00f3n: \" + $(\"Extraer versi\u00f3n\").item.json.app_version + \"\\n\ud83c\udf10 https://docvat.codice-progressio.online/\" }}",
+          "text": "={{ \"📦 Documentos Vaticanos versión: \" + $(\"Extraer versión\").item.json.app_version + \"\\n🌐 https://docvat.codice-progressio.online/\" }}",
           "additionalFields": {}
         },
         "type": "n8n-nodes-base.telegram",
@@ -313,7 +313,7 @@
       {
         "parameters": {
           "chatId": "-5285820658",
-          "text": "={{ (() => {\n  const j = $json || {};\n  const raw = String(j.error || j.stderr || j.stdout || j.message || 'desconocido');\n  const tail = raw.length > 1200 ? raw.slice(-1200) : raw;\n  return '\u274c ERROR en build Documentos Vaticanos\\n' + tail;\n})() }}",
+          "text": "={{ (() => {\n  const j = $json || {};\n  const raw = String(j.error || j.stderr || j.stdout || j.message || 'desconocido');\n  const tail = raw.length > 1200 ? raw.slice(-1200) : raw;\n  return '❌ ERROR en build Documentos Vaticanos\\n' + tail;\n})() }}",
           "additionalFields": {}
         },
         "type": "n8n-nodes-base.telegram",
@@ -334,7 +334,7 @@
       },
       {
         "parameters": {
-          "command": "cd /tmp/repo || exit 1\ngit config user.name \"Mr. Nochon\"\ngit config user.email \"mr.nochon@codice-progressio.online\"\n# Do not commit multi-MB installers; only version files from standard-version\ngit add package.json frontend/package.json CHANGELOG.md frontend/CHANGELOG.md 2>/dev/null || true\nif git diff --cached --quiet; then\n  echo \"main: sin cambios de versi\u00f3n que commitear\"\nelse\n  APP_VERSION=\"v$(node -p \"require('/tmp/repo/package.json').version\" 2>/dev/null || echo unknown)\"\n  git commit -m \"chore(release): ${APP_VERSION} [skip ci]\"\n  echo \"main: commit de release creado\"\nfi\n"
+          "command": "cd /tmp/repo || exit 1\ngit config user.name \"Mr. Nochon\"\ngit config user.email \"mr.nochon@codice-progressio.online\"\n# Do not commit multi-MB installers; only version files from standard-version\ngit add package.json frontend/package.json CHANGELOG.md frontend/CHANGELOG.md 2>/dev/null || true\nif git diff --cached --quiet; then\n  echo \"main: sin cambios de versión que commitear\"\nelse\n  APP_VERSION=\"v$(node -p \"require('/tmp/repo/package.json').version\" 2>/dev/null || echo unknown)\"\n  git commit -m \"chore(release): ${APP_VERSION} [skip ci]\"\n  echo \"main: commit de release creado\"\nfi\n"
         },
         "type": "n8n-nodes-base.executeCommand",
         "typeVersion": 1,
@@ -389,7 +389,7 @@
       {
         "parameters": {
           "chatId": "-5285820658",
-          "text": "={{ \"\u2705 Documentos Vaticanos listo\\nVersi\u00f3n: \" + $(\"Extraer versi\u00f3n\").item.json.app_version + \"\\n\ud83c\udf10 https://docvat.codice-progressio.online/\\n\ud83d\udce6 /downloads APK + Electron Linux/Windows\" }}",
+          "text": "={{ \"✅ Documentos Vaticanos listo\\nVersión: \" + $(\"Extraer versión\").item.json.app_version + \"\\n🌐 https://docvat.codice-progressio.online/\\n📦 /downloads APK + Electron Linux/Windows\" }}",
           "additionalFields": {}
         },
         "type": "n8n-nodes-base.telegram",
@@ -420,6 +420,20 @@
         ],
         "id": "docvat-write-branch",
         "name": "Write branch file"
+      },
+      {
+        "parameters": {
+          "errorMessage": "={{ (() => { const j=$json||{}; const raw=String(j.error||j.stderr||j.message||j.stdout||'Build sidecar failed'); return raw.length>500?raw.slice(-500):raw; })() }}",
+          "options": {}
+        },
+        "type": "n8n-nodes-base.stopAndError",
+        "typeVersion": 1,
+        "position": [
+          992,
+          -1100
+        ],
+        "id": "docvat-stop-error",
+        "name": "Fail after error notify"
       }
     ],
     "connections": {
@@ -546,7 +560,7 @@
         "main": [
           [
             {
-              "node": "Extraer versi\u00f3n",
+              "node": "Extraer versión",
               "type": "main",
               "index": 0
             }
@@ -560,7 +574,7 @@
           ]
         ]
       },
-      "Extraer versi\u00f3n": {
+      "Extraer versión": {
         "main": [
           [
             {
@@ -630,6 +644,17 @@
             }
           ]
         ]
+      },
+      "Error de versionado": {
+        "main": [
+          [
+            {
+              "node": "Fail after error notify",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "settings": {
@@ -646,7 +671,7 @@
       "templateCredsSetupCompleted": true
     },
     "pinData": {},
-    "versionId": "b3807ee6-c2f3-4aa0-8ac0-84e20f6f1681",
+    "versionId": "08187205-8777-4feb-8eba-368278109507",
     "activeVersionId": null,
     "versionCounter": 1,
     "triggerCount": 0,

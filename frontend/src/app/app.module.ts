@@ -10,6 +10,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Capacitor } from '@capacitor/core';
 import { AuthInterceptor } from './core/auth/auth.interceptor';
 
+/** Electron shell (preload flag or userAgent) — SW optional; native/Capacitor skip. */
+function isElectronShell(): boolean {
+  if (typeof window !== 'undefined') {
+    const shell = (window as Window & {
+      documentosVaticanosShell?: { kind?: string };
+    }).documentosVaticanosShell;
+    if (shell?.kind === 'electron') {
+      return true;
+    }
+  }
+  return (
+    typeof navigator !== 'undefined' && /Electron/i.test(navigator.userAgent)
+  );
+}
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -17,8 +32,11 @@ import { AuthInterceptor } from './core/auth/auth.interceptor';
     HttpClientModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
-      // Disable service worker on native Capacitor platforms
-      enabled: environment.production && !Capacitor.isNativePlatform(),
+      // Disable on Capacitor native and Electron shell (offline pack is the app itself)
+      enabled:
+        environment.production &&
+        !Capacitor.isNativePlatform() &&
+        !isElectronShell(),
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000',
