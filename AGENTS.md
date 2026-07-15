@@ -1,6 +1,6 @@
 # AGENTS.md — Documentos Vaticanos
 
-Reglas obligatorias para agentes y contribuidores. Prioridad: **no romper offline-first**, **no inventar UI fuera del design system**, **citas estables al corpus**.
+Reglas obligatorias para agentes y contribuidores. Prioridad: **no romper offline-first**, **no inventar UI fuera del design system**, **citas estables al corpus**, **push tras cada entrega para disparar el build CI** (§9).
 
 | Superficie | ¿Aplica este documento? |
 |------------|-------------------------|
@@ -394,9 +394,35 @@ cd android && ./gradlew assembleDebug
 ### Alcance
 - [ ] ¿Sin chatbot / sin Material “pink” / sin reintroducir Bootstrap o FA?
 
+### Entrega / CI
+- [ ] ¿Commit + **push** a la rama de trabajo para disparar el build remoto?
+
 ---
 
-## 9. Dónde leer más
+## 9. Flujo de agente: push para disparar el build
+
+**Obligatorio para agentes** en este repo: al terminar un cambio coherente y verificado, **haz commit y `git push`** a la rama actual (tracking de `origin`). El push es lo que dispara el pipeline de build/deploy (n8n sidecar `DOCVAT-build`, entrada `.ci-build.sh` → web + APK + Electron + deploy a docvat).
+
+| Paso | Qué hacer |
+|------|-----------|
+| 1. Verificar | Tests/build locales relevantes al cambio; checklist §8 |
+| 2. Commit | Mensaje claro (estilo conventional commits si encaja: `feat:`, `fix:`, `docs:`, …). No commits vacíos ni secretos |
+| 3. **Push** | `git push -u origin HEAD` (o push de la rama ya trackeada). **Sin esto no hay build CI** |
+| 4. No force-push | Prohibido `--force` / `--force-with-lease` a `master`/`main` salvo petición explícita del humano |
+
+Reglas:
+
+1. **Tras cada entrega** (feature, fix, cambio de docs de agente que deba quedar en remoto): push al acabar, no dejar el trabajo solo en local.
+2. No acumular varios entregables sin push “por si acaso”: un push por unidad de trabajo terminada es lo esperado.
+3. Si el push falla (auth, red, non-fast-forward): reportar el error; no reescribir historial remoto sin indicación del usuario.
+4. WIP a medias o experimentos rotos: no push a ciegas; o commit en rama de trabajo con el estado honesto, o dejar local y avisar.
+5. `master`/`main`: push solo si la tarea lo implica; en ramas de feature (p. ej. `typescript-migration`) push a esa rama.
+
+Entrypoint CI de referencia: `.ci-build.sh`. Artefactos de descarga pública y deploy: ver `scripts/package-*.sh` y `deploy/`.
+
+---
+
+## 10. Dónde leer más
 
 | Tema | Documento |
 |------|-----------|
@@ -407,3 +433,4 @@ cd android && ./gradlew assembleDebug
 | Scrapers | `scripts-descarga/README.md` |
 | Schema DB | `backend/prisma/schema.prisma` |
 | Changelog reciente | `CHANGELOG.md` (sección Unreleased) |
+| CI / build remoto | `.ci-build.sh`, §9 (push obligatorio) |
