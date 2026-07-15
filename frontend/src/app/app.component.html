@@ -1,1 +1,7 @@
-<router-outlet></router-outlet>
+<div
+  class="route-shell"
+  [@.disabled]="reduceMotion"
+  [@routeFade]="prepareRoute(outlet)"
+>
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>

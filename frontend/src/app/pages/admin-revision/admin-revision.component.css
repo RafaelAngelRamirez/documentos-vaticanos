@@ -52,23 +52,6 @@ a.wlink {
   text-decoration: none;
 }
 
-.h2 {
-  font-family: 'EB Garamond', serif;
-  font-size: 28px;
-  font-weight: 600;
-  margin: 0;
-}
-
-.st {
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.sx {
-  font-size: 12px;
-  color: var(--muted);
-}
-
 .fx {
   display: flex;
 }

@@ -8,7 +8,7 @@
   ></app-wbar>
 
   <!-- 2B mobile chrome -->
-  <div class="fbar hair only-mobile">
+  <div class="fbar hair only-mobile" [class.bars-hidden]="barsHidden">
     <button type="button" class="back" (click)="goBack()" aria-label="Volver">
       ←
     </button>
@@ -51,9 +51,11 @@
         [style.max-width]="prefs.maxWidthCh + 'ch'"
       >
         <app-punto
-          *ngFor="let article of actual_articles"
+          *ngFor="let article of actual_articles; let i = index"
           [infoPunto]="article"
           [documentId]="document.id || navigationService.document_id || undefined"
+          [attr.data-idx]="actual_inferior_limit + i"
+          [class.narrando]="narrPlaying && actual_inferior_limit + i === narrIndex"
         ></app-punto>
       </div>
 
@@ -98,6 +100,19 @@
     <button type="button" class="npill" (click)="cycleRate()">
       {{ narrRateLabel }}
     </button>
+    <!-- 5D: selector de voz (cicla voces es-*; visible si hay ≥2) -->
+    <button
+      type="button"
+      class="npill"
+      *ngIf="narrVoices.length > 1"
+      (click)="cycleVoice()"
+      [attr.title]="narrVoiceName"
+      [attr.aria-label]="'Cambiar voz: ' + narrVoiceName"
+    >
+      {{ narrVoiceLabel }}
+    </button>
+    <!-- 5D: pill adicional solo escritorio (lógica pendiente) -->
+    <button type="button" class="npill only-desktop">Dormir</button>
   </div>
 
   <!-- 4A · Popover de selección -->
@@ -126,23 +141,37 @@
   <!-- 4B · Crear nota -->
   <dv-sheet *ngIf="notaOpen" label="Nueva nota" (closed)="cancelarNota()">
     <div class="fs12 muted shead">Nueva nota · privada</div>
-    <div class="nquote">«{{ selExcerpt }}»</div>
-    <div class="fs12 muted nmeta">{{ notaMeta }}</div>
+    <div class="quote" style="font-size: 15px; margin-top: 10px">
+      «{{ selExcerpt }}»
+    </div>
+    <div class="fs12 muted" style="margin-top: 6px">{{ notaMeta }}</div>
     <textarea
       class="notearea"
       [(ngModel)]="notaText"
       placeholder="Escriba su reflexión…"
       rows="4"
     ></textarea>
-    <div class="nbtns">
-      <button type="button" class="nbtn" (click)="guardarNota(true)">
+    <div class="fx gap8" style="margin-top: 14px">
+      <button
+        type="button"
+        class="gbtn"
+        style="width: auto; flex: 1; padding: 12px"
+        (click)="guardarNota(true)"
+      >
         Solo subrayar
       </button>
-      <button type="button" class="nbtn pri" (click)="guardarNota()">
+      <button
+        type="button"
+        class="primary"
+        style="margin: 0; flex: 1; padding: 12px"
+        (click)="guardarNota()"
+      >
         Guardar nota
       </button>
     </div>
-    <div class="fs12 muted nfoot">Las notas se guardan en este dispositivo</div>
+    <div class="fs12 muted tc" style="margin-top: 12px">
+      Las notas se guardan en este dispositivo
+    </div>
   </dv-sheet>
 
   <dv-sheet
@@ -204,6 +233,20 @@
       >
         Sans
       </button>
+    </div>
+
+    <!-- 3F: mantener pantalla encendida -->
+    <div class="setrow" style="border-bottom: none; padding-bottom: 2px">
+      <span>Mantener pantalla encendida</span>
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        [class.on]="prefs.keepAwake"
+        [attr.aria-checked]="prefs.keepAwake"
+        (click)="toggleKeepAwake()"
+        aria-label="Mantener pantalla encendida"
+      ></button>
     </div>
 
     <div class="srowx">

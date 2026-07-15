@@ -1,0 +1,299 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-12T00:00:00.000Z",
+  "description": "Multi-language catalog of Vatican archive families. Spanish bodies are scraped into corpus; other locales are cataloged only (html/pdf).",
+  "families": [
+    {
+      "id": "catechism",
+      "title": "Catecismo de la Iglesia Católica",
+      "kind": "catechism",
+      "docCode": "CIC",
+      "hubUrl": "https://www.vatican.va/archive/ccc/index_sp.htm",
+      "notes": "CIC in this repo is the Catechism (not the Code of Canon Law). Re-scrape ES via npm run catecismo (legacy).",
+      "locales": [
+        {
+          "locale": "es",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/catechism_sp/index_sp.html",
+          "corpusDocId": "cic-es",
+          "status": "active"
+        },
+        {
+          "locale": "en",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/ENG0015/_INDEX.HTM",
+          "status": "cataloged"
+        },
+        {
+          "locale": "it",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/catechism_it/index_it.htm",
+          "status": "cataloged"
+        },
+        {
+          "locale": "la",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/catechism_lt/index_lt.htm",
+          "status": "cataloged"
+        },
+        {
+          "locale": "fr",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/FRA0013/_INDEX.HTM",
+          "status": "cataloged"
+        },
+        {
+          "locale": "de",
+          "format": "html",
+          "url": "http://www.vatican.va/archive/DEU0035/_INDEX.HTM",
+          "status": "cataloged"
+        },
+        {
+          "locale": "pt",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/cathechism_po/index_new/prima-pagina-cic_po.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "ar",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/catechism_ar/index_ar.htm",
+          "status": "cataloged"
+        },
+        {
+          "locale": "zh",
+          "format": "html",
+          "url": "https://www.vatican.va/chinese/ccc_zh.htm",
+          "status": "cataloged"
+        },
+        {
+          "locale": "mg",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/ccc_madagascar/documents/ccc_index_mg.html",
+          "status": "cataloged"
+        }
+      ]
+    },
+    {
+      "id": "cds",
+      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "kind": "magisterium",
+      "docCode": "CDS",
+      "hubUrl": "https://www.vatican.va/archive/index_sp.htm",
+      "notes": "Single-page HTML per locale where available. PDFs cataloged only.",
+      "locales": [
+        {
+          "locale": "es",
+          "format": "html",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sp.html",
+          "corpusDocId": "cds-es",
+          "status": "active"
+        },
+        {
+          "locale": "en",
+          "format": "html",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_en.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "it",
+          "format": "html",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_it.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "fr",
+          "format": "html",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_fr.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "pt",
+          "format": "html",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_po.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "pl",
+          "format": "html",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_pl.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "nl",
+          "format": "html",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_nl.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "hu",
+          "format": "html",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_hu.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "id",
+          "format": "html",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_id.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "sq",
+          "format": "html",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sq.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "sw",
+          "format": "html",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sw.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "vi",
+          "format": "html",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_vi.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "be",
+          "format": "pdf",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_be.pdf",
+          "status": "cataloged-pdf"
+        },
+        {
+          "locale": "el",
+          "format": "pdf",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_el.pdf",
+          "status": "cataloged-pdf"
+        },
+        {
+          "locale": "lv",
+          "format": "pdf",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_lv.pdf",
+          "status": "cataloged-pdf"
+        },
+        {
+          "locale": "uk",
+          "format": "pdf",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_uk.pdf",
+          "status": "cataloged-pdf"
+        },
+        {
+          "locale": "zh",
+          "format": "pdf",
+          "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_zh.pdf",
+          "status": "cataloged-pdf"
+        }
+      ]
+    },
+    {
+      "id": "cdc",
+      "title": "Código de Derecho Canónico (1983)",
+      "kind": "canon-law",
+      "docCode": "CDC",
+      "hubUrl": "https://www.vatican.va/archive/cdc/index_sp.htm",
+      "notes": "Latin Code 1983. docCode CDC (CIC is Catechism in this repo). Motu proprios amending the code are out of scope for corpus scrape.",
+      "locales": [
+        {
+          "locale": "es",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html",
+          "corpusDocId": "cdc-es",
+          "status": "active"
+        },
+        {
+          "locale": "la",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_la.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "en",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_en.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "it",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_it.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "fr",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_fr.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "de",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_ge.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "ru",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/cod-iuris-canonici/russian/codex-iuris-canonici_ru.html",
+          "status": "cataloged"
+        },
+        {
+          "locale": "zh",
+          "format": "html",
+          "url": "https://www.vatican.va/chinese/cic_zh.htm",
+          "status": "cataloged"
+        },
+        {
+          "locale": "pt",
+          "format": "pdf",
+          "url": "https://www.vatican.va/archive/cod-iuris-canonici/portuguese/codex-iuris-canonici_po.pdf",
+          "status": "cataloged-pdf"
+        },
+        {
+          "locale": "be",
+          "format": "pdf",
+          "url": "https://www.vatican.va/archive/cod-iuris-canonici/belarusian/codex-iuris-canonici_belarusian.pdf",
+          "status": "cataloged-pdf"
+        }
+      ]
+    },
+    {
+      "id": "bible",
+      "title": "Biblia (Pueblo de Dios)",
+      "kind": "bible",
+      "docCode": "BIBLIA",
+      "hubUrl": "https://www.vatican.va/archive/index_sp.htm",
+      "locales": [
+        {
+          "locale": "es",
+          "format": "html",
+          "url": "https://www.vatican.va/archive/ESL0506/__P1.HTM",
+          "corpusDocId": "bible-pueblo-de-dios-es",
+          "status": "active"
+        }
+      ]
+    }
+  ],
+  "outOfScope": [
+    {
+      "id": "cardinals",
+      "url": "https://www.vatican.va/roman_curia/cardinals/index_sp.htm",
+      "reason": "Administrative/biographical hub, not a reading corpus document"
+    },
+    {
+      "id": "compendium-ccc",
+      "url": "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_sp.html",
+      "reason": "Compendium of the Catechism (2005) — separate work, deferred"
+    },
+    {
+      "id": "cdc-motu-proprios",
+      "hubUrl": "https://www.vatican.va/archive/cdc/index_sp.htm",
+      "reason": "Pontifical amendments listed on CDC hub — separate short docs, deferred"
+    },
+    {
+      "id": "cceo",
+      "reason": "Eastern Code — pending; no ES multipage scrape in this phase"
+    }
+  ]
+}

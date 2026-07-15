@@ -19,10 +19,21 @@
     </div>
 
     <div class="sect">Obras en la biblioteca</div>
-    <div class="toc" *ngFor="let w of p.works; let i = index">
-      <span class="tnum">{{ i + 1 }}</span>
-      <span>{{ w.title }}</span>
-    </div>
+    <ng-container *ngFor="let w of p.works; let i = index">
+      <a
+        *ngIf="w.documentId as docId"
+        class="toc obra-link"
+        [routerLink]="['/documento', docId]"
+      >
+        <span class="tnum">{{ i + 1 }}</span>
+        <span>{{ w.title }}</span>
+      </a>
+      <div *ngIf="!w.documentId" class="toc obra-pending">
+        <span class="tnum">{{ i + 1 }}</span>
+        <span>{{ w.title }}</span>
+        <span class="fs12 muted"> · próximamente</span>
+      </div>
+    </ng-container>
     <div class="fs13 muted" *ngIf="!p.works.length" style="margin-top: 8px">
       Obras próximamente en el corpus.
     </div>

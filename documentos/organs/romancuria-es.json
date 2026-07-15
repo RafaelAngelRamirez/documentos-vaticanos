@@ -1,0 +1,2194 @@
+{
+  "version": 1,
+  "seedId": "romancuria-es",
+  "generatedAt": "2026-07-13T11:13:57.457Z",
+  "root": {
+    "id": "roman-curia",
+    "title": "La Curia Romana",
+    "sourceUrl": "https://www.vatican.va/content/romancuria/es.html",
+    "depth": 0,
+    "documentIndexUrls": [],
+    "children": [
+      {
+        "id": "segreteria-di-stato",
+        "title": "Secretaría de Estado",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/segreteria-di-stato/segreteria-di-stato.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "es",
+            "title": "La Curia Romana",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "altre-commissioni-e-comitati",
+            "title": "Otras Comisiones y Comités",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/altre-commissioni-e-comitati.index.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/content/vatican/es/info.html",
+              "https://www.vatican.va/roman_curia/synod/index_sp.htm"
+            ],
+            "children": []
+          },
+          {
+            "id": "pontificia-commissione-settore-sanitario",
+            "title": "Comisión pontificia para las actividades del sector sanitario de las personas jurídicas públicas de la Iglesia",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/altre-commissioni-e-comitati/pontificia-commissione-settore-sanitario.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "dicasteri",
+            "title": "Dicasterios",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "fas",
+            "title": "FAS",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/fas.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "guardia-svizzera-pontificia",
+            "title": "Guardia Suiza Pontificia",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/guardia-svizzera-pontificia.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "istituzioni-collegate-con-la-santa-sede",
+            "title": "Instituciones Vinculadas a la Santa Sede",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "ordini-equestri-pontifici",
+            "title": "Orden Ecuestre",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/ordini-equestri-pontifici.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "organismi-di-giustizia",
+            "title": "Organismos de justicia",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "organismi-economici",
+            "title": "Organismos económicos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "pontificie-accademie",
+            "title": "Academias Pontificias",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "pontificie-commissioni",
+            "title": "Pontificias Comisiones",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "segreteria-di-stato",
+            "title": "Secretaría de Estado",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/segreteria-di-stato.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "sds-archivio-storico",
+            "title": "Archivo histórico de la Sección para las Relaciones con los Estados",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/segreteria-di-stato/sds-archivio-storico.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Secretaría de Estado Secretaría de Estado Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/segreteria-di-stato/segreteria-di-stato/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/roman_curia/secretariat_state/1997/index_sp.htm",
+              "https://www.vatican.va/roman_curia/secretariat_state/1999/index_sp.htm",
+              "https://www.vatican.va/roman_curia/secretariat_state/2000/index_sp.htm",
+              "https://www.vatican.va/roman_curia/secretariat_state/2001/index_sp.htm",
+              "https://www.vatican.va/roman_curia/secretariat_state/2002/index_sp.htm",
+              "https://www.vatican.va/roman_curia/secretariat_state/2006/index_sp.htm",
+              "https://www.vatican.va/roman_curia/secretariat_state/2014/index_sp.htm",
+              "https://www.vatican.va/roman_curia/secretariat_state/2024/index_sp.htm",
+              "https://www.vatican.va/roman_curia/secretariat_state/archivio/index_sp.htm",
+              "https://www.vatican.va/roman_curia/secretariat_state/card-casaroli/index-casaroli_sp.html",
+              "https://www.vatican.va/roman_curia/secretariat_state/docs_index_en.htm",
+              "https://www.vatican.va/roman_curia/secretariat_state/docs_index_fr.htm",
+              "https://www.vatican.va/roman_curia/secretariat_state/docs_index_it.htm",
+              "https://www.vatican.va/roman_curia/secretariat_state/docs_index_sp.htm",
+              "https://www.vatican.va/roman_curia/secretariat_state/index_sodano_sp.htm"
+            ],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Secretaría de Estado Secretaría de Estado Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/segreteria-di-stato/segreteria-di-stato/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Secretaría de Estado Secretaría de Estado Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/segreteria-di-stato/segreteria-di-stato/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "uffici",
+            "title": "Oficinas",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/uffici.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "prefettura-della-casa-pontificia",
+            "title": "Prefectura de la Casa Pontificia",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/uffici/prefettura-della-casa-pontificia.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "ufficio-delle-celebrazioni-liturgiche-del-sommo-pontefice",
+            "title": "Oficina de las Celebraciones Litúrgicas del Sumo Pontífice",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/uffici/ufficio-delle-celebrazioni-liturgiche-del-sommo-pontefice.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "ulsa",
+            "title": "ULSA",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/ulsa.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-evangelizzazione",
+        "title": "Dicasterio para la Evangelización",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-evangelizzazione.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-evangelizzazione/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio para la Evangelización Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-evangelizzazione/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para la Evangelización Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-evangelizzazione/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para la Evangelización Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-evangelizzazione/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "web-site",
+            "title": "Dicasterios Dicasterio para la Evangelización Sitio web",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-evangelizzazione/web-site.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/special/annus_fidei/index_sp.htm"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-dottrina-fede",
+        "title": "Dicasterio para la Doctrina de la Fe",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-dottrina-fede.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/roman_curia/congregations/cfaith/doc_doc_index_sp.htm"
+        ],
+        "children": [
+          {
+            "id": "es",
+            "title": "es",
+            "sourceUrl": "https://www.doctrinafidei.va/es.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "profilo",
+            "sourceUrl": "https://www.doctrinafidei.va/es/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "struttura",
+            "sourceUrl": "https://www.doctrinafidei.va/es/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "doc_doc_index_sp",
+            "title": "Documentos del Dicasterio para la Doctrina de la Fe",
+            "sourceUrl": "https://www.vatican.va/roman_curia/congregations/cfaith/doc_doc_index_sp.htm",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/roman_curia/congregations/cfaith/ddf/rc_ddf_doc_20220605_vademecum-casi-abuso-2.0_sp.html",
+              "https://www.vatican.va/roman_curia/congregations/cfaith/muller/rc_con_cfaith_20131023_divorziati-risposati-sacramenti_sp.html"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "elemosineria-apostolica",
+        "title": "Dicasterio para el Servicio de la Caridad",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/elemosineria-apostolica.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.elemosineria.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para el Servicio de la Caridad Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/elemosineria-apostolica/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para el Servicio de la Caridad Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/elemosineria-apostolica/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-chiese-orientali",
+        "title": "Dicasterio para las Iglesias Orientales",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-chiese-orientali.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.orientchurch.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio para las Iglesias Orientales Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-chiese-orientali/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/roman_curia/congregations/orientchurch/eventi/rc_con_corient_doc_20030121_indice_eventi.html",
+              "https://www.vatican.va/roman_curia/congregations/orientchurch/eventi/rc_con_corient_doc_20030121_indice_eventi_sp.html",
+              "https://www.vatican.va/roman_curia/congregations/orientchurch/interventi/rc_con_corient_doc_20030121_indice_interventi.html",
+              "https://www.vatican.va/roman_curia/congregations/orientchurch/interventi/rc_con_corient_doc_20030121_indice_interventi_sp.html"
+            ],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para las Iglesias Orientales Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-chiese-orientali/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para las Iglesias Orientales Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-chiese-orientali/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-culto-divino-e-disciplina-sacramenti",
+        "title": "Dicasterio para el Culto Divino y la Disciplina de los Sacramentos",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-culto-divino-e-disciplina-sacramenti.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-culto-divino-e-disciplina-sacramenti/documenti.html",
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-culto-divino-e-disciplina-sacramenti/documenti.index.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.cultodivino.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio para el Culto Divino y la Disciplina de los Sacramentos Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-culto-divino-e-disciplina-sacramenti/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_missale-romanum_index_sp.html",
+              "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_vox-clara_index_sp.html"
+            ],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para el Culto Divino y la Disciplina de los Sacramentos Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-culto-divino-e-disciplina-sacramenti/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para el Culto Divino y la Disciplina de los Sacramentos Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-culto-divino-e-disciplina-sacramenti/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-cause-santi",
+        "title": "Dicasterio de las Causas de los Santos",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-cause-santi.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-cause-santi/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.causesanti.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio de las Causas de los Santos Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-cause-santi/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/news_services/liturgy/saints/index_blessed_sp.html",
+              "https://www.vatican.va/news_services/liturgy/saints/index_saints_sp.html"
+            ],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio de las Causas de los Santos Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-cause-santi/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio de las Causas de los Santos Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-cause-santi/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-vescovi",
+        "title": "Dicasterio para los Obispos",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-vescovi.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-vescovi/documenti.html",
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-vescovi/struttura.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.congregazionevescovi.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio para los Obispos Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-vescovi/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para los Obispos Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-vescovi/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para los Obispos Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-vescovi/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-clero",
+        "title": "Dicasterio para el Clero",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-clero.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-clero/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.clerus.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio para el Clero Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-clero/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/roman_curia/congregations/cclergy/index_en_dia_docuff.htm",
+              "https://www.vatican.va/roman_curia/congregations/cclergy/index_en_pres_docuff.htm",
+              "https://www.vatican.va/roman_curia/congregations/cclergy/index_fr_dia_docuff.htm",
+              "https://www.vatican.va/roman_curia/congregations/cclergy/index_fr_giub_diac.htm",
+              "https://www.vatican.va/roman_curia/congregations/cclergy/index_fr_pres_docuff.htm",
+              "https://www.vatican.va/roman_curia/congregations/cclergy/index_ge_pres_docuff.htm",
+              "https://www.vatican.va/roman_curia/congregations/cclergy/index_it_diac_docuff.htm",
+              "https://www.vatican.va/roman_curia/congregations/cclergy/index_it_doc_ufficiali_presbiteri.htm",
+              "https://www.vatican.va/roman_curia/congregations/cclergy/index_sp_dia_docuff.htm",
+              "https://www.vatican.va/roman_curia/congregations/cclergy/index_sp_pres_docuff.htm",
+              "https://www.vatican.va/special/anno_sac/index_sp.html"
+            ],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para el Clero Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-clero/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para el Clero Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-clero/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-vita-consacrata",
+        "title": "Dicasterio para los Institutos de Vida Consagrada y las Sociedades de Vida Apostólica",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-vita-consacrata.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-vita-consacrata/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio para los Institutos de Vida Consagrada y las Sociedades de Vida Apostólica Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-vita-consacrata/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/roman_curia/congregations/ccscrlife/anno-vita-consacrata/index_anno-vita-consacrata_sp.htm"
+            ],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para los Institutos de Vida Consagrada y las Sociedades de Vida Apostólica Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-vita-consacrata/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para los Institutos de Vida Consagrada y las Sociedades de Vida Apostólica Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-vita-consacrata/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.vitaconsacrata.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-per-i-laici--la-famiglia-e-la-vita",
+        "title": "Dicasterio para los Laicos, la Familia y la Vida",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-i-laici--la-famiglia-e-la-vita.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-i-laici--la-famiglia-e-la-vita/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.laityfamilylife.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio para los Laicos, la Familia y la Vida Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-i-laici--la-famiglia-e-la-vita/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para los Laicos, la Familia y la Vida Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-i-laici--la-famiglia-e-la-vita/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para los Laicos, la Familia y la Vida Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-i-laici--la-famiglia-e-la-vita/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-promozione-unita-cristiani",
+        "title": "Dicasterio para la Promoción de la Unidad de los Cristianos",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-promozione-unita-cristiani.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.christianunity.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio para la Promoción de la Unidad de los Cristianos Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-promozione-unita-cristiani/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para la Promoción de la Unidad de los Cristianos Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-promozione-unita-cristiani/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para la Promoción de la Unidad de los Cristianos Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-promozione-unita-cristiani/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-dialogo-interreligioso",
+        "title": "Dicasterio para el Diálogo Interreligioso",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-dialogo-interreligioso.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-dialogo-interreligioso/documenti.html",
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-dialogo-interreligioso/documenti.index.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.dicasteryinterreligious.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio para el Diálogo Interreligioso Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-dialogo-interreligioso/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para el Diálogo Interreligioso Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-dialogo-interreligioso/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para el Diálogo Interreligioso Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-dialogo-interreligioso/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-cultura-educazione",
+        "title": "Dicasterio para la Cultura y la Educación",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-cultura-educazione.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-cultura-educazione/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "it",
+            "title": "it",
+            "sourceUrl": "https://www.dce.va/it.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio para la Cultura y la Educación Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-cultura-educazione/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para la Cultura y la Educación Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-cultura-educazione/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para la Cultura y la Educación Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-cultura-educazione/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-per-il-servizio-dello-sviluppo-umano-integrale",
+        "title": "Dicasterio para el Servicio del Desarrollo Humano Integral",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-il-servizio-dello-sviluppo-umano-integrale.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-il-servizio-dello-sviluppo-umano-integrale/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.humandevelopment.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio para el Servicio del Desarrollo Humano Integral Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-il-servizio-dello-sviluppo-umano-integrale/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para el Servicio del Desarrollo Humano Integral Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-il-servizio-dello-sviluppo-umano-integrale/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para el Servicio del Desarrollo Humano Integral Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-il-servizio-dello-sviluppo-umano-integrale/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-testi-legislativi",
+        "title": "Dicasterio para los Textos Legislativos",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-testi-legislativi.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-testi-legislativi/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.delegumtextibus.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio para los Textos Legislativos Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-testi-legislativi/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para los Textos Legislativos Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-testi-legislativi/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para los Textos Legislativos Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-testi-legislativi/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "dicastero-per-la-comunicazione",
+        "title": "Dicasterio para la Comunicación",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-la-comunicazione.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-la-comunicazione/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.comunicazione.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Dicasterios Dicasterio para la Comunicación Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-la-comunicazione/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Dicasterios Dicasterio para la Comunicación Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-la-comunicazione/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Dicasterios Dicasterio para la Comunicación Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/dicasteri/dicastero-per-la-comunicazione/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "penitenzieria-apostolica",
+        "title": "Penitenciaría Apostólica",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/penitenzieria-apostolica.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/penitenzieria-apostolica/documenti.html",
+          "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/penitenzieria-apostolica/documenti.index.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.penitenzieria.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Organismos de justicia Penitenciaría Apostólica Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/penitenzieria-apostolica/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Organismos de justicia Penitenciaría Apostólica Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/penitenzieria-apostolica/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Organismos de justicia Penitenciaría Apostólica Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/penitenzieria-apostolica/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "supremo-tribunale-della-segnatura-apostolica",
+        "title": "Tribunal Supremo de la Signatura Apostólica",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/supremo-tribunale-della-segnatura-apostolica.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/supremo-tribunale-della-segnatura-apostolica/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "documenti",
+            "title": "Organismos de justicia Tribunal Supremo de la Signatura Apostólica Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/supremo-tribunale-della-segnatura-apostolica/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Organismos de justicia Tribunal Supremo de la Signatura Apostólica Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/supremo-tribunale-della-segnatura-apostolica/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Organismos de justicia Tribunal Supremo de la Signatura Apostólica Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/supremo-tribunale-della-segnatura-apostolica/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "archive.html",
+            "title": "archive.html",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/it/organismi-di-giustizia/supremo-tribunale-della-segnatura-apostolica/archive.html.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "tribunale-della-rota-romana",
+        "title": "Tribunal de la Rota Romana",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/tribunale-della-rota-romana.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/tribunale-della-rota-romana/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.rotaromana.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Organismos de justicia Tribunal de la Rota Romana Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/tribunale-della-rota-romana/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Organismos de justicia Tribunal de la Rota Romana Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/tribunale-della-rota-romana/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Organismos de justicia Tribunal de la Rota Romana Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-di-giustizia/tribunale-della-rota-romana/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "consiglio-per-l_economia",
+        "title": "Consejo de asuntos económicos",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/consiglio-per-l_economia.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "consiglio-per-l_economia",
+            "title": "Consejo de asuntos económicos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/consiglio-per-l_economia.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Organismos económicos Consejo de asuntos económicos Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/consiglio-per-l_economia/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Organismos económicos Consejo de asuntos económicos Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/consiglio-per-l_economia/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "segreteria-per-leconomia",
+        "title": "Secretaría de asuntos económicos",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/segreteria-per-leconomia.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/organismi-economici/segreteria-per-leconomia/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "es",
+            "title": "es",
+            "sourceUrl": "https://www.spe.va/es.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Organismos económicos Secretaría de asuntos económicos Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/segreteria-per-leconomia/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Organismos económicos Secretaría de asuntos económicos Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/segreteria-per-leconomia/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Organismos económicos Secretaría de asuntos económicos Estrutura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/segreteria-per-leconomia/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "amministrazione-del-patrimonio-della-sede-apostolica",
+        "title": "Administración del Patrimonio de la Sede Apostólica",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/amministrazione-del-patrimonio-della-sede-apostolica.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/organismi-economici/amministrazione-del-patrimonio-della-sede-apostolica/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "documenti",
+            "title": "Organismos económicos Administración del Patrimonio de la Sede Apostólica Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/amministrazione-del-patrimonio-della-sede-apostolica/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Organismos económicos Administración del Patrimonio de la Sede Apostólica Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/amministrazione-del-patrimonio-della-sede-apostolica/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Organismos económicos Administración del Patrimonio de la Sede Apostólica Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/amministrazione-del-patrimonio-della-sede-apostolica/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "web-site",
+            "title": "Organismos económicos Administración del Patrimonio de la Sede Apostólica Sitio web",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/amministrazione-del-patrimonio-della-sede-apostolica/web-site.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "ufficio-del-revisore-generale",
+        "title": "Oficina del Auditor General",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/ufficio-del-revisore-generale.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/organismi-economici/ufficio-del-revisore-generale/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "documenti",
+            "title": "Organismos económicos Oficina del Auditor General Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/ufficio-del-revisore-generale/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Organismos económicos Oficina del Auditor General Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/ufficio-del-revisore-generale/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Organismos económicos Oficina del Auditor General Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/organismi-economici/ufficio-del-revisore-generale/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "prefettura-della-casa-pontificia",
+        "title": "Prefectura de la Casa Pontificia",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/uffici/prefettura-della-casa-pontificia.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://eventi.pontificalisdomus.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Oficinas Prefectura de la Casa Pontificia Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/uffici/prefettura-della-casa-pontificia/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "es",
+        "title": "Oficina de las Celebraciones Litúrgicas del Sumo Pontífice",
+        "sourceUrl": "https://www.vatican.va/content/liturgy/es.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "calendario-delle-celebrazioni",
+            "title": "Calendario de Actividades - 2026 | Vatican.va",
+            "sourceUrl": "https://www.vatican.va/content/liturgy/es/calendario-delle-celebrazioni.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Documentos",
+            "sourceUrl": "https://www.vatican.va/content/liturgy/es/documenti.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "archivio-delle-celebrazioni",
+            "title": "Archivo de las Celebraciones",
+            "sourceUrl": "https://www.vatican.va/content/liturgy/es/documenti/archivio-delle-celebrazioni.index.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/news_services/liturgy/calendar/ns_lit_doc_20020102_calendar_sp.html",
+              "https://www.vatican.va/news_services/liturgy/calendar/ns_lit_doc_20030101_calendar_sp.html",
+              "https://www.vatican.va/news_services/liturgy/calendar/ns_lit_doc_20040101_calendar_sp.html",
+              "https://www.vatican.va/news_services/liturgy/calendar/ns_lit_doc_20090101_calendar_sp.html",
+              "https://www.vatican.va/news_services/liturgy/calendar/ns_lit_doc_20100101_calendar_sp.html",
+              "https://www.vatican.va/news_services/liturgy/calendar/ns_lit_doc_20110101_calendar_sp.html",
+              "https://www.vatican.va/news_services/liturgy/calendar/ns_lit_doc_20120101_calendar_sp.html",
+              "https://www.vatican.va/news_services/liturgy/calendar/ns_lit_doc_20130101_calendar_sp.html",
+              "https://www.vatican.va/news_services/liturgy/calendar/ns_lit_doc_20130301_calendar_sp.html"
+            ],
+            "children": []
+          },
+          {
+            "id": "pubblicazioni",
+            "title": "Publicaciones",
+            "sourceUrl": "https://www.vatican.va/content/liturgy/es/documenti/pubblicazioni.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "2026.html",
+            "title": "Calendario de Actividades - 2026 | Vatican.va",
+            "sourceUrl": "https://www.vatican.va/content/liturgy/es/events/year.dir.html/2026.html.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Notas históricas",
+            "sourceUrl": "https://www.vatican.va/content/liturgy/es/profilo.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "cappella-musicale-pontificia",
+            "title": "Capilla Musical Pontificia",
+            "sourceUrl": "https://www.vatican.va/content/liturgy/es/profilo/cappella-musicale-pontificia.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "cenni-storici",
+            "title": "Notas históricas",
+            "sourceUrl": "https://www.vatican.va/content/liturgy/es/profilo/cenni-storici.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "organico-dell-ufficio",
+            "title": "Personal de la Oficina",
+            "sourceUrl": "https://www.vatican.va/content/liturgy/es/profilo/organico-dell-ufficio.index.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "camera-apostolica",
+        "title": "Camarlengo de la Santa Romana Iglesia",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/uffici/camera-apostolica.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "documenti",
+            "title": "Oficinas Camarlengo de la Santa Romana Iglesia Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/uffici/camera-apostolica/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Oficinas Camarlengo de la Santa Romana Iglesia Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/uffici/camera-apostolica/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Oficinas Camarlengo de la Santa Romana Iglesia Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/uffici/camera-apostolica/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-commissione-per-la-tutela-dei-minori",
+        "title": "Comisión Pontificia para la protección de los menores",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-commissione-per-la-tutela-dei-minori.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-commissione-per-la-tutela-dei-minori/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.tutelaminorum.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Pontificias Comisiones Comisión Pontificia para la protección de menores Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-commissione-per-la-tutela-dei-minori/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Pontificias Comisiones Comisión Pontificia para la protección de menores Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-commissione-per-la-tutela-dei-minori/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Pontificias Comisiones Comisión Pontificia para la protección de menores Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-commissione-per-la-tutela-dei-minori/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-commissione-biblica",
+        "title": "Pontificia Comisión Bíblica",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-commissione-biblica.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "documenti",
+            "title": "Pontificias Comisiones Pontificia Comisión Bíblica Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-commissione-biblica/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/roman_curia/congregations/cfaith/pcb_doc_index_sp.htm"
+            ],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Pontificias Comisiones Pontificia Comisión Bíblica Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-commissione-biblica/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/roman_curia/congregations/cfaith/pcb_documents/rc_con_cfaith_doc_20140222_ispirazione-verita-sacra-scrittura_sp.html"
+            ],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Pontificias Comisiones Pontificia Comisión Bíblica Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-commissione-biblica/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/roman_curia/congregations/cfaith/pcb_doc-pont_index_it.htm",
+              "https://www.vatican.va/roman_curia/congregations/cfaith/pcb_documentaz_index_it.htm"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "commissione-teologica-internazionale",
+        "title": "Comisión Teológica Internacional",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/commissione-teologica-internazionale.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "documenti",
+            "title": "Pontificias Comisiones Comisión Teológica Internacional Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/commissione-teologica-internazionale/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/roman_curia/congregations/cfaith/cti_documents/rc_cti_index-doc-pubbl_sp.html",
+              "https://www.vatican.va/roman_curia/congregations/cfaith/cti_documents/rc_cti_index-documentazione_sp.html"
+            ],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Pontificias Comisiones Comisión Teológica Internacional Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/commissione-teologica-internazionale/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Pontificias Comisiones Comisión Teológica Internacional Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/commissione-teologica-internazionale/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/roman_curia/congregations/cfaith/cti_documents/attivita-cti/rc_cti_index-attivita-cti_sp.html",
+              "https://www.vatican.va/roman_curia/congregations/cfaith/cti_documents/rc_cti_index-discorsi-pontif_sp.html",
+              "https://www.vatican.va/roman_curia/congregations/cfaith/cti_documents/rc_cti_index-members_sp.html",
+              "https://www.vatican.va/roman_curia/congregations/cfaith/cti_documents/rc_cti_index-statuti_sp.html"
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-commissione-di-archeologia-sacra",
+        "title": "Pontificia Comisión de Arqueología Sagrada",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-commissione-di-archeologia-sacra.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-commissione-di-archeologia-sacra/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.catacombeditalia.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Instituciones Vinculadas a la Santa Sede Pontificia Comisión de Arqueología Sagrada Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-commissione-di-archeologia-sacra/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Instituciones Vinculadas a la Santa Sede Pontificia Comisión de Arqueología Sagrada Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-commissione-di-archeologia-sacra/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Instituciones Vinculadas a la Santa Sede Pontificia Comisión de Arqueología Sagrada Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-commissione-di-archeologia-sacra/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-accademia-scienze",
+        "title": "Pontificia Academia de las Ciencias",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-accademia-scienze.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.pas.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Instituciones Vinculadas a la Santa Sede Pontificia Academia de las Ciencias Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-accademia-scienze/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-accademia-scienze-sociali",
+        "title": "Pontificia Academia de Ciencias Sociales",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-accademia-scienze-sociali.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.pass.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Instituciones Vinculadas a la Santa Sede Pontificia Academia de las Ciencias Sociales Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-accademia-scienze-sociali/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Instituciones Vinculadas a la Santa Sede Pontificia Academia de las Ciencias Sociales Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-accademia-scienze-sociali/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-academia-provita",
+        "title": "Pontificia Academia para la Vida",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-academia-provita.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-academia-provita/documenti.html",
+          "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-academia-provita/profilo.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.academyforlife.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Instituciones Vinculadas a la Santa Sede Pontificia Academia para la Vida Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-academia-provita/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Instituciones Vinculadas a la Santa Sede Pontificia Academia para la Vida Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-academia-provita/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Instituciones Vinculadas a la Santa Sede Pontificia Academia para la Vida Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/pontificia-academia-provita/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-accademia-virtuosi-pantheon",
+        "title": "Insigne Academia Pontificia de las Bellas Artes y las Letras de los Virtuosos del Panteón",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-virtuosi-pantheon.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "profilo",
+            "title": "Academias Pontificias Insigne Academia Pontificia de las Bellas Artes y Letras de los Virtuosos en el Panteón Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-virtuosi-pantheon/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Academias Pontificias Insigne Academia Pontificia de las Bellas Artes y Letras de los Virtuosos en el Panteón Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-virtuosi-pantheon/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-accademia-archeologia",
+        "title": "Pontificia Academia Romana de Arqueología",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-archeologia.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "profilo",
+            "title": "Academias Pontificias Pontificia Academia Romana de Arqueología Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-archeologia/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Academias Pontificias Pontificia Academia Romana de Arqueología Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-archeologia/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-academia-theologica",
+        "title": "Pontificia Academia de Teología",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-theologica.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-theologica/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.theologia.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Academias Pontificias Pontificia Academia de Teología Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-theologica/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Academias Pontificias Pontificia Academia de Teología Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-theologica/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Academias Pontificias Pontificia Academia de Teología Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-theologica/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificio-comitato-per-i-congressi-eucaristici-internazionali",
+        "title": "Comité Pontificio para los Congresos Eucarísticos Internacionales",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/altre-commissioni-e-comitati/pontificio-comitato-per-i-congressi-eucaristici-internazionali.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/altre-commissioni-e-comitati/pontificio-comitato-per-i-congressi-eucaristici-internazionali/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.congressieucaristici.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Otras Comisiones y Comités Comité Pontificio para los Congresos Eucarísticos Internacionales Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/altre-commissioni-e-comitati/pontificio-comitato-per-i-congressi-eucaristici-internazionali/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [
+              "https://www.vatican.va/roman_curia/pont_committees/eucharist-congr/archive/index_sp.htm"
+            ],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Otras Comisiones y Comités Comité Pontificio para los Congresos Eucarísticos Internacionales Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/altre-commissioni-e-comitati/pontificio-comitato-per-i-congressi-eucaristici-internazionali/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Otras Comisiones y Comités Comité Pontificio para los Congresos Eucarísticos Internacionales Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/altre-commissioni-e-comitati/pontificio-comitato-per-i-congressi-eucaristici-internazionali/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificio-comitato-di-scienze-storiche",
+        "title": "Comité Pontificio de Ciencias Históricas",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/altre-commissioni-e-comitati/pontificio-comitato-di-scienze-storiche.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.historia.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Otras Comisiones y Comités Comité Pontificio de Ciencias Históricas Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/altre-commissioni-e-comitati/pontificio-comitato-di-scienze-storiche/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "corpo-della-guardia-svizzera-pontificia",
+        "title": "Guardia Suiza Pontificia",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/guardia-svizzera-pontificia/corpo-della-guardia-svizzera-pontificia.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "profilo",
+            "title": "Guardia Suiza Pontificia Guardia Suiza Pontificia Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/guardia-svizzera-pontificia/corpo-della-guardia-svizzera-pontificia/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Guardia Suiza Pontificia Guardia Suiza Pontificia Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/guardia-svizzera-pontificia/corpo-della-guardia-svizzera-pontificia/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "web-site",
+            "title": "Guardia Suiza Pontificia Guardia Suiza Pontificia Sitio web",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/guardia-svizzera-pontificia/corpo-della-guardia-svizzera-pontificia/web-site.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "avepro",
+        "title": "AVEPRO",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/avepro.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.avepro.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Instituciones Vinculadas a la Santa Sede AVEPRO Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/avepro/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Instituciones Vinculadas a la Santa Sede AVEPRO Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/avepro/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "autorita-di-informazione-finanziaria",
+        "title": "Autoridad de Supervisión e Información Financiera",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/autorita-di-informazione-finanziaria.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/autorita-di-informazione-finanziaria/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "home.aspx",
+            "title": "home.aspx",
+            "sourceUrl": "https://www.asif.va/ENG/Home.aspx",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Instituciones Vinculadas a la Santa Sede Autoridad de Supervisión e Información Financiera Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/autorita-di-informazione-finanziaria/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Instituciones Vinculadas a la Santa Sede Autoridad de Supervisión e Información Financiera Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/autorita-di-informazione-finanziaria/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Instituciones Vinculadas a la Santa Sede Autoridad de Supervisión e Información Financiera Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/istituzioni-collegate-con-la-santa-sede/autorita-di-informazione-finanziaria/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "ordine-equestre-del-santo-sepolcro-di-gerusalemme",
+        "title": "Orden Ecuestre del Santo Sepulcro de Jerusalén",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/ordini-equestri-pontifici/ordine-equestre-del-santo-sepolcro-di-gerusalemme.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.oessh.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Orden Ecuestre Orden Ecuestre del Santo Sepulcro de Jerusalén Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/ordini-equestri-pontifici/ordine-equestre-del-santo-sepolcro-di-gerusalemme/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Orden Ecuestre Orden Ecuestre del Santo Sepulcro de Jerusalén Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/ordini-equestri-pontifici/ordine-equestre-del-santo-sepolcro-di-gerusalemme/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Orden Ecuestre Orden Ecuestre del Santo Sepulcro de Jerusalén Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/ordini-equestri-pontifici/ordine-equestre-del-santo-sepolcro-di-gerusalemme/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "index_it",
+        "title": "Archivo histórico de la Sección para las Relaciones con los Estados",
+        "sourceUrl": "https://www.vatican.va/roman_curia/secretariat_state/sezione-rapporti-stati/archivio-storico/index_it.htm",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": []
+      },
+      {
+        "id": "pontificia-accademia-santommasodaquino",
+        "title": "Pontificia Academia de Santo Tomás de Aquino",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-santommasodaquino.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.past.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-accademia-mariana",
+        "title": "Pontificia Academia Mariana Internacional",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-mariana.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "documenti",
+            "title": "Academias Pontificias Pontificia Academia Mariana Internacional Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-mariana/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Academias Pontificias Pontificia Academia Mariana Internacional Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-mariana/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Academias Pontificias Pontificia Academia Mariana Internacional Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-mariana/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-academia-cultorum-martyrum",
+        "title": "Pontificia Academia «Cultorum Martyrum»",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-cultorum-martyrum.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "documenti",
+            "title": "Academias Pontificias Pontificia Academia «Cultorum Martyrum» Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-cultorum-martyrum/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Academias Pontificias Pontificia Academia «Cultorum Martyrum» Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-cultorum-martyrum/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Academias Pontificias Pontificia Academia «Cultorum Martyrum» Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-cultorum-martyrum/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "index_sp",
+            "title": "Academia Pontificia \"Cultorum Martyrum\" - Index",
+            "sourceUrl": "https://www.vatican.va/roman_curia/pontifical_academies/cult-martyrum/index_sp.htm",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-academia-latinitatis",
+        "title": "Pontificia Academia de Latinidad",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-latinitatis.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-latinitatis/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.latinitas.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Academias Pontificias Pontificia Academia de Latinidad Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-latinitatis/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Academias Pontificias Pontificia Academia de Latinidad Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-latinitatis/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Academias Pontificias Pontificia Academia de Latinidad Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-academia-latinitatis/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-accademia-ecclesiastica",
+        "title": "Pontificia Academia Eclesiástica",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-ecclesiastica.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-ecclesiastica/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "documenti",
+            "title": "Academias Pontificias Academia Eclesiástica Pontificia Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-ecclesiastica/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Academias Pontificias Academia Eclesiástica Pontificia Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-ecclesiastica/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Academias Pontificias Academia Eclesiástica Pontificia Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-accademie/pontificia-accademia-ecclesiastica/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "pontificia-america-latina",
+        "title": "Pontificia Comisión para América Latina",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-america-latina.index.html",
+        "depth": 1,
+        "documentIndexUrls": [
+          "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-america-latina/documenti.html"
+        ],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.americalatina.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "documenti",
+            "title": "Pontificias Comisiones Pontificia Comisión para América Latina Documentos",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-america-latina/documenti.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "Pontificias Comisiones Pontificia Comisión para América Latina Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-america-latina/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "struttura",
+            "title": "Pontificias Comisiones Pontificia Comisión para América Latina Estructura",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/pontificie-commissioni/pontificia-america-latina/struttura.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "ufficio-del-lavoro-della-sede-apostolica",
+        "title": "Oficina Central para Asuntos Laborales",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/ulsa/ufficio-del-lavoro-della-sede-apostolica.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.ulsa.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "fondo-assistenza-sanitaria",
+        "title": "Fondo de Asistencia Sanitaria",
+        "sourceUrl": "https://www.vatican.va/content/romancuria/es/fas/fondo-assistenza-sanitaria.index.html",
+        "depth": 1,
+        "documentIndexUrls": [],
+        "children": [
+          {
+            "id": "page",
+            "title": "page",
+            "sourceUrl": "https://www.fas.va/",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          },
+          {
+            "id": "profilo",
+            "title": "FAS Fondo de Asistencia Médica Perfil",
+            "sourceUrl": "https://www.vatican.va/content/romancuria/es/fas/fondo-assistenza-sanitaria/profilo.html",
+            "depth": 2,
+            "documentIndexUrls": [],
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  NgZone,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -13,6 +14,7 @@ import {
   CargarDocumentosJsonService,
   IndiceDocumentos,
 } from 'src/app/services/cargar-documentos-json.service';
+import { BackService } from 'src/app/services/back.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import {
   ReaderFont,
@@ -27,6 +29,11 @@ import { ReadingProgressService } from 'src/app/services/reading-progress.servic
 import { AnotacionesService } from 'src/app/services/anotaciones.service';
 import { DvSheetComponent } from '../dv-sheet/dv-sheet.component';
 import { WbarComponent } from '../wbar/wbar.component';
+import {
+  NarratorService,
+  NarratorVoice,
+} from 'src/app/services/narrator.service';
+import { NarracionFgService } from 'src/app/services/narracion-fg.service';
 
 const CONTEXT_SIZE = 5;
 
@@ -73,14 +80,24 @@ export class LectorComponent implements OnInit, OnDestroy {
   notaOpen = false;
   notaText = '';
 
+  /** F4: barras auto-ocultables al desplazar. */
+  barsHidden = false;
+  private lastScrollY = 0;
+  private scrollAccum = 0;
+
   /** 5D · Narrador (Web Speech API). */
   narrPlaying = false;
   narrRate = 1;
-  private utter: SpeechSynthesisUtterance | null = null;
-  private narrIndex = 0;
+  narrIndex = 0;
 
-  /** Orden del diseño 3F. */
+  /** 5D · Voces es-* disponibles y voz elegida (persistida). */
+  narrVoices: NarratorVoice[] = [];
+  narrVoice: NarratorVoice | null = null;
+  private static readonly NARR_VOICE_KEY = 'dv.narr.voice.v1';
+
+  /** Orden del diseño 3F + Mono (monocromo oscuro, default). */
   readonly themeOptions: ThemeOption[] = [
+    { value: 'mono', label: 'Mono' },
     { value: 'sepia', label: 'Sepia' },
     { value: 'claro', label: 'Claro' },
     { value: 'oscuro', label: 'Oscuro' },
@@ -88,6 +105,7 @@ export class LectorComponent implements OnInit, OnDestroy {
   ];
 
   private sub = new Subscription();
+  private unregisterBack: (() => void) | null = null;
   private io?: IntersectionObserver;
   private scrollPending = false;
   private persistTimer: ReturnType<typeof setTimeout> | null = null;
@@ -100,9 +118,38 @@ export class LectorComponent implements OnInit, OnDestroy {
     requestAnimationFrame(() => {
       this.scrollPending = false;
       if (this.selPop) this.selPop = null;
+      this.updateBarsVisibility();
       this.updateVisibleUnit();
     });
   };
+
+  /** F4: oculta las barras al bajar >24px, las muestra al subir.
+   *  Siempre visibles en los extremos y con ajustes/narrador abiertos. */
+  private updateBarsVisibility(): void {
+    if (typeof window === 'undefined') return;
+    const y = window.scrollY;
+    const delta = y - this.lastScrollY;
+    this.lastScrollY = y;
+
+    const doc = document.documentElement;
+    const atTop = y < 48;
+    const atBottom = y + window.innerHeight >= doc.scrollHeight - 48;
+    const uiOpen = this.prefsOpen || this.notaOpen || this.narrPlaying;
+
+    if (atTop || atBottom || uiOpen) {
+      this.scrollAccum = 0;
+      this.barsHidden = false;
+      return;
+    }
+
+    // Acumula en la misma dirección; cambio de dirección reinicia.
+    this.scrollAccum = Math.sign(delta) === Math.sign(this.scrollAccum)
+      ? this.scrollAccum + delta
+      : delta;
+
+    if (this.scrollAccum > 24) this.barsHidden = true;
+    else if (this.scrollAccum < -24) this.barsHidden = false;
+  }
 
   private readonly onSelectionChange = (): void => {
     if (this.selDebounce) clearTimeout(this.selDebounce);
@@ -126,6 +173,10 @@ export class LectorComponent implements OnInit, OnDestroy {
     private corpus: CorpusService,
     private progress: ReadingProgressService,
     private anotaciones: AnotacionesService,
+    private back: BackService,
+    private narrator: NarratorService,
+    private narracionFg: NarracionFgService,
+    private zone: NgZone,
     private host: ElementRef<HTMLElement>
   ) {
     this.sub.add(
@@ -136,6 +187,14 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // 7A: el back cierra el popover de selección antes de navegar.
+    this.unregisterBack = this.back.register(() => {
+      if (this.selPop) {
+        this.selPop = null;
+        return true;
+      }
+      return false;
+    });
     this.readerPrefs.applyToDom();
     this.sub.add(
       this.readerPrefs.prefs$.subscribe((p) => {
@@ -147,10 +206,16 @@ export class LectorComponent implements OnInit, OnDestroy {
     }
     if (typeof document !== 'undefined') {
       document.addEventListener('selectionchange', this.onSelectionChange);
+      document.addEventListener('visibilitychange', this.onVisibility);
+    }
+    if (this.narrSupported) {
+      void this.loadNarrVoices();
     }
   }
 
   ngOnDestroy(): void {
+    this.unregisterBack?.();
+    this.unregisterBack = null;
     this.stopNarrator();
     this.sub.unsubscribe();
     this.io?.disconnect();
@@ -159,6 +224,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     }
     if (typeof document !== 'undefined') {
       document.removeEventListener('selectionchange', this.onSelectionChange);
+      document.removeEventListener('visibilitychange', this.onVisibility);
     }
     if (this.selDebounce) clearTimeout(this.selDebounce);
     if (this.feedbackTimer) clearTimeout(this.feedbackTimer);
@@ -169,7 +235,7 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   get narrSupported(): boolean {
-    return typeof window !== 'undefined' && 'speechSynthesis' in window;
+    return this.narrator.supported;
   }
 
   get narrLabel(): string {
@@ -206,6 +272,63 @@ export class LectorComponent implements OnInit, OnDestroy {
     }
   }
 
+  /** 5D · Carga las voces es-* y restaura la elegida (si sigue instalada). */
+  private async loadNarrVoices(): Promise<void> {
+    this.narrVoices = await this.narrator.listVoices('es');
+    if (!this.narrVoices.length) return;
+    let savedId: string | null = null;
+    try {
+      savedId = localStorage.getItem(LectorComponent.NARR_VOICE_KEY);
+    } catch {
+      /* almacenamiento no disponible */
+    }
+    this.narrVoice =
+      this.narrVoices.find((v) => v.id === savedId) ?? null;
+  }
+
+  /** 5D · Avanza a la siguiente voz; si narra, reanuda el párrafo actual. */
+  cycleVoice(): void {
+    if (this.narrVoices.length < 2) return;
+    const i = this.narrVoice
+      ? this.narrVoices.findIndex((v) => v.id === this.narrVoice!.id)
+      : -1;
+    this.narrVoice = this.narrVoices[(i + 1) % this.narrVoices.length];
+    try {
+      localStorage.setItem(LectorComponent.NARR_VOICE_KEY, this.narrVoice.id);
+    } catch {
+      /* almacenamiento no disponible */
+    }
+    this.flashFeedback(`Voz: ${this.narrVoiceName}`);
+    if (this.narrPlaying) {
+      this.pauseNarrator();
+      this.speakFrom(this.narrIndex);
+    }
+  }
+
+  get narrVoiceName(): string {
+    return this.narrVoice?.name ?? 'Voz del sistema';
+  }
+
+  /** Etiqueta corta para la pastilla: lang + posición si hay duplicados. */
+  get narrVoiceLabel(): string {
+    const v = this.narrVoice;
+    if (!v) return 'Voz';
+    const sameLang = this.narrVoices.filter((x) => x.lang === v.lang);
+    if (sameLang.length < 2) return v.lang;
+    return `${v.lang} ${sameLang.findIndex((x) => x.id === v.id) + 1}`;
+  }
+
+  /** Ahorro: al volver a primer plano, re-sincroniza la vista con la narración. */
+  private readonly onVisibility = (): void => {
+    if (
+      typeof document !== 'undefined' &&
+      !document.hidden &&
+      this.narrPlaying
+    ) {
+      this.ensureNarrVisible(this.narrIndex);
+    }
+  };
+
   private startNarrator(): void {
     if (!this.narrSupported || !this.document) return;
     this.narrIndex = this.visibleIndex;
@@ -216,6 +339,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     const doc = this.document?.documento;
     if (!doc || index < 0 || index >= doc.length) {
       this.narrPlaying = false;
+      void this.narracionFg.stop();
       return;
     }
     const unit = doc[index] as {
@@ -237,30 +361,68 @@ export class LectorComponent implements OnInit, OnDestroy {
       this.speakFrom(index + 1);
       return;
     }
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = 'es-ES';
-    u.rate = this.narrRate;
-    u.onend = () => {
-      if (!this.narrPlaying) return;
-      this.narrIndex = index + 1;
-      this.speakFrom(this.narrIndex);
-    };
-    u.onerror = () => {
-      this.narrPlaying = false;
-    };
-    this.utter = u;
     this.narrPlaying = true;
     this.narrIndex = index;
-    window.speechSynthesis.speak(u);
+    // 5E · Servicio en primer plano: evita que Android congele el proceso
+    // con la pantalla apagada. Idempotente; cubre también cycleVoice().
+    void this.narracionFg.start(this.documentTitle);
+    // Batería: con la app oculta no hay nada que renderizar ni desplazar;
+    // onVisibility re-sincroniza la vista al volver a primer plano.
+    if (typeof document === 'undefined' || !document.hidden) {
+      this.ensureNarrVisible(index);
+    }
+    // Batería (#11): la promesa de speak() se resuelve fuera de la zona de
+    // Angular, así encadenar numerales con la pantalla apagada no dispara
+    // ningún ciclo de change detection. Con la app visible re-entramos en
+    // la zona para que la pastilla («Nº x de y», %) se refresque.
+    this.zone.runOutsideAngular(() => {
+      void this.narrator
+        .speak(text, {
+          lang: 'es-ES',
+          rate: this.narrRate,
+          voice: this.narrVoice,
+        })
+        .then((finished) => {
+          if (!finished || !this.narrPlaying) return;
+          const next = index + 1;
+          if (typeof document !== 'undefined' && document.hidden) {
+            this.narrIndex = next;
+            // Guarda el avance en background para poder reanudar aunque
+            // Android mate el proceso (escritura local, ~1 vez por numeral).
+            this.persistProgress(next);
+            this.speakFrom(next);
+          } else {
+            this.zone.run(() => {
+              this.narrIndex = next;
+              this.speakFrom(next);
+            });
+          }
+        });
+    });
+  }
+
+  /**
+   * Garantiza que el numeral narrado esté renderizado (extendiendo la
+   * ventana de artículos si hace falta) y lo desplaza al centro del viewport.
+   */
+  private ensureNarrVisible(index: number): void {
+    const total = this.document?.documento.length ?? 0;
+    while (index >= this.actual_superior_limit && this.actual_superior_limit < total) {
+      this.load_next();
+    }
+    while (index < this.actual_inferior_limit && this.actual_inferior_limit > 0) {
+      this.load_before();
+    }
+    setTimeout(() => {
+      const el = document.querySelector(`app-punto[data-idx="${index}"]`);
+      el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 50);
   }
 
   private pauseNarrator(): void {
     this.narrPlaying = false;
-    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-    }
-    this.utter = null;
+    void this.narrator.cancel();
+    void this.narracionFg.stop();
   }
 
   private stopNarrator(): void {
@@ -380,6 +542,11 @@ export class LectorComponent implements OnInit, OnDestroy {
 
   resetPrefs(): void {
     this.readerPrefs.reset();
+  }
+
+  /** 3F: mantener pantalla encendida (misma preferencia que Ajustes). */
+  toggleKeepAwake(): void {
+    this.readerPrefs.update({ keepAwake: !this.prefs.keepAwake });
   }
 
   // ------------------------------------------------------------------

@@ -1,5 +1,8 @@
-<div class="app-product">
-  <app-fbar title="Explorar"></app-fbar>
+<div class="app-product web-shell has-bnav">
+  <app-wbar></app-wbar>
+  <div class="only-mobile">
+    <app-fbar title="Explorar"></app-fbar>
+  </div>
   <div class="fbody">
     <div class="tabs">
       <button
@@ -71,4 +74,6 @@
       </div>
     </ng-container>
   </div>
+
+  <app-bnav></app-bnav>
 </div>

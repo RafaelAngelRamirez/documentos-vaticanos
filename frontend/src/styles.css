@@ -5,6 +5,15 @@ html, body {
   margin: 0;
 }
 
+/* 7F · Sistema/PWA: sin pull-to-refresh (el lector es scroll continuo)
+   y sin flash gris de tap en Android WebView. */
+html {
+  overscroll-behavior-y: none;
+}
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Default tokens (claro) — must win over browser dark UA */
 :root, html {
   --bg: #fdfdfb;
@@ -79,6 +88,15 @@ html[data-reader-theme='night'] {
   --card: #282318; --btn: #302a1d; --btnb: #4d4433; --acc: #d0a45f;
   --accink: #201c15; --desk: #17140e; --paper: #2e2818; --ok: #8fae7a;
   --reader-highlight: #6b5a1e;
+  color-scheme: dark;
+}
+/* Tema mono (monocromo oscuro, default — prima sobre el tipo papel) */
+html[data-reader-resolved='mono'],
+html[data-reader-theme='mono'] {
+  --bg: #161616; --ink: #e6e6e6; --muted: #9e9e9e; --line: #2e2e2e;
+  --card: #1e1e1e; --btn: #242424; --btnb: #3d3d3d; --acc: #dadada;
+  --accink: #161616; --desk: #0f0f0f; --paper: #232323; --ok: #bdbdbd;
+  --reader-highlight: #4a4a4a;
   color-scheme: dark;
 }
 @media (prefers-color-scheme: dark) {
@@ -166,6 +184,7 @@ body{margin:0}
 .canvas{min-height:100vh;font-family:'IBM Plex Sans',sans-serif;background:var(--desk);color:var(--ink);padding:32px 40px 80px;transition:background .25s,color .25s}
 .t-claro{--desk:#f2f0ea;--bg:#fdfdfb;--ink:#2c2a26;--muted:#8b877e;--line:#e5e2da;--card:#ffffff;--btn:#f4f2ec;--btnb:#d6d2c8;--acc:#8a5a2b;--accink:#fdfdfb;--paper:#f8f1de;--ok:#5a7a4a}
 .t-oscuro{--desk:#17140e;--bg:#201c15;--ink:#e2d8c4;--muted:#9a8f7a;--line:#3a3428;--card:#282318;--btn:#302a1d;--btnb:#4d4433;--acc:#d0a45f;--accink:#201c15;--paper:#2e2818;--ok:#8fae7a}
+.t-mono{--desk:#0f0f0f;--bg:#161616;--ink:#e6e6e6;--muted:#9e9e9e;--line:#2e2e2e;--card:#1e1e1e;--btn:#242424;--btnb:#3d3d3d;--acc:#dadada;--accink:#161616;--paper:#232323;--ok:#bdbdbd}
 a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
 .serif{font-family:'EB Garamond',serif}
 .muted{color:var(--muted)}
@@ -203,8 +222,9 @@ a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
 .mname{font-size:15px;font-weight:500}
 .mmeta{font-size:12px;color:var(--muted);margin-top:3px}
 .chev{color:var(--muted);margin-left:auto}
-.tabs{display:flex;gap:22px;border-bottom:1px solid var(--line);margin-bottom:6px}
-.tab{font-size:14px;color:var(--muted);padding:10px 2px;border-bottom:2px solid transparent}
+.tabs{display:flex;gap:22px;border-bottom:1px solid var(--line);margin-bottom:6px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{appearance:none;-webkit-appearance:none;background:none;border:none;font-family:inherit;font-size:14px;color:var(--muted);padding:10px 2px;border-bottom:2px solid transparent;border-radius:0;white-space:nowrap;flex-shrink:0;cursor:pointer}
 .tab.on{color:var(--ink);border-bottom-color:var(--acc);font-weight:500}
 .sect{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:26px 0 12px}
 .lrow{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
@@ -225,6 +245,7 @@ a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
 .ac{align-items:center}
 .jb{justify-content:space-between}
 .gap12{gap:12px}
+.gap8{gap:8px}
 .wrap{flex-wrap:wrap}
 .tc{text-align:center}
 .fs12{font-size:12px}
@@ -392,4 +413,55 @@ app-bnav .bnav{position:fixed;left:0;right:0;bottom:0;z-index:30;padding-bottom:
   }
   button.bookcard{display:flex;flex-direction:column;align-items:stretch}
   a.sitem{text-decoration:none;color:inherit}
+}
+
+/* 7A · Toast de salida (doble-back) */
+.dv-toast{
+  position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%);
+  z-index:80;max-width:min(320px,86vw);padding:10px 18px;border-radius:999px;
+  background:color-mix(in oklab,var(--ink) 92%,transparent);color:var(--bg);
+  font-family:'IBM Plex Sans',sans-serif;font-size:13px;line-height:1.4;text-align:center;
+  box-shadow:0 4px 18px rgba(0,0,0,.25);pointer-events:none;
+  animation:dv-toast-in .16s ease-out
+}
+@keyframes dv-toast-in{from{opacity:0;transform:translateX(-50%) translateY(8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@media (prefers-reduced-motion: reduce){.dv-toast{animation:none}}
+
+/* F3 · Feedback táctil y targets ≥48px */
+button,[role="button"],a,label,input,select,textarea{touch-action:manipulation}
+
+/* Feedback al presionar: hundimiento sutil + refuerzo de fondo. */
+.btn:active,.btnacc:active,.gbtn:active,.iconb:active,.chip:active,
+.segbtn:active,.szbtn:active,.npill:active,.sbtn:active,.stepbtn button:active{
+  transform:scale(.97);
+  transition:transform .06s ease-out
+}
+.sitem:active,.bookcard:active{background:var(--btn)}
+@media (prefers-reduced-motion: reduce){
+  .btn:active,.btnacc:active,.gbtn:active,.iconb:active,.chip:active,
+  .segbtn:active,.szbtn:active,.npill:active,.sbtn:active,.stepbtn button:active{
+    transform:none;transition:none
+  }
+}
+
+/* En punteros gruesos, garantizar área táctil efectiva de 48px sin
+   alterar la métrica visual: zona de impacto expandida via ::after. */
+@media (pointer: coarse){
+  .btn,.gbtn,.szbtn{min-height:48px}
+  .btnacc{min-height:48px}
+  .iconb,.chip,.segbtn,.npill,.sw2,.back,.popb,.sitem,.tab,.dot,.xdel{position:relative}
+  .iconb::after,.chip::after,.segbtn::after,.npill::after,
+  .back::after,.popb::after,.sitem::after,.tab::after,.dot::after,.xdel::after{
+    content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:max(100%,48px);height:max(100%,48px)
+  }
+  /* .sw2 usa ::after para la perilla del toggle: su hit-area va en ::before
+     para no pisar la métrica visual (bug: perilla de 48px en táctil). */
+  .sw2::before{
+    content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:max(100%,48px);height:max(100%,48px)
+  }
+  /* Filas de lista clicables: altura mínima táctil sin overlay que robe
+     clics a las filas vecinas. */
+  .toc,.lrow{min-height:48px}
 }

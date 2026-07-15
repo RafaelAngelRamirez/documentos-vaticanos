@@ -14,11 +14,6 @@
   margin-top: 16px;
 }
 
-button.tab {
-  background: none;
-  font-family: inherit;
-}
-
 button.srow {
   width: 100%;
   text-align: left;

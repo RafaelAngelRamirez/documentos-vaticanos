@@ -146,7 +146,23 @@
     </ng-container>
 
     <ng-container *ngIf="tab === 'marcadores'">
-      <ng-container *ngIf="auth.isLoggedIn && apiEnabled; else refsOff">
+      <div class="notecard" *ngFor="let m of marcadores" (click)="open(m)">
+        <div class="fs14 lh16 serif fw5">
+          ★ {{ m.unitLabel || m.documentId }}
+        </div>
+        <div class="nsrc fx ac jb">
+          <span>{{ src(m, m.createdAt) }}</span>
+          <button
+            type="button"
+            class="xdel"
+            title="Quitar"
+            (click)="removeAnotacion($event, m.id)"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+      <ng-container *ngIf="auth.isLoggedIn && apiEnabled">
         <div *ngIf="refsLoading" class="fs13 muted">Cargando…</div>
         <div *ngIf="refsError" class="fs13 errline">{{ refsError }}</div>
         <div class="notecard" *ngFor="let r of refs" (click)="open(r)">
@@ -168,16 +184,17 @@
             </button>
           </div>
         </div>
-        <div class="fs13 muted" *ngIf="!refsLoading && !refs.length && !refsError">
-          Sin marcadores todavía. Use ★ en el lector para guardar referencias.
-        </div>
       </ng-container>
-      <ng-template #refsOff>
-        <div class="fs13 muted">Inicie sesión para sincronizar sus marcadores.</div>
-        <button type="button" class="gbtn" style="margin-top: 12px" (click)="goCuenta()">
-          Ir a acceso
-        </button>
-      </ng-template>
+      <div
+        class="fs13 muted"
+        *ngIf="!marcadores.length && !refs.length && !refsLoading"
+      >
+        Sin marcadores todavía. Use ★ en el lector para guardar referencias.
+      </div>
+      <div class="fs12 muted" *ngIf="!auth.isLoggedIn" style="margin-top: 12px">
+        Guardados en este dispositivo. Inicie sesión para sincronizarlos entre
+        dispositivos.
+      </div>
     </ng-container>
 
     <ng-container *ngIf="tab === 'notas'">

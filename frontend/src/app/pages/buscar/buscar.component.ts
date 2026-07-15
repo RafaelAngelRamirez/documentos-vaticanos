@@ -41,14 +41,4 @@ export class BuscarComponent {
   goLib(): void {
     this.navigation.go_to_documents();
   }
-
-  runExample(q: string): void {
-    this.control.setValue(q);
-    this.buscadorService.global_control_search_input?.setValue(q);
-  }
-
-  get hasQuery(): boolean {
-    const t = this.buscadorService.terminos;
-    return Boolean(t.terminos?.length || t.puntos?.length);
-  }
 }

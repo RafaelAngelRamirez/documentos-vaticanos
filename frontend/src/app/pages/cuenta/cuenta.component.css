@@ -27,7 +27,7 @@ a.gbtn {
 }
 
 .errtx {
-  color: #8b3a3a;
+  color: var(--app-danger);
 }
 
 /* 3B / 3C */

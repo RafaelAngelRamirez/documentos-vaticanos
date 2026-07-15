@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
+import { BnavComponent } from 'src/app/components/bnav/bnav.component';
+import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import { StudiesService, Study } from 'src/app/core/account/studies.service';
 import {
   catalogDisplayFor,
@@ -29,7 +31,13 @@ interface EpochRow {
 @Component({
   standalone: true,
   selector: 'app-explorar',
-  imports: [CommonModule, RouterModule, AppFbarComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    AppFbarComponent,
+    WbarComponent,
+    BnavComponent,
+  ],
   templateUrl: './explorar.component.html',
   styleUrls: ['./explorar.component.css'],
 })
@@ -56,7 +64,7 @@ export class ExplorarComponent implements OnInit {
   ngOnInit(): void {
     this.buildEpochsFromCatalog();
     if (!environment.apiBaseUrl) {
-      this.teachers = this.fallbackAuthors();
+      this.loadFallbackAuthors();
       return;
     }
     this.loading = true;
@@ -64,12 +72,19 @@ export class ExplorarComponent implements OnInit {
       next: (items) => {
         this.loading = false;
         this.teachers = this.groupTeachers(items);
-        if (!this.teachers.length) this.teachers = this.fallbackAuthors();
+        if (!this.teachers.length) this.loadFallbackAuthors();
       },
       error: () => {
         this.loading = false;
-        this.teachers = this.fallbackAuthors();
+        this.loadFallbackAuthors();
       },
+    });
+  }
+
+  /** El catálogo se carga async: espera al manifiesto antes de agrupar autores. */
+  private loadFallbackAuthors(): void {
+    this.corpus.loadManifest().subscribe(() => {
+      this.teachers = this.fallbackAuthors();
     });
   }
 
@@ -109,7 +124,11 @@ export class ExplorarComponent implements OnInit {
   private fallbackAuthors(): TeacherRow[] {
     const authors = new Map<string, { count: number; display: CatalogDisplay }>();
     for (const m of this.corpus.listDocuments()) {
-      const d = catalogDisplayFor(m.id, m.kind);
+      const d = catalogDisplayFor(m.id, m.kind, {
+        author: m.author,
+        compiler: m.compiler,
+        sourceNote: m.sourceNote,
+      });
       const key = d.autor || d.tipo;
       const prev = authors.get(key) || { count: 0, display: d };
       prev.count += 1;
@@ -134,13 +153,20 @@ export class ExplorarComponent implements OnInit {
         'Concilio Vaticano II': [],
         Catecismo: [],
         Escritura: [],
-        'Otros': [],
+        'Padres de la Iglesia': [],
+        Otros: [],
       };
       for (const m of this.corpus.listDocuments()) {
-        const d = catalogDisplayFor(m.id, m.kind);
+        const d = catalogDisplayFor(m.id, m.kind, {
+          author: m.author,
+          compiler: m.compiler,
+          sourceNote: m.sourceNote,
+        });
         if (d.tipo.includes('Vaticano')) buckets['Concilio Vaticano II'].push(m.id);
         else if (d.tipo.includes('Catecismo')) buckets['Catecismo'].push(m.id);
         else if (d.tipo.includes('Escritura')) buckets['Escritura'].push(m.id);
+        else if (d.tipo.includes('Padres') || m.kind === 'patristic')
+          buckets['Padres de la Iglesia'].push(m.id);
         else buckets['Otros'].push(m.id);
       }
       this.epochs = Object.entries(buckets)

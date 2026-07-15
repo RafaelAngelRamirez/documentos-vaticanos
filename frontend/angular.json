@@ -34,6 +34,15 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
+              "node_modules/@fontsource/eb-garamond/latin-400.css",
+              "node_modules/@fontsource/eb-garamond/latin-400-italic.css",
+              "node_modules/@fontsource/eb-garamond/latin-500.css",
+              "node_modules/@fontsource/eb-garamond/latin-600.css",
+              "node_modules/@fontsource/eb-garamond/latin-700.css",
+              "node_modules/@fontsource/ibm-plex-sans/latin-400.css",
+              "node_modules/@fontsource/ibm-plex-sans/latin-500.css",
+              "node_modules/@fontsource/ibm-plex-sans/latin-600.css",
+              "node_modules/@fontsource/ibm-plex-sans/latin-700.css",
               "src/styles.css"
             ],
             "scripts": [],
@@ -104,6 +113,15 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
+              "node_modules/@fontsource/eb-garamond/latin-400.css",
+              "node_modules/@fontsource/eb-garamond/latin-400-italic.css",
+              "node_modules/@fontsource/eb-garamond/latin-500.css",
+              "node_modules/@fontsource/eb-garamond/latin-600.css",
+              "node_modules/@fontsource/eb-garamond/latin-700.css",
+              "node_modules/@fontsource/ibm-plex-sans/latin-400.css",
+              "node_modules/@fontsource/ibm-plex-sans/latin-500.css",
+              "node_modules/@fontsource/ibm-plex-sans/latin-600.css",
+              "node_modules/@fontsource/ibm-plex-sans/latin-700.css",
               "src/styles.css"
             ],
             "scripts": []

@@ -1,8 +1,8 @@
 {
-  "name": "documentos-vaticanos",
-  "short_name": "documentos-vaticanos",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "Documentos Vaticanos",
+  "short_name": "Documentos",
+  "theme_color": "#fdfdfb",
+  "background_color": "#fdfdfb",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

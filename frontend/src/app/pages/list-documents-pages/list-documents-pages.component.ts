@@ -162,12 +162,22 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
 
   metaLine(item: IndiceDocumentos): string {
     const meta = this.corpus.getMeta(item.id || '');
-    return catalogMetaLine(catalogDisplayFor(item.id, meta?.kind));
+    return catalogMetaLine(
+      catalogDisplayFor(item.id, meta?.kind, {
+        author: meta?.author,
+        compiler: meta?.compiler,
+        sourceNote: meta?.sourceNote,
+      })
+    );
   }
 
   kindOf(item: IndiceDocumentos): string {
     const meta = this.corpus.getMeta(item.id || '');
-    const d = catalogDisplayFor(item.id, meta?.kind);
+    const d = catalogDisplayFor(item.id, meta?.kind, {
+      author: meta?.author,
+      compiler: meta?.compiler,
+      sourceNote: meta?.sourceNote,
+    });
     // Compact kind for bookcard badge
     if (d.tipo.startsWith('Concilio')) return 'Concilio';
     return d.tipo;
@@ -200,7 +210,11 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
 
   private tabOf(item: IndiceDocumentos): string {
     const meta = this.corpus.getMeta(item.id || '');
-    const tipo = catalogDisplayFor(item.id, meta?.kind).tipo;
+    const tipo = catalogDisplayFor(item.id, meta?.kind, {
+      author: meta?.author,
+      compiler: meta?.compiler,
+      sourceNote: meta?.sourceNote,
+    }).tipo;
     return TAB_BY_TIPO[tipo] || 'Otros';
   }
 }

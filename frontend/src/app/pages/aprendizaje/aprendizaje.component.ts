@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
+import { BnavComponent } from 'src/app/components/bnav/bnav.component';
+import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import {
   Enrollment,
@@ -17,7 +19,13 @@ const LESSON_KEY = (id: string) => `dv.lesson.${id}`;
 @Component({
   standalone: true,
   selector: 'app-aprendizaje',
-  imports: [CommonModule, RouterModule, AppFbarComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    AppFbarComponent,
+    BnavComponent,
+    WbarComponent,
+  ],
   templateUrl: './aprendizaje.component.html',
   styleUrls: ['./aprendizaje.component.css'],
 })

@@ -36,11 +36,11 @@
             <div class="mv">{{ display.autor || '—' }}</div>
           </div>
           <div class="mcell">
-            <div class="mk">Año</div>
+            <div class="mk">Fecha</div>
             <div class="mv">{{ display.anio || '—' }}</div>
           </div>
           <div class="mcell">
-            <div class="mk">Contenido</div>
+            <div class="mk">Capítulos</div>
             <div class="mv">{{ unidadesLabel }}</div>
           </div>
           <div class="mcell">
@@ -67,6 +67,13 @@
           {{ posicionLabel }}
         </div>
 
+        <!-- Índice (handoff 2A.html:32-52) -->
+        <div class="sect" *ngIf="chapters.length">Índice</div>
+        <div class="toc" *ngFor="let c of chapters" (click)="comenzar()">
+          <span class="tnum">{{ c.num }}</span>
+          <span>{{ c.title }}</span>
+        </div>
+
         <button type="button" class="primary" (click)="comenzar()">
           {{ ctaLabel }}
         </button>
@@ -89,7 +96,7 @@
         <a href="javascript:void(0)" (click)="volver()">← Biblioteca</a>
       </div>
       <div *ngIf="loading" class="fs13 muted">Cargando…</div>
-      <div *ngIf="error" class="fs13" style="color: #b0563a">{{ error }}</div>
+      <div *ngIf="error" class="fs13" style="color: var(--app-danger)">{{ error }}</div>
 
       <div class="wcols" *ngIf="!loading && meta">
         <div class="col-main">

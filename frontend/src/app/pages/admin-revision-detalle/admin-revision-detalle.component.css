@@ -3,6 +3,14 @@
   min-height: 100vh;
   background: var(--bg);
   color: var(--ink);
+  /* Tono de "estado rechazado" del DS (.p-no de _styles.css); mismo valor
+     expuesto como var local, sin hex nuevos en las reglas. */
+  --p-no-ink: #b0563a;
+}
+
+/* Acción "Rechazar" = estado rechazado → tono .p-no del DS */
+.reject {
+  color: var(--p-no-ink);
 }
 
 .admin-shell {

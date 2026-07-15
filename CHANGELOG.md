@@ -10,6 +10,11 @@ All notable changes to this project will be documented in this file. See [standa
 * Temas con cola de revisión (6A–6D): `reviewStatus`, rol `admin`, APIs `/me/themes/.../submit` y `/admin/themes`
 * Padres de la Iglesia (2C/2D) en `/padres` y `/padres/:id`
 * Shell web 5A–5H (`app-wbar` modes nav/auth/reader, biblioteca cardgrid + wside, detalle wcols, estudio wcols, padres grid, tema dual, notas wside) y narrador 5D (Web Speech API)
+* Tema monocromo oscuro `mono` por defecto (prima sobre `paper`), selector en Ajustes con migración de preferencias legadas
+* Offline-first: notas, subrayados y temas funcionan sin cuenta (`dv_anotaciones_v1`, `themes.user` en localStorage)
+* Copia de seguridad local versionada: exporta/importa notas, temas y preferencias de lectura desde Ajustes
+* Registro como respaldo: merge local→nube (`POST /api/sync/merge`) al iniciar sesión, sin duplicados por clave `(documentId, unitIndex)`
+* UX móvil — Grupo 7 (7A–7F): back físico con `BackService` (cierra overlays antes de navegar), higiene PWA/Android (`viewport-fit=cover`, `theme-color`, sin overscroll-bounce), feedback táctil `:active` + targets ≥48px, barras auto-ocultables del lector, sheets con drag-to-dismiss y transiciones de ruta fade-through con `prefers-reduced-motion`; documentado en `AGENTS.md` §0 y `docs/design/handoff/README.md`
 
 ### [0.0.13](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.12...v0.0.13) (2023-11-05)
 

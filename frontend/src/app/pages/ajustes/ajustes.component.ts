@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { BnavComponent } from 'src/app/components/bnav/bnav.component';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { BackupService } from 'src/app/services/backup.service';
 import {
   ReaderFont,
   ReaderPreferences,
@@ -28,8 +29,9 @@ interface ThemeOption {
 export class AjustesComponent implements OnInit, OnDestroy {
   prefs: ReaderPreferences = this.readerPrefs.snapshot;
 
-  /** Orden exacto del diseño 3F. */
+  /** Orden del diseño 3F + Mono (monocromo oscuro, default). */
   readonly themes: ThemeOption[] = [
+    { value: 'mono', label: 'Mono' },
     { value: 'sepia', label: 'Sepia' },
     { value: 'claro', label: 'Claro' },
     { value: 'oscuro', label: 'Oscuro' },
@@ -46,8 +48,14 @@ export class AjustesComponent implements OnInit, OnDestroy {
     }
   };
 
+  /** Sección Datos (F8c): mensaje de estado de export/import. */
+  dataMsg: string | null = null;
+  dataMsgError = false;
+  importando = false;
+
   constructor(
     private readerPrefs: ReaderPreferencesService,
+    private backup: BackupService,
     public auth: AuthService,
     private router: Router
   ) {}
@@ -99,6 +107,47 @@ export class AjustesComponent implements OnInit, OnDestroy {
     } else {
       void this.releaseWakeLock();
     }
+  }
+
+  exportarDatos(): void {
+    try {
+      this.backup.exportar();
+      this.setDataMsg('Copia de seguridad exportada: revisa tus descargas.');
+    } catch {
+      this.setDataMsg('No se pudo exportar la copia de seguridad.', true);
+    }
+  }
+
+  async onImportarArchivo(event: Event): Promise<void> {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    input.value = ''; // Permite volver a elegir el mismo archivo.
+    if (!file) return;
+    this.importando = true;
+    try {
+      const resumen = await this.backup.importar(file);
+      const partes = [`${resumen.anotaciones} anotaciones`];
+      partes.push(
+        resumen.preferencias
+          ? 'preferencias de lectura restauradas'
+          : 'sin preferencias en el archivo'
+      );
+      this.setDataMsg(
+        `Datos importados (${partes.join(', ')}). La página se recargará…`
+      );
+    } catch (e) {
+      this.setDataMsg(
+        e instanceof Error ? e.message : 'No se pudo importar el archivo.',
+        true
+      );
+    } finally {
+      this.importando = false;
+    }
+  }
+
+  private setDataMsg(msg: string, error = false): void {
+    this.dataMsg = msg;
+    this.dataMsgError = error;
   }
 
   goRefs(): void {

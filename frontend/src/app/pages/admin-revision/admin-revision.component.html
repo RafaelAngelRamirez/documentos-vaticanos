@@ -59,7 +59,7 @@
         <span class="fs13 muted">Solo temas marcados como públicos</span>
       </div>
 
-      <div *ngIf="error" class="fs13" style="color: #b0563a; margin: 12px 0">
+      <div *ngIf="error" class="fs13" style="color: var(--app-danger); margin: 12px 0">
         {{ error }}
       </div>
       <div *ngIf="loading" class="fs13 muted">Cargando…</div>

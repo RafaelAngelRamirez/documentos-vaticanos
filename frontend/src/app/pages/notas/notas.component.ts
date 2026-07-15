@@ -52,9 +52,17 @@ export class NotasComponent implements OnInit {
     return this.anotaciones.snapshot.filter((a) => a.kind === 'nota');
   }
 
+  /** Marcadores locales (offline-first); los de nube (refs) son adicionales. */
+  get marcadores(): Anotacion[] {
+    return this.anotaciones.snapshot.filter((a) => a.kind === 'marcador');
+  }
+
   get hasAny(): boolean {
     return (
-      this.subrayados.length > 0 || this.notas.length > 0 || this.refs.length > 0
+      this.subrayados.length > 0 ||
+      this.notas.length > 0 ||
+      this.marcadores.length > 0 ||
+      this.refs.length > 0
     );
   }
 
@@ -119,14 +127,14 @@ export class NotasComponent implements OnInit {
     });
   }
 
-  goCuenta(): void {
-    this.router.navigate(['/cuenta']);
-  }
-
   /** Exporta el contenido propio como texto plano (archivo local). */
   exportAll(): void {
     const lines: string[] = [];
     for (const a of this.anotaciones.snapshot) {
+      if (a.kind === 'marcador') {
+        lines.push(`★ ${a.unitLabel || a.documentId} · Nº ${a.unitIndex}`);
+        continue;
+      }
       lines.push(
         `«${a.excerpt}»${a.nota ? `\n  ${a.nota}` : ''}\n  — ${
           a.unitLabel || a.documentId

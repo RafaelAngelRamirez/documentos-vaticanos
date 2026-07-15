@@ -11,6 +11,7 @@ import { uploadsRouter } from './routes/uploads';
 import { referencesRouter } from './routes/references';
 import { themesRouter } from './routes/themes';
 import { studiesRouter } from './routes/studies';
+import { syncRouter } from './routes/sync';
 
 const app = express();
 
@@ -35,6 +36,7 @@ api.use(meRouter);
 api.use(referencesRouter);
 api.use(themesRouter);
 api.use(studiesRouter);
+api.use(syncRouter);
 api.use(uploadsRouter);
 
 app.use('/api/v1', api);

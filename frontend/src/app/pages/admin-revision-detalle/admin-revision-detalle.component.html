@@ -16,7 +16,7 @@
       </div>
 
       <div *ngIf="loading" class="fs13 muted">Cargando…</div>
-      <div *ngIf="error" class="fs13" style="color: #b0563a">{{ error }}</div>
+      <div *ngIf="error" class="fs13" style="color: var(--app-danger)">{{ error }}</div>
       <div *ngIf="message" class="fs13" style="color: var(--ok); margin-bottom: 12px">
         {{ message }}
       </div>
@@ -83,8 +83,8 @@
               </button>
               <button
                 type="button"
-                class="gbtn"
-                style="margin-top: 10px; padding: 12px; color: #b0563a"
+                class="gbtn reject"
+                style="margin-top: 10px; padding: 12px"
                 [disabled]="busy"
                 (click)="decide('rejected')"
               >

@@ -51,10 +51,7 @@ export class MisTemasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (!this.auth.isLoggedIn) {
-      this.router.navigate(['/cuenta']);
-      return;
-    }
+    // F8b: los temas funcionan sin sesión (persistencia local).
     this.reload();
   }
 

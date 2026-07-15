@@ -77,17 +77,18 @@ export class BnavComponent {
     if (this.current) return this.current;
     const p = (this.router.url || '').split('?')[0].split('#')[0];
     if (p.startsWith('/ajustes')) return 'ajustes';
-    if (
-      p.startsWith('/estudio') ||
-      p.startsWith('/aprendizaje') ||
-      p.startsWith('/explorar')
-    ) {
+    if (p.startsWith('/estudio') || p.startsWith('/aprendizaje')) {
       return 'estudio';
     }
     if (
       p.startsWith('/biblioteca') ||
       p.includes('documentos/listar') ||
-      p.startsWith('/buscar')
+      p.startsWith('/buscar') ||
+      // Padres y Explorar/Temas pertenecen conceptualmente a Biblioteca
+      // (la wbar de escritorio tiene wlinks propios: Padres / Temas).
+      p.startsWith('/padres') ||
+      p.startsWith('/explorar') ||
+      p.startsWith('/cuenta/temas')
     ) {
       return 'biblioteca';
     }

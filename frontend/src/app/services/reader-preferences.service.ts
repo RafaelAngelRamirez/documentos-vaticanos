@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Capacitor } from '@capacitor/core';
+import { StatusBar, Style } from '@capacitor/status-bar';
 
-/** Temas del diseño (Ajustes 4A): Sepia · Claro · Oscuro · Sistema. */
-export type ReaderTheme = 'claro' | 'sepia' | 'oscuro' | 'system';
+/** Temas: Mono (monocromo oscuro, default) · Sepia · Claro · Oscuro · Sistema. */
+export type ReaderTheme = 'mono' | 'claro' | 'sepia' | 'oscuro' | 'system';
 export type ReaderFont = 'serif' | 'sans';
 
 export interface ReaderPreferences {
@@ -18,7 +20,7 @@ export interface ReaderPreferences {
 export const READER_PREFS_STORAGE_KEY = 'reader.prefs.v1';
 
 export const DEFAULT_READER_PREFERENCES: ReaderPreferences = {
-  theme: 'claro',
+  theme: 'mono',
   font: 'serif',
   fontSizePx: 18,
   lineHeight: 1.65,
@@ -27,6 +29,7 @@ export const DEFAULT_READER_PREFERENCES: ReaderPreferences = {
 };
 
 export const THEME_CYCLE: ReaderTheme[] = [
+  'mono',
   'claro',
   'sepia',
   'oscuro',
@@ -36,7 +39,8 @@ const FONT_CYCLE: ReaderFont[] = ['serif', 'sans'];
 
 /** Valores guardados por versiones previas de la app. */
 const LEGACY_THEME_MAP: Record<string, ReaderTheme> = {
-  paper: 'claro',
+  // El monocromo oscuro prima sobre el tipo papel.
+  paper: 'mono',
   night: 'oscuro',
 };
 
@@ -141,13 +145,63 @@ export class ReaderPreferencesService {
     // Keep requested theme (incl. system) and also a resolved value for CSS.
     root.setAttribute('data-reader-theme', prefs.theme);
     root.setAttribute('data-reader-resolved', resolved);
+
+    this.syncSystemChrome(root);
+  }
+
+  /**
+   * Sincroniza el chrome del sistema (meta theme-color + StatusBar nativa)
+   * con el fondo resuelto del tema. Debe ejecutarse DESPUÉS de fijar
+   * data-reader-resolved, para que getComputedStyle vea los tokens nuevos.
+   */
+  private syncSystemChrome(root: HTMLElement): void {
+    const bg =
+      getComputedStyle(root).getPropertyValue('--bg').trim() || '#fdfdfb';
+
+    let meta = document.querySelector<HTMLMetaElement>(
+      'meta[name="theme-color"]'
+    );
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'theme-color';
+      document.head.appendChild(meta);
+    }
+    meta.content = bg;
+
+    if (Capacitor.isNativePlatform()) {
+      const dark = this.isDarkColor(bg);
+      // Fondo oscuro -> iconos claros (Style.Dark) y viceversa.
+      StatusBar.setBackgroundColor({ color: bg }).catch(() => {});
+      StatusBar.setStyle({ style: dark ? Style.Dark : Style.Light }).catch(
+        () => {}
+      );
+    }
+  }
+
+  /** Luminancia aproximada de un color hex (#rgb o #rrggbb). */
+  private isDarkColor(hex: string): boolean {
+    const m = hex.match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
+    if (!m) {
+      return false;
+    }
+    let h = m[1];
+    if (h.length === 3) {
+      h = h
+        .split('')
+        .map((c) => c + c)
+        .join('');
+    }
+    const r = parseInt(h.slice(0, 2), 16);
+    const g = parseInt(h.slice(2, 4), 16);
+    const b = parseInt(h.slice(4, 6), 16);
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b < 128;
   }
 
   private clamp(prefs: ReaderPreferences): ReaderPreferences {
     const migrated =
       LEGACY_THEME_MAP[prefs.theme as string] ?? (prefs.theme as ReaderTheme);
     return {
-      theme: THEME_CYCLE.includes(migrated) ? migrated : 'claro',
+      theme: THEME_CYCLE.includes(migrated) ? migrated : 'mono',
       font: FONT_CYCLE.includes(prefs.font) ? prefs.font : 'serif',
       fontSizePx: Math.min(28, Math.max(14, Math.round(prefs.fontSizePx))),
       lineHeight: Math.min(

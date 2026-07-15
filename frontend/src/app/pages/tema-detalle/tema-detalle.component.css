@@ -58,11 +58,11 @@
 }
 
 .xdel:hover {
-  color: #b0563a;
+  color: var(--app-danger);
 }
 
 .errline {
-  color: #b0563a;
+  color: var(--app-danger);
 }
 
 .okline {
@@ -95,6 +95,9 @@
 }
 .ac {
   align-items: center;
+}
+.jb {
+  justify-content: space-between;
 }
 .gap12 {
   gap: 12px;

@@ -7,11 +7,12 @@ import {
 } from 'src/app/core/account/references.service';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 
 @Component({
   standalone: true,
   selector: 'app-mis-referencias',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, AppFbarComponent],
   templateUrl: './mis-referencias.component.html',
   styleUrls: ['./mis-referencias.component.css'],
 })

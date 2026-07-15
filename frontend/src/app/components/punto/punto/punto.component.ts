@@ -352,12 +352,8 @@ export class PuntoComponent implements OnInit, OnDestroy {
   }
 
   get canSave(): boolean {
-    return (
-      this.auth.isLoggedIn &&
-      Boolean(environment.apiBaseUrl) &&
-      Boolean(this.documentId) &&
-      this.infoPunto?.article != null
-    );
+    // Offline-first (F8a): guardar no requiere sesión ni API.
+    return Boolean(this.documentId) && this.infoPunto?.article != null;
   }
 
   saveReference(event: Event): void {
@@ -366,33 +362,43 @@ export class PuntoComponent implements OnInit, OnDestroy {
     this.saveMsg = null;
     this.saveError = null;
     if (!this.canSave || !this.documentId) {
-      this.saveError = this.auth.isLoggedIn
-        ? 'No se puede guardar (falta documentId o API)'
-        : 'Inicia sesión en Cuenta para guardar';
+      this.saveError = 'No se puede guardar (falta documentId)';
       return;
     }
     const a = this.infoPunto.article;
+    const unitIndex = a.index_array ?? 0;
     const label =
       a.biblia?.consecutivo_versiculo ||
       (a.consecutivo && a.consecutivo !== 'no-encontrado'
         ? String(a.consecutivo)
         : undefined);
-    this.references
-      .save({
+
+    // Siempre en localStorage; se evita duplicar el marcador de una unidad.
+    const yaExiste = this.anotaciones
+      .forUnit(this.documentId, unitIndex)
+      .some((x) => x.kind === 'marcador');
+    if (!yaExiste) {
+      this.anotaciones.add({
         documentId: this.documentId,
-        unitIndex: a.index_array ?? 0,
+        unitIndex,
         unitLabel: label,
-      })
-      .subscribe({
-        next: () => {
-          this.saveMsg = 'Guardada';
-          setTimeout(() => (this.saveMsg = null), 2000);
-        },
-        error: (err) => {
-          this.saveError =
-            err?.error?.error || err?.message || 'Error al guardar';
-        },
+        excerpt: '',
+        kind: 'marcador',
       });
+    }
+    this.saveMsg = 'Guardada';
+    setTimeout(() => (this.saveMsg = null), 2000);
+
+    // Nube opcional: solo con sesión y API, best-effort con catch silencioso.
+    if (this.auth.isLoggedIn && environment.apiBaseUrl) {
+      this.references
+        .save({
+          documentId: this.documentId,
+          unitIndex,
+          unitLabel: label,
+        })
+        .subscribe({ error: () => {} });
+    }
   }
 }
 

@@ -10,8 +10,10 @@ import { AuthService } from 'src/app/core/auth/auth.service';
   imports: [CommonModule, RouterModule],
   template: `
     <div class="fbar hair">
-      <span class="ftitle">{{ title }}</span>
+      <a *ngIf="back" class="fs14 back" [routerLink]="backLink">{{ back }}</a>
+      <span class="ftitle" [class.mid]="!!back">{{ title }}</span>
       <button
+        *ngIf="avatar"
         type="button"
         class="dot"
         [attr.title]="auth.user?.name || 'Cuenta'"
@@ -19,6 +21,8 @@ import { AuthService } from 'src/app/core/auth/auth.service';
       >
         {{ initials }}
       </button>
+      <!-- 3H.html:5-7 / 4D.html:7 · hueco de equilibrio cuando no hay avatar -->
+      <span *ngIf="!avatar" class="sp34" aria-hidden="true"></span>
     </div>
   `,
   styles: [
@@ -46,11 +50,31 @@ import { AuthService } from 'src/app/core/auth/auth.service';
         border: 1px solid var(--btnb);
         background: var(--btn);
       }
+      .back {
+        cursor: pointer;
+        color: var(--ink);
+        text-decoration: none;
+      }
+      .back:hover {
+        color: var(--acc);
+      }
+      .ftitle.mid {
+        font-size: 16px;
+      }
+      .sp34 {
+        width: 34px;
+        flex-shrink: 0;
+      }
     `,
   ],
 })
 export class AppFbarComponent {
   @Input() title = 'Estudio';
+  /** Enlace de retorno a la izquierda (p. ej. "← Cuenta"). */
+  @Input() back: string | null = null;
+  @Input() backLink: string | string[] = '/';
+  /** false → hueco de 34px a la derecha (3H sin avatar). */
+  @Input() avatar = true;
 
   constructor(public auth: AuthService, private router: Router) {}
 

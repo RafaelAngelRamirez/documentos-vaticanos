@@ -1,5 +1,8 @@
-<div class="app-product">
-  <app-fbar title="Aprendizaje"></app-fbar>
+<div class="app-product web-shell has-bnav">
+  <app-wbar></app-wbar>
+  <div class="only-mobile">
+    <app-fbar title="Aprendizaje"></app-fbar>
+  </div>
   <div class="fbody">
     <ng-container *ngIf="!auth.isLoggedIn">
       <div class="fs13 muted">Inicie sesión para ver su curso activo.</div>
@@ -72,4 +75,6 @@
       </ng-container>
     </ng-container>
   </div>
+
+  <app-bnav></app-bnav>
 </div>

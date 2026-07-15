@@ -3,6 +3,10 @@
 
   <!-- 4D · PUBLICAR -->
   <ng-container *ngIf="mode === 'publish' && theme as t">
+    <!-- B5: 4D.html:5 indica "← Mis notas", pero a esta vista se llega desde el
+         propio tema (Mis temas), así que se mantiene "← Mis temas". -->
+    <!-- B5: 4D.html:6 titula "Nuevo tema" en creación; la creación ocurre en
+         Mis temas, aquí siempre se edita un tema existente. -->
     <div class="fbar hair">
       <span class="fs14 back" (click)="cancelPublish()" role="button" tabindex="0">← Mis temas</span>
       <span class="ftitle" style="font-size: 16px">{{ needsChanges ? 'Editar y reenviar' : 'Publicar tema' }}</span>
@@ -20,7 +24,7 @@
           placeholder="Presente el tema…"
         ></textarea>
 
-        <div class="sect">Secciones · pasajes del tema</div>
+        <div class="sect">Secciones · desde sus notas</div>
         <div class="notecard" *ngFor="let s of steps; let i = index">
           <div class="fw5 fs14">
             {{ i + 1 }} · {{ s.unitLabel || s.documentId + ' #' + s.unitIndex }}
@@ -33,6 +37,14 @@
         <div class="fs13 muted" *ngIf="!steps.length">
           Añada pasajes en la vista del tema antes de publicar.
         </div>
+        <button
+          type="button"
+          class="gbtn"
+          style="margin-top: 2px"
+          (click)="addSectionFromNotes()"
+        >
+          + Añadir sección desde notas
+        </button>
 
         <div class="setrow" style="margin-top: 10px" (click)="togglePublic()">
           <span class="setk">
@@ -65,7 +77,9 @@
   <ng-container *ngIf="mode === 'read'">
     <div class="fbar hair hide-desktop">
       <span class="fs14 back" routerLink="/cuenta/temas">← Temas</span>
-      <span *ngIf="pillLabel()" [class]="pillClass()">{{ pillLabel() }}</span>
+      <span *ngIf="pillLabel() && !isApproved" [class]="pillClass()">{{ pillLabel() }}</span>
+      <!-- 4C.html:6 · tema compartido: compartir -->
+      <span *ngIf="isApproved" class="iconb" title="Compartir">⇪</span>
       <span *ngIf="!pillLabel()" class="iconb" title="Tema">♡</span>
     </div>
 
@@ -105,21 +119,26 @@
               </ng-container>
 
               <ng-container *ngIf="!needsChanges">
-                <div class="tsec" *ngIf="steps.length">Pasajes</div>
-                <div
-                  class="refcard"
-                  *ngFor="let s of steps; let i = index"
-                  (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)"
-                >
-                  <span class="refn">{{ s.unitLabel || '#' + s.unitIndex }}</span>
-                  <span class="f1">
-                    <ng-container *ngIf="s.userComment">«{{ s.userComment }}»</ng-container>
-                    <ng-container *ngIf="!s.userComment">
-                      {{ s.documentId }} · Nº {{ s.unitIndex }}
-                    </ng-container>
-                  </span>
-                  <span class="chev">›</span>
-                </div>
+                <!-- 4C.html:18-36 · secciones numeradas -->
+                <ng-container *ngFor="let sec of sections; let si = index">
+                  <div class="tsec">{{ si + 1 }} · {{ sec.title }}</div>
+                  <!-- TODO(4C.html:19): el modelo no tiene texto introductorio
+                       de sección (.tbody muted); añadirlo cuando exista. -->
+                  <div
+                    class="refcard"
+                    *ngFor="let it of sec.items"
+                    (click)="openStep(it.s.documentId, it.s.unitIndex, it.s.unitLabel)"
+                  >
+                    <span class="refn">{{ it.s.unitLabel || '#' + it.s.unitIndex }}</span>
+                    <span class="f1">
+                      <ng-container *ngIf="it.s.userComment">«{{ it.s.userComment }}»</ng-container>
+                      <ng-container *ngIf="!it.s.userComment">
+                        {{ it.s.documentId }} · Nº {{ it.s.unitIndex }}
+                      </ng-container>
+                    </span>
+                    <span class="chev">›</span>
+                  </div>
+                </ng-container>
               </ng-container>
             </div>
             <div class="tema-side">
@@ -248,30 +267,67 @@
         </div>
 
         <ng-container *ngIf="!needsChanges">
-          <div class="sect" style="margin-top: 4px">Documentos sobre este tema</div>
-          <div
-            class="refcard"
-            *ngFor="let s of steps; let i = index"
-            (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)"
-          >
-            <span class="refn">{{ s.unitLabel || '#' + s.unitIndex }}</span>
-            <span class="f1">
-              <ng-container *ngIf="s.userComment">«{{ s.userComment }}»</ng-container>
-              <ng-container *ngIf="!s.userComment">
-                {{ s.documentId }} · Nº {{ s.unitIndex }}
-              </ng-container>
-            </span>
-            <button
-              type="button"
-              class="xdel"
-              title="Quitar"
-              *ngIf="!isPending"
-              (click)="onRemove($event, i)"
+          <!-- 4C.html:18-36 · tema compartido: secciones numeradas -->
+          <ng-container *ngIf="isApproved">
+            <ng-container *ngFor="let sec of sections; let si = index">
+              <div class="tsec">{{ si + 1 }} · {{ sec.title }}</div>
+              <!-- TODO(4C.html:19): el modelo no tiene texto introductorio de
+                   sección (.tbody muted); añadirlo cuando exista. -->
+              <div
+                class="refcard"
+                *ngFor="let it of sec.items"
+                (click)="openStep(it.s.documentId, it.s.unitIndex, it.s.unitLabel)"
+              >
+                <span class="refn">{{ it.s.unitLabel || '#' + it.s.unitIndex }}</span>
+                <span class="f1">
+                  <ng-container *ngIf="it.s.userComment">«{{ it.s.userComment }}»</ng-container>
+                  <ng-container *ngIf="!it.s.userComment">
+                    {{ it.s.documentId }} · Nº {{ it.s.unitIndex }}
+                  </ng-container>
+                </span>
+                <button
+                  type="button"
+                  class="xdel"
+                  title="Quitar"
+                  *ngIf="!isPending"
+                  (click)="onRemove($event, it.i)"
+                >
+                  ×
+                </button>
+                <span class="chev" *ngIf="isPending">›</span>
+              </div>
+            </ng-container>
+          </ng-container>
+
+          <!-- 3I.html:14-26 · documentos del tema -->
+          <ng-container *ngIf="!isApproved">
+            <div class="sect" style="margin-top: 4px">Documentos sobre este tema</div>
+            <div
+              class="srow"
+              *ngFor="let s of steps; let i = index"
+              (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)"
             >
-              ×
-            </button>
-            <span class="chev" *ngIf="isPending">›</span>
-          </div>
+              <span class="fx ac jb">
+                <span class="st">{{ s.unitLabel || '#' + s.unitIndex }}</span>
+                <button
+                  type="button"
+                  class="xdel"
+                  title="Quitar"
+                  *ngIf="!isPending"
+                  (click)="onRemove($event, i)"
+                >
+                  ×
+                </button>
+                <span class="chev" *ngIf="isPending">›</span>
+              </span>
+              <span class="sx">
+                <ng-container *ngIf="s.userComment">«{{ s.userComment }}»</ng-container>
+                <ng-container *ngIf="!s.userComment">
+                  {{ s.documentId }} · Nº {{ s.unitIndex }}
+                </ng-container>
+              </span>
+            </div>
+          </ng-container>
           <div class="fs13 muted" *ngIf="!steps.length && !loading">
             Todavía no hay pasajes en este tema.
           </div>
@@ -325,7 +381,7 @@
               <input class="field" formControlName="unitLabel" placeholder="CIC 27" />
               <label class="flabel">Comentario</label>
               <textarea
-                class="field"
+                class="notearea"
                 rows="2"
                 formControlName="userComment"
               ></textarea>

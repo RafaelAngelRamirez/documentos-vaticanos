@@ -13,33 +13,14 @@
   </div>
 
   <div class="fbody">
+    <!-- Campo simple según handoff 3E (sin chips de ejemplo) -->
     <input
       class="field"
       type="search"
-      placeholder="Términos o puntos (.100-105), separados por coma"
+      placeholder="Buscar"
       [formControl]="control"
       aria-label="Búsqueda en el texto"
     />
-
-    <div class="exrow" *ngIf="!hasQuery">
-      <button
-        type="button"
-        class="exbtn"
-        (click)="runExample('muerte, resurrección')"
-      >
-        muerte, resurrección
-      </button>
-      <button
-        type="button"
-        class="exbtn"
-        (click)="runExample('.100-105, .299-300')"
-      >
-        .100-105, .299-300
-      </button>
-      <button type="button" class="exbtn" (click)="runExample('esperanza')">
-        esperanza
-      </button>
-    </div>
 
     <app-buscador></app-buscador>
   </div>

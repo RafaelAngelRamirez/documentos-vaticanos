@@ -29,6 +29,28 @@ model User {
   studies       Study[]             @relation("TeacherStudies")
   enrollments   Enrollment[]
   refreshTokens RefreshToken[]
+  anotaciones   Anotacion[]
+}
+
+/// F9 · Respaldo en nube de subrayados/notas locales (dv_anotaciones_v1).
+/// `id` es el id generado por el cliente; la PK compuesta lo aisla por usuario.
+/// `updatedAt` se escribe explícitamente desde el cliente (last-write-wins),
+/// por eso NO lleva @updatedAt.
+model Anotacion {
+  id         String
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  documentId String
+  unitIndex  Int
+  unitLabel  String?
+  excerpt    String
+  nota       String?
+  kind       String   // subrayado | nota
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime
+
+  @@id([userId, id])
+  @@index([userId, documentId])
 }
 
 model RefreshToken {

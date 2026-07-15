@@ -84,7 +84,7 @@
 }
 
 .danger {
-  color: #b0563a;
+  color: var(--app-danger);
 }
 
 .setrow.last {
@@ -94,6 +94,26 @@
 button.sw2 {
   border: none;
   padding: 0;
+}
+
+/* Datos (F8c): exportar / importar */
+.databtns {
+  margin: 4px 0 6px;
+}
+
+.filehidden {
+  display: none;
+}
+
+.datamsg {
+  padding: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ok, #2e7d32);
+}
+
+.datamsg.err {
+  color: var(--app-danger);
 }
 
 .preview {

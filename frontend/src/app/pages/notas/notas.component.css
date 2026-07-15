@@ -33,11 +33,11 @@
 }
 
 .xdel:hover {
-  color: var(--danger, #8b3a3a);
+  color: var(--app-danger);
 }
 
 .errline {
-  color: #8b3a3a;
+  color: var(--app-danger);
 }
 
 .tcenter {

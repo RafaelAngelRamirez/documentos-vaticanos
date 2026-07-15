@@ -1,32 +1,44 @@
-<div class="app-page">
-  <header class="app-page-head">
-    <h1 class="app-page-title">Mis referencias</h1>
-    <a routerLink="/cuenta" class="app-btn-link">← Cuenta</a>
-  </header>
+<div class="app-product">
+  <app-fbar
+    title="Mis referencias"
+    back="← Cuenta"
+    backLink="/cuenta"
+    [avatar]="false"
+  ></app-fbar>
 
-  <div *ngIf="loading" class="app-muted">Cargando…</div>
-  <div *ngIf="error" class="app-status app-status-error">{{ error }}</div>
+  <div class="fbody">
+    <div *ngIf="loading" class="fs13 muted">Cargando…</div>
+    <div *ngIf="error" class="fs13 errline">{{ error }}</div>
 
-  <div *ngIf="!loading && !items.length" class="app-muted app-fs14">
-    Aún no tienes referencias. Abre un documento y usa ★ Guardar.
-  </div>
+    <div
+      *ngIf="!loading && !items.length"
+      class="fs13 muted"
+      style="line-height: 1.6"
+    >
+      Aún no tienes referencias. Abre un documento y usa ★ Guardar.
+    </div>
 
-  <ul class="app-list">
-    <li *ngFor="let item of items" class="app-list-item">
-      <div class="app-list-body" style="cursor: pointer" (click)="open(item)">
-        <div class="app-list-name">
-          {{ item.unitLabel || item.documentId + ' #' + item.unitIndex }}
+    <ng-container *ngIf="items.length">
+      <div class="sect" style="margin-top: 4px">Referencias guardadas</div>
+      <div class="notecard" *ngFor="let item of items" (click)="open(item)">
+        <div class="fs14 lh16 serif fw5">
+          ★ {{ item.unitLabel || item.documentId + ' #' + item.unitIndex }}
         </div>
-        <div class="app-list-meta">
-          {{ item.documentId }} · índice {{ item.unitIndex }}
-        </div>
-        <div *ngIf="item.note" class="app-fs13" style="margin-top: 4px">
+        <div class="fs13 muted" *ngIf="item.note" style="margin-top: 4px">
           {{ item.note }}
         </div>
+        <div class="nsrc fx ac jb">
+          <span>{{ item.documentId }} · Nº {{ item.unitIndex }}</span>
+          <button
+            type="button"
+            class="qdel"
+            title="Quitar"
+            (click)="$event.stopPropagation(); remove(item)"
+          >
+            Quitar
+          </button>
+        </div>
       </div>
-      <button type="button" class="app-btn app-btn-sm app-btn-danger" (click)="remove(item)">
-        Quitar
-      </button>
-    </li>
-  </ul>
+    </ng-container>
+  </div>
 </div>

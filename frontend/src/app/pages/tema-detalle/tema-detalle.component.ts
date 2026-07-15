@@ -25,6 +25,13 @@ import { WbarComponent } from 'src/app/components/wbar/wbar.component';
  * 5G · Web tema maestro
  * 6B · Cambios solicitados
  */
+type ThemeStep = NonNullable<Theme['steps']>[number];
+
+interface ThemeSection {
+  title: string;
+  items: { s: ThemeStep; i: number }[];
+}
+
 @Component({
   standalone: true,
   selector: 'app-tema-detalle',
@@ -74,10 +81,7 @@ export class TemaDetalleComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (!this.auth.isLoggedIn) {
-      this.router.navigate(['/cuenta']);
-      return;
-    }
+    // F8b: los temas funcionan sin sesión (persistencia local).
     const id = this.route.snapshot.paramMap.get('id');
     if (!id) {
       this.router.navigate(['/cuenta/temas']);
@@ -92,6 +96,25 @@ export class TemaDetalleComponent implements OnInit {
 
   get docCount(): number {
     return new Set(this.steps.map((s) => s.documentId)).size;
+  }
+
+  /**
+   * 4C · secciones numeradas ("1 · Título").
+   * TODO: el modelo Theme no tiene secciones propias ni texto introductorio
+   * (.tbody de 4C.html:19); se agrupan pasajes consecutivos por documento
+   * hasta que el modelo las incorpore.
+   */
+  get sections(): ThemeSection[] {
+    const secs: ThemeSection[] = [];
+    this.steps.forEach((s, i) => {
+      const last = secs[secs.length - 1];
+      if (!last || last.items[0].s.documentId !== s.documentId) {
+        secs.push({ title: s.documentId, items: [{ s, i }] });
+      } else {
+        last.items.push({ s, i });
+      }
+    });
+    return secs;
   }
 
   get status(): ThemeReviewStatus | string {
@@ -185,6 +208,15 @@ export class TemaDetalleComponent implements OnInit {
   }
 
   cancelPublish(): void {
+    this.mode = 'read';
+  }
+
+  /**
+   * 4D.html:24 · "+ Añadir sección desde notas".
+   * Placeholder: todavía no existe flujo de secciones desde notas; se vuelve a
+   * la vista del tema, donde está el formulario "Añadir pasaje" actual.
+   */
+  addSectionFromNotes(): void {
     this.mode = 'read';
   }
 

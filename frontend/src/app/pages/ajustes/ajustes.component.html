@@ -1,5 +1,6 @@
 <div class="app has-bnav">
-  <app-fbar title="Ajustes"></app-fbar>
+  <!-- 3H.html:5-7 · fbar sin avatar -->
+  <app-fbar title="Ajustes" [avatar]="false"></app-fbar>
 
   <div class="inner">
     <!-- Perfil (3H) -->
@@ -112,6 +113,51 @@
         (click)="toggleKeepAwake()"
         aria-label="Mantener pantalla encendida"
       ></button>
+    </div>
+
+    <div class="sect">Datos</div>
+    <div class="setrow nb">
+      <span class="setk"
+        >Copia de seguridad local<span class="seth"
+          >El archivo incluye tus notas y subrayados, tus temas y las
+          preferencias de lectura. Todo se guarda en este dispositivo; no se
+          requiere cuenta.</span
+        ></span
+      >
+    </div>
+    <div class="stepbtn databtns">
+      <button
+        type="button"
+        class="szbtn"
+        (click)="exportarDatos()"
+        [disabled]="importando"
+      >
+        Exportar datos
+      </button>
+      <button
+        type="button"
+        class="szbtn"
+        (click)="importInput.click()"
+        [disabled]="importando"
+      >
+        Importar datos
+      </button>
+      <input
+        #importInput
+        type="file"
+        accept="application/json,.json"
+        class="filehidden"
+        (change)="onImportarArchivo($event)"
+      />
+    </div>
+    <div
+      class="datamsg"
+      *ngIf="dataMsg"
+      [class.err]="dataMsgError"
+      role="status"
+      aria-live="polite"
+    >
+      {{ dataMsg }}
     </div>
 
     <div class="sect">Cuenta</div>

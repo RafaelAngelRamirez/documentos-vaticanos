@@ -21,6 +21,18 @@
   justify-content: space-between;
   gap: 10px;
   padding: 12px 22px;
+  transition: transform 0.2s ease;
+}
+
+/* F4 — auto-ocultado al desplazar hacia abajo. */
+.fbar.bars-hidden {
+  transform: translateY(-100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fbar {
+    transition: none;
+  }
 }
 
 .ttl {
@@ -68,6 +80,18 @@
   font-family: 'IBM Plex Sans', sans-serif;
 }
 
+/* Numeral que el narrador está leyendo */
+.rtxt app-punto {
+  display: block;
+  border-radius: 6px;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.rtxt app-punto.narrando {
+  background: color-mix(in srgb, var(--reader-highlight, #ffe566) 16%, transparent);
+  box-shadow: inset 3px 0 0 var(--reader-highlight, #ffe566);
+}
+
 .rtxt a.muted,
 .rstart a.muted,
 .rend a.muted {
@@ -100,6 +124,10 @@
   right: 0;
   bottom: 0;
   z-index: 12;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
   background: var(--paper);
   padding: 12px 22px calc(12px + env(safe-area-inset-bottom));
   margin-top: 0;
@@ -127,16 +155,6 @@
 }
 
 /* 4B · crear nota */
-.nquote {
-  font-size: 15px;
-  margin-top: 10px;
-  font-style: italic;
-}
-
-.nmeta {
-  margin-top: 6px;
-}
-
 .notearea {
   width: 100%;
   min-height: 96px;
@@ -154,35 +172,6 @@
 .notearea:focus {
   outline: none;
   border-color: var(--acc);
-}
-
-.nbtns {
-  display: flex;
-  gap: 8px;
-  margin-top: 14px;
-}
-
-.nbtn {
-  flex: 1;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--ink);
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.nbtn.pri {
-  background: var(--acc);
-  border-color: var(--acc);
-  color: var(--paper);
-}
-
-.nfoot {
-  margin-top: 12px;
-  text-align: center;
 }
 
 /* Contenido del sheet de ajustes (clases visuales globales del handoff). */

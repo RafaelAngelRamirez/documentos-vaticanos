@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { SyncService } from 'src/app/services/sync.service';
 import { environment } from 'src/environments/environment';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
@@ -48,7 +49,11 @@ export class CuentaComponent implements OnInit {
     password: new FormControl('', { nonNullable: true }),
   });
 
-  constructor(public auth: AuthService, private router: Router) {}
+  constructor(
+    public auth: AuthService,
+    private router: Router,
+    private sync: SyncService
+  ) {}
 
   ngOnInit(): void {
     if (this.auth.isLoggedIn) {
@@ -71,6 +76,8 @@ export class CuentaComponent implements OnInit {
     this.auth.loginDev(email, name).subscribe({
       next: () => {
         this.loading = false;
+        // F9: respaldo local→nube en segundo plano (best-effort, no bloquea).
+        void this.sync.mergeAlIniciarSesion();
         this.router.navigate(['/estudio']);
       },
       error: (err) => {
@@ -101,6 +108,8 @@ export class CuentaComponent implements OnInit {
     this.auth.loginDev(email, name).subscribe({
       next: () => {
         this.loading = false;
+        // F9: registro = respaldo en nube (best-effort, no bloquea).
+        void this.sync.mergeAlIniciarSesion();
         this.router.navigate(['/estudio']);
       },
       error: (err) => {
