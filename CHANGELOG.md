@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Fixes
 
-* **OCR punctuation repair (padres/concilios packs):** mechanical spacing fix for OCR-derived corpus units (`space before ,.;:`, glued clause punct, sentence boundaries, internal word periods, spaced ellipsis). Pure transform in `scripts-descarga/src/pipeline/repair_ocr_punctuation.ts`; applied in-place with **stable `unitIndex`**; dual-write to `documentos/corpus` + `frontend/src/assets/corpus`; **per-document revisions** under `documentos/corpus/revisions/ocr-punct/<id>.json`. Inventory: `documentos/corpus/ocr-punct-inventory.json`. Tests: `npm run test:ocr-punct` in `scripts-descarga`. CLI: `npm run ocr:punct-inventory` / `ocr:punct-apply`.
+* **OCR punctuation repair (padres/concilios packs, `ocr-punct-v2`):** mechanical spacing fix for OCR-derived units (`space before ,.;:`, glued clause punct, sentence boundaries, spaced ellipsis; Spanish `¿¡` spacing preserved). **Does not join** `lowercase.period.lowercase` (avoids `que.dista`→`quedista`, `es.decir`→`esdecir`, `art.cit`→`artcit`). Transform: `scripts-descarga/src/pipeline/repair_ocr_punctuation.ts`; stable `unitIndex`; dual-write corpus + assets; per-doc revisions under `documentos/corpus/revisions/ocr-punct/`. Tests: `npm run test:ocr-punct` (includes negative no-join cases).
 
 ### Features
 
