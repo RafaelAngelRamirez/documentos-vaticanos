@@ -36,7 +36,8 @@
     "test:app-update": "node --experimental-strip-types frontend/src/app/core/downloads/app-update.logic.test.js",
     "test:apk-javahome": "node scripts/package-apk.javahome.test.js",
     "test:tts": "npm --prefix backend run test:tts",
-    "test:narrator-grok": "npm --prefix frontend run test:narrator-grok"
+    "test:narrator-grok": "npm --prefix frontend run test:narrator-grok",
+    "test:speech-prep": "npm --prefix frontend run test:speech-prep"
   },
   "packageManager": "yarn@1.22.22"
 }

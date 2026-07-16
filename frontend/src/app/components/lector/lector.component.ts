@@ -36,6 +36,7 @@ import {
 } from 'src/app/services/narrator.service';
 import { NarratorPreferencesService } from 'src/app/services/narrator-preferences.service';
 import { NarracionFgService } from 'src/app/services/narracion-fg.service';
+import { nextSpeakableIndex } from 'src/app/services/speech-prep.logic';
 
 const CONTEXT_SIZE = 5;
 
@@ -326,39 +327,30 @@ export class LectorComponent implements OnInit, OnDestroy {
 
   private speakFrom(index: number): void {
     const doc = this.document?.documento;
-    if (!doc || index < 0 || index >= doc.length) {
+    if (!doc || index < 0) {
       this.narrPlaying = false;
       void this.narracionFg.stop();
       return;
     }
-    const unit = doc[index] as {
-      texto?: string;
-      text?: string;
-      contenido?: string;
-      html?: string;
-    };
-    let text = String(
-      unit?.contenido || unit?.texto || unit?.text || unit?.html || ''
-    ).trim();
-    // Strip simple HTML / ref placeholders for speech
-    text = text
-      .replace(/\[\+\[\d+\]\+\]/g, '')
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim();
-    if (!text) {
-      this.speakFrom(index + 1);
+    // Speech-prep: skip OCR placeholders / empty / TOC junk without
+    // deep recursion (nextSpeakableIndex walks forward once).
+    const hit = nextSpeakableIndex(doc as unknown[], index);
+    if (!hit) {
+      this.narrPlaying = false;
+      void this.narracionFg.stop();
       return;
     }
+    const { index: speakIndex, prep } = hit;
+    const text = prep.text;
     this.narrPlaying = true;
-    this.narrIndex = index;
+    this.narrIndex = speakIndex;
     // 5E · Servicio en primer plano: evita que Android congele el proceso
     // con la pantalla apagada. Idempotente; cubre también cycleVoice().
     void this.narracionFg.start(this.documentTitle);
     // Batería: con la app oculta no hay nada que renderizar ni desplazar;
     // onVisibility re-sincroniza la vista al volver a primer plano.
     if (typeof document === 'undefined' || !document.hidden) {
-      this.ensureNarrVisible(index);
+      this.ensureNarrVisible(speakIndex);
     }
     // Batería (#11): la promesa de speak() se resuelve fuera de la zona de
     // Angular, así encadenar numerales con la pantalla apagada no dispara
@@ -373,7 +365,7 @@ export class LectorComponent implements OnInit, OnDestroy {
         })
         .then((finished) => {
           if (!finished || !this.narrPlaying) return;
-          const next = index + 1;
+          const next = speakIndex + 1;
           if (typeof document !== 'undefined' && document.hidden) {
             this.narrIndex = next;
             // Guarda el avance en background para poder reanudar aunque
