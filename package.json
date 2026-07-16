@@ -1,6 +1,6 @@
 {
   "name": "documentos-vaticanos",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "private": true,
   "dependencies": {
     "standard-version": "^9.5.0"
