@@ -5,6 +5,8 @@ import {
   NARRATOR_PREFS_STORAGE_KEY,
   NARRATOR_VOICE_LEGACY_KEY,
   NarratorDevicePrefs,
+  hasXaiApiKey,
+  normalizeXaiApiKey,
   parseNarratorDevicePrefs,
   serializeNarratorDevicePrefs,
   shouldFetchGrokVoices,
@@ -16,13 +18,18 @@ export {
   NARRATOR_VOICE_LEGACY_KEY,
   shouldFetchGrokVoices,
   grokStatusLabel,
+  maskXaiApiKey,
+  hasXaiApiKey,
+  normalizeXaiApiKey,
+  narratorPrefsForBackup,
 } from './narrator-prefs.logic';
+export { XAI_TTS_DEFAULT_BASE } from './narrator-grok.logic';
 export type { GrokServerStatus } from './narrator-prefs.logic';
 
 /**
  * Preferencias del narrador **por dispositivo** (localStorage).
- * Independientes de la cuenta: no requieren login ni SuperGrok.
- * La clave XAI vive solo en el backend del despliegue.
+ * Independientes de la cuenta. La API key xAI se guarda solo aquí
+ * (no nube, no SuperGrok).
  */
 @Injectable({ providedIn: 'root' })
 export class NarratorPreferencesService {
@@ -36,13 +43,22 @@ export class NarratorPreferencesService {
     return this.subject.value;
   }
 
-  /** Si este equipo debe intentar listar/usar voces Grok. */
+  /** Si este equipo debe intentar listar/usar voces Grok (toggle + key). */
   get grokEnabled(): boolean {
     return shouldFetchGrokVoices(this.subject.value);
   }
 
   get voiceId(): string | null {
     return this.subject.value.voiceId;
+  }
+
+  /** API key local (o null). */
+  get xaiApiKey(): string | null {
+    return normalizeXaiApiKey(this.subject.value.xaiApiKey);
+  }
+
+  get hasApiKey(): boolean {
+    return hasXaiApiKey(this.subject.value);
   }
 
   update(partial: Partial<NarratorDevicePrefs>): void {
@@ -56,6 +72,9 @@ export class NarratorPreferencesService {
           ? null
           : String(partial.voiceId);
     }
+    if (partial.xaiApiKey !== undefined) {
+      next.xaiApiKey = normalizeXaiApiKey(partial.xaiApiKey);
+    }
     this.subject.next(next);
     this.persist(next);
   }
@@ -66,6 +85,15 @@ export class NarratorPreferencesService {
 
   setVoiceId(voiceId: string | null): void {
     this.update({ voiceId });
+  }
+
+  /** Guarda o borra la API key solo en este dispositivo. */
+  setXaiApiKey(key: string | null): void {
+    this.update({ xaiApiKey: key });
+  }
+
+  clearXaiApiKey(): void {
+    this.setXaiApiKey(null);
   }
 
   toggleGrokEnabled(): void {

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { READER_PREFS_STORAGE_KEY } from './reader-preferences.service';
-import { NARRATOR_PREFS_STORAGE_KEY } from './narrator-preferences.service';
+import {
+  NARRATOR_PREFS_STORAGE_KEY,
+  narratorPrefsForBackup,
+} from './narrator-preferences.service';
 
 /**
  * Claves de localStorage incluidas en la copia de seguridad.
@@ -77,7 +80,10 @@ export class BackupService {
         preferencias: this.leerJson<Record<string, unknown>>(
           PREFERENCIAS_STORAGE_KEY
         ),
-        narrador: this.leerJson<Record<string, unknown>>(NARRADOR_STORAGE_KEY),
+        // API key xAI se omite del backup (solo vive en el dispositivo).
+        narrador: narratorPrefsForBackup(
+          this.leerJson<Record<string, unknown>>(NARRADOR_STORAGE_KEY)
+        ),
       },
     };
     const blob = new Blob([JSON.stringify(backup, null, 2)], {
@@ -178,10 +184,18 @@ export class BackupService {
       typeof data.narrador === 'object' &&
       !Array.isArray(data.narrador)
     ) {
-      localStorage.setItem(
-        NARRADOR_STORAGE_KEY,
-        JSON.stringify(data.narrador)
-      );
+      // Nunca restaurar xaiApiKey desde un JSON (aunque viniera por error).
+      const safe = narratorPrefsForBackup(data.narrador) ?? {};
+      // Conservar la key ya presente en este dispositivo.
+      try {
+        const cur = this.leerJson<Record<string, unknown>>(NARRADOR_STORAGE_KEY);
+        if (cur && typeof cur.xaiApiKey === 'string' && cur.xaiApiKey) {
+          (safe as { xaiApiKey?: string }).xaiApiKey = cur.xaiApiKey;
+        }
+      } catch {
+        /* ignore */
+      }
+      localStorage.setItem(NARRADOR_STORAGE_KEY, JSON.stringify(safe));
       resumen.narrador = true;
     }
 

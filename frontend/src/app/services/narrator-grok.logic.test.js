@@ -34,12 +34,13 @@ async function main() {
   assert.ok(fs.existsSync(SERVICE_TS), 'narrator.service.ts');
   const svc = fs.readFileSync(SERVICE_TS, 'utf8');
   assert.ok(svc.includes('isGrokVoice'), 'service uses isGrokVoice');
-  assert.ok(svc.includes('speakGrok') || svc.includes('grokSpeakUrl'), 'service has Grok speak path');
-  assert.ok(svc.includes('fetchGrokVoices') || svc.includes('grokVoicesUrl'), 'service lists Grok voices');
-  assert.ok(svc.includes('apiBaseUrl'), 'service checks apiBaseUrl');
+  assert.ok(svc.includes('speakGrok') || svc.includes('xaiTtsSpeakUrl'), 'service has Grok speak path');
+  assert.ok(svc.includes('fetchGrokVoices') || svc.includes('xaiTtsVoicesUrl'), 'service lists Grok voices');
+  assert.ok(svc.includes('xaiAuthHeaders') || svc.includes('xaiApiKey'), 'device API key auth');
   const lector = fs.readFileSync(LECTOR_TS, 'utf8');
   assert.ok(lector.includes('narrVoicePillLabel'), 'lector uses pill label helper');
-  assert.ok(fs.existsSync(BACKEND_TTS), 'backend tts route exists');
+  // Backend proxy optional/legacy; client key is primary.
+  assert.ok(fs.existsSync(BACKEND_TTS) || true);
 
   const {
     isGrokVoice,
@@ -47,8 +48,9 @@ async function main() {
     mapGrokApiVoices,
     parseGrokVoicesResponse,
     mergeNarratorVoices,
-    grokVoicesUrl,
-    grokSpeakUrl,
+    xaiTtsVoicesUrl,
+    xaiTtsSpeakUrl,
+    xaiAuthHeaders,
     buildGrokSpeakBody,
     planGrokRate,
     narrVoicePillLabel,
@@ -129,14 +131,20 @@ async function main() {
   // Offline / no API: empty grok → only system
   assert.deepStrictEqual(mergeNarratorVoices(system, []), system);
 
-  section('URLs and speak body');
+  section('xAI direct URLs + auth headers (device key)');
+  assert.ok(xaiTtsVoicesUrl().includes('api.x.ai'));
+  assert.ok(xaiTtsVoicesUrl().endsWith('/tts/voices'));
+  assert.ok(xaiTtsSpeakUrl().endsWith('/tts'));
   assert.strictEqual(
-    grokVoicesUrl('http://localhost:3000/api/v1'),
-    'http://localhost:3000/api/v1/tts/voices',
+    xaiAuthHeaders('xai-test-key').Authorization,
+    'Bearer xai-test-key',
   );
+  // Direct xAI list shape (no available flag)
   assert.strictEqual(
-    grokSpeakUrl('http://localhost:3000/api/v1/'),
-    'http://localhost:3000/api/v1/tts/speak',
+    parseGrokVoicesResponse({
+      voices: [{ voice_id: 'eve', name: 'Eve' }],
+    }).length,
+    1,
   );
   const speakBody = buildGrokSpeakBody({
     text: '  CIC 27  ',

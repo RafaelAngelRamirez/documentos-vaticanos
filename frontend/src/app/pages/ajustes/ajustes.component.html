@@ -115,7 +115,7 @@
       ></button>
     </div>
 
-    <!-- Narrador · preferencias por dispositivo (no cuenta / no SuperGrok) -->
+    <!-- Narrador · API key y voz solo en este dispositivo (no nube) -->
     <div class="sect">Narrador</div>
     <div class="setrow nb" *ngIf="!narrSupported">
       <span class="setk"
@@ -125,12 +125,75 @@
       >
     </div>
     <ng-container *ngIf="narrSupported">
+      <div class="setrow nb">
+        <span class="setk"
+          >API key de xAI (este dispositivo)<span class="seth"
+            >Cada equipo usa su propia clave de
+            <a
+              class="app-lang-link"
+              href="https://console.x.ai/team/default/api-keys"
+              target="_blank"
+              rel="noopener noreferrer"
+              >console.x.ai</a
+            >
+            (no SuperGrok). Se guarda solo en este dispositivo; no se sube a la
+            cuenta ni a la nube.</span
+          ></span
+        >
+      </div>
+      <div class="narr-key-block">
+        <p class="fs13 muted" *ngIf="hasXaiKey" data-testid="ajustes-xai-masked">
+          Clave guardada: <code>{{ xaiKeyMasked }}</code>
+        </p>
+        <p class="fs13 muted" *ngIf="!hasXaiKey">
+          Aún no hay clave en este dispositivo.
+        </p>
+        <label class="flabel" for="xai-api-key">Nueva API key</label>
+        <input
+          id="xai-api-key"
+          class="field"
+          type="password"
+          autocomplete="off"
+          spellcheck="false"
+          data-testid="ajustes-xai-key"
+          [value]="xaiKeyDraft"
+          (input)="onXaiKeyInput($event)"
+          placeholder="xai-…"
+          (keyup.enter)="saveXaiApiKey()"
+        />
+        <div class="stepbtn databtns" style="margin-top: 10px">
+          <button
+            type="button"
+            class="szbtn on"
+            data-testid="ajustes-xai-save"
+            (click)="saveXaiApiKey()"
+          >
+            Guardar en este dispositivo
+          </button>
+          <button
+            type="button"
+            class="szbtn"
+            data-testid="ajustes-xai-clear"
+            (click)="clearXaiApiKey()"
+            [disabled]="!hasXaiKey"
+          >
+            Borrar clave
+          </button>
+        </div>
+        <div
+          class="datamsg"
+          *ngIf="xaiKeyMsg"
+          [class.err]="xaiKeyMsgError"
+          role="status"
+        >
+          {{ xaiKeyMsg }}
+        </div>
+      </div>
       <div class="setrow">
         <span class="setk"
-          >Voces Grok (este dispositivo)<span class="seth"
-            >Online vía el servidor de la app. La clave API es del despliegue
-            (console.x.ai), no SuperGrok. Sin red o sin clave: solo voces del
-            sistema.</span
+          >Usar voces Grok<span class="seth"
+            >Con clave y red, llama a api.x.ai desde este dispositivo. Sin
+            clave o sin red: solo voces del sistema.</span
           ></span
         >
         <button

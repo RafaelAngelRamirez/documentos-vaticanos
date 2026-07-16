@@ -54,19 +54,15 @@ En la UI: **Cuenta** → login dev con `email` + nombre (backend `DEV_AUTH_BYPAS
 
 ### Voces Grok del narrador (opcional)
 
-El narrador 5D puede ofrecer voces **Grok** (xAI TTS) cuando el API tiene clave:
+El narrador 5D ofrece voces **Grok** (xAI TTS) con una **API key por dispositivo**:
 
-```bash
-# en el host, antes de yarn dev / yarn dev:api-only
-export XAI_API_KEY=xai-...   # de https://console.x.ai — no es SuperGrok
-yarn dev:api-only
-```
+1. Obtén una clave en https://console.x.ai (no es SuperGrok; facturación API ~$15/1M chars).
+2. En la app: **Ajustes → Narrador → API key de xAI** → Guardar en este dispositivo.
+3. Activa «Usar voces Grok» y elige voz preferida.
 
-- SuperGrok / SuperGrok Heavy **no** sustituyen `XAI_API_KEY` (API de pago aparte, ~$15/1M caracteres).
-- Endpoints: `GET /api/v1/tts/voices`, `POST /api/v1/tts/speak` (proxy; la clave no va al browser).
-- Sin clave: el narrador usa solo voces del sistema (Web Speech / Capacitor).
-- Compose pasa `XAI_API_KEY` del host al servicio `api` si está exportada.
-- En la app, **Ajustes → Narrador**: cada dispositivo activa/desactiva Grok y elige voz (`dv.narr.prefs.v1`); no es preferencia de cuenta.
+- La clave vive solo en `localStorage` (`dv.narr.prefs.v1`); **no** se sube a la cuenta ni entra en el backup exportado.
+- El cliente llama a `https://api.x.ai/v1/tts` con esa clave; sin clave o sin red → solo Web Speech / Capacitor.
+- Opcional en servidor: `XAI_API_KEY` + proxy `/api/v1/tts/*` siguen existiendo para pruebas de backend, pero el camino de producto es la key del dispositivo.
 
 ## Tests
 

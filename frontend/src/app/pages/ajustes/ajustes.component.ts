@@ -26,6 +26,7 @@ import {
   NarratorDevicePrefs,
   NarratorPreferencesService,
   grokStatusLabel,
+  maskXaiApiKey,
 } from 'src/app/services/narrator-preferences.service';
 import { environment } from 'src/environments/environment';
 
@@ -51,6 +52,10 @@ export class AjustesComponent implements OnInit, OnDestroy {
   narrVoice: NarratorVoice | null = null;
   grokStatus: GrokServerStatus = 'checking';
   grokVoiceCount = 0;
+  /** Borrador del campo API key (no se muestra la guardada completa). */
+  xaiKeyDraft = '';
+  xaiKeyMsg: string | null = null;
+  xaiKeyMsgError = false;
 
   /** Orden del diseño 3F + Mono (monocromo oscuro, default). */
   readonly themes: ThemeOption[] = [
@@ -181,6 +186,42 @@ export class AjustesComponent implements OnInit, OnDestroy {
   toggleGrokEnabled(): void {
     this.narratorPrefs.toggleGrokEnabled();
     void this.refreshNarratorSection();
+  }
+
+  onXaiKeyInput(ev: Event): void {
+    const el = ev.target as HTMLInputElement;
+    this.xaiKeyDraft = el?.value ?? '';
+  }
+
+  /** Guarda la API key solo en localStorage de este dispositivo. */
+  saveXaiApiKey(): void {
+    const raw = this.xaiKeyDraft.trim();
+    if (!raw) {
+      this.xaiKeyMsg = 'Pega una API key de console.x.ai.';
+      this.xaiKeyMsgError = true;
+      return;
+    }
+    this.narratorPrefs.setXaiApiKey(raw);
+    this.xaiKeyDraft = '';
+    this.xaiKeyMsg = 'Clave guardada en este dispositivo (no se sube a la nube).';
+    this.xaiKeyMsgError = false;
+    void this.refreshNarratorSection();
+  }
+
+  clearXaiApiKey(): void {
+    this.narratorPrefs.clearXaiApiKey();
+    this.xaiKeyDraft = '';
+    this.xaiKeyMsg = 'Clave eliminada de este dispositivo.';
+    this.xaiKeyMsgError = false;
+    void this.refreshNarratorSection();
+  }
+
+  get xaiKeyMasked(): string {
+    return maskXaiApiKey(this.narrPrefs.xaiApiKey);
+  }
+
+  get hasXaiKey(): boolean {
+    return Boolean(this.narratorPrefs.xaiApiKey);
   }
 
   /** Cicla la voz preferida del dispositivo (sistema + Grok si aplica). */

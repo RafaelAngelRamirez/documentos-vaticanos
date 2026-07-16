@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { TextToSpeech } from '@capacitor-community/text-to-speech';
-import { environment } from 'src/environments/environment';
 import {
   NarratorVoice,
   buildGrokSpeakBody,
-  grokSpeakUrl,
-  grokVoicesUrl,
   isGrokVoice,
   mergeNarratorVoices,
   parseGrokVoicesResponse,
   planGrokRate,
+  xaiAuthHeaders,
+  xaiTtsSpeakUrl,
+  xaiTtsVoicesUrl,
 } from './narrator-grok.logic';
 import { NarratorPreferencesService } from './narrator-preferences.service';
 
@@ -25,17 +25,15 @@ export {
  * 5D · Narrador — abstracción sobre el backend de síntesis de voz.
  *
  * - Web/desktop: Web Speech API (`window.speechSynthesis`).
- * - APK (Capacitor): plugin nativo `@capacitor-community/text-to-speech`
- *   (el WebView de Android no implementa la Web Speech API).
- * - Online (opcional): voces Grok vía proxy backend `POST /api/v1/tts/speak`
- *   (clave XAI solo en servidor; SuperGrok no aplica). Offline o sin
- *   configuración → solo voces del sistema.
+ * - APK (Capacitor): plugin nativo `@capacitor-community/text-to-speech`.
+ * - Online (opcional): voces Grok vía **API key del dispositivo**
+ *   (`dv.narr.prefs.v1` → xaiApiKey) llamando a `https://api.x.ai/v1/tts`.
+ *   La clave no se sube a la nube; sin key o sin red → solo sistema.
  *
  * Selección de voz:
- * - Web: se asigna `SpeechSynthesisUtterance.voice` directamente.
- * - Nativo: se pasa `voice` (índice) y `lang` de la voz elegida; si el
- *   motor ignora el índice, el cambio de `lang` aplica al menos el acento.
- * - Grok: descarga audio del proxy y reproduce con `HTMLAudioElement`.
+ * - Web: `SpeechSynthesisUtterance.voice`.
+ * - Nativo: índice / lang del plugin.
+ * - Grok: descarga audio de xAI y reproduce con `HTMLAudioElement`.
  */
 @Injectable({ providedIn: 'root' })
 export class NarratorService {
@@ -59,7 +57,7 @@ export class NarratorService {
 
   /**
    * Voces disponibles para el idioma indicado (prefijo BCP-47).
-   * Incluye voces Grok al final si el proxy reporta `available: true`.
+   * Incluye voces Grok al final si hay key local y Grok activo.
    */
   async listVoices(prefix = 'es'): Promise<NarratorVoice[]> {
     if (!this.supported) return [];
@@ -95,7 +93,6 @@ export class NarratorService {
         .filter((v) => (v.lang ?? '').toLowerCase().startsWith(p));
     }
 
-    // Preferencia por dispositivo (Ajustes): si Grok está off, solo sistema.
     const grok = this.narrPrefs.grokEnabled
       ? await this.fetchGrokVoices()
       : [];
@@ -103,51 +100,61 @@ export class NarratorService {
   }
 
   /**
-   * Estado del proxy Grok para la UI de Ajustes (no muta preferencias).
-   * Respeta offline-first: errores → offline / unavailable.
+   * Estado Grok para Ajustes (key local → xAI). No muta preferencias.
    */
   async probeGrokStatus(): Promise<{
-    status: 'available' | 'unavailable' | 'offline' | 'disabled';
+    status: 'available' | 'no_key' | 'invalid' | 'offline' | 'disabled';
     voiceCount: number;
   }> {
-    if (!this.narrPrefs.grokEnabled) {
+    if (!this.narrPrefs.snapshot.grokEnabled) {
       return { status: 'disabled', voiceCount: 0 };
     }
-    const base = environment.apiBaseUrl;
-    if (!base || typeof fetch === 'undefined') {
+    const key = this.narrPrefs.xaiApiKey;
+    if (!key) {
+      return { status: 'no_key', voiceCount: 0 };
+    }
+    if (typeof fetch === 'undefined') {
       return { status: 'offline', voiceCount: 0 };
     }
     try {
       const ctrl = new AbortController();
-      const t = setTimeout(() => ctrl.abort(), 4000);
-      const res = await fetch(grokVoicesUrl(base), {
+      const t = setTimeout(() => ctrl.abort(), 8000);
+      const res = await fetch(xaiTtsVoicesUrl(), {
         method: 'GET',
+        headers: xaiAuthHeaders(key),
         signal: ctrl.signal,
       });
       clearTimeout(t);
+      if (res.status === 401 || res.status === 403) {
+        return { status: 'invalid', voiceCount: 0 };
+      }
       if (!res.ok) {
         return { status: 'offline', voiceCount: 0 };
       }
       const data = await res.json();
       const voices = parseGrokVoicesResponse(data, 'es-ES');
-      if (data?.available === true) {
-        return { status: 'available', voiceCount: voices.length };
+      if (voices.length > 0 || Array.isArray(data?.voices)) {
+        return {
+          status: 'available',
+          voiceCount: voices.length || (data.voices?.length ?? 0),
+        };
       }
-      return { status: 'unavailable', voiceCount: 0 };
+      return { status: 'available', voiceCount: 0 };
     } catch {
       return { status: 'offline', voiceCount: 0 };
     }
   }
 
-  /** Consulta el proxy; falla en silencio (offline-first). */
+  /** Lista voces en xAI con la key del dispositivo. */
   private async fetchGrokVoices(): Promise<NarratorVoice[]> {
-    const base = environment.apiBaseUrl;
-    if (!base || typeof fetch === 'undefined') return [];
+    const key = this.narrPrefs.xaiApiKey;
+    if (!key || typeof fetch === 'undefined') return [];
     try {
       const ctrl = new AbortController();
-      const t = setTimeout(() => ctrl.abort(), 4000);
-      const res = await fetch(grokVoicesUrl(base), {
+      const t = setTimeout(() => ctrl.abort(), 8000);
+      const res = await fetch(xaiTtsVoicesUrl(), {
         method: 'GET',
+        headers: xaiAuthHeaders(key),
         signal: ctrl.signal,
       });
       clearTimeout(t);
@@ -159,7 +166,7 @@ export class NarratorService {
     }
   }
 
-  /** `speechSynthesis.getVoices()` con espera de `voiceschanged` (carga lazy en Chrome). */
+  /** `speechSynthesis.getVoices()` con espera de `voiceschanged`. */
   private webVoices(): Promise<SpeechSynthesisVoice[]> {
     const synth = window.speechSynthesis;
     const now = synth.getVoices();
@@ -179,7 +186,7 @@ export class NarratorService {
   /**
    * Lee un texto en voz alta.
    * Resuelve `true` si la locución terminó de forma natural y
-   * `false` si fue cancelada o falló (el llamador no debe encadenar).
+   * `false` si fue cancelada o falló.
    */
   async speak(
     text: string,
@@ -190,10 +197,8 @@ export class NarratorService {
     const rate = opts.rate ?? 1;
     const gen = ++this.generation;
 
-    // Detener cualquier reproducción previa (sistema o Grok).
     await this.stopPlaybackEngines();
 
-    // Grok solo si está activo en este dispositivo y la voz es Grok.
     if (isGrokVoice(opts.voice) && this.narrPrefs.grokEnabled) {
       return this.speakGrok(text, { lang, rate, voice: opts.voice!, gen });
     }
@@ -208,8 +213,6 @@ export class NarratorService {
           pitch: 1,
           volume: 1,
           category: 'playback',
-          // Índice según getSupportedVoices(); si el motor lo ignora,
-          // `lang` ya aplica el acento de la voz elegida.
           ...(opts.voice && opts.voice.index >= 0
             ? { voice: opts.voice.index }
             : {}),
@@ -238,8 +241,7 @@ export class NarratorService {
   }
 
   /**
-   * Sintetiza vía proxy backend y reproduce el audio.
-   * Si no hay red/API/clave, resuelve false (el lector no se bloquea).
+   * Sintetiza en xAI con la key del dispositivo y reproduce el audio.
    */
   private async speakGrok(
     text: string,
@@ -250,8 +252,8 @@ export class NarratorService {
       gen: number;
     }
   ): Promise<boolean> {
-    const base = environment.apiBaseUrl;
-    if (!base || typeof fetch === 'undefined') return false;
+    const key = this.narrPrefs.xaiApiKey;
+    if (!key || typeof fetch === 'undefined') return false;
     if (typeof Audio === 'undefined') return false;
 
     try {
@@ -261,9 +263,12 @@ export class NarratorService {
         language: opts.lang,
         rate: opts.rate,
       });
-      const res = await fetch(grokSpeakUrl(base), {
+      const res = await fetch(xaiTtsSpeakUrl(), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          ...xaiAuthHeaders(key),
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(body),
       });
       if (opts.gen !== this.generation) return false;
@@ -277,7 +282,6 @@ export class NarratorService {
       this.grokObjectUrl = url;
       const audio = new Audio(url);
       this.grokAudio = audio;
-      // Rate solo en body.speed (buildGrokSpeakBody); playbackRate queda 1.
       const { playbackRate } = planGrokRate(opts.rate);
       try {
         audio.playbackRate = playbackRate;
@@ -313,7 +317,6 @@ export class NarratorService {
     }
   }
 
-  /** Para motores de audio sin invalidar generation (uso interno pre-speak). */
   private async stopPlaybackEngines(): Promise<void> {
     if (this.grokAudio) {
       try {
@@ -332,7 +335,6 @@ export class NarratorService {
     }
   }
 
-  /** Detiene cualquier locución en curso. */
   async cancel(): Promise<void> {
     this.generation++;
     await this.stopPlaybackEngines();

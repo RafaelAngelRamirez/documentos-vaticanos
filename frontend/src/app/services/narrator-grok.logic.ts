@@ -2,9 +2,12 @@
  * Lógica pura del narrador multi-provider (sistema + Grok TTS).
  * Sin Angular ni DOM — testeable con Node `--experimental-strip-types`.
  *
- * Grok/xAI TTS se usa solo online vía proxy del backend; la API key
- * nunca viaja al cliente. SuperGrok no es un proveedor de TTS aquí.
+ * Grok/xAI TTS: el cliente llama a api.x.ai con la API key guardada **solo
+ * en el dispositivo** (Ajustes). SuperGrok no es un proveedor de TTS aquí.
  */
+
+/** Base pública del TTS xAI (cliente → api.x.ai; key en el dispositivo). */
+export const XAI_TTS_DEFAULT_BASE = 'https://api.x.ai/v1';
 
 /** Voz unificada del narrador (sistema Web Speech / Capacitor o Grok). */
 export interface NarratorVoice {
@@ -80,13 +83,39 @@ export function mapGrokApiVoices(
     });
 }
 
-/** Interpreta la respuesta del proxy; vacío si no disponible. */
+/**
+ * Interpreta respuesta de voces:
+ * - xAI directo: `{ voices: [...] }`
+ * - proxy legado: `{ available: true, voices: [...] }`
+ */
 export function parseGrokVoicesResponse(
   data: GrokVoicesResponse | null | undefined,
   lang = 'es-ES'
 ): NarratorVoice[] {
-  if (!data || data.available !== true) return [];
-  return mapGrokApiVoices(data.voices, lang);
+  if (!data) return [];
+  // Proxy: solo si available === true
+  if (data.available === false) return [];
+  if (data.available === true) return mapGrokApiVoices(data.voices, lang);
+  // xAI directo (sin campo available)
+  if (Array.isArray(data.voices)) return mapGrokApiVoices(data.voices, lang);
+  return [];
+}
+
+/** URL listado voces en api.x.ai (cliente → xAI directo). */
+export function xaiTtsVoicesUrl(base = XAI_TTS_DEFAULT_BASE): string {
+  return `${String(base || XAI_TTS_DEFAULT_BASE).replace(/\/$/, '')}/tts/voices`;
+}
+
+/** URL síntesis en api.x.ai. */
+export function xaiTtsSpeakUrl(base = XAI_TTS_DEFAULT_BASE): string {
+  return `${String(base || XAI_TTS_DEFAULT_BASE).replace(/\/$/, '')}/tts`;
+}
+
+/** Headers de auth para la key del dispositivo. */
+export function xaiAuthHeaders(apiKey: string): Record<string, string> {
+  return {
+    Authorization: `Bearer ${String(apiKey).trim()}`,
+  };
 }
 
 /** Une voces del sistema y Grok (sistema primero). */
