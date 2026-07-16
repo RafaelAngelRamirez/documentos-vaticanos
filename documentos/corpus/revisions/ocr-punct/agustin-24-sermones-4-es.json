@@ -1,28 +1,27 @@
 {
   "documentId": "agustin-24-sermones-4-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:23.203Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:33.512Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 2460,
-  "unitsChanged": 815,
+  "unitsChanged": 240,
   "before": {
-    "spaceBeforePunct": 2426,
+    "spaceBeforePunct": 288,
     "gluedClausePunct": 32,
     "missingSentenceSpace": 6,
     "internalWordPeriod": 4,
-    "defectScore": 2504
+    "defectScore": 358
   },
   "after": {
     "spaceBeforePunct": 6,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 5,
     "defectScore": 6
   },
   "letterTokenOverlap": 1,

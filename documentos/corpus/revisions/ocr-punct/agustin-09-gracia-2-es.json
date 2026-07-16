@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-09-gracia-2-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:12.939Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:20.301Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 2673,
-  "unitsChanged": 1108,
+  "unitsChanged": 854,
   "before": {
-    "spaceBeforePunct": 3023,
+    "spaceBeforePunct": 2070,
     "gluedClausePunct": 172,
     "missingSentenceSpace": 4,
     "internalWordPeriod": 75,
-    "defectScore": 3521
+    "defectScore": 2418
   },
   "after": {
     "spaceBeforePunct": 3,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 107,
     "defectScore": 3
   },
-  "letterTokenOverlap": 0.9992,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

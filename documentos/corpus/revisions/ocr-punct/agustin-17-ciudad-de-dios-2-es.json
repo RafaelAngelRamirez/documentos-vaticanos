@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-17-ciudad-de-dios-2-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-15T23:59:59.224Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:09.169Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 3310,
-  "unitsChanged": 1645,
+  "unitsChanged": 1417,
   "before": {
-    "spaceBeforePunct": 12670,
+    "spaceBeforePunct": 11546,
     "gluedClausePunct": 170,
     "missingSentenceSpace": 3,
     "internalWordPeriod": 74,
-    "defectScore": 13161
+    "defectScore": 11889
   },
   "after": {
     "spaceBeforePunct": 0,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 87,
     "defectScore": 0
   },
-  "letterTokenOverlap": 0.9995,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

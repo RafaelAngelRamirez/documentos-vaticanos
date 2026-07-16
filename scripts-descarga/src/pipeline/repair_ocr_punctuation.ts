@@ -3,17 +3,26 @@
  * Restores spacing around punctuation without inventing wording.
  *
  * Safe rules only: space-before-punct, glued clause punct, sentence
- * boundaries after multi-letter lowercase runs, internal OCR period
- * splits, spaced ellipsis leaders. Does not re-segment units or
- * paraphrase theological content.
+ * boundaries after multi-letter lowercase runs, spaced ellipsis leaders.
+ *
+ * Does NOT delete periods between lowercase runs (que.dista, es.decir,
+ * art.cit, quia.non) — that merges real word boundaries / abbreviations
+ * into nonsense tokens. Mid-word OCR splits like sancti.ficationis are
+ * left alone rather than risk mass false joins.
+ *
+ * Does not re-segment units or paraphrase theological content.
  */
 
 export interface OcrPunctMetrics {
   spaceBeforePunct: number;
   gluedClausePunct: number;
   missingSentenceSpace: number;
+  /**
+   * Count of lowercase.lowercase periods (informational only).
+   * Not repaired by join — see repairOcrPunctuation docs.
+   */
   internalWordPeriod: number;
-  /** Weighted sum used for inventory ranking. */
+  /** Weighted sum used for inventory ranking (excludes internal-period). */
   defectScore: number;
 }
 
@@ -39,8 +48,9 @@ export function scoreOcrPunctuation(text: string): OcrPunctMetrics {
       defectScore: 0,
     };
   }
+  // Space before clause punct only — NOT Spanish inverted ¿¡ (". ¿Qué" is correct).
   const spaceBeforePunct = (
-    text.match(new RegExp(`[ \\t]+[,.;:!?¿¡]`, "g")) || []
+    text.match(new RegExp(`[ \\t]+[,.;:!?]` , "g")) || []
   ).length;
   const gluedClausePunct = (
     text.match(new RegExp(`[,;:][${LETTER}]`, "g")) || []
@@ -51,11 +61,10 @@ export function scoreOcrPunctuation(text: string): OcrPunctMetrics {
   const internalWordPeriod = (
     text.match(new RegExp(`[${LOWER}]{2}\\.[${LOWER}]{2}`, "g")) || []
   ).length;
+  // Do not weight internalWordPeriod into defectScore: we refuse to join
+  // those periods (false positives corrupt wording).
   const defectScore =
-    spaceBeforePunct +
-    gluedClausePunct * 2 +
-    missingSentenceSpace +
-    internalWordPeriod * 2;
+    spaceBeforePunct + gluedClausePunct * 2 + missingSentenceSpace;
   return {
     spaceBeforePunct,
     gluedClausePunct,
@@ -82,8 +91,9 @@ export function repairOcrPunctuation(text: string): string {
     "... ",
   );
 
-  // Drop horizontal whitespace before clause/sentence punctuation
-  t = t.replace(/[ \t]+([,;:!?¿¡])/g, "$1");
+  // Drop horizontal whitespace before clause/sentence punctuation.
+  // Do NOT strip space before Spanish inverted ¿¡ — keep ". ¿Qué" / "! ¡Ay".
+  t = t.replace(/[ \t]+([,;:!?])/g, "$1");
   // Drop space before a single period (not "...")
   t = t.replace(/[ \t]+\.(?!\.)/g, ".");
 
@@ -91,18 +101,17 @@ export function repairOcrPunctuation(text: string): string {
   t = t.replace(new RegExp(`([,;])(?=[${LETTER}])`, "g"), "$1 ");
   // Space after colon when glued to a letter: "ANTIMANIQUEOS:ESCRITOS"
   t = t.replace(new RegExp(`:(?=[${LETTER}])`, "g"), ": ");
-  // Space after ! ? when glued to a letter
-  t = t.replace(new RegExp(`([!?¿¡])(?=[${LETTER}])`, "g"), "$1 ");
+  // Space after ! ? when glued to a letter (not after inverted openers)
+  t = t.replace(new RegExp(`([!?])(?=[${LETTER}])`, "g"), "$1 ");
+  // If inverted marks were glued to preceding sentence punct, restore space: ".¿" → ". ¿"
+  t = t.replace(/([.!?])([¿¡])/g, "$1 $2");
 
-  // Internal OCR period splitting a word: "sancti.ficationis" → "sanctificationis"
-  // Requires ≥2 lowercase letters on each side so single-letter abbrs (S.Ag.) survive.
-  t = t.replace(
-    new RegExp(`(?<=[${LOWER}]{2})\\.(?=[${LOWER}]{2})`, "g"),
-    "",
-  );
+  // NOTE: intentionally NO internal lowercase.period.lowercase join.
+  // Joining merges real boundaries/abbreviations (que.dista→quedista,
+  // es.decir→esdecir, art.cit→artcit). Prefer leaving mid-word OCR noise.
 
   // Missing space after sentence period: "omisiones.En" → "omisiones. En"
-  // Same ≥2 lowercase guard avoids "n.I", "c.7", "S.Ag".
+  // ≥2 lowercase guard avoids "n.I", "c.7", "S.Ag".
   t = t.replace(
     new RegExp(`(?<=[${LOWER}]{2})\\.(?=[${UPPER}])`, "g"),
     ". ",

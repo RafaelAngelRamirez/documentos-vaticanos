@@ -1,28 +1,27 @@
 {
   "documentId": "cipriano-cartas-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:30.753Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:30.440Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 829,
-  "unitsChanged": 289,
+  "unitsChanged": 203,
   "before": {
-    "spaceBeforePunct": 351,
+    "spaceBeforePunct": 119,
     "gluedClausePunct": 189,
     "missingSentenceSpace": 0,
     "internalWordPeriod": 1,
-    "defectScore": 731
+    "defectScore": 497
   },
   "after": {
     "spaceBeforePunct": 0,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 2,
     "defectScore": 0
   },
   "letterTokenOverlap": 1,

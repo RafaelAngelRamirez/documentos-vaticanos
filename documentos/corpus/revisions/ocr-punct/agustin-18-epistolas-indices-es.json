@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-18-epistolas-indices-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-15T23:59:57.406Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:06.583Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 1916,
-  "unitsChanged": 1131,
+  "unitsChanged": 1042,
   "before": {
-    "spaceBeforePunct": 17162,
+    "spaceBeforePunct": 15985,
     "gluedClausePunct": 76,
     "missingSentenceSpace": 2,
     "internalWordPeriod": 18,
-    "defectScore": 17352
+    "defectScore": 16139
   },
   "after": {
     "spaceBeforePunct": 6,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 28,
     "defectScore": 6
   },
-  "letterTokenOverlap": 0.9997,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

@@ -1,28 +1,27 @@
 {
   "documentId": "agustin-08-cartas-1-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:28.405Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:36.555Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 2468,
-  "unitsChanged": 701,
+  "unitsChanged": 195,
   "before": {
-    "spaceBeforePunct": 1341,
+    "spaceBeforePunct": 205,
     "gluedClausePunct": 13,
     "missingSentenceSpace": 11,
     "internalWordPeriod": 4,
-    "defectScore": 1386
+    "defectScore": 242
   },
   "after": {
     "spaceBeforePunct": 0,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 6,
     "defectScore": 0
   },
   "letterTokenOverlap": 1,

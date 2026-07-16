@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-19-enarraciones-salmos-1-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:02.963Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:12.274Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 2714,
-  "unitsChanged": 1183,
+  "unitsChanged": 891,
   "before": {
-    "spaceBeforePunct": 7547,
+    "spaceBeforePunct": 4729,
     "gluedClausePunct": 18,
     "missingSentenceSpace": 1,
     "internalWordPeriod": 14,
-    "defectScore": 7612
+    "defectScore": 4766
   },
   "after": {
     "spaceBeforePunct": 0,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 24,
     "defectScore": 0
   },
-  "letterTokenOverlap": 0.9999,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

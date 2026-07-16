@@ -336,7 +336,7 @@ export function plainTextToUnits(
   let prepared = stripPdfChrome(text);
   prepared = rejoinHyphenation(prepared);
   prepared = softNormalize(prepared);
-  // Mechanical OCR punct fix after soft normalize so unit contenido is cleaner
+  // Mechanical OCR punct spacing (no internal-period joins — see repair_ocr_punctuation)
   prepared = repairOcrPunctuation(prepared);
   prepared = softNormalize(prepared);
 

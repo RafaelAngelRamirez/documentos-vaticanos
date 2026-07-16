@@ -1,31 +1,30 @@
 {
   "documentId": "gregorio-nisa-gran-catequesis-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:30.830Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:36.622Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 250,
-  "unitsChanged": 104,
+  "unitsChanged": 74,
   "before": {
-    "spaceBeforePunct": 314,
+    "spaceBeforePunct": 206,
     "gluedClausePunct": 17,
     "missingSentenceSpace": 1,
     "internalWordPeriod": 3,
-    "defectScore": 355
+    "defectScore": 241
   },
   "after": {
     "spaceBeforePunct": 1,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 3,
     "defectScore": 1
   },
-  "letterTokenOverlap": 0.9998,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-13-evangelio-juan-1-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:05.877Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:15.869Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 2318,
-  "unitsChanged": 1177,
+  "unitsChanged": 826,
   "before": {
-    "spaceBeforePunct": 5356,
+    "spaceBeforePunct": 2848,
     "gluedClausePunct": 71,
     "missingSentenceSpace": 6,
     "internalWordPeriod": 64,
-    "defectScore": 5632
+    "defectScore": 2996
   },
   "after": {
     "spaceBeforePunct": 1,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 117,
     "defectScore": 1
   },
-  "letterTokenOverlap": 0.9993,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

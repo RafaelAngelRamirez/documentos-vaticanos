@@ -24,7 +24,7 @@ import {
 } from "./src/pipeline/repair_ocr_punctuation";
 
 const REPO = path.resolve(__dirname, "..");
-const REVISION_TAG = "ocr-punct-v1";
+const REVISION_TAG = "ocr-punct-v2";
 const INVENTORY_PATH = path.join(
   REPO,
   "documentos",
@@ -262,8 +262,8 @@ function applyToDocument(docId: string): RevisionRecord | null {
       "space-before-punct",
       "glued-clause-punct",
       "ellipsis-leaders",
-      "internal-word-period",
       "missing-sentence-space",
+      // internal-word-period join intentionally omitted (false positives)
     ],
     unitsTotal: units.length,
     unitsChanged,
@@ -357,14 +357,30 @@ function main(): void {
     }
   }
 
+  // Rebuild summary from all per-doc revision files (never wipe on no-op re-run)
   const summaryPath = path.join(REVISIONS_DIR, "_summary.json");
+  const allRevs: RevisionRecord[] = [];
+  if (fs.existsSync(REVISIONS_DIR)) {
+    for (const name of fs.readdirSync(REVISIONS_DIR)) {
+      if (!name.endsWith(".json") || name === "_summary.json") continue;
+      try {
+        allRevs.push(
+          readJson<RevisionRecord>(path.join(REVISIONS_DIR, name)),
+        );
+      } catch {
+        /* skip */
+      }
+    }
+  }
+  allRevs.sort((a, b) => a.documentId.localeCompare(b.documentId));
   writeJson(
     summaryPath,
     {
       revision: REVISION_TAG,
       appliedAt: new Date().toISOString(),
-      documentCount: revisions.length,
-      documents: revisions.map((r) => ({
+      documentCount: allRevs.length,
+      thisRunChanged: revisions.length,
+      documents: allRevs.map((r) => ({
         id: r.documentId,
         unitsChanged: r.unitsChanged,
         defectBefore: r.before.defectScore,
@@ -374,7 +390,9 @@ function main(): void {
     },
     true,
   );
-  console.log(`[✓] ${revisions.length} revision(s) → ${REVISIONS_DIR}`);
+  console.log(
+    `[✓] ${revisions.length} changed this run; ${allRevs.length} revision file(s) → ${REVISIONS_DIR}`,
+  );
   console.log(`[✓] summary → ${summaryPath}`);
 }
 

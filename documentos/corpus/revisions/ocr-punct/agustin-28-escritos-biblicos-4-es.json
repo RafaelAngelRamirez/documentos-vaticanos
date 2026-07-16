@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-28-escritos-biblicos-4-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:24.593Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:23.925Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 2414,
-  "unitsChanged": 671,
+  "unitsChanged": 464,
   "before": {
-    "spaceBeforePunct": 1950,
+    "spaceBeforePunct": 1232,
     "gluedClausePunct": 60,
     "missingSentenceSpace": 12,
     "internalWordPeriod": 36,
-    "defectScore": 2154
+    "defectScore": 1364
   },
   "after": {
     "spaceBeforePunct": 0,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 36,
     "defectScore": 0
   },
-  "letterTokenOverlap": 0.9998,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

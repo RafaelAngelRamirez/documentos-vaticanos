@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-37-antipelagianos-5-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:26.491Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:34.695Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 944,
-  "unitsChanged": 578,
+  "unitsChanged": 207,
   "before": {
-    "spaceBeforePunct": 1364,
+    "spaceBeforePunct": 202,
     "gluedClausePunct": 66,
     "missingSentenceSpace": 5,
     "internalWordPeriod": 10,
-    "defectScore": 1521
+    "defectScore": 339
   },
   "after": {
     "spaceBeforePunct": 4,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 12,
     "defectScore": 4
   },
-  "letterTokenOverlap": 0.9999,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

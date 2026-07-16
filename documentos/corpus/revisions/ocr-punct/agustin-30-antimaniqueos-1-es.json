@@ -1,28 +1,27 @@
 {
   "documentId": "agustin-30-antimaniqueos-1-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:29.656Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:30.933Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 1997,
-  "unitsChanged": 586,
+  "unitsChanged": 320,
   "before": {
-    "spaceBeforePunct": 1084,
+    "spaceBeforePunct": 402,
     "gluedClausePunct": 25,
     "missingSentenceSpace": 3,
     "internalWordPeriod": 5,
-    "defectScore": 1147
+    "defectScore": 455
   },
   "after": {
     "spaceBeforePunct": 0,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 6,
     "defectScore": 0
   },
   "letterTokenOverlap": 1,

@@ -1,12 +1,11 @@
 {
   "documentId": "jerusalen-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:30.844Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:10:15.451Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 41,

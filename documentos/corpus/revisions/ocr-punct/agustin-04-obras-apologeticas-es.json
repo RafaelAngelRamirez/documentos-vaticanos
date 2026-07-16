@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-04-obras-apologeticas-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:21.376Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:23.252Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 2880,
-  "unitsChanged": 985,
+  "unitsChanged": 696,
   "before": {
-    "spaceBeforePunct": 2329,
+    "spaceBeforePunct": 1242,
     "gluedClausePunct": 99,
     "missingSentenceSpace": 4,
     "internalWordPeriod": 54,
-    "defectScore": 2639
+    "defectScore": 1444
   },
   "after": {
     "spaceBeforePunct": 8,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 76,
     "defectScore": 8
   },
-  "letterTokenOverlap": 0.9995,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

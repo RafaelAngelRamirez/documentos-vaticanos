@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-22-enarraciones-salmos-4-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:07.561Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:24.766Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 3002,
-  "unitsChanged": 996,
+  "unitsChanged": 366,
   "before": {
-    "spaceBeforePunct": 4676,
+    "spaceBeforePunct": 1243,
     "gluedClausePunct": 25,
     "missingSentenceSpace": 2,
     "internalWordPeriod": 6,
-    "defectScore": 4740
+    "defectScore": 1295
   },
   "after": {
     "spaceBeforePunct": 0,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 13,
     "defectScore": 0
   },
-  "letterTokenOverlap": 0.9999,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

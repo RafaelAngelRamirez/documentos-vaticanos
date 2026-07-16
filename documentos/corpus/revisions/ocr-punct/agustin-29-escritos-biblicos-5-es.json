@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-29-escritos-biblicos-5-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:09.639Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:16.598Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 2221,
-  "unitsChanged": 805,
+  "unitsChanged": 515,
   "before": {
-    "spaceBeforePunct": 3719,
+    "spaceBeforePunct": 2827,
     "gluedClausePunct": 73,
     "missingSentenceSpace": 6,
     "internalWordPeriod": 6,
-    "defectScore": 3883
+    "defectScore": 2979
   },
   "after": {
     "spaceBeforePunct": 5,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 9,
     "defectScore": 5
   },
-  "letterTokenOverlap": 0.9999,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

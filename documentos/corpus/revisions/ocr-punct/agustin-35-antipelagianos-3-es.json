@@ -1,28 +1,27 @@
 {
   "documentId": "agustin-35-antipelagianos-3-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:16.005Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:26.276Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 1948,
-  "unitsChanged": 1067,
+  "unitsChanged": 579,
   "before": {
-    "spaceBeforePunct": 3057,
+    "spaceBeforePunct": 1081,
     "gluedClausePunct": 29,
     "missingSentenceSpace": 22,
     "internalWordPeriod": 7,
-    "defectScore": 3151
+    "defectScore": 1161
   },
   "after": {
     "spaceBeforePunct": 20,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 8,
     "defectScore": 20
   },
   "letterTokenOverlap": 1,

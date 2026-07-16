@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-31-antimaniqueos-2-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:25.505Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:29.118Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 3951,
-  "unitsChanged": 1056,
+  "unitsChanged": 257,
   "before": {
-    "spaceBeforePunct": 2032,
+    "spaceBeforePunct": 556,
     "gluedClausePunct": 9,
     "missingSentenceSpace": 1,
     "internalWordPeriod": 10,
-    "defectScore": 2071
+    "defectScore": 575
   },
   "after": {
     "spaceBeforePunct": 68,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 18,
     "defectScore": 68
   },
-  "letterTokenOverlap": 0.9999,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

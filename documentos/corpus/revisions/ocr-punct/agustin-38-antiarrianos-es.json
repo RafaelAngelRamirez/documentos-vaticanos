@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-38-antiarrianos-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:22.346Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:28.250Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 1691,
-  "unitsChanged": 904,
+  "unitsChanged": 365,
   "before": {
-    "spaceBeforePunct": 2431,
+    "spaceBeforePunct": 742,
     "gluedClausePunct": 75,
     "missingSentenceSpace": 9,
     "internalWordPeriod": 8,
-    "defectScore": 2606
+    "defectScore": 901
   },
   "after": {
     "spaceBeforePunct": 16,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 9,
     "defectScore": 16
   },
-  "letterTokenOverlap": 0.9999,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

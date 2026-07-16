@@ -1,31 +1,30 @@
 {
   "documentId": "clemente-alejandria-pedagogo-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:29.814Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:28.382Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 776,
-  "unitsChanged": 371,
+  "unitsChanged": 321,
   "before": {
-    "spaceBeforePunct": 576,
+    "spaceBeforePunct": 445,
     "gluedClausePunct": 198,
     "missingSentenceSpace": 1,
     "internalWordPeriod": 2,
-    "defectScore": 977
+    "defectScore": 842
   },
   "after": {
     "spaceBeforePunct": 0,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 4,
     "defectScore": 0
   },
-  "letterTokenOverlap": 0.9999,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

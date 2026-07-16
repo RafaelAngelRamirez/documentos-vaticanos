@@ -1,28 +1,27 @@
 {
   "documentId": "agustin-40-varios-2-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:29.057Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:31.473Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 1559,
-  "unitsChanged": 598,
+  "unitsChanged": 245,
   "before": {
-    "spaceBeforePunct": 1205,
+    "spaceBeforePunct": 280,
     "gluedClausePunct": 79,
     "missingSentenceSpace": 3,
     "internalWordPeriod": 3,
-    "defectScore": 1372
+    "defectScore": 441
   },
   "after": {
     "spaceBeforePunct": 2,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 3,
     "defectScore": 2
   },
   "letterTokenOverlap": 1,

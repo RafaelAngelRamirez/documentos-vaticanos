@@ -1,28 +1,27 @@
 {
   "documentId": "agustin-23-sermones-juan-hechos-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:13.783Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:34.296Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 2277,
-  "unitsChanged": 916,
+  "unitsChanged": 227,
   "before": {
-    "spaceBeforePunct": 3347,
+    "spaceBeforePunct": 272,
     "gluedClausePunct": 17,
     "missingSentenceSpace": 35,
     "internalWordPeriod": 3,
-    "defectScore": 3422
+    "defectScore": 341
   },
   "after": {
     "spaceBeforePunct": 0,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 5,
     "defectScore": 0
   },
   "letterTokenOverlap": 1,

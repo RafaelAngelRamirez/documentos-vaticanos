@@ -1,28 +1,27 @@
 {
   "documentId": "agustin-20-enarraciones-salmos-2-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:04.106Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:15.130Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 3050,
-  "unitsChanged": 1101,
+  "unitsChanged": 658,
   "before": {
-    "spaceBeforePunct": 7333,
+    "spaceBeforePunct": 3009,
     "gluedClausePunct": 18,
     "missingSentenceSpace": 1,
     "internalWordPeriod": 11,
-    "defectScore": 7392
+    "defectScore": 3046
   },
   "after": {
     "spaceBeforePunct": 0,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 12,
     "defectScore": 0
   },
   "letterTokenOverlap": 1,

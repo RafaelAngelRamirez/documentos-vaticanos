@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-02-confesiones-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:23.845Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:27.606Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 1952,
-  "unitsChanged": 849,
+  "unitsChanged": 523,
   "before": {
-    "spaceBeforePunct": 2169,
+    "spaceBeforePunct": 971,
     "gluedClausePunct": 32,
     "missingSentenceSpace": 6,
     "internalWordPeriod": 23,
-    "defectScore": 2285
+    "defectScore": 1041
   },
   "after": {
     "spaceBeforePunct": 0,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 57,
     "defectScore": 0
   },
-  "letterTokenOverlap": 0.9996,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

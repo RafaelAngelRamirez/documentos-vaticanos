@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-33-antidonatistas-2-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:27.443Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:32.816Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 884,
-  "unitsChanged": 521,
+  "unitsChanged": 203,
   "before": {
-    "spaceBeforePunct": 1303,
+    "spaceBeforePunct": 235,
     "gluedClausePunct": 66,
     "missingSentenceSpace": 3,
     "internalWordPeriod": 7,
-    "defectScore": 1452
+    "defectScore": 370
   },
   "after": {
     "spaceBeforePunct": 8,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 7,
     "defectScore": 8
   },
-  "letterTokenOverlap": 0.9999,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

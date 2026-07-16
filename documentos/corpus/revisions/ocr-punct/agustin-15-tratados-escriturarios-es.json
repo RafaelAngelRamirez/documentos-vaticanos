@@ -1,31 +1,30 @@
 {
   "documentId": "agustin-15-tratados-escriturarios-es",
-  "revision": "ocr-punct-v1",
-  "appliedAt": "2026-07-16T00:00:14.897Z",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:21.674Z",
   "ruleClasses": [
     "space-before-punct",
     "glued-clause-punct",
     "ellipsis-leaders",
-    "internal-word-period",
     "missing-sentence-space"
   ],
   "unitsTotal": 4847,
-  "unitsChanged": 1278,
+  "unitsChanged": 776,
   "before": {
-    "spaceBeforePunct": 2168,
+    "spaceBeforePunct": 1144,
     "gluedClausePunct": 241,
     "missingSentenceSpace": 6,
     "internalWordPeriod": 334,
-    "defectScore": 3324
+    "defectScore": 1632
   },
   "after": {
     "spaceBeforePunct": 2,
     "gluedClausePunct": 0,
     "missingSentenceSpace": 0,
-    "internalWordPeriod": 0,
+    "internalWordPeriod": 372,
     "defectScore": 2
   },
-  "letterTokenOverlap": 0.9983,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
