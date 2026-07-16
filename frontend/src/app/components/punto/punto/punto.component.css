@@ -17,9 +17,9 @@ p.punto-contenido {
 }
 
 /**
- * Títulos / secciones estructurales (PARTE, CAPÍTULO, …).
- * Tokens del design system; se ve bien en mono y claro.
- * .tsec del handoff aporta serif/peso; aquí el ritmo de lectura.
+ * Títulos / secciones estructurales — base + jerarquía 1 > 2 > 3.
+ * Tokens del design system; legible en mono y claro.
+ * Nivel 1 (PARTE/LIBRO) más grande que 2 (SECCIÓN/CAPÍTULO) y 3 (ARTÍCULO).
  */
 p.punto-contenido.punto-heading,
 p.punto-contenido.tsec {
@@ -33,10 +33,45 @@ p.punto-contenido.tsec {
   margin: 1.65em 0 0.9em;
   color: var(--reader-ink, var(--ink, var(--app-ink)));
   hyphens: none;
-  /* Aire visual frente al cuerpo justificado */
   max-width: 36em;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* 1 · Título principal (PARTE, LIBRO, constitución/carta apostólica) */
+p.punto-contenido.punto-heading--1 {
+  font-size: 1.42em;
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: 0.045em;
+  margin: 2.1em 0 1.05em;
+  max-width: 28em;
+  color: var(--reader-ink, var(--ink, var(--app-ink)));
+}
+
+/* 2 · Sección / capítulo / prólogo */
+p.punto-contenido.punto-heading--2 {
+  font-size: 1.2em;
+  font-weight: 600;
+  line-height: 1.32;
+  letter-spacing: 0.035em;
+  margin: 1.75em 0 0.85em;
+  max-width: 32em;
+  color: var(--reader-ink, var(--ink, var(--app-ink)));
+}
+
+/* 3 · Artículo y subtítulos residuales */
+p.punto-contenido.punto-heading--3 {
+  font-size: 1.06em;
+  font-weight: 600;
+  line-height: 1.38;
+  letter-spacing: 0.02em;
+  margin: 1.45em 0 0.7em;
+  max-width: 34em;
+  color: var(
+    --reader-muted,
+    var(--muted, var(--app-muted, var(--reader-ink, var(--ink))))
+  );
 }
 
 /* Numerales no se muestran en headings (ver numLabel); por si acaso */

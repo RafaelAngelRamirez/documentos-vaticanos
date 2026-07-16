@@ -27,6 +27,16 @@ export type SpeechSkipReason =
 
 export type SpeechUnitKind = 'body' | 'heading';
 
+/**
+ * Visual / structural hierarchy for reader headings.
+ * 0 = body (not a heading);
+ * 1 = major (PARTE, LIBRO, constitución/carta apostólica);
+ * 2 = mid (SECCIÓN, CAPÍTULO, TÍTULO, PRÓLOGO);
+ * 3 = minor subtitle (ARTÍCULO, ALL-CAPS corto, etc.).
+ * Higher rank → larger type in the reader (1 > 2 > 3 > body).
+ */
+export type HeadingLevel = 0 | 1 | 2 | 3;
+
 export interface SpeechPrepResult {
   /** Text ready for TTS (empty when skip). */
   text: string;
@@ -40,6 +50,8 @@ export interface SpeechPrepResult {
    * Omitted / 1 for body prose.
    */
   rateScale?: number;
+  /** Heading hierarchy level (0 when body). */
+  headingLevel?: HeadingLevel;
 }
 
 export interface SpeechUnitFields {
@@ -202,6 +214,58 @@ export function isStructuralHeading(
   }
 
   return false;
+}
+
+/**
+ * Rank a unit for visual hierarchy in the reader.
+ * Returns 0 for body prose; 1–3 for structural headings (1 = most prominent).
+ */
+export function headingLevel(
+  raw: string,
+  opts?: { consecutivo?: string | null },
+): HeadingLevel {
+  if (!isStructuralHeading(raw, opts)) return 0;
+  const t = normalizeSpeakText(raw);
+
+  // Level 1 — major book/part divisions and document-level titles
+  if (
+    /^(?:(?:la|el)\s+)?(?:primera|segunda|tercera|cuarta|quinta|sexta|s[eé]ptima|octava|novena|d[eé]cima)?\s*parte\b/i.test(
+      t,
+    ) ||
+    /^(?:(?:el|la)\s+)?libro\b/i.test(t) ||
+    /^(?:constituci[oó]n\s+apost[oó]lica|carta\s+apost[oó]lica)\b/i.test(t)
+  ) {
+    return 1;
+  }
+  // "… PARTE …" as the primary structural keyword (short unit already)
+  if (
+    /\bparte\b/i.test(t) &&
+    !/\b(?:secci[oó]n|cap[ií]tulo|art[ií]culo)\b/i.test(t)
+  ) {
+    return 1;
+  }
+
+  // Level 2 — sections, chapters, legal títulos, prologues
+  if (
+    /\bsecci[oó]n\b/i.test(t) ||
+    /\bcap[ií]tulo\b/i.test(t) ||
+    /^(?:t[ií]tulo)\b/i.test(t) ||
+    /^(?:proemio|pr[oó]logo)\b/i.test(t) ||
+    /\bt[ií]tulo\s+(?:[ivxlcdm]+|\d+)\b/i.test(t)
+  ) {
+    return 2;
+  }
+
+  // Level 3 — articles and residual short headings (ALL-CAPS, intro, …)
+  return 3;
+}
+
+/** CSS modifier class for punto/reader heading levels (empty when body). */
+export function headingLevelClass(level: HeadingLevel): string {
+  if (level === 1) return 'punto-heading--1';
+  if (level === 2) return 'punto-heading--2';
+  if (level === 3) return 'punto-heading--3';
+  return '';
 }
 
 /** Small Spanish particles left lower in title-case (except at start). */
@@ -410,8 +474,15 @@ export function prepareSpeechText(
 
   if (isStructuralHeading(original, opts)) {
     const text = prepareHeadingSpeakText(original);
+    const level = headingLevel(original, opts);
     if (!text) {
-      return { text: '', skip: true, reason: 'empty', kind: 'heading' };
+      return {
+        text: '',
+        skip: true,
+        reason: 'empty',
+        kind: 'heading',
+        headingLevel: level,
+      };
     }
     return {
       text,
@@ -419,10 +490,17 @@ export function prepareSpeechText(
       reason: null,
       kind: 'heading',
       rateScale: HEADING_RATE_SCALE,
+      headingLevel: level,
     };
   }
 
-  return { text: normalized, skip: false, reason: null, kind: 'body' };
+  return {
+    text: normalized,
+    skip: false,
+    reason: null,
+    kind: 'body',
+    headingLevel: 0,
+  };
 }
 
 /**

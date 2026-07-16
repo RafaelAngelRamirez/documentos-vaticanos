@@ -58,20 +58,48 @@ async function main() {
   const puntoHtml = fs.readFileSync(PUNTO_HTML, 'utf8');
   const puntoCss = fs.readFileSync(PUNTO_CSS, 'utf8');
   assert.ok(
-    puntoTs.includes('isStructuralHeading'),
-    'punto uses isStructuralHeading',
+    puntoTs.includes('headingLevel'),
+    'punto uses headingLevel',
   );
   assert.ok(
     puntoHtml.includes('punto-heading') || puntoHtml.includes('isHeading'),
     'punto template marks headings',
   );
   assert.ok(
-    puntoCss.includes('punto-heading'),
-    'punto CSS styles headings',
+    puntoHtml.includes('punto-heading--1') &&
+      puntoHtml.includes('punto-heading--2') &&
+      puntoHtml.includes('punto-heading--3'),
+    'punto template wires hierarchy modifiers',
+  );
+  assert.ok(
+    puntoHtml.includes('data-heading-level'),
+    'punto exposes data-heading-level',
+  );
+  assert.ok(
+    puntoCss.includes('punto-heading--1') &&
+      puntoCss.includes('punto-heading--2') &&
+      puntoCss.includes('punto-heading--3'),
+    'punto CSS has hierarchy levels',
+  );
+  // Level 1 font-size must be larger than level 3 (cascade main > subtitle)
+  const fs1 = puntoCss.match(
+    /\.punto-heading--1\s*\{[^}]*font-size:\s*([\d.]+)em/s,
+  );
+  const fs2 = puntoCss.match(
+    /\.punto-heading--2\s*\{[^}]*font-size:\s*([\d.]+)em/s,
+  );
+  const fs3 = puntoCss.match(
+    /\.punto-heading--3\s*\{[^}]*font-size:\s*([\d.]+)em/s,
+  );
+  assert.ok(fs1 && fs2 && fs3, 'each level declares font-size em');
+  assert.ok(
+    parseFloat(fs1[1]) > parseFloat(fs2[1]) &&
+      parseFloat(fs2[1]) > parseFloat(fs3[1]),
+    `font-size cascade 1>${fs1[1]} > 2>${fs2[1]} > 3>${fs3[1]}`,
   );
   assert.ok(
     !/#(?:[0-9a-fA-F]{3}){1,2}\b/.test(
-      puntoCss.match(/punto-heading[\s\S]{0,400}/)?.[0] || '',
+      (puntoCss.match(/punto-heading[\s\S]{0,1200}/) || [''])[0],
     ),
     'heading styles avoid loose hex (tokens only)',
   );
@@ -85,6 +113,8 @@ async function main() {
     normalizeSpeakText,
     isSpeakHostileJunk,
     isStructuralHeading,
+    headingLevel,
+    headingLevelClass,
     extractUnitRaw,
     extractUnitFields,
     nextSpeakableIndex,
@@ -365,6 +395,77 @@ async function main() {
   assert.ok(/\bII\b/.test(cap2.text), `Capítulo II keeps II: ${cap2.text}`);
   assert.ok(!/\bIi\b/.test(cap2.text), `no Ii: ${cap2.text}`);
 
+  section('headingLevel hierarchy (1 > 2 > 3 > body)');
+  assert.strictEqual(
+    headingLevel('PRIMERA PARTE LA PROFESIÓN DE LA FE'),
+    1,
+    'PARTE → level 1',
+  );
+  assert.strictEqual(
+    headingLevel('CONSTITUCIÓN APOSTÓLICA'),
+    1,
+    'CONSTITUCIÓN APOSTÓLICA → 1',
+  );
+  assert.strictEqual(
+    headingLevel('PRIMERA SECCIÓN «CREO»-«CREEMOS»'),
+    2,
+    'SECCIÓN → level 2',
+  );
+  assert.strictEqual(
+    headingLevel('CAPÍTULO PRIMERO: EL HOMBRE ES "CAPAZ" DE DIOS'),
+    2,
+    'CAPÍTULO → level 2',
+  );
+  assert.strictEqual(headingLevel('PRÓLOGO'), 2, 'PRÓLOGO → 2');
+  assert.strictEqual(
+    headingLevel('TÍTULO III DE LOS SACRAMENTOS'),
+    2,
+    'TÍTULO + roman → 2',
+  );
+  assert.strictEqual(
+    headingLevel('ARTÍCULO 1 LA REVELACIÓN DE DIOS'),
+    3,
+    'ARTÍCULO → level 3',
+  );
+  assert.strictEqual(
+    headingLevel(prose),
+    0,
+    'body prose → level 0',
+  );
+  assert.strictEqual(
+    headingLevel(
+      '1. Cristo es la luz de los pueblos. Por ello este sacrosanto Sínodo.',
+      { consecutivo: '1' },
+    ),
+    0,
+    'numbered body with consecutivo → 0',
+  );
+  // Rank ordering: main more prominent than mid than article
+  assert.ok(
+    headingLevel('PRIMERA PARTE LA PROFESIÓN DE LA FE') <
+      headingLevel('CAPÍTULO PRIMERO: EL HOMBRE'),
+    'PARTE rank number lower (= more prominent) than CAPÍTULO',
+  );
+  assert.ok(
+    headingLevel('CAPÍTULO PRIMERO: EL HOMBRE') <
+      headingLevel('ARTÍCULO 1 LA REVELACIÓN'),
+    'CAPÍTULO more prominent rank than ARTÍCULO',
+  );
+  assert.strictEqual(headingLevelClass(1), 'punto-heading--1');
+  assert.strictEqual(headingLevelClass(2), 'punto-heading--2');
+  assert.strictEqual(headingLevelClass(3), 'punto-heading--3');
+  assert.strictEqual(headingLevelClass(0), '');
+  // prepareSpeechText carries headingLevel
+  assert.strictEqual(
+    prepareSpeechText('PRIMERA PARTE LA PROFESIÓN DE LA FE').headingLevel,
+    1,
+  );
+  assert.strictEqual(
+    prepareSpeechText('ARTÍCULO 1 LA REVELACIÓN DE DIOS').headingLevel,
+    3,
+  );
+  assert.strictEqual(prepareSpeechText(prose).headingLevel, 0);
+
   section('body prep still body kind');
   assert.strictEqual(good.kind, 'body', 'prose kind=body');
   assert.ok(
@@ -409,20 +510,51 @@ async function main() {
   );
   if (fs.existsSync(CORPUS_CIC)) {
     const cic = JSON.parse(fs.readFileSync(CORPUS_CIC, 'utf8'));
-    // Known structural units from pack
-    const u117 = cic[117];
-    const f117 = extractUnitFields(u117);
+    // Known structural units from pack — hierarchy PARTE > SECCIÓN > CAPÍTULO > ARTÍCULO
+    const samples = [
+      [114, 1, /parte/i],
+      [115, 2, /secci/i],
+      [117, 2, /cap[ií]tulo/i],
+      [160, 3, /art[ií]culo/i],
+    ];
+    for (const [idx, wantLevel, wordRe] of samples) {
+      const f = extractUnitFields(cic[idx]);
+      assert.ok(wordRe.test(f.raw), `cic[${idx}] raw matches ${wordRe}`);
+      const lvl = headingLevel(f.raw, { consecutivo: f.consecutivo });
+      assert.strictEqual(
+        lvl,
+        wantLevel,
+        `cic[${idx}] level ${wantLevel}, got ${lvl}: ${f.raw.slice(0, 60)}`,
+      );
+      const prep = prepareSpeechText(f.raw, { consecutivo: f.consecutivo });
+      assert.strictEqual(prep.kind, 'heading');
+      assert.strictEqual(prep.headingLevel, wantLevel);
+      console.log(
+        `  cic-es u${idx} L${lvl}:`,
+        prep.text.slice(0, 70) + '…',
+      );
+    }
+    // Ordering on real pack: 114 (PARTE) more prominent than 160 (ARTÍCULO)
     assert.ok(
-      isStructuralHeading(f117.raw, { consecutivo: f117.consecutivo }),
-      'cic u117 is structural heading',
+      headingLevel(extractUnitFields(cic[114]).raw) <
+        headingLevel(extractUnitFields(cic[160]).raw),
+      'cic PARTE more prominent rank than ARTÍCULO',
     );
-    const p117 = prepareSpeechText(f117.raw, {
-      consecutivo: f117.consecutivo,
-    });
-    assert.strictEqual(p117.kind, 'heading');
-    assert.strictEqual(p117.skip, false);
-    assert.ok(p117.rateScale < 1);
-    console.log('  cic-es u117 speak:', p117.text.slice(0, 90) + '…');
+    // Numbered body unit not elevated
+    const bodyLike = cic.find(
+      (u) =>
+        u &&
+        /^\d+\s/.test(String(u.consecutivo || '')) &&
+        String(u.contenido || '').length > 80,
+    );
+    if (bodyLike) {
+      const fb = extractUnitFields(bodyLike);
+      assert.strictEqual(
+        headingLevel(fb.raw, { consecutivo: fb.consecutivo }),
+        0,
+        'numbered body unit not a heading',
+      );
+    }
   } else {
     console.log('  (cic-es pack missing — skip)');
   }

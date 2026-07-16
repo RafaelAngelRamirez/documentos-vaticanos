@@ -17,7 +17,11 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { ReferencesService } from 'src/app/core/account/references.service';
 import { AnotacionesService } from 'src/app/services/anotaciones.service';
-import { isStructuralHeading } from 'src/app/services/speech-prep.logic';
+import {
+  headingLevel,
+  headingLevelClass,
+  type HeadingLevel,
+} from 'src/app/services/speech-prep.logic';
 
 /** Placeholder pattern produced by the scraper: `[+[0]+]`, `[+[1]+]`, … */
 const REF_PLACEHOLDER = /\[\+\[(\d+)\]\+\]/g;
@@ -102,15 +106,25 @@ export class PuntoComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Unidad de título/sección (PARTE, CAPÍTULO, ALL-CAPS corto, …).
-   * Misma heurística que el prep de narración calmada.
+   * Nivel de título estructural (0 = cuerpo; 1 = PARTE…; 3 = ARTÍCULO…).
+   * Misma lógica pura que speech-prep / narración.
    */
-  get isHeading(): boolean {
+  get headingLevel(): HeadingLevel {
     const a = this._infoPunto?.article;
-    if (!a) return false;
-    return isStructuralHeading(a.contenido ?? '', {
+    if (!a) return 0;
+    return headingLevel(a.contenido ?? '', {
       consecutivo: a.consecutivo,
     });
+  }
+
+  /** Unidad de título/sección (cualquier nivel > 0). */
+  get isHeading(): boolean {
+    return this.headingLevel > 0;
+  }
+
+  /** Modificador CSS `punto-heading--N` (vacío en cuerpo). */
+  get headingClass(): string {
+    return headingLevelClass(this.headingLevel);
   }
 
   procesar(value: ArticleInfo): ArticleInfo {

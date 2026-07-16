@@ -3,8 +3,12 @@
     class="punto-contenido"
     [class.punto-heading]="isHeading"
     [class.tsec]="isHeading"
+    [class.punto-heading--1]="headingLevel === 1"
+    [class.punto-heading--2]="headingLevel === 2"
+    [class.punto-heading--3]="headingLevel === 3"
     [attr.data-unit]="infoPunto.article.index_array"
     [attr.data-heading]="isHeading ? '1' : null"
+    [attr.data-heading-level]="headingLevel || null"
   >
     <b class="punto-num" *ngIf="numLabel">{{ numLabel }}.</b>
     <ng-container *ngFor="let seg of segments">
