@@ -1,0 +1,34 @@
+{
+  "documentId": "agustin-27-escritos-biblicos-3-es",
+  "revision": "ocr-punct-v1",
+  "appliedAt": "2026-07-16T00:00:30.297Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "internal-word-period",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 1625,
+  "unitsChanged": 503,
+  "before": {
+    "spaceBeforePunct": 894,
+    "gluedClausePunct": 18,
+    "missingSentenceSpace": 16,
+    "internalWordPeriod": 5,
+    "defectScore": 956
+  },
+  "after": {
+    "spaceBeforePunct": 0,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 0,
+    "defectScore": 0
+  },
+  "letterTokenOverlap": 0.9999,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

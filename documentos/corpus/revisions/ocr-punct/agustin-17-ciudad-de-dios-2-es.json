@@ -1,0 +1,34 @@
+{
+  "documentId": "agustin-17-ciudad-de-dios-2-es",
+  "revision": "ocr-punct-v1",
+  "appliedAt": "2026-07-15T23:59:59.224Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "internal-word-period",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 3310,
+  "unitsChanged": 1645,
+  "before": {
+    "spaceBeforePunct": 12670,
+    "gluedClausePunct": 170,
+    "missingSentenceSpace": 3,
+    "internalWordPeriod": 74,
+    "defectScore": 13161
+  },
+  "after": {
+    "spaceBeforePunct": 0,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 0,
+    "defectScore": 0
+  },
+  "letterTokenOverlap": 0.9995,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

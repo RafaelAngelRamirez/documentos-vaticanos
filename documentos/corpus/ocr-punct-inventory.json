@@ -1,0 +1,1401 @@
+{
+  "generatedAt": "2026-07-15T23:59:56.828Z",
+  "minDefect": 1,
+  "revision": "ocr-punct-v1",
+  "count": 87,
+  "targetCount": 46,
+  "documents": [
+    {
+      "id": "agustin-18-epistolas-indices-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpNWdrZ3VUZ1JPNHc/view. Colección BAC Obras de San Agustín (tomo 18).",
+      "units": 1916,
+      "metrics": {
+        "spaceBeforePunct": 17162,
+        "gluedClausePunct": 76,
+        "missingSentenceSpace": 2,
+        "internalWordPeriod": 18,
+        "defectScore": 17352
+      },
+      "target": true,
+      "reason": "space-before-punct=17162; glued-clause=76; missing-sentence-space=2; internal-word-period=18"
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpVEp1RFdhekt4R0k/view. Colección BAC Obras de San Agustín (tomo 16).",
+      "units": 3344,
+      "metrics": {
+        "spaceBeforePunct": 14033,
+        "gluedClausePunct": 122,
+        "missingSentenceSpace": 5,
+        "internalWordPeriod": 61,
+        "defectScore": 14404
+      },
+      "target": true,
+      "reason": "space-before-punct=14033; glued-clause=122; missing-sentence-space=5; internal-word-period=61"
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpLTAwTHU0NHh3czA/view. Colección BAC Obras de San Agustín (tomo 17).",
+      "units": 3310,
+      "metrics": {
+        "spaceBeforePunct": 12670,
+        "gluedClausePunct": 170,
+        "missingSentenceSpace": 3,
+        "internalWordPeriod": 74,
+        "defectScore": 13161
+      },
+      "target": true,
+      "reason": "space-before-punct=12670; glued-clause=170; missing-sentence-space=3; internal-word-period=74"
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpS3cxY1RrVkFHS3c/view. Colección BAC Obras de San Agustín (tomo 3).",
+      "units": 2878,
+      "metrics": {
+        "spaceBeforePunct": 11975,
+        "gluedClausePunct": 30,
+        "missingSentenceSpace": 3,
+        "internalWordPeriod": 18,
+        "defectScore": 12074
+      },
+      "target": true,
+      "reason": "space-before-punct=11975; glued-clause=30; missing-sentence-space=3; internal-word-period=18"
+    },
+    {
+      "id": "agustin-26-sermones-6-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpbHpGdml5blVCUkk/view. Colección BAC Obras de San Agustín (tomo 26).",
+      "units": 3149,
+      "metrics": {
+        "spaceBeforePunct": 5376,
+        "gluedClausePunct": 1562,
+        "missingSentenceSpace": 3,
+        "internalWordPeriod": 5,
+        "defectScore": 8513
+      },
+      "target": true,
+      "reason": "space-before-punct=5376; glued-clause=1562; missing-sentence-space=3; internal-word-period=5"
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpUDJfN0I2MWhZTVk/view. Colección BAC Obras de San Agustín (tomo 19).",
+      "units": 2714,
+      "metrics": {
+        "spaceBeforePunct": 7547,
+        "gluedClausePunct": 18,
+        "missingSentenceSpace": 1,
+        "internalWordPeriod": 14,
+        "defectScore": 7612
+      },
+      "target": true,
+      "reason": "space-before-punct=7547; glued-clause=18; missing-sentence-space=1; internal-word-period=14"
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpbjRlR1JJVkJtYlU/view. Colección BAC Obras de San Agustín (tomo 20).",
+      "units": 3050,
+      "metrics": {
+        "spaceBeforePunct": 7333,
+        "gluedClausePunct": 18,
+        "missingSentenceSpace": 1,
+        "internalWordPeriod": 11,
+        "defectScore": 7392
+      },
+      "target": true,
+      "reason": "space-before-punct=7333; glued-clause=18; missing-sentence-space=1; internal-word-period=11"
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpaGdheFVxa3haNFU/view. Colección BAC Obras de San Agustín (tomo 21).",
+      "units": 3168,
+      "metrics": {
+        "spaceBeforePunct": 6396,
+        "gluedClausePunct": 20,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 8,
+        "defectScore": 6452
+      },
+      "target": true,
+      "reason": "space-before-punct=6396; glued-clause=20; internal-word-period=8"
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpQUVzY0hNckNhTWc/view. Colección BAC Obras de San Agustín (tomo 13).",
+      "units": 2318,
+      "metrics": {
+        "spaceBeforePunct": 5356,
+        "gluedClausePunct": 71,
+        "missingSentenceSpace": 6,
+        "internalWordPeriod": 64,
+        "defectScore": 5632
+      },
+      "target": true,
+      "reason": "space-before-punct=5356; glued-clause=71; missing-sentence-space=6; internal-word-period=64"
+    },
+    {
+      "id": "agustin-05-de-trinitate-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpX0FjYVd0cVRseFk/view. Colección BAC Obras de San Agustín (tomo 5).",
+      "units": 3030,
+      "metrics": {
+        "spaceBeforePunct": 4725,
+        "gluedClausePunct": 87,
+        "missingSentenceSpace": 6,
+        "internalWordPeriod": 79,
+        "defectScore": 5063
+      },
+      "target": true,
+      "reason": "space-before-punct=4725; glued-clause=87; missing-sentence-space=6; internal-word-period=79"
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpNFNidE1DMGlwZW8/view. Colección BAC Obras de San Agustín (tomo 22).",
+      "units": 3002,
+      "metrics": {
+        "spaceBeforePunct": 4676,
+        "gluedClausePunct": 25,
+        "missingSentenceSpace": 2,
+        "internalWordPeriod": 6,
+        "defectScore": 4740
+      },
+      "target": true,
+      "reason": "space-before-punct=4676; glued-clause=25; missing-sentence-space=2; internal-word-period=6"
+    },
+    {
+      "id": "agustin-06-gracia-1-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpZk1UdVVXMl9YZnc/view. Colección BAC Obras de San Agustín (tomo 6).",
+      "units": 3070,
+      "metrics": {
+        "spaceBeforePunct": 3959,
+        "gluedClausePunct": 47,
+        "missingSentenceSpace": 3,
+        "internalWordPeriod": 57,
+        "defectScore": 4170
+      },
+      "target": true,
+      "reason": "space-before-punct=3959; glued-clause=47; missing-sentence-space=3; internal-word-period=57"
+    },
+    {
+      "id": "agustin-01-primeros-escritos-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpWTFzcXUzcHU2QWM/view. Colección BAC Obras de San Agustín (tomo 1).",
+      "units": 2181,
+      "metrics": {
+        "spaceBeforePunct": 3878,
+        "gluedClausePunct": 25,
+        "missingSentenceSpace": 4,
+        "internalWordPeriod": 5,
+        "defectScore": 3942
+      },
+      "target": true,
+      "reason": "space-before-punct=3878; glued-clause=25; missing-sentence-space=4; internal-word-period=5"
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpcVR1NmRfZ3QwM1E/view. Colección BAC Obras de San Agustín (tomo 29).",
+      "units": 2221,
+      "metrics": {
+        "spaceBeforePunct": 3719,
+        "gluedClausePunct": 73,
+        "missingSentenceSpace": 6,
+        "internalWordPeriod": 6,
+        "defectScore": 3883
+      },
+      "target": true,
+      "reason": "space-before-punct=3719; glued-clause=73; missing-sentence-space=6; internal-word-period=6"
+    },
+    {
+      "id": "agustin-11-cartas-2-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpaUkxamx0aWgteFU/view. Colección BAC Obras de San Agustín (tomo 11).",
+      "units": 2451,
+      "metrics": {
+        "spaceBeforePunct": 3655,
+        "gluedClausePunct": 65,
+        "missingSentenceSpace": 1,
+        "internalWordPeriod": 32,
+        "defectScore": 3850
+      },
+      "target": true,
+      "reason": "space-before-punct=3655; glued-clause=65; missing-sentence-space=1; internal-word-period=32"
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpcy1FM1ByY1BxTG8/view. Colección BAC Obras de San Agustín (tomo 14).",
+      "units": 2199,
+      "metrics": {
+        "spaceBeforePunct": 3744,
+        "gluedClausePunct": 9,
+        "missingSentenceSpace": 5,
+        "internalWordPeriod": 11,
+        "defectScore": 3789
+      },
+      "target": true,
+      "reason": "space-before-punct=3744; glued-clause=9; missing-sentence-space=5; internal-word-period=11"
+    },
+    {
+      "id": "agustin-10-sermones-2-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpd1E4Y0YteDdhSjA/view. Colección BAC Obras de San Agustín (tomo 10).",
+      "units": 2512,
+      "metrics": {
+        "spaceBeforePunct": 3558,
+        "gluedClausePunct": 21,
+        "missingSentenceSpace": 47,
+        "internalWordPeriod": 4,
+        "defectScore": 3655
+      },
+      "target": true,
+      "reason": "space-before-punct=3558; glued-clause=21; missing-sentence-space=47; internal-word-period=4"
+    },
+    {
+      "id": "agustin-09-gracia-2-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpZXpnemI1c3dVVVk/view. Colección BAC Obras de San Agustín (tomo 9).",
+      "units": 2673,
+      "metrics": {
+        "spaceBeforePunct": 3023,
+        "gluedClausePunct": 172,
+        "missingSentenceSpace": 4,
+        "internalWordPeriod": 75,
+        "defectScore": 3521
+      },
+      "target": true,
+      "reason": "space-before-punct=3023; glued-clause=172; missing-sentence-space=4; internal-word-period=75"
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpd3ZHdmZuYWJWRFk/view. Colección BAC Obras de San Agustín (tomo 23).",
+      "units": 2277,
+      "metrics": {
+        "spaceBeforePunct": 3347,
+        "gluedClausePunct": 17,
+        "missingSentenceSpace": 35,
+        "internalWordPeriod": 3,
+        "defectScore": 3422
+      },
+      "target": true,
+      "reason": "space-before-punct=3347; glued-clause=17; missing-sentence-space=35; internal-word-period=3"
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpY1hxUE16SW5PZmc/view. Colección BAC Obras de San Agustín (tomo 15).",
+      "units": 4847,
+      "metrics": {
+        "spaceBeforePunct": 2168,
+        "gluedClausePunct": 241,
+        "missingSentenceSpace": 6,
+        "internalWordPeriod": 334,
+        "defectScore": 3324
+      },
+      "target": true,
+      "reason": "space-before-punct=2168; glued-clause=241; missing-sentence-space=6; internal-word-period=334"
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). OCR tesseract del PDF escaneado BAC tomo 35.",
+      "units": 1948,
+      "metrics": {
+        "spaceBeforePunct": 3057,
+        "gluedClausePunct": 29,
+        "missingSentenceSpace": 22,
+        "internalWordPeriod": 7,
+        "defectScore": 3151
+      },
+      "target": true,
+      "reason": "space-before-punct=3057; glued-clause=29; missing-sentence-space=22; internal-word-period=7"
+    },
+    {
+      "id": "agustin-12-tratados-morales-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). OCR tesseract del PDF escaneado BAC tomo 12.",
+      "units": 1828,
+      "metrics": {
+        "spaceBeforePunct": 2834,
+        "gluedClausePunct": 49,
+        "missingSentenceSpace": 2,
+        "internalWordPeriod": 17,
+        "defectScore": 2968
+      },
+      "target": true,
+      "reason": "space-before-punct=2834; glued-clause=49; missing-sentence-space=2; internal-word-period=17"
+    },
+    {
+      "id": "agustin-25-sermones-5-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpZzR6czFIMDVYOHM/view. Colección BAC Obras de San Agustín (tomo 25).",
+      "units": 2285,
+      "metrics": {
+        "spaceBeforePunct": 2806,
+        "gluedClausePunct": 13,
+        "missingSentenceSpace": 22,
+        "internalWordPeriod": 2,
+        "defectScore": 2858
+      },
+      "target": true,
+      "reason": "space-before-punct=2806; glued-clause=13; missing-sentence-space=22; internal-word-period=2"
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Fuente pública (no en Drive Cedano). BAC XXXII. Internet Archive.",
+      "units": 6797,
+      "metrics": {
+        "spaceBeforePunct": 2607,
+        "gluedClausePunct": 91,
+        "missingSentenceSpace": 12,
+        "internalWordPeriod": 6,
+        "defectScore": 2813
+      },
+      "target": true,
+      "reason": "space-before-punct=2607; glued-clause=91; missing-sentence-space=12; internal-word-period=6"
+    },
+    {
+      "id": "agustin-07-sermones-1-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpSVV3aVZVaWkxdXM/view. Colección BAC Obras de San Agustín (tomo 7).",
+      "units": 2181,
+      "metrics": {
+        "spaceBeforePunct": 2739,
+        "gluedClausePunct": 25,
+        "missingSentenceSpace": 1,
+        "internalWordPeriod": 2,
+        "defectScore": 2794
+      },
+      "target": true,
+      "reason": "space-before-punct=2739; glued-clause=25; missing-sentence-space=1; internal-word-period=2"
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). OCR tesseract del PDF escaneado BAC tomo 34.",
+      "units": 1987,
+      "metrics": {
+        "spaceBeforePunct": 2462,
+        "gluedClausePunct": 80,
+        "missingSentenceSpace": 6,
+        "internalWordPeriod": 9,
+        "defectScore": 2646
+      },
+      "target": true,
+      "reason": "space-before-punct=2462; glued-clause=80; missing-sentence-space=6; internal-word-period=9"
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpWS1vaU1vM0N1dWc/view. Colección BAC Obras de San Agustín (tomo 4).",
+      "units": 2880,
+      "metrics": {
+        "spaceBeforePunct": 2329,
+        "gluedClausePunct": 99,
+        "missingSentenceSpace": 4,
+        "internalWordPeriod": 54,
+        "defectScore": 2639
+      },
+      "target": true,
+      "reason": "space-before-punct=2329; glued-clause=99; missing-sentence-space=4; internal-word-period=54"
+    },
+    {
+      "id": "agustin-38-antiarrianos-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). OCR tesseract del PDF escaneado BAC tomo 38.",
+      "units": 1691,
+      "metrics": {
+        "spaceBeforePunct": 2431,
+        "gluedClausePunct": 75,
+        "missingSentenceSpace": 9,
+        "internalWordPeriod": 8,
+        "defectScore": 2606
+      },
+      "target": true,
+      "reason": "space-before-punct=2431; glued-clause=75; missing-sentence-space=9; internal-word-period=8"
+    },
+    {
+      "id": "agustin-24-sermones-4-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpQ2IyczZ0UkU3RHM/view. Colección BAC Obras de San Agustín (tomo 24).",
+      "units": 2460,
+      "metrics": {
+        "spaceBeforePunct": 2426,
+        "gluedClausePunct": 32,
+        "missingSentenceSpace": 6,
+        "internalWordPeriod": 4,
+        "defectScore": 2504
+      },
+      "target": true,
+      "reason": "space-before-punct=2426; glued-clause=32; missing-sentence-space=6; internal-word-period=4"
+    },
+    {
+      "id": "agustin-02-confesiones-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpR0xsOUdvQmJXbFk/view. Colección BAC Obras de San Agustín (tomo 2).",
+      "units": 1952,
+      "metrics": {
+        "spaceBeforePunct": 2169,
+        "gluedClausePunct": 32,
+        "missingSentenceSpace": 6,
+        "internalWordPeriod": 23,
+        "defectScore": 2285
+      },
+      "target": true,
+      "reason": "space-before-punct=2169; glued-clause=32; missing-sentence-space=6; internal-word-period=23"
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpU3o1ZkgtSXNqaGM/view. Colección BAC Obras de San Agustín (tomo 28).",
+      "units": 2414,
+      "metrics": {
+        "spaceBeforePunct": 1950,
+        "gluedClausePunct": 60,
+        "missingSentenceSpace": 12,
+        "internalWordPeriod": 36,
+        "defectScore": 2154
+      },
+      "target": true,
+      "reason": "space-before-punct=1950; glued-clause=60; missing-sentence-space=12; internal-word-period=36"
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Fuente pública (no en Drive Cedano). BAC XXXI. PDF: amadoresdecristo.org / también archive.org obras-de-san-agustin-xxxi-...",
+      "units": 3951,
+      "metrics": {
+        "spaceBeforePunct": 2032,
+        "gluedClausePunct": 9,
+        "missingSentenceSpace": 1,
+        "internalWordPeriod": 10,
+        "defectScore": 2071
+      },
+      "target": true,
+      "reason": "space-before-punct=2032; glued-clause=9; missing-sentence-space=1; internal-word-period=10"
+    },
+    {
+      "id": "agustin-39-varios-1-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). OCR tesseract del PDF escaneado BAC tomo 39.",
+      "units": 1230,
+      "metrics": {
+        "spaceBeforePunct": 1512,
+        "gluedClausePunct": 38,
+        "missingSentenceSpace": 7,
+        "internalWordPeriod": 7,
+        "defectScore": 1609
+      },
+      "target": true,
+      "reason": "space-before-punct=1512; glued-clause=38; missing-sentence-space=7; internal-word-period=7"
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Cedano OCR BAC tomo 37",
+      "units": 944,
+      "metrics": {
+        "spaceBeforePunct": 1364,
+        "gluedClausePunct": 66,
+        "missingSentenceSpace": 5,
+        "internalWordPeriod": 10,
+        "defectScore": 1521
+      },
+      "target": true,
+      "reason": "space-before-punct=1364; glued-clause=66; missing-sentence-space=5; internal-word-period=10"
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Cedano OCR BAC tomo 36",
+      "units": 1056,
+      "metrics": {
+        "spaceBeforePunct": 1381,
+        "gluedClausePunct": 50,
+        "missingSentenceSpace": 4,
+        "internalWordPeriod": 4,
+        "defectScore": 1493
+      },
+      "target": true,
+      "reason": "space-before-punct=1381; glued-clause=50; missing-sentence-space=4; internal-word-period=4"
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). OCR tesseract del PDF escaneado BAC Obras de San Agustín tomo 33 (Escritos Antidonatistas 2). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpRTI3SWFiZGlNSGc/view.",
+      "units": 884,
+      "metrics": {
+        "spaceBeforePunct": 1303,
+        "gluedClausePunct": 66,
+        "missingSentenceSpace": 3,
+        "internalWordPeriod": 7,
+        "defectScore": 1452
+      },
+      "target": true,
+      "reason": "space-before-punct=1303; glued-clause=66; missing-sentence-space=3; internal-word-period=7"
+    },
+    {
+      "id": "agustin-08-cartas-1-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpLUI0RERtTWk3Qm8/view. Colección BAC Obras de San Agustín (tomo 8).",
+      "units": 2468,
+      "metrics": {
+        "spaceBeforePunct": 1341,
+        "gluedClausePunct": 13,
+        "missingSentenceSpace": 11,
+        "internalWordPeriod": 4,
+        "defectScore": 1386
+      },
+      "target": true,
+      "reason": "space-before-punct=1341; glued-clause=13; missing-sentence-space=11; internal-word-period=4"
+    },
+    {
+      "id": "agustin-40-varios-2-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). OCR tesseract del PDF escaneado BAC tomo 40.",
+      "units": 1559,
+      "metrics": {
+        "spaceBeforePunct": 1205,
+        "gluedClausePunct": 79,
+        "missingSentenceSpace": 3,
+        "internalWordPeriod": 3,
+        "defectScore": 1372
+      },
+      "target": true,
+      "reason": "space-before-punct=1205; glued-clause=79; missing-sentence-space=3; internal-word-period=3"
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpNFl5cy1LblR1bE0/view. Colección BAC Obras de San Agustín (tomo 30).",
+      "units": 1997,
+      "metrics": {
+        "spaceBeforePunct": 1084,
+        "gluedClausePunct": 25,
+        "missingSentenceSpace": 3,
+        "internalWordPeriod": 5,
+        "defectScore": 1147
+      },
+      "target": true,
+      "reason": "space-before-punct=1084; glued-clause=25; missing-sentence-space=3; internal-word-period=5"
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpbnNFLUF5eTRiM28/view. Edición: Biblioteca Clásica Gredos. Edición/traducción de referencia: Biblioteca Clásica Gredos. Biblioteca Clásica Gredos. Párrafos + tope unidad.",
+      "units": 776,
+      "metrics": {
+        "spaceBeforePunct": 576,
+        "gluedClausePunct": 198,
+        "missingSentenceSpace": 1,
+        "internalWordPeriod": 2,
+        "defectScore": 977
+      },
+      "target": true,
+      "reason": "space-before-punct=576; glued-clause=198; missing-sentence-space=1; internal-word-period=2"
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpdnczaDRBb0NKaTA/view. Colección BAC Obras de San Agustín (tomo 27).",
+      "units": 1625,
+      "metrics": {
+        "spaceBeforePunct": 894,
+        "gluedClausePunct": 18,
+        "missingSentenceSpace": 16,
+        "internalWordPeriod": 5,
+        "defectScore": 956
+      },
+      "target": true,
+      "reason": "space-before-punct=894; glued-clause=18; missing-sentence-space=16; internal-word-period=5"
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpOERXcEQ5eU85Ykk/view. Edición: Edición castellana con introducción y notas (PG 33 / Migne). Edición/traducción de referencia: Edición castellana con introducción y notas (PG 33 / Migne). Procatequesis + Catequesis. Texto con notas.",
+      "units": 1015,
+      "metrics": {
+        "spaceBeforePunct": 695,
+        "gluedClausePunct": 18,
+        "missingSentenceSpace": 14,
+        "internalWordPeriod": 1,
+        "defectScore": 747
+      },
+      "target": true,
+      "reason": "space-before-punct=695; glued-clause=18; missing-sentence-space=14; internal-word-period=1"
+    },
+    {
+      "id": "cipriano-cartas-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpV0lydDFGd2RqNVE/view. Edición: Biblioteca Clásica Gredos. Edición/traducción de referencia: Biblioteca Clásica Gredos. Gredos. Párrafos + tope unidad.",
+      "units": 829,
+      "metrics": {
+        "spaceBeforePunct": 351,
+        "gluedClausePunct": 189,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 1,
+        "defectScore": 731
+      },
+      "target": true,
+      "reason": "space-before-punct=351; glued-clause=189; internal-word-period=1"
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpYVcycVFMNHpvVUE/view. OCR (tesseract spa) del PDF escaneado · Ciudad Nueva / Naldini–Velasco.",
+      "units": 250,
+      "metrics": {
+        "spaceBeforePunct": 314,
+        "gluedClausePunct": 17,
+        "missingSentenceSpace": 1,
+        "internalWordPeriod": 3,
+        "defectScore": 355
+      },
+      "target": true,
+      "reason": "space-before-punct=314; glued-clause=17; missing-sentence-space=1; internal-word-period=3"
+    },
+    {
+      "id": "carta-diogneto-es",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceNote": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpc3ppVWstMWdpSEU/view. Edición: Iglesia Viva / Ruiz Bueno (BAC 1950, adaptada). Edición/traducción de referencia: Iglesia Viva / Ruiz Bueno (BAC 1950, adaptada). Iglesia Viva / Ruiz Bueno BAC. 11 caps. romanos.",
+      "units": 17,
+      "metrics": {
+        "spaceBeforePunct": 26,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 26
+      },
+      "target": true,
+      "reason": "space-before-punct=26"
+    },
+    {
+      "id": "jerusalen-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Hierosolymitanum» (jerusalen-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 41,
+      "metrics": {
+        "spaceBeforePunct": 1,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 1
+      },
+      "target": true,
+      "reason": "space-before-punct=1"
+    },
+    {
+      "id": "nicea-i-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Nicaenum I (325). Symbolum + Canones XX. Latín tradicional (cf. Mansi 2; Documenta Catholica Omnia).",
+      "units": 25,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-i-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Constantinopolitanum I (381). Mansi 2–3.",
+      "units": 11,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "calcedonia-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Chalcedonense (451). Mansi 6–7.",
+      "units": 35,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-ii-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Constantinopolitanum II (553). Mansi 9.",
+      "units": 16,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-iii-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Constantinopolitanum III (680–681). Mansi 11.",
+      "units": 13,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "nicea-ii-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Nicaenum II (787). Mansi 12–13.",
+      "units": 27,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "jerusalen-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Vulgata latina, Actus Apostolorum 15. Concilio apostólico de Jerusalén (~50 d.C.).",
+      "units": 41,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "trento-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Tridentinum (1545–1563). Mansi / documentacatholicaomnia.",
+      "units": 48,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vat-i-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Vaticanum I (1869–1870). vatican.va / ediciones oficiales.",
+      "units": 23,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constanza-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Constantiense (1414–1418). Mansi 27–28.",
+      "units": 17,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "florencia-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Basileense-Ferrariense-Florentinum (1431–1445). Mansi 29–31.",
+      "units": 17,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vienne-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Viennense (1311–1312). Mansi 25.",
+      "units": 17,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-v-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Lateranense V (1512–1517). Mansi 32.",
+      "units": 23,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-iv-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Lateranense IV (1215). Mansi 22.",
+      "units": 18,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-i-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Lateranense I (1123). Mansi 21.",
+      "units": 14,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-ii-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Lateranense II (1139). Mansi 21.",
+      "units": 15,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-iii-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Lateranense III (1179). Mansi 22.",
+      "units": 15,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lyon-i-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Lugdunense I (1245). Mansi 23.",
+      "units": 14,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lyon-ii-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Lugdunense II (1274). Mansi 24.",
+      "units": 15,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-iv-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Constantinopolitanum IV (869–870). Mansi 15–16.",
+      "units": 26,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "efeso-la",
+      "kind": "council",
+      "locale": "la",
+      "sourceNote": "Concilium Ephesinum (431). Mansi 4.",
+      "units": 11,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-iv-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense IV» (lateran-iv-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 18,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-v-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense V» (lateran-v-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 23,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lyon-i-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lugdunense I» (lyon-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 14,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lyon-ii-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lugdunense II» (lyon-ii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 15,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-ii-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantinopolitanum II» (constantinopla-ii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 16,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-iii-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantinopolitanum III» (constantinopla-iii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 13,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "nicea-ii-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Nicaenum II» (nicea-ii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 27,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-i-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense I» (lateran-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 14,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-ii-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense II» (lateran-ii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 15,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-iii-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense III» (lateran-iii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 15,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-iv-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantinopolitanum IV» (constantinopla-iv-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 26,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vienne-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Viennense» (vienne-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 17,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constanza-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantiense» (constanza-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 17,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "florencia-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Basileense-Ferrariense-Florentinum» (florencia-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 17,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "trento-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Tridentinum» (trento-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 48,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vat-i-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Vaticanum I» (vat-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 23,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "nicea-i-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Nicaenum I» (nicea-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 25,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-i-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantinopolitanum I» (constantinopla-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 11,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "efeso-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Ephesinum» (efeso-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 11,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "calcedonia-es",
+      "kind": "council",
+      "locale": "es",
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Chalcedonense» (calcedonia-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "units": 35,
+      "metrics": {
+        "spaceBeforePunct": 0,
+        "gluedClausePunct": 0,
+        "missingSentenceSpace": 0,
+        "internalWordPeriod": 0,
+        "defectScore": 0
+      },
+      "target": false,
+      "reason": "below-threshold"
+    }
+  ]
+}

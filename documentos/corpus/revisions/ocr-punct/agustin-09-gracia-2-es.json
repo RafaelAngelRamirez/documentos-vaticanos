@@ -1,0 +1,34 @@
+{
+  "documentId": "agustin-09-gracia-2-es",
+  "revision": "ocr-punct-v1",
+  "appliedAt": "2026-07-16T00:00:12.939Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "internal-word-period",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 2673,
+  "unitsChanged": 1108,
+  "before": {
+    "spaceBeforePunct": 3023,
+    "gluedClausePunct": 172,
+    "missingSentenceSpace": 4,
+    "internalWordPeriod": 75,
+    "defectScore": 3521
+  },
+  "after": {
+    "spaceBeforePunct": 3,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 0,
+    "defectScore": 3
+  },
+  "letterTokenOverlap": 0.9992,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

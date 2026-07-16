@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## Unreleased
 
+### Fixes
+
+* **OCR punctuation repair (padres/concilios packs):** mechanical spacing fix for OCR-derived corpus units (`space before ,.;:`, glued clause punct, sentence boundaries, internal word periods, spaced ellipsis). Pure transform in `scripts-descarga/src/pipeline/repair_ocr_punctuation.ts`; applied in-place with **stable `unitIndex`**; dual-write to `documentos/corpus` + `frontend/src/assets/corpus`; **per-document revisions** under `documentos/corpus/revisions/ocr-punct/<id>.json`. Inventory: `documentos/corpus/ocr-punct-inventory.json`. Tests: `npm run test:ocr-punct` in `scripts-descarga`. CLI: `npm run ocr:punct-inventory` / `ocr:punct-apply`.
+
 ### Features
 
 * **Narrador · voces Grok (xAI TTS) online opcional:** proxy backend `GET /api/v1/tts/voices` + `POST /api/v1/tts/speak` con `XAI_API_KEY` (console.x.ai; **no** SuperGrok/Heavy — facturación API aparte ~$15/1M chars). El cliente lista voces Grok junto a las del sistema y reproduce audio vía proxy; sin clave/red sigue solo Web Speech / Capacitor TTS (offline-first). Preferencia `dv.narr.voice.v1`. Tests: `yarn test:tts`, `yarn test:narrator-grok`.

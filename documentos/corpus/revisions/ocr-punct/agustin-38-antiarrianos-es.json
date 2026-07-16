@@ -1,0 +1,34 @@
+{
+  "documentId": "agustin-38-antiarrianos-es",
+  "revision": "ocr-punct-v1",
+  "appliedAt": "2026-07-16T00:00:22.346Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "internal-word-period",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 1691,
+  "unitsChanged": 904,
+  "before": {
+    "spaceBeforePunct": 2431,
+    "gluedClausePunct": 75,
+    "missingSentenceSpace": 9,
+    "internalWordPeriod": 8,
+    "defectScore": 2606
+  },
+  "after": {
+    "spaceBeforePunct": 16,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 0,
+    "defectScore": 16
+  },
+  "letterTokenOverlap": 0.9999,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

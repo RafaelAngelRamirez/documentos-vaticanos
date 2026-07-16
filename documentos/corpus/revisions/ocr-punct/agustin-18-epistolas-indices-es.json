@@ -1,0 +1,34 @@
+{
+  "documentId": "agustin-18-epistolas-indices-es",
+  "revision": "ocr-punct-v1",
+  "appliedAt": "2026-07-15T23:59:57.406Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "internal-word-period",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 1916,
+  "unitsChanged": 1131,
+  "before": {
+    "spaceBeforePunct": 17162,
+    "gluedClausePunct": 76,
+    "missingSentenceSpace": 2,
+    "internalWordPeriod": 18,
+    "defectScore": 17352
+  },
+  "after": {
+    "spaceBeforePunct": 6,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 0,
+    "defectScore": 6
+  },
+  "letterTokenOverlap": 0.9997,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

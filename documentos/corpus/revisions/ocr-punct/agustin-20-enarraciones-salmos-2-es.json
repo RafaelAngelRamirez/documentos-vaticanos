@@ -1,0 +1,34 @@
+{
+  "documentId": "agustin-20-enarraciones-salmos-2-es",
+  "revision": "ocr-punct-v1",
+  "appliedAt": "2026-07-16T00:00:04.106Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "internal-word-period",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 3050,
+  "unitsChanged": 1101,
+  "before": {
+    "spaceBeforePunct": 7333,
+    "gluedClausePunct": 18,
+    "missingSentenceSpace": 1,
+    "internalWordPeriod": 11,
+    "defectScore": 7392
+  },
+  "after": {
+    "spaceBeforePunct": 0,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 0,
+    "defectScore": 0
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

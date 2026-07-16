@@ -4,6 +4,7 @@
  */
 
 import type { TrasnportData } from "../../models/transport_data.model";
+import { repairOcrPunctuation } from "./repair_ocr_punctuation";
 
 export type PlainSplitMode =
   | "paragraphs"
@@ -74,6 +75,14 @@ export function softNormalize(text: string): string {
     .replace(/\n{3,}/g, "\n\n")
     .replace(/[ \t]{2,}/g, " ")
     .trim();
+}
+
+/**
+ * softNormalize + mechanical OCR punctuation spacing repair.
+ * Prefer for OCR/PDF-derived clean texts before unit split / import.
+ */
+export function softNormalizeWithOcrPunct(text: string): string {
+  return softNormalize(repairOcrPunctuation(text));
 }
 
 /**
@@ -326,6 +335,9 @@ export function plainTextToUnits(
   const opts = { ...DEFAULTS, ...options };
   let prepared = stripPdfChrome(text);
   prepared = rejoinHyphenation(prepared);
+  prepared = softNormalize(prepared);
+  // Mechanical OCR punct fix after soft normalize so unit contenido is cleaner
+  prepared = repairOcrPunctuation(prepared);
   prepared = softNormalize(prepared);
 
   let chunks: string[];

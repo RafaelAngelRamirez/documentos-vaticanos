@@ -1,0 +1,34 @@
+{
+  "documentId": "agustin-32-antidonatistas-1-es",
+  "revision": "ocr-punct-v1",
+  "appliedAt": "2026-07-16T00:00:18.879Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "internal-word-period",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 6797,
+  "unitsChanged": 1311,
+  "before": {
+    "spaceBeforePunct": 2607,
+    "gluedClausePunct": 91,
+    "missingSentenceSpace": 12,
+    "internalWordPeriod": 6,
+    "defectScore": 2813
+  },
+  "after": {
+    "spaceBeforePunct": 12,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 0,
+    "defectScore": 12
+  },
+  "letterTokenOverlap": 0.9999,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

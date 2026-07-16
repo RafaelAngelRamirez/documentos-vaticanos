@@ -1,0 +1,329 @@
+{
+  "revision": "ocr-punct-v1",
+  "appliedAt": "2026-07-16T00:00:30.844Z",
+  "documentCount": 46,
+  "documents": [
+    {
+      "id": "agustin-18-epistolas-indices-es",
+      "unitsChanged": 1131,
+      "defectBefore": 17352,
+      "defectAfter": 6,
+      "letterTokenOverlap": 0.9997
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-es",
+      "unitsChanged": 1532,
+      "defectBefore": 14404,
+      "defectAfter": 1,
+      "letterTokenOverlap": 0.9994
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-es",
+      "unitsChanged": 1645,
+      "defectBefore": 13161,
+      "defectAfter": 0,
+      "letterTokenOverlap": 0.9995
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-es",
+      "unitsChanged": 1232,
+      "defectBefore": 12074,
+      "defectAfter": 0,
+      "letterTokenOverlap": 0.9998
+    },
+    {
+      "id": "agustin-26-sermones-6-es",
+      "unitsChanged": 1444,
+      "defectBefore": 8513,
+      "defectAfter": 1,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-es",
+      "unitsChanged": 1183,
+      "defectBefore": 7612,
+      "defectAfter": 0,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-es",
+      "unitsChanged": 1101,
+      "defectBefore": 7392,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-es",
+      "unitsChanged": 1162,
+      "defectBefore": 6452,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-es",
+      "unitsChanged": 1177,
+      "defectBefore": 5632,
+      "defectAfter": 1,
+      "letterTokenOverlap": 0.9993
+    },
+    {
+      "id": "agustin-05-de-trinitate-es",
+      "unitsChanged": 1401,
+      "defectBefore": 5063,
+      "defectAfter": 8,
+      "letterTokenOverlap": 0.9993
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-es",
+      "unitsChanged": 996,
+      "defectBefore": 4740,
+      "defectAfter": 0,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-06-gracia-1-es",
+      "unitsChanged": 1294,
+      "defectBefore": 4170,
+      "defectAfter": 5,
+      "letterTokenOverlap": 0.9996
+    },
+    {
+      "id": "agustin-01-primeros-escritos-es",
+      "unitsChanged": 951,
+      "defectBefore": 3942,
+      "defectAfter": 0,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-es",
+      "unitsChanged": 805,
+      "defectBefore": 3883,
+      "defectAfter": 5,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-11-cartas-2-es",
+      "unitsChanged": 1261,
+      "defectBefore": 3850,
+      "defectAfter": 2,
+      "letterTokenOverlap": 0.9997
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-es",
+      "unitsChanged": 803,
+      "defectBefore": 3789,
+      "defectAfter": 0,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-10-sermones-2-es",
+      "unitsChanged": 994,
+      "defectBefore": 3655,
+      "defectAfter": 8,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-09-gracia-2-es",
+      "unitsChanged": 1108,
+      "defectBefore": 3521,
+      "defectAfter": 3,
+      "letterTokenOverlap": 0.9992
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-es",
+      "unitsChanged": 916,
+      "defectBefore": 3422,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-es",
+      "unitsChanged": 1278,
+      "defectBefore": 3324,
+      "defectAfter": 2,
+      "letterTokenOverlap": 0.9983
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-es",
+      "unitsChanged": 1067,
+      "defectBefore": 3151,
+      "defectAfter": 20,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-12-tratados-morales-es",
+      "unitsChanged": 1020,
+      "defectBefore": 2968,
+      "defectAfter": 27,
+      "letterTokenOverlap": 0.9998
+    },
+    {
+      "id": "agustin-25-sermones-5-es",
+      "unitsChanged": 790,
+      "defectBefore": 2858,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-es",
+      "unitsChanged": 1311,
+      "defectBefore": 2813,
+      "defectAfter": 12,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-07-sermones-1-es",
+      "unitsChanged": 784,
+      "defectBefore": 2794,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-es",
+      "unitsChanged": 988,
+      "defectBefore": 2646,
+      "defectAfter": 21,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-es",
+      "unitsChanged": 985,
+      "defectBefore": 2639,
+      "defectAfter": 8,
+      "letterTokenOverlap": 0.9995
+    },
+    {
+      "id": "agustin-38-antiarrianos-es",
+      "unitsChanged": 904,
+      "defectBefore": 2606,
+      "defectAfter": 16,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-24-sermones-4-es",
+      "unitsChanged": 815,
+      "defectBefore": 2504,
+      "defectAfter": 6,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-02-confesiones-es",
+      "unitsChanged": 849,
+      "defectBefore": 2285,
+      "defectAfter": 0,
+      "letterTokenOverlap": 0.9996
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-es",
+      "unitsChanged": 671,
+      "defectBefore": 2154,
+      "defectAfter": 0,
+      "letterTokenOverlap": 0.9998
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-es",
+      "unitsChanged": 1056,
+      "defectBefore": 2071,
+      "defectAfter": 68,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-39-varios-1-es",
+      "unitsChanged": 626,
+      "defectBefore": 1609,
+      "defectAfter": 18,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-es",
+      "unitsChanged": 578,
+      "defectBefore": 1521,
+      "defectAfter": 4,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-es",
+      "unitsChanged": 559,
+      "defectBefore": 1493,
+      "defectAfter": 6,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-es",
+      "unitsChanged": 521,
+      "defectBefore": 1452,
+      "defectAfter": 8,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-08-cartas-1-es",
+      "unitsChanged": 701,
+      "defectBefore": 1386,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-40-varios-2-es",
+      "unitsChanged": 598,
+      "defectBefore": 1372,
+      "defectAfter": 2,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-es",
+      "unitsChanged": 586,
+      "defectBefore": 1147,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-es",
+      "unitsChanged": 371,
+      "defectBefore": 977,
+      "defectAfter": 0,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-es",
+      "unitsChanged": 503,
+      "defectBefore": 956,
+      "defectAfter": 0,
+      "letterTokenOverlap": 0.9999
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-es",
+      "unitsChanged": 344,
+      "defectBefore": 747,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "cipriano-cartas-es",
+      "unitsChanged": 289,
+      "defectBefore": 731,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-es",
+      "unitsChanged": 104,
+      "defectBefore": 355,
+      "defectAfter": 1,
+      "letterTokenOverlap": 0.9998
+    },
+    {
+      "id": "carta-diogneto-es",
+      "unitsChanged": 7,
+      "defectBefore": 26,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "jerusalen-es",
+      "unitsChanged": 1,
+      "defectBefore": 1,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    }
+  ]
+}

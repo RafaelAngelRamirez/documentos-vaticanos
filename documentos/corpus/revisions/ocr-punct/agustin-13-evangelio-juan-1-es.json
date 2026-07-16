@@ -1,0 +1,34 @@
+{
+  "documentId": "agustin-13-evangelio-juan-1-es",
+  "revision": "ocr-punct-v1",
+  "appliedAt": "2026-07-16T00:00:05.877Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "internal-word-period",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 2318,
+  "unitsChanged": 1177,
+  "before": {
+    "spaceBeforePunct": 5356,
+    "gluedClausePunct": 71,
+    "missingSentenceSpace": 6,
+    "internalWordPeriod": 64,
+    "defectScore": 5632
+  },
+  "after": {
+    "spaceBeforePunct": 1,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 0,
+    "defectScore": 1
+  },
+  "letterTokenOverlap": 0.9993,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

@@ -50,7 +50,10 @@
     "concilios:import-es": "npx ts-node --transpile-only import_council_es.ts",
     "concilios:translate-es": "npx ts-node --transpile-only translate_council_es.ts",
     "source:extract": "npx ts-node --transpile-only extract_source_text.ts",
-    "source:ocr": "bash ocr_volume.sh"
+    "source:ocr": "bash ocr_volume.sh",
+    "test:ocr-punct": "npx ts-node --transpile-only repair_ocr_punctuation.test.ts",
+    "ocr:punct-inventory": "npx ts-node --transpile-only repair_ocr_punctuation_corpus.ts --inventory",
+    "ocr:punct-apply": "npx ts-node --transpile-only repair_ocr_punctuation_corpus.ts --apply"
   },
   "author": "",
   "license": "ISC",

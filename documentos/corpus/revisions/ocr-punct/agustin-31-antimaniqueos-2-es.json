@@ -1,0 +1,34 @@
+{
+  "documentId": "agustin-31-antimaniqueos-2-es",
+  "revision": "ocr-punct-v1",
+  "appliedAt": "2026-07-16T00:00:25.505Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "internal-word-period",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 3951,
+  "unitsChanged": 1056,
+  "before": {
+    "spaceBeforePunct": 2032,
+    "gluedClausePunct": 9,
+    "missingSentenceSpace": 1,
+    "internalWordPeriod": 10,
+    "defectScore": 2071
+  },
+  "after": {
+    "spaceBeforePunct": 68,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 0,
+    "defectScore": 68
+  },
+  "letterTokenOverlap": 0.9999,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

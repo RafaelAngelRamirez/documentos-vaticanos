@@ -30,7 +30,7 @@ O 1990, Editorial Ciudad Nueva enseguida su falta de aptitud para la administrac
 hacer que lo destituyesen bajo la acusación de incapacidad y
 ISBN: 84-86987-17-2 despilfarro financiero. A la muerte del Emperador filoarriano
 Depósito Legal: CO-849-1990 Valente (378) volvió a su Sede. Y desde aquel momento, de
-. . forma particular, tras la muerte de su hermano Basilio (379,
+.. forma particular, tras la muerte de su hermano Basilio (379,
 Printed in Spain - Impreso en España su autoridad y fama crecieron de día en día. Desempeñó un
 Fotocomposición: Cuesta, S. A. papel importante, junto con Gregorio Nacianceno, en el ConImprime: Tipografía Católica, S. A. cilio de Constantinopla (381), mientras que el nombramiento
 Ingeniero Torres Quevedo, s/n como Obispo del Ponto, por parte del Emperador Teodosio
@@ -39,16 +39,15 @@ región y le confirmó como hombre de confianza del gobierno
 central. Murió poco después, el año 394.
 
 8 Gregorio de Nisa Introducción 9
-E : : í 7 1 del
+E:: í 7 1 del
 2. Fecha de composición, destinatorios y estructura Pp o ee medo partículas, eel -anibicato Jagedo Y
-de la «Gran Catequesis» Juas. a, : ' .
-La función oficial de la catequesis, que supone una consis-
-. . . , tente organización eclesial, en el siglo IV, estaba confiada norFechar las obras de Gregorio de Nisa sigue siendo todavía malmente al clero, pero en las Iglesias orientales se encontraba,
+de la «Gran Catequesis» Juas. a,: '.
+La función oficial de la catequesis, que supone una consis-..., tente organización eclesial, en el siglo IV, estaba confiada norFechar las obras de Gregorio de Nisa sigue siendo todavía malmente al clero, pero en las Iglesias orientales se encontraba,
 problemático por la ausencia de puntos de referencia seguros frecuentemente, en manos de laicos, a los que se les exigía,
 y decisivos. Por lo que se refiere a la Gran Catequesis, apesar según las Constituciones Apostólicas, pericia en el hablar y
 de lo dicho, nos hallamos en condiciones de fijar, con proba- Honestidad de vida?
 pr SUicann h ción algunos años después del 381 (cerca Con respecto al primer requisito se encuentra en esta exapodo ade psa a posición de Gregorio un determinado tipo de argumentación
-Ze dese osición: mé equesis, ; filosófica: esto induce a pensar que la catequesis propuesta
+Ze dese osición: mé equesis,; filosófica: esto induce a pensar que la catequesis propuesta
 que los que deseen una exposición más completa y más minu- por el de Nisa tenía que adaptarse a un ambiente de «intelecciosa de las doctrinas tratadas la encontrarán en otros trabajos tuales impregnados de neoplatonismo»*.
 es dona aa 1 dic hecho pensar 5 Le G: Los e Esto influye sensiblemente, como puede reconocerse fácilesis 5 ela e mediada pm slónies deL pa ato mente, en toda la estructura de la Gran Catequesis y determina
 2 > us EeolÓgICa de las doctrinas la estructuración de los temas tratados, el tono y el método
@@ -61,7 +60,7 @@ Prop de este tipo (aparte del « uso de la «ekphrasis» o descripción comparat
 pia pecado estaban dirigidas en su mayoría a la de analogía respecto a los temas tratados”.
 e cy be eche Je» piano hh e En cuanto a las concepciones filosóficas usadas en la exA hi ente a los inicia dos re E pa lea para 2E01A, se posición doctrinal, forman parte, también éstas, del método
 a pa fundamentos de la doctrí Lic: la $ pa pedagógico de Gregorio de Nisa, de formular los contenidos
-Foo ; fundam bio. está diri octrina evangélica; la Gran revelados con categorías culturales propias de los destinatarios
+Foo; fundam bio. está diri octrina evangélica; la Gran revelados con categorías culturales propias de los destinatarios
 . Lp sl Pa 10 Igida a los «s uperiores eclesiás- de las enseñanzas evangélicas: se trata de la metodología diticos», a los maestros o «catequistas», que, en la Iglesia, tenían dáctica común a los tres Padres Capadocios, ya adaptada y
 la misión de promover en los creyentes una adecuada forma- propuesta sistemáticamente por el Maestro Orígenes.
 ción relativa al patrimonio doctrinal de la tradición apostólica, Ea
@@ -125,7 +124,7 @@ existencia del Verbo, como también del Espíritu. Pero el Verbo, que, habiendo 
 como también, el Espíritu, posee los mismos atributos de grado de volver a encenderla aunque se hallase apagada.
 aquel del cual es Verbo, y, es, por consiguiente, sustancia Se desarrolla así la tercera parte de la Catequesis (C. IXviviente en sí, eterna, voluntad que elige el bien y lo crea. XXXII), dedicada al problema cristológico: a la encarnación
 . La segunda parte (C. V-VIII) es esencialmente antropoló- del Verbo y a la redención del hombre. El misterio de la
-gica: trata de la creación del hombre, del origen y de la natu- encarnación del Verbo plantea enseguida una dificultad: ¿Cómo
+gica: trata de la creación del hombre, del origen y de la natu- encarnación del Verbo plantea enseguida una dificultad:¿ Cómo
 raleza del mal. El hombre, como todo el universo, es obra de explicar la unión de la naturaleza divina, que carece de toda
 la potencia creadora del Verbo: él lleva consigo la afinidad pasión, con la naturaleza humana mudable y sujeta a
 con el Creador y, por tanto, posee la vida, la razón, y el pasiones? La única pasión que por naturaleza se opone al
@@ -141,7 +140,7 @@ nesis, en haber sido creado «a imagen y semejanza de Dios». comprensión de la
 Fue la envidia del Príncipe de este mundo, del ángel de las Uniendo en sí, de manera inefable los dos elementos constinieblas, la que le indujo con engaños a elegir el mal, presen- titutivos del hombre, lo sensible y lo inteligible, el Verbo ha
 tado bajo la forma de bien. Porque el mal es «ausencia de realizado el designio de abarcar en su resurrección y en una
 bien» y, por consiguiente, no posee una consistencia real, eternidad de vida, al hombre en todo su ser integral de alma
-Igual que la tiniebla que es la falta de luz. Por tanto, es y cuerpo. Pero ¿por qué Dios no ha realizado la redención
+Igual que la tiniebla que es la falta de luz. Por tanto, es y cuerpo. Pero¿ por qué Dios no ha realizado la redención
 imposible fijar su causa en Dios, que crea la realidad y la con un simple acto de voluntad? Como un sabio médico,
 existencia, no la inexistencia, como no se le podría achacar al Dios ha elegido medios para sanar al hombre en el plano de
 Sol la tiniebla que nos envuelve cuando cerramos los ojos. la realización, mostrando los atributos de su divinidad: la
@@ -164,7 +163,7 @@ divina, pero que no todos están dispuestos a acoger. Además, asimilación a Cr
 la libertad de la fe va unida estrechamente a la razón, porque el hombre: una unión profunda que Gregorio de Nisa explica
 «la naturaleza racional y pensante, si deja a un lado la libertad, recurriendo a la analogía del cuerpo sostenido en su existencia
 pierde enseguida el don de la inteligencia»; porque ésta ya no por la fuerza de la nutrición. Esta doctrina, como se ha dicho,
-sirve «cuando la facultad de elegir, según el propio juicio, no sólo se convierte en «clásica» para las Iglesias de oriente .
+sirve «cuando la facultad de elegir, según el propio juicio, no sólo se convierte en «clásica» para las Iglesias de oriente.
 depende de otro». por mediación de Juan Damasceno, sino que influyó enorme-
 
 Una última objeción permite a Gregorio hablar del misterio mente también en la fe y en el pensamiento teológico de
@@ -186,21 +185,21 @@ a afirmar que la resurrección de Cristo es semilla y fundamento De anima et res
 16 Gregorio de Nisa Introducción 17
 a los espíritus juiciosos para que arr ojen en la vida presente gérmenes y de tendencias heréticas en la comunidad eclesial,
 e ea y los cimientos de aquella dicha inefable que les y del complejo e insidioso movimiento gnóstico que penetraba
-p 4 a : a en todas partes, apoyado por cultos mistéricos ".
+p 4 a: a en todas partes, apoyado por cultos mistéricos ".
 E e qu oe Gregorio se abre sin esquemas, La formación doctrinal, especialmente en la perspectiva
 ada por una actitud dialogante que la une al tiempo y de la conversión y de la inserción en la Iglesia, mediante el
 a la vida, y se sitúa en el amplio marco de la historia de la Bautismo, fue ejercida al principio de forma privada, por
 salvación, que tiene como centro propulsor la persona y la iniciativa y bajo la responsabilidad de personas que organizaobra redentora de Cristo. ron, como Justino en Roma, centros o escuelas de instrucción
 cristiana. La misma Escuela de Alejandría, el célebre Didas-
-2. Lio . ' . . kaleion, tuvo en sus comienzos —con Panteno y Clemente
+2. Lio. '.. kaleion, tuvo en sus comienzos —con Panteno y Clemente
 . catequesis en la Iglesia antigua Alejandrino— un carácter privado, y se convirtió en centro
-La Gran Ca , . . o eclesial, oficialmente reconocido, cuando el Obispo Demetrio,
+La Gran Ca,.. o eclesial, oficialmente reconocido, cuando el Obispo Demetrio,
 ran Catequesis de Gregorio de Nisa se injerta como alrededor del 215, confió a Orígenes el encargo de instruir a
 una etapa fundamental en el itinerario pedagógico de la Iglesia los catecúmenos. Pero, poco después, siempre de acuerdo con
 antigua, cuyo compromiso de anunciar el Evangelio a todas el Obispo, Orígenes dejó la instrucción de los catecúmenos
 las gentes se remonta, como es sabido, al mandamiento de propiamente dicha a su amigo Heraclas, reservándose el trabajo
 a hecho a los apóstoles antes de su ascensión a los Cie- de exponer sistemáticamente la doctrina evangélica a personas
-sad £ as . . de ambiente culto y desarrollado; y sabemos que su escuela
+sad £ as.. de ambiente culto y desarrollado; y sabemos que su escuela
 . Después de la sorprendente difusión del E vangelio bajo el era muy frecuentada, también, por personas provenientes de
 impulso misionero de personas y grupos que trabajaban en el ambientes paganos y judíos.
 espíritu y fervor de la edad apostólica y postapostólica, la Se sabe que la catequesis antigua insistía principalmente
@@ -214,10 +213,10 @@ carita y Pte 2 el as ln y constituyó una y el de la muerte. A la segunda mitad 
 pre pastos e y con resultados fecundos para denominada Carta a los Apóstoles en la que se encuentra
 oria y la vida de la Iglesia. Un atento y organizado también una parte dogmática. La demostración de la predicacompromiso en la didáctica auténticamente evangélica era ción apostólica, de Ireneo (siglo II), de carácter apologético,
 sugerido, en particular, por las continuas infiltraciones de expone, en síntesis, «la predicación de la verdad» presentando
-EA : «las pruebas de los dogmas divinos» (1-8), y traza a grandes
+EA: «las pruebas de los dogmas divinos» (1-8), y traza a grandes
 di Gregorio Nisseno nel dialogo «Intorno all'anima e alla resurrezione», en
 Mesa ao 30 (1938), pág. 468. 1 Cfr. K. Baus, en Storia della Chiesa, dirigida por H. Jedin, vol. 1, Le
-. 28, 29; Mc. 16, . origini, Milán 1977, págs. 357 ss.
+. 28, 29; Mc. 16,. origini, Milán 1977, págs. 357 ss.
 
 18 Gregorio de Nisa Introducción 18
 líneas la historia de la salvación, un aspecto que entró como Aparte de las características que distinguen los dos escritos
@@ -225,7 +224,7 @@ elemento comúnmente adquirido en las catequesis sucesivas ". —el de Gregorio 
 Hemos evocado algunos elementos relevantes en la historia elemento fundamental con una significativa afinidad; como
 de la catequesis antigua, sin proponernos, como es obvio, hemos ya dicho, la Gran Catequesis, articulada sobre la historia
 exponer un cuadro completo. Está claro que, en la didáctica de la salvación, adapta pedagógicamente el contenido y la
-cristiana más antigua, eran predominantes los aspectos ético- forma especulativa a las exigencias características de sus deslitúrgicos sobre los expositivos y dogmáticos; los cuales, por tinatarios. E A .
+cristiana más antigua, eran predominantes los aspectos ético- forma especulativa a las exigencias características de sus deslitúrgicos sobre los expositivos y dogmáticos; los cuales, por tinatarios. E A.
 las cambiantes condiciones culturales, tanto internas como Pensando en el aspecto dinámico y dialéctico de la que
 externas al cristianismo, tomarán poco a poco mayor consis- hoy se ha dado en llamar mediación cultural, es fácil encontrar
 tencia. En este sentido, resulta significativa la experiencia de en los tratados de los dos grandes teólogos de Oriente y
@@ -233,7 +232,7 @@ Orígenes al separar los dos campos de la actividad didáctica: Occidente respec
 el más directamente ético-sacramental y el de carácter actualidad.
 dogmático-especulativo, que especialmente en el IV siglo registrará una vasta producción en la que se cruzarán, no siempre
 en una equilibrada convivencia, la filosofía y la teología. 4. Exégesis bíblica
-Finalmente, no podemos descuidar unas notas sobre el . : ,
+Finalmente, no podemos descuidar unas notas sobre el.:,
 «De catechizandis rudibus» de San Agustín, escrito a finales La comparación de la Catequesis de Gregorio con el De cadel siglo IV y, por consiguiente, no demasiado distante de la techizandis rudibus de Agustín, ha hecho que, en el primero, se
 Gran Catequesis de Gregorio; ambas se hallan en el centro de 'juzgase excesiva la prevalencia de las justificaciones filosóficas
 un proceso eclesial-teológico que abarca desde Nicea (325) a sobre las motivaciones bíblico-teológicas. De todas maneras,
@@ -251,18 +250,18 @@ enseñanza a la cultura, a los problemas y al ambiente de Las citas de la Catequ
 quien nos escucha “. * y a 14 del N.T. con clara prevalencia de los salmos y del
 Evangelio de Juan, respectivamente. ”
 » i Le La exégesis bíblica de Gregorio de Nisa, sobre la que se ha
-Cfr. J. Daniélou, La catechesi, cit., pág. 21. . . ili ñ
+Cfr. J. Daniélou, La catechesi, cit., pág. 21... ili ñ
 w Por el carácter y la 0 sr] E discutido mucho, como la de su hermano Basilio, deriva de
 Agustín el sintético Enchiridion ad Laurentium, del 421, manual de teología Orígenes (Srawley): en el C. XXXII de la Catequesis, Gregorio,
 articulado sobre las virtudes teologales. que, en otra parte, declara que sigue el sentido literal de las
 
-l . Introducción 21
+l. Introducción 21
 20 Gregorio de Nisa
 le la Sagrada Escritura) procuren resaltar, princiEscrituras '", expone los principios del método alegórico- ca cia - pa teológico, pain las disputas suinterpretativo, aplicados en ese caso en la explicación del perfluas... expongan con tanta solidez, declaren con tal maestría
 modo en que se produjo la muerte de Cristo: en cada palabra e inculquen con tal calor el sentido literal y especialmente
 y en cada hecho del Evangelio, dice Gregorio, existe un sentido dogmático, que en sus alumnos se verifique, en cierto modo,
 más alto y más divino que el expresado superficialmente por aquello que les sucedió a los discípulos de Jesús camino de
-las palabras, y, en cada paso, se encuentra una mezcla de lo Emaús, que oídas las palabras del Maestro, exclamaron: “¿No
+las palabras, y, en cada paso, se encuentra una mezcla de lo Emaús, que oídas las palabras del Maestro, exclamaron: “¿ No
 divino con lo humano, de forma que en la muerte de Cristo sentíamos inflamarse nuestro corazón cuando nos explicaba
 es reconoscible el elemento humano, mientras que en la manera las Escrituras?” (Lc. 24,32)» ".
 en que ésta se produce se desvela lo divino. Por lo demás, la
@@ -273,10 +272,10 @@ formas, el uso de la alegoría por parte de Gregorio revela, cierta medida, han 
 del sentido de las Escrituras» (Srawley)'". para una adecuada valoración del texto; la variedad de los
 En la exégesis de Gregorio, se han descubierto y puestos temas tratados, se refleja en esta reseña, confiriéndole, en
 debidamente de relieve —también recientemente— tres algunos puntos, un carácter no del todo homogéneo ni
-elementos-clave recíprocamente relacionados: el objetivo de específico. ?
+elementos-clave recíprocamente relacionados: el objetivo de específico.?
 la Escritura (skopós), la búsqueda y comprensión del sentido
 escriturístico (theória), la conexión de los hechos y de los 1. Fuentes platónicas
-sentidos de las Escrituras (akololouthía)": elementos sobre los " p . P 1
+sentidos de las Escrituras (akololouthía)": elementos sobre los " p. P 1
 que Gregorio ha construido su intento de «hacer emerger la La consistente presencia de elementos platónicos = los
 enseñanza teológica de las Escrituras», en lo referente al de- escritos de Gregorio de Nisa ha atraído siempre la atención y
 signio divino de la salvación '. el interés de los comentaristas. Según la afirmación de Harnack,
@@ -288,17 +287,17 @@ NAT transformación, en sentido cristiano, de los temas platónicos
 % In Hexaem., PG XLIV, 121 D; 124 B. que hace Gregorio de Nisa”. Hay que tener en cuenta que,
 1“ Véase Contra Eunomium, 7, PGXLV, 744D; In Cant. Cant., exceptuando el caso de citas explícitas y de reminiscencias
 PG XLIV, 756-757; Cfr. M. N. Esler, Allegorie und Analogie bei Gregor von directas, la influencia es, a menudo, imputable, más que a
-Nyssa, Bonn 1979, págs. 6 ss., 28 ss. ,
+Nyssa, Bonn 1979, págs. 6 ss., 28 ss.,
 " B. De Margerie, Introduction á l'histoire de P'exégese, 1. Les Peres grecs w Divino afflante Spiritu, AAS 35 (1943), 322.
 et orientaux, París 1980, págs. 240-269; Cfr. J. Daniélou, L'étre et le temps 2 Véase principalmente E. von Ivanka, Plato Christianus, Einsiedeln 1964,
 chez Grégoire de Nysse, Leiden 1970, págs. 1-50. págs. 151-185.
 ' B. De Margerie, op. cit., pág. 267.
 
 22 Gregorio de Nisa ituducción 28
-determinadas páginas . si ónico. consiguiente, no ser; la raíz del mal es solamente el libre
+determinadas páginas. si ónico. consiguiente, no ser; la raíz del mal es solamente el libre
 más, riada ia A arbitrio del hombre (VID. Son ideas de corte platónico que
 cepciones platónicas de Gregorio se derivan indirectamente, a se hallan en la República, 379 b-<; 617; cfr. Teet, 176;
-través de elaboraciones precedentes de autores cristianos, como Tim. 86d; y Filón, De conf. ling., 33. ,
+través de elaboraciones precedentes de autores cristianos, como Tim. 86d; y Filón, De conf. ling., 33.,
 Orígenes. y h) Según Gregorio, el hombre es atraído por el mal en
 a) En los primeros capítulos de la Catequesis, Gregorio cuanto que éste se le presenta como apariencia de bien, de
 recurre a la psicología platónica para ilustrar la doctrina de la manera que, en la base de la culpa, hay un falso juicio, akrisía
@@ -319,12 +318,12 @@ e) Para aclarar la afinidad con lo divino que en el hombre expresa su gratitud a
 hace ontológicamente posible la participación en los bienes sufrimientos que le ha procurado la medicina y la cirugía. En
 celestiales (V), Gregorio recurre a la analogía platónica del esta teoría se halla una huella de República, 380 a-b (Cfr.
 ojo hecho capaz de recibir la luz «gracias al elemento luminoso 591 a-b), donde Platón defiende los efectos saludables de una
-presente en él por naturaleza» (Tímeo, 45b-d). . disciplina severa, dirigida a redimir a los cautivos de su infe-
+presente en él por naturaleza» (Tímeo, 45b-d).. disciplina severa, dirigida a redimir a los cautivos de su infe-
 1) El problema del mal del que Gregorio trata en el C. V licidad.
 de la Catequesis, lo resuelve con conceptos directamente ligados
 al sistema platónico: sobre la identificación platónica del ser
 (to on) con el bien (to agathón) Gregorio fundamenta la 2. Fuentes aristotélicas
-detado A a La influencia aristotélica en la Gran Catequesis es.relativa
+detado A a La influencia aristotélica en la Gran Catequesis esrelativa
 £) Dado que Dios es creador del ser, no se le puede y modesta, cone anotaba Sra wley. Además, las pocas refeatribuir la causa del mal, que es «privación del bien» y, por rencias o contactos aristotélicos que se encuentran en ella
 
 24 Gregorio de Nisa Introducción 25
@@ -334,10 +333,10 @@ a) Hablando de la ericarnación, Gregorio explica de qué y el vecho akolontiña
 tipo es la pasión o afección (pathos) asumida por el dsg omcrié tocata ale den pemnacierdnn Ciclos
 Verbo junto con la naturaleza humana (XVI): el sentido que Jen day vatesccnerician ise Ni pcticindos Etch aa al
 hay que dar al término pathos en este caso es el de «actividad» cierta dependencia aristotélica con probable superposición de
-como el nacimiento, el crecimiento, etc. y no el de «mutación» la influencia estoica*. . a
+como el nacimiento, el crecimiento, etc. y no el de «mutación» la influencia estoica*.. a
 que conduce la voluntad al vicio. Es muy probable que la AJO art OrScIAS DOCS EU
 referencia de esta página se remonte a Arist 'óteles, Metafisi- se añaden comprensibles imitaciones y afinidades en determica cp en la que se define y se distingue la naturaleza del a
-pathos. / :
+pathos. /:
 
 b) El término to hypoktimenon en el sentido de materia A Brsasitcas
 y en oposición a «forma», para lo que se ha de confrontar La influencia estoica, en Gregorio de Nisa, ha sido estuAristóteles, Pol. 1,8", es usado en el C. XXX de la Gran diada, como se sabe, por K. Gronau que examina de modo
@@ -361,7 +360,7 @@ pre cl contener el elemento húmedo como sucede con las » En La Gran Catequesis
 
 A P 1; XXIV, 1; XXXIL, 5; XXXVII 5. 5
 d 4 o muy frecuente en los escritos de Gregorio u Véase J. Daniélou, Akolouthia chez Grégoire de Nysse, en «Revue des
-, en general, y en la Catequesis en particular, es el Sciences Religieuses», 27 (1953), págs. 243-245. .
+, en general, y en la Catequesis en particular, es el Sciences Religieuses», 27 (1953), págs. 243-245..
 —_—_— w K. Gronau, Poseidonios und die júdisch-christliche Genesisexegese,
 * Para el uso estoico, véase 1. von Arnim, Stoicorum Veterum Fragmen- Leipzig-Berlín 1914, págs. 112-281. Pocas referencias a La Gran Catequesis
 ta, II, Stuttgart 1979, págs. 113-125. en págs. 241 ss., núm. 1; 171, núm. 1; 186, 188. Pero la dependencia no es
@@ -379,14 +378,14 @@ d) En varios momentos, Gregorio discurre sobre la de- en todos los dominios de r
 bilidad y la enfermedad, propias de la naturaleza humana; punto de vista, uno de los intentos más importantes que se
 muchas veces se trata de verdaderas enfermedades físicas (VII,3; hayan hecho de sistematización teológica», porque, a pesar de
 XXIII,2) o, en general (XVI, 2-3). En analogía con las enfer- que en ellos pesa la análoga concepción origeniana, Gregorio
-medades del cuerpo convenientemente curadas, en el «está más cercano a los hechos» ?.
+medades del cuerpo convenientemente curadas, en el «está más cercano a los hechos»?.
 C. VIH, 10, el Obispo de Nisa habla de las «enfermedades del
 alma» (ía tés psyches arrostemata) que serán objeto de un 4. Fuentes neoplatónicas
 tratamiento de purificación después de la muerte. En este En lo que se refiere a la influencia neoplatónica en la
-sentido, no resulta improbable la referencia a una concepción Gran Catequesis las conexiones se notan, también en deterestoica análoga ”. . . minadas ideas y, sobre todo, en su desarrollo y aplicación al
+sentido, no resulta improbable la referencia a una concepción Gran Catequesis las conexiones se notan, también en deterestoica análoga ”... minadas ideas y, sobre todo, en su desarrollo y aplicación al
 e) La omnipresencia de Dios que abarca y penetra el pensamiento cristiano, tales como la concepción más espiritual
 universo (XXV, 1) es una idea bíblica y contenida en germen de Dios y la indivisibilidad del ser divino, en un clima cultuademás de en el Timeo, de Platón, en la concepción estoica de ral en el que muchas concepciones religiosas corrientes se
-la divinidad como anima mundi? . habían visto fuertemente influidas por el neoplatonismo (Cfr.
+la divinidad como anima mundi?. habían visto fuertemente influidas por el neoplatonismo (Cfr.
 £) Sobre la base de la «simpatía» existente entre los miem- Srawley p. XD.
 bros del cuerpo (VIIL 12), Gregorio considera la correspon- La misma concepción del mal definida por Gregorio, en
 diente conexión en todas las partes del universo para explicar la perspectiva platónica, como «ausencia del bien» se remonta
@@ -394,9 +393,9 @@ el valor cósmico de la resurrección, que, a través del hombre, también a Plo
 se comunica a toda la naturaleza (XXXI1,4), Además del área cristiana, por influencia de Orígenes (De princ., 17,9,2).
 elemento platónico ya aludido, el tema de la «simpatía» en el A la relación pensamiento-materia en el hombre, Gregorio
 hombre y en el universo hace recordar una concepción análoga le dedica un rápido examen en Catequesis, VI, 3 (Cfr. X;1;
-teorizada especialmente por Posidonio *. . más específicamente De hom, opif., 12) insistiendo en lo que
+teorizada especialmente por Posidonio *.. más específicamente De hom, opif., 12) insistiendo en lo que
 £) Eluso de akolouthía, y afines, por parte de Gregorio, él llama «conmisptión» o «combinación» de lo sensible con lo
-» M. Pohlenz, La Stoa, I, Florencia 1967, pág. 339. inteligible: nociones que encuentran una significativa corresx Véase von Arnim, op. cit., III, págs. . Cfr. Pohlenz, op. cit., 1, pondencia en Plotino, Enn., 1V,3,2055. | .
+» M. Pohlenz, La Stoa, I, Florencia 1967, pág. 339. inteligible: nociones que encuentran una significativa corresx Véase von Arnim, op. cit., III, págs.. Cfr. Pohlenz, op. cit., 1, pondencia en Plotino, Enn., 1V,3,2055. |.
 pág. 298. La presencia de la metafísica neoplatónica en la teología
 » Véase Srawley, pág. 95. Otro punto de contacto con el estoicismo ha de Gregorio de Nisa ha sido puntualizada, también, recientesido visto por Pohlenz (op. cit., II, págs. 329 ss., nota) en el prólogo (4) de La Z
 Gran Catequesis, donde Gregorio se refiere a la prueba de la existencia de 11 J. Daniélou, Akolouthia, cit., pág. 247; Cfr. L'étre et le temps, Cit.,
@@ -442,7 +441,7 @@ S. Lilla en Gregorio de Nisa, L'anima e la risurrezione, Cittá Nuova, Roma 324-
 30 Gregorio de Nisa Introducción 31
 naturaleza inteligible y mundo sensible, Gregorio añade la origeniano, sin embargo, el hombre aparece, más bien, como
 división profunda, de inspiración bíblica, entre creado e in- «un factor en el mundo de los espíritus» (Srawley).
-creado (XXVIII), que pone fuertemente de relieve la trans- : :
+creado (XXVIII), que pone fuertemente de relieve la trans-::
 cendencia divina y la potencia del amor de Dios que desciende 8), Metotlo de Olimpo
 hasta el hombre mediante la encarnación. La independencia que Gregorio de Nisa mantiene con
 3. Es conocida la concepción origenista de la preexistencia Orígenes tiene por su parte, también, la libre utilización de los
@@ -477,7 +476,7 @@ o XVII; Atanasio, De incarn., 44; Or. c. Ar., 1I, 68.
 
 32 Gregorio de Nisa Introducción 33
 para justificar la idea de encarnación: Gran Catequesis, XX V; simple acto de voluntad, Gregorio da una respuesta nueva
-Atanasio, De incarn., 41,42. ! formulada con «elegancia dialéctica» sobre la base de los
+Atanasio, De incarn., 41,42.! formulada con «elegancia dialéctica» sobre la base de los
 
 3. Necesidad de la muerte de Cristo, afirmada por ambos, atributos divinos: la bondad que mueve a Dios a «visitar» al
 pero más decididamente por Gregorio, al valorar la asunción hombre caído, la sabiduría por la que Dios asume la naturaleza
@@ -555,7 +554,7 @@ Verbo de Dios se transforma en el cuerpo del Verbo divino» d) Presentación dia
 (XXXVIL 9). Verdades fundamentales de la fe, examinadas en el contexto
 Gregorio, como observa Srawley, queda fuera de las dis- vivo de la problemática religiosa contemporánea.
 cusiones que surgirían en Occidente respecto a este problema En la Gran Catequesis, se expresa y se traduce una exigeny modeladas después por la distinción escolástica de «sustancia» cía que todavía hoy se plantea con urgencia a la conciencia de
-y «accidente». : las comunidades y de la Iglesia, o sea la exigencia de formar
+y «accidente».: las comunidades y de la Iglesia, o sea la exigencia de formar
 Apuntamos rápidamente algunos datos que ilustran la
 suerte del tratado de Gregorio de Nisa. » Cfr. Catechesi tradendae, «Exhortación Apostólica de Juan Pablo II
 En los mejores manuscritos, en Fozio (Bibl. Cod. 233), en sobre la catequesis en nuestro tiempo», núms. 17, 21, 25, 31, 53, 59.
@@ -576,15 +575,15 @@ a instancias que hoy vuelven a emerger, ha conservado respecto
 
 así los límites y las reducciones de una fuerte actitud especu-
 
-lativa y evitando, por lo que parece a nuestro Juicio, una 4 .
+lativa y evitando, por lo que parece a nuestro Juicio, una 4.
 exagerada racionalización y casi vaciamiento del mensaje evan- G 14 eg OrIlO 10| e N 1Sa
 gélico.
 
 PRÓLOGO *
 
 1. Los que se hallan al frente del misterio de la fe'
-necesitan la doctrina catequética para que la Iglesia vaya multiplicándose con el aumento de las almas salvadas ?, haciendo
-llegar al oído de los infieles la auténtica doctrina ?.
+necesitan la doctrina catequética para que la Iglesia vaya multiplicándose con el aumento de las almas salvadas?, haciendo
+llegar al oído de los infieles la auténtica doctrina?.
 
 "Método de la enseñanza
 
@@ -615,29 +614,28 @@ d'histoire judéo-chrétienne (París 1962).
 
 40 Gregorio de Nisa La Gran Catequesis 41
 quien convive con el Paganismo, y el anomeo *, el maniqueo “, e be o vn a em e. lie
-los marcionitas ”, los valentinianos y basilidianos *, y toda la po 7 P 5 .
-lista restante de gentes descarriadas en las herejías, por estar para el ¡poneis la Justa: nr leen 5 rones
+los marcionitas ”, los valentinianos y basilidianos *, y toda la po 7 P 5.
+lista restante de gentes descarriadas en las herejías, por estar para el¡ poneis la Justa: nr leen 5 rones
 cam. cual de par atrapado por sus propios conceptos, O DA Ra sei pt individuos _
 acen necesaria la lucha contra sus respectivas creencias, pues A 5
-la clase de remedio que se ha de aplicar depende de la índole forjarse el argumento en tazón del error de.cada uno, adelab+
+la clase de remedio que se ha de aplicar depende de la índole forjarse el argumento en tazón del error decada uno, adelab+
 de la enfermedad. tando en cada discusión algunos principios y proposiciones
-3. N . . e bien fundados, con el fin de que, gracias a estos puntos de
+3. N.. e bien fundados, con el fin de que, gracias a estos puntos de
 - No curarás con los mismos remedios el Politeísmo del coincidencia por ambas partes, se vaya desvelando la verdad
-pagano y la incredulidad del judío en lo que atañe al Dios por lógica consecuencia.
-. . 9 . . . . 3 . .
+pagano y la incredulidad del judío en lo que atañe al Dios por lógica consecuencia...9...3..
 Pri ni eo or mismas armas lograrás rebatir en los 4. Por llo tanto, siempre que se discuta con algún pagano,
-escarriados por erejías sus falsas fábulas acerca de las lo bueno sería comenzar así el discurso; ¿Cree que Dios existe,
+escarriados por erejías sus falsas fábulas acerca de las lo bueno sería comenzar así el discurso;¿ Cree que Dios existe,
 o comparte la opinión de los ateos? Porque, si niega que
 == existe, partiendo entonces de la ingeniosa y sabia disposición
 * La doctrina del anomeísmo se atribuye al antiniceno radical Aecio del universo, se le irá llevando por ese medio hasta reconocer
 (h.350), que identificó la esencia divina con la noción de «no engendrado», presente en ella una fuerza que se manifiesta y que es superior
 típica del Padre, por lo cual el Hijo resultaba diferente, desemejante (anómoios) al universo. Por el contrario, si no pone en duda la existencia
 a po tema, Gregorio polemizó con Eunomio, obispo de de Dios, pero le seduce la creencia en una multitud de dioses,
-dei is o : Y utilicemos contra él ésta o parecida argumentación: 5. ¿Qué
+dei is o: Y utilicemos contra él ésta o parecida argumentación: 5.¿ Qué
 On op] por qu cs de Babilonia del Norte, hacia mediados piensa él, que la divinidad es perfecta o que es imperfecta? Si,
 » e aniqueismo logró una gran difusión hasta la Edad Media. como es probable, atestigua en favor de la perfección de la
 Desago eri pan epa pira o.esengias divinas presiden, respeo- naturaleza divina, exijámosle afirmar la perfección en todos
-tivamente, ien y gnóstico-sincretista de inspiración cristiano- PAS :
+tivamente, ien y gnóstico-sincretista de inspiración cristiano- PAS:
 siríaca, llegó, en sus extremas consecuencias a condenar el mundo material y pc Ii pa 2% E pur
 a prohibir el matrimonio y determinados alimentos. Cf. H. Ch. Puech, Le H és A
 Manichéisme, son fondateur, sa doctrine (París 1949). de lo perfecto. Más aún, si en su contemplación se topa con
@@ -649,7 +647,7 @@ emanan de Dios, y enseñó un dualismo mitigado por influjo del platonismo ya di
 ea El opa «Evangelio de la Verdad», descubierto hace sólo unas una multitud de dioses, hacia la confesión de una sola divini-
 > quizás fue escrito por él, en todo caso por alguien bajo su influjo. dad. Efectivamente, si se aviene a reconocer la perfección
 Basílides, también alejandrino, se adhirió al gnosticismo siríaco y trató de
-presentarse como intermediario entre judíos y cristianos, pero con tendencia EEE ECU ui . .
+presentarse como intermediario entre judíos y cristianos, pero con tendencia EEE ECU ui..
 a una total liberación de la Ley. Escribió un Evangelio y su comentario, ” Sabelio, probablemente o e Libia,-a comienzos del siglo mu
 Salmos y Odas. sostuvo que las tres Personas de la Trinidad no son más que dos modos
 > C£ Jn. 1,18. (modalismo) de manifestarse Dios (v. Introducción, pág. 10).
@@ -692,12 +690,12 @@ prósopon), y para «naturaleza», physis, equivalente a esencia (ousía).
 44 Gregorio de Nisa La Gran Catequesis 45
 sabiduría son de la misma categoría en Dios, sino que el
 sentido de tales nombres se abaja hasta el nivel de nuestra Poder del Verbo
-naturaleza, pues, como quiera que nuestra naturaleza es co- . . ,
+naturaleza, pues, como quiera que nuestra naturaleza es co-..,
 rruptible y débil, por lo mismo nuestra vida es caduca, nuestra 7. Por tanto, si el Verbo vive porque es la vida, también
 potencia inconsistente y nuestra palabra remisa. 4. En cambio, tiene en todo caso el libre albedrío, ya que ningún ser vivo
 en la naturaleza suprema, todo lo que de ella se predica se carece de albedrío. Ahora bien, santo y bueno será considerar
 ajusta a la grandeza del sujeto contemplado. Por consiguiente, que lógicamente este libre albedrío es además poderoso, puesto
-cuando se habla del Verbo de Dios, no se ha de pensar que su que, de no reconocer el poder, habría que suponer necesariaconsistencia reside en el impulso de la voz, y por ende que se mente la impotencia. .
+cuando se habla del Verbo de Dios, no se ha de pensar que su que, de no reconocer el poder, habría que suponer necesariaconsistencia reside en el impulso de la voz, y por ende que se mente la impotencia..
 convierte en algo sin existencia real, a la manera de nuestra 8. Sin embargo, lo cierto es que nada hay más lejos del
 palabra; al contrario, lo mismo que nuestra naturaleza, por concepto de la divinidad que la impotencia. En efecto, respecto
 ser caduca, tiene la palabra caduca, así también la naturaleza de la naturaleza divina no se admite la menor disonancia,
@@ -711,7 +709,7 @@ que el Verbo de Dios subsiste eternamente, será de todo punto Verbo lo puede to
 necesario aceptar que la substancia del Verbo posee vida, alguno, puesto que la inclinación al mal es ajena a la naturaleza
 pues sería sacrílego pensar que el Verbo subsiste inanimado, divina. Al contrario, quiere todo cuanto hay de bueno; y si lo
 como las piedras. En cambio, si subsiste en tanto que ser quiere, lo puede absolutamente; y si lo puede, no se queda
-inteligente e incorpóreo, es que posee vida absolutamente ?, inactivo, sino que transforma en actos toda su voluntad
+inteligente e incorpóreo, es que posee vida absolutamente?, inactivo, sino que transforma en actos toda su voluntad
 mientras que, si se le separa de la vida, no subsiste en absoluto. de bien.
 Ahora bien, ya hemos demostrado ser impío el pensar que el
 Verbo de Dios carece de substancia. Por consiguiente, en
@@ -738,7 +736,7 @@ misterio se avenga con los secuaces de las doctrinas judías, Ahora bien, en nos
 sino que, por el contrario, igualmente escaparán a la sinrazón elemento extraño inhalado y expelido por necesidad para la
 de los unos y de los otros, al confesar que el Verbo de Dios consistencia del cuerpo y que, precisamente al ser expresada
 es vivo, activo y creador, cosa que el judío no admite, como la palabra, se convierte en voz que en sí misma manifiesta el
-tampoco el que el propio Verbo no difiere por su naturaleza poder de la palabra ?.
+tampoco el que el propio Verbo no difiere por su naturaleza poder de la palabra?.
 de Aquel de quien procede. 2. Ahora bien, la piedad nos ha hecho reconocer en la
 naturaleza divina la existencia de un Espíritu, lo mismo que
 también se ha reconocido la existencia de un Verbo de Dios.
@@ -767,15 +765,15 @@ Pneuma du Stoícisme á S. Agustin (Lovania 1945).
 
 48 Gregorio de Nisa La Gran Catequesis 49
 contemplarse referidos a nuestra palabra, sino que lo hemos sal ms Ds Ba pc lentciiMn, 10
-concebido como algo subsistente, con libre albedrío, activo Y : se dad debe rel medio entre bos ol
+concebido como algo subsistente, con libre albedrío, activo Y: se dad debe rel medio entre bos ol
 omnipotente. 3. Y así, una vez aprendida la existencia de un A O e avanzar po eo en nep
 Espíritu de Dios, que acompaña al Verbo y manifiesta su tos, eliminando de cada uno los errores y aprovechando lo
 actividad, tampoco lo entendemos como soplo del respirar. del PS En efecto, la creencia del judío ss puritica con ie:
 En efecto, sería rebajar la grandeza del poder divino, si con- tación del Verbo y con la fe en el Espíritu, mientras que el
 cibiéramos el Espíritu que hay en Dios al modo de Huestra error politeísta de los paganos desparece cuando el dogma de
-respiración:.Al contrario, lo:consideramos'como fuerza subs= la unidad de naturaleza elimina la fantasía de la pluralidad.
+respiración:.Al contrario, lo: consideramos'como fuerza subs= la unidad de naturaleza elimina la fantasía de la pluralidad.
 tancial en sí misma, con subsistencia propia, inseparable de 2. lo el ria Pt e ed
-Dios, en el que está, y del Verbo de Dios, al que acompaña, cons Pe ;
+Dios, en el que está, y del Verbo de Dios, al que acompaña, cons Pe;
 PE ES 3 pagana solamente la distinción de las personas, y así, por uno
 y que no se reabsorbe en la inexistencia, sino que, a semejanza 5 $ ca
 del Verbo de Dios, tiene existencia substancial y libre albedrío, y otro lado, se remedian adecuadamente Le POMO nSSnpias,
@@ -784,7 +782,7 @@ se mueve por sí mismo, es activo, en toda ocasión elige el bien Ls e S isc Sn 
 > as Sy propósito, dispone de un er adecuad de la unidad lo es de cuantos andan dispersos en la pluralidad.
 . a La Trinidad en la Escritura
 Unidad y personas distintas
-UN . o . IV. 1. Ahora bien, si el judío contradice esto, tampoco
+UN. o. IV. 1. Ahora bien, si el judío contradice esto, tampoco
 TIL 1. Por consiguiente, quien escudriña cuidadosamen- nos resultará ya difícil la respuesta desde su propia postura,
 te la hondura del misterio puede captar en su alma, de manesa puesto que las enseñanzas que le han alimentado pondrán de
 inefable, cierta modesta inteligencia de la doctrina relativa Al manifiesto la verdad. Efectivamente, la existencia de un Verbo
@@ -798,7 +796,7 @@ por el concepto de persona y no está dividida en la substancia- el hallar mucho
 Qué es una persona las valoraciones en el plano filosófico-literario es de cuño plutarquiano, pero
 ya en Orígenes y en Basilio se había caracterizado por las motivaciones
 2. Efectivamente, el concepto de persona distingue al bíblico-teológicas: recójase de cada cultura aquellos elementos que favorecen
-Espíritu del Verbo, y también a Aquel de quien son el Espíritu la comprensión y la formulación de las verdades reveladas. | .
+Espíritu del Verbo, y también a Aquel de quien son el Espíritu la comprensión y la formulación de las verdades reveladas. |.
 y el Verbo. Pero, una vez que hayas comprendido lo que les * El término «potencias» (dynámeis), referido a veces a diferentes sujetos,
 distingue, verás también que la unidad de la naturaleza no aquí está cuidadosamente especificado y diferenciado por la expresión «subsadmite la ición, de modo que la fuerza de la Única soberanía tanciales en sí», en cuanto referida al Verbo y al Espíritu.
 
@@ -806,12 +804,12 @@ distingue, verás también que la unidad de la naturaleza no aquí está cuidado
 . EL HOMBRE
 2. «Por el Verbo del Señor —dice la Escritura— fueron
 creados los cielos, y todo su ejército por el Espíritu de su
-boca *.» ¿Por qué Verbo y por qué Espíritu?, ya que ni el
+boca *.»¿ Por qué Verbo y por qué Espíritu?, ya que ni el
 «Verbo» es «voz», ni el «Espíritu» es «hálito», porque sería
 dar a la divinidad un carácter humano, a semajanza de nuestra
 naturaleza, si enseñasen que el Creador del universo se ha
 servido de un verbo y de un espíritu de ese género.
-3. ¿Y qué clase de potencia proveniente de voces o del
+3.¿ Y qué clase de potencia proveniente de voces o del
 hálito es tal que baste para organizar los cielos y los ejércitos
 que los pueblan? Porque, si el Verbo de Dios es semejante a Lo increado y lo creado
 nuestra voz, y su Espíritu semejante a nuestro hálito, su potencia, por proceder de elementos semejantes, tendría que ser V. 1. Ahora bien, es posible que la existencia de un
@@ -826,7 +824,7 @@ los cielos fueron creados por el Verbo del Señor, y sus ejércitos 2. Ellos cre
 tuvieron consistencia por obra del Espíritu de Dios, entonces razón y la sabiduría del que constituyó el universo, o incluso
 claramente queda establecido el misterio de la verdad, que ponen dificultades para admitir esta concepción. Ahora bien,
 nos hace comprender la noción de un Verbo y de un Espíritu si no conceden que una razón y una sabiduría han presidido
-substanciales ?. la organización de las cosas, entonces tacharán de sinrazón y
+substanciales?. la organización de las cosas, entonces tacharán de sinrazón y
 de impericia al que es principio de todo. Y si se está de
 acuerdo en que esto sería absurdo e impío, entonces necesariamente reconocerán que a los seres los gobiernan una razón
 y una sabiduría. En páginas anteriores, sin embargo, está ya
@@ -893,21 +891,21 @@ su libertad.
 
 8. Pero quizás impugne lo dicho quien, mirando a lo 10. Porque, si alguna si in,
 presente, crea refutar como falso nuestro discurso alegando la imagen sería engañosa en esta parte, por haberla alterado
-que en la actualidad no estamos viendo al hombre en aquellas la desemejanza respecto del modelo, pues, ¿cómo pi sli. Ms
-condiciones, sino casi en todas las contrarias. Porque, ¿dónde marse imagen de la naturaleza soberana la que está subyugada
-está el carácter divino del alma? ¿Dónde la ausencia de sufri- y espviada por Cera necesidades? Pues bien, lo que en
-miento corporal? ¿Dónde la eternidad del alma? Vida efímera, todo ha. sido asemejado a la divinidad debía forzosamente ser
+que en la actualidad no estamos viendo al hombre en aquellas la desemejanza respecto del modelo, pues,¿ cómo pi sli. Ms
+condiciones, sino casi en todas las contrarias. Porque,¿ dónde marse imagen de la naturaleza soberana la que está subyugada
+está el carácter divino del alma?¿ Dónde la ausencia de sufri- y espviada por Cera necesidades? Pues bien, lo que en
+miento corporal?¿ Dónde la eternidad del alma? Vida efímera, todo ha. sido asemejado a la divinidad debía forzosamente ser
 sufrimiento, caducidad, disposición para toda forma de do- también en su natoraleza libre e independiente, de modo que
 lencia del cuerpo y del alma: alegando éstos y otros semejantes la participación de los bienes pudiera ser premio de la virtud.
 argumentos con los que abrumar a nuestra naturaleza, estará
-convencido de haber refutado la doctrina que hemos expuesto :
+convencido de haber refutado la doctrina que hemos expuesto:
 sobre el hombre. Mas, para evitar que nuestro discurso se Origen del mal
 desvíe lo más mínimo de su secuencia lógica, discutiremos a 5 j i
-también esto en breves palabras. 11. Entonces, dirás, ¿de dónde nace el que quien ha sido
+también esto en breves palabras. 11. Entonces, dirás,¿ de dónde nace el que quien ha sido
 
 9. El que actualmente la vida humana esté desquiciada honrado en todo con lo mejor recibiera, en vez de esos bienes,
 no es argumento bastante para defender que el hombre nunca una condición inferior? Tanibién la razón deresto es Hina
-poseyó esos bienes. Efectivamente, siendo el hombre como es Ninguna producción de mal tiene su peincipio:en teptuntad
+poseyó esos bienes. Efectivamente, siendo el hombre como es Ninguna producción de mal tiene su peincipio: en teptuntad
 obra de Dios, del mismo que por bondad hizo que este ser de Dios, pues nada se le P odría reprochar a la maldad si ella
 naciera, nadie en buena lógica podría ni sospechar que el pudiera dar a Dios el título de creador y padre suyo. Sin
 
@@ -933,18 +931,18 @@ en modo alguno le hubiera privado del mejor y más precioso
 Grandeza y miseria de los bienes, quiero decir del favor de su independencia y de
 Su libertad.
 
-8. Pero quizás impugne lo dicho quien, mirando a lo La ¡ lo E ds alguna necesidad rigiese la vida del hombre,
+8. Pero quizás impugne lo dicho quien, mirando a lo La¡ lo E ds alguna necesidad rigiese la vida del hombre,
 presente, crea refutar como falso nuestro discurso alegando a imagen sería engañosa en esta parte, por haberla alterado
-que en la actualidad no estamos viendo al hombre en aquellas la desemejanzs respecto del modelo, pues, ¿cómo podría llacondiciones, sino casi en todas las contrarias. Porque, ¿dónde Marse Imagen de la naturaleza soberana la que está subyugada
-está el carácter divino del alma? ¿Dónde la ausencia de sufri- y esclavizada por ciertas necesidades? Pues bien, lo que en
-miento corporal? ¿Dónde la eternidad del alma? Vida efímera, todo ha sido asemejado a la divinidad debía forzosamente ser
+que en la actualidad no estamos viendo al hombre en aquellas la desemejanzs respecto del modelo, pues,¿ cómo podría llacondiciones, sino casi en todas las contrarias. Porque,¿ dónde Marse Imagen de la naturaleza soberana la que está subyugada
+está el carácter divino del alma?¿ Dónde la ausencia de sufri- y esclavizada por ciertas necesidades? Pues bien, lo que en
+miento corporal?¿ Dónde la eternidad del alma? Vida efímera, todo ha sido asemejado a la divinidad debía forzosamente ser
 sufrimiento, caducidad, disposición para toda forma de do- también en su naturaleza libre e independiente, de modo que
 lencia del cuerpo y del alma: alegando éstos y otros semejantes la participación de los bienes pudiera ser premio de la virtud.
 argumentos con los que abrumar a nuestra naturaleza, estará
-convencido de haber refutado la doctrina que hemos expuesto :
+convencido de haber refutado la doctrina que hemos expuesto:
 sobre el hombre. Mas, para evitar que nuestro discurso se Origen del mal
 desvíe lo más mínimo de su secuencia lógica, discutiremos irá 4 i i
-también esto en breves palabras. 11. Entonces, dirás, ¿de dónde nace el que quien ha sido
+también esto en breves palabras. 11. Entonces, dirás,¿ de dónde nace el que quien ha sido
 
 9. El que actualmente la vida humana esté desquiciada honrado en todo con lo mejor recibiera, Envios de esos bienes,
 no es argumento bastante para defender que el hombre nunca una condición inferior? También la razón de esto es clara.
@@ -960,7 +958,7 @@ Perfections according to Saint Gregory of Nyssa (Roma 1966). también la virtud 
 
 56 Gregorio de Nisa La Gran Catequesis 57
 no es posible concebir el origen de la maldad de otro modo naturaleza sensible, como el nombre señala, cae dentro de la
-que como ausencia de virtud ?. percepción de los sentidos.
+que como ausencia de virtud?. percepción de los sentidos.
 
 12, Efectivamente, de la misma manera que al apagarse 3. Ahora bien, en el propio mundo sensible, a pesar de
 la luz sobreviene la oscuridad, que no existe mientras aquélla la gran oposición que se da entre los elementos, la sabiduría
@@ -1046,13 +1044,13 @@ porque la posesión precede a la privación, así también decimos 10).
 por un peso hasta el extremo límite de la perversidad, y la la razón de que esté aún la humanidad sumida en los males
 us Y incipi Jo
 facultad de pensar, que había recibido de su creador para presentes, pues aquel principio deparó las bases de tal final '.
-colaborar en la participación del bien, él la convirtió en colaboradora para inventar designios malvados, y hábilmente se- ¿Será malo el Creador?
-dujo al hombre mediante el engaño, persuadiéndolo a conver- e :
-ha su propio asesino y en suicida. . . VIL l Y que nadie venga preguntando si Dios, aun
-: E . peste, pi 110 ji a cn previendo la calamidad que por imprudencia de ella sobreendición divina, alcanzaba muy alta dignidad, pues se le vendría a la humanidad, decidió crear al hombre para quien
+colaborar en la participación del bien, él la convirtió en colaboradora para inventar designios malvados, y hábilmente se-¿ Será malo el Creador?
+dujo al hombre mediante el engaño, persuadiéndolo a conver- e:
+ha su propio asesino y en suicida... VIL l Y que nadie venga preguntando si Dios, aun
+: E. peste, pi 110 ji a cn previendo la calamidad que por imprudencia de ella sobreendición divina, alcanzaba muy alta dignidad, pues se le vendría a la humanidad, decidió crear al hombre para quien
 encargó reinar sobre la tierra y sobre cuanto hay en ella *; era no existir quizás fuera más provechoso que vivir entre males.
 además de hermoso aspecto, pues estaba hecho a imagen y Esto es, efectivamente, lo que presentan en confirmación de
-» PU , Te- a las doctrinas maniqueas '', intentando con ello demostrar
+» PU, Te- a las doctrinas maniqueas '', intentando con ello demostrar
 bosaba también de franqueza en el hablar, porque gozaba de que el creador de la naturaleza humana es malo. En efecto, si
 la aparición de Dios mismo cara a cara: todo esto era para el Dios no ignora nada de los seres y, sin embargo, el hombre
 enemigo combustible que alimentaba su pasión de la envidia. está sumido en los males, en modo alguno saldría bien parada
@@ -1063,16 +1061,16 @@ una naturaleza buena, esta vida mísera y caduca no podría
 11. Pero por la fuerza y con la violencia de su poder no e3uE referida a la creación del bien, sino que de semejante
 era éste capaz de poner por obra su propósito, porque la vida es necesario pensar que la causa es otra, proclive por
 fuerza de la bendición de Dios sobrepujaba a su violencia. naturaleza al mal.
-Por eso maquinó apartar al hombre del poder que lo robustecía, para así convertirlo en fácil presa de sus insidias. Y ¿Dónde reside el mal?
-como en una lámpara, cuando la mecha prende fuego por e :
+Por eso maquinó apartar al hombre del poder que lo robustecía, para así convertirlo en fácil presa de sus insidias. Y¿ Dónde reside el mal?
+como en una lámpara, cuando la mecha prende fuego por e:
 bee nes si uno es impotente para apagar la llama soplan- 2. Todos estos y otros parecidos argumentos, efectivaSu e cri a la ic pue: ha mente, gracias a su superficial verosimilitud, les parecen tener
-, , H——— “o.
-la maldad al libre albedrío del hombre, produjo cierta extinción . '* La expresión hace pensar en el concepto del pecado original en el
+,, H——— “o.
+la maldad al libre albedrío del hombre, produjo cierta extinción. '* La expresión hace pensar en el concepto del pecado original en el
 y oscurecimiento de la bendición, y faltando ésta, por necesidad Niseno (cf. infra, XXV1,9), según el cual la pena por el pecado de Adán pa
 se introduce en su lugar lo contrario. Ahora bien, a la vida se transmite a: todos: los hombres, y la naturaleza" humana c340 por la: deso
 contrapone la muerte, a la fuerza la debilidad, a la bendición diencia del primer hombre (cf. infra, XV1 y XVII; In Cant. Cant. homil., 12).
-lam me ión. :a la franqueza en el hablar la vergúenza y alos En éste y en otros testimonios está implícita la tesis del Niseno acerca del
-S > E y ¿ pecado de Adán como pecado original, como origen de cierto estado de
+lam me ión.: a la franqueza en el hablar la vergúenza y alos En éste y en otros testimonios está implícita la tesis del Niseno acerca del
+S > E y¿ pecado de Adán como pecado original, como origen de cierto estado de
 bienes todos, cuanto se piensa que les es contrario. Y esta es miseria, que coincide con la pérdida de la gracia (Barbel): en definitiva se
 trata de cierta culpa moral de la humanidad entera (De orat. domin., 5).
 > Cf. Gn. 1,28-30. $11 Sobre el maniqueísmo, cf. supra, nota 6 del Prólogo.
@@ -1081,14 +1079,14 @@ trata de cierta culpa moral de la humanidad entera (De orat. domin., 5).
 cierta fuerza a los que están profundamente empapados de tiene substancia objetiva, y de lo que no tiene substancia
 tradición herética, como de cierta tinta indeleble, pero en objetiva no puede ser creador el creador de los seres substancambio, los más perspicaces para la verdad ven con toda ciales,
 claridad que son argumentos de pacotilla, y que es fácil demostrar su engaño. Y a mí me parece bien proponer en esto
-al Apóstol como abogado de mi acusación contra ellos, Efec- ¿Quién es responsable del mal?
+al Apóstol como abogado de mi acusación contra ellos, Efec-¿ Quién es responsable del mal?
 tivamente, en su discurso a los Corintios, distingue la condición
 carnal y la condición espiritual de las almas, con lo cual 4, Por consiguiente, Dios es ajeno a toda causalidad del
 demostró, creo, que no conviene juzgar el bien y el mal me- mal, pues Él es el Dios hacedor de lo que existe y no de lo que
 diante la sensación, sino, apartando la mente lejos de los no existe: el que creó la vista y no la ceguera; el que inauguró
 fenómenos corporales, discernir por sí mismas la propia natu- la virtud y no la privación de la virtud; el que propuso a los
 raleza del bien y la de su contrario, porque «el hombre espiritual que llevan vida virtuosa como premio de su buena elección el
-—dice— juzga todo» ” . don de los bienes, sin someter a la naturaleza humana al yugo
+—dice— juzga todo» ”. don de los bienes, sin someter a la naturaleza humana al yugo
 
 3. Tengo para mí que la causa de que hayan inventado de su propia voluntad por vía de necesidad violenta, atrayénestas doctrinas quienes tales razones alegan es la siguiente: al dola al bien aunque no lo quiera, como si fuera un objeto
 pio a pa e apar o cal inanimado. Si cuando el sol resplandece límpido desde el
@@ -1098,8 +1096,8 @@ necesariamente sujeta a las dolencias y enfermedades, porque sin vista, no podem
 es compuesta y corre a su disolución, y por otra, a tales
 afecciones les sigue de alguna manera cierta sensación dolorosa,
 ellos creen que la creación del hombre es obra de un Dios El mal 1
-malo. ¡Si al menos su inteligencia hubiera mirado algo más mal:supremo:la:muerte
-arriba y, alejando sus mentes de toda disposición voluptuosa, . . . . . %
+malo.¡ Si al menos su inteligencia hubiera mirado algo más mal: supremo: la: muerte
+arriba y, alejando sus mentes de toda disposición voluptuosa,...%
 hubieran examinado desapasionadamente la naturaleza de las VII 1. Sin embargo, quien mira hacia la disolución
 cosas, nunca hubieran creído que existe otro mal fuera de la del cuerpo cae en amarga irritación, lleva muy a mal que
 maldad! Y sin embargo toda maldad se caracteriza por la nuestra vida se disuelva con la muerte, y dice que el peor de
@@ -1107,10 +1105,10 @@ privación del bien, pues no existe por sí misma ni se la considera los males e
 drío ningún mal existe en sí mismo, al contrario, si se llama través de esta triste condición, pues quizás por este medio uno
 así, es por la ausencia del bien ". Ahora bien, lo que no es no se sienta más bien llevado a admirar el favor del solícito
 cuidado que Dios tiene del hombre.
-— ENS . 2, Los que pan E cs vida ee pe
+— ENS. 2, Los que pan E cs vida ee pe
 a os 4 vivir, por causa del goce de la cosas deseables. Ocurre
 
-1 El único mal verdadero es el mal moral, cuya raíz está en la voluntad z ; . .
+1 El único mal verdadero es el mal moral, cuya raíz está en la voluntad z;..
 perversa de la creatura, la cual, en su connatural mmutabilidad, puede elegir el OS que, S4nno se pasa la vida ÍS nr dolores, el tal juzga
 mal. Es una idea dominante de Gregorio, en el que hallamos vestigios de muchísimo más estimable el no existir que Vivir en el dolor.
 postulados neoplatónicos, como el aserto de que todo lo efímero y perecedero Así, pues, examinemos si el donante de la vida tiene otras
@@ -1134,7 +1132,7 @@ Efectivamente, cuando los primeros hombres —dice ''— ca- sensible tiene afin
 yeron en lo prohibido y fueron desnudados de aquella felicidad, intelectiva es superior y más elevada que los movimientos de
 el Señor vistió a los primeros hombres con túnicas de piel '. la sensación, por eso mismo, cuando falla el discernimiento
 Me parece que no fue por llevar nuestra inteligencia hacia del bien en la prueba de los sentidos y este fracaso del bien
-tales pieles —porque, ¿de qué clase de animales degollados y produce la constitución del estado contrario, entonces la parte
+tales pieles —porque,¿ de qué clase de animales degollados y produce la constitución del estado contrario, entonces la parte
 desollados se piensa que era ese vestido?— sino que, como de nosotros así inutilizada, por recibir lo contrario, se disuelve.
 quiera que toda piel separada del animal es algo muerto, Y éste es el sentido del ejemplo. 7. Pongamos por caso una
 estoy totalmente convencido de que la condición mortal '* que vasija hecha de arcilla: por obra de alguna mala voluntad está
@@ -1172,7 +1170,7 @@ viene y lo que pasó. los seres, y que por Él el hombre fue traído a la vida, 
 
 14. Sin embargo, lo mismo que contempló la desviación, a imagen de Dios con óptimos bienes.
 así también observó su reanimación y vuelta al bien. Por 18. Ahora bien, únicamente es inalterable por naturaleza
-tanto, ¿qué era mejor: no traer en absoluto nuestra naturaleza lo que no tiene su origen por creación; en cambio, todo lo que
+tanto,¿ qué era mejor: no traer en absoluto nuestra naturaleza lo que no tiene su origen por creación; en cambio, todo lo que
 a la existencia, puesto que la futura creatura se desviaría del de la nada pasó a la existencia por obra de la naturaleza
 bien, o traerla y, ya enferma, reanimarla de nuevo por la increada, habiendo comenzado a ser por mutación, en todo
 penitencia y volverla a la gracia del principio? momento procede luego por vía de alteración: si obra según
@@ -1193,12 +1191,12 @@ aquellos en quienes no cabe la concepción del verdadero bien semejantes por efe
 porque no tienen parte en el pensamiento y en la inteligencia. que estuviera en sus cabales quien daba la espalda a la pruAhora bien, que el hombre es obra de Dios, buena y nacida dencia, ni que tomara decisión sabia quien se había separado
 
 70 Gregorio de Nisa
-de la sabiduría— ¿por medio de quién necesitaba ser de nuevo CRISTO
+de la sabiduría—¿ por medio de quién necesitaba ser de nuevo CRISTO
 llamado a la gracia del principio?
 
-20. ¿A quién importaba el levantamiento del que estaba
+20.¿ A quién importaba el levantamiento del que estaba
 caído, la reanimación del que había perecido, el encarrilamiento
-del que estaba extraviado? ¿A quién más, si no al Señor absoluto de la naturaleza? Porque solamente al que desde el principio otorgó la vida le correspondía y le era posible reanimarla,
+del que estaba extraviado?¿ A quién más, si no al Señor absoluto de la naturaleza? Porque solamente al que desde el principio otorgó la vida le correspondía y le era posible reanimarla,
 incluso perdida. Esto es lo que escuchamos de parte del misterio
 de la verdad al enseñarnos que en el principio Dios creó al
 hombre, y que lo ha salvado después de su caída.
@@ -1240,20 +1238,20 @@ convienen en que está fuera del mal cuanto acabamos de desvinculada la materia,
 enumerar, tendrán que reconocer que lo que es ajeno al mal sola cosa, así también en nuestro asunto.
 en modo alguno es vergonzoso. Y una vez demostrado que 4. Y que nadie me venga tomando en cuenta en el ejemplo
 necesariamente es bueno lo que está libre de toda maldad y la índole destructora del fuego, sino que, aceptando en el
-vergúenza, ¿cómo no van a ser dignos de compasión por su ejemplo únicamente lo que conviene, rehuse lo incongruente.
+vergúenza,¿ cómo no van a ser dignos de compasión por su ejemplo únicamente lo que conviene, rehuse lo incongruente.
 irracionalidad los que deciden que el bien no conviene a Dios? De la misma manera, pues, como vemos la llama pegada a la
 materia que la alimenta, pero sin encerrarse en ella, cuando
 concebimos una unión y un acercamiento de la naturaleza
-Unión de las dos naturalezas divina a la humanidad, ¿qué impide salvaguardar también en
+Unión de las dos naturalezas divina a la humanidad,¿ qué impide salvaguardar también en
 este contacto la digna idea de Dios, si estamos firmemente
-X. 1. Pero, dicen, la naturaleza humana es cosa pequeña convencidos de que la divinidad queda fuera de toda delimiy fácil de circunscribir; en cambio la divinidad es infinita, ¿y tación, aunque esté en el hombre? ?
-cómo lo infinito podría ser encerrado en el átomo? ¿Y quién
+X. 1. Pero, dicen, la naturaleza humana es cosa pequeña convencidos de que la divinidad queda fuera de toda delimiy fácil de circunscribir; en cambio la divinidad es infinita,¿ y tación, aunque esté en el hombre??
+cómo lo infinito podría ser encerrado en el átomo?¿ Y quién
 está diciendo que la infinitud de la divinidad es encerrada,
 como en un recipiente cualquiera, dentro de los límites de la Misterio de la Encarnación
 carne? Porque ni siquiera en nuestra misma vida la naturaleza
 inteligible está aprisionada dentro de los límites de la carne. XI 1. Pero, si preguntas cómo la divinidad se mezcla
 2. Ahora bien, mientras el volumen del cuerpo está cir- con la humanidad, antes de esto mira de preguntarte de qué
-cunscrito por sus propias partes, el alma, gracias a los movi- índole es la unión del alma con la carne ?. Y si ignoras de qué
+cunscrito por sus propias partes, el alma, gracias a los movi- índole es la unión del alma con la carne?. Y si ignoras de qué
 mientos del pensamiento, se despliega a voluntad por toda la modo tu alma se une al cuerpo, no pienses en absoluto que
 creación: sube hasta los cielos y pone sus pies en los abismos, debas ser capaz de comprender lo primero. Pero, lo mismo
 recorre la extensión de la tierra habitada y con su inquieta que en este caso tenemos la convicción de que el alma es algo
@@ -1261,7 +1259,7 @@ actividad penetra en las regiones subterráneas, y muchas veces distinto del cue
 llega incluso a la perfecta comprensión de las maravillas celestes, alma, la carne es muerta y sin actividad, aunque no alcancemos
 sin que lo estorbe el peso del cuerpo '.
 de e US, as ee pa por exigencia h El símil acerca de la relación de las dos naturalezas en Cristo, si se
-A E o 'olup! p Or to pi artes, ¿que nece entiende mal, podría llevar a una concepción monofisita; pero Gregorio, al
+A E o 'olup! p Or to pi artes,¿ que nece entiende mal, podría llevar a una concepción monofisita; pero Gregorio, al
 sidad obliga a decir que se aprisiona a la divinidad en la afirmar el lazo indisoluble de la dos naturalezas, intenta confirmar también
 naturaleza carnal, y a no aceptar alguna conjetura al plan de que la naturaleza divina está exenta de toda limitación circunscriptiva.
 nena 3 La analogía de la unión alma-cuerpo expresa la unión profunda e
@@ -1273,18 +1271,17 @@ a conocer el modo de la unión, así también en el otro caso conservar los sere
 reconocemos que la naturaleza divina difiere en su magnífico con alimento y bebida a los que ha tocado vivir en la carne,
 esplendor de la naturaleza mortal y caduca, aun concediendo de Dios el hacer el bien a cuantos lo necesitan, de Dios el
 que no logramos ver de qué manera la divinidad se mezcla hacer recuperarse mediante la salud a la naturaleza alterada
-con el hombre. . . por la enfermedad, de Dios el señorear toda la creación:
+con el hombre... por la enfermedad, de Dios el señorear toda la creación:
 2. Sin embargo, que Dios ha nacido en una naturaleza tierra, mar, aire y toda la región por encima del aire; de Dios
 de hombre, no lo dudamos, gracias a los milagros que se nos el tener poder suficiente para todo y, antes que nada, el ser
 narran. Pero, en cuanto al cómo, renunciamos a escudriñarlo, más fuerte que la muerte y la corrupción. 3. Si, pues, el relato
 porque excede al método racional. Efectivamente, aunque en cuestión hubiera omitido alguno de estos o semejantes
 creemos que toda la creación corporal y toda la inteligible rasgos, con razón los que son ajenos a nuestra fe despreciarían
 subsisten por obra de la naturaleza incorpórea e increada, no el misterio; pero, si todo lo que es medio para pensar a Dios
-por eso examinamos juntamente con la fe en esto el origen y lo contemplamos en los relatos sobre ÉL, ¿qué obstáculo hay
+por eso examinamos juntamente con la fe en esto el origen y lo contemplamos en los relatos sobre ÉL,¿ qué obstáculo hay
 el cómo, sino que, admitiendo el hecho de estar creado, deja- para la fe?
 mos de lado la curiosidad de indagar el modo de la constitución
-del universo, porque es algo enteramente misterioso e inexplicable. Nacimiento y muerte de Cristo
-. . . XI. 1. Pero —dicen— nacimiento y muerte son algo
+del universo, porque es algo enteramente misterioso e inexplicable. Nacimiento y muerte de Cristo... XI. 1. Pero —dicen— nacimiento y muerte son algo
 La potencia de Dios en Cristo propio de la naturaleza carnal. También yo lo digo. Sin em-
 . bargo, lo que precede al nacimiento y lo que hay después de
 _XIL 1. Noobstante, quien busque las pruebas de que la muerte nada tiene en común con nuestra naturaleza. EfecDios se nos ha manifestado en la carne * que mire a los efectos, tivamente, si miramos los dos extremos de la vida humana,
@@ -1294,12 +1291,12 @@ efectos. Por tanto, de la misma manera que, cuando miramos perdura lo que la pas
 al universo y examinamos los planes que rigen al mundo y los comenzó desde una pasión, ni la muerte termina en una pasión,
 beneficios de origen divino operados en nuestra vida, com- porque ni el placer determinó el nacimiento, ni la corrupción
 prendemos que por encima existe una potencia creadora de lo sucedió a la muerte *.
-que existe y conservadora del ser, así también en lo que atañe 2. ¿Sigues sin creer al milagro? Me alegro de tu incredual hecho de que Dios se nos ha manifestado de la carne: lidad, pues estás reconociendo absolutamente que los milagros
-tenemos por prueba suficiente de la manifestación de la divinidad los milagros considerados en sus efectos, ya que en las oo o IN .
+que existe y conservadora del ser, así también en lo que atañe 2.¿ Sigues sin creer al milagro? Me alegro de tu incredual hecho de que Dios se nos ha manifestado de la carne: lidad, pues estás reconociendo absolutamente que los milagros
+tenemos por prueba suficiente de la manifestación de la divinidad los milagros considerados en sus efectos, ya que en las oo o IN.
 operaciones relatadas observamos todo lo que caracteriza a la * Gregorio utiliza aquí el término pathos (cuya ambigiiedad se explica en
 ivi el C. XVI) en dos sentidos: referido a la generación por obra de los padres,
 naturaleza divina. denota l: ión licado a la muerte, está ligado al estado de disolución
-a a a . lenota la «pasión»; ap! »
+a a a. lenota la «pasión»; ap! »
 2. Propio de Dios es dar vida a los hombres, de Dios el e implica afección, imperfección, debilidad. Valga la explicación para nuestra
 traducción por el término «pasión».
 + Cf. 1 Tm. 3,16. + Cf. Sal. 15,10; Hch. 2,27; 13,35.
@@ -1307,15 +1304,15 @@ traducción por el término «pasión».
 76 Gregorio de Nisa Ea Gron Catequesia il
 están por encima de la naturaleza, por las mismas razones por Motivo de la Encarnación
 las que consideras por encima de la fe lo que hemos dicho.
-Por tanto, sea para ti prueba de la divinidad del que se mani- XIV. 1. ¿Cuál es, pues, la causa de que la divinidad se
+Por tanto, sea para ti prueba de la divinidad del que se mani- XIV. 1.¿ Cuál es, pues, la causa de que la divinidad se
 fiesta este hecho mismo: que el evangelio predicado no sigue abaje a tan vil condición que la misma fe duda en creer que
 los procedimientos de la naturaleza. Efectivamente, si las na- Dios, el ser infinito, incomprensible, inexpresable, el que está
 rraciones sobre Cristo cayeran dentro de los límites de la por cima de toda concepción y de toda grandeza, se mezcle
-naturaleza, ¿dónde estaría lo divino? Pero si el relato sobrepuja con la impureza de la naturaleza humana, hasta el punto de
+naturaleza,¿ dónde estaría lo divino? Pero si el relato sobrepuja con la impureza de la naturaleza humana, hasta el punto de
 a la naturaleza, lo mismo en que tú no crees constituye la que en esta mezcla con lo bajo se envilecen juntamente sus
 prueba de que lo predicado es Dios. sublimes actividades?
 3. Enefecto, el hombre nace de la unión de dos personas, XV. 1. Tampoco para esto carecemos de la respuesta
-y después de la muerte se descompone. Si este fuera el conte- conveniente a la dignidad divina. 2. ¿Buscas la causa de nacer
+y después de la muerte se descompone. Si este fuera el conte- conveniente a la dignidad divina. 2.¿ Buscas la causa de nacer
 nido de la predicación, no podrías en absoluto creer que es Dios entre los hombres? Si eliminas de la vida los beneficios
 Dios aquel de quien atestiguamos estas cualidades propias de de origen divino, no podrás decir por qué cualidades reconoces
 nuestra naturaleza. Mas, como quiera que oyes decir que lo divino. Efectivamente, al bienhechor lo reconocemos por
@@ -1335,9 +1332,9 @@ también lo de que fue de una virgen; y el que mencionó. la la vida; el que hab
 muerte añadió la resurrección. Por tanto, si basado en lo que bien necesitaba de quien lo devolviera al bien; el preso en la
 oyes concedes que murió y que nació, por las mismas razones oscuridad anhelaba la presencia de la luz; el cautivo buscaba
 concederás también necesariamente que tanto su nacimiento al redentor, el presidiario al defensor, el subyugado en la
-como su muerte están fuera de la pasión. Pero esto, en verdad, esclavitud al libertador. ¿Es que esto era poca cosa y sin
+como su muerte están fuera de la pasión. Pero esto, en verdad, esclavitud al libertador.¿ Es que esto era poca cosa y sin
 supera a la naturaleza. Por tanto, tampoco está en absoluto mérito para hacer que Dios se molestara en bajar a visitar a
-dentro de la naturaleza aquel cuyo nacimiento se ha demostrado que ocurrió en condiciones que superan a la naturaleza. ———— .
+dentro de la naturaleza aquel cuyo nacimiento se ha demostrado que ocurrió en condiciones que superan a la naturaleza. ————.
 s El párrafo refleja expresiones y enseñanzas bíblicas; como ls. 3,8; 4,31;
 7 CE. Mt. 1; Lo. 2, 1634
 
@@ -1345,11 +1342,11 @@ s El párrafo refleja expresiones y enseñanzas bíblicas; como ls. 3,8; 4,31;
 la naturaleza humana, pues en tal estado de miseria y desgracia Pues lo mismo ocurre con la virtud: nadie podría decir que se
 se hallaba la humanidad? concibe como contraria a ella alguna creatura, fuera de la
 noción de maldad.
-¿No podía Dios salvar al hombre con sólo su poder?
+¿ No podía Dios salvar al hombre con sólo su poder?
 La Encarnación no ha rebajado a la naturaleza divina
-4. Pero, dicen, era posible que Dios hiciera el bien al .
+4. Pero, dicen, era posible que Dios hiciera el bien al.
 hombre y permaneciera exento de pasión. Porque quien orga- 6. Si el mensaje de nuestra doctrina dijese que la divinidad
-nizó el universo con un acto de su voluntad, y con sólo el nació en la maldad, nuestro adversario tendría ocasión oporimpulso de su voluntad dio existencia al no ser, ¿por qué no tuna para atacar a nuestra fe acusándonos de opinar cosas
+nizó el universo con un acto de su voluntad, y con sólo el nació en la maldad, nuestro adversario tendría ocasión oporimpulso de su voluntad dio existencia al no ser,¿ por qué no tuna para atacar a nuestra fe acusándonos de opinar cosas
 iba también a arrancar al hombre del poder del enemigo con absurdas e incongruentes sobre la naturaleza divina, pues no
 auténtica autoridad divina y devolverlo al estado inicial, si tal es lícito, efectivamente, decir que la propia sabiduría en sí, la
 le placía? * Por el contrario, se toma largos rodeos: se introduce bondad, la incorruptibilidad o cualquier otra posible noción
@@ -1360,7 +1357,7 @@ alcanza su objetivo, como si no le fuera posible salvar al naturaleza se contrap
 hombre mediante decreto, permaneciendo en las alturas de su Dios nace, no en la maldad, sino en la naturaleza humana; y
 gloria divina, y prescindir de tales rodeos. Por consiguiente es si únicamente es indecorosa y vergonzosa la pasión de la
 necesario que también a tales objeciones opongamos nosotros maldad, en la cual Dios ni ha nacido ni por su naturaleza
-la verdad, para que nada sirva de obstáculo a la fe de los que podía nacer, ¿por qué se avergiienzan de confesar que Dios ha
+la verdad, para que nada sirva de obstáculo a la fe de los que podía nacer,¿ por qué se avergiienzan de confesar que Dios ha
 buscan cuidadosamente la razón del misterio. entrado en contacto con la naturaleza humana, siendo así que
 5. Lo primero de todo, pues, examinemos qué se opone en la constitución del hombre no observamos ninguna conrealmente a la virtud, algo que en cierta manera hemos inda- traposición respecto del concepto de la virtud? Efectivamente,
 gado ya en lo que precede. Está claro que, como la oscuridad ni la facultad de razonar, ni la de entender, ni la de saber, ni
@@ -1368,12 +1365,12 @@ se opone a la luz y la muerte a la vida, así también la maldad nada parecido d
 se opone a la virtud, y nada más que ella. En efecto, aunque contrapone al concepto de virtud.
 muchos son los elementos que contemplamos en la creación,
 ningún otro se contrapone a la luz y a la vida: ni piedra ni
-leño ni agua ni hombre ni otro ser alguno entre todos, ni son ¿Qué es la pasión?
+leño ni agua ni hombre ni otro ser alguno entre todos, ni son¿ Qué es la pasión?
 las nociones propiamente contrarias, como oscuridad y muerte.
 XVI. 1. Pero, dicen, la misma transformación de nues-
 * La objeción, sobre la que Gregorio vuelve frecuentemente, estaba muy tro cuerpo es una forma de pasión. Y el que nace en el cuerpo
 difundi istianismi se halla en estado de pasión. La divinidad, en cambio, es
-undida entre los oponentes del cristianismo y entre las personas que, A: E Pe : : 3%
+undida entre los oponentes del cristianismo y entre las personas que, A: E Pe:: 3%
 perplejas, buscaban justificaciones racionales para el misterio de la encarnación. impasible. Por consiguiente, es ajena a Dios la concepción
 Cf. Clemente de Alejandría, Strom., 1,7; Orígenes, Contr. Cels., 4,3. según la cual se determina que el que por naturaleza está libre
 1 Hb. 2,9, de pasión viene a paticipar de un estado de pasión.
@@ -1381,7 +1378,7 @@ Cf. Clemente de Alejandría, Strom., 1,7; Orígenes, Contr. Cels., 4,3. según l
 80 Gregorio de Nisa La Gran Catequesis 81
 
 Sin embargo, también contra estas objeciones utilizaremos si el nacimiento ha sido ajeno al placer voluptuoso, y la vida,
-de nuevo la misma razón, esto es, que la palabra pasión se ajena a la maldad, ¿qué clase de pasión queda ya de la que
+de nuevo la misma razón, esto es, que la palabra pasión se ajena a la maldad,¿ qué clase de pasión queda ya de la que
 toma en un sentido propio y en un sentido impropio. Por Dios pueda haber participado, al decir del misterio de nuestra
 tanto, lo que, ajustándose al libre albedrío, hace cambiar de religión?
 la virtud a la maldad es verdaderamente una pasión. En cam- 4. Y si alguien llamara pasión a la separación del cuerpo
@@ -1392,14 +1389,14 @@ del sujeto a través de la absorción y evacuación de los alimen- separadas, pu
 la disolución nuevamente del compuesto y su tránsito a los de lo que está entrelazado o unido.
 elementos afines.
 
-2. Entonces, ¿con qué nos dice el misterio que la divinidad
-entró en contacto? ¿Con la pasión propiamente dicha, esto es, De la muerte a la vida
+2. Entonces,¿ con qué nos dice el misterio que la divinidad
+entró en contacto?¿ Con la pasión propiamente dicha, esto es, De la muerte a la vida
 con la maldad, o con el movimiento de la naturaleza? Porque,
 si efectivamente nuestra doctrina se empeñara en afirmar que 5. Pues bien, precisamente el nombre que damos a la
 la divinidad nació en condiciones sujetas a prohibición, ten- mutación final conviene que se lo llamemos también a la que
 dríamos que evitar el absurdo de tal doctrina, que nada sano abre marcha. Ahora bien, si la primera mutación, que llamaexpondría acerca de la naturaleza divina. Pero si dice que mos nacimiento, no es pasión, tampoco en buena lógica podría
 Dios se ha uncido a nuestra naturaleza, cuyo primer origen y ser pasión la segunda mutación, que llamamos muerte y por
-existencia tuvo en él su principio, ¿en qué parte de la noción la que se disuelve la unión del cuerpo y del alma.
+existencia tuvo en él su principio,¿ en qué parte de la noción la que se disuelve la unión del cuerpo y del alma.
 digna de Dios yerra el contenido del Evangelio, puesto que en 6. De Dios, pues, decimos que ha pasado por las dos
 los conceptos acerca de Dios no acompaña a la fe ninguna mutaciones de nuestra naturaleza: por la que el alma se une
 disposición capaz de pasión? Porque tampoco decimos que el al cuerpo, y por la que el cuerpo se separa del alma. Y afirmamédico cae enfermo cuando cura al que está enfermo, al mos que, mezclado con uno y otro elemento —quiero decir
@@ -1457,7 +1454,7 @@ XVI. 1. Pero alguien dirá que todavía no está resuelta
 la objeción que se había planteado, sino que más bien todo lo
 dicho viene a reforzar el argumento propuesto por los incrédulos. Efectivamente, si el poder que hay en Él es tan grande
 como ha demostrado nuestro discurso, tanto que en su mano
-está el destruir la muerte y el dar entrada a la vida, ¿por qué
+está el destruir la muerte y el dar entrada a la vida,¿ por qué
 no realiza con un solo acto de su voluntad lo que se ha
 propuesto, en vez de llevar a efecto nuestra salvación dando
 el rodeo de nacer y de crecer, y salvando al hombre con la
@@ -1490,19 +1487,19 @@ tormentos del cuerpo y la misma sentencia de muerte, lo que
 Desaparición de la idolatría evidentemente no hubieran soportado si no hubiesen tenido
 la prueba clara e indiscutible de la venida de Dios.
 XVII. 1. Y con todo, quizás resulte superfluo el que,
-después de creer que Dios ha morado en nuestra vida, criti- . A
+después de creer que Dios ha morado en nuestra vida, criti-. A
 quemos su presencia so pretexto de que se hizo sin cierta Destrucción del templo de Jerusalén
-sabiduría y sin una razón superior. Y es que, para quienes no , . 0
+sabiduría y sin una razón superior. Y es que, para quienes no,. 0
 son demasiado hostiles contra la verdad no pequeña prueba 4. Frente a los Judíos, lo que vamos a decir es también
 de la venida de Dios es la que se manifiesta ya antes de la vida prueba suficiente de la presencia de Aquel en quien ellos no
 futura, en la vida presente, quiero decir el testimonio a través creyeron. Efectivamente, hasta la manifestación divina de Crisde los hechos mismos. to, tenían ellos en todo su esplendor el palacio real de Jerusalén,
-2. Efectivamente, ¿quién no sabe cómo por todo el orbe el famoso templo aquel, los sacrificios celebrados según la
+2. Efectivamente,¿ quién no sabe cómo por todo el orbe el famoso templo aquel, los sacrificios celebrados según la
 de la tierra se había consumado el engaño de los demonios, Ley durante el año, y todo cuanto la Ley determina mediante
 tras hacerse dueño de la vida de los hombres mediante el figuras para los que saben prestar oído al misterio; hasta
 insano culto a los ídolos, y cómo para todos los pueblos del entonces, nada impedía el culto religioso que les había sido
 mundo era usual el honrar a los demonios a través de los prescrito desde el comienzo. 5. Pero, cuando vieron al que se
 ídolos con los sacrificios de los animales y las abominaciones esperaba, al que ya habían aprendido a conocer por medio de
-puestas sobre el altar? 3. Pero, como dice el Apóstol ?, desde los profetas y la Ley, y en vez de la fe en el que se manifestaba
+puestas sobre el altar? 3. Pero, como dice el Apóstol?, desde los profetas y la Ley, y en vez de la fe en el que se manifestaba
 que se manifestó la gracia de Dios que trae la salvación a los prefirieron la que en adelante sería errónea superstición, cuya
 hombres, viniendo a morar en la naturaleza humana, todo se mala interpretación les hacía observar la letra de la Ley, más
 esfumó en la nada: cesaron las locuras de los oráculos y de la esclavizados a la costumbre que al espíritu, no acogieron la
@@ -1524,15 +1521,15 @@ forma de potencia sería brutal y tiránica. 2. Y así también los
 . demás atributos: si se lleva a la sabiduría fuera de la justicia,
 La naturaleza de Dios o si no se considera a la justicia acompañada de la potencia
 y de la bondad, maldad podría alguien llamar con mayor
-XIX. 1. Pero, sin embargo, y puesto que ni a los paga- propiedad a semejantes atributos, porque, ¿cómo se podría
+XIX. 1. Pero, sin embargo, y puesto que ni a los paga- propiedad a semejantes atributos, porque,¿ cómo se podría
 nos ni a los defensores de las doctrinas judías les parece que contar entre los bienes a lo que carece del elemento superior?
 estos hechos constituyan pruebas de la venida divina, sería
 bueno tratar por separado y particularmente, atendiendo a
 las réplicas que se nos han hecho, por qué razón la naturaleza Bondad de Dios
 divina se ha unido a la nuestra para salvar por sí misma al
-género humano, en vez de poner por obra su designio mediante 3. Y puesto que conviene que todos estos atributos conun decreto. Por lo tanto, ¿qué principio podría guiar lógica- curran en nuestras ideas sobre Dios, examinemos si el plan
-mente nuestro discurso hacia el objetivo propuesto? ¿Y qué salvífico en favor del hombre carece de alguna de las concepotro podría ser que el de ir exponiendo sumariamente las ciones dignas de Dios. En Dios buscamos sobre todo las
-piadosas ideas que se tienen de Dios? señales de su bondad. ¿Y qué testimonio más palmario de su
+género humano, en vez de poner por obra su designio mediante 3. Y puesto que conviene que todos estos atributos conun decreto. Por lo tanto,¿ qué principio podría guiar lógica- curran en nuestras ideas sobre Dios, examinemos si el plan
+mente nuestro discurso hacia el objetivo propuesto?¿ Y qué salvífico en favor del hombre carece de alguna de las concepotro podría ser que el de ir exponiendo sumariamente las ciones dignas de Dios. En Dios buscamos sobre todo las
+piadosas ideas que se tienen de Dios? señales de su bondad.¿ Y qué testimonio más palmario de su
 bondad que el hecho de venir Él mismo en busca del que se
 . había pasado al enemigo, sin que la firmeza en el bien y la
 Los atributos de Dios inmortalidad de su naturaleza se vieran afectadas al mismo
@@ -1546,9 +1543,9 @@ se manifieste alguno de los atributos de Dios, y en cambio son muchos los que qu
 otros no. Efectivamente, ninguno de esos excelsos nombres pero únicamente llevan hasta el final esa voluntad en favor de
 constituye en absoluto de por sí, separado de los demás, una los enfermos aquellos que tienen capacidad técnica para colavirtud aislada: ni la bondad es verdaderamente bondad si no borar en la curación del paciente. Es, pues, necesario que la
 está acompañada de la justicia, de la sabiduría y de la potencia, sabiduría se conjunte plenamente con la bondad.
-pues la injusticia, la insipiencia y la impotencia no son cosa 5. ¿Cómo, entonces, contemplar juntos en los hechos la
+pues la injusticia, la insipiencia y la impotencia no son cosa 5.¿ Cómo, entonces, contemplar juntos en los hechos la
 A sabiduría y la bondad? Porque no es posible ver al desnudo la
-* Jerusalén, con su espléndido templo, fue destruida por el ejército de bondad del propósito. Efectivamente, ¿cómo podría manifesTito el año 70. El emperador Adriano reconstruyó la ciudad en los años 134- tarse el propósito, si no apareciese a través de los hechos?
+* Jerusalén, con su espléndido templo, fue destruida por el ejército de bondad del propósito. Efectivamente,¿ cómo podría manifesTito el año 70. El emperador Adriano reconstruyó la ciudad en los años 134- tarse el propósito, si no apareciese a través de los hechos?
 135, pero le cambia el nombre, llamándola Elia Capitolina (cf. Eusebio de —_—_—_——.
 Cesarea, Hist. Eccles., IV 6,3-4, BAC 349, págs. 202-203). > Cf. Sal. 106,4-5; 119, 65-66.68.
 
@@ -1565,7 +1562,7 @@ digo, y la justicia. pues, como hemos dicho más arriba, lo contrario del bien s
 opone al bien en sentido análogo a como dijimos que el no ser
 se opone al ser y la no existencia a la existencia. Y es que, en
 La justicia de Dios verdad, por lo que atañe al impulso y al movimiento sujetos
-a mutación y alteración, no es posible que la naturaleza perXXI. 1. ¿Qué es, pues, la justicia? Nos estamos acor- manezca inmóvil en sí misma, al contrario, el libre albedrío
+a mutación y alteración, no es posible que la naturaleza perXXI. 1.¿ Qué es, pues, la justicia? Nos estamos acor- manezca inmóvil en sí misma, al contrario, el libre albedrío
 dando de lo que, siguiendo la lógica natural, dijimos al co- tiende necesariamente hacia algún objeto, pues el deseo del
 mienzo del discurso: el hombre está creado como imitación bien lo arrastra naturalmente a ponerse en movimiento.
 de la naturaleza divina y conserva esta semejanza con la divinidad mediante los demás bienes y el libre albedrío, aunque,
@@ -1606,14 +1603,14 @@ caído, y porque es sabio, no desconoce el modo de restable- en permitir al due�
 cerlo. Propio de la sabiduría sería también el discernimiento precio del rescate del que retenía.
 de lo que es justo, pues nadie asociaría la necedad a la verdadera justicia.
 Rescate de la humanidad
-Justicia y rescate XXI. 1. ¿Y qué era natural que prefiriese tomar el
-dueño? Por vía de consecuencia, es posible tener alguna conXXIL 1. En nuestro caso, pues, ¿en qué consiste la jetura de su deseo, si las evidencias anteriores resultan ser
+Justicia y rescate XXI. 1.¿ Y qué era natural que prefiriese tomar el
+dueño? Por vía de consecuencia, es posible tener alguna conXXIL 1. En nuestro caso, pues,¿ en qué consiste la jetura de su deseo, si las evidencias anteriores resultan ser
 justicia? En no haberse servido de un poder tiránico absoluto indicios de lo que buscamos. Por tanto, quien —como se
 contra el que nos retenía, y en no haber dejado pretexto explicó al comienzo del libro— por envidia del que vivía feliz,
 alguno para defenderse jurídicamente al que había esclavizado cerró los ojos al bien y engendró en sí mismo la oscuridad de
 al hombre mediante el placer, a pesar de arrancarnos a tal la maldad; quien estaba enfermo de ambición, principio y
 dueño con la superioridad de su poder*. Efectivamente, los fundamento del impulso hacia lo peor y madre, por así decirlo,
-que han vendido por dinero su propia libertad son esclavos de de toda otra maldad, ¿a cambio de qué hubiera entregado al
+que han vendido por dinero su propia libertad son esclavos de de toda otra maldad,¿ a cambio de qué hubiera entregado al
 los compradores, pues ellos mismos se han constituido en que retenía, si no era, evidentemente, a cambio de algo más
 alto y mayor que él, con el fin de satisfacer más plenamente
 * Sobre la justicia del rescate pagado a Satanás en la persona de Cristo, la pasión de su orgullo, al recibir lo más a cambio de lo
@@ -1632,7 +1629,7 @@ supraterrenal, curación fácil y simple de las enfermedades ante el acercamient
 naturales realizada por Él con una sola palabra y el impulso considerar cómo esa potencia iba poco a poco aumentando
 de su voluntad, la restitución de los muertos a la vida, la en brillantez gracias a los milagros, pensase que esta aparición
 liberación de los posesos, el temor de los demonios, el poder era más deseable que temible.
-sobre los fenómenos atmosféricos ?, y la marcha a través del
+sobre los fenómenos atmosféricos?, y la marcha a través del
 mar *, no como en el milagro de Moisés: el piélago separado Bondad y justicia
 a uno y otro lado presentando desnudo el fondo ante los que
 asaban, sino que la superficie del agua se iba endureciendo a P d or
@@ -1644,12 +1641,12 @@ necesidades con sus propios productos naturales, sino que la anviboS Ps Bor O es
 munificencia provenía de las secretas despensas del poder de pe a boa, 23080 que Cee a pe cIón
 Dios: el pan ya elaborado y a punto entre las manos de los PR es dea honda. e el de la
 que servían y que se multiplicaba a medida que se saciaban qunea % camente el BABA y Abate mlyaros abetos
-| eronreasalic el coupenge:compuesto:de peces, 00: POLE su bondad; el haber dado carácter de contrato al rescate del
+| eronreasalic el coupenge: compuesto: de peces, 00: POLE su bondad; el haber dado carácter de contrato al rescate del
 los proporcionara para su necesidad el mar, sino el que esparció que estalla ssciavizado muestra: su Justicia; A leds hecho
 en el mar la especie de los peces". comprensible al enemigo de manera sutil lo incomprensible
 implica la prueba de la más alta sabiduría.
 Cristo, rescate Potencia manifestada en la Encarnación
-3. ¿Y cómo podría nadie explicar uno por uno los mila- . . )
+3.¿ Y cómo podría nadie explicar uno por uno los mila-.. )
 gros del Evangelio? Al considerar poder tan grande, el enemigo XXIV. 1. Sinembargo, es natural que quien esté atento
 vio que en aquel contrato lo que se le proponía era más que a la secuencia lógica de lo que venimos diciendo intente avelo que él retenía. Por esta razón escogió que fuese Él el rescate riguar dónde se descubre la potencia de la divinidad en los
 de los que se hallaban cautivos en el calabozo de la muerte. ===
@@ -1698,7 +1695,7 @@ la grandeza de los cielos, ni el resplandor de los astros, ni el naturalezas en 
 orden del universo, ni la continua providencia sobre los seres humana permaneciendo intacta la trascendencia de su naturaleza divina.
 
 98 Gregorio de Nisa La Gran Catequesis 99
-contrario, debe creerse absolutamente que todo pensamiento Él en todo, ¿por qué avergonzarse del plan salvífico del miselevado y piadoso se aplica a Dios, y cada uno de ellos debe terio, que nos enseña que Dios ha nacido en un hombre, el misestar concatenado con el otro en secuencia lógica. 6. Pues mo Dios que hoy seguimos creyendo que está dentro del
+contrario, debe creerse absolutamente que todo pensamiento Él en todo,¿ por qué avergonzarse del plan salvífico del miselevado y piadoso se aplica a Dios, y cada uno de ellos debe terio, que nos enseña que Dios ha nacido en un hombre, el misestar concatenado con el otro en secuencia lógica. 6. Pues mo Dios que hoy seguimos creyendo que está dentro del
 bien, están demostradas la bondad, la sabiduría, la justicia, la hombre? *
 potencia, la incorrupción, todos los atributos que se manifiestan 2. Efectivamente, si este modo actual de la presencia de
 en el plan divino en favor nuestro. La bondad se capta en la Dios en nosotros no es el mismo que aquel, sin embargo
@@ -1713,9 +1710,9 @@ con su naturaleza. 7. Ahora bien, lo propio de la luz es resulta para la raza de
 disipar la oscuridad, y lo propio de la vida abatir a la muerte. para la vida inmortal.
 Por tanto, como quiera que, dejándonos desviar nosotros del
 buen camino, desde el comienzo volvimos la espalda a la vida
-y nos hundimos en la muerte, ¿qué de inverosímil aprendemos
+y nos hundimos en la muerte,¿ qué de inverosímil aprendemos
 del misterio, si la purificación alcanza a los que estaban man- El engañador, engañado
-chados por el pecado, la vida a los muertos y la guía a los o, . . O
+chados por el pecado, la vida a los muertos y la guía a los o,.. O
 extraviados, para que la suciedad quede limpia, se cure el XXVI 1. Pero quizás alguien, al examinar la justicia y
 extravío y lo muerto vuelva a la vida? la sabiduría que contemplamos en este plan salvífico, se vea
 llevado a considerar una especie de engaño el haber Dios
@@ -1725,7 +1722,7 @@ ANA al desnudo, sino recubierto con la naturaleza humana, sin ser
 XXV. 1. Elquela divinida d-tome nuestra naturaleza reconocido por el enemigo, constituye en cierta manera un
 no debería causar la menor extrañeza, según el buen sentido, engaño y una añagaza, si precisamente lo propio de los que
 en los que conciben la realidad sin demasiada ruindad mental. engañan es desviar las esperanzas de sus víctimas hacia otro
-Porque, ¿quién tendrá alma tan menguada que, mirando al objetivo y obrar otra cosa que la esperada. Sin embargo,
+Porque,¿ quién tendrá alma tan menguada que, mirando al objetivo y obrar otra cosa que la esperada. Sin embargo,
 universo, no crea que Dios está en todo, que lo envuelve y quien mire atentamente a la verdad convendrá en que esto,
 abraza todo y reside en todo? '* Efectivamente, los seres de- más que todo, es propio de la sabiduría y de la justicia.
 penden del que es, y no es posible que exista nada que no
@@ -1753,19 +1750,19 @@ estos males.
 muestra la justicia, y la finalidad de lo acontecido atestigua la
 bondad del que lo realiza. En efecto, propio de la justicia es 6. Enrealidad, cuando al oro se ha mezclado una materia
 manes A menos valiosa, los orífices consumen mediante la acción del
-ul , 1 = : 4
-devuelve e frutos se; an las especies de las cols lanta- furgo lecextulo y desecitabdo. ¿¿deraciven a laaatera e
+ul, 1 =: 4
+devuelve e frutos se; an las especies de las cols lanta- furgo lecextulo y desecitabdo.¿¿ deraciven a laaatera e
 das". Y 1 io/d A bid p: hi 1 D de 1 preciosa su esplendor natural. Sin embargo, esta separación
 e E O PODIO de e ep a SS ata A año, no se lleva a cabo sin trabajo, pues el fuego, con su fuerza de
-, : e e Al mente que es una especie de medicación del oro el hecho de
+,: e e Al mente que es una especie de medicación del oro el hecho de
 > A ' s misma manera, puesto que la muerte, la corrupción, la tiniebla
 contraveneno, y el modo del tratamiento en nada altera el y cualquier ee apaño de la maldad están entrelazados
 po a, ca Porque: € por Po e se da con el inventor del mal, la aproximación de la E divina
 : S E destruye, a modo de fuego, lo que es contrario a la naturaleza,
 pe ed ds le al gatas po por penosa que resulte pos pas ep e pp = el
-! . Mii z ropio enemigo podría dudar de que lo hecho es justo y
+!. Mii z ropio enemigo podría dudar de que lo hecho es justo y
 cosecha los frutos cuyas semillas él mismo sembrara por su ECO con cl dos llegara a perciba el beneficio.
-propia voluntad, porque también a él le engaña la figura del ?
+propia voluntad, porque también a él le engaña la figura del?
 hombre que se le presenta, a él que primeramente había engañado al hombre con el cebo del placer. Pero el propósito de El enfermo y el médico
 los hechos implica un cambio a mejoría.
 8. Ahora bien, los que son tratados a base de sajaduras
@@ -1784,27 +1781,27 @@ de los que fueron castigados a la purificación y de los que no decir, la fuerza
 necesitaron ni siquiera el principio de una purificación. cada uno de los dos extremos: entró en contacto al comienzo,
 9. Estas y otras parecidas enseñanzas nos transmite el se extiende hasta el final y ocupa todo el intermedio. 3. Pero,
 gran misterio de la Encarnación divina. Gracias a su mezcla como todos los hombres no tienen más que una entrada en la
-con la humanidad, pasando por todas las particularidades de vida, ¿de dónde tenía que venir a establecerse en la vida el que
+con la humanidad, pasando por todas las particularidades de vida,¿ de dónde tenía que venir a establecerse en la vida el que
 la naturaleza: el nacimiento, la educación y el crecimiento, y llegaba hasta nosotros? —Del cielo, dice quizás el que rechaza
 atravesando incluso la prueba de la muerte, Dios llevó a cabo con desprecio, como algo vergonzoso e indigno, la forma de
 todo lo dicho anteriormente, librando de la maldad al hombre nacer de los hombres *. Pero en el cielo no estaba la humaniy curando al propio inventor de la maldad. Porque curación dad, ni en la vida supraterrenal cundía la enfermedad de la
 es de una dolencia el quitar la enfermedad, aunque sea penoso. maldad. Sin embargo, el que se mezclaba con el hombre
 adecuaba su mezcla a su propósito de ser provechoso. Por
 ars 4 tanto, de allí donde no existía el mal, ni la vida humana tenía
-Lógica de la Encarnación ciudadanía, ¿cómo puede alguien tratar de hallar que el hombre
-hos . , haya bajado a abrazarse con Dios, mejor dicho, no el hombre,
-2 2 A a a ina po sino una imagen y semejanza de hombre? ¿Qué enmienda de
-sus particalaridades. Efectivamente . lno-beurrecon los nuestra naturaleza podría darse si, siendo la vida terrenal la
+Lógica de la Encarnación ciudadanía,¿ cómo puede alguien tratar de hallar que el hombre
+hos., haya bajado a abrazarse con Dios, mejor dicho, no el hombre,
+2 2 A a a ina po sino una imagen y semejanza de hombre?¿ Qué enmienda de
+sus particalaridades. Efectivamente. lno-beurrecon los nuestra naturaleza podría darse si, siendo la vida terrenal la
 lavan la suciedad de los vestidos. ue no dejan unas m chas ps, emp sims que la o a
-nitin:ótras.siño limpi pa h y) odo el anchas ser de los celestes? Porque no es posible que el enfermo se
+nitin: ótrassiño limpi pa h y) odo el anchas ser de los celestes? Porque no es posible que el enfermo se
 yq » que limpian de manchas todo el tejido de cure, si la parte enferma no es la que recibe particularmente
 A la curación.
 » Explícita afirmación del concepto de la apokatástasis (cf. Hch. 3,21) o
 Pp be los seres al se labra de bondad (v. Introducción,
 pág. 29): una idea origeniana libremente elaborada en varios i i
 Fl La afirmación del rescate universal, incluido el demonio, implica la Dios en el corazón del mal
-ipótesis de la no eternidad del infierno. Sobre este unto, : i
-Gregorio no es siempre lineal y coherente (por Jl. en el E - ¡ue . 4. Por tanto, si la parte enferma estab a sobre la HEEEA Y
+ipótesis de la no eternidad del infierno. Sobre este unto,: i
+Gregorio no es siempre lineal y coherente (por Jl. en el E -¡ ue. 4. Por tanto, si la parte enferma estab a sobre la HEEEA Y
 las expresiones bíblicas del «fuego inextinguible» y del «gusano imperecedero»). sl, por otra parte, la potencia divina, mirando a su propia
 Aquí, como en otras partes, la polémica contra el maniqueísmo lleva a _—_—
 Gregorio a dar fuerte relieve a la inconsistencia del mal y al restablecimiento 31 La tesis remonta al gnóstico Valentín, pero aquí Gregorio tiene espede todas las cosas en el bien. cialmente en cuenta a Apolinar de Laodicea.
@@ -1816,7 +1813,7 @@ tencia divina, por algo que nada tiene en común con nosotros. presume que la na
 Efectivamente, la inconveniencia hubiera sido la misma para la divinidad, tampoco se hallará otra alguna con esa dignidad.
 la divinidad, si es que está permitido pensar en otra inconve- Pero, si todo queda por igual alejado de esa dignidad, ee
 niencia que no sea la maldad. Solamente que, quien, con alma cosa hay, sin embargo, digna de Dios: hacer el bien al pe 9
-ruin, juzga que la grandeza divina consiste en no admitir la necesita. Por tanto, si reconocemos que donde estaba la enferparticipación en las particularidades de nuestra naturaleza, la medad allí acudió la potencia que cura, ¿que hay en nuestra
+ruin, juzga que la grandeza divina consiste en no admitir la necesita. Por tanto, si reconocemos que donde estaba la enferparticipación en las particularidades de nuestra naturaleza, la medad allí acudió la potencia que cura,¿ que hay en nuestra
 indignidad no se atenúa porque la divinidad se conforme a un fe que sea ajeno del concepto digno de Dios?
 
 cuerpo celeste más que si lo hace a un cuerpo terrestre. Efec-
@@ -1885,11 +1882,11 @@ separada de la maldad, y la naturaleza por su parte no es
 mala, y el misterio nos dice que Dios nace en el hombre y no
 en la maldad; y si además la entrada del hombre en la vida es
 única, y sólo a través de ella es introducido en la vida lo
-engendrado, ¿qué otro modo de entrar en la vida decretan
+engendrado,¿ qué otro modo de entrar en la vida decretan
 para Dios los que, por una parte, encuentran razonable que
 la naturaleza debilitada en la maldad haya sido visitada por la
 potencia divina, pero, por otra, sienten asco del modo de la
-visitación? ¿Es que no saben que todo el edificio del cuerpo
+visitación?¿ Es que no saben que todo el edificio del cuerpo
 tiene en sí mismo idéntica importancia y que en él nada de lo
 que contribuye a constituir la vida se tacha de deshonroso o
 malo?
@@ -1903,18 +1900,18 @@ pues, mantienen la vida presente de los hombres, cada cual se desliza por los co
 con su propia actividad, y mediante ellos se administra la intruso contrario a la naturaleza esté del todo al descubierto
 capacidad de percibir y la de obrar. En cambio, los órganos en la superficie, los que son competentes en la técnica de
 de la generación tienen la provisión del futuro, y por medio tratar las dolencias no atiborran el cuerpo de drogas astrinde ellos se introduce en la naturaleza la sucesión. gentes, sino que esperan a que salga fuera todo lo que se
-4. Si miras, pues, a la utilidad, ¿qué miembro de los que ocultaba en el interior, y así aplican la cura directamente a la
-consideramos honrosos les gana a éstos el primer puesto? ' ¿A afección. Pues bien, después que la enfermedad de la maldad
+4. Si miras, pues, a la utilidad,¿ qué miembro de los que ocultaba en el interior, y así aplican la cura directamente a la
+consideramos honrosos les gana a éstos el primer puesto? '¿ A afección. Pues bien, después que la enfermedad de la maldad
 cuál de ellos no juzgaremos razonablemente menos importante? se abatió de una vez por todas sobre la naturaleza humana, el
 Porque ni el ojo, ni el oído, ni la lengua, ni otro alguno de los médico del universo esperó a que ninguna forma de maldad
 órganos de los sentidos mantiene a nuestra especie en la con- quedase escondida dentro de la naturaleza,
 tinuidad, pues éstos, como se ha dicho, son de utilidad presente, 3. Esta es la razón de que no aplicara al hombre la
 mientras que en los otros, por el contrario, se conserva la curación inmediatamente después de la envidia y del fratricidio
-inmortalidad para la humanidad, tanto que la muerte, que de Caín ?, pues no había salido aún a la luz la maldad de los
+inmortalidad para la humanidad, tanto que la muerte, que de Caín?, pues no había salido aún a la luz la maldad de los
 siempre está obrando contra nosotros, resulta en cierto modo que perecieron en tiempos de Noé, ni se había desvelado la
 fracasada e ineficaz, ya que la naturaleza misma llena en cada terrible enfermedad de la infamia de Sodoma *, ni la lucha de
 momento los vacíos mediante la sucesión de los nacimientos. los egipcios contra Dios *, ni la soberbia de los asirios *, ni la
-¿Qué contiene, pues, de indigno nuestro misterio si Dios se acción asesina de los judíos contra los santos de Dios”, ni la
+¿ Qué contiene, pues, de indigno nuestro misterio si Dios se acción asesina de los judíos contra los santos de Dios”, ni la
 mezcló con la vida humana por los mismos caminos que la criminal matanza de niños hecha por Herodes *, ni otra alguna
 naturaleza utiliza para luchar contra la muerte? de cuantas maldades se guarda memoria, ni de cuantas fueron
 perpetradas en la sucesión de las generaciones sin ser registradas
@@ -1923,25 +1920,25 @@ Porqué el Salvador tardó tanto en venir formas en las libres decisiones de los
 4. Así, pues, cuando la maldad alcanzó su cumbre y no
 XXIX. 1. Peroellos, pasando de ésta a otras cuestiones, había ya forma de maldad a que los hombres no se hubiesen
 de nuevo intentan ultrajar a nuestra doctrina, y dicen: Si lo atrevido, para que la curación llegase a toda la dolencia, Dios
-hecho es bueno y digno de Dios, ¿por qué retrasó el beneficio? ? se puso a curar la enfermedad, no cuando ésta comenzaba,
-¿Por qué, mientras la maldad estaba en sus comienzos, no sino cuando había madurado.
+hecho es bueno y digno de Dios,¿ por qué retrasó el beneficio?? se puso a curar la enfermedad, no cuando ésta comenzaba,
+¿ Por qué, mientras la maldad estaba en sus comienzos, no sino cuando había madurado.
 cortó por lo sano sus progresos a mayores?
 2. A esto nosotros respondemos concisamente que el 5 Cf. Gn.4,15
 retraso de nuestro beneficio se debió a la sabiduría y a la “Cf Gn.67.
 AUREA 3 Cf. Gn. 19, 1-4.
 ! Quizás Gregorio está pensando en 1 Co. 12, 14-24. s Cf. Is. 37, 23-24; cf. Ha. 2, 4-5 (posiblemente Gregorio toma a los
-_ ? Esta objeción la planteaban en varias formas serios adversarios del asirios por los caldeos).
-cristianismo, como Celso, filósofo platónico ecléctico del siglo 11, y Porfirio, ? Cf. Mt. 23, 34-35.
+_? Esta objeción la planteaban en varias formas serios adversarios del asirios por los caldeos).
+cristianismo, como Celso, filósofo platónico ecléctico del siglo 11, y Porfirio,? Cf. Mt. 23, 34-35.
 neoplatónico del siglo 111-1v. + Cf. Mt. 2, 16-18.
 
-110 . .
+110..
 Gregorio de Nisa La Gran Catequesis 111
 Persistencia del pecado llamada se dirige por igual a todos, sin tener en cuenta la
 dignidad ni la edad ni las diferencias raciales (porque, si ya
 XXX. 1. Pero, si alguien cree refutar nuestra doctrina desde el comienzo de la predicación los servidores de la dooargumentando que, incluso después de ser aplicada la cura, la trina, por una inspiración divina hablaron a la vez las lenguas
 vida humana sigue estando todavía a merced de los pecados, de todos los p ueblos *, 8 para que nadie pudiera quedar sin
-que se deje guiar hacia la verdad por alguno de los ejemplos participar de la enseñanza), ¿cómo, pues, podría alguien razomás conocidos. Efectivamente, lo mismo que tratándose de la nablemente acusar todavía a Dios de que su doctrina no se
-serpiente, cuando recibe el golpe certero sobre la cabeza, no haya impuesto a todos? . A
+que se deje guiar hacia la verdad por alguno de los ejemplos participar de la enseñanza),¿ cómo, pues, podría alguien razomás conocidos. Efectivamente, lo mismo que tratándose de la nablemente acusar todavía a Dios de que su doctrina no se
+serpiente, cuando recibe el golpe certero sobre la cabeza, no haya impuesto a todos?. A
 muere de inmediato junto con la cabeza el resto que viene 4. En realidad, el que tiene la libre disposición de todas
 detrás, sino que la cabeza muere, sí, pero la cola sigue todavía las cosas, por un exceso de su aprecio por el hombre, dejó
 animada por su propio principio vital y conserva el movimiento también que algo estuviese bajo nuestra libre disposición, de
@@ -1953,29 +1950,29 @@ Salvación parcial de los hombres para dar el asentimiento. 5. De hecho, cuando 
 2. Pero los adversarios, dejando de lado sus reproches al tsamblea dir judios”, yiserptazos le fe en: Ja misma: ocasión
 misterio acerca de este punto doctrinal, lo acusan de ue la fe tos tres mil, los que no se habían dejado persuadir, aunque
 no haya llegado en su difusión a todos 1 os hombres ph % eran más que los que habían creído, no reprocharon al apóstol
-razón —dicen— la gracia * no ha llegado a todos loa: mia, el no haberles convencido. No hubiera sido razonable, efectii . S A vamente, puesto que la gracia se había expuesto en común,
-sino:que, Junto:a algunos que abrazaron la doctrina, queda que quie bablá descttado ooiaiaianta 10 se culpara a sí
+razón —dicen— la gracia * no ha llegado a todos loa: mia, el no haberles convencido. No hubiera sido razonable, efectii. S A vamente, puesto que la gracia se había expuesto en común,
+sino: que, Junto: a algunos que abrazaron la doctrina, queda que quie bablá descttado ooiaiaianta 10 se culpara a sí
 una porción nada pequeña sin ella, bien porque Dios no mismo, sino a'otro, de su. mala elección
-quiso repartir a todos generosamente su beneficio, bien porque ¿200 Ss li d
+quiso repartir a todos generosamente su beneficio, bien porque¿200 Ss li d
 za pudo en absoluto? En ninguno de los dos casos está libre
 le reproche, pues ni es digno de Dios el no querer el bien, ni i
-lo es el no poder hacerlo. Si, pues, la fe es un bien, ¿por qué LA 10: Cane SO HOR
+lo es el no poder hacerlo. Si, pues, la fe es un bien,¿ por qué LA 10: Cane SO HOR
 —dicen— la gracia no llega a todos? i
 3. Pues bien, si en netas doctmaaRemamos 16 8 XXXI. 1. Pero ni siquiera frente a tales razones se
 iente: Gi “tri o uedan ellos sin replicar quisquillosamente. De hecho dicen
 a cn sol divine cistabuye q or suertes la fe 2 Dios, si lo dl uede Cour forzadamente a aceptar
 mE q pb E paliar a al mensaje dido Enel a los que se resisten. Pues bien
-enen parte en ada, entonces sería el momento oportuno i ) .
-para avanzar dicha acusación contra el misterio. Pero, si la ¿dónde estaría en estos casos el libre albedrío? ¿Dónde la
+enen parte en ada, entonces sería el momento oportuno i ).
+para avanzar dicha acusación contra el misterio. Pero, si la¿ dónde estaría en estos casos el libre albedrío?¿ Dónde la
 ? La gracia del Evangelio; cf. Hch. 20, 24; 1 Co. 6,1; 8,9; Col. 1,6. Ñ E es z ca
 
 112 Gregorio de Nisa La Gran Catequesis 113
-virtud? ¿Dónde la alabanza de los que viven con rectitud? límites, si habiendo franqueado el primero no hubiera llegado
+virtud?¿ Dónde la alabanza de los que viven con rectitud? límites, si habiendo franqueado el primero no hubiera llegado
 Porque sólo de los seres inanimados y de los irracionales es al siguiente, su propósito hubiera quedado manco, porque no
-propio el dejarse llevar por el capricho de una voluntad ajena. habría asumido una de las particularidades de nuestra natuLa naturaleza racional e inteligente, por el contrario, si abdica raleza. . . . pa
+propio el dejarse llevar por el capricho de una voluntad ajena. habría asumido una de las particularidades de nuestra natuLa naturaleza racional e inteligente, por el contrario, si abdica raleza... pa
 
-de su libre albedrío, con él pierde también la gracia de la .3. Y si uno conociera con más exactitud el misterio,
-inteligencia, pues, ¿para qué se iba a servir de la mente, si el quizás podría decir con más verosimilitud que la muerte no
+de su libre albedrío, con él pierde también la gracia de la.3. Y si uno conociera con más exactitud el misterio,
+inteligencia, pues,¿ para qué se iba a servir de la mente, si el quizás podría decir con más verosimilitud que la muerte no
 poder de elegir según el propio albedrío se halla en otro? ocurrió por causa del nacimiento, sino al revés, que por causa
 
 2. Ahora bien, si el libre albedrío quedase inactivo, la de la muerte asumió Dios el nacimiento porque el Eterno AS
@@ -1983,7 +1980,7 @@ virtud desaparecería necesariamente, impedida por la inercia no se sometió al 
 de la voluntad. Y si no hay virtud, la vida pierde su valor, se de vivir, sino por llamarnos de nuevo a nosotros de la muerte
 elimina la alabanza de los que viven rectamente, se peca im- a la vida. Por tanto, ya que era necesario que nuestra naturaleza
 Punemente y no se discierne lo que diferencia a las vidas. regresara de la muerte toda entera, al inclinarse Él sobre
-Porque, ¿quién podría todavía vituperar al libertino y alabar nuestro cadáver para tender, por así decirlo, su mano al yaal virtuoso, como es de razón? La respuesta que cada uno cente, se acercó tanto a la muerte que entró en contacto con
+Porque,¿ quién podría todavía vituperar al libertino y alabar nuestro cadáver para tender, por así decirlo, su mano al yaal virtuoso, como es de razón? La respuesta que cada uno cente, se acercó tanto a la muerte que entró en contacto con
 tiene a mano es ésta: ninguna decisión depende de nosotros, el estado cadavérico, y con su propio cuerpo dio a la naturaleza
 sino que un poder superior conduce a las voluntades humanas el principio de la resurrección, pues con su poder resucitó
 a lo que es capricho del amo. conjuntamente al hombre entero.
@@ -1996,17 +1993,17 @@ divinidad, lo mismo que en nuestro cuerpo la actividad de
 Necesidad de la muerte de Cristo uno solo de los sentidos lleva la percepción interior al todo
 que está unido a la parte, así también, como si la naturaleza
 
-XXXII 1. ¿Qué añaden a estas objeciones todavía los entera fuera la de un solo ser vivo, la resurrección de un
+XXXII 1.¿ Qué añaden a estas objeciones todavía los entera fuera la de un solo ser vivo, la resurrección de un
 adversarios? Sobre todo, que en manera alguna debía la sobe- miembro se extiende al todo, y de la parte se comunica al
-rana naturaleza llegar a la experiencia de la muerte, sino que, todo por la continuidad y unidad de la naturaleza. ¿Qué
+rana naturaleza llegar a la experiencia de la muerte, sino que, todo por la continuidad y unidad de la naturaleza.¿ Qué
 incluso sin esto, por la sobreabundancia de su poder, hubiera aprendemos, pues, del misterio que esté fuera de lo razonable,
 podido llevar a cabo su plan con facilidad. Pero incluso si esto si el que está en pie se inclina sobre el caído para levantarlo
 debía realizarse necesariamente por alguna secreta razón, si- de nuevo?
 quiera que no hubiera sido objeto del ultraje de tan vil género
-de muerte. Porque, añaden, ¿qué muerte puede resultar más Misterio de la cruz
+de muerte. Porque, añaden,¿ qué muerte puede resultar más Misterio de la cruz
 Ignominiosa que la muerte de cruz?
 
-2. ¿Qué responderemos también a esto? Que el nacimiento Y si la cruz encierra alguna otra doctrina más profunda,
+2.¿ Qué responderemos también a esto? Que el nacimiento Y si la cruz encierra alguna otra doctrina más profunda,
 hace necesaria la muerte. Efectivamente, el que una vez por quizás lo sepan los versados en las cosas ocultas. En todo
 todas tenía decidido formar parte de la humanidad debía caso, esto es lo que nos ha llegado de la tradición.
 pasar por todas las particularidades de nuestra naturaleza. e
@@ -2061,7 +2058,7 @@ parecidos contiene la narración histórica es algo que no necesita
 de la ayuda del razonamiento para mostrar su carácter divino
 y propio de la potencia más sublime y suprema. 11. No creo Sin embargo, como quiera que el plan divino relativo al
 que sea necesario considerar exhaustivamente cada uno de baño de purificación forma parte de las enseñanzas reveladas '
-estos hechos, pues el mismo relato pone de manifiesto que —ya se quiera llamarlo Bautismo, ya iluminación ?, o bien
+estos hechos, pues el mismo relato pone de manifiesto que —ya se quiera llamarlo Bautismo, ya iluminación?, o bien
 sobrepasan lo natural. regeneración—, bueno será que sobre él expliquemos algo
 brevemente.
 EL BAUTISMO
@@ -2086,8 +2083,8 @@ w Cf. Le. 24, 36; Jn. 20, 19. y fe son los medios por los que se realiza el mist
 118 Gregorio de Nisa La Gran Catequesis 119
 regeneración, se muestran incrédulos, pues miran lo externo y y la necedad, después de reconocer aquí a Dios una potencia
 dicen que lo realizado corporalmente no concuerda con la tan grande, creer que en este otro caso la divinidad carece de
-promesa, porque —dicen— ¿cómo una oración y una invoca- vigor para ejecutar su voluntad. 4. ¿Qué hay de común
-ción de la potencia divina hechas sobre el agua se tornan en —dicen— entre el agua y la vida? ¿Y qué hay de común —les
+promesa, porque —dicen—¿ cómo una oración y una invoca- vigor para ejecutar su voluntad. 4.¿ Qué hay de común
+ción de la potencia divina hechas sobre el agua se tornan en —dicen— entre el agua y la vida?¿ Y qué hay de común —les
 principio primero de vida para los iniciados? replicaremos— entre el elemento húmedo y la imagen de Dios?
 Ahora bien, no hay nada extraño en el hecho de que, por
 quererlo Dios, el elemento húmedo se transforme en el ser
@@ -2095,12 +2092,12 @@ De qué manera regenera el agua vivo más digno. Pues lo mismo en nuestro caso. 
 nosotros decimos que no hay de qué extrañarse si la presencia
 2. Frente a éstos, si es que no presentan demasiada resis- de la potencia divina transforma en incorruptible al ser nacido
 tencia, bastará una simple respuesta para inducirlos a asentir en la naturaleza corruptible.
-a esta doctrina. Efectivamente, puesto que el modo del nacimiento carnal está claro para todos, preguntémosles nosotros o .
+a esta doctrina. Efectivamente, puesto que el modo del nacimiento carnal está claro para todos, preguntémosles nosotros o.
 a nuestra vez cómo es que se convierte en hombre aquello que Dios invocado en la oración
-se arroja para que comience a formarse el ser vivo. Ahora . .
+se arroja para que comience a formarse el ser vivo. Ahora..
 bien, realmente sobre esto no existe teoría alguna que descubra XXXIV. 1. Sinembargo, siguen buscando una prueba
 con un razonamiento algo que convenza. Porque, si se los de que Dios se hace presente cuando se le invoca para santificar
-compara, ¿qué tiene de común la definición del hombre con los ritos. Quien esto busca, relea de nuevo lo que ya se investigó
+compara,¿ qué tiene de común la definición del hombre con los ritos. Quien esto busca, relea de nuevo lo que ya se investigó
 la cualidad que contemplamos en aquel semen? El hombre es arriba. Efectivamente, la confirmación del carácter verdadeun ser racional e inteligente, capaz de pensamiento y de cono- ramente divino de la potencia que se nos ha manifestado en
 cimiento *, mientras aquél lo observamos en su calidad de la carne se convierte en apoyo de la presente cuestión.
 húmedo, y el pensamiento no capta más que lo percibido por 2. Demostrado, en efecto, que es Dios el que se manifestó
@@ -2137,7 +2134,7 @@ Pues bien, en la forma espiritual de generación, puesto que guía de nuestra vi
 Dios ha prometido estar presente en los hechos y ha depositado seguidores ajustemos la imitación conforme al autor de nuestra
 en la acción su propio poder, según lo hemos creído, y puesto salvación. 2. Efectivamente, lo mismo que los ya maestros en
 que nuestro libre albedrío se adhiere al resultado, si el socorro táctica militar instruyen en la práctica de las armas a los
-de la oración viene a unirse convenientemente, ¿cuánto más aprendices haciendo que miren atentos el buen ritmo y la
+de la oración viene a unirse convenientemente,¿ cuánto más aprendices haciendo que miren atentos el buen ritmo y la
 perfecto no será el objeto del empeño? marcialidad del movimiento, y si uno no practica el ejemplo
 4. Realmente, lo mismo que quienes oran a Dios pidiendo propuesto se queda privado de tal experiencia, así también es
 que les salga el sol en nada menoscaban al fenómeno, que es absolutamente necesario que aquellos que tienen idéntico celo
@@ -2155,9 +2152,9 @@ la resurrección de Cristo.
 o Cf. Hb. 2, 10.
 
 122 Gregorio de Nisa La Gran Catequesis 123
-. . asumido el estado de cadáver y ser depositado bajo tierra
+.. asumido el estado de cadáver y ser depositado bajo tierra
 De la oración a la libertad durante tres días, de nuevo surgió a la vida, así también el que
-. . está unido a Él en su naturaleza corporal, si mira al feliz
+.. está unido a Él en su naturaleza corporal, si mira al feliz
 3. Efectivamente, como los que, hallándose sin poder resultado mismo, quiero decir a la vida como término, y
 atravesar los recovecos de los laberintos *, si dan con una derrama sobre sí agua en vez de tierra y se zambulle por tres
 persona experta en los mismos y la siguen en su marcha hacia veces en ese elemento, reproduce por imitación la gracia de la
@@ -2174,14 +2171,14 @@ enteramente conforme a su propio fin.
 
 4. Laberinto llamo, en sentido figurado, a la prisión sin 8. Efectivamente, los elementos que estaban unidos fueron
 salida de la muerte, donde fue encerrada la desventurada separados por la muerte, y esos elementos separados fueron
-humanidad. Así pues, ¿qué hemos contemplado en el autor de nuevo juntados para que, purificada la naturaleza en la dide nuestra salvación? Estado de muerte durante tres días, y solución de los elementos afines —del cuerpo y del alma
+humanidad. Así pues,¿ qué hemos contemplado en el autor de nuevo juntados para que, purificada la naturaleza en la dide nuestra salvación? Estado de muerte durante tres días, y solución de los elementos afines —del cuerpo y del alma
 vida nuevamente. Por tanto tenemos que imaginarnos también quiero decir—, el retorno de estos elementos separados resultase
-en nosotros algo semejante. ¿Y cuál es esa invención por la limpio de toda mezcla extraña. Sin embargo, en los que siguen
+en nosotros algo semejante.¿ Y cuál es esa invención por la limpio de toda mezcla extraña. Sin embargo, en los que siguen
 
 ue se lleva a cabo también en nosotros la imitación de lo que a su guía, la naturaleza no permite la imitación exacta en
 Él hizo? 5. Todo ser muerto tiene un lugar apropiado y natural, todo, sino que ahora la admite únicamente en la medida de lo
 la tierra, en la cual se le acuesta y se le oculta. Ahora bien, la posible, y reserva el resto para el tiempo futuro. 9. Entonces,
-tierra y el agua tienen mutuamente mucha afinidad, pues son ¿qué es lo que se imita? El hacer desaparecer la propia maldad
+tierra y el agua tienen mutuamente mucha afinidad, pues son¿ qué es lo que se imita? El hacer desaparecer la propia maldad
 los dos únicos elementos pesados y con tendencia hacia abajo, en la imagen del estado de muerte, y eso mediante el agua,
 y los únicos que subsisten el uno en el otro y que mutuamente aunque no es en verdad una desaparición completa, sino como
 se dominan. Como quiera, pues, que el guía de nuestra vida, una ruptura de la continuidad del mal, pues dos son las causas
@@ -2200,12 +2197,12 @@ rey Minos de Creta.
 
 124 Gregorio de Nisa La Gran Catequesis 125
 Imit Crist al ser vivo? y con todo, sin este semen no existiría aquél. Pues
-mitar aloristo así también el gran don de la resurrección, aunque por natua a de : raleza es mayor, sin embargo tiene aquí sus principios y sus
+mitar aloristo así también el gran don de la resurrección, aunque por natua a de: raleza es mayor, sin embargo tiene aquí sus principios y sus
 10. Ahora bien, SLeSta Imitación se diese en la muerte causas, pues no es posible que aquélla se haga realidad, si no
 completa, ya no habría imitación, sino identidad de la cosa, y le ha precedido esto otro.
 el mal desaparecería por completo de nuestra naturaleza, de 13. Digo que no le es posible al hombre la resurrección
 modo qnes como a 7 el Apóstol, Se:-mOnra al pe q E e, sin la regeneración del baño bautismal, aunque no me refiero
-vez para siempre *. Mas, como quiera que, segun se ha dicno, a la reconstitución y restauración de nuestro compuesto hunosotros imitamos a la potencia suprema sólo cuanto nos mano: Efectivamente, la. natoraleza debe:caminar hacia:esto
+vez para siempre *. Mas, como quiera que, segun se ha dicno, a la reconstitución y restauración de nuestro compuesto hunosotros imitamos a la potencia suprema sólo cuanto nos mano: Efectivamente, la. natoraleza debe: caminar hacia: esto
 permite la ep de nuestra rape cuando E LS m absolutamente a impulso de sus propias leyes y según el plan
 merge'en el agua tres veces yde nuevo surgimos del 48U8; de su creador, lo mismo si recibe la gracia del bautismo que
 estamos imitando la sepultura salvífica y la resurrección, que, si queda sin participar de tal iniciación. Yo me refiero a
@@ -2221,13 +2218,13 @@ puede entrar Sin: p: eligro en contacto con el agua, sl lo quiere, ausencia de p
 la potencia divina puede, con una facilidad infinitamente ma- pasiones se encallecieron y no aplicaron ningún remedio puyor, afrontar la muerte, entrar en ella y no sufrir mudanza rificador de su inmundicia —ni el agua sacramental, ni la
 e debilidad. d ñ A ludi invocación del poder divino, ni la enmienda del arrepentiÑ razon, PUES de O a miento— también ellos tendrán necesariamente lo que les
 en el agua la gracia de la resurrección es que supiéramos que corresponde
-para nosotros es igualmente fácil ser bautizados en el agua :
+para nosotros es igualmente fácil ser bautizados en el agua:
 que resurgir de la muerte. Ahora bien, en los acaeceres de la o
 vida, algunas cosas son más importantes que otras, y sin ellas Leyes de la purificación
 no podría tener éxito lo que se hace. Sin embargo, si compa- 15. Ahora bien, lo que corresponde al oro impuro es el
 ramos el principio con el término, el principio parecerá no horno de fundición '*. Y así, una vez fundida toda la maldad
-tener la menor importancia, comparado con el final, pues, —__—- .
-¿qué tienen de igual el hombre y aquel semen que constituyó » Sobre la doctrina de la apokatástasis o vuelta del hombre al estado
+tener la menor importancia, comparado con el final, pues, —__—-.
+¿ qué tienen de igual el hombre y aquel semen que constituyó » Sobre la doctrina de la apokatástasis o vuelta del hombre al estado
 original de bienaventuranza, ver nota 20 de la Sección IV, y la Introducción,
 AS pág. 29.
 Cf. Rm. 6, 10. “ Cf. MI. 3,2.
@@ -2246,23 +2243,23 @@ imposible que entre en el coro divino quien no haya lavado para que a través de
 enteramente las manchas de la maldad. Esto, aunque poca por todo el cuerpo, así también nosotros, después de haber
 cosa en sí, es el principio y fundamento de grandes bienes. saboreado lo que causa la disolución de nuestra naturaleza,
 Digo poca cosa, por la facilidad del buen resultado. Porque, teníamos absoluta necesidad de lo que reúne de nuevo lo ya
-¿qué trabajo cuesta creer que Dios está en todas partes, que, disuelto, para que este remedio, una vez en nosotros, eliminase
+¿ qué trabajo cuesta creer que Dios está en todas partes, que, disuelto, para que este remedio, una vez en nosotros, eliminase
 aun estando en todo, asiste también a los que invocan su por su propio efecto el daño del veneno introducido antes en
 poder vivificante, y que estando presente obra lo que le es el cuerpo ”.
 propio? 2. Ahora bien, lo propio de la actividad divina es la
 salvación de los que la necesitan. Esta se hace efectiva mediante
 la purificación del agua. El que ha sido purificado tendrá Remedio contra la muerte
 parte en la pureza, y la pureza verdadera es la divinidad. Estás
-viendo cómo el principio es poca cosa y fácil de realizar bien: 3. ¿Qué remedio es éste? No otro que aquel cuerpo que
+viendo cómo el principio es poca cosa y fácil de realizar bien: 3.¿ Qué remedio es éste? No otro que aquel cuerpo que
 fe y agua; la fe, porque está dentro de nuestro libre albedrío; se mostró más fuerte que la muerte y dio principio a nuestra
 el agua, porque es familiar a la vida humana. Sin embargo, el vida. Porque, como dice el Apóstol '*, lo mismo que un poco
 bien que de ellas nace es tan grande y de tal índole que de levadura se asimila toda la masa, así también el cuerpo al
 implica la familiaridad con la propia divinidad. que Dios hizo inmortal, cuando se introduce en el nuestro, lo
 cambia y lo transforma en sí mismo todo entero. Efectivamente,
-LA EUCARISTÍA :
+LA EUCARISTÍA:
 a o La imagen del veneno y del antídoto, que Harnack, con sutil ironía,
 El cuerpo y la sangre de Cristo pu rifican motejaba de "explicación onocaticas po el estilo de la retórica con-
-. se temporánea en general y del Niseno en particular (v. Introducción, . 9-10),
+. se temporánea en general y del Niseno en particular (v. Introducción,. 9-10),
 XXXVII. 1. Ahora bien, como quiera que el ser mo: y Operar de manera elicaz ina enel Ea ad a
 mano es doble, compuesto de la mezcla del alma y del cuerpo **, en la humanidad un germen de muerte, pero Cristo, asumiendo la humanidad
 ' Sobre los elementos aristotélicos y sobre algunas originalidades del misma, «introduce en ella un germen y una fuerza de vida que triunfa sobre
@@ -2272,7 +2269,7 @@ Niseno acerca de la doctrina de la Eucaristía, ver la Introducción, págs. 24,
 
 128 Gregorio de Nisa La Gran Catequesis 129
 lo mismo que con la droga destructora mezclada al cuerpo Ali Ñ isti
-sano se echa a perder todo lo que es afectado por la mezcla, Imento:sucarisiico
+sano se echa a perder todo lo que es afectado por la mezcla, Imento: sucarisiico
 así también el cuerpo inmortal, cuando entra en el que lo ha 7. Ahora bi Ñ m hi
 recibido lo transforma por entero en su propia naturaleza. +. Ahora bien, esa fuerza es y se llama alimento. Pero no
 4. Ahora bien, para entrar en el cuerpo, no hay realmente es el mismo para todos los cuerpos alimentados, sino que hay
@@ -2283,14 +2280,14 @@ gracia es aquel que acogió a la divinidad. Por otra parte, hombre el principal 
 hemos demostrado que nuestro cuerpo no podía ser introdu- SOnPIvar la humedad interna, la bebida no consists: en agua
 cido en la inmortalidad, si no entraba a participar de la in- sola, sino muchas veces en agua templada con vino, para
 mortalidad mediante la comunión con el ser inmortal. Pues ayudar a nuestro calor Interno: Por consiguiente, el que conbien, conviene en consecuencia examinar cómo se hizo posible esa estos elementos está considerando cn Les Es el volumen
-el que ese único cuerpo, distribuido entre tantas miríadas de € ¡nuestro CUerpo..ya:que, lr si ue os::0n mb ¿59
-fieles por toda la tierra habitada y por siempre, esté todo Conviesten¡en sangre y. cuerpo; al iransiormarse adecuadamente
+el que ese único cuerpo, distribuido entre tantas miríadas de €¡ nuestro CUerpo..ya: que, lr si ue os::0n mb¿59
+fieles por toda la tierra habitada y por siempre, esté todo Conviesten¡ en sangre y. cuerpo; al iransiormarse adecuadamente
 entero en cada parte y permanezca todo entero en sí mismo. el alimento en la forma del cuerpo gracias a la fuerza de
 5. Por consiguiente, para que nuestra fe, si mira a la conse- E n. h inad 4
-cuencia lógica de nuestro razonamiento, no tenga la menor . Una vez que hemos examinado cuidadosamente lo
+cuencia lógica de nuestro razonamiento, no tenga la menor. Una vez que hemos examinado cuidadosamente lo
 sombra de duda acerca del objeto de nuestra reflexión, conviene anterior, tenemos que volver de nuevo nuestro pensamiento
 detener un momento nuestro discurso en el estudió de 18 al tema que nos ocupa. Efectivamente, estábamos indagando
-naturaleza del cuerpo. Porque, ¿quién no sabe que la misma cómo:el solo cuerpo de Cristo vivifica a toda la naturaleza de
+naturaleza del cuerpo. Porque,¿ quién no sabe que la misma cómo: el solo cuerpo de Cristo vivifica a toda la naturaleza de
 naturaleza física de nuestro cuerpo, tomada en sí misma, no los hombres que tienen la fe, repartiéndose entre todos y sin
 tiene vida en una substancia propia, sino que se mantiene y sufrir El la noe caps Quizás, pues, estemos cerca de la
 subsiste gracias a la fuerza que afluye sobre ella y que, mediante probable explicación. En efecto, si la substancia de todo cuerpo
@@ -2298,7 +2295,7 @@ un movimiento incesante, atrae lo que le falta y rechaza lo dep ende del aliment
 que le sobra? 6. Y lo mismo que un odre lleno de agua, si el la comida está el pan y en la bebida el agra templada con
 líquido se escurre por el hondón, no conserva la forma que VINO, y Sl por Olta parte, Como'Se ha explicado anteriormente,
 tenía hinchado, a no ser que otro líquido venga de arriba a el Verbo de Dios, que es a la vez Dios y Verbo, se ha mezclado
-sustituirlo y llenar el vacío, de suerte que quien ve el hinchado con la ES aturaleza humana, al entrar en HUESO: CuErpo;:10:Se
+sustituirlo y llenar el vacío, de suerte que quien ve el hinchado con la ES aturaleza humana, al entrar en HUESO: CuErpo;:10: Se
 volumen de este recipiente sabe que ese volumen no es propio Lovenio PAra la naturaleza nana nueyasconsiblencia, sino: que
 del objeto que se ve, sino que es el líquido vertido en él lo que dio a EAUclErpa el medio de subsistir por los p rocedimientos
 configura los contornos del volumen, así también hallamos habituales y adecuados, conservando su substancia mediante
@@ -2332,9 +2329,9 @@ nuestro caso, el pan, como dice el Apóstol ”, es santificado
 por el Verbo de Dios y por la oración; pero no se convierte en XXXVIIL 1. Tengo para mí que a lo dicho no le falta
 el cuerpo del Verbo cuando es comido, sino que se transforma ninguna de las cuestiones planteadas acerca del misterio, a no
 inmediatamente en su cuerpo en virtud del Verbo, como el ser la teoría de la fe, que en breves razones expondremos
-mismo Verbo ha dicho: «Esto es mi cuerpo ?.» también en el presente tratado. Aquellos, en cambio que busquen un discurso más completo lo tienen ya en otros trabajos,
+mismo Verbo ha dicho: «Esto es mi cuerpo?.» también en el presente tratado. Aquellos, en cambio que busquen un discurso más completo lo tienen ya en otros trabajos,
 El vino y el agua, sangre de Cristo en los que explicamos minuciosa y exactamente la doctrina,
-. . según nuestras posibilidades, y en los que entablamos combate
+.. según nuestras posibilidades, y en los que entablamos combate
 11. Pero toda carne se alimenta también del elemento contra los adversarios, y examinamos en sí mismas las razones
 húmedo, pues sin el concurso de ambos, lo que hay de terrestre de los problemas que e nos planteaban.
 w La Eucaristía es la prolongación de la Encarnación del Verbo. 2. En el presente tratado hemos creído que será bueno
@@ -2353,14 +2350,14 @@ el nacimiento espiritual depende del libre albedrío del que ve en la Trinidad l
 nace. Pues bien, como quiera que en este último caso el peligro bautizado luego, se encuentra con que de nuevo nace a la vida
 consiste en errar sobre lo que conviene, pues la elección es mudable y sujeta a alteración, porque, en efecto, lo engendrado
 libre para todos, bueno sería, digo, que el que se lanza a tiene por necesidad la misma naturaleza de los padres.
-realizar su propio nacimiento conozca de antemano, por la 5. Por tanto, ¿qué sería más provechoso: entrar en la
+realizar su propio nacimiento conozca de antemano, por la 5. Por tanto,¿ qué sería más provechoso: entrar en la
 reflexión, a quién le será provechoso tener por padre, y de vida inmutable o ser de nuevo zarandeado por la vida inestable
 quién le será mejor constituir la naturaleza, pues se dice que y cambiante? Para todo el que tenga un mínimo de inteligencia
 en esta clase de nacimiento se escoge libremente a los padres. es evidente que lo estable tiene mucho más valor que lo ines-
 
 2. Ahora bien, siendo así que los seres se dividen en dos table, lo perfecto que lo imperfecto, lo que no necesita, que lo
 partes, el elemento creado y el increado, y puesto que la que sí necesita, y más que el que va elevándose progresivanaturaleza increada posee en sí misma la inmutabilidad y la mente, el que no tiene progreso que realizar ” porque siempre
-estabilidad ”, mientras la creación está sujeta a alteración y a permanece en la perfección del bien. Sin embargo, es absolumudanza, el que reflexionando elige lo que es provechoso, ¿de tamente necesario al que está en sus cabales elegir una de dos:
+estabilidad ”, mientras la creación está sujeta a alteración y a permanece en la perfección del bien. Sin embargo, es absolumudanza, el que reflexionando elige lo que es provechoso,¿ de tamente necesario al que está en sus cabales elegir una de dos:
 quién preferirá ser hijo: de la naturaleza que contemplamos o creer que la santa Trinidad pertenece a la naturaleza increada
 sujeta a mudanza, o del que posee una naturaleza inmutable, y así, mediante el nacimiento espiritual, tomarla como principio
 firme en el bien y siempre la misma? fontal de la propia vida, o bien, si piensa que el Hijo y el
@@ -2431,7 +2428,7 @@ ver en qué ha cambiado, pues estoy viendo después al mismo de estos rasgos, ll
 que ya vi antes. La víctima de la injusticia, la víctima de la pero si todavía continúas con los rasgos de la maldad, en
 calumnia y el que ha sido despojado de sus bienes, en lo que vano irás murmurando que has nacido de arriba. La profecía
 les toca, no ven tampoco la menor mudanza del bautizado. te dirá a ti: Tú eres hijo de hombre ”, no hijo del altísimo *;
-Tampoco le han oído aquella palabra de Zaqueo: «Si en algo tú amas la vanidad, buscas la mentira *, ¡tó ignoras de qué
+Tampoco le han oído aquella palabra de Zaqueo: «Si en algo tú amas la vanidad, buscas la mentira *,¡ tó ignoras de qué
 he defraudado a alguno, le devuelvo cuatro veces más *.» Lo manera el hombre ha sido considerado admirable, y que no
 que decían sobre él antes del bautismo, eso mismo repiten puede serlo más que haciéndose santo!
 ahora, y siguen aplicándole los mismos nombres: avaricioso,
@@ -2466,12 +2463,12 @@ FINES ÚLTIMOS
 7. Habría que añadir a lo dicho lo que aún queda por
 decir, esto es, que los bienes ofrecidos en las promesas a los
 que llevan vida intachable son de tal naturaleza que escapan
-a toda descripción. Efectivamente, ¿cómo describir lo que ni
+a toda descripción. Efectivamente,¿ cómo describir lo que ni
 ojo vio, ni oído oyó, ni subió al corazón del hombre '? Y la
 vida dolorosa de los pecadores tampoco tiene comparación
 con las sensaciones de los que sufren acá. Pero incluso en el
 caso de que se aplique a algún castigo de allá el nombre con
-que se le conoce acá, la diferencia no es pequeña. Efectivamente, al escuchar la palabra fuego ?, has aprendido a pensar
+que se le conoce acá, la diferencia no es pequeña. Efectivamente, al escuchar la palabra fuego?, has aprendido a pensar
 algo distinto del fuego de acá, porque en él se encuentra una
 cualidad que no hay en éste: aquél, efectivamente, no se extingue, mientras que éste de acá puede ser extinguido por los
 múltiples medios que enseña la experiencia, y la diferencia es
@@ -2501,21 +2498,21 @@ vida, en la recompensa eterna. ÍNDICE
 Pág.
 1, “Notas biográficas oinississacas rro 7
 2. Fechas de composición, destinatarios y estructura
-de la «Gran Catequesis» ....ooooooocorocooorooos 8
-3. La catequesis en la Iglesia antigua .............. 16
-4. Exégesis bíblica ...........o.oooooocoocoroocrorros 19
-5. Fuentes de cultura filosófica y patrística ........ 21
+de la «Gran Catequesis»... ooooooocorocooorooos 8
+3. La catequesis en la Iglesia antigua...16
+4. Exégesis bíblica... o.oooooocoocoroocrorros 19
+5. Fuentes de cultura filosófica y patrística...21
 6. Originalidad y actualidad de la «Gran Catequesis» 32
 E AAA A
-PLÓIOZO: ¡Ra 39
-Dios.Uno y tino: urraca 48
-El hombre ..... cien 91
+PLÓIOZO:¡ Ra 39
+Dios. Uno y tino: urraca 48
+El hombre... cien 91
 CSÍO! cecmeconsrrrec ts: TA
-El misterio de DiOS ......ooccocccoccccnnccnaronarrr o 89
-Objeciones de los adversarios ........ooooooooooooo.. 107
-La vida sacramental ....ooooococccoccccccocorconnrro 117
-El Bautismo ...0ooooccconccccccncnann rca nr nn nr 117
-La Eucaristía .....oooooorooccconcconccnnnrrnn rro 126
+El misterio de DiOS... ooccocccoccccnnccnaronarrr o 89
+Objeciones de los adversarios... ooooooooooooo.. 107
+La vida sacramental... ooooococccoccccccocorconnrro 117
+El Bautismo...0ooooccconccccccncnann rca nr nn nr 117
+La Eucaristía... oooooorooccconcconccnnnrrnn rro 126
 La FO oooccccooccccncconnrcnnnrnnnrr nn r arc 131
 EMESÁIAIMOS) serrana OD)
 
@@ -2536,7 +2533,7 @@ Confesor). 100 págs.
 176 Cea e
 11. EL ESPÍRITU SANTO (Cirilo de Jerusalén). En prensa.
 12. LA UNIDAD DE LA IGLESIA. (Cipriano).
-13. ¿POR QUÉ CRISTO ES UNO? (Cirilo de Alejandría).
+13.¿ POR QUÉ CRISTO ES UNO? (Cirilo de Alejandría).
 14. HOMILÍAS MARIOLÓGICAS. (Gerrnán de Constantinopla).
 15. COMENTARIO AL EVANGELIO DE SAN JUAN (San Juan
 Crisóstomo).
