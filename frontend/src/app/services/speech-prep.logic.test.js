@@ -327,6 +327,44 @@ async function main() {
   assert.ok(calm.length > 5, 'heading speak non-empty');
   assert.ok(/[.…]$/.test(calm.trim()) || /…/.test(calm), 'terminal pause');
 
+  section('standalone label+ordinal/numeral (no mis-split)');
+  // Label-only headings must stay one clause — not "Capítulo. Primero…"
+  for (const [raw, mustInclude, mustNot] of [
+    ['CAPÍTULO PRIMERO', /cap[ií]tulo\s+primero/i, /cap[ií]tulo\.\s*primero/i],
+    ['ARTÍCULO 1', /art[ií]culo\s+1/i, /art[ií]culo\.\s*1/i],
+    ['CAPÍTULO II', /cap[ií]tulo\s+II\b/i, /cap[ií]tulo\.\s*I/i],
+    ['SECCIÓN PRIMERA', /secci[oó]n\s+primera/i, /secci[oó]n\.\s*primera/i],
+  ]) {
+    const r = prepareSpeechText(raw);
+    assert.strictEqual(r.skip, false, `${raw} speakable`);
+    assert.strictEqual(r.kind, 'heading', `${raw} kind=heading`);
+    assert.ok(mustInclude.test(r.text), `${raw} keeps label whole: ${r.text}`);
+    assert.ok(!mustNot.test(r.text), `${raw} no mis-split: ${r.text}`);
+    // No "Label. Ordinal" pattern for bare labels
+    assert.ok(
+      !/^(?:cap[ií]tulo|art[ií]culo|secci[oó]n|t[ií]tulo|parte)\.\s/i.test(
+        r.text,
+      ),
+      `${raw} no period right after bare kind: ${r.text}`,
+    );
+  }
+
+  section('Roman numerals stay uppercase (not Iii)');
+  assert.strictEqual(mod.isRomanNumeralToken('III'), true);
+  assert.strictEqual(mod.isRomanNumeralToken('Ii'), true); // case-insensitive match
+  assert.strictEqual(mod.isRomanNumeralToken('Dios'), false);
+  const tit3 = prepareSpeechText('TÍTULO III DE LOS SACRAMENTOS');
+  assert.strictEqual(tit3.kind, 'heading');
+  assert.ok(/\bIII\b/.test(tit3.text), `keeps III uppercase: ${tit3.text}`);
+  assert.ok(!/\bIii\b/.test(tit3.text), `no Iii: ${tit3.text}`);
+  assert.ok(
+    /t[ií]tulo\s+III\.\s+/i.test(tit3.text),
+    `pause after Título III: ${tit3.text}`,
+  );
+  const cap2 = prepareSpeechText('CAPÍTULO II');
+  assert.ok(/\bII\b/.test(cap2.text), `Capítulo II keeps II: ${cap2.text}`);
+  assert.ok(!/\bIi\b/.test(cap2.text), `no Ii: ${cap2.text}`);
+
   section('body prep still body kind');
   assert.strictEqual(good.kind, 'body', 'prose kind=body');
   assert.ok(

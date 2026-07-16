@@ -227,8 +227,20 @@ const TITLE_CASE_SMALL = new Set([
 ]);
 
 /**
+ * Classic Roman numeral (I–MMMCMXCIX). Kept uppercase for TTS
+ * so "III" is not spoken as "Iii".
+ */
+export function isRomanNumeralToken(token: string): boolean {
+  const s = (token || '').trim();
+  if (!s || s.length > 12) return false;
+  return /^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/i.test(
+    s,
+  );
+}
+
+/**
  * Soften ALL-CAPS so TTS does not shout. Short labels → calm title-case
- * (e.g. "DIOS" → "Dios"); longer lines → sentence case. Mid-word periods kept.
+ * (e.g. "DIOS" → "Dios"); Roman numerals stay uppercase; mid-word periods kept.
  */
 export function softenAllCapsForSpeech(text: string): string {
   const t = String(text ?? '');
@@ -239,8 +251,7 @@ export function softenAllCapsForSpeech(text: string): string {
   ).length;
   if (upper / letters.length < 0.65) return t;
 
-  const lower = t.toLocaleLowerCase('es');
-  const words = lower.split(/\s+/).filter(Boolean);
+  const words = t.split(/\s+/).filter(Boolean);
   // Short structural titles: title-case for sense at the ear
   if (words.length <= 16) {
     return words
@@ -249,7 +260,11 @@ export function softenAllCapsForSpeech(text: string): string {
         if (!m) return w;
         const [, lead, core, trail] = m;
         if (!core) return w;
-        const bare = core.normalize('NFC');
+        // Roman numerals: keep full uppercase for correct TTS
+        if (isRomanNumeralToken(core)) {
+          return `${lead}${core.toLocaleUpperCase('es')}${trail}`;
+        }
+        const bare = core.toLocaleLowerCase('es').normalize('NFC');
         if (i > 0 && TITLE_CASE_SMALL.has(bare)) {
           return `${lead}${bare}${trail}`;
         }
@@ -260,41 +275,81 @@ export function softenAllCapsForSpeech(text: string): string {
       .join(' ');
   }
 
-  // Longer: sentence case
-  return lower.replace(
-    /(^|[.!?…:\n]\s*)([a-záéíóúüñàèìòù])/g,
-    (_m, pre: string, ch: string) => pre + ch.toLocaleUpperCase('es'),
+  // Longer: sentence case, but protect Roman tokens
+  return words
+    .map((w) => {
+      const m = w.match(/^([^A-Za-zÁ-ÿ]*)(.*?)([^A-Za-zÁ-ÿ]*)$/u);
+      if (!m) return w;
+      const [, lead, core, trail] = m;
+      if (core && isRomanNumeralToken(core)) {
+        return `${lead}${core.toLocaleUpperCase('es')}${trail}`;
+      }
+      return w.toLocaleLowerCase('es');
+    })
+    .join(' ')
+    .replace(
+      /(^|[.!?…:\n]\s*)([a-záéíóúüñàèìòù])/g,
+      (_m, pre: string, ch: string) => pre + ch.toLocaleUpperCase('es'),
+    );
+}
+
+/** Kind + optional ordinal/numeral/roman that belongs to the label itself. */
+const STRUCT_LABEL_CORE =
+  '((?:(?:la|el)\\s+)?' +
+  '(?:primera|segunda|tercera|cuarta|quinta|sexta|séptima|septima|octava|novena|décima|decima)\\s+)?' +
+  '(parte|sección|seccion|capítulo|capitulo|artículo|articulo|título|titulo|libro)' +
+  '(?:\\s+(?:primero|primera|segundo|segunda|tercero|tercera|cuarto|cuarta|quinto|quinta|' +
+  'sexto|sexta|séptimo|séptima|septimo|septima|octavo|octava|noveno|novena|décimo|décima|' +
+  'decimo|decima|[ivxlcdm]+|\\d+[ºª°]?))?';
+
+/** True when a token is only an ordinal word / digit / roman (belongs in the label). */
+function isBareStructuralNumber(token: string): boolean {
+  return /^(?:primero|primera|segundo|segunda|tercero|tercera|cuarto|cuarta|quinto|quinta|sexto|sexta|séptimo|séptima|septimo|septima|octavo|octava|noveno|novena|décimo|décima|decimo|decima|[ivxlcdm]+|\d+[ºª°]?)$/i.test(
+    (token || '').trim(),
   );
 }
 
 /**
  * Insert a short pause after the structural label so the ear hears
  * "Primera parte. La profesión de la fe." instead of a run-on shout.
+ * Standalone labels ("Capítulo Primero", "Artículo 1", "Capítulo II")
+ * stay whole — only real trailing title text becomes a second clause.
  */
 export function insertStructuralPauses(text: string): string {
   let t = String(text ?? '').trim();
   if (!t) return t;
 
-  // "Primera parte LA …" / "Capítulo primero: REST" / "Artículo 1 REST"
-  const labelThenRest =
-    /^((?:(?:la|el)\s+)?(?:primera|segunda|tercera|cuarta|quinta|sexta|séptima|septima|octava|novena|décima|decima)\s+)?(parte|sección|seccion|capítulo|capitulo|artículo|articulo|título|titulo|libro)(\s+(?:primero|primera|segundo|segunda|tercero|tercera|cuarto|cuarta|[ivxlcdm]+|\d+[ºª°]?))?(\s*[:.\-–—]\s*|\s+)(.+)$/i;
+  // Label includes kind + its own ordinal/number/roman; rest must be real title text.
+  const labelThenRest = new RegExp(
+    `^${STRUCT_LABEL_CORE}(?:\\s*[:.\\-–—]\\s*|\\s+)(.+)$`,
+    'i',
+  );
 
   const m = t.match(labelThenRest);
   if (m) {
-    const ord = (m[1] || '').trim();
-    const kind = (m[2] || '').trim();
-    const num = (m[3] || '').trim();
-    let rest = (m[5] || '').trim();
-    if (rest) {
-      // Drop a leading colon-like glue already consumed
-      rest = rest.replace(/^[:.\-–—]\s*/, '');
-      // Capitalize rest start for a new spoken clause
-      rest = rest.replace(
-        /^([a-záéíóúüñ])/i,
-        (ch) => ch.toLocaleUpperCase('es'),
-      );
-      const label = [ord, kind, num].filter(Boolean).join(' ').replace(/\s+/g, ' ');
-      t = `${label}. ${rest}`;
+    let rest = (m[m.length - 1] || '').trim();
+    rest = rest.replace(/^[:.\-–—]\s*/, '');
+    // Guard: lone ordinal/numeral/roman is part of the label, not a second clause
+    if (rest && !isBareStructuralNumber(rest)) {
+      const label = m[0]
+        .slice(0, m[0].length - (m[m.length - 1] || '').length)
+        .replace(/[:.\-–—\s]+$/u, '')
+        .trim();
+      const firstTok = rest.split(/\s+/)[0] || '';
+      if (isRomanNumeralToken(firstTok)) {
+        rest = rest.replace(
+          /^([ivxlcdm]+)/i,
+          (r) => r.toLocaleUpperCase('es'),
+        );
+      } else {
+        rest = rest.replace(
+          /^([a-záéíóúüñ])/i,
+          (ch) => ch.toLocaleUpperCase('es'),
+        );
+      }
+      if (label && rest) {
+        t = `${label}. ${rest}`;
+      }
     }
   }
 
