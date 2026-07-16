@@ -53,7 +53,11 @@
     "source:ocr": "bash ocr_volume.sh",
     "test:ocr-punct": "npx ts-node --transpile-only repair_ocr_punctuation.test.ts",
     "ocr:punct-inventory": "npx ts-node --transpile-only repair_ocr_punctuation_corpus.ts --inventory",
-    "ocr:punct-apply": "npx ts-node --transpile-only repair_ocr_punctuation_corpus.ts --apply"
+    "ocr:punct-apply": "npx ts-node --transpile-only repair_ocr_punctuation_corpus.ts --apply",
+    "test:ocr-abc": "npx ts-node --transpile-only repair_ocr_noise.test.ts",
+    "ocr:abc-inventory": "npx ts-node --transpile-only repair_ocr_noise_corpus.ts --inventory",
+    "ocr:abc-apply": "npx ts-node --transpile-only repair_ocr_noise_corpus.ts --apply",
+    "ocr:reocr-queue": "npx ts-node --transpile-only repair_ocr_noise_corpus.ts --queue-only"
   },
   "author": "",
   "license": "ISC",

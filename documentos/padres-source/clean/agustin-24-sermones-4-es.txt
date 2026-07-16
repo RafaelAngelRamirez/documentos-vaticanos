@@ -152,12 +152,12 @@ DE
 
 LUIS
 
-ESCRITOS ANTIPELAGIANOS: T. VI, IX, XXXV, X X X V T
+ESCRITOS ANTIPELAGIANOS: T. VI, IX, XXXV, XXXVT
 V1
 
 XXXVII.
-E S C R I T O S ANTIARRIANOS Y O T R O S: T. X X X V I I I,
-E S C R I T O S ATRIBUIDOS:
+ESCRITOS ANTIARRIANOS YOTROS: T. XXXVIII,
+ESCRITOS ATRIBUIDOS:
 
 »
 
@@ -804,7 +804,7 @@ PL 39,1734
 PL 39,1734-1735, 17351736, 1736*
 PL 39,2142 (Maur. apéndice 212,2)
 
-S E R M O
+SERMO
 
 N E S
 
@@ -1622,7 +1622,7 @@ muda la elocuencia humana.
 
 gen, al príncipe de las vírgenes; ella virgen antes del matrimonio, virgen en el matrimonio, virgen durante el embarazo, virgen cuando amamantaba. En efecto, de ningún modo quitó, al
 nacer, el hijo todopoderoso la virginidad a su santa madre, elegida por él. Buena es la fecundidad en el matrimonio, pero
-mejor es la virginidad consagrada 2. Cristo hombre, que en cuanto Dios —pues es al mismo tiempo Dios y h o m b r e — podía
+mejor es la virginidad consagrada 2. Cristo hombre, que en cuanto Dios —pues es al mismo tiempo Dios yhombre — podía
 otorgarle una y otra cosa, nunca daría a su madre el bien que
 aman los casados si hubiese significado la pérdida de otro mejor, por el que las vírgenes renuncian a ser madres. Así, pues,
 la Iglesia, virgen santa, celebra hoy el parto de la virgen. A ella
@@ -2492,8 +2492,8 @@ corde, devota voce: Gloria in excelsis Deo, et in térra pax hominibus
 bonae voluntatis. Et haec verba divina, has Dei laudes, hoc angelicum
 gaudium, quanta valemus consideratione perspectum, fide et spe et caritate
 
-de alabanza a D i o s, este gozo angélico, considerado con toda
-la a t e n c i ó n d e q u e s e a m o s c a p a c e s. Tal c o m o c r e e m o s, esperamos y deseamos, también nosotros seremos «gloria a Dios en
+de alabanza aDios, este gozo angélico, considerado con toda
+la atencióndequeseamoscapaces. Tal comocreemos, esperamos y deseamos, también nosotros seremos «gloria a Dios en
 
 las alturas» cuando, una vez resucitado el cuerpo espiritual, seamos llevados al encuentro en las nubes con Cristo, a condición
 de que ahora, mientras nos hallamos en la tierra, busquemos la
@@ -2835,7 +2835,7 @@ también que nuestra madre no es la esclava, sino la libre, la
 abandonada que tiene más hijos que la casada. También la Iglesia, como María, goza de perenne integridad virginal y de incorrupta fecundidad. Lo que María mereció tener en la carne,
 la Iglesia lo conservó en el espíritu; pero con una diferencia:
 María dio a luz a uno solo; la Iglesia alumbra a muchos, que
-han de ser congregados en la unidad por aquel ú n i c o 2.
+han de ser congregados en la unidad por aquel único 2.
 3. Este es el día en que vino al mundo el creador del
 mundo; en que se hizo presente en la carne quien nunca está
 ausente por su poder. En efecto, estaba en el mundo y vino a
@@ -2928,7 +2928,7 @@ CXCVI
 
 [PL 38,1019]
 
-IN NATALI DOMINI, X I I I
+IN NATALI DOMINI, XIII
 
 CAPUT I. — 1. Christi nativitates duae sunt. Vilius sine initio semper
 genitus a Vatre.—Hodiernus dies Natalis Dominí nostri Iesu Christi nobis festus illuxit. Natalis dies, quo natus est dies. Et ideo hodíe, quia ex
@@ -5751,7 +5751,7 @@ hominibus homo factus apparuit, ut nobis et vivendi et moriendi et
 resurgendi praeberet exemplum, non antequam baptizaretur, sed posteaquam baptizatus est ieiunavit. Sic enim scriptum est in Evangelio:
 Baptizatus autem confestim ascendit de aqua; et ecce aperti sunt ei caeli,
 
-Véase I a n o t a complementaria X0: El simbolismo del número 40 p,788,
+Véase Ianota complementaria X0: El simbolismo del número 40 p,788,
 
 Sermón 210
 
@@ -6951,7 +6951,7 @@ sed sicut apostolus aít: Seminatur corpus anímale, resurget corpus spiritale
 omnem facilitatem mira felicítate subiectum s, ut iam non aggrauet animam
 (Sao 9,15) nec ullam quaerat (1060) refectionem, quia nullam patietur
 defectionem, sed maneat h in aeterna uita ubi spiritui nostro cum corpore
-erit ipsa aeternitas u i t a n.
+erit ipsa aeternitas uitan.
 2.
 
 Hunc i igitur breuem sermonem de uniuerso symbolo uobis debitum
@@ -7187,7 +7187,7 @@ DOMINUM NOSTRUM. Si Filium unicum, ergo Patri aequalem: si Filium unicum, ergo e
 eius omnipotentiae cuius est Pater: si Filium unicum, ergo Patri coaeternum. Hoc in se, et apud se, et apud Patrem. Propter nos quid? ad nos
 quid?
 
-QUI NATUS E S T DE S P I R I T U SANCTO E T VIRGINE M A R Í A. E c c e q u a
+QUI NATUS E S T DE SPIRITU SANCTO E T VIRGINE MARÍA. Eccequa
 
 venit, quis, ad quos: per virginem Mariam, in qua operarus est Spiritus
 sanctus, non homo maritus; qui fecundavit castam, et servavit intactam.
@@ -7251,7 +7251,7 @@ ET_ SEPULTOS. Quid? Filius dei unicus dominus noster crucifixus? Filius
 dei unicus dominus noster sepultus? Homo crucifixus est: deus non est
 mutatus, deus non est occisus; et tamen secundum hominem occisus:
 si enim cognovissent, ait apostolus numquam dominum gloriae crucifixissent (1 Cor 2,8). Et dominum gloriae ostendit, et crucifixum confessus est:
-q u i a s i quis etiam tuam tunicam illaesa carne tua conscindat, tibi facit
+quiasi quis etiam tuam tunicam illaesa carne tua conscindat, tibi facit
 iniuriam, nec sic clamas pro veste [539] tua, ut dicas, (445) Conscidisti
 tunicam meam, sed, Conscidisti me, dissipasti me, fila de me fecisti.
 Loqueris ista integer, et verum dicis, et de carne tua nihil detraxit qui
@@ -7887,7 +7887,7 @@ Apud patrem incommutabiliter manens, et incommutabilis etiam ipse curn
 patre, de quo dicit apostolus: Qui cum in forma dei esset, non rapinam
 arbitratus est esse aequalis ¿leo (Phil 2,6). Esse quippe aequalem patri,
 natura illi est, non rapiña. Sic credimus IN IESVM CHRISTVM FILIVM dei
-p a t r i s VNICVM DOMINVM NOSTRVM (cf. P h i l 2, 6 ).
+patris VNICVM DOMINVM NOSTRVM (cf. Phil 2, 6 ).
 
 6. Sed quia ille, qui in forma dei non rapinam arbitratus est esse
 aequalis deo, per quem creati sumus, ut quod perierat quaereret et
@@ -7933,11 +7933,11 @@ que muriese en la cruz la vida y la inmortalidad y fuese colocada en el sepulcro
 el corazón para la justicia y profesar con la boca para la salva-
 
 ción que el mismo hijo unigénito de Dios no sólo nació hombre
-de hombre, sino que también sufrió todo lo h u m a n o hasta la
+de hombre, sino que también sufrió todo lo humano hasta la
 muerte y sepultura. Siendo el hijo único de Dios nuestro Señor
 Jesucristo en su totalidad, la Palabra y hombre, y, para decirlo
 más claramente, Palabra, alma y carne, se aplica a la totalidad
-el que en su alma estuvo triste hasta la m u e r t e, puesto que
+el que en su alma estuvo triste hasta la muerte, puesto que
 quien estuvo triste fue Cristo, el hijo único de Dios. A la totalidad se refiere igualmente el haber sido crucificado, aunque
 sólo en el cuerpo, puesto que fue crucificado Jesucristo, el hijo
 único de Dios. A la totalidad se aplica también el haber sido
@@ -8525,7 +8525,7 @@ et sepultus
 est, TERTIA DIE A MORTUIS RESUR-
 
 HUXIT. Forte et hic dubitas, forte trepidas. Quando tibi dictum est:
-O c d c natum, crede passum, crucifixum, mortuum et sepultum; quasi
+Ocdc natum, crede passum, crucifixum, mortuum et sepultum; quasi
 de nomine facilius credidisti. Nunc quia dicitur: Tertia die a mortuis
 resurrexit, dubitas, o homo? Ut de multis unum proferamus exemplum,
 deum attende, omnipotentem cogita: et noli dubitare. Si enim potuit te,
@@ -8963,7 +8963,7 @@ eruamini de potestate tenebrarum, et transferamini in regnum claritatis
 eius. Hoc est nunc opus vestrum, et hic labor vester. Digna in eum
 nos suis nequitiis maledicta congetimus; vestra vos potius aversione ac
 pia renuntiatione gloriosissimum ei certamen indicite. Atterendus, vinciendus, excludendus est Dei et vester, ac sui potius inimicus. Nam
-furor eius et in Deum protervus, et adversum vos nefarius, e t i n se
+furor eius et in Deum protervus, et adversum vos nefarius, etin se
 perniciosus ostenditur. Anhelet usquequaque caedes, supponat muscipulas,
 exacuat multíplices et dolosas línguas suas: omnia venena eius, obtestato
 nomine Salvatoris, vestris cordibus effundite.
@@ -9205,7 +9205,7 @@ CCXVII
 
 [PLS 2,662] (MA 1,5%) (PL 38,1083-1085)
 DE VERBIS DOMINI IN EVANGELIO IOHANNIS: «HAEC EST VITA AETERNA UT
-COGNOSCANT TE SOLUM VERUM DEUM ET QUEM MISISTI lESUM C H R I S T U M »
+COGNOSCANT TE SOLUM VERUM DEUM ET QUEM MISISTI lESUM CHRISTUM »
 
 (lo 17,3). ET DE TRINITATE
 
@@ -10778,7 +10778,7 @@ CCXXII
 
 [PL 58,1090]
 
-IN V I G I L I I S PASCHAE, IV
+IN VIGILIIS PASCHAE, IV
 
 V"igilandum adversus diabolum. Rectores mundi diabolus et angelí
 eius. In caelestibus quibusnam habitant. Diabolus e cordibus piorum eieclns.—[1091]
@@ -10849,11 +10849,11 @@ SERMÓN
 Tema: La mezcla de buenos y malos.
 Lugar: Hipona. Basílica Ieonciana.
 Fecha: La octava de Pascua. Posterior al 412.
-1. D i c e la E s c r i t u r a en el G é n e s i s: Y vio Dios que la luz
+1. Dice la Escritura en el Génesis: Y vio Dios que la luz
 era buena. Y estableció
 Dios la separación
 entre la luz y las tinieblas. Y Dios llamó a la luz día, y a las tinieblas noche. P o r
-t a n t o, si D i o s l l a m ó d í a a la luz, n o h a y d u d a d e q u e e r a n d í a s
+tanto, si Diosllamódíaa la luz, noha y dudadequeerandías
 evangélica luce distincti, et ab illis potestatibus sanguine pretioso redempti, vigilate et otate, ne intretis in tentationem (cf Mt 26,41). Nam
 quicumque habetis fidem quae per dilectionem operatur (cf. Gal 5,6),
 missus est princeps huius mundi foras a cordibus vestris (cf. l o 12,31):
@@ -10871,7 +10871,7 @@ CCXXIII
 
 [PL 38,1092]
 
-I N V i n n. n s PASCHAE, V
+INVinn. n s PASCHAE, V
 
 1. Dies, fidelcs haptizali. IJorlatur ut bonos imitentur,
 tolerent
@@ -11196,7 +11196,7 @@ Pues donde se dice: En el principio hizo, ha de entenderse la
 sustancia del Padre y del Hijo. Hizo Dios Padre en el Hijo
 principio. Queda el Espíritu para completar la Trinidad: El
 Espíritu de Dios se cernía sobre las aguas.
-Y dijo Dios. — ¿ A quién habló Dios? Antes de que existiera criatura alguna, ¿había quien escuchase? — L a había, responde. — ¿ Q u i é n?, pregunto. — E l Hijo mismo. —Así, pues, al
+Y dijo Dios. — ¿ A quién habló Dios? Antes de que existiera criatura alguna, ¿había quien escuchase? — L a había, responde. — ¿ Quién?, pregunto. — E l Hijo mismo. —Así, pues, al
 Hijo habla Dios. — ¿ C o n qué palabra habló a la Palabra? Si
 ya existía el Hijo, como ningún cristiano duda, también existía
 esta Palabra.^—El Hijo era la Palabra, y el Padre hablaba a la
@@ -11554,7 +11554,7 @@ SERMÓN
 
 B
 
-( = G U E L F. 4)
+( = GUELF. 4)
 
 Tema: El significado de la noche.
 Lugar: Hipona.
@@ -12591,7 +12591,7 @@ Sermón 224
 
 Apóstol: Tomando, pues, los miembros de Cristo, ¿voy a hacerlos miembros de una meretriz? No sé quién tiene algo que
 decir: — N o se trata de una meretriz; es mi concubina 3. — T ú
-que esto dices, ¿tienes mujer? — L a tengo. —Entonces, lo quieras o no, es una meretriz. — V e t e y pregona que el obispo te
+que esto dices, ¿tienes mujer? — L a tengo. —Entonces, lo quieras o no, es una meretriz. — Vetey pregona que el obispo te
 hizo una afrenta, si tienes mujer y es otra la que duerme contigo. Sea ella quien sea, es una meretriz. Quizá te es fiel, no
 ha conocido a otro fuera de ti y está dispuesta a no conocer
 a otro. Si ella es casta, ¿por qué te entregas tú a la fornicación?
@@ -14224,7 +14224,7 @@ SERMÓN
 
 E
 
-( = G U E L F. 9)
+( = GUELF. 9)
 
 Tema: El bautismo perdona los pecados.
 Lugar: Hipona.
@@ -14473,7 +14473,7 @@ pero él no se acaba; alimenta a los hambrientos, pero él no
 mengua. Alimenta ahora a quienes trabajan y les queda íntegro
 el salario. ¿Qué vamos a recibir mejor que él mismo? Si tuviese
 algo mejor que sí mismo, lo daría, pero nada hay mejor que
-D i o s 2, y Cristo es Dios. Pon atención: En el principio existía
+Dios 2, y Cristo es Dios. Pon atención: En el principio existía
 la Palabra, y la Palabra estaba junto a Dios, y la Palabra era
 Dios. La Palabra estaba en el principio junto a Dios. ¿Quién
 entiende esta Palabra? ¿Quién la comprende? ¿Quién la ve y
@@ -15525,7 +15525,7 @@ SERMÓN
 
 J
 
-(= G U E L F. A P P. 7)
+(= GUELF. A P P. 7)
 
 Tema: Aparición a los apóstoles (Le 24,36-53).
 Lugar: Hipona.
@@ -17546,7 +17546,7 @@ sunt (Mt 21,18-21), id est: si Caesar quaerit imaginem in nummo, deus
 non quaerit imaginem in nomine (hominem ed.)?
 (7.)
 
-ÍTEM EX LIBRO SANCTI AVGVSTINI DE EO QVOD IN G E N E S I SEXTO
+ÍTEM EX LIBRO SANCTI AVGVSTINI DE EO QVOD IN GENESI SEXTO
 
 DIE FACTUM LEGITVR INFRA CETERA: Produxit térra herbam pabulí et
 
@@ -19650,7 +19650,7 @@ Christus, quid est? Filius dei, uerbum dei. Quid est uerbum dei?
 Quod dicere non potest uerbum hominis, hoc est uerbum dei. Quaeris
 a me quid sit uerbum dei? Si tibi uellem dicere quid sit uerbum hominis,
 non explico, fatigor, haesito, succumbo; non possum explicare uim uerbi
-humani, q u a n t o d magis uerbi d e i d. Ecce antequam dicam uobis quod
+humani, quantod magis uerbi deid. Ecce antequam dicam uobis quod
 uolo dicere, iam uerbum est in corde meo; nondum a me dictum est et
 apud me est; dicitur a me et peruenit ad te et non recedit a me. Intenditis ut [290] audiatis a me uerbum; mentes uestras pasco cum loquor.
 
@@ -19662,7 +19662,7 @@ loquor et ómnibus totum est et singulis totum est. Ecce quomodo non
 potest satis explican quantam uim habet uerbum hominis et dicítis mihi:
 «Quid est uerbum dei?» Verbum dei pascit angelorum tot millia. Mente
 enim pascuntur, mente implentur. Implet angelos, implet mundum, implet uirginis uterum, nec ibi spatiatur, nec hic angustatur. Quid est
-uerbum dei? I p s e e dicat, ipse unigenitus, ipse unícus filius, quod
+uerbum dei? Ipsee dicat, ipse unigenitus, ipse unícus filius, quod
 est uerbum dei e ipse dicat. Breuiter de se dicit sed magnum est quod
 dicít: Ego et pater unum sumus (lo 10,30). Nolo numeres uerba d e f
 uno uerbo. Omnia « utique quae possunt esse hominum s uerba de uno
@@ -22314,7 +22314,7 @@ existiendo en la forma de Dios, no juzgó una rapiña el ser
 igual a Dios. No era una rapiña, porque era su naturaleza. No
 se trata de usurpación, como en el caso de una rapiña; sólo es
 cuestión de conocer la naturaleza. En la forma de Dios no consideró una rapiña el ser igual a Dios. En cuanto tal nació, y nació desde siempre; nació, nació desde siempre, y, aunque nació,
-carece de comienzo. ¿Qué dices tú, arriano? « H u b o un tiempo
+carece de comienzo. ¿Qué dices tú, arriano? « Hubo un tiempo
 en que no existía el Hijo.» ¿Ves cómo aún no ha subido para
 ti al Padre? No lo toques, no creas eso de él. No hay espacio
 de tiempo entre el Padre y el Hijo 3. El Padre lo engendró, el
@@ -22322,7 +22322,7 @@ Hijo nació; fuera del tiempo lo engendró y fuera del tiempo
 nació aquel por quien fueron hechas todas las cosas. Tócalo de
 esta manera, y habrá subido para ti al Padre. Es la Palabra,
 pero coeterna con Dios; es la Sabiduría de Dios, sin la cual
-nunca existió el P a d r e 4. Tu carne tiene que replicarte, quiere
+nunca existió el Padre 4. Tu carne tiene que replicarte, quiere
 conversar contigo y decirte en la oscuridad: «¿Cómo nació?»
 Son las tinieblas quienes hablan contigo. «Quiero que se me
 explique, gritas; quiero que se me explique.» ¿Qué quieres
@@ -22486,7 +22486,7 @@ Jesucristo: Alguien me ha tocado. Los discípulos le contestan:
 ha multitud te apretuja, y tú preguntas: «¿Quién me ha tocado?» Y él: Alguien me ha tocado, pues yo sé que de mí ha
 salido una fuerza. De él salió la gracia que la sanó, sin que él
 sufriera mengua. Le dicen, pues, los discípulos: «La multitud
-te está apretujando, ¿y tú solo has sentido a uno o u n a? »; a lo
+te está apretujando, ¿y tú solo has sentido a uno ouna? »; a lo
 que les contesta: Alguien me ha tocado; los otros lo apretujan,
 ésta lo ha tocado. ¿Qué quiere decir esto? Los judíos lo afligieron, la Iglesia creyó.
 
@@ -22766,7 +22766,7 @@ Dios? Mi Padre, porque soy su hijo único; vuestro Padre, por
 gracia, no por naturaleza. Mi Padre, porque lo fue siempre;
 
 tangere in cáelo sedentem, tamquam diceret: «Modo me noli tangere,
-tune me tange cum aseen [300] clero ad pafl l e t r e r a »? Recolat caritas
+tune me tange cum aseen [300] clero ad pafl letrera »? Recolat caritas
 uestra hesternam lectionem quando apparuit discipulis dominus et putauerunt se spiritum uidere. lile autem uolens eis hunc tollere errorem,
 praebuit se tangendum. Quid dixit? Heri lectum est inde sermo fuit.
 Quid turbati estis et quare cogitationes ascendunt in cor uestrum? Videte
@@ -25065,7 +25065,7 @@ A (Wilmart 13)
 
 [PLS 2,735] (MA 1,712)
 SERMO SANCTI AUGUSTINI DE EVANGELIO IOHANMIS XXI
-[iN DIEBUS P A S C H A L I B U S ]
+[iN DIEBUS PASCHALIBUS ]
 
 1. Secundum evangelistam Iohannem multa scripta sunt, quemadmodum post resurrectionem discipulis suis apparuerit dominus Iesus. Apparuit autem eis et piscantibus. Piscatio ista discipulorum ad mare Tiberiadis
 sumpsit initium, ubi se dominus eis ostendere voluit; quae magnum
@@ -25390,7 +25390,7 @@ hoc faceré, impletur caritate; ideo ei dicitur: Amas me? et respondet:
 Amo, quia hoc non implet nisi caritas. Quid est ergo, Petre? Quando
 negasti, quid timuisti? Totum quod timuisti hoc erat mori. Viuus tecum
 loquitur quem mortuum uidisti; noli iam timere mortem; in illo uicta
-est quem timebas m o r i a. Pependit in cruce, confixus est clauis, spiritum
+est quem timebas moria. Pependit in cruce, confixus est clauis, spiritum
 reddidit, lancea percussus est, in sepulchro positus; hoc timuisti quando
 negasti, ne hoc patereris timuisti et mortem timendo uitam negasti.
 Modo intellege: quando timuisti mori, tune es mortuus. Mortuus est
@@ -26285,7 +26285,7 @@ A
 
 (=
 
-W I L M A R T 18 + M A I 92)
+WILMART 18 + M A I 92)
 
 Tema: El Aleluya.
 Lugar: Hipona.
@@ -27804,7 +27804,7 @@ de los egipcios atravesando el mar Rojo, si perecieron en el
 desierto por las mordeduras de las serpientes? Tales son los
 que, bautizados y liberados de los pecados pasados, desprecian
 gracia tan extraordinaria, y no pueden llegar a la vida prometida al ser sorprendidos por las mordeduras venenosas de las
-seducciones mortales. H u i d de tales ejemplos y adherios con
+seducciones mortales. Huid de tales ejemplos y adherios con
 obediencia constante a quien os redimió para que llegareis al
 reino; no a un reino como el dado al primer pueblo, que era
 sombra del futuro, sino al que no tendrá fin, en compañía de
@@ -28275,7 +28275,7 @@ D
 (Guelf. 18)
 
 [PLS 2,585] (MA 1,499)
-[ I N C I P I T TRACTATUS DE DOMINICO DIE OCTAVARUM SANCTAE PASCHAE]
+[ INCIPIT TRACTATUS DE DOMINICO DIE OCTAVARUM SANCTAE PASCHAE]
 
 1. Primo die dominico agnoscit caritas vestra, hoc est, ante istos octo
 dies hoc nos domino cantasse, quod hodie: hic est dies, quem fecit
@@ -30901,7 +30901,7 @@ est (lo 14,28). Hoc est dicere: ideo subtraho vestris oculis istam (39?)
 servi formam, in qua Pater maior me est, ut ab oculis carnis serví forma
 remota domirmm spiritualiter videre possitis.
 7. Ergo et propter veram formam servi, quam susceperat, verum
-dixit, Pater maior me est, quia utique homine maior est < d e u s >; et
+dixit, Pater maior me est, quia utique homine maior est < deus >; et
 propter veram formam dei, in qua permanebat cum Patre, verum dixit,
 Ego et Pater unum sumus. Ascendit ergo ad Patrem per id quod homo
 erat, sed mansit in Patre per id quod deus erat, quia in carne ad nos
@@ -31459,7 +31459,7 @@ muerte. Sufriendo la muerte, dio muerte a la muerte: puso el
 cebo en el lazo al león. Si un pez no quisiera comer nada, no
 caería en el azuelo. El diablo tenía avidez y avaricia de la muerte. La cruz de Cristo fue una trampa; la muerte de Cristo,
 mejor, la carne mortal de Cristo, fue como el cebo en una
-ratonera. Vino, lo tragó y quedó p r e s o 1. H e aquí que Cristo
+ratonera. Vino, lo tragó y quedó preso 1. H e aquí que Cristo
 resucitó: ¿dónde queda la muerte? Ya se dice en su carne lo
 que al final se dirá en la nuestra: ha muerte ha sido absorbida
 en la victoria. Había carne, pero no corrupción. Permaneciendo
@@ -31967,7 +31967,7 @@ del 397.
 salmo, me agrada discutir y comentar de forma especial, con
 la ayuda del Señor, aquella frase que suena así: El justo me
 corregirá y me reprenderá con misericordia, pero el óleo del
-pecador no ungirá mi cabeza^. H u b o quienes creyeron que el
+pecador no ungirá mi cabeza^. Hubo quienes creyeron que el
 óleo del pecador era el óleo del hombre, puesto que todo hombre es mentiroso. El óleo de Cristo, en cambio, dado que él
 no tuvo pecado alguno, no es óleo del pecador, aunque sea administrado por un pecador. Tres aspectos se presentan al ánimo
 para que los considere: quién da, a quién da, por quién da 2;
@@ -34425,8 +34425,8 @@ estis, et ego reficiam vos. Tollite iugum meum super vos, et discite a me
 quia mitis sum et humilis corde, et invenietis réquiem animabus
 vestris;
 iugum enim meum lene est, et sarcina mea levis est ( M t 11,28-30).
-Q u o m o d o iugum illius lene est? Lex minatur, ille b l a n d i t u r: lex dicit,
-Sin feceris p u n i a m; Christus dicit, Quicquid feceris ignosco, deinceps
+Quomodo iugum illius lene est? Lex minatur, ille blanditur: lex dicit,
+Sin feceris puniam; Christus dicit, Quicquid feceris ignosco, deinceps
 vide ne pecces. Ergo iugum eius lene, et sarcina levis. Si efficiamur utres
 
 El Antiguo
@@ -34639,7 +34639,7 @@ sermones: 64 A,3 ( = M A I
 
 72 A,8
 
-( = D E N I S 25);
+( = DENIS 25);
 
 93,4;
 
@@ -34844,9 +34844,9 @@ impide creer en la verdad del hecho mismo. Véase P. de Luis VIZCAÍNO,
 Los hechos de Jesús en la predicación de San Agustín. La retórica clásica al servicio de la exégesis patrística. Estudio agustiniano (Valladolíd
 1983) c.4: Facía vera y c.5: Facta intenta.
 [8] La concepción por la fe.—Que María concibió a Cristo por la
-fe es una idea que Agustín repite constantemente en sus sermones y escritos (serm.72 A,7 [ = D E N I S 251; 196,1; 214,6; 215,4; 229 P,4
+fe es una idea que Agustín repite constantemente en sus sermones y escritos (serm.72 A,7 [ = DENIS 251; 196,1; 214,6; 215,4; 229 P,4
 [ = LAMBOT 3 ]; 233,4; 246,5; 291,5; 275 C,7 [ = M A I 95]; Réplica a
-Fausto X X I X 4; La Trinidad X I I I 18,23; Tratados sobre el evangelio
+Fausto XXIX 4; La Trinidad XIII 18,23; Tratados sobre el evangelio
 de San Juan 4,10; Manual de la fe, la esperanza y la caridad 34,10).
 El significado preciso de la expresión no es fácil de aquilatar. ¿Qué
 quiere decir Agustín cuando afirma que la concepción de Cristo fue
@@ -34854,7 +34854,7 @@ resultado de la fe de la madre? (serm.229 P,4). Puede pensarse en dos
 posibilidades: o bien que la fe sea la que realmente causa la concepción,
 o bien que sea la condición previa para que se diera la concepción. Teniendo en cuenta que la fe se contrapone a la concupiscencia en este
 contexto (serm.214,6; 229 P,4; 246,5) o a la libido (Manual...34,10;
-La Trinidad X I I I 18,23), el fervor de la fe al ardor de la concupiscencia
+La Trinidad XIII 18,23), el fervor de la fe al ardor de la concupiscencia
 (serm.214,6), hay que atribuir a la fe el mismo valor en la concepción
 de Cristo que a la concupiscencia en la concepción del hombre. Ahora
 bien, la concupiscencia no es de por sí la que engendra; es más bien
@@ -34870,7 +34870,7 @@ y sobre todo cristológicas, que conlleva. En cuanto a la mariología, muestra, 
 expone frecuentemente en relación con el texto de Le 1,35 (serm.215,4;
 233,4; 291,5). También para confirmar su teoría de que los miembros
 generativos en los santos no estaban sometidos a movimientos torpes
-(Réplica a Fausto X X I X 4). En cuanto a la cristología hay que destacar
+(Réplica a Fausto XXIX 4). En cuanto a la cristología hay que destacar
 más de un aspecto también. Por una parte, Agustín se sirve de ello
 para explicar el texto de Is 53,8b: ¿Quién narrará su generación?, cuando lo aplica al nacimiento humano (serm.196,1; véase la n.2 al serm.184).
 En segundo lugar, para explicar el texto de Jn 20,17, donde Jesús se
@@ -34879,7 +34879,7 @@ mi Dios y vuestro Dios (serm.246,5). Pero, sobre todo, Agustín se sirve
 de ese pensamiento para explicar el que Cristo sea igual a los hombres
 y al mismo tiempo distinto, pero con una intención precisa: mostrar
 cómo no ha contraído el pecado original a pesar de proceder de la raza
-de Adán (serm.229 P,4; 246,5; La Trinidad X I I I 18,23;
+de Adán (serm.229 P,4; 246,5; La Trinidad XIII 18,23;
 Tratados...4,10; Manual...34,10).
 [9] La huida en la persecución.—Uno de los problemas morales
 que planteaba la época de las persecuciones era el de si un cristiano
@@ -35191,9 +35191,9 @@ complementarias
 janza y la inmoderación. Para que no acaeciera eso, la Palabra las llamó
 a su unidad, y así adquirieron la forma para ser buenas (XIII 2,2). De
 esta manera, ante la llamada (vocatio), se produce la conversión (conversio), que origina la formación o adquisición de forma (formatio), o iluminación, consistente en hacerse semejantes a la Palabra, capacitándose
-para vivir según la Sabiduría ( X I I I 2,3). Este segundo momento está
+para vivir según la Sabiduría ( XIII 2,3). Este segundo momento está
 significado en la expresión «Hágase la luz» y la obra de los restantes
-«días» de la creación ( X I I I 3,4; Comentario literal del Génesis I 4,9).
+«días» de la creación ( XIII 3,4; Comentario literal del Génesis I 4,9).
 Ambos momentos de la creación quedan recogidos en este otro texto
 agustiniano: «Por la conversión y la formación, la criatura imita, a su
 modo, a la Palabra de Dios... Pero no imita la forma de la Palabra si,
@@ -35245,7 +35245,7 @@ des études augustiniennes (1956) 101-108, a quien hemos resumido.
 B), que ocupa el primer puesto entre todas las instituidas para el culto
 de Dios (serm.223 D [ = WILMART 4]), que es la vigilia por excelencia,
 y que destaca tanto que puede reivindicar como propio el nombre que es
-común a todas las demás (serm.221,2 [ = G U E L F. 5]), y también que
+común a todas las demás (serm.221,2 [ = GUELF. 5]), y también que
 es la madre de todas las santas vigilias (serm.219).
 De todos los textos mencionados, resulta evidente que se celebraban
 más vigilias y que eran conocidas por los fieles de Hipona. Cabe, pues,
@@ -35557,7 +35557,7 @@ complementarias
 me hice carne para poder morir. Junto al Padre no tenía carne; la tomé
 de tu masa para hacerte un don... Recibí de ti la carne en que morir por
 ti; recibe de mí el espíritu vivificador de que vivir conmigo. Para acabar, he muerto en lo tuyo, vive tú de lo mío» (serm.375 13,5 [ = DENIS
-5 ]; 265 D,7 [ = M O R I N 17]). El incremento fue netamente favorable al
+5 ]; 265 D,7 [ = MORIN 17]). El incremento fue netamente favorable al
 hombre; lo donado y lo recibido no era igual por otro motivo todavía:
 la carne que tomó de nosotros era don suyo, mientras que la vida, gracias
 a la cual vivimos con él y en él, no la tomó de nosotros (serm.218 C, l
@@ -35601,7 +35601,7 @@ era extremadamente grave (serm.340 A,5). El enfermo era víctima de
 una locura tal que le llevó hasta a dar muerte al médico (serm.174,6;
 175,1-3).
 Dio al enfermo un medicamento amargo, pero saludable (serm.229
-E,3 [ = GUELF. 9 ]; 306 C,7 [ = M O M N 15]); más aún, de su sangre
+E,3 [ = GUELF. 9 ]; 306 C,7 [ = MOMN 15]); más aún, de su sangre
 hizo una medicina que sanaría a su demente asesino (serm.174,6; 175,
 2-3); más todavía, él mismo tomó la medicina que no necesitaba, para
 animar a hacerlo al enfermo (serm.142,6). ¡Hasta tanto llegó la bondad
@@ -35670,7 +35670,7 @@ hasta la tarde, ni se cansan, ni rehusan la asistencia, ni salen de ellos
 con el mínimo rubor» (serm.264,1). Por eso frecuentemente tenía que
 despacharlos con un breve sermón y dejar para otro día el comentario
 
-229 O [ = G U E L F.
+229 O [ = GUELF.
 
 17]).
 

@@ -1,0 +1,38 @@
+{
+  "documentId": "agustin-35-antipelagianos-3-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:34.623Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 1948,
+  "unitsChanged": 235,
+  "unitsExcludedGarbage": 8,
+  "unitsCollapsedSpaced": 227,
+  "before": {
+    "units": 1948,
+    "garbageUnits": 8,
+    "garbageRatio": 0.0041,
+    "spacedLetterRuns": 280,
+    "junkRunHits": 49,
+    "tocLeaderHits": 11,
+    "residualScore": 484
+  },
+  "after": {
+    "units": 1948,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 0,
+    "tocLeaderHits": 0,
+    "residualScore": 0
+  },
+  "letterTokenOverlap": 0.9993,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}

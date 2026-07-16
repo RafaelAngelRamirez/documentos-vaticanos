@@ -5,6 +5,7 @@
 
 import type { TrasnportData } from "../../models/transport_data.model";
 import { repairOcrPunctuation } from "./repair_ocr_punctuation";
+import { collapseSpacedLetters } from "./repair_ocr_noise";
 
 export type PlainSplitMode =
   | "paragraphs"
@@ -336,7 +337,8 @@ export function plainTextToUnits(
   let prepared = stripPdfChrome(text);
   prepared = rejoinHyphenation(prepared);
   prepared = softNormalize(prepared);
-  // Mechanical OCR punct spacing (no internal-period joins — see repair_ocr_punctuation)
+  // Spaced-letter collapse (H I S T O R I A) + punct spacing (no internal-period joins)
+  prepared = collapseSpacedLetters(prepared);
   prepared = repairOcrPunctuation(prepared);
   prepared = softNormalize(prepared);
 

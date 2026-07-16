@@ -1,0 +1,38 @@
+{
+  "documentId": "agustin-38-antiarrianos-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:41.253Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 1691,
+  "unitsChanged": 205,
+  "unitsExcludedGarbage": 3,
+  "unitsCollapsedSpaced": 202,
+  "before": {
+    "units": 1691,
+    "garbageUnits": 3,
+    "garbageRatio": 0.0018,
+    "spacedLetterRuns": 300,
+    "junkRunHits": 12,
+    "tocLeaderHits": 3,
+    "residualScore": 362
+  },
+  "after": {
+    "units": 1691,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 5,
+    "tocLeaderHits": 1,
+    "residualScore": 12
+  },
+  "letterTokenOverlap": 0.999,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}

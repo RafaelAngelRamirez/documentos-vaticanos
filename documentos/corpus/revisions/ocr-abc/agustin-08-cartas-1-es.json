@@ -1,0 +1,38 @@
+{
+  "documentId": "agustin-08-cartas-1-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:55.145Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 2468,
+  "unitsChanged": 52,
+  "unitsExcludedGarbage": 0,
+  "unitsCollapsedSpaced": 52,
+  "before": {
+    "units": 2468,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 56,
+    "junkRunHits": 0,
+    "tocLeaderHits": 1,
+    "residualScore": 58
+  },
+  "after": {
+    "units": 2468,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 0,
+    "tocLeaderHits": 1,
+    "residualScore": 2
+  },
+  "letterTokenOverlap": 0.9992,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}

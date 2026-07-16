@@ -1,0 +1,38 @@
+{
+  "documentId": "agustin-26-sermones-6-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:38.818Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 3149,
+  "unitsChanged": 145,
+  "unitsExcludedGarbage": 0,
+  "unitsCollapsedSpaced": 145,
+  "before": {
+    "units": 3149,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 374,
+    "junkRunHits": 0,
+    "tocLeaderHits": 1,
+    "residualScore": 376
+  },
+  "after": {
+    "units": 3149,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 0,
+    "tocLeaderHits": 1,
+    "residualScore": 2
+  },
+  "letterTokenOverlap": 0.999,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}

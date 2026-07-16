@@ -1,0 +1,38 @@
+{
+  "documentId": "cipriano-cartas-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:51.441Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 829,
+  "unitsChanged": 62,
+  "unitsExcludedGarbage": 0,
+  "unitsCollapsedSpaced": 62,
+  "before": {
+    "units": 829,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 76,
+    "junkRunHits": 0,
+    "tocLeaderHits": 0,
+    "residualScore": 76
+  },
+  "after": {
+    "units": 829,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 0,
+    "tocLeaderHits": 0,
+    "residualScore": 0
+  },
+  "letterTokenOverlap": 0.9993,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}

@@ -1,0 +1,38 @@
+{
+  "documentId": "agustin-05-de-trinitate-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:19.870Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 3030,
+  "unitsChanged": 520,
+  "unitsExcludedGarbage": 0,
+  "unitsCollapsedSpaced": 520,
+  "before": {
+    "units": 3030,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 3607,
+    "junkRunHits": 0,
+    "tocLeaderHits": 0,
+    "residualScore": 3607
+  },
+  "after": {
+    "units": 3030,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 1,
+    "tocLeaderHits": 0,
+    "residualScore": 2
+  },
+  "letterTokenOverlap": 0.9737,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}

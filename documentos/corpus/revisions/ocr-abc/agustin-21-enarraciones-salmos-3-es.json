@@ -1,0 +1,38 @@
+{
+  "documentId": "agustin-21-enarraciones-salmos-3-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:15.084Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 3168,
+  "unitsChanged": 637,
+  "unitsExcludedGarbage": 0,
+  "unitsCollapsedSpaced": 637,
+  "before": {
+    "units": 3168,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 11197,
+    "junkRunHits": 0,
+    "tocLeaderHits": 0,
+    "residualScore": 11197
+  },
+  "after": {
+    "units": 3168,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 0,
+    "tocLeaderHits": 0,
+    "residualScore": 0
+  },
+  "letterTokenOverlap": 0.9829,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}

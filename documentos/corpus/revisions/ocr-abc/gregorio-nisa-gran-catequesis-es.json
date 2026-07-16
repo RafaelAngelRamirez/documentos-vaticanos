@@ -1,0 +1,38 @@
+{
+  "documentId": "gregorio-nisa-gran-catequesis-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:55.284Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 250,
+  "unitsChanged": 1,
+  "unitsExcludedGarbage": 1,
+  "unitsCollapsedSpaced": 0,
+  "before": {
+    "units": 250,
+    "garbageUnits": 1,
+    "garbageRatio": 0.004,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 8,
+    "tocLeaderHits": 5,
+    "residualScore": 40
+  },
+  "after": {
+    "units": 250,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 0,
+    "tocLeaderHits": 0,
+    "residualScore": 0
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}

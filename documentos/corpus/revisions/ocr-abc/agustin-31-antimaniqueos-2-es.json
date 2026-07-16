@@ -1,0 +1,38 @@
+{
+  "documentId": "agustin-31-antimaniqueos-2-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:26.484Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 3951,
+  "unitsChanged": 28,
+  "unitsExcludedGarbage": 28,
+  "unitsCollapsedSpaced": 0,
+  "before": {
+    "units": 3951,
+    "garbageUnits": 28,
+    "garbageRatio": 0.0071,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 351,
+    "tocLeaderHits": 216,
+    "residualScore": 1421
+  },
+  "after": {
+    "units": 3951,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 3,
+    "tocLeaderHits": 1,
+    "residualScore": 8
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}

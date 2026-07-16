@@ -33,7 +33,7 @@ Y
 
 MOISÉS
 
-M.a C A M P E L O
+M.aCAMPELO
 
 '
 
@@ -43,8 +43,8 @@ BIBLIOTECA DE AUTORES CRISTIANOS
 MADRID. MCMLXXXI
 
 Texto latino tomado fundamentalmente de MiGNE (PL 38)
-y de Miscellanea Agostiniana I (MA), como se indica al comienzo de cada sermón. Preparado y corregido por M I G U E L
-F U E R T E S LANERO.
+y de Miscellanea Agostiniana I (MA), como se indica al comienzo de cada sermón. Preparado y corregido por MIGUEL
+FUERTES LANERO.
 
 AL
 padre Balbino Martín Pérez (q.e.p.d.),
@@ -91,7 +91,7 @@ La vocación de Moisés (Ex 3)
 i
 VIL
 La zarza que arde (Ex 3,21-24)
-•;.;. V I I I.
+•;.;. VIII.
 Las diez plagas de Egipto y los diez mandamientos de Dios
 IX.
 Los diez mandamientos de Dios y la lira de diez
@@ -129,7 +129,7 @@ Comentario del salmo 67,3
 XXII A. Comentario del salmo 70,4
 XXIII.
 La visión de Dios (Sal 72,24)
-X X I I I A. Comentario del salmo 74,2
+XXIIIA. Comentario del salmo 74,2
 XXIV.
 Comentario del salmo 82,2
 XXV.
@@ -151,7 +151,7 @@ XXVII.
 Paralelismo entre Sal 95,1-3 y Rom 9,18-19
 XXVIII.
 Comentario del salmo 104,3
-X X V I I I A. Comentario del salmo 115,11
+XXVIIIA. Comentario del salmo 115,11
 XXIX.
 Comentario del salmo 117,1
 XXIX A. Comentario del salmo 117,1
@@ -163,7 +163,7 @@ XXXII.
 David y Goliat y el desprecio del mundo
 XXXIII.
 Comentario del salmo 143,9
-X X X I I I A. Comentario del salmo 145,2
+XXXIIIA. Comentario del salmo 145,2
 XXXIV.
 Comentario del salmo 145,2
 XXXV.
@@ -197,7 +197,7 @@ XLVIII.
 Comentario de Miq 6,6-7
 XLIX.
 La justicia y la misericordia (Miq 6,6-8)
-X L I X A. Comentario de Miq 6,8
+XLIXA. Comentario de Miq 6,8
 L.
 Comentario de Ag 2,9
 NOTAS COMPLEMENTARIAS
@@ -1678,8 +1678,8 @@ I
 
 [PL 38,23]
 
-D E EO QUOD SCRIPTUM EST, Gen 1,1: « I N PRINCIPIO FECIT D E U S CAELUM
-ET TERRAM»; ET l o I, 1: « I N PRINCIPIO ERAT V E R B U M »: CONTRA
+D E EO QUOD SCRIPTUM EST, Gen 1,1: « I N PRINCIPIO FECIT DEUS CAELUM
+ET TERRAM»; ET l o I, 1: « I N PRINCIPIO ERAT VERBUM »: CONTRA
 MANICHAEOS
 
 CAPUT I. — 1. Qui meminit debiti sui, sententiaeque apostolicae, qua
@@ -1937,7 +1937,7 @@ II
 
 [PL 38,26]
 
-D E TEMPTATIONE ABRAHAE A D E O
+D E TEMPTATIONE ABRAHAE ADEO
 
 Véase la nota complementaria 2: has reglas de la escritura, p.TAJ>.
 CAPUT I. — 1. Abrahae fides et pietas.—Notissima pietas patris nostri
@@ -5161,21 +5161,21 @@ Tema: La zarza que arde (Ex 3,21-24).
 Fecha: Variedad de opiniones. Todas anteriores
 a 412.
 Lugar: Cartago.
-1. C u a n d o se p r o n u n c i a b a la d i v i n a l e c t u r a s o b r e ese
-m i l a g r o e x t r a ñ o q u e l l a m ó la a t e n c i ó n d e l siervo d e D i o s
-M o i s é s, t a m b i é n n o s o t r o s n o s p r e g u n t á b a m o s c o n el c o r a z ó n,
-y q u e d a b a i n t r i g a d o n u e s t r o i n t e r é s, al v e r q u e el fuego a p a r e cía e n la zarza, y la zarza n o se q u e m a b a. D e s p u é s a d v e r t i m o s
-q u e la S a n t a E s c r i t u r a h a b í a d i c h o a n t e s q u e el ángel del S e ñ o r
-se a p a r e c i ó a M o i s é s en la zarza, m i e n t r a s q u e M o i s é s ya n o
-h a b l a c o m o con u n ángel, s i n o c o m o c o n D i o s. E n t e r c e r l u g a r
-a d v e r t i m o s q u e, al d e m a n d a r M o i s é s el n o m b r e d e D i o s, p a r a
-p o d e r c o n t e s t a r a los israelitas q u e p r e g u n t a r a n c u á l e r a el
-n o m b r e d e l D i o s q u e le e n v i a b a a ellos, r e s p o n d i ó: Yo soy el
-que soy. Y n o lo dice u n a sola v e z, s i n o q u e, al insistir c o n la
-r e p e t i c i ó n, a ñ a d e: esto dirás a los hijos de Israel: el que es me
+1. Cuando se pronunciaba la divinalecturasobre ese
+milagroextrañoquellamó la atencióndel siervo deDios
+Moisés, tambiénnosotrosnospreguntábamoscon el corazón,
+yquedabaintrigadonuestrointerés, al verque el fuego apare cía e n la zarza, y la zarza n o se quemaba. Despuésadvertimos
+q u e la SantaEscriturahabíadichoantesque el ángel del Señor
+se aparecióaMoisés en la zarza, mientrasqueMoisés ya n o
+hablacomo con u n ángel, sinocomoconDios. Entercerlugar
+advertimosque, al demandarMoisés el nombredeDios, para
+podercontestara los israelitas quepreguntarancuálera el
+nombredelDiosque le enviabaa ellos, respondió: Yo soy el
+que soy. Y n o lo dice u n a sola v e z, sinoque, al insistir c o n la
+repetición, añade: esto dirás a los hijos de Israel: el que es me
 envió a vosotros.
-F i n a l m e n t e, d e s p u é s d e e n u n c i a r su n o m b r e,
-a ñ a d e a ú n: Les dirás: el Señor Dios de vuestros
+Finalmente, despuésdeenunciar su nombre,
+añadeaún: Les dirás: el Señor Dios de vuestros
 padres,
 Dios
 de Abrahán,
@@ -8938,7 +8938,7 @@ XII
 D E EO QUOD SCRIPTUM EST IN IOB, CAP. 1,6: « E T ECCE VENERUNT ANGELÍ
 IN CONSPECTUM D E I, ET DIABOLUS IN MEDIO EORUM», ETC., ET DE EO QUOD
 IN EVANGELIO DICITUR, M T 5,8: «BEATI QUI PURO SUNT CORDE, QUONIAM
-I P S I DEUM VIDEBUNT»: CONTRA MANICHAEOS
+IPSI DEUM VIDEBUNT»: CONTRA MANICHAEOS
 
 CAPUT I. — 1. Manichaeorum in librum Iob calumnia.—In divinis
 et sanctis veteribus Libris fraudulentissima fallada Manichaeos insidiari,
@@ -8965,9 +8965,9 @@ que el mismo Apóstol testifica y confirma que ni los principados, ni las potest
 palabras anteriores; y tal cuestión debe ser dilucidada y discutida por el cristiano adulto. La intención de los que proponen
 tal calumnia no es otra que la de apartar de la autoridad de la
 Escritura a aquellos que son tan ignorantes como ellos. Pero
-yo querría saber ante todo dónde leyó A d i m a n t o 2 eso en el
+yo querría saber ante todo dónde leyó Adimanto 2 eso en el
 Apóstol, ya que el tal Adimanto parece consignarlo. Yo quisiera que me dijera Adimanto dónde leyó que el Apóstol testifica
-y confirma que ni los principados, ni las potestades, ni las virtudes conocieron a D i o s 3, dado que el mismo Señor dice que
+y confirma que ni los principados, ni las potestades, ni las virtudes conocieron aDios 3, dado que el mismo Señor dice que
 los ángeles de los hombres que creen en él están viendo el rostro
 del Padre. A no ser que alegue aquello que dice el Apóstol:
 Hablamos sabiduría entre los perfectos; sabiduría no de este
@@ -9859,7 +9859,7 @@ juzgáis la tierra.
 al hombre condenado al pecado. Aquí aparecen dos nombres:
 hombre y pecador. Dios hizo al hombre, y el mismo hombre se
 hizo a sí mismo pecador. Perezca aquello que hizo el hombre
-y sea salvado aquello que hizo D i o s 6. Pero no lo persigas hasta
+y sea salvado aquello que hizo Dios 6. Pero no lo persigas hasta
 la muerte, no sea que, persiguiendo el pecado, llegues a perder
 al hombre. No llegues a matar, por si alguno se arrepiente; no
 se destruya al hombre, por si se arrepiente y se enmienda. Manteniendo firme el hombre este amor a los hombres, sea juez
@@ -10102,7 +10102,7 @@ Comentario del salmo 9,14
 4. Distingamos, pues, quiénes son los pobres y quiénes los
 ricos. ¿Por qué me provocas a entender otras cosas? A la vista
 están los pobres y a la vista están los ricos». Escúchame,
-¡oh p o b r e!, acerca de aquello que me has propuesto. Cuando dices que tú eres aquel santo ulceroso, mucho me temo
+¡oh pobre!, acerca de aquello que me has propuesto. Cuando dices que tú eres aquel santo ulceroso, mucho me temo
 que, ensoberbecido, no seas realmente lo que dices. No desprecies a los ricos misericordiosos, a los ricos humildes; y
 para decir en una palabra lo que antes anuncié: no desprecies a los ricos pobres. ¡Oh pobre, sé tú también pobre; pobre, esto es, humilde! Si un rico se ha hecho humilde, ¿cuánto más debe hacerse humilde el pobre? El pobre no tiene
 de qué envanecerse; el rico tiene algo con qué enfrentarse.
@@ -12971,8 +12971,8 @@ XVII
 
 [PL 38,124]
 
-D E EO QUOD DICITUR IN PSALMO 49,3: « D E U S MANIFESTUS VENIET,
-D E U S NOSTER, ET NON SILEBIT», ETC.
+D E EO QUOD DICITUR IN PSALMO 49,3: « DEUS MANIFESTUS VENIET,
+DEUS NOSTER, ET NON SILEBIT», ETC.
 
 'CAPOT I. — 1. Iudicium extremum.—Cantavimus,
 fratres, Deus manifestus tttniet, Deus noster, et non silebit. Deum Christum Scriptura praedíxit venturum ad iudicium vivorum et mortuorum. Quando enim prius
@@ -13670,7 +13670,7 @@ XIX
 [PL 38,132]
 
 [132]
-D E EO QUOD SCRIPTUM EST IN PSALMO 50,5: «QUONIAM INIQUITATEM MEAM EGO AGNOSCO»: ET IN PSALMO 7 2, 1: «QUAM BONUS D E U S
+D E EO QUOD SCRIPTUM EST IN PSALMO 50,5: «QUONIAM INIQUITATEM MEAM EGO AGNOSCO»: ET IN PSALMO 7 2, 1: «QUAM BONUS DEUS
 ISRAEL RECTIS CORDE!»
 
 1. Rogandus Deus, ut faciem non a nobis avertat, sed a peccatis nostris.—Cantantes Dominum rogavimus, ut avertat faciem suam a peccatis
@@ -14204,7 +14204,7 @@ XX
 
 [PL 38,137]
 
-D E VERSU 12 PSALMI 50: «COR MUNDUM CREA IN ME, D E U S »; ET DE
+D E VERSU 12 PSALMI 50: «COR MUNDUM CREA IN ME, DEUS »; ET DE
 VERSU 5 PSALMI 40: «EGO DIXI, DOMINE, MISERERE MEI», ETC.
 
 La asistencia a los sermones de Agustín no era uniforme. Mientras en las
@@ -16037,7 +16037,7 @@ perezcan los pecadores ante la presencia de Dios.
 perezcan los pecadores. Si comienzan a vivir rectamente, perecerán, es cierto, los pecadores, pero no perecerán los hombres.
 Hombre pecador; son dos nombres. Hombre es sólo un nombre, y pecador es también un nombre solamente. De estos dos
 nombres, sabemos que uno lo hizo Dios y el otro el hombre.
-Al hombre lo hizo Dios; el pecado, el h o m b r e 4. ¿Por qué
+Al hombre lo hizo Dios; el pecado, el hombre 4. ¿Por qué
 tiemblas cuando te dice Dios: «Perezcan los pecadores ante
 mi presencia»? Lo que quiere decir es solamente esto: «Perezca en ti lo que tú hiciste; yo conservo lo que yo creé».
 Ahora arde el fuego al calor de la palabra, es decir, como
@@ -16274,7 +16274,7 @@ A
 
 [MA 296; PLS 2,452-456]
 
-INCIPIT SERMO DE RESPONSORIO PSALMI 70: « D E U S MEUS,
+INCIPIT SERMO DE RESPONSORIO PSALMI 70: « DEUS MEUS,
 ERUE ME DE MANU PECCATORIS»
 
 1. Omnis anima, quae intenta cantat voce psalmi Deo, necesse est
@@ -16831,7 +16831,7 @@ Sermón
 
 XXIII
 
-r e c i b i d o algo c o m o p r e n d a. ¿ Q u é será a q u e l l o p o r lo q u e se
+recibido algo comoprenda. ¿ Q u é será aquellopor lo q u e se
 
 La visión de Dios
 
@@ -17228,7 +17228,7 @@ A
 
 LMA 300; PLS 2,456-458]
 
-INCIPIT SERMO DE RESPONSORIO PSALMI 74: «CONFITEBIMUR TIBÍ D E U S,
+INCIPIT SERMO DE RESPONSORIO PSALMI 74: «CONFITEBIMUR TIBÍ DEUS,
 CONFITEBIMUR ET INVOCABIMUS NOMEN TUUM»
 
 1. Felices sumus, si, quod audimus et cantamus, etiam faciamus:
@@ -17412,7 +17412,7 @@ D E VERSU 2 PSALMI 82:
 
 [PL 38,162]
 
-« D E U S, QUIS SIMILIS T I B Í? »
+« DEUS, QUIS SIMILIS TIBÍ? »
 
 1. Gratulatur fidelibus Dei zelo incensis contra idola.—Gratias Domino Deo nostro, et abundantiam laudis illi Deo, quem decet hymnus in
 
@@ -18241,7 +18241,7 @@ SERMÓN
 
 XXV
 
-A ( = M o r i n 12)
+A ( = Morin 12)
 
 Tema: Comentario del Sal 93,12-13.
 Fecha: Después del año 396.
@@ -18419,7 +18419,7 @@ se lastima la integridad. No condenó, por lo tanto, la Escritura
 a los ricos cuando dice: Teniendo con qué alimentarnos y con
 qué vestirnos, estemos contentos. Pues quienes quieren, dijo,
 hacerse ricos •—no dijo: quienes son ricos, sino quienes quieren
-hacerse r i c o s — 3 por sus mismas codicias caen en muchas tentaciones y deseos dañosos, que sumergen a los hombres en la
+hacerse ricos — 3 por sus mismas codicias caen en muchas tentaciones y deseos dañosos, que sumergen a los hombres en la
 
 2. Me dirijo, pues, a vuestra caridad. No améis la felicidad
 de este mundo; quienes la poseéis, no pongáis en ella vuestra
@@ -18658,7 +18658,7 @@ Sermón XXVI
 Paralelismo entre Sal 94,6 y Gal 3,21
 
 a ellos en cuanto hombres, pero que el ser justos se debe
-a ellos m i s m o s '. Previendo a los tales, les llamó la atención
+a ellos mismos '. Previendo a los tales, les llamó la atención
 y les apartó de ese orgullo diciéndoles: El nos hizo, y no nosotros a nosotros mismos. ¿Por qué añadió: y no nosotros
 a nosotros mismos, cuando hubiese bastado decir: El nos
 hizo? ¿Por qué, sino porque quiso llamar la atención sobre
@@ -19672,8 +19672,8 @@ Comentario del Sal 104,3.
 
 Fecha: En torno al año 397.
 Lugar: Cartago.
-1. D e e n t r e t o d a s las p a l a b r a s d i v i n a s q u e h e m o s escuc h a d o, d i s e r t a r e m o s a h o r a, c o n la a y u d a d e D i o s, acerca d e
-las ú l t i m a s: Alégrese
+1. Deentretodas las palabrasdivinasquehemos escuc hado, disertaremosahora, c o n la ayudadeDios, acerca d e
+las últimas: Alégrese
 el corazón de los que buscan al
 Señor.
 viae eius! Forte expositurus est? Quis enim cognovit sensunt Domini?
@@ -24098,7 +24098,7 @@ son piedras preciosas. Pero algunas de ellas se alejaron y dejaron de ser adorno
 doctrina y al don de palabra en que brilla, era piedra preciosa;
 en cuanto refulge por la doctrina del Señor, era piedra preciosa,
 repito, Cipriano. Esta perla permaneció como adorno de la
-Iglesia. Piedra preciosa era D o n a t o 6, pero se alejó del grupo
+Iglesia. Piedra preciosa era Donato 6, pero se alejó del grupo
 que hacía de adorno. El que permaneció quiso ser amado en la
 mater: nam unius uxor est. Mulierem fortem quis inveniet? Mulierem
 istam tam fortem quis non videt? Sed iam inventam, ¡am eminentem, iam
@@ -24174,7 +24174,7 @@ retiñe. Aprended, pues, a valorar bien las piedras, negociadores del reino de l
 esté fuera de las galas de esta mujer. Ella, más valiosa que las
 piedras preciosas, ella misma es el valor de sus adornos.
 4. En ella confía el corazón de su marido. Confía totalmente y nos enseñó a confiar. Nos recomendó la Iglesia extendida por todos los pueblos hasta los confines de la tierra, de
-mar a m a r 8. Si no perseverase hasta el final, no tendría la
+mar amar 8. Si no perseverase hasta el final, no tendría la
 confianza de su marido. En ella confía el corazón de su marido. Confía porque sabe que será así; quien confía no puede
 engañarse. No se dijo: Confía en ella el corazón de los hijos.
 Podían engañarse sus hijos pequeños. Confía en ella el corazón
@@ -24645,7 +24645,7 @@ alabanzas de confesión y alabanzas de la predicación. ¿Por
 qué dobles para Cristo? Le alabas en cuanto Dios y en cuanto
 hombre. Alábale doblemente y con simplicidad. Doblemente,
 porque es hombre y Dios; con simplicidad, para no ser un
-hipócrita. H u b o mujer que eligió hacer a su marido un manto
+hipócrita. Hubo mujer que eligió hacer a su marido un manto
 simple. Es lo que aconteció con un cierto Fotino 14, piedra preciosa separada del ornato de esta mujer, y ahora vil y abyecta,
 Omnes omnino apud eam vestiti sunt. Et boni servi et mali servi vestiti
 sunt: sed boni servi vestiti sunt, qui Christum induerunt, non tantum in
@@ -24673,7 +24673,7 @@ La mujer fuerte
 
 de la que reciben el nombre los herejes fotinianos. No la recibió aquel que, como leemos escrito, recibe de su mujer, de su
 auténtica mujer, mantos dobles. El consideró que Cristo era
-solamente un hombre. H u b o no sé qué otra mujer, digna del
+solamente un hombre. Hubo no sé qué otra mujer, digna del
 mayor desprecio, que, fingiendo tejer también en ella para
 el marido un manto, tejía en realidad fábulas andrajosas. Esta
 decía: «Cristo es solamente Dios; de hombre no tiene nada».
@@ -25106,7 +25106,7 @@ hablare las lenguas de los hombres y de los ángeles, y no tengo
 caridad, soy como bronce que suena o címbalo que retiñe.
 Habla lenguas: pertenece al poder de la flor. Si conociere todos
 los misterios y toda ciencia, poseyera toda profecía y toda fe,
-hasta el punto de trasladar las montañas — ¡ q u é p o d e r! —,
+hasta el punto de trasladar las montañas — ¡ quépoder! —,
 y no tengo caridad, nada soy. Escucha todavía otras proezas
 pertenecientes a la flor, no al fruto: Si distribuyese todos mis
 bienes a los pobres y entregase a las llamas mi cuerpo, si no
@@ -25610,7 +25610,7 @@ Aquel que no dará dinero a usura. Te prohibí la usura. Ahora
 te ordeno que obres así; préstame con interés». Esto te dice
 tu Señor: «¿Quieres dar poco y recibir mucho? No busques al
 hombre que llora cuando le exiges el interés. Búscame a mí,
-que gozo cuando tengo que devolver. H e m e aquí: Dame
+que gozo cuando tengo que devolver. Heme aquí: Dame
 
 timet ne pateat. Esse vult dives in opinione, non in veritate. Quasi
 sufficit habere in conscientia, quod servat in térra? O quanto maior tibi
@@ -27410,7 +27410,7 @@ Cristo mismo. El que es pan, es también monte. Es pan porque
 alimenta a la Iglesia; monte, porque la Iglesia es su cuerpo.
 La Iglesia misma es el monte. ¿Y qué es la Iglesia? El cuerpo
 de Cristo. Añádele a ella la cabeza y se convierte en un solo
-hombre. Cabeza y cuerpo unidos son un solo h o m b r e 3. ¿Quién
+hombre. Cabeza y cuerpo unidos son un solo hombre 3. ¿Quién
 es la cabeza? Quien nació de la Virgen María; quien recibió
 carne mortal sin pecado, quien fue golpeado, flagelado, des-
 
@@ -27589,7 +27589,7 @@ monte una piedra, es decir: del pueblo judío procede Cristo.
 Cristo, en efecto, nació de una Virgen y fue concebido sin
 unión marital 4.
 7. Sabemos ya claramente quién es este monte. No os
-propongamos otros montes como es el G i d d a b a 5 o cualesquiera
+propongamos otros montes como es el Giddaba 5 o cualesquiera
 otros nombrados por vosotros. A veces, por ejemplo, los hombres leen: Le escuchará desde su monte santo, y lo entienden
 carnalmente, bien que a veces habla de un monte y se refiere
 a Cristo. Y corren los hombres al monte a orar, como si allí
@@ -27826,7 +27826,7 @@ temor de Dios. El temor de los hombres quizá pueda atemperar el cuerpo de la im
 mismo estará limpio. Sea bueno y esté sano quien habita, y no
 temerá la ruina de su casa.
 10. ¿Qué hemos de hacer con esta carne? No debemos
-despreciarla. ¿Qué es? H e n o; pero se convertirá en oro.
+despreciarla. ¿Qué es? Heno; pero se convertirá en oro.
 N o despreciéis el heno. También él se convierte en oro.
 Quien tuvo poder para cambiar el agua en vino, lo tiene
 también para cambiar el heno en oro y de la carne hacer
@@ -30054,7 +30054,7 @@ remisión
 de los pecados a todos los pueblos,
 comenzando
 Jerusalén.
-M i r a d e d ó n d e v e n d r á. A l d e c i r: comenzando,
+Miradedóndevendrá. Aldecir: comenzando,
 
 por
 pre-
@@ -30221,7 +30221,7 @@ XLVII
 [PL 38,295]
 
 D E OVIBUS, IN EZECHIEL c.34,17-31, AB ILLIS VERÉIS, « E T vos OVES
-MEAE», ETC., USQUE, « E T EGO D E Ü S VESTER, DICIT D O M I N U S D E Ü S »
+MEAE», ETC., USQUE, « E T EGO DEÜS VESTER, DICIT DOMINUSDEÜS »
 
 CAPUT I. — 1. Oves pascuae et manuum Dei sumus.—Verba quae
 cantavimus, continent professionem nostram, quia oves Dei sumus: nec
@@ -31032,7 +31032,7 @@ fuerzas. ¿Quiénes son las fuertes? Las que se glorían de su
 justicia. No dividieron las ovejas, no las echaron fuera sino
 quienes dijeron que ellos eran los justos. Son audaces para
 empujar con los hombros, porque no pujan por la carga de
-D i o s 7; flancos perversos son los amigos que conspiran, la
+Dios 7; flancos perversos son los amigos que conspiran, la
 sociedad de la obstinación; los cuernos levantados, la soberbia
 exaltada. Empuja con los flancos y hombros, amurca con
 los cuernos, manda fuera lo que no compraste. Ciertamente la
@@ -34029,7 +34029,7 @@ la muerte de Cristo en la cruz, de cuyos costados nacieron, respectivamente, Eva
 sobre el evangelio de San Juan 120,2; y, con mucha más frecuencia, en
 las Enarraciones a los Salmos 40,10; 56,11; 103 I I 4,6;^ 126,7; 127,11.
 Fuera de la predicación, en Contra Fausto X I I 8; El génesis contra los
-maniqueos I I 24,57; La ciudad de Dios XV 26; X X I I 17. La idea no
+maniqueos I I 24,57; La ciudad de Dios XV 26; XXII 17. La idea no
 es original. Probablemente la ha tomado de San Ambrosio (Comentario
 al evangelio de San Lucas X 135; I I 86) (P. ROLLERO, La «Expositio
 Evangelii secundum Lucam» di Ambrogio come fonte della esegesi agostiniana [Turín 1958] p.104). Tampoco San Ambrosio es el primero en
@@ -34058,7 +34058,7 @@ Notas complementarias
 la predicación, véanse también Enarraciones a los Salmos 40,14; 56,9;
 58 I 22; Tratado sobre el evangelio de San ]uan 37,7. Fuera de la
 predicación, La concordia de los evangelistas I 14,22; I 26,40; Carta 137,
-4,16; La ciudad de Dios X V I I I 47, etc. En este sentido se les puede
+4,16; La ciudad de Dios XVIII 47, etc. En este sentido se les puede
 llamar capsarii (el esclavo que llevaba los libros a los niños que iban
 a la escuela o el que llevaba los del abogado al tribunal). Véase Enarración al Salmo 40,14, En este mismo sermón les denomina custodes, guardianes de nuestros libros (Escrituras). La idea de presentar a los judíos
 como garantes de la verdad no es tampoco original de Agustín. Aparece
@@ -34116,7 +34116,7 @@ Ambrosíus-Zitat in der Schrift Be videndo Deo (Epist. 147) (Roma 1971).
 [19] La inmutabilidad de Dios.—Uno de los atributos que más frecuentemente San Agustín pone en Dios es la inmutabilidad. Para él,
 ateniéndose a la tradición griega del verbo einai, sólo es lo que permanece
 inmutable (Confes. VII 11,17); ser verdaderamente equivale a ser inmutable, lo que solamente Dios es (Enarración al Salmo 134,4); más aún,
-el nombre de la inmutabilidad es ser (S.7,7). De aquí que Dios se denomine, sin más, ES. Este texto no es único; en Confesiones X I I I 31,46
+el nombre de la inmutabilidad es ser (S.7,7). De aquí que Dios se denomine, sin más, ES. Este texto no es único; en Confesiones XIII 31,46
 puede decir: «El Espíritu..., por quien vemos que es bueno cuanto de
 algún modo es, porque procede de aquel que no es de cualquier modo,
 sino que es ES». En comparación con El, las demás cosas que son no
@@ -34496,7 +34496,7 @@ es el primer paso a la conversión. De lo exterior a lo interior; de lo
 interior a lo superior. Tal es la síntesis agustiniana.
 [39] El pecado.—Como pastor, en este texto Agustín explica a sus
 fieles cuándo se da el pecado, que implícitamente comporta una definición del mismo. No son raras en las obras del santo definiciones explícitas; no pocas de ellas se han hecho justamente célebres por su concisión y precisión de concepto. Recordamos: «Pecado es un hecho, dicho
-o deseo contra la ley eterna» (Contra Fausto X X I I 27) o, aún más
+o deseo contra la ley eterna» (Contra Fausto XXII 27) o, aún más
 brevemente, «el pecado es aversión a Dios y conversión a las criaturas»
 (El libre albedrío II 19,53). En el presente texto, Agustín hace hincapié
 en el amor desordenado; qué entienda por amor desordenado podemos

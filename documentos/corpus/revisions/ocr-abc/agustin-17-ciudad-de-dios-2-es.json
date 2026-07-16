@@ -1,0 +1,38 @@
+{
+  "documentId": "agustin-17-ciudad-de-dios-2-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:11.333Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 3310,
+  "unitsChanged": 1090,
+  "unitsExcludedGarbage": 0,
+  "unitsCollapsedSpaced": 1090,
+  "before": {
+    "units": 3310,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 25588,
+    "junkRunHits": 4,
+    "tocLeaderHits": 0,
+    "residualScore": 25596
+  },
+  "after": {
+    "units": 3310,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 9,
+    "tocLeaderHits": 0,
+    "residualScore": 18
+  },
+  "letterTokenOverlap": 0.8969,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}

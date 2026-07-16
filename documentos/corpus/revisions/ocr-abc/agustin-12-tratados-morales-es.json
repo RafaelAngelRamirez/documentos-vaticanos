@@ -1,0 +1,38 @@
+{
+  "documentId": "agustin-12-tratados-morales-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:30.932Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 1828,
+  "unitsChanged": 169,
+  "unitsExcludedGarbage": 14,
+  "unitsCollapsedSpaced": 155,
+  "before": {
+    "units": 1828,
+    "garbageUnits": 14,
+    "garbageRatio": 0.0077,
+    "spacedLetterRuns": 187,
+    "junkRunHits": 188,
+    "tocLeaderHits": 32,
+    "residualScore": 775
+  },
+  "after": {
+    "units": 1828,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 0,
+    "tocLeaderHits": 0,
+    "residualScore": 0
+  },
+  "letterTokenOverlap": 0.9994,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}

@@ -1,0 +1,38 @@
+{
+  "documentId": "agustin-34-antidonatistas-3-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:37.180Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 1987,
+  "unitsChanged": 129,
+  "unitsExcludedGarbage": 11,
+  "unitsCollapsedSpaced": 118,
+  "before": {
+    "units": 1987,
+    "garbageUnits": 11,
+    "garbageRatio": 0.0055,
+    "spacedLetterRuns": 146,
+    "junkRunHits": 45,
+    "tocLeaderHits": 21,
+    "residualScore": 394
+  },
+  "after": {
+    "units": 1987,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 2,
+    "tocLeaderHits": 3,
+    "residualScore": 10
+  },
+  "letterTokenOverlap": 0.9997,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}

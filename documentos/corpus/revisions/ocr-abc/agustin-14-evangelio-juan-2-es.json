@@ -1,0 +1,38 @@
+{
+  "documentId": "agustin-14-evangelio-juan-2-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:16.196Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 2199,
+  "unitsChanged": 530,
+  "unitsExcludedGarbage": 0,
+  "unitsCollapsedSpaced": 530,
+  "before": {
+    "units": 2199,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 10024,
+    "junkRunHits": 0,
+    "tocLeaderHits": 0,
+    "residualScore": 10024
+  },
+  "after": {
+    "units": 2199,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 0,
+    "tocLeaderHits": 0,
+    "residualScore": 0
+  },
+  "letterTokenOverlap": 0.977,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}

@@ -1,0 +1,38 @@
+{
+  "documentId": "agustin-18-epistolas-indices-es",
+  "revision": "ocr-abc-v1",
+  "appliedAt": "2026-07-16T00:47:06.500Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "garbage-toc-exclude-placeholder",
+    "punct-safe-compose"
+  ],
+  "unitsTotal": 1916,
+  "unitsChanged": 803,
+  "unitsExcludedGarbage": 0,
+  "unitsCollapsedSpaced": 803,
+  "before": {
+    "units": 1916,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 32091,
+    "junkRunHits": 1,
+    "tocLeaderHits": 0,
+    "residualScore": 32093
+  },
+  "after": {
+    "units": 1916,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "junkRunHits": 2,
+    "tocLeaderHits": 0,
+    "residualScore": 4
+  },
+  "letterTokenOverlap": 0.8462,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+}
