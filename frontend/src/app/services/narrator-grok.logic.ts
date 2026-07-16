@@ -174,7 +174,7 @@ export function buildGrokSpeakBody(opts: {
     language,
   };
   if (apiSpeed != null) {
-    body.speed = apiSpeed;
+    body['speed'] = apiSpeed;
   }
   return body;
 }

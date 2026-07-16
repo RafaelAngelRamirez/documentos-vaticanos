@@ -189,8 +189,8 @@ export class BackupService {
       // Conservar la key ya presente en este dispositivo.
       try {
         const cur = this.leerJson<Record<string, unknown>>(NARRADOR_STORAGE_KEY);
-        if (cur && typeof cur.xaiApiKey === 'string' && cur.xaiApiKey) {
-          (safe as { xaiApiKey?: string }).xaiApiKey = cur.xaiApiKey;
+        if (cur && typeof cur['xaiApiKey'] === 'string' && cur['xaiApiKey']) {
+          (safe as { xaiApiKey?: string }).xaiApiKey = cur['xaiApiKey'] as string;
         }
       } catch {
         /* ignore */
