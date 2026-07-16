@@ -24,8 +24,18 @@ UI links live under **Acerca de** (`/about`).
   - Manual webhook `POST /webhook/docvat-build` with body `{ "branch": "master" }`
 - Runner: `imperium-build-runner:latest` (glibc sidecar) with volumes:
   - `codice-progressio_n8n_build`, `_android_sdk`, `_gradle`, `_electron`
-- Entry: `.ci-build.sh` → package web/apk/electron → collect downloads → `ci-docker-push.sh` → `ci-deploy-docvat.sh`
+- Entry: clone → run **repo** `.ci-build.sh` in `imperium-build-runner` → package web/apk/electron → collect downloads → `ci-docker-push.sh` → `ci-deploy-docvat.sh` → n8n “Artifact commit” + push from `/tmp/repo/docvat`
+- **Versioning (important):**
+  1. Sidecar clones the branch with tags + ~300 commits of history (for `standard-version`).
+  2. `.ci-build.sh` runs **`standard-version` before `yarn install`** (clean tree), bumps `package.json` / `frontend/package.json` / `environment*.ts` / `CHANGELOG` / `easy_version`, commits + tags `vX.Y.Z`.
+  3. Build/deploy use that version (`/downloads/manifest.json`, UI `environment.version`).
+  4. n8n pushes the release commit + tag back to GitHub. Messages containing `chore(release)` are ignored by the trigger (no loop).
+  5. Emergency rebuild without bump: host/n8n env `DV_SKIP_RELEASE=1` (default **0**).
 - **Lock:** `/tmp/docvat-build.lock` inside the `n8n` container. Concurrent runs **wait** up to `DOCVAT_LOCK_WAIT_SEC` (default **7200** s) by polling `flock -n` (BusyBox-compatible; n8n Alpine has no util-linux `flock -w`) instead of failing immediately with “another DOCVAT build holds…”. Only one clone/build mutates the shared volume at a time.
+
+### After changing this workflow JSON
+
+**Re-import into the live n8n** (git push alone does not update the workflow). Until then, production keeps the old graph with hard-coded release skip (`DV_SKIP_RELEASE=1` → stuck at `0.0.13`). See “Import / activate” below.
 
 ### Import / activate
 
