@@ -1,5 +1,11 @@
 <ng-container *ngIf="infoPunto?.article">
-  <p class="punto-contenido" [attr.data-unit]="infoPunto.article.index_array">
+  <p
+    class="punto-contenido"
+    [class.punto-heading]="isHeading"
+    [class.tsec]="isHeading"
+    [attr.data-unit]="infoPunto.article.index_array"
+    [attr.data-heading]="isHeading ? '1' : null"
+  >
     <b class="punto-num" *ngIf="numLabel">{{ numLabel }}.</b>
     <ng-container *ngFor="let seg of segments">
       <span *ngIf="seg.type === 'text'" [innerHTML]="seg.html"></span>

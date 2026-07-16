@@ -342,6 +342,12 @@ export class LectorComponent implements OnInit, OnDestroy {
     }
     const { index: speakIndex, prep } = hit;
     const text = prep.text;
+    // Headings: calmer rate (prep.rateScale) so titles breathe before body.
+    const rateScale =
+      prep.kind === 'heading' && prep.rateScale != null && prep.rateScale > 0
+        ? prep.rateScale
+        : 1;
+    const rate = Math.max(0.5, Math.min(2, this.narrRate * rateScale));
     this.narrPlaying = true;
     this.narrIndex = speakIndex;
     // 5E · Servicio en primer plano: evita que Android congele el proceso
@@ -360,7 +366,7 @@ export class LectorComponent implements OnInit, OnDestroy {
       void this.narrator
         .speak(text, {
           lang: 'es-ES',
-          rate: this.narrRate,
+          rate,
           voice: this.narrVoice,
         })
         .then((finished) => {

@@ -17,6 +17,7 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { ReferencesService } from 'src/app/core/account/references.service';
 import { AnotacionesService } from 'src/app/services/anotaciones.service';
+import { isStructuralHeading } from 'src/app/services/speech-prep.logic';
 
 /** Placeholder pattern produced by the scraper: `[+[0]+]`, `[+[1]+]`, … */
 const REF_PLACEHOLDER = /\[\+\[(\d+)\]\+\]/g;
@@ -93,9 +94,23 @@ export class PuntoComponent implements OnInit, OnDestroy {
   get numLabel(): string {
     const a = this._infoPunto?.article;
     if (!a) return '';
+    // Títulos/secciones estructurales: sin numeral de párrafo (no aporta sentido).
+    if (this.isHeading) return '';
     const bib = a.biblia?.consecutivo_versiculo;
     if (bib) return bib;
     return this.obtener_consecutivo(a.consecutivo) || '';
+  }
+
+  /**
+   * Unidad de título/sección (PARTE, CAPÍTULO, ALL-CAPS corto, …).
+   * Misma heurística que el prep de narración calmada.
+   */
+  get isHeading(): boolean {
+    const a = this._infoPunto?.article;
+    if (!a) return false;
+    return isStructuralHeading(a.contenido ?? '', {
+      consecutivo: a.consecutivo,
+    });
   }
 
   procesar(value: ArticleInfo): ArticleInfo {

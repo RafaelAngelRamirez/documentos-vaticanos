@@ -16,6 +16,34 @@ p.punto-contenido {
   hyphens: auto;
 }
 
+/**
+ * Títulos / secciones estructurales (PARTE, CAPÍTULO, …).
+ * Tokens del design system; se ve bien en mono y claro.
+ * .tsec del handoff aporta serif/peso; aquí el ritmo de lectura.
+ */
+p.punto-contenido.punto-heading,
+p.punto-contenido.tsec {
+  text-align: center;
+  text-justify: auto;
+  font-family: var(--app-font-serif, 'EB Garamond', serif);
+  font-size: 1.12em;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.03em;
+  margin: 1.65em 0 0.9em;
+  color: var(--reader-ink, var(--ink, var(--app-ink)));
+  hyphens: none;
+  /* Aire visual frente al cuerpo justificado */
+  max-width: 36em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Numerales no se muestran en headings (ver numLabel); por si acaso */
+p.punto-contenido.punto-heading .punto-num {
+  display: none;
+}
+
 .punto-num {
   font-weight: 700;
   margin-right: 0.4em;

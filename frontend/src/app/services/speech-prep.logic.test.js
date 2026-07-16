@@ -37,14 +37,56 @@ async function main() {
     lectorSrc.includes('speech-prep.logic'),
     'lector imports speech-prep.logic',
   );
+  assert.ok(
+    lectorSrc.includes('rateScale') || lectorSrc.includes('prep.kind'),
+    'lector uses heading rate/kind from prep',
+  );
+  const PUNTO_TS = path.resolve(
+    HERE,
+    '../components/punto/punto/punto.component.ts',
+  );
+  const PUNTO_HTML = path.resolve(
+    HERE,
+    '../components/punto/punto/punto.component.html',
+  );
+  const PUNTO_CSS = path.resolve(
+    HERE,
+    '../components/punto/punto/punto.component.css',
+  );
+  assert.ok(fs.existsSync(PUNTO_TS), 'punto.component.ts exists');
+  const puntoTs = fs.readFileSync(PUNTO_TS, 'utf8');
+  const puntoHtml = fs.readFileSync(PUNTO_HTML, 'utf8');
+  const puntoCss = fs.readFileSync(PUNTO_CSS, 'utf8');
+  assert.ok(
+    puntoTs.includes('isStructuralHeading'),
+    'punto uses isStructuralHeading',
+  );
+  assert.ok(
+    puntoHtml.includes('punto-heading') || puntoHtml.includes('isHeading'),
+    'punto template marks headings',
+  );
+  assert.ok(
+    puntoCss.includes('punto-heading'),
+    'punto CSS styles headings',
+  );
+  assert.ok(
+    !/#(?:[0-9a-fA-F]{3}){1,2}\b/.test(
+      puntoCss.match(/punto-heading[\s\S]{0,400}/)?.[0] || '',
+    ),
+    'heading styles avoid loose hex (tokens only)',
+  );
 
   const mod = await import(pathToFileURL(LOGIC).href + `?t=${Date.now()}`);
   const {
     OCR_OMIT_PLACEHOLDER,
+    HEADING_RATE_SCALE,
     prepareSpeechText,
+    prepareHeadingSpeakText,
     normalizeSpeakText,
     isSpeakHostileJunk,
+    isStructuralHeading,
     extractUnitRaw,
+    extractUnitFields,
     nextSpeakableIndex,
   } = mod;
 
@@ -169,6 +211,183 @@ async function main() {
     'que.dista',
     'normalize keeps que.dista',
   );
+
+  section('structural heading detection');
+  assert.strictEqual(
+    isStructuralHeading('PRIMERA PARTE LA PROFESIÓN DE LA FE'),
+    true,
+    'PARTE heading',
+  );
+  assert.strictEqual(
+    isStructuralHeading('PRIMERA SECCIÓN «CREO»-«CREEMOS»'),
+    true,
+    'SECCIÓN heading',
+  );
+  assert.strictEqual(
+    isStructuralHeading(
+      'CAPÍTULO PRIMERO: EL HOMBRE ES "CAPAZ" DE DIOS',
+    ),
+    true,
+    'CAPÍTULO heading',
+  );
+  assert.strictEqual(
+    isStructuralHeading('ARTÍCULO 1 LA REVELACIÓN DE DIOS'),
+    true,
+    'ARTÍCULO heading',
+  );
+  assert.strictEqual(
+    isStructuralHeading('PRÓLOGO'),
+    true,
+    'PRÓLOGO heading',
+  );
+  assert.strictEqual(
+    isStructuralHeading('1. Introducción'),
+    true,
+    'numbered Introducción',
+  );
+  assert.strictEqual(
+    isStructuralHeading('CONSTITUCIÓN APOSTÓLICA'),
+    true,
+    'CONSTITUCIÓN APOSTÓLICA',
+  );
+  // Body prose must not be a heading
+  assert.strictEqual(
+    isStructuralHeading(prose),
+    false,
+    'good prose not heading',
+  );
+  assert.strictEqual(
+    isStructuralHeading(
+      '1. Cristo es la luz de los pueblos. Por ello este sacrosanto Sínodo.',
+      { consecutivo: '1' },
+    ),
+    false,
+    'LG-style body with article consecutivo not heading',
+  );
+  // Short body with article number stays body even if short
+  assert.strictEqual(
+    isStructuralHeading('Dios es amor.', { consecutivo: '27' }),
+    false,
+    'short body with consecutivo not ALL-CAPS heading',
+  );
+
+  section('calm heading speak prep');
+  const cap = prepareSpeechText(
+    'CAPÍTULO PRIMERO: EL HOMBRE ES "CAPAZ" DE DIOS',
+  );
+  assert.strictEqual(cap.skip, false, 'capítulo speakable');
+  assert.strictEqual(cap.kind, 'heading', 'kind=heading');
+  assert.ok(
+    cap.rateScale != null && cap.rateScale < 1,
+    'calmer rateScale for heading',
+  );
+  assert.strictEqual(
+    cap.rateScale,
+    HEADING_RATE_SCALE,
+    'uses HEADING_RATE_SCALE',
+  );
+  // Soft case: not all-shout
+  assert.ok(
+    !/^CAPÍTULO PRIMERO/.test(cap.text),
+    'does not keep full ALL-CAPS shout',
+  );
+  assert.ok(
+    /cap[ií]tulo/i.test(cap.text),
+    'keeps capítulo wording',
+  );
+  // Pause after label (period between label and rest)
+  assert.ok(
+    /\.\s+/.test(cap.text) || /…/.test(cap.text),
+    'has pause punctuation',
+  );
+  assert.ok(
+    /hombre/i.test(cap.text) && /dios/i.test(cap.text),
+    'keeps semantic words',
+  );
+  // No OCR-period joins invented
+  assert.ok(!cap.text.includes('quedista'), 'no quedista in heading');
+
+  const parte = prepareSpeechText('PRIMERA PARTE LA PROFESIÓN DE LA FE');
+  assert.strictEqual(parte.kind, 'heading');
+  assert.ok(
+    /primera\s+parte/i.test(parte.text),
+    'parte label present',
+  );
+  assert.ok(
+    /profesi[oó]n/i.test(parte.text),
+    'keeps profesión',
+  );
+  // Label pause: "parte." then rest
+  assert.ok(
+    /parte\.\s+/i.test(parte.text),
+    'pause after parte label',
+  );
+
+  const calm = prepareHeadingSpeakText('ARTÍCULO 1 LA REVELACIÓN DE DIOS');
+  assert.ok(calm.length > 5, 'heading speak non-empty');
+  assert.ok(/[.…]$/.test(calm.trim()) || /…/.test(calm), 'terminal pause');
+
+  section('body prep still body kind');
+  assert.strictEqual(good.kind, 'body', 'prose kind=body');
+  assert.ok(
+    good.rateScale == null || good.rateScale === 1,
+    'body has no calm rateScale',
+  );
+
+  section('heading + nextSpeakableIndex with consecutivo');
+  const mixed = [
+    { contenido: '', consecutivo: 'no-encontrado' },
+    { contenido: OCR_OMIT_PLACEHOLDER, consecutivo: 'no-encontrado' },
+    {
+      contenido: 'CAPÍTULO SEGUNDO DIOS AL ENCUENTRO DEL HOMBRE',
+      consecutivo: 'no-encontrado',
+    },
+    {
+      contenido: prose,
+      consecutivo: '51',
+    },
+  ];
+  const h0 = nextSpeakableIndex(mixed, 0);
+  assert.ok(h0, 'finds heading after skips');
+  assert.strictEqual(h0.index, 2, 'lands on capítulo');
+  assert.strictEqual(h0.prep.kind, 'heading');
+  assert.ok(h0.prep.rateScale < 1);
+  const h1 = nextSpeakableIndex(mixed, 3);
+  assert.strictEqual(h1.index, 3);
+  assert.strictEqual(h1.prep.kind, 'body');
+
+  section('extractUnitFields');
+  const fields = extractUnitFields({
+    contenido: 'Hola',
+    consecutivo: '12',
+  });
+  assert.strictEqual(fields.raw, 'Hola');
+  assert.strictEqual(fields.consecutivo, '12');
+
+  section('real pack heading sample (cic-es)');
+  const CORPUS_CIC = path.resolve(
+    HERE,
+    '../../assets/corpus/documents/cic-es/content.json',
+  );
+  if (fs.existsSync(CORPUS_CIC)) {
+    const cic = JSON.parse(fs.readFileSync(CORPUS_CIC, 'utf8'));
+    // Known structural units from pack
+    const u117 = cic[117];
+    const f117 = extractUnitFields(u117);
+    assert.ok(
+      isStructuralHeading(f117.raw, { consecutivo: f117.consecutivo }),
+      'cic u117 is structural heading',
+    );
+    const p117 = prepareSpeechText(f117.raw, {
+      consecutivo: f117.consecutivo,
+    });
+    assert.strictEqual(p117.kind, 'heading');
+    assert.strictEqual(p117.skip, false);
+    assert.ok(p117.rateScale < 1);
+    console.log('  cic-es u117 speak:', p117.text.slice(0, 90) + '…');
+  } else {
+    console.log('  (cic-es pack missing — skip)');
+  }
 
   console.log('\nAll speech-prep tests passed.');
 }
