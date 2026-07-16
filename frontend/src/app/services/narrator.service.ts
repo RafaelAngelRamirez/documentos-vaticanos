@@ -10,6 +10,7 @@ import {
   isGrokVoice,
   mergeNarratorVoices,
   parseGrokVoicesResponse,
+  planGrokRate,
 } from './narrator-grok.logic';
 
 export type { NarratorVoice } from './narrator-grok.logic';
@@ -232,9 +233,10 @@ export class NarratorService {
       this.grokObjectUrl = url;
       const audio = new Audio(url);
       this.grokAudio = audio;
-      // playbackRate: rate del narrador (0.75–1.5) como refuerzo local
+      // Rate solo en body.speed (buildGrokSpeakBody); playbackRate queda 1.
+      const { playbackRate } = planGrokRate(opts.rate);
       try {
-        audio.playbackRate = Math.min(1.5, Math.max(0.5, opts.rate));
+        audio.playbackRate = playbackRate;
       } catch {
         /* ignore */
       }

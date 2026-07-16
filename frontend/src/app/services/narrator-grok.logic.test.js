@@ -50,6 +50,7 @@ async function main() {
     grokVoicesUrl,
     grokSpeakUrl,
     buildGrokSpeakBody,
+    planGrokRate,
     narrVoicePillLabel,
     GROK_VOICE_ID_PREFIX,
   } = await loadLogic();
@@ -147,6 +148,22 @@ async function main() {
   assert.strictEqual(speakBody.voice_id, 'eve');
   assert.strictEqual(speakBody.language, 'es-ES');
   assert.strictEqual(speakBody.speed, 1.25);
+
+  section('rate applied once (API speed, not double with playbackRate)');
+  const plan = planGrokRate(1.25);
+  assert.strictEqual(plan.apiSpeed, 1.25);
+  assert.strictEqual(plan.playbackRate, 1, 'local audio must not re-scale');
+  assert.strictEqual(planGrokRate(undefined).playbackRate, 1);
+  // Shipped speakGrok must not set audio.playbackRate from opts.rate
+  // (would stack with body.speed → ~1.56× at rate 1.25).
+  assert.ok(
+    !/playbackRate\s*=\s*[^;]*opts\.rate/.test(svc),
+    'narrator.service must not set playbackRate from opts.rate',
+  );
+  assert.ok(
+    svc.includes('buildGrokSpeakBody'),
+    'speakGrok uses buildGrokSpeakBody for API speed',
+  );
 
   section('narrVoicePillLabel');
   assert.strictEqual(narrVoicePillLabel(null, []), 'Voz');

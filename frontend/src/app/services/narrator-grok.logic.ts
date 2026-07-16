@@ -111,6 +111,21 @@ export function grokSpeakUrl(apiBaseUrl: string): string {
   return `${base}/tts/speak`;
 }
 
+/**
+ * Plan de velocidad Grok: el rate del narrador se envía solo a la API
+ * (`speed`). El elemento `<audio>` debe quedar en playbackRate=1 para no
+ * duplicar (p. ej. 1.25× API × 1.25 local ≈ 1.56×).
+ */
+export function planGrokRate(rate?: number): {
+  apiSpeed: number | undefined;
+  playbackRate: number;
+} {
+  if (rate != null && Number.isFinite(rate)) {
+    return { apiSpeed: Number(rate), playbackRate: 1 };
+  }
+  return { apiSpeed: undefined, playbackRate: 1 };
+}
+
 /** Cuerpo JSON del POST /tts/speak del proxy (cliente). */
 export function buildGrokSpeakBody(opts: {
   text: string;
@@ -123,13 +138,14 @@ export function buildGrokSpeakBody(opts: {
     opts.language ||
     opts.voice?.lang ||
     'es-ES';
+  const { apiSpeed } = planGrokRate(opts.rate);
   const body: Record<string, unknown> = {
     text: String(opts.text ?? '').trim(),
     voice_id: voiceId,
     language,
   };
-  if (opts.rate != null && Number.isFinite(opts.rate)) {
-    body.speed = opts.rate;
+  if (apiSpeed != null) {
+    body.speed = apiSpeed;
   }
   return body;
 }
