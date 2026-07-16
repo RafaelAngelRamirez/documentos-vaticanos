@@ -2,6 +2,75 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.13...v0.0.15) (2026-07-16)
+
+
+### Features
+
+* account login, personal references, and themes UI ([e8e665c](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/e8e665c81c9935cb30a6e72819c71cb8e43b8450))
+* add Capacitor 5 Android shell for offline APK builds ([e72b37f](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/e72b37fa6747c6e9e61203fba291d2f6bb2e2dba))
+* add GS/DV/SC corpus packs and fix Bible citation labels ([5a6d3a1](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/5a6d3a1174b437d9498356ecf8300c9f89fd5b64))
+* **ajustes:** narrator prefs per device with Grok toggle ([fc3b254](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/fc3b2542531023df7e9df7fb4eb21c29c1c4a665))
+* **api:** theme review workflow and admin role ([ef37cd9](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/ef37cd96abcab5db7fe3bdda201474734cab6f3e))
+* **app-update:** detect newer installers on APK and Electron ([525638c](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/525638c86c3777b4560dca387a989dd1d41855ab))
+* **app:** offline-first UX, mono theme, sync and Grupo 7 mobile patterns ([aa7615f](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/aa7615fa82a09c000d7436382981a3197bb92af0))
+* Biblia documents updated ([55135b4](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/55135b427a1100eee77b3b5cfaac5974dc2f7b43))
+* Biblia typescript migration completed ([4b992ce](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/4b992ced1d8df166551805a995f90845ea9b0c81))
+* **ci:** package APK + Electron win/linux downloads and docvat n8n deploy ([24c9f62](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/24c9f627ca8f9588b0e03ce96618a1a8fd3e7ea8))
+* **corpus:** add ecumenical councils in Latin and Spanish AI packs ([dd40294](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/dd402941f61afa60c72b034cb46114ba513e2d6b))
+* **corpus:** import CCEO (Latin, vatican.va) and Denzinger-Schönmetzer (ES, IA) ([848c75b](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/848c75b4627d3f2f713093ba0cc1c3a8dac77350))
+* **corpus:** persist books in IndexedDB so reloads only fetch new data ([16bb9a7](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/16bb9a76a965ed4f3a48dabce7fe029f97d6c848))
+* **corpus:** scrape 26 pending magisterium docs into offline corpus ([a75b0c6](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/a75b0c6990862bed67cce37d3f4acf8a4d607ba7))
+* ergonomic offline reading UI with themes and typography ([96fa1df](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/96fa1dfba2630d6f4a3c2caddfffc57f376f614c))
+* **inicio:** descargas Android/Windows/Linux y versión en portada web ([521e064](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/521e064c2191ccafeec3018a618ada6e2bcdb339))
+* load documents lazily from a corpus manifest ([e0526b5](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/e0526b56915ba6af0b08cb828751ba587aeda25d))
+* Migration from catechism to typescript ([b73c7d1](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/b73c7d10c4c23f1b6ba3a6d0b4d6e810a95ab8bf))
+* multi-source scrapers and Lumen gentium offline pack ([2a743c3](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/2a743c303ab60bf0680385cc04ec0414c26dc22b))
+* **narrator:** add optional Grok TTS voices via backend proxy ([fcef639](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/fcef639e02f33a87300b9fd8abf7631faeffe0d4))
+* **narrator:** speech-prep skips OCR junk for integrated voices ([48e495b](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/48e495b8fa9921d5241c377021af8146b88ae434))
+* **narrator:** store xAI API key per device and call TTS from client ([e8a991d](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/e8a991df1ec900c78424508741407c8de01af243))
+* **padres:** import Cedano Drive collection + Agustín BAC 1–40 offline ([8649636](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/86496363d0b36dc7539c86e3ae682775eaf050b0))
+* **reader:** calm structural titles for vision and TTS ([66122f7](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/66122f7c8b1cabb92910555e0aaf9a7215a80bf0))
+* **reader:** visual hierarchy for structural titles ([6fef49f](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/6fef49fb959c00fa73530dc149a1e8b0d589351d))
+* resolve catechism biblical refs and make them navigable offline ([a5c9d27](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/a5c9d2751149b01f2c361214f00c659cfc93ba55))
+* resolve cross-references across any corpus documents ([e876fc8](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/e876fc859e9f570b7c3cbd5074d72dd726c73cd8))
+* start Phase 2 backend, Docker dev stack, registry, and e2e ([9c5ec8b](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/9c5ec8b4766cbae3590c4cf7c34dc1efac5c801d))
+* **web:** desktop shell for design screens 5A–5H ([33f6e0a](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/33f6e0a5877ffc0c640d9ed7b4ac3362f89626f8))
+* **web:** implement design handoff screens and review UI ([3b953f1](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/3b953f1f11afb0ddd906170b90df05fc19189a8b))
+* **web:** implement design handoff screens pixel-faithfully ([ba00ec2](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/ba00ec285bd88f0316c4c687069e0db2f38da8c5))
+* **web:** match design IA — Inicio, Biblioteca, Lector ([bd2b6a2](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/bd2b6a2b0265e9a3f0580fc9dbc34d4f4f95951e))
+* **web:** unify design system, full titles, and language source links ([f920918](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/f920918b13ef680b3711f41f323b447bd380aa40))
+* yarn dev Docker stack, studies API/UI, and theme cover upload ([08a1996](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/08a1996e8313243f1f10c36146abf66880c2d586))
+
+
+### Bug Fixes
+
+* **android:** keep mobile chrome above system navigation insets ([8db24ea](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/8db24eaa53be874e852c7eaeb2ec0bd64bc3971e))
+* Change code propertary for bible download ([e3f8eba](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/e3f8eba93f5b34ca77a20dcb69789719b86d7680))
+* **ci:** BusyBox-compatible flock wait in n8n DOCVAT build ([5d40465](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/5d40465b4321e279d1f70d2050414087daebfb1c))
+* **ci:** harden package-apk after cap sync for n8n volume builds ([902c09b](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/902c09bdc42b6168bdd671b7d2e2d2b869a2dcff))
+* **ci:** isolate DOCVAT n8n workdir under /tmp/repo/docvat ([68d24d3](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/68d24d354d0d70264ead2c9e38ea53b897bcd071))
+* **ci:** re-enable standard-version bump on DOCVAT builds ([912601f](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/912601f8d54f703130b3c00d6ebb8dec35c0135f))
+* **ci:** self-contained locked n8n Build sidecar (clone+build) ([c935a60](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/c935a600f1840c745092b2f0b084634e7c04e870))
+* **ci:** serialize DOCVAT n8n builds and hard-clean shared volume ([38d5042](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/38d5042dbc2932e19ccb7c7fa76fdd4816ad2e6e))
+* **ci:** un-pin Gradle JDK and normalize JAVA_HOME for APK in n8n runner ([19b65c1](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/19b65c145552b2a0ad4e364fea5fe9f839f51e6b))
+* **ci:** upgrade AGP to 8.5.2 for Java 21 jlink on build runner ([3da1215](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/3da1215d3a879fb869006202f3f0d27eb6948ba5))
+* **ci:** upgrade Gradle wrapper to 8.7 for Java 21 on build runner ([b0a6f47](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/b0a6f47c32ec524074625a6654818d7752fb2797))
+* **ci:** wait for DOCVAT build lock instead of failing concurrent runs ([2cc12b8](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/2cc12b843cb8e5941950f4e9e18a8e1f6bd804c8))
+* **corpus:** drop unsafe OCR internal-period joins (v2) ([b75ba19](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/b75ba1982001458b9e5a13cc1c5c2984ed0ef76d))
+* **corpus:** OCR cleanup a+b+c — spaced letters, TOC garbage, re-OCR queue ([b745aef](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/b745aef393a5c7436a69798d251c8a16644c370e))
+* **corpus:** repair OCR punctuation spacing in padres packs ([c626e4c](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/c626e4c759a2a0139c5acde56b76718551752cd4))
+* **dev:** restore design styles under Docker ng serve ([abcddf5](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/abcddf507179f1c9d9c9b921d669c3763e89ba85))
+* Error on url ([a2c1b5c](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/a2c1b5c140298039fcc3fc97325af89848c60c6f))
+* **narrator:** apply Grok speech rate once via API speed only ([0c0b73c](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/0c0b73cd93649f6fea55754ba6f0e7e08804d7ba))
+* Not creation of transportData file json of bible ([483238a](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/483238aed8005cb92a933aa057cdc9ec99c6e8b1))
+* **scrape:** ship CDC/CDS adapters and scrape CLI updates ([d15b2a0](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/d15b2a005643ccbe6ddc181a37a878d761aff999))
+* **speech-prep:** keep label-only headings and Roman numerals intact ([5ebeaf0](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/5ebeaf043a3b2ef39ed94be3bb97e545be58ebb8))
+* stabilize download scripts and document indexes for Angular load ([2ce87fc](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/2ce87fc4304e930cc0af62a9b4557e54f962f77a))
+* **ts:** use bracket access for Record index signatures ([d96ccfa](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/d96ccfa7e988685ecfeef7649ce9acbd5c4c7388))
+* **web:** remove debug JSON toggle from reading units ([f7b9c2c](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/f7b9c2c6dfd6ec014925945499fe722ac3c482f8))
+* **web:** remove leftover toggleRaw method from punto ([bec290e](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/bec290e65df30a65743d9c874aea08899296be50))
+
 ### [0.0.14](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.13...v0.0.14) (2026-07-16)
 
 

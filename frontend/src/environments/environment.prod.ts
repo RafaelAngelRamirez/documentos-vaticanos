@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  version: '0.0.14',
+  version: '0.0.15',
   apiBaseUrl: '', // set at deploy or leave empty to disable online features
   devAuthBypass: false,
   googleClientId: '',
