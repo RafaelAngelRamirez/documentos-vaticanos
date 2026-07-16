@@ -92,6 +92,7 @@ Detalle de dominio: `docs/FASE-2-PLAN.md` + `backend/prisma/schema.prisma`.
 | Clave | Contenido |
 |-------|-----------|
 | `reader.prefs.v1` | Tema, fuente, tamaño, line-height, max-width, keepAwake |
+| `dv.narr.prefs.v1` | Narrador por dispositivo: `grokEnabled`, `voiceId` (Ajustes · Narrador) |
 | `document_id` / `article_selected` / `actual_index` | Posición de lectura |
 | `nav_stack` | Pila «volver a la cita» |
 | `dv_anotaciones_v1` | Subrayados / notas / marcadores |

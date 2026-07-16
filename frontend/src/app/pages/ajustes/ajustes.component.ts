@@ -16,6 +16,17 @@ import {
   ReaderPreferencesService,
   ReaderTheme,
 } from 'src/app/services/reader-preferences.service';
+import {
+  NarratorService,
+  NarratorVoice,
+  narrVoicePillLabel,
+} from 'src/app/services/narrator.service';
+import {
+  GrokServerStatus,
+  NarratorDevicePrefs,
+  NarratorPreferencesService,
+  grokStatusLabel,
+} from 'src/app/services/narrator-preferences.service';
 import { environment } from 'src/environments/environment';
 
 interface ThemeOption {
@@ -33,6 +44,13 @@ interface ThemeOption {
 })
 export class AjustesComponent implements OnInit, OnDestroy {
   prefs: ReaderPreferences = this.readerPrefs.snapshot;
+
+  /** Narrador — preferencias por dispositivo (localStorage). */
+  narrPrefs: NarratorDevicePrefs = this.narratorPrefs.snapshot;
+  narrVoices: NarratorVoice[] = [];
+  narrVoice: NarratorVoice | null = null;
+  grokStatus: GrokServerStatus = 'checking';
+  grokVoiceCount = 0;
 
   /** Orden del diseño 3F + Mono (monocromo oscuro, default). */
   readonly themes: ThemeOption[] = [
@@ -67,13 +85,20 @@ export class AjustesComponent implements OnInit, OnDestroy {
     private backup: BackupService,
     public auth: AuthService,
     private router: Router,
-    private appUpdateSvc: AppUpdateService
+    private appUpdateSvc: AppUpdateService,
+    private narrator: NarratorService,
+    private narratorPrefs: NarratorPreferencesService
   ) {}
 
   ngOnInit(): void {
     this.sub.add(
       this.readerPrefs.prefs$.subscribe((p) => {
         this.prefs = p;
+      })
+    );
+    this.sub.add(
+      this.narratorPrefs.prefs$.subscribe((p) => {
+        this.narrPrefs = p;
       })
     );
     this.sub.add(
@@ -85,6 +110,7 @@ export class AjustesComponent implements OnInit, OnDestroy {
     if (this.prefs.keepAwake) {
       void this.requestWakeLock();
     }
+    void this.refreshNarratorSection();
   }
 
   downloadUpdate(): void {
@@ -151,6 +177,66 @@ export class AjustesComponent implements OnInit, OnDestroy {
     }
   }
 
+  /** Ajustes · Narrador: voces Grok en este dispositivo. */
+  toggleGrokEnabled(): void {
+    this.narratorPrefs.toggleGrokEnabled();
+    void this.refreshNarratorSection();
+  }
+
+  /** Cicla la voz preferida del dispositivo (sistema + Grok si aplica). */
+  cycleNarrVoice(): void {
+    if (this.narrVoices.length < 1) return;
+    if (this.narrVoices.length === 1) {
+      this.narrVoice = this.narrVoices[0];
+      this.narratorPrefs.setVoiceId(this.narrVoice.id);
+      return;
+    }
+    const i = this.narrVoice
+      ? this.narrVoices.findIndex((v) => v.id === this.narrVoice!.id)
+      : -1;
+    this.narrVoice = this.narrVoices[(i + 1) % this.narrVoices.length];
+    this.narratorPrefs.setVoiceId(this.narrVoice.id);
+  }
+
+  get narrVoiceName(): string {
+    return this.narrVoice?.name ?? 'Voz del sistema';
+  }
+
+  get narrVoiceShort(): string {
+    return narrVoicePillLabel(this.narrVoice, this.narrVoices);
+  }
+
+  get grokStatusText(): string {
+    return grokStatusLabel(this.grokStatus);
+  }
+
+  get narrSupported(): boolean {
+    return this.narrator.supported;
+  }
+
+  private async refreshNarratorSection(): Promise<void> {
+    if (!this.narrator.supported) {
+      this.narrVoices = [];
+      this.narrVoice = null;
+      this.grokStatus = 'offline';
+      return;
+    }
+    this.grokStatus = 'checking';
+    const probe = await this.narrator.probeGrokStatus();
+    this.grokStatus = probe.status;
+    this.grokVoiceCount = probe.voiceCount;
+    this.narrVoices = await this.narrator.listVoices('es');
+    const saved = this.narratorPrefs.voiceId;
+    this.narrVoice =
+      this.narrVoices.find((v) => v.id === saved) ??
+      this.narrVoices[0] ??
+      null;
+    // Si la voz guardada ya no está (p. ej. Grok desactivado), alinear prefs.
+    if (this.narrVoice && this.narrVoice.id !== saved) {
+      this.narratorPrefs.setVoiceId(this.narrVoice.id);
+    }
+  }
+
   exportarDatos(): void {
     try {
       this.backup.exportar();
@@ -174,6 +260,9 @@ export class AjustesComponent implements OnInit, OnDestroy {
           ? 'preferencias de lectura restauradas'
           : 'sin preferencias en el archivo'
       );
+      if (resumen.narrador) {
+        partes.push('preferencias del narrador');
+      }
       this.setDataMsg(
         `Datos importados (${partes.join(', ')}). La página se recargará…`
       );

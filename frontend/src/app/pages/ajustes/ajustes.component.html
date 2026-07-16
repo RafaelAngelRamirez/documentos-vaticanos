@@ -115,6 +115,62 @@
       ></button>
     </div>
 
+    <!-- Narrador · preferencias por dispositivo (no cuenta / no SuperGrok) -->
+    <div class="sect">Narrador</div>
+    <div class="setrow nb" *ngIf="!narrSupported">
+      <span class="setk"
+        >Narración no disponible<span class="seth"
+          >Este navegador o dispositivo no expone síntesis de voz</span
+        ></span
+      >
+    </div>
+    <ng-container *ngIf="narrSupported">
+      <div class="setrow">
+        <span class="setk"
+          >Voces Grok (este dispositivo)<span class="seth"
+            >Online vía el servidor de la app. La clave API es del despliegue
+            (console.x.ai), no SuperGrok. Sin red o sin clave: solo voces del
+            sistema.</span
+          ></span
+        >
+        <button
+          type="button"
+          class="sw2"
+          role="switch"
+          data-testid="ajustes-grok-toggle"
+          [class.on]="narrPrefs.grokEnabled"
+          [attr.aria-checked]="narrPrefs.grokEnabled"
+          (click)="toggleGrokEnabled()"
+          aria-label="Activar voces Grok en este dispositivo"
+        ></button>
+      </div>
+      <div class="setrow nb">
+        <span class="setk"
+          >Estado Grok<span class="seth"
+            >{{ grokStatusText
+            }}<ng-container *ngIf="grokStatus === 'available' && grokVoiceCount">
+              · {{ grokVoiceCount }} voces</ng-container
+            ></span
+          ></span
+        >
+      </div>
+      <div class="setrow" *ngIf="narrVoices.length">
+        <span class="setk"
+          >Voz preferida<span class="seth">{{ narrVoiceName }}</span></span
+        >
+        <button
+          type="button"
+          class="szbtn"
+          data-testid="ajustes-narr-voice"
+          (click)="cycleNarrVoice()"
+          [attr.aria-label]="'Cambiar voz: ' + narrVoiceName"
+          [attr.title]="narrVoiceName"
+        >
+          {{ narrVoiceShort }}
+        </button>
+      </div>
+    </ng-container>
+
     <div
       class="sect"
       *ngIf="appUpdate"

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { READER_PREFS_STORAGE_KEY } from './reader-preferences.service';
+import { NARRATOR_PREFS_STORAGE_KEY } from './narrator-preferences.service';
 
 /**
  * Claves de localStorage incluidas en la copia de seguridad.
@@ -10,9 +11,10 @@ import { READER_PREFS_STORAGE_KEY } from './reader-preferences.service';
 const ANOTACIONES_STORAGE_KEY = 'dv_anotaciones_v1'; // anotaciones.service.ts
 const TEMAS_STORAGE_KEY = 'themes.user'; // core/account/themes.service.ts (F8b)
 const PREFERENCIAS_STORAGE_KEY = READER_PREFS_STORAGE_KEY; // 'reader.prefs.v1'
+const NARRADOR_STORAGE_KEY = NARRATOR_PREFS_STORAGE_KEY; // 'dv.narr.prefs.v1'
 
 const BACKUP_APP = 'documentos-vaticanos';
-const BACKUP_VERSION = 1;
+const BACKUP_VERSION = 2;
 
 export interface BackupData {
   /** Anotaciones (notas y subrayados) de `dv_anotaciones_v1`. */
@@ -21,6 +23,8 @@ export interface BackupData {
   temas: unknown[] | null;
   /** Preferencias de lectura de `reader.prefs.v1`. */
   preferencias: Record<string, unknown> | null;
+  /** Preferencias del narrador por dispositivo (`dv.narr.prefs.v1`). */
+  narrador?: Record<string, unknown> | null;
 }
 
 export interface BackupFile {
@@ -37,13 +41,24 @@ export interface ResumenImport {
   temas: number;
   /** Si se restauraron las preferencias de lectura. */
   preferencias: boolean;
+  /** Si se restauraron las preferencias del narrador (por dispositivo). */
+  narrador: boolean;
 }
 
 /**
  * Migraciones de formato v(n) → v(n+1). Cuando BACKUP_VERSION suba a N,
  * añadir aquí las transformaciones encadenadas 1→2, 2→3, … N-1→N.
  */
-const MIGRACIONES: Record<number, (data: BackupData) => BackupData> = {};
+const MIGRACIONES: Record<number, (data: BackupData) => BackupData> = {
+  // v1 → v2: campo opcional `narrador` (prefs del narrador por dispositivo).
+  1: (data) => ({
+    ...data,
+    narrador:
+      data.narrador && typeof data.narrador === 'object'
+        ? data.narrador
+        : null,
+  }),
+};
 
 /**
  * F8c · Export/import versionado de los datos locales del lector.
@@ -62,6 +77,7 @@ export class BackupService {
         preferencias: this.leerJson<Record<string, unknown>>(
           PREFERENCIAS_STORAGE_KEY
         ),
+        narrador: this.leerJson<Record<string, unknown>>(NARRADOR_STORAGE_KEY),
       },
     };
     const blob = new Blob([JSON.stringify(backup, null, 2)], {
@@ -133,6 +149,7 @@ export class BackupService {
       anotaciones: 0,
       temas: 0,
       preferencias: false,
+      narrador: false,
     };
     if (Array.isArray(data.anotaciones)) {
       localStorage.setItem(
@@ -155,6 +172,17 @@ export class BackupService {
         JSON.stringify(data.preferencias)
       );
       resumen.preferencias = true;
+    }
+    if (
+      data.narrador &&
+      typeof data.narrador === 'object' &&
+      !Array.isArray(data.narrador)
+    ) {
+      localStorage.setItem(
+        NARRADOR_STORAGE_KEY,
+        JSON.stringify(data.narrador)
+      );
+      resumen.narrador = true;
     }
 
     setTimeout(() => window.location.reload(), 1500);

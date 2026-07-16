@@ -34,6 +34,7 @@ import {
   NarratorVoice,
   narrVoicePillLabel,
 } from 'src/app/services/narrator.service';
+import { NarratorPreferencesService } from 'src/app/services/narrator-preferences.service';
 import { NarracionFgService } from 'src/app/services/narracion-fg.service';
 
 const CONTEXT_SIZE = 5;
@@ -91,10 +92,9 @@ export class LectorComponent implements OnInit, OnDestroy {
   narrRate = 1;
   narrIndex = 0;
 
-  /** 5D · Voces es-* disponibles y voz elegida (persistida). */
+  /** 5D · Voces es-* disponibles y voz elegida (prefs por dispositivo). */
   narrVoices: NarratorVoice[] = [];
   narrVoice: NarratorVoice | null = null;
-  private static readonly NARR_VOICE_KEY = 'dv.narr.voice.v1';
 
   /** Orden del diseño 3F + Mono (monocromo oscuro, default). */
   readonly themeOptions: ThemeOption[] = [
@@ -176,6 +176,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     private anotaciones: AnotacionesService,
     private back: BackService,
     private narrator: NarratorService,
+    private narrPrefs: NarratorPreferencesService,
     private narracionFg: NarracionFgService,
     private zone: NgZone,
     private host: ElementRef<HTMLElement>
@@ -273,16 +274,11 @@ export class LectorComponent implements OnInit, OnDestroy {
     }
   }
 
-  /** 5D · Carga las voces es-* y restaura la elegida (si sigue instalada). */
+  /** 5D · Carga las voces es-* y restaura la elegida (prefs del dispositivo). */
   private async loadNarrVoices(): Promise<void> {
     this.narrVoices = await this.narrator.listVoices('es');
     if (!this.narrVoices.length) return;
-    let savedId: string | null = null;
-    try {
-      savedId = localStorage.getItem(LectorComponent.NARR_VOICE_KEY);
-    } catch {
-      /* almacenamiento no disponible */
-    }
+    const savedId = this.narrPrefs.voiceId;
     this.narrVoice =
       this.narrVoices.find((v) => v.id === savedId) ?? null;
   }
@@ -294,11 +290,7 @@ export class LectorComponent implements OnInit, OnDestroy {
       ? this.narrVoices.findIndex((v) => v.id === this.narrVoice!.id)
       : -1;
     this.narrVoice = this.narrVoices[(i + 1) % this.narrVoices.length];
-    try {
-      localStorage.setItem(LectorComponent.NARR_VOICE_KEY, this.narrVoice.id);
-    } catch {
-      /* almacenamiento no disponible */
-    }
+    this.narrPrefs.setVoiceId(this.narrVoice.id);
     this.flashFeedback(`Voz: ${this.narrVoiceName}`);
     if (this.narrPlaying) {
       this.pauseNarrator();

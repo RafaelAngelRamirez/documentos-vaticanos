@@ -12,6 +12,7 @@ import {
   parseGrokVoicesResponse,
   planGrokRate,
 } from './narrator-grok.logic';
+import { NarratorPreferencesService } from './narrator-preferences.service';
 
 export type { NarratorVoice } from './narrator-grok.logic';
 export {
@@ -46,6 +47,8 @@ export class NarratorService {
   /** Reproducción Grok en curso (blob URL + elemento audio). */
   private grokAudio: HTMLAudioElement | null = null;
   private grokObjectUrl: string | null = null;
+
+  constructor(private narrPrefs: NarratorPreferencesService) {}
 
   get supported(): boolean {
     return (
@@ -92,8 +95,48 @@ export class NarratorService {
         .filter((v) => (v.lang ?? '').toLowerCase().startsWith(p));
     }
 
-    const grok = await this.fetchGrokVoices();
+    // Preferencia por dispositivo (Ajustes): si Grok está off, solo sistema.
+    const grok = this.narrPrefs.grokEnabled
+      ? await this.fetchGrokVoices()
+      : [];
     return mergeNarratorVoices(system, grok);
+  }
+
+  /**
+   * Estado del proxy Grok para la UI de Ajustes (no muta preferencias).
+   * Respeta offline-first: errores → offline / unavailable.
+   */
+  async probeGrokStatus(): Promise<{
+    status: 'available' | 'unavailable' | 'offline' | 'disabled';
+    voiceCount: number;
+  }> {
+    if (!this.narrPrefs.grokEnabled) {
+      return { status: 'disabled', voiceCount: 0 };
+    }
+    const base = environment.apiBaseUrl;
+    if (!base || typeof fetch === 'undefined') {
+      return { status: 'offline', voiceCount: 0 };
+    }
+    try {
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), 4000);
+      const res = await fetch(grokVoicesUrl(base), {
+        method: 'GET',
+        signal: ctrl.signal,
+      });
+      clearTimeout(t);
+      if (!res.ok) {
+        return { status: 'offline', voiceCount: 0 };
+      }
+      const data = await res.json();
+      const voices = parseGrokVoicesResponse(data, 'es-ES');
+      if (data?.available === true) {
+        return { status: 'available', voiceCount: voices.length };
+      }
+      return { status: 'unavailable', voiceCount: 0 };
+    } catch {
+      return { status: 'offline', voiceCount: 0 };
+    }
   }
 
   /** Consulta el proxy; falla en silencio (offline-first). */
@@ -150,7 +193,8 @@ export class NarratorService {
     // Detener cualquier reproducción previa (sistema o Grok).
     await this.stopPlaybackEngines();
 
-    if (isGrokVoice(opts.voice)) {
+    // Grok solo si está activo en este dispositivo y la voz es Grok.
+    if (isGrokVoice(opts.voice) && this.narrPrefs.grokEnabled) {
       return this.speakGrok(text, { lang, rate, voice: opts.voice!, gen });
     }
 

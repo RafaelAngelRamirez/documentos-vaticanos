@@ -66,6 +66,7 @@ yarn dev:api-only
 - Endpoints: `GET /api/v1/tts/voices`, `POST /api/v1/tts/speak` (proxy; la clave no va al browser).
 - Sin clave: el narrador usa solo voces del sistema (Web Speech / Capacitor).
 - Compose pasa `XAI_API_KEY` del host al servicio `api` si está exportada.
+- En la app, **Ajustes → Narrador**: cada dispositivo activa/desactiva Grok y elige voz (`dv.narr.prefs.v1`); no es preferencia de cuenta.
 
 ## Tests
 
