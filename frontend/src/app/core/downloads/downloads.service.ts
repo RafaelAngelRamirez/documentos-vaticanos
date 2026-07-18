@@ -2,14 +2,22 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, shareReplay } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import {
   DownloadsManifest,
   STABLE_DOWNLOAD_PATHS,
 } from './downloads.models';
+import {
+  pickAppVersionForDisplay,
+} from './version-display.logic';
 
 /**
  * Resolves public download URLs for APK + Electron (Linux/Windows).
  * Prefers `/downloads/manifest.json` from the production tree; falls back to stable paths.
+ *
+ * Version reported by `getLinks()` is the **build-embedded** app version
+ * (`environment.version`), not the assets stub — Capacitor cannot reach live
+ * `/downloads` and the committed stub lags releases.
  */
 @Injectable({ providedIn: 'root' })
 export class DownloadsService {
@@ -45,7 +53,10 @@ export class DownloadsService {
         apk: m.downloads.apk || STABLE_DOWNLOAD_PATHS.apk,
         linux: m.downloads.linux || STABLE_DOWNLOAD_PATHS.linux,
         windows: m.downloads.windows || STABLE_DOWNLOAD_PATHS.windows,
-        version: m.version || '',
+        version: pickAppVersionForDisplay(
+          environment.version,
+          m.version
+        ),
       }))
     );
   }
@@ -53,7 +64,7 @@ export class DownloadsService {
   private fallbackManifest(): DownloadsManifest {
     return {
       app: 'documentos-vaticanos',
-      version: '0.0.0',
+      version: environment.version || '0.0.0',
       builtAt: null,
       downloads: {
         apk: STABLE_DOWNLOAD_PATHS.apk,
@@ -70,7 +81,8 @@ export class DownloadsService {
     }
     return {
       app: m.app || base.app,
-      version: m.version || base.version,
+      // Prefer build version when the assets/stub lags or is missing.
+      version: pickAppVersionForDisplay(environment.version, m.version),
       builtAt: m.builtAt ?? null,
       downloads: {
         apk: m.downloads?.apk || base.downloads.apk,

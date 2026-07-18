@@ -153,6 +153,16 @@ function main() {
     inicioTs.includes('formatVersionLabel') || inicioTs.includes("v${"),
     'inicio formats version with v prefix'
   );
+  assert.ok(
+    inicioTs.includes('resolveAppVersionLabel') ||
+      inicioTs.includes('pickAppVersionForDisplay') ||
+      inicioTs.includes('environment.version'),
+    'inicio version label comes from build-embedded environment.version'
+  );
+  assert.ok(
+    !/versionLabel\s*=\s*formatVersionLabel\(\s*links\.version/.test(inicioTs),
+    'inicio must not clobber versionLabel with downloads stub version'
+  );
 
   section('app-update remote check module + service exist');
   const updateLogic = path.join(__dirname, 'app-update.logic.ts');

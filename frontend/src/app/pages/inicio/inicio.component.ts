@@ -7,6 +7,7 @@ import { UpdateAvailable } from 'src/app/core/downloads/app-update.logic';
 import { AppUpdateService } from 'src/app/core/downloads/app-update.service';
 import { DownloadsService } from 'src/app/core/downloads/downloads.service';
 import { STABLE_DOWNLOAD_PATHS } from 'src/app/core/downloads/downloads.models';
+import { pickAppVersionForDisplay } from 'src/app/core/downloads/version-display.logic';
 import {
   detectElectronShell,
   isWebDownloadShell as isWebDownloadShellCore,
@@ -30,11 +31,24 @@ export function isWebDownloadShell(
 
 /** Format app version for the welcome screen: `v` + semver. */
 export function formatVersionLabel(version: string | null | undefined): string {
-  const v = (version || environment.version || '').trim();
+  const v = (version || '').trim();
   if (!v) {
     return '';
   }
   return v.startsWith('v') ? v : `v${v}`;
+}
+
+/**
+ * Version label for the running build (Inicio · About).
+ * See `pickAppVersionForDisplay` — never clobber with a lagging downloads stub.
+ */
+export function resolveAppVersionLabel(
+  buildVersion: string | null | undefined = environment.version,
+  manifestVersion?: string | null
+): string {
+  return formatVersionLabel(
+    pickAppVersionForDisplay(buildVersion, manifestVersion)
+  );
 }
 
 /** Pantalla 3A · Bienvenida. */
@@ -61,8 +75,11 @@ export class InicioComponent implements OnInit, OnDestroy {
     version: environment.version || '',
   };
 
-  /** e.g. `v0.0.13` — always from known app version, never hard-coded in the template. */
-  versionLabel = formatVersionLabel(environment.version);
+  /**
+   * e.g. `v0.0.16` — always the build-embedded app version (never the downloads
+   * manifest, which lags on the Capacitor assets stub).
+   */
+  versionLabel = resolveAppVersionLabel(environment.version);
 
   /** Packaged shell (APK/Electron): non-blocking update offer. */
   appUpdate: UpdateAvailable | null = null;
@@ -86,12 +103,14 @@ export class InicioComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.showDownloads = this.resolveShowDownloads();
+    // Installer hrefs only — version label stays on environment.version.
     this.sub.add(
       this.downloads.getLinks().subscribe((links) => {
-        this.links = links;
-        this.versionLabel = formatVersionLabel(
-          links.version || environment.version
-        );
+        this.links = {
+          ...links,
+          // Keep build version for any consumer of links.version on this screen.
+          version: environment.version || links.version || '',
+        };
       })
     );
     // Only meaningful on APK/Electron (service is no-op on pure web).

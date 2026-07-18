@@ -7,17 +7,24 @@ import {
   InicioComponent,
   formatVersionLabel,
   isWebDownloadShell,
+  resolveAppVersionLabel,
 } from './inicio.component';
 import { AppUpdateService } from 'src/app/core/downloads/app-update.service';
 import { DownloadsService } from 'src/app/core/downloads/downloads.service';
 import { STABLE_DOWNLOAD_PATHS } from 'src/app/core/downloads/downloads.models';
+import { environment } from 'src/environments/environment';
+
+/** Stale downloads-stub version — must NOT pin the home-screen label. */
+const STALE_MANIFEST_VERSION = '0.0.13';
 
 const STUB_LINKS = {
   apk: STABLE_DOWNLOAD_PATHS.apk,
   linux: STABLE_DOWNLOAD_PATHS.linux,
   windows: STABLE_DOWNLOAD_PATHS.windows,
-  version: '1.2.3',
+  version: STALE_MANIFEST_VERSION,
 };
+
+const EXPECTED_BUILD_LABEL = resolveAppVersionLabel(environment.version);
 
 describe('isWebDownloadShell', () => {
   it('is true only for pure web (not native, not electron)', () => {
@@ -32,6 +39,19 @@ describe('formatVersionLabel', () => {
   it('prefixes semver with v', () => {
     expect(formatVersionLabel('0.0.13')).toBe('v0.0.13');
     expect(formatVersionLabel('v1.2.3')).toBe('v1.2.3');
+  });
+});
+
+describe('resolveAppVersionLabel', () => {
+  it('uses build-embedded version even when downloads stub is older', () => {
+    expect(resolveAppVersionLabel('0.0.16', '0.0.13')).toBe('v0.0.16');
+    expect(resolveAppVersionLabel(environment.version, STALE_MANIFEST_VERSION)).toBe(
+      EXPECTED_BUILD_LABEL
+    );
+  });
+
+  it('falls back to manifest only when build version is missing', () => {
+    expect(resolveAppVersionLabel('', '1.2.3')).toBe('v1.2.3');
   });
 });
 
@@ -109,11 +129,13 @@ describe('InicioComponent', () => {
 
     const ver = el.querySelector('[data-testid="inicio-version"]');
     expect(ver).toBeTruthy();
-    expect(ver!.textContent!.trim()).toBe('v1.2.3');
-    expect(component.versionLabel).toBe('v1.2.3');
+    // Build version, not the stale downloads-stub version from getLinks.
+    expect(ver!.textContent!.trim()).toBe(EXPECTED_BUILD_LABEL);
+    expect(component.versionLabel).toBe(EXPECTED_BUILD_LABEL);
+    expect(component.versionLabel).not.toBe(`v${STALE_MANIFEST_VERSION}`);
   });
 
-  it('on native shell hides download controls while still showing version', () => {
+  it('on native shell hides download controls while still showing build version', () => {
     createWithShell(false);
     const el: HTMLElement = fixture.nativeElement;
 
@@ -125,6 +147,9 @@ describe('InicioComponent', () => {
 
     const ver = el.querySelector('[data-testid="inicio-version"]');
     expect(ver).toBeTruthy();
-    expect(ver!.textContent!.trim()).toBe('v1.2.3');
+    // Regression: APK must not show lagging assets/downloads manifest version.
+    expect(ver!.textContent!.trim()).toBe(EXPECTED_BUILD_LABEL);
+    expect(component.versionLabel).toBe(EXPECTED_BUILD_LABEL);
+    expect(component.links.version).toBe(environment.version);
   });
 });

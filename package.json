@@ -36,6 +36,7 @@
     "package:downloads": "bash scripts/package-collect-downloads.sh",
     "package:all": "bash scripts/package-all.sh",
     "test:downloads": "node frontend/src/app/core/downloads/downloads.paths.test.js",
+    "test:version-display": "node --experimental-strip-types frontend/src/app/core/downloads/version-display.logic.test.js",
     "test:app-update": "node --experimental-strip-types frontend/src/app/core/downloads/app-update.logic.test.js",
     "test:apk-javahome": "node scripts/package-apk.javahome.test.js",
     "test:tts": "npm --prefix backend run test:tts",

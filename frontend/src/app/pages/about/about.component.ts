@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DownloadsService } from '../../core/downloads/downloads.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-about',
@@ -16,7 +17,8 @@ export class AboutComponent implements OnInit {
     apk: '/downloads/documentos-vaticanos.apk',
     linux: '/downloads/documentos-vaticanos-linux.AppImage',
     windows: '/downloads/documentos-vaticanos-windows.exe',
-    version: '',
+    // Build-embedded version (same source as Inicio); not the downloads stub.
+    version: environment.version || '',
   };
 
   get windowsDownloadName(): string {
@@ -31,7 +33,10 @@ export class AboutComponent implements OnInit {
 
   ngOnInit(): void {
     this.downloads.getLinks().subscribe((links) => {
-      this.links = links;
+      this.links = {
+        ...links,
+        version: environment.version || links.version || '',
+      };
     });
   }
 }
