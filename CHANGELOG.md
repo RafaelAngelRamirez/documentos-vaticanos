@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [Unreleased]
+
+### Features
+
+* **corpus:** pack `cceo-es` (IA) twin of `cceo-la` — 1514 canons offline, dual corpus tree, AI `sourceNote` disclaimer; doc-codes stay on Latin
+
 ### [0.0.17](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.13...v0.0.17) (2026-07-18)
 
 

@@ -1012,7 +1012,7 @@
       ],
       "fixturePath": "fixtures/cceo-la",
       "expectedUnitCount": 1514,
-      "notes": "CCEO (1990). Full official Latin text on vatican.va (3 pages). Spanish full HTML not published on vatican.va (index stubs only). ~1546 canons (some reserved/missing in HTML)."
+      "notes": "CCEO (1990). Full official Latin text on vatican.va (3 pages). Spanish full HTML not published on vatican.va (index stubs only). ~1546 canons (some reserved/missing in HTML). ES twin: translate_cceo_es.py + import_cceo_es.ts → cceo-es (AI, not official; doc-codes stay on cceo-la)."
     },
     {
       "id": "ds",

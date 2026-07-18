@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-18T17:12:08.691Z",
+  "updatedAt": "2026-07-18T22:09:05.196Z",
   "documents": [
     {
       "id": "aa-es",
@@ -983,6 +983,26 @@
         "meta": "documents/catecismo-romano-la/meta.json"
       },
       "notes": "Catechismus Romanus ad parochos (Trento / Pío V). Texto latino de dominio público a partir de OCR DjVuTXT de Archive.org (ed. s. XIX). Requiere limpieza mecánica de OCR; no es edición crítica. Fuente: https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
+    },
+    {
+      "id": "cceo-es",
+      "sourceId": "cceo-es",
+      "title": "Código de los Cánones de las Iglesias Orientales",
+      "kind": "canon-law",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/la/apost_constitutions/documents/hf_jp-ii_apc_19901018_index-codex-can-eccl-orient.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:09:05.195Z",
+      "lastDownloadedAt": "2026-07-18T22:09:05.195Z",
+      "unitCount": 1514,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cceo-es/content.json",
+        "index": "documents/cceo-es/index.json",
+        "meta": "documents/cceo-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Código de los Cánones de las Iglesias Orientales» (cceo-la) en vatican.va. No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
     },
     {
       "id": "cceo-la",
