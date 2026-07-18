@@ -1,9 +1,11 @@
 import {
   Component,
+  EventEmitter,
   Input,
   OnDestroy,
   OnInit,
-  EventEmitter, Input, OnDestroy, OnInit, Output, ViewEncapsulation,
+  Output,
+  ViewEncapsulation,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import {
@@ -361,7 +363,7 @@ export class PuntoComponent implements OnInit, OnDestroy {
     return valor;
   }
 
-  //**
+  /**
    * Follow a resolved local reference.
    * Emits citationPreview so parent can show a preview sheet.
    * Still navigates for backward compatibility.
@@ -370,7 +372,7 @@ export class PuntoComponent implements OnInit, OnDestroy {
     event?.preventDefault();
     event?.stopPropagation();
 
-    if (seg.type !== "ref" || !seg.local) {
+    if (seg.type !== 'ref' || !seg.local) {
       return;
     }
 
@@ -392,7 +394,7 @@ export class PuntoComponent implements OnInit, OnDestroy {
 
   get canSave(): boolean {
     // Offline-first (F8a): guardar no requiere sesión ni API.
-    return Boolean(this.documentId) && this.infoPunto?.article != null;
+    return Boolean(this.documentId) && this._infoPunto?.article != null;
   }
 
   saveReference(event: Event): void {
@@ -400,25 +402,29 @@ export class PuntoComponent implements OnInit, OnDestroy {
     event.stopPropagation();
     this.saveMsg = null;
     this.saveError = null;
-    if (!this.canSave || !this.documentId) {
+
+    // Narrow locals — TS does not treat getter `canSave` as a type guard.
+    const documentId = this.documentId;
+    const article = this._infoPunto?.article;
+    if (!documentId || !article) {
       this.saveError = 'No se puede guardar (falta documentId)';
       return;
     }
-    const a = this.infoPunto.article;
-    const unitIndex = a.index_array ?? 0;
+
+    const unitIndex = article.index_array ?? 0;
     const label =
-      a.biblia?.consecutivo_versiculo ||
-      (a.consecutivo && a.consecutivo !== 'no-encontrado'
-        ? String(a.consecutivo)
+      article.biblia?.consecutivo_versiculo ||
+      (article.consecutivo && article.consecutivo !== 'no-encontrado'
+        ? String(article.consecutivo)
         : undefined);
 
     // Siempre en localStorage; se evita duplicar el marcador de una unidad.
     const yaExiste = this.anotaciones
-      .forUnit(this.documentId, unitIndex)
+      .forUnit(documentId, unitIndex)
       .some((x) => x.kind === 'marcador');
     if (!yaExiste) {
       this.anotaciones.add({
-        documentId: this.documentId,
+        documentId,
         unitIndex,
         unitLabel: label,
         excerpt: '',
@@ -426,13 +432,15 @@ export class PuntoComponent implements OnInit, OnDestroy {
       });
     }
     this.saveMsg = 'Guardada';
-    setTimeout(() => (this.saveMsg = null), 2000);
+    setTimeout(() => {
+      this.saveMsg = null;
+    }, 2000);
 
     // Nube opcional: solo con sesión y API, best-effort con catch silencioso.
     if (this.auth.isLoggedIn && environment.apiBaseUrl) {
       this.references
         .save({
-          documentId: this.documentId,
+          documentId,
           unitIndex,
           unitLabel: label,
         })

@@ -237,6 +237,14 @@ export class LectorComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Citation click from app-punto. Navigation still happens inside PuntoComponent.openRef;
+   * this hook is reserved for a future preview sheet without blocking the build.
+   */
+  onCitationPreview(_event: { seg: unknown; documentId?: string }): void {
+    // no-op for now
+  }
+
   get narrSupported(): boolean {
     return this.narrator.supported;
   }
