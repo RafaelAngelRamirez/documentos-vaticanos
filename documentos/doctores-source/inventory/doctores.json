@@ -1,0 +1,870 @@
+{
+  "schemaVersion": 1,
+  "description": "Catálogo de los 38 Doctores de la Iglesia: obras representativas, packs del corpus y fuentes públicas candidatas. No es opera omnia.",
+  "count": 38,
+  "notes": [
+    "vatican.va aloja sobre todo decretos/cartas de proclamación y magisterio que cita a Doctores; no las opera omnia antiguas.",
+    "Packs preexistentes: volúmenes agustin-*-es, cirilo-jerusalen-catequesis-es.",
+    "Pack añadido en esta entrega: atanasio-de-incarnatione-en (New Advent / NPNF, dominio público)."
+  ],
+  "doctors": [
+    {
+      "id": "ambrosio-milan",
+      "name": "San Ambrosio de Milán",
+      "years": "c. 340–397",
+      "proclaimedYear": 1298,
+      "role": "Obispo de Milán, doctor",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "De officiis ministrorum",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/34011.htm"
+        },
+        {
+          "title": "Hexaemeron",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/3403.htm"
+        },
+        {
+          "title": "Himnos",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "agustin-hipona",
+      "name": "San Agustín de Hipona",
+      "years": "354–430",
+      "proclaimedYear": 1298,
+      "role": "Obispo, doctor de la gracia",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Confesiones",
+          "documentId": "agustin-02-confesiones-es",
+          "sourceUrl": null
+        },
+        {
+          "title": "De Trinitate",
+          "documentId": "agustin-05-de-trinitate-es",
+          "sourceUrl": null
+        },
+        {
+          "title": "La ciudad de Dios I",
+          "documentId": "agustin-16-ciudad-de-dios-1-es",
+          "sourceUrl": null
+        },
+        {
+          "title": "La ciudad de Dios II",
+          "documentId": "agustin-17-ciudad-de-dios-2-es",
+          "sourceUrl": null
+        },
+        {
+          "title": "De doctrina christiana",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/1202.htm"
+        }
+      ]
+    },
+    {
+      "id": "gregorio-magno",
+      "name": "San Gregorio Magno",
+      "years": "c. 540–604",
+      "proclaimedYear": 1298,
+      "role": "Papa, doctor",
+      "era": "Alta Edad Media · s. VI–XI",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Moralia in Job",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/3501.htm"
+        },
+        {
+          "title": "Regla Pastoral",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/36011.htm"
+        },
+        {
+          "title": "Diálogos",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/3602.htm"
+        }
+      ]
+    },
+    {
+      "id": "jeronimo",
+      "name": "San Jerónimo",
+      "years": "c. 347–420",
+      "proclaimedYear": 1298,
+      "role": "Presbítero, doctor, traductor de la Vulgata",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "De viris illustribus",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/2708.htm"
+        },
+        {
+          "title": "Cartas",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/3001.htm"
+        },
+        {
+          "title": "La Vulgata",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "tomas-aquino",
+      "name": "Santo Tomás de Aquino",
+      "years": "1225–1274",
+      "proclaimedYear": 1567,
+      "role": "Presbítero dominico, doctor angélico",
+      "era": "Escolástica y mística · s. XII–XIV",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Suma Teológica",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/summa/"
+        },
+        {
+          "title": "Suma contra Gentiles",
+          "documentId": null,
+          "sourceUrl": "https://www.ccel.org/ccel/aquinas/gentiles"
+        },
+        {
+          "title": "Comentarios a la Escritura",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "atanasio-alejandria",
+      "name": "San Atanasio de Alejandría",
+      "years": "c. 297–373",
+      "proclaimedYear": 1568,
+      "role": "Obispo de Alejandría, doctor",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Sobre la Encarnación del Verbo",
+          "documentId": "atanasio-de-incarnatione-en",
+          "sourceUrl": "https://www.newadvent.org/fathers/2802.htm"
+        },
+        {
+          "title": "Contra los arrianos",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/2803.htm"
+        },
+        {
+          "title": "Vida de Antonio",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/2811.htm"
+        }
+      ]
+    },
+    {
+      "id": "basilio-magno",
+      "name": "San Basilio Magno",
+      "years": "c. 330–379",
+      "proclaimedYear": 1568,
+      "role": "Obispo de Cesarea, doctor",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "De Spiritu Sancto",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/3203.htm"
+        },
+        {
+          "title": "Hexaemeron",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/3201.htm"
+        },
+        {
+          "title": "Reglas monásticas",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "gregorio-nacianceno",
+      "name": "San Gregorio Nacianceno",
+      "years": "c. 329–390",
+      "proclaimedYear": 1568,
+      "role": "Obispo, doctor teólogo",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Discursos teológicos",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/3102.htm"
+        },
+        {
+          "title": "Oraciones y poemas",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "juan-crisostomo",
+      "name": "San Juan Crisóstomo",
+      "years": "c. 347–407",
+      "proclaimedYear": 1568,
+      "role": "Patriarca de Constantinopla, doctor",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Homilías sobre Mateo",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/2001.htm"
+        },
+        {
+          "title": "Homilías sobre Juan",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/2401.htm"
+        },
+        {
+          "title": "Homilías sobre Romanos",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/2102.htm"
+        },
+        {
+          "title": "Sobre el sacerdocio",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/1922.htm"
+        }
+      ]
+    },
+    {
+      "id": "buenaventura",
+      "name": "San Buenaventura",
+      "years": "1221–1274",
+      "proclaimedYear": 1588,
+      "role": "Cardenal franciscano, doctor seráfico",
+      "era": "Escolástica y mística · s. XII–XIV",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Itinerarium mentis in Deum",
+          "documentId": null,
+          "sourceUrl": "https://www.ccel.org/ccel/bonaventure/journey"
+        },
+        {
+          "title": "Breviloquium",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "anselmo-canterbury",
+      "name": "San Anselmo de Canterbury",
+      "years": "1033–1109",
+      "proclaimedYear": 1720,
+      "role": "Arzobispo de Canterbury, doctor",
+      "era": "Alta Edad Media · s. VI–XI",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Proslogion",
+          "documentId": null,
+          "sourceUrl": "https://www.ccel.org/ccel/anselm/basic_works"
+        },
+        {
+          "title": "Cur Deus homo",
+          "documentId": null,
+          "sourceUrl": "https://www.ccel.org/ccel/anselm/basic_works"
+        }
+      ]
+    },
+    {
+      "id": "isidoro-sevilla",
+      "name": "San Isidoro de Sevilla",
+      "years": "c. 560–636",
+      "proclaimedYear": 1722,
+      "role": "Obispo de Sevilla, doctor",
+      "era": "Alta Edad Media · s. VI–XI",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Etimologías",
+          "documentId": null,
+          "sourceUrl": "https://www.ccel.org/ccel/isidore"
+        },
+        {
+          "title": "Sentencias",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "pedro-crisologo",
+      "name": "San Pedro Crisólogo",
+      "years": "c. 380–450",
+      "proclaimedYear": 1729,
+      "role": "Obispo de Rávena, doctor",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Sermones",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/3603.htm"
+        }
+      ]
+    },
+    {
+      "id": "leon-magno",
+      "name": "San León Magno",
+      "years": "c. 400–461",
+      "proclaimedYear": 1754,
+      "role": "Papa, doctor",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Tomo a Flaviano",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/3604028.htm"
+        },
+        {
+          "title": "Sermones",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/3604.htm"
+        },
+        {
+          "title": "Cartas",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/3604.htm"
+        }
+      ]
+    },
+    {
+      "id": "pedro-damian",
+      "name": "San Pedro Damián",
+      "years": "1007–1072",
+      "proclaimedYear": 1828,
+      "role": "Cardenal, doctor, camaldolense",
+      "era": "Alta Edad Media · s. VI–XI",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Liber Gomorrhianus",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Cartas y opúsculos",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "bernardo-claraval",
+      "name": "San Bernardo de Claraval",
+      "years": "c. 1090–1153",
+      "proclaimedYear": 1830,
+      "role": "Abad cisterciense, doctor melifluo",
+      "era": "Escolástica y mística · s. XII–XIV",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Sermones sobre el Cantar de los Cantares",
+          "documentId": null,
+          "sourceUrl": "https://www.ccel.org/ccel/bernard/songofsongs"
+        },
+        {
+          "title": "Tratados marianos",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "hilario-poitiers",
+      "name": "San Hilario de Poitiers",
+      "years": "c. 315–367",
+      "proclaimedYear": 1851,
+      "role": "Obispo de Poitiers, doctor",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "De Trinitate",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/3302.htm"
+        },
+        {
+          "title": "Comentario a Mateo",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "alfonso-ligorio",
+      "name": "San Alfonso María de Ligorio",
+      "years": "1696–1787",
+      "proclaimedYear": 1871,
+      "role": "Obispo, fundador, doctor",
+      "era": "Modernos · s. XVIII–XIX",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Theologia Moralis",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Las glorias de María",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Práctica del amor a Jesucristo",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "francisco-sales",
+      "name": "San Francisco de Sales",
+      "years": "1567–1622",
+      "proclaimedYear": 1877,
+      "role": "Obispo de Ginebra, doctor",
+      "era": "Renacimiento y reforma católica · s. XV–XVII",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Introducción a la vida devota",
+          "documentId": null,
+          "sourceUrl": "https://www.ccel.org/ccel/desales/devout_life"
+        },
+        {
+          "title": "Tratado del amor de Dios",
+          "documentId": null,
+          "sourceUrl": "https://www.ccel.org/ccel/desales/love"
+        }
+      ]
+    },
+    {
+      "id": "cirilo-alejandria",
+      "name": "San Cirilo de Alejandría",
+      "years": "c. 376–444",
+      "proclaimedYear": 1882,
+      "role": "Patriarca de Alejandría, doctor",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Contra Nestorio",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/"
+        },
+        {
+          "title": "Comentarios bíblicos",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "cirilo-jerusalen",
+      "name": "San Cirilo de Jerusalén",
+      "years": "c. 313–386",
+      "proclaimedYear": 1882,
+      "role": "Obispo de Jerusalén, doctor",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Catequesis",
+          "documentId": "cirilo-jerusalen-catequesis-es",
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "juan-damasceno",
+      "name": "San Juan Damasceno",
+      "years": "c. 675–749",
+      "proclaimedYear": 1890,
+      "role": "Presbítero, doctor",
+      "era": "Alta Edad Media · s. VI–XI",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "De fide orthodoxa",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/3304.htm"
+        },
+        {
+          "title": "Contra los iconoclastas",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "beda-venerable",
+      "name": "San Beda el Venerable",
+      "years": "673–735",
+      "proclaimedYear": 1899,
+      "role": "Monje benedictino, doctor",
+      "era": "Alta Edad Media · s. VI–XI",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Historia eclesiástica del pueblo inglés",
+          "documentId": null,
+          "sourceUrl": "https://www.ccel.org/ccel/bede/history"
+        },
+        {
+          "title": "Comentarios bíblicos",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "efren-sirio",
+      "name": "San Efrén el Sirio",
+      "years": "c. 306–373",
+      "proclaimedYear": 1920,
+      "role": "Diácono, doctor",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Himnos",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Comentarios bíblicos",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "pedro-canisio",
+      "name": "San Pedro Canisio",
+      "years": "1521–1597",
+      "proclaimedYear": 1925,
+      "role": "Sacerdote jesuita, doctor",
+      "era": "Renacimiento y reforma católica · s. XV–XVII",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Catecismos",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Summa doctrinae christianae",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "juan-cruz",
+      "name": "San Juan de la Cruz",
+      "years": "1542–1591",
+      "proclaimedYear": 1926,
+      "role": "Presbítero carmelita, doctor místico",
+      "era": "Renacimiento y reforma católica · s. XV–XVII",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Subida del Monte Carmelo",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Noche oscura",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Cántico espiritual",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Llama de amor viva",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "roberto-belarmino",
+      "name": "San Roberto Belarmino",
+      "years": "1542–1621",
+      "proclaimedYear": 1931,
+      "role": "Cardenal jesuita, doctor",
+      "era": "Renacimiento y reforma católica · s. XV–XVII",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Disputationes de controversiis",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Catecismo",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "alberto-magno",
+      "name": "San Alberto Magno",
+      "years": "c. 1206–1280",
+      "proclaimedYear": 1931,
+      "role": "Obispo dominico, doctor universal",
+      "era": "Escolástica y mística · s. XII–XIV",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Comentarios filosóficos",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Comentarios teológicos",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "antonio-padua",
+      "name": "San Antonio de Padua",
+      "years": "1195–1231",
+      "proclaimedYear": 1946,
+      "role": "Presbítero franciscano, doctor",
+      "era": "Escolástica y mística · s. XII–XIV",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Sermones",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "lorenzo-brindis",
+      "name": "San Lorenzo de Brindis",
+      "years": "1559–1619",
+      "proclaimedYear": 1959,
+      "role": "Presbítero capuchino, doctor",
+      "era": "Renacimiento y reforma católica · s. XV–XVII",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Opera omnia (sermones y tratados)",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "teresa-avila",
+      "name": "Santa Teresa de Jesús (de Ávila)",
+      "years": "1515–1582",
+      "proclaimedYear": 1970,
+      "role": "Virgen carmelita, doctora",
+      "era": "Renacimiento y reforma católica · s. XV–XVII",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Libro de la Vida",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Camino de perfección",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Castillo interior",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "catalina-siena",
+      "name": "Santa Catalina de Siena",
+      "years": "1347–1380",
+      "proclaimedYear": 1970,
+      "role": "Virgen dominica, doctora",
+      "era": "Escolástica y mística · s. XII–XIV",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Diálogo de la Divina Providencia",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Cartas",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "teresa-lisieux",
+      "name": "Santa Teresa del Niño Jesús (de Lisieux)",
+      "years": "1873–1897",
+      "proclaimedYear": 1997,
+      "role": "Virgen carmelita, doctora",
+      "era": "Modernos · s. XVIII–XIX",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Historia de un alma",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "hildegarda-bingen",
+      "name": "Santa Hildegarda de Bingen",
+      "years": "1098–1179",
+      "proclaimedYear": 2012,
+      "role": "Abadesa, doctora",
+      "era": "Escolástica y mística · s. XII–XIV",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Scivias",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Liber divinorum operum",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "juan-avila",
+      "name": "San Juan de Ávila",
+      "years": "1499–1569",
+      "proclaimedYear": 2012,
+      "role": "Presbítero, doctor",
+      "era": "Renacimiento y reforma católica · s. XV–XVII",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Audi, filia",
+          "documentId": null,
+          "sourceUrl": null
+        },
+        {
+          "title": "Tratados y cartas",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "gregorio-narek",
+      "name": "San Gregorio de Narek",
+      "years": "c. 951–1003",
+      "proclaimedYear": 2015,
+      "role": "Monje armenio, doctor",
+      "era": "Alta Edad Media · s. VI–XI",
+      "proclamationSourceUrl": null,
+      "works": [
+        {
+          "title": "Libro de las Lamentaciones",
+          "documentId": null,
+          "sourceUrl": null
+        }
+      ]
+    },
+    {
+      "id": "ireneo-lyon",
+      "name": "San Ireneo de Lyon",
+      "years": "c. 130–202",
+      "proclaimedYear": 2022,
+      "role": "Obispo de Lyon, doctor de la unidad",
+      "era": "Padres y antiguos · s. II–V",
+      "proclamationSourceUrl": "https://www.vatican.va/content/francesco/la/apost_letters/documents/20220121-santireneo-dottoredellachiesa.html",
+      "works": [
+        {
+          "title": "Adversus haereses",
+          "documentId": null,
+          "sourceUrl": "https://www.newadvent.org/fathers/0103.htm"
+        },
+        {
+          "title": "Demostración de la predicación apostólica",
+          "documentId": null,
+          "sourceUrl": "https://www.ccel.org/ccel/irenaeus/demonstr"
+        }
+      ]
+    },
+    {
+      "id": "john-henry-newman",
+      "name": "San John Henry Newman",
+      "years": "1801–1890",
+      "proclaimedYear": 2025,
+      "role": "Cardenal, doctor",
+      "era": "Modernos · s. XVIII–XIX",
+      "proclamationSourceUrl": "https://www.vatican.va/content/leo-xiv/en/homilies/2025/documents/20251101-messa-giubileo-formatori.html",
+      "works": [
+        {
+          "title": "Essay on the Development of Christian Doctrine",
+          "documentId": null,
+          "sourceUrl": "https://www.newmanreader.org/works/development/"
+        },
+        {
+          "title": "Apologia pro Vita Sua",
+          "documentId": null,
+          "sourceUrl": "https://www.newmanreader.org/works/apologia/"
+        },
+        {
+          "title": "Grammar of Assent",
+          "documentId": null,
+          "sourceUrl": "https://www.newmanreader.org/works/grammar/"
+        },
+        {
+          "title": "Sermones y ensayos",
+          "documentId": null,
+          "sourceUrl": "https://www.newmanreader.org/"
+        }
+      ]
+    }
+  ]
+}

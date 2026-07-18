@@ -314,6 +314,9 @@ export function parentPathForAppUrl(url: string): string | null {
   if (a === 'padres' && b) {
     return '/padres';
   }
+  if (a === 'doctores' && b) {
+    return '/doctores';
+  }
   if (a === 'admin' && b === 'revision' && c) {
     return '/admin/revision';
   }

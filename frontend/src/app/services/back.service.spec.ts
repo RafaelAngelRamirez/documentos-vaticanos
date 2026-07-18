@@ -63,6 +63,7 @@ describe('BackService', () => {
       expect(service.parentUrl('/estudios/9/editar')).toBe('/estudios/9');
       expect(service.parentUrl('/estudios/9')).toBe('/estudios');
       expect(service.parentUrl('/padres/agustin')).toBe('/padres');
+      expect(service.parentUrl('/doctores/agustin-hipona')).toBe('/doctores');
       expect(service.parentUrl('/admin/revision/3')).toBe('/admin/revision');
     });
 

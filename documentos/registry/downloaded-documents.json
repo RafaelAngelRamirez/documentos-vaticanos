@@ -6447,6 +6447,26 @@
       },
       "notes": "JPII encyclical on fundamental questions of moral teaching.",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "atanasio-de-incarnatione-en",
+      "sourceId": "atanasio-de-incarnatione-en",
+      "title": "On the Incarnation of the Word",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/2802.htm"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:16:36.548Z",
+      "lastDownloadedAt": "2026-07-18T23:16:36.548Z",
+      "unitCount": 95,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/atanasio-de-incarnatione-en/content.json",
+        "index": "documents/atanasio-de-incarnatione-en/index.json",
+        "meta": "documents/atanasio-de-incarnatione-en/meta.json"
+      },
+      "notes": ""
     }
   ]
 }

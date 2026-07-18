@@ -1,0 +1,67 @@
+<div class="app web-shell" *ngIf="doctor as d">
+  <app-wbar active="doctores"></app-wbar>
+
+  <div class="fbar hair">
+    <a class="fs14 back" routerLink="/doctores">← Doctores</a>
+    <span class="iconb" title="Favorito">♡</span>
+  </div>
+
+  <div class="dcover">
+    <div class="dkind">Doctor · {{ d.years }} · proclamado {{ d.proclaimedYear }}</div>
+    <div class="dtitle">{{ d.name }}</div>
+    <div class="dsub">{{ d.role }}</div>
+  </div>
+
+  <div class="fbody">
+    <div class="quote" *ngIf="d.quote">«{{ d.quote }}»</div>
+    <div class="fs12 muted" style="margin-top: 8px" *ngIf="d.quoteSource">
+      {{ d.quoteSource }}
+    </div>
+
+    <div class="sect">Obras en la biblioteca</div>
+    <ng-container *ngFor="let w of d.works; let i = index">
+      <a
+        *ngIf="w.documentId as docId"
+        class="toc obra-link"
+        [routerLink]="['/documento', docId]"
+      >
+        <span class="tnum">{{ i + 1 }}</span>
+        <span>{{ w.title }}</span>
+      </a>
+      <div *ngIf="!w.documentId" class="toc obra-pending">
+        <span class="tnum">{{ i + 1 }}</span>
+        <span>{{ w.title }}</span>
+        <span class="fs12 muted"> · próximamente</span>
+        <a
+          *ngIf="w.sourceUrl"
+          class="app-lang-link fs12"
+          [href]="w.sourceUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          (click)="$event.stopPropagation()"
+        >
+          · fuente
+        </a>
+      </div>
+    </ng-container>
+    <div class="fs13 muted" *ngIf="!d.works.length" style="margin-top: 8px">
+      Obras próximamente en el corpus.
+    </div>
+
+    <div class="sect" *ngIf="d.proclamationSourceUrl">Proclamación</div>
+    <a
+      *ngIf="d.proclamationSourceUrl"
+      class="app-lang-link"
+      [href]="d.proclamationSourceUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Documento en vatican.va
+    </a>
+
+    <div class="sect">Temas</div>
+    <div class="chips">
+      <span class="chip" *ngFor="let t of d.themes">{{ t }}</span>
+    </div>
+  </div>
+</div>

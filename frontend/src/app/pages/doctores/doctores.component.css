@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbody,
+.doctores-body {
+  padding: 28px 24px 40px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .doctores-body {
+    max-width: 960px;
+    padding: 36px 40px 56px;
+  }
+
+  .cardgrid {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}

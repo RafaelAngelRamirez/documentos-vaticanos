@@ -1,0 +1,59 @@
+<div class="app has-bnav web-shell">
+  <app-wbar active="doctores"></app-wbar>
+  <div class="only-mobile">
+    <app-fbar title="Doctores de la Iglesia"></app-fbar>
+  </div>
+
+  <div class="fbody doctores-body">
+    <h2 class="h2 only-desktop">Doctores de la Iglesia</h2>
+    <div class="fs14 muted" style="line-height: 1.6; max-width: 70ch">
+      Santos proclamados Doctores por su eminencia de doctrina y santidad de vida.
+      Hay 38 en total (el más reciente, san John Henry Newman, 2025). Las obras con
+      pack en el corpus se pueden leer offline; el resto se marca como pendiente.
+      También en
+      <a routerLink="/padres" class="app-lang-link">Padres</a>
+      y en el
+      <a routerLink="/santoral" class="app-lang-link">Santoral</a>.
+    </div>
+
+    <ng-container *ngFor="let g of groups">
+      <div class="era">{{ g.era }}</div>
+
+      <div class="only-mobile">
+        <div
+          class="mrow"
+          *ngFor="let d of g.items"
+          role="button"
+          tabindex="0"
+          (click)="open(d)"
+          (keydown.enter)="open(d)"
+          style="cursor: pointer"
+        >
+          <span class="avatar">{{ d.initials }}</span>
+          <div class="f1">
+            <div class="mname">{{ d.name }}</div>
+            <div class="mmeta">
+              {{ d.meta }}
+              <span *ngIf="hasLinkedWorks(d)" class="fs12"> · en corpus</span>
+            </div>
+          </div>
+          <span class="chev">›</span>
+        </div>
+      </div>
+
+      <div class="cardgrid only-desktop">
+        <button
+          type="button"
+          class="bookcard"
+          *ngFor="let d of g.items"
+          (click)="open(d)"
+        >
+          <span class="bt">{{ d.name }}</span>
+          <span class="bm">{{ d.meta }}</span>
+        </button>
+      </div>
+    </ng-container>
+  </div>
+
+  <app-bnav></app-bnav>
+</div>

@@ -121,7 +121,10 @@ export const PADRES: Padre[] = [
       'Él se hizo hombre para que nosotros fuéramos divinizados; se hizo visible en el cuerpo para que nosotros tuviéramos idea del Padre invisible.',
     quoteSource: 'Sobre la Encarnación, 54',
     works: [
-      { title: 'Sobre la Encarnación del Verbo' },
+      {
+        title: 'Sobre la Encarnación del Verbo',
+        documentId: 'atanasio-de-incarnatione-en',
+      },
       { title: 'Contra los arrianos' },
       { title: 'Vida de Antonio' },
     ],

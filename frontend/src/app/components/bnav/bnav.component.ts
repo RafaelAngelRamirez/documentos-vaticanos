@@ -87,6 +87,7 @@ export class BnavComponent {
       // Padres, Santoral y Explorar/Temas pertenecen conceptualmente a Biblioteca
       // (la wbar de escritorio tiene wlinks propios: Padres / Santoral / Temas).
       p.startsWith('/padres') ||
+      p.startsWith('/doctores') ||
       p.startsWith('/santoral') ||
       p.startsWith('/explorar') ||
       p.startsWith('/cuenta/temas')

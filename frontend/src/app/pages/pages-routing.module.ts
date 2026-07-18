@@ -22,6 +22,8 @@ import { AdminRevisionComponent } from './admin-revision/admin-revision.componen
 import { AdminRevisionDetalleComponent } from './admin-revision-detalle/admin-revision-detalle.component';
 import { PadresComponent } from './padres/padres.component';
 import { PadreDetalleComponent } from './padre-detalle/padre-detalle.component';
+import { DoctoresComponent } from './doctores/doctores.component';
+import { DoctorDetalleComponent } from './doctor-detalle/doctor-detalle.component';
 import { SantoralComponent } from './santoral/santoral.component';
 import { SantoDetalleComponent } from './santo-detalle/santo-detalle.component';
 
@@ -54,6 +56,9 @@ const routes: Routes = [
   /** Diseño 2C · 2D · Padres de la Iglesia */
   { path: 'padres', component: PadresComponent },
   { path: 'padres/:id', component: PadreDetalleComponent },
+  /** Doctores de la Iglesia (mismo patrón 2C · 2D) */
+  { path: 'doctores', component: DoctoresComponent },
+  { path: 'doctores/:id', component: DoctorDetalleComponent },
   /** Santoral offline (vatican.va + Padres/autores del corpus) */
   { path: 'santoral', component: SantoralComponent },
   { path: 'santoral/:id', component: SantoDetalleComponent },
