@@ -175,6 +175,9 @@ async function main() {
     suggestRelatedCitations,
     suggestRelatedForStep,
     suggestRelatedForSaint,
+    suggestRelatedForDocument,
+    relatedSeedForDocument,
+    filterRelatedHits,
     diversifyRelatedHitsByDocument,
     isQualitySaintRelatedHit,
     mapHitsToRelatedRows,
@@ -560,6 +563,83 @@ async function main() {
       matchedTerms: r.matchedTerms,
       score: r.score,
     })),
+  );
+
+  section('passage quality + document cover');
+  // Noise seed should not flood passage mode either
+  assert.deepStrictEqual(
+    suggestRelatedCitations(
+      'epoca emperador capital joven cristiano vicario',
+      docs,
+      { limit: 8, quality: 'passage' },
+    ),
+    [],
+    'passage quality rejects narrative glue seed',
+  );
+  // Thematic seed still works under quality=passage (default)
+  const passageGood = suggestRelatedCitations(units[0].contenido, docs, {
+    exclude: { documentId: 'fixture-es', unitIndex: 0 },
+    limit: 5,
+  });
+  assert.ok(passageGood.length >= 1, 'passage quality keeps thematic neighbors');
+
+  // Document seed from meta + first units
+  const docSeed = relatedSeedForDocument(
+    { id: 'fixture-es', title: 'Amor de Dios', author: 'San Agustín' },
+    units,
+  );
+  assert.ok(docSeed.length > 10, 'document seed non-trivial');
+  const docRows = suggestRelatedForDocument(docSeed, docs, {
+    documentId: 'fixture-es',
+    limit: 5,
+  });
+  // excludeDocumentId drops the only pack → empty is OK
+  assert.ok(Array.isArray(docRows), 'document related returns array');
+  assert.ok(
+    docRows.every((r) => r.documentId !== 'fixture-es'),
+    'document related excludes source pack',
+  );
+
+  // filterRelatedHits diversifies
+  const rawPool = findRelatedUnits(units[0].contenido, docs, { limit: 20 });
+  const kernel = pickRelatedContentTerms(
+    contentTermsFromText(units[0].contenido),
+    6,
+  );
+  const gated = filterRelatedHits(rawPool, kernel, {
+    quality: 'passage',
+    maxPerDocument: 2,
+    limit: 8,
+  });
+  assert.ok(gated.length <= 8);
+  const byDoc = new Map();
+  for (const h of gated) {
+    byDoc.set(h.documentId, (byDoc.get(h.documentId) || 0) + 1);
+  }
+  for (const n of byDoc.values()) {
+    assert.ok(n <= 2, 'max 2 per document after filter');
+  }
+
+  // Wiring: tema hideWhenEmpty + document panel
+  const temaHtml2 = fs.readFileSync(TEMA_HTML, 'utf8');
+  assert.ok(
+    /hideWhenEmpty/.test(temaHtml2),
+    'tema related panel hides when empty',
+  );
+  const docHtml = path.resolve(
+    HERE,
+    '../../pages/documento-detalle/documento-detalle.component.html',
+  );
+  const docTs = path.resolve(
+    HERE,
+    '../../pages/documento-detalle/documento-detalle.component.ts',
+  );
+  assert.ok(fs.existsSync(docHtml) && fs.existsSync(docTs));
+  assert.ok(
+    /related-units-panel|variant="document"|relatedSeedForDocument/.test(
+      fs.readFileSync(docHtml, 'utf8') + fs.readFileSync(docTs, 'utf8'),
+    ),
+    'documento-detalle wires related panel',
   );
 
   console.log('\nAll product related-suggestion tests passed.');

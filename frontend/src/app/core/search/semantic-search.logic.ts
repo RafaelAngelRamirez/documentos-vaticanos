@@ -809,29 +809,119 @@ export function mapHitsToRelatedRows(
   });
 }
 
+export type RelatedQuality = 'off' | 'passage' | 'strict';
+
+/**
+ * Post-filter ranked related hits: score floor, seed-kernel overlap,
+ * drop noise-only matches, diversify by document.
+ * `passage` = themes / document cover (still useful, less spam).
+ * `strict` = saint covers (prefer empty over weak links).
+ */
+export function filterRelatedHits(
+  hits: RankedUnitHit[],
+  seedTerms: string[],
+  opts: {
+    quality?: Exclude<RelatedQuality, 'off'>;
+    maxPerDocument?: number;
+    limit?: number;
+  } = {},
+): RankedUnitHit[] {
+  if (!hits.length) return [];
+  const quality = opts.quality ?? 'passage';
+  const top = hits[0].score;
+  const minAbsTop = quality === 'strict' ? 2.0 : 1.35;
+  const minHit = quality === 'strict' ? 1.8 : 1.15;
+  const minRel = quality === 'strict' ? 0.4 : 0.32;
+  if (top < minAbsTop) return [];
+
+  const seedSet = new Set(seedTerms);
+  const filtered = hits.filter((h) => {
+    if (h.score < minHit || h.score < top * minRel) return false;
+    const matched = (h.matchedTerms || []).filter(Boolean);
+    if (!matched.length) return false;
+    const substantive = matched.filter(
+      (t) => !SAINT_RELATED_RANK_NOISE.has(t) && t.length >= 3,
+    );
+    if (!substantive.length) return false;
+    if (seedTerms.length >= 2) {
+      const onSeed = substantive.filter((t) => seedSet.has(t));
+      if (onSeed.length < 1) return false;
+      if (quality === 'strict') {
+        return (
+          onSeed.length >= 2 ||
+          (onSeed.length === 1 && onSeed[0].length >= 6 && h.score >= 2.2)
+        );
+      }
+      return true;
+    }
+    // Single-term seeds: passage allows one solid anchor; strict needs rarity.
+    if (quality === 'strict') {
+      const only = substantive[0];
+      return only.length >= 6 && h.score >= Math.max(minHit, 2.2);
+    }
+    return substantive.some((t) => t.length >= 4);
+  });
+
+  const diversified = diversifyRelatedHitsByDocument(
+    filtered,
+    opts.maxPerDocument ?? 2,
+  );
+  return diversified.slice(0, opts.limit ?? 8);
+}
+
 /** Seed text + corpus slice → related citation rows (product entry). */
 export function suggestRelatedCitations(
   sourceText: string,
   docs: SearchDocumentInput[],
   opts: {
     exclude?: { documentId: string; unitIndex: number };
+    /** Drop every unit from this pack (document cover → other works). */
+    excludeDocumentId?: string;
     limit?: number;
+    maxPerDocument?: number;
+    /** Default `passage`: quality + diversity. Use `off` only in tests. */
+    quality?: RelatedQuality;
   } = {},
 ): RelatedCitationRow[] {
   const text = (sourceText || '').trim();
   if (!text || !docs.length) return [];
-  const hits = findRelatedUnits(text, docs, {
+  const quality = opts.quality ?? 'passage';
+  const limit = opts.limit ?? 8;
+  const poolLimit =
+    quality === 'off' ? limit : Math.max(48, limit * 8);
+  let hits = findRelatedUnits(text, docs, {
     exclude: opts.exclude,
-    limit: opts.limit ?? 8,
+    limit: poolLimit,
   });
-  return mapHitsToRelatedRows(hits, docs);
+  if (opts.excludeDocumentId) {
+    const ban = opts.excludeDocumentId;
+    hits = hits.filter((h) => h.documentId !== ban);
+  }
+  const seedTerms = pickRelatedContentTerms(contentTermsFromText(text), 6);
+  if (quality === 'off') {
+    const div = diversifyRelatedHitsByDocument(
+      hits,
+      opts.maxPerDocument ?? 99,
+    );
+    return mapHitsToRelatedRows(div.slice(0, limit), docs);
+  }
+  const gated = filterRelatedHits(hits, seedTerms, {
+    quality: quality === 'strict' ? 'strict' : 'passage',
+    maxPerDocument: opts.maxPerDocument ?? 2,
+    limit,
+  });
+  return mapHitsToRelatedRows(gated, docs);
 }
 
 /** Theme step → neighbors with stable citations (excludes the seed step). */
 export function suggestRelatedForStep(
   step: ThemeStepSeed,
   docs: SearchDocumentInput[],
-  opts: { limit?: number } = {},
+  opts: {
+    limit?: number;
+    maxPerDocument?: number;
+    quality?: RelatedQuality;
+  } = {},
 ): RelatedCitationRow[] {
   const doc = docs.find((d) => d.documentId === step.documentId);
   const unit = doc?.units?.[step.unitIndex];
@@ -840,6 +930,67 @@ export function suggestRelatedForStep(
   return suggestRelatedCitations(seed, docs, {
     exclude: { documentId: step.documentId, unitIndex: step.unitIndex },
     limit: opts.limit ?? 8,
+    maxPerDocument: opts.maxPerDocument ?? 2,
+    quality: opts.quality ?? 'passage',
+  });
+}
+
+/**
+ * Document cover seed: title + author + first unit bodies (capped).
+ * Empty when there is no substantive prose.
+ */
+export function relatedSeedForDocument(
+  meta: {
+    title?: string | null;
+    shortTitle?: string | null;
+    author?: string | null;
+    id?: string | null;
+  } | null | undefined,
+  units: Array<{ contenido?: string } | null | undefined> | null | undefined,
+  opts: { maxUnits?: number; maxChars?: number } = {},
+): string {
+  if (!meta) return '';
+  const title = String(meta.title || meta.shortTitle || '').trim();
+  const author = String(meta.author || '').trim();
+  const maxUnits = Math.max(1, opts.maxUnits ?? 2);
+  const maxChars = Math.max(80, opts.maxChars ?? 420);
+  const parts: string[] = [];
+  if (title) parts.push(title);
+  if (author) parts.push(author);
+  const list = Array.isArray(units) ? units : [];
+  let body = '';
+  for (let i = 0; i < list.length && i < maxUnits; i++) {
+    const raw = stripLeadingConsecutivo(String(list[i]?.contenido || ''));
+    if (!raw) continue;
+    body = body ? `${body} ${raw}` : raw;
+    if (body.length >= maxChars) break;
+  }
+  if (body) parts.push(body.slice(0, maxChars).replace(/\s+/g, ' ').trim());
+  const seed = parts.filter(Boolean).join('. ');
+  const terms = contentTermsFromText(seed).filter(
+    (t) => !SAINT_RELATED_RANK_NOISE.has(t) && t.length >= 3,
+  );
+  if (terms.length < 2) return '';
+  return seed;
+}
+
+/** Document cover → related rows in other packs (quality-gated). */
+export function suggestRelatedForDocument(
+  sourceText: string,
+  docs: SearchDocumentInput[],
+  opts: {
+    documentId?: string;
+    limit?: number;
+    maxPerDocument?: number;
+  } = {},
+): RelatedCitationRow[] {
+  const text = (sourceText || '').trim();
+  if (!text) return [];
+  return suggestRelatedCitations(text, docs, {
+    excludeDocumentId: opts.documentId,
+    limit: opts.limit ?? 8,
+    maxPerDocument: opts.maxPerDocument ?? 2,
+    quality: 'passage',
   });
 }
 

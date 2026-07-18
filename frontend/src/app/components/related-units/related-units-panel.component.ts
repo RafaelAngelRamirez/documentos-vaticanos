@@ -10,6 +10,7 @@ import {
 import {
   RelatedCitationRow,
   suggestRelatedCitations,
+  suggestRelatedForDocument,
   suggestRelatedForSaint,
   suggestRelatedForStep,
   ThemeStepSeed,
@@ -18,7 +19,7 @@ import {
 import { CargarDocumentosJsonService } from 'src/app/services/cargar-documentos-json.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 
-export type RelatedUnitsVariant = 'passage' | 'saint';
+export type RelatedUnitsVariant = 'passage' | 'saint' | 'document';
 
 /**
  * Offline “pasajes relacionados” list (3E-style rows).
@@ -32,7 +33,7 @@ export type RelatedUnitsVariant = 'passage' | 'saint';
   styleUrls: ['./related-units-panel.component.css'],
 })
 export class RelatedUnitsPanelComponent implements OnChanges {
-  /** Free-text seed (note body, theme description, …). */
+  /** Free-text seed (note body, theme description, document intro…). */
   @Input() seedText: string | null = null;
   /** Prefer step citation: resolves unit body from pack when available. */
   @Input() seedStep: ThemeStepSeed | null = null;
@@ -42,14 +43,17 @@ export class RelatedUnitsPanelComponent implements OnChanges {
   /** Section heading (handoff .sect). */
   @Input() heading = 'Pasajes relacionados';
   /**
-   * `passage` = theme/note neighbors (default).
-   * `saint` = stricter lexical gate; empty preferred over false “Relacionados”.
+   * `passage` = theme/note neighbors (quality + diversity).
+   * `saint` = strict gate for saint covers.
+   * `document` = document cover; excludes the whole pack of `excludeDocumentId`.
    */
   @Input() variant: RelatedUnitsVariant = 'passage';
   /** Hide the whole block when there is no seed / no quality hits. */
   @Input() hideWhenEmpty = false;
   /** Soft-boost these pack ids (e.g. saint.documentIds). */
   @Input() preferDocumentIds: string[] | null = null;
+  /** Document cover: omit every unit of this pack. */
+  @Input() excludeDocumentId: string | null = null;
   /** Override lede; empty string hides it. */
   @Input() lede: string | null = null;
 
@@ -71,6 +75,9 @@ export class RelatedUnitsPanelComponent implements OnChanges {
     if (this.variant === 'saint') {
       return 'Coincidencias léxicas offline en el corpus (no son citas del santo).';
     }
+    if (this.variant === 'document') {
+      return 'Pasajes de otras obras del corpus con vocabulario afín (sugerencia offline).';
+    }
     return 'Sugeridos offline a partir del pasaje (mismas citas estables del corpus).';
   }
 
@@ -89,7 +96,8 @@ export class RelatedUnitsPanelComponent implements OnChanges {
       changes['seedStep'] ||
       changes['limit'] ||
       changes['variant'] ||
-      changes['preferDocumentIds']
+      changes['preferDocumentIds'] ||
+      changes['excludeDocumentId']
     ) {
       this.refresh();
     }
@@ -122,14 +130,26 @@ export class RelatedUnitsPanelComponent implements OnChanges {
           );
           let rows: RelatedCitationRow[] = [];
           if (step) {
-            rows = suggestRelatedForStep(step, inputs, { limit: this.limit });
+            rows = suggestRelatedForStep(step, inputs, {
+              limit: this.limit,
+              quality: 'passage',
+            });
           } else if (text && this.variant === 'saint') {
             rows = suggestRelatedForSaint(text, inputs, {
               limit: this.limit,
               preferDocumentIds: this.preferDocumentIds || undefined,
             });
+          } else if (text && this.variant === 'document') {
+            rows = suggestRelatedForDocument(text, inputs, {
+              documentId: this.excludeDocumentId || undefined,
+              limit: this.limit,
+            });
           } else if (text) {
-            rows = suggestRelatedCitations(text, inputs, { limit: this.limit });
+            rows = suggestRelatedCitations(text, inputs, {
+              limit: this.limit,
+              quality: 'passage',
+              excludeDocumentId: this.excludeDocumentId || undefined,
+            });
           }
           this.rows = rows;
         } catch {

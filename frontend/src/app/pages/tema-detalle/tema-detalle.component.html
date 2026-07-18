@@ -395,11 +395,13 @@
               </button>
             </form>
 
-            <!-- Offline related citations from last step (semantic-search) -->
+            <!-- Offline related citations from last step (quality-gated) -->
             <app-related-units-panel
               *ngIf="relatedSeedStep"
               [seedStep]="relatedSeedStep"
               [showAdd]="true"
+              variant="passage"
+              [hideWhenEmpty]="true"
               heading="Pasajes relacionados"
               (addCitation)="addRelatedCitation($event)"
             ></app-related-units-panel>

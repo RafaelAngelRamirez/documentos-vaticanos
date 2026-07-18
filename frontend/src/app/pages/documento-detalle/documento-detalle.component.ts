@@ -9,7 +9,8 @@ import {
   catalogDisplayFor,
 } from 'src/app/core/corpus/catalog.display';
 import {
-  localeBadge,
+  localeProvenanceBadge,
+  isAiEdition,
   localeLabel,
 } from 'src/app/core/corpus/document-locale.logic';
 import { NavigationService, ROUTE } from 'src/app/services/navigation.service';
@@ -23,10 +24,12 @@ import {
 } from 'src/app/services/document-toc.logic';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import { HistoricalContextBlockComponent } from 'src/app/components/historical-context-block/historical-context-block.component';
+import { RelatedUnitsPanelComponent } from 'src/app/components/related-units/related-units-panel.component';
 import { SaintRecord } from 'src/app/core/santoral/santoral-resolve.logic';
 import { SantoralService } from 'src/app/core/santoral/santoral.service';
 import { HistoricalContextService } from 'src/app/core/context/historical-context.service';
 import { ResolvedHistoricalContext } from 'src/app/core/context/historical-context.models';
+import { relatedSeedForDocument } from 'src/app/core/search/semantic-search.logic';
 
 const FAVS_KEY = 'dv.favs';
 
@@ -39,6 +42,7 @@ const FAVS_KEY = 'dv.favs';
     RouterModule,
     WbarComponent,
     HistoricalContextBlockComponent,
+    RelatedUnitsPanelComponent,
   ],
   templateUrl: './documento-detalle.component.html',
   styleUrls: ['./documento-detalle.component.css'],
@@ -64,6 +68,8 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
   historicalContext: ResolvedHistoricalContext | null = null;
   /** Ediciones de la misma obra en otros idiomas (incluye la actual). */
   languageEditions: DocumentMeta[] = [];
+  /** Quality-gated seed for cross-pack related units (empty → panel hidden). */
+  relatedSeed = '';
 
   private sub = new Subscription();
 
@@ -144,11 +150,14 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
   }
 
   langLabel(ed: DocumentMeta): string {
-    return localeLabel(ed.locale);
+    const badge = localeProvenanceBadge(ed.locale, isAiEdition(ed));
+    // Full name for accessibility; AI packs show e.g. "English · EN(AI)"
+    const base = localeLabel(ed.locale);
+    return isAiEdition(ed) ? `${base} · ${badge}` : base;
   }
 
   langBadge(ed: DocumentMeta): string {
-    return localeBadge(ed.locale);
+    return localeProvenanceBadge(ed.locale, isAiEdition(ed));
   }
 
   isCurrentLang(ed: DocumentMeta): boolean {
@@ -212,6 +221,7 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     this.siblingWorks = [];
     this.historicalContext = null;
     this.languageEditions = [];
+    this.relatedSeed = '';
     this.sub.add(
       this.corpus.loadManifest().subscribe({
         next: () => {
@@ -241,11 +251,16 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
                   documentId: this.meta!.id,
                   kind: this.meta!.kind,
                 });
+                this.relatedSeed = relatedSeedForDocument(
+                  this.meta!,
+                  loaded.documento || [],
+                );
                 this.loading = false;
               },
               error: () => {
                 // Manifest ok but body failed — still show cover; empty index.
                 this.chapters = [];
+                this.relatedSeed = relatedSeedForDocument(this.meta!, []);
                 this.loading = false;
               },
             })

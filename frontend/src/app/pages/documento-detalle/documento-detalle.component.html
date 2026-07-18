@@ -105,6 +105,17 @@
           </div>
         </div>
 
+        <!-- Relacionados: otras obras del corpus (quality gate; no el pack actual) -->
+        <app-related-units-panel
+          *ngIf="relatedSeed"
+          [seedText]="relatedSeed"
+          [limit]="6"
+          variant="document"
+          [hideWhenEmpty]="true"
+          [excludeDocumentId]="meta!.id"
+          heading="Relacionados"
+        ></app-related-units-panel>
+
         <div class="fs13 muted tc pos" *ngIf="posicionLabel">
           {{ posicionLabel }}
         </div>
@@ -236,6 +247,15 @@
               </a>
             </ng-container>
           </div>
+          <app-related-units-panel
+            *ngIf="relatedSeed"
+            [seedText]="relatedSeed"
+            [limit]="6"
+            variant="document"
+            [hideWhenEmpty]="true"
+            [excludeDocumentId]="meta!.id"
+            heading="Relacionados"
+          ></app-related-units-panel>
         </div>
         <div class="col-side">
           <div class="sect" style="margin-top: 4px">Índice</div>
