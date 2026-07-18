@@ -67,9 +67,17 @@
           {{ posicionLabel }}
         </div>
 
-        <!-- Índice (handoff 2A.html:32-52) -->
+        <!-- Índice (handoff 2A.html:32-52) — jump to unitIndex -->
         <div class="sect" *ngIf="chapters.length">Índice</div>
-        <div class="toc" *ngFor="let c of chapters" (click)="comenzar()">
+        <div
+          class="toc"
+          *ngFor="let c of chapters"
+          role="button"
+          tabindex="0"
+          (click)="openChapter(c)"
+          (keydown.enter)="openChapter(c)"
+          (keydown.space)="$event.preventDefault(); openChapter(c)"
+        >
           <span class="tnum">{{ c.num }}</span>
           <span>{{ c.title }}</span>
         </div>
@@ -154,7 +162,15 @@
         </div>
         <div class="col-side">
           <div class="sect" style="margin-top: 4px">Índice</div>
-          <div class="toc" *ngFor="let c of chapters; let i = index" (click)="comenzar()">
+          <div
+            class="toc"
+            *ngFor="let c of chapters"
+            role="button"
+            tabindex="0"
+            (click)="openChapter(c)"
+            (keydown.enter)="openChapter(c)"
+            (keydown.space)="$event.preventDefault(); openChapter(c)"
+          >
             <span class="tnum">{{ c.num }}</span>
             <span>{{ c.title }}</span>
           </div>

@@ -40,7 +40,8 @@
     "test:apk-javahome": "node scripts/package-apk.javahome.test.js",
     "test:tts": "npm --prefix backend run test:tts",
     "test:narrator-grok": "npm --prefix frontend run test:narrator-grok",
-    "test:speech-prep": "npm --prefix frontend run test:speech-prep"
+    "test:speech-prep": "npm --prefix frontend run test:speech-prep",
+    "test:document-toc": "npm --prefix frontend run test:document-toc"
   },
   "packageManager": "yarn@1.22.22"
 }

@@ -13,6 +13,10 @@ import {
   LastRead,
   ReadingProgressService,
 } from 'src/app/services/reading-progress.service';
+import {
+  buildDocumentToc,
+  TocEntry,
+} from 'src/app/services/document-toc.logic';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 
 const FAVS_KEY = 'dv.favs';
@@ -33,6 +37,11 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
   fav = false;
   loading = true;
   error: string | null = null;
+  /**
+   * Índice de navegación (`.toc`): landmarks from corpus units
+   * (`buildDocumentToc`) with stable `unitIndex` jump targets.
+   */
+  chapters: TocEntry[] = [];
 
   private sub = new Subscription();
 
@@ -102,43 +111,15 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     return this.lecturaEstimada.replace('≈', '≈').replace(' min', ' min narradas').replace(' h', ' h narradas');
   }
 
-  /**
-   * Índice ligero 5C: si el display tiene subtitulo/chapters conocidos usamos
-   * placeholders por documento; si no, lista vacía (el lector es la fuente).
-   */
-  get chapters(): { num: string; title: string }[] {
-    const id = this.meta?.id || '';
-    const known: Record<string, { num: string; title: string }[]> = {
-      'ls-es': [
-        { num: '—', title: 'Introducción' },
-        { num: 'I', title: 'Lo que le está pasando a nuestra casa' },
-        { num: 'II', title: 'El Evangelio de la creación' },
-        { num: 'III', title: 'Raíz humana de la crisis ecológica' },
-        { num: 'IV', title: 'Una ecología integral' },
-        { num: 'V', title: 'Líneas de orientación y acción' },
-        { num: 'VI', title: 'Educación y espiritualidad ecológica' },
-      ],
-      'cic-es': [
-        { num: 'I', title: 'La profesión de la fe' },
-        { num: 'II', title: 'La celebración del misterio cristiano' },
-        { num: 'III', title: 'La vida en Cristo' },
-        { num: 'IV', title: 'La oración cristiana' },
-      ],
-      'dv-es': [
-        { num: 'I', title: 'La revelación misma' },
-        { num: 'II', title: 'La transmisión de la revelación divina' },
-        { num: 'III', title: 'La inspiración e interpretación de la Sagrada Escritura' },
-        { num: 'IV', title: 'El Antiguo Testamento' },
-        { num: 'V', title: 'El Nuevo Testamento' },
-        { num: 'VI', title: 'La Sagrada Escritura en la vida de la Iglesia' },
-      ],
-    };
-    return known[id] || [];
-  }
-
   comenzar(): void {
     const idx = this.puedeContinuar ? this.lastRead!.unitIndex : 0;
     this.irALector(idx);
+  }
+
+  /** Jump from Índice row → reader at that unit (offline, no API). */
+  openChapter(entry: TocEntry): void {
+    if (!entry || typeof entry.unitIndex !== 'number') return;
+    this.irALector(entry.unitIndex);
   }
 
   /** 5C: misma entrada al lector; el narrador se activa en 5D. */
@@ -176,24 +157,42 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
   private cargar(): void {
     this.loading = true;
     this.error = null;
+    this.chapters = [];
     this.sub.add(
       this.corpus.loadManifest().subscribe({
         next: () => {
           this.meta = this.corpus.getMeta(this.docId);
           if (!this.meta) {
             this.error = `Documento no encontrado: ${this.docId}`;
-          } else {
-            this.display = catalogDisplayFor(this.meta.id, this.meta.kind, {
-              author: this.meta.author,
-              compiler: this.meta.compiler,
-              sourceNote: this.meta.sourceNote,
-            });
-            const last = this.progress.getLastRead();
-            this.lastRead =
-              last && last.documentId === this.meta.id ? last : null;
-            this.fav = this.leerFavs().includes(this.meta.id);
+            this.loading = false;
+            return;
           }
-          this.loading = false;
+          this.display = catalogDisplayFor(this.meta.id, this.meta.kind, {
+            author: this.meta.author,
+            compiler: this.meta.compiler,
+            sourceNote: this.meta.sourceNote,
+          });
+          const last = this.progress.getLastRead();
+          this.lastRead =
+            last && last.documentId === this.meta.id ? last : null;
+          this.fav = this.leerFavs().includes(this.meta.id);
+          // Load body offline and build structural / bible / curated TOC.
+          this.sub.add(
+            this.corpus.ensureLoaded(this.meta.id).subscribe({
+              next: (loaded) => {
+                this.chapters = buildDocumentToc(loaded.documento, {
+                  documentId: this.meta!.id,
+                  kind: this.meta!.kind,
+                });
+                this.loading = false;
+              },
+              error: () => {
+                // Manifest ok but body failed — still show cover; empty index.
+                this.chapters = [];
+                this.loading = false;
+              },
+            })
+          );
         },
         error: (err) => {
           this.loading = false;
