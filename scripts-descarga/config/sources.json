@@ -978,7 +978,7 @@
       "seedUrls": [
         "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
       ],
-      "fixturePath": "fixtures/catecismo-romano-la",
+      "fixturePath": "fixtures/catecismo-romano-la/source.txt",
       "expectedUnitCount": 1162,
       "notes": "Latin Roman Catechism via Archive.org DjVuTXT OCR + import_roman_catechism.ts"
     },

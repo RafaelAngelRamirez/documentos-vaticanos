@@ -4,22 +4,28 @@
  * Latin-first (OCR text from Archive.org DjVuTXT is OK):
  *   npx ts-node --transpile-only import_roman_catechism.ts --locale la \
  *     --file ../documentos/magisterium-source/raw/catecismo-romano-la-ocr.txt
+ *   npx ts-node --transpile-only import_roman_catechism.ts --locale la --default-ocr
  *
- * Spanish twin (pre-cleaned / translated plain text):
+ * Spanish twin (labeled dump: "1.1.1\\nbody\\n\\n1.1.2\\n…"):
  *   npx ts-node --transpile-only import_roman_catechism.ts --locale es \
  *     --file ../documentos/magisterium-source/clean/catecismo-romano-es.txt
  *
  * --clean-only: write cleaned Latin text to clean/ without corpus write.
- * --skip-write: parse only (print unit count + sample).
+ * --skip-write: parse only (print unit count + sample); does NOT clobber clean files.
+ * --write-clean: allow rewriting magisterium-source/clean/* (default for --locale la).
  */
 import fs from "fs";
 import path from "path";
 import { writeCorpusDocument } from "./src/pipeline/write_corpus";
 import {
   cleanRomanCatechismOcr,
+  isLabeledUnitDump,
+  labeledUnitsToTransport,
   romanCatechismToUnits,
+  transportToLabeledDump,
 } from "./src/pipeline/roman_catechism_units";
 import type { SourceConfig } from "./src/adapters/types";
+import type { TrasnportData } from "./models/transport_data.model";
 
 const REPO = path.resolve(__dirname, "..");
 const SOURCE_ROOT = path.join(REPO, "documentos", "magisterium-source");
@@ -35,6 +41,10 @@ const AI_NOTE_ES = (laId: string) =>
 const LA_NOTE =
   "Catechismus Romanus ad parochos (Trento / Pío V). Texto latino de dominio público a partir de OCR DjVuTXT de Archive.org (ed. s. XIX). Requiere limpieza mecánica de OCR; no es edición crítica. Fuente: " +
   ARCHIVE_SOURCE;
+
+/** Refuse ES corpus write below this many units (prevents clobbering the twin). */
+const MIN_ES_UNITS = 1000;
+const MIN_LA_UNITS = 50;
 
 function arg(name: string): string | undefined {
   const i = process.argv.indexOf(name);
@@ -52,11 +62,34 @@ function usage(): never {
   import_roman_catechism.ts --locale la --default-ocr
 
 Options:
-  --clean-only     Write cleaned text to magisterium-source/clean/ only
-  --skip-write     Parse only (no corpus write)
-  --min-length N   Min unit length (default 30)
+  --clean-only     Write cleaned Latin text to magisterium-source/clean/ only
+  --skip-write     Parse only (no corpus write; does not overwrite clean/)
+  --write-clean    Rewrite clean/* from this run (default on for --locale la)
+  --min-length N   Min unit body length for PARS parser (default 30; labeled ES uses 0)
+  --force          Allow write even if unit count below safety threshold
 `);
   process.exit(1);
+}
+
+function parseUnits(
+  locale: string,
+  raw: string,
+  minLength: number,
+): { units: TrasnportData[]; mode: string; textForClean: string } {
+  // Prefer labeled dump whenever the file looks like consecutivo blocks
+  // (Spanish twins, or any re-export of content.json).
+  if (locale === "es" || isLabeledUnitDump(raw)) {
+    const units = labeledUnitsToTransport(raw, { minLength: 0 });
+    return {
+      units,
+      mode: "labeled-dump",
+      textForClean: transportToLabeledDump(units),
+    };
+  }
+
+  const cleaned = cleanRomanCatechismOcr(raw);
+  const units = romanCatechismToUnits(cleaned, { minLength });
+  return { units, mode: "pars-caput-ocr", textForClean: cleaned };
 }
 
 function main(): void {
@@ -77,39 +110,59 @@ function main(): void {
   }
 
   const raw = fs.readFileSync(abs, "utf8");
-  const cleaned =
-    locale === "la" || hasFlag("--force-clean")
-      ? cleanRomanCatechismOcr(raw)
-      : raw;
-
-  fs.mkdirSync(CLEAN_DIR, { recursive: true });
-  const cleanOut = path.join(
-    CLEAN_DIR,
-    locale === "la" ? "catecismo-romano-la.txt" : "catecismo-romano-es.txt",
-  );
-  fs.writeFileSync(cleanOut, cleaned, "utf8");
-  console.log(`[✓] cleaned → ${cleanOut} (${cleaned.length} chars)`);
-
-  if (hasFlag("--clean-only")) {
-    console.log("[i] clean-only; skip units/corpus");
-    return;
-  }
-
   const minLength = parseInt(arg("--min-length") ?? "30", 10) || 30;
-  const units = romanCatechismToUnits(cleaned, { minLength });
+  const { units, mode, textForClean } = parseUnits(locale, raw, minLength);
+
+  console.log(`[i] parse mode: ${mode}`);
   console.log(`[+] units: ${units.length}`);
   if (units.length) {
-    console.log(`[i] first: ${units[0].consecutivo} ${units[0].contenido.slice(0, 100)}…`);
+    console.log(
+      `[i] first: ${units[0].consecutivo} ${units[0].contenido.slice(0, 100)}…`,
+    );
     console.log(
       `[i] last:  ${units[units.length - 1].consecutivo} ${units[units.length - 1].contenido.slice(0, 80)}…`,
     );
   }
 
-  if (units.length < 50) {
+  // Hierarchical ids must not be synthetic "uN" for ES regenerable path
+  if (locale === "es" || mode === "labeled-dump") {
+    const bogus = units.filter((u) => /^u\d+$/i.test(u.consecutivo)).length;
+    if (bogus > 0) {
+      console.error(
+        `[!] ${bogus} synthetic uN ids — labeled dump parse failed; refuse write`,
+      );
+      if (!hasFlag("--force")) process.exit(2);
+    }
+  }
+
+  const minSafe = locale === "es" ? MIN_ES_UNITS : MIN_LA_UNITS;
+  if (units.length < minSafe) {
     console.error(
-      `[!] Too few units (${units.length}); refuse write (use --skip-write to inspect).`,
+      `[!] Too few units (${units.length} < ${minSafe}); refuse write (use --force to override, --skip-write to inspect).`,
     );
     if (!hasFlag("--skip-write") && !hasFlag("--force")) process.exit(2);
+  }
+
+  const wantCleanWrite =
+    hasFlag("--write-clean") ||
+    hasFlag("--clean-only") ||
+    (locale === "la" && mode === "pars-caput-ocr" && !hasFlag("--skip-write"));
+
+  if (wantCleanWrite) {
+    fs.mkdirSync(CLEAN_DIR, { recursive: true });
+    const cleanOut = path.join(
+      CLEAN_DIR,
+      locale === "la" ? "catecismo-romano-la.txt" : "catecismo-romano-es.txt",
+    );
+    fs.writeFileSync(cleanOut, textForClean, "utf8");
+    console.log(`[✓] cleaned → ${cleanOut} (${textForClean.length} chars)`);
+  } else if (hasFlag("--skip-write")) {
+    console.log("[i] skip-write: not rewriting clean/ files");
+  }
+
+  if (hasFlag("--clean-only")) {
+    console.log("[i] clean-only; skip corpus write");
+    return;
   }
 
   if (hasFlag("--skip-write")) {

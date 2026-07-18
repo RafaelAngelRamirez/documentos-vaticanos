@@ -4,7 +4,10 @@
  */
 import {
   cleanRomanCatechismOcr,
+  isLabeledUnitDump,
+  labeledUnitsToTransport,
   romanCatechismToUnits,
+  transportToLabeledDump,
 } from "./src/pipeline/roman_catechism_units";
 
 function assert(cond: unknown, msg: string): void {
@@ -79,6 +82,58 @@ Sed quoniam in divinis litteris multiplex est Fidei significatio et longa explic
     units.some((u) => u.consecutivo.startsWith("1.1")),
     "part.chapter section from OCR",
   );
+}
+
+// Labeled dump (Spanish regenerable path)
+{
+  const dump = `1.1.1
+Qué sea la Fe en este lugar y su necesidad para la salvación. Texto de estudio.
+
+1.1.2
+Cuándo y por qué causa fueron transmitidos los doce artículos.
+
+2.1.1
+De los Sacramentos en general.
+`;
+  assert(isLabeledUnitDump(dump) === true, "detect labeled dump");
+  const units = labeledUnitsToTransport(dump);
+  assert(units.length === 3, `labeled 3 units got ${units.length}`);
+  assert(units[0].consecutivo === "1.1.1", "first id 1.1.1");
+  assert(units[1].consecutivo === "1.1.2", "second id");
+  assert(units[2].consecutivo === "2.1.1", "third id");
+  assert(/Fe/.test(units[0].contenido), "body kept");
+  assert(!/^u\d+$/.test(units[0].consecutivo), "not synthetic uN");
+
+  const round = labeledUnitsToTransport(transportToLabeledDump(units));
+  assert(round.length === 3, "round-trip count");
+  assert(round[0].consecutivo === "1.1.1", "round-trip id");
+}
+
+// Real clean ES file when present (shipped path)
+{
+  const fs = require("fs") as typeof import("fs");
+  const path = require("path") as typeof import("path");
+  const esClean = path.resolve(
+    __dirname,
+    "../documentos/magisterium-source/clean/catecismo-romano-es.txt",
+  );
+  if (fs.existsSync(esClean)) {
+    const raw = fs.readFileSync(esClean, "utf8");
+    assert(isLabeledUnitDump(raw), "shipped ES clean is labeled dump");
+    const units = labeledUnitsToTransport(raw, { minLength: 0 });
+    assert(
+      units.length >= 1000,
+      `shipped ES clean yields >=1000 units, got ${units.length}`,
+    );
+    assert(
+      units.every((u) => !/^u\d+$/i.test(u.consecutivo)),
+      "no synthetic uN ids in shipped ES dump",
+    );
+    assert(
+      units.some((u) => u.consecutivo === "1.1.1"),
+      "contains 1.1.1",
+    );
+  }
 }
 
 console.log("OK: roman_catechism_units.test.ts passed");

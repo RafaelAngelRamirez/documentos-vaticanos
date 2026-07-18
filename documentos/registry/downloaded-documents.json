@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-18T17:03:00.737Z",
+  "updatedAt": "2026-07-18T17:12:08.691Z",
   "documents": [
     {
       "id": "aa-es",
@@ -954,7 +954,7 @@
         "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
       ],
       "firstDownloadedAt": "2026-07-18T17:03:00.737Z",
-      "lastDownloadedAt": "2026-07-18T17:03:00.737Z",
+      "lastDownloadedAt": "2026-07-18T17:12:08.691Z",
       "unitCount": 1162,
       "status": "active",
       "corpusPaths": {
@@ -2765,7 +2765,7 @@
         "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html"
       ],
       "firstDownloadedAt": "2026-07-18T16:10:09.748Z",
-      "lastDownloadedAt": "2026-07-18T16:10:09.748Z",
+      "lastDownloadedAt": "2026-07-18T17:12:07.154Z",
       "unitCount": 96,
       "status": "active",
       "corpusPaths": {
@@ -2773,7 +2773,7 @@
         "index": "documents/quanta-cura-la/index.json",
         "meta": "documents/quanta-cura-la/meta.json"
       },
-      "notes": "Latin official text from vatican.va."
+      "notes": "Latin official text from vatican.va UTF-8."
     },
     {
       "id": "quas-primas-es",

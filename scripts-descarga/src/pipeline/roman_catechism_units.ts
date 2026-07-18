@@ -284,3 +284,86 @@ function splitLong(text: string, max: number): string[] {
   if (rest) out.push(rest);
   return out;
 }
+
+/**
+ * Labeled unit dump format used for Spanish twins and re-import:
+ *
+ *   1.1.1
+ *   body paragraph…
+ *
+ *   1.1.2
+ *   next body…
+ *
+ * Consecutivo is a lone line matching hierarchical ids (digits/dots/~pref).
+ * This is the regenerable ES path — do NOT re-run PARS/CAPUT OCR parsing on it.
+ */
+const LABELED_ID_RE =
+  /^(?:pref\.\d+|u\d+(?:\.\d+)?|[\d]+(?:\.[\d]+)*(?:~\d+)?)$/i;
+
+export function isLabeledUnitDump(text: string): boolean {
+  const lines = text.replace(/\r\n/g, "\n").split("\n");
+  let labeled = 0;
+  let checked = 0;
+  for (const line of lines) {
+    const t = line.trim();
+    if (!t) continue;
+    checked++;
+    if (LABELED_ID_RE.test(t)) labeled++;
+    if (checked >= 40) break;
+  }
+  // ES dumps start with many consecutivo lines among first content lines
+  return labeled >= 3 && labeled / Math.max(checked, 1) >= 0.15;
+}
+
+export function labeledUnitsToTransport(
+  text: string,
+  options: { minLength?: number } = {},
+): TrasnportData[] {
+  const minLength = options.minLength ?? 0;
+  const lines = text.replace(/\r\n/g, "\n").split("\n");
+  const units: TrasnportData[] = [];
+  let currentId: string | null = null;
+  let buf: string[] = [];
+
+  const flush = () => {
+    if (!currentId) {
+      buf = [];
+      return;
+    }
+    const contenido = buf.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+    if (contenido.length >= minLength || minLength === 0) {
+      // Keep empty-ish only if minLength 0 (caller may fill later)
+      units.push({
+        consecutivo: currentId,
+        contenido,
+        referencias: [],
+      });
+    }
+    currentId = null;
+    buf = [];
+  };
+
+  for (const line of lines) {
+    const t = line.trimEnd();
+    const id = t.trim();
+    if (LABELED_ID_RE.test(id) && !id.includes(" ")) {
+      // New unit id line
+      flush();
+      currentId = id;
+      continue;
+    }
+    if (currentId != null) {
+      buf.push(t);
+    }
+  }
+  flush();
+  return units;
+}
+
+/** Serialize units back to labeled dump (for clean/*-es.txt). */
+export function transportToLabeledDump(units: TrasnportData[]): string {
+  return units
+    .map((u) => `${u.consecutivo}\n${(u.contenido || "").trim()}`)
+    .join("\n\n")
+    .trim() + "\n";
+}
