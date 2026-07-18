@@ -521,22 +521,71 @@ function matchCatalog(raw: string, ctx: ClassifierContext): CatalogHint | null {
   return best;
 }
 
+/**
+ * Bible-like only when a real book alias resolves after light punctuation
+ * normalization. Never use a loose CODE n,m regex alone — that mislabels
+ * "GS 67,3", "can. 443,4", "Sermo 1,2", "Ibíd. 5,20,1" as bible.
+ */
 function isBibleLikeUnresolved(raw: string, ctx: ClassifierContext): boolean {
-  // "Mt., 18,20" / "Ef., 4,16" / "1 Cor, 15,28" — parser fails on trailing dots/commas
   const stripped = raw
-    .replace(/^(?:cf\.?|v[eé]ase)\s+/i, "")
+    .replace(/^(?:cf\.?|v[eé]ase|tambi[eé]n)\s+/i, "")
     .trim();
-  // Try normalizing commas after abbreviations
+  if (!stripped) return false;
+
+  // Hard exclusions: non-biblical citation families
+  if (
+    /^(?:ib[ií]d\.?|ibid\.?)\b/i.test(stripped) ||
+    /\bcans?\.?\s*\d/i.test(stripped) ||
+    /\bCIC\b.*\bcans?\.?\b/i.test(stripped) ||
+    /\b(?:sermo|oratio|epistula|didach|csel|pl\s*\d|pg\s*\d)\b/i.test(
+      stripped,
+    ) ||
+    /\bDS\b/.test(stripped)
+  ) {
+    return false;
+  }
+
+  // ALL-CAPS / known ecclesial token + number → not bible (GS 67,3; DV 11)
+  const magLead = stripped.match(
+    /^([A-Za-zÁÉÍÓÚáéíóúÜüñÑ.]{1,12})\s+\d/i,
+  );
+  if (magLead) {
+    const token = magLead[1].replace(/\./g, "");
+    const letters = token.replace(/[^A-Za-z]/g, "");
+    if (
+      letters.length >= 2 &&
+      letters === letters.toUpperCase() &&
+      (ctx.docIndex.get(token.toUpperCase()) ||
+        ctx.docIndex.get(normalizeAbbr(token)))
+    ) {
+      return false;
+    }
+    // Extra magisterial codes not yet in doc-codes
+    for (const extra of EXTRA_MAGISTERIAL_CODES) {
+      if (extra.re.test(token) || extra.re.test(stripped)) return false;
+    }
+  }
+
+  // Normalize "Mt., 18,20" / "Ef., 4,16" / "1 Cor, 15,28"
   const relaxed = stripped
     .replace(/\b([1-3]?\s*[A-Za-zÁÉÍÓÚáéíóúñÑ]{1,12})\.\s*,/g, "$1 ")
     .replace(/\b([1-3]?\s*[A-Za-zÁÉÍÓÚáéíóúñÑ]{1,12})\.,/g, "$1 ")
-    .replace(/\b([1-3]?\s*[A-Za-zÁÉÍÓÚáéíóúñÑ]{1,12}),\s+(\d)/g, "$1 $2");
-  if (parseBibleCitation(relaxed, ctx.bookIndex)) return true;
-  if (parseBibleCitation(stripped.replace(/\./g, ""), ctx.bookIndex)) return true;
-  // Pattern: optional number + book letters + chapter,verse
-  return /^(?:cf\.?\s*)?[1-3]?\s*[A-Za-zÁÉÍÓÚáéíóúñÑ.]{1,12}\s*,?\s*\d{1,3}\s*[,:]\s*\d/i.test(
-    stripped,
+    .replace(/\b([1-3]?\s*[A-Za-zÁÉÍÓÚáéíóúñÑ]{1,12}),\s+(\d)/g, "$1 $2")
+    .replace(/,\s*(?=\d)/g, ","); // keep chapter,verse form for parser
+
+  // Also try "Mt 18,20" (drop trailing dots on abbr only)
+  const noDotAbbr = stripped.replace(
+    /\b([1-3]?\s*[A-Za-zÁÉÍÓÚáéíóúñÑ]{1,12})\.(?=\s|,)/g,
+    "$1",
   );
+
+  if (parseBibleCitation(relaxed, ctx.bookIndex)) return true;
+  if (parseBibleCitation(noDotAbbr, ctx.bookIndex)) return true;
+  if (parseBibleCitation(stripped.replace(/\./g, " "), ctx.bookIndex)) {
+    return true;
+  }
+  // Require a real book match — no bare CODE n,m fallback
+  return false;
 }
 
 function looksLikeDocumentTitle(raw: string): boolean {
@@ -668,12 +717,15 @@ export function classifyUnlinkedRef(
     };
   }
 
-  // Quoted prose / slogan fragments (not navigable document ids)
+  // Quoted prose / slogan fragments (ASCII + curly U+201C/U+201D/U+2018/U+2019)
+  const openQuote = /^[\u0022\u00AB\u201C\u2018\u201E\u201A„«]/u;
+  const anyQuote = /[\u0022\u00AB\u00BB\u201C\u201D\u2018\u2019\u201E]/u;
   if (
-    /^["«"„]/.test(t) ||
-    (/["»"]/.test(t) && t.length > 40 && !/\bDS\b|\bCIC\b|\bcan\./i.test(t))
+    openQuote.test(t) ||
+    (anyQuote.test(t) &&
+      t.length > 40 &&
+      !/\bDS\b|\bCIC\b|\bcans?\.?/i.test(t))
   ) {
-    // Embedded bible after colon may still be bible-like; prefer prose if quote-led
     return {
       raw: original,
       class: "prose-noise",
@@ -687,7 +739,9 @@ export function classifyUnlinkedRef(
   // Long prose without citation-like structure
   if (
     t.length > 90 &&
-    !/\bDS\b|\bCIC\b|\bcan\.|Concilio|Congregaci[oó]n|San[toa]?\s/i.test(t) &&
+    !/\bDS\b|\bCIC\b|\bcans?\.?|Concilio|Congregaci[oó]n|San[toa]?\s/i.test(
+      t,
+    ) &&
     !/\b[A-Z]{2,5}\s+\d/.test(t)
   ) {
     return {
@@ -700,21 +754,38 @@ export function classifyUnlinkedRef(
     };
   }
 
-  // --- Bible unresolved (punctuation variants) ---
-  if (isBibleLikeUnresolved(t, ctx)) {
-    const bibleId = "bible-pueblo-de-dios-es";
+  // Ibid. with optional internal locators (not a document target)
+  if (/^(?:ib[ií]d\.?|ibid\.?)\b/i.test(t.replace(/^(?:cf\.?\s*)/i, ""))) {
     return {
       raw: original,
-      class: "bible-unresolved",
-      status: ctx.corpusDocIds.has(bibleId)
-        ? "in-corpus"
-        : "needs-vatican.va-download",
+      class: "structural-noise",
+      status: "noise/non-document",
+      proposedTarget: null,
+      notes: "ibidem with optional locator",
+      parserKind,
+    };
+  }
+
+  // --- Canon law BEFORE bible/ecclesial CIC: can. / cans. → CDC ---
+  if (
+    /\bCIC\b.*\bcans?\.?\b/i.test(t) ||
+    /\bcans?\.?\s*\d/i.test(t) ||
+    /\bCDC\b/i.test(t) ||
+    /\bc[oó]digo\s+de\s+derecho\s+can[oó]nico\b/i.test(t)
+  ) {
+    const entry = lookupCode("CDC", ctx);
+    const corpusDocId = entry?.corpusDocId ?? "cdc-es";
+    const loc = t.match(/cans?\.?\s*(\d+)/i);
+    return {
+      raw: original,
+      class: "canon-law",
+      status: statusForCorpusId(corpusDocId, ctx, Boolean(loc)),
       proposedTarget: {
-        code: "BIBLIA",
-        corpusDocId: bibleId,
-        title: "Biblia (Pueblo de Dios)",
+        code: "CDC",
+        corpusDocId,
+        title: entry?.title ?? "Código de Derecho Canónico",
       },
-      notes: "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      notes: "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       parserKind,
     };
   }
@@ -725,7 +796,6 @@ export function classifyUnlinkedRef(
     const entry = lookupCode("DS", ctx);
     const corpusDocId = entry?.corpusDocId ?? "ds-es";
     const hasLoc = Boolean(dsMatch?.[1]);
-    // Prefer conciliar class when "Concilio de X: DS n" dominates
     if (/\bconcilio\b/i.test(t) && !/^\s*cf\.?\s*DS\b/i.test(t)) {
       const council = classifyCouncil(t, ctx, parserKind);
       if (council) {
@@ -759,32 +829,20 @@ export function classifyUnlinkedRef(
     };
   }
 
-  // --- Canon law: CIC can. N / can. N (Código, not Catechism) ---
-  if (
-    /\bCIC\b.*\bcan\.?\b/i.test(t) ||
-    /\bcan\.?\s*\d/i.test(t) ||
-    /\bCDC\b/i.test(t) ||
-    /\bc[oó]digo\s+de\s+derecho\s+can[oó]nico\b/i.test(t)
-  ) {
-    const entry = lookupCode("CDC", ctx);
-    const corpusDocId = entry?.corpusDocId ?? "cdc-es";
-    const loc = t.match(/can\.?\s*(\d+)/i);
-    return {
-      raw: original,
-      class: "canon-law",
-      status: statusForCorpusId(corpusDocId, ctx, Boolean(loc)),
-      proposedTarget: {
-        code: "CDC",
-        corpusDocId,
-        title: entry?.title ?? "Código de Derecho Canónico",
-      },
-      notes: "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
-      parserKind,
-    };
+  // --- Known magisterial codes via ecclesial parser (before bible) ---
+  // Handles "GS 67", "GS 67,3" / "GS 67, 2" (locator = first number)
+  const eccRaw = t.replace(/^(?:cf\.?|v[eé]ase|tambi[eé]n)\s+/i, "").trim();
+  // Normalize subsection comma so "GS 67,3" → try "GS 67" for code match
+  const eccTry = [
+    t,
+    eccRaw,
+    eccRaw.replace(/^([A-ZÁÉÍÓÚÑ]{2,8})\s+(\d{1,5})\s*,\s*\d+/i, "$1 $2"),
+  ];
+  let ecc = null as ReturnType<typeof parseEcclesialCitation>;
+  for (const candidate of eccTry) {
+    ecc = parseEcclesialCitation(candidate, ctx.docIndex);
+    if (ecc) break;
   }
-
-  // --- Known magisterial codes via ecclesial parser ---
-  const ecc = parseEcclesialCitation(t, ctx.docIndex);
   if (ecc) {
     const corpusDocId = ecc.corpusDocId ?? null;
     const hasLoc = Boolean(ecc.locator);
@@ -966,41 +1024,42 @@ export function classifyUnlinkedRef(
     };
   }
 
-  // --- Patristic ---
+  // --- Patristic: always try PATRISTIC_HINTS first (even without "San ") ---
+  for (const h of PATRISTIC_HINTS) {
+    if (!h.re.test(t)) continue;
+    const inPack =
+      h.corpusDocId != null && ctx.corpusDocIds.has(h.corpusDocId);
+    return {
+      raw: original,
+      class: "patristic",
+      status: inPack
+        ? "in-corpus"
+        : h.corpusDocId
+          ? "needs-vatican.va-download"
+          : "not-in-corpus",
+      proposedTarget: {
+        code: null,
+        corpusDocId: h.corpusDocId,
+        title: h.title,
+      },
+      notes: inPack
+        ? "patristic work present in corpus (locator may still be hard)"
+        : "patristic work not in pack or only partial",
+      parserKind,
+    };
+  }
   if (
     /\bsan[toa]?\s+/i.test(t) ||
     /\bepistula\b/i.test(t) ||
     /\badversus\b/i.test(t) ||
     /\bsermo\b/i.test(t) ||
     /\boratio\b/i.test(t) ||
-    /\btertuliano\b|\bireneo\b|\bhip[oó]lito\b|\bignacio\b|\bagust[ií]n\b|\baugustin/i.test(
+    /\bdidach/i.test(t) ||
+    /\bcsel\b/i.test(t) ||
+    /\btertuliano\b|\bireneo\b|\bhip[oó]lito\b|\bignacio\b|\bagust[ií]n\b|\baugustin|\bclemente\b|\bcipriano\b|\bdiogneto\b/i.test(
       t,
     )
   ) {
-    for (const h of PATRISTIC_HINTS) {
-      if (h.re.test(t)) {
-        const inPack =
-          h.corpusDocId != null && ctx.corpusDocIds.has(h.corpusDocId);
-        return {
-          raw: original,
-          class: "patristic",
-          status: inPack
-            ? "in-corpus"
-            : h.corpusDocId
-              ? "needs-vatican.va-download"
-              : "not-in-corpus",
-          proposedTarget: {
-            code: null,
-            corpusDocId: h.corpusDocId,
-            title: h.title,
-          },
-          notes: inPack
-            ? "patristic work present in corpus (locator may still be hard)"
-            : "patristic work not in pack or only partial",
-          parserKind,
-        };
-      }
-    }
     return {
       raw: original,
       class: "patristic",
@@ -1107,6 +1166,26 @@ export function classifyUnlinkedRef(
         title: "Credo del Pueblo de Dios (Pablo VI)",
       },
       notes: "1968 profession of faith",
+      parserKind,
+    };
+  }
+
+  // --- Bible unresolved LAST among real citation families ---
+  // Only when a real book alias matches after punctuation normalize.
+  if (isBibleLikeUnresolved(t, ctx)) {
+    const bibleId = "bible-pueblo-de-dios-es";
+    return {
+      raw: original,
+      class: "bible-unresolved",
+      status: ctx.corpusDocIds.has(bibleId)
+        ? "in-corpus"
+        : "needs-vatican.va-download",
+      proposedTarget: {
+        code: "BIBLIA",
+        corpusDocId: bibleId,
+        title: "Biblia (Pueblo de Dios)",
+      },
+      notes: "bible-like; basic parser missed punctuation (abbr., ch,v)",
       parserKind,
     };
   }

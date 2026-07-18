@@ -27,10 +27,12 @@ const corpusDocIds = [
   "ds-es",
   "cdc-es",
   "lg-es",
+  "gs-es",
   "ct-es",
   "agustin-02-confesiones-es",
   "agustin-05-de-trinitate-es",
   "agustin-16-ciudad-de-dios-1-es",
+  "clemente-alejandria-pedagogo-es",
   "trento-la",
   "lateran-iv-la",
   "florencia-la",
@@ -240,6 +242,86 @@ assert(
   );
   assert(r.status === "noise/non-document", "quoted prose noise");
   assert(r.class === "prose-noise", "quoted prose class");
+}
+
+// Curly quotes (U+201C/U+201D) must be noise, never needs-download
+{
+  const r = classifyUnlinkedRef(
+    "\u201Cel Se\u00f1or os habl\u00f3 cara a cara en la monta\u00f1a, en medio del fuego\u201D: Dt 5, 4",
+    ctx,
+  );
+  assert(r.status === "noise/non-document", "curly quote noise status");
+  assert(r.class === "prose-noise", "curly quote prose class");
+  assert(r.proposedTarget?.code !== "BIBLIA", "curly quote not BIBLIA");
+}
+
+// Subsection-form magisterial: GS 67,3 / GS 67, 2 — NOT bible
+{
+  for (const s of ["GS 67,3", "GS 67, 2", "cf. GS 67,3"]) {
+    const r = classifyUnlinkedRef(s, ctx);
+    assert(r.class !== "bible-unresolved", `${s} not bible class`);
+    assert(r.proposedTarget?.code !== "BIBLIA", `${s} not BIBLIA target`);
+    assert(r.class === "magisterial-code", `${s} magisterial-code`);
+    assert(r.proposedTarget?.code === "GS", `${s} code GS`);
+    assert(r.proposedTarget?.corpusDocId === "gs-es", `${s} gs-es`);
+    assert(r.status === "in-corpus", `${s} in-corpus`);
+  }
+}
+
+// can. N,M and cans. plural → CDC, not bible / not catechism CIC
+{
+  const r = classifyUnlinkedRef("can. 443,4", ctx);
+  assert(r.class === "canon-law", "can. 443,4 canon-law");
+  assert(r.class !== "bible-unresolved", "can. not bible");
+  assert(r.proposedTarget?.code === "CDC", "can. → CDC");
+  assert(r.status === "in-corpus", "can. cdc in corpus");
+}
+{
+  const r = classifyUnlinkedRef("cf CIC, cans. 916-917", ctx);
+  assert(r.class === "canon-law", "cans. canon-law");
+  assert(r.proposedTarget?.code === "CDC", "cans. → CDC not CIC catechism");
+  assert(r.proposedTarget?.corpusDocId === "cdc-es", "cans. cdc-es");
+  assert(r.status === "in-corpus", "cans. in-corpus");
+}
+
+// Sermo / Didaché / Epistula forms — NOT bible
+{
+  for (const s of [
+    "Sermo 1,2",
+    "Didaché 8,2",
+    "Epistula ad Smyrnaeos 8,1",
+    "Oratio 1",
+  ]) {
+    const r = classifyUnlinkedRef(s, ctx);
+    assert(r.class !== "bible-unresolved", `${s} not bible`);
+    assert(r.proposedTarget?.code !== "BIBLIA", `${s} not BIBLIA`);
+    assert(
+      r.class === "patristic" || r.class === "unresolved-abbr" || r.class === "unknown",
+      `${s} not mislabeled bible (got ${r.class})`,
+    );
+  }
+}
+
+// Ibíd. with locator → noise, not bible
+{
+  const r = classifyUnlinkedRef("Ibíd. 5,20,1", ctx);
+  assert(r.status === "noise/non-document", "Ibíd. locator noise");
+  assert(r.class !== "bible-unresolved", "Ibíd. not bible");
+  assert(r.proposedTarget?.code !== "BIBLIA", "Ibíd. not BIBLIA");
+}
+
+// Clemente / Paedagogus without "San" → patristic + in-corpus
+{
+  const r = classifyUnlinkedRef(
+    "Clemente de Alejandría, Paedagogus 1, 6, 42",
+    ctx,
+  );
+  assert(r.class === "patristic", "clemente patristic");
+  assert(r.status === "in-corpus", "clemente pedagogo in corpus");
+  assert(
+    r.proposedTarget?.corpusDocId === "clemente-alejandria-pedagogo-es",
+    "clemente corpus id",
+  );
 }
 
 // tallyClassifications

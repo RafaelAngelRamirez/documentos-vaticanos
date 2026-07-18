@@ -1,37 +1,37 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-18T15:28:13.513Z",
+  "generatedAt": "2026-07-18T15:35:37.883Z",
   "description": "Worksheet of unlinked inter-document references: citations without ref.local after basic resolve:refs (book-codes + doc-codes). Clusters by normalized description with semantic class and corpus vs vatican.va download status.",
   "source": "documentos/corpus (manifest + documents/**/content.json)",
   "counts": {
     "unlinkedRefOccurrences": 1862,
     "clusters": 1616,
     "byStatus": {
-      "noise/non-document": 753,
-      "in-corpus": 490,
-      "not-in-corpus": 372,
-      "needs-vatican.va-download": 239,
-      "known-code-missing-locator": 8
+      "noise/non-document": 780,
+      "in-corpus": 460,
+      "not-in-corpus": 387,
+      "needs-vatican.va-download": 228,
+      "known-code-missing-locator": 7
     },
     "byClass": {
       "year-noise": 164,
-      "fragment-noise": 323,
+      "fragment-noise": 315,
+      "structural-noise": 95,
       "date-noise": 57,
-      "structural-noise": 69,
-      "magisterial-code": 47,
-      "ds-style": 132,
-      "canon-law": 113,
-      "liturgical": 47,
-      "bible-unresolved": 127,
+      "magisterial-code": 50,
+      "ds-style": 125,
+      "canon-law": 121,
+      "liturgical": 48,
+      "bible-unresolved": 89,
       "scholastic": 49,
       "roman-catechism": 23,
-      "unknown": 230,
-      "patristic": 246,
-      "magisterial-free-title": 32,
+      "unknown": 209,
+      "patristic": 271,
+      "magisterial-free-title": 31,
       "conciliar": 28,
       "curial": 27,
-      "prose-noise": 140,
-      "unresolved-abbr": 8
+      "prose-noise": 149,
+      "unresolved-abbr": 11
     },
     "bySourceDocument": {
       "cic-es": 1354,
@@ -434,10 +434,10 @@
       "clusterKey": "ibid.",
       "raw": "cf. ibíd.",
       "frequency": 7,
-      "class": "fragment-noise",
+      "class": "structural-noise",
       "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "short non-numeric fragment",
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -987,7 +987,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -2154,7 +2154,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -2225,14 +2225,14 @@
       "clusterKey": "gs 67, 3",
       "raw": "cf GS 67, 3",
       "frequency": 2,
-      "class": "bible-unresolved",
+      "class": "magisterial-code",
       "status": "in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": "GS",
+        "corpusDocId": "gs-es",
+        "title": "Gaudium et spes"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "code GS locator 67",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -2336,7 +2336,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -2492,7 +2492,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -2518,7 +2518,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -2544,7 +2544,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -3129,10 +3129,10 @@
       "clusterKey": "ese amor benigno que llamamos “misericordia”",
       "raw": "también ese amor benigno que llamamos “misericordia”",
       "frequency": 2,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "prose-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "quoted prose / slogan fragment",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -3629,14 +3629,10 @@
       "clusterKey": "“el senor os hablo cara a cara en la montana, en medio del fuego”: dt 5, 4",
       "raw": "“el Señor os habló cara a cara en la montaña, en medio del fuego”: Dt 5, 4",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
-      "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "“el Señor os habló cara a cara en la montaña, en medio del fuego”: Dt 5, 4"
-      },
-      "notes": "title-like string without catalog match",
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "quoted prose / slogan fragment",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -3650,10 +3646,10 @@
       "clusterKey": "“el senor, nuestro dios, establecio con nosotros una alianza en horeb”: dt 5, 2",
       "raw": "“el Señor, nuestro Dios, estableció con nosotros una alianza en Horeb”: Dt 5, 2",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "prose-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "quoted prose / slogan fragment",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -4027,7 +4023,7 @@
       "class": "prose-noise",
       "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "long prose without document locator",
+      "notes": "quoted prose / slogan fragment",
       "parserKind": "unresolved+unresolved+noise+unresolved",
       "sources": [
         {
@@ -4041,10 +4037,10 @@
       "clusterKey": "“padre... no mi voluntad, sino la tuya”: lc 22, 42",
       "raw": "“Padre... no mi voluntad, sino la tuya”: Lc 22, 42",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "prose-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "quoted prose / slogan fragment",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -4228,10 +4224,10 @@
       "clusterKey": "“senor, ensenanos a orar”: lc 11, 1",
       "raw": "“Señor, enséñanos a orar”: Lc 11, 1",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "prose-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "quoted prose / slogan fragment",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -4279,10 +4275,10 @@
       "clusterKey": "“tu”",
       "raw": "“tú”",
       "frequency": 1,
-      "class": "fragment-noise",
+      "class": "prose-noise",
       "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "short non-numeric fragment",
+      "notes": "quoted prose / slogan fragment",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -4415,14 +4411,10 @@
       "clusterKey": "“yo soy el senor...”",
       "raw": "“Yo soy el Señor...”",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
-      "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "“Yo soy el Señor...”"
-      },
-      "notes": "title-like string without catalog match",
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "quoted prose / slogan fragment",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -4915,14 +4907,10 @@
       "clusterKey": "1 io 4,8",
       "raw": "1 Io 4,8",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -8776,10 +8764,14 @@
       "clusterKey": "asi en el «supplices te rogamus...» [«te pedimos humildemente...»] del canon romano o el «in paradisum deducant te angeli...» [«al paraiso te lleven los angeles...»] de la liturgia de difuntos, o tambien en el \"himno querubico\" de la liturgia bizantina",
       "raw": "así en el «Supplices te rogamus...» [«Te pedimos humildemente...»] del Canon romano o el «In Paradisum deducant te angeli...» [«Al Paraíso te lleven los ángeles...»] de la liturgia de difuntos, o también en el \"himno querúbico\" de la liturgia bizantina",
       "frequency": 1,
-      "class": "prose-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "quoted prose / slogan fragment",
+      "class": "liturgical",
+      "status": "not-in-corpus",
+      "proposedTarget": {
+        "code": null,
+        "corpusDocId": null,
+        "title": "Libros litúrgicos (Misal / Pontifical / Liturgia)"
+      },
+      "notes": "liturgical book — not in reading corpus; not vatican.va HTML pack target by default",
       "parserKind": "noise",
       "sources": [
         {
@@ -8944,7 +8936,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -8958,14 +8950,14 @@
       "clusterKey": "can. 443, 4",
       "raw": "can. 443, 4",
       "frequency": 1,
-      "class": "bible-unresolved",
+      "class": "canon-law",
       "status": "in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": "CDC",
+        "corpusDocId": "cdc-es",
+        "title": "Código de Derecho Canónico"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -8979,14 +8971,14 @@
       "clusterKey": "can. 463, 1 y 2",
       "raw": "can. 463, 1 y 2",
       "frequency": 1,
-      "class": "bible-unresolved",
+      "class": "canon-law",
       "status": "in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": "CDC",
+        "corpusDocId": "cdc-es",
+        "title": "Código de Derecho Canónico"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -9000,14 +8992,14 @@
       "clusterKey": "can. 492, 1; 536",
       "raw": "can. 492, 1; 536",
       "frequency": 1,
-      "class": "bible-unresolved",
+      "class": "canon-law",
       "status": "in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": "CDC",
+        "corpusDocId": "cdc-es",
+        "title": "Código de Derecho Canónico"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+noise",
       "sources": [
         {
@@ -9028,7 +9020,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+noise",
       "sources": [
         {
@@ -9042,14 +9034,14 @@
       "clusterKey": "can. 517, 2",
       "raw": "can. 517, 2",
       "frequency": 1,
-      "class": "bible-unresolved",
+      "class": "canon-law",
       "status": "in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": "CDC",
+        "corpusDocId": "cdc-es",
+        "title": "Código de Derecho Canónico"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -9596,7 +9588,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -9680,7 +9672,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial+unresolved",
       "sources": [
         {
@@ -9701,7 +9693,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -9722,7 +9714,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -9743,7 +9735,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -9764,7 +9756,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -9785,7 +9777,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved+unresolved",
       "sources": [
         {
@@ -9806,7 +9798,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -9827,7 +9819,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -9848,7 +9840,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -9869,7 +9861,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -9890,7 +9882,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -9911,7 +9903,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -9932,7 +9924,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -9953,7 +9945,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -9974,7 +9966,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -9995,7 +9987,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10016,7 +10008,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -10037,7 +10029,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10058,7 +10050,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10079,7 +10071,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10100,7 +10092,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10121,7 +10113,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10142,7 +10134,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10163,7 +10155,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved+unresolved",
       "sources": [
         {
@@ -10184,7 +10176,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10205,7 +10197,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10226,7 +10218,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+ecclesial+unresolved",
       "sources": [
         {
@@ -10247,7 +10239,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10268,7 +10260,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10289,7 +10281,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10310,7 +10302,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -10331,7 +10323,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10352,7 +10344,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10373,7 +10365,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -10394,7 +10386,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -10415,7 +10407,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -10436,7 +10428,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -10457,7 +10449,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -10478,7 +10470,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial+ecclesial",
       "sources": [
         {
@@ -10492,14 +10484,14 @@
       "clusterKey": "cic, cans. 916-917",
       "raw": "cf CIC, cans. 916-917",
       "frequency": 1,
-      "class": "magisterial-code",
-      "status": "known-code-missing-locator",
+      "class": "canon-law",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": "CIC",
-        "corpusDocId": "cic-es",
-        "title": "Catecismo de la Iglesia Católica"
+        "code": "CDC",
+        "corpusDocId": "cdc-es",
+        "title": "Código de Derecho Canónico"
       },
-      "notes": "code CIC without locator",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -10555,14 +10547,14 @@
       "clusterKey": "concilio de trento, ds 1800; cic can. 1055 § 2",
       "raw": "cf Concilio de Trento, DS 1800; CIC can. 1055 § 2",
       "frequency": 1,
-      "class": "ds-style",
+      "class": "canon-law",
       "status": "in-corpus",
       "proposedTarget": {
-        "code": "DS",
-        "corpusDocId": "ds-es",
-        "title": "Denzinger-Schönmetzer"
+        "code": "CDC",
+        "corpusDocId": "cdc-es",
+        "title": "Código de Derecho Canónico"
       },
-      "notes": "council matched via doc-codes; primary navigable target often DS 1800",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -10870,14 +10862,14 @@
       "clusterKey": "concilio de trento: ds 1697; 1719; cic, can 1003; cceo. can. 739,1",
       "raw": "cf Concilio de Trento: DS 1697; 1719; CIC, can 1003; CCEO. can. 739,1",
       "frequency": 1,
-      "class": "ds-style",
+      "class": "canon-law",
       "status": "in-corpus",
       "proposedTarget": {
-        "code": "DS",
-        "corpusDocId": "ds-es",
-        "title": "Denzinger-Schönmetzer"
+        "code": "CDC",
+        "corpusDocId": "cdc-es",
+        "title": "Código de Derecho Canónico"
       },
-      "notes": "council matched via doc-codes; primary navigable target often DS 1697",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+noise+ecclesial+unresolved",
       "sources": [
         {
@@ -10933,14 +10925,14 @@
       "clusterKey": "concilio de trento: ds 1813-1816; cic can 1108",
       "raw": "cf Concilio de Trento: DS 1813-1816; CIC can 1108",
       "frequency": 1,
-      "class": "ds-style",
+      "class": "canon-law",
       "status": "in-corpus",
       "proposedTarget": {
-        "code": "DS",
-        "corpusDocId": "ds-es",
-        "title": "Denzinger-Schönmetzer"
+        "code": "CDC",
+        "corpusDocId": "cdc-es",
+        "title": "Código de Derecho Canónico"
       },
-      "notes": "council matched via doc-codes; primary navigable target often DS 1813",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -11122,14 +11114,10 @@
       "clusterKey": "el publicano: “oh dios ten compasion de este pecador” lc 18, 13",
       "raw": "cf el publicano: “Oh Dios ten compasión de este pecador” Lc 18, 13",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
-      "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "cf el publicano: “Oh Dios ten compasión de este pecador” Lc 18, 13"
-      },
-      "notes": "title-like string without catalog match",
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "quoted prose / slogan fragment",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -11143,14 +11131,14 @@
       "clusterKey": "epistula 73, 21",
       "raw": "cf Epistula 73, 21",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": null,
+        "title": "cf Epistula 73, 21"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -11192,7 +11180,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial+noise+unresolved",
       "sources": [
         {
@@ -11206,14 +11194,10 @@
       "clusterKey": "ibid.: ds 1694",
       "raw": "cf ibid.: DS 1694",
       "frequency": 1,
-      "class": "ds-style",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "DS",
-        "corpusDocId": "ds-es",
-        "title": "Denzinger-Schönmetzer"
-      },
-      "notes": "DS locator 1694",
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -11676,7 +11660,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved+unresolved",
       "sources": [
         {
@@ -12069,14 +12053,10 @@
       "clusterKey": "1 pt 3,15",
       "raw": "cf. 1 Pt 3,15",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -12229,14 +12209,14 @@
       "clusterKey": "benedicto xii, libelo cum dudum: ds, 1011; clemente vi, c. super quibusdam: ibid., 1077",
       "raw": "cf. Benedicto XII, Libelo Cum dudum: DS, 1011; Clemente VI, c. Super quibusdam: ibíd., 1077",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
         "code": null,
         "corpusDocId": null,
         "title": "cf. Benedicto XII, Libelo Cum dudum: DS, 1011; Clemente VI, c. Super quibusdam: ibíd., 1077"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -12299,7 +12279,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -12320,7 +12300,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -12341,7 +12321,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -12362,7 +12342,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -12383,7 +12363,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -12404,7 +12384,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -12425,7 +12405,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -12446,7 +12426,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -12467,7 +12447,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -12488,7 +12468,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -12509,7 +12489,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -13300,14 +13280,10 @@
       "clusterKey": "gn 1.26-27",
       "raw": "cf. Gn 1.26-27",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -13338,10 +13314,10 @@
       "clusterKey": "ibid., 27",
       "raw": "cf. ibíd., 27",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "structural-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -13355,10 +13331,10 @@
       "clusterKey": "ibid., 3023-3024",
       "raw": "cf. ibíd., 3023-3024",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "structural-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -13372,10 +13348,10 @@
       "clusterKey": "ibid., 75-76",
       "raw": "cf. Ibíd., 75-76",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "structural-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -13389,14 +13365,10 @@
       "clusterKey": "ibid., ds 1513",
       "raw": "cf. ibíd., DS 1513",
       "frequency": 1,
-      "class": "ds-style",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "DS",
-        "corpusDocId": "ds-es",
-        "title": "Denzinger-Schönmetzer"
-      },
-      "notes": "DS locator 1513",
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -13410,14 +13382,10 @@
       "clusterKey": "ibid., ds 1514",
       "raw": "cf. ibíd., DS 1514",
       "frequency": 1,
-      "class": "ds-style",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "DS",
-        "corpusDocId": "ds-es",
-        "title": "Denzinger-Schönmetzer"
-      },
-      "notes": "DS locator 1514",
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14540,7 +14508,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14561,7 +14529,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14582,7 +14550,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14603,7 +14571,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14624,7 +14592,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14645,7 +14613,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14666,7 +14634,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14687,7 +14655,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14708,7 +14676,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14729,7 +14697,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14750,7 +14718,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14771,7 +14739,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14792,7 +14760,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14813,7 +14781,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14834,7 +14802,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14855,7 +14823,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14876,7 +14844,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14897,7 +14865,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14918,7 +14886,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14939,7 +14907,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14960,7 +14928,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -14981,7 +14949,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -15002,7 +14970,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -15023,7 +14991,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -15044,7 +15012,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -15065,7 +15033,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -15086,7 +15054,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -15107,7 +15075,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15128,7 +15096,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15149,7 +15117,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15170,7 +15138,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15191,7 +15159,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15212,7 +15180,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15233,7 +15201,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15254,7 +15222,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15275,7 +15243,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15296,7 +15264,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15317,7 +15285,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15338,7 +15306,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15359,7 +15327,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15380,7 +15348,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -15394,14 +15362,14 @@
       "clusterKey": "clemente alejandrino, paedagogus 1, 6",
       "raw": "Clemente Alejandrino, Paedagogus 1, 6",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "patristic",
+      "status": "in-corpus",
       "proposedTarget": {
         "code": null,
-        "corpusDocId": null,
-        "title": "Clemente Alejandrino, Paedagogus 1, 6"
+        "corpusDocId": "clemente-alejandria-pedagogo-es",
+        "title": "Clemente de Alejandría, Pedagogo"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "patristic work present in corpus (locator may still be hard)",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -15415,14 +15383,14 @@
       "clusterKey": "clemente de alejandria, paedagogus 1, 6, 42",
       "raw": "Clemente de Alejandría, Paedagogus 1, 6, 42",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "patristic",
+      "status": "in-corpus",
       "proposedTarget": {
         "code": null,
-        "corpusDocId": null,
-        "title": "Clemente de Alejandría, Paedagogus 1, 6, 42"
+        "corpusDocId": "clemente-alejandria-pedagogo-es",
+        "title": "Clemente de Alejandría, Pedagogo"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "patristic work present in corpus (locator may still be hard)",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -16834,14 +16802,14 @@
       "clusterKey": "confessiones, 3,6,11",
       "raw": "Confessiones, 3,6,11",
       "frequency": 1,
-      "class": "bible-unresolved",
+      "class": "patristic",
       "status": "in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": "agustin-02-confesiones-es",
+        "title": "Agustín, Confessiones"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic work present in corpus (locator may still be hard)",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -16855,14 +16823,14 @@
       "clusterKey": "confessiones, 7,7.11",
       "raw": "Confessiones, 7,7.11",
       "frequency": 1,
-      "class": "bible-unresolved",
+      "class": "patristic",
       "status": "in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": "agustin-02-confesiones-es",
+        "title": "Agustín, Confessiones"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic work present in corpus (locator may still be hard)",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -17103,14 +17071,10 @@
       "clusterKey": "conlatio, 5, 2",
       "raw": "Conlatio, 5, 2",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -17162,14 +17126,14 @@
       "clusterKey": "constitutiones apostolicae 8, 13, 12; didache 9,5; 10,6",
       "raw": "Constitutiones apostolicae 8, 13, 12; Didaché 9,5; 10,6",
       "frequency": 1,
-      "class": "magisterial-free-title",
-      "status": "in-corpus",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
-        "code": "ConstI",
-        "corpusDocId": "constantinopla-i-la",
-        "title": "Concilium Constantinopolitanum I"
+        "code": null,
+        "corpusDocId": null,
+        "title": "Constitutiones apostolicae 8, 13, 12; Didaché 9,5; 10,6"
       },
-      "notes": "matched doc-codes title/alias in free text",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "unresolved+noise+unresolved",
       "sources": [
         {
@@ -17331,14 +17295,14 @@
       "clusterKey": "csel 60, 270",
       "raw": "CSEL 60, 270",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": null,
+        "title": "CSEL 60, 270"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -17521,10 +17485,10 @@
       "clusterKey": "de “pecados” segun lc 11, 4, o de “deudas” segun mt 6, 12",
       "raw": "de “pecados” según Lc 11, 4, o de “deudas” según Mt 6, 12",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "prose-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "quoted prose / slogan fragment",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -17838,10 +17802,10 @@
       "clusterKey": "del leproso [cf mc 1, 40-41], de jairo [cf mc 5, 36], de la cananea [cf mc 7, 29], del buen ladron [cf lc 23, 39-43]",
       "raw": "del leproso [cf Mc 1, 40-41], de Jairo [cf Mc 5, 36], de la cananea [cf Mc 7, 29], del buen ladrón [cf Lc 23, 39-43]",
       "frequency": 1,
-      "class": "prose-noise",
-      "status": "noise/non-document",
+      "class": "unknown",
+      "status": "not-in-corpus",
       "proposedTarget": null,
-      "notes": "long prose without document locator",
+      "notes": "no deterministic match",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -17978,14 +17942,10 @@
       "clusterKey": "dialoghi, 4, 138",
       "raw": "Dialoghi, 4, 138",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -17999,14 +17959,14 @@
       "clusterKey": "didache 10,6",
       "raw": "Didaché 10,6",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": null,
+        "title": "Didaché 10,6"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "noise",
       "sources": [
         {
@@ -18020,14 +17980,14 @@
       "clusterKey": "didache 8, 3",
       "raw": "Didaché 8, 3",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": null,
+        "title": "Didaché 8, 3"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "noise",
       "sources": [
         {
@@ -18041,14 +18001,14 @@
       "clusterKey": "didache, 1, 1",
       "raw": "Didaché, 1, 1",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": null,
+        "title": "Didaché, 1, 1"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "noise",
       "sources": [
         {
@@ -18320,14 +18280,10 @@
       "clusterKey": "ef 4.15-16",
       "raw": "Ef 4.15-16",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -19024,14 +18980,14 @@
       "clusterKey": "epistula 130, 12, 22",
       "raw": "Epistula 130, 12, 22",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": null,
+        "title": "Epistula 130, 12, 22"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "noise",
       "sources": [
         {
@@ -19458,14 +19414,14 @@
       "clusterKey": "evagrio pontico, de oratione, 34",
       "raw": "Evagrio Pontico, De oratione, 34",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
         "code": null,
         "corpusDocId": null,
-        "title": "Evagrio Pontico, De oratione, 34"
+        "title": "Tertuliano"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "patristic work not in pack or only partial",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -19572,14 +19528,14 @@
       "clusterKey": "fausto de riez, de spiritu sancto, 1,2: csel 21, 104",
       "raw": "Fausto de Riez, De Spiritu Sancto, 1,2: CSEL 21, 104",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
         "code": null,
         "corpusDocId": null,
         "title": "Fausto de Riez, De Spiritu Sancto, 1,2: CSEL 21, 104"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -19707,14 +19663,14 @@
       "clusterKey": "gs 67, 2",
       "raw": "GS 67, 2",
       "frequency": 1,
-      "class": "bible-unresolved",
+      "class": "magisterial-code",
       "status": "in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": "GS",
+        "corpusDocId": "gs-es",
+        "title": "Gaudium et spes"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "code GS locator 67",
       "parserKind": "ecclesial",
       "sources": [
         {
@@ -19863,14 +19819,10 @@
       "clusterKey": "ibid. 5,20,1",
       "raw": "Ibíd. 5,20,1",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -19884,14 +19836,10 @@
       "clusterKey": "ibid., 1, 20",
       "raw": "Ibid., 1, 20",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -19905,14 +19853,10 @@
       "clusterKey": "ibid., 1,15.18",
       "raw": "ibíd., 1,15.18",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -19926,14 +19870,10 @@
       "clusterKey": "ibid., 1,20",
       "raw": "ibíd., 1,20",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -19947,10 +19887,10 @@
       "clusterKey": "ibid., 126",
       "raw": "Ibíd., 126",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "structural-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -19964,14 +19904,10 @@
       "clusterKey": "ibid., 3,18,7; cf. 2, 22, 4",
       "raw": "ibíd., 3,18,7; cf. 2, 22, 4",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -19985,14 +19921,10 @@
       "clusterKey": "ibid., 3,24,1",
       "raw": "Ibíd., 3,24,1",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -20006,10 +19938,10 @@
       "clusterKey": "ibid., 432",
       "raw": "ibíd., 432",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "structural-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -20023,10 +19955,10 @@
       "clusterKey": "ibid., 556",
       "raw": "ibíd., 556",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "structural-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -20040,10 +19972,10 @@
       "clusterKey": "ibid., 6",
       "raw": "ibid., 6",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "structural-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -20057,14 +19989,10 @@
       "clusterKey": "ibid., 9,50.52",
       "raw": "Ibíd., 9,50.52",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -20078,14 +20006,10 @@
       "clusterKey": "ibid., ds 3009",
       "raw": "ibíd., DS 3009",
       "frequency": 1,
-      "class": "ds-style",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "DS",
-        "corpusDocId": "ds-es",
-        "title": "Denzinger-Schönmetzer"
-      },
-      "notes": "DS locator 3009",
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -20099,10 +20023,10 @@
       "clusterKey": "ibid.: cf. tambien hch 3, 18; 7, 52; 13, 29; 26, 22-23",
       "raw": "ibíd.: cf. también Hch 3, 18; 7, 52; 13, 29; 26, 22-23",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "structural-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "ibidem with optional locator",
       "parserKind": "unresolved+unresolved+unresolved+unresolved",
       "sources": [
         {
@@ -20175,14 +20099,14 @@
       "clusterKey": "in iohannis evangelium tractatus 5, 15",
       "raw": "In Iohannis evangelium tractatus 5, 15",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "patristic",
+      "status": "in-corpus",
       "proposedTarget": {
         "code": null,
-        "corpusDocId": null,
-        "title": "In Iohannis evangelium tractatus 5, 15"
+        "corpusDocId": "agustin-13-evangelio-juan-1-es",
+        "title": "Agustín, Tratado sobre el Evangelio de Juan"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "patristic work present in corpus (locator may still be hard)",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -20453,14 +20377,10 @@
       "clusterKey": "io 13,35",
       "raw": "Io 13,35",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -22308,14 +22228,10 @@
       "clusterKey": "ml ,1, 11",
       "raw": "Ml ,1, 11",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -22633,10 +22549,10 @@
       "clusterKey": "o “consagrada”, que es la misma palabra en hebreo",
       "raw": "o “consagrada”, que es la misma palabra en hebreo",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "prose-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "quoted prose / slogan fragment",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -22831,7 +22747,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -23111,14 +23027,14 @@
       "clusterKey": "oratio 2, 71",
       "raw": "Oratio 2, 71",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": null,
+        "title": "Oratio 2, 71"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "noise",
       "sources": [
         {
@@ -23132,14 +23048,14 @@
       "clusterKey": "oratio 2, 73",
       "raw": "Oratio 2, 73",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": null,
+        "title": "Oratio 2, 73"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "noise",
       "sources": [
         {
@@ -23153,14 +23069,14 @@
       "clusterKey": "oratio 2, 74",
       "raw": "Oratio 2, 74",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": null,
+        "title": "Oratio 2, 74"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "noise",
       "sources": [
         {
@@ -23174,14 +23090,14 @@
       "clusterKey": "orationes, 40,41: pg 36,417",
       "raw": "Orationes,  40,41: PG 36,417",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
+      "class": "magisterial-code",
+      "status": "needs-vatican.va-download",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": "PG",
+        "corpusDocId": null,
+        "title": "Pastores gregis"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "extra code PG locator 36",
       "parserKind": "noise",
       "sources": [
         {
@@ -23216,14 +23132,14 @@
       "clusterKey": "origenes, de oratione, 12, 2",
       "raw": "Orígenes, De oratione, 12, 2",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
         "code": null,
         "corpusDocId": null,
-        "title": "Orígenes, De oratione, 12, 2"
+        "title": "Tertuliano"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "patristic work not in pack or only partial",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -23237,14 +23153,14 @@
       "clusterKey": "origenes, de oratione, 26, 3",
       "raw": "Orígenes, De oratione, 26, 3",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
         "code": null,
         "corpusDocId": null,
-        "title": "Orígenes, De oratione, 26, 3"
+        "title": "Tertuliano"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "patristic work not in pack or only partial",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -23258,14 +23174,14 @@
       "clusterKey": "origenes, de oratione, 29, 15 y 17",
       "raw": "Orígenes, De oratione, 29, 15 y 17",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
         "code": null,
         "corpusDocId": null,
-        "title": "Orígenes, De oratione, 29, 15 y 17"
+        "title": "Tertuliano"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "patristic work not in pack or only partial",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -25286,14 +25202,14 @@
       "clusterKey": "s. juan crisostomo, hom. in 1 co 27,4",
       "raw": "S. Juan Crisóstomo, hom. in 1 Co 27,4",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
         "code": null,
         "corpusDocId": null,
-        "title": "S. Juan Crisóstomo, hom. in 1 Co 27,4"
+        "title": "Juan Crisóstomo"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "patristic work not in pack or only partial",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -25411,7 +25327,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved+ecclesial",
       "sources": [
         {
@@ -31251,7 +31167,7 @@
         "corpusDocId": "cdc-es",
         "title": "Código de Derecho Canónico"
       },
-      "notes": "CIC can. in footnotes = Codex Iuris Canonici (CDC), not Catechism",
+      "notes": "CIC can(s). in footnotes = Codex Iuris Canonici (CDC), not Catechism",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -31265,10 +31181,10 @@
       "clusterKey": "segun la expresion semitica o biblica: donde yo “me adentro”",
       "raw": "según la expresión semítica o bíblica: donde yo “me adentro”",
       "frequency": 1,
-      "class": "unknown",
-      "status": "not-in-corpus",
+      "class": "prose-noise",
+      "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "no deterministic match",
+      "notes": "quoted prose / slogan fragment",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -31367,14 +31283,14 @@
       "clusterKey": "sermo 241, 2: pl 38, 1134",
       "raw": "Sermo 241, 2: PL 38, 1134",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": null,
+        "title": "Sermo 241, 2: PL 38, 1134"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "noise",
       "sources": [
         {
@@ -31388,14 +31304,14 @@
       "clusterKey": "sermo 341, 1, 1: pl 39, 1493; ibid., 9, 11: pl 39, 1499",
       "raw": "Sermo 341, 1, 1: PL 39, 1493; Ibíd., 9, 11: PL 39, 1499",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": null,
+        "title": "Sermo 341, 1, 1: PL 39, 1493; Ibíd., 9, 11: PL 39, 1499"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "noise+unresolved",
       "sources": [
         {
@@ -31409,14 +31325,14 @@
       "clusterKey": "sermo 43,7,9: pl 38, 258",
       "raw": "Sermo 43,7,9: PL 38, 258",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
+      "class": "patristic",
+      "status": "not-in-corpus",
       "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
+        "code": null,
+        "corpusDocId": null,
+        "title": "Sermo 43,7,9: PL 38, 258"
       },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "notes": "patristic-style citation without mapped corpus id",
       "parserKind": "noise",
       "sources": [
         {
@@ -31430,14 +31346,10 @@
       "clusterKey": "sermones, 73,4: pl 54, 396",
       "raw": "Sermones, 73,4: PL 54, 396",
       "frequency": 1,
-      "class": "bible-unresolved",
-      "status": "in-corpus",
-      "proposedTarget": {
-        "code": "BIBLIA",
-        "corpusDocId": "bible-pueblo-de-dios-es",
-        "title": "Biblia (Pueblo de Dios)"
-      },
-      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
       "parserKind": "noise",
       "sources": [
         {
@@ -31924,10 +31836,14 @@
       "clusterKey": "te per orbem terrarum sancta confitetur ecclesia, —a ti te confiesa la santa iglesia por toda la tierra— cantamos en el himno te deum",
       "raw": "Te per orbem terrarum sancta confitetur Ecclesia, —A Ti te confiesa la Santa Iglesia por toda la tierra— cantamos en el himno Te Deum",
       "frequency": 1,
-      "class": "prose-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "long prose without document locator",
+      "class": "unknown",
+      "status": "needs-vatican.va-download",
+      "proposedTarget": {
+        "code": null,
+        "corpusDocId": null,
+        "title": "Te per orbem terrarum sancta confitetur Ecclesia, —A Ti te confiesa la Santa Iglesia por toda la tierra— cantamos en el himno Te Deum"
+      },
+      "notes": "title-like string without catalog match",
       "parserKind": "noise",
       "sources": [
         {
@@ -32370,7 +32286,7 @@
       "class": "prose-noise",
       "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "long prose without document locator",
+      "notes": "quoted prose / slogan fragment",
       "parserKind": "noise",
       "sources": [
         {
