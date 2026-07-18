@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-18T15:52:50.448Z",
+  "generatedAt": "2026-07-18T17:03:13.294Z",
   "description": "Worksheet of unlinked inter-document references: citations without ref.local after basic resolve:refs (book-codes + doc-codes). Clusters by normalized description with semantic class and corpus vs vatican.va download status.",
   "source": "documentos/corpus (manifest + documents/**/content.json)",
   "counts": {
@@ -8,10 +8,10 @@
     "clusters": 1924,
     "byStatus": {
       "noise/non-document": 1196,
-      "in-corpus": 531,
+      "in-corpus": 554,
       "not-in-corpus": 437,
-      "needs-vatican.va-download": 149,
-      "known-code-missing-locator": 16
+      "known-code-missing-locator": 17,
+      "needs-vatican.va-download": 125
     },
     "byClass": {
       "year-noise": 362,
@@ -26,12 +26,12 @@
       "prose-noise": 170,
       "scholastic": 50,
       "roman-catechism": 23,
-      "magisterial-free-title": 41,
+      "magisterial-free-title": 42,
       "patristic": 272,
       "unresolved-abbr": 33,
       "conciliar": 29,
       "curial": 27,
-      "unknown": 235
+      "unknown": 234
     },
     "bySourceDocument": {
       "cic-es": 1339,
@@ -4461,13 +4461,13 @@
       "raw": "Catecismo Romano, 1, 10, 24",
       "frequency": 2,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -4487,13 +4487,13 @@
       "raw": "Catecismo Romano, 1,2,2",
       "frequency": 2,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -13931,13 +13931,13 @@
       "raw": "Catecismo Romano, 1, 10, 1",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -13952,13 +13952,13 @@
       "raw": "Catecismo Romano, 1, 10, 27",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -13973,13 +13973,13 @@
       "raw": "Catecismo Romano, 1, 11, 3",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -13994,13 +13994,13 @@
       "raw": "Catecismo Romano, 1, 11, 4",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14015,13 +14015,13 @@
       "raw": "Catecismo Romano, 1, 11, 5",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14036,13 +14036,13 @@
       "raw": "Catecismo Romano, 1, 11, 6",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14057,13 +14057,13 @@
       "raw": "Catecismo Romano, 1, 5, 11",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14078,13 +14078,13 @@
       "raw": "Catecismo Romano, 1, 6, 3",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14099,13 +14099,13 @@
       "raw": "Catecismo Romano, 1,1,3",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14120,13 +14120,13 @@
       "raw": "Catecismo Romano, 1,1,4",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14141,13 +14141,13 @@
       "raw": "Catecismo Romano, 1,10, 20",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14162,13 +14162,13 @@
       "raw": "Catecismo Romano, 1,2,13",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14183,13 +14183,13 @@
       "raw": "Catecismo Romano, 2, 5, 18",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14204,13 +14204,13 @@
       "raw": "Catecismo Romano, 3, 10, 13",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14225,13 +14225,13 @@
       "raw": "Catecismo Romano, 3, 10, 23",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14246,13 +14246,13 @@
       "raw": "Catecismo Romano, 3, 2, 4",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14267,13 +14267,13 @@
       "raw": "Catecismo Romano, Prefacio, 10",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -14288,13 +14288,13 @@
       "raw": "Catecismo Romano, Prefacio, 11",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "noise",
       "sources": [
         {
@@ -16208,14 +16208,14 @@
       "clusterKey": "pio ix, carta enc. quanta cura",
       "raw": "cf Pío IX, Carta enc. Quanta cura",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "magisterial-free-title",
+      "status": "known-code-missing-locator",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "cf Pío IX, Carta enc. Quanta cura"
+        "code": "QC",
+        "corpusDocId": "quanta-cura-la",
+        "title": "Quanta cura"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "matched doc-codes title/alias in free text",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -17064,13 +17064,13 @@
       "raw": "cf. Catecismo Romano, 1, 10, 22",
       "frequency": 1,
       "class": "roman-catechism",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "CR",
+        "corpusDocId": "catecismo-romano-la",
         "title": "Catecismo Romano (Trento / Pío V)"
       },
-      "notes": "historical catechism; not CIC pack",
+      "notes": "historical catechism; citations resolve to Latin pack (CR)",
       "parserKind": "unresolved",
       "sources": [
         {

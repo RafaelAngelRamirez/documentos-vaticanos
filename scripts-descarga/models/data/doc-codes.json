@@ -672,6 +672,27 @@
       "kind": "magisterium"
     },
     {
+      "code": "CR",
+      "aliases": [
+        "CR",
+        "Catecismo Romano",
+        "Catechismus Romanus",
+        "Catechismus ad parochos"
+      ],
+      "title": "Catechismus Romanus (ad parochos)",
+      "corpusDocId": "catecismo-romano-la",
+      "locatorType": "number",
+      "kind": "catechism"
+    },
+    {
+      "code": "QC",
+      "aliases": ["QC", "Quanta cura"],
+      "title": "Quanta cura",
+      "corpusDocId": "quanta-cura-la",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
       "code": "Nicaea",
       "aliases": [
         "Nicaea",

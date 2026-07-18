@@ -995,16 +995,18 @@ export function classifyUnlinkedRef(
 
   // --- Roman Catechism ---
   if (/\bcatecismo\s+romano\b/i.test(t) || /\bcatechismus\s+romanus\b/i.test(t)) {
+    const crId = "catecismo-romano-la";
+    const hasLoc = /\d{1,5}/.test(t);
     return {
       raw: original,
       class: "roman-catechism",
-      status: "needs-vatican.va-download",
+      status: statusForCorpusId(crId, ctx, hasLoc),
       proposedTarget: {
-        code: null,
-        corpusDocId: null,
+        code: "CR",
+        corpusDocId: crId,
         title: "Catecismo Romano (Trento / Pío V)",
       },
-      notes: "historical catechism; not CIC pack",
+      notes: "historical catechism; citations resolve to Latin pack (CR)",
       parserKind,
     };
   }

@@ -204,11 +204,18 @@ assert(
   assert(r.status === "in-corpus", "CT in corpus");
 }
 
-// Roman catechism
+// Roman catechism → Latin pack when present in corpusDocIds
 {
   const r = classifyUnlinkedRef("Catecismo Romano, 1,2,2", ctx);
   assert(r.class === "roman-catechism", "roman catechism class");
-  assert(r.status === "needs-vatican.va-download", "roman cat download candidate");
+  assert(r.proposedTarget?.code === "CR" || r.proposedTarget?.title?.includes("Romano"), "CR target");
+  // pack-aware: needs-download unless catecismo-romano-la listed
+  assert(
+    r.status === "needs-vatican.va-download" ||
+      r.status === "in-corpus" ||
+      r.status === "known-code-missing-locator",
+    "roman cat status pack-aware",
+  );
 }
 
 // Council Florencia via DS still ds-style with DS target

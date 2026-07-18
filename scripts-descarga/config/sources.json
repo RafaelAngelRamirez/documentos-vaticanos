@@ -967,6 +967,38 @@
       "notes": "CDF Declaration on euthanasia Iura et bona (1980). ES path uses euthanasia slug."
     },
     {
+      "id": "cr-la",
+      "title": "Catechismus Romanus (ad parochos)",
+      "shortTitle": "CR",
+      "kind": "catechism",
+      "locale": "la",
+      "corpusDocId": "catecismo-romano-la",
+      "docCode": "CR",
+      "adapter": "plain_text",
+      "seedUrls": [
+        "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
+      ],
+      "fixturePath": "fixtures/catecismo-romano-la",
+      "expectedUnitCount": 1162,
+      "notes": "Latin Roman Catechism via Archive.org DjVuTXT OCR + import_roman_catechism.ts"
+    },
+    {
+      "id": "qc-la",
+      "title": "Quanta cura",
+      "shortTitle": "QC",
+      "kind": "magisterium",
+      "locale": "la",
+      "corpusDocId": "quanta-cura-la",
+      "docCode": "QC",
+      "adapter": "plain_text",
+      "seedUrls": [
+        "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html"
+      ],
+      "fixturePath": "fixtures/quanta-cura-la/source.html",
+      "expectedUnitCount": 96,
+      "notes": "Pius IX encyclical Latin from vatican.va; ES twin AI-translated."
+    },
+    {
       "id": "cceo",
       "title": "Código de los Cánones de las Iglesias Orientales",
       "shortTitle": "CCEO",

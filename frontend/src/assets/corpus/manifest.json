@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-18T15:51:32.206Z",
+  "generatedAt": "2026-07-18T17:03:00.699Z",
   "documents": [
     {
       "id": "cic-es",
@@ -1892,6 +1892,54 @@
       "bodyPath": "documents/mysterium-ecclesiae-es/content.json",
       "indexPath": "documents/mysterium-ecclesiae-es/index.json",
       "unitCount": 6
+    },
+    {
+      "id": "catecismo-romano-la",
+      "title": "Catechismus Romanus (ad parochos)",
+      "shortTitle": "CR",
+      "kind": "catechism",
+      "locale": "la",
+      "sourceUrl": "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830",
+      "bodyPath": "documents/catecismo-romano-la/content.json",
+      "indexPath": "documents/catecismo-romano-la/index.json",
+      "unitCount": 1162,
+      "sourceNote": "Catechismus Romanus ad parochos (Trento / Pío V). Texto latino de dominio público a partir de OCR DjVuTXT de Archive.org (ed. s. XIX). Requiere limpieza mecánica de OCR; no es edición crítica. Fuente: https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
+    },
+    {
+      "id": "quanta-cura-la",
+      "title": "Quanta cura",
+      "shortTitle": "QC",
+      "kind": "magisterium",
+      "locale": "la",
+      "sourceUrl": "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html",
+      "bodyPath": "documents/quanta-cura-la/content.json",
+      "indexPath": "documents/quanta-cura-la/index.json",
+      "unitCount": 96,
+      "sourceNote": "Litterae encyclicae Quanta cura (Pius IX, 8 Dec 1864). Textus latinus officialis e vatican.va. Syllabus errorum non includitur ut documentum separatum nisi in eodem HTML."
+    },
+    {
+      "id": "quanta-cura-es",
+      "title": "Quanta cura",
+      "shortTitle": "QC",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrl": "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html",
+      "bodyPath": "documents/quanta-cura-es/content.json",
+      "indexPath": "documents/quanta-cura-es/index.json",
+      "unitCount": 96,
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Quanta cura» (quanta-cura-la) en vatican.va. No es una traducción oficial de la Santa Sede. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "catecismo-romano-es",
+      "title": "Catecismo Romano",
+      "shortTitle": "CR",
+      "kind": "catechism",
+      "locale": "es",
+      "sourceUrl": "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830",
+      "bodyPath": "documents/catecismo-romano-es/content.json",
+      "indexPath": "documents/catecismo-romano-es/index.json",
+      "unitCount": 1162,
+      "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Catechismus Romanus» (catecismo-romano-la), limpio de OCR de dominio público (Archive.org). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
     }
   ]
 }

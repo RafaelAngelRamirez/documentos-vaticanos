@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-18T15:51:41.777Z",
+  "updatedAt": "2026-07-18T17:03:00.737Z",
   "documents": [
     {
       "id": "aa-es",
@@ -943,6 +943,46 @@
         "meta": "documents/carta-diogneto-es/meta.json"
       },
       "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpc3ppVWstMWdpSEU/view. Edición: Iglesia Viva / Ruiz Bueno (BAC 1950, adaptada). Edición/traducción de referencia: Iglesia Viva / Ruiz Bueno (BAC 1950, adaptada). Iglesia Viva / Ruiz Bueno BAC. 11 caps. romanos."
+    },
+    {
+      "id": "catecismo-romano-es",
+      "sourceId": "catecismo-romano-es",
+      "title": "Catecismo Romano",
+      "kind": "catechism",
+      "locale": "es",
+      "sourceUrls": [
+        "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
+      ],
+      "firstDownloadedAt": "2026-07-18T17:03:00.737Z",
+      "lastDownloadedAt": "2026-07-18T17:03:00.737Z",
+      "unitCount": 1162,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/catecismo-romano-es/content.json",
+        "index": "documents/catecismo-romano-es/index.json",
+        "meta": "documents/catecismo-romano-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Catechismus Romanus» (catecismo-romano-la), limpio de OCR de dominio público (Archive.org). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "catecismo-romano-la",
+      "sourceId": "catecismo-romano-la",
+      "title": "Catechismus Romanus (ad parochos)",
+      "kind": "catechism",
+      "locale": "la",
+      "sourceUrls": [
+        "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
+      ],
+      "firstDownloadedAt": "2026-07-18T16:09:52.062Z",
+      "lastDownloadedAt": "2026-07-18T16:09:52.062Z",
+      "unitCount": 1162,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/catecismo-romano-la/content.json",
+        "index": "documents/catecismo-romano-la/index.json",
+        "meta": "documents/catecismo-romano-la/meta.json"
+      },
+      "notes": "Catechismus Romanus ad parochos (Trento / Pío V). Texto latino de dominio público a partir de OCR DjVuTXT de Archive.org (ed. s. XIX). Requiere limpieza mecánica de OCR; no es edición crítica. Fuente: https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
     },
     {
       "id": "cceo-la",
@@ -2694,6 +2734,46 @@
         "meta": "documents/pt-es/meta.json"
       },
       "notes": "John XXIII encyclical on peace (1963)."
+    },
+    {
+      "id": "quanta-cura-es",
+      "sourceId": "quanta-cura-es",
+      "title": "Quanta cura",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T16:21:20.600Z",
+      "lastDownloadedAt": "2026-07-18T16:21:20.600Z",
+      "unitCount": 96,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/quanta-cura-es/content.json",
+        "index": "documents/quanta-cura-es/index.json",
+        "meta": "documents/quanta-cura-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto latino del pack «Quanta cura» (quanta-cura-la) en vatican.va. No es una traducción oficial de la Santa Sede. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "quanta-cura-la",
+      "sourceId": "quanta-cura-la",
+      "title": "Quanta cura",
+      "kind": "magisterium",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T16:10:09.748Z",
+      "lastDownloadedAt": "2026-07-18T16:10:09.748Z",
+      "unitCount": 96,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/quanta-cura-la/content.json",
+        "index": "documents/quanta-cura-la/index.json",
+        "meta": "documents/quanta-cura-la/meta.json"
+      },
+      "notes": "Latin official text from vatican.va."
     },
     {
       "id": "quas-primas-es",
