@@ -21,7 +21,12 @@ import {
 } from 'src/app/core/santoral/santoral-calendar.logic';
 import { SaintRecord } from 'src/app/core/santoral/santoral-resolve.logic';
 import { SantoralService } from 'src/app/core/santoral/santoral.service';
-import { NavigationService } from 'src/app/services/navigation.service';
+import {
+  canContinueSaintReading,
+  saintDocumentId,
+} from 'src/app/core/santoral/santoral-units.logic';
+import { NavigationService, ROUTE } from 'src/app/services/navigation.service';
+import { ReadingProgressService } from 'src/app/services/reading-progress.service';
 import { environment } from 'src/environments/environment';
 
 // Re-export for existing unit tests / external imports.
@@ -100,6 +105,8 @@ export class InicioComponent implements OnInit, OnDestroy {
   feastKeyToday = '';
   saintsTodayLoading = true;
   saintsTodayError = false;
+  /** While preloading a saint into the lector for voice. */
+  listeningSaintId: string | null = null;
 
   private sub = new Subscription();
 
@@ -117,6 +124,7 @@ export class InicioComponent implements OnInit, OnDestroy {
     private downloads: DownloadsService,
     private appUpdateSvc: AppUpdateService,
     private santoral: SantoralService,
+    private progress: ReadingProgressService,
   ) {}
 
   ngOnInit(): void {
@@ -209,5 +217,60 @@ export class InicioComponent implements OnInit, OnDestroy {
 
   saintIntro(s: SaintRecord): string {
     return briefSaintIntro(s, 140);
+  }
+
+  /** True when pack has bio long enough for lector + narrator. */
+  canListen(s: SaintRecord): boolean {
+    return !!(s?.bio && s.bio.trim().length > 40);
+  }
+
+  /**
+   * One-tap: preload saint bio → lector with auto-narrator
+   * (same path as ficha “Escuchar con narrador”).
+   */
+  listenSaint(s: SaintRecord, event?: Event): void {
+    event?.preventDefault();
+    event?.stopPropagation();
+    if (!s?.id || !this.canListen(s)) {
+      this.openSaint(s);
+      return;
+    }
+    if (this.listeningSaintId) return;
+    this.listeningSaintId = s.id;
+
+    try {
+      sessionStorage.setItem('dv.autoNarr', '1');
+    } catch {
+      /* private mode */
+    }
+
+    const readingDocId = saintDocumentId(s.id);
+    const last = this.progress.getLastRead();
+    const canContinue = canContinueSaintReading(last, readingDocId);
+    const idx = canContinue && last ? last.unitIndex : 0;
+
+    this.sub.add(
+      this.santoral.loadReadingDocumentForSaint(s).subscribe({
+        next: () => {
+          this.navigation.document_selected = undefined;
+          this.navigation.document_id = readingDocId;
+          this.navigation.actual_index = idx;
+          this.navigation.article_selected = undefined;
+          this.navigation.save_actual_index();
+          this.listeningSaintId = null;
+          this.router.navigate([
+            ROUTE.leyendo,
+            readingDocId,
+            ROUTE.punto,
+            idx,
+          ]);
+        },
+        error: () => {
+          this.listeningSaintId = null;
+          // Fallback: open cover so user can retry from ficha
+          this.openSaint(s);
+        },
+      }),
+    );
   }
 }

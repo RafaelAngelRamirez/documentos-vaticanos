@@ -82,11 +82,14 @@ describe('InicioComponent', () => {
               id: 'fixture-saint',
               name: 'Fixture',
               feastDays: ['01-01'],
-              bio: 'Bio de prueba del pack offline.',
+              bio: 'Bio de prueba del pack offline con suficiente texto para el narrador y el lector inmersivo.',
             },
           ],
         }),
       ),
+      loadReadingDocumentForSaint: jasmine
+        .createSpy('loadReadingDocumentForSaint')
+        .and.returnValue(of({ id: 'santoral:fixture-saint' })),
     };
 
     await TestBed.configureTestingModule({

@@ -48,12 +48,27 @@ function main() {
   assert.ok(/saintsOfDay|localFeastKey|briefSaintIntro/.test(cal));
   assert.ok(/saintsOfDay/.test(cal) && /briefSaintIntro/.test(cal));
 
+  // One-tap listen → lector + auto-narrator (same as ficha)
+  assert.ok(
+    /Escuchar|listenSaint|inicio-saint-listen/.test(html + ts),
+    'listen shortcut on home saints block',
+  );
+  assert.ok(
+    /dv\.autoNarr|autoNarr/.test(ts),
+    'sets auto-narrator flag like saint cover',
+  );
+  assert.ok(
+    /loadReadingDocumentForSaint|ROUTE\.leyendo|leyendo/.test(ts),
+    'listen opens real lector path for santoral doc',
+  );
+
   console.log('ok inicio-saints-day-ui');
   console.log(
     JSON.stringify({
       block: 'inicio-saints-day',
       empty: true,
       detailLink: true,
+      listenShortcut: true,
       pureHelpers: ['localFeastKey', 'saintsOfDay', 'briefSaintIntro'],
     }),
   );

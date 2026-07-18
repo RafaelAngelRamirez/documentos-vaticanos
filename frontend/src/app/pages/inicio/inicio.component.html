@@ -35,18 +35,35 @@
       </div>
 
       <ul class="wsaints-list" *ngIf="!saintsTodayLoading && saintsToday.length">
-        <li *ngFor="let s of saintsToday">
+        <li class="wsaints-item" *ngFor="let s of saintsToday" [attr.data-saint-id]="s.id">
           <a
             class="wsaints-row"
             [routerLink]="['/santoral', s.id]"
-            [attr.data-saint-id]="s.id"
           >
             <span class="wsaints-name">{{ saintLabel(s) }}</span>
             <span class="wsaints-intro muted" *ngIf="saintIntro(s) as intro">
               {{ intro }}
             </span>
-            <span class="wsaints-cta">Ver detalle ›</span>
           </a>
+          <div class="wsaints-actions">
+            <button
+              type="button"
+              class="wsaints-listen"
+              *ngIf="canListen(s)"
+              [disabled]="listeningSaintId === s.id"
+              data-testid="inicio-saint-listen"
+              (click)="listenSaint(s, $event)"
+            >
+              {{ listeningSaintId === s.id ? 'Abriendo…' : '▶ Escuchar' }}
+            </button>
+            <a
+              class="wsaints-cta"
+              [routerLink]="['/santoral', s.id]"
+              data-testid="inicio-saint-detail"
+            >
+              Ver detalle ›
+            </a>
+          </div>
         </li>
       </ul>
 
