@@ -1,14 +1,14 @@
 {
-  "documentId": "cceo-la",
+  "documentId": "cceo-es",
   "authorProfileId": "issuer-canon-law",
   "compositionYears": "1990",
   "compositionPlace": "Roma / Ciudad del Vaticano",
-  "workSummary": "Código de los Cánones de las Iglesias Orientales (latín).",
-  "chronologyNote": "Juan Pablo II; paralelismo oriental al CIC 83.",
+  "workSummary": "Código de los Cánones de las Iglesias Orientales (español).",
+  "chronologyNote": "Juan Pablo II; traducción/recepción del CCEO 1990.",
   "timelineSlice": [
     {
       "years": "1990",
-      "label": "Código de los Cánones de las Iglesias Orientales (latín).",
+      "label": "Código de los Cánones de las Iglesias Orientales (español).",
       "refIds": [
         "cic-1983",
         "cceo-1990"

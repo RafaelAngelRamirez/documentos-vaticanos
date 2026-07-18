@@ -1,6 +1,6 @@
 {
   "version": "1.1.0",
-  "generatedAt": "2026-07-18T21:55:50.681Z",
+  "generatedAt": "2026-07-18T22:18:37.062Z",
   "sourceNote": "Pack de contexto histórico offline v1.1: ejes + citas densas (summaryRefIds, axisSources, work/chrono ref ids). Compilado; no monografía peer-reviewed.",
   "authors": [
     {
@@ -341,6 +341,11 @@
       "documentId": "catecismo-romano-la",
       "path": "documents/catecismo-romano-la.json",
       "authorProfileId": "era-trento"
+    },
+    {
+      "documentId": "cceo-es",
+      "path": "documents/cceo-es.json",
+      "authorProfileId": "issuer-canon-law"
     },
     {
       "documentId": "cceo-la",

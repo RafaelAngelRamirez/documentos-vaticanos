@@ -78,7 +78,7 @@
     "test:santoral-calendar": "node santoral_calendar_logic.test.js",
     "test:santoral": "npm run test:santoral-parse && npm run test:santoral-offline && npm run test:santoral-ui && npm run test:santoral-calendar",
     "context:build": "npx ts-node --transpile-only build_historical_context.ts",
-    "test:context": "node context_offline_load.test.js && node context_ui_wiring.test.js && node --experimental-strip-types ../frontend/src/app/core/context/historical-context-resolve.logic.test.js"
+    "test:context": "node context_offline_load.test.js && node context_ui_wiring.test.js && bash ../scripts/node-strip-types.sh ../frontend/src/app/core/context/historical-context-resolve.logic.test.js"
   },
   "author": "",
   "license": "ISC",

@@ -10,7 +10,7 @@
     "start": "node dist/index.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "test:tts": "node --experimental-strip-types src/services/xaiTts.test.js && npx tsx src/routes/tts.route.test.js"
+    "test:tts": "bash ../scripts/node-strip-types.sh src/services/xaiTts.test.js && npx tsx src/routes/tts.route.test.js"
   },
   "engines": {
     "node": ">=20"

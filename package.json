@@ -36,8 +36,8 @@
     "package:downloads": "bash scripts/package-collect-downloads.sh",
     "package:all": "bash scripts/package-all.sh",
     "test:downloads": "node frontend/src/app/core/downloads/downloads.paths.test.js",
-    "test:version-display": "node --experimental-strip-types frontend/src/app/core/downloads/version-display.logic.test.js",
-    "test:app-update": "node --experimental-strip-types frontend/src/app/core/downloads/app-update.logic.test.js",
+    "test:version-display": "bash scripts/node-strip-types.sh frontend/src/app/core/downloads/version-display.logic.test.js",
+    "test:app-update": "bash scripts/node-strip-types.sh frontend/src/app/core/downloads/app-update.logic.test.js",
     "test:apk-javahome": "node scripts/package-apk.javahome.test.js",
     "test:tts": "npm --prefix backend run test:tts",
     "test:narrator-grok": "npm --prefix frontend run test:narrator-grok",
@@ -46,8 +46,8 @@
     "test:santoral": "npm --prefix frontend run test:santoral && npm --prefix scripts-descarga run test:santoral",
     "santoral:offline": "npm --prefix scripts-descarga run santoral:offline",
     "santoral:scrape": "npm --prefix scripts-descarga run santoral:scrape",
-    "context:build": "npm --prefix scripts-descarga run context:build",
-    "test:context": "npm --prefix scripts-descarga run test:context"
+    "context:build": "scripts-descarga/node_modules/.bin/ts-node --transpile-only scripts-descarga/build_historical_context.ts",
+    "test:context": "node scripts-descarga/context_offline_load.test.js && node scripts-descarga/context_ui_wiring.test.js && bash scripts/node-strip-types.sh frontend/src/app/core/context/historical-context-resolve.logic.test.js"
   },
   "packageManager": "yarn@1.22.22"
 }

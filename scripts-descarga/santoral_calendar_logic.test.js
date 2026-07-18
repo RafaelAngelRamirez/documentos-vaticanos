@@ -11,7 +11,12 @@ const testFile = path.join(
 );
 const r = spawnSync(
   process.execPath,
-  ['--experimental-strip-types', testFile],
+  [
+    '--experimental-strip-types',
+    '--disable-warning=ExperimentalWarning',
+    '--disable-warning=MODULE_TYPELESS_PACKAGE_JSON',
+    testFile,
+  ],
   { encoding: 'utf8', cwd: path.join(__dirname, '..') },
 );
 process.stdout.write(r.stdout || '');

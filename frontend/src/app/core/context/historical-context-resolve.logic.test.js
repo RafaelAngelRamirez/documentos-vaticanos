@@ -2,7 +2,8 @@
  * Real resolve tests against shipped historical-context-resolve.logic.ts + pack.
  *
  * Run:
- *   node --experimental-strip-types frontend/src/app/core/context/historical-context-resolve.logic.test.js
+ *   bash scripts/node-strip-types.sh frontend/src/app/core/context/historical-context-resolve.logic.test.js
+ *   (or: yarn test:context)
  */
 const assert = require('assert');
 const fs = require('fs');
