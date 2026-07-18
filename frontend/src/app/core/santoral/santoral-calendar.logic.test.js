@@ -85,6 +85,41 @@ async function main() {
   assert.strictEqual(oct.length, 1);
   assert.strictEqual(oct[0].id, 'bruno-de-calabria');
 
+  // —— saints of day + brief intro (inicio home block) ——
+  const fixed = new Date(2026, 6, 18); // local July 18
+  assert.strictEqual(mod.localFeastKey(fixed), '07-18');
+  assert.ok(/18 de julio/i.test(mod.localFeastLabelEs(fixed)));
+
+  const ofDay = mod.saintsOfDay(fixtures, fixed);
+  assert.ok(ofDay.some((s) => s.id === 'bruno-de-segni'));
+  assert.ok(!ofDay.some((s) => s.id === 'no-feast'));
+  assert.ok(!ofDay.some((s) => s.id === 'bruno-de-calabria'));
+
+  const emptyToday = mod.saintsOfDay(fixtures, new Date(2026, 2, 15));
+  assert.strictEqual(emptyToday.length, 0, 'wrong day invents nothing');
+
+  const withBio = {
+    id: 'bruno-de-segni',
+    name: 'Bruno de Segni',
+    bio:
+      'San Bruno de Segni nació entre los años 1045 y 1049 en Solero d’Asti, en familia modesta. Fue educado por benedictinos y defendió la reforma gregoriana.',
+    role: 'Obispo',
+  };
+  const intro = mod.briefSaintIntro(withBio, 80);
+  assert.ok(intro.length > 0 && intro.length <= 81, `intro len ${intro.length}`);
+  assert.ok(/Bruno|Solero|1045|benedictinos|reforma/i.test(intro));
+  assert.ok(!/lorem ipsum|invent/i.test(intro));
+
+  const noBio = mod.briefSaintIntro({
+    id: 'x',
+    name: 'X',
+    role: 'Mártir',
+    meta: 's. III',
+  });
+  assert.ok(/Mártir/.test(noBio));
+  assert.strictEqual(mod.briefSaintIntro({ id: 'y', name: 'Y' }), '');
+  assert.strictEqual(mod.briefSaintIntro(null), '');
+
   console.log('ok santoral-calendar-logic');
   console.log(
     JSON.stringify({
@@ -93,6 +128,9 @@ async function main() {
       day0718: dayList.map((s) => s.id),
       empty0315: emptyDay.length,
       oct6: oct.map((s) => s.id),
+      saintsOfDay0718: ofDay.map((s) => s.id),
+      introSample: intro,
+      introNoBio: noBio,
     }),
   );
 }

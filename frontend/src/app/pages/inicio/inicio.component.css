@@ -58,6 +58,131 @@
   text-decoration: underline;
 }
 
+/* —— Santos del día (offline pack) —— */
+.wsaints {
+  margin: 28px auto 0;
+  max-width: 36ch;
+  width: 100%;
+  text-align: left;
+  font-family: var(--app-font-sans, 'IBM Plex Sans', sans-serif);
+}
+
+.wsaints-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+
+.wsaints-date {
+  margin: 4px 0 12px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.wsaints-loading {
+  font-size: 13px;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.wsaints-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wsaints-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  min-height: 48px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.wsaints-row:hover {
+  border-color: color-mix(in srgb, var(--acc, var(--app-acc)) 40%, var(--line));
+}
+
+.wsaints-row:active {
+  transform: scale(0.99);
+}
+
+.wsaints-row:focus-visible {
+  outline: 2px solid var(--acc, var(--app-acc));
+  outline-offset: 2px;
+}
+
+.wsaints-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  font-family: var(--app-font-serif, 'EB Garamond', serif);
+}
+
+.wsaints-intro {
+  font-size: 13px;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.wsaints-cta {
+  font-size: 12px;
+  color: var(--acc, var(--app-acc));
+  margin-top: 2px;
+}
+
+.wsaints-empty {
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+  padding: 8px 4px;
+}
+
+.wsaints-empty p {
+  margin: 0 0 8px;
+}
+
+.wsaints-more {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--acc, var(--app-acc));
+  text-decoration: none;
+  min-height: 48px;
+  line-height: 48px;
+}
+
+.wsaints-more:hover {
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wsaints-row {
+    transition: none;
+  }
+  .wsaints-row:active {
+    transform: none;
+  }
+}
+
 /* Version (v0.0.x) under account link */
 .wver {
   margin: 18px 0 0;

@@ -19,6 +19,67 @@
       <a href="javascript:void(0)" (click)="goCuenta()">Ya tengo cuenta</a>
     </div>
 
+    <!-- Santos del día (pack offline · feastDays MM-DD local) -->
+    <section
+      class="wsaints"
+      data-testid="inicio-saints-day"
+      aria-labelledby="inicio-saints-heading"
+    >
+      <h2 id="inicio-saints-heading" class="wsaints-title">Santos del día</h2>
+      <p class="wsaints-date muted" *ngIf="feastLabelEs">
+        {{ feastLabelEs }}
+      </p>
+
+      <div class="wsaints-loading muted" *ngIf="saintsTodayLoading" role="status">
+        Cargando santoral…
+      </div>
+
+      <ul class="wsaints-list" *ngIf="!saintsTodayLoading && saintsToday.length">
+        <li *ngFor="let s of saintsToday">
+          <a
+            class="wsaints-row"
+            [routerLink]="['/santoral', s.id]"
+            [attr.data-saint-id]="s.id"
+          >
+            <span class="wsaints-name">{{ saintLabel(s) }}</span>
+            <span class="wsaints-intro muted" *ngIf="saintIntro(s) as intro">
+              {{ intro }}
+            </span>
+            <span class="wsaints-cta">Ver detalle ›</span>
+          </a>
+        </li>
+      </ul>
+
+      <div
+        class="wsaints-empty muted"
+        *ngIf="!saintsTodayLoading && !saintsToday.length"
+        data-testid="inicio-saints-empty"
+      >
+        <p *ngIf="!saintsTodayError">
+          Hoy no hay fiestas con biografía en el pack offline.
+        </p>
+        <p *ngIf="saintsTodayError">
+          No se pudo cargar el santoral local.
+        </p>
+        <a
+          class="wsaints-more"
+          routerLink="/santoral"
+          [queryParams]="{ vista: 'calendario' }"
+        >
+          Abrir calendario del santoral
+        </a>
+      </div>
+
+      <a
+        class="wsaints-more"
+        *ngIf="!saintsTodayLoading && saintsToday.length"
+        routerLink="/santoral"
+        [queryParams]="{ vista: 'calendario' }"
+      >
+        Más en el calendario
+      </a>
+    </section>
+
     <p class="wver muted" *ngIf="versionLabel" data-testid="inicio-version">
       {{ versionLabel }}
     </p>

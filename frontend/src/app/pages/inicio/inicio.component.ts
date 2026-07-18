@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Capacitor } from '@capacitor/core';
 import { Subscription } from 'rxjs';
 import { UpdateAvailable } from 'src/app/core/downloads/app-update.logic';
@@ -12,6 +12,15 @@ import {
   detectElectronShell,
   isWebDownloadShell as isWebDownloadShellCore,
 } from 'src/app/core/shell/shell.util';
+import {
+  briefSaintIntro,
+  calendarSaintLabel,
+  localFeastKey,
+  localFeastLabelEs,
+  saintsOfDay,
+} from 'src/app/core/santoral/santoral-calendar.logic';
+import { SaintRecord } from 'src/app/core/santoral/santoral-resolve.logic';
+import { SantoralService } from 'src/app/core/santoral/santoral.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { environment } from 'src/environments/environment';
 
@@ -51,13 +60,13 @@ export function resolveAppVersionLabel(
   );
 }
 
-/** Pantalla 3A · Bienvenida. */
+/** Pantalla 3A · Bienvenida (+ santos del día offline). */
 @Component({
   standalone: true,
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
 })
 export class InicioComponent implements OnInit, OnDestroy {
   /** Quick-download icons only on public web (not native / Electron shell). */
@@ -84,6 +93,14 @@ export class InicioComponent implements OnInit, OnDestroy {
   /** Packaged shell (APK/Electron): non-blocking update offer. */
   appUpdate: UpdateAvailable | null = null;
 
+  /** Offline pack saints for today (MM-DD local). */
+  saintsToday: SaintRecord[] = [];
+  /** Human date label, e.g. "18 de julio". */
+  feastLabelEs = '';
+  feastKeyToday = '';
+  saintsTodayLoading = true;
+  saintsTodayError = false;
+
   private sub = new Subscription();
 
   get windowsDownloadName(): string {
@@ -98,7 +115,8 @@ export class InicioComponent implements OnInit, OnDestroy {
     private navigation: NavigationService,
     private router: Router,
     private downloads: DownloadsService,
-    private appUpdateSvc: AppUpdateService
+    private appUpdateSvc: AppUpdateService,
+    private santoral: SantoralService,
   ) {}
 
   ngOnInit(): void {
@@ -118,6 +136,24 @@ export class InicioComponent implements OnInit, OnDestroy {
       this.appUpdateSvc.availableUpdate$.subscribe((u) => {
         this.appUpdate = u;
       })
+    );
+
+    const now = new Date();
+    this.feastKeyToday = localFeastKey(now);
+    this.feastLabelEs = localFeastLabelEs(now);
+    this.sub.add(
+      this.santoral.loadManifest().subscribe({
+        next: (m) => {
+          this.saintsToday = saintsOfDay(m.saints || [], now) as SaintRecord[];
+          this.saintsTodayLoading = false;
+          this.saintsTodayError = false;
+        },
+        error: () => {
+          this.saintsToday = [];
+          this.saintsTodayLoading = false;
+          this.saintsTodayError = true;
+        },
+      }),
     );
   }
 
@@ -150,5 +186,28 @@ export class InicioComponent implements OnInit, OnDestroy {
 
   goCuenta(): void {
     this.router.navigate(['/cuenta']);
+  }
+
+  goSantoral(): void {
+    this.router.navigate(['/santoral']);
+  }
+
+  goSantoralCalendario(): void {
+    this.router.navigate(['/santoral'], {
+      queryParams: { vista: 'calendario' },
+    });
+  }
+
+  openSaint(s: SaintRecord): void {
+    if (!s?.id) return;
+    this.router.navigate(['/santoral', s.id]);
+  }
+
+  saintLabel(s: SaintRecord): string {
+    return calendarSaintLabel(s);
+  }
+
+  saintIntro(s: SaintRecord): string {
+    return briefSaintIntro(s, 140);
   }
 }

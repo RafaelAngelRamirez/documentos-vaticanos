@@ -11,6 +11,8 @@ export interface CalendarSaint {
   meta?: string;
   role?: string;
   years?: string;
+  bio?: string;
+  eraLabel?: string;
 }
 
 export interface MonthSummary {
@@ -171,4 +173,77 @@ export function parseDayParam(raw: string | null | undefined): number | null {
 /** Display label for a calendar saint row. */
 export function calendarSaintLabel(s: CalendarSaint): string {
   return s.displayName || s.name || s.id;
+}
+
+/**
+ * Local calendar feast key for a Date (device timezone), as MM-DD.
+ * Injectable `now` for deterministic tests.
+ */
+export function localFeastKey(now: Date = new Date()): string {
+  const mm = String(now.getMonth() + 1).padStart(2, '0');
+  const dd = String(now.getDate()).padStart(2, '0');
+  return `${mm}-${dd}`;
+}
+
+/**
+ * Spanish human label for a local date, e.g. "18 de julio".
+ */
+export function localFeastLabelEs(now: Date = new Date()): string {
+  const month = now.getMonth() + 1;
+  const day = now.getDate();
+  const label = monthLabel(month) || '';
+  return `${day} de ${label.toLowerCase()}`;
+}
+
+/**
+ * Saints of the day for a local Date (or explicit MM-DD).
+ * Does not invent saints; empty feastDays never match.
+ */
+export function saintsOfDay(
+  saints: CalendarSaint[],
+  nowOrKey: Date | string = new Date(),
+): CalendarSaint[] {
+  const key =
+    typeof nowOrKey === 'string' ? normalizeFeastDay(nowOrKey) : localFeastKey(nowOrKey);
+  if (!key) return [];
+  return saintsForDay(saints, key);
+}
+
+const DEFAULT_INTRO_MAX = 160;
+
+/**
+ * Brief introduction from pack fields only (bio truncated, else role/meta/eraLabel).
+ * Never fabricates hagiography when bio is missing.
+ */
+export function briefSaintIntro(
+  saint: CalendarSaint | null | undefined,
+  maxLen: number = DEFAULT_INTRO_MAX,
+): string {
+  if (!saint) return '';
+  const bio = collapseIntroWs(saint.bio || '');
+  if (bio.length > 0) {
+    return truncateIntro(bio, maxLen);
+  }
+  const fallback = [saint.role, saint.meta, saint.eraLabel, saint.years]
+    .map((x) => collapseIntroWs(x || ''))
+    .filter(Boolean);
+  if (fallback.length) {
+    return truncateIntro(fallback.join(' · '), maxLen);
+  }
+  return '';
+}
+
+function collapseIntroWs(text: string): string {
+  return String(text || '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function truncateIntro(text: string, maxLen: number): string {
+  if (maxLen < 1 || text.length <= maxLen) return text;
+  // Prefer cut at word boundary when possible
+  const slice = text.slice(0, maxLen);
+  const sp = slice.lastIndexOf(' ');
+  const base = sp > Math.floor(maxLen * 0.6) ? slice.slice(0, sp) : slice;
+  return base.replace(/[.,;:\s]+$/g, '') + '…';
 }

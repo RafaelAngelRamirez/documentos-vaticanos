@@ -12,6 +12,7 @@ import {
 import { AppUpdateService } from 'src/app/core/downloads/app-update.service';
 import { DownloadsService } from 'src/app/core/downloads/downloads.service';
 import { STABLE_DOWNLOAD_PATHS } from 'src/app/core/downloads/downloads.models';
+import { SantoralService } from 'src/app/core/santoral/santoral.service';
 import { environment } from 'src/environments/environment';
 
 /** Stale downloads-stub version — must NOT pin the home-screen label. */
@@ -72,12 +73,28 @@ describe('InicioComponent', () => {
       dismiss: jasmine.createSpy('dismiss'),
       checkForUpdate: jasmine.createSpy('checkForUpdate'),
     };
+    const santoralStub = {
+      loadManifest: jasmine.createSpy('loadManifest').and.returnValue(
+        of({
+          version: '1',
+          saints: [
+            {
+              id: 'fixture-saint',
+              name: 'Fixture',
+              feastDays: ['01-01'],
+              bio: 'Bio de prueba del pack offline.',
+            },
+          ],
+        }),
+      ),
+    };
 
     await TestBed.configureTestingModule({
       imports: [InicioComponent, HttpClientTestingModule, RouterTestingModule],
       providers: [
         { provide: DownloadsService, useValue: downloadsStub },
         { provide: AppUpdateService, useValue: appUpdateStub },
+        { provide: SantoralService, useValue: santoralStub },
       ],
     }).compileComponents();
   });
