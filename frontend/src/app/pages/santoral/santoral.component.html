@@ -96,6 +96,34 @@
 
     <!-- ===== CALENDARIO ===== -->
     <ng-container *ngIf="!loading && !error && mode === 'calendario'">
+      <!-- Misal / liturgia entry (same packs as Inicio · ordinary corpus docs) -->
+      <section
+        class="cal-misal"
+        data-testid="santoral-cal-misal"
+        *ngIf="misalPrimary as misal"
+        aria-labelledby="cal-misal-heading"
+      >
+        <h3 id="cal-misal-heading" class="cal-misal-title">{{ misalBlockTitle }}</h3>
+        <p class="cal-misal-name">{{ misal.title }}</p>
+        <div class="cal-misal-actions">
+          <button
+            type="button"
+            class="cal-misal-read"
+            data-testid="santoral-cal-misal-read"
+            (click)="openMisal()"
+          >
+            {{ misalReadLabel() }}
+          </button>
+          <a
+            class="cal-misal-link"
+            [routerLink]="['/documento', misal.id]"
+            data-testid="santoral-cal-misal-doc"
+          >
+            Ficha del documento ›
+          </a>
+        </div>
+      </section>
+
       <!-- Breadcrumb desktop -->
       <nav class="cal-crumb only-desktop" aria-label="Niveles del calendario">
         <button type="button" class="cal-crumb-link" (click)="openYear()" [class.on]="calLevel === 'anio'">

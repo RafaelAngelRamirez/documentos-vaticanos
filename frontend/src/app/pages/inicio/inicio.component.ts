@@ -25,6 +25,17 @@ import {
   canContinueSaintReading,
   saintDocumentId,
 } from 'src/app/core/santoral/santoral-units.logic';
+import { CorpusService } from 'src/app/core/corpus/corpus.service';
+import { DocumentMeta } from 'src/app/core/corpus/corpus.models';
+import {
+  misalBlockLede,
+  misalBlockTitle,
+  misalListenCtaLabel,
+  misalReadCtaLabel,
+  pickPrimaryMisalEntry,
+  pickSecondaryMisalEntry,
+} from 'src/app/core/misal/misal-liturgia.logic';
+import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import { NavigationService, ROUTE } from 'src/app/services/navigation.service';
 import { ReadingProgressService } from 'src/app/services/reading-progress.service';
 import { environment } from 'src/environments/environment';
@@ -108,6 +119,14 @@ export class InicioComponent implements OnInit, OnDestroy {
   /** While preloading a saint into the lector for voice. */
   listeningSaintId: string | null = null;
 
+  /** Misal / liturgia pack next to saints (IGMR + APC from vatican.va). */
+  misalPrimary: DocumentMeta | null = null;
+  misalSecondary: DocumentMeta | null = null;
+  misalLoading = true;
+  misalListening = false;
+  readonly misalTitle = misalBlockTitle();
+  readonly misalLede = misalBlockLede();
+
   private sub = new Subscription();
 
   get windowsDownloadName(): string {
@@ -125,6 +144,8 @@ export class InicioComponent implements OnInit, OnDestroy {
     private appUpdateSvc: AppUpdateService,
     private santoral: SantoralService,
     private progress: ReadingProgressService,
+    private corpus: CorpusService,
+    private readerPrefs: ReaderPreferencesService,
   ) {}
 
   ngOnInit(): void {
@@ -160,6 +181,30 @@ export class InicioComponent implements OnInit, OnDestroy {
           this.saintsToday = [];
           this.saintsTodayLoading = false;
           this.saintsTodayError = true;
+        },
+      }),
+    );
+
+    this.sub.add(
+      this.corpus.loadManifest().subscribe({
+        next: () => {
+          const preferred = this.readerPrefs.resolveContentLocale();
+          const docs = this.corpus.listDocuments();
+          this.misalPrimary = pickPrimaryMisalEntry(
+            docs,
+            preferred,
+          ) as DocumentMeta | null;
+          this.misalSecondary = pickSecondaryMisalEntry(
+            docs,
+            preferred,
+            this.misalPrimary,
+          ) as DocumentMeta | null;
+          this.misalLoading = false;
+        },
+        error: () => {
+          this.misalPrimary = null;
+          this.misalSecondary = null;
+          this.misalLoading = false;
         },
       }),
     );
@@ -222,6 +267,59 @@ export class InicioComponent implements OnInit, OnDestroy {
   /** True when pack has bio long enough for lector + narrator. */
   canListen(s: SaintRecord): boolean {
     return !!(s?.bio && s.bio.trim().length > 40);
+  }
+
+  misalReadLabel(meta: DocumentMeta | null): string {
+    return misalReadCtaLabel(meta);
+  }
+
+  misalListenLabel(): string {
+    return misalListenCtaLabel();
+  }
+
+  openMisalDoc(meta: DocumentMeta | null): void {
+    if (!meta?.id) return;
+    this.router.navigate(['/documento', meta.id]);
+  }
+
+  /**
+   * One-tap listen for Misal packs: same lector + autoNarr path as ficha 2A.
+   */
+  listenMisal(meta: DocumentMeta | null, event?: Event): void {
+    event?.preventDefault();
+    event?.stopPropagation();
+    if (!meta?.id || this.misalListening) return;
+    this.misalListening = true;
+    try {
+      sessionStorage.setItem('dv.autoNarr', '1');
+    } catch {
+      /* private mode */
+    }
+    const last = this.progress.getLastRead();
+    const idx =
+      last && last.documentId === meta.id ? last.unitIndex : 0;
+    this.sub.add(
+      this.corpus.ensureLoaded(meta.id).subscribe({
+        next: () => {
+          this.navigation.document_selected = undefined;
+          this.navigation.document_id = meta.id;
+          this.navigation.actual_index = idx;
+          this.navigation.article_selected = undefined;
+          this.navigation.save_actual_index();
+          this.misalListening = false;
+          this.router.navigate([
+            ROUTE.leyendo,
+            meta.id,
+            ROUTE.punto,
+            idx,
+          ]);
+        },
+        error: () => {
+          this.misalListening = false;
+          this.openMisalDoc(meta);
+        },
+      }),
+    );
   }
 
   /**

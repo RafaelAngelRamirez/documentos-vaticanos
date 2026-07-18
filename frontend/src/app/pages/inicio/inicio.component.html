@@ -19,6 +19,71 @@
       <a href="javascript:void(0)" (click)="goCuenta()">Ya tengo cuenta</a>
     </div>
 
+    <!-- Misal / liturgia (IGMR + APC · vatican.va free HTML) next to saints -->
+    <section
+      class="wmisal"
+      data-testid="inicio-misal"
+      aria-labelledby="inicio-misal-heading"
+      *ngIf="!misalLoading && misalPrimary"
+    >
+      <h2 id="inicio-misal-heading" class="wmisal-title">{{ misalTitle }}</h2>
+      <p class="wmisal-lede muted">{{ misalLede }}</p>
+
+      <div class="wmisal-card" [attr.data-doc-id]="misalPrimary.id">
+        <div class="wmisal-name">{{ misalPrimary.title }}</div>
+        <div class="wmisal-meta muted" *ngIf="misalPrimary.shortTitle || misalPrimary.locale">
+          <span *ngIf="misalPrimary.shortTitle">{{ misalPrimary.shortTitle }}</span>
+          <span *ngIf="misalPrimary.locale"> · {{ misalPrimary.locale }}</span>
+          <span *ngIf="misalPrimary.unitCount"> · {{ misalPrimary.unitCount }} puntos</span>
+        </div>
+        <div class="wmisal-actions">
+          <button
+            type="button"
+            class="wmisal-read"
+            data-testid="inicio-misal-read"
+            (click)="openMisalDoc(misalPrimary)"
+          >
+            {{ misalReadLabel(misalPrimary) }}
+          </button>
+          <button
+            type="button"
+            class="wmisal-listen"
+            data-testid="inicio-misal-listen"
+            [disabled]="misalListening"
+            (click)="listenMisal(misalPrimary, $event)"
+          >
+            {{ misalListening ? 'Abriendo…' : misalListenLabel() }}
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="wmisal-card wmisal-card-secondary"
+        *ngIf="misalSecondary as sec"
+        [attr.data-doc-id]="sec.id"
+      >
+        <div class="wmisal-name">{{ sec.title }}</div>
+        <div class="wmisal-actions">
+          <a
+            class="wmisal-cta"
+            [routerLink]="['/documento', sec.id]"
+            data-testid="inicio-misal-secondary"
+          >
+            {{ misalReadLabel(sec) }} ›
+          </a>
+        </div>
+      </div>
+
+      <a
+        class="wmisal-more"
+        routerLink="/santoral"
+        [queryParams]="{ vista: 'calendario' }"
+        data-testid="inicio-misal-calendar"
+      >
+        También en el calendario
+      </a>
+    </section>
+
     <!-- Santos del día (pack offline · feastDays MM-DD local) -->
     <section
       class="wsaints"

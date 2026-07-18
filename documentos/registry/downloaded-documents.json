@@ -1,7 +1,27 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-18T22:09:05.196Z",
+  "updatedAt": "2026-07-18T23:06:41.628Z",
   "documents": [
+    {
+      "id": "aa-en",
+      "sourceId": "aa-en",
+      "title": "Apostolicam actuositatem",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651118_apostolicam-actuositatem_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:38:25.498Z",
+      "lastDownloadedAt": "2026-07-18T22:38:25.498Z",
+      "unitCount": 33,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/aa-en/content.json",
+        "index": "documents/aa-en/index.json",
+        "meta": "documents/aa-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of aa-es). No docCode — citations stay on ES/official."
+    },
     {
       "id": "aa-es",
       "sourceId": "aa",
@@ -22,6 +42,26 @@
       },
       "notes": "Decree on the Apostolate of the Laity (Vat. II). Numbered §§1–33. Official path uses decree_ (not const_).",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "ag-en",
+      "sourceId": "ag-en",
+      "title": "Ad gentes",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_ad-gentes_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:38:28.431Z",
+      "lastDownloadedAt": "2026-07-18T22:38:28.431Z",
+      "unitCount": 42,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ag-en/content.json",
+        "index": "documents/ag-en/index.json",
+        "meta": "documents/ag-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of ag-es). No docCode — citations stay on ES/official."
     },
     {
       "id": "ag-es",
@@ -864,6 +904,46 @@
       "notes": "Seeded from existing corpus (migrated)."
     },
     {
+      "id": "ca-ar",
+      "sourceId": "ca-ar",
+      "title": "Centesimus annus",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/ar/encyclicals/documents/hf_jp-ii_enc_01051991_centesimus-annus.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:06:30.862Z",
+      "lastDownloadedAt": "2026-07-18T23:06:30.862Z",
+      "unitCount": 114,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ca-ar/content.json",
+        "index": "documents/ca-ar/index.json",
+        "meta": "documents/ca-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Centesimus annus» (ca-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "ca-en",
+      "sourceId": "ca-en",
+      "title": "Centesimus annus",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_01051991_centesimus-annus.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:06:41.628Z",
+      "lastDownloadedAt": "2026-07-18T23:06:41.628Z",
+      "unitCount": 114,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ca-en/content.json",
+        "index": "documents/ca-en/index.json",
+        "meta": "documents/ca-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Centesimus annus» (ca-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "ca-es",
       "sourceId": "ca",
       "title": "Centesimus annus",
@@ -925,6 +1005,46 @@
       "notes": ""
     },
     {
+      "id": "carta-diogneto-ar",
+      "sourceId": "carta-diogneto-ar",
+      "title": "Carta a Diogneto",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpc3ppVWstMWdpSEU/view"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:49:11.310Z",
+      "lastDownloadedAt": "2026-07-18T22:49:11.310Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/carta-diogneto-ar/content.json",
+        "index": "documents/carta-diogneto-ar/index.json",
+        "meta": "documents/carta-diogneto-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Carta a Diogneto» (carta-diogneto-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "carta-diogneto-en",
+      "sourceId": "carta-diogneto-en",
+      "title": "Carta a Diogneto",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpc3ppVWstMWdpSEU/view"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:49:16.191Z",
+      "lastDownloadedAt": "2026-07-18T22:49:16.191Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/carta-diogneto-en/content.json",
+        "index": "documents/carta-diogneto-en/index.json",
+        "meta": "documents/carta-diogneto-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Carta a Diogneto» (carta-diogneto-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "carta-diogneto-es",
       "sourceId": "carta-diogneto",
       "title": "Carta a Diogneto",
@@ -943,6 +1063,46 @@
         "meta": "documents/carta-diogneto-es/meta.json"
       },
       "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpc3ppVWstMWdpSEU/view. Edición: Iglesia Viva / Ruiz Bueno (BAC 1950, adaptada). Edición/traducción de referencia: Iglesia Viva / Ruiz Bueno (BAC 1950, adaptada). Iglesia Viva / Ruiz Bueno BAC. 11 caps. romanos."
+    },
+    {
+      "id": "carta-diogneto-hi",
+      "sourceId": "carta-diogneto-hi",
+      "title": "Carta a Diogneto",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpc3ppVWstMWdpSEU/view"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:49:31.150Z",
+      "lastDownloadedAt": "2026-07-18T22:49:31.150Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/carta-diogneto-hi/content.json",
+        "index": "documents/carta-diogneto-hi/index.json",
+        "meta": "documents/carta-diogneto-hi/meta.json"
+      },
+      "notes": "«Carta a Diogneto» (carta-diogneto-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "carta-diogneto-zh",
+      "sourceId": "carta-diogneto-zh",
+      "title": "Carta a Diogneto",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpc3ppVWstMWdpSEU/view"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:49:44.327Z",
+      "lastDownloadedAt": "2026-07-18T22:49:44.327Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/carta-diogneto-zh/content.json",
+        "index": "documents/carta-diogneto-zh/index.json",
+        "meta": "documents/carta-diogneto-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Carta a Diogneto」(carta-diogneto-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "catecismo-romano-es",
@@ -1023,6 +1183,26 @@
         "meta": "documents/cceo-la/meta.json"
       },
       "notes": "CCEO (1990). Full official Latin text on vatican.va (3 pages). Spanish full HTML not published on vatican.va (index stubs only). ~1546 canons (some reserved/missing in HTML)."
+    },
+    {
+      "id": "cd-en",
+      "sourceId": "cd-en",
+      "title": "Christus Dominus",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_christus-dominus_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:38:31.268Z",
+      "lastDownloadedAt": "2026-07-18T22:38:31.268Z",
+      "unitCount": 44,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cd-en/content.json",
+        "index": "documents/cd-en/index.json",
+        "meta": "documents/cd-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of cd-es). No docCode — citations stay on ES/official."
     },
     {
       "id": "cd-es",
@@ -1188,6 +1368,46 @@
       "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpbnNFLUF5eTRiM28/view. Edición: Biblioteca Clásica Gredos. Edición/traducción de referencia: Biblioteca Clásica Gredos. Biblioteca Clásica Gredos. Párrafos + tope unidad."
     },
     {
+      "id": "constantinopla-i-ar",
+      "sourceId": "constantinopla-i-ar",
+      "title": "Concilio de Constantinopla I",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:44:21.741Z",
+      "lastDownloadedAt": "2026-07-18T22:44:21.741Z",
+      "unitCount": 11,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-i-ar/content.json",
+        "index": "documents/constantinopla-i-ar/index.json",
+        "meta": "documents/constantinopla-i-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Constantinopla I» (constantinopla-i-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "constantinopla-i-en",
+      "sourceId": "constantinopla-i-en",
+      "title": "Concilio de Constantinopla I",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:44:24.122Z",
+      "lastDownloadedAt": "2026-07-18T22:44:24.122Z",
+      "unitCount": 11,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-i-en/content.json",
+        "index": "documents/constantinopla-i-en/index.json",
+        "meta": "documents/constantinopla-i-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Constantinopla I» (constantinopla-i-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "constantinopla-i-es",
       "sourceId": "constantinopla-i-es",
       "title": "Concilio de Constantinopla I",
@@ -1206,6 +1426,26 @@
         "meta": "documents/constantinopla-i-es/meta.json"
       },
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantinopolitanum I» (constantinopla-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "constantinopla-i-hi",
+      "sourceId": "constantinopla-i-hi",
+      "title": "Concilio de Constantinopla I",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:44:32.272Z",
+      "lastDownloadedAt": "2026-07-18T22:44:32.272Z",
+      "unitCount": 11,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-i-hi/content.json",
+        "index": "documents/constantinopla-i-hi/index.json",
+        "meta": "documents/constantinopla-i-hi/meta.json"
+      },
+      "notes": "«Concilio de Constantinopla I» (constantinopla-i-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "constantinopla-i-la",
@@ -1228,6 +1468,66 @@
       "notes": ""
     },
     {
+      "id": "constantinopla-i-zh",
+      "sourceId": "constantinopla-i-zh",
+      "title": "Concilio de Constantinopla I",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:44:37.332Z",
+      "lastDownloadedAt": "2026-07-18T22:44:37.332Z",
+      "unitCount": 11,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-i-zh/content.json",
+        "index": "documents/constantinopla-i-zh/index.json",
+        "meta": "documents/constantinopla-i-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Constantinopla I」(constantinopla-i-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "constantinopla-ii-ar",
+      "sourceId": "constantinopla-ii-ar",
+      "title": "Concilio de Constantinopla II",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:48:37.650Z",
+      "lastDownloadedAt": "2026-07-18T22:48:37.650Z",
+      "unitCount": 16,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-ii-ar/content.json",
+        "index": "documents/constantinopla-ii-ar/index.json",
+        "meta": "documents/constantinopla-ii-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Constantinopla II» (constantinopla-ii-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "constantinopla-ii-en",
+      "sourceId": "constantinopla-ii-en",
+      "title": "Concilio de Constantinopla II",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:48:40.544Z",
+      "lastDownloadedAt": "2026-07-18T22:48:40.544Z",
+      "unitCount": 16,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-ii-en/content.json",
+        "index": "documents/constantinopla-ii-en/index.json",
+        "meta": "documents/constantinopla-ii-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Constantinopla II» (constantinopla-ii-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "constantinopla-ii-es",
       "sourceId": "constantinopla-ii-es",
       "title": "Concilio de Constantinopla II",
@@ -1246,6 +1546,26 @@
         "meta": "documents/constantinopla-ii-es/meta.json"
       },
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantinopolitanum II» (constantinopla-ii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "constantinopla-ii-hi",
+      "sourceId": "constantinopla-ii-hi",
+      "title": "Concilio de Constantinopla II",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:48:49.401Z",
+      "lastDownloadedAt": "2026-07-18T22:48:49.401Z",
+      "unitCount": 16,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-ii-hi/content.json",
+        "index": "documents/constantinopla-ii-hi/index.json",
+        "meta": "documents/constantinopla-ii-hi/meta.json"
+      },
+      "notes": "«Concilio de Constantinopla II» (constantinopla-ii-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "constantinopla-ii-la",
@@ -1268,6 +1588,66 @@
       "notes": ""
     },
     {
+      "id": "constantinopla-ii-zh",
+      "sourceId": "constantinopla-ii-zh",
+      "title": "Concilio de Constantinopla II",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:48:55.620Z",
+      "lastDownloadedAt": "2026-07-18T22:48:55.620Z",
+      "unitCount": 16,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-ii-zh/content.json",
+        "index": "documents/constantinopla-ii-zh/index.json",
+        "meta": "documents/constantinopla-ii-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Constantinopla II」(constantinopla-ii-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "constantinopla-iii-ar",
+      "sourceId": "constantinopla-iii-ar",
+      "title": "Concilio de Constantinopla III",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:45:53.259Z",
+      "lastDownloadedAt": "2026-07-18T22:45:53.259Z",
+      "unitCount": 13,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-iii-ar/content.json",
+        "index": "documents/constantinopla-iii-ar/index.json",
+        "meta": "documents/constantinopla-iii-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Constantinopla III» (constantinopla-iii-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "constantinopla-iii-en",
+      "sourceId": "constantinopla-iii-en",
+      "title": "Concilio de Constantinopla III",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:45:56.021Z",
+      "lastDownloadedAt": "2026-07-18T22:45:56.021Z",
+      "unitCount": 13,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-iii-en/content.json",
+        "index": "documents/constantinopla-iii-en/index.json",
+        "meta": "documents/constantinopla-iii-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Constantinopla III» (constantinopla-iii-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "constantinopla-iii-es",
       "sourceId": "constantinopla-iii-es",
       "title": "Concilio de Constantinopla III",
@@ -1288,6 +1668,26 @@
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantinopolitanum III» (constantinopla-iii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
     },
     {
+      "id": "constantinopla-iii-hi",
+      "sourceId": "constantinopla-iii-hi",
+      "title": "Concilio de Constantinopla III",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:46:04.000Z",
+      "lastDownloadedAt": "2026-07-18T22:46:04.000Z",
+      "unitCount": 13,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-iii-hi/content.json",
+        "index": "documents/constantinopla-iii-hi/index.json",
+        "meta": "documents/constantinopla-iii-hi/meta.json"
+      },
+      "notes": "«Concilio de Constantinopla III» (constantinopla-iii-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "constantinopla-iii-la",
       "sourceId": "constantinopla-iii",
       "title": "Concilium Constantinopolitanum III",
@@ -1306,6 +1706,26 @@
         "meta": "documents/constantinopla-iii-la/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "constantinopla-iii-zh",
+      "sourceId": "constantinopla-iii-zh",
+      "title": "Concilio de Constantinopla III",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:46:09.710Z",
+      "lastDownloadedAt": "2026-07-18T22:46:09.710Z",
+      "unitCount": 13,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constantinopla-iii-zh/content.json",
+        "index": "documents/constantinopla-iii-zh/index.json",
+        "meta": "documents/constantinopla-iii-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Constantinopla III」(constantinopla-iii-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "constantinopla-iv-es",
@@ -1348,6 +1768,46 @@
       "notes": ""
     },
     {
+      "id": "constanza-ar",
+      "sourceId": "constanza-ar",
+      "title": "Concilio de Constanza",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:49:47.132Z",
+      "lastDownloadedAt": "2026-07-18T22:49:47.132Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constanza-ar/content.json",
+        "index": "documents/constanza-ar/index.json",
+        "meta": "documents/constanza-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Constanza» (constanza-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "constanza-en",
+      "sourceId": "constanza-en",
+      "title": "Concilio de Constanza",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:49:48.991Z",
+      "lastDownloadedAt": "2026-07-18T22:49:48.991Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constanza-en/content.json",
+        "index": "documents/constanza-en/index.json",
+        "meta": "documents/constanza-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Constanza» (constanza-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "constanza-es",
       "sourceId": "constanza-es",
       "title": "Concilio de Constanza",
@@ -1368,6 +1828,26 @@
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Constantiense» (constanza-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
     },
     {
+      "id": "constanza-hi",
+      "sourceId": "constanza-hi",
+      "title": "Concilio de Constanza",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:49:55.082Z",
+      "lastDownloadedAt": "2026-07-18T22:49:55.082Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constanza-hi/content.json",
+        "index": "documents/constanza-hi/index.json",
+        "meta": "documents/constanza-hi/meta.json"
+      },
+      "notes": "«Concilio de Constanza» (constanza-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "constanza-la",
       "sourceId": "constanza",
       "title": "Concilium Constantiense",
@@ -1386,6 +1866,26 @@
         "meta": "documents/constanza-la/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "constanza-zh",
+      "sourceId": "constanza-zh",
+      "title": "Concilio de Constanza",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:49:58.025Z",
+      "lastDownloadedAt": "2026-07-18T22:49:58.025Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/constanza-zh/content.json",
+        "index": "documents/constanza-zh/index.json",
+        "meta": "documents/constanza-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Constanza」(constanza-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "cpd-es",
@@ -1451,6 +1951,46 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "dh-ar",
+      "sourceId": "dh-ar",
+      "title": "Dignitatis humanae",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651207_dignitatis-humanae_ar.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:47:09.850Z",
+      "lastDownloadedAt": "2026-07-18T22:47:09.850Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dh-ar/content.json",
+        "index": "documents/dh-ar/index.json",
+        "meta": "documents/dh-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Dignitatis humanae» (dh-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "dh-en",
+      "sourceId": "dh-en",
+      "title": "Dignitatis humanae",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651207_dignitatis-humanae_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:38:44.343Z",
+      "lastDownloadedAt": "2026-07-18T22:38:44.343Z",
+      "unitCount": 38,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dh-en/content.json",
+        "index": "documents/dh-en/index.json",
+        "meta": "documents/dh-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of dh-es). No docCode — citations stay on ES/official."
+    },
+    {
       "id": "dh-es",
       "sourceId": "dh",
       "title": "Dignitatis humanae",
@@ -1470,6 +2010,86 @@
       },
       "notes": "Vat. II declaration on religious freedom.",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "dh-hi",
+      "sourceId": "dh-hi",
+      "title": "Dignitatis humanae",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651207_dignitatis-humanae_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:47:19.506Z",
+      "lastDownloadedAt": "2026-07-18T22:47:19.506Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dh-hi/content.json",
+        "index": "documents/dh-hi/index.json",
+        "meta": "documents/dh-hi/meta.json"
+      },
+      "notes": "«Dignitatis humanae» (dh-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "dh-zh",
+      "sourceId": "dh-zh",
+      "title": "Dignitatis humanae",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651207_dignitatis-humanae_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:47:26.851Z",
+      "lastDownloadedAt": "2026-07-18T22:47:26.851Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dh-zh/content.json",
+        "index": "documents/dh-zh/index.json",
+        "meta": "documents/dh-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Dignitatis humanae」(dh-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "diuturnum-ar",
+      "sourceId": "diuturnum-ar",
+      "title": "Diuturnum illud",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/content/leo-xiii/ar/encyclicals/documents/hf_l-xiii_enc_29061881_diuturnum.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:51:14.886Z",
+      "lastDownloadedAt": "2026-07-18T22:51:14.886Z",
+      "unitCount": 21,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/diuturnum-ar/content.json",
+        "index": "documents/diuturnum-ar/index.json",
+        "meta": "documents/diuturnum-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Diuturnum illud» (diuturnum-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "diuturnum-en",
+      "sourceId": "diuturnum-en",
+      "title": "Diuturnum illud",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_29061881_diuturnum.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:51:19.849Z",
+      "lastDownloadedAt": "2026-07-18T22:51:19.849Z",
+      "unitCount": 21,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/diuturnum-en/content.json",
+        "index": "documents/diuturnum-en/index.json",
+        "meta": "documents/diuturnum-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Diuturnum illud» (diuturnum-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "diuturnum-es",
@@ -1492,6 +2112,86 @@
       "notes": "Leo XIII encyclical on the origin of civil power (1881)."
     },
     {
+      "id": "diuturnum-hi",
+      "sourceId": "diuturnum-hi",
+      "title": "Diuturnum illud",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/content/leo-xiii/hi/encyclicals/documents/hf_l-xiii_enc_29061881_diuturnum.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:51:42.330Z",
+      "lastDownloadedAt": "2026-07-18T22:51:42.330Z",
+      "unitCount": 21,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/diuturnum-hi/content.json",
+        "index": "documents/diuturnum-hi/index.json",
+        "meta": "documents/diuturnum-hi/meta.json"
+      },
+      "notes": "«Diuturnum illud» (diuturnum-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "diuturnum-zh",
+      "sourceId": "diuturnum-zh",
+      "title": "Diuturnum illud",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/content/leo-xiii/zh/encyclicals/documents/hf_l-xiii_enc_29061881_diuturnum.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:51:59.241Z",
+      "lastDownloadedAt": "2026-07-18T22:51:59.241Z",
+      "unitCount": 21,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/diuturnum-zh/content.json",
+        "index": "documents/diuturnum-zh/index.json",
+        "meta": "documents/diuturnum-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Diuturnum illud」(diuturnum-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "dm-ar",
+      "sourceId": "dm-ar",
+      "title": "Dives in Misericordia",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/ar/encyclicals/documents/hf_jp-ii_enc_30111980_dives-in-misericordia.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:47:30.197Z",
+      "lastDownloadedAt": "2026-07-18T22:47:30.197Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dm-ar/content.json",
+        "index": "documents/dm-ar/index.json",
+        "meta": "documents/dm-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Dives in Misericordia» (dm-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "dm-en",
+      "sourceId": "dm-en",
+      "title": "Dives in Misericordia",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_30111980_dives-in-misericordia.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:47:32.286Z",
+      "lastDownloadedAt": "2026-07-18T22:47:32.286Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dm-en/content.json",
+        "index": "documents/dm-en/index.json",
+        "meta": "documents/dm-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Dives in Misericordia» (dm-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "dm-es",
       "sourceId": "dm",
       "title": "Dives in Misericordia",
@@ -1510,6 +2210,46 @@
         "meta": "documents/dm-es/meta.json"
       },
       "notes": "JPII encyclical on Divine Mercy (1980)."
+    },
+    {
+      "id": "dm-hi",
+      "sourceId": "dm-hi",
+      "title": "Dives in Misericordia",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/hi/encyclicals/documents/hf_jp-ii_enc_30111980_dives-in-misericordia.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:47:39.357Z",
+      "lastDownloadedAt": "2026-07-18T22:47:39.357Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dm-hi/content.json",
+        "index": "documents/dm-hi/index.json",
+        "meta": "documents/dm-hi/meta.json"
+      },
+      "notes": "«Dives in Misericordia» (dm-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "dm-zh",
+      "sourceId": "dm-zh",
+      "title": "Dives in Misericordia",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/zh/encyclicals/documents/hf_jp-ii_enc_30111980_dives-in-misericordia.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:47:42.079Z",
+      "lastDownloadedAt": "2026-07-18T22:47:42.079Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dm-zh/content.json",
+        "index": "documents/dm-zh/index.json",
+        "meta": "documents/dm-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Dives in Misericordia」(dm-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "donum-veritatis-es",
@@ -1533,6 +2273,46 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "donum-vitae-ar",
+      "sourceId": "donum-vitae-ar",
+      "title": "Donum vitae",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19870222_respect-for-human-life_ar.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:43:51.107Z",
+      "lastDownloadedAt": "2026-07-18T22:43:51.107Z",
+      "unitCount": 8,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/donum-vitae-ar/content.json",
+        "index": "documents/donum-vitae-ar/index.json",
+        "meta": "documents/donum-vitae-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Donum vitae» (donum-vitae-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "donum-vitae-en",
+      "sourceId": "donum-vitae-en",
+      "title": "Donum vitae",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19870222_respect-for-human-life_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:43:53.130Z",
+      "lastDownloadedAt": "2026-07-18T22:43:53.130Z",
+      "unitCount": 8,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/donum-vitae-en/content.json",
+        "index": "documents/donum-vitae-en/index.json",
+        "meta": "documents/donum-vitae-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Donum vitae» (donum-vitae-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "donum-vitae-es",
       "sourceId": "donum-vitae",
       "title": "Donum vitae",
@@ -1551,6 +2331,46 @@
         "meta": "documents/donum-vitae-es/meta.json"
       },
       "notes": "CDF Instruction Donum vitae (1987). Hierarchical section numbers restart; uniqueConsecutivo keeps first series only — use --force if unitCount low."
+    },
+    {
+      "id": "donum-vitae-hi",
+      "sourceId": "donum-vitae-hi",
+      "title": "Donum vitae",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19870222_respect-for-human-life_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:43:57.620Z",
+      "lastDownloadedAt": "2026-07-18T22:43:57.620Z",
+      "unitCount": 8,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/donum-vitae-hi/content.json",
+        "index": "documents/donum-vitae-hi/index.json",
+        "meta": "documents/donum-vitae-hi/meta.json"
+      },
+      "notes": "«Donum vitae» (donum-vitae-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "donum-vitae-zh",
+      "sourceId": "donum-vitae-zh",
+      "title": "Donum vitae",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19870222_respect-for-human-life_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:44:00.847Z",
+      "lastDownloadedAt": "2026-07-18T22:44:00.847Z",
+      "unitCount": 8,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/donum-vitae-zh/content.json",
+        "index": "documents/donum-vitae-zh/index.json",
+        "meta": "documents/donum-vitae-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Donum vitae」(donum-vitae-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "ds-es",
@@ -1573,6 +2393,46 @@
       "notes": "Enchiridion symbolorum (Denzinger-Schönmetzer), texto español. Fuente pública Internet Archive (Public Domain Mark 1.0)."
     },
     {
+      "id": "dv-ar",
+      "sourceId": "dv-ar",
+      "title": "Dei verbum",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_ar.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:56:22.789Z",
+      "lastDownloadedAt": "2026-07-18T22:56:22.789Z",
+      "unitCount": 25,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dv-ar/content.json",
+        "index": "documents/dv-ar/index.json",
+        "meta": "documents/dv-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Dei verbum» (dv-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "dv-en",
+      "sourceId": "dv-en",
+      "title": "Dei verbum",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:33:17.986Z",
+      "lastDownloadedAt": "2026-07-18T22:33:17.986Z",
+      "unitCount": 26,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dv-en/content.json",
+        "index": "documents/dv-en/index.json",
+        "meta": "documents/dv-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of dv-es). No docCode — citations stay on ES/official."
+    },
+    {
       "id": "dv-es",
       "sourceId": "dv",
       "title": "Dei verbum",
@@ -1591,6 +2451,46 @@
       },
       "notes": "Seeded from existing corpus (migrated).",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "dv-hi",
+      "sourceId": "dv-hi",
+      "title": "Dei verbum",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:56:39.253Z",
+      "lastDownloadedAt": "2026-07-18T22:56:39.253Z",
+      "unitCount": 25,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dv-hi/content.json",
+        "index": "documents/dv-hi/index.json",
+        "meta": "documents/dv-hi/meta.json"
+      },
+      "notes": "«Dei verbum» (dv-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "dv-zh",
+      "sourceId": "dv-zh",
+      "title": "Dei verbum",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:56:49.107Z",
+      "lastDownloadedAt": "2026-07-18T22:56:49.107Z",
+      "unitCount": 25,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dv-zh/content.json",
+        "index": "documents/dv-zh/index.json",
+        "meta": "documents/dv-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Dei verbum」(dv-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "ee-es",
@@ -1614,6 +2514,46 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "efeso-ar",
+      "sourceId": "efeso-ar",
+      "title": "Concilio de Éfeso",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:44:43.885Z",
+      "lastDownloadedAt": "2026-07-18T22:44:43.885Z",
+      "unitCount": 11,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/efeso-ar/content.json",
+        "index": "documents/efeso-ar/index.json",
+        "meta": "documents/efeso-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Éfeso» (efeso-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "efeso-en",
+      "sourceId": "efeso-en",
+      "title": "Concilio de Éfeso",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:44:46.456Z",
+      "lastDownloadedAt": "2026-07-18T22:44:46.456Z",
+      "unitCount": 11,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/efeso-en/content.json",
+        "index": "documents/efeso-en/index.json",
+        "meta": "documents/efeso-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Éfeso» (efeso-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "efeso-es",
       "sourceId": "efeso-es",
       "title": "Concilio de Éfeso",
@@ -1634,6 +2574,26 @@
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Ephesinum» (efeso-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
     },
     {
+      "id": "efeso-hi",
+      "sourceId": "efeso-hi",
+      "title": "Concilio de Éfeso",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:44:56.086Z",
+      "lastDownloadedAt": "2026-07-18T22:44:56.086Z",
+      "unitCount": 11,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/efeso-hi/content.json",
+        "index": "documents/efeso-hi/index.json",
+        "meta": "documents/efeso-hi/meta.json"
+      },
+      "notes": "«Concilio de Éfeso» (efeso-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "efeso-la",
       "sourceId": "efeso",
       "title": "Concilium Ephesinum",
@@ -1652,6 +2612,26 @@
         "meta": "documents/efeso-la/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "efeso-zh",
+      "sourceId": "efeso-zh",
+      "title": "Concilio de Éfeso",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:45:00.913Z",
+      "lastDownloadedAt": "2026-07-18T22:45:00.913Z",
+      "unitCount": 11,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/efeso-zh/content.json",
+        "index": "documents/efeso-zh/index.json",
+        "meta": "documents/efeso-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Éfeso」(efeso-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "en-es",
@@ -1717,6 +2697,46 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "florencia-ar",
+      "sourceId": "florencia-ar",
+      "title": "Concilio de Basilea-Ferrara-Florencia",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:50:01.648Z",
+      "lastDownloadedAt": "2026-07-18T22:50:01.648Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/florencia-ar/content.json",
+        "index": "documents/florencia-ar/index.json",
+        "meta": "documents/florencia-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Basilea-Ferrara-Florencia» (florencia-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "florencia-en",
+      "sourceId": "florencia-en",
+      "title": "Concilio de Basilea-Ferrara-Florencia",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:50:03.644Z",
+      "lastDownloadedAt": "2026-07-18T22:50:03.644Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/florencia-en/content.json",
+        "index": "documents/florencia-en/index.json",
+        "meta": "documents/florencia-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Basilea-Ferrara-Florencia» (florencia-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "florencia-es",
       "sourceId": "florencia-es",
       "title": "Concilio de Basilea-Ferrara-Florencia",
@@ -1737,6 +2757,26 @@
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Basileense-Ferrariense-Florentinum» (florencia-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
     },
     {
+      "id": "florencia-hi",
+      "sourceId": "florencia-hi",
+      "title": "Concilio de Basilea-Ferrara-Florencia",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:50:11.521Z",
+      "lastDownloadedAt": "2026-07-18T22:50:11.521Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/florencia-hi/content.json",
+        "index": "documents/florencia-hi/index.json",
+        "meta": "documents/florencia-hi/meta.json"
+      },
+      "notes": "«Concilio de Basilea-Ferrara-Florencia» (florencia-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "florencia-la",
       "sourceId": "florencia",
       "title": "Concilium Basileense-Ferrariense-Florentinum",
@@ -1755,6 +2795,26 @@
         "meta": "documents/florencia-la/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "florencia-zh",
+      "sourceId": "florencia-zh",
+      "title": "Concilio de Basilea-Ferrara-Florencia",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:50:14.799Z",
+      "lastDownloadedAt": "2026-07-18T22:50:14.799Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/florencia-zh/content.json",
+        "index": "documents/florencia-zh/index.json",
+        "meta": "documents/florencia-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Basilea-Ferrara-Florencia」(florencia-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "gdc-es",
@@ -1778,6 +2838,46 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "ge-ar",
+      "sourceId": "ge-ar",
+      "title": "Gravissimum educationis",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_gravissimum-educationis_ar.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:45:08.184Z",
+      "lastDownloadedAt": "2026-07-18T22:45:08.184Z",
+      "unitCount": 12,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ge-ar/content.json",
+        "index": "documents/ge-ar/index.json",
+        "meta": "documents/ge-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Gravissimum educationis» (ge-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "ge-en",
+      "sourceId": "ge-en",
+      "title": "Gravissimum educationis",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_gravissimum-educationis_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:38:47.410Z",
+      "lastDownloadedAt": "2026-07-18T22:38:47.410Z",
+      "unitCount": 36,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ge-en/content.json",
+        "index": "documents/ge-en/index.json",
+        "meta": "documents/ge-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of ge-es). No docCode — citations stay on ES/official."
+    },
+    {
       "id": "ge-es",
       "sourceId": "ge",
       "title": "Gravissimum educationis",
@@ -1798,6 +2898,46 @@
       "notes": "Vat. II declaration on Christian education."
     },
     {
+      "id": "ge-hi",
+      "sourceId": "ge-hi",
+      "title": "Gravissimum educationis",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_gravissimum-educationis_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:45:16.683Z",
+      "lastDownloadedAt": "2026-07-18T22:45:16.683Z",
+      "unitCount": 12,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ge-hi/content.json",
+        "index": "documents/ge-hi/index.json",
+        "meta": "documents/ge-hi/meta.json"
+      },
+      "notes": "«Gravissimum educationis» (ge-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "ge-zh",
+      "sourceId": "ge-zh",
+      "title": "Gravissimum educationis",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_gravissimum-educationis_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:45:23.153Z",
+      "lastDownloadedAt": "2026-07-18T22:45:23.153Z",
+      "unitCount": 12,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ge-zh/content.json",
+        "index": "documents/ge-zh/index.json",
+        "meta": "documents/ge-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Gravissimum educationis」(ge-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
       "id": "gregorio-nisa-gran-catequesis-es",
       "sourceId": "gregorio-nisa-gran-catequesis-es",
       "title": "Gran Catequesis",
@@ -1816,6 +2956,26 @@
         "meta": "documents/gregorio-nisa-gran-catequesis-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "gs-en",
+      "sourceId": "gs-en",
+      "title": "Gaudium et spes",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:38:22.725Z",
+      "lastDownloadedAt": "2026-07-18T22:38:22.725Z",
+      "unitCount": 93,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/gs-en/content.json",
+        "index": "documents/gs-en/index.json",
+        "meta": "documents/gs-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of gs-es). No docCode — citations stay on ES/official."
     },
     {
       "id": "gs-es",
@@ -1860,6 +3020,126 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "igmr-en",
+      "sourceId": "igmr-en",
+      "title": "General Instruction of the Roman Missal",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:02:50.430Z",
+      "lastDownloadedAt": "2026-07-18T23:02:50.430Z",
+      "unitCount": 399,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/igmr-en/content.json",
+        "index": "documents/igmr-en/index.json",
+        "meta": "documents/igmr-en/meta.json"
+      },
+      "notes": "Official EN HTML. No docCode — citations prefer IGMR ES when both exist."
+    },
+    {
+      "id": "igmr-es",
+      "sourceId": "igmr-es",
+      "title": "Instrucción general del Misal Romano",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:02:48.455Z",
+      "lastDownloadedAt": "2026-07-18T23:02:48.455Z",
+      "unitCount": 398,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/igmr-es/content.json",
+        "index": "documents/igmr-es/index.json",
+        "meta": "documents/igmr-es/meta.json"
+      },
+      "notes": "IGMR ES HTML from vatican.va CDW. IDs igmr-* avoid collision with rm-es (Redemptoris Missio)."
+    },
+    {
+      "id": "igmr-fr",
+      "sourceId": "igmr-fr",
+      "title": "Présentation générale du Missel Romain",
+      "kind": "magisterium",
+      "locale": "fr",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_fr.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:02:53.515Z",
+      "lastDownloadedAt": "2026-07-18T23:02:53.515Z",
+      "unitCount": 399,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/igmr-fr/content.json",
+        "index": "documents/igmr-fr/index.json",
+        "meta": "documents/igmr-fr/meta.json"
+      },
+      "notes": "Official FR HTML from vatican.va."
+    },
+    {
+      "id": "igmr-it",
+      "sourceId": "igmr-it",
+      "title": "Ordinamento Generale del Messale Romano",
+      "kind": "magisterium",
+      "locale": "it",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_it.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:02:51.964Z",
+      "lastDownloadedAt": "2026-07-18T23:02:51.964Z",
+      "unitCount": 397,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/igmr-it/content.json",
+        "index": "documents/igmr-it/index.json",
+        "meta": "documents/igmr-it/meta.json"
+      },
+      "notes": "Official IT HTML from vatican.va."
+    },
+    {
+      "id": "im-ar",
+      "sourceId": "im-ar",
+      "title": "Inter mirifica",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19631204_inter-mirifica_ar.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:54:11.410Z",
+      "lastDownloadedAt": "2026-07-18T22:54:11.410Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/im-ar/content.json",
+        "index": "documents/im-ar/index.json",
+        "meta": "documents/im-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Inter mirifica» (im-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "im-en",
+      "sourceId": "im-en",
+      "title": "Inter mirifica",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19631204_inter-mirifica_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:38:50.186Z",
+      "lastDownloadedAt": "2026-07-18T22:38:50.186Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/im-en/content.json",
+        "index": "documents/im-en/index.json",
+        "meta": "documents/im-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of im-es). No docCode — citations stay on ES/official."
+    },
+    {
       "id": "im-es",
       "sourceId": "im",
       "title": "Inter mirifica",
@@ -1879,6 +3159,86 @@
       },
       "notes": "Vat. II decree on social communication.",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "im-hi",
+      "sourceId": "im-hi",
+      "title": "Inter mirifica",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19631204_inter-mirifica_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:54:24.469Z",
+      "lastDownloadedAt": "2026-07-18T22:54:24.469Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/im-hi/content.json",
+        "index": "documents/im-hi/index.json",
+        "meta": "documents/im-hi/meta.json"
+      },
+      "notes": "«Inter mirifica» (im-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "im-zh",
+      "sourceId": "im-zh",
+      "title": "Inter mirifica",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19631204_inter-mirifica_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:54:31.911Z",
+      "lastDownloadedAt": "2026-07-18T22:54:31.911Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/im-zh/content.json",
+        "index": "documents/im-zh/index.json",
+        "meta": "documents/im-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Inter mirifica」(im-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "immortale-dei-ar",
+      "sourceId": "immortale-dei-ar",
+      "title": "Immortale Dei",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/content/leo-xiii/ar/encyclicals/documents/hf_l-xiii_enc_01111885_immortale-dei.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:54:56.734Z",
+      "lastDownloadedAt": "2026-07-18T22:54:56.734Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/immortale-dei-ar/content.json",
+        "index": "documents/immortale-dei-ar/index.json",
+        "meta": "documents/immortale-dei-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Immortale Dei» (immortale-dei-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "immortale-dei-en",
+      "sourceId": "immortale-dei-en",
+      "title": "Immortale Dei",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_01111885_immortale-dei.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:55:02.552Z",
+      "lastDownloadedAt": "2026-07-18T22:55:02.552Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/immortale-dei-en/content.json",
+        "index": "documents/immortale-dei-en/index.json",
+        "meta": "documents/immortale-dei-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Immortale Dei» (immortale-dei-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "immortale-dei-es",
@@ -1901,6 +3261,86 @@
       "notes": "Leo XIII encyclical on the Christian constitution of states (1885). Code IDei (not ID=Indulgentiarum)."
     },
     {
+      "id": "immortale-dei-hi",
+      "sourceId": "immortale-dei-hi",
+      "title": "Immortale Dei",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/content/leo-xiii/hi/encyclicals/documents/hf_l-xiii_enc_01111885_immortale-dei.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:55:22.831Z",
+      "lastDownloadedAt": "2026-07-18T22:55:22.831Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/immortale-dei-hi/content.json",
+        "index": "documents/immortale-dei-hi/index.json",
+        "meta": "documents/immortale-dei-hi/meta.json"
+      },
+      "notes": "«Immortale Dei» (immortale-dei-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "immortale-dei-zh",
+      "sourceId": "immortale-dei-zh",
+      "title": "Immortale Dei",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/content/leo-xiii/zh/encyclicals/documents/hf_l-xiii_enc_01111885_immortale-dei.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:55:40.175Z",
+      "lastDownloadedAt": "2026-07-18T22:55:40.175Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/immortale-dei-zh/content.json",
+        "index": "documents/immortale-dei-zh/index.json",
+        "meta": "documents/immortale-dei-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Immortale Dei」(immortale-dei-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "indulgentiarum-doctrina-ar",
+      "sourceId": "indulgentiarum-doctrina-ar",
+      "title": "Indulgentiarum doctrina",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/ar/apost_constitutions/documents/hf_p-vi_apc_01011967_indulgentiarum-doctrina.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:45:28.697Z",
+      "lastDownloadedAt": "2026-07-18T22:45:28.697Z",
+      "unitCount": 12,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/indulgentiarum-doctrina-ar/content.json",
+        "index": "documents/indulgentiarum-doctrina-ar/index.json",
+        "meta": "documents/indulgentiarum-doctrina-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Indulgentiarum doctrina» (indulgentiarum-doctrina-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "indulgentiarum-doctrina-en",
+      "sourceId": "indulgentiarum-doctrina-en",
+      "title": "Indulgentiarum doctrina",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/en/apost_constitutions/documents/hf_p-vi_apc_01011967_indulgentiarum-doctrina.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:45:31.365Z",
+      "lastDownloadedAt": "2026-07-18T22:45:31.365Z",
+      "unitCount": 12,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/indulgentiarum-doctrina-en/content.json",
+        "index": "documents/indulgentiarum-doctrina-en/index.json",
+        "meta": "documents/indulgentiarum-doctrina-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Indulgentiarum doctrina» (indulgentiarum-doctrina-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "indulgentiarum-doctrina-es",
       "sourceId": "indulgentiarum",
       "title": "Indulgentiarum doctrina",
@@ -1921,6 +3361,86 @@
       "notes": "Paul VI apostolic constitution on indulgences (1967)."
     },
     {
+      "id": "indulgentiarum-doctrina-hi",
+      "sourceId": "indulgentiarum-doctrina-hi",
+      "title": "Indulgentiarum doctrina",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/hi/apost_constitutions/documents/hf_p-vi_apc_01011967_indulgentiarum-doctrina.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:45:39.899Z",
+      "lastDownloadedAt": "2026-07-18T22:45:39.899Z",
+      "unitCount": 12,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/indulgentiarum-doctrina-hi/content.json",
+        "index": "documents/indulgentiarum-doctrina-hi/index.json",
+        "meta": "documents/indulgentiarum-doctrina-hi/meta.json"
+      },
+      "notes": "«Indulgentiarum doctrina» (indulgentiarum-doctrina-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "indulgentiarum-doctrina-zh",
+      "sourceId": "indulgentiarum-doctrina-zh",
+      "title": "Indulgentiarum doctrina",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/zh/apost_constitutions/documents/hf_p-vi_apc_01011967_indulgentiarum-doctrina.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:45:45.064Z",
+      "lastDownloadedAt": "2026-07-18T22:45:45.064Z",
+      "unitCount": 12,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/indulgentiarum-doctrina-zh/content.json",
+        "index": "documents/indulgentiarum-doctrina-zh/index.json",
+        "meta": "documents/indulgentiarum-doctrina-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Indulgentiarum doctrina」(indulgentiarum-doctrina-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "iura-et-bona-ar",
+      "sourceId": "iura-et-bona-ar",
+      "title": "Iura et bona",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19800505_euthanasia_ar.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:41:04.890Z",
+      "lastDownloadedAt": "2026-07-18T22:41:04.890Z",
+      "unitCount": 3,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/iura-et-bona-ar/content.json",
+        "index": "documents/iura-et-bona-ar/index.json",
+        "meta": "documents/iura-et-bona-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Iura et bona» (iura-et-bona-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "iura-et-bona-en",
+      "sourceId": "iura-et-bona-en",
+      "title": "Iura et bona",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19800505_euthanasia_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:41:07.218Z",
+      "lastDownloadedAt": "2026-07-18T22:41:07.218Z",
+      "unitCount": 3,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/iura-et-bona-en/content.json",
+        "index": "documents/iura-et-bona-en/index.json",
+        "meta": "documents/iura-et-bona-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Iura et bona» (iura-et-bona-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "iura-et-bona-es",
       "sourceId": "iura-et-bona",
       "title": "Iura et bona",
@@ -1939,6 +3459,46 @@
         "meta": "documents/iura-et-bona-es/meta.json"
       },
       "notes": "CDF Declaration on euthanasia Iura et bona (1980). ES path uses euthanasia slug."
+    },
+    {
+      "id": "iura-et-bona-hi",
+      "sourceId": "iura-et-bona-hi",
+      "title": "Iura et bona",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19800505_euthanasia_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:41:10.960Z",
+      "lastDownloadedAt": "2026-07-18T22:41:10.960Z",
+      "unitCount": 3,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/iura-et-bona-hi/content.json",
+        "index": "documents/iura-et-bona-hi/index.json",
+        "meta": "documents/iura-et-bona-hi/meta.json"
+      },
+      "notes": "«Iura et bona» (iura-et-bona-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "iura-et-bona-zh",
+      "sourceId": "iura-et-bona-zh",
+      "title": "Iura et bona",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19800505_euthanasia_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:41:14.560Z",
+      "lastDownloadedAt": "2026-07-18T22:41:14.560Z",
+      "unitCount": 3,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/iura-et-bona-zh/content.json",
+        "index": "documents/iura-et-bona-zh/index.json",
+        "meta": "documents/iura-et-bona-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Iura et bona」(iura-et-bona-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "jerusalen-es",
@@ -1981,6 +3541,46 @@
       "notes": "Hechos 15 (Vulgata). Pack del relato apostólico."
     },
     {
+      "id": "lateran-i-ar",
+      "sourceId": "lateran-i-ar",
+      "title": "Concilio de Letrán I",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:46:33.823Z",
+      "lastDownloadedAt": "2026-07-18T22:46:33.823Z",
+      "unitCount": 14,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-i-ar/content.json",
+        "index": "documents/lateran-i-ar/index.json",
+        "meta": "documents/lateran-i-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Letrán I» (lateran-i-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "lateran-i-en",
+      "sourceId": "lateran-i-en",
+      "title": "Concilio de Letrán I",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:46:35.718Z",
+      "lastDownloadedAt": "2026-07-18T22:46:35.718Z",
+      "unitCount": 14,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-i-en/content.json",
+        "index": "documents/lateran-i-en/index.json",
+        "meta": "documents/lateran-i-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Letrán I» (lateran-i-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "lateran-i-es",
       "sourceId": "lateran-i-es",
       "title": "Concilio de Letrán I",
@@ -1999,6 +3599,26 @@
         "meta": "documents/lateran-i-es/meta.json"
       },
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense I» (lateran-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "lateran-i-hi",
+      "sourceId": "lateran-i-hi",
+      "title": "Concilio de Letrán I",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:46:42.688Z",
+      "lastDownloadedAt": "2026-07-18T22:46:42.688Z",
+      "unitCount": 14,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-i-hi/content.json",
+        "index": "documents/lateran-i-hi/index.json",
+        "meta": "documents/lateran-i-hi/meta.json"
+      },
+      "notes": "«Concilio de Letrán I» (lateran-i-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "lateran-i-la",
@@ -2021,6 +3641,66 @@
       "notes": ""
     },
     {
+      "id": "lateran-i-zh",
+      "sourceId": "lateran-i-zh",
+      "title": "Concilio de Letrán I",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:46:45.599Z",
+      "lastDownloadedAt": "2026-07-18T22:46:45.599Z",
+      "unitCount": 14,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-i-zh/content.json",
+        "index": "documents/lateran-i-zh/index.json",
+        "meta": "documents/lateran-i-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Letrán I」(lateran-i-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "lateran-ii-ar",
+      "sourceId": "lateran-ii-ar",
+      "title": "Concilio de Letrán II",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:47:45.775Z",
+      "lastDownloadedAt": "2026-07-18T22:47:45.775Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-ii-ar/content.json",
+        "index": "documents/lateran-ii-ar/index.json",
+        "meta": "documents/lateran-ii-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Letrán II» (lateran-ii-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "lateran-ii-en",
+      "sourceId": "lateran-ii-en",
+      "title": "Concilio de Letrán II",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:47:47.857Z",
+      "lastDownloadedAt": "2026-07-18T22:47:47.857Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-ii-en/content.json",
+        "index": "documents/lateran-ii-en/index.json",
+        "meta": "documents/lateran-ii-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Letrán II» (lateran-ii-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "lateran-ii-es",
       "sourceId": "lateran-ii-es",
       "title": "Concilio de Letrán II",
@@ -2039,6 +3719,26 @@
         "meta": "documents/lateran-ii-es/meta.json"
       },
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense II» (lateran-ii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "lateran-ii-hi",
+      "sourceId": "lateran-ii-hi",
+      "title": "Concilio de Letrán II",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:47:55.571Z",
+      "lastDownloadedAt": "2026-07-18T22:47:55.571Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-ii-hi/content.json",
+        "index": "documents/lateran-ii-hi/index.json",
+        "meta": "documents/lateran-ii-hi/meta.json"
+      },
+      "notes": "«Concilio de Letrán II» (lateran-ii-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "lateran-ii-la",
@@ -2061,6 +3761,66 @@
       "notes": ""
     },
     {
+      "id": "lateran-ii-zh",
+      "sourceId": "lateran-ii-zh",
+      "title": "Concilio de Letrán II",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:47:58.200Z",
+      "lastDownloadedAt": "2026-07-18T22:47:58.200Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-ii-zh/content.json",
+        "index": "documents/lateran-ii-zh/index.json",
+        "meta": "documents/lateran-ii-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Letrán II」(lateran-ii-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "lateran-iii-ar",
+      "sourceId": "lateran-iii-ar",
+      "title": "Concilio de Letrán III",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:48:01.409Z",
+      "lastDownloadedAt": "2026-07-18T22:48:01.409Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-iii-ar/content.json",
+        "index": "documents/lateran-iii-ar/index.json",
+        "meta": "documents/lateran-iii-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Letrán III» (lateran-iii-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "lateran-iii-en",
+      "sourceId": "lateran-iii-en",
+      "title": "Concilio de Letrán III",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:48:03.327Z",
+      "lastDownloadedAt": "2026-07-18T22:48:03.327Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-iii-en/content.json",
+        "index": "documents/lateran-iii-en/index.json",
+        "meta": "documents/lateran-iii-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Letrán III» (lateran-iii-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "lateran-iii-es",
       "sourceId": "lateran-iii-es",
       "title": "Concilio de Letrán III",
@@ -2079,6 +3839,26 @@
         "meta": "documents/lateran-iii-es/meta.json"
       },
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense III» (lateran-iii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "lateran-iii-hi",
+      "sourceId": "lateran-iii-hi",
+      "title": "Concilio de Letrán III",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:48:10.245Z",
+      "lastDownloadedAt": "2026-07-18T22:48:10.245Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-iii-hi/content.json",
+        "index": "documents/lateran-iii-hi/index.json",
+        "meta": "documents/lateran-iii-hi/meta.json"
+      },
+      "notes": "«Concilio de Letrán III» (lateran-iii-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "lateran-iii-la",
@@ -2101,6 +3881,66 @@
       "notes": ""
     },
     {
+      "id": "lateran-iii-zh",
+      "sourceId": "lateran-iii-zh",
+      "title": "Concilio de Letrán III",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:48:13.688Z",
+      "lastDownloadedAt": "2026-07-18T22:48:13.688Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-iii-zh/content.json",
+        "index": "documents/lateran-iii-zh/index.json",
+        "meta": "documents/lateran-iii-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Letrán III」(lateran-iii-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "lateran-iv-ar",
+      "sourceId": "lateran-iv-ar",
+      "title": "Concilio de Letrán IV",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:50:35.887Z",
+      "lastDownloadedAt": "2026-07-18T22:50:35.887Z",
+      "unitCount": 18,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-iv-ar/content.json",
+        "index": "documents/lateran-iv-ar/index.json",
+        "meta": "documents/lateran-iv-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Letrán IV» (lateran-iv-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "lateran-iv-en",
+      "sourceId": "lateran-iv-en",
+      "title": "Concilio de Letrán IV",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:50:38.156Z",
+      "lastDownloadedAt": "2026-07-18T22:50:38.156Z",
+      "unitCount": 18,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-iv-en/content.json",
+        "index": "documents/lateran-iv-en/index.json",
+        "meta": "documents/lateran-iv-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Letrán IV» (lateran-iv-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "lateran-iv-es",
       "sourceId": "lateran-iv-es",
       "title": "Concilio de Letrán IV",
@@ -2119,6 +3959,26 @@
         "meta": "documents/lateran-iv-es/meta.json"
       },
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense IV» (lateran-iv-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "lateran-iv-hi",
+      "sourceId": "lateran-iv-hi",
+      "title": "Concilio de Letrán IV",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:50:46.928Z",
+      "lastDownloadedAt": "2026-07-18T22:50:46.928Z",
+      "unitCount": 18,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-iv-hi/content.json",
+        "index": "documents/lateran-iv-hi/index.json",
+        "meta": "documents/lateran-iv-hi/meta.json"
+      },
+      "notes": "«Concilio de Letrán IV» (lateran-iv-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "lateran-iv-la",
@@ -2141,6 +4001,66 @@
       "notes": ""
     },
     {
+      "id": "lateran-iv-zh",
+      "sourceId": "lateran-iv-zh",
+      "title": "Concilio de Letrán IV",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:50:51.525Z",
+      "lastDownloadedAt": "2026-07-18T22:50:51.525Z",
+      "unitCount": 18,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-iv-zh/content.json",
+        "index": "documents/lateran-iv-zh/index.json",
+        "meta": "documents/lateran-iv-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Letrán IV」(lateran-iv-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "lateran-v-ar",
+      "sourceId": "lateran-v-ar",
+      "title": "Concilio de Letrán V",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:53:31.728Z",
+      "lastDownloadedAt": "2026-07-18T22:53:31.728Z",
+      "unitCount": 23,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-v-ar/content.json",
+        "index": "documents/lateran-v-ar/index.json",
+        "meta": "documents/lateran-v-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Letrán V» (lateran-v-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "lateran-v-en",
+      "sourceId": "lateran-v-en",
+      "title": "Concilio de Letrán V",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:53:33.718Z",
+      "lastDownloadedAt": "2026-07-18T22:53:33.718Z",
+      "unitCount": 23,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-v-en/content.json",
+        "index": "documents/lateran-v-en/index.json",
+        "meta": "documents/lateran-v-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Letrán V» (lateran-v-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "lateran-v-es",
       "sourceId": "lateran-v-es",
       "title": "Concilio de Letrán V",
@@ -2159,6 +4079,26 @@
         "meta": "documents/lateran-v-es/meta.json"
       },
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lateranense V» (lateran-v-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "lateran-v-hi",
+      "sourceId": "lateran-v-hi",
+      "title": "Concilio de Letrán V",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:53:41.713Z",
+      "lastDownloadedAt": "2026-07-18T22:53:41.713Z",
+      "unitCount": 23,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-v-hi/content.json",
+        "index": "documents/lateran-v-hi/index.json",
+        "meta": "documents/lateran-v-hi/meta.json"
+      },
+      "notes": "«Concilio de Letrán V» (lateran-v-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "lateran-v-la",
@@ -2181,6 +4121,26 @@
       "notes": ""
     },
     {
+      "id": "lateran-v-zh",
+      "sourceId": "lateran-v-zh",
+      "title": "Concilio de Letrán V",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:53:45.087Z",
+      "lastDownloadedAt": "2026-07-18T22:53:45.087Z",
+      "unitCount": 23,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lateran-v-zh/content.json",
+        "index": "documents/lateran-v-zh/index.json",
+        "meta": "documents/lateran-v-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Letrán V」(lateran-v-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
       "id": "le-es",
       "sourceId": "le",
       "title": "Laborem exercens",
@@ -2200,6 +4160,26 @@
       },
       "notes": "JPII encyclical on human work.",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "lg-en",
+      "sourceId": "lg-en",
+      "title": "Lumen gentium",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:33:16.516Z",
+      "lastDownloadedAt": "2026-07-18T22:33:16.516Z",
+      "unitCount": 69,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lg-en/content.json",
+        "index": "documents/lg-en/index.json",
+        "meta": "documents/lg-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of lg-es). No docCode — citations stay on ES/official."
     },
     {
       "id": "lg-es",
@@ -2243,6 +4223,46 @@
       "notes": "Leo XIII encyclical on human liberty (1888)."
     },
     {
+      "id": "libertatis-conscientia-ar",
+      "sourceId": "libertatis-conscientia-ar",
+      "title": "Libertatis conscientia",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19860322_freedom-liberation_ar.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:59:23.767Z",
+      "lastDownloadedAt": "2026-07-18T22:59:23.767Z",
+      "unitCount": 100,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/libertatis-conscientia-ar/content.json",
+        "index": "documents/libertatis-conscientia-ar/index.json",
+        "meta": "documents/libertatis-conscientia-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Libertatis conscientia» (libertatis-conscientia-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "libertatis-conscientia-en",
+      "sourceId": "libertatis-conscientia-en",
+      "title": "Libertatis conscientia",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19860322_freedom-liberation_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:59:26.112Z",
+      "lastDownloadedAt": "2026-07-18T22:59:26.112Z",
+      "unitCount": 100,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/libertatis-conscientia-en/content.json",
+        "index": "documents/libertatis-conscientia-en/index.json",
+        "meta": "documents/libertatis-conscientia-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Libertatis conscientia» (libertatis-conscientia-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "libertatis-conscientia-es",
       "sourceId": "libertatis-conscientia",
       "title": "Libertatis conscientia",
@@ -2261,6 +4281,86 @@
         "meta": "documents/libertatis-conscientia-es/meta.json"
       },
       "notes": "CDF Instruction Libertatis conscientia on Christian freedom and liberation (1986). Code LCon (not LC ambiguity)."
+    },
+    {
+      "id": "libertatis-conscientia-hi",
+      "sourceId": "libertatis-conscientia-hi",
+      "title": "Libertatis conscientia",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19860322_freedom-liberation_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:00:02.909Z",
+      "lastDownloadedAt": "2026-07-18T23:00:02.909Z",
+      "unitCount": 100,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/libertatis-conscientia-hi/content.json",
+        "index": "documents/libertatis-conscientia-hi/index.json",
+        "meta": "documents/libertatis-conscientia-hi/meta.json"
+      },
+      "notes": "«Libertatis conscientia» (libertatis-conscientia-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "libertatis-conscientia-zh",
+      "sourceId": "libertatis-conscientia-zh",
+      "title": "Libertatis conscientia",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19860322_freedom-liberation_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:00:06.750Z",
+      "lastDownloadedAt": "2026-07-18T23:00:06.750Z",
+      "unitCount": 100,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/libertatis-conscientia-zh/content.json",
+        "index": "documents/libertatis-conscientia-zh/index.json",
+        "meta": "documents/libertatis-conscientia-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Libertatis conscientia」(libertatis-conscientia-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "lyon-i-ar",
+      "sourceId": "lyon-i-ar",
+      "title": "Concilio de Lyon I",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:46:49.032Z",
+      "lastDownloadedAt": "2026-07-18T22:46:49.032Z",
+      "unitCount": 14,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lyon-i-ar/content.json",
+        "index": "documents/lyon-i-ar/index.json",
+        "meta": "documents/lyon-i-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Lyon I» (lyon-i-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "lyon-i-en",
+      "sourceId": "lyon-i-en",
+      "title": "Concilio de Lyon I",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:46:50.928Z",
+      "lastDownloadedAt": "2026-07-18T22:46:50.928Z",
+      "unitCount": 14,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lyon-i-en/content.json",
+        "index": "documents/lyon-i-en/index.json",
+        "meta": "documents/lyon-i-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Lyon I» (lyon-i-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "lyon-i-es",
@@ -2283,6 +4383,26 @@
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lugdunense I» (lyon-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
     },
     {
+      "id": "lyon-i-hi",
+      "sourceId": "lyon-i-hi",
+      "title": "Concilio de Lyon I",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:46:57.793Z",
+      "lastDownloadedAt": "2026-07-18T22:46:57.793Z",
+      "unitCount": 14,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lyon-i-hi/content.json",
+        "index": "documents/lyon-i-hi/index.json",
+        "meta": "documents/lyon-i-hi/meta.json"
+      },
+      "notes": "«Concilio de Lyon I» (lyon-i-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "lyon-i-la",
       "sourceId": "lyon-i",
       "title": "Concilium Lugdunense I",
@@ -2301,6 +4421,66 @@
         "meta": "documents/lyon-i-la/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "lyon-i-zh",
+      "sourceId": "lyon-i-zh",
+      "title": "Concilio de Lyon I",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:47:00.959Z",
+      "lastDownloadedAt": "2026-07-18T22:47:00.959Z",
+      "unitCount": 14,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lyon-i-zh/content.json",
+        "index": "documents/lyon-i-zh/index.json",
+        "meta": "documents/lyon-i-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Lyon I」(lyon-i-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "lyon-ii-ar",
+      "sourceId": "lyon-ii-ar",
+      "title": "Concilio de Lyon II",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:48:17.168Z",
+      "lastDownloadedAt": "2026-07-18T22:48:17.168Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lyon-ii-ar/content.json",
+        "index": "documents/lyon-ii-ar/index.json",
+        "meta": "documents/lyon-ii-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Lyon II» (lyon-ii-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "lyon-ii-en",
+      "sourceId": "lyon-ii-en",
+      "title": "Concilio de Lyon II",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:48:19.273Z",
+      "lastDownloadedAt": "2026-07-18T22:48:19.273Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lyon-ii-en/content.json",
+        "index": "documents/lyon-ii-en/index.json",
+        "meta": "documents/lyon-ii-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Lyon II» (lyon-ii-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "lyon-ii-es",
@@ -2323,6 +4503,26 @@
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Lugdunense II» (lyon-ii-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
     },
     {
+      "id": "lyon-ii-hi",
+      "sourceId": "lyon-ii-hi",
+      "title": "Concilio de Lyon II",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:48:26.181Z",
+      "lastDownloadedAt": "2026-07-18T22:48:26.181Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lyon-ii-hi/content.json",
+        "index": "documents/lyon-ii-hi/index.json",
+        "meta": "documents/lyon-ii-hi/meta.json"
+      },
+      "notes": "«Concilio de Lyon II» (lyon-ii-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "lyon-ii-la",
       "sourceId": "lyon-ii",
       "title": "Concilium Lugdunense II",
@@ -2341,6 +4541,66 @@
         "meta": "documents/lyon-ii-la/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "lyon-ii-zh",
+      "sourceId": "lyon-ii-zh",
+      "title": "Concilio de Lyon II",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:48:29.116Z",
+      "lastDownloadedAt": "2026-07-18T22:48:29.116Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/lyon-ii-zh/content.json",
+        "index": "documents/lyon-ii-zh/index.json",
+        "meta": "documents/lyon-ii-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Lyon II」(lyon-ii-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "mc-ar",
+      "sourceId": "mc-ar",
+      "title": "Marialis cultus",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/ar/apost_exhortations/documents/hf_p-vi_exh_19740202_marialis-cultus.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:00:53.123Z",
+      "lastDownloadedAt": "2026-07-18T23:00:53.123Z",
+      "unitCount": 102,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/mc-ar/content.json",
+        "index": "documents/mc-ar/index.json",
+        "meta": "documents/mc-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Marialis cultus» (mc-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "mc-en",
+      "sourceId": "mc-en",
+      "title": "Marialis cultus",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/en/apost_exhortations/documents/hf_p-vi_exh_19740202_marialis-cultus.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:01:02.995Z",
+      "lastDownloadedAt": "2026-07-18T23:01:02.995Z",
+      "unitCount": 102,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/mc-en/content.json",
+        "index": "documents/mc-en/index.json",
+        "meta": "documents/mc-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Marialis cultus» (mc-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "mc-es",
@@ -2364,6 +4624,46 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "mc-hi",
+      "sourceId": "mc-hi",
+      "title": "Marialis cultus",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/hi/apost_exhortations/documents/hf_p-vi_exh_19740202_marialis-cultus.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:02:07.035Z",
+      "lastDownloadedAt": "2026-07-18T23:02:07.035Z",
+      "unitCount": 102,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/mc-hi/content.json",
+        "index": "documents/mc-hi/index.json",
+        "meta": "documents/mc-hi/meta.json"
+      },
+      "notes": "«Marialis cultus» (mc-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "mc-zh",
+      "sourceId": "mc-zh",
+      "title": "Marialis cultus",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/zh/apost_exhortations/documents/hf_p-vi_exh_19740202_marialis-cultus.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:02:41.828Z",
+      "lastDownloadedAt": "2026-07-18T23:02:41.828Z",
+      "unitCount": 102,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/mc-zh/content.json",
+        "index": "documents/mc-zh/index.json",
+        "meta": "documents/mc-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Marialis cultus」(mc-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
       "id": "md-es",
       "sourceId": "md",
       "title": "Mulieris dignitatem",
@@ -2385,6 +4685,46 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "mf-ar",
+      "sourceId": "mf-ar",
+      "title": "Mysterium Fidei",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/ar/encyclicals/documents/hf_p-vi_enc_03091965_mysterium.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:44:05.071Z",
+      "lastDownloadedAt": "2026-07-18T22:44:05.071Z",
+      "unitCount": 8,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/mf-ar/content.json",
+        "index": "documents/mf-ar/index.json",
+        "meta": "documents/mf-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Mysterium Fidei» (mf-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "mf-en",
+      "sourceId": "mf-en",
+      "title": "Mysterium Fidei",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_03091965_mysterium.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:44:07.289Z",
+      "lastDownloadedAt": "2026-07-18T22:44:07.289Z",
+      "unitCount": 8,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/mf-en/content.json",
+        "index": "documents/mf-en/index.json",
+        "meta": "documents/mf-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Mysterium Fidei» (mf-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "mf-es",
       "sourceId": "mf",
       "title": "Mysterium Fidei",
@@ -2403,6 +4743,146 @@
         "meta": "documents/mf-es/meta.json"
       },
       "notes": "Paul VI encyclical on the Eucharist (1965). Long continuous §§; few top-level numbers."
+    },
+    {
+      "id": "mf-hi",
+      "sourceId": "mf-hi",
+      "title": "Mysterium Fidei",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/hi/encyclicals/documents/hf_p-vi_enc_03091965_mysterium.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:44:12.307Z",
+      "lastDownloadedAt": "2026-07-18T22:44:12.307Z",
+      "unitCount": 8,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/mf-hi/content.json",
+        "index": "documents/mf-hi/index.json",
+        "meta": "documents/mf-hi/meta.json"
+      },
+      "notes": "«Mysterium Fidei» (mf-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "mf-zh",
+      "sourceId": "mf-zh",
+      "title": "Mysterium Fidei",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/zh/encyclicals/documents/hf_p-vi_enc_03091965_mysterium.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:44:15.708Z",
+      "lastDownloadedAt": "2026-07-18T22:44:15.708Z",
+      "unitCount": 8,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/mf-zh/content.json",
+        "index": "documents/mf-zh/index.json",
+        "meta": "documents/mf-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Mysterium Fidei」(mf-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "missale-romanum-apc-de",
+      "sourceId": "missale-romanum-apc-de",
+      "title": "Missale Romanum (Apostolische Konstitution, 3. April 1969)",
+      "kind": "magisterium",
+      "locale": "de",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/de/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:02:59.353Z",
+      "lastDownloadedAt": "2026-07-18T23:03:21.006Z",
+      "unitCount": 18,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/missale-romanum-apc-de/content.json",
+        "index": "documents/missale-romanum-apc-de/index.json",
+        "meta": "documents/missale-romanum-apc-de/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "missale-romanum-apc-en",
+      "sourceId": "missale-romanum-apc-en",
+      "title": "Missale Romanum (Apostolic Constitution, 3 April 1969)",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/en/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:02:54.829Z",
+      "lastDownloadedAt": "2026-07-18T23:03:15.950Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/missale-romanum-apc-en/content.json",
+        "index": "documents/missale-romanum-apc-en/index.json",
+        "meta": "documents/missale-romanum-apc-en/meta.json"
+      },
+      "notes": "ES shell on vatican.va has no body — not shipped. IDs missale-romanum-apc-* ≠ rm-es."
+    },
+    {
+      "id": "missale-romanum-apc-it",
+      "sourceId": "missale-romanum-apc-it",
+      "title": "Missale Romanum (Costituzione apostolica, 3 aprile 1969)",
+      "kind": "magisterium",
+      "locale": "it",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/it/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:02:56.412Z",
+      "lastDownloadedAt": "2026-07-18T23:03:17.423Z",
+      "unitCount": 18,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/missale-romanum-apc-it/content.json",
+        "index": "documents/missale-romanum-apc-it/index.json",
+        "meta": "documents/missale-romanum-apc-it/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "missale-romanum-apc-la",
+      "sourceId": "missale-romanum-apc-la",
+      "title": "Missale Romanum (Constitutio apostolica, die III mensis Aprilis anno MCMLXIX)",
+      "kind": "magisterium",
+      "locale": "la",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/la/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:03:00.786Z",
+      "lastDownloadedAt": "2026-07-18T23:03:22.604Z",
+      "unitCount": 18,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/missale-romanum-apc-la/content.json",
+        "index": "documents/missale-romanum-apc-la/index.json",
+        "meta": "documents/missale-romanum-apc-la/meta.json"
+      },
+      "notes": ""
+    },
+    {
+      "id": "missale-romanum-apc-pt",
+      "sourceId": "missale-romanum-apc-pt",
+      "title": "Missale Romanum (Constituição apostólica, 3 de abril de 1969)",
+      "kind": "magisterium",
+      "locale": "pt",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/pt/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:02:57.917Z",
+      "lastDownloadedAt": "2026-07-18T23:03:19.407Z",
+      "unitCount": 16,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/missale-romanum-apc-pt/content.json",
+        "index": "documents/missale-romanum-apc-pt/index.json",
+        "meta": "documents/missale-romanum-apc-pt/meta.json"
+      },
+      "notes": ""
     },
     {
       "id": "mm-es",
@@ -2426,6 +4906,26 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "mysterium-ecclesiae-en",
+      "sourceId": "mysterium-ecclesiae-en",
+      "title": "Mysterium Ecclesiae",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19730705_mysterium-ecclesiae_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:02:49.930Z",
+      "lastDownloadedAt": "2026-07-18T23:02:49.930Z",
+      "unitCount": 6,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/mysterium-ecclesiae-en/content.json",
+        "index": "documents/mysterium-ecclesiae-en/index.json",
+        "meta": "documents/mysterium-ecclesiae-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Mysterium Ecclesiae» (mysterium-ecclesiae-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "mysterium-ecclesiae-es",
       "sourceId": "mysterium-ecclesiae",
       "title": "Mysterium Ecclesiae",
@@ -2444,6 +4944,46 @@
         "meta": "documents/mysterium-ecclesiae-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "na-ar",
+      "sourceId": "na-ar",
+      "title": "Nostra aetate",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_ar.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:41:17.866Z",
+      "lastDownloadedAt": "2026-07-18T22:41:17.866Z",
+      "unitCount": 5,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/na-ar/content.json",
+        "index": "documents/na-ar/index.json",
+        "meta": "documents/na-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Nostra aetate» (na-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "na-en",
+      "sourceId": "na-en",
+      "title": "Nostra aetate",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:33:19.566Z",
+      "lastDownloadedAt": "2026-07-18T22:33:19.566Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/na-en/content.json",
+        "index": "documents/na-en/index.json",
+        "meta": "documents/na-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of na-es). No docCode — citations stay on ES/official."
     },
     {
       "id": "na-es",
@@ -2465,6 +5005,66 @@
       },
       "notes": "Vat. II declaration on non-Christian religions.",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "na-hi",
+      "sourceId": "na-hi",
+      "title": "Nostra aetate",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:41:21.490Z",
+      "lastDownloadedAt": "2026-07-18T22:41:21.490Z",
+      "unitCount": 5,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/na-hi/content.json",
+        "index": "documents/na-hi/index.json",
+        "meta": "documents/na-hi/meta.json"
+      },
+      "notes": "«Nostra aetate» (na-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "na-zh",
+      "sourceId": "na-zh",
+      "title": "Nostra aetate",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:40:46.191Z",
+      "lastDownloadedAt": "2026-07-18T22:40:46.191Z",
+      "unitCount": 5,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/na-zh/content.json",
+        "index": "documents/na-zh/index.json",
+        "meta": "documents/na-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Nostra aetate」(na-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "nicea-i-ar",
+      "sourceId": "nicea-i-ar",
+      "title": "Concilio de Nicea I",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/01_10_0325-0325-_Concilium_Nicaenum_I.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:56:58.186Z",
+      "lastDownloadedAt": "2026-07-18T22:56:58.186Z",
+      "unitCount": 25,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/nicea-i-ar/content.json",
+        "index": "documents/nicea-i-ar/index.json",
+        "meta": "documents/nicea-i-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Nicea I» (nicea-i-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
     },
     {
       "id": "nicea-i-es",
@@ -2568,6 +5168,46 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "ot-ar",
+      "sourceId": "ot-ar",
+      "title": "Optatam totius",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_optatam-totius_ar.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:52:12.100Z",
+      "lastDownloadedAt": "2026-07-18T22:52:12.100Z",
+      "unitCount": 22,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ot-ar/content.json",
+        "index": "documents/ot-ar/index.json",
+        "meta": "documents/ot-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Optatam totius» (ot-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "ot-en",
+      "sourceId": "ot-en",
+      "title": "Optatam totius",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_optatam-totius_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:38:33.870Z",
+      "lastDownloadedAt": "2026-07-18T22:38:33.870Z",
+      "unitCount": 21,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ot-en/content.json",
+        "index": "documents/ot-en/index.json",
+        "meta": "documents/ot-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of ot-es). No docCode — citations stay on ES/official."
+    },
+    {
       "id": "ot-es",
       "sourceId": "ot",
       "title": "Optatam totius",
@@ -2589,6 +5229,46 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "ot-hi",
+      "sourceId": "ot-hi",
+      "title": "Optatam totius",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_optatam-totius_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:52:27.076Z",
+      "lastDownloadedAt": "2026-07-18T22:52:27.076Z",
+      "unitCount": 22,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ot-hi/content.json",
+        "index": "documents/ot-hi/index.json",
+        "meta": "documents/ot-hi/meta.json"
+      },
+      "notes": "«Optatam totius» (ot-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "ot-zh",
+      "sourceId": "ot-zh",
+      "title": "Optatam totius",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_optatam-totius_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:52:36.401Z",
+      "lastDownloadedAt": "2026-07-18T22:52:36.401Z",
+      "unitCount": 22,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ot-zh/content.json",
+        "index": "documents/ot-zh/index.json",
+        "meta": "documents/ot-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Optatam totius」(ot-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
       "id": "pastoralis-actio-es",
       "sourceId": "pastoralis-actio",
       "title": "Pastoralis actio",
@@ -2608,6 +5288,26 @@
       },
       "notes": "CDF Instruction on infant baptism (1980).",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "pc-en",
+      "sourceId": "pc-en",
+      "title": "Perfectae caritatis",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_perfectae-caritatis_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:38:37.030Z",
+      "lastDownloadedAt": "2026-07-18T22:38:37.030Z",
+      "unitCount": 25,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/pc-en/content.json",
+        "index": "documents/pc-en/index.json",
+        "meta": "documents/pc-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of pc-es). No docCode — citations stay on ES/official."
     },
     {
       "id": "pc-es",
@@ -2652,6 +5352,46 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "persona-humana-ar",
+      "sourceId": "persona-humana-ar",
+      "title": "Persona humana",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19751229_persona-humana_ar.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:46:15.907Z",
+      "lastDownloadedAt": "2026-07-18T22:46:15.907Z",
+      "unitCount": 13,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/persona-humana-ar/content.json",
+        "index": "documents/persona-humana-ar/index.json",
+        "meta": "documents/persona-humana-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Persona humana» (persona-humana-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "persona-humana-en",
+      "sourceId": "persona-humana-en",
+      "title": "Persona humana",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19751229_persona-humana_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:46:18.103Z",
+      "lastDownloadedAt": "2026-07-18T22:46:18.103Z",
+      "unitCount": 13,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/persona-humana-en/content.json",
+        "index": "documents/persona-humana-en/index.json",
+        "meta": "documents/persona-humana-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Persona humana» (persona-humana-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "persona-humana-es",
       "sourceId": "persona-humana",
       "title": "Persona humana",
@@ -2671,6 +5411,46 @@
       },
       "notes": "CDF Declaration Persona humana (1975).",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "persona-humana-hi",
+      "sourceId": "persona-humana-hi",
+      "title": "Persona humana",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19751229_persona-humana_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:46:25.642Z",
+      "lastDownloadedAt": "2026-07-18T22:46:25.642Z",
+      "unitCount": 13,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/persona-humana-hi/content.json",
+        "index": "documents/persona-humana-hi/index.json",
+        "meta": "documents/persona-humana-hi/meta.json"
+      },
+      "notes": "«Persona humana» (persona-humana-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "persona-humana-zh",
+      "sourceId": "persona-humana-zh",
+      "title": "Persona humana",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19751229_persona-humana_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:46:30.140Z",
+      "lastDownloadedAt": "2026-07-18T22:46:30.140Z",
+      "unitCount": 13,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/persona-humana-zh/content.json",
+        "index": "documents/persona-humana-zh/index.json",
+        "meta": "documents/persona-humana-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Persona humana」(persona-humana-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "pg-es",
@@ -2694,6 +5474,46 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "po-ar",
+      "sourceId": "po-ar",
+      "title": "Presbyterorum ordinis",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_presbyterorum-ordinis_ar.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:52:55.299Z",
+      "lastDownloadedAt": "2026-07-18T22:52:55.299Z",
+      "unitCount": 22,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/po-ar/content.json",
+        "index": "documents/po-ar/index.json",
+        "meta": "documents/po-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Presbyterorum ordinis» (po-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "po-en",
+      "sourceId": "po-en",
+      "title": "Presbyterorum ordinis",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_presbyterorum-ordinis_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:38:40.893Z",
+      "lastDownloadedAt": "2026-07-18T22:38:40.893Z",
+      "unitCount": 68,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/po-en/content.json",
+        "index": "documents/po-en/index.json",
+        "meta": "documents/po-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of po-es). No docCode — citations stay on ES/official."
+    },
+    {
       "id": "po-es",
       "sourceId": "po",
       "title": "Presbyterorum ordinis",
@@ -2713,6 +5533,46 @@
       },
       "notes": "Vat. II decree on ministry of priests.",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "po-hi",
+      "sourceId": "po-hi",
+      "title": "Presbyterorum ordinis",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_presbyterorum-ordinis_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:53:14.998Z",
+      "lastDownloadedAt": "2026-07-18T22:53:14.998Z",
+      "unitCount": 22,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/po-hi/content.json",
+        "index": "documents/po-hi/index.json",
+        "meta": "documents/po-hi/meta.json"
+      },
+      "notes": "«Presbyterorum ordinis» (po-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "po-zh",
+      "sourceId": "po-zh",
+      "title": "Presbyterorum ordinis",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_presbyterorum-ordinis_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:53:28.074Z",
+      "lastDownloadedAt": "2026-07-18T22:53:28.074Z",
+      "unitCount": 22,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/po-zh/content.json",
+        "index": "documents/po-zh/index.json",
+        "meta": "documents/po-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Presbyterorum ordinis」(po-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "pp-es",
@@ -2756,6 +5616,46 @@
       "notes": "John XXIII encyclical on peace (1963)."
     },
     {
+      "id": "quanta-cura-ar",
+      "sourceId": "quanta-cura-ar",
+      "title": "Quanta cura",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/content/pius-ix/ar/documents/encyclica-quanta-cura-8-decembris-1864.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:58:09.340Z",
+      "lastDownloadedAt": "2026-07-18T22:58:09.340Z",
+      "unitCount": 96,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/quanta-cura-ar/content.json",
+        "index": "documents/quanta-cura-ar/index.json",
+        "meta": "documents/quanta-cura-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Quanta cura» (quanta-cura-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "quanta-cura-en",
+      "sourceId": "quanta-cura-en",
+      "title": "Quanta cura",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/content/pius-ix/en/documents/encyclica-quanta-cura-8-decembris-1864.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:58:15.718Z",
+      "lastDownloadedAt": "2026-07-18T22:58:15.718Z",
+      "unitCount": 96,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/quanta-cura-en/content.json",
+        "index": "documents/quanta-cura-en/index.json",
+        "meta": "documents/quanta-cura-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Quanta cura» (quanta-cura-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "quanta-cura-es",
       "sourceId": "quanta-cura-es",
       "title": "Quanta cura",
@@ -2776,6 +5676,26 @@
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Quanta cura» (quanta-cura-la) en vatican.va. No es una traducción oficial de la Santa Sede. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
     },
     {
+      "id": "quanta-cura-hi",
+      "sourceId": "quanta-cura-hi",
+      "title": "Quanta cura",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/content/pius-ix/hi/documents/encyclica-quanta-cura-8-decembris-1864.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:58:59.925Z",
+      "lastDownloadedAt": "2026-07-18T22:58:59.925Z",
+      "unitCount": 96,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/quanta-cura-hi/content.json",
+        "index": "documents/quanta-cura-hi/index.json",
+        "meta": "documents/quanta-cura-hi/meta.json"
+      },
+      "notes": "«Quanta cura» (quanta-cura-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "quanta-cura-la",
       "sourceId": "quanta-cura-la",
       "title": "Quanta cura",
@@ -2794,6 +5714,26 @@
         "meta": "documents/quanta-cura-la/meta.json"
       },
       "notes": "Latin official text from vatican.va UTF-8."
+    },
+    {
+      "id": "quanta-cura-zh",
+      "sourceId": "quanta-cura-zh",
+      "title": "Quanta cura",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/content/pius-ix/zh/documents/encyclica-quanta-cura-8-decembris-1864.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:59:18.325Z",
+      "lastDownloadedAt": "2026-07-18T22:59:18.325Z",
+      "unitCount": 96,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/quanta-cura-zh/content.json",
+        "index": "documents/quanta-cura-zh/index.json",
+        "meta": "documents/quanta-cura-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Quanta cura」(quanta-cura-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "quas-primas-es",
@@ -2858,6 +5798,26 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "rm-zh",
+      "sourceId": "rm-zh",
+      "title": "Redemptoris missio",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/zh/encyclicals/documents/hf_jp-ii_enc_07121990_redemptoris-missio.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:57:45.334Z",
+      "lastDownloadedAt": "2026-07-18T22:57:45.334Z",
+      "unitCount": 92,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/rm-zh/content.json",
+        "index": "documents/rm-zh/index.json",
+        "meta": "documents/rm-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Redemptoris missio」(rm-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
       "id": "rp-es",
       "sourceId": "rp",
       "title": "Reconciliatio et paenitentia",
@@ -2898,6 +5858,26 @@
       },
       "notes": "JPII apostolic letter on the Christian meaning of human suffering (1984).",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "sc-en",
+      "sourceId": "sc-en",
+      "title": "Sacrosanctum Concilium",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19631204_sacrosanctum-concilium_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:33:21.137Z",
+      "lastDownloadedAt": "2026-07-18T22:33:21.137Z",
+      "unitCount": 129,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/sc-en/content.json",
+        "index": "documents/sc-en/index.json",
+        "meta": "documents/sc-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of sc-es). No docCode — citations stay on ES/official."
     },
     {
       "id": "sc-es",
@@ -3004,6 +5984,46 @@
       "notes": "Preferir decretos/cánones; subdividir por sesión si hace falta."
     },
     {
+      "id": "ur-ar",
+      "sourceId": "ur-ar",
+      "title": "Unitatis redintegratio",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_ar.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:55:50.266Z",
+      "lastDownloadedAt": "2026-07-18T22:55:50.266Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ur-ar/content.json",
+        "index": "documents/ur-ar/index.json",
+        "meta": "documents/ur-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Unitatis redintegratio» (ur-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "ur-en",
+      "sourceId": "ur-en",
+      "title": "Unitatis redintegratio",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:33:22.533Z",
+      "lastDownloadedAt": "2026-07-18T22:33:22.533Z",
+      "unitCount": 42,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ur-en/content.json",
+        "index": "documents/ur-en/index.json",
+        "meta": "documents/ur-en/meta.json"
+      },
+      "notes": "Official EN from vatican.va (sibling of ur-es). No docCode — citations stay on ES/official."
+    },
+    {
       "id": "ur-es",
       "sourceId": "ur",
       "title": "Unitatis redintegratio",
@@ -3023,6 +6043,86 @@
       },
       "notes": "Decree on Ecumenism (Vat. II). Numbered §§1–24. Official path uses decree_ (not const_).",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "ur-hi",
+      "sourceId": "ur-hi",
+      "title": "Unitatis redintegratio",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:56:03.363Z",
+      "lastDownloadedAt": "2026-07-18T22:56:03.363Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ur-hi/content.json",
+        "index": "documents/ur-hi/index.json",
+        "meta": "documents/ur-hi/meta.json"
+      },
+      "notes": "«Unitatis redintegratio» (ur-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "ur-zh",
+      "sourceId": "ur-zh",
+      "title": "Unitatis redintegratio",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:56:10.689Z",
+      "lastDownloadedAt": "2026-07-18T22:56:10.689Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ur-zh/content.json",
+        "index": "documents/ur-zh/index.json",
+        "meta": "documents/ur-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Unitatis redintegratio」(ur-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "vat-i-ar",
+      "sourceId": "vat-i-ar",
+      "title": "Concilio Vaticano I",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:53:49.204Z",
+      "lastDownloadedAt": "2026-07-18T22:53:49.204Z",
+      "unitCount": 23,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vat-i-ar/content.json",
+        "index": "documents/vat-i-ar/index.json",
+        "meta": "documents/vat-i-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio Vaticano I» (vat-i-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "vat-i-en",
+      "sourceId": "vat-i-en",
+      "title": "Concilio Vaticano I",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:53:51.518Z",
+      "lastDownloadedAt": "2026-07-18T22:53:51.518Z",
+      "unitCount": 23,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vat-i-en/content.json",
+        "index": "documents/vat-i-en/index.json",
+        "meta": "documents/vat-i-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio Vaticano I» (vat-i-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "vat-i-es",
@@ -3046,6 +6146,26 @@
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Vaticanum I» (vat-i-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
     },
     {
+      "id": "vat-i-hi",
+      "sourceId": "vat-i-hi",
+      "title": "Concilio Vaticano I",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:53:58.110Z",
+      "lastDownloadedAt": "2026-07-18T22:53:58.110Z",
+      "unitCount": 23,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vat-i-hi/content.json",
+        "index": "documents/vat-i-hi/index.json",
+        "meta": "documents/vat-i-hi/meta.json"
+      },
+      "notes": "«Concilio Vaticano I» (vat-i-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "vat-i-la",
       "sourceId": "vat-i",
       "title": "Concilium Vaticanum I",
@@ -3065,6 +6185,66 @@
         "meta": "documents/vat-i-la/meta.json"
       },
       "notes": "Preferir Dei Filius + Pastor Aeternus como docs sueltos."
+    },
+    {
+      "id": "vat-i-zh",
+      "sourceId": "vat-i-zh",
+      "title": "Concilio Vaticano I",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:54:01.257Z",
+      "lastDownloadedAt": "2026-07-18T22:54:01.257Z",
+      "unitCount": 23,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vat-i-zh/content.json",
+        "index": "documents/vat-i-zh/index.json",
+        "meta": "documents/vat-i-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio Vaticano I」(vat-i-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "vc-ar",
+      "sourceId": "vc-ar",
+      "title": "Vita consecrata",
+      "kind": "magisterium",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/ar/apost_exhortations/documents/hf_jp-ii_exh_25031996_vita-consecrata.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:03:34.799Z",
+      "lastDownloadedAt": "2026-07-18T23:03:34.799Z",
+      "unitCount": 112,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vc-ar/content.json",
+        "index": "documents/vc-ar/index.json",
+        "meta": "documents/vc-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Vita consecrata» (vc-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "vc-en",
+      "sourceId": "vc-en",
+      "title": "Vita consecrata",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_25031996_vita-consecrata.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:03:46.129Z",
+      "lastDownloadedAt": "2026-07-18T23:03:46.129Z",
+      "unitCount": 112,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vc-en/content.json",
+        "index": "documents/vc-en/index.json",
+        "meta": "documents/vc-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Vita consecrata» (vc-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "vc-es",
@@ -3088,6 +6268,86 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "vc-hi",
+      "sourceId": "vc-hi",
+      "title": "Vita consecrata",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/hi/apost_exhortations/documents/hf_jp-ii_exh_25031996_vita-consecrata.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:05:04.559Z",
+      "lastDownloadedAt": "2026-07-18T23:05:04.559Z",
+      "unitCount": 112,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vc-hi/content.json",
+        "index": "documents/vc-hi/index.json",
+        "meta": "documents/vc-hi/meta.json"
+      },
+      "notes": "«Vita consecrata» (vc-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "vc-zh",
+      "sourceId": "vc-zh",
+      "title": "Vita consecrata",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/zh/apost_exhortations/documents/hf_jp-ii_exh_25031996_vita-consecrata.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T23:05:46.986Z",
+      "lastDownloadedAt": "2026-07-18T23:05:46.986Z",
+      "unitCount": 112,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vc-zh/content.json",
+        "index": "documents/vc-zh/index.json",
+        "meta": "documents/vc-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Vita consecrata」(vc-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "vienne-ar",
+      "sourceId": "vienne-ar",
+      "title": "Concilio de Vienne",
+      "kind": "council",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:50:18.555Z",
+      "lastDownloadedAt": "2026-07-18T22:50:18.555Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vienne-ar/content.json",
+        "index": "documents/vienne-ar/index.json",
+        "meta": "documents/vienne-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Concilio de Vienne» (vienne-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "vienne-en",
+      "sourceId": "vienne-en",
+      "title": "Concilio de Vienne",
+      "kind": "council",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:50:20.397Z",
+      "lastDownloadedAt": "2026-07-18T22:50:20.397Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vienne-en/content.json",
+        "index": "documents/vienne-en/index.json",
+        "meta": "documents/vienne-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Concilio de Vienne» (vienne-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "vienne-es",
       "sourceId": "vienne-es",
       "title": "Concilio de Vienne",
@@ -3108,6 +6368,26 @@
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Concilium Viennense» (vienne-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
     },
     {
+      "id": "vienne-hi",
+      "sourceId": "vienne-hi",
+      "title": "Concilio de Vienne",
+      "kind": "council",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:50:26.138Z",
+      "lastDownloadedAt": "2026-07-18T22:50:26.138Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vienne-hi/content.json",
+        "index": "documents/vienne-hi/index.json",
+        "meta": "documents/vienne-hi/meta.json"
+      },
+      "notes": "«Concilio de Vienne» (vienne-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "vienne-la",
       "sourceId": "vienne",
       "title": "Concilium Viennense",
@@ -3126,6 +6406,26 @@
         "meta": "documents/vienne-la/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "vienne-zh",
+      "sourceId": "vienne-zh",
+      "title": "Concilio de Vienne",
+      "kind": "council",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "firstDownloadedAt": "2026-07-18T22:50:29.307Z",
+      "lastDownloadedAt": "2026-07-18T22:50:29.307Z",
+      "unitCount": 17,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vienne-zh/content.json",
+        "index": "documents/vienne-zh/index.json",
+        "meta": "documents/vienne-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Concilio de Vienne」(vienne-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "vs-es",

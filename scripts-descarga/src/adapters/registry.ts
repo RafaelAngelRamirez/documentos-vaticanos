@@ -9,6 +9,7 @@ import { genericNumberedAdapter } from "./generic_numbered.adapter";
 import { cdsAdapter } from "./cds.adapter";
 import { cdcAdapter } from "./cdc.adapter";
 import { cceoAdapter } from "./cceo.adapter";
+import { vaticanProseAdapter } from "./vatican_prose.adapter";
 import fs from "fs";
 import path from "path";
 
@@ -20,6 +21,7 @@ const ADAPTERS: Record<string, SourceAdapter> = {
   [cdsAdapter.id]: cdsAdapter,
   [cdcAdapter.id]: cdcAdapter,
   [cceoAdapter.id]: cceoAdapter,
+  [vaticanProseAdapter.id]: vaticanProseAdapter,
 };
 
 export function listAdapterIds(): string[] {

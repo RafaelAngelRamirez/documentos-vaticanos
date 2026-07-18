@@ -1029,6 +1029,396 @@
       "fixturePath": "fixtures/ds-es/source.txt",
       "expectedUnitCount": 1140,
       "notes": "Spanish Denzinger-Schönmetzer from Internet Archive (Public Domain Mark 1.0). Import via import_denzinger.ts (not HTML scrape)."
+    },
+    {
+      "id": "lg-en",
+      "title": "Lumen gentium",
+      "shortTitle": "LG",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "lg-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html"
+      ],
+      "expectedUnitCount": 69,
+      "fixturePath": "fixtures/lg-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of lg-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "gs-en",
+      "title": "Gaudium et spes",
+      "shortTitle": "GS",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "gs-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html"
+      ],
+      "expectedUnitCount": 93,
+      "fixturePath": "fixtures/gs-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of gs-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "dv-en",
+      "title": "Dei verbum",
+      "shortTitle": "DV",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "dv-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html"
+      ],
+      "expectedUnitCount": 26,
+      "fixturePath": "fixtures/dv-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of dv-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "sc-en",
+      "title": "Sacrosanctum Concilium",
+      "shortTitle": "SC",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "sc-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19631204_sacrosanctum-concilium_en.html"
+      ],
+      "expectedUnitCount": 130,
+      "fixturePath": "fixtures/sc-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of sc-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "ur-en",
+      "title": "Unitatis redintegratio",
+      "shortTitle": "UR",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "ur-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_en.html"
+      ],
+      "expectedUnitCount": 24,
+      "fixturePath": "fixtures/ur-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of ur-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "aa-en",
+      "title": "Apostolicam actuositatem",
+      "shortTitle": "AA",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "aa-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651118_apostolicam-actuositatem_en.html"
+      ],
+      "expectedUnitCount": 33,
+      "fixturePath": "fixtures/aa-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of aa-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "ag-en",
+      "title": "Ad gentes",
+      "shortTitle": "AG",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "ag-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_ad-gentes_en.html"
+      ],
+      "expectedUnitCount": 42,
+      "fixturePath": "fixtures/ag-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of ag-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "cd-en",
+      "title": "Christus Dominus",
+      "shortTitle": "CD",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "cd-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_christus-dominus_en.html"
+      ],
+      "expectedUnitCount": 44,
+      "fixturePath": "fixtures/cd-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of cd-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "ot-en",
+      "title": "Optatam totius",
+      "shortTitle": "OT",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "ot-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_optatam-totius_en.html"
+      ],
+      "expectedUnitCount": 22,
+      "fixturePath": "fixtures/ot-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of ot-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "pc-en",
+      "title": "Perfectae caritatis",
+      "shortTitle": "PC",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "pc-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_perfectae-caritatis_en.html"
+      ],
+      "expectedUnitCount": 25,
+      "fixturePath": "fixtures/pc-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of pc-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "po-en",
+      "title": "Presbyterorum ordinis",
+      "shortTitle": "PO",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "po-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_presbyterorum-ordinis_en.html"
+      ],
+      "expectedUnitCount": 22,
+      "fixturePath": "fixtures/po-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of po-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "na-en",
+      "title": "Nostra aetate",
+      "shortTitle": "NA",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "na-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html"
+      ],
+      "expectedUnitCount": 5,
+      "fixturePath": "fixtures/na-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of na-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "dh-en",
+      "title": "Dignitatis humanae",
+      "shortTitle": "DH",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "dh-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651207_dignitatis-humanae_en.html"
+      ],
+      "expectedUnitCount": 15,
+      "fixturePath": "fixtures/dh-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of dh-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "ge-en",
+      "title": "Gravissimum educationis",
+      "shortTitle": "GE",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "ge-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_gravissimum-educationis_en.html"
+      ],
+      "expectedUnitCount": 12,
+      "fixturePath": "fixtures/ge-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of ge-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "im-en",
+      "title": "Inter mirifica",
+      "shortTitle": "IM",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "im-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19631204_inter-mirifica_en.html"
+      ],
+      "expectedUnitCount": 24,
+      "fixturePath": "fixtures/im-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of im-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "igmr-es",
+      "title": "Instrucción general del Misal Romano",
+      "shortTitle": "IGMR",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "igmr-es",
+      "docCode": "IGMR",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_sp.html"
+      ],
+      "fixturePath": "fixtures/igmr-es/source.html",
+      "expectedUnitCount": 398,
+      "translationProvenance": "official",
+      "sourceNote": "Institutio Generalis Missalis Romani (editio typica tertia) — CDWDS. No es el Misal de altar completo (propios); texto normativo de la IGMR en vatican.va.",
+      "notes": "IGMR ES HTML from vatican.va CDW. IDs igmr-* avoid collision with rm-es (Redemptoris Missio)."
+    },
+    {
+      "id": "igmr-en",
+      "title": "General Instruction of the Roman Missal",
+      "shortTitle": "GIRM",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "igmr-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_en.html"
+      ],
+      "fixturePath": "fixtures/igmr-en/source.html",
+      "expectedUnitCount": 399,
+      "translationProvenance": "official",
+      "sourceNote": "GIRM / IGMR third typical edition — CDWDS on vatican.va (US adaptations note on page). Not the full altar Missal propers.",
+      "notes": "Official EN HTML. No docCode — citations prefer IGMR ES when both exist."
+    },
+    {
+      "id": "igmr-it",
+      "title": "Ordinamento Generale del Messale Romano",
+      "shortTitle": "OGMR",
+      "kind": "magisterium",
+      "locale": "it",
+      "corpusDocId": "igmr-it",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_it.html"
+      ],
+      "fixturePath": "fixtures/igmr-it/source.html",
+      "expectedUnitCount": 397,
+      "translationProvenance": "official",
+      "sourceNote": "OGMR / IGMR — CDWDS vatican.va. Non è il Messale d'altare completo.",
+      "notes": "Official IT HTML from vatican.va."
+    },
+    {
+      "id": "igmr-fr",
+      "title": "Présentation générale du Missel Romain",
+      "shortTitle": "PGMR",
+      "kind": "magisterium",
+      "locale": "fr",
+      "corpusDocId": "igmr-fr",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_fr.html"
+      ],
+      "fixturePath": "fixtures/igmr-fr/source.html",
+      "expectedUnitCount": 399,
+      "translationProvenance": "official",
+      "sourceNote": "PGMR / IGMR — CDWDS vatican.va. Ce n'est pas le Missel d'autel complet.",
+      "notes": "Official FR HTML from vatican.va."
+    },
+    {
+      "id": "missale-romanum-apc-en",
+      "title": "Missale Romanum (Apostolic Constitution, 3 April 1969)",
+      "shortTitle": "MR 1969",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "missale-romanum-apc-en",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/en/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "fixturePath": "fixtures/mr-apc-en/source.html",
+      "expectedUnitCount": 17,
+      "translationProvenance": "official",
+      "sourceNote": "Paul VI apostolic constitution promulgating the renewed Roman Missal. Short text; not the Order of Mass propers.",
+      "notes": "ES shell on vatican.va has no body — not shipped. IDs missale-romanum-apc-* ≠ rm-es."
+    },
+    {
+      "id": "missale-romanum-apc-it",
+      "title": "Missale Romanum (Costituzione apostolica, 3 aprile 1969)",
+      "shortTitle": "MR 1969",
+      "kind": "magisterium",
+      "locale": "it",
+      "corpusDocId": "missale-romanum-apc-it",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/it/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "fixturePath": "fixtures/mr-apc-it/source.html",
+      "expectedUnitCount": 18,
+      "translationProvenance": "official",
+      "sourceNote": "Costituzione apostolica di Paolo VI sul Messale Romano rinnovato. Testo breve; non i propers del Messale."
+    },
+    {
+      "id": "missale-romanum-apc-pt",
+      "title": "Missale Romanum (Constituição apostólica, 3 de abril de 1969)",
+      "shortTitle": "MR 1969",
+      "kind": "magisterium",
+      "locale": "pt",
+      "corpusDocId": "missale-romanum-apc-pt",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/pt/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "fixturePath": "fixtures/mr-apc-pt/source.html",
+      "expectedUnitCount": 16,
+      "translationProvenance": "official",
+      "sourceNote": "Constituição apostólica de Paulo VI sobre o Missal Romano renovado."
+    },
+    {
+      "id": "missale-romanum-apc-de",
+      "title": "Missale Romanum (Apostolische Konstitution, 3. April 1969)",
+      "shortTitle": "MR 1969",
+      "kind": "magisterium",
+      "locale": "de",
+      "corpusDocId": "missale-romanum-apc-de",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/de/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "fixturePath": "fixtures/mr-apc-de/source.html",
+      "expectedUnitCount": 18,
+      "translationProvenance": "official",
+      "sourceNote": "Apostolische Konstitution Pauls VI. zum erneuerten Römischen Messbuch."
+    },
+    {
+      "id": "missale-romanum-apc-la",
+      "title": "Missale Romanum (Constitutio apostolica, die III mensis Aprilis anno MCMLXIX)",
+      "shortTitle": "MR 1969",
+      "kind": "magisterium",
+      "locale": "la",
+      "corpusDocId": "missale-romanum-apc-la",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/la/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "fixturePath": "fixtures/mr-apc-la/source.html",
+      "expectedUnitCount": 18,
+      "translationProvenance": "official",
+      "sourceNote": "Constitutio apostolica Pauli VI de Missali Romano instaurato. Textus latinus."
     }
   ]
 }

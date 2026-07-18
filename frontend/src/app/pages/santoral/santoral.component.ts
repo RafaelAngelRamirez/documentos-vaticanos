@@ -8,6 +8,13 @@ import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import { SaintRecord } from 'src/app/core/santoral/santoral-resolve.logic';
 import { SantoralService } from 'src/app/core/santoral/santoral.service';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
+import { DocumentMeta } from 'src/app/core/corpus/corpus.models';
+import {
+  misalBlockTitle,
+  misalReadCtaLabel,
+  pickPrimaryMisalEntry,
+} from 'src/app/core/misal/misal-liturgia.logic';
+import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import {
   calendarSaintLabel,
   DayCell,
@@ -58,11 +65,16 @@ export class SantoralComponent implements OnInit, OnDestroy {
   monthCells: DayCell[] = [];
   daySaints: SaintRecord[] = [];
 
+  /** Misal pack entry on calendar shell (same packs as Inicio). */
+  misalPrimary: DocumentMeta | null = null;
+  readonly misalBlockTitle = misalBlockTitle();
+
   private routeSub?: Subscription;
 
   constructor(
     private santoral: SantoralService,
     private corpus: CorpusService,
+    private readerPrefs: ReaderPreferencesService,
     private router: Router,
     private route: ActivatedRoute,
   ) {}
@@ -80,6 +92,11 @@ export class SantoralComponent implements OnInit, OnDestroy {
 
     this.corpus.loadManifest().subscribe({
       next: () => {
+        const preferred = this.readerPrefs.resolveContentLocale();
+        this.misalPrimary = pickPrimaryMisalEntry(
+          this.corpus.listDocuments(),
+          preferred,
+        ) as DocumentMeta | null;
         this.santoral.loadManifest().subscribe({
           next: (m) => {
             this.groups = this.santoral.groupsByEra();
@@ -194,6 +211,15 @@ export class SantoralComponent implements OnInit, OnDestroy {
 
   open(s: SaintRecord): void {
     this.router.navigate(['/santoral', s.id]);
+  }
+
+  openMisal(): void {
+    if (!this.misalPrimary?.id) return;
+    this.router.navigate(['/documento', this.misalPrimary.id]);
+  }
+
+  misalReadLabel(): string {
+    return misalReadCtaLabel(this.misalPrimary);
   }
 
   label(s: SaintRecord): string {

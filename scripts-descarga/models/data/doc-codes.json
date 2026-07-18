@@ -537,7 +537,10 @@
     },
     {
       "code": "MM",
-      "aliases": ["MM", "Mater et Magistra"],
+      "aliases": [
+        "MM",
+        "Mater et Magistra"
+      ],
       "title": "Mater et Magistra",
       "corpusDocId": "mm-es",
       "locatorType": "number",
@@ -545,7 +548,10 @@
     },
     {
       "code": "TMA",
-      "aliases": ["TMA", "Tertio millennio adveniente"],
+      "aliases": [
+        "TMA",
+        "Tertio millennio adveniente"
+      ],
       "title": "Tertio millennio adveniente",
       "corpusDocId": "tma-es",
       "locatorType": "number",
@@ -553,7 +559,10 @@
     },
     {
       "code": "EE",
-      "aliases": ["EE", "Ecclesia de Eucharistia"],
+      "aliases": [
+        "EE",
+        "Ecclesia de Eucharistia"
+      ],
       "title": "Ecclesia de Eucharistia",
       "corpusDocId": "ee-es",
       "locatorType": "number",
@@ -561,7 +570,11 @@
     },
     {
       "code": "SA",
-      "aliases": ["SA", "SD", "Salvifici doloris"],
+      "aliases": [
+        "SA",
+        "SD",
+        "Salvifici doloris"
+      ],
       "title": "Salvifici doloris",
       "corpusDocId": "sa-es",
       "locatorType": "number",
@@ -569,7 +582,10 @@
     },
     {
       "code": "VC",
-      "aliases": ["VC", "Vita consecrata"],
+      "aliases": [
+        "VC",
+        "Vita consecrata"
+      ],
       "title": "Vita consecrata",
       "corpusDocId": "vc-es",
       "locatorType": "number",
@@ -577,7 +593,11 @@
     },
     {
       "code": "DM",
-      "aliases": ["DM", "Dives in Misericordia", "Dives in misericordia"],
+      "aliases": [
+        "DM",
+        "Dives in Misericordia",
+        "Dives in misericordia"
+      ],
       "title": "Dives in Misericordia",
       "corpusDocId": "dm-es",
       "locatorType": "number",
@@ -585,7 +605,12 @@
     },
     {
       "code": "Lib",
-      "aliases": ["Lib", "LP", "Libertas", "Libertas praestantissimum"],
+      "aliases": [
+        "Lib",
+        "LP",
+        "Libertas",
+        "Libertas praestantissimum"
+      ],
       "title": "Libertas praestantissimum",
       "corpusDocId": "libertas-es",
       "locatorType": "number",
@@ -593,7 +618,10 @@
     },
     {
       "code": "IDei",
-      "aliases": ["IDei", "Immortale Dei"],
+      "aliases": [
+        "IDei",
+        "Immortale Dei"
+      ],
       "title": "Immortale Dei",
       "corpusDocId": "immortale-dei-es",
       "locatorType": "number",
@@ -601,7 +629,11 @@
     },
     {
       "code": "Diut",
-      "aliases": ["Diut", "Diuturnum", "Diuturnum illud"],
+      "aliases": [
+        "Diut",
+        "Diuturnum",
+        "Diuturnum illud"
+      ],
       "title": "Diuturnum illud",
       "corpusDocId": "diuturnum-es",
       "locatorType": "number",
@@ -609,7 +641,10 @@
     },
     {
       "code": "QP",
-      "aliases": ["QP", "Quas primas"],
+      "aliases": [
+        "QP",
+        "Quas primas"
+      ],
       "title": "Quas primas",
       "corpusDocId": "quas-primas-es",
       "locatorType": "number",
@@ -629,7 +664,10 @@
     },
     {
       "code": "ME",
-      "aliases": ["ME", "Mysterium Ecclesiae"],
+      "aliases": [
+        "ME",
+        "Mysterium Ecclesiae"
+      ],
       "title": "Mysterium Ecclesiae",
       "corpusDocId": "mysterium-ecclesiae-es",
       "locatorType": "number",
@@ -637,7 +675,11 @@
     },
     {
       "code": "DonVer",
-      "aliases": ["DonVer", "Donum veritatis", "Donum Veritatis"],
+      "aliases": [
+        "DonVer",
+        "Donum veritatis",
+        "Donum Veritatis"
+      ],
       "title": "Donum veritatis",
       "corpusDocId": "donum-veritatis-es",
       "locatorType": "number",
@@ -645,7 +687,10 @@
     },
     {
       "code": "PastA",
-      "aliases": ["PastA", "Pastoralis actio"],
+      "aliases": [
+        "PastA",
+        "Pastoralis actio"
+      ],
       "title": "Pastoralis actio",
       "corpusDocId": "pastoralis-actio-es",
       "locatorType": "number",
@@ -665,7 +710,10 @@
     },
     {
       "code": "Iura",
-      "aliases": ["Iura", "Iura et bona"],
+      "aliases": [
+        "Iura",
+        "Iura et bona"
+      ],
       "title": "Iura et bona",
       "corpusDocId": "iura-et-bona-es",
       "locatorType": "number",
@@ -686,7 +734,10 @@
     },
     {
       "code": "QC",
-      "aliases": ["QC", "Quanta cura"],
+      "aliases": [
+        "QC",
+        "Quanta cura"
+      ],
       "title": "Quanta cura",
       "corpusDocId": "quanta-cura-la",
       "locatorType": "number",
@@ -824,6 +875,19 @@
       "corpusDocId": "vat-i-la",
       "locatorType": "number",
       "kind": "council"
+    },
+    {
+      "code": "IGMR",
+      "aliases": [
+        "IGMR",
+        "GIRM",
+        "OGMR",
+        "PGMR",
+        "Institutio Generalis Missalis Romani",
+        "Instrucción general del Misal Romano"
+      ],
+      "title": "Instrucción general del Misal Romano",
+      "corpusDocId": "igmr-es"
     }
   ]
 }
