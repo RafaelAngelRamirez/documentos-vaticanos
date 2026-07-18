@@ -25,6 +25,36 @@ UI links live under **Acerca de** (`/about`).
 - Runner: `imperium-build-runner:latest` (glibc sidecar) with volumes:
   - `codice-progressio_n8n_build`, `_android_sdk`, `_gradle`, `_electron`
 - Entry: clone → run **repo** `.ci-build.sh` in `imperium-build-runner` → package web/apk/electron → collect downloads → `ci-docker-push.sh` → `ci-deploy-docvat.sh` → n8n “Artifact commit” + push from `/tmp/repo/docvat`
+
+### CI runner image (do not lose)
+
+The n8n sidecar runs builds inside **`imperium-build-runner:latest`**. That image is **not** part of a long-running compose service for the build itself (`docker run --rm`), so a plain `docker system prune --force --all` (formerly in Imperium `update.sh`) **deletes it** and every DOCVAT/IMPERIUM build then fails after the Telegram “started” message with `ERROR: imperium-build-runner:latest missing`.
+
+Hardening on the host (`codice-progressio`):
+
+| Layer | What |
+|-------|------|
+| **Pin container** | `imperium-build-runner-pin` (`sleep infinity`, `restart: unless-stopped`) so prune `--all` still sees the image as in use. Owned by compose service of the same name in `/root/codice-progressio/compose.yml`. |
+| **Registry mirror** | `legna37/imperium-build-runner:latest` on Docker Hub (same digest as local). |
+| **update.sh** | Imperium update no longer runs `prune --all`; dangling-only prune + restore-from-Hub if missing. |
+| **Workflow** | Build sidecar auto-pulls/tags from Hub and re-pins if the local image is gone. |
+
+Rebuild / restore on the server:
+
+```bash
+# rebuild from Dockerfile
+cd /root/codice-progressio
+docker build -t imperium-build-runner:latest -t legna37/imperium-build-runner:latest build-runner/
+docker push legna37/imperium-build-runner:latest
+docker compose up -d imperium-build-runner-pin
+
+# or restore only
+docker pull legna37/imperium-build-runner:latest
+docker tag legna37/imperium-build-runner:latest imperium-build-runner:latest
+docker start imperium-build-runner-pin \
+  || docker run -d --name imperium-build-runner-pin --restart unless-stopped \
+       imperium-build-runner:latest sleep infinity
+```
 - **Versioning (important):**
   1. Sidecar clones the branch with tags + ~300 commits of history (for `standard-version`).
   2. `.ci-build.sh` runs **`standard-version` before `yarn install`** (clean tree), bumps `package.json` / `frontend/package.json` / `environment*.ts` / `CHANGELOG` / `easy_version`, commits + tags `vX.Y.Z`.
