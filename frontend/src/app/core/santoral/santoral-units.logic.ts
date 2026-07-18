@@ -21,7 +21,162 @@ export interface SaintBioSource {
   era?: string;
   quote?: string;
   quoteSource?: string;
+  themes?: string[];
+  authorAliases?: string[];
 }
+
+/**
+ * Narrative / glue tokens that flood the offline corpus when used as a
+ * relatedness seed (e.g. “emperador”, “época” → half of Agustín).
+ * Folded, no diacritics. Not a global search stopword list.
+ */
+export const SAINT_RELATED_SEED_NOISE: ReadonlySet<string> = new Set([
+  // Function / glue (folded surfaces that still pass length ≥3)
+  'del',
+  'los',
+  'las',
+  'una',
+  'uno',
+  'unos',
+  'unas',
+  'por',
+  'para',
+  'con',
+  'sin',
+  'que',
+  'sobre',
+  'entre',
+  'desde',
+  'hasta',
+  'hacia',
+  'como',
+  'cuando',
+  'donde',
+  'porque',
+  'quien',
+  'quienes',
+  'cual',
+  'cuales',
+  'muy',
+  'mas',
+  'menos',
+  'bien',
+  'mal',
+  'solo',
+  'sola',
+  'asi',
+  'tambien',
+  'entonces',
+  'despues',
+  'antes',
+  'durante',
+  'segun',
+  'fue',
+  'ser',
+  'era',
+  'son',
+  'esta',
+  'este',
+  'estos',
+  'estas',
+  'ese',
+  'esa',
+  'esos',
+  'esas',
+  'aquel',
+  'aquella',
+  'sus',
+  'mis',
+  'nos',
+  'les',
+  'hay',
+  'han',
+  'has',
+  'han',
+  // Narrative / martyrology glue that floods patristic packs
+  'actualmente',
+  'ano',
+  'anos',
+  'año',
+  'años',
+  'altar',
+  'beata',
+  'beato',
+  'capital',
+  'ciudad',
+  'condenado',
+  'conocido',
+  'conocida',
+  'cristiano',
+  'cristianos',
+  'dia',
+  'dias',
+  'emperador',
+  'emperadores',
+  'epoca',
+  'gran',
+  'grande',
+  'hermana',
+  'hermano',
+  'hija',
+  'hijo',
+  'historia',
+  'hoy',
+  'iglesia',
+  'imperio',
+  'joven',
+  'jovenes',
+  'llamado',
+  'llamada',
+  'lugar',
+  'madre',
+  'mes',
+  'meses',
+  'misma',
+  'mismo',
+  'muerte',
+  'murio',
+  'nacio',
+  'nombre',
+  'nueva',
+  'nuevo',
+  'obispo',
+  'obispos',
+  'otras',
+  'otros',
+  'padre',
+  'papa',
+  'parte',
+  'pontifice',
+  'primer',
+  'primera',
+  'pueblo',
+  'reina',
+  'restaurar',
+  'rey',
+  'roma',
+  'romana',
+  'romano',
+  'san',
+  'santa',
+  'santo',
+  'siglo',
+  'tiempo',
+  'tierra',
+  'toda',
+  'todas',
+  'todo',
+  'todos',
+  'ultima',
+  'ultimo',
+  'vez',
+  'veces',
+  'vicario',
+  'vida',
+  'mundo',
+  'volco',
+  'volcó',
+]);
 
 /** Unit shape compatible with corpus Article (lector / narrador). */
 export interface SaintReadingUnit {
@@ -300,15 +455,80 @@ export function canContinueSaintReading(
   return got === want;
 }
 
-/** Seed text for related-units panel (themes + bio excerpt). */
+/**
+ * Fold token like corpus search (keep ñ; strip other diacritics).
+ * Local copy so this module stays free of semantic-search imports.
+ */
+function foldSeedToken(raw: string): string {
+  return String(raw || '')
+    .normalize('NFD')
+    .replace(
+      /([^n\u0300-\u036f]|n(?!\u0303(?![\u0300-\u036f])))[\u0300-\u036f]+/gi,
+      '$1',
+    )
+    .normalize()
+    .toLowerCase()
+    .replace(/[,"\.«»“”:;!¡¿?—']/gi, '')
+    .replace(/[-\(\)\*\/`‘–…\[\]]/gi, ' ')
+    .trim();
+}
+
+function tokenizeSeedText(text: string): string[] {
+  const folded = foldSeedToken(text);
+  if (!folded) return [];
+  return folded.split(/\s+/).map((t) => t.trim()).filter((t) => t.length >= 2);
+}
+
+/**
+ * Distinctive anchors from a saint bio for relatedness seeds.
+ * Drops narrative noise so short martyrologies do not match half the pack.
+ */
+export function distinctiveTermsFromSaintBio(
+  bio: string | undefined | null,
+  maxTerms = 8,
+): string[] {
+  const tokens = tokenizeSeedText(String(bio || '').replace(/\s+/g, ' '));
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const tok of tokens) {
+    if (out.length >= maxTerms) break;
+    if (/^\d+$/.test(tok)) continue;
+    if (SAINT_RELATED_SEED_NOISE.has(tok)) continue;
+    // Prefer substance: drop 2–3 letter glue left after noise filter.
+    if (tok.length < 4) continue;
+    if (seen.has(tok)) continue;
+    seen.add(tok);
+    out.push(tok);
+  }
+  return out;
+}
+
+/**
+ * Seed for related-units on saint cover.
+ * Identity + themes + distinctive bio anchors — not the full prose dump
+ * (that produced false “Relacionados” from common history words).
+ */
 export function relatedSeedForSaint(saint: SaintBioSource): string {
-  const themes = Array.isArray((saint as { themes?: string[] }).themes)
-    ? ((saint as { themes?: string[] }).themes || []).join(' ')
-    : '';
-  const bio = String(saint.bio || '').replace(/\s+/g, ' ').trim();
-  const excerpt = bio.slice(0, 480);
   const title = saintDisplayTitle(saint);
-  return [title, themes, excerpt].filter(Boolean).join('. ');
+  const role = String(saint.role || '').trim();
+  const themes = Array.isArray(saint.themes)
+    ? saint.themes.map((t) => String(t || '').trim()).filter(Boolean).join(' ')
+    : '';
+  // Name tokens without san/santa noise (title still kept as phrase for UX).
+  const nameBits = tokenizeSeedText(
+    [saint.name, saint.displayName, ...(saint.authorAliases || [])]
+      .filter(Boolean)
+      .join(' '),
+  ).filter((t) => !SAINT_RELATED_SEED_NOISE.has(t) && t.length >= 3);
+  const bioTerms = distinctiveTermsFromSaintBio(saint.bio, 8);
+  const anchors = Array.from(new Set([...nameBits, ...bioTerms])).join(' ');
+  const seed = [title, role, themes, anchors].filter(Boolean).join('. ');
+  // Too thin → empty so the panel can hide instead of noise.
+  const substance = tokenizeSeedText(seed).filter(
+    (t) => !SAINT_RELATED_SEED_NOISE.has(t) && t.length >= 3,
+  );
+  if (substance.length < 2) return '';
+  return seed;
 }
 
 /** Simple TOC rows from units (first line of each paragraph as title). */

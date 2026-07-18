@@ -843,6 +843,170 @@ export function suggestRelatedForStep(
   });
 }
 
+/**
+ * Narrative glue that must not drive saint-cover relatedness alone.
+ * Folded surfaces; kept here so ranking stays independent of santoral module.
+ */
+export const SAINT_RELATED_RANK_NOISE: ReadonlySet<string> = new Set([
+  'actualmente',
+  'ano',
+  'anos',
+  'capital',
+  'ciudad',
+  'condenado',
+  'cristiano',
+  'cristianos',
+  'emperador',
+  'emperadores',
+  'epoca',
+  'iglesia',
+  'imperio',
+  'joven',
+  'jovenes',
+  'muerte',
+  'obispo',
+  'obispos',
+  'padre',
+  'roma',
+  'romana',
+  'romano',
+  'san',
+  'santa',
+  'santo',
+  'siglo',
+  'tiempo',
+  'vida',
+  'vicario',
+]);
+
+/** Cap hits per document so one huge author pack cannot fill the list. */
+export function diversifyRelatedHitsByDocument(
+  hits: RankedUnitHit[],
+  maxPerDocument = 2,
+): RankedUnitHit[] {
+  const cap = Math.max(1, maxPerDocument);
+  const counts = new Map<string, number>();
+  const out: RankedUnitHit[] = [];
+  for (const h of hits) {
+    const id = h.documentId || '';
+    const n = counts.get(id) ?? 0;
+    if (n >= cap) continue;
+    counts.set(id, n + 1);
+    out.push(h);
+  }
+  return out;
+}
+
+/**
+ * Whether a related hit is strong enough for a saint cover (not a theme note).
+ * Requires multi-term overlap or one rare long anchor; drops pure noise matches.
+ */
+export function isQualitySaintRelatedHit(
+  hit: RankedUnitHit,
+  seedTerms: string[],
+  opts: { minScore?: number; topScore?: number } = {},
+): boolean {
+  const minScore = opts.minScore ?? 1.8;
+  const topScore = opts.topScore ?? hit.score;
+  if (hit.score < minScore) return false;
+  if (topScore > 0 && hit.score < topScore * 0.4) return false;
+
+  const matched = (hit.matchedTerms || []).filter(Boolean);
+  if (!matched.length) return false;
+
+  const seedSet = new Set(seedTerms);
+  const substantive = matched.filter(
+    (t) =>
+      !SAINT_RELATED_RANK_NOISE.has(t) &&
+      t.length >= 3 &&
+      (seedSet.size === 0 || seedSet.has(t)),
+  );
+  if (!substantive.length) return false;
+
+  // Prefer 2+ seed anchors; allow a single rare proper-noun-ish token.
+  if (substantive.length >= 2) return true;
+  const only = substantive[0];
+  return only.length >= 6 && hit.score >= Math.max(minScore, 2.2);
+}
+
+/**
+ * Related rows for a saint cover: stricter than theme-step neighbors.
+ * Empty list when the corpus only has weak lexical noise (preferred UX).
+ */
+export function suggestRelatedForSaint(
+  sourceText: string,
+  docs: SearchDocumentInput[],
+  opts: {
+    limit?: number;
+    /** Soft boost for works already linked to the saint (documentIds). */
+    preferDocumentIds?: string[];
+    maxPerDocument?: number;
+  } = {},
+): RelatedCitationRow[] {
+  const text = (sourceText || '').trim();
+  if (!text || !docs.length) return [];
+
+  const rawTerms = contentTermsFromText(text).filter(
+    (t) => !SAINT_RELATED_RANK_NOISE.has(t) && t.length >= 3,
+  );
+  if (rawTerms.length < 2) return [];
+
+  // Slightly wider kernel than theme relatedness; still capped.
+  const contentTerms = pickRelatedContentTerms(rawTerms, 6);
+  if (contentTerms.length < 2) return [];
+
+  const seedPhrase = contentTerms.join(' ');
+  const parsed: ParsedSearch = {
+    empty: false,
+    phrases: [seedPhrase],
+    contentTerms,
+    points: [],
+  };
+  const prefer = new Set(
+    (opts.preferDocumentIds || []).map((id) => String(id || '').trim()).filter(Boolean),
+  );
+
+  let hits = rankUnitsAcrossDocuments(docs, parsed, {
+    requireMultiTermOverlap: true,
+  });
+
+  // Soft boost linked works (Padres) without inventing hits.
+  if (prefer.size) {
+    hits = hits
+      .map((h) =>
+        prefer.has(h.documentId)
+          ? { ...h, score: Math.round((h.score + 1.1) * 1000) / 1000 }
+          : h,
+      )
+      .sort(
+        (a, b) =>
+          b.score - a.score ||
+          a.documentId.localeCompare(b.documentId) ||
+          a.unitIndex - b.unitIndex,
+      );
+  }
+
+  if (!hits.length) return [];
+  const topScore = hits[0].score;
+  // Absolute floor: weak single-word-ish piles never surface on the cover.
+  if (topScore < 2.0) return [];
+
+  const quality = hits.filter((h) =>
+    isQualitySaintRelatedHit(h, contentTerms, {
+      minScore: 1.8,
+      topScore,
+    }),
+  );
+  if (!quality.length) return [];
+
+  const diversified = diversifyRelatedHitsByDocument(
+    quality,
+    opts.maxPerDocument ?? 2,
+  );
+  const limit = opts.limit ?? 8;
+  return mapHitsToRelatedRows(diversified.slice(0, limit), docs);
+}
+
 /** Convert loaded corpus shape to {@link SearchDocumentInput}. */
 export function toSearchDocumentInput(
   documentId: string,

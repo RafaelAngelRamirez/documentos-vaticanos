@@ -112,11 +112,14 @@
       </button>
     </div>
 
-    <!-- Relacionados: pasajes semánticos del corpus + obras ya listadas -->
+    <!-- Relacionados: solo si hay anclas léxicas fuertes (evita ruido patristico) -->
     <app-related-units-panel
       *ngIf="relatedSeed"
       [seedText]="relatedSeed"
       [limit]="8"
+      variant="saint"
+      [hideWhenEmpty]="true"
+      [preferDocumentIds]="relatedPreferDocIds"
       heading="Relacionados"
     ></app-related-units-panel>
 

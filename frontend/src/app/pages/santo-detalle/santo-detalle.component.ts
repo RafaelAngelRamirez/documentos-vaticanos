@@ -50,6 +50,8 @@ export class SantoDetalleComponent implements OnInit {
   chapters: { num: string; title: string; unitIndex: number }[] = [];
   /** Seed for related-units panel (offline semantic). */
   relatedSeed = '';
+  /** Soft-boost corpus works linked to this saint (if any). */
+  relatedPreferDocIds: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -80,6 +82,9 @@ export class SantoDetalleComponent implements OnInit {
               ? tocFromSaintUnits(built.documento, 20)
               : [];
             this.relatedSeed = relatedSeedForSaint(this.saint);
+            this.relatedPreferDocIds = Array.isArray(this.saint.documentIds)
+              ? this.saint.documentIds.filter(Boolean)
+              : [];
             const last = this.progress.getLastRead();
             this.lastRead =
               last && last.documentId === this.readingDocId ? last : null;

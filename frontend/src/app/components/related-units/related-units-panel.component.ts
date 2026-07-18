@@ -10,12 +10,15 @@ import {
 import {
   RelatedCitationRow,
   suggestRelatedCitations,
+  suggestRelatedForSaint,
   suggestRelatedForStep,
   ThemeStepSeed,
   toSearchDocumentInput,
 } from 'src/app/core/search/semantic-search.logic';
 import { CargarDocumentosJsonService } from 'src/app/services/cargar-documentos-json.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+
+export type RelatedUnitsVariant = 'passage' | 'saint';
 
 /**
  * Offline “pasajes relacionados” list (3E-style rows).
@@ -38,6 +41,17 @@ export class RelatedUnitsPanelComponent implements OnChanges {
   @Input() showAdd = false;
   /** Section heading (handoff .sect). */
   @Input() heading = 'Pasajes relacionados';
+  /**
+   * `passage` = theme/note neighbors (default).
+   * `saint` = stricter lexical gate; empty preferred over false “Relacionados”.
+   */
+  @Input() variant: RelatedUnitsVariant = 'passage';
+  /** Hide the whole block when there is no seed / no quality hits. */
+  @Input() hideWhenEmpty = false;
+  /** Soft-boost these pack ids (e.g. saint.documentIds). */
+  @Input() preferDocumentIds: string[] | null = null;
+  /** Override lede; empty string hides it. */
+  @Input() lede: string | null = null;
 
   @Output() addCitation = new EventEmitter<RelatedCitationRow>();
   @Output() openCitation = new EventEmitter<RelatedCitationRow>();
@@ -52,11 +66,30 @@ export class RelatedUnitsPanelComponent implements OnChanges {
     private nav: NavigationService,
   ) {}
 
+  get resolvedLede(): string {
+    if (this.lede != null) return this.lede;
+    if (this.variant === 'saint') {
+      return 'Coincidencias léxicas offline en el corpus (no son citas del santo).';
+    }
+    return 'Sugeridos offline a partir del pasaje (mismas citas estables del corpus).';
+  }
+
+  /** Whether the host should render this panel at all. */
+  get visible(): boolean {
+    const hasSeed = !!(this.seedStep || (this.seedText || '').trim());
+    if (!hasSeed) return false;
+    if (!this.hideWhenEmpty) return true;
+    if (this.loading) return true;
+    return this.rows.length > 0;
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (
       changes['seedText'] ||
       changes['seedStep'] ||
-      changes['limit']
+      changes['limit'] ||
+      changes['variant'] ||
+      changes['preferDocumentIds']
     ) {
       this.refresh();
     }
@@ -90,6 +123,11 @@ export class RelatedUnitsPanelComponent implements OnChanges {
           let rows: RelatedCitationRow[] = [];
           if (step) {
             rows = suggestRelatedForStep(step, inputs, { limit: this.limit });
+          } else if (text && this.variant === 'saint') {
+            rows = suggestRelatedForSaint(text, inputs, {
+              limit: this.limit,
+              preferDocumentIds: this.preferDocumentIds || undefined,
+            });
           } else if (text) {
             rows = suggestRelatedCitations(text, inputs, { limit: this.limit });
           }

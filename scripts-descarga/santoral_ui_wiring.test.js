@@ -94,6 +94,11 @@ function main() {
   );
 
   const detailTs = read('pages/santo-detalle/santo-detalle.component.ts');
+  assert.ok(
+    /variant.*saint|hideWhenEmpty/.test(detail) ||
+      /variant.*saint|hideWhenEmpty|relatedPreferDocIds/.test(detailTs),
+    'saint related panel uses stricter variant / hideWhenEmpty',
+  );
   assert.ok(/worksForSaint|works/.test(detailTs));
   assert.ok(/\/documento/.test(detailTs) || /documento/.test(detail));
   assert.ok(

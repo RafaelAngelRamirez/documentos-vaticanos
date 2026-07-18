@@ -148,6 +148,51 @@ async function main() {
   const seed = logic.relatedSeedForSaint(sample);
   assert.ok(seed.length > 10, 'related seed non-trivial');
 
+  // Emiliano: short martyrology must not seed on "emperador/época" noise
+  const emiliano = saints.find((s) => s.id === 'emiliano') || {
+    id: 'emiliano',
+    name: 'Emiliano',
+    displayName: 'San Emiliano',
+    role: 'mártir de la Mesia',
+    bio:
+      'En la época del emperador Julián, el Apóstata, en el año 362, el vicario de la capital fue a Durostoro, en Mesia – actualmente Rumania – para restaurar el paganismo. El joven Emiliano, cristiano, volcó el altar y destruyó los ídolos para los sacrificios, por lo que fue condenado al martirio.',
+  };
+  const emSeed = logic.relatedSeedForSaint(emiliano);
+  assert.ok(emSeed.length > 5, 'emiliano seed present');
+  const emFold = emSeed
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+  assert.ok(!/\bemperador\b/.test(emFold), 'seed drops emperador noise');
+  assert.ok(!/\bepoca\b/.test(emFold), 'seed drops epoca noise');
+  assert.ok(
+    /\bemiliano\b/.test(emFold) || /\bmartir/.test(emFold),
+    'seed keeps identity / martyr anchors',
+  );
+  const bioTerms = logic.distinctiveTermsFromSaintBio(emiliano.bio, 12);
+  assert.ok(
+    bioTerms.every((t) => !logic.SAINT_RELATED_SEED_NOISE.has(t)),
+    'bio terms exclude noise set',
+  );
+  assert.ok(
+    !bioTerms.includes('del') && !bioTerms.includes('para'),
+    'function words not treated as anchors',
+  );
+  assert.ok(
+    bioTerms.some((t) =>
+      ['emiliano', 'julian', 'apostata', 'mesia', 'durostoro', 'martirio', 'idolos', 'paganismo'].includes(
+        t,
+      ),
+    ),
+    'bio terms keep distinctive anchors',
+  );
+  // Empty-ish saint → no seed (panel hides)
+  assert.strictEqual(
+    logic.relatedSeedForSaint({ id: 'x', name: 'San', bio: 'En la época del emperador.' }),
+    '',
+    'noise-only bio yields empty seed',
+  );
+
   console.log('ok santoral-units');
   console.log(
     JSON.stringify({
@@ -156,6 +201,8 @@ async function main() {
       docId,
       toc: toc.length,
       seedLen: seed.length,
+      emSeedLen: emSeed.length,
+      bioTerms,
     }),
   );
 }

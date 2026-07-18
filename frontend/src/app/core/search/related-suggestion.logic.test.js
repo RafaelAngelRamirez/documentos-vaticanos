@@ -174,6 +174,9 @@ async function main() {
     pickSeedStep,
     suggestRelatedCitations,
     suggestRelatedForStep,
+    suggestRelatedForSaint,
+    diversifyRelatedHitsByDocument,
+    isQualitySaintRelatedHit,
     mapHitsToRelatedRows,
     toSearchDocumentInput,
     searchCorpus,
@@ -184,6 +187,19 @@ async function main() {
     stripLeadingConsecutivo,
     isPureNumericToken,
   } = semantic;
+
+  assert.ok(
+    typeof suggestRelatedForSaint === 'function',
+    'suggestRelatedForSaint exported',
+  );
+  assert.ok(
+    panelTs.includes('suggestRelatedForSaint') || panelTs.includes("variant"),
+    'panel wires saint variant / suggestRelatedForSaint',
+  );
+  assert.ok(
+    panelTs.includes('hideWhenEmpty') || panelHtml.includes('hideWhenEmpty'),
+    'panel supports hideWhenEmpty',
+  );
 
   section('empty / single / point still work (shipped search entry)');
   assert.deepStrictEqual(searchCorpus('', []), []);
@@ -475,6 +491,76 @@ async function main() {
   const mapped = mapHitsToRelatedRows(rawHits, [cicDoc]);
   assert.strictEqual(mapped.length, rawHits.length);
   assert.ok(mapped[0].title.includes('cic-es'));
+
+  section('saint-related quality gate');
+  // Diversity: max 2 per document
+  const fakeHits = [
+    { documentId: 'a', unitIndex: 0, score: 5, matchedTerms: ['x'] },
+    { documentId: 'a', unitIndex: 1, score: 4, matchedTerms: ['x'] },
+    { documentId: 'a', unitIndex: 2, score: 3, matchedTerms: ['x'] },
+    { documentId: 'b', unitIndex: 0, score: 4.5, matchedTerms: ['y'] },
+  ];
+  const div = diversifyRelatedHitsByDocument(fakeHits, 2);
+  assert.strictEqual(div.length, 3);
+  assert.strictEqual(div.filter((h) => h.documentId === 'a').length, 2);
+
+  assert.strictEqual(
+    isQualitySaintRelatedHit(
+      { documentId: 'd', unitIndex: 0, score: 3, matchedTerms: ['emperador'] },
+      ['emiliano', 'martirio', 'emperador'],
+    ),
+    false,
+    'noise-only match rejected',
+  );
+  assert.strictEqual(
+    isQualitySaintRelatedHit(
+      {
+        documentId: 'd',
+        unitIndex: 0,
+        score: 3.5,
+        matchedTerms: ['emiliano', 'martirio'],
+      },
+      ['emiliano', 'martirio', 'mesia'],
+    ),
+    true,
+    'two substantive anchors accepted',
+  );
+
+  // Generic historical seed → empty (the San Emiliano failure mode)
+  const noiseSeed =
+    'San Emiliano. epoca emperador capital joven cristiano vicario';
+  assert.deepStrictEqual(
+    suggestRelatedForSaint(noiseSeed, docs, { limit: 8 }),
+    [],
+    'noise-only saint seed yields no rows',
+  );
+
+  // Strong thematic seed still finds neighbors on the amor fixture
+  const saintGood = suggestRelatedForSaint(
+    'San Agustín. Gracia Interioridad. amor dios corazones espiritu',
+    docs,
+    { limit: 8 },
+  );
+  assert.ok(
+    saintGood.length >= 1,
+    `strong saint seed should hit fixture (got ${saintGood.length})`,
+  );
+  // Prefer linked docs boost must not invent empty
+  const preferred = suggestRelatedForSaint(
+    'San Agustín. Gracia. amor dios corazones espiritu',
+    docs,
+    { limit: 8, preferDocumentIds: ['fixture-es'] },
+  );
+  assert.ok(preferred.length >= 1, 'preferDocumentIds still returns hits');
+
+  console.log(
+    'saint related good:',
+    saintGood.slice(0, 3).map((r) => ({
+      title: r.title,
+      matchedTerms: r.matchedTerms,
+      score: r.score,
+    })),
+  );
 
   console.log('\nAll product related-suggestion tests passed.');
 }

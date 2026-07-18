@@ -1,7 +1,7 @@
-<section class="related-panel" *ngIf="seedStep || seedText">
+<section class="related-panel" *ngIf="visible">
   <div class="sect">{{ heading }}</div>
-  <p class="fs12 muted related-lede">
-    Sugeridos offline a partir del pasaje (mismas citas estables del corpus).
+  <p class="fs12 muted related-lede" *ngIf="resolvedLede">
+    {{ resolvedLede }}
   </p>
 
   <div *ngIf="loading" class="fs13 muted" role="status">
@@ -35,7 +35,7 @@
       <span class="sx">{{ row.snippet }}</span>
     </div>
 
-    <p *ngIf="!rows.length" class="fs13 muted">
+    <p *ngIf="!rows.length && !hideWhenEmpty" class="fs13 muted">
       No hay pasajes relacionados en los documentos cargados.
     </p>
   </ng-container>
