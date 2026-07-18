@@ -37,6 +37,7 @@ import {
 import { NarratorPreferencesService } from 'src/app/services/narrator-preferences.service';
 import { NarracionFgService } from 'src/app/services/narracion-fg.service';
 import { nextSpeakableIndex } from 'src/app/services/speech-prep.logic';
+import { coverNavCommandsForDocumentId } from 'src/app/core/santoral/santoral-units.logic';
 
 const CONTEXT_SIZE = 5;
 
@@ -520,7 +521,8 @@ export class LectorComponent implements OnInit, OnDestroy {
     }
     const id = this.document?.id || this.navigationService.document_id;
     if (id) {
-      this.router.navigate(['/documento', id]);
+      // Corpus → /documento/:id; saint bio → /santoral/:saintId (not broken 2A).
+      this.router.navigate(coverNavCommandsForDocumentId(id));
     } else {
       this.navigationService.go_to_documents();
     }

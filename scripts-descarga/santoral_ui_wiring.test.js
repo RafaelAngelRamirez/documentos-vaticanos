@@ -83,6 +83,19 @@ function main() {
   assert.ok(/bioToReadingUnits/.test(unitsLogic));
   assert.ok(/saintDocumentId|santoral:/.test(unitsLogic));
   assert.ok(/saintToReadingDocument/.test(unitsLogic));
+  // Exit path of shared lector: must not land on /documento/santoral:…
+  assert.ok(
+    /coverPathForDocumentId|coverNavCommandsForDocumentId/.test(unitsLogic),
+    'cover helpers for saint vs corpus reading ids',
+  );
+  assert.ok(
+    /parentPathForAppUrl/.test(unitsLogic),
+    'parentPathForAppUrl pure hierarchy (BackService source)',
+  );
+  assert.ok(
+    /\/santoral\//.test(unitsLogic) && /parseSaintDocumentId/.test(unitsLogic),
+    'saint reading ids resolve cover/parent to /santoral/:id',
+  );
 
   const service = read('core/santoral/santoral.service.ts');
   assert.ok(/SANTORAL_MANIFEST_URL|assets\/corpus\/santoral/.test(service));
@@ -95,6 +108,22 @@ function main() {
   assert.ok(
     /isReadingDocumentId|ensureSaintAsIndice|santoral/.test(cargar),
     'CargarDocumentosJsonService routes santoral:* to saint pack',
+  );
+
+  const lector = read('components/lector/lector.component.ts');
+  assert.ok(
+    /coverNavCommandsForDocumentId/.test(lector),
+    'lector goBack uses coverNavCommandsForDocumentId (not bare /documento)',
+  );
+  assert.ok(
+    !/navigate\(\[\s*['"]\/documento['"]\s*,\s*id\s*\]\)/.test(lector),
+    'lector must not hard-code navigate([/documento, id]) for all docs',
+  );
+
+  const backSvc = read('services/back.service.ts');
+  assert.ok(
+    /parentPathForAppUrl/.test(backSvc),
+    'BackService.parentUrl delegates to parentPathForAppUrl',
   );
 
   const docHtml = read('pages/documento-detalle/documento-detalle.component.html');
@@ -124,6 +153,7 @@ function main() {
       temas: true,
       relacionados: true,
       santoralUnits: true,
+      lectorBackToSantoral: true,
     }),
   );
 }

@@ -57,6 +57,49 @@ async function main() {
   assert.ok(!logic.isSaintDocumentId('cic-es'));
   assert.ok(!logic.isSaintDocumentId(sample.id)); // bare id is not namespaced
 
+  // Exit path of shared lector: saint → /santoral/:id, corpus → /documento/:id
+  assert.strictEqual(
+    logic.coverPathForDocumentId(docId),
+    `/santoral/${sample.id}`,
+  );
+  assert.deepStrictEqual(logic.coverNavCommandsForDocumentId(docId), [
+    '/santoral',
+    sample.id,
+  ]);
+  assert.strictEqual(
+    logic.coverPathForDocumentId('cic-es'),
+    '/documento/cic-es',
+  );
+  assert.deepStrictEqual(logic.coverNavCommandsForDocumentId('cic-es'), [
+    '/documento',
+    'cic-es',
+  ]);
+
+  // BackService hierarchy (parentPathForAppUrl) — real pure path used by service
+  assert.strictEqual(
+    logic.parentPathForAppUrl(`/leyendo/${docId}/punto/2`),
+    `/santoral/${sample.id}`,
+  );
+  assert.strictEqual(
+    logic.parentPathForAppUrl(`/leyendo/${docId}`),
+    `/santoral/${sample.id}`,
+  );
+  assert.strictEqual(
+    logic.parentPathForAppUrl('/leyendo/cic-es/punto/0'),
+    '/documento/cic-es',
+  );
+  assert.strictEqual(
+    logic.parentPathForAppUrl(`/santoral/${sample.id}`),
+    '/santoral',
+  );
+  // Encoded colon in path segment
+  assert.strictEqual(
+    logic.parentPathForAppUrl(
+      `/leyendo/${encodeURIComponent(docId)}/punto/0`,
+    ),
+    `/santoral/${sample.id}`,
+  );
+
   const loaded = logic.saintToReadingDocument(sample);
   assert.ok(loaded, 'saintToReadingDocument');
   assert.strictEqual(loaded.meta.id, docId);

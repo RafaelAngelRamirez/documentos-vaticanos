@@ -60,6 +60,15 @@ export function saintDocumentId(saintId: string): string {
   const id = String(saintId || '').trim();
   if (!id) return '';
   if (id.startsWith(SANTORAL_DOC_PREFIX)) return id;
+  // Also accept already-encoded path segments (santoral%3A…)
+  try {
+    const decoded = decodeURIComponent(id);
+    if (decoded.startsWith(SANTORAL_DOC_PREFIX) && decoded !== id) {
+      return decoded;
+    }
+  } catch {
+    /* ignore */
+  }
   return `${SANTORAL_DOC_PREFIX}${id}`;
 }
 
@@ -67,7 +76,14 @@ export function saintDocumentId(saintId: string): string {
 export function parseSaintDocumentId(
   documentId: string | undefined | null,
 ): string | null {
-  const raw = String(documentId || '').trim();
+  let raw = String(documentId || '').trim();
+  if (!raw) return null;
+  try {
+    // Path segments may arrive URI-encoded (santoral%3Aid).
+    if (raw.includes('%')) raw = decodeURIComponent(raw);
+  } catch {
+    /* keep raw */
+  }
   if (!raw.startsWith(SANTORAL_DOC_PREFIX)) return null;
   const id = raw.slice(SANTORAL_DOC_PREFIX.length).trim();
   return id || null;
@@ -77,6 +93,77 @@ export function isSaintDocumentId(
   documentId: string | undefined | null,
 ): boolean {
   return parseSaintDocumentId(documentId) != null;
+}
+
+/**
+ * Cover / parent route for a reading documentId.
+ * Corpus docs → `/documento/{id}`; saint bios → `/santoral/{saintId}`.
+ * Used by lector «←» and BackService hierarchy (never land on a broken 2A).
+ */
+export function coverPathForDocumentId(
+  documentId: string | undefined | null,
+): string {
+  const raw = String(documentId || '').trim();
+  if (!raw) return '/biblioteca';
+  const saintId = parseSaintDocumentId(raw);
+  if (saintId) return `/santoral/${saintId}`;
+  return `/documento/${raw}`;
+}
+
+/** Angular `router.navigate` commands for the cover of a reading doc. */
+export function coverNavCommandsForDocumentId(
+  documentId: string | undefined | null,
+): string[] {
+  const raw = String(documentId || '').trim();
+  if (!raw) return ['/biblioteca'];
+  const saintId = parseSaintDocumentId(raw);
+  if (saintId) return ['/santoral', saintId];
+  return ['/documento', raw];
+}
+
+/**
+ * Parent path for app hierarchy (BackService / 7A).
+ * Pure so tests and BackService share one source of truth.
+ */
+export function parentPathForAppUrl(url: string): string | null {
+  const clean = String(url || '').split('?')[0].split('#')[0];
+  const seg = clean.split('/').filter(Boolean);
+  if (seg.length === 0 || clean === '/inicio') {
+    return null;
+  }
+
+  const [a, b, c] = seg;
+
+  if (a === 'leyendo' && b) {
+    // `/leyendo/santoral:…` or `/leyendo/cic-es/punto/0` → cover of that doc
+    return coverPathForDocumentId(b);
+  }
+  if (a === 'documento') {
+    return '/biblioteca';
+  }
+  if (a === 'santoral' && b) {
+    return '/santoral';
+  }
+  if (a === 'estudios' && c === 'editar') {
+    return `/estudios/${b}`;
+  }
+  if (a === 'estudios' && b) {
+    return '/estudios';
+  }
+  if (a === 'cuenta' && b === 'temas' && c) {
+    return '/cuenta/temas';
+  }
+  if (a === 'cuenta' && b) {
+    return '/cuenta';
+  }
+  if (a === 'padres' && b) {
+    return '/padres';
+  }
+  if (a === 'admin' && b === 'revision' && c) {
+    return '/admin/revision';
+  }
+
+  return '/inicio';
 }
 
 /**

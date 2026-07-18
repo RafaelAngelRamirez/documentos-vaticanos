@@ -2,6 +2,7 @@ import { Injectable, NgZone } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { App } from '@capacitor/app';
 import { Capacitor } from '@capacitor/core';
+import { parentPathForAppUrl } from 'src/app/core/santoral/santoral-units.logic';
 import { NavigationService } from './navigation.service';
 
 /**
@@ -129,43 +130,11 @@ export class BackService {
 
   /**
    * Ruta "padre" en la jerarquía de la app, o `null` en la raíz.
-   * Expuesto para specs.
+   * Expuesto para specs. Source of truth: parentPathForAppUrl (pure).
+   * Saint bios (`santoral:{id}`) → `/santoral/{id}`, not broken `/documento/…`.
    */
   parentUrl(url: string): string | null {
-    const seg = url.split('/').filter(Boolean);
-    if (seg.length === 0 || url === '/inicio') {
-      return null;
-    }
-
-    const [a, b, c] = seg;
-
-    if (a === 'leyendo' && b) {
-      return `/documento/${b}`;
-    }
-    if (a === 'documento') {
-      return '/biblioteca';
-    }
-    if (a === 'estudios' && c === 'editar') {
-      return `/estudios/${b}`;
-    }
-    if (a === 'estudios' && b) {
-      return '/estudios';
-    }
-    if (a === 'cuenta' && b === 'temas' && c) {
-      return '/cuenta/temas';
-    }
-    if (a === 'cuenta' && b) {
-      return '/cuenta';
-    }
-    if (a === 'padres' && b) {
-      return '/padres';
-    }
-    if (a === 'admin' && b === 'revision' && c) {
-      return '/admin/revision';
-    }
-
-    // Raíces de bnav y páginas de primer nivel.
-    return '/inicio';
+    return parentPathForAppUrl(url);
   }
 
   // ------------------------------------------------------------------
