@@ -23,6 +23,10 @@ No se digitaliza el Martirologio Romano completo (libro impreso). Parsers puros 
 npm run santoral:offline          # seed Padres + fixtures Holy See (sin red)
 npm run santoral:scrape           # + harvest live (liturgy + News days + vaticanstate)
 npm run santoral:scrape-holy-see  # scrape acotado (max bajo) solo para prueba de red
+# Un mes de Vatican News → partial (paralelo por mes):
+npm run santoral:scrape-month -- --month 7 --write-partial partials/santoral-news/month-07.json
+# Tras 12 meses: merge partials + vaticanstate RSS/items → pack dual-write
+npm run santoral:merge-partials
 npm run santoral -- --fixture fixtures/santoral/….html --source-url URL
 npm run test:santoral             # parse + offline load + UI wiring
 ```

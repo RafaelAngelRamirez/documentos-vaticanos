@@ -56,12 +56,14 @@ function main() {
   const withHolyBio = holySee.filter((s) => (s.bio || '').length > 40);
   assert.ok(withHolyBio.length >= 1, 'holy-see saint has bio');
 
-  const bruno = a.saints.find(
-    (s) =>
-      /bruno/i.test(s.id) ||
-      /Bruno.*Segni|Segni.*Bruno/i.test(s.name) ||
-      /Bruno.*Segni/i.test(s.displayName || ''),
-  );
+  // Prefer exact Segni slug/name (not Carthusian Bruno 10-06)
+  const bruno =
+    a.saints.find((s) => s.id === 'bruno-de-segni') ||
+    a.saints.find(
+      (s) =>
+        /Bruno.*Segni|Segni.*Bruno/i.test(s.name || '') ||
+        /Bruno.*Segni/i.test(s.displayName || ''),
+    );
   assert.ok(bruno, 'Bruno de Segni present in pack');
   assert.ok((bruno.bio || '').length > 40, 'Bruno bio');
   assert.ok(
@@ -71,7 +73,7 @@ function main() {
   );
   assert.ok(
     (bruno.feastDays || []).includes('07-18'),
-    `Bruno feastDays ${JSON.stringify(bruno.feastDays)}`,
+    `Bruno de Segni feastDays ${JSON.stringify(bruno.feastDays)}`,
   );
 
   assert.ok(

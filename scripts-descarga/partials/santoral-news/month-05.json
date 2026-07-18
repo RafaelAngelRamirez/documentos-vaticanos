@@ -1,0 +1,1300 @@
+{
+  "month": 5,
+  "generatedAt": "2026-07-18T21:54:00.948Z",
+  "saintCount": 65,
+  "saints": [
+    {
+      "id": "jose-obrero-esposo-de-la-b-v-maria",
+      "name": "José Obrero Esposo de la B. V. María",
+      "displayName": "San José Obrero Esposo de la B. V. María",
+      "role": "protector de los trabajadores",
+      "bio": "Hoy recordamos a san José, el padre adoptivo de Jesús, como testigo de que es suficiente un trabajo humilde, como el de un carpintero, para hacer que el hombre participe del plan divino de salvación. Los trabajadores cristianos lo veneran como su Santo Patrono.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/01/s--jose-obrero-esposo-de-la-b--v--maria--protector-de-los-trabaj.html",
+      "locale": "es",
+      "feastDays": [
+        "05-01"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-01 · vaticannews.va",
+      "authorAliases": [
+        "San José Obrero Esposo de la B. V. María",
+        "José Obrero Esposo de la B. V. María"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "jeremias",
+      "name": "Jeremías",
+      "displayName": "San Jeremías",
+      "role": "profeta",
+      "bio": "Uno de los cuatro Grandes profetas hebreos, San Jeremías, del linaje de los sacerdotes de Jerusalén, predicó en el reino de Judá aún después del 587 AC. Por haber anunciado la destrucción del Templo y el cautiverio babilónico será perseguido y encarcelado. Su Libro es el 30° del Antiguo Testamento.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/01/s--jeremias--profeta.html",
+      "locale": "es",
+      "feastDays": [
+        "05-01"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-01 · vaticannews.va",
+      "authorAliases": [
+        "San Jeremías",
+        "Jeremías"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "atanasio",
+      "name": "Atanasio",
+      "displayName": "San Atanasio",
+      "role": "obispo de Alejandría en Egipto y doctor de la Iglesia",
+      "bio": "Durante 46 años obispo de Alejandría en Egipto. En el Concilio de Nicea San Anastasio fue la única voz de la ortodoxia contra el difuso arrianismo que negaba el dogma trinitario. No obstante que su maestro fue San Antonio Abad, Atanasio no fue un teólogo. Murió en el 373.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/02/s--atanasio--obispo-de-alejandria-en-egipto-y-doctor-de-la-igles.html",
+      "locale": "es",
+      "feastDays": [
+        "05-02"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-02 · vaticannews.va",
+      "authorAliases": [
+        "San Atanasio",
+        "Atanasio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "felipe-y-santiago-el-menor",
+      "name": "Felipe y Santiago el Menor",
+      "displayName": "Santos Felipe y Santiago el Menor",
+      "role": "apóstoles",
+      "bio": "Forman parte de los Doce Apóstoles elegidos por Jesús. Son recordados el mismo día porque sus reliquias fueron traídas simultáneamente desde Ierapoli y desde Jerusalén a Roma en el siglo VI. Sus reliquias se veneran en la iglesia llamada \"De los Santos Apóstoles\". Ambos murieron como mártires.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/03/ss--felipe-y-santiago-el-menor--apostoles.html",
+      "locale": "es",
+      "feastDays": [
+        "05-03"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-03 · vaticannews.va",
+      "authorAliases": [
+        "Santos Felipe y Santiago el Menor",
+        "Felipe y Santiago el Menor"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "evenzio",
+      "name": "Evenzio",
+      "displayName": "Santos Evenzio",
+      "role": "Alejandro y Teódulo, mártires en la via Nomentana",
+      "bio": "Los santos mártires Evencio, Alessandro y Teodulo fueron enterrados en Roma en la séptima milla de la Via Nomentana. Inicialmente se creía que habían vivido en el segundo siglo, y luego que habrían vivido en el cuarto. Hoy se ha aclarado que Alejandro mártir no era el Papa homónimo Alejandro I.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/03/ss--evenzio--alejandro-y-teodulo--martires-en-la-via-nomentana.html",
+      "locale": "es",
+      "feastDays": [
+        "05-03"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-03 · vaticannews.va",
+      "authorAliases": [
+        "Santos Evenzio",
+        "Evenzio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "antonina",
+      "name": "Antonina",
+      "displayName": "San Antonina",
+      "role": "mártir de Nicea",
+      "bio": "Probablemente originaria de Nicea, en Bitinia - actual Turquía - Santa Antonina sufrió el martirio durante las persecuciones cristianas ordenadas por Diocleciano. Después de ser encarcelada durante dos años, sufrió las más crueles torturas antes de ser quemada viva en su ciudad natal.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/04/s--antonina--martir-de-nicea.html",
+      "locale": "es",
+      "feastDays": [
+        "05-04"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-04 · vaticannews.va",
+      "authorAliases": [
+        "San Antonina",
+        "Antonina"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "nuncio-sulpricio",
+      "name": "Nuncio Sulpricio",
+      "displayName": "San Nuncio Sulpricio",
+      "role": "jóven obrero de Nápoles",
+      "bio": "Nuncio Sulpricio murió en 1836, a 19 años de edad, debilitado en su cuerpo por su condición de trabajador explotado, pero no en su espíritu, ofreció su sufrimiento a Dios. Beatificado durante el Concilio Vaticano II por Pablo VI, fue canonizado por Francisco durante el Sínodo de los Jóvenes.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/05/s--nuncio-sulpricio--joven-obrero-de-napoles.html",
+      "locale": "es",
+      "feastDays": [
+        "05-05"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-05 · vaticannews.va",
+      "authorAliases": [
+        "San Nuncio Sulpricio",
+        "Nuncio Sulpricio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "mariano-y-santiago",
+      "name": "Mariano y Santiago",
+      "displayName": "Santos Mariano y Santiago",
+      "role": "mártires",
+      "bio": "Los dos jóvenes clérigos cristianos, el diácono Mariano y el lector Santiago, habían escapado a la persecución de Decio, pero de todos modos sufrieron el martirio en 259 en Lambese, Numidia, actual Argelia, debido a que no cesaban de exhortar a sus compañeros a permanecer firmes en la fe.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/06/ss--mariano-y-santiago--martires.html",
+      "locale": "es",
+      "feastDays": [
+        "05-06"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-06 · vaticannews.va",
+      "authorAliases": [
+        "Santos Mariano y Santiago",
+        "Mariano y Santiago"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "flavia-domitila",
+      "name": "Flavia Domitila",
+      "displayName": "San Flavia Domitila",
+      "role": "mártir romana",
+      "bio": "Vivió entre los siglos I y II, Flavia Domitila fue sobrina de Vespasiano y esposa del cónsul romano Flavio Clemente, de quien tuvo siete hijos. Convertida al cristianismo, fue acusada de \"ateísmo\", según la mentalidad de la época. Enseguida fue deportada a la isla de Ponza donde sufrió el martirio.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/07/s--flavia-domitila--martir-romana.html",
+      "locale": "es",
+      "feastDays": [
+        "05-07"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-07 · vaticannews.va",
+      "authorAliases": [
+        "San Flavia Domitila",
+        "Flavia Domitila"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "rosa-venerini",
+      "name": "Rosa Venerini",
+      "displayName": "San Rosa Venerini",
+      "role": "virgen, fundadora de las Maestras Pías Venerini",
+      "bio": "¿Matrimonio o clausura? Rosa Venerini de Viterbo nació en 1656 de una familia acomodada y eligió otro camino. Rezando en casa con algunas mujeres, notó su falta de preparación: fundó la primera escuela para \"liberarlas de la ignorancia y el mal\". Hoy en día su obra está presente en todo el mundo.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/07/s--rosa-venerini--virgen--fundadora-de-las-maestras-pias-venerin.html",
+      "locale": "es",
+      "feastDays": [
+        "05-07"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-07 · vaticannews.va",
+      "authorAliases": [
+        "San Rosa Venerini",
+        "Rosa Venerini"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "victor",
+      "name": "Víctor",
+      "displayName": "San Víctor",
+      "role": "mártir de Milán",
+      "bio": "Milán, año 290. En el ejército imperial había tres soldados muertos: Víctor, Narbore y Félix. Los tres cristianos prefieren morir como mártires antes que abjurar de su fe. Por lo tanto se les recuerda juntos, aunque Víctor murió en Milán y los otros dos en Lodi.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/08/s--victor--martir-de-milan.html",
+      "locale": "es",
+      "feastDays": [
+        "05-08"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-08 · vaticannews.va",
+      "authorAliases": [
+        "San Víctor",
+        "Víctor"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "bonifacio-iv",
+      "name": "Bonifacio IV",
+      "displayName": "San Bonifacio IV",
+      "role": "papa",
+      "bio": "Monje benedictino originario de la Marsica que, después de 9 meses de Sede vacante en 608, fue elegido Papa como Bonifacio IV. Se le recuerda por haber consagrado el antiguo Panteón - que había recibido del Emperador Foca - a Nuestra Señora y a todos los Santos el 1° de noviembre de un año incierto.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/08/s--bonifacio-iv--papa.html",
+      "locale": "es",
+      "feastDays": [
+        "05-08"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-08 · vaticannews.va",
+      "authorAliases": [
+        "San Bonifacio IV",
+        "Bonifacio IV"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "benito-ii",
+      "name": "Benito II",
+      "displayName": "San Benito II",
+      "role": "papa",
+      "bio": "Benedicto II fue estimado por Constantino IV, Emperador de Oriente. Bajo su pontificado se interrumpió la costumbre según la cual la elección del nuevo Papa debía ser ratificada por Constantinopla. Por eso, desde entonces bastó solo la aprobación del gobernador bizantino de Ravena. Murió en el 685.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/08/s--benedicto-ii--papa.html",
+      "locale": "es",
+      "feastDays": [
+        "05-08"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-08 · vaticannews.va",
+      "authorAliases": [
+        "San Benito II",
+        "Benito II"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "arsenio",
+      "name": "Arsenio",
+      "displayName": "San Arsenio",
+      "role": "diácono romano, anacoreta en Egipto",
+      "bio": "En la época del emperador Teodosio, entre los siglos IV y V, la Iglesia de Roma tenía entre sus diáconos a un tal Arsenio, que en cierto momento de su vida se retiró a Egipto, al monte Escete, y se convirtió en un anacoreta, un ermitaño dedicado a la contemplación y a las prácticas ascéticas.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/08/s--arsenio--diacono-romano--anacoreta-en-egipto.html",
+      "locale": "es",
+      "feastDays": [
+        "05-08"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-08 · vaticannews.va",
+      "authorAliases": [
+        "San Arsenio",
+        "Arsenio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "pacomio",
+      "name": "Pacomio",
+      "displayName": "San Pacomio",
+      "role": "abad",
+      "bio": "Pacomio es un joven del Alto Egipto alistado por la fuerza en el ejército, que pronto es encarcelado en Tebas. Convertido al cristianismo en prisión, una vez libre se puso al servicio de una comunidad, pero luego prefirió la vida de un asceta junto con otros monjes que lo seguiran.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/09/s--pacomio--abad.html",
+      "locale": "es",
+      "feastDays": [
+        "05-09"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-09 · vaticannews.va",
+      "authorAliases": [
+        "San Pacomio",
+        "Pacomio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "isaias",
+      "name": "Isaías",
+      "displayName": "San Isaías",
+      "role": "profeta",
+      "bio": "Descendiente de la casa real de David, San Isaías es el mayor de los llamados \"Grandes Profetas\" de Israel. Vivió unos ochocientos años antes de Jesús. La tradición judía dice que vivió una vida muy larga y que finalmente murió como mártir bajo Manasés.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/09/s--isaias--profeta.html",
+      "locale": "es",
+      "feastDays": [
+        "05-09"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-09 · vaticannews.va",
+      "authorAliases": [
+        "San Isaías",
+        "Isaías"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "luisa-de-marillac",
+      "name": "Luisa de Marillac",
+      "displayName": "San Luisa de Marillac",
+      "role": "confundadora de las Hijas de la Caridad",
+      "bio": "S. Luisa de Marillac nació en Francia a finales del siglo XVI. Fue esposa fiel y madre ejemplar. Cuando enviudó dedicó su vida a la caridad y al servicio de los pobres. En 1633 fundó, junto con s. Vicente de Paúl, la Compañía de las \"Hijas de la Caridad\". La Iglesia la recuerda el 9 de Mayo.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/09/s--luisa-de-marillac--confundadora-de-las-hijas-de-la-caridad.html",
+      "locale": "es",
+      "feastDays": [
+        "05-09"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-09 · vaticannews.va",
+      "authorAliases": [
+        "San Luisa de Marillac",
+        "Luisa de Marillac"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "jordan",
+      "name": "Jordán",
+      "displayName": "San Jordán",
+      "role": "mártir en la via Latina",
+      "bio": "Perseguidor de los cristianos bajo el emperador Julián el Apóstata, Giordiano debe juzgar al presbítero Jenaro y gracias a él se convierte. Murió como mártir en el año 300; fue enterrado en la Vía Latina en una cripta que contenía las reliquias de San Epímaco: por eso a veces se recuerdan juntos.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/10/s--jordan--martir--sobre-la-via-latina.html",
+      "locale": "es",
+      "feastDays": [
+        "05-10"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-10 · vaticannews.va",
+      "authorAliases": [
+        "San Jordán",
+        "Jordán"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "juan-de-avila",
+      "name": "Juan de Avila",
+      "displayName": "San Juan de Avila",
+      "role": "sacerdote",
+      "bio": "Un sacerdote español de origen judío, San Juan de Ávila, vivió en el siglo XVI, un período de grandes reformas. Es un místico, gran predicador y consejero de muchos de sus contemporáneos como San Ignacio de Loyola. En 2012 Benedicto XVI lo proclamó Doctor de la Iglesia.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/10/s--juan-de-avila--sacerdote.html",
+      "locale": "es",
+      "feastDays": [
+        "05-10"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-10 · vaticannews.va",
+      "authorAliases": [
+        "San Juan de Avila",
+        "Juan de Avila"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "quarto-y-quinto",
+      "name": "Quarto y Quinto",
+      "displayName": "Santos Quarto y Quinto",
+      "role": "mártires en la via Latina",
+      "bio": "Poco se sabe de estos dos santos del siglo IV, sepultados en Roma sobre la Vía Latina. Tal vez fueron dos obispos de Capua, que murieron mártires en Roma, ciertamente después del 269. Sin embargo, los \"Itinerarios\" del siglo VII indican su tumba en la iglesia de los Santos Jordiano y Epímaco.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/10/ss--quarto-y-quinto--martires--sobre-la-via-latina.html",
+      "locale": "es",
+      "feastDays": [
+        "05-10"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-10 · vaticannews.va",
+      "authorAliases": [
+        "Santos Quarto y Quinto",
+        "Quarto y Quinto"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "job",
+      "name": "Job",
+      "displayName": "San Job",
+      "bio": "El libro de Job es un Midrash. Dibuja un modelo de paciencia y santidad y el inexplicable sufrimiento de los justos, como el Cristo sufriente. Un hombre rico y feliz, pierde todo de repente, incluso sus hijos, se enferma, pero lo soporta todo diciendo: \"Ýahvéh da, Yahvéh quita, ¡bendito sea Yahvéh!",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/10/s--job.html",
+      "locale": "es",
+      "feastDays": [
+        "05-10"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-10 · vaticannews.va",
+      "authorAliases": [
+        "San Job",
+        "Job"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "antimo",
+      "name": "Antimo",
+      "displayName": "San Antimo",
+      "role": "mártir en la via Salaria",
+      "bio": "Mártir de los origenes. San Antimo se esconde en una villa a lo largo de la Vía Salaria en Roma por haber convertido a un sacerdote del dios pagano Silvano y haber destruido un simulacro de esta deidad. Una vez descubierto, fue arrestado y martirizado y luego enterrado en el lugar donde solía rezar.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/11/s--antimo--martir--sobre-la-via-salaria.html",
+      "locale": "es",
+      "feastDays": [
+        "05-11"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-11 · vaticannews.va",
+      "authorAliases": [
+        "San Antimo",
+        "Antimo"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "nereo-y-achileo",
+      "name": "Nereo y Achileo",
+      "displayName": "Santos Nereo y Achileo",
+      "role": "mártires en la via Ardeatina",
+      "bio": "Nereo y Aquiles, mártires romanos del siglo III, probablemente decapitados durante la persecución anticristiana del emperador Diocleciano, fueron sepultados en Roma en el cementerio de Domitila sobre la Via Ardeatina, pero también se les venera en una basílica de las Termas de Caracalla.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/12/ss--nereo-y-achileo--martires--sobre-la-via-ardeatina.html",
+      "locale": "es",
+      "feastDays": [
+        "05-12"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-12 · vaticannews.va",
+      "authorAliases": [
+        "Santos Nereo y Achileo",
+        "Nereo y Achileo"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "pancracio",
+      "name": "Pancracio",
+      "displayName": "San Pancracio",
+      "role": "mártir en la via Aurelia",
+      "bio": "Es uno de los tantos mártires-niños de la Iglesia. San Pancracio, romano, se convierte al cristianismo, razón por la cual termina en la red de la persecución de Diocleciano. Rehúsa renegar a Cristo y es condenado a la decapitación en el año 304. Es patrono de los jóvenes de la Acción Católica.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/12/s--pancracio--martir--sobre-la-via-aurelia.html",
+      "locale": "es",
+      "feastDays": [
+        "05-12"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-12 · vaticannews.va",
+      "authorAliases": [
+        "San Pancracio",
+        "Pancracio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "german-de-costantinopla",
+      "name": "Germán de Costantinopla",
+      "displayName": "San Germán de Costantinopla",
+      "role": "obispo",
+      "bio": "Germán fue un presbítero que llegó a ser Patriarca. Se ganò muchos enemigos en Constantinopla por no haber sostenido la herejía monotelista y por haber combatido las doctrinas iconoclastas. El Papa Gregorio II lo estimó por su defensa de la ortodoxia. Murió en Platanión en 732 a la edad de 98 años.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/12/s--german-de-costantinopla--obispo.html",
+      "locale": "es",
+      "feastDays": [
+        "05-12"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-12 · vaticannews.va",
+      "authorAliases": [
+        "San Germán de Costantinopla",
+        "Germán de Costantinopla"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "maria-virgen-de-fatima",
+      "name": "María virgen de Fatima",
+      "displayName": "Beato María virgen de Fatima",
+      "bio": "El título con el cual el 13 de mayo la Iglesia celebra a María está vinculado a las apariciones de Fátima, en Portugal, en 1917. La Virgen se manifiesta por seis veces a tres pastorcillos, Lucía Dos Santos y Francisco y Jacinta Marto; pide oraciones, penitencia y conversión.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/13/b--maria-virgen-de-fatima.html",
+      "locale": "es",
+      "feastDays": [
+        "05-13"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-13 · vaticannews.va",
+      "authorAliases": [
+        "Beato María virgen de Fatima",
+        "María virgen de Fatima"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "andres-huberto-fournet",
+      "name": "Andrés Huberto Fournet",
+      "displayName": "San Andrés Huberto Fournet",
+      "role": "sacerdote",
+      "bio": "San Andrés fue expulsado de Francia durante la Revolución por negarse al juramento cismático. Regresó en secreto, cuando la Iglesia volvió a ser libre, fundó las Hijas de la Cruz, una congregación para la educación cristiana de las niñas, por la que fue llamado \"Buen Padre\".",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/13/s--andres-huberto-fournet--sacerdote.html",
+      "locale": "es",
+      "feastDays": [
+        "05-13"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-13 · vaticannews.va",
+      "authorAliases": [
+        "San Andrés Huberto Fournet",
+        "Andrés Huberto Fournet"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "matias",
+      "name": "Matías",
+      "displayName": "San Matías",
+      "role": "apóstol",
+      "bio": "Se sabe muy poco de San Matías. El dato más consistente surge de los Hechos de los Apóstoles, en que se relata que fue Matías el elegido a suerte como sucesor de Judas Iscariote en el círculo de los doce Apóstoles. De su martirio falta la evidencia histórica.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/14/s--matias--apostol.html",
+      "locale": "es",
+      "feastDays": [
+        "05-14"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-14 · vaticannews.va",
+      "authorAliases": [
+        "San Matías",
+        "Matías"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "miguel-garicoits-sacerdote-fundador-de-los-sacerdotes-del-s-corazon-de-jesus-de-",
+      "name": "Miguel Garicoïts, sacerdote, fundador de los Sacerdotes del s. Corazón de Jesús de Bétharram",
+      "displayName": "San Miguel Garicoïts, sacerdote, fundador de los Sacerdotes del s. Corazón de Jesús de Bétharram",
+      "bio": "Nació en el período posrevolucionario en la Navarra francesa. Como joven sacerdote se dio cuenta de que el reto era la reevangelización de los sacerdotes, de la juventud y de los campesinos. Para ello, en 1835 fundó la Congregación de los Sacerdotes del Sagrado Corazón de Jesús en Bétharram.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/14/s--miguel-garicoits--sacerdote--fundador-de-los-sacerdotes-del-s.html",
+      "locale": "es",
+      "feastDays": [
+        "05-14"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-14 · vaticannews.va",
+      "authorAliases": [
+        "San Miguel Garicoïts, sacerdote, fundador de los Sacerdotes del s. Corazón de Jesús de Bétharram",
+        "Miguel Garicoïts, sacerdote, fundador de los Sacerdotes del s. Corazón de Jesús de Bétharram"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "torcuato",
+      "name": "Torcuato",
+      "displayName": "San Torcuato",
+      "role": "obispo de Guadix",
+      "bio": "Torcuato vivió entre los siglos III y IV. Es el primer obispo de la ciudad de Acci, hoy Guadix, España. Según algunas fuentes, es un confesor, según otras un mártir. Se le recuerda como el primero de los \"Siete Varones Españoles\", obispos de varias ciudades del sur de España, venerados como santos.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/15/s--torcuato--obispo-de-guadix.html",
+      "locale": "es",
+      "feastDays": [
+        "05-15"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-15 · vaticannews.va",
+      "authorAliases": [
+        "San Torcuato",
+        "Torcuato"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "isidro",
+      "name": "Isidro",
+      "displayName": "San Isidro",
+      "role": "labrador",
+      "bio": "Nació en Madrid cerca de 1070. Isidro se santificó rezando, trabajando en el campo y compartiendo sus bienes con los más pobres. No faltaron las envidias, pero las superó gracias a su esposa María. Vivió en la época de las grandes batallas medievales, es el patrón de los agricultores y campesinos.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/15/s--isidro--labrador.html",
+      "locale": "es",
+      "feastDays": [
+        "05-15"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-15 · vaticannews.va",
+      "authorAliases": [
+        "San Isidro",
+        "Isidro"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "alejandro",
+      "name": "Alejandro",
+      "displayName": "San Alejandro",
+      "role": "obispo de Jerusalén y mártir",
+      "bio": "Originario de Capadocia, Alejandro fue obispo de la Ciudad Santa de Jerusalén, de la cual tomó el cuidado pastoral fundando una biblioteca y una escuela. Cuando recomenzó la persecución contra los cristianos bajo el emperador Decio, fue encarcelado y murió en 250, a causa de inauditas privaciones.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/16/s--alejandro--obispo-de-jerusalen-y-martir.html",
+      "locale": "es",
+      "feastDays": [
+        "05-16"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-16 · vaticannews.va",
+      "authorAliases": [
+        "San Alejandro",
+        "Alejandro"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "ubaldo",
+      "name": "Ubaldo",
+      "displayName": "San Ubaldo",
+      "role": "obispo de Gubio",
+      "bio": "Nace en Alemania entre 1084 y 1085, pronto huérfano llega a la italiana Gubbio. Apacible y valiente, llega a ser prior y obispo de la ciudad umbra durante 31 años salvándola de diversas crisis, llegando a persuadir a Federico Barbarroja para que levantara un asedio. Santo desde 1192.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/16/s--ubaldo--obispo-de-gubio.html",
+      "locale": "es",
+      "feastDays": [
+        "05-16"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-16 · vaticannews.va",
+      "authorAliases": [
+        "San Ubaldo",
+        "Ubaldo"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "victor-2",
+      "name": "Víctor",
+      "displayName": "San Víctor",
+      "role": "mártir en la via Salaria antigua",
+      "bio": "Mártir romano del siglo IV. Poco se sabe de él. Por antiguos testimonios sabemos que fue enterrado en el cementerio de Basilla, que se ubica sobre la antigua Vía Salaria.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/17/s--victor--martir--sobre-la-via-salaria-antigua.html",
+      "locale": "es",
+      "feastDays": [
+        "05-17"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-17 · vaticannews.va",
+      "authorAliases": [
+        "San Víctor",
+        "Víctor"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "pascual-baylon",
+      "name": "Pascual Baylon",
+      "displayName": "San Pascual Baylon",
+      "role": "laico franciscano, patrón de las Asociaciones eucarísticas",
+      "bio": "Pascual nació en Aragón, es pastor. Solo hasta el segundo intento logra entrar con los franciscanos alcantarinos de Santa María de Loreto, pero permanece siendo seglar. Por su devoción se le llama \"el Serafín de la Eucaristía\". Murió en 1592, fue canonizado en 1690.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/17/s--pascual-baylon--laico-franciscano--patron-de-las-asociaciones.html",
+      "locale": "es",
+      "feastDays": [
+        "05-17"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-17 · vaticannews.va",
+      "authorAliases": [
+        "San Pascual Baylon",
+        "Pascual Baylon"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "juan-i",
+      "name": "Juan I",
+      "displayName": "San Juan I",
+      "role": "papa y mártir",
+      "bio": "Nacido en Toscana, Juan I fue Papa de 523 a 526 y tuvo que luchar contra la herejía del arrianismo. Para arreglar la ruptura, Teodorico, rey de los godos, lo envió a Constantinopla, pero a su regreso lo hizo encarcelar en Ravena, donde murió. Fue considerado un mártir por la Iglesia latina.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/18/s--juan-i--papa-y-martir.html",
+      "locale": "es",
+      "feastDays": [
+        "05-18"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-18 · vaticannews.va",
+      "authorAliases": [
+        "San Juan I",
+        "Juan I"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "felix-de-cantalice",
+      "name": "Félix de Cantalice",
+      "displayName": "San Félix de Cantalice",
+      "role": "religioso capuchino",
+      "bio": "Fraile investigador y místico, nace en Cantalice (Rieti) en 1515. Tras convertirse en monje Capuchino, durante 40 años, hasta su muerte, en 1587, fue mendicante en Roma. Amigo de Felipe Neri y de Sixto V, se dedicó a orar intensamente y a una vida de caridad. Clemente XI lo canoniza en 1712.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/18/s--felix-de-cantalice--religioso-capuchino.html",
+      "locale": "es",
+      "feastDays": [
+        "05-18"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-18 · vaticannews.va",
+      "authorAliases": [
+        "San Félix de Cantalice",
+        "Félix de Cantalice"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "pedro-celestino-v",
+      "name": "Pedro Celestino V",
+      "displayName": "San Pedro Celestino V",
+      "role": "papa (Pedro de Morone)",
+      "bio": "Contemplativo, amante del silencio, San Pedro Celestino V Papa es recordado por la Iglesia el 19 de mayo. El Santo es conocido por haber puesto en marcha el Jubileo del \"Perdón\" de L'Aquila en 1294 y por su breve Pontificado que culminó con la renuncia pocos meses después de las elecciones.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/19/s--pedro-celestino-v--papa--pedro-del-murrone-.html",
+      "locale": "es",
+      "feastDays": [
+        "05-19"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-19 · vaticannews.va",
+      "authorAliases": [
+        "San Pedro Celestino V",
+        "Pedro Celestino V"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "urbano-i",
+      "name": "Urbano I",
+      "displayName": "San Urbano I",
+      "role": "papa",
+      "bio": "Nacido bajo el emperador Diocleciano, muerto bajo Septimio Severo. De San Urbano I, Papa entre el 223 y el 230, hay pocas noticias ciertas. Decidido y práctico en la defensa de los derechos de la comunidad cristiana, muere probablemente como un mártir, aunque si las fuentes históricas no son claras.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/19/s--urbano-i--papa.html",
+      "locale": "es",
+      "feastDays": [
+        "05-19"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-19 · vaticannews.va",
+      "authorAliases": [
+        "San Urbano I",
+        "Urbano I"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "partenio-y-calogero",
+      "name": "Partenio y Calógero",
+      "displayName": "Santos Partenio y Calógero",
+      "role": "mártires en la via Appia",
+      "bio": "Estos dos mártires murieron en el 304 y se recuerdan el día de su martirio. Fueron enterrados en el cementerio de San Calisto en Roma. Probablemente eran dos hermanos de origen armenio que un tal Emiliano, en el momento de su muerte, les confió a su hija Anatolia Calista y por eso los hizo eunucos.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/19/ss--partenio-y-calogero--martires--sobre-la-via-appia.html",
+      "locale": "es",
+      "feastDays": [
+        "05-19"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-19 · vaticannews.va",
+      "authorAliases": [
+        "Santos Partenio y Calógero",
+        "Partenio y Calógero"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "ivo",
+      "name": "Ivo",
+      "displayName": "San Ivo",
+      "role": "sacerdote, abogado de los pobres",
+      "bio": "Nacido en Bretaña en 1235, Ivo se formó en teología y derecho convirtiéndose pronto en sacerdote y abogado gracias a un patrocinio gratuito. Alojó a los pobres y necesitados en su castillo sin descuidar la predicación en las parroquias entre Tredez y Louannec. Fue canonizado en 1347 por Clemente VI.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/19/s--ivo--sacerdote--abogado-de-los-pobres.html",
+      "locale": "es",
+      "feastDays": [
+        "05-19"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-19 · vaticannews.va",
+      "authorAliases": [
+        "San Ivo",
+        "Ivo"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "crispino-de-viterbo",
+      "name": "Crispino de Viterbo",
+      "displayName": "San Crispino de Viterbo",
+      "role": "religioso capuchino",
+      "bio": "Pedro Fioretti ingresó a la Orden de los Frailes Menores Capuchinos en 1693 como Fray Crispín. Durante 40 años vivió en Orvieto, primero como horticultor, luego como mendicante. Fue canonizado por Juan Pablo II en 1982.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/19/s--crispino-de-viterbo--religioso-capuchino.html",
+      "locale": "es",
+      "feastDays": [
+        "05-19"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-19 · vaticannews.va",
+      "authorAliases": [
+        "San Crispino de Viterbo",
+        "Crispino de Viterbo"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "bernardino-de-siena",
+      "name": "Bernardino de Siena",
+      "displayName": "San Bernardino de Siena",
+      "role": "sacerdote franciscano",
+      "bio": "Escuchado por Papas y analfabetos por su estilo de predicación sin bizantinismos, Bernardino de Siena es uno de los santos franciscanos más conocidos y un gran reformador de su Orden en el siglo XV. Fue proclamado Santo por San Nicolás V en 1450, sólo seis años después de su muerte.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/20/s--bernardino-de-siena--sacerdote-franciscano.html",
+      "locale": "es",
+      "feastDays": [
+        "05-20"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-20 · vaticannews.va",
+      "authorAliases": [
+        "San Bernardino de Siena",
+        "Bernardino de Siena"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "aurea",
+      "name": "Aurea",
+      "displayName": "San Aurea",
+      "role": "mártir de Ostia",
+      "bio": "En la época del emperador Claudio, siglo primero, la romana Áurea, convertida al cristianismo fue torturada, por no renegar de su fe. Expulsada de su ciudad, Ostia. Allí fue arrestada de nuevo y martirizada.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/20/s--aurea--martir-de-ostia.html",
+      "locale": "es",
+      "feastDays": [
+        "05-20"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-20 · vaticannews.va",
+      "authorAliases": [
+        "San Aurea",
+        "Aurea"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "cristoforo-magallanes",
+      "name": "Cristóforo Magallanes",
+      "displayName": "Santos Cristóforo Magallanes",
+      "role": "sac., y Compañeros, mártires en México",
+      "bio": "En el período más difícil para la Iglesia mexicana perseguida, el sacerdote Cristóbal Magallanes, con 24 compañeros, fueron asesinadon en odio a la fe el 25 de mayo de 1927. Estos mártires fueron canonizados por Juan Pablo II en el año 2000, durante el Gran Jubileo.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/21/ss--cristoforo-magallanes--sac---y-companeros--martires-en-mexic.html",
+      "locale": "es",
+      "feastDays": [
+        "05-21"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-21 · vaticannews.va",
+      "authorAliases": [
+        "Santos Cristóforo Magallanes",
+        "Cristóforo Magallanes"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "eugenio-de-mazenod",
+      "name": "Eugenio de Mazenod",
+      "displayName": "San Eugenio de Mazenod",
+      "role": "obispo de Marsiglia, fundador de los Oblatos de María Inmaculada",
+      "bio": "De familia noble, San Eugenio de Mazenod se salva de la revolución francesa y en lugar de la vida de la corte elige el sacerdocio. En 1816 funda la Sociedad de los misioneros de Provenza, más tarde Oblatos de María Inmaculada, que se difunden por el mundo. Obispo de Marsella, falleció en 1861.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/21/s--eugenio-de-mazenod--obispo-de-marsiglia--fundador-de-los-obla.html",
+      "locale": "es",
+      "feastDays": [
+        "05-21"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-21 · vaticannews.va",
+      "authorAliases": [
+        "San Eugenio de Mazenod",
+        "Eugenio de Mazenod"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "rita-de-casia",
+      "name": "Rita de Casia",
+      "displayName": "San Rita de Casia",
+      "role": "religiosa agustina",
+      "bio": "La Iglesia recuerda a Santa Rita el 22 de mayo. Es conocida como la santa de los casos imposibles, después de que gracias a su intercesión se hayan resuelto milagrosamente situaciones sin esperanza. Sus restos permanecen expuestos en la Basílica de Casia.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/22/s--rita-de-casia--religiosa-agustina.html",
+      "locale": "es",
+      "feastDays": [
+        "05-22"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-22 · vaticannews.va",
+      "authorAliases": [
+        "San Rita de Casia",
+        "Rita de Casia"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "julia",
+      "name": "Julia",
+      "displayName": "San Julia",
+      "role": "virgen y mártir en Córsega",
+      "bio": "Patrona de Córcega, es una de las jóvenes cartaginesas que un mercante de esclavos quería vender en la Galia. Fue raptada en un puerto de Córcega. Fiel a su fe, rechazó sacrificarse a una divinidad pagana. Su fiesta se celebra el 22 de mayo.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/22/s--julia--virgen-y-martir-en-corsega.html",
+      "locale": "es",
+      "feastDays": [
+        "05-22"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-22 · vaticannews.va",
+      "authorAliases": [
+        "San Julia",
+        "Julia"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "juan-bautista-de-rossi",
+      "name": "Juan Bautista de Rossi",
+      "displayName": "San Juan Bautista de Rossi",
+      "role": "sacerdote romano",
+      "bio": "Originario de Alejandría, ordenado sacerdote en Roma en 1721. Fundó la Pía Unión de Sacerdotes Seculares; en la ciudad se hizo famoso como confesor y la gente buscaba tenerlo como padre espiritual. Murió en 1764.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/23/s--juan-bautista-de-rossi--sacerdote-romano.html",
+      "locale": "es",
+      "feastDays": [
+        "05-23"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-23 · vaticannews.va",
+      "authorAliases": [
+        "San Juan Bautista de Rossi",
+        "Juan Bautista de Rossi"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "vicente-de-lerins",
+      "name": "Vicente de Lérins",
+      "displayName": "San Vicente de Lérins",
+      "role": "sacerdote",
+      "bio": "Nacido en Galia en el siglo V, Vicente se retiró como monje. A una edad avanzada, escribió un manual para vivir plenamente el Evangelio, llamado el “Commonitorium”. Murió en 450.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/24/s--vicente-de-lerins--sacerdote.html",
+      "locale": "es",
+      "feastDays": [
+        "05-24"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-24 · vaticannews.va",
+      "authorAliases": [
+        "San Vicente de Lérins",
+        "Vicente de Lérins"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "gregorio-vii",
+      "name": "Gregorio VII",
+      "displayName": "San Gregorio VII",
+      "role": "papa",
+      "bio": "Hildebrando de Sovana fue elegido Papa en 1073. Vivió una época dura para la Iglesia. Las tensiones con Enrique IV, que quería administrar los nombramientos episcopales, desembocan en la excomunión del monarca, quien va a Canossa a pedir perdón. Pablo V lo proclama Santo en 1606.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/25/s--gregorio-vii--papa.html",
+      "locale": "es",
+      "feastDays": [
+        "05-25"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-25 · vaticannews.va",
+      "authorAliases": [
+        "San Gregorio VII",
+        "Gregorio VII"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "beda-venerabile",
+      "name": "Beda Venerabile",
+      "displayName": "San Beda Venerabile",
+      "role": "sacerdote benedictino, doctor de la Iglesia",
+      "bio": "Monje e historiador inglés, San Beda el Venerable es un Doctor de la Iglesia por el amplio conocimiento de la Sagrada Escritura, por las enseñanzas que transmitió y por los numerosos escritos que dejó. Ha dedicado toda su vida al estudio y a la oración.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/25/s--beda-venerabile--sacerdote-benedictino--doctor-de-la-iglesia.html",
+      "locale": "es",
+      "feastDays": [
+        "05-25"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-25 · vaticannews.va",
+      "authorAliases": [
+        "San Beda Venerabile",
+        "Beda Venerabile"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "maria-magdalena-de-pazzi",
+      "name": "María Magdalena de’ Pazzi",
+      "displayName": "San María Magdalena de’ Pazzi",
+      "role": "virgen",
+      "bio": "Santa María Magdalena de Pazzi (bautizada como Catarina), virgen de la Orden de las Carmelitas, vivió en Florencia en el siglo XVI, en pleno Renacimiento. Con gran abnegación y ocultamiento se dedicó a orar por la reforma de la Iglesia, aún en medio de la agitación posterior al Concilio de Trento.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/25/s--maria-magdalena-de-pazzi--virgen.html",
+      "locale": "es",
+      "feastDays": [
+        "05-25"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-25 · vaticannews.va",
+      "authorAliases": [
+        "San María Magdalena de’ Pazzi",
+        "María Magdalena de’ Pazzi"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "felipe-neri-sacerdote-fundador-de-la-congregacion-de-los-sacerdotes-del-oratorio",
+      "name": "Felipe Neri, sacerdote, fundador de la Congregación de los Sacerdotes del Oratorio",
+      "displayName": "San Felipe Neri, sacerdote, fundador de la Congregación de los Sacerdotes del Oratorio",
+      "bio": "Pedro, Pablo y Felipe: desde hace 500 años, los “Apóstoles de Roma” son tres. Esto dice mucho sobre el amor de la ciudad por un hombre nacido en Florencia pero renacido en las plazas de la Ciudad Eterna, en los callejones más degradados, donde un pastor santo puede tener el olor de las ovejas.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/26/s--felipe-neri--sacerdote--fundador-de-la-congregacion-de-los-sa.html",
+      "locale": "es",
+      "feastDays": [
+        "05-26"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-26 · vaticannews.va",
+      "authorAliases": [
+        "San Felipe Neri, sacerdote, fundador de la Congregación de los Sacerdotes del Oratorio",
+        "Felipe Neri, sacerdote, fundador de la Congregación de los Sacerdotes del Oratorio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "eleuterio",
+      "name": "Eleuterio",
+      "displayName": "San Eleuterio",
+      "role": "papa",
+      "bio": "Originario de Epiro, Eleuterio fue Papa de 175 a 189. Tolerante con la herejía del montanismo, luchó contra el gnosticismo y el marcionismo, contra los cuales emitió un decreto solemne. A él se debe la celebración de la Pascua el domingo. Está enterrado en el Vaticano, junto a San Pedro.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/26/s--eleuterio--papa.html",
+      "locale": "es",
+      "feastDays": [
+        "05-26"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-26 · vaticannews.va",
+      "authorAliases": [
+        "San Eleuterio",
+        "Eleuterio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "simetrio",
+      "name": "Simetrio",
+      "displayName": "San Simetrio",
+      "role": "mártir en la via Salaria nueva",
+      "bio": "Simetrio, o Simitrius, es un presbítero romano sepultado en el cementerio de Priscila sobre la Via Salaria Nueva, con otros 22 compañeros, con los que probablemente fue martirizado en los últimos años del imperio de Antonino Pio, quizás alrededor del 159.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/26/s--simetrio--martir--sobre-la-via-salaria-nueva.html",
+      "locale": "es",
+      "feastDays": [
+        "05-26"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-26 · vaticannews.va",
+      "authorAliases": [
+        "San Simetrio",
+        "Simetrio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "agustin",
+      "name": "Agustín",
+      "displayName": "San Agustín",
+      "role": "arzobispo de Canterbury",
+      "bio": "San Agustín, el santo y sabio abad benedictino que justamente fue llamado el Apóstol de Inglaterra, reevangelizó la Isla que sufría por la degeneración de las costumbres y por la invasión de los bárbaros. Murió en 604 y su tumba en Canterbury se convirtió inmediatamente en un lugar de peregrinación.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/27/s--agustin--arzobispo-de-canterbury.html",
+      "locale": "es",
+      "feastDays": [
+        "05-27"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-27 · vaticannews.va",
+      "authorAliases": [
+        "San Agustín",
+        "Agustín"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "german",
+      "name": "Germán",
+      "displayName": "San Germán",
+      "role": "obispo de Paris",
+      "bio": "Nacido en Atún a finales del siglo V, Germán hizo sus votos y se le confió el monasterio de San Sifroniano, que recuperó de la decadencia. Consejero del rey en París, se convirtió en obispo de la ciudad: su monasterio fue señalado como modelo en toda Francia y fue dedicado a él a su muerte.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/28/s--german--obispo-de-paris.html",
+      "locale": "es",
+      "feastDays": [
+        "05-28"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-28 · vaticannews.va",
+      "authorAliases": [
+        "San Germán",
+        "Germán"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "ursula-ledochowska",
+      "name": "Ursula Ledóchowska",
+      "displayName": "San Ursula Ledóchowska",
+      "role": "fundadora de las Ursolinas del s. Corazón de Jesús agonizante",
+      "bio": "De origen austriaco, Ursula es hermana de la Beata María Teresa. En Cracovia se hace ursulina y viajó por Rusia, Suecia y Finlandia educando a mujeres jóvenes, hasta que en 1920 fundó su congregación dedicada al cuidado de los pobres, los ancianos y los enfermos. Juan Pablo II la canonizó en 2003.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/29/s--ursula-ledochowska--fundadora-de-las-ursolinas-del-s--corazon.html",
+      "locale": "es",
+      "feastDays": [
+        "05-29"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-29 · vaticannews.va",
+      "authorAliases": [
+        "San Ursula Ledóchowska",
+        "Ursula Ledóchowska"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "pablo-vi",
+      "name": "Pablo VI",
+      "displayName": "San Pablo VI",
+      "role": "Papa",
+      "bio": "Pablo VI, pontífice del 1963 al 1978, fue un papa innovador que concluyó el Concilio Vaticano II. Fue también un defensor de la vida y de los pueblos oprimidos y un gran reformador de la Iglesia. Inició los viajes papales a los cinco continentes. Hizo nueve. Fue canonizado por Francisco en 2018.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/29/s--pablo-vi--papa.html",
+      "locale": "es",
+      "feastDays": [
+        "05-29"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-29 · vaticannews.va",
+      "authorAliases": [
+        "San Pablo VI",
+        "Pablo VI"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "fernando",
+      "name": "Fernando",
+      "displayName": "San Fernando",
+      "role": "rey de Castilla",
+      "bio": "Unificó los reinos de Castilla y León y en 1217 subiò al trono real. Se le denominó \"el Conquistador de Andalucía\" por haber eliminado el dominio sarraceno de Sevilla y Córdoba. Construyó la Catedral de Burgos y amplió la Universidad de Salamanca. Fue canonizado por Clemente X en 1671.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/30/s--fernando--rey-de-castilla.html",
+      "locale": "es",
+      "feastDays": [
+        "05-30"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-30 · vaticannews.va",
+      "authorAliases": [
+        "San Fernando",
+        "Fernando"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "juana-de-arco",
+      "name": "Juana de Arco",
+      "displayName": "San Juana de Arco",
+      "role": "virgen",
+      "bio": "La chica que devolvió el honor a la corona de Francia y murió falsamente acusada de herejía. Es la famosa y dramática parábola de Juana de Arco. La Santa, quemada en la hoguera en 1431, condujo al ejército a la liberación de Orléans por los británicos, impulsada por una imperiosa misión divina.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/30/s--juana-de-arco--virgen.html",
+      "locale": "es",
+      "feastDays": [
+        "05-30"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-30 · vaticannews.va",
+      "authorAliases": [
+        "San Juana de Arco",
+        "Juana de Arco"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "dymphna",
+      "name": "Dymphna",
+      "displayName": "San Dymphna",
+      "bio": "Santa Dinfna, recordada el 30 de mayo en el \"Martirologio Romano\", es la patrona de las personas que sufren disturbios mentales y neurológicos y también de las mujeres víctimas de incesto y de violencia. Su devoción se ha extendido en los Centros médicos especializados en curar estas patologías.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/30/s--dymphna.html",
+      "locale": "es",
+      "feastDays": [
+        "05-30"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-30 · vaticannews.va",
+      "authorAliases": [
+        "San Dymphna",
+        "Dymphna"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "felix-de-nicosia",
+      "name": "Félix de Nicosia",
+      "displayName": "San Félix de Nicosia",
+      "bio": "Analfabeta pero “doctor” en humildad. Félix de Nicosia es un fraile capuchino de la primera mitad del ‘700. En el convento es portero, zapatero, enfermero. Fuera, enseña catecismo a los niños, y para todos tiene una buena palabra. Fallece en 1787, y es canonizado en 2005 por el Papa Benedicto XVI.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/31/s--felix-de-nicosia.html",
+      "locale": "es",
+      "feastDays": [
+        "05-31"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-31 · vaticannews.va",
+      "authorAliases": [
+        "San Félix de Nicosia",
+        "Félix de Nicosia"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "petronila",
+      "name": "Petronila",
+      "displayName": "San Petronila",
+      "bio": "Según la Passio de los Santos Nereo y Aquileo, sería hija del Apóstol Pedro. Las fuentes no concuerdan sobre ello, pero sí es cierto que fue sepultada en el cementerio de Domitila. Las noticias sobre su martirio se remontan al siglo IV. Sus restos se encuentran en San Pedro desde el año 757.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/05/31/s--petronila.html",
+      "locale": "es",
+      "feastDays": [
+        "05-31"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "05-31 · vaticannews.va",
+      "authorAliases": [
+        "San Petronila",
+        "Petronila"
+      ],
+      "documentIds": []
+    }
+  ]
+}

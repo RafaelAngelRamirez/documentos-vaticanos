@@ -1,0 +1,1115 @@
+{
+  "month": 11,
+  "generatedAt": "2026-07-18T21:54:01.797Z",
+  "saintCount": 56,
+  "saints": [
+    {
+      "id": "fiesta-de-todos-los-santos",
+      "name": "Fiesta de todos los santos",
+      "displayName": "Fiesta de todos los santos",
+      "bio": "Hoy la Iglesia festeja una gran Solemnidad y agradece al Espíritu Santo su acción santificadora en tantas personas de todos los tiempos y lugares. Ellas ya gozan eternamente de la felicidad de Dios. Los creyentes rezan unidos para imitar sus ejemplos, a fin de contemplar un día el Rostro de Dios.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/01/fiesta-de-todos-los-santos.html",
+      "locale": "es",
+      "feastDays": [
+        "11-01"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-01 · vaticannews.va",
+      "authorAliases": [
+        "Fiesta de todos los santos"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "conmemoracion-de-todos-los-fieles-difuntos",
+      "name": "Conmemoracion de todos los fieles difuntos",
+      "displayName": "Conmemoracion de todos los fieles difuntos",
+      "bio": "El destino final del hombre no es disolverse en el polvo, sino vivir para siempre con Dios. Y para contemplar a Dios hemos de asociarnos a la muerte de Jesús. Por eso recordamos a los difuntos y nos unimos a ellos en oración: para que el Padre conceda a todos sus hijos gozar de su eterno Amor.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/02/conmemoracion-de-todos-los-fieles-difuntos.html",
+      "locale": "es",
+      "feastDays": [
+        "11-02"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-02 · vaticannews.va",
+      "authorAliases": [
+        "Conmemoracion de todos los fieles difuntos"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "martin-de-porres",
+      "name": "Martín de Porres",
+      "displayName": "San Martín de Porres",
+      "role": "religioso dominico",
+      "bio": "El primer santo afroamericano nació en Lima, Perú, en 1579. Fraile dominico, herborista y curandero, encarnó las tres culturas que formaron América Latina, india, española y africana, y fue expresión viva de las obras de misericordia. La Iglesia lo celebra el 3 de noviembre.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/03/s--martin-de-porres--religioso-dominico.html",
+      "locale": "es",
+      "feastDays": [
+        "11-03"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-03 · vaticannews.va",
+      "authorAliases": [
+        "San Martín de Porres",
+        "Martín de Porres"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "silvia",
+      "name": "Silvia",
+      "displayName": "San Silvia",
+      "role": "madre de s. Gregorio Magno",
+      "bio": "Silvia fue una madre ejemplar. Su hijo Gregorio llegó a ser Papa, santo y Doctor de la Iglesia. Su villa romana en la colina del Celio será transformada en un monasterio. De viuda se dedicará a la contemplación y a la caridad desde el claustro en San Pablo extra Muros, donde morirá en 590.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/03/s--silvia--madre-de-s--gregorio-magno.html",
+      "locale": "es",
+      "feastDays": [
+        "11-03"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-03 · vaticannews.va",
+      "authorAliases": [
+        "San Silvia",
+        "Silvia"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "carlos-borromeo",
+      "name": "Carlos Borromeo",
+      "displayName": "San Carlos Borromeo",
+      "role": "arzobispo de Milán y cardenal",
+      "bio": "Cardenal a solo 22 años, Carlos, hijo de una familia lombarda del siglo XVI, era un joven amante de la vida mundana; pero tras la muerte de su hermano descubrió el amor de Dios. Convenció al Papa a reiniciar el Concilio de Trento, y como obispo fue un impulsor de la caridad para todos.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/04/s--carlos-borromeo--arzobispo-de-milan-y-cardenal.html",
+      "locale": "es",
+      "feastDays": [
+        "11-04"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-04 · vaticannews.va",
+      "authorAliases": [
+        "San Carlos Borromeo",
+        "Carlos Borromeo"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "vitale-y-agricola",
+      "name": "Vitale y Agrícola",
+      "displayName": "Santos Vitale y Agrícola",
+      "role": "mártires boloñenses",
+      "bio": "Vivieron entre los siglos III y IV, Agrícola fue un cristiano en Bolonia y Vitale el sirviente que lo acompañó en su conversión. Perseguido por ser cristiano, Vitale fue el primero en ser arrestado y torturado a la vista de su amo, quien a su vez aceptó valientemente ser testigo del amor cristiano.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/04/ss--vitale-y-agricola--martires-bolonenses.html",
+      "locale": "es",
+      "feastDays": [
+        "11-04"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-04 · vaticannews.va",
+      "authorAliases": [
+        "Santos Vitale y Agrícola",
+        "Vitale y Agrícola"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "domnino",
+      "name": "Domnino",
+      "displayName": "Santos Domnino",
+      "role": "Teótimo y Compañeros, mártires",
+      "bio": "Todos originarios de Cesarea, pagan con la vida su fe. Donino es un joven médico que termina en la hoguera durante la persecución de Diocleciano. Para Teótimo, Filoteo y demás compañeros el destino se cumple durante los juegos del circo, cuando fueron dados como comida a las fieras.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/05/ss--domnino--teotimo-y-companeros--martires.html",
+      "locale": "es",
+      "feastDays": [
+        "11-05"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-05 · vaticannews.va",
+      "authorAliases": [
+        "Santos Domnino",
+        "Domnino"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "leonardo",
+      "name": "Leonardo",
+      "displayName": "San Leonardo",
+      "role": "eremita",
+      "bio": "Nace en Limoges en el siglo VI. Como todos los nobles Leonardo debe enrolarse, pero flanquea al arzobispo de Reims trabajando para liberar a centenares de prisioneros de guerras. Eremita, obtiene el permiso del rey Clodoveo para erigir el monasterio, que aún hoy es una etapa del Camino de Santiago.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/06/s--leonardo--eremita.html",
+      "locale": "es",
+      "feastDays": [
+        "11-06"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-06 · vaticannews.va",
+      "authorAliases": [
+        "San Leonardo",
+        "Leonardo"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "prosdocimo",
+      "name": "Prosdócimo",
+      "displayName": "San Prosdócimo",
+      "role": "primer obispo de Padua",
+      "bio": "Su nombre significa “el esperado”. San Prosdócimo vive en el año cero de la Iglesia. Lo nombra obispo el mismo San Pedro, quien lo envía a Padua, ciudad que lo recuerda y honra como primera cabeza de la Iglesia local. Los hagiógrafos le atribuyen numerosos milagros y prodigios.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/07/s--prosdocimo--primer-obispo-de-padua.html",
+      "locale": "es",
+      "feastDays": [
+        "11-07"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-07 · vaticannews.va",
+      "authorAliases": [
+        "San Prosdócimo",
+        "Prosdócimo"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "villibrordo",
+      "name": "Villibrordo",
+      "displayName": "San Villibrordo",
+      "role": "obispo en Europa del Norte",
+      "bio": "De origen inglés, Villibrordo de York salió de Amberes para evangelizar con no pocas dificultades Frisia, Transrenania, Flandes y Luxemburgo. Consagrado obispo de Utrecht, continuó viajando por Dinamarca para anunciar con mucho ahinco la Palabra de la Salvación; agotado, murió en Echternach en 739.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/07/s--villibrordo--obispo-en-europa-del-norte.html",
+      "locale": "es",
+      "feastDays": [
+        "11-07"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-07 · vaticannews.va",
+      "authorAliases": [
+        "San Villibrordo",
+        "Villibrordo"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "cuatro-coronados",
+      "name": "Cuatro Coronados",
+      "displayName": "Santos Cuatro Coronados",
+      "role": "mártires",
+      "bio": "No se puede crear una estatua al dios Esculapio siendo cristiano. Esta elección le cuesta la vida a Claudio, Nicostrato, Semproniano y Castorio, excelentes escultores del siglo IV, originarios de Panonia. El mismo Diocleciano los condena. Mueren en el Danubio encerrados en toneles de plomo.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/08/ss--cuatro-coronados--martires.html",
+      "locale": "es",
+      "feastDays": [
+        "11-08"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-08 · vaticannews.va",
+      "authorAliases": [
+        "Santos Cuatro Coronados",
+        "Cuatro Coronados"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "adeodato-i",
+      "name": "Adeodato I",
+      "displayName": "San Adeodato I",
+      "role": "papa",
+      "bio": "También llamado Deusdedit, Adeodato fue educado en el monasterio de San Erasmo en Roma. Elegido Papa en 615, en una época muy oscura y de fuertes controversias doctrinales entre Oriente y Occidente, no tuvo tiempo de ocuparse de ellas porque murió en 618, año del terremoto y de la epidemia de sarna.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/08/s--adeodato-i--papa.html",
+      "locale": "es",
+      "feastDays": [
+        "11-08"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-08 · vaticannews.va",
+      "authorAliases": [
+        "San Adeodato I",
+        "Adeodato I"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "maria-y-neon",
+      "name": "María y Neón",
+      "displayName": "San María y Neón",
+      "role": "mártires, en el cementerio de Calixto en la via Appia",
+      "bio": "En el año 257 el emperador Valeriano ordena una nueva persecución de cristianos. En la espiral de sangre termina también una familia griega: Hipólito, la hermana Paulina con su esposo Adria y los jóvenes María y Neón. En el siglo VIII sus restos son trasladados a la iglesia romana de Santa Ágata.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/09/s--maria-y-neon--martires--en-el-cementerio-de-calixto-sobre-la-.html",
+      "locale": "es",
+      "feastDays": [
+        "11-09"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-09 · vaticannews.va",
+      "authorAliases": [
+        "San María y Neón",
+        "María y Neón"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "teodoro",
+      "name": "Teodoro",
+      "displayName": "San Teodoro",
+      "role": "soldado, mártir",
+      "bio": "Originario de Oriente, Teodoro fue un soldado romano convertido a la fe cristiana que, en la época del emperador Maximiano se hallaba con su legión en Amasea, Anatolia. Se le ordenó sacrificar a los dioses pero respondió destruyendo el templo de Cibeles. Fue martirzado por ese motivo.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/09/s--teodoro--soldado--martir.html",
+      "locale": "es",
+      "feastDays": [
+        "11-09"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-09 · vaticannews.va",
+      "authorAliases": [
+        "San Teodoro",
+        "Teodoro"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "leon-magno",
+      "name": "León Magno",
+      "displayName": "San León Magno",
+      "role": "papa y doctor de la Iglesia",
+      "bio": "Uno de los más grandes Pontífices que han honrado la Sede romana”. Así definió Benedicto XVI a San León Magno. Vivió en el siglo V. Fue un Papa que pasó a la historia por haber inspirado el Concilio ecuménico de Calcedonia y por haber detenido a Atila, rey de los Hunos, dispuesto a invadir Italia.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/10/s--leon-magno--papa-y-doctor-de-la-iglesia.html",
+      "locale": "es",
+      "feastDays": [
+        "11-10"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-10 · vaticannews.va",
+      "authorAliases": [
+        "San León Magno",
+        "León Magno"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "andres-avellino",
+      "name": "Andrés Avellino",
+      "displayName": "San Andrés Avellino",
+      "role": "sacerdote teatino",
+      "bio": "Nació en Potentino, Italia. Su nombre de bautismo era Lancellotto. Fue ordenado sacerdote en 1545. Gracias a su director espiritual, el beato Juan Marinonio, se hizo Teatino en Nápoles y fue un Apóstol de la Cruz de Jesús. Murió el 10 de noviembre de 1608 mientras celebraba la eucaristía.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/10/s--andres-avellino--sacerdote-teatino.html",
+      "locale": "es",
+      "feastDays": [
+        "11-10"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-10 · vaticannews.va",
+      "authorAliases": [
+        "San Andrés Avellino",
+        "Andrés Avellino"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "martin",
+      "name": "Martín",
+      "displayName": "San Martín",
+      "role": "obispo de Tours",
+      "bio": "“El Apóstol de las Galias” es uno de sus títulos. Martín de Tours está entre los Santos más conocidos. Primero soldado, después monje y obispo. Permaneció fiel a la elección de los pobres en nombre de Cristo al cual, una noche, bajo los despojos de un pobre, le donó la mitad de su manto.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/11/s--martin--obispo-de-tours-.html",
+      "locale": "es",
+      "feastDays": [
+        "11-11"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-11 · vaticannews.va",
+      "authorAliases": [
+        "San Martín",
+        "Martín"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "bartolome",
+      "name": "Bartolomé",
+      "displayName": "San Bartolomé",
+      "role": "abad de Grottaferrata",
+      "bio": "De origen oriental, Bartolomé fue un monje del rito bizantino que se dedicó a la contemplación y al servicio de los pobres. Fue biógrafo de san Nilo con quien fundó la Abadía de Grottaferrata. Pío XII lo llamó \"una luminaria de la Iglesia\". En el siglo XI compuso muchos bellos himnos. Murió en 1055.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/11/s--bartolome--abad-de-grottaferrata.html",
+      "locale": "es",
+      "feastDays": [
+        "11-11"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-11 · vaticannews.va",
+      "authorAliases": [
+        "San Bartolomé",
+        "Bartolomé"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "josafat-kuncewicz",
+      "name": "Josafat Kuncewicz",
+      "displayName": "San Josafat Kuncewicz",
+      "role": "obispo y mártir",
+      "bio": "En el siglo XVII, Josafat, obispo de Polotsk, Rutenia, región gobernada por el Rey de Polonia, dedicó su vida a buscar la unificación de la Iglesia Greco-Ortodoxa con la Iglesia Latina. Apoyó a la \"Iglesia Uniata\", pero los ortodoxos lo consideraron una traición y por ello fue martirizado en 1623.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/12/s--giosafat-kuncewicz--obispo-y-martir.html",
+      "locale": "es",
+      "feastDays": [
+        "11-12"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-12 · vaticannews.va",
+      "authorAliases": [
+        "San Josafat Kuncewicz",
+        "Josafat Kuncewicz"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "diego",
+      "name": "Diego",
+      "displayName": "San Diego",
+      "role": "laico franciscano",
+      "bio": "Nace en Alcalá del Puerto, España, alrededor del 1400. Entra entre los Franciscanos. No es sacerdote, sin embargo es enviado a enraizar el cristianismo en las Canarias. En Roma, durante la peste del 1450, mientras la Curia huye, él permanece para asistir a sus hermanos.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/12/s--diego--laico-franciscano.html",
+      "locale": "es",
+      "feastDays": [
+        "11-12"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-12 · vaticannews.va",
+      "authorAliases": [
+        "San Diego",
+        "Diego"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "nicolas-i",
+      "name": "Nicolás I",
+      "displayName": "San Nicolás I",
+      "role": "papa",
+      "bio": "Nace en Roma a finales del 800, pronto es insertado en la corte papal y llega a ser Papa en el 858, antes de ser “coronado”. Gastó su vida para afirmar la autoridad del Sucesor de Pedro en una época de “rupturas” autonomistas de varias Iglesias locales. Muere en el 867. Su tumba está en San Pedro.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/13/s--nicolas-i--papa.html",
+      "locale": "es",
+      "feastDays": [
+        "11-13"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-13 · vaticannews.va",
+      "authorAliases": [
+        "San Nicolás I",
+        "Nicolás I"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "agustina-pietrantoni",
+      "name": "Agustina Pietrantoni",
+      "displayName": "San Agustina Pietrantoni",
+      "role": "virgen",
+      "bio": "Fue una Hermana de la Caridad de Santa Juana Antida Thouret. Mientras Roma se hallaba en gran crisis polìtica, recibió la misión de asistir a los enfermos del Hospital del Espíritu Santo en Roma. Allí, en un ambiente de personas desquiciadas, fue apuñalada en 1894 por un hombre mentalmente enfermo.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/13/s--agustina-pietrantoni--virgen.html",
+      "locale": "es",
+      "feastDays": [
+        "11-13"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-13 · vaticannews.va",
+      "authorAliases": [
+        "San Agustina Pietrantoni",
+        "Agustina Pietrantoni"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "serapio",
+      "name": "Serapio",
+      "displayName": "San Serapio",
+      "bio": "Nace en Londres en 1179. De chico Serapio está con su padre en la tercera Cruzada de Ricardo Corazón de León. Después de varias peripecias entra en los Mercedarios y se dedica al rescate y a la conversión de los esclavos, liberando a centenares en Francia, España y Argel, donde muere mártir en 1240.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/14/s--serapio.html",
+      "locale": "es",
+      "feastDays": [
+        "11-14"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-14 · vaticannews.va",
+      "authorAliases": [
+        "San Serapio",
+        "Serapio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "alberto-magno",
+      "name": "Alberto Magno",
+      "displayName": "San Alberto Magno",
+      "role": "obispo y doctor de la Iglesia, dominico",
+      "bio": "Alberto, el \"doctor universal\" y gran reformador de la Orden Dominicana, aún en vida fue reconocido como \"Magno\", es decir, grande. Fue maestro de s. Tomás de Aquino y pasó toda su vida entre sus amados estudios, enseñanzas y los encargos pastorales que le fueron asignados, hasta su muerte en 1280.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/15/s--alberto-magno--obispo-y-doctor-de-la-iglesia--dominico.html",
+      "locale": "es",
+      "feastDays": [
+        "11-15"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-15 · vaticannews.va",
+      "authorAliases": [
+        "San Alberto Magno",
+        "Alberto Magno"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "jose-pignatelli",
+      "name": "José Pignatelli",
+      "displayName": "San José Pignatelli",
+      "role": "sacerdote jesuita",
+      "bio": "De una noble familia española, José entró en la Compañía de Jesús a temprana edad, donde se distinguió por su caridad y humildad. Expulsado del país junto con sus cofrades, trabajó para la restauración de la Compañía en toda Europa y de hecho fue su principal promotor hasta su muerte en 1811.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/15/s--jose-pignatelli--sacerdote-jesuita.html",
+      "locale": "es",
+      "feastDays": [
+        "11-15"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-15 · vaticannews.va",
+      "authorAliases": [
+        "San José Pignatelli",
+        "José Pignatelli"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "macuto",
+      "name": "Macuto",
+      "displayName": "San Macuto",
+      "bio": "Se estima que San Macuto o Maclovio o Malo nació en Gales y que tuvo como misión evangelizar a los Bretones, no lejos de la ciudad de Aleth, que hoy día lleva su nombre Saint-Malo. Vivió entre el siglo VI y el VII y murió en torno al 649. Su fiesta se celebra el 15 de noviembre.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/15/san-macuto.html",
+      "locale": "es",
+      "feastDays": [
+        "11-15"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-15 · vaticannews.va",
+      "authorAliases": [
+        "San Macuto",
+        "Macuto"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "margarita-de-escocia",
+      "name": "Margarita de Escocia",
+      "displayName": "San Margarita de Escocia",
+      "bio": "\"Brillante ejemplo de óptima esposa, madre y reina\": el martirologio romano recuerda así la figura de Santa Margarita de Escocia, celebrada el 16 de noviembre. Mujer morigerada y caritativa, apoya a su marido, el rey Malcolm III, en el gobierno del reino y en la reforma de la Iglesia escocesa.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/16/s--margarita-de-escocia.html",
+      "locale": "es",
+      "feastDays": [
+        "11-16"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-16 · vaticannews.va",
+      "authorAliases": [
+        "San Margarita de Escocia",
+        "Margarita de Escocia"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "gertrudis",
+      "name": "Gertrudis",
+      "displayName": "San Gertrudis",
+      "role": "virgen benedictina",
+      "bio": "Gertrudis nació en Eisleben, Alemania y creció en el monasterio cisterciense femenino de Helfta, Sajonia. A la edad de 26 años, tuvo una visión de Jesús y decidió consagrarle su vida. Las experiencias místicas y las pruebas físicas no la abandonarán hasta su muerte en 1302. Fue canonizada en 1738.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/16/s--gertrudis--virgen-benedictina.html",
+      "locale": "es",
+      "feastDays": [
+        "11-16"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-16 · vaticannews.va",
+      "authorAliases": [
+        "San Gertrudis",
+        "Gertrudis"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "ines-de-asis",
+      "name": "Inés de Asís",
+      "displayName": "San Inés de Asís",
+      "role": "hermana de s. Clara, virgen",
+      "bio": "Siguiendo el ejemplo de Clara, su hermana mayor, Inés amó a Jesús y a los pobres y entró al convento de San Damián. Vivió con mucho amor y fidelidad la Regla Franciscana, como lo recomendaba Clara. Fundó el segundo convento de las Clarisas en Florencia en 1219, donde vivió hasta su muerte en 1253.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/16/s--ines-de-asis--hermana-de-s--clara--virgen.html",
+      "locale": "es",
+      "feastDays": [
+        "11-16"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-16 · vaticannews.va",
+      "authorAliases": [
+        "San Inés de Asís",
+        "Inés de Asís"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "isabel-de-hungria",
+      "name": "Isabel de Hungría",
+      "displayName": "San Isabel de Hungría",
+      "role": "terciaria franciscana",
+      "bio": "Cuando muere a los 24 años, en 1231, Isabel ya es “Santa” para muchos. Casada a los 14, madre a los 15 y viuda a los 20. Elige la pobreza franciscana de la Tercera Orden. Visita y asiste a los enfermos, también a los repugnantes, sin darle importancia a su linaje de soberana del trono de Hungría.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/17/s--isabel-de-hungria--terciaria-franciscana.html",
+      "locale": "es",
+      "feastDays": [
+        "11-17"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-17 · vaticannews.va",
+      "authorAliases": [
+        "San Isabel de Hungría",
+        "Isabel de Hungría"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "gregorio-taumaturgo",
+      "name": "Gregorio Taumaturgo",
+      "displayName": "San Gregorio Taumaturgo",
+      "role": "obispo de Neocesarea",
+      "bio": "Romano era diácono de la Iglesia de Cesarea; al inicio de la persecución de Diocleciano del 303 vio que los fieles cristianos se rendían a las órdenes imperiales que exigían honrar a los falsos dioses. Fue arrestado y murió como mártir por haberlos exhortado a perder el miedo y mantener pura la fe.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/17/s--gregorio-taumaturgo--obispo-de-neocesarea.html",
+      "locale": "es",
+      "feastDays": [
+        "11-17"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-17 · vaticannews.va",
+      "authorAliases": [
+        "San Gregorio Taumaturgo",
+        "Gregorio Taumaturgo"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "rosa-filipina-duchesne",
+      "name": "Rosa Filipina Duchesne",
+      "displayName": "San Rosa Filipina Duchesne",
+      "bio": "Filipina Rosa estudió con las Visitandinas de Grenoble, pero la Revolución le impidió consagrarse como religiosa. En 1801, un tiempo de paz, ya pudo entrar en la Sociedad del Sagrado Corazón, donde realizó su sueño de ser misionera en los Estados Unidos, donde creó una nueva comunidad en Louisiana.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/18/s--rosa-filipina-duchesne.html",
+      "locale": "es",
+      "feastDays": [
+        "11-18"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-18 · vaticannews.va",
+      "authorAliases": [
+        "San Rosa Filipina Duchesne",
+        "Rosa Filipina Duchesne"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "romano-de-antioquia",
+      "name": "Romano de Antioquía",
+      "displayName": "San Romano de Antioquía",
+      "bio": "Romano era diácono de la Iglesia de Cesarea; al inicio de la persecución de Diocleciano del 303 vio que los fieles cristianos se rendían a las órdenes imperiales que exigían honrar a los falsos dioses. Fue arrestado y murió como mártir por haberlos exhortado a perder el miedo y mantener pura la fe.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/18/s--romano-de-antioquia.html",
+      "locale": "es",
+      "feastDays": [
+        "11-18"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-18 · vaticannews.va",
+      "authorAliases": [
+        "San Romano de Antioquía",
+        "Romano de Antioquía"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "odon-abad-de-cluny",
+      "name": "Odón abad de Cluny",
+      "displayName": "San Odón abad de Cluny",
+      "bio": "Odón nació cerca de Tours, Francia, alrededor de 880. De joven fue iniciado a la vida caballeresca, pero luego se convirtió en monje en Cluny, el mayor centro espiritual de la Europa contemporánea. Allí retomó la regla benedictina con tanta fielidad, que fue considerado el refundador de la regla.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/18/s--odon-abad-de-cluny.html",
+      "locale": "es",
+      "feastDays": [
+        "11-18"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-18 · vaticannews.va",
+      "authorAliases": [
+        "San Odón abad de Cluny",
+        "Odón abad de Cluny"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "matilde-mechtilde",
+      "name": "Matilde (Mechtilde)",
+      "displayName": "San Matilde (Mechtilde)",
+      "role": "virgen",
+      "bio": "Vive en la segunda mitad del 1200. Sajona de nacimiento, Matilde entra pronto entre las Benedictinas de Rodersdorf donde se hace monja. Alcanza a la hermana abadesa en Helfta y allí se distingue por su humildad y amabilidad. Tiene frecuentes visiones místicas que después recoge en un célebre texto.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/19/s--matilde--mechtilde---virgen.html",
+      "locale": "es",
+      "feastDays": [
+        "11-19"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-19 · vaticannews.va",
+      "authorAliases": [
+        "San Matilde (Mechtilde)",
+        "Matilde (Mechtilde)"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "abdias",
+      "name": "Abdías",
+      "displayName": "San Abdías",
+      "role": "profeta",
+      "bio": "Cuarto de los profetas menores, vivió después de la caída de Jerusalén en 587 a.C. Su brevísimo libro relata la visión del regreso victorioso de los desterrados. Denunció la soberbia de Edom, enemigo de Israel y anunció su castigo. Abdías es considerado como el heraldo del triunfo del futuro Mesías.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/19/s--abdias--profeta.html",
+      "locale": "es",
+      "feastDays": [
+        "11-19"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-19 · vaticannews.va",
+      "authorAliases": [
+        "San Abdías",
+        "Abdías"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "gelasio-i",
+      "name": "Gelasio I",
+      "displayName": "San Gelasio I",
+      "role": "papa",
+      "bio": "Un luchador, el Papa Gelasio. Sube al Solio romano en el 496 y en cuatro años llega a extinguir las derivaciones paganas y las herejías como el maniqueísmo, el monofisismo, o el pelagianismo. Algunos de sus principios en materia eclesial son tan avanzados que se los acoge como del Vaticano II.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/20/s--gelasio-i--papa.html",
+      "locale": "es",
+      "feastDays": [
+        "11-20"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-20 · vaticannews.va",
+      "authorAliases": [
+        "San Gelasio I",
+        "Gelasio I"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "maria-de-jesus-buen-pastor",
+      "name": "María de Jesús Buen Pastor",
+      "displayName": "Beato María de Jesús Buen Pastor",
+      "role": "fundadora de las Hermanas de la Sagrada Familia de Nazaret",
+      "bio": "Hija de la Polonia nobiliaria de finales de 1800, Francesca Siedliska supera sus enfermedades y las ambiciones de su padre por un buen matrimonio, y se consagra a los 31 años. En 1873 funda la congregación de las Religiosas de la Sagrada Familia de Nazaret, para reforzar la fe de las personas.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/21/b--maria-de-jesus-buen-pastor--fundadora-de-las-hermanas-de-la-s.html",
+      "locale": "es",
+      "feastDays": [
+        "11-21"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-21 · vaticannews.va",
+      "authorAliases": [
+        "Beato María de Jesús Buen Pastor",
+        "María de Jesús Buen Pastor"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "cecilia",
+      "name": "Cecilia",
+      "displayName": "San Cecilia",
+      "role": "virgen y mártir, en el cementerio de Calixto",
+      "bio": "Santa Cecilia es una santa que es celebrada en todo el mundo como patrona de la música, de los músicos y cantantes. La Iglesia la recuerda el 22 de noviembre. Sobre su figura se mezcla mucho la historia y la leyenda. Fue virgen y mártir, vivió en Roma entre el siglo II y el siglo III",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/22/s--cecilia--virgen-y-martir--en-el-cementerio-de-calixto.html",
+      "locale": "es",
+      "feastDays": [
+        "11-22"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-22 · vaticannews.va",
+      "authorAliases": [
+        "San Cecilia",
+        "Cecilia"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "clemente-i",
+      "name": "Clemente I",
+      "displayName": "San Clemente I",
+      "role": "papa y mártir: sus reliquias son veneradas en la Iglesia que lleva su mismo título",
+      "bio": "Conocido como Clemente Romano fue el cuarto Papa, del 88 al 97. Se le recuerda como \"Padre Apostólico\" por su carta a los Corintios dirigida a restaurar la paz; uno de los documentos más antiguos sobre el primado de la caridad del Papa. Según una tradición del siglo IV, murió como mártir.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/23/s--clemente-i--papa-y-martir--sus-reliquias-son-veneradas-en-la-.html",
+      "locale": "es",
+      "feastDays": [
+        "11-23"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-23 · vaticannews.va",
+      "authorAliases": [
+        "San Clemente I",
+        "Clemente I"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "felicitas",
+      "name": "Felicitas",
+      "displayName": "San Felicitas",
+      "role": "mártir en la via Salaria nueva",
+      "bio": "Según la tradición, Felícitas era una rica viuda que fue perseguida por ser cristiana en la época del emperador Antonino. Madre de siete hermanos, los apoyó espiritualmente durante el martirio que compartió con ellos alrededor del 165. Fue sepultada en el cementerio de Máximo en la Via Salaria Nueva",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/23/s--felicitas--martir--sobre-la-via-salaria-nueva.html",
+      "locale": "es",
+      "feastDays": [
+        "11-23"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-23 · vaticannews.va",
+      "authorAliases": [
+        "San Felicitas",
+        "Felicitas"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "columbano",
+      "name": "Columbano",
+      "displayName": "San Columbano",
+      "role": "abad",
+      "bio": "Si se piensa en un irlandés célebre, se piensa en Columbano. A los 20 años es un monje riguroso y ascético. A los 50 se convierte en misionero y con 12 compañeros evangeliza en Francia, Suiza y el norte de Italia fundando comunidades y reorganizando la vida eclesial. Su Regla monástica es un modelo.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/23/s--columbano--abad.html",
+      "locale": "es",
+      "feastDays": [
+        "11-23"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-23 · vaticannews.va",
+      "authorAliases": [
+        "San Columbano",
+        "Columbano"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "crisogono",
+      "name": "Crisógono",
+      "displayName": "San Crisógono",
+      "role": "mártir de Aquileia",
+      "bio": "No es muy claro si el soldado Crisógono haya sido también sacerdote y obispo, lo cierto es que fue martirizado durante la persecución del emperador Diocleciano en Aquilea, cerca de Trieste, en el año 303. La veneración por este mártir se extendió rápidamente de forma universal ya en el siglo IV.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/24/s--crisogono--martir-de-aquileia.html",
+      "locale": "es",
+      "feastDays": [
+        "11-24"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-24 · vaticannews.va",
+      "authorAliases": [
+        "San Crisógono",
+        "Crisógono"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "andres-dung-lac",
+      "name": "Andrés Dũng Lạc",
+      "displayName": "Santos Andrés Dũng Lạc",
+      "role": "sacerdote, y Compañeros, mártires",
+      "bio": "Confiado a un catequista de una familia muy pobre, Tran fue bautizado con el nombre de Andrés y creció muy cristianamente. Ordenado sacerdote obtuvo muchas conversiones, pero el gobierno de Vietnam era hostil a los cristianos: encarcelado tres veces, se negó a apostatar y sufrió el martirio en 1839.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/24/ss--andres-d_ng-lc--sacerdote--y-companeros--martires.html",
+      "locale": "es",
+      "feastDays": [
+        "11-24"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-24 · vaticannews.va",
+      "authorAliases": [
+        "Santos Andrés Dũng Lạc",
+        "Andrés Dũng Lạc"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "moises",
+      "name": "Moisés",
+      "displayName": "San Moisés",
+      "role": "mártir en Roma",
+      "bio": "Durante la persecución de los cristianos bajo Decio, en el siglo III, el Decano del colegio sacerdotal de Roma era Moisés, quien se distinguió por su posición indulgente hacia aquellos que habían renegado de su fe para salvar sus vidas. Murió después de un largo encarcelamiento en el año 251.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/25/s--moises--martir-en-roma.html",
+      "locale": "es",
+      "feastDays": [
+        "11-25"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-25 · vaticannews.va",
+      "authorAliases": [
+        "San Moisés",
+        "Moisés"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "pedro-de-alejandria",
+      "name": "Pedro de Alejandría",
+      "displayName": "San Pedro de Alejandría",
+      "role": "obispo y mártir",
+      "bio": "Durante la persecución de Diocleciano, en 300, Pedro fue el obispo de Alejandría en Egipto, y por eso debió esconderse. En su ausencia su Comunidad sufrió un cisma. Fue encarcelado y martirizado en 311. Se le recuerda con otros tres santos obispos egipcios: los mártires Esichio, Pacomio y Teodoro.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/25/s--pedro-de-alejandria--obispo-y-martir.html",
+      "locale": "es",
+      "feastDays": [
+        "11-25"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-25 · vaticannews.va",
+      "authorAliases": [
+        "San Pedro de Alejandría",
+        "Pedro de Alejandría"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "luis-y-maria-beltrame-quattrocchi",
+      "name": "Luis y María Beltrame Quattrocchi",
+      "displayName": "Beatos Luis y María Beltrame Quattrocchi",
+      "role": "esposos",
+      "bio": "En 1905 Luis y Maria Beltrame Quattrocchi se unieron por el sacramento del matrimonio cristiano. Supieron caminar juntos y como familia hacia la santidad. Por vez primera en la historia, S. Juan Pablo II beatificó una pareja de esposos. Su memoria litúrgica se celebra en la misma fecha de su boda.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/25/bb--luis-y-maria-beltrame-quattrocchi--coniugi.html",
+      "locale": "es",
+      "feastDays": [
+        "11-25"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-25 · vaticannews.va",
+      "authorAliases": [
+        "Beatos Luis y María Beltrame Quattrocchi",
+        "Luis y María Beltrame Quattrocchi"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "catarina-de-alexandria",
+      "name": "Catarina de Alexandria",
+      "displayName": "San Catarina de Alexandria",
+      "bio": "La leyenda relata que ante el gobernador de Egipto y Siria, Maximino, Catalina en lugar de abjurar la fe convence a los dignitarios a convertirse en cristianos. Maximino los manda a matar y pide a la muchacha que se case con él. A su rechazo la hace matar en el 305. Su tumba está en el Sinaí.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/25/s--catarina-de-alexandria.html",
+      "locale": "es",
+      "feastDays": [
+        "11-25"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-25 · vaticannews.va",
+      "authorAliases": [
+        "San Catarina de Alexandria",
+        "Catarina de Alexandria"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "siricio",
+      "name": "Siricio",
+      "displayName": "San Siricio",
+      "role": "papa",
+      "bio": "Llega a ser Papa en el 384 e inmediatamente establece una relación de confianza y colaboración con San Ambrosio de Milán. Siricio es un Pontífice moderado y equilibrado, además del primero, según los historiadores, en afirmar la primacía del “mayor Pedro” y hacerse llamar “Papa”.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/26/s--siricio--papa.html",
+      "locale": "es",
+      "feastDays": [
+        "11-26"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-26 · vaticannews.va",
+      "authorAliases": [
+        "San Siricio",
+        "Siricio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "leonardo-de-puerto-mauricio",
+      "name": "Leonardo de Puerto Mauricio",
+      "displayName": "San Leonardo de Puerto Mauricio",
+      "role": "sacerdote franciscano",
+      "bio": "Según s. Juan Pablo II, Leonardo fue \"un sacerdote franciscano de palabra ardiente, que recorrió Italia para amonestar y convertir a inmensas multitudes, llamando a la penitencia y a la piedad\". Para honrar la dolorosa pasión de Cristo, edificó en el Coliseo de Roma las 14 Estaciones del Vía Crucis.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/26/s--leonardo-de-puerto-mauricio--sacerdote-franciscano.html",
+      "locale": "es",
+      "feastDays": [
+        "11-26"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-26 · vaticannews.va",
+      "authorAliases": [
+        "San Leonardo de Puerto Mauricio",
+        "Leonardo de Puerto Mauricio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "silvestre",
+      "name": "Silvestre",
+      "displayName": "San Silvestre",
+      "role": "abad, fundador de los Silvestrinos",
+      "bio": "Uno de los fundadores del monacato reformado, Silvestre, después de pasar tres años como ermitaño en las montañas de las Marcas, fundó una comunidad que adoptó la Regla de san Benito. Los nuevos monjes benedictinos se llamaron \"silvestrinos\". Murió en 1267 y fue canonizado en 1589 por Clemente VIII.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/26/s--silvestre--abad--fundador-de-los-silvestrinos.html",
+      "locale": "es",
+      "feastDays": [
+        "11-26"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-26 · vaticannews.va",
+      "authorAliases": [
+        "San Silvestre",
+        "Silvestre"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "santiago-alberione",
+      "name": "Santiago Alberione",
+      "displayName": "Beato Santiago Alberione",
+      "bio": "Fue el primer miembro de la Pía Sociedad de San Pablo en ser beatificado por Juan Pablo II en 1989. Originario de Alba, Piamonte, fue el director y fundador de la nueva casa paulina en Roma donde fue formador y evangelizador a través de un sabio uso de los medios de comunicación.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/26/beato-santiago-alberione.html",
+      "locale": "es",
+      "feastDays": [
+        "11-26"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-26 · vaticannews.va",
+      "authorAliases": [
+        "Beato Santiago Alberione",
+        "Santiago Alberione"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "virgilio",
+      "name": "Virgilio",
+      "displayName": "San Virgilio",
+      "role": "obispo de Salisburgo",
+      "bio": "Monje y abad en su Irlanda natal, Virgilio pasó la mayor parte de su vida en Salzburgo. Llamado allí como obispo por el rey de los Francos, Pipino el Breve, se dedicó con gran celo apostólico a la tarea de evangelizar y pacificar el recién conquistado Ducado de Baviera.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/27/s--virgilio--obispo-de-salisburgo.html",
+      "locale": "es",
+      "feastDays": [
+        "11-27"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-27 · vaticannews.va",
+      "authorAliases": [
+        "San Virgilio",
+        "Virgilio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "santiago-de-la-marca",
+      "name": "Santiago de la Marca",
+      "displayName": "San Santiago de la Marca",
+      "role": "sacerdote franciscano",
+      "bio": "Gran predicador, con la severidad ablandada por la clemencia. Jaime, de la región de las Marcas, se hace franciscano en 1415 y es enviado a Europa del Este. Señorial por sus modos, sabe cautivar con gestos y palabras; arremete sobre todo contra la usura y para combatirla crea los Montes de Piedad.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/28/s--santiago-de-la-marca--sacerdote-franciscano.html",
+      "locale": "es",
+      "feastDays": [
+        "11-28"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-28 · vaticannews.va",
+      "authorAliases": [
+        "San Santiago de la Marca",
+        "Santiago de la Marca"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "saturnino",
+      "name": "Saturnino",
+      "displayName": "San Saturnino",
+      "role": "mártir en la via Salaria nueva",
+      "bio": "Es uno de los infinitos mártires de los primeros siglos. De Saturnino, originario de Cartago, habla el Papa San Dámaso, que recuerda su exilio en Roma a causa de su fe bajo el emperador Decio y, por lo tanto, su muerte cruel acaecida en el 304 bajo Maximiano.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/29/s--saturnino--martir--sobre-la-via-salaria-nueva.html",
+      "locale": "es",
+      "feastDays": [
+        "11-29"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-29 · vaticannews.va",
+      "authorAliases": [
+        "San Saturnino",
+        "Saturnino"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "andres",
+      "name": "Andrés",
+      "displayName": "San Andrés",
+      "role": "apóstol",
+      "bio": "San Andrés Apóstol es el Santo Patrón de la Iglesia Ortodoxa de Constantinopla. Hermano de Simón Pedro, se distingue entre los santos por haber sido el primero que recibió la llamada de Jesús, y haber recibido el martirio en una cruz decusata. Es el protector de los pescadores.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/11/30/s--andres--apostol.html",
+      "locale": "es",
+      "feastDays": [
+        "11-30"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "11-30 · vaticannews.va",
+      "authorAliases": [
+        "San Andrés",
+        "Andrés"
+      ],
+      "documentIds": []
+    }
+  ]
+}

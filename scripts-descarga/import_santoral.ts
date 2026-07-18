@@ -232,16 +232,29 @@ async function scrapeLiturgySaints(max: number): Promise<SaintRecord[]> {
 }
 
 /**
- * Harvest Vatican News day calendar for a month range (default: full year MM 01–12, DD 01–31).
- * Bounded by `max` saints. Uses `.saints.js` JSON endpoints.
+ * Harvest Vatican News day calendar.
+ * @param max max saint rows to keep (soft cap)
+ * @param month optional 1–12; when set, only that month (all days 01–31)
+ * @param months optional list of months; overrides single month when non-empty
  */
-async function scrapeVaticanNewsDays(max: number): Promise<SaintRecord[]> {
+async function scrapeVaticanNewsDays(
+  max: number,
+  month?: number,
+  months?: number[],
+): Promise<SaintRecord[]> {
   const out: ParsedHolySeeSaint[] = [];
-  // Prefer covering the year; stop when max reached
-  outer: for (let month = 1; month <= 12; month++) {
+  let monthList: number[];
+  if (months && months.length) {
+    monthList = months.filter((m) => m >= 1 && m <= 12);
+  } else if (month != null && month >= 1 && month <= 12) {
+    monthList = [month];
+  } else {
+    monthList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  }
+  outer: for (const m of monthList) {
     for (let day = 1; day <= 31; day++) {
       if (out.length >= max) break outer;
-      const mm = String(month).padStart(2, '0');
+      const mm = String(m).padStart(2, '0');
       const dd = String(day).padStart(2, '0');
       const dayPath = `/es/santos/${mm}/${dd}.saints.js`;
       const url = `${VATICAN_NEWS_BASE}${dayPath}`;
@@ -253,14 +266,41 @@ async function scrapeVaticanNewsDays(max: number): Promise<SaintRecord[]> {
       } catch {
         process.stdout.write('x');
       }
-      await sleep(60);
+      await sleep(50);
     }
   }
   process.stdout.write('\n');
-  console.log(`Vatican News days: ${out.length} raw saint rows`);
+  console.log(
+    `Vatican News days: ${out.length} raw saint rows (months=${monthList.join(',')})`,
+  );
   return uniqueById(
     out.map(saintFromHolySee).filter((s): s is SaintRecord => !!s),
   );
+}
+
+/** Load saints arrays from partial JSON files (month scrapes). */
+export function loadPartialsFromDir(dir: string): SaintRecord[] {
+  if (!fs.existsSync(dir)) return [];
+  let acc: SaintRecord[] = [];
+  const files = fs
+    .readdirSync(dir)
+    .filter((f) => f.endsWith('.json'))
+    .sort();
+  for (const f of files) {
+    try {
+      const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+      const list = Array.isArray(data)
+        ? data
+        : Array.isArray(data?.saints)
+          ? data.saints
+          : [];
+      acc = mergeSaints(acc, list as SaintRecord[]);
+      console.log(`partial ${f}: ${list.length} → merged ${acc.length}`);
+    } catch (e) {
+      console.warn(`partial ${f} failed:`, (e as Error).message);
+    }
+  }
+  return acc;
 }
 
 /**
@@ -349,17 +389,51 @@ export function loadHolySeeFixtures(dir = FIXTURES_DIR): SaintRecord[] {
 async function main(): Promise<void> {
   const doScrape = argFlag('--scrape');
   const fixture = argValue('--fixture');
+  const writePartial = argValue('--write-partial');
+  const mergePartialsDir = argValue('--merge-partials');
+  const newsOnly = argFlag('--news-only');
+  const skipLiturgy = argFlag('--skip-liturgy') || newsOnly;
+  const skipState = argFlag('--skip-state') || newsOnly;
+  const skipNews = argFlag('--skip-news');
+  const skipPack = argFlag('--skip-pack') || !!writePartial;
+  const monthRaw = argValue('--month');
+  const month = monthRaw != null ? Number(monthRaw) : undefined;
   const holySeeFixtures =
     argFlag('--holy-see-fixtures') ||
     argFlag('--offline') ||
-    (!doScrape && !fixture);
+    (!doScrape && !fixture && !mergePartialsDir && !writePartial);
   const sourceUrl =
     argValue('--source-url') ||
     'https://www.vatican.va/news_services/liturgy/saints/ns_lit_doc_fixture_sp.html';
   const max = Number(argValue('--max') || '50');
-  // Cap day calendar separately so one year is feasible when max is large
-  const maxDays = Number(argValue('--max-days') || String(Math.min(max, 400)));
+  // Cap day calendar: one month ≈ 31 days × ~3 saints → use high default per month
+  const maxDays = Number(
+    argValue('--max-days') ||
+      (month != null ? '500' : String(Math.min(max, 400))),
+  );
   const maxState = Number(argValue('--max-state') || String(Math.min(max, 40)));
+
+  // Fast path: single-month News scrape → partial file (no full pack rewrite)
+  if (doScrape && writePartial && month != null && month >= 1 && month <= 12) {
+    console.log(`Month scrape: ${month} → ${writePartial} (maxDays=${maxDays})`);
+    const vn = await scrapeVaticanNewsDays(maxDays, month);
+    const payload = {
+      month,
+      generatedAt: new Date().toISOString(),
+      saintCount: vn.length,
+      saints: vn,
+    };
+    fs.mkdirSync(path.dirname(path.resolve(writePartial)), { recursive: true });
+    fs.writeFileSync(
+      path.resolve(writePartial),
+      JSON.stringify(payload, null, 2) + '\n',
+      'utf8',
+    );
+    console.log(
+      `Wrote partial month ${month}: ${vn.length} saints → ${writePartial}`,
+    );
+    return;
+  }
 
   const docs = loadCorpusDocs();
   let saints = buildPadresSeedSaints(docs);
@@ -385,6 +459,14 @@ async function main(): Promise<void> {
     }
   }
 
+  if (mergePartialsDir) {
+    const fromPartials = loadPartialsFromDir(path.resolve(mergePartialsDir));
+    saints = mergeSaints(saints, fromPartials);
+    console.log(
+      `Merged partials from ${mergePartialsDir}: +${fromPartials.length} unique → ${saints.length}`,
+    );
+  }
+
   if (fixture) {
     const s = parseLiturgyFixture(path.resolve(fixture), sourceUrl);
     if (s) {
@@ -395,7 +477,7 @@ async function main(): Promise<void> {
     }
   }
 
-  if (holySeeFixtures && !doScrape) {
+  if (holySeeFixtures && !doScrape && !mergePartialsDir) {
     const hs = loadHolySeeFixtures();
     saints = mergeSaints(saints, hs);
     console.log(
@@ -407,26 +489,35 @@ async function main(): Promise<void> {
   }
 
   if (doScrape) {
-    try {
-      const liturgy = await scrapeLiturgySaints(max);
-      saints = mergeSaints(saints, liturgy);
-      console.log(`Liturgy scraped: ${liturgy.length}`);
-    } catch (e) {
-      console.warn('Liturgy scrape failed:', (e as Error).message);
+    if (!skipLiturgy) {
+      try {
+        const liturgy = await scrapeLiturgySaints(max);
+        saints = mergeSaints(saints, liturgy);
+        console.log(`Liturgy scraped: ${liturgy.length}`);
+      } catch (e) {
+        console.warn('Liturgy scrape failed:', (e as Error).message);
+      }
     }
-    try {
-      const vn = await scrapeVaticanNewsDays(maxDays);
-      saints = mergeSaints(saints, vn);
-      console.log(`Vatican News scraped: ${vn.length}`);
-    } catch (e) {
-      console.warn('Vatican News scrape failed:', (e as Error).message);
+    if (!skipNews) {
+      try {
+        const vn = await scrapeVaticanNewsDays(
+          maxDays,
+          month != null && month >= 1 && month <= 12 ? month : undefined,
+        );
+        saints = mergeSaints(saints, vn);
+        console.log(`Vatican News scraped: ${vn.length}`);
+      } catch (e) {
+        console.warn('Vatican News scrape failed:', (e as Error).message);
+      }
     }
-    try {
-      const vs = await scrapeVaticanState(maxState);
-      saints = mergeSaints(saints, vs);
-      console.log(`vaticanstate scraped: ${vs.length}`);
-    } catch (e) {
-      console.warn('vaticanstate scrape failed:', (e as Error).message);
+    if (!skipState) {
+      try {
+        const vs = await scrapeVaticanState(maxState);
+        saints = mergeSaints(saints, vs);
+        console.log(`vaticanstate scraped: ${vs.length}`);
+      } catch (e) {
+        console.warn('vaticanstate scrape failed:', (e as Error).message);
+      }
     }
     // Always fold fixtures so CI/offline-capable saints remain if live truncates
     const hs = loadHolySeeFixtures();
@@ -449,6 +540,11 @@ async function main(): Promise<void> {
     console.log(
       `Agustín documentIds: ${ag.documentIds.length} (has confesiones=${ag.documentIds.includes('agustin-02-confesiones-es')})`,
     );
+  }
+
+  if (skipPack) {
+    console.log(`skip-pack: ${saints.length} saints in memory (no dual-write)`);
+    return;
   }
 
   const manifest: SantoralManifest = {
