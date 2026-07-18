@@ -51,6 +51,7 @@
         [style.max-width]="prefs.maxWidthCh + 'ch'"
       >
         <app-punto
+        (citationPreview)="onCitationPreview($event)"
           *ngFor="let article of actual_articles; let i = index"
           [infoPunto]="article"
           [documentId]="document.id || navigationService.document_id || undefined"

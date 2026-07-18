@@ -3,7 +3,7 @@ import {
   Input,
   OnDestroy,
   OnInit,
-  ViewEncapsulation,
+  EventEmitter, Input, OnDestroy, OnInit, Output, ViewEncapsulation,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import {
@@ -51,6 +51,12 @@ export class PuntoComponent implements OnInit, OnDestroy {
 
   /** Optional corpus document id for ★ save (set by lector). */
   @Input() documentId: string | undefined;
+
+  /**
+   * Emitted when user clicks a citation.
+   * Parent (Lector) can show a preview dv-sheet instead of direct navigation.
+   */
+  @Output() citationPreview = new EventEmitter<{ seg: any; documentId?: string }>();
 
   saveMsg: string | null = null;
   saveError: string | null = null;
@@ -355,14 +361,16 @@ export class PuntoComponent implements OnInit, OnDestroy {
     return valor;
   }
 
-  /**
-   * Follow a resolved local reference: push current unit and navigate.
+  //**
+   * Follow a resolved local reference.
+   * Emits citationPreview so parent can show a preview sheet.
+   * Still navigates for backward compatibility.
    */
   openRef(seg: ContentSegment, event?: Event): void {
     event?.preventDefault();
     event?.stopPropagation();
 
-    if (seg.type !== 'ref' || !seg.local) {
+    if (seg.type !== "ref" || !seg.local) {
       return;
     }
 
@@ -372,8 +380,10 @@ export class PuntoComponent implements OnInit, OnDestroy {
       return;
     }
 
-    // idPunto is the array index in the target document (from resolve_refs).
-    // Prefer the index in the route so bible verse numbers like "13" never collide.
+    // Emit for preview sheet (Lector will handle dv-sheet)
+    this.citationPreview.emit({ seg, documentId: this.documentId });
+
+    // Keep current navigation behavior (with fromRef stack)
     this.navigationService.navigateToUnit(idDocumento, asIndex, {
       fromRef: true,
       label: seg.label,
