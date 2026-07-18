@@ -30,7 +30,7 @@
         {
           "title": "Himnos",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.newadvent.org/fathers/3413.htm"
         }
       ]
     },
@@ -118,7 +118,7 @@
         {
           "title": "La Vulgata",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://vulgate.org/"
         }
       ]
     },
@@ -144,7 +144,7 @@
         {
           "title": "Comentarios a la Escritura",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.ccel.org/ccel/aquinas"
         }
       ]
     },
@@ -196,7 +196,7 @@
         {
           "title": "Reglas monásticas",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.newadvent.org/fathers/3203.htm"
         }
       ]
     },
@@ -217,7 +217,7 @@
         {
           "title": "Oraciones y poemas",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.newadvent.org/fathers/3103.htm"
         }
       ]
     },
@@ -269,7 +269,7 @@
         {
           "title": "Breviloquium",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.ccel.org/ccel/bonaventure"
         }
       ]
     },
@@ -311,7 +311,7 @@
         {
           "title": "Sentencias",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/sententiarumlib00isidgoog"
         }
       ]
     },
@@ -369,12 +369,12 @@
         {
           "title": "Liber Gomorrhianus",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/operaomnia00damigoog"
         },
         {
           "title": "Cartas y opúsculos",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/operaomnia00damigoog"
         }
       ]
     },
@@ -395,7 +395,7 @@
         {
           "title": "Tratados marianos",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.ccel.org/ccel/bernard"
         }
       ]
     },
@@ -416,7 +416,7 @@
         {
           "title": "Comentario a Mateo",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.newadvent.org/fathers/3301.htm"
         }
       ]
     },
@@ -432,17 +432,17 @@
         {
           "title": "Theologia Moralis",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/theologiamoralis01ligouoft"
         },
         {
           "title": "Las glorias de María",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/gloriesofmary00ligouoft"
         },
         {
           "title": "Práctica del amor a Jesucristo",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/practiceofloveof00ligouoft"
         }
       ]
     },
@@ -484,7 +484,7 @@
         {
           "title": "Comentarios bíblicos",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.newadvent.org/fathers/2531.htm"
         }
       ]
     },
@@ -521,7 +521,7 @@
         {
           "title": "Contra los iconoclastas",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.newadvent.org/fathers/3305.htm"
         }
       ]
     },
@@ -542,7 +542,7 @@
         {
           "title": "Comentarios bíblicos",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.ccel.org/ccel/bede"
         }
       ]
     },
@@ -558,12 +558,12 @@
         {
           "title": "Himnos",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.newadvent.org/fathers/3701.htm"
         },
         {
           "title": "Comentarios bíblicos",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.newadvent.org/fathers/3702.htm"
         }
       ]
     },
@@ -579,12 +579,12 @@
         {
           "title": "Catecismos",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/catechismuscatho00caniuoft"
         },
         {
           "title": "Summa doctrinae christianae",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/summadoctrinaech00caniuoft"
         }
       ]
     },
@@ -600,22 +600,22 @@
         {
           "title": "Subida del Monte Carmelo",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.cervantesvirtual.com/obra/subida-del-monte-carmelo/"
         },
         {
           "title": "Noche oscura",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.cervantesvirtual.com/obra/noche-oscura-del-alma/"
         },
         {
           "title": "Cántico espiritual",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.cervantesvirtual.com/obra/cantico-espiritual/"
         },
         {
           "title": "Llama de amor viva",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.cervantesvirtual.com/obra/llama-de-amor-viva/"
         }
       ]
     },
@@ -631,12 +631,12 @@
         {
           "title": "Disputationes de controversiis",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/disputationesrob01belluoft"
         },
         {
           "title": "Catecismo",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/adottrina01belluoft"
         }
       ]
     },
@@ -652,12 +652,12 @@
         {
           "title": "Comentarios filosóficos",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/albertimagniop01albe"
         },
         {
           "title": "Comentarios teológicos",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/albertimagniop01albe"
         }
       ]
     },
@@ -673,7 +673,7 @@
         {
           "title": "Sermones",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/sermonesdominica00anto"
         }
       ]
     },
@@ -689,7 +689,7 @@
         {
           "title": "Opera omnia (sermones y tratados)",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/operacompleta01lawruoft"
         }
       ]
     },
@@ -705,17 +705,17 @@
         {
           "title": "Libro de la Vida",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.cervantesvirtual.com/obra/libro-de-la-vida/"
         },
         {
           "title": "Camino de perfección",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.cervantesvirtual.com/obra/camino-de-perfeccion/"
         },
         {
           "title": "Castillo interior",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.cervantesvirtual.com/obra/las-moradas-o-castillo-interior/"
         }
       ]
     },
@@ -731,12 +731,12 @@
         {
           "title": "Diálogo de la Divina Providencia",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.ccel.org/ccel/catherine"
         },
         {
           "title": "Cartas",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.ccel.org/ccel/catherine"
         }
       ]
     },
@@ -752,7 +752,7 @@
         {
           "title": "Historia de un alma",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/storyofasoulaut00theruoft"
         }
       ]
     },
@@ -768,12 +768,12 @@
         {
           "title": "Scivias",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/scivias00hild"
         },
         {
           "title": "Liber divinorum operum",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/liberdivinorumop00hild"
         }
       ]
     },
@@ -789,12 +789,12 @@
         {
           "title": "Audi, filia",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.cervantesvirtual.com/obra/audi-filia/"
         },
         {
           "title": "Tratados y cartas",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://www.cervantesvirtual.com/obra/obras-completas-del-beato-maestro-juan-de-avila/"
         }
       ]
     },
@@ -810,7 +810,7 @@
         {
           "title": "Libro de las Lamentaciones",
           "documentId": null,
-          "sourceUrl": null
+          "sourceUrl": "https://archive.org/details/bookofprayerofla00greg"
         }
       ]
     },

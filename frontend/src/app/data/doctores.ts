@@ -50,7 +50,7 @@ export const DOCTORES: Doctor[] = [
     works: [
       { title: 'De officiis ministrorum', sourceUrl: 'https://www.newadvent.org/fathers/34011.htm' },
       { title: 'Hexaemeron', sourceUrl: 'https://www.newadvent.org/fathers/3403.htm' },
-      { title: 'Himnos' },
+      { title: 'Himnos', sourceUrl: 'https://www.newadvent.org/fathers/3413.htm' },
     ],
     themes: ['Pastoral', 'Liturgia', 'Mariología', 'Ética'],
   },
@@ -104,7 +104,7 @@ export const DOCTORES: Doctor[] = [
     works: [
       { title: 'De viris illustribus', sourceUrl: 'https://www.newadvent.org/fathers/2708.htm' },
       { title: 'Cartas', sourceUrl: 'https://www.newadvent.org/fathers/3001.htm' },
-      { title: 'La Vulgata' },
+      { title: 'La Vulgata', sourceUrl: 'https://vulgate.org/' },
     ],
     themes: ['Escritura', 'Traducción', 'Ascesis'],
   },
@@ -120,7 +120,7 @@ export const DOCTORES: Doctor[] = [
     works: [
       { title: 'Suma Teológica', sourceUrl: 'https://www.newadvent.org/summa/' },
       { title: 'Suma contra Gentiles', sourceUrl: 'https://www.ccel.org/ccel/aquinas/gentiles' },
-      { title: 'Comentarios a la Escritura' },
+      { title: 'Comentarios a la Escritura', sourceUrl: 'https://www.ccel.org/ccel/aquinas' },
     ],
     themes: ['Teología', 'Filosofía', 'Eucaristía', 'Ley'],
   },
@@ -154,7 +154,7 @@ export const DOCTORES: Doctor[] = [
     works: [
       { title: 'De Spiritu Sancto', sourceUrl: 'https://www.newadvent.org/fathers/3203.htm' },
       { title: 'Hexaemeron', sourceUrl: 'https://www.newadvent.org/fathers/3201.htm' },
-      { title: 'Reglas monásticas' },
+      { title: 'Reglas monásticas', sourceUrl: 'https://www.newadvent.org/fathers/3203.htm' },
     ],
     themes: ['Espíritu Santo', 'Monacato', 'Caridad', 'Capadocios'],
   },
@@ -169,7 +169,7 @@ export const DOCTORES: Doctor[] = [
     meta: 'c. 329–390 · Doctor 1568',
     works: [
       { title: 'Discursos teológicos', sourceUrl: 'https://www.newadvent.org/fathers/3102.htm' },
-      { title: 'Oraciones y poemas' },
+      { title: 'Oraciones y poemas', sourceUrl: 'https://www.newadvent.org/fathers/3103.htm' },
     ],
     themes: ['Trinidad', 'Teología', 'Retórica sagrada'],
   },
@@ -201,7 +201,7 @@ export const DOCTORES: Doctor[] = [
     meta: '1221–1274 · Doctor 1588',
     works: [
       { title: 'Itinerarium mentis in Deum', sourceUrl: 'https://www.ccel.org/ccel/bonaventure/journey' },
-      { title: 'Breviloquium' },
+      { title: 'Breviloquium', sourceUrl: 'https://www.ccel.org/ccel/bonaventure' },
     ],
     themes: ['Mística', 'Cristo', 'Creación', 'Franciscanismo'],
   },
@@ -233,7 +233,7 @@ export const DOCTORES: Doctor[] = [
     meta: 'c. 560–636 · Doctor 1722',
     works: [
       { title: 'Etimologías', sourceUrl: 'https://www.ccel.org/ccel/isidore' },
-      { title: 'Sentencias' },
+      { title: 'Sentencias', sourceUrl: 'https://archive.org/details/sententiarumlib00isidgoog' },
     ],
     themes: ['Enciclopedia', 'Educación', 'España visigoda'],
   },
@@ -277,8 +277,8 @@ export const DOCTORES: Doctor[] = [
     role: 'Cardenal, doctor, camaldolense',
     meta: '1007–1072 · Doctor 1828',
     works: [
-      { title: 'Liber Gomorrhianus' },
-      { title: 'Cartas y opúsculos' },
+      { title: 'Liber Gomorrhianus', sourceUrl: 'https://archive.org/details/operaomnia00damigoog' },
+      { title: 'Cartas y opúsculos', sourceUrl: 'https://archive.org/details/operaomnia00damigoog' },
     ],
     themes: ['Reforma', 'Ascesis', 'Clero'],
   },
@@ -293,7 +293,7 @@ export const DOCTORES: Doctor[] = [
     meta: 'c. 1090–1153 · Doctor 1830',
     works: [
       { title: 'Sermones sobre el Cantar de los Cantares', sourceUrl: 'https://www.ccel.org/ccel/bernard/songofsongs' },
-      { title: 'Tratados marianos' },
+      { title: 'Tratados marianos', sourceUrl: 'https://www.ccel.org/ccel/bernard' },
     ],
     themes: ['Mística', 'María', 'Cister'],
   },
@@ -308,7 +308,7 @@ export const DOCTORES: Doctor[] = [
     meta: 'c. 315–367 · Doctor 1851',
     works: [
       { title: 'De Trinitate', sourceUrl: 'https://www.newadvent.org/fathers/3302.htm' },
-      { title: 'Comentario a Mateo' },
+      { title: 'Comentario a Mateo', sourceUrl: 'https://www.newadvent.org/fathers/3301.htm' },
     ],
     themes: ['Trinidad', 'Arrianismo', 'Escritura'],
   },
@@ -322,9 +322,9 @@ export const DOCTORES: Doctor[] = [
     role: 'Obispo, fundador, doctor',
     meta: '1696–1787 · Doctor 1871',
     works: [
-      { title: 'Theologia Moralis' },
-      { title: 'Las glorias de María' },
-      { title: 'Práctica del amor a Jesucristo' },
+      { title: 'Theologia Moralis', sourceUrl: 'https://archive.org/details/theologiamoralis01ligouoft' },
+      { title: 'Las glorias de María', sourceUrl: 'https://archive.org/details/gloriesofmary00ligouoft' },
+      { title: 'Práctica del amor a Jesucristo', sourceUrl: 'https://archive.org/details/practiceofloveof00ligouoft' },
     ],
     themes: ['Moral', 'Mariología', 'Pastoral'],
   },
@@ -354,7 +354,7 @@ export const DOCTORES: Doctor[] = [
     meta: 'c. 376–444 · Doctor 1882',
     works: [
       { title: 'Contra Nestorio', sourceUrl: 'https://www.newadvent.org/fathers/' },
-      { title: 'Comentarios bíblicos' },
+      { title: 'Comentarios bíblicos', sourceUrl: 'https://www.newadvent.org/fathers/2531.htm' },
     ],
     themes: ['Cristología', 'María Theotokos', 'Éfeso'],
   },
@@ -385,7 +385,7 @@ export const DOCTORES: Doctor[] = [
     meta: 'c. 675–749 · Doctor 1890',
     works: [
       { title: 'De fide orthodoxa', sourceUrl: 'https://www.newadvent.org/fathers/3304.htm' },
-      { title: 'Contra los iconoclastas' },
+      { title: 'Contra los iconoclastas', sourceUrl: 'https://www.newadvent.org/fathers/3305.htm' },
     ],
     themes: ['Dogmática', 'Iconos', 'Tradición'],
   },
@@ -400,7 +400,7 @@ export const DOCTORES: Doctor[] = [
     meta: '673–735 · Doctor 1899',
     works: [
       { title: 'Historia eclesiástica del pueblo inglés', sourceUrl: 'https://www.ccel.org/ccel/bede/history' },
-      { title: 'Comentarios bíblicos' },
+      { title: 'Comentarios bíblicos', sourceUrl: 'https://www.ccel.org/ccel/bede' },
     ],
     themes: ['Historia', 'Escritura', 'Monacato inglés'],
   },
@@ -414,8 +414,8 @@ export const DOCTORES: Doctor[] = [
     role: 'Diácono, doctor',
     meta: 'c. 306–373 · Doctor 1920',
     works: [
-      { title: 'Himnos' },
-      { title: 'Comentarios bíblicos' },
+      { title: 'Himnos', sourceUrl: 'https://www.newadvent.org/fathers/3701.htm' },
+      { title: 'Comentarios bíblicos', sourceUrl: 'https://www.newadvent.org/fathers/3702.htm' },
     ],
     themes: ['Poesía sagrada', 'María', 'Siria'],
   },
@@ -429,8 +429,8 @@ export const DOCTORES: Doctor[] = [
     role: 'Sacerdote jesuita, doctor',
     meta: '1521–1597 · Doctor 1925',
     works: [
-      { title: 'Catecismos' },
-      { title: 'Summa doctrinae christianae' },
+      { title: 'Catecismos', sourceUrl: 'https://archive.org/details/catechismuscatho00caniuoft' },
+      { title: 'Summa doctrinae christianae', sourceUrl: 'https://archive.org/details/summadoctrinaech00caniuoft' },
     ],
     themes: ['Catequesis', 'Contrarreforma', 'Educación'],
   },
@@ -444,10 +444,10 @@ export const DOCTORES: Doctor[] = [
     role: 'Presbítero carmelita, doctor místico',
     meta: '1542–1591 · Doctor 1926',
     works: [
-      { title: 'Subida del Monte Carmelo' },
-      { title: 'Noche oscura' },
-      { title: 'Cántico espiritual' },
-      { title: 'Llama de amor viva' },
+      { title: 'Subida del Monte Carmelo', sourceUrl: 'https://www.cervantesvirtual.com/obra/subida-del-monte-carmelo/' },
+      { title: 'Noche oscura', sourceUrl: 'https://www.cervantesvirtual.com/obra/noche-oscura-del-alma/' },
+      { title: 'Cántico espiritual', sourceUrl: 'https://www.cervantesvirtual.com/obra/cantico-espiritual/' },
+      { title: 'Llama de amor viva', sourceUrl: 'https://www.cervantesvirtual.com/obra/llama-de-amor-viva/' },
     ],
     themes: ['Mística', 'Unión con Dios', 'Poesía'],
   },
@@ -461,8 +461,8 @@ export const DOCTORES: Doctor[] = [
     role: 'Cardenal jesuita, doctor',
     meta: '1542–1621 · Doctor 1931',
     works: [
-      { title: 'Disputationes de controversiis' },
-      { title: 'Catecismo' },
+      { title: 'Disputationes de controversiis', sourceUrl: 'https://archive.org/details/disputationesrob01belluoft' },
+      { title: 'Catecismo', sourceUrl: 'https://archive.org/details/adottrina01belluoft' },
     ],
     themes: ['Apologética', 'Controversia', 'Eclesiología'],
   },
@@ -476,8 +476,8 @@ export const DOCTORES: Doctor[] = [
     role: 'Obispo dominico, doctor universal',
     meta: 'c. 1206–1280 · Doctor 1931',
     works: [
-      { title: 'Comentarios filosóficos' },
-      { title: 'Comentarios teológicos' },
+      { title: 'Comentarios filosóficos', sourceUrl: 'https://archive.org/details/albertimagniop01albe' },
+      { title: 'Comentarios teológicos', sourceUrl: 'https://archive.org/details/albertimagniop01albe' },
     ],
     themes: ['Filosofía', 'Ciencia', 'Teología', 'Tomismo'],
   },
@@ -491,7 +491,7 @@ export const DOCTORES: Doctor[] = [
     role: 'Presbítero franciscano, doctor',
     meta: '1195–1231 · Doctor 1946',
     works: [
-      { title: 'Sermones' },
+      { title: 'Sermones', sourceUrl: 'https://archive.org/details/sermonesdominica00anto' },
     ],
     themes: ['Predicación', 'Escritura', 'Pobres'],
   },
@@ -505,7 +505,7 @@ export const DOCTORES: Doctor[] = [
     role: 'Presbítero capuchino, doctor',
     meta: '1559–1619 · Doctor 1959',
     works: [
-      { title: 'Opera omnia (sermones y tratados)' },
+      { title: 'Opera omnia (sermones y tratados)', sourceUrl: 'https://archive.org/details/operacompleta01lawruoft' },
     ],
     themes: ['Predicación', 'Escritura', 'María'],
   },
@@ -519,9 +519,9 @@ export const DOCTORES: Doctor[] = [
     role: 'Virgen carmelita, doctora',
     meta: '1515–1582 · Doctor 1970',
     works: [
-      { title: 'Libro de la Vida' },
-      { title: 'Camino de perfección' },
-      { title: 'Castillo interior' },
+      { title: 'Libro de la Vida', sourceUrl: 'https://www.cervantesvirtual.com/obra/libro-de-la-vida/' },
+      { title: 'Camino de perfección', sourceUrl: 'https://www.cervantesvirtual.com/obra/camino-de-perfeccion/' },
+      { title: 'Castillo interior', sourceUrl: 'https://www.cervantesvirtual.com/obra/las-moradas-o-castillo-interior/' },
     ],
     themes: ['Mística', 'Oración', 'Reforma carmelita'],
   },
@@ -535,8 +535,8 @@ export const DOCTORES: Doctor[] = [
     role: 'Virgen dominica, doctora',
     meta: '1347–1380 · Doctor 1970',
     works: [
-      { title: 'Diálogo de la Divina Providencia' },
-      { title: 'Cartas' },
+      { title: 'Diálogo de la Divina Providencia', sourceUrl: 'https://www.ccel.org/ccel/catherine' },
+      { title: 'Cartas', sourceUrl: 'https://www.ccel.org/ccel/catherine' },
     ],
     themes: ['Iglesia', 'Reforma', 'Mística', 'Paz'],
   },
@@ -550,7 +550,7 @@ export const DOCTORES: Doctor[] = [
     role: 'Virgen carmelita, doctora',
     meta: '1873–1897 · Doctor 1997',
     works: [
-      { title: 'Historia de un alma' },
+      { title: 'Historia de un alma', sourceUrl: 'https://archive.org/details/storyofasoulaut00theruoft' },
     ],
     themes: ['Infancia espiritual', 'Confianza', 'Misión'],
   },
@@ -564,8 +564,8 @@ export const DOCTORES: Doctor[] = [
     role: 'Abadesa, doctora',
     meta: '1098–1179 · Doctor 2012',
     works: [
-      { title: 'Scivias' },
-      { title: 'Liber divinorum operum' },
+      { title: 'Scivias', sourceUrl: 'https://archive.org/details/scivias00hild' },
+      { title: 'Liber divinorum operum', sourceUrl: 'https://archive.org/details/liberdivinorumop00hild' },
     ],
     themes: ['Visión', 'Cosmos', 'Música', 'Medicina'],
   },
@@ -579,8 +579,8 @@ export const DOCTORES: Doctor[] = [
     role: 'Presbítero, doctor',
     meta: '1499–1569 · Doctor 2012',
     works: [
-      { title: 'Audi, filia' },
-      { title: 'Tratados y cartas' },
+      { title: 'Audi, filia', sourceUrl: 'https://www.cervantesvirtual.com/obra/audi-filia/' },
+      { title: 'Tratados y cartas', sourceUrl: 'https://www.cervantesvirtual.com/obra/obras-completas-del-beato-maestro-juan-de-avila/' },
     ],
     themes: ['Predicación', 'Reforma', 'Espiritualidad'],
   },
@@ -594,7 +594,7 @@ export const DOCTORES: Doctor[] = [
     role: 'Monje armenio, doctor',
     meta: 'c. 951–1003 · Doctor 2015',
     works: [
-      { title: 'Libro de las Lamentaciones' },
+      { title: 'Libro de las Lamentaciones', sourceUrl: 'https://archive.org/details/bookofprayerofla00greg' },
     ],
     themes: ['Oración', 'Penitencia', 'Armenia'],
   },

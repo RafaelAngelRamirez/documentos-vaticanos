@@ -84,6 +84,20 @@ async function main() {
   assert.ok(allDocIds.includes('cirilo-jerusalen-catequesis-es'));
   assert.ok(allDocIds.includes('atanasio-de-incarnatione-en'));
 
+  // AC1: every obra without documentId must have a public sourceUrl
+  let pendingCount = 0;
+  for (const d of C.DOCTORES) {
+    for (const w of d.works) {
+      if (w.documentId) continue;
+      pendingCount++;
+      assert.ok(
+        w.sourceUrl && String(w.sourceUrl).startsWith('http'),
+        `pending work missing sourceUrl: ${d.id} / ${w.title}`,
+      );
+    }
+  }
+  assert.ok(pendingCount > 0, 'expected some pending works');
+
   // Every linked documentId must exist in the offline manifest
   assert.ok(fs.existsSync(MANIFEST), `manifest missing: ${MANIFEST}`);
   const manifest = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
@@ -97,14 +111,23 @@ async function main() {
     );
   }
 
-  // Inventory JSON mirrors count
+  // Inventory JSON mirrors count + same sourceUrl rule
   assert.ok(fs.existsSync(INV), `inventory missing: ${INV}`);
   const inv = JSON.parse(fs.readFileSync(INV, 'utf8'));
   assert.strictEqual(inv.count, 38);
   assert.strictEqual(inv.doctors.length, 38);
+  for (const d of inv.doctors) {
+    for (const w of d.works || []) {
+      if (w.documentId) continue;
+      assert.ok(
+        w.sourceUrl && String(w.sourceUrl).startsWith('http'),
+        `inventory pending work missing sourceUrl: ${d.id} / ${w.title}`,
+      );
+    }
+  }
 
   console.log(
-    `OK doctores catalog: ${C.DOCTORES.length} doctors, ${allDocIds.length} linked packs`,
+    `OK doctores catalog: ${C.DOCTORES.length} doctors, ${allDocIds.length} linked packs, ${pendingCount} pending with sourceUrl`,
   );
 }
 
