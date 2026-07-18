@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 * **corpus:** pack `cceo-es` (IA) twin of `cceo-la` — 1514 canons offline, dual corpus tree, AI `sourceNote` disclaimer; doc-codes stay on Latin
+* **ui:** preferred content locale (system/es/la) — Biblioteca colapsa ediciones multi-idioma; selector en detalle y lector; Ajustes «Idioma de los textos»
 
 ### [0.0.17](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.13...v0.0.17) (2026-07-18)
 

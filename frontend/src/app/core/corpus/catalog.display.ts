@@ -431,6 +431,12 @@ const BY_ID: Record<string, CatalogDisplay> = {
     anio: 1990,
     subtitulo: 'Constitución apostólica « Sacri canones »',
   },
+  'cceo-es': {
+    tipo: 'Derecho canónico',
+    autor: 'Juan Pablo II',
+    anio: 1990,
+    subtitulo: 'Traducción al español generada por IA (no oficial)',
+  },
   'jerusalen-la': {
     tipo: 'Concilios ecuménicos',
     anio: 50,

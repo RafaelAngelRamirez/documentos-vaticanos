@@ -133,11 +133,14 @@ export class BuscadorComponent implements OnInit, OnDestroy {
   }
 
   shortLabel(r: ResultadoDeBusqueda): string {
-    return (
+    const base =
       r.doc.shortTitle ||
       this.corpus.getMeta(r.doc.id || '')?.shortTitle ||
-      this.displayTitle(r)
-    );
+      this.displayTitle(r);
+    const loc =
+      r.doc.locale || this.corpus.getMeta(r.doc.id || '')?.locale || '';
+    if (!loc) return base;
+    return `${base} · ${CorpusService.localeLabel(loc)}`;
   }
 
   procesar_busqueda(terminos: TermsProcessed) {

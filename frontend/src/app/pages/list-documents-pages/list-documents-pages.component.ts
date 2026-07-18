@@ -19,6 +19,7 @@ import {
   ReadingProgressService,
 } from 'src/app/services/reading-progress.service';
 import { ROUTE } from 'src/app/services/navigation.service';
+import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 
 /** Orden preferente de pestañas (solo se muestran las presentes). */
 const TAB_ORDER = [
@@ -66,12 +67,18 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
     public docService: CargarDocumentosJsonService,
     private router: Router,
     private corpus: CorpusService,
-    private progress: ReadingProgressService
+    private progress: ReadingProgressService,
+    private readerPrefs: ReaderPreferencesService,
   ) {}
 
   ngOnInit(): void {
     this.lastRead = this.progress.getLastRead();
     this.loading = true;
+    this.sub.add(
+      this.readerPrefs.prefs$.subscribe(() => {
+        /* recompute catalog preferred locale via getters */
+      }),
+    );
     this.sub.add(
       this.docService.ensureAllLoaded().subscribe({
         next: () => {
@@ -91,9 +98,31 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  /** Editions preferred by content locale (one row per multi-lang work). */
+  private catalogItems(): IndiceDocumentos[] {
+    const all = this.docService.documentos_disponibles || [];
+    if (!all.length) return [];
+    const preferredLocale = this.readerPrefs.resolveContentLocale();
+    const preferredIds = new Set(
+      this.corpus.listCatalogDocuments(preferredLocale).map((m) => m.id),
+    );
+    // Keep IndiceDocumentos shape (loaded bodies) for preferred ids only.
+    const byId = new Map(all.map((d) => [d.id || d.nombre, d]));
+    const out: IndiceDocumentos[] = [];
+    for (const id of preferredIds) {
+      const hit = byId.get(id);
+      if (hit) out.push(hit);
+    }
+    // Fallback: if ensureAllLoaded not fully mirrored, still list preferred metas
+    if (!out.length) {
+      return all;
+    }
+    return out;
+  }
+
   get tabs(): string[] {
     const present = new Set<string>();
-    for (const item of this.docService.documentos_disponibles || []) {
+    for (const item of this.catalogItems()) {
       present.add(this.tabOf(item));
     }
     return ['Todos', ...TAB_ORDER.filter((t) => present.has(t))];
@@ -105,7 +134,7 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
   }
 
   get filtered(): IndiceDocumentos[] {
-    const all = this.docService.documentos_disponibles || [];
+    const all = this.catalogItems();
     const q = this.query.trim().toLowerCase();
     return all.filter((item) => {
       if (this.activeTab !== 'Todos' && this.tabOf(item) !== this.activeTab) {
@@ -115,12 +144,18 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
       const title = this.displayTitle(item).toLowerCase();
       const meta = this.metaLine(item).toLowerCase();
       const short = (item.shortTitle || '').toLowerCase();
-      return title.includes(q) || meta.includes(q) || short.includes(q);
+      const langs = (this.langsLine(item) || '').toLowerCase();
+      return (
+        title.includes(q) ||
+        meta.includes(q) ||
+        short.includes(q) ||
+        langs.includes(q)
+      );
     });
   }
 
   get docCount(): number {
-    return this.docService.documentos_disponibles?.length || 0;
+    return this.catalogItems().length;
   }
 
   get lastReadLabel(): string {
@@ -162,13 +197,20 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
 
   metaLine(item: IndiceDocumentos): string {
     const meta = this.corpus.getMeta(item.id || '');
-    return catalogMetaLine(
+    const base = catalogMetaLine(
       catalogDisplayFor(item.id, meta?.kind, {
         author: meta?.author,
         compiler: meta?.compiler,
         sourceNote: meta?.sourceNote,
       })
     );
+    const langs = this.langsLine(item);
+    return langs ? `${base} · ${langs}` : base;
+  }
+
+  /** Subtítulo de idiomas cuando la obra tiene más de una edición. */
+  langsLine(item: IndiceDocumentos): string | null {
+    return this.corpus.multiLocaleLabel(item.id || '');
   }
 
   kindOf(item: IndiceDocumentos): string {

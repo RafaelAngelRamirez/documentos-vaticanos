@@ -15,6 +15,23 @@
     <div class="ttl fs13 muted" [attr.title]="documentTitle">
       {{ headerTitle }}
     </div>
+    <div
+      class="lang-pills only-mobile"
+      *ngIf="showLanguageSwitcher"
+      role="group"
+      aria-label="Idioma del texto"
+    >
+      <button
+        type="button"
+        class="lang-pill"
+        *ngFor="let ed of languageEditions"
+        [class.on]="isCurrentLang(ed)"
+        [attr.aria-pressed]="isCurrentLang(ed)"
+        (click)="switchLanguage(ed)"
+      >
+        {{ langBadge(ed) }}
+      </button>
+    </div>
     <button
       type="button"
       class="iconb serif"
@@ -35,6 +52,23 @@
 
     <ng-container *ngIf="!loading && document">
       <div class="rhead" *ngIf="rangoLabel">{{ rangoLabel }}</div>
+      <div
+        class="lang-pills lang-pills-inline only-desktop"
+        *ngIf="showLanguageSwitcher"
+        role="group"
+        aria-label="Idioma del texto"
+      >
+        <button
+          type="button"
+          class="lang-pill"
+          *ngFor="let ed of languageEditions"
+          [class.on]="isCurrentLang(ed)"
+          [attr.aria-pressed]="isCurrentLang(ed)"
+          (click)="switchLanguage(ed)"
+        >
+          {{ langBadge(ed) }}
+        </button>
+      </div>
 
       <div class="rstart" *ngIf="canLoadBefore">
         <a href="javascript:void(0)" class="muted" (click)="load_before()"

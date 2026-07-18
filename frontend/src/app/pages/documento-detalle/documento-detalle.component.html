@@ -49,6 +49,25 @@
           </div>
         </div>
 
+        <div class="sect" *ngIf="showLanguageSwitcher">Idioma</div>
+        <div
+          class="seg lang-seg"
+          *ngIf="showLanguageSwitcher"
+          role="group"
+          aria-label="Idioma del texto"
+        >
+          <button
+            type="button"
+            class="segbtn"
+            *ngFor="let ed of languageEditions"
+            [class.on]="isCurrentLang(ed)"
+            [attr.aria-pressed]="isCurrentLang(ed)"
+            (click)="selectLanguage(ed)"
+          >
+            {{ langLabel(ed) }}
+          </button>
+        </div>
+
         <div class="fs13 muted fuente-block" *ngIf="display.compilador || meta?.sourceUrl || display.fuenteNota">
           <div *ngIf="display.compilador">
             Compilación: <strong>{{ display.compilador }}</strong>
@@ -60,7 +79,7 @@
             [href]="meta!.sourceUrl"
             target="_blank"
             rel="noopener noreferrer"
-          >Español · fuente</a>
+          >{{ fuenteLangLabel }} · fuente</a>
         </div>
 
         <app-historical-context-block
@@ -169,6 +188,24 @@
               <div class="mv">{{ audioEstimado }}</div>
             </div>
           </div>
+          <div class="sect" *ngIf="showLanguageSwitcher" style="margin-top: 12px">Idioma</div>
+          <div
+            class="seg lang-seg"
+            *ngIf="showLanguageSwitcher"
+            role="group"
+            aria-label="Idioma del texto"
+          >
+            <button
+              type="button"
+              class="segbtn"
+              *ngFor="let ed of languageEditions"
+              [class.on]="isCurrentLang(ed)"
+              [attr.aria-pressed]="isCurrentLang(ed)"
+              (click)="selectLanguage(ed)"
+            >
+              {{ langLabel(ed) }}
+            </button>
+          </div>
           <div class="fs13 muted fuente-block" *ngIf="display.compilador || meta?.sourceUrl || display.fuenteNota">
             <div *ngIf="display.compilador">
               Compilación: <strong>{{ display.compilador }}</strong>
@@ -180,7 +217,7 @@
               [href]="meta!.sourceUrl"
               target="_blank"
               rel="noopener noreferrer"
-            >Español · fuente</a>
+            >{{ fuenteLangLabel }} · fuente</a>
           </div>
           <app-historical-context-block
             *ngIf="historicalContext"

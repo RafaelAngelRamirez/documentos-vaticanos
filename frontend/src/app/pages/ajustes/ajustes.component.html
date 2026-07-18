@@ -102,6 +102,25 @@
         </button>
       </span>
     </div>
+    <div class="setrow nb">
+      <span class="setk"
+        >Idioma de los textos<span class="seth"
+          >Cuando hay varias ediciones (p. ej. español y latín), se muestra la
+          preferida. Sistema usa el idioma del dispositivo.</span
+        ></span
+      >
+    </div>
+    <div class="stepbtn themerow" role="group" aria-label="Idioma de los textos">
+      <button
+        *ngFor="let loc of contentLocales"
+        type="button"
+        class="szbtn"
+        [class.on]="prefs.contentLocale === loc.value"
+        (click)="setContentLocale(loc.value)"
+      >
+        {{ loc.label }}
+      </button>
+    </div>
     <div class="setrow">
       <span>Mantener pantalla encendida</span>
       <button

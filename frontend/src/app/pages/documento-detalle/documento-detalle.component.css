@@ -64,6 +64,22 @@
   margin-top: 8px;
 }
 
+.lang-seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 8px 0 12px;
+  padding: 3px;
+  background: var(--app-btn, var(--btn, color-mix(in srgb, var(--ink) 8%, transparent)));
+  border-radius: 10px;
+}
+
+.lang-seg .segbtn {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 8px 14px;
+}
+
 .dcover .inner,
 .cuerpo {
   max-width: 640px;

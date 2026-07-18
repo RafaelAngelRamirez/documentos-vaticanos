@@ -11,6 +11,15 @@ import {
 } from './corpus.models';
 import { IndexedDbCorpusStore } from './corpus-durable-idb.store';
 import { CorpusLoadEngine } from './corpus-load.logic';
+import {
+  DocumentFamily,
+  editionsForDocument,
+  familyKey,
+  listPreferredEditions,
+  localeLabel as localeLabelPure,
+  multiLocaleSubtitle,
+  pickPreferredEdition,
+} from './document-locale.logic';
 
 @Injectable({
   providedIn: 'root',
@@ -62,6 +71,38 @@ export class CorpusService {
 
   listDocuments(): DocumentMeta[] {
     return this.engine.listDocuments() as DocumentMeta[];
+  }
+
+  /**
+   * Catálogo: una edición por familia de idiomas (preferida del usuario).
+   * No altera `listDocuments()` (búsqueda / carga total).
+   */
+  listCatalogDocuments(preferredLocale: string): DocumentMeta[] {
+    return listPreferredEditions(this.listDocuments(), preferredLocale);
+  }
+
+  /** Ediciones (LA/ES/…) de la misma obra que `documentId`. */
+  editionsOf(documentId: string): DocumentMeta[] {
+    return editionsForDocument(this.listDocuments(), documentId);
+  }
+
+  /** Familia multi-locale con preferred ya resuelto. */
+  familyOf(
+    documentId: string,
+    preferredLocale: string,
+  ): DocumentFamily<DocumentMeta> | null {
+    const editions = this.editionsOf(documentId);
+    if (!editions.length) return null;
+    const self = editions.find((e) => e.id === documentId) ?? editions[0];
+    return {
+      key: familyKey(self.id, self.locale),
+      editions,
+      preferred: pickPreferredEdition(editions, preferredLocale),
+    };
+  }
+
+  multiLocaleLabel(documentId: string): string | null {
+    return multiLocaleSubtitle(this.editionsOf(documentId));
   }
 
   getMeta(documentId: string): DocumentMeta | undefined {
@@ -119,18 +160,7 @@ export class CorpusService {
 
   /** Human label for locale codes used in the corpus. */
   static localeLabel(locale?: string | null): string {
-    if (!locale) return 'Idioma';
-    const code = locale.toLowerCase();
-    const map: Record<string, string> = {
-      es: 'Español',
-      en: 'English',
-      la: 'Latina',
-      it: 'Italiano',
-      fr: 'Français',
-      de: 'Deutsch',
-      pt: 'Português',
-    };
-    return map[code] || locale.toUpperCase();
+    return localeLabelPure(locale);
   }
 
   getArticle(

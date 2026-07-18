@@ -25,6 +25,11 @@ import {
 import { ArticleInfo } from '../punto/punto/punto.component';
 import { PuntoModule } from '../punto/punto.module';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
+import { DocumentMeta } from 'src/app/core/corpus/corpus.models';
+import {
+  localeBadge,
+  mapUnitIndexOnLocaleSwitch,
+} from 'src/app/core/corpus/document-locale.logic';
 import { ReadingProgressService } from 'src/app/services/reading-progress.service';
 import { AnotacionesService } from 'src/app/services/anotaciones.service';
 import { DvSheetComponent } from '../dv-sheet/dv-sheet.component';
@@ -97,6 +102,9 @@ export class LectorComponent implements OnInit, OnDestroy {
   /** 5D · Voces es-* disponibles y voz elegida (prefs por dispositivo). */
   narrVoices: NarratorVoice[] = [];
   narrVoice: NarratorVoice | null = null;
+
+  /** Otras ediciones de idioma de la misma obra (vacío si monoidioma). */
+  languageEditions: DocumentMeta[] = [];
 
   /** Orden del diseño 3F + Mono (monocromo oscuro, default). */
   readonly themeOptions: ThemeOption[] = [
@@ -459,6 +467,34 @@ export class LectorComponent implements OnInit, OnDestroy {
     return this.document?.shortTitle || this.documentTitle;
   }
 
+  get showLanguageSwitcher(): boolean {
+    return this.languageEditions.length > 1;
+  }
+
+  langBadge(ed: DocumentMeta): string {
+    return localeBadge(ed.locale);
+  }
+
+  isCurrentLang(ed: DocumentMeta): boolean {
+    const id = this.document?.id || this.navigationService.document_id;
+    return ed.id === id;
+  }
+
+  /**
+   * Cambia al pack hermano manteniendo unitIndex si unitCount coincide.
+   */
+  switchLanguage(ed: DocumentMeta): void {
+    const currentId = this.document?.id || this.navigationService.document_id;
+    if (!ed?.id || ed.id === currentId) return;
+    const fromMeta = currentId ? this.corpus.getMeta(currentId) : undefined;
+    const idx = mapUnitIndexOnLocaleSwitch(
+      this.visibleIndex || this.actual_index || 0,
+      fromMeta?.unitCount,
+      ed.unitCount,
+    );
+    this.navigationService.navigateToUnit(ed.id, idx);
+  }
+
   /** 5D wbar: «Laudato Si' · Capítulo…» */
   get readerChromeTitle(): string {
     const base = this.headerTitle;
@@ -720,6 +756,7 @@ export class LectorComponent implements OnInit, OnDestroy {
         'No hay documento seleccionado. Vuelve al listado o a la búsqueda.';
       this.document = undefined;
       this.actual_articles = [];
+      this.languageEditions = [];
       return;
     }
 
@@ -736,6 +773,7 @@ export class LectorComponent implements OnInit, OnDestroy {
       this.document = this.navigationService.document_selected;
       this.navigationService.document_id =
         this.document.id ?? this.document.nombre;
+      this.refreshLanguageEditions(this.navigationService.document_id);
       this.applyRoutePunto(routePunto);
       this.generate_context_for_article();
       return;
@@ -750,6 +788,7 @@ export class LectorComponent implements OnInit, OnDestroy {
           this.document = doc;
           this.navigationService.document_selected = doc;
           this.navigationService.document_id = doc.id ?? doc.nombre;
+          this.refreshLanguageEditions(this.navigationService.document_id);
           this.applyRoutePunto(routePunto);
           this.generate_context_for_article();
         },
@@ -760,6 +799,29 @@ export class LectorComponent implements OnInit, OnDestroy {
           console.error(err);
         },
       })
+    );
+  }
+
+  private refreshLanguageEditions(documentId: string | undefined): void {
+    if (!documentId) {
+      this.languageEditions = [];
+      return;
+    }
+    const apply = (): void => {
+      this.languageEditions = this.corpus.editionsOf(documentId);
+    };
+    // Manifest may not be loaded yet on cold start.
+    if (this.corpus.listDocuments().length) {
+      apply();
+      return;
+    }
+    this.sub.add(
+      this.corpus.loadManifest().subscribe({
+        next: () => apply(),
+        error: () => {
+          this.languageEditions = [];
+        },
+      }),
     );
   }
 

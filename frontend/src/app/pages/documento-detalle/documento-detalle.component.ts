@@ -8,6 +8,10 @@ import {
   CatalogDisplay,
   catalogDisplayFor,
 } from 'src/app/core/corpus/catalog.display';
+import {
+  localeBadge,
+  localeLabel,
+} from 'src/app/core/corpus/document-locale.logic';
 import { NavigationService, ROUTE } from 'src/app/services/navigation.service';
 import {
   LastRead,
@@ -58,6 +62,8 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
   siblingWorks: { documentId: string; title: string }[] = [];
   /** Contexto histórico offline (general + obra). */
   historicalContext: ResolvedHistoricalContext | null = null;
+  /** Ediciones de la misma obra en otros idiomas (incluye la actual). */
+  languageEditions: DocumentMeta[] = [];
 
   private sub = new Subscription();
 
@@ -129,6 +135,32 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     return this.lecturaEstimada.replace('≈', '≈').replace(' min', ' min narradas').replace(' h', ' h narradas');
   }
 
+  get showLanguageSwitcher(): boolean {
+    return this.languageEditions.length > 1;
+  }
+
+  get fuenteLangLabel(): string {
+    return localeLabel(this.meta?.locale);
+  }
+
+  langLabel(ed: DocumentMeta): string {
+    return localeLabel(ed.locale);
+  }
+
+  langBadge(ed: DocumentMeta): string {
+    return localeBadge(ed.locale);
+  }
+
+  isCurrentLang(ed: DocumentMeta): boolean {
+    return ed.id === this.docId;
+  }
+
+  /** Cambia al pack hermano (misma obra, otro idioma). */
+  selectLanguage(ed: DocumentMeta): void {
+    if (!ed?.id || ed.id === this.docId) return;
+    this.router.navigate(['/documento', ed.id]);
+  }
+
   comenzar(): void {
     const idx = this.puedeContinuar ? this.lastRead!.unitIndex : 0;
     this.irALector(idx);
@@ -179,6 +211,7 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     this.relatedSaint = null;
     this.siblingWorks = [];
     this.historicalContext = null;
+    this.languageEditions = [];
     this.sub.add(
       this.corpus.loadManifest().subscribe({
         next: () => {
@@ -188,6 +221,7 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
             this.loading = false;
             return;
           }
+          this.languageEditions = this.corpus.editionsOf(this.meta.id);
           this.display = catalogDisplayFor(this.meta.id, this.meta.kind, {
             author: this.meta.author,
             compiler: this.meta.compiler,

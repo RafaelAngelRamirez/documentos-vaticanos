@@ -2,10 +2,17 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Capacitor } from '@capacitor/core';
 import { StatusBar, Style } from '@capacitor/status-bar';
+import { resolveContentLocale } from '../core/corpus/document-locale.logic';
 
 /** Temas: Mono (monocromo oscuro, default) · Sepia · Claro · Oscuro · Sistema. */
 export type ReaderTheme = 'mono' | 'claro' | 'sepia' | 'oscuro' | 'system';
 export type ReaderFont = 'serif' | 'sans';
+
+/**
+ * Idioma preferido del **contenido** del corpus (`es`, `la`, …) o `system`
+ * (sigue `navigator.language`). No es i18n de la UI.
+ */
+export type ContentLocalePref = 'system' | string;
 
 export interface ReaderPreferences {
   theme: ReaderTheme;
@@ -15,6 +22,11 @@ export interface ReaderPreferences {
   maxWidthCh: number; // 55-80
   /** Ajustes 4A: "Mantener pantalla encendida" (Wake Lock). */
   keepAwake: boolean;
+  /**
+   * Idioma de los textos del corpus cuando hay varias ediciones.
+   * `system` → locale del dispositivo; fallback de catálogo `es`.
+   */
+  contentLocale: ContentLocalePref;
 }
 
 export const READER_PREFS_STORAGE_KEY = 'reader.prefs.v1';
@@ -26,6 +38,7 @@ export const DEFAULT_READER_PREFERENCES: ReaderPreferences = {
   lineHeight: 1.65,
   maxWidthCh: 65,
   keepAwake: false,
+  contentLocale: 'system',
 };
 
 export const THEME_CYCLE: ReaderTheme[] = [
@@ -197,9 +210,30 @@ export class ReaderPreferencesService {
     return 0.2126 * r + 0.7152 * g + 0.0722 * b < 128;
   }
 
+  /**
+   * Idioma efectivo de contenido (pref + dispositivo).
+   * Delegado a `resolveContentLocale` del core.
+   */
+  resolveContentLocale(
+    prefs: ReaderPreferences = this.prefsSubject.value
+  ): string {
+    const nav =
+      typeof navigator !== 'undefined' ? navigator.language : undefined;
+    return resolveContentLocale(prefs.contentLocale, nav, 'es');
+  }
+
+  setContentLocale(contentLocale: ContentLocalePref): void {
+    this.update({ contentLocale });
+  }
+
   private clamp(prefs: ReaderPreferences): ReaderPreferences {
     const migrated =
       LEGACY_THEME_MAP[prefs.theme as string] ?? (prefs.theme as ReaderTheme);
+    const rawLoc = (prefs.contentLocale ?? 'system').toString().trim();
+    const contentLocale: ContentLocalePref =
+      !rawLoc || rawLoc === 'system'
+        ? 'system'
+        : rawLoc.toLowerCase().split(/[-_]/)[0] || 'system';
     return {
       theme: THEME_CYCLE.includes(migrated) ? migrated : 'mono',
       font: FONT_CYCLE.includes(prefs.font) ? prefs.font : 'serif',
@@ -210,6 +244,7 @@ export class ReaderPreferencesService {
       ),
       maxWidthCh: Math.min(80, Math.max(55, Math.round(prefs.maxWidthCh))),
       keepAwake: prefs.keepAwake === true,
+      contentLocale,
     };
   }
 

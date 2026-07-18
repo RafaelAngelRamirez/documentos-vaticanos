@@ -11,11 +11,13 @@ import {
 import { AppUpdateService } from 'src/app/core/downloads/app-update.service';
 import { BackupService } from 'src/app/services/backup.service';
 import {
+  ContentLocalePref,
   ReaderFont,
   ReaderPreferences,
   ReaderPreferencesService,
   ReaderTheme,
 } from 'src/app/services/reader-preferences.service';
+import { localeLabel } from 'src/app/core/corpus/document-locale.logic';
 import {
   NarratorService,
   NarratorVoice,
@@ -64,6 +66,13 @@ export class AjustesComponent implements OnInit, OnDestroy {
     { value: 'claro', label: 'Claro' },
     { value: 'oscuro', label: 'Oscuro' },
     { value: 'system', label: 'Sistema' },
+  ];
+
+  /** Idioma de los textos del corpus (no i18n de la UI). */
+  readonly contentLocales: { value: ContentLocalePref; label: string }[] = [
+    { value: 'system', label: 'Sistema' },
+    { value: 'es', label: localeLabel('es') },
+    { value: 'la', label: localeLabel('la') },
   ];
 
   private sub = new Subscription();
@@ -170,6 +179,10 @@ export class AjustesComponent implements OnInit, OnDestroy {
 
   setFont(font: ReaderFont): void {
     this.readerPrefs.setFont(font);
+  }
+
+  setContentLocale(locale: ContentLocalePref): void {
+    this.readerPrefs.setContentLocale(locale);
   }
 
   toggleKeepAwake(): void {
