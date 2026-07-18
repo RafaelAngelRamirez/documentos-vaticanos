@@ -1,7 +1,12 @@
 <div class="app has-bnav web-shell">
   <app-wbar active="santoral"></app-wbar>
   <div class="only-mobile">
-    <app-fbar title="Santoral"></app-fbar>
+    <app-fbar
+      [title]="fbarTitle()"
+      [back]="fbarBackLabel()"
+      [backLink]="'/santoral'"
+      [backQueryParams]="fbarBackQuery()"
+    ></app-fbar>
   </div>
 
   <div class="fbody santoral-body">
@@ -10,14 +15,45 @@
       Vidas de santos y beatos (Santa Sede y Padres) con las obras del corpus
       disponibles sin conexión.
     </div>
-    <div class="fs13 muted" style="margin-top: 6px" *ngIf="!loading && !error">
+
+    <!-- Mode toggle: Lista | Calendario -->
+    <div class="seg santoral-seg" role="tablist" aria-label="Vista del santoral">
+      <button
+        type="button"
+        class="segbtn"
+        role="tab"
+        [class.on]="mode === 'lista'"
+        [attr.aria-selected]="mode === 'lista'"
+        (click)="setMode('lista')"
+      >
+        Lista
+      </button>
+      <button
+        type="button"
+        class="segbtn"
+        role="tab"
+        [class.on]="mode === 'calendario'"
+        [attr.aria-selected]="mode === 'calendario'"
+        (click)="setMode('calendario')"
+      >
+        Calendario
+      </button>
+    </div>
+
+    <div class="fs13 muted" style="margin-top: 6px" *ngIf="!loading && !error && mode === 'lista'">
       {{ total }} entradas · pack offline
+    </div>
+    <div class="fs13 muted" style="margin-top: 6px" *ngIf="!loading && !error && mode === 'calendario'">
+      <ng-container *ngIf="calLevel === 'anio'">Vista por año · 12 meses · solo fiestas con fecha en el pack</ng-container>
+      <ng-container *ngIf="calLevel === 'mes'">Vista por mes · {{ monthTitle() }}</ng-container>
+      <ng-container *ngIf="calLevel === 'dia'">Vista por día · {{ dayTitle() }}</ng-container>
     </div>
 
     <div *ngIf="loading" class="empty" role="status">Cargando santoral…</div>
     <div *ngIf="error" class="empty" role="alert">{{ error }}</div>
 
-    <ng-container *ngIf="!loading && !error">
+    <!-- ===== LISTA (era groups) ===== -->
+    <ng-container *ngIf="!loading && !error && mode === 'lista'">
       <ng-container *ngFor="let g of groups">
         <div class="era">{{ g.era }}</div>
 
@@ -55,6 +91,115 @@
 
       <div class="empty" *ngIf="!groups.length">
         Aún no hay entradas en el pack del santoral.
+      </div>
+    </ng-container>
+
+    <!-- ===== CALENDARIO ===== -->
+    <ng-container *ngIf="!loading && !error && mode === 'calendario'">
+      <!-- Breadcrumb desktop -->
+      <nav class="cal-crumb only-desktop" aria-label="Niveles del calendario">
+        <button type="button" class="cal-crumb-link" (click)="openYear()" [class.on]="calLevel === 'anio'">
+          Año
+        </button>
+        <span class="cal-crumb-sep" *ngIf="calMonth != null">›</span>
+        <button
+          type="button"
+          class="cal-crumb-link"
+          *ngIf="calMonth != null"
+          (click)="openMonth(calMonth)"
+          [class.on]="calLevel === 'mes'"
+        >
+          {{ monthTitle() }}
+        </button>
+        <span class="cal-crumb-sep" *ngIf="calLevel === 'dia'">›</span>
+        <span class="cal-crumb-here" *ngIf="calLevel === 'dia'">{{ dayTitle() }}</span>
+      </nav>
+
+      <!-- AÑO: 12 months -->
+      <div class="cal-year" *ngIf="calLevel === 'anio'" data-cal-level="anio">
+        <div class="era">Calendario · meses</div>
+        <div class="cal-month-grid">
+          <button
+            type="button"
+            class="cal-month-card"
+            *ngFor="let mo of yearMonths"
+            (click)="openMonth(mo.month)"
+          >
+            <span class="cal-month-name">{{ mo.label }}</span>
+            <span class="cal-month-meta">
+              <ng-container *ngIf="mo.daysWithSaints > 0">
+                {{ mo.daysWithSaints }} días · {{ mo.saintEntries }}
+                {{ mo.saintEntries === 1 ? 'santo' : 'santos' }}
+              </ng-container>
+              <ng-container *ngIf="mo.daysWithSaints === 0">Sin fiestas en el pack</ng-container>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- MES: day grid -->
+      <div class="cal-month" *ngIf="calLevel === 'mes' && calMonth != null" data-cal-level="mes">
+        <div class="era only-desktop">{{ monthTitle() }}</div>
+        <div class="cal-day-grid" role="grid" [attr.aria-label]="'Días de ' + monthTitle()">
+          <button
+            type="button"
+            class="cal-day-cell"
+            *ngFor="let cell of monthCells"
+            [class.has-saints]="cell.saintCount > 0"
+            [class.empty-day]="cell.saintCount === 0"
+            (click)="openDay(calMonth, cell.day)"
+            [attr.aria-label]="
+              cell.day +
+              (cell.saintCount
+                ? ': ' + cell.saintCount + ' santos'
+                : ': sin santos en el pack')
+            "
+          >
+            <span class="cal-day-num">{{ cell.day }}</span>
+            <span class="cal-day-dot" *ngIf="cell.saintCount > 0" aria-hidden="true"></span>
+            <span class="cal-day-count" *ngIf="cell.saintCount > 0">{{ cell.saintCount }}</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- DÍA: saint list -->
+      <div class="cal-day" *ngIf="calLevel === 'dia'" data-cal-level="dia">
+        <div class="era only-desktop">{{ dayTitle() }}</div>
+
+        <div class="only-mobile">
+          <div
+            class="mrow"
+            *ngFor="let s of daySaints"
+            role="link"
+            tabindex="0"
+            (click)="open(s)"
+            (keydown.enter)="open(s)"
+            style="cursor: pointer"
+          >
+            <span class="avatar">{{ initials(s) }}</span>
+            <div class="f1">
+              <div class="mname">{{ label(s) }}</div>
+              <div class="mmeta">{{ sub(s) }}</div>
+            </div>
+            <span class="chev">›</span>
+          </div>
+        </div>
+
+        <div class="cardgrid only-desktop">
+          <a
+            class="bookcard"
+            *ngFor="let s of daySaints"
+            [routerLink]="['/santoral', s.id]"
+          >
+            <span class="bt">{{ label(s) }}</span>
+            <span class="bm">{{ sub(s) }}</span>
+          </a>
+        </div>
+
+        <div class="empty cal-empty-day" *ngIf="!daySaints.length" data-cal-empty="1">
+          No hay santos con fiesta este día en el pack offline.
+          El calendario solo muestra entradas con fecha litúrgica conocida.
+        </div>
       </div>
     </ng-container>
   </div>

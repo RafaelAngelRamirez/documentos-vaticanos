@@ -31,6 +31,40 @@ function main() {
 
   const list = read('pages/santoral/santoral.component.ts');
   assert.ok(/selector:\s*['"]app-santoral['"]/.test(list));
+  assert.ok(
+    /calendario|CalendarLevel|yearMonthSummaries/.test(list),
+    'santoral list wires calendar mode logic',
+  );
+
+  const listHtml = read('pages/santoral/santoral.component.html');
+  assert.ok(/Calendario/.test(listHtml), 'calendar mode toggle present');
+  assert.ok(
+    /data-cal-level=["']anio["']|calLevel === ['"]anio['"]/.test(listHtml),
+    'year (año) view markers',
+  );
+  assert.ok(
+    /data-cal-level=["']mes["']|calLevel === ['"]mes['"]/.test(listHtml),
+    'month (mes) view markers',
+  );
+  assert.ok(
+    /data-cal-level=["']dia["']|calLevel === ['"]dia['"]/.test(listHtml),
+    'day (día) view markers',
+  );
+  assert.ok(
+    /routerLink.*santoral|navigate\(\[\s*['"]\/santoral['"]/.test(listHtml) ||
+      /open\(s\)/.test(listHtml),
+    'day list navigates to saint detail',
+  );
+  assert.ok(
+    /cal-empty|No hay santos/.test(listHtml),
+    'empty day state present',
+  );
+
+  const calLogic = read('core/santoral/santoral-calendar.logic.ts');
+  assert.ok(/saintsForDay/.test(calLogic));
+  assert.ok(/yearMonthSummaries/.test(calLogic));
+  assert.ok(/monthDayCells/.test(calLogic));
+  assert.ok(/feastDays/.test(calLogic));
 
   const detail = read('pages/santo-detalle/santo-detalle.component.html');
   assert.ok(
@@ -154,6 +188,8 @@ function main() {
       relacionados: true,
       santoralUnits: true,
       lectorBackToSantoral: true,
+      calendarMode: true,
+      calendarViews: ['anio', 'mes', 'dia'],
     }),
   );
 }

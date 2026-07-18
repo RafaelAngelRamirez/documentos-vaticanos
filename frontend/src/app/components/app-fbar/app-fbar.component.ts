@@ -10,7 +10,12 @@ import { AuthService } from 'src/app/core/auth/auth.service';
   imports: [CommonModule, RouterModule],
   template: `
     <div class="fbar hair">
-      <a *ngIf="back" class="fs14 back" [routerLink]="backLink">{{ back }}</a>
+      <a
+        *ngIf="back"
+        class="fs14 back"
+        [routerLink]="backLink"
+        [queryParams]="backQueryParams || {}"
+      >{{ back }}</a>
       <span class="ftitle" [class.mid]="!!back">{{ title }}</span>
       <button
         *ngIf="avatar"
@@ -73,6 +78,8 @@ export class AppFbarComponent {
   /** Enlace de retorno a la izquierda (p. ej. "← Cuenta"). */
   @Input() back: string | null = null;
   @Input() backLink: string | string[] = '/';
+  /** Optional query params for back routerLink (e.g. santoral calendar). */
+  @Input() backQueryParams: Record<string, string> | null = null;
   /** false → hueco de 34px a la derecha (3H sin avatar). */
   @Input() avatar = true;
 

@@ -21,4 +21,156 @@
   margin-top: 24px;
   color: var(--muted);
   font-size: 14px;
+  line-height: 1.5;
+}
+
+.santoral-seg {
+  margin-top: 16px;
+  max-width: 320px;
+}
+
+/* —— Calendar chrome —— */
+.cal-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin: 16px 0 8px;
+  font-family: var(--app-font-sans, 'IBM Plex Sans', sans-serif);
+  font-size: 13px;
+}
+
+.cal-crumb-link {
+  background: none;
+  border: none;
+  padding: 4px 2px;
+  color: var(--app-acc, var(--acc, #c4a574));
+  cursor: pointer;
+  font: inherit;
+  min-height: 48px;
+}
+
+.cal-crumb-link.on {
+  color: var(--ink);
+  font-weight: 600;
+  cursor: default;
+}
+
+.cal-crumb-sep {
+  color: var(--muted);
+}
+
+.cal-crumb-here {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Year: 12 month cards */
+.cal-month-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+@media (min-width: 640px) {
+  .cal-month-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.cal-month-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: left;
+  padding: 14px 14px;
+  min-height: 72px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--app-font-sans, 'IBM Plex Sans', sans-serif);
+}
+
+.cal-month-card:active {
+  transform: scale(0.98);
+}
+
+.cal-month-name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.cal-month-meta {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+/* Month day grid */
+.cal-day-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.cal-day-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 48px;
+  padding: 6px 2px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--app-font-sans, 'IBM Plex Sans', sans-serif);
+}
+
+.cal-day-cell.empty-day {
+  opacity: 0.55;
+}
+
+.cal-day-cell.has-saints {
+  border-color: color-mix(in srgb, var(--app-acc, #c4a574) 45%, var(--line));
+  background: color-mix(in srgb, var(--app-acc, #c4a574) 12%, var(--card));
+}
+
+.cal-day-num {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.cal-day-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--app-acc, #c4a574);
+}
+
+.cal-day-count {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.cal-empty-day {
+  margin-top: 20px;
+  max-width: 48ch;
+}
+
+/* Desktop bookcard as link */
+a.bookcard {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
 }
