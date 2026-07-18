@@ -1,0 +1,21 @@
+{
+  "documentId": "mm-es",
+  "authorProfileId": "issuer-john-xxiii",
+  "compositionYears": "1961",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Mater et Magistra — nota: Juan XXIII; si el pack lo lista bajo otro, se mantiene año histórico.",
+  "chronologyNote": "Juan XXIII; doctrina social preconciliar inmediata.",
+  "timelineSlice": [
+    {
+      "years": "1961",
+      "label": "Mater et Magistra — nota: Juan XXIII; si el pack lo lista bajo otro, se mantiene"
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan XXIII — Pacem in terris (vatican.va)",
+      "url": "https://www.vatican.va/content/john-xxiii/es/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

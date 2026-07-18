@@ -1,0 +1,21 @@
+{
+  "documentId": "agustin-28-escritos-biblicos-4-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "410–425",
+  "compositionPlace": "Hipona",
+  "workSummary": "Escritos bíblicos (tomo 4): continuación del corpus exegético.",
+  "chronologyNote": "Contemporáneo de Ciudad de Dios y de la gracia; no es la exégesis de juventud.",
+  "timelineSlice": [
+    {
+      "years": "410–425",
+      "label": "Escritos bíblicos (bloque 4)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

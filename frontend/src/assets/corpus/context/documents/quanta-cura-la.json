@@ -1,0 +1,21 @@
+{
+  "documentId": "quanta-cura-la",
+  "authorProfileId": "issuer-pius-ix",
+  "compositionYears": "1864",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Quanta cura (texto latino).",
+  "chronologyNote": "1864.",
+  "timelineSlice": [
+    {
+      "years": "1864",
+      "label": "Quanta cura (texto latino)."
+    }
+  ],
+  "references": [
+    {
+      "title": "Pío IX, Quanta cura (1864)",
+      "url": "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

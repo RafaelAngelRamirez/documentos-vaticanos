@@ -1,0 +1,56 @@
+{
+  "id": "cipriano-cartago",
+  "name": "Cipriano de Cartago",
+  "kind": "author",
+  "years": "c. 200–258",
+  "saintId": "cipriano-cartago",
+  "summary": "Cecilio Cipriano, obispo de Cartago y mártir (258), es la gran voz latina de la unidad de la Iglesia en el siglo III. Sus cartas documentan persecuciones (Decio, Valeriano), el problema de los lapsi y la controversia bautismal con Roma.",
+  "axes": {
+    "lugar": "Cartago y África proconsular; red de obispos norteafricanos; relaciones con Roma (Cornelio, Esteban).",
+    "personajes": "Tertuliano (influencia literaria); Cornelio y Esteban de Roma; Novaciano; emperadores Decio y Valeriano; confesores y lapsi de la persecución.",
+    "gobierno": "Crisis del siglo III: emperadores militares, edicto de Decio (sacrificios públicos), confiscaciones y ejecuciones bajo Valeriano; administración provincial aún romana.",
+    "cultura": "Latín cristiano africano; retórica forense de Cipriano (formación jurídica); epistolario como gobierno eclesial; memorias de mártires.",
+    "religion": "Cristianismo latino pre-niceno; culto imperial como prueba de lealtad; residuales cultos púnicos/romanos; debate sobre pureza de la Iglesia y rebautismo.",
+    "antropologia": "Honor y apostasía bajo coacción; redes de caridad episcopal; viudas y pobres; martirio como modelo de identidad.",
+    "creenciasMundanas": "Religión cívica romana; magia y oráculos; miedo al fatum en crisis imperial.",
+    "creenciaCristiana": "Una Iglesia, un episcopado (De ecclesiae catholicae unitate); validez ministerial ligada a la comunión católica; bautismo y penitencia de los lapsi; martirio como testimonio supremo."
+  },
+  "timeline": [
+    {
+      "years": "248/249",
+      "label": "Episcopado en Cartago"
+    },
+    {
+      "years": "250–251",
+      "label": "Persecución de Decio; cuestión de los lapsi"
+    },
+    {
+      "years": "255–256",
+      "label": "Controversia bautismal con Esteban de Roma"
+    },
+    {
+      "years": "258",
+      "label": "Martirio bajo Valeriano"
+    }
+  ],
+  "references": [
+    {
+      "title": "Cyprian of Carthage, Epistles",
+      "url": "https://www.newadvent.org/fathers/0506.htm",
+      "citation": "Cipriano de Cartago, Epistolae; CSEL / BAC."
+    },
+    {
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed."
+    },
+    {
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984."
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

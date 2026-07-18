@@ -1,0 +1,21 @@
+{
+  "documentId": "agustin-26-sermones-6-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "410–430",
+  "compositionPlace": "Hipona",
+  "workSummary": "Último bloque de sermones del pack: voz pastoral en la crisis del Occidente y de África.",
+  "chronologyNote": "Homilética tardía, cronológicamente posterior a los primeros tomos de sermones del corpus BAC.",
+  "timelineSlice": [
+    {
+      "years": "410–430",
+      "label": "Sermones del periodo final"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

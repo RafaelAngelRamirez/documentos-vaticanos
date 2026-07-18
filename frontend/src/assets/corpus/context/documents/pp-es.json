@@ -1,0 +1,21 @@
+{
+  "documentId": "pp-es",
+  "authorProfileId": "issuer-paul-vi",
+  "compositionYears": "1967",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Populorum progressio: desarrollo de los pueblos.",
+  "chronologyNote": "Postconcilio inmediato; Tercer Mundo y descolonización.",
+  "timelineSlice": [
+    {
+      "years": "1967",
+      "label": "Populorum progressio: desarrollo de los pueblos."
+    }
+  ],
+  "references": [
+    {
+      "title": "Pablo VI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

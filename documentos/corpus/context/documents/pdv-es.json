@@ -1,0 +1,21 @@
+{
+  "documentId": "pdv-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "1992",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Pastores dabo vobis: formación sacerdotal.",
+  "chronologyNote": "Sínodo sobre sacerdotes.",
+  "timelineSlice": [
+    {
+      "years": "1992",
+      "label": "Pastores dabo vobis: formación sacerdotal."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

@@ -1,0 +1,22 @@
+{
+  "documentId": "bible-pueblo-de-dios-es",
+  "authorProfileId": "sagrada-escritura",
+  "compositionYears": "1980 (ed. ES)",
+  "compositionPlace": "Tradición bíblica multiperiodo",
+  "workSummary": "Biblia completa en español (edición Pueblo de Dios) para lectura eclesial.",
+  "chronologyNote": "Canon antiguo; traducción moderna hispana del s. XX.",
+  "timelineSlice": [
+    {
+      "years": "1980 (ed. ES)",
+      "label": "Biblia completa en español (edición Pueblo de Dios) para lectura eclesial."
+    }
+  ],
+  "references": [
+    {
+      "title": "Biblia (tradición canónica hebrea-cristiana)",
+      "citation": "Texto masorético / LXX / NT griego; ed. Pueblo de Dios (ES).",
+      "url": "https://www.vatican.va/archive/ESL0506/_INDEX.HTM"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

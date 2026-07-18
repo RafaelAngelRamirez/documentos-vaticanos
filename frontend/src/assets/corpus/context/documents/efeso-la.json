@@ -1,0 +1,25 @@
+{
+  "documentId": "efeso-la",
+  "authorProfileId": "era-concilios-antiguos",
+  "compositionYears": "431",
+  "compositionPlace": "Éfeso",
+  "workSummary": "Tercer ecuménico: María Theotokos; condena de Nestorio. Texto latino del pack conciliar.",
+  "chronologyNote": "Teodosio II; conflicto Alejandría–Constantinopla–Antioquía.",
+  "timelineSlice": [
+    {
+      "years": "431",
+      "label": "Concilio · Éfeso"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

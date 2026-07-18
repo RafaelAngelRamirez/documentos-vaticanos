@@ -1,0 +1,51 @@
+{
+  "id": "sagrada-escritura",
+  "name": "Sagrada Escritura (canon judeocristiano)",
+  "kind": "era",
+  "years": "II milenio a.C. – s. I d.C.",
+  "summary": "La Biblia reúne tradiciones de Israel y del cristianismo apostólico: Torá, Profetas y Escritos en hebreo/arameo (y formas griegas de la LXX), y el Nuevo Testamento griego. El pack «Pueblo de Dios» es una traducción española de esa herencia canónica para la lectura eclesial.",
+  "axes": {
+    "lugar": "Antiguo Oriente Próximo (Egipto, Canaán/Israel, Mesopotamia, Persia); mundo helenístico (Alejandría); Palestina romana y diáspora mediterránea del siglo I.",
+    "personajes": "Patriarcas y reyes de Israel/Judá; profetas; figuras del Segundo Templo; Jesús de Nazaret; apóstoles (Pedro, Pablo, Juan…); emperadores romanos del siglo I como trasfondo (Augusto, Tiberio, Nerón…).",
+    "gobierno": "Jefaturas tribales, monarquía unida y dividida, imperios asirio, babilónico, persa, helenístico y romano; prefectura de Judea y reinos clientes herodianos en época neotestamentaria.",
+    "cultura": "Hebreo, arameo y griego; géneros narrativos, legales, sapienciales, proféticos y epistolares; templo, sinagoga y casa-iglesia; memoria oral y escritura.",
+    "religion": "Monoteísmo yahvista en desarrollo; cultos cananeos y del entorno; judaísmos del Segundo Templo; culto imperial romano; misterios helenísticos como contraste cultural.",
+    "antropologia": "Clan y alianza; pureza ritual; honor/vergüenza mediterráneos; esclavitud y patronazgo; mesianismo popular y élites sacerdotales.",
+    "creenciasMundanas": "Politeísmos vecinos; astrología mesopotámica y helenística; destinos y héroes; filosofía popular grecorromana en el ambiente del NT.",
+    "creenciaCristiana": "Para la lectura cristiana: un canon que prepara y testimonia a Cristo; Antiguo Testamento como promesa y el Nuevo como cumplimiento en la Iglesia apostólica."
+  },
+  "timeline": [
+    {
+      "years": "c. XIII–IV a.C.",
+      "label": "Formación de tradiciones del AT (esquema amplio)"
+    },
+    {
+      "years": "s. III–I a.C.",
+      "label": "Septuaginta y judaísmo helenístico"
+    },
+    {
+      "years": "s. I d.C.",
+      "label": "Ministerio de Jesús y escritos del NT"
+    },
+    {
+      "years": "s. II–IV",
+      "label": "Fijación progresiva del canon cristiano"
+    }
+  ],
+  "references": [
+    {
+      "title": "Biblia (tradición canónica hebrea-cristiana)",
+      "citation": "Texto masorético / LXX / NT griego; ed. Pueblo de Dios (ES).",
+      "url": "https://www.vatican.va/archive/ESL0506/_INDEX.HTM"
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    },
+    {
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

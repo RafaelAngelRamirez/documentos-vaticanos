@@ -1,0 +1,21 @@
+{
+  "documentId": "agustin-10-sermones-2-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "400–420",
+  "compositionPlace": "Hipona",
+  "workSummary": "Segunda colección de sermones: madurez oratoria en fiestas, santos y moral cotidiana africana.",
+  "chronologyNote": "Predicación de la madurez episcopal, en paralelo a donatismo tardío y pelagianismo.",
+  "timelineSlice": [
+    {
+      "years": "400–420",
+      "label": "Sermones de madurez"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

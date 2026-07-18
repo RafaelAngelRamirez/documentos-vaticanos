@@ -1,0 +1,25 @@
+{
+  "documentId": "cceo-la",
+  "authorProfileId": "issuer-canon-law",
+  "compositionYears": "1990",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Código de los Cánones de las Iglesias Orientales.",
+  "chronologyNote": "Juan Pablo II; paralelismo oriental al CIC 83.",
+  "timelineSlice": [
+    {
+      "years": "1990",
+      "label": "Código de los Cánones de las Iglesias Orientales."
+    }
+  ],
+  "references": [
+    {
+      "title": "Código de los Cánones de las Iglesias Orientales — vatican.va",
+      "url": "https://www.vatican.va/holy_father/john_paul_ii/apost_constitutions/documents/hf_jp-ii_apc_19901018_codex-can-eccl-orient-sp.html"
+    },
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

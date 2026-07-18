@@ -1,0 +1,21 @@
+{
+  "documentId": "agustin-25-sermones-5-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "405–430",
+  "compositionPlace": "Hipona",
+  "workSummary": "Sermones 273–338: continuación del corpus homilético tardío.",
+  "chronologyNote": "Predicación de la última fase episcopal, parcialmente contemporánea del asedio final.",
+  "timelineSlice": [
+    {
+      "years": "405–430",
+      "label": "Sermones 273–338"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

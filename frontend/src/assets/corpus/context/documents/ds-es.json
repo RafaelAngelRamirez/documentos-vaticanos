@@ -1,0 +1,22 @@
+{
+  "documentId": "ds-es",
+  "authorProfileId": "issuer-denzinger",
+  "compositionYears": "ed. moderna",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Enchiridion symbolorum (Denzinger-Schönmetzer) en uso de estudio.",
+  "chronologyNote": "Compilación s. XIX–XX de textos magisteriales de todos los siglos.",
+  "timelineSlice": [
+    {
+      "years": "ed. moderna",
+      "label": "Enchiridion symbolorum (Denzinger-Schönmetzer) en uso de estudio."
+    }
+  ],
+  "references": [
+    {
+      "title": "Denzinger-Hünermann, Enchiridion symbolorum",
+      "citation": "Denzinger, H. / Hünermann, P. Enchiridion symbolorum definitionum et declarationum de rebus fidei et morum.",
+      "url": "https://www.vatican.va/archive/catechism_lt/index_lt.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

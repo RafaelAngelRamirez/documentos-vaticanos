@@ -1,0 +1,25 @@
+{
+  "documentId": "persona-humana-es",
+  "authorProfileId": "issuer-curia-moderna",
+  "compositionYears": "1975",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Persona humana: ética sexual (CDF).",
+  "chronologyNote": "Pablo VI / CDF postconciliar.",
+  "timelineSlice": [
+    {
+      "years": "1975",
+      "label": "Persona humana: ética sexual (CDF)."
+    }
+  ],
+  "references": [
+    {
+      "title": "Benedicto XVI / CDF — documentos (vatican.va)",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/doc_doc_index_sp.htm"
+    },
+    {
+      "title": "Pablo VI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

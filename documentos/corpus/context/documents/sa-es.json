@@ -1,0 +1,21 @@
+{
+  "documentId": "sa-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "1984",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Salvifici doloris: sentido cristiano del sufrimiento.",
+  "chronologyNote": "Año de la Redención.",
+  "timelineSlice": [
+    {
+      "years": "1984",
+      "label": "Salvifici doloris: sentido cristiano del sufrimiento."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

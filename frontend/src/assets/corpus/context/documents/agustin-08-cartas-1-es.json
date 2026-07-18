@@ -1,0 +1,21 @@
+{
+  "documentId": "agustin-08-cartas-1-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "386–410",
+  "compositionPlace": "África e Italia (corresponsales)",
+  "workSummary": "Epistolario temprano y medio: red de amistad, disciplina eclesial y primeras controversias antes del pleno pelagianismo.",
+  "chronologyNote": "Corresponde sobre todo a la fase anterior al gran corpus antipelagiano; incluye gobierno diocesano y lazos con Italia.",
+  "timelineSlice": [
+    {
+      "years": "386–410",
+      "label": "Cartas de juventud cristiana y episcopado medio"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

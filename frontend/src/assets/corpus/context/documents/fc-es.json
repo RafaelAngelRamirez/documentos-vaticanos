@@ -1,0 +1,21 @@
+{
+  "documentId": "fc-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "1981",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Familiaris consortio: familia cristiana.",
+  "chronologyNote": "Sínodo de la familia 1980.",
+  "timelineSlice": [
+    {
+      "years": "1981",
+      "label": "Familiaris consortio: familia cristiana."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

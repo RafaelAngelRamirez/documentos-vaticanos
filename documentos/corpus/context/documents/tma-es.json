@@ -1,0 +1,21 @@
+{
+  "documentId": "tma-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "1994",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Tertio millennio adveniente: preparación del Jubileo.",
+  "chronologyNote": "Camino al año 2000.",
+  "timelineSlice": [
+    {
+      "years": "1994",
+      "label": "Tertio millennio adveniente: preparación del Jubileo."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

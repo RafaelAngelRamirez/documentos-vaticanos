@@ -1,0 +1,21 @@
+{
+  "documentId": "en-es",
+  "authorProfileId": "issuer-paul-vi",
+  "compositionYears": "1975",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Evangelii nuntiandi: evangelización en el mundo contemporáneo.",
+  "chronologyNote": "Sínodo 1974; Pablo VI.",
+  "timelineSlice": [
+    {
+      "years": "1975",
+      "label": "Evangelii nuntiandi: evangelización en el mundo contemporáneo."
+    }
+  ],
+  "references": [
+    {
+      "title": "Pablo VI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

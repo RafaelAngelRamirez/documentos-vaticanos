@@ -1,0 +1,30 @@
+{
+  "documentId": "cipriano-cartas-es",
+  "authorProfileId": "cipriano-cartago",
+  "compositionYears": "249–258",
+  "compositionPlace": "Cartago",
+  "workSummary": "Epistolario de gobierno eclesial, persecución, lapsi y unidad de la Iglesia.",
+  "chronologyNote": "Década final de Cipriano, de Decio a Valeriano; martirio en 258.",
+  "timelineSlice": [
+    {
+      "years": "249–251",
+      "label": "Persecución de Decio y lapsi"
+    },
+    {
+      "years": "255–258",
+      "label": "Controversia bautismal y martirio"
+    }
+  ],
+  "references": [
+    {
+      "title": "Cyprian of Carthage, Epistles",
+      "url": "https://www.newadvent.org/fathers/0506.htm",
+      "citation": "Cipriano de Cartago, Epistolae; CSEL / BAC."
+    },
+    {
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

@@ -1,0 +1,21 @@
+{
+  "documentId": "hv-es",
+  "authorProfileId": "issuer-paul-vi",
+  "compositionYears": "1968",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Humanae vitae: regulación de la natalidad y amor conyugal.",
+  "chronologyNote": "Recepción conflictiva del Vaticano II; julio de 1968.",
+  "timelineSlice": [
+    {
+      "years": "1968",
+      "label": "Humanae vitae: regulación de la natalidad y amor conyugal."
+    }
+  ],
+  "references": [
+    {
+      "title": "Pablo VI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

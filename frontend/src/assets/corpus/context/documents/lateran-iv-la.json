@@ -1,0 +1,25 @@
+{
+  "documentId": "lateran-iv-la",
+  "authorProfileId": "era-concilios-medievales",
+  "compositionYears": "1215",
+  "compositionPlace": "Roma (Letrán)",
+  "workSummary": "IV Lateranense: confesión anual, transubstanciación, reforma bajo Inocencio III. Texto latino del pack conciliar.",
+  "chronologyNote": "Cénit del papado medieval; cruzadas y derecho canónico clásico.",
+  "timelineSlice": [
+    {
+      "years": "1215",
+      "label": "Concilio · Roma (Letrán)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

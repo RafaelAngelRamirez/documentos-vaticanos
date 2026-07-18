@@ -1,0 +1,29 @@
+{
+  "documentId": "agustin-06-gracia-1-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "396–412",
+  "compositionPlace": "Hipona",
+  "workSummary": "Primer bloque de tratados sobre la gracia y el libre albedrío en transición hacia la controversia pelagiana abierta.",
+  "chronologyNote": "De las respuestas a Simpliciano (tras episcopado) hasta el umbral de 412, cuando Pelagio/Celestio fuerzan definiciones más duras.",
+  "timelineSlice": [
+    {
+      "years": "396–397",
+      "label": "Ad Simplicianum (gracia y elección)"
+    },
+    {
+      "years": "411–412",
+      "label": "Apertura de la crisis pelagiana en África"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

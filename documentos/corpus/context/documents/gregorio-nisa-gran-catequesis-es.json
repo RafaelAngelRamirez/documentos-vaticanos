@@ -1,0 +1,26 @@
+{
+  "documentId": "gregorio-nisa-gran-catequesis-es",
+  "authorProfileId": "gregorio-nisa",
+  "compositionYears": "c. 385",
+  "compositionPlace": "Capadocia",
+  "workSummary": "Oratio catechetica magna: exposición de la fe para catequistas en clave capadocia.",
+  "chronologyNote": "Posterior a Constantinopla I (381); madurez de Gregorio como teólogo del Imperio teodosiano.",
+  "timelineSlice": [
+    {
+      "years": "c. 385",
+      "label": "Gran Catequesis"
+    }
+  ],
+  "references": [
+    {
+      "title": "Gregory of Nyssa, The Great Catechism",
+      "url": "https://www.newadvent.org/fathers/2908.htm",
+      "citation": "Gregorio de Nisa, Oratio catechetica magna; PG 45."
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

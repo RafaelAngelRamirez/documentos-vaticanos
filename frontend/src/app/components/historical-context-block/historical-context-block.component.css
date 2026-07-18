@@ -1,0 +1,128 @@
+.hist-ctx {
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.hist-ctx-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-family: var(--app-font-sans, inherit);
+  text-align: left;
+  cursor: pointer;
+}
+
+.hist-ctx-toggle:active {
+  opacity: 0.85;
+}
+
+.hist-ctx-chev {
+  color: var(--app-muted, var(--muted));
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+.hist-ctx-body {
+  padding-bottom: 12px;
+}
+
+.hist-ctx-p {
+  margin: 0 0 10px;
+  font-family: var(--app-font-serif, Georgia, serif);
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--app-ink, var(--ink));
+}
+
+.hist-ctx-k {
+  font-family: var(--app-font-sans, inherit);
+  font-weight: 600;
+  color: var(--app-muted, var(--muted));
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.hist-ctx-work {
+  padding-left: 10px;
+  border-left: 2px solid var(--app-line, var(--line));
+}
+
+.hist-ctx-timeline {
+  margin: 12px 0;
+  padding: 10px 12px;
+  background: color-mix(in srgb, var(--app-card, var(--card)) 88%, transparent);
+  border: 1px solid var(--app-line, var(--line));
+  border-radius: 8px;
+}
+
+.hist-ctx-trow {
+  display: grid;
+  grid-template-columns: minmax(72px, 100px) 1fr;
+  gap: 8px;
+  font-size: 13px;
+  padding: 4px 0;
+}
+
+.hist-ctx-tyears {
+  font-family: var(--app-font-sans, inherit);
+  color: var(--app-muted, var(--muted));
+  font-variant-numeric: tabular-nums;
+}
+
+.hist-ctx-tlabel {
+  font-family: var(--app-font-serif, Georgia, serif);
+}
+
+.hist-ctx-axes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.hist-ctx-axis-label {
+  font-family: var(--app-font-sans, inherit);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--app-muted, var(--muted));
+  margin-bottom: 4px;
+}
+
+.hist-ctx-axis-text {
+  font-family: var(--app-font-serif, Georgia, serif);
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: var(--app-ink, var(--ink));
+}
+
+.hist-ctx-reflist {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.hist-ctx-reflist li {
+  margin-bottom: 6px;
+}
+
+.hist-ctx-source {
+  margin-top: 12px;
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hist-ctx-toggle {
+    transition: none;
+  }
+}

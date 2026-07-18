@@ -1,0 +1,21 @@
+{
+  "documentId": "quas-primas-es",
+  "authorProfileId": "issuer-pius-xi",
+  "compositionYears": "1925",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Quas primas: fiesta de Cristo Rey.",
+  "chronologyNote": "Entreguerras; Acción Católica.",
+  "timelineSlice": [
+    {
+      "years": "1925",
+      "label": "Quas primas: fiesta de Cristo Rey."
+    }
+  ],
+  "references": [
+    {
+      "title": "Pío XI — Quas primas y otros (vatican.va)",
+      "url": "https://www.vatican.va/content/pius-xi/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

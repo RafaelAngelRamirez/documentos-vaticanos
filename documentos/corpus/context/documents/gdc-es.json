@@ -1,0 +1,25 @@
+{
+  "documentId": "gdc-es",
+  "authorProfileId": "issuer-curia-moderna",
+  "compositionYears": "1997",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Directorio General para la Catequesis.",
+  "chronologyNote": "Congregación para el Clero; post-Catecismo.",
+  "timelineSlice": [
+    {
+      "years": "1997",
+      "label": "Directorio General para la Catequesis."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    },
+    {
+      "title": "Catecismo de la Iglesia Católica (vatican.va)",
+      "url": "https://www.vatican.va/archive/catechism_sp/index_sp.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

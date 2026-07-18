@@ -1,0 +1,26 @@
+{
+  "documentId": "mf-es",
+  "authorProfileId": "issuer-paul-vi",
+  "compositionYears": "1965",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Mysterium fidei: eucaristía en el clima conciliar.",
+  "chronologyNote": "Año final del Vaticano II.",
+  "timelineSlice": [
+    {
+      "years": "1965",
+      "label": "Mysterium fidei: eucaristía en el clima conciliar."
+    }
+  ],
+  "references": [
+    {
+      "title": "Pablo VI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html"
+    },
+    {
+      "title": "Documentos del Concilio Vaticano II (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index_sp.htm",
+      "citation": "Acta Apostolicae Sedis / vatican.va — Concilio Vaticano II."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

@@ -1,0 +1,26 @@
+{
+  "documentId": "agustin-17-ciudad-de-dios-2-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "420–426",
+  "compositionPlace": "Hipona",
+  "workSummary": "Libros finales de La ciudad de Dios: orígenes, desarrollo y fines de las dos ciudades; escatología y paz eterna.",
+  "chronologyNote": "Segunda fase del De civitate Dei, en los años 420, ya en plena madurez antipelagiana — distinta de la apologética inmediata post-410 del tomo I.",
+  "timelineSlice": [
+    {
+      "years": "420–426",
+      "label": "De civitate Dei, libros finales"
+    }
+  ],
+  "references": [
+    {
+      "title": "Agustín, De civitate Dei",
+      "citation": "San Agustín, La ciudad de Dios, BAC.",
+      "url": "https://www.augustinus.it/latino/cdd/index2.htm"
+    },
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

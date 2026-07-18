@@ -1,0 +1,21 @@
+{
+  "documentId": "dcg-es",
+  "authorProfileId": "issuer-curia-moderna",
+  "compositionYears": "1971",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Directorio Catequético General.",
+  "chronologyNote": "Primer directorio postconciliar.",
+  "timelineSlice": [
+    {
+      "years": "1971",
+      "label": "Directorio Catequético General."
+    }
+  ],
+  "references": [
+    {
+      "title": "Pablo VI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

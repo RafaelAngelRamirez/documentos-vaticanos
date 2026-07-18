@@ -1,0 +1,28 @@
+{
+  "documentId": "agustin-32-antidonatistas-1-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "400–405",
+  "compositionPlace": "Hipona / África",
+  "workSummary": "Primer bloque antidonatista: unidad de la Iglesia, bautismo y polemica con la pars Donati.",
+  "chronologyNote": "Apertura de la gran ofensiva católica africana pre-Conferencia de Cartago (411).",
+  "axes": {
+    "religion": "Cisma donatista: pureza de la Iglesia, rebautismo, mártires «verdaderos» vs. traditores; católicos apelan a la catolicidad universal."
+  },
+  "timelineSlice": [
+    {
+      "years": "400–405",
+      "label": "Anti-donatismo temprano episcopal"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

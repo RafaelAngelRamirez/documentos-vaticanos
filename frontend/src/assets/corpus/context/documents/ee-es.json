@@ -1,0 +1,21 @@
+{
+  "documentId": "ee-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "2003",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Ecclesia de Eucharistia.",
+  "chronologyNote": "Final del pontificado; Año de la Eucaristía en el horizonte.",
+  "timelineSlice": [
+    {
+      "years": "2003",
+      "label": "Ecclesia de Eucharistia."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

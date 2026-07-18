@@ -1,0 +1,25 @@
+{
+  "documentId": "mysterium-ecclesiae-es",
+  "authorProfileId": "issuer-curia-moderna",
+  "compositionYears": "1973",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Mysterium Ecclesiae: eclesiología y disenso.",
+  "chronologyNote": "CDF; recepción del Vaticano II.",
+  "timelineSlice": [
+    {
+      "years": "1973",
+      "label": "Mysterium Ecclesiae: eclesiología y disenso."
+    }
+  ],
+  "references": [
+    {
+      "title": "Benedicto XVI / CDF — documentos (vatican.va)",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/doc_doc_index_sp.htm"
+    },
+    {
+      "title": "Pablo VI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

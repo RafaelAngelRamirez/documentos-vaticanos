@@ -1,0 +1,26 @@
+{
+  "documentId": "cirilo-jerusalen-catequesis-es",
+  "authorProfileId": "cirilo-jerusalen",
+  "compositionYears": "c. 350",
+  "compositionPlace": "Jerusalén",
+  "workSummary": "Procatequesis y catequesis bautismales/mistagógicas en la Jerusalén constantiniana.",
+  "chronologyNote": "Mediados del s. IV, en plena disputa arriana y auge de la peregrinación a Tierra Santa.",
+  "timelineSlice": [
+    {
+      "years": "c. 350",
+      "label": "Catequesis jerosolimitanas"
+    }
+  ],
+  "references": [
+    {
+      "title": "Cyril of Jerusalem, Catechetical Lectures",
+      "url": "https://www.newadvent.org/fathers/3101.htm",
+      "citation": "Cirilo de Jerusalén, Catequesis; PG 33."
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

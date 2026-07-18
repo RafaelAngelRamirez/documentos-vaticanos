@@ -1,0 +1,47 @@
+{
+  "id": "era-vat2",
+  "name": "Concilio Vaticano II",
+  "kind": "era",
+  "years": "1962–1965",
+  "summary": "El Vaticano II es el gran sínodo pastoral y doctrinal del siglo XX: liturgia, revelación, Iglesia, ecumenismo, libertad religiosa y diálogo con el mundo moderno, convocado por Juan XXIII y concluido por Pablo VI.",
+  "axes": {
+    "lugar": "Ciudad del Vaticano / Basílica de San Pedro; recepción global en diócesis de todos los continentes; Guerra Fría como marco geopolítico.",
+    "personajes": "Juan XXIII; Pablo VI; peritos (Congar, Rahner, Ratzinger joven, etc.); obispos del Tercer Mundo; observadores no católicos.",
+    "gobierno": "Orden bipolar; descolonización; ONU y derechos humanos; Santa Sede como actor diplomático sin poder territorial clásico.",
+    "cultura": "Mass media; lenguas vernáculas en liturgia; ciencias humanas; movimiento litúrgico y bíblico previos.",
+    "religion": "Ecumenismo; diálogo interreligioso (Nostra aetate); secularización occidental; vitalidad del Sur global.",
+    "antropologia": "Dignidad de la persona; matrimonio y familia en debate; laicado; derechos civiles.",
+    "creenciasMundanas": "Ateísmo moderno; ideologías totalitarias del s. XX; cientifismo; consumismo.",
+    "creenciaCristiana": "Eclesiología de pueblo de Dios y comunión; Escritura y Tradición (Dei verbum); colegialidad; libertad religiosa como derecho civil fundado en dignidad."
+  },
+  "timeline": [
+    {
+      "years": "1962–1965",
+      "label": "Cuatro periodos conciliares"
+    },
+    {
+      "years": "1963–1965",
+      "label": "Constituciones SC, LG, DV, GS y decretos mayores"
+    }
+  ],
+  "references": [
+    {
+      "title": "Documentos del Concilio Vaticano II (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index_sp.htm",
+      "citation": "Acta Apostolicae Sedis / vatican.va — Concilio Vaticano II."
+    },
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    },
+    {
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

@@ -1,0 +1,42 @@
+{
+  "id": "issuer-pius-ix",
+  "name": "Pío IX",
+  "kind": "issuer",
+  "years": "1846–1878",
+  "summary": "Giovanni Maria Mastai Ferretti, el pontificado más largo de la era moderna, combina el Syllabus, la definición de la Inmaculada y el Vaticano I con la pérdida de los Estados Pontificios.",
+  "axes": {
+    "lugar": "Roma y Estados Pontificios hasta 1870; Europa de las revoluciones.",
+    "personajes": "Pío IX; Cavour; Napoleón III; padres del Vaticano I.",
+    "gobierno": "Fin del poder temporal; monarquías constitucionales; unificación italiana.",
+    "cultura": "Romanticismo católico; devociones marianas de masas.",
+    "religion": "Ultramontanismo; confesionalidad vs. Estado liberal.",
+    "antropologia": "Piedad popular; misiones; emigración.",
+    "creenciasMundanas": "Liberalismo, panteísmo, socialismo (Syllabus).",
+    "creenciaCristiana": "Inmaculada Concepción (1854); antiliberalismo doctrinal; preparación de Pastor Aeternus."
+  },
+  "timeline": [
+    {
+      "years": "1864",
+      "label": "Quanta cura"
+    },
+    {
+      "years": "1869–1870",
+      "label": "Vaticano I"
+    }
+  ],
+  "references": [
+    {
+      "title": "Pío IX, Quanta cura (1864)",
+      "url": "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html"
+    },
+    {
+      "title": "Concilio Vaticano I — Dei Filius / Pastor Aeternus",
+      "url": "https://www.vatican.va/content/pius-ix/la/documents/constitutio-dogmatica-pastor-aeternus-18-iulii-1870.html"
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

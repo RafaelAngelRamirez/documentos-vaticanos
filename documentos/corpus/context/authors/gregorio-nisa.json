@@ -1,0 +1,52 @@
+{
+  "id": "gregorio-nisa",
+  "name": "Gregorio de Nisa",
+  "kind": "author",
+  "years": "c. 335–c. 395",
+  "saintId": "gregorio-nisa",
+  "summary": "Gregorio de Nisa, hermano de Basilio Magno y amigo de Gregorio Nacianceno (los «tres capadocios»), es teólogo místico y dogmático del siglo IV. Su Gran Catequesis expone la fe para instructores en el clima post-niceno de Capadocia y el Imperio de Oriente.",
+  "axes": {
+    "lugar": "Capadocia (Nisa, Cesarea); círculos eclesiásticos de Asia Menor; Constantinopla como horizonte imperial y conciliar.",
+    "personajes": "Basilio Magno; Macrina; Gregorio Nacianceno; emperador Teodosio I; oponentes eunomianos/arrianos.",
+    "gobierno": "Imperio romano de Oriente cristianizado; Concilio de Constantinopla I (381); legislación teodosiana a favor de la fe nicena.",
+    "cultura": "Retórica y filosofía griega (platonismo cristiano); monacato familiar capadocio; griego teológico técnico (ousia, hypostasis).",
+    "religion": "Nicenismo vs. arrianismos y eunomianismo; residuales cultos anatólicos; judaísmo; ascetismo cristiano.",
+    "antropologia": "Imagen de Dios en el ser humano; ascenso espiritual; género y virginidad en tratados conexos; educación catequética de adultos.",
+    "creenciasMundanas": "Sofística y dialéctica eunomiana; platonismo pagano residual; astrología popular.",
+    "creenciaCristiana": "Trinidad capadocia; Encarnación y redención en la Gran Catequesis; bautismo y eucaristía; apokatastasis matizada en otros textos nisanos."
+  },
+  "timeline": [
+    {
+      "years": "c. 372",
+      "label": "Obispo de Nisa"
+    },
+    {
+      "years": "381",
+      "label": "Concilio de Constantinopla I"
+    },
+    {
+      "years": "c. 385",
+      "label": "Gran Catequesis (aprox.)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Gregory of Nyssa, The Great Catechism",
+      "url": "https://www.newadvent.org/fathers/2908.htm",
+      "citation": "Gregorio de Nisa, Oratio catechetica magna; PG 45."
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    },
+    {
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press."
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

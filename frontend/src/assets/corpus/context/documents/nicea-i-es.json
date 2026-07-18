@@ -1,0 +1,28 @@
+{
+  "documentId": "nicea-i-es",
+  "authorProfileId": "era-concilios-antiguos",
+  "compositionYears": "325",
+  "compositionPlace": "Nicea (Bitinia)",
+  "workSummary": "Primer concilio ecuménico: homoousios y credo frente a Arrio; Pascua. Traducción española del pack (ver sourceNote del corpus si es traducción generada).",
+  "chronologyNote": "Reinado de Constantino; paso del cristianismo perseguido al imperial.",
+  "axes": {
+    "cultura": "Tradición textual latina del concilio recibida en lengua española moderna para lectura pastoral y de estudio; el original magisterial es latino (o griego en actas antiguas)."
+  },
+  "timelineSlice": [
+    {
+      "years": "325",
+      "label": "Concilio · Nicea (Bitinia)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

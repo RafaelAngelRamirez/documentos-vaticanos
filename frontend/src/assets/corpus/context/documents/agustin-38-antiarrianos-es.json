@@ -1,0 +1,28 @@
+{
+  "documentId": "agustin-38-antiarrianos-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "418–428",
+  "compositionPlace": "Hipona",
+  "workSummary": "Escritos contra arrianos y otras herejías: el arrianismo reaparece con godos y vándalos en el Occidente tardío.",
+  "chronologyNote": "Última década: amenaza germánica arriana en África; distinta de las polémicas donatista y pelagiana clásicas.",
+  "axes": {
+    "religion": "Arrianismo germánico (vándalos/godos) frente al nicenismo africano; otras herejías residuales catalogadas por el obispo."
+  },
+  "timelineSlice": [
+    {
+      "years": "418–428",
+      "label": "Collatio cum Maximino y opúsculos antiarrianos"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

@@ -1,0 +1,25 @@
+{
+  "documentId": "constantinopla-i-la",
+  "authorProfileId": "era-concilios-antiguos",
+  "compositionYears": "381",
+  "compositionPlace": "Constantinopla",
+  "workSummary": "Segundo ecuménico: divinidad del Espíritu; ampliación del credo niceno. Texto latino del pack conciliar.",
+  "chronologyNote": "Teodosio I; consolidación nicena en Oriente.",
+  "timelineSlice": [
+    {
+      "years": "381",
+      "label": "Concilio · Constantinopla"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

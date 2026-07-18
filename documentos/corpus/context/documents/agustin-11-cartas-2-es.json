@@ -1,0 +1,21 @@
+{
+  "documentId": "agustin-11-cartas-2-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "410–430",
+  "compositionPlace": "Hipona",
+  "workSummary": "Cartas de la última fase: pelagianismo, disciplina, consulta a Roma y gobierno en África amenazada.",
+  "chronologyNote": "Epistolario tardío, distinto del primer tomo: voz del doctor de la gracia y del obispo bajo presión vándala final.",
+  "timelineSlice": [
+    {
+      "years": "410–430",
+      "label": "Cartas tardías"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

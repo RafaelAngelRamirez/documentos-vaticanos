@@ -1,0 +1,52 @@
+{
+  "id": "cirilo-jerusalen",
+  "name": "Cirilo de Jerusalén",
+  "kind": "author",
+  "years": "c. 313–386",
+  "saintId": "cirilo-jerusalen",
+  "summary": "Cirilo, obispo de Jerusalén en el siglo IV, es recordado por sus Catequesis a candidatos al bautismo y a los recién iniciados. Su sede es el corazón de la geografía sagrada cristiana tras Constantino: basílicas en el Gólgota y el Santo Sepulcro, peregrinación y liturgia de Semana Santa que Egeria describirá poco después.",
+  "axes": {
+    "lugar": "Jerusalén y Palestina romana/bizantina temprana; entorno de la Anastasis y del Martyrium constantinianos; relaciones con Cesarea marítima (metrópoli eclesiástica rival en prestigio).",
+    "personajes": "Constantino y sucesores; Acacio de Cesarea; Máximo y otros predecesores en la sede; emperadores involucrados en exilios arrianos; catecúmenos de la ciudad santa.",
+    "gobierno": "Imperio romano cristiano de Oriente: administración provincial de Palestina, intervención imperial en sínodos y destierros episcopales según oscilaciones arrianas/nicenas.",
+    "cultura": "Griego eclesiástico; tipología bíblica; catequesis oral convertida en texto; arte y arquitectura constantiniana de Tierra Santa; peregrinación como fenómeno social nuevo.",
+    "religion": "Cristianismo en disputa niceno-arriana; judaísmo presente en Palestina; residuales cultos paganos; creciente sacralización de lugares bíblicos.",
+    "antropologia": "Iniciación bautismal de adultos; ayunos; renuncias rituales; familia y patronazgo urbano en una ciudad transformada por el turismo religioso imperial.",
+    "creenciasMundanas": "Sabiduría helenística residual; astrología; prestigio de oráculos y magia que la catequesis confuta; identidad cívica helenístico-romana en Oriente.",
+    "creenciaCristiana": "Fe nicena (con matices de la época pre-Constantinopla I); centralidad de la Encarnación, la cruz y la resurrección; sacramentos de iniciación (bautismo, unción, eucaristía) como entrada a la Iglesia."
+  },
+  "timeline": [
+    {
+      "years": "c. 350",
+      "label": "Episcopado en Jerusalén; Catequesis"
+    },
+    {
+      "years": "325–381",
+      "label": "Era de Nicea a Constantinopla I"
+    },
+    {
+      "years": "381",
+      "label": "Concilio de Constantinopla I (marco dogmático)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Cyril of Jerusalem, Catechetical Lectures",
+      "url": "https://www.newadvent.org/fathers/3101.htm",
+      "citation": "Cirilo de Jerusalén, Catequesis; PG 33."
+    },
+    {
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed."
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

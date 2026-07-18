@@ -1,0 +1,25 @@
+{
+  "documentId": "agustin-37-antipelagianos-5-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "426–430",
+  "compositionPlace": "Hipona",
+  "workSummary": "Últimos escritos sobre la gracia y la predestinación (incl. correspondencia con Galia / Prosper).",
+  "chronologyNote": "Tramo final de la vida: semi-pelagianismo galo en el horizonte; muerte en 430 bajo asedio vándalo.",
+  "timelineSlice": [
+    {
+      "years": "426–430",
+      "label": "Últimos tratados de gracia; muerte en 430"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

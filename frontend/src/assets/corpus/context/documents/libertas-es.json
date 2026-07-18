@@ -1,0 +1,21 @@
+{
+  "documentId": "libertas-es",
+  "authorProfileId": "issuer-leo-xiii",
+  "compositionYears": "1888",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Libertas praestantissimum: libertad humana y ley.",
+  "chronologyNote": "León XIII; Europa liberal del XIX.",
+  "timelineSlice": [
+    {
+      "years": "1888",
+      "label": "Libertas praestantissimum: libertad humana y ley."
+    }
+  ],
+  "references": [
+    {
+      "title": "León XIII — encíclicas (vatican.va)",
+      "url": "https://www.vatican.va/content/leo-xiii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

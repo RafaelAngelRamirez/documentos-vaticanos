@@ -1,0 +1,25 @@
+{
+  "documentId": "trento-la",
+  "authorProfileId": "era-trento",
+  "compositionYears": "1545–1563",
+  "compositionPlace": "Trento",
+  "workSummary": "Concilio de la reforma católica: fe, sacramentos, disciplina. Texto latino del pack conciliar.",
+  "chronologyNote": "Respuesta a la Reforma; Carlos V / Felipe II; cierre con Pío IV.",
+  "timelineSlice": [
+    {
+      "years": "1545–1563",
+      "label": "Concilio · Trento"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

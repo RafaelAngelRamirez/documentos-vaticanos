@@ -1,0 +1,39 @@
+{
+  "id": "era-concilio-jerusalen",
+  "name": "Concilio de Jerusalén (apostólico)",
+  "kind": "era",
+  "years": "c. 49–50",
+  "summary": "El llamado Concilio de Jerusalén (Hechos 15) decide la entrada de gentiles a la Iglesia sin imponer la circuncisión plena de la ley mosaica, en el cristianismo apostólico bajo dominio romano de Judea.",
+  "axes": {
+    "lugar": "Jerusalén del Segundo Templo; Antioquía como iglesia mixta; rutas paulinas.",
+    "personajes": "Pedro, Santiago, Pablo, Bernabé; fariseos cristianos; prefectura romana de Judea.",
+    "gobierno": "Judea romana; reinos clientes; sinagogas de la diáspora.",
+    "cultura": "Griego y arameo; judaísmo de la diáspora; mesa compartida como conflicto cultural.",
+    "religion": "Judaísmo del Segundo Templo; culto del Templo; cristianismo como camino dentro/junto al judaísmo.",
+    "antropologia": "Pureza alimentaria; etnicidad judía/gentil; patronazgo en casas.",
+    "creenciasMundanas": "Religión cívica grecorromana en las ciudades de misión.",
+    "creenciaCristiana": "Salvación por la gracia en Cristo; un solo pueblo de judíos y gentiles; decreto apostólico."
+  },
+  "timeline": [
+    {
+      "years": "c. 49",
+      "label": "Asamblea de Jerusalén (Hch 15)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Biblia (tradición canónica hebrea-cristiana)",
+      "citation": "Texto masorético / LXX / NT griego; ed. Pueblo de Dios (ES).",
+      "url": "https://www.vatican.va/archive/ESL0506/_INDEX.HTM"
+    },
+    {
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed."
+    },
+    {
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

@@ -1,0 +1,35 @@
+{
+  "id": "issuer-john-xxiii",
+  "name": "Juan XXIII (magisterium)",
+  "kind": "issuer",
+  "years": "1958–1963",
+  "summary": "Angelo Roncalli convoca el Vaticano II y publica Pacem in terris en plena Guerra Fría, abriendo un estilo pastoral de diálogo con el orden internacional de derechos humanos.",
+  "axes": {
+    "lugar": "Roma; escenario nuclear y bipolar global.",
+    "personajes": "Juan XXIII; Kennedy/Jruschov como horizonte; obispos preconciliarmente movilizados.",
+    "gobierno": "ONU; crisis de los misiles; bienestar europeo de posguerra.",
+    "cultura": "Años 50–60; radio y TV; movimiento litúrgico.",
+    "religion": "Catolicismo preconciliar en vísperas de reforma; ecumenismo inicial.",
+    "antropologia": "Derechos de la persona y de los pueblos en Pacem in terris.",
+    "creenciasMundanas": "Ideologías de la Guerra Fría; tecnocracia nuclear.",
+    "creenciaCristiana": "Fe católica tradicional con acento pastoral y de paz; preparación del Vaticano II."
+  },
+  "timeline": [
+    {
+      "years": "1963",
+      "label": "Pacem in terris; apertura del Vaticano II (1962)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan XXIII — Pacem in terris (vatican.va)",
+      "url": "https://www.vatican.va/content/john-xxiii/es/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html"
+    },
+    {
+      "title": "Documentos del Concilio Vaticano II (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index_sp.htm",
+      "citation": "Acta Apostolicae Sedis / vatican.va — Concilio Vaticano II."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

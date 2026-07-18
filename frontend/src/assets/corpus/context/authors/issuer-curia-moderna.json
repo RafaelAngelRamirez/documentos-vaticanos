@@ -1,0 +1,42 @@
+{
+  "id": "issuer-curia-moderna",
+  "name": "Curia romana y dicasterios (s. XX–XXI)",
+  "kind": "issuer",
+  "years": "s. XX–XXI",
+  "summary": "Documentos de Congregaciones y Consejos pontificios (Doctrina de la Fe, Clero, Laicos, Justicia y Paz, etc.) aplican el concilio y el derecho de la Iglesia a bioética, catequesis, teología de la liberación y vida eclesial.",
+  "axes": {
+    "lugar": "Ciudad del Vaticano; recepción en conferencias episcopales mundiales.",
+    "personajes": "Prefectos de la CDF y otros dicasterios; papas Pablo VI–Benedicto XVI y entorno JPII; teólogos consultores.",
+    "gobierno": "Gobierno central de la Iglesia latina y orientación de las orientales; derecho canónico de 1983/1990.",
+    "cultura": "Especialización teológica; medios; universidades pontificias.",
+    "religion": "Catolicismo postconciliar plural; ecumenismo; nuevas religiones y sectas.",
+    "antropologia": "Bioética; sexualidad; derechos humanos; opción preferencial por los pobres (debate).",
+    "creenciasMundanas": "Relativismo; tecnociencia; ideologías de mercado y de género en el horizonte de textos tardíos.",
+    "creenciaCristiana": "Fe del Catecismo y del Vaticano II interpretada por el magisterio ordinario de la Curia en comunión con el papa."
+  },
+  "timeline": [
+    {
+      "years": "1965–2005",
+      "label": "Instrucciones y declaraciones postconciliares mayores"
+    }
+  ],
+  "references": [
+    {
+      "title": "Benedicto XVI / CDF — documentos (vatican.va)",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/doc_doc_index_sp.htm"
+    },
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    },
+    {
+      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sp.html"
+    },
+    {
+      "title": "Catecismo de la Iglesia Católica (vatican.va)",
+      "url": "https://www.vatican.va/archive/catechism_sp/index_sp.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

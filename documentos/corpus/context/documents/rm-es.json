@@ -1,0 +1,26 @@
+{
+  "documentId": "rm-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "1990",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Redemptoris missio: misión ad gentes.",
+  "chronologyNote": "25 años de Ad gentes.",
+  "timelineSlice": [
+    {
+      "years": "1990",
+      "label": "Redemptoris missio: misión ad gentes."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    },
+    {
+      "title": "Documentos del Concilio Vaticano II (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index_sp.htm",
+      "citation": "Acta Apostolicae Sedis / vatican.va — Concilio Vaticano II."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

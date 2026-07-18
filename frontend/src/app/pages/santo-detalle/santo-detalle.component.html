@@ -20,6 +20,12 @@
     <div class="sect" *ngIf="s.bio">Vida</div>
     <div class="bio" *ngIf="s.bio">{{ s.bio }}</div>
 
+    <app-historical-context-block
+      *ngIf="historicalContext"
+      [ctx]="historicalContext"
+      sectionTitle="Contexto histórico"
+    ></app-historical-context-block>
+
     <div class="fs13 muted fuente-block" *ngIf="s.sourceUrl" style="margin-top: 12px">
       <a
         class="app-lang-link"

@@ -1,0 +1,35 @@
+{
+  "id": "issuer-denzinger",
+  "name": "Enchiridion symbolorum (Denzinger)",
+  "kind": "issuer",
+  "years": "1854–",
+  "summary": "El Enchiridion de Heinrich Denzinger (y revisiones DS/DH) compila símbolos, definiciones y declaraciones de fe y moral del magisterio, herramienta de teología dogmática moderna.",
+  "axes": {
+    "lugar": "Tradición romana y conciliar compilada en manual de seminario europeo (s. XIX–XXI).",
+    "personajes": "Heinrich Denzinger; editores posteriores (Schönmetzer, Hünermann); concilios y papas citados.",
+    "gobierno": "N/A como acto de gobierno; refleja actos del magisterio extraordinario y ordinario.",
+    "cultura": "Teología positiva y neoescolástica; manualística latina.",
+    "religion": "Catolicismo dogmático moderno.",
+    "antropologia": "Uso en formación clerical y laical especializada.",
+    "creenciasMundanas": "Contrapunto a historicismo y relativismo doctrinal modernos.",
+    "creenciaCristiana": "Continuidad de la fe definida; jerarquía de documentos según autoridad."
+  },
+  "timeline": [
+    {
+      "years": "1854",
+      "label": "Primera edición Denzinger"
+    }
+  ],
+  "references": [
+    {
+      "title": "Denzinger-Hünermann, Enchiridion symbolorum",
+      "citation": "Denzinger, H. / Hünermann, P. Enchiridion symbolorum definitionum et declarationum de rebus fidei et morum.",
+      "url": "https://www.vatican.va/archive/catechism_lt/index_lt.htm"
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

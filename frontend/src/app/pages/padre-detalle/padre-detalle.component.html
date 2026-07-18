@@ -18,6 +18,12 @@
       {{ p.quoteSource }}
     </div>
 
+    <app-historical-context-block
+      *ngIf="historicalContext"
+      [ctx]="historicalContext"
+      sectionTitle="Contexto histórico"
+    ></app-historical-context-block>
+
     <div class="sect">Obras en la biblioteca</div>
     <ng-container *ngFor="let w of p.works; let i = index">
       <a

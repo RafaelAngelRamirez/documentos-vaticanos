@@ -1,0 +1,21 @@
+{
+  "documentId": "agustin-19-enarraciones-salmos-1-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "392–418",
+  "compositionPlace": "Hipona",
+  "workSummary": "Enarrationes in Psalmos (primer bloque): el salterio como voz de Cristo y de la Iglesia en la liturgia africana.",
+  "chronologyNote": "Proyecto de décadas desde el presbiterado; este tomo reúne la fase temprana-media del salterio comentado.",
+  "timelineSlice": [
+    {
+      "years": "392–418",
+      "label": "Enarrationes (bloque 1)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

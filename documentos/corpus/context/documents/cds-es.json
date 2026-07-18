@@ -1,0 +1,25 @@
+{
+  "documentId": "cds-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "2004",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Compendio de la Doctrina Social de la Iglesia (PCJP).",
+  "chronologyNote": "Final del pontificado de Juan Pablo II; síntesis del corpus social.",
+  "timelineSlice": [
+    {
+      "years": "2004",
+      "label": "Compendio de la Doctrina Social de la Iglesia (PCJP)."
+    }
+  ],
+  "references": [
+    {
+      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sp.html"
+    },
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

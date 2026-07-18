@@ -1,0 +1,46 @@
+{
+  "id": "era-concilios-bizantinos",
+  "name": "Concilios ecuménicos bizantinos (Constantinopla II–Nicea II)",
+  "kind": "era",
+  "years": "553–787",
+  "summary": "Bajo emperadores de Constantinopla, los concilios V–VII abordan monofisismo, monoenergismo/monotelismo e iconoclasma, en un Imperio oriental que se ve a sí mismo como romano y cristiano.",
+  "axes": {
+    "lugar": "Constantinopla, Nicea; frontera con Persia y luego con el Islam; Italia bizantina residual y Roma papal.",
+    "personajes": "Justiniano, Heraclio, Constantino IV, Irene; papas Vigilio, Agatón, Adriano I; Máximo el Confesor; Juan Damasceno (marco iconódulo).",
+    "gobierno": "Autocracia bizantina; Césaropapismo tensionado con la sede romana; temas y exarcados; expansión islámica que reconfigura el mapa.",
+    "cultura": "Griego imperial; derecho justinianeo; arte litúrgico e icono; monacato oriental.",
+    "religion": "Calcedonismo oficial vs. iglesias miafisitas; islam emergente; judaísmo; cultos fronterizos.",
+    "antropologia": "Sociedad agraria y urbana bizantina; eunucos de corte; gremios; devoción de imágenes en la piedad popular.",
+    "creenciasMundanas": "Astrología cortesana; magia; ideal del basileus cristiano como orden del cosmos.",
+    "creenciaCristiana": "Reafirmación calcedonia; dos voluntades en Cristo (Const. III); legitimidad del culto a iconos (Nicea II)."
+  },
+  "timeline": [
+    {
+      "years": "553",
+      "label": "Constantinopla II"
+    },
+    {
+      "years": "680–681",
+      "label": "Constantinopla III"
+    },
+    {
+      "years": "787",
+      "label": "Nicea II"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

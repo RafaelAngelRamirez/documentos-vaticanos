@@ -1,0 +1,26 @@
+{
+  "documentId": "agustin-31-antimaniqueos-2-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "397–400",
+  "compositionPlace": "Hipona",
+  "workSummary": "Contra Faustum y escritos antimaniqueos de consolidación: gran respuesta al obispo maniqueo Fausto.",
+  "chronologyNote": "Cumbre de la polémica maniquea, contemporánea de las Confesiones; distinta del primer ciclo 388–395.",
+  "timelineSlice": [
+    {
+      "years": "397–400",
+      "label": "Contra Faustum"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "Agustín, Confessiones (ed. crítica / BAC)",
+      "citation": "San Agustín, Confesiones, BAC Obras de San Agustín, t. 2.",
+      "url": "https://www.augustinus.it/latino/confessioni/index2.htm"
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

@@ -1,0 +1,25 @@
+{
+  "documentId": "nicea-ii-la",
+  "authorProfileId": "era-concilios-bizantinos",
+  "compositionYears": "787",
+  "compositionPlace": "Nicea",
+  "workSummary": "Séptimo ecuménico: legitimidad del culto a los iconos. Texto latino del pack conciliar.",
+  "chronologyNote": "Emperatriz Irene; primera restauración iconódula.",
+  "timelineSlice": [
+    {
+      "years": "787",
+      "label": "Concilio · Nicea"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

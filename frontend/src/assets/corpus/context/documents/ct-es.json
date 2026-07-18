@@ -1,0 +1,21 @@
+{
+  "documentId": "ct-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "1979",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Catechesi tradendae.",
+  "chronologyNote": "Sínodo de la catequesis; inicios de JPII.",
+  "timelineSlice": [
+    {
+      "years": "1979",
+      "label": "Catechesi tradendae."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

@@ -1,0 +1,30 @@
+{
+  "documentId": "gs-es",
+  "authorProfileId": "era-vat2",
+  "compositionYears": "1965",
+  "compositionPlace": "Ciudad del Vaticano (aula conciliar)",
+  "workSummary": "Gaudium et spes: Constitución pastoral sobre la Iglesia en el mundo actual, promulgado en el Concilio Vaticano II (1965).",
+  "chronologyNote": "Documento del periodo conciliar 1962–1965; promulgación en 1965 bajo Pablo VI (SC e IM bajo el arco Juan XXIII/Pablo VI).",
+  "timelineSlice": [
+    {
+      "years": "1962–1965",
+      "label": "Concilio Vaticano II"
+    },
+    {
+      "years": "1965",
+      "label": "Promulgación de Gaudium et spes"
+    }
+  ],
+  "references": [
+    {
+      "title": "Documentos del Concilio Vaticano II (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index_sp.htm",
+      "citation": "Acta Apostolicae Sedis / vatican.va — Concilio Vaticano II."
+    },
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

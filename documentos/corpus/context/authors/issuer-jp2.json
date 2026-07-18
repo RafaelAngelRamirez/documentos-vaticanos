@@ -1,0 +1,50 @@
+{
+  "id": "issuer-jp2",
+  "name": "Juan Pablo II (magisterio)",
+  "kind": "issuer",
+  "years": "1978–2005",
+  "summary": "Karol Wojtyła, papa Juan Pablo II, marca el final del siglo XX católico: personalismo, doctrina social post-1989, moral (Veritatis splendor, Evangelium vitae), laicado, misiones y el Catecismo de 1992/97.",
+  "axes": {
+    "lugar": "Roma y viajes apostólicos globales; Polonia y Europa del Este; Naciones Unidas y foros internacionales.",
+    "personajes": "Juan Pablo II; colaboradores curiales; líderes de Solidarnošč y de la Guerra Fría; teólogos moralistas en debate.",
+    "gobierno": "Caída del bloque soviético; globalización; Santa Sede en diplomacia de derechos humanos.",
+    "cultura": "Medios de masas; JMJ; diálogo fe-razón; personalismo filosófico polaco y tomista.",
+    "religion": "Catolicismo global; ecumenismo; Jornada de Asís; tensiones con teologías de la liberación y moral liberal.",
+    "antropologia": "Teología del cuerpo; dignidad del no nacido y del moribundo; trabajo humano (Laborem exercens).",
+    "creenciasMundanas": "Materialismo dialéctico; consumismo; relativismo moral; tecnocracia.",
+    "creenciaCristiana": "Cristocentrismo (Redemptor hominis); fe del Catecismo; moral objetiva y ley natural; eclesiología de comunión postconciliar."
+  },
+  "timeline": [
+    {
+      "years": "1978",
+      "label": "Elección de Juan Pablo II"
+    },
+    {
+      "years": "1983",
+      "label": "Código de Derecho Canónico"
+    },
+    {
+      "years": "1992–1997",
+      "label": "Catecismo de la Iglesia Católica"
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    },
+    {
+      "title": "Catecismo de la Iglesia Católica (vatican.va)",
+      "url": "https://www.vatican.va/archive/catechism_sp/index_sp.html"
+    },
+    {
+      "title": "Código de Derecho Canónico (1983) — vatican.va",
+      "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html"
+    },
+    {
+      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sp.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

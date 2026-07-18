@@ -1,0 +1,46 @@
+{
+  "id": "era-concilios-medievales",
+  "name": "Concilios ecuménicos medievales (Constantinopla IV–Letrán V)",
+  "kind": "era",
+  "years": "869–1517",
+  "summary": "Concilios de la cristiandad latina medieval: reforma gregoriana, cruzadas, universidad, cisma de Occidente y conciliarismo, hasta las vísperas de la Reforma. Sedes en Roma (Letrán), Lyon, Vienne, Constanza, Florencia.",
+  "axes": {
+    "lugar": "Roma y Letrán; Lyon; Vienne; Constanza; Ferrara-Florencia; fronteras con el Imperio bizantino y el mundo islámico.",
+    "personajes": "Papas reformadores (Gregorio VII, Inocencio III…); emperadores germanos y bizantinos; teólogos escolásticos; Hus y Wyclif en el horizonte de Constanza; legados pontificios.",
+    "gobierno": "Cristiandad feudal y monarquías en formación; teocracia papal vs. imperio; conciliarismo; órdenes militares y derecho canónico clásico (Graciano, Decretales).",
+    "cultura": "Latín escolástico; universidades; gótico; mendicantes; traducción de Aristóteles; protohumanismo en Florencia.",
+    "religion": "Catolicismo latino; cisma Oriente-Occidente (1054 y uniones fallidas/parciales); herejías medievales; judaísmo e islam bajo estatutos especiales.",
+    "antropologia": "Vasallaje; gremios; matrimonio canónico; indulgencias y piedad penitencial; peste y crisis demográficas (s. XIV).",
+    "creenciasMundanas": "Astrología universitaria; folklore; magia condenada en cánones; ideal caballeresco.",
+    "creenciaCristiana": "Primado romano; sacramentos escolásticos; transubstanciación (Letrán IV); reforma de la cabeza y los miembros; intentos de unión con griegos (Lyon II, Florencia)."
+  },
+  "timeline": [
+    {
+      "years": "869–870",
+      "label": "Constantinopla IV (recepción latina)"
+    },
+    {
+      "years": "1123–1517",
+      "label": "Concilios lateranenses y de Lyon, Vienne, Constanza, Florencia, Letrán V"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    },
+    {
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

@@ -45,7 +45,9 @@
     "test:document-toc": "npm --prefix frontend run test:document-toc",
     "test:santoral": "npm --prefix frontend run test:santoral && npm --prefix scripts-descarga run test:santoral",
     "santoral:offline": "npm --prefix scripts-descarga run santoral:offline",
-    "santoral:scrape": "npm --prefix scripts-descarga run santoral:scrape"
+    "santoral:scrape": "npm --prefix scripts-descarga run santoral:scrape",
+    "context:build": "npm --prefix scripts-descarga run context:build",
+    "test:context": "npm --prefix scripts-descarga run test:context"
   },
   "packageManager": "yarn@1.22.22"
 }

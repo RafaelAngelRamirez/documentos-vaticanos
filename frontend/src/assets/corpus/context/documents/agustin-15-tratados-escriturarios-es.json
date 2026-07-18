@@ -1,0 +1,25 @@
+{
+  "documentId": "agustin-15-tratados-escriturarios-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "389–420",
+  "compositionPlace": "África",
+  "workSummary": "Exégesis diversa (Génesis, Sermón de la Montaña, acuerdos evangélicos, etc.) que muestra el taller bíblico agustiniano.",
+  "chronologyNote": "Arco amplio: del Génesis contra maniqueos a obras de madurez hermenéutica (Doctrina christiana en el entorno).",
+  "timelineSlice": [
+    {
+      "years": "389–420",
+      "label": "Comentarios y tratados bíblicos varios"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

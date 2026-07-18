@@ -1,0 +1,876 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-07-18T21:29:42.131Z",
+  "sourceNote": "Pack de contexto histórico offline (compilado; ejes + referencias). No es monografía peer-reviewed.",
+  "authors": [
+    {
+      "id": "agustin-hipona",
+      "path": "authors/agustin-hipona.json"
+    },
+    {
+      "id": "cipriano-cartago",
+      "path": "authors/cipriano-cartago.json"
+    },
+    {
+      "id": "cirilo-jerusalen",
+      "path": "authors/cirilo-jerusalen.json"
+    },
+    {
+      "id": "clemente-alejandria",
+      "path": "authors/clemente-alejandria.json"
+    },
+    {
+      "id": "diogneto-anonimo",
+      "path": "authors/diogneto-anonimo.json"
+    },
+    {
+      "id": "era-concilio-jerusalen",
+      "path": "authors/era-concilio-jerusalen.json"
+    },
+    {
+      "id": "era-concilios-antiguos",
+      "path": "authors/era-concilios-antiguos.json"
+    },
+    {
+      "id": "era-concilios-bizantinos",
+      "path": "authors/era-concilios-bizantinos.json"
+    },
+    {
+      "id": "era-concilios-medievales",
+      "path": "authors/era-concilios-medievales.json"
+    },
+    {
+      "id": "era-trento",
+      "path": "authors/era-trento.json"
+    },
+    {
+      "id": "era-vat1",
+      "path": "authors/era-vat1.json"
+    },
+    {
+      "id": "era-vat2",
+      "path": "authors/era-vat2.json"
+    },
+    {
+      "id": "gregorio-nisa",
+      "path": "authors/gregorio-nisa.json"
+    },
+    {
+      "id": "issuer-canon-law",
+      "path": "authors/issuer-canon-law.json"
+    },
+    {
+      "id": "issuer-curia-moderna",
+      "path": "authors/issuer-curia-moderna.json"
+    },
+    {
+      "id": "issuer-denzinger",
+      "path": "authors/issuer-denzinger.json"
+    },
+    {
+      "id": "issuer-john-xxiii",
+      "path": "authors/issuer-john-xxiii.json"
+    },
+    {
+      "id": "issuer-jp2",
+      "path": "authors/issuer-jp2.json"
+    },
+    {
+      "id": "issuer-leo-xiii",
+      "path": "authors/issuer-leo-xiii.json"
+    },
+    {
+      "id": "issuer-paul-vi",
+      "path": "authors/issuer-paul-vi.json"
+    },
+    {
+      "id": "issuer-pius-ix",
+      "path": "authors/issuer-pius-ix.json"
+    },
+    {
+      "id": "issuer-pius-xi",
+      "path": "authors/issuer-pius-xi.json"
+    },
+    {
+      "id": "sagrada-escritura",
+      "path": "authors/sagrada-escritura.json"
+    }
+  ],
+  "documents": [
+    {
+      "documentId": "aa-es",
+      "path": "documents/aa-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "ag-es",
+      "path": "documents/ag-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "agustin-01-primeros-escritos-es",
+      "path": "documents/agustin-01-primeros-escritos-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-02-confesiones-es",
+      "path": "documents/agustin-02-confesiones-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-03-obras-filosoficas-es",
+      "path": "documents/agustin-03-obras-filosoficas-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-04-obras-apologeticas-es",
+      "path": "documents/agustin-04-obras-apologeticas-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-05-de-trinitate-es",
+      "path": "documents/agustin-05-de-trinitate-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-06-gracia-1-es",
+      "path": "documents/agustin-06-gracia-1-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-07-sermones-1-es",
+      "path": "documents/agustin-07-sermones-1-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-08-cartas-1-es",
+      "path": "documents/agustin-08-cartas-1-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-09-gracia-2-es",
+      "path": "documents/agustin-09-gracia-2-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-10-sermones-2-es",
+      "path": "documents/agustin-10-sermones-2-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-11-cartas-2-es",
+      "path": "documents/agustin-11-cartas-2-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-12-tratados-morales-es",
+      "path": "documents/agustin-12-tratados-morales-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-13-evangelio-juan-1-es",
+      "path": "documents/agustin-13-evangelio-juan-1-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-14-evangelio-juan-2-es",
+      "path": "documents/agustin-14-evangelio-juan-2-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-15-tratados-escriturarios-es",
+      "path": "documents/agustin-15-tratados-escriturarios-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-16-ciudad-de-dios-1-es",
+      "path": "documents/agustin-16-ciudad-de-dios-1-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-17-ciudad-de-dios-2-es",
+      "path": "documents/agustin-17-ciudad-de-dios-2-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-18-epistolas-indices-es",
+      "path": "documents/agustin-18-epistolas-indices-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-19-enarraciones-salmos-1-es",
+      "path": "documents/agustin-19-enarraciones-salmos-1-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-20-enarraciones-salmos-2-es",
+      "path": "documents/agustin-20-enarraciones-salmos-2-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-21-enarraciones-salmos-3-es",
+      "path": "documents/agustin-21-enarraciones-salmos-3-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-22-enarraciones-salmos-4-es",
+      "path": "documents/agustin-22-enarraciones-salmos-4-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-23-sermones-juan-hechos-es",
+      "path": "documents/agustin-23-sermones-juan-hechos-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-24-sermones-4-es",
+      "path": "documents/agustin-24-sermones-4-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-25-sermones-5-es",
+      "path": "documents/agustin-25-sermones-5-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-26-sermones-6-es",
+      "path": "documents/agustin-26-sermones-6-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-27-escritos-biblicos-3-es",
+      "path": "documents/agustin-27-escritos-biblicos-3-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-28-escritos-biblicos-4-es",
+      "path": "documents/agustin-28-escritos-biblicos-4-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-29-escritos-biblicos-5-es",
+      "path": "documents/agustin-29-escritos-biblicos-5-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-30-antimaniqueos-1-es",
+      "path": "documents/agustin-30-antimaniqueos-1-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-31-antimaniqueos-2-es",
+      "path": "documents/agustin-31-antimaniqueos-2-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-32-antidonatistas-1-es",
+      "path": "documents/agustin-32-antidonatistas-1-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-33-antidonatistas-2-es",
+      "path": "documents/agustin-33-antidonatistas-2-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-34-antidonatistas-3-es",
+      "path": "documents/agustin-34-antidonatistas-3-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-35-antipelagianos-3-es",
+      "path": "documents/agustin-35-antipelagianos-3-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-36-antipelagianos-4-es",
+      "path": "documents/agustin-36-antipelagianos-4-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-37-antipelagianos-5-es",
+      "path": "documents/agustin-37-antipelagianos-5-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-38-antiarrianos-es",
+      "path": "documents/agustin-38-antiarrianos-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-39-varios-1-es",
+      "path": "documents/agustin-39-varios-1-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "agustin-40-varios-2-es",
+      "path": "documents/agustin-40-varios-2-es.json",
+      "authorProfileId": "agustin-hipona"
+    },
+    {
+      "documentId": "bible-pueblo-de-dios-es",
+      "path": "documents/bible-pueblo-de-dios-es.json",
+      "authorProfileId": "sagrada-escritura"
+    },
+    {
+      "documentId": "ca-es",
+      "path": "documents/ca-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "calcedonia-es",
+      "path": "documents/calcedonia-es.json",
+      "authorProfileId": "era-concilios-antiguos"
+    },
+    {
+      "documentId": "calcedonia-la",
+      "path": "documents/calcedonia-la.json",
+      "authorProfileId": "era-concilios-antiguos"
+    },
+    {
+      "documentId": "carta-diogneto-es",
+      "path": "documents/carta-diogneto-es.json",
+      "authorProfileId": "diogneto-anonimo"
+    },
+    {
+      "documentId": "catecismo-romano-es",
+      "path": "documents/catecismo-romano-es.json",
+      "authorProfileId": "era-trento"
+    },
+    {
+      "documentId": "catecismo-romano-la",
+      "path": "documents/catecismo-romano-la.json",
+      "authorProfileId": "era-trento"
+    },
+    {
+      "documentId": "cceo-la",
+      "path": "documents/cceo-la.json",
+      "authorProfileId": "issuer-canon-law"
+    },
+    {
+      "documentId": "cd-es",
+      "path": "documents/cd-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "cdc-es",
+      "path": "documents/cdc-es.json",
+      "authorProfileId": "issuer-canon-law"
+    },
+    {
+      "documentId": "cds-es",
+      "path": "documents/cds-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "cic-es",
+      "path": "documents/cic-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "cipriano-cartas-es",
+      "path": "documents/cipriano-cartas-es.json",
+      "authorProfileId": "cipriano-cartago"
+    },
+    {
+      "documentId": "cirilo-jerusalen-catequesis-es",
+      "path": "documents/cirilo-jerusalen-catequesis-es.json",
+      "authorProfileId": "cirilo-jerusalen"
+    },
+    {
+      "documentId": "cl-es",
+      "path": "documents/cl-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "clemente-alejandria-pedagogo-es",
+      "path": "documents/clemente-alejandria-pedagogo-es.json",
+      "authorProfileId": "clemente-alejandria"
+    },
+    {
+      "documentId": "constantinopla-i-es",
+      "path": "documents/constantinopla-i-es.json",
+      "authorProfileId": "era-concilios-antiguos"
+    },
+    {
+      "documentId": "constantinopla-i-la",
+      "path": "documents/constantinopla-i-la.json",
+      "authorProfileId": "era-concilios-antiguos"
+    },
+    {
+      "documentId": "constantinopla-ii-es",
+      "path": "documents/constantinopla-ii-es.json",
+      "authorProfileId": "era-concilios-bizantinos"
+    },
+    {
+      "documentId": "constantinopla-ii-la",
+      "path": "documents/constantinopla-ii-la.json",
+      "authorProfileId": "era-concilios-bizantinos"
+    },
+    {
+      "documentId": "constantinopla-iii-es",
+      "path": "documents/constantinopla-iii-es.json",
+      "authorProfileId": "era-concilios-bizantinos"
+    },
+    {
+      "documentId": "constantinopla-iii-la",
+      "path": "documents/constantinopla-iii-la.json",
+      "authorProfileId": "era-concilios-bizantinos"
+    },
+    {
+      "documentId": "constantinopla-iv-es",
+      "path": "documents/constantinopla-iv-es.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "constantinopla-iv-la",
+      "path": "documents/constantinopla-iv-la.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "constanza-es",
+      "path": "documents/constanza-es.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "constanza-la",
+      "path": "documents/constanza-la.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "cpd-es",
+      "path": "documents/cpd-es.json",
+      "authorProfileId": "issuer-paul-vi"
+    },
+    {
+      "documentId": "ct-es",
+      "path": "documents/ct-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "dcg-es",
+      "path": "documents/dcg-es.json",
+      "authorProfileId": "issuer-curia-moderna"
+    },
+    {
+      "documentId": "dev-es",
+      "path": "documents/dev-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "dh-es",
+      "path": "documents/dh-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "diuturnum-es",
+      "path": "documents/diuturnum-es.json",
+      "authorProfileId": "issuer-leo-xiii"
+    },
+    {
+      "documentId": "dm-es",
+      "path": "documents/dm-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "donum-veritatis-es",
+      "path": "documents/donum-veritatis-es.json",
+      "authorProfileId": "issuer-curia-moderna"
+    },
+    {
+      "documentId": "donum-vitae-es",
+      "path": "documents/donum-vitae-es.json",
+      "authorProfileId": "issuer-curia-moderna"
+    },
+    {
+      "documentId": "ds-es",
+      "path": "documents/ds-es.json",
+      "authorProfileId": "issuer-denzinger"
+    },
+    {
+      "documentId": "dv-es",
+      "path": "documents/dv-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "ee-es",
+      "path": "documents/ee-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "efeso-es",
+      "path": "documents/efeso-es.json",
+      "authorProfileId": "era-concilios-antiguos"
+    },
+    {
+      "documentId": "efeso-la",
+      "path": "documents/efeso-la.json",
+      "authorProfileId": "era-concilios-antiguos"
+    },
+    {
+      "documentId": "en-es",
+      "path": "documents/en-es.json",
+      "authorProfileId": "issuer-paul-vi"
+    },
+    {
+      "documentId": "ev-es",
+      "path": "documents/ev-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "fc-es",
+      "path": "documents/fc-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "florencia-es",
+      "path": "documents/florencia-es.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "florencia-la",
+      "path": "documents/florencia-la.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "gdc-es",
+      "path": "documents/gdc-es.json",
+      "authorProfileId": "issuer-curia-moderna"
+    },
+    {
+      "documentId": "ge-es",
+      "path": "documents/ge-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "gregorio-nisa-gran-catequesis-es",
+      "path": "documents/gregorio-nisa-gran-catequesis-es.json",
+      "authorProfileId": "gregorio-nisa"
+    },
+    {
+      "documentId": "gs-es",
+      "path": "documents/gs-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "hv-es",
+      "path": "documents/hv-es.json",
+      "authorProfileId": "issuer-paul-vi"
+    },
+    {
+      "documentId": "im-es",
+      "path": "documents/im-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "immortale-dei-es",
+      "path": "documents/immortale-dei-es.json",
+      "authorProfileId": "issuer-leo-xiii"
+    },
+    {
+      "documentId": "indulgentiarum-doctrina-es",
+      "path": "documents/indulgentiarum-doctrina-es.json",
+      "authorProfileId": "issuer-curia-moderna"
+    },
+    {
+      "documentId": "iura-et-bona-es",
+      "path": "documents/iura-et-bona-es.json",
+      "authorProfileId": "issuer-curia-moderna"
+    },
+    {
+      "documentId": "jerusalen-es",
+      "path": "documents/jerusalen-es.json",
+      "authorProfileId": "era-concilio-jerusalen"
+    },
+    {
+      "documentId": "jerusalen-la",
+      "path": "documents/jerusalen-la.json",
+      "authorProfileId": "era-concilio-jerusalen"
+    },
+    {
+      "documentId": "lateran-i-es",
+      "path": "documents/lateran-i-es.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "lateran-i-la",
+      "path": "documents/lateran-i-la.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "lateran-ii-es",
+      "path": "documents/lateran-ii-es.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "lateran-ii-la",
+      "path": "documents/lateran-ii-la.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "lateran-iii-es",
+      "path": "documents/lateran-iii-es.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "lateran-iii-la",
+      "path": "documents/lateran-iii-la.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "lateran-iv-es",
+      "path": "documents/lateran-iv-es.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "lateran-iv-la",
+      "path": "documents/lateran-iv-la.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "lateran-v-es",
+      "path": "documents/lateran-v-es.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "lateran-v-la",
+      "path": "documents/lateran-v-la.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "le-es",
+      "path": "documents/le-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "lg-es",
+      "path": "documents/lg-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "libertas-es",
+      "path": "documents/libertas-es.json",
+      "authorProfileId": "issuer-leo-xiii"
+    },
+    {
+      "documentId": "libertatis-conscientia-es",
+      "path": "documents/libertatis-conscientia-es.json",
+      "authorProfileId": "issuer-curia-moderna"
+    },
+    {
+      "documentId": "lyon-i-es",
+      "path": "documents/lyon-i-es.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "lyon-i-la",
+      "path": "documents/lyon-i-la.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "lyon-ii-es",
+      "path": "documents/lyon-ii-es.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "lyon-ii-la",
+      "path": "documents/lyon-ii-la.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "mc-es",
+      "path": "documents/mc-es.json",
+      "authorProfileId": "issuer-paul-vi"
+    },
+    {
+      "documentId": "md-es",
+      "path": "documents/md-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "mf-es",
+      "path": "documents/mf-es.json",
+      "authorProfileId": "issuer-paul-vi"
+    },
+    {
+      "documentId": "mm-es",
+      "path": "documents/mm-es.json",
+      "authorProfileId": "issuer-john-xxiii"
+    },
+    {
+      "documentId": "mysterium-ecclesiae-es",
+      "path": "documents/mysterium-ecclesiae-es.json",
+      "authorProfileId": "issuer-curia-moderna"
+    },
+    {
+      "documentId": "na-es",
+      "path": "documents/na-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "nicea-i-es",
+      "path": "documents/nicea-i-es.json",
+      "authorProfileId": "era-concilios-antiguos"
+    },
+    {
+      "documentId": "nicea-i-la",
+      "path": "documents/nicea-i-la.json",
+      "authorProfileId": "era-concilios-antiguos"
+    },
+    {
+      "documentId": "nicea-ii-es",
+      "path": "documents/nicea-ii-es.json",
+      "authorProfileId": "era-concilios-bizantinos"
+    },
+    {
+      "documentId": "nicea-ii-la",
+      "path": "documents/nicea-ii-la.json",
+      "authorProfileId": "era-concilios-bizantinos"
+    },
+    {
+      "documentId": "nmi-es",
+      "path": "documents/nmi-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "ot-es",
+      "path": "documents/ot-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "pastoralis-actio-es",
+      "path": "documents/pastoralis-actio-es.json",
+      "authorProfileId": "issuer-curia-moderna"
+    },
+    {
+      "documentId": "pc-es",
+      "path": "documents/pc-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "pdv-es",
+      "path": "documents/pdv-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "persona-humana-es",
+      "path": "documents/persona-humana-es.json",
+      "authorProfileId": "issuer-curia-moderna"
+    },
+    {
+      "documentId": "pg-es",
+      "path": "documents/pg-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "po-es",
+      "path": "documents/po-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "pp-es",
+      "path": "documents/pp-es.json",
+      "authorProfileId": "issuer-paul-vi"
+    },
+    {
+      "documentId": "pt-es",
+      "path": "documents/pt-es.json",
+      "authorProfileId": "issuer-john-xxiii"
+    },
+    {
+      "documentId": "quanta-cura-es",
+      "path": "documents/quanta-cura-es.json",
+      "authorProfileId": "issuer-pius-ix"
+    },
+    {
+      "documentId": "quanta-cura-la",
+      "path": "documents/quanta-cura-la.json",
+      "authorProfileId": "issuer-pius-ix"
+    },
+    {
+      "documentId": "quas-primas-es",
+      "path": "documents/quas-primas-es.json",
+      "authorProfileId": "issuer-pius-xi"
+    },
+    {
+      "documentId": "rh-es",
+      "path": "documents/rh-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "rm-es",
+      "path": "documents/rm-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "rp-es",
+      "path": "documents/rp-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "sa-es",
+      "path": "documents/sa-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "sc-es",
+      "path": "documents/sc-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "srs-es",
+      "path": "documents/srs-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "tma-es",
+      "path": "documents/tma-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "trento-es",
+      "path": "documents/trento-es.json",
+      "authorProfileId": "era-trento"
+    },
+    {
+      "documentId": "trento-la",
+      "path": "documents/trento-la.json",
+      "authorProfileId": "era-trento"
+    },
+    {
+      "documentId": "ur-es",
+      "path": "documents/ur-es.json",
+      "authorProfileId": "era-vat2"
+    },
+    {
+      "documentId": "vat-i-es",
+      "path": "documents/vat-i-es.json",
+      "authorProfileId": "era-vat1"
+    },
+    {
+      "documentId": "vat-i-la",
+      "path": "documents/vat-i-la.json",
+      "authorProfileId": "era-vat1"
+    },
+    {
+      "documentId": "vc-es",
+      "path": "documents/vc-es.json",
+      "authorProfileId": "issuer-jp2"
+    },
+    {
+      "documentId": "vienne-es",
+      "path": "documents/vienne-es.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "vienne-la",
+      "path": "documents/vienne-la.json",
+      "authorProfileId": "era-concilios-medievales"
+    },
+    {
+      "documentId": "vs-es",
+      "path": "documents/vs-es.json",
+      "authorProfileId": "issuer-jp2"
+    }
+  ]
+}

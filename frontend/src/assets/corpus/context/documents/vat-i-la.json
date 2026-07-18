@@ -1,0 +1,25 @@
+{
+  "documentId": "vat-i-la",
+  "authorProfileId": "era-vat1",
+  "compositionYears": "1869–1870",
+  "compositionPlace": "Roma (Vaticano)",
+  "workSummary": "Dei Filius y Pastor Aeternus; fe e infalibilidad papal. Texto latino del pack conciliar.",
+  "chronologyNote": "Pío IX; caída de Roma ante Italia (1870).",
+  "timelineSlice": [
+    {
+      "years": "1869–1870",
+      "label": "Concilio · Roma (Vaticano)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

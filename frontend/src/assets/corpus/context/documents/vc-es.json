@@ -1,0 +1,21 @@
+{
+  "documentId": "vc-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "1996",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Vita consecrata.",
+  "chronologyNote": "Sínodo sobre vida consagrada.",
+  "timelineSlice": [
+    {
+      "years": "1996",
+      "label": "Vita consecrata."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

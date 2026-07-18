@@ -1,0 +1,21 @@
+{
+  "documentId": "agustin-21-enarraciones-salmos-3-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "405–422",
+  "compositionPlace": "Hipona",
+  "workSummary": "Tercer bloque de enarraciones sobre los Salmos.",
+  "chronologyNote": "Predicación salmódica de madurez, contemporánea de Juan y de la Ciudad de Dios en parte.",
+  "timelineSlice": [
+    {
+      "years": "405–422",
+      "label": "Enarrationes (bloque 3)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

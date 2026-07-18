@@ -1,0 +1,25 @@
+{
+  "documentId": "lyon-i-la",
+  "authorProfileId": "era-concilios-medievales",
+  "compositionYears": "1245",
+  "compositionPlace": "Lyon",
+  "workSummary": "I de Lyon: deposición de Federico II; socorro a Tierra Santa. Texto latino del pack conciliar.",
+  "chronologyNote": "Conflicto papado–Imperio; s. XIII mendicante.",
+  "timelineSlice": [
+    {
+      "years": "1245",
+      "label": "Concilio · Lyon"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

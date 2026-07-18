@@ -1,0 +1,21 @@
+{
+  "documentId": "dev-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "1986",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Dominum et Vivificantem: Espíritu Santo.",
+  "chronologyNote": "Trilogía trinitaria de JPII.",
+  "timelineSlice": [
+    {
+      "years": "1986",
+      "label": "Dominum et Vivificantem: Espíritu Santo."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

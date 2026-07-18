@@ -1,0 +1,25 @@
+{
+  "documentId": "libertatis-conscientia-es",
+  "authorProfileId": "issuer-curia-moderna",
+  "compositionYears": "1986",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Libertatis conscientia: libertad cristiana y liberación.",
+  "chronologyNote": "CDF; debate con teologías de la liberación.",
+  "timelineSlice": [
+    {
+      "years": "1986",
+      "label": "Libertatis conscientia: libertad cristiana y liberación."
+    }
+  ],
+  "references": [
+    {
+      "title": "Benedicto XVI / CDF — documentos (vatican.va)",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/doc_doc_index_sp.htm"
+    },
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

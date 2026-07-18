@@ -1,0 +1,25 @@
+{
+  "documentId": "agustin-18-epistolas-indices-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "394–420",
+  "compositionPlace": "Hipona",
+  "workSummary": "Exposiciones sobre epístolas paulinas e índices: Pablo leído como doctor de la gracia antes y durante las polémicas.",
+  "chronologyNote": "Exégesis paulina que alimenta la teología de la gracia; puente entre lecturas tempranas de Romanos y la controversia pelagiana.",
+  "timelineSlice": [
+    {
+      "years": "394–420",
+      "label": "Comentarios paulinos e índices"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

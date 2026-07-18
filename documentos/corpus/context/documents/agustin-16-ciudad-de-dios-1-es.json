@@ -1,0 +1,39 @@
+{
+  "documentId": "agustin-16-ciudad-de-dios-1-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "413–420",
+  "compositionPlace": "Hipona",
+  "workSummary": "Libros iniciales de De civitate Dei: respuesta al saqueo de Roma (410), crítica del paganismo y fundamentos de las dos ciudades.",
+  "chronologyNote": "Escritos tras 410 a petición de amigos (Marcelino et al.); primera mitad del gran proyecto histórico-teológico.",
+  "axes": {
+    "lugar": "Hipona como taller; Roma saqueada como trauma del auditorio pagano-cristiano; Imperio de Occidente en descomposición.",
+    "gobierno": "Crisis del Occidente romano; milicias godas federadas; élites senatorias entre paganismo y cristianismo."
+  },
+  "timelineSlice": [
+    {
+      "years": "410",
+      "label": "Saqueo de Roma por Alarico"
+    },
+    {
+      "years": "413–420",
+      "label": "De civitate Dei, libros primeros"
+    }
+  ],
+  "references": [
+    {
+      "title": "Agustín, De civitate Dei",
+      "citation": "San Agustín, La ciudad de Dios, BAC.",
+      "url": "https://www.augustinus.it/latino/cdd/index2.htm"
+    },
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "Encyclopaedia Britannica: Western Roman Empire / Late antiquity",
+      "url": "https://www.britannica.com/place/Roman-Empire",
+      "citation": "Síntesis de marco imperial tardío (consulta general)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

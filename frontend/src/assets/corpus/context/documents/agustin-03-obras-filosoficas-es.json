@@ -1,0 +1,25 @@
+{
+  "documentId": "agustin-03-obras-filosoficas-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "386–395",
+  "compositionPlace": "Italia y África",
+  "workSummary": "Tratados de cuño filosófico-cristiano (orden, música, libre albedrío temprano, magistro, etc.) que articulan platonismo cristiano y fe bíblica en la primera madurez.",
+  "chronologyNote": "Sobre todo etapa entre conversión y consolidación episcopal; base conceptual de obras posteriores más controvertidas.",
+  "timelineSlice": [
+    {
+      "years": "386–395",
+      "label": "Producción filosófica temprana y media"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

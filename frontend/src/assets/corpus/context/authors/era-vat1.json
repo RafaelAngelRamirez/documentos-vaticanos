@@ -1,0 +1,46 @@
+{
+  "id": "era-vat1",
+  "name": "Concilio Vaticano I y siglo XIX católico",
+  "kind": "era",
+  "years": "1869–1870",
+  "summary": "El Vaticano I define la fe católica frente al racionalismo y el primado/infallibilidad papal en un siglo de revoluciones, unificación italiana y pérdida del poder temporal pontificio.",
+  "axes": {
+    "lugar": "Roma (San Pedro); Europa de las naciones; ultramontanismo vs. iglesias nacionales.",
+    "personajes": "Pío IX; minoría conciliar anti-infallibilista; Napoleón III; Cavour y el Risorgimento; pensadores liberales y tradicionalistas.",
+    "gobierno": "Estados pontificios en crisis; unificación italiana (1870); Kulturkampf posterior; monarquías y repúblicas liberales.",
+    "cultura": "Romanticismo y positivismo; prensa de masas; neoescolástica incipiente.",
+    "religion": "Catolicismo ultramontano; protestantismos liberales; secularización; judaísmo emancipado; nuevas religiones políticas.",
+    "antropologia": "Ciudad industrial; clase obrera (horizonte de la doctrina social posterior); familia burguesa.",
+    "creenciasMundanas": "Racionalismo, materialismo, panteísmo (condenados en el Syllabus / Dei Filius); fe en el progreso.",
+    "creenciaCristiana": "Dei Filius (fe y razón); Pastor Aeternus (primado e infalibilidad ex cathedra); continuidad con el magisterio antiliberal de Pío IX (Quanta cura)."
+  },
+  "timeline": [
+    {
+      "years": "1864",
+      "label": "Quanta cura y Syllabus"
+    },
+    {
+      "years": "1869–1870",
+      "label": "Concilio Vaticano I"
+    }
+  ],
+  "references": [
+    {
+      "title": "Concilio Vaticano I — Dei Filius / Pastor Aeternus",
+      "url": "https://www.vatican.va/content/pius-ix/la/documents/constitutio-dogmatica-pastor-aeternus-18-iulii-1870.html"
+    },
+    {
+      "title": "Pío IX, Quanta cura (1864)",
+      "url": "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html"
+    },
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

@@ -1,0 +1,34 @@
+{
+  "id": "issuer-pius-xi",
+  "name": "Pío XI",
+  "kind": "issuer",
+  "years": "1922–1939",
+  "summary": "Achille Ratti, Pío XI, reina en entreguerras: Acción Católica, Quas primas (Cristo Rey), concordatos y condenas de totalitarismos.",
+  "axes": {
+    "lugar": "Roma (Pactos de Letrán 1929); Europa de fascismos y comunismo.",
+    "personajes": "Pío XI; Mussolini (concordato); jerarquías de Acción Católica.",
+    "gobierno": "Estados totalitarios emergentes; Ciudad del Vaticano soberana (1929).",
+    "cultura": "Radiodifusión; cine; modernismo residual ya condenado.",
+    "religion": "Catolicismo confesional vs. laicismos y paganismos políticos.",
+    "antropologia": "Educación cristiana; matrimonio; juventudes católicas.",
+    "creenciasMundanas": "Nacionalismos sacralizados; materialismo marxista.",
+    "creenciaCristiana": "Realeza social de Cristo; doctrina social (Quadragesimo anno en el entorno)."
+  },
+  "timeline": [
+    {
+      "years": "1925",
+      "label": "Quas primas"
+    }
+  ],
+  "references": [
+    {
+      "title": "Pío XI — Quas primas y otros (vatican.va)",
+      "url": "https://www.vatican.va/content/pius-xi/es.html"
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

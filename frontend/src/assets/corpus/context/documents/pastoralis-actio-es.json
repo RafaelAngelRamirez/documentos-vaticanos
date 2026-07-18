@@ -1,0 +1,21 @@
+{
+  "documentId": "pastoralis-actio-es",
+  "authorProfileId": "issuer-curia-moderna",
+  "compositionYears": "1980",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Pastoralis actio: pastoral de los sacramentos (matrimonio).",
+  "chronologyNote": "Concilio + CIC en preparación.",
+  "timelineSlice": [
+    {
+      "years": "1980",
+      "label": "Pastoralis actio: pastoral de los sacramentos (matrimonio)."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

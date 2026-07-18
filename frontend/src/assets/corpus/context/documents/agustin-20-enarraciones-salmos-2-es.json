@@ -1,0 +1,21 @@
+{
+  "documentId": "agustin-20-enarraciones-salmos-2-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "400–420",
+  "compositionPlace": "Hipona",
+  "workSummary": "Segundo bloque de enarraciones: profundización eclesiológica y espiritual del salterio.",
+  "chronologyNote": "Fase media del ciclo, no idéntica al primer bloque ni a los salmos finales.",
+  "timelineSlice": [
+    {
+      "years": "400–420",
+      "label": "Enarrationes (bloque 2)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

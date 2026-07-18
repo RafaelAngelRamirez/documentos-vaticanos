@@ -1,0 +1,21 @@
+{
+  "documentId": "iura-et-bona-es",
+  "authorProfileId": "issuer-curia-moderna",
+  "compositionYears": "1980",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Iura et bona (Declaración sobre la eutanasia).",
+  "chronologyNote": "CDF; bioética de final de vida.",
+  "timelineSlice": [
+    {
+      "years": "1980",
+      "label": "Iura et bona (Declaración sobre la eutanasia)."
+    }
+  ],
+  "references": [
+    {
+      "title": "Benedicto XVI / CDF — documentos (vatican.va)",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/doc_doc_index_sp.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

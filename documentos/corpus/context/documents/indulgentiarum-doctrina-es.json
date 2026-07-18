@@ -1,0 +1,21 @@
+{
+  "documentId": "indulgentiarum-doctrina-es",
+  "authorProfileId": "issuer-curia-moderna",
+  "compositionYears": "1967",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Indulgentiarum doctrina: indulgencias postconcilio.",
+  "chronologyNote": "Pablo VI; reforma de indulgencias.",
+  "timelineSlice": [
+    {
+      "years": "1967",
+      "label": "Indulgentiarum doctrina: indulgencias postconcilio."
+    }
+  ],
+  "references": [
+    {
+      "title": "Pablo VI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

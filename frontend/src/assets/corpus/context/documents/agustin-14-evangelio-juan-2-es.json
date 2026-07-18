@@ -1,0 +1,21 @@
+{
+  "documentId": "agustin-14-evangelio-juan-2-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "414–420",
+  "compositionPlace": "Hipona",
+  "workSummary": "Continuación de los tratados sobre Juan (approx. 36–124): profundidad mistagógica y eclesiológica.",
+  "chronologyNote": "Fase avanzada del ciclo joánico, posterior al arranque de los primeros tractatus; distinta “estación” exegética del tomo 1.",
+  "timelineSlice": [
+    {
+      "years": "414–420",
+      "label": "Tractatus in Ioannem tardíos"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

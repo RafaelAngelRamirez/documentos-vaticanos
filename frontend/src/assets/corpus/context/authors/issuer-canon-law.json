@@ -1,0 +1,46 @@
+{
+  "id": "issuer-canon-law",
+  "name": "Derecho canónico latino y oriental",
+  "kind": "issuer",
+  "years": "1917–1990",
+  "summary": "El CIC 1983 y el CCEO 1990 codifican la disciplina de la Iglesia latina y de las Iglesias orientales católicas tras el Vaticano II, sustituyendo en gran medida el código pio-benedictino de 1917 en Occidente.",
+  "axes": {
+    "lugar": "Roma; Iglesias sui iuris de Oriente; diócesis latinas globales.",
+    "personajes": "Juan Pablo II (promulgador); comisiones codificadoras; Graciano y tradición clásica como fondo.",
+    "gobierno": "Gobierno eclesial: Romano Pontífice, colegios, curias diocesanas; fuero interno/externo.",
+    "cultura": "Ciencia canónica; latín jurídico; facultades de derecho canónico.",
+    "religion": "Comunión católica con diversidad de ritos.",
+    "antropologia": "Estatuto de personas (clérigos, laicos, religiosos); matrimonio canónico; delitos y penas.",
+    "creenciasMundanas": "Ordenamientos civiles concurrentes; derechos humanos seculares como interlocutores.",
+    "creenciaCristiana": "Salus animarum suprema lex; sacramentos y potestad de régimen al servicio de la communio."
+  },
+  "timeline": [
+    {
+      "years": "1917",
+      "label": "Código pio-benedictino"
+    },
+    {
+      "years": "1983",
+      "label": "CIC latino"
+    },
+    {
+      "years": "1990",
+      "label": "CCEO"
+    }
+  ],
+  "references": [
+    {
+      "title": "Código de Derecho Canónico (1983) — vatican.va",
+      "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html"
+    },
+    {
+      "title": "Código de los Cánones de las Iglesias Orientales — vatican.va",
+      "url": "https://www.vatican.va/holy_father/john_paul_ii/apost_constitutions/documents/hf_jp-ii_apc_19901018_codex-can-eccl-orient-sp.html"
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

@@ -1,0 +1,47 @@
+{
+  "id": "issuer-paul-vi",
+  "name": "Pablo VI (magisterio)",
+  "kind": "issuer",
+  "years": "1963–1978",
+  "summary": "Giovanni Battista Montini cierra el Vaticano II e inicia la recepción: reforma litúrgica, Humanae vitae, Evangelii nuntiandi y el Credo del Pueblo de Dios en un mundo de 1968 y descolonización.",
+  "axes": {
+    "lugar": "Roma; viajes (Tierra Santa, ONU, Asia, América Latina); Iglesias locales en efervescencia postconciliar.",
+    "personajes": "Pablo VI; Pablo VI y el colegio episcopal; Pablo VI frente a disensos doctrinales y disciplinares.",
+    "gobierno": "Guerra Fría; descolonización; crisis del 68; diplomacia vaticana de Ostpolitik.",
+    "cultura": "Modernidad cultural de los 60–70; medios; teología de la liberación emergente.",
+    "religion": "Recepción del Vaticano II; ecumenismo; diálogo con no creyentes.",
+    "antropologia": "Sexualidad y regulación de la natalidad; familia; justicia social (Populorum progressio).",
+    "creenciasMundanas": "Marxismos; psicoanálisis popular; hedonismo de masas.",
+    "creenciaCristiana": "Fe del Credo del Pueblo de Dios; moral matrimonial de Humanae vitae; evangelización (EN)."
+  },
+  "timeline": [
+    {
+      "years": "1963–1965",
+      "label": "Conclusión del Vaticano II"
+    },
+    {
+      "years": "1968",
+      "label": "Humanae vitae"
+    },
+    {
+      "years": "1975",
+      "label": "Evangelii nuntiandi"
+    }
+  ],
+  "references": [
+    {
+      "title": "Pablo VI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html"
+    },
+    {
+      "title": "Documentos del Concilio Vaticano II (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index_sp.htm",
+      "citation": "Acta Apostolicae Sedis / vatican.va — Concilio Vaticano II."
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

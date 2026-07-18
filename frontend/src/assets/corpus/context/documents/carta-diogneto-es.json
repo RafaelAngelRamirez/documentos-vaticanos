@@ -1,0 +1,26 @@
+{
+  "documentId": "carta-diogneto-es",
+  "authorProfileId": "diogneto-anonimo",
+  "compositionYears": "s. II",
+  "compositionPlace": "Mediterráneo oriental (incierto)",
+  "workSummary": "Apología anónima que explica la identidad cristiana ante un interlocutor pagano culto.",
+  "chronologyNote": "Generación subapostólica/apologética temprana, siglos antes de los concilios y del África de Cipriano o Agustín.",
+  "timelineSlice": [
+    {
+      "years": "s. II",
+      "label": "Composición de la Epístola a Diogneto"
+    }
+  ],
+  "references": [
+    {
+      "title": "Epistle to Diognetus (Early Christian Writings)",
+      "url": "https://www.earlychristianwritings.com/text/diognetus-lightfoot.html",
+      "citation": "Epístola a Diogneto, s. II; ed. Lightfoot / Ruiz Bueno."
+    },
+    {
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

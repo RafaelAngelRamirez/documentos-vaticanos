@@ -1,0 +1,67 @@
+<div class="hist-ctx" *ngIf="hasContent && ctx as c">
+  <div class="sect hist-ctx-head">
+    <button
+      type="button"
+      class="hist-ctx-toggle"
+      (click)="toggle()"
+      [attr.aria-expanded]="expanded"
+    >
+      <span>{{ sectionTitle }}</span>
+      <span class="hist-ctx-chev" aria-hidden="true">{{ expanded ? '▾' : '▸' }}</span>
+    </button>
+  </div>
+
+  <div class="hist-ctx-body" *ngIf="expanded">
+    <div class="hist-ctx-meta fs13 muted" *ngIf="c.compositionYears || c.compositionPlace || c.authorName">
+      <span *ngIf="c.authorName"><strong>{{ c.authorName }}</strong></span>
+      <span *ngIf="c.compositionYears"> · {{ c.compositionYears }}</span>
+      <span *ngIf="c.compositionPlace"> · {{ c.compositionPlace }}</span>
+    </div>
+
+    <p class="hist-ctx-p" *ngIf="c.generalSummary">{{ c.generalSummary }}</p>
+    <p class="hist-ctx-p hist-ctx-work" *ngIf="c.workSummary">
+      <span class="hist-ctx-k">Esta obra.</span> {{ c.workSummary }}
+    </p>
+    <p class="hist-ctx-p" *ngIf="c.chronologyNote">
+      <span class="hist-ctx-k">Cronología.</span> {{ c.chronologyNote }}
+    </p>
+
+    <div class="hist-ctx-timeline" *ngIf="c.timeline?.length">
+      <div class="hist-ctx-k fs13" style="margin-bottom: 6px">Línea de tiempo</div>
+      <div class="hist-ctx-trow" *ngFor="let t of c.timeline">
+        <span class="hist-ctx-tyears">{{ t.years }}</span>
+        <span class="hist-ctx-tlabel">{{ t.label }}</span>
+      </div>
+    </div>
+
+    <div class="hist-ctx-axes" *ngIf="axisRows.length">
+      <div class="hist-ctx-axis" *ngFor="let row of axisRows">
+        <div class="hist-ctx-axis-label">{{ row.label }}</div>
+        <div class="hist-ctx-axis-text">{{ row.text }}</div>
+      </div>
+    </div>
+
+    <div class="hist-ctx-refs" *ngIf="c.references?.length">
+      <div class="hist-ctx-k fs13" style="margin-bottom: 6px">Referencias</div>
+      <ul class="hist-ctx-reflist">
+        <li *ngFor="let r of c.references">
+          <a
+            *ngIf="r.url; else plainRef"
+            class="app-lang-link"
+            [href]="r.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            >{{ r.title }}</a
+          >
+          <ng-template #plainRef>
+            <span>{{ r.title }}</span>
+          </ng-template>
+          <span class="fs12 muted" *ngIf="r.citation"> — {{ r.citation }}</span>
+          <span class="fs12 muted" *ngIf="r.note"> ({{ r.note }})</span>
+        </li>
+      </ul>
+    </div>
+
+    <p class="fs12 muted hist-ctx-source" *ngIf="c.sourceNote">{{ c.sourceNote }}</p>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+{
+  "id": "issuer-leo-xiii",
+  "name": "León XIII (magisterio social y político)",
+  "kind": "issuer",
+  "years": "1878–1903",
+  "summary": "Vincenzo Pecci, León XIII, formula la doctrina social moderna (Rerum novarum) y un corpus sobre libertad, poder civil y filosofía cristiana (Aeterni Patris, Immortale Dei, Libertas, Diuturnum).",
+  "axes": {
+    "lugar": "Roma post-1870 (cuestión romana); Europa industrial; Imperios coloniales.",
+    "personajes": "León XIII; Bismarck (Kulturkampf residual); movimiento obrero; tomistas de la neoescolástica.",
+    "gobierno": "Estados liberales; monarquías; cuestión romana sin soberanía territorial plena hasta 1929.",
+    "cultura": "Industrialización; prensa; neotomismo.",
+    "religion": "Catolicismo social; protestantismo liberal; laicismo de Estado.",
+    "antropologia": "Cuestión obrera; familia; propiedad y salario justo.",
+    "creenciasMundanas": "Liberalismo, socialismo y racionalismo del XIX.",
+    "creenciaCristiana": "Tomismo oficial; potestad indirecta y bien común; derechos de la Iglesia en la sociedad."
+  },
+  "timeline": [
+    {
+      "years": "1885–1888",
+      "label": "Immortale Dei, Libertas, Diuturnum"
+    },
+    {
+      "years": "1891",
+      "label": "Rerum novarum (marco del corpus social)"
+    }
+  ],
+  "references": [
+    {
+      "title": "León XIII — encíclicas (vatican.va)",
+      "url": "https://www.vatican.va/content/leo-xiii/es.html"
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    },
+    {
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

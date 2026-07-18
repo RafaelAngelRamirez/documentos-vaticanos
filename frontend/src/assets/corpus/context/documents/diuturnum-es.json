@@ -1,0 +1,21 @@
+{
+  "documentId": "diuturnum-es",
+  "authorProfileId": "issuer-leo-xiii",
+  "compositionYears": "1881",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Diuturnum illud: origen del poder civil.",
+  "chronologyNote": "Inicios de León XIII.",
+  "timelineSlice": [
+    {
+      "years": "1881",
+      "label": "Diuturnum illud: origen del poder civil."
+    }
+  ],
+  "references": [
+    {
+      "title": "León XIII — encíclicas (vatican.va)",
+      "url": "https://www.vatican.va/content/leo-xiii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

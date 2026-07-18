@@ -1,0 +1,21 @@
+{
+  "documentId": "le-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "1981",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Laborem exercens: trabajo humano.",
+  "chronologyNote": "Noventa años de Rerum novarum; Polonia Solidarnošč.",
+  "timelineSlice": [
+    {
+      "years": "1981",
+      "label": "Laborem exercens: trabajo humano."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

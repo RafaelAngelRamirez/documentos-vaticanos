@@ -1,0 +1,39 @@
+{
+  "id": "diogneto-anonimo",
+  "name": "Anónimo (Carta a Diogneto)",
+  "kind": "author",
+  "years": "s. II",
+  "summary": "La Carta a Diogneto es una apología cristiana anónima del siglo II dirigida a un interlocutor pagano culto. Describe a los cristianos como «alma del mundo»: viven en las ciudades como todos, pero con otra ciudadanía moral.",
+  "axes": {
+    "lugar": "Mediterráneo oriental helenístico-romano (Alejandría, Asia Menor o entorno similar según hipótesis; no hay certeza de sede).",
+    "personajes": "«Diogneto» (destinatario, posiblemente ficticio o tipo del aristócrata pagano); emperadores antoninos como marco; intelectuales apologetas contemporáneos (Justino, etc.).",
+    "gobierno": "Principado romano de los Antoninos/Severos tempranos; cristianismo aún ilícito o precario; ausencia de alianza Imperio-Iglesia.",
+    "cultura": "Prosa griega de arte; diálogo con paideia; crítica del idolatrismo y del formalismo ritual judío desde categoría filosófico-moral.",
+    "religion": "Politeísmo cívico; judaísmo del Segundo Templo tardío / rabínico temprano; cristianismo minoritario misionero.",
+    "antropologia": "Familia y ciudad grecorromanas; hospitalidad; rechazo del abandono de recién nacidos y de ciertos espectáculos (temas afines a apologética coetánea).",
+    "creenciasMundanas": "Culto a los dioses de la ciudad; destinos y oráculos; orgullo étnico griego/romano.",
+    "creenciaCristiana": "Monoteísmo cristiano; revelación del Hijo; ética del amor y la paciencia bajo hostilidad; eclesiología implícita del pueblo nuevo sin territorio propio."
+  },
+  "timeline": [
+    {
+      "years": "s. II",
+      "label": "Composición probable de la Epístola a Diogneto"
+    }
+  ],
+  "references": [
+    {
+      "title": "Epistle to Diognetus (Early Christian Writings)",
+      "url": "https://www.earlychristianwritings.com/text/diognetus-lightfoot.html",
+      "citation": "Epístola a Diogneto, s. II; ed. Lightfoot / Ruiz Bueno."
+    },
+    {
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed."
+    },
+    {
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

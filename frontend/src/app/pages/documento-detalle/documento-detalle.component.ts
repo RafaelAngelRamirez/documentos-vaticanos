@@ -18,8 +18,11 @@ import {
   TocEntry,
 } from 'src/app/services/document-toc.logic';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
+import { HistoricalContextBlockComponent } from 'src/app/components/historical-context-block/historical-context-block.component';
 import { SaintRecord } from 'src/app/core/santoral/santoral-resolve.logic';
 import { SantoralService } from 'src/app/core/santoral/santoral.service';
+import { HistoricalContextService } from 'src/app/core/context/historical-context.service';
+import { ResolvedHistoricalContext } from 'src/app/core/context/historical-context.models';
 
 const FAVS_KEY = 'dv.favs';
 
@@ -27,7 +30,12 @@ const FAVS_KEY = 'dv.favs';
 @Component({
   standalone: true,
   selector: 'app-documento-detalle',
-  imports: [CommonModule, RouterModule, WbarComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    WbarComponent,
+    HistoricalContextBlockComponent,
+  ],
   templateUrl: './documento-detalle.component.html',
   styleUrls: ['./documento-detalle.component.css'],
 })
@@ -48,6 +56,8 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
   relatedSaint: SaintRecord | null = null;
   /** Otras obras del mismo santo (sin el doc actual). */
   siblingWorks: { documentId: string; title: string }[] = [];
+  /** Contexto histórico offline (general + obra). */
+  historicalContext: ResolvedHistoricalContext | null = null;
 
   private sub = new Subscription();
 
@@ -58,6 +68,7 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     private navigationService: NavigationService,
     private progress: ReadingProgressService,
     private santoral: SantoralService,
+    private historical: HistoricalContextService,
   ) {}
 
   ngOnInit(): void {
@@ -167,6 +178,7 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     this.chapters = [];
     this.relatedSaint = null;
     this.siblingWorks = [];
+    this.historicalContext = null;
     this.sub.add(
       this.corpus.loadManifest().subscribe({
         next: () => {
@@ -186,6 +198,7 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
             last && last.documentId === this.meta.id ? last : null;
           this.fav = this.leerFavs().includes(this.meta.id);
           this.cargarReferenciasSantoral();
+          this.cargarContextoHistorico();
           // Load body offline and build structural / bible / curated TOC.
           this.sub.add(
             this.corpus.ensureLoaded(this.meta.id).subscribe({
@@ -209,6 +222,22 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
           this.error = err?.message ?? 'No se pudo cargar el catálogo.';
         },
       })
+    );
+  }
+
+  /** Contexto histórico offline (no bloquea el lector si falla). */
+  private cargarContextoHistorico(): void {
+    if (!this.meta) return;
+    const id = this.meta.id;
+    this.sub.add(
+      this.historical.contextForDocument(id).subscribe({
+        next: (ctx) => {
+          this.historicalContext = ctx;
+        },
+        error: () => {
+          this.historicalContext = null;
+        },
+      }),
     );
   }
 

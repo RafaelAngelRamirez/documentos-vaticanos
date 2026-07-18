@@ -1,0 +1,21 @@
+{
+  "documentId": "cpd-es",
+  "authorProfileId": "issuer-paul-vi",
+  "compositionYears": "1968",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Credo del Pueblo de Dios.",
+  "chronologyNote": "Año de Humanae vitae; profesión de fe ampliada.",
+  "timelineSlice": [
+    {
+      "years": "1968",
+      "label": "Credo del Pueblo de Dios."
+    }
+  ],
+  "references": [
+    {
+      "title": "Pablo VI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

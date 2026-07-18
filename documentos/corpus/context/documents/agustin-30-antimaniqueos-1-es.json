@@ -1,0 +1,28 @@
+{
+  "documentId": "agustin-30-antimaniqueos-1-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "388–400",
+  "compositionPlace": "África",
+  "workSummary": "Primer bloque anti-maniqueo: refutación del dualismo que Agustín había profesado en Cartago.",
+  "chronologyNote": "Fase temprana africana: el converso liquida cuentas con el maniqueísmo; anterior al donatismo álgido y al pelagianismo.",
+  "axes": {
+    "religion": "Maniqueísmo norteafricano y mediterráneo: dualismo, electi/auditores, crítica del AT; catolicismo bíblico que defiende la bondad de la creación."
+  },
+  "timelineSlice": [
+    {
+      "years": "388–400",
+      "label": "Tratados antimaniqueos tempranos"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

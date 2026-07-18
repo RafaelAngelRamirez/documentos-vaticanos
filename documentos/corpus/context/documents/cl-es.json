@@ -1,0 +1,21 @@
+{
+  "documentId": "cl-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "1988",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Christifideles laici: vocación de los laicos.",
+  "chronologyNote": "Sínodo de los laicos 1987.",
+  "timelineSlice": [
+    {
+      "years": "1988",
+      "label": "Christifideles laici: vocación de los laicos."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

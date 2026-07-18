@@ -1,0 +1,21 @@
+{
+  "documentId": "md-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "1988",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Mulieris dignitatem: dignidad de la mujer.",
+  "chronologyNote": "Año mariano; antropología teológica de JPII.",
+  "timelineSlice": [
+    {
+      "years": "1988",
+      "label": "Mulieris dignitatem: dignidad de la mujer."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

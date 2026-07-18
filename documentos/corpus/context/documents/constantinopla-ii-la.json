@@ -1,0 +1,25 @@
+{
+  "documentId": "constantinopla-ii-la",
+  "authorProfileId": "era-concilios-bizantinos",
+  "compositionYears": "553",
+  "compositionPlace": "Constantinopla",
+  "workSummary": "Quinto ecuménico: Tres Capítulos; política religiosa de Justiniano. Texto latino del pack conciliar.",
+  "chronologyNote": "Apogeo justinianeo; tensión con Occidente (Vigilio).",
+  "timelineSlice": [
+    {
+      "years": "553",
+      "label": "Concilio · Constantinopla"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

@@ -1,0 +1,27 @@
+{
+  "documentId": "catecismo-romano-es",
+  "authorProfileId": "era-trento",
+  "compositionYears": "1566",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Catecismo Romano ad parochos, instrumento tridentino de reforma pastoral.",
+  "chronologyNote": "Inmediatamente posterior a Trento, bajo Pío V.",
+  "timelineSlice": [
+    {
+      "years": "1566",
+      "label": "Catecismo Romano ad parochos, instrumento tridentino de reforma pastoral."
+    }
+  ],
+  "references": [
+    {
+      "title": "Catecismo Romano (Trento / Pío V)",
+      "citation": "Catechismus Romanus ad parochos (1566); ed. críticas y traducciones.",
+      "url": "https://www.newadvent.org/cathen/13120c.htm"
+    },
+    {
+      "title": "Concilio de Trento — documentos (vatican.va / Tanner)",
+      "url": "https://www.vatican.va/archive/hist_councils/tri_council/index.htm",
+      "citation": "Concilium Tridentinum; Tanner, Decrees…"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

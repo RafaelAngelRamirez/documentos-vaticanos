@@ -1,0 +1,29 @@
+{
+  "documentId": "agustin-33-antidonatistas-2-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "405–411",
+  "compositionPlace": "África",
+  "workSummary": "Segundo bloque antidonatista hacia la Conferencia de Cartago de 411.",
+  "chronologyNote": "Fase álgida con presión imperial (edictos de Honorio) y preparación del collatio de 411 — no el mismo momento que el tomo 1 ni el 3.",
+  "timelineSlice": [
+    {
+      "years": "405–411",
+      "label": "Camino a la Conferencia de Cartago"
+    },
+    {
+      "years": "411",
+      "label": "Collatio Carthaginensis"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

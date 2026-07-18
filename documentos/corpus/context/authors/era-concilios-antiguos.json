@@ -1,0 +1,54 @@
+{
+  "id": "era-concilios-antiguos",
+  "name": "Concilios ecuménicos de la Antigüedad (Nicaea–Calcedonia)",
+  "kind": "era",
+  "years": "325–451",
+  "summary": "Los primeros concilios ecuménicos definen el lenguaje trinitario y cristológico de la Gran Iglesia bajo emperadores cristianos de Oriente, en un Imperio que usa el sínodo para la unidad religiosa y política.",
+  "axes": {
+    "lugar": "Nicea, Constantinopla, Éfeso, Calcedonia y otras sedes de Asia Menor y Tracia; eje Roma–Alejandría–Antioquía–Jerusalén.",
+    "personajes": "Constantino, Teodosio I y II, Marciano; Atanasio, Capadocios, Cirilo de Alejandría, León Magno; arrianos, nestorianos, monofisitas en debate.",
+    "gobierno": "Emperador convoca y confirma; prefectos y comites ejecutan destierros; derecho romano tardoimperial se imbrica con cánones.",
+    "cultura": "Griego teológico técnico; actas y cartas sinodales; retórica forense en juicios eclesiásticos.",
+    "religion": "Cristianismo imperial; disidencias cristológicas; residuales paganos; judaísmo bajo estatus restringido.",
+    "antropologia": "Obispos como notables urbanos; monacato como presión popular (Éfeso/Calcedonia); peregrinación y reliquias.",
+    "creenciasMundanas": "Culto al emperador transformado; filosofía neoplatónica en el trasfondo de los debates sobre ousia.",
+    "creenciaCristiana": "Credo niceno-constantinopolitano; María Theotokos; dos naturalezas en una persona (Calcedonia); cánones disciplinares."
+  },
+  "timeline": [
+    {
+      "years": "325",
+      "label": "Nicea I"
+    },
+    {
+      "years": "381",
+      "label": "Constantinopla I"
+    },
+    {
+      "years": "431",
+      "label": "Éfeso"
+    },
+    {
+      "years": "451",
+      "label": "Calcedonia"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    },
+    {
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

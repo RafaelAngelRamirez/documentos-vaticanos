@@ -1,0 +1,25 @@
+{
+  "documentId": "agustin-12-tratados-morales-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "388–420",
+  "compositionPlace": "África",
+  "workSummary": "Ética cristiana: mentira, continencia, matrimonio, viudez, celo pastoral — aplicación práctica de la conversión del deseo.",
+  "chronologyNote": "Se extiende de los primeros años africanos a la madurez; no se reduce a una sola controversia dogmática.",
+  "timelineSlice": [
+    {
+      "years": "388–420",
+      "label": "Opúsculos morales a lo largo del ministerio"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

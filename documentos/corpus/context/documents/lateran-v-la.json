@@ -1,0 +1,25 @@
+{
+  "documentId": "lateran-v-la",
+  "authorProfileId": "era-concilios-medievales",
+  "compositionYears": "1512–1517",
+  "compositionPlace": "Roma (Letrán)",
+  "workSummary": "V Lateranense: reforma pre-luterana incompleta; vísperas de la Reforma. Texto latino del pack conciliar.",
+  "chronologyNote": "León X; humanismo romano; 1517 como horizonte protestante.",
+  "timelineSlice": [
+    {
+      "years": "1512–1517",
+      "label": "Concilio · Roma (Letrán)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

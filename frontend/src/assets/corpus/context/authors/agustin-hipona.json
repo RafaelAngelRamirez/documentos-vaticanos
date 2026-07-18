@@ -1,0 +1,97 @@
+{
+  "id": "agustin-hipona",
+  "name": "Agustín de Hipona",
+  "kind": "author",
+  "years": "354–430",
+  "saintId": "agustin-hipona",
+  "summary": "Aurelio Agustín (Tagaste, 354 – Hipona, 430) es el gran teólogo del Occidente latino tardoantiguo. Formado en retórica en Cartago e Italia, pasó del maniqueísmo y el escepticismo a la conversión cristiana (Milán, 386–387), el presbiterado y el episcopado en Hipona Regia (África del Norte romana). Su obra abarca confesión autobiográfica, controversias (maniqueos, donatistas, pelagianos), exégesis y una teología de la gracia y de la historia que marcó la Edad Media y la Reforma.",
+  "axes": {
+    "lugar": "Numidia y Proconsular África (Tagaste, Madaura, Cartago, Hipona Regia, en la actual Argelia/Túnez); estancias formativas en Roma y Milán; red eclesiástica norteafricana bajo dominio romano occidental y, al final de su vida, presión vándala.",
+    "personajes": "Mónica (madre); Ambrosio de Milán; Alipio; Posidio (biógrafo); Fausto de Milevi (maniqueo); Donato y líderes donatistas; Pelagio, Celestio y Juliano de Eclana; emperadores de la dinastía teodosiana y funcionarios africanos; Alarico (saqueo de Roma, 410) como trasfondo de La ciudad de Dios.",
+    "gobierno": "Imperio romano tardío: tetrarquía heredada y monarquía teodosiana, capitales móviles, prefecturas y provincias. En África, curias municipales y coloniae; el poder imperial coopera cada vez más con la Iglesia católica frente a disidencias. Tras 410 el Occidente se fragiliza; en 429–430 los vándalos entran en África y asedian Hipona cuando muere Agustín.",
+    "cultura": "Latín literario y retórica ciceroniana; escuelas de gramática y retórica; neoplatonismo (Plotino/Porfirio vía Ambrosio y traducciones); Biblia latina (pre-Vulgata y, después, influencia de Jerónimo); intercambio epistolar como forma pública de disputa y pastoreo.",
+    "religion": "Cristianismo católico en consolidación imperial; maniqueísmo dualista (que Agustín combatió tras haberlo profesado); donatismo norteafricano (Iglesia de los «puros»); cultos tradicionales romanos y africanos residuales; judaísmo local; primeras tensiones con el arrianismo germánico de los vándalos.",
+    "antropologia": "Sociedad estamental romana: honestiores/humiliores, esclavitud, colonato, familia patriarcal y matrimonio romano. Honor retórico y patronazgo. Vida monástica y clero cada vez más definidos. Cuerpo y sexualidad leídos en clave de concupiscencia y gracia en la madurez agustiniana.",
+    "creenciasMundanas": "Astrología y fatum; ideal estoico y cínico residual; prestigio de la filosofía como camino de sabiduría; orgullo cívico romano tras el saqueo de 410; magia y supersticiones populares que los sermones corrigen.",
+    "creenciaCristiana": "Cristianismo niceno-católico latino: Trinidad, Cristo mediador, gracia eficaz, pecado original, unidad de la Iglesia y eficacia de los sacramentos incluso administrados por ministros indignos (anti-donatista). Eclesiología y escatología de las dos ciudades."
+  },
+  "timeline": [
+    {
+      "years": "354",
+      "label": "Nacimiento en Tagaste"
+    },
+    {
+      "years": "371–383",
+      "label": "Estudios y enseñanza en Cartago; maniqueísmo"
+    },
+    {
+      "years": "383–386",
+      "label": "Roma y Milán; crisis y conversión"
+    },
+    {
+      "years": "387–391",
+      "label": "Bautismo; regreso a África; primeros diálogos"
+    },
+    {
+      "years": "391–395",
+      "label": "Presbítero en Hipona"
+    },
+    {
+      "years": "395–430",
+      "label": "Obispo de Hipona; grandes tratados y controversias"
+    },
+    {
+      "years": "397–400",
+      "label": "Confesiones"
+    },
+    {
+      "years": "399–419",
+      "label": "De Trinitate (composición prolongada)"
+    },
+    {
+      "years": "400–412",
+      "label": "Pico de la controversia donatista"
+    },
+    {
+      "years": "412–430",
+      "label": "Controversia pelagiana"
+    },
+    {
+      "years": "413–426",
+      "label": "De civitate Dei"
+    },
+    {
+      "years": "430",
+      "label": "Muerte durante el asedio vándalo de Hipona"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "Catholic Encyclopedia: St. Augustine of Hippo",
+      "url": "https://www.newadvent.org/cathen/02084a.htm"
+    },
+    {
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed."
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    },
+    {
+      "title": "Agustín, Confessiones (ed. crítica / BAC)",
+      "citation": "San Agustín, Confesiones, BAC Obras de San Agustín, t. 2.",
+      "url": "https://www.augustinus.it/latino/confessioni/index2.htm"
+    },
+    {
+      "title": "Agustín, De civitate Dei",
+      "citation": "San Agustín, La ciudad de Dios, BAC.",
+      "url": "https://www.augustinus.it/latino/cdd/index2.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

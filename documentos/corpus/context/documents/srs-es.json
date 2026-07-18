@@ -1,0 +1,21 @@
+{
+  "documentId": "srs-es",
+  "authorProfileId": "issuer-jp2",
+  "compositionYears": "1987",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Sollicitudo rei socialis.",
+  "chronologyNote": "Veinte años de Populorum progressio; Guerra Fría tardía.",
+  "timelineSlice": [
+    {
+      "years": "1987",
+      "label": "Sollicitudo rei socialis."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

@@ -1,0 +1,21 @@
+{
+  "documentId": "immortale-dei-es",
+  "authorProfileId": "issuer-leo-xiii",
+  "compositionYears": "1885",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Immortale Dei: constitución cristiana de los Estados.",
+  "chronologyNote": "León XIII; cuestión romana y Estados modernos.",
+  "timelineSlice": [
+    {
+      "years": "1885",
+      "label": "Immortale Dei: constitución cristiana de los Estados."
+    }
+  ],
+  "references": [
+    {
+      "title": "León XIII — encíclicas (vatican.va)",
+      "url": "https://www.vatican.va/content/leo-xiii/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

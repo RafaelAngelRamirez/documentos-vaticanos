@@ -1,0 +1,48 @@
+{
+  "id": "clemente-alejandria",
+  "name": "Clemente de Alejandría",
+  "kind": "author",
+  "years": "c. 150–c. 215",
+  "saintId": "clemente-alejandria",
+  "summary": "Tito Flavio Clemente enseñó en la escuela catequética de Alejandría. El Pedagogo presenta a Cristo como educador de la vida cotidiana cristiana en una metrópoli helenística cosmopolita, dialogando con la filosofía griega sin abandonar la Escritura.",
+  "axes": {
+    "lugar": "Alejandría de Egipto: gran puerto del Imperio, Museion, barrios judíos y griegos, sede del prefecto de Egipto.",
+    "personajes": "Panteno (maestro tradicional); Orígenes (sucesión intelectual); emperadores severianos; intelectuales medioplatónicos y estoicos del ambiente alejandrino.",
+    "gobierno": "Principado romano; Egipto como provincia imperial especial bajo prefecto ecuestre; fiscalidad del grano hacia Roma; episodios de presión sobre cristianos (Severos).",
+    "cultura": "Paideia griega, retórica y filosofía; biblioteca y tradición académica; alegoría bíblica; griego koiné literario.",
+    "religion": "Cristianismo en consolidación doctrinal; judaísmo helenístico; cultos isíacos y grecorromanos; gnosticismo y corrientes sincretistas que Clemente matiza o combate.",
+    "antropologia": "Ética del vestido, banquete, sexualidad y riqueza en el Pedagogo; hogares urbanos; esclavitud doméstica; ideal del «verdadero gnosticismo» cristiano como perfección moral.",
+    "creenciasMundanas": "Filosofía como propedéutica; supersticiones y magia popular; culto imperial; ideal cínico/estoico del sabio.",
+    "creenciaCristiana": "Logos cristología; continuidad entre razón y revelación; Iglesia como pedagogía hacia la divinización moral; Escritura leída alegóricamente junto al sentido literal."
+  },
+  "timeline": [
+    {
+      "years": "c. 180–200",
+      "label": "Actividad docente en Alejandría"
+    },
+    {
+      "years": "c. 190–200",
+      "label": "Composición del Pedagogo y el Protréptico"
+    }
+  ],
+  "references": [
+    {
+      "title": "Clement of Alexandria, The Paedagogus",
+      "url": "https://www.newadvent.org/fathers/0209.htm",
+      "citation": "Clemente de Alejandría, El Pedagogo; PG 8."
+    },
+    {
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed."
+    },
+    {
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press."
+    },
+    {
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+}

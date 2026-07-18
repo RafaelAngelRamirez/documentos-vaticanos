@@ -1,0 +1,26 @@
+{
+  "documentId": "agustin-04-obras-apologeticas-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "390–410",
+  "compositionPlace": "África del Norte",
+  "workSummary": "Defensa de la fe católica frente a paganos y críticos: utilidad de creer, verdadera religión, y opúsculos que preparan el clima de La ciudad de Dios.",
+  "chronologyNote": "Entre el presbiterado/episcopado temprano y el impacto del saqueo de Roma (410), cuando la apologética se vuelve historia teológica.",
+  "timelineSlice": [
+    {
+      "years": "390–410",
+      "label": "Apologética previa y colindante a 410"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "Agustín, De civitate Dei",
+      "citation": "San Agustín, La ciudad de Dios, BAC.",
+      "url": "https://www.augustinus.it/latino/cdd/index2.htm"
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

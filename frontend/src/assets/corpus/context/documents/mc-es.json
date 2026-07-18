@@ -1,0 +1,21 @@
+{
+  "documentId": "mc-es",
+  "authorProfileId": "issuer-paul-vi",
+  "compositionYears": "1974",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Marialis cultus: culto mariano renovado.",
+  "chronologyNote": "Recepción litúrgica y mariológica postconciliar.",
+  "timelineSlice": [
+    {
+      "years": "1974",
+      "label": "Marialis cultus: culto mariano renovado."
+    }
+  ],
+  "references": [
+    {
+      "title": "Pablo VI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

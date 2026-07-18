@@ -1,0 +1,28 @@
+{
+  "documentId": "vienne-es",
+  "authorProfileId": "era-concilios-medievales",
+  "compositionYears": "1311–1312",
+  "compositionPlace": "Vienne",
+  "workSummary": "Concilio de Vienne: Templarios, pobreza franciscana, Tierra Santa. Traducción española del pack (ver sourceNote del corpus si es traducción generada).",
+  "chronologyNote": "Papado de Aviñón temprano; Felipe IV de Francia.",
+  "axes": {
+    "cultura": "Tradición textual latina del concilio recibida en lengua española moderna para lectura pastoral y de estudio; el original magisterial es latino (o griego en actas antiguas)."
+  },
+  "timelineSlice": [
+    {
+      "years": "1311–1312",
+      "label": "Concilio · Vienne"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

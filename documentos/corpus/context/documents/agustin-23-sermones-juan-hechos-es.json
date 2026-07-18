@@ -1,0 +1,21 @@
+{
+  "documentId": "agustin-23-sermones-juan-hechos-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "400–420",
+  "compositionPlace": "Hipona",
+  "workSummary": "Sermones sobre escritos joánicos, Hechos y cartas: mistagogia y vida de la Iglesia primitiva aplicada a África.",
+  "chronologyNote": "Madurez homilética, distinta de los tractatus sistemáticos sobre el Evangelio de Juan.",
+  "timelineSlice": [
+    {
+      "years": "400–420",
+      "label": "Sermones bíblicos (Juan, Hechos, cartas)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

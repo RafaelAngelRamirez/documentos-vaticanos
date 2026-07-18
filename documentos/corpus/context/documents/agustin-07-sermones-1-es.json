@@ -1,0 +1,21 @@
+{
+  "documentId": "agustin-07-sermones-1-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "391–430",
+  "compositionPlace": "Hipona y África",
+  "workSummary": "Primer volumen de sermones pastorales: predicación litúrgica y moral al pueblo de Hipona a lo largo del ministerio.",
+  "chronologyNote": "Cubre todo el arco sacerdotal y episcopal; cada sermón es datable solo en parte — el conjunto es la voz del pastor africano, no un tratado sistemático de un solo año.",
+  "timelineSlice": [
+    {
+      "years": "391–430",
+      "label": "Predicación continua en Hipona"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

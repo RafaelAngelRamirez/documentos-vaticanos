@@ -1,0 +1,25 @@
+{
+  "documentId": "lateran-ii-la",
+  "authorProfileId": "era-concilios-medievales",
+  "compositionYears": "1139",
+  "compositionPlace": "Roma (Letrán)",
+  "workSummary": "II Lateranense: disciplina clerical y paz en la Iglesia latina. Texto latino del pack conciliar.",
+  "chronologyNote": "Mediados del s. XII; reforma continua.",
+  "timelineSlice": [
+    {
+      "years": "1139",
+      "label": "Concilio · Roma (Letrán)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

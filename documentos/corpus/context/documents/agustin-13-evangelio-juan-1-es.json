@@ -1,0 +1,25 @@
+{
+  "documentId": "agustin-13-evangelio-juan-1-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "406–420",
+  "compositionPlace": "Hipona",
+  "workSummary": "Tractatus in Ioannem (primera parte): exégesis homilética del Cuarto Evangelio en clave anti-donatista y trinitaria.",
+  "chronologyNote": "Predicación de madurez sobre Juan, en años en que la unidad de la Iglesia y la cristología pastoral son urgentes.",
+  "timelineSlice": [
+    {
+      "years": "406–420",
+      "label": "Homilías sobre el Evangelio de Juan (inicio y medio)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

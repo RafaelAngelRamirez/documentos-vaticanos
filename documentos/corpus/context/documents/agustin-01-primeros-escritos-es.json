@@ -1,0 +1,33 @@
+{
+  "documentId": "agustin-01-primeros-escritos-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "386–391",
+  "compositionPlace": "Casiciaco, Milán, Tagaste",
+  "workSummary": "Diálogos y opúsculos de la conversión y los primeros años africanos: filosofía cristiana, vida beata, orden, inmortalidad del alma y primeros combates intelectuales tras el bautismo.",
+  "chronologyNote": "Fase post-conversión y pre-presbiteral: del retiro de Casiciaco al regreso a Tagaste, antes del sacerdocio en Hipona (391).",
+  "axes": {
+    "lugar": "Casiciaco (cerca de Milán), Milán ambrosiano y Tagaste numidiana: del aula imperial al retiro provinciano africano.",
+    "personajes": "Ambrosio; Mónica; Alipio; Navigio; Teodosio como trasfondo imperial en Italia."
+  },
+  "timelineSlice": [
+    {
+      "years": "386–387",
+      "label": "Casiciaco y bautismo en Milán"
+    },
+    {
+      "years": "388–391",
+      "label": "Comunidad de Tagaste; primeros tratados"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "Catholic Encyclopedia: St. Augustine of Hippo",
+      "url": "https://www.newadvent.org/cathen/02084a.htm"
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

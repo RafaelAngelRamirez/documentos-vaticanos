@@ -1,0 +1,21 @@
+{
+  "documentId": "donum-veritatis-es",
+  "authorProfileId": "issuer-curia-moderna",
+  "compositionYears": "1990",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Donum veritatis: vocación del teólogo.",
+  "chronologyNote": "CDF; relación magisterio–teólogos.",
+  "timelineSlice": [
+    {
+      "years": "1990",
+      "label": "Donum veritatis: vocación del teólogo."
+    }
+  ],
+  "references": [
+    {
+      "title": "Benedicto XVI / CDF — documentos (vatican.va)",
+      "url": "https://www.vatican.va/roman_curia/congregations/cfaith/doc_doc_index_sp.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

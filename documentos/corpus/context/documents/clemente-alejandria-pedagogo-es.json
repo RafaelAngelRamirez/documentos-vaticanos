@@ -1,0 +1,26 @@
+{
+  "documentId": "clemente-alejandria-pedagogo-es",
+  "authorProfileId": "clemente-alejandria",
+  "compositionYears": "c. 190–200",
+  "compositionPlace": "Alejandría",
+  "workSummary": "El Pedagogo: Cristo educador de la conducta cristiana en la metrópoli helenística.",
+  "chronologyNote": "Finales del s. II, escuela catequética alejandrina previa a la gran obra de Orígenes.",
+  "timelineSlice": [
+    {
+      "years": "c. 190–200",
+      "label": "Paedagogus"
+    }
+  ],
+  "references": [
+    {
+      "title": "Clement of Alexandria, The Paedagogus",
+      "url": "https://www.newadvent.org/fathers/0209.htm",
+      "citation": "Clemente de Alejandría, El Pedagogo; PG 8."
+    },
+    {
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

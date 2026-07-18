@@ -1,0 +1,25 @@
+{
+  "documentId": "agustin-35-antipelagianos-3-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "415–420",
+  "compositionPlace": "Hipona",
+  "workSummary": "Escritos antipelagianos (bloque 3 del pack): gracia, peccatum originis y debate internacional.",
+  "chronologyNote": "Fase media de la controversia, con eco en Palestina y Roma; distinta de los primeros opúsculos de 412.",
+  "timelineSlice": [
+    {
+      "years": "415–420",
+      "label": "Anti-pelagianismo medio"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

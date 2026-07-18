@@ -1,0 +1,28 @@
+{
+  "documentId": "jerusalen-es",
+  "authorProfileId": "era-concilio-jerusalen",
+  "compositionYears": "c. 49–50",
+  "compositionPlace": "Jerusalén",
+  "workSummary": "Asamblea apostólica sobre gentiles y la ley (Hechos 15). Traducción española del pack (ver sourceNote del corpus si es traducción generada).",
+  "chronologyNote": "Iglesia apostólica del s. I, bajo dominio romano de Judea.",
+  "axes": {
+    "cultura": "Tradición textual latina del concilio recibida en lengua española moderna para lectura pastoral y de estudio; el original magisterial es latino (o griego en actas antiguas)."
+  },
+  "timelineSlice": [
+    {
+      "years": "c. 49–50",
+      "label": "Concilio · Jerusalén"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

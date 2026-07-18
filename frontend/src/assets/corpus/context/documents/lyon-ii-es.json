@@ -1,0 +1,28 @@
+{
+  "documentId": "lyon-ii-es",
+  "authorProfileId": "era-concilios-medievales",
+  "compositionYears": "1274",
+  "compositionPlace": "Lyon",
+  "workSummary": "II de Lyon: unión (efímera) con griegos; cónclave regulado. Traducción española del pack (ver sourceNote del corpus si es traducción generada).",
+  "chronologyNote": "Gregorio X; Tomás de Aquino muere de camino; cruzada y unión.",
+  "axes": {
+    "cultura": "Tradición textual latina del concilio recibida en lengua española moderna para lectura pastoral y de estudio; el original magisterial es latino (o griego en actas antiguas)."
+  },
+  "timelineSlice": [
+    {
+      "years": "1274",
+      "label": "Concilio · Lyon"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

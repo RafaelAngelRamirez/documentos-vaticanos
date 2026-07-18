@@ -1,0 +1,25 @@
+{
+  "documentId": "constantinopla-iii-la",
+  "authorProfileId": "era-concilios-bizantinos",
+  "compositionYears": "680–681",
+  "compositionPlace": "Constantinopla",
+  "workSummary": "Sexto ecuménico: dos voluntades en Cristo; fin del monotelismo imperial. Texto latino del pack conciliar.",
+  "chronologyNote": "Constantino IV; después de la crisis monotelita y Máximo Confesor.",
+  "timelineSlice": [
+    {
+      "years": "680–681",
+      "label": "Concilio · Constantinopla"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

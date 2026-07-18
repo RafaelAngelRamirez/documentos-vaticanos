@@ -1,0 +1,21 @@
+{
+  "documentId": "agustin-29-escritos-biblicos-5-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "415–430",
+  "compositionPlace": "Hipona",
+  "workSummary": "Escritos bíblicos (tomo 5): tramo más tardío de la exégesis agustiniana en el pack.",
+  "chronologyNote": "Última estación del ciclo bíblico del corpus, en los años finales del episcopado.",
+  "timelineSlice": [
+    {
+      "years": "415–430",
+      "label": "Escritos bíblicos (bloque 5, tardío)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}

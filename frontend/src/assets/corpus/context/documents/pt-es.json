@@ -1,0 +1,21 @@
+{
+  "documentId": "pt-es",
+  "authorProfileId": "issuer-john-xxiii",
+  "compositionYears": "1963",
+  "compositionPlace": "Roma / Ciudad del Vaticano",
+  "workSummary": "Pacem in terris: paz y derechos en el orden internacional.",
+  "chronologyNote": "Guerra Fría; último año de Juan XXIII.",
+  "timelineSlice": [
+    {
+      "years": "1963",
+      "label": "Pacem in terris: paz y derechos en el orden internacional."
+    }
+  ],
+  "references": [
+    {
+      "title": "Juan XXIII — Pacem in terris (vatican.va)",
+      "url": "https://www.vatican.va/content/john-xxiii/es/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

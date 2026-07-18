@@ -1,0 +1,25 @@
+{
+  "documentId": "constantinopla-iv-la",
+  "authorProfileId": "era-concilios-medievales",
+  "compositionYears": "869–870",
+  "compositionPlace": "Constantinopla",
+  "workSummary": "Concilio de 869–870 (recepción latina como VIII ecuménico) sobre Focio. Texto latino del pack conciliar.",
+  "chronologyNote": "Cisma fociaño; Imperio macedonio temprano y papado romano.",
+  "timelineSlice": [
+    {
+      "years": "869–870",
+      "label": "Concilio · Constantinopla"
+    }
+  ],
+  "references": [
+    {
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+    },
+    {
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm"
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+}

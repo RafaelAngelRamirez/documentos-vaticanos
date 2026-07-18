@@ -1,0 +1,25 @@
+{
+  "documentId": "agustin-24-sermones-4-es",
+  "authorProfileId": "agustin-hipona",
+  "compositionYears": "400–425",
+  "compositionPlace": "Hipona",
+  "workSummary": "Sermones 184–272: santos, mártires y fiestas del calendario africano.",
+  "chronologyNote": "Ciclo festivo de la madurez; culto a los mártires norteafricanos en tensión con el donatismo.",
+  "timelineSlice": [
+    {
+      "years": "400–425",
+      "label": "Sermones de santos y fiestas (184–272)"
+    }
+  ],
+  "references": [
+    {
+      "title": "Peter Brown, Augustine of Hippo: A Biography",
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+    },
+    {
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984."
+    }
+  ],
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+}
