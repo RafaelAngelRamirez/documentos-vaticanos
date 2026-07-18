@@ -11,56 +11,130 @@
       "label": "Catequesis jerosolimitanas",
       "refIds": [
         "cyril-cat",
-        "kelly-ecd"
+        "cyril-ccel"
       ]
     }
   ],
   "references": [
     {
       "id": "cyril-cat",
-      "title": "Cyril of Jerusalem, Catechetical Lectures",
+      "title": "Cyril of Jerusalem, Catechetical Lectures (New Advent)",
       "url": "https://www.newadvent.org/fathers/3101.htm",
-      "citation": "Cirilo de Jerusalén, Catequesis; PG 33.",
+      "citation": "Cyril of Jerusalem. Catechetical Lectures. NPNF / New Advent; PG 33.",
       "note": "Texto primario catequético jerosolimitano."
+    },
+    {
+      "id": "cyril-ccel",
+      "title": "CCEL / NPNF: Cyril of Jerusalem",
+      "url": "https://www.ccel.org/ccel/schaff/npnf207",
+      "citation": "Nicene and Post-Nicene Fathers, Second Series, vol. 7 — Cyril of Jerusalem (CCEL).",
+      "note": "Traducción NPNF de las Catequesis."
     },
     {
       "id": "kelly-ecd",
       "title": "J.N.D. Kelly, Early Christian Doctrines",
-      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum.",
-      "note": "Desarrollo dogmático trinitario y cristológico."
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum / HarperCollins.",
+      "note": "Manual de dogmática histórica (Trinidad, cristología, gracia)."
+    },
+    {
+      "id": "fordham-church",
+      "title": "Fordham — Internet Medieval Sourcebook: Church Councils & Fathers",
+      "url": "https://sourcebooks.fordham.edu/sbook1l.asp",
+      "citation": "Internet Medieval Sourcebook: Church Councils (Fordham University).",
+      "note": "Extractos de concilios y padres con metadatos de enseñanza universitaria."
+    },
+    {
+      "id": "britannica-rome",
+      "title": "Encyclopaedia Britannica: Roman Empire",
+      "url": "https://www.britannica.com/place/Roman-Empire",
+      "citation": "Encyclopaedia Britannica, s.v. “Roman Empire”.",
+      "note": "Marco imperial y tardoantigüedad (consulta general fiable)."
+    },
+    {
+      "id": "britannica-late-ant",
+      "title": "Encyclopaedia Britannica: Late antiquity / ancient Rome topics",
+      "url": "https://www.britannica.com/topic/ancient-Rome",
+      "citation": "Encyclopaedia Britannica, s.v. “ancient Rome” (y artículos afines).",
+      "note": "Contexto político-cultural del Mediterráneo romano."
     },
     {
       "id": "chadwick-ec",
       "title": "Henry Chadwick, The Early Church",
       "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed.",
-      "note": "Historia general de los siglos I–V."
+      "note": "Manual académico clásico de historia de la Iglesia antigua (impresión)."
     },
     {
       "id": "frend-rise",
       "title": "W.H.C. Frend, The Rise of Christianity",
-      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984.",
-      "note": "Sociedad, persecuciones y África cristiana."
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress Press, 1984.",
+      "note": "Historia social; persecuciones y África cristiana."
     },
     {
       "id": "pelikan-ct",
       "title": "Jaroslav Pelikan, The Christian Tradition",
-      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
-      "note": "Historia de la doctrina por épocas."
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
     },
     {
       "id": "odcc",
       "title": "Oxford Dictionary of the Christian Church",
       "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
-      "note": "Entradas biográficas y de concilios/magisterio."
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "fordham-ehs",
+      "title": "Fordham University — Internet History Sourcebooks: Ancient / Medieval / Church",
+      "url": "https://sourcebooks.fordham.edu/",
+      "citation": "Halsall, Paul, ed. Internet History Sourcebooks Project. Fordham University.",
+      "note": "Colección académica de fuentes primarias con introducción (Fordham.edu)."
+    },
+    {
+      "id": "fordham-ancient",
+      "title": "Fordham — Internet Ancient History Sourcebook: Christian Origins",
+      "url": "https://sourcebooks.fordham.edu/ancient/asbook11.asp",
+      "citation": "Internet Ancient History Sourcebook: Christian Origins (Fordham University).",
+      "note": "Fuentes de orígenes cristianos y Imperio romano."
+    },
+    {
+      "id": "ccel-ecf",
+      "title": "CCEL: Early Church Fathers (ANF / NPNF)",
+      "url": "https://www.ccel.org/fathers.html",
+      "citation": "Roberts, Alexander / Donaldson, James / Schaff, Philip, eds. Ante-Nicene and Nicene Fathers. CCEL.",
+      "note": "Corpus de traducciones de Padres de dominio público (referencia de consulta)."
+    },
+    {
+      "id": "ce-fathers-index",
+      "title": "New Advent: Fathers of the Church (index)",
+      "url": "https://www.newadvent.org/fathers/",
+      "citation": "New Advent — English translations of the Church Fathers (ANF/NPNF based).",
+      "note": "Índice de Padres en inglés; textos de dominio público."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
+    },
+    {
+      "id": "met-late-antique",
+      "title": "Metropolitan Museum of Art — Heilbrunn Timeline: Late Antique",
+      "url": "https://www.metmuseum.org/toah/hd/laat/hd_laat.htm",
+      "citation": "The Metropolitan Museum of Art. Heilbrunn Timeline of Art History: “Late Antique Art” / related essays.",
+      "note": "Cultura material y arte tardoantiguo (museo de referencia)."
     }
   ],
   "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
   "workSummaryRefIds": [
     "cyril-cat",
-    "kelly-ecd"
+    "cyril-ccel",
+    "kelly-ecd",
+    "fordham-church"
   ],
   "chronologyRefIds": [
     "cyril-cat",
-    "kelly-ecd"
+    "cyril-ccel",
+    "kelly-ecd",
+    "fordham-church"
   ]
 }

@@ -20,44 +20,104 @@
       "id": "odcc",
       "title": "Oxford Dictionary of the Christian Church",
       "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
-      "note": "Entradas biográficas y de concilios/magisterio."
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
     },
     {
       "id": "pelikan-ct",
       "title": "Jaroslav Pelikan, The Christian Tradition",
-      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
-      "note": "Historia de la doctrina por épocas."
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
     },
     {
       "id": "tanner-dec",
       "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
-      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
-      "note": "Texto y traducción de decretos conciliares."
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC / London: Georgetown University Press / Sheed & Ward, 1990.",
+      "note": "Edición crítica de referencia de decretos (latín/griego + inglés)."
+    },
+    {
+      "id": "vatican-archive",
+      "title": "Santa Sede — Archivo documental (vatican.va)",
+      "url": "https://www.vatican.va/archive/index_sp.htm",
+      "citation": "vatican.va — Archive (Catechism, CIC, councils, etc.).",
+      "note": "Índice oficial de recursos documentales de la Santa Sede."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
     },
     {
       "id": "catech-roman",
-      "title": "Catecismo Romano (Trento / Pío V)",
-      "citation": "Catechismus Romanus ad parochos (1566); ed. críticas y traducciones.",
+      "title": "Catecismo Romano (Trento / Pío V) — entrada CE",
+      "citation": "Catechismus Romanus ad parochos (1566).",
       "url": "https://www.newadvent.org/cathen/13120c.htm",
-      "note": "Catecismo tridentino para párrocos."
+      "note": "Entrada histórica al Catecismo Romano; texto en ediciones críticas/impresas."
     },
     {
       "id": "trent-docs",
-      "title": "Concilio de Trento — documentos",
+      "title": "Concilio de Trento — documentos (vatican.va)",
       "url": "https://www.vatican.va/archive/hist_councils/tri_council/index.htm",
-      "citation": "Concilium Tridentinum; Tanner, Decrees…",
-      "note": "Actas y decretos tridentinos."
+      "citation": "Concilium Tridentinum; cf. Tanner, Decrees of the Ecumenical Councils.",
+      "note": "Portal oficial de decretos tridentinos."
+    },
+    {
+      "id": "fordham-ehs",
+      "title": "Fordham University — Internet History Sourcebooks: Ancient / Medieval / Church",
+      "url": "https://sourcebooks.fordham.edu/",
+      "citation": "Halsall, Paul, ed. Internet History Sourcebooks Project. Fordham University.",
+      "note": "Colección académica de fuentes primarias con introducción (Fordham.edu)."
+    },
+    {
+      "id": "dco",
+      "title": "Documenta Catholica Omnia (Cooperatorum Veritatis Societas)",
+      "url": "http://www.documentacatholicaomnia.eu/",
+      "citation": "Documenta Catholica Omnia — archive of conciliar, patristic and magisterial texts (CVS).",
+      "note": "Archivo amplio de textos latinos/griegos de la tradición católica (consulta de primarios)."
+    },
+    {
+      "id": "vatican-councils-hub",
+      "title": "Santa Sede — Archivo de concilios (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/index_sp.htm",
+      "citation": "Libreria Editrice Vaticana / vatican.va — historical councils archive.",
+      "note": "Punto de entrada oficial a textos conciliares en el sitio de la Santa Sede."
+    },
+    {
+      "id": "britannica-trent",
+      "title": "Encyclopaedia Britannica: Council of Trent",
+      "url": "https://www.britannica.com/event/Council-of-Trent",
+      "citation": "Encyclopaedia Britannica, s.v. “Council of Trent”.",
+      "note": "Trento y reforma católica."
+    },
+    {
+      "id": "britannica-papacy",
+      "title": "Encyclopaedia Britannica: Papacy",
+      "url": "https://www.britannica.com/topic/papacy",
+      "citation": "Encyclopaedia Britannica, s.v. “papacy”.",
+      "note": "Institución papal e historia del primado."
+    },
+    {
+      "id": "britannica-reformation",
+      "title": "Encyclopaedia Britannica: Reformation",
+      "url": "https://www.britannica.com/event/Reformation",
+      "citation": "Encyclopaedia Britannica, s.v. “Reformation”.",
+      "note": "Contexto de Trento y Contrarreforma."
     }
   ],
   "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
   "workSummaryRefIds": [
     "odcc",
     "pelikan-ct",
-    "tanner-dec"
+    "tanner-dec",
+    "vatican-archive",
+    "britannica-christianity"
   ],
   "chronologyRefIds": [
     "odcc",
     "pelikan-ct",
-    "tanner-dec"
+    "tanner-dec",
+    "vatican-archive",
+    "britannica-christianity"
   ]
 }

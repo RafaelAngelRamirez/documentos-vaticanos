@@ -44,86 +44,136 @@
     {
       "id": "pelikan-ct",
       "title": "Jaroslav Pelikan, The Christian Tradition",
-      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
-      "note": "Historia de la doctrina por épocas."
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
     },
     {
       "id": "odcc",
       "title": "Oxford Dictionary of the Christian Church",
       "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
-      "note": "Entradas biográficas y de concilios/magisterio."
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "denzinger-dh",
+      "title": "Denzinger-Hünermann, Enchiridion symbolorum",
+      "citation": "Denzinger, Heinrich / Hünermann, Peter. Enchiridion symbolorum definitionum et declarationum de rebus fidei et morum. Freiburg: Herder (eds. actualizadas).",
+      "note": "Compilación numerada de definiciones magisteriales (impresión de referencia)."
     },
     {
       "id": "cic-1997",
       "title": "Catecismo de la Iglesia Católica (vatican.va)",
       "url": "https://www.vatican.va/archive/catechism_sp/index_sp.html",
-      "note": "Texto típico del Catecismo (1992/1997)."
+      "citation": "Catechismus Catholicae Ecclesiae. Libreria Editrice Vaticana; edición típica 1997.",
+      "note": "Texto típico oficial del Catecismo (ES)."
     },
     {
       "id": "cic-1983",
       "title": "Código de Derecho Canónico (1983) — vatican.va",
       "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html",
-      "note": "Promulgación y texto del CIC latino."
+      "citation": "Codex Iuris Canonici (1983). Ioannes Paulus II. vatican.va.",
+      "note": "Texto oficial del CIC latino."
     },
     {
       "id": "cceo-1990",
-      "title": "Código de los Cánones de las Iglesias Orientales",
+      "title": "Código de los Cánones de las Iglesias Orientales (vatican.va)",
       "url": "https://www.vatican.va/holy_father/john_paul_ii/apost_constitutions/documents/hf_jp-ii_apc_19901018_codex-can-eccl-orient-sp.html",
-      "note": "CCEO 1990."
+      "citation": "Codex Canonum Ecclesiarum Orientalium (1990). Ioannes Paulus II.",
+      "note": "CCEO 1990 — texto oficial."
     },
     {
       "id": "jp2",
-      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "title": "Juan Pablo II — documentos (vatican.va)",
       "url": "https://www.vatican.va/content/john-paul-ii/es.html",
-      "note": "Encíclicas y exhortaciones 1978–2005."
+      "citation": "Ioannes Paulus II. Opera / vatican.va (ES).",
+      "note": "Encíclicas y exhortaciones 1978–2005 (texto oficial)."
+    },
+    {
+      "id": "vatican-archive",
+      "title": "Santa Sede — Archivo documental (vatican.va)",
+      "url": "https://www.vatican.va/archive/index_sp.htm",
+      "citation": "vatican.va — Archive (Catechism, CIC, councils, etc.).",
+      "note": "Índice oficial de recursos documentales de la Santa Sede."
+    },
+    {
+      "id": "aas",
+      "title": "Acta Apostolicae Sedis (referencia de promulgación)",
+      "citation": "Acta Apostolicae Sedis: Commentarium Officiale. Typis Polyglottis Vaticanis (serie oficial).",
+      "url": "https://www.vatican.va/archive/aas/index_sp.htm",
+      "note": "Boletín oficial de la Santa Sede para actos promulgados."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
+    },
+    {
+      "id": "britannica-papacy",
+      "title": "Encyclopaedia Britannica: Papacy",
+      "url": "https://www.britannica.com/topic/papacy",
+      "citation": "Encyclopaedia Britannica, s.v. “papacy”.",
+      "note": "Institución papal e historia del primado."
     }
   ],
   "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
   "summaryRefIds": [
     "cic-1983",
     "cceo-1990",
-    "odcc"
+    "vatican-archive",
+    "aas",
+    "jp2"
   ],
   "axisSources": {
     "lugar": [
       "cic-1983",
       "cceo-1990",
+      "vatican-archive",
+      "aas",
       "odcc"
     ],
     "personajes": [
       "cic-1983",
       "jp2",
-      "odcc"
+      "odcc",
+      "vatican-archive"
     ],
     "gobierno": [
       "cic-1983",
       "cceo-1990",
-      "odcc"
+      "aas",
+      "britannica-papacy"
     ],
     "cultura": [
       "cic-1983",
       "odcc",
-      "pelikan-ct"
+      "pelikan-ct",
+      "vatican-archive"
     ],
     "religion": [
       "cic-1983",
       "cceo-1990",
-      "cic-1997"
+      "cic-1997",
+      "vatican-archive"
     ],
     "antropologia": [
       "cic-1983",
       "odcc",
-      "jp2"
+      "jp2",
+      "cic-1997"
     ],
     "creenciasMundanas": [
       "cic-1983",
       "odcc",
-      "pelikan-ct"
+      "pelikan-ct",
+      "britannica-christianity"
     ],
     "creenciaCristiana": [
       "cic-1983",
       "cceo-1990",
-      "pelikan-ct"
+      "pelikan-ct",
+      "denzinger-dh",
+      "aas"
     ]
   }
 }

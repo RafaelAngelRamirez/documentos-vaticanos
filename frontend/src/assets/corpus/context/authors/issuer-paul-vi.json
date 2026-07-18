@@ -44,75 +44,135 @@
     {
       "id": "pelikan-ct",
       "title": "Jaroslav Pelikan, The Christian Tradition",
-      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
-      "note": "Historia de la doctrina por épocas."
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
     },
     {
       "id": "odcc",
       "title": "Oxford Dictionary of the Christian Church",
       "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
-      "note": "Entradas biográficas y de concilios/magisterio."
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "papalencyclicals",
+      "title": "Papal Encyclicals Online",
+      "url": "https://www.papalencyclicals.net/",
+      "citation": "Papal Encyclicals Online — English archive of papal documents.",
+      "note": "Textos magisteriales en inglés; contrastar con vatican.va cuando exista original."
     },
     {
       "id": "vat2-docs",
-      "title": "Documentos del Concilio Vaticano II (vatican.va)",
+      "title": "Concilio Vaticano II — documentos (vatican.va)",
       "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index_sp.htm",
-      "citation": "Acta Apostolicae Sedis / vatican.va — Concilio Vaticano II.",
-      "note": "Textos oficiales de las constituciones y decretos."
+      "citation": "Concilium Vaticanum II. Acta / vatican.va (ES).",
+      "note": "Textos oficiales de constituciones, decretos y declaraciones."
+    },
+    {
+      "id": "britannica-vat2",
+      "title": "Encyclopaedia Britannica: Second Vatican Council",
+      "url": "https://www.britannica.com/event/Second-Vatican-Council",
+      "citation": "Encyclopaedia Britannica, s.v. “Second Vatican Council”.",
+      "note": "Síntesis histórica del Vaticano II."
+    },
+    {
+      "id": "cic-1997",
+      "title": "Catecismo de la Iglesia Católica (vatican.va)",
+      "url": "https://www.vatican.va/archive/catechism_sp/index_sp.html",
+      "citation": "Catechismus Catholicae Ecclesiae. Libreria Editrice Vaticana; edición típica 1997.",
+      "note": "Texto típico oficial del Catecismo (ES)."
     },
     {
       "id": "paul-vi",
-      "title": "Pablo VI — magisterio (vatican.va)",
+      "title": "Pablo VI — documentos (vatican.va)",
       "url": "https://www.vatican.va/content/paul-vi/es.html",
+      "citation": "Paulus VI. Opera / vatican.va (ES).",
       "note": "Humanae vitae, Evangelii nuntiandi, cierre del Vaticano II."
+    },
+    {
+      "id": "vatican-archive",
+      "title": "Santa Sede — Archivo documental (vatican.va)",
+      "url": "https://www.vatican.va/archive/index_sp.htm",
+      "citation": "vatican.va — Archive (Catechism, CIC, councils, etc.).",
+      "note": "Índice oficial de recursos documentales de la Santa Sede."
+    },
+    {
+      "id": "aas",
+      "title": "Acta Apostolicae Sedis (referencia de promulgación)",
+      "citation": "Acta Apostolicae Sedis: Commentarium Officiale. Typis Polyglottis Vaticanis (serie oficial).",
+      "url": "https://www.vatican.va/archive/aas/index_sp.htm",
+      "note": "Boletín oficial de la Santa Sede para actos promulgados."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
+    },
+    {
+      "id": "britannica-papacy",
+      "title": "Encyclopaedia Britannica: Papacy",
+      "url": "https://www.britannica.com/topic/papacy",
+      "citation": "Encyclopaedia Britannica, s.v. “papacy”.",
+      "note": "Institución papal e historia del primado."
     }
   ],
   "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
   "summaryRefIds": [
     "paul-vi",
     "vat2-docs",
-    "odcc"
+    "vatican-archive",
+    "britannica-vat2",
+    "aas"
   ],
   "axisSources": {
     "lugar": [
       "paul-vi",
       "vat2-docs",
-      "odcc"
+      "vatican-archive",
+      "britannica-vat2",
+      "aas"
     ],
     "personajes": [
       "paul-vi",
       "vat2-docs",
-      "odcc"
+      "odcc",
+      "papalencyclicals"
     ],
     "gobierno": [
       "paul-vi",
       "vat2-docs",
-      "odcc"
+      "aas",
+      "britannica-papacy"
     ],
     "cultura": [
       "paul-vi",
       "vat2-docs",
-      "pelikan-ct"
+      "pelikan-ct",
+      "britannica-vat2"
     ],
     "religion": [
       "paul-vi",
       "vat2-docs",
-      "odcc"
+      "odcc",
+      "vatican-archive"
     ],
     "antropologia": [
       "paul-vi",
       "odcc",
-      "pelikan-ct"
+      "pelikan-ct",
+      "vat2-docs"
     ],
     "creenciasMundanas": [
       "paul-vi",
-      "odcc",
-      "vat2-docs"
+      "vat2-docs",
+      "britannica-christianity"
     ],
     "creenciaCristiana": [
       "paul-vi",
       "vat2-docs",
-      "pelikan-ct"
+      "pelikan-ct",
+      "cic-1997"
     ]
   }
 }

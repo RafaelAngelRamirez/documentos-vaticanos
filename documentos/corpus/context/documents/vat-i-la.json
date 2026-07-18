@@ -11,55 +11,117 @@
       "label": "Concilio · Roma (Vaticano)",
       "refIds": [
         "vat1-pa",
-        "tanner-dec"
+        "vat1-df"
       ]
     }
   ],
   "references": [
     {
       "id": "vat1-pa",
-      "title": "Concilio Vaticano I — Pastor Aeternus / Dei Filius",
+      "title": "Concilio Vaticano I — Pastor Aeternus (vatican.va)",
       "url": "https://www.vatican.va/content/pius-ix/la/documents/constitutio-dogmatica-pastor-aeternus-18-iulii-1870.html",
-      "note": "Constituciones dogmáticas del Vaticano I."
+      "citation": "Pius IX. Constitutio dogmatica Pastor aeternus (18 iul. 1870). vatican.va.",
+      "note": "Texto oficial latino de la constitución sobre el primado."
+    },
+    {
+      "id": "vat1-df",
+      "title": "Concilio Vaticano I — Dei Filius (contexto)",
+      "url": "https://www.vatican.va/content/pius-ix/en.html",
+      "citation": "Pius IX / Vatican I — Dei Filius (1870); cf. Denzinger-Hünermann; Tanner.",
+      "note": "Constitución sobre la fe católica; hub Pío IX en vatican.va."
     },
     {
       "id": "tanner-dec",
       "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
-      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
-      "note": "Texto y traducción de decretos conciliares."
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC / London: Georgetown University Press / Sheed & Ward, 1990.",
+      "note": "Edición crítica de referencia de decretos (latín/griego + inglés)."
+    },
+    {
+      "id": "vatican-councils-hub",
+      "title": "Santa Sede — Archivo de concilios (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/index_sp.htm",
+      "citation": "Libreria Editrice Vaticana / vatican.va — historical councils archive.",
+      "note": "Punto de entrada oficial a textos conciliares en el sitio de la Santa Sede."
     },
     {
       "id": "ce-councils",
-      "title": "Catholic Encyclopedia: General Councils",
+      "title": "Catholic Encyclopedia (1913): General Councils",
       "url": "https://www.newadvent.org/cathen/04423f.htm",
-      "note": "Síntesis de concilios ecuménicos."
+      "citation": "Wilhelm, Joseph. “General Councils.” Catholic Encyclopedia. New York, 1908.",
+      "note": "Síntesis histórica de concilios (legado 1913)."
     },
     {
       "id": "pelikan-ct",
       "title": "Jaroslav Pelikan, The Christian Tradition",
-      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
-      "note": "Historia de la doctrina por épocas."
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
     },
     {
       "id": "odcc",
       "title": "Oxford Dictionary of the Christian Church",
       "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
-      "note": "Entradas biográficas y de concilios/magisterio."
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "dco",
+      "title": "Documenta Catholica Omnia (Cooperatorum Veritatis Societas)",
+      "url": "http://www.documentacatholicaomnia.eu/",
+      "citation": "Documenta Catholica Omnia — archive of conciliar, patristic and magisterial texts (CVS).",
+      "note": "Archivo amplio de textos latinos/griegos de la tradición católica (consulta de primarios)."
+    },
+    {
+      "id": "denzinger-dh",
+      "title": "Denzinger-Hünermann, Enchiridion symbolorum",
+      "citation": "Denzinger, Heinrich / Hünermann, Peter. Enchiridion symbolorum definitionum et declarationum de rebus fidei et morum. Freiburg: Herder (eds. actualizadas).",
+      "note": "Compilación numerada de definiciones magisteriales (impresión de referencia)."
     },
     {
       "id": "quanta-cura",
-      "title": "Pío IX, Quanta cura (1864)",
+      "title": "Pío IX, Quanta cura (1864) — vatican.va",
       "url": "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html",
-      "note": "Encíclica y Syllabus en el entorno."
+      "citation": "Pius IX. Encyclica Quanta cura (8 dec. 1864). vatican.va.",
+      "note": "Texto oficial latino; entorno del Syllabus."
+    },
+    {
+      "id": "vatican-archive",
+      "title": "Santa Sede — Archivo documental (vatican.va)",
+      "url": "https://www.vatican.va/archive/index_sp.htm",
+      "citation": "vatican.va — Archive (Catechism, CIC, councils, etc.).",
+      "note": "Índice oficial de recursos documentales de la Santa Sede."
+    },
+    {
+      "id": "aas",
+      "title": "Acta Apostolicae Sedis (referencia de promulgación)",
+      "citation": "Acta Apostolicae Sedis: Commentarium Officiale. Typis Polyglottis Vaticanis (serie oficial).",
+      "url": "https://www.vatican.va/archive/aas/index_sp.htm",
+      "note": "Boletín oficial de la Santa Sede para actos promulgados."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
+    },
+    {
+      "id": "britannica-papacy",
+      "title": "Encyclopaedia Britannica: Papacy",
+      "url": "https://www.britannica.com/topic/papacy",
+      "citation": "Encyclopaedia Britannica, s.v. “papacy”.",
+      "note": "Institución papal e historia del primado."
     }
   ],
   "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
   "workSummaryRefIds": [
     "vat1-pa",
-    "tanner-dec"
+    "vat1-df",
+    "tanner-dec",
+    "vatican-councils-hub"
   ],
   "chronologyRefIds": [
     "vat1-pa",
-    "tanner-dec"
+    "vat1-df",
+    "tanner-dec",
+    "vatican-councils-hub"
   ]
 }

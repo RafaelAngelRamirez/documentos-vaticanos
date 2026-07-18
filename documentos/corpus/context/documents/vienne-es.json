@@ -14,7 +14,7 @@
       "label": "Concilio · Vienne",
       "refIds": [
         "tanner-dec",
-        "ce-councils"
+        "vatican-councils-hub"
       ]
     }
   ],
@@ -22,50 +22,113 @@
     {
       "id": "tanner-dec",
       "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
-      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
-      "note": "Texto y traducción de decretos conciliares."
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC / London: Georgetown University Press / Sheed & Ward, 1990.",
+      "note": "Edición crítica de referencia de decretos (latín/griego + inglés)."
+    },
+    {
+      "id": "vatican-councils-hub",
+      "title": "Santa Sede — Archivo de concilios (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/index_sp.htm",
+      "citation": "Libreria Editrice Vaticana / vatican.va — historical councils archive.",
+      "note": "Punto de entrada oficial a textos conciliares en el sitio de la Santa Sede."
+    },
+    {
+      "id": "britannica-councils",
+      "title": "Encyclopaedia Britannica: Council (Christianity)",
+      "url": "https://www.britannica.com/topic/council-Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “council (Christianity)”.",
+      "note": "Visión de conjunto de sínodos y concilios ecuménicos."
+    },
+    {
+      "id": "fordham-church",
+      "title": "Fordham — Internet Medieval Sourcebook: Church Councils & Fathers",
+      "url": "https://sourcebooks.fordham.edu/sbook1l.asp",
+      "citation": "Internet Medieval Sourcebook: Church Councils (Fordham University).",
+      "note": "Extractos de concilios y padres con metadatos de enseñanza universitaria."
+    },
+    {
+      "id": "dco",
+      "title": "Documenta Catholica Omnia (Cooperatorum Veritatis Societas)",
+      "url": "http://www.documentacatholicaomnia.eu/",
+      "citation": "Documenta Catholica Omnia — archive of conciliar, patristic and magisterial texts (CVS).",
+      "note": "Archivo amplio de textos latinos/griegos de la tradición católica (consulta de primarios)."
     },
     {
       "id": "ce-councils",
-      "title": "Catholic Encyclopedia: General Councils",
+      "title": "Catholic Encyclopedia (1913): General Councils",
       "url": "https://www.newadvent.org/cathen/04423f.htm",
-      "note": "Síntesis de concilios ecuménicos."
+      "citation": "Wilhelm, Joseph. “General Councils.” Catholic Encyclopedia. New York, 1908.",
+      "note": "Síntesis histórica de concilios (legado 1913)."
+    },
+    {
+      "id": "kelly-ecd",
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum / HarperCollins.",
+      "note": "Manual de dogmática histórica (Trinidad, cristología, gracia)."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
     },
     {
       "id": "odcc",
       "title": "Oxford Dictionary of the Christian Church",
       "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
-      "note": "Entradas biográficas y de concilios/magisterio."
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
     },
     {
-      "id": "kelly-ecd",
-      "title": "J.N.D. Kelly, Early Christian Doctrines",
-      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum.",
-      "note": "Desarrollo dogmático trinitario y cristológico."
+      "id": "fordham-ehs",
+      "title": "Fordham University — Internet History Sourcebooks: Ancient / Medieval / Church",
+      "url": "https://sourcebooks.fordham.edu/",
+      "citation": "Halsall, Paul, ed. Internet History Sourcebooks Project. Fordham University.",
+      "note": "Colección académica de fuentes primarias con introducción (Fordham.edu)."
     },
     {
-      "id": "pelikan-ct",
-      "title": "Jaroslav Pelikan, The Christian Tradition",
-      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
-      "note": "Historia de la doctrina por épocas."
+      "id": "ccel-schaff-hist",
+      "title": "CCEL: Philip Schaff, History of the Christian Church",
+      "url": "https://www.ccel.org/ccel/schaff/hcc1",
+      "citation": "Schaff, Philip. History of the Christian Church. 8 vols. Christian Classics Ethereal Library.",
+      "note": "Historia clásica (s. XIX); contexto general, no estado del arte historiográfico actual."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
+    },
+    {
+      "id": "britannica-papacy",
+      "title": "Encyclopaedia Britannica: Papacy",
+      "url": "https://www.britannica.com/topic/papacy",
+      "citation": "Encyclopaedia Britannica, s.v. “papacy”.",
+      "note": "Institución papal e historia del primado."
     }
   ],
   "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
   "workSummaryRefIds": [
     "tanner-dec",
-    "ce-councils",
-    "odcc"
+    "vatican-councils-hub",
+    "britannica-councils",
+    "fordham-church",
+    "dco"
   ],
   "chronologyRefIds": [
     "tanner-dec",
-    "ce-councils",
-    "odcc"
+    "vatican-councils-hub",
+    "britannica-councils",
+    "fordham-church",
+    "dco"
   ],
   "axisSources": {
     "cultura": [
       "tanner-dec",
-      "ce-councils",
-      "odcc"
+      "vatican-councils-hub",
+      "britannica-councils",
+      "fordham-church",
+      "dco"
     ]
   }
 }

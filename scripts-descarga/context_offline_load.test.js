@@ -115,6 +115,21 @@ function main() {
     (conf.references || []).some((r) => r.id === 'aug-conf' || r.id === 'brown-ag'),
     'confesiones bibliography includes primary/secondary ids',
   );
+  // Prefer reliable online URLs in bibliography
+  const withUrl = (ag.references || []).filter((r) => r.url && /^https?:\/\//.test(r.url));
+  assert.ok(withUrl.length >= 8, `author should ship many online sources, got ${withUrl.length}`);
+  const trustedHosts = withUrl.filter((r) =>
+    /vatican\.va|stanford\.edu|britannica\.com|fordham\.edu|augustinus\.it|ccel\.org|newadvent\.org|iep\.utm\.edu|metmuseum\.org|britishmuseum\.org|livius\.org|documentacatholicaomnia|papalencyclicals|earlychristianwritings/i.test(
+      r.url,
+    ),
+  );
+  assert.ok(
+    trustedHosts.length >= 6,
+    `expected trusted-host URLs, got ${trustedHosts.length}: ${trustedHosts
+      .slice(0, 3)
+      .map((r) => r.url)
+      .join(', ')}`,
+  );
 
   const samples = ['cic-es', 'nicea-i-la', 'agustin-02-confesiones-es'];
   for (const id of samples) {

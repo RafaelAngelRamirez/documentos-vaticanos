@@ -20,7 +20,7 @@
       "label": "Constantinopla II",
       "refIds": [
         "tanner-dec",
-        "ce-councils"
+        "vatican-councils-hub"
       ]
     },
     {
@@ -28,7 +28,7 @@
       "label": "Constantinopla III",
       "refIds": [
         "tanner-dec",
-        "ce-councils"
+        "vatican-councils-hub"
       ]
     },
     {
@@ -36,7 +36,7 @@
       "label": "Nicea II",
       "refIds": [
         "tanner-dec",
-        "ce-councils"
+        "vatican-councils-hub"
       ]
     }
   ],
@@ -44,80 +44,140 @@
     {
       "id": "kelly-ecd",
       "title": "J.N.D. Kelly, Early Christian Doctrines",
-      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum.",
-      "note": "Desarrollo dogmático trinitario y cristológico."
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum / HarperCollins.",
+      "note": "Manual de dogmática histórica (Trinidad, cristología, gracia)."
     },
     {
       "id": "pelikan-ct",
       "title": "Jaroslav Pelikan, The Christian Tradition",
-      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
-      "note": "Historia de la doctrina por épocas."
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
     },
     {
       "id": "odcc",
       "title": "Oxford Dictionary of the Christian Church",
       "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
-      "note": "Entradas biográficas y de concilios/magisterio."
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "fordham-ehs",
+      "title": "Fordham University — Internet History Sourcebooks: Ancient / Medieval / Church",
+      "url": "https://sourcebooks.fordham.edu/",
+      "citation": "Halsall, Paul, ed. Internet History Sourcebooks Project. Fordham University.",
+      "note": "Colección académica de fuentes primarias con introducción (Fordham.edu)."
+    },
+    {
+      "id": "fordham-church",
+      "title": "Fordham — Internet Medieval Sourcebook: Church Councils & Fathers",
+      "url": "https://sourcebooks.fordham.edu/sbook1l.asp",
+      "citation": "Internet Medieval Sourcebook: Church Councils (Fordham University).",
+      "note": "Extractos de concilios y padres con metadatos de enseñanza universitaria."
+    },
+    {
+      "id": "dco",
+      "title": "Documenta Catholica Omnia (Cooperatorum Veritatis Societas)",
+      "url": "http://www.documentacatholicaomnia.eu/",
+      "citation": "Documenta Catholica Omnia — archive of conciliar, patristic and magisterial texts (CVS).",
+      "note": "Archivo amplio de textos latinos/griegos de la tradición católica (consulta de primarios)."
     },
     {
       "id": "tanner-dec",
       "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
-      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
-      "note": "Texto y traducción de decretos conciliares."
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC / London: Georgetown University Press / Sheed & Ward, 1990.",
+      "note": "Edición crítica de referencia de decretos (latín/griego + inglés)."
     },
     {
       "id": "ce-councils",
-      "title": "Catholic Encyclopedia: General Councils",
+      "title": "Catholic Encyclopedia (1913): General Councils",
       "url": "https://www.newadvent.org/cathen/04423f.htm",
-      "note": "Síntesis de concilios ecuménicos."
+      "citation": "Wilhelm, Joseph. “General Councils.” Catholic Encyclopedia. New York, 1908.",
+      "note": "Síntesis histórica de concilios (legado 1913)."
+    },
+    {
+      "id": "vatican-councils-hub",
+      "title": "Santa Sede — Archivo de concilios (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/index_sp.htm",
+      "citation": "Libreria Editrice Vaticana / vatican.va — historical councils archive.",
+      "note": "Punto de entrada oficial a textos conciliares en el sitio de la Santa Sede."
+    },
+    {
+      "id": "britannica-councils",
+      "title": "Encyclopaedia Britannica: Council (Christianity)",
+      "url": "https://www.britannica.com/topic/council-Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “council (Christianity)”.",
+      "note": "Visión de conjunto de sínodos y concilios ecuménicos."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
+    },
+    {
+      "id": "met-late-antique",
+      "title": "Metropolitan Museum of Art — Heilbrunn Timeline: Late Antique",
+      "url": "https://www.metmuseum.org/toah/hd/laat/hd_laat.htm",
+      "citation": "The Metropolitan Museum of Art. Heilbrunn Timeline of Art History: “Late Antique Art” / related essays.",
+      "note": "Cultura material y arte tardoantiguo (museo de referencia)."
     }
   ],
   "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
   "summaryRefIds": [
     "tanner-dec",
-    "ce-councils",
+    "vatican-councils-hub",
+    "britannica-councils",
+    "dco",
     "odcc"
   ],
   "axisSources": {
     "lugar": [
       "tanner-dec",
-      "ce-councils",
-      "odcc"
+      "vatican-councils-hub",
+      "britannica-councils",
+      "dco",
+      "fordham-church"
     ],
     "personajes": [
       "tanner-dec",
       "odcc",
-      "pelikan-ct"
+      "pelikan-ct",
+      "dco"
     ],
     "gobierno": [
       "tanner-dec",
       "odcc",
-      "ce-councils"
+      "britannica-councils",
+      "fordham-church"
     ],
     "cultura": [
       "tanner-dec",
       "pelikan-ct",
-      "odcc"
+      "odcc",
+      "met-late-antique"
     ],
     "religion": [
       "tanner-dec",
       "kelly-ecd",
-      "pelikan-ct"
+      "pelikan-ct",
+      "dco"
     ],
     "antropologia": [
       "odcc",
       "pelikan-ct",
+      "fordham-ehs",
       "tanner-dec"
     ],
     "creenciasMundanas": [
       "odcc",
       "pelikan-ct",
-      "tanner-dec"
+      "britannica-christianity"
     ],
     "creenciaCristiana": [
       "tanner-dec",
       "kelly-ecd",
-      "pelikan-ct"
+      "pelikan-ct",
+      "ce-councils"
     ]
   }
 }

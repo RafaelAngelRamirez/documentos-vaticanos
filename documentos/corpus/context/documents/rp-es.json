@@ -11,55 +11,104 @@
       "label": "Reconciliatio et paenitentia.",
       "refIds": [
         "jp2",
-        "odcc"
+        "vatican-archive"
       ]
     }
   ],
   "references": [
     {
       "id": "jp2",
-      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "title": "Juan Pablo II — documentos (vatican.va)",
       "url": "https://www.vatican.va/content/john-paul-ii/es.html",
-      "note": "Encíclicas y exhortaciones 1978–2005."
+      "citation": "Ioannes Paulus II. Opera / vatican.va (ES).",
+      "note": "Encíclicas y exhortaciones 1978–2005 (texto oficial)."
+    },
+    {
+      "id": "vatican-archive",
+      "title": "Santa Sede — Archivo documental (vatican.va)",
+      "url": "https://www.vatican.va/archive/index_sp.htm",
+      "citation": "vatican.va — Archive (Catechism, CIC, councils, etc.).",
+      "note": "Índice oficial de recursos documentales de la Santa Sede."
+    },
+    {
+      "id": "aas",
+      "title": "Acta Apostolicae Sedis (referencia de promulgación)",
+      "citation": "Acta Apostolicae Sedis: Commentarium Officiale. Typis Polyglottis Vaticanis (serie oficial).",
+      "url": "https://www.vatican.va/archive/aas/index_sp.htm",
+      "note": "Boletín oficial de la Santa Sede para actos promulgados."
     },
     {
       "id": "odcc",
       "title": "Oxford Dictionary of the Christian Church",
       "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
-      "note": "Entradas biográficas y de concilios/magisterio."
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
     },
     {
       "id": "pelikan-ct",
       "title": "Jaroslav Pelikan, The Christian Tradition",
-      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
-      "note": "Historia de la doctrina por épocas."
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
+    },
+    {
+      "id": "papalencyclicals",
+      "title": "Papal Encyclicals Online",
+      "url": "https://www.papalencyclicals.net/",
+      "citation": "Papal Encyclicals Online — English archive of papal documents.",
+      "note": "Textos magisteriales en inglés; contrastar con vatican.va cuando exista original."
+    },
+    {
+      "id": "denzinger-dh",
+      "title": "Denzinger-Hünermann, Enchiridion symbolorum",
+      "citation": "Denzinger, Heinrich / Hünermann, Peter. Enchiridion symbolorum definitionum et declarationum de rebus fidei et morum. Freiburg: Herder (eds. actualizadas).",
+      "note": "Compilación numerada de definiciones magisteriales (impresión de referencia)."
     },
     {
       "id": "cic-1997",
       "title": "Catecismo de la Iglesia Católica (vatican.va)",
       "url": "https://www.vatican.va/archive/catechism_sp/index_sp.html",
-      "note": "Texto típico del Catecismo (1992/1997)."
+      "citation": "Catechismus Catholicae Ecclesiae. Libreria Editrice Vaticana; edición típica 1997.",
+      "note": "Texto típico oficial del Catecismo (ES)."
     },
     {
       "id": "cic-1983",
       "title": "Código de Derecho Canónico (1983) — vatican.va",
       "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html",
-      "note": "Promulgación y texto del CIC latino."
+      "citation": "Codex Iuris Canonici (1983). Ioannes Paulus II. vatican.va.",
+      "note": "Texto oficial del CIC latino."
     },
     {
       "id": "cds-2004",
-      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "title": "Compendio de la Doctrina Social de la Iglesia (vatican.va)",
       "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sp.html",
-      "note": "Síntesis de doctrina social (PCJP)."
+      "citation": "Pontificio Consejo Justicia y Paz. Compendio de la Doctrina Social de la Iglesia (2004).",
+      "note": "Síntesis oficial de doctrina social."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
+    },
+    {
+      "id": "britannica-papacy",
+      "title": "Encyclopaedia Britannica: Papacy",
+      "url": "https://www.britannica.com/topic/papacy",
+      "citation": "Encyclopaedia Britannica, s.v. “papacy”.",
+      "note": "Institución papal e historia del primado."
     }
   ],
   "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
   "workSummaryRefIds": [
     "jp2",
+    "vatican-archive",
+    "aas",
     "odcc"
   ],
   "chronologyRefIds": [
     "jp2",
+    "vatican-archive",
+    "aas",
     "odcc"
   ]
 }
