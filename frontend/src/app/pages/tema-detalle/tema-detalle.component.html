@@ -395,6 +395,15 @@
               </button>
             </form>
 
+            <!-- Offline related citations from last step (semantic-search) -->
+            <app-related-units-panel
+              *ngIf="relatedSeedStep"
+              [seedStep]="relatedSeedStep"
+              [showAdd]="true"
+              heading="Pasajes relacionados"
+              (addCitation)="addRelatedCitation($event)"
+            ></app-related-units-panel>
+
             <button
               type="button"
               class="primary"

@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+.related-lede {
+  margin: 0 0 8px;
+}
+
+.related-row {
+  /* inherits .srow from styles.css */
+}
+
+.related-top {
+  gap: 8px;
+}
+
+.related-add {
+  flex-shrink: 0;
+  min-height: 40px;
+  padding: 6px 12px;
+  font-size: 13px;
+}

@@ -17,10 +17,14 @@
     <input
       class="field"
       type="search"
-      placeholder="Buscar"
+      placeholder="Palabra, frase o intención…"
       [formControl]="control"
-      aria-label="Búsqueda en el texto"
+      aria-label="Búsqueda en el texto: palabra, frase o intención"
     />
+    <p class="fs12 muted search-hint">
+      Frases e intenciones valen (p.&nbsp;ej. el amor de Dios). También un
+      término (fe) o un punto (.27 · .200-205). Offline, sin red.
+    </p>
 
     <app-buscador></app-buscador>
   </div>

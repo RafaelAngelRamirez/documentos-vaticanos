@@ -620,12 +620,23 @@ export function findRelatedUnits(
     limit?: number;
   } = {},
 ): RankedUnitHit[] {
-  // Prefer distinctive mid-length tokens first; cap so minMatched stays usable.
+  // Cap terms so minMatched stays usable. Prefer early content tokens (usually
+  // the theological kernel) then longest remaining — not length-only, which
+  // drops short anchors like "amor"/"dios" from long sentences.
   const rawTerms = contentTermsFromText(sourceText);
   if (!rawTerms.length) return [];
-  const contentTerms = [...rawTerms]
-    .sort((a, b) => b.length - a.length || a.localeCompare(b))
-    .slice(0, 4);
+  const contentTerms: string[] = [];
+  for (const t of rawTerms) {
+    if (contentTerms.length >= 2) break;
+    contentTerms.push(t);
+  }
+  const byLen = [...rawTerms].sort(
+    (a, b) => b.length - a.length || a.localeCompare(b),
+  );
+  for (const t of byLen) {
+    if (contentTerms.length >= 4) break;
+    if (!contentTerms.includes(t)) contentTerms.push(t);
+  }
   const seedPhrase = contentTerms.join(' ');
   const parsed: ParsedSearch = {
     empty: false,
@@ -660,4 +671,151 @@ export function searchCorpus(
 ): RankedUnitHit[] {
   const parsed = parseSearchInput(rawQuery);
   return rankUnitsAcrossDocuments(docs, parsed, options);
+}
+
+// ── Product-facing related citations (themes / notes) ───────────────────
+
+export interface RelatedCitationRow {
+  documentId: string;
+  unitIndex: number;
+  consecutivo?: string;
+  score: number;
+  /** Compact chrome label, e.g. "cic-es · Nº 27". */
+  title: string;
+  /** Short plain snippet for list rows. */
+  snippet: string;
+  matchedTerms: string[];
+}
+
+export interface ThemeStepSeed {
+  documentId: string;
+  unitIndex: number;
+  unitLabel?: string | null;
+  userComment?: string | null;
+}
+
+/**
+ * Build seed text for relatedness from a theme step + optional packed unit body.
+ * Prefers unit body and free-text comment; unit labels that are only numbers
+ * (e.g. "27", "CIC 27") are not used alone so they do not pollute content terms.
+ */
+export function seedTextFromStep(
+  step: ThemeStepSeed,
+  unitBody?: string | null,
+): string {
+  const comment = (step.userComment || '').trim();
+  const body = (unitBody || '').trim();
+  if (body) {
+    return (comment ? comment + ' ' + body : body).replace(/\s+/g, ' ').trim();
+  }
+  if (comment) return comment;
+  // Label only when it carries words (not pure point numbers).
+  const label = (step.unitLabel || '').trim();
+  if (label && /[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ]/.test(label)) {
+    const stripped = label.replace(/^[A-Za-z]{1,6}\s+/u, '').trim();
+    // Drop labels that are only digits after stripping a short doc code.
+    if (stripped && !/^\d+([,-]\d+)*$/.test(stripped)) return label;
+  }
+  return '';
+}
+
+/** Prefer last step as the “current” pasaje for suggestions. */
+export function pickSeedStep(
+  steps: ThemeStepSeed[] | null | undefined,
+): ThemeStepSeed | null {
+  if (!steps?.length) return null;
+  return steps[steps.length - 1] ?? null;
+}
+
+function plainSnippet(contenido: string | undefined, max = 140): string {
+  const raw = (contenido || '')
+    .replace(/\[\+\[\d+\]\+\]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (raw.length <= max) return raw;
+  return raw.slice(0, max - 1).trimEnd() + '…';
+}
+
+function unitChromeLabel(
+  documentId: string,
+  unitIndex: number,
+  unit: SearchUnit | undefined,
+): string {
+  const consec =
+    unit?.consecutivo && unit.consecutivo !== 'no-encontrado'
+      ? unit.consecutivo
+      : String(unitIndex);
+  return `${documentId || 'doc'} · Nº ${consec}`;
+}
+
+/** Map ranked hits to list rows using unit bodies from the same doc inputs. */
+export function mapHitsToRelatedRows(
+  hits: RankedUnitHit[],
+  docs: SearchDocumentInput[],
+): RelatedCitationRow[] {
+  const byId = new Map(docs.map((d) => [d.documentId, d]));
+  return hits.map((h) => {
+    const doc = byId.get(h.documentId);
+    const unit = doc?.units?.[h.unitIndex];
+    return {
+      documentId: h.documentId,
+      unitIndex: h.unitIndex,
+      consecutivo: h.consecutivo ?? unit?.consecutivo,
+      score: h.score,
+      title: unitChromeLabel(h.documentId, h.unitIndex, unit),
+      snippet: plainSnippet(unit?.contenido),
+      matchedTerms: h.matchedTerms ?? [],
+    };
+  });
+}
+
+/** Seed text + corpus slice → related citation rows (product entry). */
+export function suggestRelatedCitations(
+  sourceText: string,
+  docs: SearchDocumentInput[],
+  opts: {
+    exclude?: { documentId: string; unitIndex: number };
+    limit?: number;
+  } = {},
+): RelatedCitationRow[] {
+  const text = (sourceText || '').trim();
+  if (!text || !docs.length) return [];
+  const hits = findRelatedUnits(text, docs, {
+    exclude: opts.exclude,
+    limit: opts.limit ?? 8,
+  });
+  return mapHitsToRelatedRows(hits, docs);
+}
+
+/** Theme step → neighbors with stable citations (excludes the seed step). */
+export function suggestRelatedForStep(
+  step: ThemeStepSeed,
+  docs: SearchDocumentInput[],
+  opts: { limit?: number } = {},
+): RelatedCitationRow[] {
+  const doc = docs.find((d) => d.documentId === step.documentId);
+  const unit = doc?.units?.[step.unitIndex];
+  const seed = seedTextFromStep(step, unit?.contenido);
+  if (!seed) return [];
+  return suggestRelatedCitations(seed, docs, {
+    exclude: { documentId: step.documentId, unitIndex: step.unitIndex },
+    limit: opts.limit ?? 8,
+  });
+}
+
+/** Convert loaded corpus shape to {@link SearchDocumentInput}. */
+export function toSearchDocumentInput(
+  documentId: string,
+  index: SearchDocumentInput['index'],
+  units: SearchUnit[],
+): SearchDocumentInput {
+  return {
+    documentId,
+    index,
+    units: units.map((u, i) => ({
+      ...u,
+      unitIndex: typeof u.unitIndex === 'number' ? u.unitIndex : i,
+      index_array: typeof u.index_array === 'number' ? u.index_array : i,
+    })),
+  };
 }

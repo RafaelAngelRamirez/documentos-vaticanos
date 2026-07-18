@@ -17,6 +17,12 @@ import { NavigationService } from 'src/app/services/navigation.service';
 import { StudiesService } from 'src/app/core/account/studies.service';
 import { environment } from 'src/environments/environment';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
+import { RelatedUnitsPanelComponent } from 'src/app/components/related-units/related-units-panel.component';
+import {
+  pickSeedStep,
+  type RelatedCitationRow,
+  type ThemeStepSeed,
+} from 'src/app/core/search/semantic-search.logic';
 
 /**
  * Diseño 3I · Tema (lector)
@@ -35,7 +41,13 @@ interface ThemeSection {
 @Component({
   standalone: true,
   selector: 'app-tema-detalle',
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, WbarComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    WbarComponent,
+    RelatedUnitsPanelComponent,
+  ],
   templateUrl: './tema-detalle.component.html',
   styleUrls: ['./tema-detalle.component.css'],
 })
@@ -96,6 +108,13 @@ export class TemaDetalleComponent implements OnInit {
 
   get docCount(): number {
     return new Set(this.steps.map((s) => s.documentId)).size;
+  }
+
+  /**
+   * Last pasaje drives offline related suggestions (documentId + unitIndex).
+   */
+  get relatedSeedStep(): ThemeStepSeed | null {
+    return pickSeedStep(this.steps);
   }
 
   /**
@@ -326,6 +345,46 @@ export class TemaDetalleComponent implements OnInit {
         this.theme = t;
         this.message = 'Pasaje añadido';
         this.stepForm.patchValue({ unitLabel: '', userComment: '' });
+      },
+      error: (err) => {
+        this.error =
+          err?.error?.error || err?.message || 'Error al guardar pasajes';
+      },
+    });
+  }
+
+  /** Append a related corpus hit as a theme step (stable citation). */
+  addRelatedCitation(row: RelatedCitationRow): void {
+    if (!this.theme || this.isPending) return;
+    const exists = (this.theme.steps || []).some(
+      (s) =>
+        s.documentId === row.documentId && s.unitIndex === row.unitIndex,
+    );
+    if (exists) {
+      this.message = 'Ese pasaje ya está en el tema';
+      return;
+    }
+    const steps = [
+      ...(this.theme.steps || []).map((s) => ({
+        documentId: s.documentId,
+        unitIndex: s.unitIndex,
+        unitLabel: s.unitLabel ?? undefined,
+        userComment: s.userComment ?? undefined,
+      })),
+      {
+        documentId: row.documentId,
+        unitIndex: row.unitIndex,
+        unitLabel:
+          row.consecutivo && row.consecutivo !== 'no-encontrado'
+            ? row.consecutivo
+            : row.title,
+        userComment: undefined,
+      },
+    ];
+    this.themes.setSteps(this.theme.id, steps).subscribe({
+      next: (t) => {
+        this.theme = t;
+        this.message = 'Pasaje relacionado añadido';
       },
       error: (err) => {
         this.error =

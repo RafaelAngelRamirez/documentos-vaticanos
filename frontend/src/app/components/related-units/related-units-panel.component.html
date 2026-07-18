@@ -1,0 +1,42 @@
+<section class="related-panel" *ngIf="seedStep || seedText">
+  <div class="sect">{{ heading }}</div>
+  <p class="fs12 muted related-lede">
+    Sugeridos offline a partir del pasaje (mismas citas estables del corpus).
+  </p>
+
+  <div *ngIf="loading" class="fs13 muted" role="status">
+    Buscando pasajes relacionados…
+  </div>
+
+  <div *ngIf="!loading && loadError" class="fs13 muted" role="status">
+    {{ loadError }}
+  </div>
+
+  <ng-container *ngIf="!loading && !loadError">
+    <div
+      class="srow related-row"
+      *ngFor="let row of rows"
+      role="link"
+      tabindex="0"
+      (click)="open(row)"
+      (keyup.enter)="open(row)"
+    >
+      <span class="fx ac jb related-top">
+        <span class="st">{{ row.title }}</span>
+        <button
+          *ngIf="showAdd"
+          type="button"
+          class="gbtn related-add"
+          (click)="add($event, row)"
+        >
+          Añadir
+        </button>
+      </span>
+      <span class="sx">{{ row.snippet }}</span>
+    </div>
+
+    <p *ngIf="!rows.length" class="fs13 muted">
+      No hay pasajes relacionados en los documentos cargados.
+    </p>
+  </ng-container>
+</section>

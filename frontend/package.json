@@ -27,6 +27,7 @@
     "test:narrator-grok": "node --experimental-strip-types src/app/services/narrator-grok.logic.test.js && node --experimental-strip-types src/app/services/narrator-prefs.logic.test.js",
     "test:speech-prep": "node --experimental-strip-types src/app/services/speech-prep.logic.test.js",
     "test:semantic-search": "node --experimental-strip-types src/app/core/search/semantic-search.logic.test.js",
+    "test:related-suggestion": "node --experimental-strip-types src/app/core/search/related-suggestion.logic.test.js",
     "test:document-toc": "node --experimental-strip-types src/app/services/document-toc.logic.test.js",
     "test:santoral": "node --experimental-strip-types src/app/core/santoral/santoral-resolve.logic.test.js"
   },

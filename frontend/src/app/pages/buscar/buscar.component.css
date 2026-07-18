@@ -27,3 +27,8 @@
   padding-bottom: 80px;
 }
 
+.search-hint {
+  margin: 8px 2px 14px;
+  line-height: 1.45;
+}
+
