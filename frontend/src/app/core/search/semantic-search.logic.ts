@@ -283,22 +283,75 @@ export function tokenizeFolded(folded: string): string[] {
     .filter((t) => t.length > 0);
 }
 
+/** Pure digits (unit numbers printed at the start of packed bodies). */
+export function isPureNumericToken(tok: string): boolean {
+  return /^\d+$/.test(tok);
+}
+
 /**
- * Content-bearing tokens: fold, split, drop stopwords and very short tokens.
+ * Drop a leading consecutivo printed in unit body ("356 De todas…").
+ * Does not touch mid-sentence numbers.
+ */
+export function stripLeadingConsecutivo(text: string): string {
+  return String(text || '')
+    .replace(/^\s*\d{1,6}\s+/, '')
+    .trim();
+}
+
+/**
+ * Content-bearing tokens: fold, split, drop stopwords, pure numbers, and
+ * very short tokens. Leading unit numbers must not enter relatedness seeds.
  */
 export function contentTermsFromText(text: string): string[] {
-  const folded = foldToken(text);
+  const folded = foldToken(stripLeadingConsecutivo(text));
   if (!folded) return [];
   const seen = new Set<string>();
   const out: string[] = [];
   for (const tok of tokenizeFolded(folded)) {
     if (tok.length < 2) continue;
+    if (isPureNumericToken(tok)) continue;
     if (SPANISH_STOPWORDS.has(tok)) continue;
     if (seen.has(tok)) continue;
     seen.add(tok);
     out.push(tok);
   }
   return out;
+}
+
+/** Lexicon surfaces used by RELATED_TERMS (keys + expansions). */
+function relatedLexiconSet(): Set<string> {
+  const set = new Set<string>();
+  for (const [k, vals] of Object.entries(RELATED_TERMS)) {
+    set.add(k);
+    for (const v of vals) set.add(v);
+  }
+  return set;
+}
+
+/**
+ * Cap content terms for related-unit queries: prefer theological / lexicon
+ * anchors in appearance order, then remaining early prose terms.
+ * Avoids length-only picks (conocimiento, criaturas) drowning amor/dios.
+ */
+export function pickRelatedContentTerms(
+  rawTerms: string[],
+  max = 4,
+): string[] {
+  const filtered = rawTerms.filter(
+    (t) => t && !isPureNumericToken(t) && t.length >= 2,
+  );
+  if (!filtered.length) return [];
+  const lexicon = relatedLexiconSet();
+  const picked: string[] = [];
+  for (const t of filtered) {
+    if (picked.length >= max) break;
+    if (lexicon.has(t) && !picked.includes(t)) picked.push(t);
+  }
+  for (const t of filtered) {
+    if (picked.length >= max) break;
+    if (!picked.includes(t)) picked.push(t);
+  }
+  return picked;
 }
 
 /**
@@ -620,23 +673,10 @@ export function findRelatedUnits(
     limit?: number;
   } = {},
 ): RankedUnitHit[] {
-  // Cap terms so minMatched stays usable. Prefer early content tokens (usually
-  // the theological kernel) then longest remaining — not length-only, which
-  // drops short anchors like "amor"/"dios" from long sentences.
   const rawTerms = contentTermsFromText(sourceText);
   if (!rawTerms.length) return [];
-  const contentTerms: string[] = [];
-  for (const t of rawTerms) {
-    if (contentTerms.length >= 2) break;
-    contentTerms.push(t);
-  }
-  const byLen = [...rawTerms].sort(
-    (a, b) => b.length - a.length || a.localeCompare(b),
-  );
-  for (const t of byLen) {
-    if (contentTerms.length >= 4) break;
-    if (!contentTerms.includes(t)) contentTerms.push(t);
-  }
+  const contentTerms = pickRelatedContentTerms(rawTerms, 4);
+  if (!contentTerms.length) return [];
   const seedPhrase = contentTerms.join(' ');
   const parsed: ParsedSearch = {
     empty: false,
@@ -704,7 +744,7 @@ export function seedTextFromStep(
   unitBody?: string | null,
 ): string {
   const comment = (step.userComment || '').trim();
-  const body = (unitBody || '').trim();
+  const body = stripLeadingConsecutivo((unitBody || '').trim());
   if (body) {
     return (comment ? comment + ' ' + body : body).replace(/\s+/g, ' ').trim();
   }

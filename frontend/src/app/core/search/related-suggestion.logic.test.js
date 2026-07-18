@@ -179,6 +179,10 @@ async function main() {
     searchCorpus,
     parseSearchInput,
     findRelatedUnits,
+    contentTermsFromText,
+    pickRelatedContentTerms,
+    stripLeadingConsecutivo,
+    isPureNumericToken,
   } = semantic;
 
   section('empty / single / point still work (shipped search entry)');
@@ -311,6 +315,32 @@ async function main() {
     [],
   );
 
+  section('numeric leading consecutivo must not pollute seeds');
+  assert.ok(isPureNumericToken('356'));
+  assert.ok(!isPureNumericToken('amor'));
+  const numbered =
+    '356 De todas las criaturas visibles sólo el hombre es capaz de conocer y amar a su Creador; llamado a participar del conocimiento y amor de Dios.';
+  assert.ok(
+    !contentTermsFromText(numbered).includes('356'),
+    'contentTerms drop pure digits',
+  );
+  assert.ok(
+    !stripLeadingConsecutivo(numbered).match(/^\s*356\b/),
+    'stripLeadingConsecutivo removes unit number',
+  );
+  const picked = pickRelatedContentTerms(contentTermsFromText(numbered), 4);
+  assert.ok(
+    picked.some((t) =>
+      ['amor', 'dios', 'amar', 'creador', 'amado'].includes(t),
+    ),
+    `pickRelatedContentTerms keeps theological kernel (got ${picked.join(',')})`,
+  );
+  assert.ok(
+    !picked.includes('356'),
+    'picked related terms exclude consecutivo digits',
+  );
+  console.log('picked kernel terms:', picked.join(', '));
+
   section('real pack cic-es related samples');
   assert.ok(fs.existsSync(path.join(CORPUS_CIC, 'content.json')));
   const cicContent = JSON.parse(
@@ -321,7 +351,62 @@ async function main() {
   );
   const cicDoc = toSearchDocumentInput('cic-es', cicIndex, cicContent);
 
-  // Pick a known amor de Dios style unit from search
+  // Numbered-body CIC unit (amor/Creador) — product panel path
+  const UNIT_707 = 707;
+  const body707 = cicContent[UNIT_707]?.contenido || '';
+  assert.ok(/^\s*\d+/.test(body707), 'cic unit 707 body starts with consecutivo');
+  assert.ok(
+    /amor|amar|creador|dios/i.test(body707),
+    'cic unit 707 has love-of-God wording',
+  );
+  const terms707 = contentTermsFromText(body707);
+  assert.ok(!terms707.includes('356') && !terms707.some(isPureNumericToken));
+  const picked707 = pickRelatedContentTerms(terms707, 4);
+  assert.ok(
+    picked707.some((t) =>
+      ['amor', 'dios', 'amar', 'creador', 'amado'].includes(t),
+    ),
+    `707 seed kernel in pickRelatedContentTerms: ${picked707.join(',')}`,
+  );
+
+  const step707 = suggestRelatedForStep(
+    {
+      documentId: 'cic-es',
+      unitIndex: UNIT_707,
+      unitLabel: cicContent[UNIT_707]?.consecutivo || '356',
+    },
+    [cicDoc],
+    { limit: 10 },
+  );
+  assert.ok(step707.length >= 1, 'related-from-step 707 ≥1');
+  assert.ok(
+    !step707.some(
+      (r) => r.documentId === 'cic-es' && r.unitIndex === UNIT_707,
+    ),
+  );
+  // Gate on shipped matchedTerms (not loose body word overlap)
+  const kernelHit = step707.some((r) =>
+    (r.matchedTerms || []).some((t) =>
+      ['amor', 'dios', 'amar', 'creador', 'amado', 'caridad'].includes(t),
+    ),
+  );
+  assert.ok(
+    kernelHit,
+    `related-from-step 707 matchedTerms include love/God kernel; sample=${JSON.stringify(
+      step707.slice(0, 3).map((r) => r.matchedTerms),
+    )}`,
+  );
+  console.log(
+    'cic 707 related:',
+    step707.slice(0, 5).map((r) => ({
+      unitIndex: r.unitIndex,
+      matchedTerms: r.matchedTerms,
+      title: r.title,
+      score: r.score,
+    })),
+  );
+
+  // General search seed path still works
   const seedHits = searchCorpus('el amor de Dios', [cicDoc], { limit: 5 });
   assert.ok(seedHits.length >= 1, 'cic seed hits');
   const src = seedHits[0];
@@ -346,23 +431,28 @@ async function main() {
     !r1.some((r) => r.unitIndex === src.unitIndex && r.documentId === 'cic-es'),
   );
 
+  // Thematic gate: use shipped pickRelatedContentTerms (no digits) as kernel
+  const seedKernel = pickRelatedContentTerms(contentTermsFromText(body), 4);
+  assert.ok(
+    seedKernel.length >= 1 && !seedKernel.some(isPureNumericToken),
+    'seed kernel from findRelatedUnits path excludes digits',
+  );
   let thematic = 0;
   for (const row of r1.slice(0, 8)) {
-    const t = (cicContent[row.unitIndex]?.contenido || '')
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '');
-    const seedFold = body
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '');
-    const seedTerms = seedFold
-      .split(/\W+/)
-      .filter((w) => w.length > 3)
-      .slice(0, 12);
-    if (seedTerms.some((w) => t.includes(w))) thematic++;
+    const matched = row.matchedTerms || [];
+    if (matched.some((t) => seedKernel.includes(t))) thematic++;
+    else if (
+      matched.some((t) =>
+        ['amor', 'dios', 'amar', 'creador', 'caridad', 'amado'].includes(t),
+      )
+    ) {
+      thematic++;
+    }
   }
-  assert.ok(thematic >= 1, `thematic overlap in related (got ${thematic})`);
+  assert.ok(
+    thematic >= 1,
+    `thematic via matchedTerms∩kernel (got ${thematic}; kernel=${seedKernel.join(',')})`,
+  );
 
   console.log(
     'cic related top:',
@@ -370,6 +460,7 @@ async function main() {
       documentId: r.documentId,
       unitIndex: r.unitIndex,
       consecutivo: r.consecutivo,
+      matchedTerms: r.matchedTerms,
       title: r.title,
       score: r.score,
       snip: r.snippet.slice(0, 80),
