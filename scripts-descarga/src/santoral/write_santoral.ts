@@ -47,7 +47,7 @@ export function readSantoralPack(root?: string): SantoralManifest | null {
   return JSON.parse(fs.readFileSync(file, 'utf-8')) as SantoralManifest;
 }
 
-/** Merge saints by id (incoming overwrites same fields; documentIds union). */
+/** Merge saints by id (incoming fills gaps; longer bio wins; feastDays/aliases/docs union). */
 export function mergeSaints(
   base: SaintRecord[],
   incoming: SaintRecord[],
@@ -68,14 +68,37 @@ export function mergeSaints(
       ...(prev.authorAliases || []),
       ...(s.authorAliases || []),
     ]);
+    const feastSet = new Set([
+      ...(prev.feastDays || []),
+      ...(s.feastDays || []),
+    ]);
+    const prevBio = prev.bio || '';
+    const nextBio = s.bio || '';
+    // Prefer longer non-empty bio (vaticanstate elogios > short summaries)
+    const bio =
+      nextBio.length > prevBio.length
+        ? nextBio
+        : prevBio.length > 0
+          ? prevBio
+          : nextBio || undefined;
+    // Prefer sourceUrl from the record that supplied the winning bio
+    const sourceUrl =
+      bio === nextBio && s.sourceUrl
+        ? s.sourceUrl
+        : prev.sourceUrl || s.sourceUrl;
     map.set(s.id, {
       ...prev,
       ...s,
-      bio: s.bio || prev.bio,
-      sourceUrl: s.sourceUrl || prev.sourceUrl,
+      bio,
+      sourceUrl,
+      feastDays: feastSet.size ? Array.from(feastSet).sort() : undefined,
       documentIds: Array.from(docSet).sort(),
       authorAliases: Array.from(aliasSet),
       themes: s.themes?.length ? s.themes : prev.themes,
+      // keep richer display/role when incoming is empty
+      displayName: s.displayName || prev.displayName,
+      role: s.role || prev.role,
+      years: s.years || prev.years,
     });
   }
   return Array.from(map.values());

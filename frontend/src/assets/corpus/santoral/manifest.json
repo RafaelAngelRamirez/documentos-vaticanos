@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-18T15:58:14.699Z",
-  "sourceNote": "Santoral offline: Padres/autores del corpus + biografías de vatican.va/news_services/liturgy/saints (ES cuando existe). No inventa vidas ausentes en la Santa Sede.",
+  "generatedAt": "2026-07-18T21:35:04.784Z",
+  "sourceNote": "Santoral offline: Padres/autores del corpus + biografías de vatican.va/news_services/liturgy/saints (ES) + Santo del día de Vatican News (vaticannews.va/es/santos) y vaticanstate.va (notas/RSS). No inventa vidas; no incluye el Martirologio Romano completo (libro impreso).",
   "saints": [
     {
       "id": "alejandrina-maria-da-costa",
@@ -74,6 +74,25 @@
       "meta": "vatican.va",
       "authorAliases": [
         "Beatificación Pedro Kibe Kasui y 187 compañeros mártires (1603-1639"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "virgen-maria-del-monte-carmelo",
+      "name": "Virgen María del Monte Carmelo",
+      "displayName": "Bienaventurada Virgen María del Monte Carmelo",
+      "bio": "La fiesta litúrgica de la Bienaventurada Virgen María del Monte Carmelo fue instituida para conmemorar la aparición, el 16 de julio de 1251, a san Simón Stock, entonces prior general de la Orden del Carmen, durante la cual la Virgen le entregó un escapulario, revelándole notables privilegios vinculados a su uso.\n\nA san Simón Stock, que difundió con gran fervor la devoción a la Virgen del Carmen y compuso en su honor el hermoso himno Flos Carmeli , la Madre de Dios prometió que cuantos muriesen llevando el escapulario serían liberados de las penas del purgatorio.\n\nEsta promesa fue posteriormente reforzada por la llamada “Bula sabatina”, según la cual el papa Juan XXII habría tenido una visión de la Virgen, quien prometía la liberación del purgatorio el primer sábado después de la muerte, para aquellos que hubiesen llevado el escapulario, guardado la castidad según su estado de vida y rezado con regularidad.\n\nAsí, el 16 de julio se convirtió en la fiesta oficial de la Virgen del Carmen, que en sus orígenes celebraba a María como Patrona de la Orden Carmelitana, pero que con el tiempo se enriqueció con el simbolismo del escapulario, también adoptado por los fieles laicos como signo de devoción y protección espiritual.\n\nEl título de “Santa María del Carmen”, vinculado al Monte Carmelo de Galilea —lugar de origen de la Orden—, es una de las expresiones más universales de la devoción mariana.\n\nEl Monte Carmelo es una cadena montañosa que se extiende desde el golfo de Haifa hasta la llanura de Esdrelón. La tradición —reflejada también en su actual nombre árabe, Yebel Mār Elyās (Monte de Elías)— lo asocia al profeta Elías, aunque en la Sagrada Escritura esta relación sólo se menciona una vez (1 Re 19,46).\n\nEn el siglo XII, en este monte, se estableció un grupo de peregrinos devotos, quizá vinculados a las últimas cruzadas, con el propósito de llevar una vida eremítica. Entre 1206 y 1214 recibieron una regla de vida (Vitae formula) del patriarca de Jerusalén, san Alberto. Vivían en las proximidades de la llamada “fuente de Elías”, junto a una pequeña capilla dedicada a Nuestra Señora. Aquel grupo de religiosos pasó a llamarse Orden de Santa María del Monte Carmelo, denominación confirmada por un documento pontificio de 1252.\n\nEste nombre indicaba que sus miembros estaban totalmente consagrados a la Virgen, su Patrona. Para los primeros carmelitas, María es la que custodia la Palabra de Dios y se convierte en guía espiritual, inspiradora y modelo de vida contemplativa.",
+      "sourceUrl": "https://www.vaticanstate.va/es/estado-y-gobierno/notas-generales/santo-del-dia/2275-16-de-julio-bienaventurada-virgen-maria-del-monte-carmelo.html",
+      "locale": "es",
+      "feastDays": [
+        "07-16"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Estado de la Ciudad del Vaticano)",
+      "meta": "07-16 · vaticanstate.va",
+      "authorAliases": [
+        "Bienaventurada Virgen María del Monte Carmelo",
+        "Virgen María del Monte Carmelo"
       ],
       "documentIds": []
     },
@@ -583,6 +602,26 @@
       "documentIds": []
     },
     {
+      "id": "bruno-de-segni",
+      "name": "Bruno de Segni",
+      "displayName": "San Bruno de Segni",
+      "role": "Obispo",
+      "bio": "San Bruno de Segni nació entre los años 1045 y 1049 en Solero d’Asti (actual provincia de Alessandria), en el seno de una familia modesta. Fue educado por los benedictinos y prosiguió sus estudios en la Universidad de Bolonia, donde se especializó en el trivium y el quadrivium. Ordenado sacerdote, fue nombrado canónigo en Siena y comenzó a escribir comentarios a diversos textos bíblicos.\n\nEn 1079 participó en el Sínodo de Roma que refutó la herejía de Berengario de Tours sobre la Eucaristía. En esa ocasión fue notado por el papa Gregorio VII, quien lo nombró obispo de Segni. Bruno apoyó con valentía la reforma gregoriana, oponiéndose a la simonía, al concubinato clerical y a las investiduras laicas. Por ello fue encarcelado en varias ocasiones, pero jamás dejó de sostener al papado.\n\nEstuvo también al lado de Urbano II, participando en sínodos importantes como los de Piacenza y Clermont (1095), donde se proclamó la Primera Cruzada. A causa de nuevas tensiones políticas, fue nuevamente encarcelado, tanto en Segni como en Roma, en la Mole Adriana. Liberado en 1103 y deseoso de paz, se retiró al monasterio benedictino de Montecassino, donde vivió con gran fidelidad a la Regla. Al cabo de solo cinco años de vida monástica, fue elegido abad.\n\nEl Papa Pascual II, aunque contrariado por el abandono de la diócesis, reconoció sus cualidades y le confió diversas misiones diplomáticas, incluso como legado pontificio.\n\nEn 1110, Bruno se opuso con firmeza a la concesión del derecho de investidura imperial que Pascual II había otorgado a Enrique V. Por este motivo perdió el privilegio de acumular los cargos de abad y obispo. Con humildad, renunció a Montecassino y regresó a Segni en 1111, donde fue acogido con gran alegría.\n\nDurante sus últimos años se dedicó a la oración, al estudio y al cuidado pastoral de su diócesis. Falleció el 18 de julio de 1123 en Segni, donde fue sepultado en la catedral. Autor de importantes escritos teológicos y litúrgicos, fue canonizado en 1183 por el papa Lucio III.",
+      "sourceUrl": "https://www.vaticanstate.va/es/estado-y-gobierno/notas-generales/santo-del-dia/2287-18-de-julio-san-bruno-de-segni-obispo.html",
+      "locale": "es",
+      "feastDays": [
+        "07-18"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Estado de la Ciudad del Vaticano)",
+      "meta": "07-18 · vaticanstate.va",
+      "authorAliases": [
+        "San Bruno de Segni",
+        "Bruno de Segni"
+      ],
+      "documentIds": []
+    },
+    {
       "id": "cipriano-cartago",
       "name": "Cipriano de Cartago",
       "displayName": "San Cipriano de Cartago",
@@ -673,6 +712,45 @@
       "documentIds": [
         "clemente-alejandria-pedagogo-es"
       ]
+    },
+    {
+      "id": "emiliano",
+      "name": "Emiliano",
+      "displayName": "San Emiliano",
+      "role": "mártir de la Mesia",
+      "bio": "En la época del emperador Julián, el Apóstata, en el año 362, el vicario de la capital fue a Durostoro, en Mesia – actualmente Rumania – para restaurar el paganismo. El joven Emiliano, cristiano, volcó el altar y destruyó los ídolos para los sacrificios, por lo que fue condenado al martirio.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/07/18/s--emiliano--martir-de-la-mesia.html",
+      "locale": "es",
+      "feastDays": [
+        "07-18"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "07-18 · vaticannews.va",
+      "authorAliases": [
+        "San Emiliano",
+        "Emiliano"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "federico-de-utrecht",
+      "name": "Federico de Utrecht",
+      "displayName": "San Federico de Utrecht",
+      "bio": "Elegido Obispo de Utrecht entre 825 y 828, Federico luchó contra el paganismo y la costumbre de los matrimonios incestuosos. Evangelizador de Frisia, se lo recuerda como ejemplo de estudioso de las Sagradas Escrituras. Fue asesinado en un complot que nunca fue esclarecido en el año 838.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/07/18/san-federico-de-utrecht.html",
+      "locale": "es",
+      "feastDays": [
+        "07-18"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "07-18 · vaticannews.va",
+      "authorAliases": [
+        "San Federico de Utrecht",
+        "Federico de Utrecht"
+      ],
+      "documentIds": []
     },
     {
       "id": "gregorio-nisa",
@@ -822,6 +900,84 @@
       ],
       "bio": "San Policarpo, discípulo de los apóstoles y obispo de Esmirna, selló su fe con el martirio. Se conserva su Carta a los Filipenses y el relato del Martirio de Policarpo.",
       "locale": "es",
+      "documentIds": []
+    },
+    {
+      "id": "vicente-maria-strambi",
+      "name": "Vicente María Strambi",
+      "displayName": "San Vicente María Strambi",
+      "role": "Presbítero Pasionista, obispo",
+      "bio": "Nativo de Civitavecchia (1745-1824), contra la voluntad del padre se hace sacerdote pasionista. Gran predicador, obispo de Macerata: cuida la formación de los seminaristas y ayuda a los pobres. Después de negarse a jurar fidelidad a Napoleón, el Papa lo convoca a Roma como su consejero.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/01/01/s--vicente-maria-strambi--presbitero-pasionista--obispo.html",
+      "locale": "es",
+      "feastDays": [
+        "01-01"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "01-01 · vaticannews.va",
+      "authorAliases": [
+        "San Vicente María Strambi",
+        "Vicente María Strambi"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "teresa-de-san-agustin-y-15-carmelitas-descalzas",
+      "name": "Teresa de San Agustín y 15 Carmelitas Descalzas",
+      "displayName": "Santa Teresa de San Agustín y 15 Carmelitas Descalzas",
+      "role": "compañeras mártires",
+      "bio": "Un proceso farsa ante el Tribunal Revolucionario, una parodia de justicia inspirada únicamente por el odio hacia la religión y la Iglesia. Con un desenlace fatal: dieciséis carmelitas descalzas del convento de Compiègne, encabezadas por la priora Teresa de San Agustín (en el siglo Marie-Madeleine-Claudine Lidoine), fueron guillotinadas en la plaza del Trono de París. Era el 17 de julio de 1794. Aquel día, las religiosas fueron conducidas en dos carretas hasta el lugar de la ejecución.\n\nPara la multitud y los habituales de aquel espectáculo macabro, la escena de ese día fue muy distinta a la habitual. Mientras eran llevadas al patíbulo, las monjas entonaban salmos y, al llegar frente a la guillotina, comenzaron a cantar el Veni Creator. Antes de subir al cadalso, renovaron su profesión religiosa en manos de la priora, que fue la última en ser ejecutada. El coraje y la dignidad con que afrontaron la muerte impresionaron profundamente a los presentes. Diez días después, terminaría en Francia el periodo conocido como el Terror.\n\nLas dieciséis carmelitas fueron acusadas de formar “conciliábulos contrarrevolucionarios” y de seguir viviendo bajo su Regla y obedientes a su superiora. En particular, se les reprochaba su fidelidad a la vida religiosa, considerada entonces una forma de “fanatismo”, así como su devoción a los Sagrados Corazones de Jesús y María.\n\nAl comenzar la Revolución francesa, miembros del Comité de Salud Pública se presentaron en el monasterio para interrogar a las religiosas y tratar de persuadirlas para que abandonaran la vida consagrada. Las monjas, sin embargo, se negaron a renunciar al hábito y a su vocación.\n\nEntre los meses de junio y septiembre de 1792, en un clima de violencia creciente, la madre Teresa de San Agustín exhortó a sus hermanas a ofrecer sus vidas a Dios como sacrificio para obtener la paz entre la Iglesia y el Estado. Esta ofrenda se convirtió en una oración cotidiana que las sostuvo hasta el martirio.\n\nEn septiembre de ese mismo año, fueron expulsadas del convento, obligadas a vestir ropas civiles y a vivir separadas en cuatro grupos, alojados en distintos puntos de Compiègne. A pesar de la dispersión, mantuvieron su vida de oración y penitencia, comunicándose por carta y permaneciendo siempre bajo la dirección espiritual de su priora.\n\nEl 24 de junio de 1794, tras ser descubiertas y denunciadas, fueron arrestadas y trasladadas a París, a la prisión de la Conciergerie. Incluso en la cárcel, las carmelitas descalzas dieron testimonio de fe, serenidad y confianza en Dios.\n\nSus cuerpos fueron enterrados en una fosa común, junto con los de otros condenados, en el actual cementerio de Picpus. Fueron beatificadas en la Basílica de San Pedro por san Pío X, el 27 de mayo de 1906, y canonizadas por el papa Francisco el 18 de diciembre de 2024.",
+      "sourceUrl": "https://www.vaticanstate.va/es/estado-y-gobierno/notas-generales/santo-del-dia/2277-17-de-julio-santa-teresa-de-san-agustin-y-15-carmelitas-descalzas-companeras-martires.html",
+      "locale": "es",
+      "feastDays": [
+        "07-17"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Estado de la Ciudad del Vaticano)",
+      "meta": "07-17 · vaticanstate.va",
+      "authorAliases": [
+        "Santa Teresa de San Agustín y 15 Carmelitas Descalzas",
+        "Teresa de San Agustín y 15 Carmelitas Descalzas"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "basilio-el-grande-y-gregorio-nacianceno",
+      "name": "Basilio El Grande y Gregorio Nacianceno",
+      "displayName": "Santos Basilio El Grande y Gregorio Nacianceno",
+      "role": "obispos y doctores de la Iglesia",
+      "bio": "Dos Santos que en vida estuvieron unidos por una profunda amistad, y cuya memoria litúrgica se celebra el mismo día, el 2 de enero: San Basilio (a quien está dedicada la catedral de Moscú) y San Gregorio Nacianceno.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/01/02/ss--basilio-el-grande-y-gregorio-nacianceno--obispos-y-doctores-.html",
+      "locale": "es",
+      "feastDays": [
+        "01-02"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "01-02 · vaticannews.va",
+      "authorAliases": [
+        "Santos Basilio El Grande y Gregorio Nacianceno",
+        "Basilio El Grande y Gregorio Nacianceno"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "solemnidad-de-la-virgen-maria",
+      "name": "Solemnidad de la Virgen María",
+      "displayName": "Solemnidad de la Virgen María",
+      "bio": "El Concilio de Éfeso establece una verdad muy querida por el pueblo cristiano: María es verdadera Madre de Cristo, que es verdadero Dios y verdadero hombre: una sola Persona con dos naturalezas, sin confusión, sin mutación, sin división. En consecuencia es afirmada también su maternidad divina.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/01/01/solemnidad-de-la-virgen-maria.html",
+      "locale": "es",
+      "feastDays": [
+        "01-01"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "01-01 · vaticannews.va",
+      "authorAliases": [
+        "Solemnidad de la Virgen María"
+      ],
       "documentIds": []
     },
     {

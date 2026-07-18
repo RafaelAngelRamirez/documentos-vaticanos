@@ -42,6 +42,44 @@ function main() {
   const withSource = a.saints.filter((s) => s.sourceUrl);
   assert.ok(withSource.length >= 1, '≥1 sourceUrl');
 
+  // Holy See research sources present after offline import
+  const holySee = a.saints.filter(
+    (s) =>
+      s.sourceUrl &&
+      (/vaticannews\.va/i.test(s.sourceUrl) ||
+        /vaticanstate\.va/i.test(s.sourceUrl)),
+  );
+  assert.ok(
+    holySee.length >= 1,
+    '≥1 saint from vaticannews.va or vaticanstate.va',
+  );
+  const withHolyBio = holySee.filter((s) => (s.bio || '').length > 40);
+  assert.ok(withHolyBio.length >= 1, 'holy-see saint has bio');
+
+  const bruno = a.saints.find(
+    (s) =>
+      /bruno/i.test(s.id) ||
+      /Bruno.*Segni|Segni.*Bruno/i.test(s.name) ||
+      /Bruno.*Segni/i.test(s.displayName || ''),
+  );
+  assert.ok(bruno, 'Bruno de Segni present in pack');
+  assert.ok((bruno.bio || '').length > 40, 'Bruno bio');
+  assert.ok(
+    bruno.sourceUrl &&
+      (/vaticannews\.va|vaticanstate\.va/i.test(bruno.sourceUrl)),
+    `Bruno sourceUrl official: ${bruno.sourceUrl}`,
+  );
+  assert.ok(
+    (bruno.feastDays || []).includes('07-18'),
+    `Bruno feastDays ${JSON.stringify(bruno.feastDays)}`,
+  );
+
+  assert.ok(
+    a.sourceNote &&
+      /vaticannews|vaticanstate|Vatican News|liturgy\/saints/i.test(a.sourceNote),
+    'sourceNote names research sources',
+  );
+
   console.log('ok santoral-offline-load');
   console.log(
     JSON.stringify({
@@ -49,7 +87,14 @@ function main() {
       withBio: withBio.length,
       withDocs: withDocs.length,
       withSource: withSource.length,
+      holySee: holySee.length,
       agustinDocs: (ag.documentIds || []).length,
+      bruno: {
+        id: bruno.id,
+        bioLen: (bruno.bio || '').length,
+        sourceUrl: bruno.sourceUrl,
+        feastDays: bruno.feastDays,
+      },
     }),
   );
 }

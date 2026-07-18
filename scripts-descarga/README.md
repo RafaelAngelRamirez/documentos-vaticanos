@@ -9,9 +9,20 @@ Biographies from `vatican.va/news_services/liturgy/saints` (Spanish when present
 - `documentos/corpus/santoral/manifest.json`
 - `frontend/src/assets/corpus/santoral/manifest.json`
 
+**Fuentes oficiales (ecosistema Santa Sede):**
+
+| Fuente | Endpoint | Uso |
+|--------|----------|-----|
+| Vatican News — calendario | `https://www.vaticannews.va/es/santos/MM/DD.saints.js` | Resumen del día (JSON) |
+| Estado CdV — Santo del día | `…/santo-del-dia.feed?type=rss` + páginas item | Elogios más largos |
+| vatican.va liturgy/saints | `news_services/liturgy/saints/*_sp.html` | Bios de canonizaciones |
+
+No se digitaliza el Martirologio Romano completo (libro impreso). Parsers puros en `src/santoral/parse_holy_see_sources.ts` + fixtures en `fixtures/santoral/`.
+
 ```bash
-npm run santoral:offline          # seed Padres + author→documentId links
-npm run santoral:scrape           # + harvest ES bios from Holy See indices
+npm run santoral:offline          # seed Padres + fixtures Holy See (sin red)
+npm run santoral:scrape           # + harvest live (liturgy + News days + vaticanstate)
+npm run santoral:scrape-holy-see  # scrape acotado (max bajo) solo para prueba de red
 npm run santoral -- --fixture fixtures/santoral/….html --source-url URL
 npm run test:santoral             # parse + offline load + UI wiring
 ```
