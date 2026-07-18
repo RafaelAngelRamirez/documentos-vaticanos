@@ -711,6 +711,262 @@
       "notes": "1997 General Directory for Catechesis (ES on vatican.va). Not the 1971 DCG; CCC may still cite DCG 1971."
     },
     {
+      "id": "mm",
+      "title": "Mater et Magistra",
+      "shortTitle": "MM",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "mm-es",
+      "docCode": "MM",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-xxiii/es/encyclicals/documents/hf_j-xxiii_enc_15051961_mater.html"
+      ],
+      "fixturePath": "fixtures/mm-es/source.html",
+      "expectedUnitCount": 264,
+      "notes": "John XXIII encyclical on Christianity and social progress (1961)."
+    },
+    {
+      "id": "tma",
+      "title": "Tertio millennio adveniente",
+      "shortTitle": "TMA",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "tma-es",
+      "docCode": "TMA",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_letters/1994/documents/hf_jp-ii_apl_19941110_tertio-millennio-adveniente.html"
+      ],
+      "fixturePath": "fixtures/tma-es/source.html",
+      "expectedUnitCount": 59,
+      "notes": "JPII apostolic letter on preparation for the Jubilee 2000."
+    },
+    {
+      "id": "ee",
+      "title": "Ecclesia de Eucharistia",
+      "shortTitle": "EE",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ee-es",
+      "docCode": "EE",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_20030417_eccl-de-euch.html"
+      ],
+      "fixturePath": "fixtures/ee-es/source.html",
+      "expectedUnitCount": 62,
+      "notes": "JPII encyclical on the Eucharist (2003)."
+    },
+    {
+      "id": "sa",
+      "title": "Salvifici doloris",
+      "shortTitle": "SA",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "sa-es",
+      "docCode": "SA",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_letters/1984/documents/hf_jp-ii_apl_11021984_salvifici-doloris.html"
+      ],
+      "fixturePath": "fixtures/sa-es/source.html",
+      "expectedUnitCount": 31,
+      "notes": "JPII apostolic letter on the Christian meaning of human suffering (1984)."
+    },
+    {
+      "id": "vc",
+      "title": "Vita consecrata",
+      "shortTitle": "VC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "vc-es",
+      "docCode": "VC",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_25031996_vita-consecrata.html"
+      ],
+      "fixturePath": "fixtures/vc-es/source.html",
+      "expectedUnitCount": 112,
+      "notes": "JPII post-synodal exhortation on consecrated life (1996)."
+    },
+    {
+      "id": "dm",
+      "title": "Dives in Misericordia",
+      "shortTitle": "DM",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "dm-es",
+      "docCode": "DM",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_30111980_dives-in-misericordia.html"
+      ],
+      "fixturePath": "fixtures/dm-es/source.html",
+      "expectedUnitCount": 15,
+      "notes": "JPII encyclical on Divine Mercy (1980)."
+    },
+    {
+      "id": "libertas",
+      "title": "Libertas praestantissimum",
+      "shortTitle": "Lib",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "libertas-es",
+      "docCode": "Lib",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/leo-xiii/es/encyclicals/documents/hf_l-xiii_enc_20061888_libertas.html"
+      ],
+      "fixturePath": "fixtures/libertas-es/source.html",
+      "expectedUnitCount": 48,
+      "notes": "Leo XIII encyclical on human liberty (1888)."
+    },
+    {
+      "id": "immortale-dei",
+      "title": "Immortale Dei",
+      "shortTitle": "IDei",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "immortale-dei-es",
+      "docCode": "IDei",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/leo-xiii/es/encyclicals/documents/hf_l-xiii_enc_01111885_immortale-dei.html"
+      ],
+      "fixturePath": "fixtures/immortale-dei-es/source.html",
+      "expectedUnitCount": 24,
+      "notes": "Leo XIII encyclical on the Christian constitution of states (1885). Code IDei (not ID=Indulgentiarum)."
+    },
+    {
+      "id": "diuturnum",
+      "title": "Diuturnum illud",
+      "shortTitle": "Diut",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "diuturnum-es",
+      "docCode": "Diut",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/leo-xiii/es/encyclicals/documents/hf_l-xiii_enc_29061881_diuturnum.html"
+      ],
+      "fixturePath": "fixtures/diuturnum-es/source.html",
+      "expectedUnitCount": 20,
+      "notes": "Leo XIII encyclical on the origin of civil power (1881)."
+    },
+    {
+      "id": "quas-primas",
+      "title": "Quas primas",
+      "shortTitle": "QP",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "quas-primas-es",
+      "docCode": "QP",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/pius-xi/es/encyclicals/documents/hf_p-xi_enc_11121925_quas-primas.html"
+      ],
+      "fixturePath": "fixtures/quas-primas-es/source.html",
+      "expectedUnitCount": 30,
+      "notes": "Pius XI encyclical on the Kingship of Christ (1925)."
+    },
+    {
+      "id": "dcg",
+      "title": "Directorio Catequético General",
+      "shortTitle": "DCG",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "dcg-es",
+      "docCode": "DCG",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cclergy/documents/rc_con_cclergy_dir_19710411_sp.html"
+      ],
+      "fixturePath": "fixtures/dcg-es/source.html",
+      "expectedUnitCount": 100,
+      "notes": "1971 General Catechetical Directory (ES legacy HTML). Distinct from GDC 1997."
+    },
+    {
+      "id": "mysterium-ecclesiae",
+      "title": "Mysterium Ecclesiae",
+      "shortTitle": "ME",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "mysterium-ecclesiae-es",
+      "docCode": "ME",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19730705_mysterium-ecclesiae_sp.html"
+      ],
+      "fixturePath": "fixtures/mysterium-ecclesiae-es/source.html",
+      "expectedUnitCount": 6,
+      "notes": "CDF Declaration Mysterium Ecclesiae (1973). Section-level numbering."
+    },
+    {
+      "id": "donum-veritatis",
+      "title": "Donum veritatis",
+      "shortTitle": "DonVer",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "donum-veritatis-es",
+      "docCode": "DonVer",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19900524_theologian-vocation_sp.html"
+      ],
+      "fixturePath": "fixtures/donum-veritatis-es/source.html",
+      "expectedUnitCount": 42,
+      "notes": "CDF Instruction Donum veritatis on the ecclesial vocation of the theologian (1990)."
+    },
+    {
+      "id": "pastoralis-actio",
+      "title": "Pastoralis actio",
+      "shortTitle": "PastA",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "pastoralis-actio-es",
+      "docCode": "PastA",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19801020_pastoralis_actio_sp.html"
+      ],
+      "fixturePath": "fixtures/pastoralis-actio-es/source.html",
+      "expectedUnitCount": 34,
+      "notes": "CDF Instruction on infant baptism (1980)."
+    },
+    {
+      "id": "libertatis-conscientia",
+      "title": "Libertatis conscientia",
+      "shortTitle": "LC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "libertatis-conscientia-es",
+      "docCode": "LCon",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19860322_freedom-liberation_sp.html"
+      ],
+      "fixturePath": "fixtures/libertatis-conscientia-es/source.html",
+      "expectedUnitCount": 100,
+      "notes": "CDF Instruction Libertatis conscientia on Christian freedom and liberation (1986). Code LCon (not LC ambiguity)."
+    },
+    {
+      "id": "iura-et-bona",
+      "title": "Iura et bona",
+      "shortTitle": "Iura",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "iura-et-bona-es",
+      "docCode": "Iura",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19800505_euthanasia_sp.html"
+      ],
+      "fixturePath": "fixtures/iura-et-bona-es/source.html",
+      "expectedUnitCount": 10,
+      "notes": "CDF Declaration on euthanasia Iura et bona (1980). ES path uses euthanasia slug."
+    },
+    {
       "id": "cceo",
       "title": "Código de los Cánones de las Iglesias Orientales",
       "shortTitle": "CCEO",

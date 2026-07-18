@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-18T15:44:37.500Z",
+  "updatedAt": "2026-07-18T15:51:41.777Z",
   "documents": [
     {
       "id": "aa-es",
@@ -21,7 +21,7 @@
         "meta": "documents/aa-es/meta.json"
       },
       "notes": "Decree on the Apostolate of the Laity (Vat. II). Numbered §§1–33. Official path uses decree_ (not const_).",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "ag-es",
@@ -42,7 +42,7 @@
         "meta": "documents/ag-es/meta.json"
       },
       "notes": "Vat. II decree on missionary activity. §§1–42.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "agustin-01-primeros-escritos-es",
@@ -882,7 +882,7 @@
         "meta": "documents/ca-es/meta.json"
       },
       "notes": "JPII encyclical on the 100th anniversary of Rerum novarum.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "calcedonia-es",
@@ -983,7 +983,7 @@
         "meta": "documents/cd-es/meta.json"
       },
       "notes": "Vat. II decree on pastoral office of bishops.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "cdc-es",
@@ -1024,7 +1024,7 @@
         "meta": "documents/cds-es/meta.json"
       },
       "notes": "Single-page Compendium of the Social Doctrine of the Church. Numbered §§1–583. Dual markup (named anchors + bare bold numbers).",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "cic-es",
@@ -1044,7 +1044,7 @@
         "index": "documents/cic-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated).",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "cipriano-cartas-es",
@@ -1105,7 +1105,7 @@
         "meta": "documents/cl-es/meta.json"
       },
       "notes": "JPII apostolic exhortation on the laity.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "clemente-alejandria-pedagogo-es",
@@ -1346,7 +1346,7 @@
         "meta": "documents/cpd-es/meta.json"
       },
       "notes": "Paul VI Solemni hac liturgia — Credo of the People of God (1968).",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "ct-es",
@@ -1367,7 +1367,7 @@
         "meta": "documents/ct-es/meta.json"
       },
       "notes": "JPII apostolic exhortation on catechesis.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "dev-es",
@@ -1388,7 +1388,7 @@
         "meta": "documents/dev-es/meta.json"
       },
       "notes": "JPII encyclical on the Holy Spirit (1986).",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "dh-es",
@@ -1409,7 +1409,68 @@
         "meta": "documents/dh-es/meta.json"
       },
       "notes": "Vat. II declaration on religious freedom.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "diuturnum-es",
+      "sourceId": "diuturnum",
+      "title": "Diuturnum illud",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/leo-xiii/es/encyclicals/documents/hf_l-xiii_enc_29061881_diuturnum.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:51:00.034Z",
+      "lastDownloadedAt": "2026-07-18T15:51:00.034Z",
+      "unitCount": 21,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/diuturnum-es/content.json",
+        "index": "documents/diuturnum-es/index.json",
+        "meta": "documents/diuturnum-es/meta.json"
+      },
+      "notes": "Leo XIII encyclical on the origin of civil power (1881)."
+    },
+    {
+      "id": "dm-es",
+      "sourceId": "dm",
+      "title": "Dives in Misericordia",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_30111980_dives-in-misericordia.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:51:08.758Z",
+      "lastDownloadedAt": "2026-07-18T15:51:08.758Z",
+      "unitCount": 15,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/dm-es/content.json",
+        "index": "documents/dm-es/index.json",
+        "meta": "documents/dm-es/meta.json"
+      },
+      "notes": "JPII encyclical on Divine Mercy (1980)."
+    },
+    {
+      "id": "donum-veritatis-es",
+      "sourceId": "donum-veritatis",
+      "title": "Donum veritatis",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19900524_theologian-vocation_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:50:59.461Z",
+      "lastDownloadedAt": "2026-07-18T15:50:59.461Z",
+      "unitCount": 42,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/donum-veritatis-es/content.json",
+        "index": "documents/donum-veritatis-es/index.json",
+        "meta": "documents/donum-veritatis-es/meta.json"
+      },
+      "notes": "CDF Instruction Donum veritatis on the ecclesial vocation of the theologian (1990).",
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "donum-vitae-es",
@@ -1469,7 +1530,28 @@
         "index": "documents/dv-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated).",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "ee-es",
+      "sourceId": "ee",
+      "title": "Ecclesia de Eucharistia",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_20030417_eccl-de-euch.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:51:00.517Z",
+      "lastDownloadedAt": "2026-07-18T15:51:00.517Z",
+      "unitCount": 62,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ee-es/content.json",
+        "index": "documents/ee-es/index.json",
+        "meta": "documents/ee-es/meta.json"
+      },
+      "notes": "JPII encyclical on the Eucharist (2003).",
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "efeso-es",
@@ -1530,7 +1612,7 @@
         "meta": "documents/en-es/meta.json"
       },
       "notes": "Paul VI apostolic exhortation on evangelization.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "ev-es",
@@ -1551,7 +1633,7 @@
         "meta": "documents/ev-es/meta.json"
       },
       "notes": "JPII encyclical on the value and inviolability of human life.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "fc-es",
@@ -1572,7 +1654,7 @@
         "meta": "documents/fc-es/meta.json"
       },
       "notes": "JPII apostolic exhortation on the family.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "florencia-es",
@@ -1633,7 +1715,7 @@
         "meta": "documents/gdc-es/meta.json"
       },
       "notes": "1997 General Directory for Catechesis (ES on vatican.va). Not the 1971 DCG; CCC may still cite DCG 1971.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "ge-es",
@@ -1694,7 +1776,7 @@
         "meta": "documents/gs-es/meta.json"
       },
       "notes": "Pastoral constitution. Numbered §§1–93 (approx).",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "hv-es",
@@ -1715,7 +1797,7 @@
         "meta": "documents/hv-es/meta.json"
       },
       "notes": "Paul VI encyclical on regulation of birth.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "im-es",
@@ -1736,7 +1818,27 @@
         "meta": "documents/im-es/meta.json"
       },
       "notes": "Vat. II decree on social communication.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "immortale-dei-es",
+      "sourceId": "immortale-dei",
+      "title": "Immortale Dei",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/leo-xiii/es/encyclicals/documents/hf_l-xiii_enc_01111885_immortale-dei.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:50:56.913Z",
+      "lastDownloadedAt": "2026-07-18T15:50:56.913Z",
+      "unitCount": 24,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/immortale-dei-es/content.json",
+        "index": "documents/immortale-dei-es/index.json",
+        "meta": "documents/immortale-dei-es/meta.json"
+      },
+      "notes": "Leo XIII encyclical on the Christian constitution of states (1885). Code IDei (not ID=Indulgentiarum)."
     },
     {
       "id": "indulgentiarum-doctrina-es",
@@ -1757,6 +1859,26 @@
         "meta": "documents/indulgentiarum-doctrina-es/meta.json"
       },
       "notes": "Paul VI apostolic constitution on indulgences (1967)."
+    },
+    {
+      "id": "iura-et-bona-es",
+      "sourceId": "iura-et-bona",
+      "title": "Iura et bona",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19800505_euthanasia_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:51:07.547Z",
+      "lastDownloadedAt": "2026-07-18T15:51:07.547Z",
+      "unitCount": 3,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/iura-et-bona-es/content.json",
+        "index": "documents/iura-et-bona-es/index.json",
+        "meta": "documents/iura-et-bona-es/meta.json"
+      },
+      "notes": "CDF Declaration on euthanasia Iura et bona (1980). ES path uses euthanasia slug."
     },
     {
       "id": "jerusalen-es",
@@ -2017,7 +2139,7 @@
         "meta": "documents/le-es/meta.json"
       },
       "notes": "JPII encyclical on human work.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "lg-es",
@@ -2038,7 +2160,47 @@
         "meta": "documents/lg-es/meta.json"
       },
       "notes": "Single-page Vatican II dogmatic constitution. Numbered §§1–69.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "libertas-es",
+      "sourceId": "libertas",
+      "title": "Libertas praestantissimum",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/leo-xiii/es/encyclicals/documents/hf_l-xiii_enc_20061888_libertas.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:50:54.128Z",
+      "lastDownloadedAt": "2026-07-18T15:50:54.128Z",
+      "unitCount": 34,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/libertas-es/content.json",
+        "index": "documents/libertas-es/index.json",
+        "meta": "documents/libertas-es/meta.json"
+      },
+      "notes": "Leo XIII encyclical on human liberty (1888)."
+    },
+    {
+      "id": "libertatis-conscientia-es",
+      "sourceId": "libertatis-conscientia",
+      "title": "Libertatis conscientia",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19860322_freedom-liberation_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:51:05.401Z",
+      "lastDownloadedAt": "2026-07-18T15:51:05.401Z",
+      "unitCount": 100,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/libertatis-conscientia-es/content.json",
+        "index": "documents/libertatis-conscientia-es/index.json",
+        "meta": "documents/libertatis-conscientia-es/meta.json"
+      },
+      "notes": "CDF Instruction Libertatis conscientia on Christian freedom and liberation (1986). Code LCon (not LC ambiguity)."
     },
     {
       "id": "lyon-i-es",
@@ -2139,7 +2301,7 @@
         "meta": "documents/mc-es/meta.json"
       },
       "notes": "Paul VI apostolic exhortation on Marian devotion. Numbered sections vary.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "md-es",
@@ -2160,7 +2322,7 @@
         "meta": "documents/md-es/meta.json"
       },
       "notes": "JPII apostolic letter on the dignity of women.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "mf-es",
@@ -2183,6 +2345,47 @@
       "notes": "Paul VI encyclical on the Eucharist (1965). Long continuous §§; few top-level numbers."
     },
     {
+      "id": "mm-es",
+      "sourceId": "mm",
+      "title": "Mater et Magistra",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-xxiii/es/encyclicals/documents/hf_j-xxiii_enc_15051961_mater.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:50:54.282Z",
+      "lastDownloadedAt": "2026-07-18T15:50:54.282Z",
+      "unitCount": 251,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/mm-es/content.json",
+        "index": "documents/mm-es/index.json",
+        "meta": "documents/mm-es/meta.json"
+      },
+      "notes": "John XXIII encyclical on Christianity and social progress (1961).",
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "mysterium-ecclesiae-es",
+      "sourceId": "mysterium-ecclesiae",
+      "title": "Mysterium Ecclesiae",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19730705_mysterium-ecclesiae_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:50:56.991Z",
+      "lastDownloadedAt": "2026-07-18T15:51:32.213Z",
+      "unitCount": 6,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/mysterium-ecclesiae-es/content.json",
+        "index": "documents/mysterium-ecclesiae-es/index.json",
+        "meta": "documents/mysterium-ecclesiae-es/meta.json"
+      },
+      "notes": ""
+    },
+    {
       "id": "na-es",
       "sourceId": "na",
       "title": "Nostra aetate",
@@ -2201,7 +2404,7 @@
         "meta": "documents/na-es/meta.json"
       },
       "notes": "Vat. II declaration on non-Christian religions.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "nicea-i-es",
@@ -2302,7 +2505,7 @@
         "meta": "documents/nmi-es/meta.json"
       },
       "notes": "JPII apostolic letter at the close of the Great Jubilee 2000.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "ot-es",
@@ -2323,7 +2526,28 @@
         "meta": "documents/ot-es/meta.json"
       },
       "notes": "Vat. II decree on priestly training.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "pastoralis-actio-es",
+      "sourceId": "pastoralis-actio",
+      "title": "Pastoralis actio",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19801020_pastoralis_actio_sp.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:51:02.543Z",
+      "lastDownloadedAt": "2026-07-18T15:51:02.543Z",
+      "unitCount": 34,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/pastoralis-actio-es/content.json",
+        "index": "documents/pastoralis-actio-es/index.json",
+        "meta": "documents/pastoralis-actio-es/meta.json"
+      },
+      "notes": "CDF Instruction on infant baptism (1980).",
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "pc-es",
@@ -2344,7 +2568,7 @@
         "meta": "documents/pc-es/meta.json"
       },
       "notes": "Vat. II decree on renewal of religious life.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "pdv-es",
@@ -2365,7 +2589,7 @@
         "meta": "documents/pdv-es/meta.json"
       },
       "notes": "JPII apostolic exhortation on formation of priests.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "persona-humana-es",
@@ -2386,7 +2610,7 @@
         "meta": "documents/persona-humana-es/meta.json"
       },
       "notes": "CDF Declaration Persona humana (1975).",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "pg-es",
@@ -2407,7 +2631,7 @@
         "meta": "documents/pg-es/meta.json"
       },
       "notes": "JPII post-synodal exhortation on the bishop (2003). Top unlinked-ref download candidate.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "po-es",
@@ -2428,7 +2652,7 @@
         "meta": "documents/po-es/meta.json"
       },
       "notes": "Vat. II decree on ministry of priests.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "pp-es",
@@ -2449,7 +2673,7 @@
         "meta": "documents/pp-es/meta.json"
       },
       "notes": "Paul VI encyclical on development of peoples.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "pt-es",
@@ -2472,6 +2696,26 @@
       "notes": "John XXIII encyclical on peace (1963)."
     },
     {
+      "id": "quas-primas-es",
+      "sourceId": "quas-primas",
+      "title": "Quas primas",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/pius-xi/es/encyclicals/documents/hf_p-xi_enc_11121925_quas-primas.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:51:03.254Z",
+      "lastDownloadedAt": "2026-07-18T15:51:03.254Z",
+      "unitCount": 35,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/quas-primas-es/content.json",
+        "index": "documents/quas-primas-es/index.json",
+        "meta": "documents/quas-primas-es/meta.json"
+      },
+      "notes": "Pius XI encyclical on the Kingship of Christ (1925)."
+    },
+    {
       "id": "rh-es",
       "sourceId": "rh",
       "title": "Redemptor hominis",
@@ -2490,7 +2734,7 @@
         "meta": "documents/rh-es/meta.json"
       },
       "notes": "JPII first encyclical on the Redeemer of man.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "rm-es",
@@ -2511,7 +2755,7 @@
         "meta": "documents/rm-es/meta.json"
       },
       "notes": "JPII encyclical on permanent validity of missionary mandate.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "rp-es",
@@ -2532,7 +2776,28 @@
         "meta": "documents/rp-es/meta.json"
       },
       "notes": "JPII post-synodal exhortation on reconciliation and penance (1984).",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "sa-es",
+      "sourceId": "sa",
+      "title": "Salvifici doloris",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_letters/1984/documents/hf_jp-ii_apl_11021984_salvifici-doloris.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:51:03.816Z",
+      "lastDownloadedAt": "2026-07-18T15:51:03.816Z",
+      "unitCount": 31,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/sa-es/content.json",
+        "index": "documents/sa-es/index.json",
+        "meta": "documents/sa-es/meta.json"
+      },
+      "notes": "JPII apostolic letter on the Christian meaning of human suffering (1984).",
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "sc-es",
@@ -2552,7 +2817,7 @@
         "index": "documents/sc-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated).",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "srs-es",
@@ -2573,7 +2838,28 @@
         "meta": "documents/srs-es/meta.json"
       },
       "notes": "JPII encyclical on social concern.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "tma-es",
+      "sourceId": "tma",
+      "title": "Tertio millennio adveniente",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_letters/1994/documents/hf_jp-ii_apl_19941110_tertio-millennio-adveniente.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:50:57.496Z",
+      "lastDownloadedAt": "2026-07-18T15:50:57.496Z",
+      "unitCount": 59,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/tma-es/content.json",
+        "index": "documents/tma-es/index.json",
+        "meta": "documents/tma-es/meta.json"
+      },
+      "notes": "JPII apostolic letter on preparation for the Jubilee 2000.",
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "trento-es",
@@ -2636,7 +2922,7 @@
         "meta": "documents/ur-es/meta.json"
       },
       "notes": "Decree on Ecumenism (Vat. II). Numbered §§1–24. Official path uses decree_ (not const_).",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "vat-i-es",
@@ -2679,6 +2965,27 @@
         "meta": "documents/vat-i-la/meta.json"
       },
       "notes": "Preferir Dei Filius + Pastor Aeternus como docs sueltos."
+    },
+    {
+      "id": "vc-es",
+      "sourceId": "vc",
+      "title": "Vita consecrata",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_25031996_vita-consecrata.html"
+      ],
+      "firstDownloadedAt": "2026-07-18T15:51:06.644Z",
+      "lastDownloadedAt": "2026-07-18T15:51:06.644Z",
+      "unitCount": 112,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/vc-es/content.json",
+        "index": "documents/vc-es/index.json",
+        "meta": "documents/vc-es/meta.json"
+      },
+      "notes": "JPII post-synodal exhortation on consecrated life (1996).",
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
       "id": "vienne-es",
@@ -2739,7 +3046,7 @@
         "meta": "documents/vs-es/meta.json"
       },
       "notes": "JPII encyclical on fundamental questions of moral teaching.",
-      "lastResolvedAt": "2026-07-18T15:44:37.499Z"
+      "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     }
   ]
 }

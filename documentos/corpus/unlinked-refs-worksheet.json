@@ -1,40 +1,40 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-18T15:44:50.150Z",
+  "generatedAt": "2026-07-18T15:52:50.448Z",
   "description": "Worksheet of unlinked inter-document references: citations without ref.local after basic resolve:refs (book-codes + doc-codes). Clusters by normalized description with semantic class and corpus vs vatican.va download status.",
   "source": "documentos/corpus (manifest + documents/**/content.json)",
   "counts": {
-    "unlinkedRefOccurrences": 2176,
-    "clusters": 1835,
+    "unlinkedRefOccurrences": 2329,
+    "clusters": 1924,
     "byStatus": {
-      "noise/non-document": 1084,
-      "in-corpus": 520,
-      "not-in-corpus": 400,
-      "needs-vatican.va-download": 162,
-      "known-code-missing-locator": 10
+      "noise/non-document": 1196,
+      "in-corpus": 531,
+      "not-in-corpus": 437,
+      "needs-vatican.va-download": 149,
+      "known-code-missing-locator": 16
     },
     "byClass": {
-      "year-noise": 355,
-      "fragment-noise": 420,
-      "structural-noise": 95,
-      "date-noise": 59,
-      "magisterial-code": 41,
+      "year-noise": 362,
+      "fragment-noise": 488,
+      "structural-noise": 114,
+      "date-noise": 62,
+      "magisterial-code": 37,
       "ds-style": 125,
       "canon-law": 121,
       "liturgical": 49,
-      "bible-unresolved": 89,
-      "scholastic": 49,
+      "bible-unresolved": 91,
+      "prose-noise": 170,
+      "scholastic": 50,
       "roman-catechism": 23,
-      "unknown": 214,
+      "magisterial-free-title": 41,
       "patristic": 272,
-      "magisterial-free-title": 33,
-      "unresolved-abbr": 21,
-      "conciliar": 28,
+      "unresolved-abbr": 33,
+      "conciliar": 29,
       "curial": 27,
-      "prose-noise": 155
+      "unknown": 235
     },
     "bySourceDocument": {
-      "cic-es": 1344,
+      "cic-es": 1339,
       "dv-es": 3,
       "sc-es": 14,
       "ur-es": 4,
@@ -70,7 +70,15 @@
       "dev-es": 14,
       "cpd-es": 1,
       "persona-humana-es": 2,
-      "gdc-es": 302
+      "gdc-es": 302,
+      "mm-es": 32,
+      "dcg-es": 31,
+      "tma-es": 23,
+      "donum-veritatis-es": 1,
+      "ee-es": 58,
+      "pastoralis-actio-es": 3,
+      "sa-es": 6,
+      "vc-es": 4
     }
   },
   "statusEnum": [
@@ -174,6 +182,78 @@
       ]
     },
     {
+      "clusterKey": "...",
+      "raw": "...",
+      "frequency": 21,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "short non-numeric fragment",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "cic-es",
+          "unitIndex": 2405,
+          "consecutivo": "no-encontrado"
+        },
+        {
+          "documentId": "cds-es",
+          "unitIndex": 142,
+          "consecutivo": "143"
+        },
+        {
+          "documentId": "cds-es",
+          "unitIndex": 175,
+          "consecutivo": "176"
+        },
+        {
+          "documentId": "cds-es",
+          "unitIndex": 438,
+          "consecutivo": "439"
+        },
+        {
+          "documentId": "pp-es",
+          "unitIndex": 77,
+          "consecutivo": "78"
+        },
+        {
+          "documentId": "mc-es",
+          "unitIndex": 26,
+          "consecutivo": "26"
+        },
+        {
+          "documentId": "mc-es",
+          "unitIndex": 26,
+          "consecutivo": "26"
+        },
+        {
+          "documentId": "mc-es",
+          "unitIndex": 62,
+          "consecutivo": "62"
+        },
+        {
+          "documentId": "mc-es",
+          "unitIndex": 62,
+          "consecutivo": "62"
+        },
+        {
+          "documentId": "cl-es",
+          "unitIndex": 13,
+          "consecutivo": "14"
+        },
+        {
+          "documentId": "cl-es",
+          "unitIndex": 13,
+          "consecutivo": "14"
+        },
+        {
+          "documentId": "cl-es",
+          "unitIndex": 17,
+          "consecutivo": "18"
+        }
+      ]
+    },
+    {
       "clusterKey": "1966",
       "raw": "1966",
       "frequency": 18,
@@ -246,81 +326,9 @@
       ]
     },
     {
-      "clusterKey": "...",
-      "raw": "...",
-      "frequency": 16,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "short non-numeric fragment",
-      "parserKind": "unresolved",
-      "sources": [
-        {
-          "documentId": "cic-es",
-          "unitIndex": 2405,
-          "consecutivo": "no-encontrado"
-        },
-        {
-          "documentId": "cds-es",
-          "unitIndex": 142,
-          "consecutivo": "143"
-        },
-        {
-          "documentId": "cds-es",
-          "unitIndex": 175,
-          "consecutivo": "176"
-        },
-        {
-          "documentId": "cds-es",
-          "unitIndex": 438,
-          "consecutivo": "439"
-        },
-        {
-          "documentId": "pp-es",
-          "unitIndex": 77,
-          "consecutivo": "78"
-        },
-        {
-          "documentId": "mc-es",
-          "unitIndex": 26,
-          "consecutivo": "26"
-        },
-        {
-          "documentId": "mc-es",
-          "unitIndex": 26,
-          "consecutivo": "26"
-        },
-        {
-          "documentId": "mc-es",
-          "unitIndex": 62,
-          "consecutivo": "62"
-        },
-        {
-          "documentId": "mc-es",
-          "unitIndex": 62,
-          "consecutivo": "62"
-        },
-        {
-          "documentId": "cl-es",
-          "unitIndex": 13,
-          "consecutivo": "14"
-        },
-        {
-          "documentId": "cl-es",
-          "unitIndex": 13,
-          "consecutivo": "14"
-        },
-        {
-          "documentId": "cl-es",
-          "unitIndex": 17,
-          "consecutivo": "18"
-        }
-      ]
-    },
-    {
       "clusterKey": "1964",
       "raw": "1964",
-      "frequency": 14,
+      "frequency": 15,
       "class": "year-noise",
       "status": "noise/non-document",
       "proposedTarget": null,
@@ -390,6 +398,68 @@
       ]
     },
     {
+      "clusterKey": "ibid.",
+      "raw": "cf. ibíd.",
+      "frequency": 10,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "cic-es",
+          "unitIndex": 397,
+          "consecutivo": "174"
+        },
+        {
+          "documentId": "cic-es",
+          "unitIndex": 716,
+          "consecutivo": "361"
+        },
+        {
+          "documentId": "cic-es",
+          "unitIndex": 820,
+          "consecutivo": "426"
+        },
+        {
+          "documentId": "cic-es",
+          "unitIndex": 1450,
+          "consecutivo": "764"
+        },
+        {
+          "documentId": "cic-es",
+          "unitIndex": 1468,
+          "consecutivo": "773"
+        },
+        {
+          "documentId": "nmi-es",
+          "unitIndex": 18,
+          "consecutivo": "19"
+        },
+        {
+          "documentId": "nmi-es",
+          "unitIndex": 19,
+          "consecutivo": "20"
+        },
+        {
+          "documentId": "mm-es",
+          "unitIndex": 147,
+          "consecutivo": "158"
+        },
+        {
+          "documentId": "mm-es",
+          "unitIndex": 183,
+          "consecutivo": "196"
+        },
+        {
+          "documentId": "mm-es",
+          "unitIndex": 244,
+          "consecutivo": "257"
+        }
+      ]
+    },
+    {
       "clusterKey": "1979",
       "raw": "1979",
       "frequency": 7,
@@ -433,53 +503,6 @@
           "documentId": "rh-es",
           "unitIndex": 109,
           "consecutivo": "179"
-        }
-      ]
-    },
-    {
-      "clusterKey": "ibid.",
-      "raw": "cf. ibíd.",
-      "frequency": 7,
-      "class": "structural-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "ibidem with optional locator",
-      "parserKind": "unresolved",
-      "sources": [
-        {
-          "documentId": "cic-es",
-          "unitIndex": 397,
-          "consecutivo": "174"
-        },
-        {
-          "documentId": "cic-es",
-          "unitIndex": 716,
-          "consecutivo": "361"
-        },
-        {
-          "documentId": "cic-es",
-          "unitIndex": 820,
-          "consecutivo": "426"
-        },
-        {
-          "documentId": "cic-es",
-          "unitIndex": 1450,
-          "consecutivo": "764"
-        },
-        {
-          "documentId": "cic-es",
-          "unitIndex": 1468,
-          "consecutivo": "773"
-        },
-        {
-          "documentId": "nmi-es",
-          "unitIndex": 18,
-          "consecutivo": "19"
-        },
-        {
-          "documentId": "nmi-es",
-          "unitIndex": 19,
-          "consecutivo": "20"
         }
       ]
     },
@@ -726,6 +749,43 @@
       ]
     },
     {
+      "clusterKey": "27",
+      "raw": "27",
+      "frequency": 5,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 11,
+          "consecutivo": "11"
+        },
+        {
+          "documentId": "md-es",
+          "unitIndex": 7,
+          "consecutivo": "8"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 19,
+          "consecutivo": "20"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 201,
+          "consecutivo": "202"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 16,
+          "consecutivo": "17"
+        }
+      ]
+    },
+    {
       "clusterKey": "capitulo primero",
       "raw": "capítulo primero",
       "frequency": 5,
@@ -956,6 +1016,38 @@
       ]
     },
     {
+      "clusterKey": "13",
+      "raw": "13",
+      "frequency": 4,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 2,
+          "consecutivo": "3"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 15,
+          "consecutivo": "16"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 196,
+          "consecutivo": "197"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 11,
+          "consecutivo": "12"
+        }
+      ]
+    },
+    {
       "clusterKey": "1990",
       "raw": "1990",
       "frequency": 4,
@@ -988,8 +1080,8 @@
       ]
     },
     {
-      "clusterKey": "27",
-      "raw": "27",
+      "clusterKey": "22",
+      "raw": "22",
       "frequency": 4,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -999,23 +1091,279 @@
       "sources": [
         {
           "documentId": "mc-es",
-          "unitIndex": 11,
-          "consecutivo": "11"
+          "unitIndex": 6,
+          "consecutivo": "7"
         },
         {
           "documentId": "md-es",
-          "unitIndex": 7,
-          "consecutivo": "8"
+          "unitIndex": 5,
+          "consecutivo": "6"
         },
         {
           "documentId": "gdc-es",
-          "unitIndex": 19,
-          "consecutivo": "20"
+          "unitIndex": 17,
+          "consecutivo": "18"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 14,
+          "consecutivo": "15"
+        }
+      ]
+    },
+    {
+      "clusterKey": "32",
+      "raw": "32",
+      "frequency": 4,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 12,
+          "consecutivo": "12"
+        },
+        {
+          "documentId": "md-es",
+          "unitIndex": 9,
+          "consecutivo": "10"
         },
         {
           "documentId": "gdc-es",
-          "unitIndex": 201,
-          "consecutivo": "202"
+          "unitIndex": 21,
+          "consecutivo": "22"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 17,
+          "consecutivo": "18"
+        }
+      ]
+    },
+    {
+      "clusterKey": "42",
+      "raw": "42",
+      "frequency": 4,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 14,
+          "consecutivo": "14"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 24,
+          "consecutivo": "25"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 212,
+          "consecutivo": "213"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 22,
+          "consecutivo": "23"
+        }
+      ]
+    },
+    {
+      "clusterKey": "51",
+      "raw": "51",
+      "frequency": 4,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "md-es",
+          "unitIndex": 26,
+          "consecutivo": "27"
+        },
+        {
+          "documentId": "rh-es",
+          "unitIndex": 105,
+          "consecutivo": "175"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 27,
+          "consecutivo": "28"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 26,
+          "consecutivo": "27"
+        }
+      ]
+    },
+    {
+      "clusterKey": "63",
+      "raw": "63",
+      "frequency": 4,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 21,
+          "consecutivo": "21"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 31,
+          "consecutivo": "32"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 221,
+          "consecutivo": "222"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 30,
+          "consecutivo": "31"
+        }
+      ]
+    },
+    {
+      "clusterKey": "67",
+      "raw": "67",
+      "frequency": 4,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 24,
+          "consecutivo": "24"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 33,
+          "consecutivo": "34"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 222,
+          "consecutivo": "223"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 33,
+          "consecutivo": "34"
+        }
+      ]
+    },
+    {
+      "clusterKey": "72",
+      "raw": "72",
+      "frequency": 4,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 25,
+          "consecutivo": "25"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 35,
+          "consecutivo": "36"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 223,
+          "consecutivo": "224"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 35,
+          "consecutivo": "36"
+        }
+      ]
+    },
+    {
+      "clusterKey": "9",
+      "raw": "9",
+      "frequency": 4,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 0,
+          "consecutivo": "1"
+        },
+        {
+          "documentId": "md-es",
+          "unitIndex": 1,
+          "consecutivo": "2"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 8,
+          "consecutivo": "9"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 10,
+          "consecutivo": "11"
+        }
+      ]
+    },
+    {
+      "clusterKey": "93",
+      "raw": "93",
+      "frequency": 4,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 31,
+          "consecutivo": "31"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 41,
+          "consecutivo": "42"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 228,
+          "consecutivo": "229"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 43,
+          "consecutivo": "44"
         }
       ]
     },
@@ -1173,33 +1521,6 @@
       ]
     },
     {
-      "clusterKey": "13",
-      "raw": "13",
-      "frequency": 3,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 2,
-          "consecutivo": "3"
-        },
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 15,
-          "consecutivo": "16"
-        },
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 196,
-          "consecutivo": "197"
-        }
-      ]
-    },
-    {
       "clusterKey": "16",
       "raw": "16",
       "frequency": 3,
@@ -1250,6 +1571,33 @@
           "documentId": "gdc-es",
           "unitIndex": 16,
           "consecutivo": "17"
+        }
+      ]
+    },
+    {
+      "clusterKey": "1962",
+      "raw": "1962",
+      "frequency": 3,
+      "class": "year-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "pure year footnote",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "cic-es",
+          "unitIndex": 63,
+          "consecutivo": "no-encontrado"
+        },
+        {
+          "documentId": "pp-es",
+          "unitIndex": 3,
+          "consecutivo": "4"
+        },
+        {
+          "documentId": "tma-es",
+          "unitIndex": 23,
+          "consecutivo": "24"
         }
       ]
     },
@@ -1447,8 +1795,8 @@
       ]
     },
     {
-      "clusterKey": "22",
-      "raw": "22",
+      "clusterKey": "20",
+      "raw": "20",
       "frequency": 3,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -1462,14 +1810,68 @@
           "consecutivo": "7"
         },
         {
-          "documentId": "md-es",
-          "unitIndex": 5,
-          "consecutivo": "6"
+          "documentId": "gdc-es",
+          "unitIndex": 17,
+          "consecutivo": "18"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 13,
+          "consecutivo": "14"
+        }
+      ]
+    },
+    {
+      "clusterKey": "21",
+      "raw": "21",
+      "frequency": 3,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 6,
+          "consecutivo": "7"
         },
         {
           "documentId": "gdc-es",
           "unitIndex": 17,
           "consecutivo": "18"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 13,
+          "consecutivo": "14"
+        }
+      ]
+    },
+    {
+      "clusterKey": "24",
+      "raw": "24",
+      "frequency": 3,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 10,
+          "consecutivo": "10"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 18,
+          "consecutivo": "19"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 14,
+          "consecutivo": "15"
         }
       ]
     },
@@ -1528,8 +1930,35 @@
       ]
     },
     {
-      "clusterKey": "32",
-      "raw": "32",
+      "clusterKey": "30",
+      "raw": "30",
+      "frequency": 3,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 20,
+          "consecutivo": "21"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 203,
+          "consecutivo": "204"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 17,
+          "consecutivo": "18"
+        }
+      ]
+    },
+    {
+      "clusterKey": "31",
+      "raw": "31",
       "frequency": 3,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -1543,14 +1972,14 @@
           "consecutivo": "12"
         },
         {
-          "documentId": "md-es",
-          "unitIndex": 9,
-          "consecutivo": "10"
+          "documentId": "gdc-es",
+          "unitIndex": 205,
+          "consecutivo": "206"
         },
         {
-          "documentId": "gdc-es",
-          "unitIndex": 21,
-          "consecutivo": "22"
+          "documentId": "ee-es",
+          "unitIndex": 17,
+          "consecutivo": "18"
         }
       ]
     },
@@ -1636,8 +2065,8 @@
       ]
     },
     {
-      "clusterKey": "42",
-      "raw": "42",
+      "clusterKey": "45",
+      "raw": "45",
       "frequency": 3,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -1647,24 +2076,24 @@
       "sources": [
         {
           "documentId": "mc-es",
-          "unitIndex": 14,
-          "consecutivo": "14"
+          "unitIndex": 17,
+          "consecutivo": "17"
         },
         {
           "documentId": "gdc-es",
+          "unitIndex": 216,
+          "consecutivo": "217"
+        },
+        {
+          "documentId": "ee-es",
           "unitIndex": 24,
           "consecutivo": "25"
-        },
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 212,
-          "consecutivo": "213"
         }
       ]
     },
     {
-      "clusterKey": "51",
-      "raw": "51",
+      "clusterKey": "46",
+      "raw": "46",
       "frequency": 3,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -1673,19 +2102,46 @@
       "parserKind": "noise",
       "sources": [
         {
-          "documentId": "md-es",
-          "unitIndex": 26,
-          "consecutivo": "27"
-        },
-        {
-          "documentId": "rh-es",
-          "unitIndex": 105,
-          "consecutivo": "175"
+          "documentId": "mc-es",
+          "unitIndex": 17,
+          "consecutivo": "17"
         },
         {
           "documentId": "gdc-es",
-          "unitIndex": 27,
-          "consecutivo": "28"
+          "unitIndex": 216,
+          "consecutivo": "217"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 24,
+          "consecutivo": "25"
+        }
+      ]
+    },
+    {
+      "clusterKey": "47",
+      "raw": "47",
+      "frequency": 3,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 17,
+          "consecutivo": "17"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 216,
+          "consecutivo": "217"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 24,
+          "consecutivo": "25"
         }
       ]
     },
@@ -1717,8 +2173,8 @@
       ]
     },
     {
-      "clusterKey": "63",
-      "raw": "63",
+      "clusterKey": "54",
+      "raw": "54",
       "frequency": 3,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -1728,18 +2184,18 @@
       "sources": [
         {
           "documentId": "mc-es",
-          "unitIndex": 21,
-          "consecutivo": "21"
+          "unitIndex": 19,
+          "consecutivo": "19"
         },
         {
           "documentId": "gdc-es",
-          "unitIndex": 31,
-          "consecutivo": "32"
+          "unitIndex": 218,
+          "consecutivo": "219"
         },
         {
-          "documentId": "gdc-es",
-          "unitIndex": 221,
-          "consecutivo": "222"
+          "documentId": "ee-es",
+          "unitIndex": 27,
+          "consecutivo": "28"
         }
       ]
     },
@@ -1771,8 +2227,8 @@
       ]
     },
     {
-      "clusterKey": "67",
-      "raw": "67",
+      "clusterKey": "66",
+      "raw": "66",
       "frequency": 3,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -1782,8 +2238,8 @@
       "sources": [
         {
           "documentId": "mc-es",
-          "unitIndex": 24,
-          "consecutivo": "24"
+          "unitIndex": 23,
+          "consecutivo": "23"
         },
         {
           "documentId": "gdc-es",
@@ -1791,15 +2247,15 @@
           "consecutivo": "34"
         },
         {
-          "documentId": "gdc-es",
-          "unitIndex": 222,
-          "consecutivo": "223"
+          "documentId": "ee-es",
+          "unitIndex": 32,
+          "consecutivo": "33"
         }
       ]
     },
     {
-      "clusterKey": "72",
-      "raw": "72",
+      "clusterKey": "68",
+      "raw": "68",
       "frequency": 3,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -1814,19 +2270,19 @@
         },
         {
           "documentId": "gdc-es",
-          "unitIndex": 35,
-          "consecutivo": "36"
+          "unitIndex": 33,
+          "consecutivo": "34"
         },
         {
-          "documentId": "gdc-es",
-          "unitIndex": 223,
-          "consecutivo": "224"
+          "documentId": "ee-es",
+          "unitIndex": 33,
+          "consecutivo": "34"
         }
       ]
     },
     {
-      "clusterKey": "9",
-      "raw": "9",
+      "clusterKey": "71",
+      "raw": "71",
       "frequency": 3,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -1836,24 +2292,24 @@
       "sources": [
         {
           "documentId": "mc-es",
-          "unitIndex": 0,
-          "consecutivo": "1"
-        },
-        {
-          "documentId": "md-es",
-          "unitIndex": 1,
-          "consecutivo": "2"
+          "unitIndex": 25,
+          "consecutivo": "25"
         },
         {
           "documentId": "gdc-es",
-          "unitIndex": 8,
-          "consecutivo": "9"
+          "unitIndex": 33,
+          "consecutivo": "34"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 34,
+          "consecutivo": "35"
         }
       ]
     },
     {
-      "clusterKey": "93",
-      "raw": "93",
+      "clusterKey": "84",
+      "raw": "84",
       "frequency": 3,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -1863,18 +2319,99 @@
       "sources": [
         {
           "documentId": "mc-es",
-          "unitIndex": 31,
-          "consecutivo": "31"
+          "unitIndex": 26,
+          "consecutivo": "26"
         },
         {
           "documentId": "gdc-es",
-          "unitIndex": 41,
-          "consecutivo": "42"
+          "unitIndex": 226,
+          "consecutivo": "227"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 39,
+          "consecutivo": "40"
+        }
+      ]
+    },
+    {
+      "clusterKey": "85",
+      "raw": "85",
+      "frequency": 3,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 28,
+          "consecutivo": "28"
         },
         {
           "documentId": "gdc-es",
-          "unitIndex": 228,
-          "consecutivo": "229"
+          "unitIndex": 226,
+          "consecutivo": "227"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 39,
+          "consecutivo": "40"
+        }
+      ]
+    },
+    {
+      "clusterKey": "86",
+      "raw": "86",
+      "frequency": 3,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 39,
+          "consecutivo": "40"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 226,
+          "consecutivo": "227"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 40,
+          "consecutivo": "41"
+        }
+      ]
+    },
+    {
+      "clusterKey": "97",
+      "raw": "97",
+      "frequency": 3,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 44,
+          "consecutivo": "45"
+        },
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 229,
+          "consecutivo": "230"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 45,
+          "consecutivo": "46"
         }
       ]
     },
@@ -1902,6 +2439,33 @@
           "documentId": "cic-es",
           "unitIndex": 3072,
           "consecutivo": "1699"
+        }
+      ]
+    },
+    {
+      "clusterKey": "acta apostolicae sedis 33 (1941",
+      "raw": "cf. Acta Apostolicae Sedis 33 (1941",
+      "frequency": 3,
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "AAS/periodical citation, not a corpus document",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 40,
+          "consecutivo": "41"
+        },
+        {
+          "documentId": "mm-es",
+          "unitIndex": 43,
+          "consecutivo": "44"
+        },
+        {
+          "documentId": "mm-es",
+          "unitIndex": 69,
+          "consecutivo": "74"
         }
       ]
     },
@@ -2067,6 +2631,28 @@
       ]
     },
     {
+      "clusterKey": "1, 18",
+      "raw": "1, 18",
+      "frequency": 2,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "internal chapter/article or bare coords",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "ev-es",
+          "unitIndex": 23,
+          "consecutivo": "24"
+        },
+        {
+          "documentId": "tma-es",
+          "unitIndex": 5,
+          "consecutivo": "6"
+        }
+      ]
+    },
+    {
       "clusterKey": "100",
       "raw": "100",
       "frequency": 2,
@@ -2107,6 +2693,50 @@
           "documentId": "gdc-es",
           "unitIndex": 45,
           "consecutivo": "46"
+        }
+      ]
+    },
+    {
+      "clusterKey": "102",
+      "raw": "102",
+      "frequency": 2,
+      "class": "year-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "pure year footnote",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 37,
+          "consecutivo": "37"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 52,
+          "consecutivo": "53"
+        }
+      ]
+    },
+    {
+      "clusterKey": "103",
+      "raw": "103",
+      "frequency": 2,
+      "class": "year-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "pure year footnote",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 37,
+          "consecutivo": "37"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 59,
+          "consecutivo": "60"
         }
       ]
     },
@@ -2397,6 +3027,28 @@
       ]
     },
     {
+      "clusterKey": "18",
+      "raw": "18",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 16,
+          "consecutivo": "17"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 12,
+          "consecutivo": "13"
+        }
+      ]
+    },
+    {
       "clusterKey": "182",
       "raw": "182",
       "frequency": 2,
@@ -2551,28 +3203,6 @@
       ]
     },
     {
-      "clusterKey": "1962",
-      "raw": "1962",
-      "frequency": 2,
-      "class": "year-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "pure year footnote",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "cic-es",
-          "unitIndex": 63,
-          "consecutivo": "no-encontrado"
-        },
-        {
-          "documentId": "pp-es",
-          "unitIndex": 3,
-          "consecutivo": "4"
-        }
-      ]
-    },
-    {
       "clusterKey": "1963",
       "raw": "1963",
       "frequency": 2,
@@ -2705,28 +3335,6 @@
       ]
     },
     {
-      "clusterKey": "20",
-      "raw": "20",
-      "frequency": 2,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 6,
-          "consecutivo": "7"
-        },
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 17,
-          "consecutivo": "18"
-        }
-      ]
-    },
-    {
       "clusterKey": "208",
       "raw": "208",
       "frequency": 2,
@@ -2745,28 +3353,6 @@
           "documentId": "gdc-es",
           "unitIndex": 266,
           "consecutivo": "267"
-        }
-      ]
-    },
-    {
-      "clusterKey": "21",
-      "raw": "21",
-      "frequency": 2,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 6,
-          "consecutivo": "7"
-        },
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 17,
-          "consecutivo": "18"
         }
       ]
     },
@@ -2811,6 +3397,28 @@
           "documentId": "gdc-es",
           "unitIndex": 276,
           "consecutivo": "277"
+        }
+      ]
+    },
+    {
+      "clusterKey": "23",
+      "raw": "23",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 10,
+          "consecutivo": "10"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 14,
+          "consecutivo": "15"
         }
       ]
     },
@@ -2903,28 +3511,6 @@
       ]
     },
     {
-      "clusterKey": "24",
-      "raw": "24",
-      "frequency": 2,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 10,
-          "consecutivo": "10"
-        },
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 18,
-          "consecutivo": "19"
-        }
-      ]
-    },
-    {
       "clusterKey": "244",
       "raw": "244",
       "frequency": 2,
@@ -3013,8 +3599,30 @@
       ]
     },
     {
-      "clusterKey": "30",
-      "raw": "30",
+      "clusterKey": "28",
+      "raw": "28",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "md-es",
+          "unitIndex": 8,
+          "consecutivo": "9"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 16,
+          "consecutivo": "17"
+        }
+      ]
+    },
+    {
+      "clusterKey": "29",
+      "raw": "29",
       "frequency": 2,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -3028,9 +3636,31 @@
           "consecutivo": "21"
         },
         {
-          "documentId": "gdc-es",
-          "unitIndex": 203,
-          "consecutivo": "204"
+          "documentId": "ee-es",
+          "unitIndex": 16,
+          "consecutivo": "17"
+        }
+      ]
+    },
+    {
+      "clusterKey": "3",
+      "raw": "3",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "md-es",
+          "unitIndex": 0,
+          "consecutivo": "1"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 5,
+          "consecutivo": "6"
         }
       ]
     },
@@ -3079,8 +3709,8 @@
       ]
     },
     {
-      "clusterKey": "31",
-      "raw": "31",
+      "clusterKey": "33",
+      "raw": "33",
       "frequency": 2,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -3094,9 +3724,53 @@
           "consecutivo": "12"
         },
         {
-          "documentId": "gdc-es",
-          "unitIndex": 205,
-          "consecutivo": "206"
+          "documentId": "ee-es",
+          "unitIndex": 19,
+          "consecutivo": "20"
+        }
+      ]
+    },
+    {
+      "clusterKey": "35",
+      "raw": "35",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 14,
+          "consecutivo": "14"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 20,
+          "consecutivo": "21"
+        }
+      ]
+    },
+    {
+      "clusterKey": "36",
+      "raw": "36",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 14,
+          "consecutivo": "14"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 20,
+          "consecutivo": "21"
         }
       ]
     },
@@ -3145,6 +3819,28 @@
       ]
     },
     {
+      "clusterKey": "4",
+      "raw": "4",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 192,
+          "consecutivo": "193"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 6,
+          "consecutivo": "7"
+        }
+      ]
+    },
+    {
       "clusterKey": "40",
       "raw": "40",
       "frequency": 2,
@@ -3167,8 +3863,8 @@
       ]
     },
     {
-      "clusterKey": "45",
-      "raw": "45",
+      "clusterKey": "44",
+      "raw": "44",
       "frequency": 2,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -3177,58 +3873,14 @@
       "parserKind": "noise",
       "sources": [
         {
-          "documentId": "mc-es",
-          "unitIndex": 17,
-          "consecutivo": "17"
-        },
-        {
           "documentId": "gdc-es",
           "unitIndex": 216,
           "consecutivo": "217"
-        }
-      ]
-    },
-    {
-      "clusterKey": "46",
-      "raw": "46",
-      "frequency": 2,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 17,
-          "consecutivo": "17"
         },
         {
-          "documentId": "gdc-es",
-          "unitIndex": 216,
-          "consecutivo": "217"
-        }
-      ]
-    },
-    {
-      "clusterKey": "47",
-      "raw": "47",
-      "frequency": 2,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 17,
-          "consecutivo": "17"
-        },
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 216,
-          "consecutivo": "217"
+          "documentId": "ee-es",
+          "unitIndex": 23,
+          "consecutivo": "24"
         }
       ]
     },
@@ -3277,8 +3929,30 @@
       ]
     },
     {
-      "clusterKey": "54",
-      "raw": "54",
+      "clusterKey": "5",
+      "raw": "5",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 193,
+          "consecutivo": "194"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 8,
+          "consecutivo": "9"
+        }
+      ]
+    },
+    {
+      "clusterKey": "53",
+      "raw": "53",
       "frequency": 2,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -3292,9 +3966,9 @@
           "consecutivo": "19"
         },
         {
-          "documentId": "gdc-es",
-          "unitIndex": 218,
-          "consecutivo": "219"
+          "documentId": "ee-es",
+          "unitIndex": 27,
+          "consecutivo": "28"
         }
       ]
     },
@@ -3343,6 +4017,50 @@
       ]
     },
     {
+      "clusterKey": "59",
+      "raw": "59",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "md-es",
+          "unitIndex": 29,
+          "consecutivo": "30"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 28,
+          "consecutivo": "29"
+        }
+      ]
+    },
+    {
+      "clusterKey": "6",
+      "raw": "6",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 193,
+          "consecutivo": "194"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 8,
+          "consecutivo": "9"
+        }
+      ]
+    },
+    {
       "clusterKey": "6 agosto 1993",
       "raw": "6 agosto 1993",
       "frequency": 2,
@@ -3365,6 +4083,28 @@
       ]
     },
     {
+      "clusterKey": "62",
+      "raw": "62",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 221,
+          "consecutivo": "222"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 29,
+          "consecutivo": "30"
+        }
+      ]
+    },
+    {
       "clusterKey": "65",
       "raw": "65",
       "frequency": 2,
@@ -3383,50 +4123,6 @@
           "documentId": "gdc-es",
           "unitIndex": 31,
           "consecutivo": "32"
-        }
-      ]
-    },
-    {
-      "clusterKey": "66",
-      "raw": "66",
-      "frequency": 2,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 23,
-          "consecutivo": "23"
-        },
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 33,
-          "consecutivo": "34"
-        }
-      ]
-    },
-    {
-      "clusterKey": "68",
-      "raw": "68",
-      "frequency": 2,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 25,
-          "consecutivo": "25"
-        },
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 33,
-          "consecutivo": "34"
         }
       ]
     },
@@ -3475,28 +4171,6 @@
       ]
     },
     {
-      "clusterKey": "71",
-      "raw": "71",
-      "frequency": 2,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 25,
-          "consecutivo": "25"
-        },
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 33,
-          "consecutivo": "34"
-        }
-      ]
-    },
-    {
       "clusterKey": "75",
       "raw": "75",
       "frequency": 2,
@@ -3519,6 +4193,28 @@
       ]
     },
     {
+      "clusterKey": "77",
+      "raw": "77",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 26,
+          "consecutivo": "26"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 37,
+          "consecutivo": "38"
+        }
+      ]
+    },
+    {
       "clusterKey": "78",
       "raw": "78",
       "frequency": 2,
@@ -3537,6 +4233,28 @@
           "documentId": "gdc-es",
           "unitIndex": 224,
           "consecutivo": "225"
+        }
+      ]
+    },
+    {
+      "clusterKey": "79",
+      "raw": "79",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 26,
+          "consecutivo": "26"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 38,
+          "consecutivo": "39"
         }
       ]
     },
@@ -3629,52 +4347,8 @@
       ]
     },
     {
-      "clusterKey": "84",
-      "raw": "84",
-      "frequency": 2,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 26,
-          "consecutivo": "26"
-        },
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 226,
-          "consecutivo": "227"
-        }
-      ]
-    },
-    {
-      "clusterKey": "85",
-      "raw": "85",
-      "frequency": 2,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 28,
-          "consecutivo": "28"
-        },
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 226,
-          "consecutivo": "227"
-        }
-      ]
-    },
-    {
-      "clusterKey": "86",
-      "raw": "86",
+      "clusterKey": "89",
+      "raw": "89",
       "frequency": 2,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -3684,13 +4358,13 @@
       "sources": [
         {
           "documentId": "gdc-es",
-          "unitIndex": 39,
-          "consecutivo": "40"
+          "unitIndex": 227,
+          "consecutivo": "228"
         },
         {
-          "documentId": "gdc-es",
-          "unitIndex": 226,
-          "consecutivo": "227"
+          "documentId": "ee-es",
+          "unitIndex": 42,
+          "consecutivo": "43"
         }
       ]
     },
@@ -3713,6 +4387,28 @@
           "documentId": "gdc-es",
           "unitIndex": 40,
           "consecutivo": "41"
+        }
+      ]
+    },
+    {
+      "clusterKey": "92",
+      "raw": "92",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mc-es",
+          "unitIndex": 30,
+          "consecutivo": "30"
+        },
+        {
+          "documentId": "ee-es",
+          "unitIndex": 43,
+          "consecutivo": "44"
         }
       ]
     },
@@ -3752,28 +4448,6 @@
           "documentId": "gdc-es",
           "unitIndex": 43,
           "consecutivo": "44"
-        },
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 229,
-          "consecutivo": "230"
-        }
-      ]
-    },
-    {
-      "clusterKey": "97",
-      "raw": "97",
-      "frequency": 2,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 44,
-          "consecutivo": "45"
         },
         {
           "documentId": "gdc-es",
@@ -3942,14 +4616,14 @@
       "clusterKey": "leon xiii, carta enc. libertas praestantissimum",
       "raw": "cf León XIII, Carta enc.  Libertas praestantissimum",
       "frequency": 2,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "magisterial-free-title",
+      "status": "known-code-missing-locator",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "cf León XIII, Carta enc.  Libertas praestantissimum"
+        "code": "Lib",
+        "corpusDocId": "libertas-es",
+        "title": "Libertas praestantissimum"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "matched doc-codes title/alias in free text",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -4035,6 +4709,28 @@
           "documentId": "pg-es",
           "unitIndex": 8,
           "consecutivo": "9"
+        }
+      ]
+    },
+    {
+      "clusterKey": "acta apostolicae sedis 23 (1931",
+      "raw": "cf. Acta Apostolicae Sedis 23 (1931",
+      "frequency": 2,
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "AAS/periodical citation, not a corpus document",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 31,
+          "consecutivo": "32"
+        },
+        {
+          "documentId": "mm-es",
+          "unitIndex": 48,
+          "consecutivo": "53"
         }
       ]
     },
@@ -4477,6 +5173,28 @@
       ]
     },
     {
+      "clusterKey": "fides quae",
+      "raw": "fides quae",
+      "frequency": 2,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "short non-numeric fragment",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "gdc-es",
+          "unitIndex": 92,
+          "consecutivo": "93"
+        },
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 34,
+          "consecutivo": "36"
+        }
+      ]
+    },
+    {
       "clusterKey": "filioque",
       "raw": "Filioque",
       "frequency": 2,
@@ -4517,6 +5235,28 @@
           "documentId": "cic-es",
           "unitIndex": 2701,
           "consecutivo": "1475"
+        }
+      ]
+    },
+    {
+      "clusterKey": "ibid., p. 203",
+      "raw": "Ibíd., p. 203",
+      "frequency": 2,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 44,
+          "consecutivo": "45"
+        },
+        {
+          "documentId": "mm-es",
+          "unitIndex": 48,
+          "consecutivo": "53"
         }
       ]
     },
@@ -4620,14 +5360,10 @@
       "clusterKey": "officium catecheticum",
       "raw": "Officium Catecheticum",
       "frequency": 2,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
-      "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "Officium Catecheticum"
-      },
-      "notes": "title-like string without catalog match",
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "institutional office name, not a document",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -4949,6 +5685,23 @@
           "documentId": "cic-es",
           "unitIndex": 2895,
           "consecutivo": "1598"
+        }
+      ]
+    },
+    {
+      "clusterKey": "-cfr. parte iv",
+      "raw": "-Cfr. parte IV",
+      "frequency": 1,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "short non-numeric fragment",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 99,
+          "consecutivo": "105"
         }
       ]
     },
@@ -6228,6 +6981,23 @@
       ]
     },
     {
+      "clusterKey": "« dio »",
+      "raw": "« dio »",
+      "frequency": 1,
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "quoted prose / slogan fragment",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "sa-es",
+          "unitIndex": 13,
+          "consecutivo": "14"
+        }
+      ]
+    },
+    {
       "clusterKey": "« el pecado condenado »",
       "raw": "« el pecado condenado »",
       "frequency": 1,
@@ -6568,6 +7338,23 @@
       ]
     },
     {
+      "clusterKey": "(ibid., p. 196",
+      "raw": "(Ibíd., p. 196",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 41,
+          "consecutivo": "42"
+        }
+      ]
+    },
+    {
       "clusterKey": "(lc 24, 27. 44-45",
       "raw": "(Lc 24, 27. 44-45",
       "frequency": 1,
@@ -6821,6 +7608,23 @@
       ]
     },
     {
+      "clusterKey": "1 petr. 1, 3-4",
+      "raw": "1 Petr. 1, 3-4",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 46,
+          "consecutivo": "48"
+        }
+      ]
+    },
+    {
       "clusterKey": "1 tes., 5,17",
       "raw": "1 Tes., 5,17",
       "frequency": 1,
@@ -6880,6 +7684,23 @@
       ]
     },
     {
+      "clusterKey": "1, 14",
+      "raw": "1, 14",
+      "frequency": 1,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "internal chapter/article or bare coords",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "tma-es",
+          "unitIndex": 2,
+          "consecutivo": "3"
+        }
+      ]
+    },
+    {
       "clusterKey": "1, 15-16",
       "raw": "1, 15-16",
       "frequency": 1,
@@ -6893,23 +7714,6 @@
           "documentId": "srs-es",
           "unitIndex": 30,
           "consecutivo": "31"
-        }
-      ]
-    },
-    {
-      "clusterKey": "1, 18",
-      "raw": "1, 18",
-      "frequency": 1,
-      "class": "structural-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "internal chapter/article or bare coords",
-      "parserKind": "unresolved",
-      "sources": [
-        {
-          "documentId": "ev-es",
-          "unitIndex": 23,
-          "consecutivo": "24"
         }
       ]
     },
@@ -6965,6 +7769,23 @@
       ]
     },
     {
+      "clusterKey": "1, 7-10",
+      "raw": "1, 7-10",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "tma-es",
+          "unitIndex": 3,
+          "consecutivo": "4"
+        }
+      ]
+    },
+    {
       "clusterKey": "1,15-16",
       "raw": "1,15-16",
       "frequency": 1,
@@ -6982,6 +7803,27 @@
       ]
     },
     {
+      "clusterKey": "1. cor. 7,38; concilium tridentinum, canones de sacramento matrimonii, dz. - sch., 1810",
+      "raw": "1. Cor. 7,38; Concilium Tridentinum, Canones de sacramento matrimonii, Dz. - Sch., 1810",
+      "frequency": 1,
+      "class": "conciliar",
+      "status": "in-corpus",
+      "proposedTarget": {
+        "code": "Trent",
+        "corpusDocId": "trento-la",
+        "title": "Concilium Tridentinum"
+      },
+      "notes": "council matched via doc-codes",
+      "parserKind": "unresolved+unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 57,
+          "consecutivo": "59"
+        }
+      ]
+    },
+    {
       "clusterKey": "10 abril 1986",
       "raw": "10 abril 1986",
       "frequency": 1,
@@ -6995,40 +7837,6 @@
           "documentId": "vs-es",
           "unitIndex": 135,
           "consecutivo": "136"
-        }
-      ]
-    },
-    {
-      "clusterKey": "102",
-      "raw": "102",
-      "frequency": 1,
-      "class": "year-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "pure year footnote",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 37,
-          "consecutivo": "37"
-        }
-      ]
-    },
-    {
-      "clusterKey": "103",
-      "raw": "103",
-      "frequency": 1,
-      "class": "year-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "pure year footnote",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 37,
-          "consecutivo": "37"
         }
       ]
     },
@@ -7547,6 +8355,23 @@
       ]
     },
     {
+      "clusterKey": "1492",
+      "raw": "1492",
+      "frequency": 1,
+      "class": "year-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "pure year footnote",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "tma-es",
+          "unitIndex": 24,
+          "consecutivo": "25"
+        }
+      ]
+    },
+    {
       "clusterKey": "15 agosto 1988",
       "raw": "15 agosto 1988",
       "frequency": 1,
@@ -7611,6 +8436,23 @@
           "documentId": "mc-es",
           "unitIndex": 6,
           "consecutivo": "7"
+        }
+      ]
+    },
+    {
+      "clusterKey": "15, 1-6",
+      "raw": "15, 1-6",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "tma-es",
+          "unitIndex": 11,
+          "consecutivo": "12"
         }
       ]
     },
@@ -7904,23 +8746,6 @@
           "documentId": "gdc-es",
           "unitIndex": 58,
           "consecutivo": "59"
-        }
-      ]
-    },
-    {
-      "clusterKey": "18",
-      "raw": "18",
-      "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 16,
-          "consecutivo": "17"
         }
       ]
     },
@@ -8591,6 +9416,23 @@
       ]
     },
     {
+      "clusterKey": "2, 1. 3-7",
+      "raw": "2, 1. 3-7",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "tma-es",
+          "unitIndex": 1,
+          "consecutivo": "2"
+        }
+      ]
+    },
+    {
       "clusterKey": "2, 13",
       "raw": "2, 13",
       "frequency": 1,
@@ -8625,6 +9467,23 @@
       ]
     },
     {
+      "clusterKey": "2, 42",
+      "raw": "2, 42",
+      "frequency": 1,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "internal chapter/article or bare coords",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "ee-es",
+          "unitIndex": 2,
+          "consecutivo": "3"
+        }
+      ]
+    },
+    {
       "clusterKey": "2,6-11",
       "raw": "2,6-11",
       "frequency": 1,
@@ -8655,6 +9514,23 @@
           "documentId": "rh-es",
           "unitIndex": 109,
           "consecutivo": "179"
+        }
+      ]
+    },
+    {
+      "clusterKey": "20 de noviembre de 1947",
+      "raw": "20 de noviembre de 1947",
+      "frequency": 1,
+      "class": "date-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "publication date, not a document id",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "ee-es",
+          "unitIndex": 8,
+          "consecutivo": "9"
         }
       ]
     },
@@ -8969,19 +9845,19 @@
       ]
     },
     {
-      "clusterKey": "23",
-      "raw": "23",
+      "clusterKey": "23, 10-11",
+      "raw": "23, 10-11",
       "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
+      "class": "unknown",
+      "status": "not-in-corpus",
       "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
       "sources": [
         {
-          "documentId": "mc-es",
-          "unitIndex": 10,
-          "consecutivo": "10"
+          "documentId": "tma-es",
+          "unitIndex": 11,
+          "consecutivo": "12"
         }
       ]
     },
@@ -9190,6 +10066,57 @@
       ]
     },
     {
+      "clusterKey": "25, 1-28",
+      "raw": "25, 1-28",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "tma-es",
+          "unitIndex": 11,
+          "consecutivo": "12"
+        }
+      ]
+    },
+    {
+      "clusterKey": "25, 10",
+      "raw": "25, 10",
+      "frequency": 1,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "internal chapter/article or bare coords",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "tma-es",
+          "unitIndex": 11,
+          "consecutivo": "12"
+        }
+      ]
+    },
+    {
+      "clusterKey": "25, 8-28",
+      "raw": "25, 8-28",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "tma-es",
+          "unitIndex": 50,
+          "consecutivo": "51"
+        }
+      ]
+    },
+    {
       "clusterKey": "251",
       "raw": "251",
       "frequency": 1,
@@ -9275,17 +10202,17 @@
       ]
     },
     {
-      "clusterKey": "28",
-      "raw": "28",
+      "clusterKey": "28 de mayo de 1902",
+      "raw": "28 de mayo de 1902",
       "frequency": 1,
-      "class": "fragment-noise",
+      "class": "date-noise",
       "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
+      "notes": "publication date, not a document id",
+      "parserKind": "unresolved",
       "sources": [
         {
-          "documentId": "md-es",
+          "documentId": "ee-es",
           "unitIndex": 8,
           "consecutivo": "9"
         }
@@ -9326,23 +10253,6 @@
       ]
     },
     {
-      "clusterKey": "29",
-      "raw": "29",
-      "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 20,
-          "consecutivo": "21"
-        }
-      ]
-    },
-    {
       "clusterKey": "29 setiembre 1938",
       "raw": "29 setiembre 1938",
       "frequency": 1,
@@ -9360,19 +10270,19 @@
       ]
     },
     {
-      "clusterKey": "3",
-      "raw": "3",
+      "clusterKey": "3 de septiembre de 1965",
+      "raw": "3 de septiembre de 1965",
       "frequency": 1,
-      "class": "fragment-noise",
+      "class": "date-noise",
       "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
+      "notes": "publication date, not a document id",
+      "parserKind": "unresolved",
       "sources": [
         {
-          "documentId": "md-es",
-          "unitIndex": 0,
-          "consecutivo": "1"
+          "documentId": "ee-es",
+          "unitIndex": 8,
+          "consecutivo": "9"
         }
       ]
     },
@@ -9581,23 +10491,6 @@
       ]
     },
     {
-      "clusterKey": "33",
-      "raw": "33",
-      "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 12,
-          "consecutivo": "12"
-        }
-      ]
-    },
-    {
       "clusterKey": "330",
       "raw": "330",
       "frequency": 1,
@@ -9628,23 +10521,6 @@
           "documentId": "gdc-es",
           "unitIndex": 102,
           "consecutivo": "103"
-        }
-      ]
-    },
-    {
-      "clusterKey": "35",
-      "raw": "35",
-      "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 14,
-          "consecutivo": "14"
         }
       ]
     },
@@ -9696,23 +10572,6 @@
           "documentId": "gdc-es",
           "unitIndex": 106,
           "consecutivo": "107"
-        }
-      ]
-    },
-    {
-      "clusterKey": "36",
-      "raw": "36",
-      "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 14,
-          "consecutivo": "14"
         }
       ]
     },
@@ -9870,23 +10729,6 @@
       ]
     },
     {
-      "clusterKey": "4",
-      "raw": "4",
-      "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 192,
-          "consecutivo": "193"
-        }
-      ]
-    },
-    {
       "clusterKey": "4 octubre 1965",
       "raw": "4 octubre 1965",
       "frequency": 1,
@@ -10036,23 +10878,6 @@
           "documentId": "gdc-es",
           "unitIndex": 126,
           "consecutivo": "127"
-        }
-      ]
-    },
-    {
-      "clusterKey": "44",
-      "raw": "44",
-      "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 216,
-          "consecutivo": "217"
         }
       ]
     },
@@ -10503,6 +11328,23 @@
       ]
     },
     {
+      "clusterKey": "496",
+      "raw": "496",
+      "frequency": 1,
+      "class": "year-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "pure year footnote",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "tma-es",
+          "unitIndex": 24,
+          "consecutivo": "25"
+        }
+      ]
+    },
+    {
       "clusterKey": "499",
       "raw": "499",
       "frequency": 1,
@@ -10516,23 +11358,6 @@
           "documentId": "gdc-es",
           "unitIndex": 143,
           "consecutivo": "144"
-        }
-      ]
-    },
-    {
-      "clusterKey": "5",
-      "raw": "5",
-      "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "gdc-es",
-          "unitIndex": 193,
-          "consecutivo": "194"
         }
       ]
     },
@@ -10754,23 +11579,6 @@
           "documentId": "gdc-es",
           "unitIndex": 154,
           "consecutivo": "155"
-        }
-      ]
-    },
-    {
-      "clusterKey": "53",
-      "raw": "53",
-      "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 19,
-          "consecutivo": "19"
         }
       ]
     },
@@ -11166,6 +11974,23 @@
       ]
     },
     {
+      "clusterKey": "58",
+      "raw": "58",
+      "frequency": 1,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "ee-es",
+          "unitIndex": 28,
+          "consecutivo": "29"
+        }
+      ]
+    },
+    {
       "clusterKey": "587",
       "raw": "587",
       "frequency": 1,
@@ -11200,25 +12025,25 @@
       ]
     },
     {
-      "clusterKey": "59",
-      "raw": "59",
+      "clusterKey": "597",
+      "raw": "597",
       "frequency": 1,
-      "class": "fragment-noise",
+      "class": "year-noise",
       "status": "noise/non-document",
       "proposedTarget": null,
-      "notes": "bare number or roman numeral",
+      "notes": "pure year footnote",
       "parserKind": "noise",
       "sources": [
         {
-          "documentId": "md-es",
-          "unitIndex": 29,
-          "consecutivo": "30"
+          "documentId": "tma-es",
+          "unitIndex": 24,
+          "consecutivo": "25"
         }
       ]
     },
     {
-      "clusterKey": "6",
-      "raw": "6",
+      "clusterKey": "60",
+      "raw": "60",
       "frequency": 1,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -11227,9 +12052,9 @@
       "parserKind": "noise",
       "sources": [
         {
-          "documentId": "gdc-es",
-          "unitIndex": 193,
-          "consecutivo": "194"
+          "documentId": "ee-es",
+          "unitIndex": 28,
+          "consecutivo": "29"
         }
       ]
     },
@@ -11251,8 +12076,25 @@
       ]
     },
     {
-      "clusterKey": "62",
-      "raw": "62",
+      "clusterKey": "61, 1-2",
+      "raw": "61, 1-2",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "tma-es",
+          "unitIndex": 10,
+          "consecutivo": "11"
+        }
+      ]
+    },
+    {
+      "clusterKey": "7",
+      "raw": "7",
       "frequency": 1,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -11261,9 +12103,9 @@
       "parserKind": "noise",
       "sources": [
         {
-          "documentId": "gdc-es",
-          "unitIndex": 221,
-          "consecutivo": "222"
+          "documentId": "ee-es",
+          "unitIndex": 8,
+          "consecutivo": "9"
         }
       ]
     },
@@ -11404,40 +12246,6 @@
       ]
     },
     {
-      "clusterKey": "77",
-      "raw": "77",
-      "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 26,
-          "consecutivo": "26"
-        }
-      ]
-    },
-    {
-      "clusterKey": "79",
-      "raw": "79",
-      "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 26,
-          "consecutivo": "26"
-        }
-      ]
-    },
-    {
       "clusterKey": "8",
       "raw": "8",
       "frequency": 1,
@@ -11557,8 +12365,8 @@
       ]
     },
     {
-      "clusterKey": "89",
-      "raw": "89",
+      "clusterKey": "87",
+      "raw": "87",
       "frequency": 1,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -11567,9 +12375,26 @@
       "parserKind": "noise",
       "sources": [
         {
-          "documentId": "gdc-es",
-          "unitIndex": 227,
-          "consecutivo": "228"
+          "documentId": "ee-es",
+          "unitIndex": 40,
+          "consecutivo": "41"
+        }
+      ]
+    },
+    {
+      "clusterKey": "88",
+      "raw": "88",
+      "frequency": 1,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "bare number or roman numeral",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "ee-es",
+          "unitIndex": 40,
+          "consecutivo": "41"
         }
       ]
     },
@@ -11608,6 +12433,23 @@
       ]
     },
     {
+      "clusterKey": "9, 31",
+      "raw": "9, 31",
+      "frequency": 1,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "internal chapter/article or bare coords",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "vc-es",
+          "unitIndex": 22,
+          "consecutivo": "23"
+        }
+      ]
+    },
+    {
       "clusterKey": "90",
       "raw": "90",
       "frequency": 1,
@@ -11621,23 +12463,6 @@
           "documentId": "gdc-es",
           "unitIndex": 40,
           "consecutivo": "41"
-        }
-      ]
-    },
-    {
-      "clusterKey": "92",
-      "raw": "92",
-      "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "bare number or roman numeral",
-      "parserKind": "noise",
-      "sources": [
-        {
-          "documentId": "mc-es",
-          "unitIndex": 30,
-          "consecutivo": "30"
         }
       ]
     },
@@ -11689,6 +12514,23 @@
           "documentId": "cic-es",
           "unitIndex": 2826,
           "consecutivo": "no-encontrado"
+        }
+      ]
+    },
+    {
+      "clusterKey": "a todos los hombres",
+      "raw": "a todos los hombres",
+      "frequency": 1,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "short non-numeric fragment",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 9,
+          "consecutivo": "10"
         }
       ]
     },
@@ -11917,6 +12759,23 @@
           "documentId": "sc-es",
           "unitIndex": 84,
           "consecutivo": "86"
+        }
+      ]
+    },
+    {
+      "clusterKey": "acta leonis xiii, xi, 1891, pp. 97-144",
+      "raw": "Acta Leonis XIII, XI, 1891, pp. 97-144",
+      "frequency": 1,
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "AAS/periodical citation, not a corpus document",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 6,
+          "consecutivo": "7"
         }
       ]
     },
@@ -12205,6 +13064,23 @@
           "documentId": "cic-es",
           "unitIndex": 4308,
           "consecutivo": "2408"
+        }
+      ]
+    },
+    {
+      "clusterKey": "alocucion del 3 de mayo de 1960; cf. acta apostolicae sedis 52 (1960",
+      "raw": "Alocución del 3 de mayo de 1960; cf. Acta Apostolicae Sedis 52 (1960",
+      "frequency": 1,
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "AAS/periodical citation, not a corpus document",
+      "parserKind": "unresolved+unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 147,
+          "consecutivo": "158"
         }
       ]
     },
@@ -12663,6 +13539,23 @@
           "documentId": "cic-es",
           "unitIndex": 669,
           "consecutivo": "335"
+        }
+      ]
+    },
+    {
+      "clusterKey": "aunque tambien por esos, si son buenos fieles",
+      "raw": "aunque también por ésos, si son buenos fieles",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "pastoralis-actio-es",
+          "unitIndex": 13,
+          "consecutivo": "14"
         }
       ]
     },
@@ -14853,10 +15746,10 @@
       "raw": "cf Congregación para la Doctrina de la Fe, Decl.  Mysterium ecclesiae, 3",
       "frequency": 1,
       "class": "curial",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
+        "code": "ME",
+        "corpusDocId": "mysterium-ecclesiae-es",
         "title": "CDF, Decl. Mysterium Ecclesiae"
       },
       "notes": "curial instruction/declaration",
@@ -15155,14 +16048,14 @@
       "clusterKey": "juan pablo ii, cart. enc. dm 14",
       "raw": "cf Juan Pablo II, Cart. enc. DM 14",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "magisterial-code",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "cf Juan Pablo II, Cart. enc. DM 14"
+        "code": "DM",
+        "corpusDocId": "dm-es",
+        "title": "Dives in Misericordia"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "extra code DM locator 14",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -15193,14 +16086,14 @@
       "clusterKey": "leon xiii, carta enc. diuturnum illud; carta enc. inmortale dei",
       "raw": "cf León XIII, Carta enc.   Diuturnum illud; Carta enc.  Inmortale Dei",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "magisterial-free-title",
+      "status": "known-code-missing-locator",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "cf León XIII, Carta enc.   Diuturnum illud; Carta enc.  Inmortale Dei"
+        "code": "Diut",
+        "corpusDocId": "diuturnum-es",
+        "title": "Diuturnum illud"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "matched doc-codes title/alias in free text",
       "parserKind": "unresolved+unresolved",
       "sources": [
         {
@@ -15214,14 +16107,14 @@
       "clusterKey": "leon xiii, carta enc. immortale dei; pio xi, carta enc. quas primas",
       "raw": "cf León XIII, Carta enc.  Immortale Dei; Pío XI, Carta enc.  Quas primas",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "magisterial-free-title",
+      "status": "known-code-missing-locator",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "cf León XIII, Carta enc.  Immortale Dei; Pío XI, Carta enc.  Quas primas"
+        "code": "IDei",
+        "corpusDocId": "immortale-dei-es",
+        "title": "Immortale Dei"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "matched doc-codes title/alias in free text",
       "parserKind": "unresolved+noise",
       "sources": [
         {
@@ -15774,14 +16667,14 @@
       "clusterKey": "vita consecrata, 7",
       "raw": "Cf.   Vita consecrata, 7",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "magisterial-free-title",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "Cf.   Vita consecrata, 7"
+        "code": "VC",
+        "corpusDocId": "vc-es",
+        "title": "Vita consecrata"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "matched doc-codes title/alias in free text",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -15952,6 +16845,23 @@
       ]
     },
     {
+      "clusterKey": "1, 1-5",
+      "raw": "cf. 1, 1-5",
+      "frequency": 1,
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "tma-es",
+          "unitIndex": 2,
+          "consecutivo": "3"
+        }
+      ]
+    },
+    {
       "clusterKey": "2 cor., 5,19",
       "raw": "Cf. 2 Cor., 5,19",
       "frequency": 1,
@@ -16003,6 +16913,23 @@
           "documentId": "md-es",
           "unitIndex": 2,
           "consecutivo": "3"
+        }
+      ]
+    },
+    {
+      "clusterKey": "8, 19-22",
+      "raw": "cf. 8, 19-22",
+      "frequency": 1,
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "tma-es",
+          "unitIndex": 22,
+          "consecutivo": "23"
         }
       ]
     },
@@ -16851,13 +17778,13 @@
       "raw": "cf. Congregación para la Doctrina de la Fe, Instr. Pastoralis actio 4: AAS 72 [1980] 1139",
       "frequency": 1,
       "class": "curial",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "cf. Congregación para la Doctrina de la Fe, Instr. Pastoralis actio 4: AAS 72 [1980] 1139"
+        "code": "PastA",
+        "corpusDocId": "pastoralis-actio-es",
+        "title": "CDF, Instr. Pastoralis actio"
       },
-      "notes": "curial / Roman dicastery text",
+      "notes": "curial instruction/declaration",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -17500,6 +18427,27 @@
       ]
     },
     {
+      "clusterKey": "lc l, 38. 45",
+      "raw": "cf. Lc l, 38. 45",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "needs-vatican.va-download",
+      "proposedTarget": {
+        "code": null,
+        "corpusDocId": null,
+        "title": "cf. Lc l, 38. 45"
+      },
+      "notes": "title-like string without catalog match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "donum-veritatis-es",
+          "unitIndex": 41,
+          "consecutivo": "42"
+        }
+      ]
+    },
+    {
       "clusterKey": "lc., 1,2-4",
       "raw": "cf. Lc., 1,2-4",
       "frequency": 1,
@@ -17903,13 +18851,13 @@
       "raw": "cf. Sagrada Congregación para la Doctrina de la Fe, Decl.   Iura et bona",
       "frequency": 1,
       "class": "curial",
-      "status": "needs-vatican.va-download",
+      "status": "known-code-missing-locator",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "cf. Sagrada Congregación para la Doctrina de la Fe, Decl.   Iura et bona"
+        "code": "Iura",
+        "corpusDocId": "iura-et-bona-es",
+        "title": "CDF, Decl. Iura et bona"
       },
-      "notes": "curial / Roman dicastery text",
+      "notes": "curial instruction/declaration",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -17950,6 +18898,23 @@
           "documentId": "ev-es",
           "unitIndex": 119,
           "consecutivo": "120"
+        }
+      ]
+    },
+    {
+      "clusterKey": "sal 133132",
+      "raw": "cf. Sal 133132",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "vc-es",
+          "unitIndex": 100,
+          "consecutivo": "101"
         }
       ]
     },
@@ -18243,14 +19208,14 @@
       "clusterKey": "virgilio, professio fidei (552",
       "raw": "cf. Virgilio, Professio fidei (552",
       "frequency": 1,
-      "class": "unknown",
-      "status": "needs-vatican.va-download",
+      "class": "magisterial-free-title",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "cf. Virgilio, Professio fidei (552"
+        "code": "IDei",
+        "corpusDocId": "immortale-dei-es",
+        "title": "Immortale Dei"
       },
-      "notes": "title-like string without catalog match",
+      "notes": "matched doc-codes title/alias in free text",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -18320,6 +19285,125 @@
           "documentId": "cic-es",
           "unitIndex": 471,
           "consecutivo": "216"
+        }
+      ]
+    },
+    {
+      "clusterKey": "cfr. aa. 12",
+      "raw": "Cfr. AA. 12",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 78,
+          "consecutivo": "82"
+        }
+      ]
+    },
+    {
+      "clusterKey": "cfr. ass, 1935, p. 151 sig.",
+      "raw": "Cfr. ASS, 1935, p. 151 Sig.",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 119,
+          "consecutivo": "126"
+        }
+      ]
+    },
+    {
+      "clusterKey": "cfr. cap. iv de esta parte",
+      "raw": "Cfr. Cap. IV de esta parte",
+      "frequency": 1,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "short non-numeric fragment",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 99,
+          "consecutivo": "105"
+        }
+      ]
+    },
+    {
+      "clusterKey": "cfr. dv. 11",
+      "raw": "Cfr. DV. 11",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 13,
+          "consecutivo": "14"
+        }
+      ]
+    },
+    {
+      "clusterKey": "cfr. lg, 22",
+      "raw": "Cfr. LG, 22",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 126,
+          "consecutivo": "133"
+        }
+      ]
+    },
+    {
+      "clusterKey": "cfr. lg. 39",
+      "raw": "Cfr. LG. 39",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 40,
+          "consecutivo": "42"
+        }
+      ]
+    },
+    {
+      "clusterKey": "cfr. n. 134",
+      "raw": "Cfr. n. 134",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 112,
+          "consecutivo": "118"
         }
       ]
     },
@@ -19413,6 +20497,23 @@
       ]
     },
     {
+      "clusterKey": "como hacian los tres amigos de job",
+      "raw": "como hacían los tres amigos de Job",
+      "frequency": 1,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "short non-numeric fragment",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "sa-es",
+          "unitIndex": 14,
+          "consecutivo": "15"
+        }
+      ]
+    },
+    {
       "clusterKey": "como la limosna",
       "raw": "como la limosna",
       "frequency": 1,
@@ -19579,6 +20680,48 @@
           "documentId": "cic-es",
           "unitIndex": 4909,
           "consecutivo": "2759"
+        }
+      ]
+    },
+    {
+      "clusterKey": "con. vat. 1. const. dei filius, dz. sch., 3016",
+      "raw": "Con. Vat. 1. Const. Dei Filius, Dz. Sch., 3016",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "needs-vatican.va-download",
+      "proposedTarget": {
+        "code": null,
+        "corpusDocId": null,
+        "title": "Con. Vat. 1. Const. Dei Filius, Dz. Sch., 3016"
+      },
+      "notes": "title-like string without catalog match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 40,
+          "consecutivo": "42"
+        }
+      ]
+    },
+    {
+      "clusterKey": "conc. tridentinum, decretum de sacramentis, dz. - sch., 1601",
+      "raw": "Conc. Tridentinum, Decretum de sacramentis, Dz. - Sch., 1601",
+      "frequency": 1,
+      "class": "magisterial-free-title",
+      "status": "in-corpus",
+      "proposedTarget": {
+        "code": "Trent",
+        "corpusDocId": "trento-la",
+        "title": "Concilium Tridentinum"
+      },
+      "notes": "matched doc-codes title/alias in free text",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 53,
+          "consecutivo": "55"
         }
       ]
     },
@@ -20915,13 +22058,13 @@
       "raw": "Congregación para la Doctrina de la Fe, Instr.  Libertatis conscientia, 68",
       "frequency": 1,
       "class": "curial",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "Congregación para la Doctrina de la Fe, Instr.  Libertatis conscientia, 68"
+        "code": "LCon",
+        "corpusDocId": "libertatis-conscientia-es",
+        "title": "CDF, Instr. Libertatis conscientia"
       },
-      "notes": "curial / Roman dicastery text",
+      "notes": "curial instruction/declaration",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -20936,13 +22079,13 @@
       "raw": "Congregación para la Doctrina de la Fe, Instr. Libertatis conscientia, 13",
       "frequency": 1,
       "class": "curial",
-      "status": "needs-vatican.va-download",
+      "status": "in-corpus",
       "proposedTarget": {
-        "code": null,
-        "corpusDocId": null,
-        "title": "Congregación para la Doctrina de la Fe, Instr. Libertatis conscientia, 13"
+        "code": "LCon",
+        "corpusDocId": "libertatis-conscientia-es",
+        "title": "CDF, Instr. Libertatis conscientia"
       },
-      "notes": "curial / Roman dicastery text",
+      "notes": "curial instruction/declaration",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -21279,90 +22422,6 @@
           "documentId": "cic-es",
           "unitIndex": 1339,
           "consecutivo": "701"
-        }
-      ]
-    },
-    {
-      "clusterKey": "dcg 43",
-      "raw": "DCG 43",
-      "frequency": 1,
-      "class": "magisterial-code",
-      "status": "needs-vatican.va-download",
-      "proposedTarget": {
-        "code": "DCG",
-        "corpusDocId": null,
-        "title": "Directorio Catequético General (1971)"
-      },
-      "notes": "extra code DCG locator 43",
-      "parserKind": "unresolved",
-      "sources": [
-        {
-          "documentId": "cic-es",
-          "unitIndex": 503,
-          "consecutivo": "234"
-        }
-      ]
-    },
-    {
-      "clusterKey": "dcg 47",
-      "raw": "DCG 47",
-      "frequency": 1,
-      "class": "magisterial-code",
-      "status": "needs-vatican.va-download",
-      "proposedTarget": {
-        "code": "DCG",
-        "corpusDocId": null,
-        "title": "Directorio Catequético General (1971)"
-      },
-      "notes": "extra code DCG locator 47",
-      "parserKind": "unresolved",
-      "sources": [
-        {
-          "documentId": "cic-es",
-          "unitIndex": 503,
-          "consecutivo": "234"
-        }
-      ]
-    },
-    {
-      "clusterKey": "dcg 51",
-      "raw": "DCG 51",
-      "frequency": 1,
-      "class": "magisterial-code",
-      "status": "needs-vatican.va-download",
-      "proposedTarget": {
-        "code": "DCG",
-        "corpusDocId": null,
-        "title": "Directorio Catequético General (1971)"
-      },
-      "notes": "extra code DCG locator 51",
-      "parserKind": "unresolved",
-      "sources": [
-        {
-          "documentId": "cic-es",
-          "unitIndex": 579,
-          "consecutivo": "280"
-        }
-      ]
-    },
-    {
-      "clusterKey": "dcg 69",
-      "raw": "DCG 69",
-      "frequency": 1,
-      "class": "magisterial-code",
-      "status": "needs-vatican.va-download",
-      "proposedTarget": {
-        "code": "DCG",
-        "corpusDocId": null,
-        "title": "Directorio Catequético General (1971)"
-      },
-      "notes": "extra code DCG locator 69",
-      "parserKind": "unresolved",
-      "sources": [
-        {
-          "documentId": "cic-es",
-          "unitIndex": 1983,
-          "consecutivo": "1056"
         }
       ]
     },
@@ -21721,10 +22780,14 @@
       "clusterKey": "depositum fidei",
       "raw": "depositum fidei",
       "frequency": 1,
-      "class": "fragment-noise",
-      "status": "noise/non-document",
-      "proposedTarget": null,
-      "notes": "short non-numeric fragment",
+      "class": "magisterial-free-title",
+      "status": "known-code-missing-locator",
+      "proposedTarget": {
+        "code": "IDei",
+        "corpusDocId": "immortale-dei-es",
+        "title": "Immortale Dei"
+      },
+      "notes": "matched doc-codes title/alias in free text",
       "parserKind": "unresolved",
       "sources": [
         {
@@ -22162,6 +23225,23 @@
       ]
     },
     {
+      "clusterKey": "dv, 5",
+      "raw": "DV, 5",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 21,
+          "consecutivo": "22"
+        }
+      ]
+    },
+    {
       "clusterKey": "ef 4.15-16",
       "raw": "Ef 4.15-16",
       "frequency": 1,
@@ -22238,6 +23318,23 @@
           "documentId": "cd-es",
           "unitIndex": 0,
           "consecutivo": "1"
+        }
+      ]
+    },
+    {
+      "clusterKey": "efe. 1,3",
+      "raw": "Efe. 1,3",
+      "frequency": 1,
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 46,
+          "consecutivo": "48"
         }
       ]
     },
@@ -22811,6 +23908,23 @@
       ]
     },
     {
+      "clusterKey": "enciclica summi pontificatus; cf. acta apostolicae sedis 31 (1939",
+      "raw": "Encíclica Summi Pontificatus; cf. Acta Apostolicae Sedis 31 (1939",
+      "frequency": 1,
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "AAS/periodical citation, not a corpus document",
+      "parserKind": "unresolved+unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 168,
+          "consecutivo": "181"
+        }
+      ]
+    },
+    {
       "clusterKey": "entre catolico y bautizado no catolico",
       "raw": "entre católico y bautizado no católico",
       "frequency": 1,
@@ -23187,6 +24301,40 @@
       ]
     },
     {
+      "clusterKey": "este es mas bien un «libro no escrito»",
+      "raw": "éste es más bien un «libro no escrito»",
+      "frequency": 1,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "short non-numeric fragment",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "sa-es",
+          "unitIndex": 6,
+          "consecutivo": "7"
+        }
+      ]
+    },
+    {
+      "clusterKey": "esto indica precisamente el ejemplo del justo job",
+      "raw": "esto indica precisamente el ejemplo del justo Job",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "sa-es",
+          "unitIndex": 14,
+          "consecutivo": "15"
+        }
+      ]
+    },
+    {
       "clusterKey": "esto sera el objeto de la cuarta parte del catecismo",
       "raw": "esto será el objeto de la Cuarta parte del Catecismo",
       "frequency": 1,
@@ -23503,8 +24651,8 @@
       ]
     },
     {
-      "clusterKey": "fides quae",
-      "raw": "fides quae",
+      "clusterKey": "fides qua",
+      "raw": "fides qua",
       "frequency": 1,
       "class": "fragment-noise",
       "status": "noise/non-document",
@@ -23513,9 +24661,9 @@
       "parserKind": "unresolved",
       "sources": [
         {
-          "documentId": "gdc-es",
-          "unitIndex": 92,
-          "consecutivo": "93"
+          "documentId": "dcg-es",
+          "unitIndex": 34,
+          "consecutivo": "36"
         }
       ]
     },
@@ -23537,6 +24685,23 @@
           "documentId": "po-es",
           "unitIndex": 2,
           "consecutivo": "3"
+        }
+      ]
+    },
+    {
+      "clusterKey": "fl 2, 8",
+      "raw": "Fl 2, 8",
+      "frequency": 1,
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "ee-es",
+          "unitIndex": 12,
+          "consecutivo": "13"
         }
       ]
     },
@@ -23651,6 +24816,23 @@
       ]
     },
     {
+      "clusterKey": "gs. 48",
+      "raw": "Gs. 48",
+      "frequency": 1,
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 57,
+          "consecutivo": "59"
+        }
+      ]
+    },
+    {
       "clusterKey": "guido el cartujano, scala claustralium, 2, 2",
       "raw": "Guido El Cartujano, Scala claustralium, 2, 2",
       "frequency": 1,
@@ -23668,6 +24850,23 @@
           "documentId": "cic-es",
           "unitIndex": 4718,
           "consecutivo": "2654"
+        }
+      ]
+    },
+    {
+      "clusterKey": "h-ebr, 1.1",
+      "raw": "H-ebr, 1.1",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 36,
+          "consecutivo": "38"
         }
       ]
     },
@@ -23986,6 +25185,159 @@
           "documentId": "cic-es",
           "unitIndex": 364,
           "consecutivo": "156"
+        }
+      ]
+    },
+    {
+      "clusterKey": "ibid., p. 197",
+      "raw": "Ibíd., p. 197",
+      "frequency": 1,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 40,
+          "consecutivo": "41"
+        }
+      ]
+    },
+    {
+      "clusterKey": "ibid., p. 198s.",
+      "raw": "Ibíd., p. 198s.",
+      "frequency": 1,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 41,
+          "consecutivo": "42"
+        }
+      ]
+    },
+    {
+      "clusterKey": "ibid., p. 200",
+      "raw": "Ibíd., p. 200",
+      "frequency": 1,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 32,
+          "consecutivo": "33"
+        }
+      ]
+    },
+    {
+      "clusterKey": "ibid., p. 202",
+      "raw": "Ibíd., p. 202",
+      "frequency": 1,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 44,
+          "consecutivo": "45"
+        }
+      ]
+    },
+    {
+      "clusterKey": "ibid., p.198",
+      "raw": "Ibíd., p.198",
+      "frequency": 1,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 70,
+          "consecutivo": "77"
+        }
+      ]
+    },
+    {
+      "clusterKey": "ibid., p.20",
+      "raw": "Ibíd., p.20",
+      "frequency": 1,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 107,
+          "consecutivo": "114"
+        }
+      ]
+    },
+    {
+      "clusterKey": "ibid., p.201",
+      "raw": "Ibíd., p.201",
+      "frequency": 1,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 32,
+          "consecutivo": "33"
+        }
+      ]
+    },
+    {
+      "clusterKey": "ibid., p.201ss",
+      "raw": "Ibíd., p.201ss",
+      "frequency": 1,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 34,
+          "consecutivo": "35"
+        }
+      ]
+    },
+    {
+      "clusterKey": "ibid., p.211",
+      "raw": "Ibíd., p.211",
+      "frequency": 1,
+      "class": "structural-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "ibidem with optional locator",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 35,
+          "consecutivo": "36"
         }
       ]
     },
@@ -24492,6 +25844,27 @@
       ]
     },
     {
+      "clusterKey": "jn, 4,23",
+      "raw": "Jn, 4,23",
+      "frequency": 1,
+      "class": "bible-unresolved",
+      "status": "in-corpus",
+      "proposedTarget": {
+        "code": "BIBLIA",
+        "corpusDocId": "bible-pueblo-de-dios-es",
+        "title": "Biblia (Pueblo de Dios)"
+      },
+      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 23,
+          "consecutivo": "25"
+        }
+      ]
+    },
+    {
       "clusterKey": "jn., 10, 36",
       "raw": "Jn., 10, 36",
       "frequency": 1,
@@ -24834,6 +26207,23 @@
           "documentId": "md-es",
           "unitIndex": 18,
           "consecutivo": "19"
+        }
+      ]
+    },
+    {
+      "clusterKey": "la experiencia, la imaginacion, la memoria, la inteligencia",
+      "raw": "la experiencia, la imaginación, la memoria, la inteligencia",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 68,
+          "consecutivo": "70"
         }
       ]
     },
@@ -25190,6 +26580,23 @@
           "documentId": "vs-es",
           "unitIndex": 22,
           "consecutivo": "23"
+        }
+      ]
+    },
+    {
+      "clusterKey": "lg, 22",
+      "raw": "LG, 22",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 126,
+          "consecutivo": "133"
         }
       ]
     },
@@ -25566,6 +26973,27 @@
           "documentId": "cic-es",
           "unitIndex": 2524,
           "consecutivo": "no-encontrado"
+        }
+      ]
+    },
+    {
+      "clusterKey": "los institutos de vida consagrada",
+      "raw": "los Institutos de vida consagrada",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "needs-vatican.va-download",
+      "proposedTarget": {
+        "code": null,
+        "corpusDocId": null,
+        "title": "los Institutos de vida consagrada"
+      },
+      "notes": "title-like string without catalog match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "vc-es",
+          "unitIndex": 27,
+          "consecutivo": "28"
         }
       ]
     },
@@ -26212,27 +27640,6 @@
       ]
     },
     {
-      "clusterKey": "mm 60",
-      "raw": "MM 60",
-      "frequency": 1,
-      "class": "magisterial-code",
-      "status": "needs-vatican.va-download",
-      "proposedTarget": {
-        "code": "MM",
-        "corpusDocId": null,
-        "title": "Mater et Magistra"
-      },
-      "notes": "extra code MM locator 60",
-      "parserKind": "unresolved",
-      "sources": [
-        {
-          "documentId": "cic-es",
-          "unitIndex": 3402,
-          "consecutivo": "1882"
-        }
-      ]
-    },
-    {
       "clusterKey": "moralia in job, 31, 45, 87",
       "raw": "Moralia in Job, 31, 45, 87",
       "frequency": 1,
@@ -26250,6 +27657,44 @@
           "documentId": "cic-es",
           "unitIndex": 3371,
           "consecutivo": "1866"
+        }
+      ]
+    },
+    {
+      "clusterKey": "mr. 9,23",
+      "raw": "Mr. 9,23",
+      "frequency": 1,
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 28,
+          "consecutivo": "30"
+        }
+      ]
+    },
+    {
+      "clusterKey": "mt, 17, 4",
+      "raw": "Mt, 17, 4",
+      "frequency": 1,
+      "class": "bible-unresolved",
+      "status": "in-corpus",
+      "proposedTarget": {
+        "code": "BIBLIA",
+        "corpusDocId": "bible-pueblo-de-dios-es",
+        "title": "Biblia (Pueblo de Dios)"
+      },
+      "notes": "bible-like; basic parser missed punctuation (abbr., ch,v)",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "vc-es",
+          "unitIndex": 28,
+          "consecutivo": "29"
         }
       ]
     },
@@ -26448,6 +27893,23 @@
       ]
     },
     {
+      "clusterKey": "n. 134",
+      "raw": "n. 134",
+      "frequency": 1,
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 111,
+          "consecutivo": "117"
+        }
+      ]
+    },
+    {
       "clusterKey": "n. 14",
       "raw": "n. 14",
       "frequency": 1,
@@ -26461,6 +27923,23 @@
           "documentId": "gdc-es",
           "unitIndex": 46,
           "consecutivo": "47"
+        }
+      ]
+    },
+    {
+      "clusterKey": "n. 21",
+      "raw": "n. 21",
+      "frequency": 1,
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 34,
+          "consecutivo": "36"
         }
       ]
     },
@@ -27054,6 +28533,27 @@
           "documentId": "cic-es",
           "unitIndex": 1390,
           "consecutivo": "no-encontrado"
+        }
+      ]
+    },
+    {
+      "clusterKey": "oficio segundo",
+      "raw": "Oficio Segundo",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "needs-vatican.va-download",
+      "proposedTarget": {
+        "code": null,
+        "corpusDocId": null,
+        "title": "Oficio Segundo"
+      },
+      "notes": "title-like string without catalog match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 127,
+          "consecutivo": "134"
         }
       ]
     },
@@ -27690,6 +29190,40 @@
           "documentId": "cic-es",
           "unitIndex": 585,
           "consecutivo": "285"
+        }
+      ]
+    },
+    {
+      "clusterKey": "para que",
+      "raw": "para qué",
+      "frequency": 1,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "short non-numeric fragment",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "sa-es",
+          "unitIndex": 8,
+          "consecutivo": "9"
+        }
+      ]
+    },
+    {
+      "clusterKey": "para que el hombre « no muera, sino que tenga la vida eterna »",
+      "raw": "para que el hombre « no muera, sino que tenga la vida eterna »",
+      "frequency": 1,
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "quoted prose / slogan fragment",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "sa-es",
+          "unitIndex": 14,
+          "consecutivo": "15"
         }
       ]
     },
@@ -28347,6 +29881,23 @@
       ]
     },
     {
+      "clusterKey": "por ejemplo el capitulo ii: armonizacion de las metas pastorales de las naciones vecinas; cap. iii: creacion de institutos superiores; cap. iv: elaboracion de instrumentos comunes de trabajo; cap. vii: investigacion cientifica",
+      "raw": "por ejemplo el Capítulo II: armonización de las metas pastorales de las naciones vecinas; Cap. III: creación de Institutos Superiores; Cap. IV: elaboración de instrumentos comunes de trabajo; Cap. VII: investigación científica",
+      "frequency": 1,
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "long prose without document locator",
+      "parserKind": "noise+unresolved+unresolved+unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 125,
+          "consecutivo": "132"
+        }
+      ]
+    },
+    {
       "clusterKey": "por ejemplo, ante el tribunal",
       "raw": "por ejemplo, ante el tribunal",
       "frequency": 1,
@@ -28483,6 +30034,23 @@
       ]
     },
     {
+      "clusterKey": "por lo cual",
+      "raw": "Por lo cual",
+      "frequency": 1,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "short non-numeric fragment",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 147,
+          "consecutivo": "158"
+        }
+      ]
+    },
+    {
       "clusterKey": "por lo menos, algunos de ellos",
       "raw": "por lo menos, algunos de ellos",
       "frequency": 1,
@@ -28538,6 +30106,27 @@
           "documentId": "cic-es",
           "unitIndex": 1254,
           "consecutivo": "661"
+        }
+      ]
+    },
+    {
+      "clusterKey": "prefacio de la festividad de cristo rey",
+      "raw": "Prefacio de la festividad de Cristo Rey",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "needs-vatican.va-download",
+      "proposedTarget": {
+        "code": null,
+        "corpusDocId": null,
+        "title": "Prefacio de la festividad de Cristo Rey"
+      },
+      "notes": "title-like string without catalog match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 248,
+          "consecutivo": "261"
         }
       ]
     },
@@ -28749,6 +30338,44 @@
       ]
     },
     {
+      "clusterKey": "quadragesimo anno",
+      "raw": "Quadragesimo anno",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "needs-vatican.va-download",
+      "proposedTarget": {
+        "code": null,
+        "corpusDocId": null,
+        "title": "Quadragesimo anno"
+      },
+      "notes": "title-like string without catalog match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 109,
+          "consecutivo": "116"
+        }
+      ]
+    },
+    {
+      "clusterKey": "quam primum commode",
+      "raw": "quam primum commode",
+      "frequency": 1,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "short non-numeric fragment",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "pastoralis-actio-es",
+          "unitIndex": 6,
+          "consecutivo": "7"
+        }
+      ]
+    },
+    {
       "clusterKey": "quasi ex officio",
       "raw": "quasi ex officio",
       "frequency": 1,
@@ -28889,6 +30516,74 @@
       ]
     },
     {
+      "clusterKey": "radiomensaje de navidad, 24 de diciembre de 1942; cf. acta apostolicae sedis 34 (1942",
+      "raw": "Radiomensaje de Navidad, 24 de diciembre de 1942; cf. Acta Apostolicae Sedis 34 (1942",
+      "frequency": 1,
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "AAS/periodical citation, not a corpus document",
+      "parserKind": "unresolved+unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 107,
+          "consecutivo": "114"
+        }
+      ]
+    },
+    {
+      "clusterKey": "radiomensaje del 1 de sept. de 1944; cf acta apostolicae sedis 36 (1944",
+      "raw": "Radiomensaje del 1 de sept. de 1944; cf Acta Apostolicae Sedis 36 (1944",
+      "frequency": 1,
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "AAS/periodical citation, not a corpus document",
+      "parserKind": "unresolved+unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 104,
+          "consecutivo": "111"
+        }
+      ]
+    },
+    {
+      "clusterKey": "radiomensaje del 1 de sept. de 1944; cf acta apostolicae sedis 36 81944",
+      "raw": "Radiomensaje del 1 de sept. de 1944; cf Acta Apostolicae Sedis 36 81944",
+      "frequency": 1,
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "AAS/periodical citation, not a corpus document",
+      "parserKind": "unresolved+unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 77,
+          "consecutivo": "84"
+        }
+      ]
+    },
+    {
+      "clusterKey": "radiomensaje navideno del 24 de diciembre de 1943; cf. acta apostolicae sedis 36 (1944",
+      "raw": "Radiomensaje navideño del 24 de diciembre de 1943; cf. Acta Apostolicae Sedis 36 (1944",
+      "frequency": 1,
+      "class": "prose-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "AAS/periodical citation, not a corpus document",
+      "parserKind": "unresolved+unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 230,
+          "consecutivo": "243"
+        }
+      ]
+    },
+    {
       "clusterKey": "redditio",
       "raw": "redditio",
       "frequency": 1,
@@ -28923,6 +30618,23 @@
           "documentId": "cic-es",
           "unitIndex": 84,
           "consecutivo": "10"
+        }
+      ]
+    },
+    {
+      "clusterKey": "remision de los pecados, justificacion, regeneracion y participacion en la vida divina",
+      "raw": "remisión de los pecados, justificación, regeneración y participación en la vida divina",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "pastoralis-actio-es",
+          "unitIndex": 16,
+          "consecutivo": "17"
         }
       ]
     },
@@ -29453,6 +31165,23 @@
       ]
     },
     {
+      "clusterKey": "sal 114 (115",
+      "raw": "Sal 114 (115",
+      "frequency": 1,
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 231,
+          "consecutivo": "244"
+        }
+      ]
+    },
+    {
       "clusterKey": "sal 14, 9-10",
       "raw": "Sal 14, 9-10",
       "frequency": 1,
@@ -29504,6 +31233,23 @@
           "documentId": "nmi-es",
           "unitIndex": 22,
           "consecutivo": "23"
+        }
+      ]
+    },
+    {
+      "clusterKey": "sal 7273, 12-13",
+      "raw": "Sal 7273, 12-13",
+      "frequency": 1,
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "tma-es",
+          "unitIndex": 12,
+          "consecutivo": "13"
         }
       ]
     },
@@ -34515,6 +36261,27 @@
       ]
     },
     {
+      "clusterKey": "santo tomas de aquino, de regimine principum, i, 15",
+      "raw": "Santo Tomás de Aquino, De regimine principum, I, 15",
+      "frequency": 1,
+      "class": "scholastic",
+      "status": "not-in-corpus",
+      "proposedTarget": {
+        "code": null,
+        "corpusDocId": null,
+        "title": "Tomás de Aquino / Summa (fuera del pack actual)"
+      },
+      "notes": "scholastic source; not vatican.va magisterium pack",
+      "parserKind": "noise",
+      "sources": [
+        {
+          "documentId": "mm-es",
+          "unitIndex": 19,
+          "consecutivo": "20"
+        }
+      ]
+    },
+    {
       "clusterKey": "santo tomas de aquino, expositio in psalmos, 21,11",
       "raw": "Santo Tomás de Aquino, Expositio in Psalmos, 21,11",
       "frequency": 1,
@@ -35230,6 +36997,23 @@
           "documentId": "cic-es",
           "unitIndex": 285,
           "consecutivo": "116"
+        }
+      ]
+    },
+    {
+      "clusterKey": "sc, 7",
+      "raw": "SC, 7",
+      "frequency": 1,
+      "class": "unknown",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "no deterministic match",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 23,
+          "consecutivo": "25"
         }
       ]
     },
@@ -35965,6 +37749,23 @@
       ]
     },
     {
+      "clusterKey": "de esperanza y caridad",
+      "raw": "también de esperanza y caridad",
+      "frequency": 1,
+      "class": "fragment-noise",
+      "status": "noise/non-document",
+      "proposedTarget": null,
+      "notes": "short non-numeric fragment",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 72,
+          "consecutivo": "75"
+        }
+      ]
+    },
+    {
       "clusterKey": "te per orbem terrarum sancta confitetur ecclesia, —a ti te confiesa la santa iglesia por toda la tierra— cantamos en el himno te deum",
       "raw": "Te per orbem terrarum sancta confitetur Ecclesia, —A Ti te confiesa la Santa Iglesia por toda la tierra— cantamos en el himno Te Deum",
       "frequency": 1,
@@ -36188,6 +37989,40 @@
           "documentId": "cic-es",
           "unitIndex": 2061,
           "consecutivo": "1094"
+        }
+      ]
+    },
+    {
+      "clusterKey": "tjr. 11",
+      "raw": "tJR. 11",
+      "frequency": 1,
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 41,
+          "consecutivo": "43"
+        }
+      ]
+    },
+    {
+      "clusterKey": "tjr. 5",
+      "raw": "tJR. 5",
+      "frequency": 1,
+      "class": "unresolved-abbr",
+      "status": "not-in-corpus",
+      "proposedTarget": null,
+      "notes": "short abbr+number not in doc-codes",
+      "parserKind": "unresolved",
+      "sources": [
+        {
+          "documentId": "dcg-es",
+          "unitIndex": 25,
+          "consecutivo": "27"
         }
       ]
     },

@@ -536,6 +536,142 @@
       "kind": "magisterium"
     },
     {
+      "code": "MM",
+      "aliases": ["MM", "Mater et Magistra"],
+      "title": "Mater et Magistra",
+      "corpusDocId": "mm-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "TMA",
+      "aliases": ["TMA", "Tertio millennio adveniente"],
+      "title": "Tertio millennio adveniente",
+      "corpusDocId": "tma-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "EE",
+      "aliases": ["EE", "Ecclesia de Eucharistia"],
+      "title": "Ecclesia de Eucharistia",
+      "corpusDocId": "ee-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "SA",
+      "aliases": ["SA", "SD", "Salvifici doloris"],
+      "title": "Salvifici doloris",
+      "corpusDocId": "sa-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "VC",
+      "aliases": ["VC", "Vita consecrata"],
+      "title": "Vita consecrata",
+      "corpusDocId": "vc-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "DM",
+      "aliases": ["DM", "Dives in Misericordia", "Dives in misericordia"],
+      "title": "Dives in Misericordia",
+      "corpusDocId": "dm-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "Lib",
+      "aliases": ["Lib", "LP", "Libertas", "Libertas praestantissimum"],
+      "title": "Libertas praestantissimum",
+      "corpusDocId": "libertas-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "IDei",
+      "aliases": ["IDei", "Immortale Dei"],
+      "title": "Immortale Dei",
+      "corpusDocId": "immortale-dei-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "Diut",
+      "aliases": ["Diut", "Diuturnum", "Diuturnum illud"],
+      "title": "Diuturnum illud",
+      "corpusDocId": "diuturnum-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "QP",
+      "aliases": ["QP", "Quas primas"],
+      "title": "Quas primas",
+      "corpusDocId": "quas-primas-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "DCG",
+      "aliases": [
+        "DCG",
+        "Directorio Catequético General",
+        "Directorio catequético general"
+      ],
+      "title": "Directorio Catequético General",
+      "corpusDocId": "dcg-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "ME",
+      "aliases": ["ME", "Mysterium Ecclesiae"],
+      "title": "Mysterium Ecclesiae",
+      "corpusDocId": "mysterium-ecclesiae-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "DonVer",
+      "aliases": ["DonVer", "Donum veritatis", "Donum Veritatis"],
+      "title": "Donum veritatis",
+      "corpusDocId": "donum-veritatis-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "PastA",
+      "aliases": ["PastA", "Pastoralis actio"],
+      "title": "Pastoralis actio",
+      "corpusDocId": "pastoralis-actio-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "LCon",
+      "aliases": [
+        "LCon",
+        "Libertatis conscientia",
+        "Libertatis Conscientia"
+      ],
+      "title": "Libertatis conscientia",
+      "corpusDocId": "libertatis-conscientia-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "Iura",
+      "aliases": ["Iura", "Iura et bona"],
+      "title": "Iura et bona",
+      "corpusDocId": "iura-et-bona-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
       "code": "Nicaea",
       "aliases": [
         "Nicaea",

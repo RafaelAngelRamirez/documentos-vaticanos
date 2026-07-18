@@ -319,6 +319,8 @@ const CURIAL_FREE_TITLES: Array<{
   {
     re: /donum\s+veritatis/i,
     title: "CDF, Instr. Donum veritatis",
+    code: "DonVer",
+    corpusDocId: "donum-veritatis-es",
   },
   {
     re: /persona\s+humana/i,
@@ -329,12 +331,32 @@ const CURIAL_FREE_TITLES: Array<{
   {
     re: /mysterium\s+ecclesiae/i,
     title: "CDF, Decl. Mysterium Ecclesiae",
+    code: "ME",
+    corpusDocId: "mysterium-ecclesiae-es",
   },
   {
     re: /indulgentiarum\s+doctrina/i,
     title: "Indulgentiarum doctrina",
     code: "ID",
     corpusDocId: "indulgentiarum-doctrina-es",
+  },
+  {
+    re: /pastoralis\s+actio/i,
+    title: "CDF, Instr. Pastoralis actio",
+    code: "PastA",
+    corpusDocId: "pastoralis-actio-es",
+  },
+  {
+    re: /libertatis\s+conscientia/i,
+    title: "CDF, Instr. Libertatis conscientia",
+    code: "LCon",
+    corpusDocId: "libertatis-conscientia-es",
+  },
+  {
+    re: /iura\s+et\s+bona/i,
+    title: "CDF, Decl. Iura et bona",
+    code: "Iura",
+    corpusDocId: "iura-et-bona-es",
   },
 ];
 
@@ -359,7 +381,7 @@ const EXTRA_MAGISTERIAL_CODES: Array<{
     code: "DCG",
     re: /\bDCG\b/,
     title: "Directorio Catequético General (1971)",
-    corpusDocId: null,
+    corpusDocId: "dcg-es",
   },
   {
     code: "DeV",
@@ -377,19 +399,19 @@ const EXTRA_MAGISTERIAL_CODES: Array<{
     code: "TMA",
     re: /\bTMA\b/,
     title: "Tertio millennio adveniente",
-    corpusDocId: null,
+    corpusDocId: "tma-es",
   },
   {
     code: "EE",
     re: /\bEE\b/,
     title: "Ecclesia de Eucharistia",
-    corpusDocId: null,
+    corpusDocId: "ee-es",
   },
   {
     code: "SA",
     re: /\bSA\b/,
     title: "Salvifici doloris",
-    corpusDocId: null,
+    corpusDocId: "sa-es",
   },
   {
     code: "PG",
@@ -401,13 +423,25 @@ const EXTRA_MAGISTERIAL_CODES: Array<{
     code: "MM",
     re: /\bMM\b/,
     title: "Mater et Magistra",
-    corpusDocId: null,
+    corpusDocId: "mm-es",
   },
   {
     code: "PT",
     re: /\bPT\b/,
     title: "Pacem in terris",
     corpusDocId: "pt-es",
+  },
+  {
+    code: "DM",
+    re: /\bDM\b/,
+    title: "Dives in Misericordia",
+    corpusDocId: "dm-es",
+  },
+  {
+    code: "VC",
+    re: /\bVC\b/,
+    title: "Vita consecrata",
+    corpusDocId: "vc-es",
   },
 ];
 
@@ -721,6 +755,28 @@ export function classifyUnlinkedRef(
       status: "noise/non-document",
       proposedTarget: null,
       notes: "year label with año prefix",
+      parserKind,
+    };
+  }
+
+  // Institutional office / AAS journal cites — not offline pack documents
+  if (/\bofficium\s+catecheticum\b/i.test(t)) {
+    return {
+      raw: original,
+      class: "fragment-noise",
+      status: "noise/non-document",
+      proposedTarget: null,
+      notes: "institutional office name, not a document",
+      parserKind,
+    };
+  }
+  if (/\bacta\s+apostolicae\s+sedis\b|\bacta\s+leonis\b/i.test(t)) {
+    return {
+      raw: original,
+      class: "prose-noise",
+      status: "noise/non-document",
+      proposedTarget: null,
+      notes: "AAS/periodical citation, not a corpus document",
       parserKind,
     };
   }

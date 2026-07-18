@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-18T15:44:37.497Z",
+  "generatedAt": "2026-07-18T15:51:41.774Z",
   "pending": [],
   "corpusDocumentIds": [
     "cic-es",
@@ -136,6 +136,22 @@
     "donum-vitae-es",
     "persona-humana-es",
     "indulgentiarum-doctrina-es",
-    "gdc-es"
+    "gdc-es",
+    "libertas-es",
+    "mm-es",
+    "dcg-es",
+    "immortale-dei-es",
+    "tma-es",
+    "donum-veritatis-es",
+    "diuturnum-es",
+    "ee-es",
+    "pastoralis-actio-es",
+    "quas-primas-es",
+    "sa-es",
+    "libertatis-conscientia-es",
+    "vc-es",
+    "iura-et-bona-es",
+    "dm-es",
+    "mysterium-ecclesiae-es"
   ]
 }
