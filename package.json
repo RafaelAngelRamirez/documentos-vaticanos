@@ -41,7 +41,10 @@
     "test:tts": "npm --prefix backend run test:tts",
     "test:narrator-grok": "npm --prefix frontend run test:narrator-grok",
     "test:speech-prep": "npm --prefix frontend run test:speech-prep",
-    "test:document-toc": "npm --prefix frontend run test:document-toc"
+    "test:document-toc": "npm --prefix frontend run test:document-toc",
+    "test:santoral": "npm --prefix frontend run test:santoral && npm --prefix scripts-descarga run test:santoral",
+    "santoral:offline": "npm --prefix scripts-descarga run santoral:offline",
+    "santoral:scrape": "npm --prefix scripts-descarga run santoral:scrape"
   },
   "packageManager": "yarn@1.22.22"
 }

@@ -1,0 +1,54 @@
+<div class="app web-shell" *ngIf="saint as s">
+  <app-wbar active="santoral"></app-wbar>
+
+  <div class="fbar hair">
+    <a class="fs14 back" routerLink="/santoral">← Santoral</a>
+  </div>
+
+  <div class="dcover">
+    <div class="dkind">{{ kindLine }}</div>
+    <div class="dtitle">{{ title }}</div>
+    <div class="dsub" *ngIf="s.role">{{ s.role }}</div>
+  </div>
+
+  <div class="fbody">
+    <div class="quote" *ngIf="s.quote">«{{ s.quote }}»</div>
+    <div class="fs12 muted" style="margin-top: 8px" *ngIf="s.quoteSource">
+      {{ s.quoteSource }}
+    </div>
+
+    <div class="sect" *ngIf="s.bio">Vida</div>
+    <div class="bio" *ngIf="s.bio">{{ s.bio }}</div>
+
+    <div class="fs13 muted fuente-block" *ngIf="s.sourceUrl" style="margin-top: 12px">
+      <a
+        class="app-lang-link"
+        [href]="s.sourceUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        >{{ s.locale === 'es' || !s.locale ? 'Español' : s.locale }} · fuente</a
+      >
+    </div>
+
+    <div class="sect">Obras en la biblioteca</div>
+    <ng-container *ngFor="let w of works; let i = index">
+      <a class="toc obra-link" [routerLink]="['/documento', w.documentId]">
+        <span class="tnum">{{ i + 1 }}</span>
+        <span>{{ w.title }}</span>
+      </a>
+    </ng-container>
+    <div class="fs13 muted" *ngIf="!works.length" style="margin-top: 8px">
+      No hay obras de este autor en el corpus offline todavía.
+    </div>
+
+    <div class="sect" *ngIf="s.themes?.length">Temas</div>
+    <div class="chips" *ngIf="s.themes?.length">
+      <span class="chip" *ngFor="let t of s.themes">{{ t }}</span>
+    </div>
+
+    <div class="sect" *ngIf="s.feastDays?.length">Fiesta</div>
+    <div class="fs13 muted" *ngIf="s.feastDays?.length">
+      {{ s.feastDays!.join(' · ') }}
+    </div>
+  </div>
+</div>

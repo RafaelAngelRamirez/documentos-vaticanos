@@ -60,7 +60,14 @@
     "test:ocr-abc": "npx ts-node --transpile-only repair_ocr_noise.test.ts",
     "ocr:abc-inventory": "npx ts-node --transpile-only repair_ocr_noise_corpus.ts --inventory",
     "ocr:abc-apply": "npx ts-node --transpile-only repair_ocr_noise_corpus.ts --apply",
-    "ocr:reocr-queue": "npx ts-node --transpile-only repair_ocr_noise_corpus.ts --queue-only"
+    "ocr:reocr-queue": "npx ts-node --transpile-only repair_ocr_noise_corpus.ts --queue-only",
+    "santoral": "npx ts-node --transpile-only import_santoral.ts",
+    "santoral:offline": "npx ts-node --transpile-only import_santoral.ts --offline",
+    "santoral:scrape": "npx ts-node --transpile-only import_santoral.ts --scrape --max 80",
+    "test:santoral-parse": "node --experimental-strip-types santoral_parse.test.js",
+    "test:santoral-offline": "node santoral_offline_load.test.js",
+    "test:santoral-ui": "node santoral_ui_wiring.test.js",
+    "test:santoral": "npm run test:santoral-parse && npm run test:santoral-offline && npm run test:santoral-ui"
   },
   "author": "",
   "license": "ISC",

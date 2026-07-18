@@ -1,0 +1,63 @@
+<div class="app has-bnav web-shell">
+  <app-wbar active="santoral"></app-wbar>
+  <div class="only-mobile">
+    <app-fbar title="Santoral"></app-fbar>
+  </div>
+
+  <div class="fbody santoral-body">
+    <h2 class="h2 only-desktop">Santoral</h2>
+    <div class="fs14 muted" style="line-height: 1.6; max-width: 70ch">
+      Vidas de santos y beatos (Santa Sede y Padres) con las obras del corpus
+      disponibles sin conexión.
+    </div>
+    <div class="fs13 muted" style="margin-top: 6px" *ngIf="!loading && !error">
+      {{ total }} entradas · pack offline
+    </div>
+
+    <div *ngIf="loading" class="empty" role="status">Cargando santoral…</div>
+    <div *ngIf="error" class="empty" role="alert">{{ error }}</div>
+
+    <ng-container *ngIf="!loading && !error">
+      <ng-container *ngFor="let g of groups">
+        <div class="era">{{ g.era }}</div>
+
+        <div class="only-mobile">
+          <div
+            class="mrow"
+            *ngFor="let s of g.items"
+            role="button"
+            tabindex="0"
+            (click)="open(s)"
+            (keydown.enter)="open(s)"
+            style="cursor: pointer"
+          >
+            <span class="avatar">{{ initials(s) }}</span>
+            <div class="f1">
+              <div class="mname">{{ label(s) }}</div>
+              <div class="mmeta">{{ sub(s) }}</div>
+            </div>
+            <span class="chev">›</span>
+          </div>
+        </div>
+
+        <div class="cardgrid only-desktop">
+          <button
+            type="button"
+            class="bookcard"
+            *ngFor="let s of g.items"
+            (click)="open(s)"
+          >
+            <span class="bt">{{ label(s) }}</span>
+            <span class="bm">{{ sub(s) }}</span>
+          </button>
+        </div>
+      </ng-container>
+
+      <div class="empty" *ngIf="!groups.length">
+        Aún no hay entradas en el pack del santoral.
+      </div>
+    </ng-container>
+  </div>
+
+  <app-bnav></app-bnav>
+</div>

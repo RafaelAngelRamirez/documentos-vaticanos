@@ -1,0 +1,24 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.santoral-body {
+  padding: 20px 20px 96px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .santoral-body {
+    max-width: 960px;
+    padding: 28px 40px 64px;
+  }
+}
+
+.empty {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 14px;
+}

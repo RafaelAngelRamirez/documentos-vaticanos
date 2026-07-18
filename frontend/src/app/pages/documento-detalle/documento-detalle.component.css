@@ -36,6 +36,20 @@
   color: var(--acc);
 }
 
+.obra-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.obra-link:hover {
+  color: var(--acc);
+}
+
+.ref-block {
+  margin-bottom: 12px;
+}
+
 .fuente-block {
   margin-top: 16px;
   line-height: 1.45;

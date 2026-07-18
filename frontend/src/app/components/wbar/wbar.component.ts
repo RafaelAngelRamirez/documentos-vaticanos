@@ -9,6 +9,7 @@ export type WbarSection =
   | 'biblioteca'
   | 'estudio'
   | 'padres'
+  | 'santoral'
   | 'temas'
   | null;
 
@@ -87,6 +88,7 @@ export type WbarMode = 'nav' | 'auth' | 'reader';
       >
       <a routerLink="/estudio" class="wlink" [class.on]="section === 'estudio'">Estudio</a>
       <a routerLink="/padres" class="wlink" [class.on]="section === 'padres'">Padres</a>
+      <a routerLink="/santoral" class="wlink" [class.on]="section === 'santoral'">Santoral</a>
       <a routerLink="/cuenta/temas" class="wlink" [class.on]="section === 'temas'">Temas</a>
       <input
         class="wsearch"
@@ -175,6 +177,7 @@ export class WbarComponent {
     if (this.active) return this.active;
     const p = (this.router.url || '').split('?')[0];
     if (p.startsWith('/padres')) return 'padres';
+    if (p.startsWith('/santoral')) return 'santoral';
     if (p.startsWith('/biblioteca') || p.startsWith('/list') || p.startsWith('/documento')) {
       return 'biblioteca';
     }

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { DocumentMeta } from 'src/app/core/corpus/corpus.models';
@@ -18,6 +18,8 @@ import {
   TocEntry,
 } from 'src/app/services/document-toc.logic';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
+import { SaintRecord } from 'src/app/core/santoral/santoral-resolve.logic';
+import { SantoralService } from 'src/app/core/santoral/santoral.service';
 
 const FAVS_KEY = 'dv.favs';
 
@@ -25,7 +27,7 @@ const FAVS_KEY = 'dv.favs';
 @Component({
   standalone: true,
   selector: 'app-documento-detalle',
-  imports: [CommonModule, WbarComponent],
+  imports: [CommonModule, RouterModule, WbarComponent],
   templateUrl: './documento-detalle.component.html',
   styleUrls: ['./documento-detalle.component.css'],
 })
@@ -42,6 +44,10 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
    * (`buildDocumentToc`) with stable `unitIndex` jump targets.
    */
   chapters: TocEntry[] = [];
+  /** Santo / autor relacionado (santoral offline). */
+  relatedSaint: SaintRecord | null = null;
+  /** Otras obras del mismo santo (sin el doc actual). */
+  siblingWorks: { documentId: string; title: string }[] = [];
 
   private sub = new Subscription();
 
@@ -50,7 +56,8 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     private router: Router,
     private corpus: CorpusService,
     private navigationService: NavigationService,
-    private progress: ReadingProgressService
+    private progress: ReadingProgressService,
+    private santoral: SantoralService,
   ) {}
 
   ngOnInit(): void {
@@ -158,6 +165,8 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.error = null;
     this.chapters = [];
+    this.relatedSaint = null;
+    this.siblingWorks = [];
     this.sub.add(
       this.corpus.loadManifest().subscribe({
         next: () => {
@@ -176,6 +185,7 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
           this.lastRead =
             last && last.documentId === this.meta.id ? last : null;
           this.fav = this.leerFavs().includes(this.meta.id);
+          this.cargarReferenciasSantoral();
           // Load body offline and build structural / bible / curated TOC.
           this.sub.add(
             this.corpus.ensureLoaded(this.meta.id).subscribe({
@@ -200,6 +210,32 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
         },
       })
     );
+  }
+
+  /** Referencias de menú: santo autor + obras hermanas del corpus. */
+  private cargarReferenciasSantoral(): void {
+    if (!this.meta) return;
+    const meta = this.meta;
+    this.sub.add(
+      this.santoral.loadManifest().subscribe({
+        next: () => {
+          this.relatedSaint =
+            this.santoral.saintForDoc(meta.id, meta.author) || null;
+          this.siblingWorks = this.relatedSaint
+            ? this.santoral.siblingsForDoc(meta.id, meta.author).slice(0, 12)
+            : [];
+        },
+        error: () => {
+          this.relatedSaint = null;
+          this.siblingWorks = [];
+        },
+      }),
+    );
+  }
+
+  saintLabel(): string {
+    if (!this.relatedSaint) return '';
+    return this.relatedSaint.displayName || this.relatedSaint.name;
   }
 
   private irALector(idx: number): void {

@@ -63,6 +63,24 @@
           >Español · fuente</a>
         </div>
 
+        <!-- Referencias santoral: autor santo + obras hermanas -->
+        <div class="sect" *ngIf="relatedSaint">Referencias</div>
+        <div class="ref-block" *ngIf="relatedSaint">
+          <a class="toc obra-link" [routerLink]="['/santoral', relatedSaint.id]">
+            <span class="tnum">†</span>
+            <span>Santo / autor: {{ saintLabel() }}</span>
+          </a>
+          <ng-container *ngFor="let w of siblingWorks; let i = index">
+            <a class="toc obra-link" [routerLink]="['/documento', w.documentId]">
+              <span class="tnum">{{ i + 1 }}</span>
+              <span>{{ w.title }}</span>
+            </a>
+          </ng-container>
+          <div class="fs12 muted" *ngIf="siblingWorks.length > 0" style="margin-top: 6px">
+            Otras obras del mismo autor en el corpus
+          </div>
+        </div>
+
         <div class="fs13 muted tc pos" *ngIf="posicionLabel">
           {{ posicionLabel }}
         </div>
@@ -158,6 +176,19 @@
               target="_blank"
               rel="noopener noreferrer"
             >Español · fuente</a>
+          </div>
+          <div class="sect" *ngIf="relatedSaint" style="margin-top: 20px">Referencias</div>
+          <div class="ref-block" *ngIf="relatedSaint">
+            <a class="toc obra-link" [routerLink]="['/santoral', relatedSaint.id]">
+              <span class="tnum">†</span>
+              <span>Santo / autor: {{ saintLabel() }}</span>
+            </a>
+            <ng-container *ngFor="let w of siblingWorks; let i = index">
+              <a class="toc obra-link" [routerLink]="['/documento', w.documentId]">
+                <span class="tnum">{{ i + 1 }}</span>
+                <span>{{ w.title }}</span>
+              </a>
+            </ng-container>
           </div>
         </div>
         <div class="col-side">

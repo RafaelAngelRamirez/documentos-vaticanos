@@ -2,6 +2,22 @@
 
 Offline corpus tools and Vatican.va scrapers for **documentos-vaticanos**.
 
+## Santoral (offline pack)
+
+Biographies from `vatican.va/news_services/liturgy/saints` (Spanish when present) plus Padres/autores already in the corpus, dual-written next to the corpus:
+
+- `documentos/corpus/santoral/manifest.json`
+- `frontend/src/assets/corpus/santoral/manifest.json`
+
+```bash
+npm run santoral:offline          # seed Padres + author→documentId links
+npm run santoral:scrape           # + harvest ES bios from Holy See indices
+npm run santoral -- --fixture fixtures/santoral/….html --source-url URL
+npm run test:santoral             # parse + offline load + UI wiring
+```
+
+App routes: `/santoral`, `/santoral/:id` (linked works open `/documento/:id`). Document cover (2A) shows **Referencias** (santo + sibling works) when author maps to a saint.
+
 ## Multi-source registry (PR5)
 
 Configuration lives in [`config/sources.json`](config/sources.json). Each source has:
