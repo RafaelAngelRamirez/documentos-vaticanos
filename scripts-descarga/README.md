@@ -63,6 +63,21 @@ Then resolve cross-refs (CIC → LG, etc.):
 npm run resolve:refs
 ```
 
+### Unlinked-refs worksheet (inventory)
+
+After `resolve:refs`, citations still without `ref.local` can be inventoried for semantic follow-up (noise vs pack vs vatican.va download candidates):
+
+```bash
+npm run inventory:unlinked-refs   # writes ../documentos/corpus/unlinked-refs-worksheet.json
+npm run test:unlinked-refs        # pure classifier unit tests
+```
+
+- **Classifier (pure):** `src/refs/unlinked_ref_classifier.ts` — status enum  
+  `in-corpus | known-code-missing-locator | not-in-corpus | noise/non-document | needs-vatican.va-download`
+- **Runner:** `inventory_unlinked_refs.ts` — scan corpus → cluster by description → classify → worksheet
+- Regenerable offline; does **not** scrape vatican.va (only flags download candidates)
+- Peer of OCR inventories: `ocr-*-inventory.json`, `ocr-reocr-queue.json`, `pending-documents.json`
+
 Offline pack pipeline (legacy migrate + resolve):
 
 ```bash
@@ -188,6 +203,8 @@ npm run reindex      # rebuild *.index.json from transport JSON
 npm run migrate:corpus
 npm run resolve:refs
 npm run test:refs
+npm run inventory:unlinked-refs
+npm run test:unlinked-refs
 ```
 
 ## Manual fixture path (no network)
