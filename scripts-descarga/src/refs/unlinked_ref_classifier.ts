@@ -305,12 +305,16 @@ const PATRISTIC_HINTS: Array<{
 const CURIAL_FREE_TITLES: Array<{
   re: RegExp;
   title: string;
+  code?: string;
+  corpusDocId?: string | null;
   note?: string;
 }> = [
   {
     re: /donum\s+vitae/i,
     title: "CDF, Instr. Donum vitae",
-    note: "Instrucción CDF 1987 — candidate vatican.va",
+    code: "DonV",
+    corpusDocId: "donum-vitae-es",
+    note: "Instrucción CDF 1987",
   },
   {
     re: /donum\s+veritatis/i,
@@ -319,6 +323,8 @@ const CURIAL_FREE_TITLES: Array<{
   {
     re: /persona\s+humana/i,
     title: "CDF, Decl. Persona humana",
+    code: "PH",
+    corpusDocId: "persona-humana-es",
   },
   {
     re: /mysterium\s+ecclesiae/i,
@@ -327,6 +333,8 @@ const CURIAL_FREE_TITLES: Array<{
   {
     re: /indulgentiarum\s+doctrina/i,
     title: "Indulgentiarum doctrina",
+    code: "ID",
+    corpusDocId: "indulgentiarum-doctrina-es",
   },
 ];
 
@@ -345,25 +353,25 @@ const EXTRA_MAGISTERIAL_CODES: Array<{
     code: "RP",
     re: /\bRP\b/,
     title: "Reconciliatio et paenitentia",
-    corpusDocId: null,
+    corpusDocId: "rp-es",
   },
   {
     code: "DCG",
     re: /\bDCG\b/,
-    title: "Directorio Catequético General",
+    title: "Directorio Catequético General (1971)",
     corpusDocId: null,
   },
   {
     code: "DeV",
     re: /\bDeV\b/,
     title: "Dominum et Vivificantem",
-    corpusDocId: null,
+    corpusDocId: "dev-es",
   },
   {
     code: "MF",
     re: /\bMF\b/,
     title: "Mysterium Fidei",
-    corpusDocId: null,
+    corpusDocId: "mf-es",
   },
   {
     code: "TMA",
@@ -387,7 +395,7 @@ const EXTRA_MAGISTERIAL_CODES: Array<{
     code: "PG",
     re: /\bPG\b/,
     title: "Pastores gregis",
-    corpusDocId: null,
+    corpusDocId: "pg-es",
   },
   {
     code: "MM",
@@ -399,7 +407,7 @@ const EXTRA_MAGISTERIAL_CODES: Array<{
     code: "PT",
     re: /\bPT\b/,
     title: "Pacem in terris",
-    corpusDocId: null,
+    corpusDocId: "pt-es",
   },
 ];
 
@@ -954,13 +962,15 @@ export function classifyUnlinkedRef(
   ) {
     for (const h of CURIAL_FREE_TITLES) {
       if (h.re.test(t)) {
+        const corpusDocId = h.corpusDocId ?? null;
+        const hasLoc = /\d{1,5}/.test(t);
         return {
           raw: original,
           class: "curial",
-          status: "needs-vatican.va-download",
+          status: statusForCorpusId(corpusDocId, ctx, hasLoc),
           proposedTarget: {
-            code: null,
-            corpusDocId: null,
+            code: h.code ?? null,
+            corpusDocId,
             title: h.title,
           },
           notes: h.note ?? "curial instruction/declaration",
@@ -983,13 +993,15 @@ export function classifyUnlinkedRef(
   }
   for (const h of CURIAL_FREE_TITLES) {
     if (h.re.test(t)) {
+      const corpusDocId = h.corpusDocId ?? null;
+      const hasLoc = /\d{1,5}/.test(t);
       return {
         raw: original,
         class: "curial",
-        status: "needs-vatican.va-download",
+        status: statusForCorpusId(corpusDocId, ctx, hasLoc),
         proposedTarget: {
-          code: null,
-          corpusDocId: null,
+          code: h.code ?? null,
+          corpusDocId,
           title: h.title,
         },
         notes: h.note ?? "curial free title",
@@ -1156,13 +1168,15 @@ export function classifyUnlinkedRef(
 
   // Credo del Pueblo de Dios (Pablo VI)
   if (/\bcredo\s+del\s+pueblo\s+de\s+dios\b/i.test(t)) {
+    const cpdId = "cpd-es";
+    const hasLoc = /\d{1,5}/.test(t);
     return {
       raw: original,
       class: "magisterial-free-title",
-      status: "needs-vatican.va-download",
+      status: statusForCorpusId(cpdId, ctx, hasLoc),
       proposedTarget: {
-        code: null,
-        corpusDocId: null,
+        code: "CPD",
+        corpusDocId: cpdId,
         title: "Credo del Pueblo de Dios (Pablo VI)",
       },
       notes: "1968 profession of faith",

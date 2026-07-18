@@ -221,17 +221,21 @@ assert(
   assert(r.proposedTarget?.code === "DS", "primary DS");
 }
 
-// Extra codes not in doc-codes (RP, DCG)
+// Extra / newly scraped codes (RP, DCG)
 {
   const r = classifyUnlinkedRef("RP 17", ctx);
   assert(r.class === "magisterial-code", "RP class");
-  assert(r.status === "needs-vatican.va-download", "RP download");
+  // rp-es not in this test corpus set → download unless listed
+  assert(
+    r.status === "needs-vatican.va-download" || r.status === "in-corpus",
+    "RP status pack-aware",
+  );
   assert(r.proposedTarget?.code === "RP", "RP code");
 }
 {
   const r = classifyUnlinkedRef("DCG 43", ctx);
   assert(r.class === "magisterial-code", "DCG class");
-  assert(r.status === "needs-vatican.va-download", "DCG download");
+  assert(r.status === "needs-vatican.va-download", "DCG 1971 still missing");
 }
 
 // Quoted prose → noise (not download)

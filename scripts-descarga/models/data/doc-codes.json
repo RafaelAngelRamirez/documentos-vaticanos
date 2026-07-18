@@ -420,6 +420,122 @@
       "kind": "magisterium"
     },
     {
+      "code": "PG",
+      "aliases": [
+        "PG",
+        "Pastores gregis"
+      ],
+      "title": "Pastores gregis",
+      "corpusDocId": "pg-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "RP",
+      "aliases": [
+        "RP",
+        "Reconciliatio et paenitentia"
+      ],
+      "title": "Reconciliatio et paenitentia",
+      "corpusDocId": "rp-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "DeV",
+      "aliases": [
+        "DeV",
+        "Dominum et Vivificantem",
+        "Dominum et vivificantem"
+      ],
+      "title": "Dominum et Vivificantem",
+      "corpusDocId": "dev-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "MF",
+      "aliases": [
+        "MF",
+        "Mysterium Fidei",
+        "Mysterium fidei"
+      ],
+      "title": "Mysterium Fidei",
+      "corpusDocId": "mf-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "PT",
+      "aliases": [
+        "PT",
+        "Pacem in terris"
+      ],
+      "title": "Pacem in terris",
+      "corpusDocId": "pt-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "CPD",
+      "aliases": [
+        "CPD",
+        "Credo del Pueblo de Dios",
+        "Credo del pueblo de Dios",
+        "Solemni hac liturgia"
+      ],
+      "title": "Credo del Pueblo de Dios",
+      "corpusDocId": "cpd-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "DonV",
+      "aliases": [
+        "DonV",
+        "Donum vitae",
+        "Donum Vitae"
+      ],
+      "title": "Donum vitae",
+      "corpusDocId": "donum-vitae-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "PH",
+      "aliases": [
+        "PH",
+        "Persona humana"
+      ],
+      "title": "Persona humana",
+      "corpusDocId": "persona-humana-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "ID",
+      "aliases": [
+        "ID",
+        "Indulgentiarum doctrina"
+      ],
+      "title": "Indulgentiarum doctrina",
+      "corpusDocId": "indulgentiarum-doctrina-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "GDC",
+      "aliases": [
+        "GDC",
+        "Directorio General para la Catequesis",
+        "Directorio general para la catequesis"
+      ],
+      "title": "Directorio General para la Catequesis",
+      "corpusDocId": "gdc-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
       "code": "Nicaea",
       "aliases": [
         "Nicaea",

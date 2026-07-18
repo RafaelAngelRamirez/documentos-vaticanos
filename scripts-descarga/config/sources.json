@@ -551,6 +551,166 @@
       "notes": "JPII apostolic letter at the close of the Great Jubilee 2000."
     },
     {
+      "id": "pg",
+      "title": "Pastores gregis",
+      "shortTitle": "PG",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "pg-es",
+      "docCode": "PG",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_20031016_pastores-gregis.html"
+      ],
+      "fixturePath": "fixtures/pg-es/source.html",
+      "expectedUnitCount": 74,
+      "notes": "JPII post-synodal exhortation on the bishop (2003). Top unlinked-ref download candidate."
+    },
+    {
+      "id": "rp",
+      "title": "Reconciliatio et paenitentia",
+      "shortTitle": "RP",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "rp-es",
+      "docCode": "RP",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_02121984_reconciliatio-et-paenitentia.html"
+      ],
+      "fixturePath": "fixtures/rp-es/source.html",
+      "expectedUnitCount": 35,
+      "notes": "JPII post-synodal exhortation on reconciliation and penance (1984)."
+    },
+    {
+      "id": "dev",
+      "title": "Dominum et Vivificantem",
+      "shortTitle": "DeV",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "dev-es",
+      "docCode": "DeV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_18051986_dominum-et-vivificantem.html"
+      ],
+      "fixturePath": "fixtures/dev-es/source.html",
+      "expectedUnitCount": 67,
+      "notes": "JPII encyclical on the Holy Spirit (1986)."
+    },
+    {
+      "id": "mf",
+      "title": "Mysterium Fidei",
+      "shortTitle": "MF",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "mf-es",
+      "docCode": "MF",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/encyclicals/documents/hf_p-vi_enc_03091965_mysterium.html"
+      ],
+      "fixturePath": "fixtures/mf-es/source.html",
+      "expectedUnitCount": 8,
+      "notes": "Paul VI encyclical on the Eucharist (1965). Long continuous §§; few top-level numbers."
+    },
+    {
+      "id": "pt",
+      "title": "Pacem in terris",
+      "shortTitle": "PT",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "pt-es",
+      "docCode": "PT",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-xxiii/es/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html"
+      ],
+      "fixturePath": "fixtures/pt-es/source.html",
+      "expectedUnitCount": 168,
+      "notes": "John XXIII encyclical on peace (1963)."
+    },
+    {
+      "id": "cpd",
+      "title": "Credo del Pueblo de Dios",
+      "shortTitle": "CPD",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "cpd-es",
+      "docCode": "CPD",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/motu_proprio/documents/hf_p-vi_motu-proprio_19680630_credo.html"
+      ],
+      "fixturePath": "fixtures/cpd-es/source.html",
+      "expectedUnitCount": 30,
+      "notes": "Paul VI Solemni hac liturgia — Credo of the People of God (1968)."
+    },
+    {
+      "id": "donum-vitae",
+      "title": "Donum vitae",
+      "shortTitle": "DonV",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "donum-vitae-es",
+      "docCode": "DonV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19870222_respect-for-human-life_sp.html"
+      ],
+      "fixturePath": "fixtures/donum-vitae-es/source.html",
+      "expectedUnitCount": 5,
+      "notes": "CDF Instruction Donum vitae (1987). Hierarchical section numbers restart; uniqueConsecutivo keeps first series only — use --force if unitCount low."
+    },
+    {
+      "id": "persona-humana",
+      "title": "Persona humana",
+      "shortTitle": "PH",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "persona-humana-es",
+      "docCode": "PH",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19751229_persona-humana_sp.html"
+      ],
+      "fixturePath": "fixtures/persona-humana-es/source.html",
+      "expectedUnitCount": 13,
+      "notes": "CDF Declaration Persona humana (1975)."
+    },
+    {
+      "id": "indulgentiarum",
+      "title": "Indulgentiarum doctrina",
+      "shortTitle": "ID",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "indulgentiarum-doctrina-es",
+      "docCode": "ID",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/apost_constitutions/documents/hf_p-vi_apc_01011967_indulgentiarum-doctrina.html"
+      ],
+      "fixturePath": "fixtures/indulgentiarum-doctrina-es/source.html",
+      "expectedUnitCount": 12,
+      "notes": "Paul VI apostolic constitution on indulgences (1967)."
+    },
+    {
+      "id": "gdc",
+      "title": "Directorio General para la Catequesis",
+      "shortTitle": "GDC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "gdc-es",
+      "docCode": "GDC",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cclergy/documents/rc_con_ccatheduc_doc_17041998_directory-for-catechesis_sp.html"
+      ],
+      "fixturePath": "fixtures/gdc-es/source.html",
+      "expectedUnitCount": 291,
+      "notes": "1997 General Directory for Catechesis (ES on vatican.va). Not the 1971 DCG; CCC may still cite DCG 1971."
+    },
+    {
       "id": "cceo",
       "title": "Código de los Cánones de las Iglesias Orientales",
       "shortTitle": "CCEO",
