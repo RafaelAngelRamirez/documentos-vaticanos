@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0",
-  "generatedAt": "2026-07-18T21:29:42.131Z",
-  "sourceNote": "Pack de contexto histórico offline (compilado; ejes + referencias). No es monografía peer-reviewed.",
+  "version": "1.1.0",
+  "generatedAt": "2026-07-18T21:51:53.888Z",
+  "sourceNote": "Pack de contexto histórico offline v1.1: ejes + citas densas (summaryRefIds, axisSources, work/chrono ref ids). Compilado; no monografía peer-reviewed.",
   "authors": [
     {
       "id": "agustin-hipona",

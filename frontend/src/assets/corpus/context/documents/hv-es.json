@@ -8,14 +8,47 @@
   "timelineSlice": [
     {
       "years": "1968",
-      "label": "Humanae vitae: regulación de la natalidad y amor conyugal."
+      "label": "Humanae vitae: regulación de la natalidad y amor conyugal.",
+      "refIds": [
+        "paul-vi",
+        "vat2-docs"
+      ]
     }
   ],
   "references": [
     {
+      "id": "paul-vi",
       "title": "Pablo VI — magisterio (vatican.va)",
-      "url": "https://www.vatican.va/content/paul-vi/es.html"
+      "url": "https://www.vatican.va/content/paul-vi/es.html",
+      "note": "Humanae vitae, Evangelii nuntiandi, cierre del Vaticano II."
+    },
+    {
+      "id": "vat2-docs",
+      "title": "Documentos del Concilio Vaticano II (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index_sp.htm",
+      "citation": "Acta Apostolicae Sedis / vatican.va — Concilio Vaticano II.",
+      "note": "Textos oficiales de las constituciones y decretos."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
+  "workSummaryRefIds": [
+    "paul-vi",
+    "vat2-docs"
+  ],
+  "chronologyRefIds": [
+    "paul-vi",
+    "vat2-docs"
+  ]
 }

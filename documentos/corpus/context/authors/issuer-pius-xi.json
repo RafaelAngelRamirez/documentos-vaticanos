@@ -17,18 +17,79 @@
   "timeline": [
     {
       "years": "1925",
-      "label": "Quas primas"
+      "label": "Quas primas",
+      "refIds": [
+        "pius-xi",
+        "odcc"
+      ]
     }
   ],
   "references": [
     {
-      "title": "Pío XI — Quas primas y otros (vatican.va)",
-      "url": "https://www.vatican.va/content/pius-xi/es.html"
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
     },
     {
+      "id": "odcc",
       "title": "Oxford Dictionary of the Christian Church",
-      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "pius-xi",
+      "title": "Pío XI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/pius-xi/es.html",
+      "note": "Incluye Quas primas y doctrina social de entreguerras."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "pius-xi",
+    "odcc",
+    "pelikan-ct"
+  ],
+  "axisSources": {
+    "lugar": [
+      "pius-xi",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "personajes": [
+      "pius-xi",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "gobierno": [
+      "pius-xi",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "cultura": [
+      "pius-xi",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "religion": [
+      "pius-xi",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "antropologia": [
+      "pius-xi",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "creenciasMundanas": [
+      "pius-xi",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "creenciaCristiana": [
+      "pius-xi",
+      "pelikan-ct",
+      "odcc"
+    ]
+  }
 }

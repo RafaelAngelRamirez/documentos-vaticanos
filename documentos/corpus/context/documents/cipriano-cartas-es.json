@@ -8,23 +8,74 @@
   "timelineSlice": [
     {
       "years": "249–251",
-      "label": "Persecución de Decio y lapsi"
+      "label": "Persecución de Decio y lapsi",
+      "refIds": [
+        "cyprian-ep",
+        "frend-rise"
+      ]
     },
     {
       "years": "255–258",
-      "label": "Controversia bautismal y martirio"
+      "label": "Controversia bautismal y martirio",
+      "refIds": [
+        "cyprian-ep",
+        "frend-rise"
+      ]
     }
   ],
   "references": [
     {
+      "id": "cyprian-ep",
       "title": "Cyprian of Carthage, Epistles",
       "url": "https://www.newadvent.org/fathers/0506.htm",
-      "citation": "Cipriano de Cartago, Epistolae; CSEL / BAC."
+      "citation": "Cipriano de Cartago, Epistolae; CSEL / BAC.",
+      "note": "Texto primario; persecución y unidad eclesial."
     },
     {
+      "id": "frend-rise",
       "title": "W.H.C. Frend, The Rise of Christianity",
-      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984."
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984.",
+      "note": "Sociedad, persecuciones y África cristiana."
+    },
+    {
+      "id": "britannica-rome",
+      "title": "Encyclopaedia Britannica: Roman Empire / Late antiquity",
+      "url": "https://www.britannica.com/place/Roman-Empire",
+      "note": "Marco imperial y crisis del Occidente.",
+      "citation": "Encyclopaedia Britannica, s.v. Roman Empire (consulta general)."
+    },
+    {
+      "id": "chadwick-ec",
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed.",
+      "note": "Historia general de los siglos I–V."
+    },
+    {
+      "id": "kelly-ecd",
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum.",
+      "note": "Desarrollo dogmático trinitario y cristológico."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
+  "workSummaryRefIds": [
+    "cyprian-ep",
+    "frend-rise"
+  ],
+  "chronologyRefIds": [
+    "cyprian-ep",
+    "frend-rise"
+  ]
 }

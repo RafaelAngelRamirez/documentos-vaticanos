@@ -1,94 +1,89 @@
 /**
  * Offline historical-context pack schema (dual-written next to corpus).
- * Keep aligned with frontend/src/app/core/context/historical-context.models.ts.
+ * Keep aligned with frontend historical-context-resolve.logic.ts.
  *
  * Two layers:
  *  1) Author/era/issuer profile (general place, government, culture, …)
  *  2) Per-document overlay (composition window + chronology slice)
  *
- * Resolution merges general + obra offline without I/O in the merge itself.
+ * Citations: each block of prose can point to reference ids (`summaryRefIds`,
+ * `axisSources`, `workSummaryRefIds`, …). The full bibliography lives in
+ * `references[]` (with stable `id` for linking).
  */
 
-/** The eight required historical axes (non-empty in resolved context). */
+/** The eight required historical axes (non-empty text in resolved context). */
 export interface ContextAxes {
-  /** Geography / cities / regions of composition or setting. */
   lugar: string;
-  /** Related historical persons (rulers, interlocutors, opponents…). */
   personajes: string;
-  /** Political power structures of the period. */
   gobierno: string;
-  /** Letters, arts, social forms, language. */
   cultura: string;
-  /** Religious landscape (plural: cults, Judaism, Islam, reform…). */
   religion: string;
-  /** Everyday life, kinship, status, body practices. */
   antropologia: string;
-  /** Non-Christian or popular worldviews concurrent with the work. */
   creenciasMundanas: string;
-  /** Dominant Christian confession / theological climate. */
   creenciaCristiana: string;
 }
 
+/** Map axis → reference ids that support that axis text. */
+export type AxisSourceMap = Partial<Record<keyof ContextAxes, string[]>>;
+
 /** Citable source for context claims. */
 export interface ContextReference {
-  /** Work, article, or site title. */
+  /**
+   * Stable id used by summaryRefIds / axisSources / timeline.refIds.
+   * Prefer short kebab keys shared across the pack (e.g. `brown-ag`).
+   */
+  id?: string;
   title: string;
-  /** Bibliographic citation when no stable URL. */
   citation?: string;
-  /** Stable URL when available (vatican.va, archive.org, …). */
   url?: string;
-  /** Optional short note on how it was used. */
+  /** How this source was used (e.g. "biografía y datación"). */
   note?: string;
+  /** Page, chapter, DH number, session, etc. */
+  locator?: string;
 }
 
 export interface TimelineEntry {
-  /** Human range, e.g. "397–400" or "s. IV". */
   years: string;
   label: string;
   note?: string;
+  /** Reference ids supporting this timeline row. */
+  refIds?: string[];
 }
 
-/**
- * Reusable profile: Church Father, pope/issuer, council era, or cultural milieu.
- * Linked from many document overlays via `authorProfileId`.
- */
 export interface AuthorContextProfile {
   id: string;
   name: string;
-  /** author = person; era = epoch milieu; issuer = council/curia/pontificate. */
   kind: 'author' | 'era' | 'issuer';
   years?: string;
-  /** Short entry-level summary shown above axes. */
   summary: string;
+  /** Refs that support `summary`. */
+  summaryRefIds?: string[];
   axes: ContextAxes;
+  /** Per-axis reference ids (dense citation). */
+  axisSources?: AxisSourceMap;
   timeline?: TimelineEntry[];
   references: ContextReference[];
   sourceNote?: string;
-  /** Optional link to offline santoral saint id. */
   saintId?: string;
 }
 
-/**
- * Per-document overlay. Chronology specific to the work lives here so multi-obra
- * authors (e.g. Agustín) do not share an identical block.
- */
 export interface DocumentContextOverlay {
   documentId: string;
   authorProfileId?: string;
   compositionYears?: string;
   compositionPlace?: string;
-  /** Work-specific paragraph (why/when this book). */
   workSummary?: string;
-  /** Where this book sits in the author's life or the era. */
+  workSummaryRefIds?: string[];
   chronologyNote?: string;
-  /** Optional overrides / specializations of the eight axes for this work. */
+  chronologyRefIds?: string[];
   axes?: Partial<ContextAxes>;
+  /** Work-specific axis sources (override author for that axis when set). */
+  axisSources?: AxisSourceMap;
   timelineSlice?: TimelineEntry[];
   references?: ContextReference[];
   sourceNote?: string;
 }
 
-/** Result of pure merge(author, overlay) for UI. */
 export interface ResolvedHistoricalContext {
   documentId: string;
   authorProfileId?: string;
@@ -97,22 +92,23 @@ export interface ResolvedHistoricalContext {
   compositionYears?: string;
   compositionPlace?: string;
   generalSummary?: string;
+  summaryRefIds?: string[];
   workSummary?: string;
+  workSummaryRefIds?: string[];
   chronologyNote?: string;
+  chronologyRefIds?: string[];
   axes: ContextAxes;
+  axisSources: AxisSourceMap;
   timeline: TimelineEntry[];
   references: ContextReference[];
   sourceNote?: string;
 }
 
-/** Top-level index of the offline context pack. */
 export interface HistoricalContextManifest {
   version: string;
   generatedAt?: string;
   sourceNote?: string;
-  /** Path relative to pack root for each author profile. */
   authors: { id: string; path: string }[];
-  /** Path relative to pack root for each document overlay. */
   documents: { documentId: string; path: string; authorProfileId?: string }[];
 }
 
@@ -127,6 +123,5 @@ export const CONTEXT_AXES_KEYS: (keyof ContextAxes)[] = [
   'creenciaCristiana',
 ];
 
-/** Offline pack URL relative to app assets. */
 export const HISTORICAL_CONTEXT_MANIFEST_URL =
   'assets/corpus/context/manifest.json';

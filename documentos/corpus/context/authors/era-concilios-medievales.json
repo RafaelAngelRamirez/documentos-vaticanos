@@ -17,30 +17,99 @@
   "timeline": [
     {
       "years": "869–870",
-      "label": "Constantinopla IV (recepción latina)"
+      "label": "Constantinopla IV (recepción latina)",
+      "refIds": [
+        "tanner-dec",
+        "odcc"
+      ]
     },
     {
       "years": "1123–1517",
-      "label": "Concilios lateranenses y de Lyon, Vienne, Constanza, Florencia, Letrán V"
+      "label": "Concilios lateranenses y de Lyon, Vienne, Constanza, Florencia, Letrán V",
+      "refIds": [
+        "tanner-dec",
+        "odcc"
+      ]
     }
   ],
   "references": [
     {
-      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
-      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+      "id": "kelly-ecd",
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum.",
+      "note": "Desarrollo dogmático trinitario y cristológico."
     },
     {
-      "title": "Catholic Encyclopedia: General Councils",
-      "url": "https://www.newadvent.org/cathen/04423f.htm"
-    },
-    {
-      "title": "Oxford Dictionary of the Christian Church",
-      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
-    },
-    {
+      "id": "pelikan-ct",
       "title": "Jaroslav Pelikan, The Christian Tradition",
-      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press."
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "tanner-dec",
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
+      "note": "Texto y traducción de decretos conciliares."
+    },
+    {
+      "id": "ce-councils",
+      "title": "Catholic Encyclopedia: General Councils",
+      "url": "https://www.newadvent.org/cathen/04423f.htm",
+      "note": "Síntesis de concilios ecuménicos."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "tanner-dec",
+    "odcc",
+    "pelikan-ct"
+  ],
+  "axisSources": {
+    "lugar": [
+      "tanner-dec",
+      "ce-councils",
+      "odcc"
+    ],
+    "personajes": [
+      "tanner-dec",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "gobierno": [
+      "tanner-dec",
+      "odcc",
+      "ce-councils"
+    ],
+    "cultura": [
+      "tanner-dec",
+      "pelikan-ct",
+      "odcc"
+    ],
+    "religion": [
+      "tanner-dec",
+      "pelikan-ct",
+      "odcc"
+    ],
+    "antropologia": [
+      "odcc",
+      "pelikan-ct",
+      "tanner-dec"
+    ],
+    "creenciasMundanas": [
+      "odcc",
+      "pelikan-ct",
+      "tanner-dec"
+    ],
+    "creenciaCristiana": [
+      "tanner-dec",
+      "pelikan-ct",
+      "kelly-ecd"
+    ]
+  }
 }

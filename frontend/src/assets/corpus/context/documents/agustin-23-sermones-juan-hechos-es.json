@@ -8,14 +8,81 @@
   "timelineSlice": [
     {
       "years": "400–420",
-      "label": "Sermones bíblicos (Juan, Hechos, cartas)"
+      "label": "Sermones bíblicos (Juan, Hechos, cartas)",
+      "refIds": [
+        "brown-ag",
+        "ce-augustine"
+      ]
     }
   ],
   "references": [
     {
+      "id": "brown-ag",
       "title": "Peter Brown, Augustine of Hippo: A Biography",
-      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.)."
+      "citation": "Brown, Peter. Augustine of Hippo: A Biography. Berkeley: University of California Press, 2000 (rev.).",
+      "note": "Biografía de referencia; datación de obras y contexto africano."
+    },
+    {
+      "id": "ce-augustine",
+      "title": "Catholic Encyclopedia: St. Augustine of Hippo",
+      "url": "https://www.newadvent.org/cathen/02084a.htm",
+      "note": "Síntesis clásica de vida, obras y controversias."
+    },
+    {
+      "id": "chadwick-ec",
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed.",
+      "note": "Historia general de los siglos I–V."
+    },
+    {
+      "id": "aug-conf",
+      "title": "Agustín, Confessiones (ed. crítica / BAC)",
+      "citation": "San Agustín, Confesiones, BAC Obras de San Agustín, t. 2.",
+      "url": "https://www.augustinus.it/latino/confessioni/index2.htm",
+      "note": "Texto primario; composición ~397–400."
+    },
+    {
+      "id": "britannica-rome",
+      "title": "Encyclopaedia Britannica: Roman Empire / Late antiquity",
+      "url": "https://www.britannica.com/place/Roman-Empire",
+      "note": "Marco imperial y crisis del Occidente.",
+      "citation": "Encyclopaedia Britannica, s.v. Roman Empire (consulta general)."
+    },
+    {
+      "id": "kelly-ecd",
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum.",
+      "note": "Desarrollo dogmático trinitario y cristológico."
+    },
+    {
+      "id": "frend-rise",
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984.",
+      "note": "Sociedad, persecuciones y África cristiana."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "aug-cdd",
+      "title": "Agustín, De civitate Dei",
+      "citation": "San Agustín, La ciudad de Dios, BAC.",
+      "url": "https://www.augustinus.it/latino/cdd/index2.htm",
+      "note": "Texto primario; respuesta al saqueo de Roma 410."
     }
   ],
-  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas."
+  "sourceNote": "Cronología de obra según consenso de manuales y BAC / Brown; las fechas de algunos sermones y cartas son aproximadas.",
+  "workSummaryRefIds": [
+    "brown-ag",
+    "ce-augustine",
+    "chadwick-ec"
+  ],
+  "chronologyRefIds": [
+    "brown-ag",
+    "ce-augustine",
+    "chadwick-ec"
+  ]
 }

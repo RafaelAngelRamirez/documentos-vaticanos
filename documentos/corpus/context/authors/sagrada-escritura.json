@@ -17,35 +17,122 @@
   "timeline": [
     {
       "years": "c. XIII–IV a.C.",
-      "label": "Formación de tradiciones del AT (esquema amplio)"
+      "label": "Formación de tradiciones del AT (esquema amplio)",
+      "refIds": [
+        "bible-canon",
+        "odcc"
+      ]
     },
     {
       "years": "s. III–I a.C.",
-      "label": "Septuaginta y judaísmo helenístico"
+      "label": "Septuaginta y judaísmo helenístico",
+      "refIds": [
+        "bible-canon",
+        "odcc"
+      ]
     },
     {
       "years": "s. I d.C.",
-      "label": "Ministerio de Jesús y escritos del NT"
+      "label": "Ministerio de Jesús y escritos del NT",
+      "refIds": [
+        "bible-canon",
+        "odcc"
+      ]
     },
     {
       "years": "s. II–IV",
-      "label": "Fijación progresiva del canon cristiano"
+      "label": "Fijación progresiva del canon cristiano",
+      "refIds": [
+        "bible-canon",
+        "odcc"
+      ]
     }
   ],
   "references": [
     {
-      "title": "Biblia (tradición canónica hebrea-cristiana)",
-      "citation": "Texto masorético / LXX / NT griego; ed. Pueblo de Dios (ES).",
-      "url": "https://www.vatican.va/archive/ESL0506/_INDEX.HTM"
+      "id": "chadwick-ec",
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed.",
+      "note": "Historia general de los siglos I–V."
     },
     {
-      "title": "Oxford Dictionary of the Christian Church",
-      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+      "id": "kelly-ecd",
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum.",
+      "note": "Desarrollo dogmático trinitario y cristológico."
     },
     {
+      "id": "frend-rise",
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984.",
+      "note": "Sociedad, persecuciones y África cristiana."
+    },
+    {
+      "id": "pelikan-ct",
       "title": "Jaroslav Pelikan, The Christian Tradition",
-      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press."
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "bible-canon",
+      "title": "Sagrada Escritura (canon judeocristiano)",
+      "citation": "Texto masorético / LXX / NT griego; ed. Pueblo de Dios (ES).",
+      "url": "https://www.vatican.va/archive/ESL0506/_INDEX.HTM",
+      "note": "Texto bíblico de referencia eclesial."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "bible-canon",
+    "odcc",
+    "pelikan-ct"
+  ],
+  "axisSources": {
+    "lugar": [
+      "bible-canon",
+      "odcc",
+      "chadwick-ec"
+    ],
+    "personajes": [
+      "bible-canon",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "gobierno": [
+      "bible-canon",
+      "odcc",
+      "frend-rise"
+    ],
+    "cultura": [
+      "bible-canon",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "religion": [
+      "bible-canon",
+      "chadwick-ec",
+      "odcc"
+    ],
+    "antropologia": [
+      "bible-canon",
+      "odcc",
+      "frend-rise"
+    ],
+    "creenciasMundanas": [
+      "bible-canon",
+      "odcc",
+      "chadwick-ec"
+    ],
+    "creenciaCristiana": [
+      "bible-canon",
+      "pelikan-ct",
+      "kelly-ecd"
+    ]
+  }
 }

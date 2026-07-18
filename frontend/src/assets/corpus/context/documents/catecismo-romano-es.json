@@ -8,20 +8,56 @@
   "timelineSlice": [
     {
       "years": "1566",
-      "label": "Catecismo Romano ad parochos, instrumento tridentino de reforma pastoral."
+      "label": "Catecismo Romano ad parochos, instrumento tridentino de reforma pastoral.",
+      "refIds": [
+        "odcc",
+        "pelikan-ct"
+      ]
     }
   ],
   "references": [
     {
-      "title": "Catecismo Romano (Trento / Pío V)",
-      "citation": "Catechismus Romanus ad parochos (1566); ed. críticas y traducciones.",
-      "url": "https://www.newadvent.org/cathen/13120c.htm"
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
     },
     {
-      "title": "Concilio de Trento — documentos (vatican.va / Tanner)",
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "tanner-dec",
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
+      "note": "Texto y traducción de decretos conciliares."
+    },
+    {
+      "id": "catech-roman",
+      "title": "Catecismo Romano (Trento / Pío V)",
+      "citation": "Catechismus Romanus ad parochos (1566); ed. críticas y traducciones.",
+      "url": "https://www.newadvent.org/cathen/13120c.htm",
+      "note": "Catecismo tridentino para párrocos."
+    },
+    {
+      "id": "trent-docs",
+      "title": "Concilio de Trento — documentos",
       "url": "https://www.vatican.va/archive/hist_councils/tri_council/index.htm",
-      "citation": "Concilium Tridentinum; Tanner, Decrees…"
+      "citation": "Concilium Tridentinum; Tanner, Decrees…",
+      "note": "Actas y decretos tridentinos."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
+  "workSummaryRefIds": [
+    "odcc",
+    "pelikan-ct",
+    "tanner-dec"
+  ],
+  "chronologyRefIds": [
+    "odcc",
+    "pelikan-ct",
+    "tanner-dec"
+  ]
 }

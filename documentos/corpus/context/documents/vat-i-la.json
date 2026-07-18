@@ -8,18 +8,58 @@
   "timelineSlice": [
     {
       "years": "1869–1870",
-      "label": "Concilio · Roma (Vaticano)"
+      "label": "Concilio · Roma (Vaticano)",
+      "refIds": [
+        "vat1-pa",
+        "tanner-dec"
+      ]
     }
   ],
   "references": [
     {
-      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
-      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+      "id": "vat1-pa",
+      "title": "Concilio Vaticano I — Pastor Aeternus / Dei Filius",
+      "url": "https://www.vatican.va/content/pius-ix/la/documents/constitutio-dogmatica-pastor-aeternus-18-iulii-1870.html",
+      "note": "Constituciones dogmáticas del Vaticano I."
     },
     {
+      "id": "tanner-dec",
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
+      "note": "Texto y traducción de decretos conciliares."
+    },
+    {
+      "id": "ce-councils",
       "title": "Catholic Encyclopedia: General Councils",
-      "url": "https://www.newadvent.org/cathen/04423f.htm"
+      "url": "https://www.newadvent.org/cathen/04423f.htm",
+      "note": "Síntesis de concilios ecuménicos."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "quanta-cura",
+      "title": "Pío IX, Quanta cura (1864)",
+      "url": "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html",
+      "note": "Encíclica y Syllabus en el entorno."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
+  "workSummaryRefIds": [
+    "vat1-pa",
+    "tanner-dec"
+  ],
+  "chronologyRefIds": [
+    "vat1-pa",
+    "tanner-dec"
+  ]
 }

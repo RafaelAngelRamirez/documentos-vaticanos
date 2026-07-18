@@ -2,7 +2,7 @@
  * Pure historical-context merge (no Angular, no relative TS imports).
  * Testable with: node --experimental-strip-types …
  *
- * Keep field shapes aligned with historical-context.models.ts / pipeline model.
+ * Dense citations: prose blocks link to reference ids; bibliography in references[].
  */
 
 export interface ContextAxes {
@@ -16,17 +16,22 @@ export interface ContextAxes {
   creenciaCristiana: string;
 }
 
+export type AxisSourceMap = Partial<Record<keyof ContextAxes, string[]>>;
+
 export interface ContextReference {
+  id?: string;
   title: string;
   citation?: string;
   url?: string;
   note?: string;
+  locator?: string;
 }
 
 export interface TimelineEntry {
   years: string;
   label: string;
   note?: string;
+  refIds?: string[];
 }
 
 export interface AuthorContextProfile {
@@ -35,7 +40,9 @@ export interface AuthorContextProfile {
   kind: 'author' | 'era' | 'issuer';
   years?: string;
   summary: string;
+  summaryRefIds?: string[];
   axes: ContextAxes;
+  axisSources?: AxisSourceMap;
   timeline?: TimelineEntry[];
   references: ContextReference[];
   sourceNote?: string;
@@ -48,8 +55,11 @@ export interface DocumentContextOverlay {
   compositionYears?: string;
   compositionPlace?: string;
   workSummary?: string;
+  workSummaryRefIds?: string[];
   chronologyNote?: string;
+  chronologyRefIds?: string[];
   axes?: Partial<ContextAxes>;
+  axisSources?: AxisSourceMap;
   timelineSlice?: TimelineEntry[];
   references?: ContextReference[];
   sourceNote?: string;
@@ -63,9 +73,13 @@ export interface ResolvedHistoricalContext {
   compositionYears?: string;
   compositionPlace?: string;
   generalSummary?: string;
+  summaryRefIds?: string[];
   workSummary?: string;
+  workSummaryRefIds?: string[];
   chronologyNote?: string;
+  chronologyRefIds?: string[];
   axes: ContextAxes;
+  axisSources: AxisSourceMap;
   timeline: TimelineEntry[];
   references: ContextReference[];
   sourceNote?: string;
@@ -101,7 +115,6 @@ export const CONTEXT_AXIS_LABELS: Record<keyof ContextAxes, string> = {
   creenciaCristiana: 'Creencia cristiana predominante',
 };
 
-/** Offline pack URL relative to app assets. */
 export const HISTORICAL_CONTEXT_MANIFEST_URL =
   'assets/corpus/context/manifest.json';
 
@@ -120,11 +133,39 @@ function nonEmpty(s: string | undefined | null): string {
   return (s || '').trim();
 }
 
+function uniqIds(ids: string[] | undefined | null): string[] {
+  if (!ids || !ids.length) return [];
+  const out: string[] = [];
+  const seen = new Set<string>();
+  for (const raw of ids) {
+    const id = nonEmpty(raw);
+    if (!id || seen.has(id)) continue;
+    seen.add(id);
+    out.push(id);
+  }
+  return out;
+}
+
+/** Merge axis source maps: overlay ids replace author for that axis when non-empty. */
+export function mergeAxisSources(
+  author: AxisSourceMap | undefined | null,
+  overlay: AxisSourceMap | undefined | null,
+): AxisSourceMap {
+  const out: AxisSourceMap = {};
+  for (const k of CONTEXT_AXES_KEYS) {
+    const o = uniqIds(overlay?.[k]);
+    const a = uniqIds(author?.[k]);
+    const ids = o.length ? o : a;
+    if (ids.length) out[k] = ids;
+  }
+  return out;
+}
+
 /**
  * Merge author/era general profile with per-document overlay.
- * Document axis text wins when non-empty; otherwise author axis is kept.
+ * Document axis text wins when non-empty; axisSources: overlay wins per axis.
  * Timeline prefers document.timelineSlice; else author.timeline.
- * References: overlay first, then author (dedup by title+url).
+ * References: overlay first, then author (dedup by id or title+url).
  */
 export function resolveHistoricalContext(
   documentId: string,
@@ -146,11 +187,16 @@ export function resolveHistoricalContext(
     }
   }
 
+  const axisSources = mergeAxisSources(author?.axisSources, overlay?.axisSources);
+
   const timeline: TimelineEntry[] =
     overlay?.timelineSlice && overlay.timelineSlice.length
-      ? overlay.timelineSlice.slice()
+      ? overlay.timelineSlice.map((t) => ({
+          ...t,
+          refIds: uniqIds(t.refIds),
+        }))
       : author?.timeline
-        ? author.timeline.slice()
+        ? author.timeline.map((t) => ({ ...t, refIds: uniqIds(t.refIds) }))
         : [];
 
   const references = dedupeReferences([
@@ -170,9 +216,13 @@ export function resolveHistoricalContext(
     compositionYears: nonEmpty(overlay?.compositionYears) || undefined,
     compositionPlace: nonEmpty(overlay?.compositionPlace) || undefined,
     generalSummary: nonEmpty(author?.summary) || undefined,
+    summaryRefIds: uniqIds(author?.summaryRefIds),
     workSummary: nonEmpty(overlay?.workSummary) || undefined,
+    workSummaryRefIds: uniqIds(overlay?.workSummaryRefIds),
     chronologyNote: nonEmpty(overlay?.chronologyNote) || undefined,
+    chronologyRefIds: uniqIds(overlay?.chronologyRefIds),
     axes,
+    axisSources,
     timeline,
     references,
     sourceNote: sourceParts.length ? sourceParts.join(' · ') : undefined,
@@ -184,7 +234,9 @@ export function dedupeReferences(refs: ContextReference[]): ContextReference[] {
   const out: ContextReference[] = [];
   for (const r of refs) {
     if (!r || !nonEmpty(r.title)) continue;
-    const key = `${nonEmpty(r.title).toLowerCase()}|${nonEmpty(r.url).toLowerCase()}|${nonEmpty(r.citation).toLowerCase()}`;
+    const key = nonEmpty(r.id)
+      ? `id:${nonEmpty(r.id).toLowerCase()}`
+      : `${nonEmpty(r.title).toLowerCase()}|${nonEmpty(r.url).toLowerCase()}|${nonEmpty(r.citation).toLowerCase()}`;
     if (seen.has(key)) continue;
     seen.add(key);
     out.push(r);
@@ -192,13 +244,38 @@ export function dedupeReferences(refs: ContextReference[]): ContextReference[] {
   return out;
 }
 
-/** True when all eight axes have non-empty text. */
+/** Lookup map id → reference for UI footnotes. */
+export function referencesById(
+  refs: ContextReference[] | null | undefined,
+): Map<string, ContextReference> {
+  const map = new Map<string, ContextReference>();
+  for (const r of refs || []) {
+    if (r?.id) map.set(r.id, r);
+  }
+  return map;
+}
+
+/** Resolve ref ids to bibliography entries (skips unknown ids). */
+export function resolveRefIds(
+  ids: string[] | undefined | null,
+  refs: ContextReference[] | null | undefined,
+): ContextReference[] {
+  if (!ids?.length) return [];
+  const map = referencesById(refs);
+  const out: ContextReference[] = [];
+  for (const id of uniqIds(ids)) {
+    const r = map.get(id);
+    if (r) out.push(r);
+  }
+  return out;
+}
+
 export function hasCompleteAxes(axes: ContextAxes | null | undefined): boolean {
   if (!axes) return false;
   return CONTEXT_AXES_KEYS.every((k) => nonEmpty(axes[k]).length > 0);
 }
 
-/** True when resolved context meets coverage gate (axes + ≥1 reference). */
+/** Axes text + ≥1 bibliographic entry (url or citation). */
 export function isCoverageComplete(
   ctx: ResolvedHistoricalContext | null | undefined,
 ): boolean {
@@ -210,19 +287,98 @@ export function isCoverageComplete(
 }
 
 /**
- * Axis rows for templates (label + text), skipping empties so optional fields
- * never break the reader.
+ * Dense citation gate: every non-empty axis has ≥1 axisSources id that
+ * resolves to a reference with url or citation; summary/work/chrono when present.
+ */
+export function hasDenseCitations(
+  ctx: ResolvedHistoricalContext | null | undefined,
+): boolean {
+  if (!ctx || !isCoverageComplete(ctx)) return false;
+  const map = referencesById(ctx.references);
+  const okIds = (ids: string[] | undefined) => {
+    const u = uniqIds(ids);
+    if (!u.length) return false;
+    return u.some((id) => {
+      const r = map.get(id);
+      return !!(r && nonEmpty(r.title) && (nonEmpty(r.url) || nonEmpty(r.citation)));
+    });
+  };
+  for (const k of CONTEXT_AXES_KEYS) {
+    if (!nonEmpty(ctx.axes[k])) continue;
+    if (!okIds(ctx.axisSources?.[k])) return false;
+  }
+  if (ctx.generalSummary && !okIds(ctx.summaryRefIds)) return false;
+  if (ctx.workSummary && !okIds(ctx.workSummaryRefIds)) return false;
+  if (ctx.chronologyNote && !okIds(ctx.chronologyRefIds)) return false;
+  return true;
+}
+
+export interface AxisRowForUi {
+  key: keyof ContextAxes;
+  label: string;
+  text: string;
+  refIds: string[];
+  sources: ContextReference[];
+}
+
+/**
+ * Axis rows for templates with resolved source list under each axis.
  */
 export function axisRowsForUi(
   axes: ContextAxes | null | undefined,
   labels: Record<keyof ContextAxes, string>,
-): { key: keyof ContextAxes; label: string; text: string }[] {
+  axisSources?: AxisSourceMap | null,
+  references?: ContextReference[] | null,
+): AxisRowForUi[] {
   if (!axes) return [];
-  const rows: { key: keyof ContextAxes; label: string; text: string }[] = [];
+  const rows: AxisRowForUi[] = [];
   for (const k of CONTEXT_AXES_KEYS) {
     const text = nonEmpty(axes[k]);
     if (!text) continue;
-    rows.push({ key: k, label: labels[k], text });
+    const refIds = uniqIds(axisSources?.[k]);
+    rows.push({
+      key: k,
+      label: labels[k],
+      text,
+      refIds,
+      sources: resolveRefIds(refIds, references),
+    });
   }
   return rows;
+}
+
+/** Short marker labels for UI (¹ ² … or [1] [2]). */
+export function sourceMarkers(
+  ids: string[] | undefined | null,
+  refOrder: string[],
+): string {
+  const u = uniqIds(ids);
+  if (!u.length) return '';
+  const nums: number[] = [];
+  for (const id of u) {
+    const i = refOrder.indexOf(id);
+    if (i >= 0) nums.push(i + 1);
+  }
+  if (!nums.length) return '';
+  return nums.map((n) => `[${n}]`).join('');
+}
+
+/** Ordered unique ref ids as they appear in resolved context (for numbered list). */
+export function orderedRefIds(ctx: ResolvedHistoricalContext): string[] {
+  const order: string[] = [];
+  const push = (ids?: string[]) => {
+    for (const id of uniqIds(ids)) {
+      if (!order.includes(id)) order.push(id);
+    }
+  };
+  push(ctx.summaryRefIds);
+  push(ctx.workSummaryRefIds);
+  push(ctx.chronologyRefIds);
+  for (const k of CONTEXT_AXES_KEYS) push(ctx.axisSources?.[k]);
+  for (const t of ctx.timeline || []) push(t.refIds);
+  // any remaining refs with id
+  for (const r of ctx.references || []) {
+    if (r.id && !order.includes(r.id)) order.push(r.id);
+  }
+  return order;
 }

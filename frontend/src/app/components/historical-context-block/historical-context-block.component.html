@@ -18,48 +18,105 @@
       <span *ngIf="c.compositionPlace"> · {{ c.compositionPlace }}</span>
     </div>
 
-    <p class="hist-ctx-p" *ngIf="c.generalSummary">{{ c.generalSummary }}</p>
+    <p class="hist-ctx-p" *ngIf="c.generalSummary">
+      {{ c.generalSummary }}
+      <sup class="hist-ctx-mark" *ngIf="summaryMarkers" [attr.title]="'Fuentes ' + summaryMarkers">{{
+        summaryMarkers
+      }}</sup>
+    </p>
+    <div class="hist-ctx-inline-sources" *ngIf="summarySources.length">
+      <span class="hist-ctx-k">Fuentes del resumen</span>
+      <span class="fs12 muted" *ngFor="let s of summarySources; let last = last">
+        {{ s.title }}<span *ngIf="!last">; </span>
+      </span>
+    </div>
+
     <p class="hist-ctx-p hist-ctx-work" *ngIf="c.workSummary">
       <span class="hist-ctx-k">Esta obra.</span> {{ c.workSummary }}
+      <sup class="hist-ctx-mark" *ngIf="workMarkers">{{ workMarkers }}</sup>
     </p>
+    <div class="hist-ctx-inline-sources" *ngIf="workSources.length">
+      <span class="hist-ctx-k">Fuentes de la obra</span>
+      <span class="fs12 muted" *ngFor="let s of workSources; let last = last">
+        {{ s.title }}<span *ngIf="!last">; </span>
+      </span>
+    </div>
+
     <p class="hist-ctx-p" *ngIf="c.chronologyNote">
       <span class="hist-ctx-k">Cronología.</span> {{ c.chronologyNote }}
+      <sup class="hist-ctx-mark" *ngIf="chronoMarkers">{{ chronoMarkers }}</sup>
     </p>
+    <div class="hist-ctx-inline-sources" *ngIf="chronoSources.length">
+      <span class="hist-ctx-k">Fuentes de la cronología</span>
+      <span class="fs12 muted" *ngFor="let s of chronoSources; let last = last">
+        {{ s.title }}<span *ngIf="!last">; </span>
+      </span>
+    </div>
 
     <div class="hist-ctx-timeline" *ngIf="c.timeline?.length">
       <div class="hist-ctx-k fs13" style="margin-bottom: 6px">Línea de tiempo</div>
       <div class="hist-ctx-trow" *ngFor="let t of c.timeline">
         <span class="hist-ctx-tyears">{{ t.years }}</span>
-        <span class="hist-ctx-tlabel">{{ t.label }}</span>
+        <span class="hist-ctx-tlabel"
+          >{{ t.label }}
+          <sup class="hist-ctx-mark" *ngIf="timelineMarkers(t.refIds)">{{
+            timelineMarkers(t.refIds)
+          }}</sup></span
+        >
       </div>
     </div>
 
     <div class="hist-ctx-axes" *ngIf="axisRows.length">
       <div class="hist-ctx-axis" *ngFor="let row of axisRows">
-        <div class="hist-ctx-axis-label">{{ row.label }}</div>
+        <div class="hist-ctx-axis-label">
+          {{ row.label }}
+          <sup class="hist-ctx-mark" *ngIf="markersForAxis(row)">{{ markersForAxis(row) }}</sup>
+        </div>
         <div class="hist-ctx-axis-text">{{ row.text }}</div>
+        <div class="hist-ctx-axis-sources" *ngIf="row.sources.length">
+          <span class="hist-ctx-k">Fuentes</span>
+          <ul class="hist-ctx-axis-sourcelist">
+            <li *ngFor="let s of row.sources">
+              <a
+                *ngIf="s.url; else plainAxisRef"
+                class="app-lang-link"
+                [href]="s.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                >{{ s.title }}</a
+              >
+              <ng-template #plainAxisRef>
+                <span>{{ s.title }}</span>
+              </ng-template>
+              <span class="fs12 muted" *ngIf="s.locator"> ({{ s.locator }})</span>
+              <span class="fs12 muted" *ngIf="s.citation"> — {{ s.citation }}</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="hist-ctx-refs" *ngIf="c.references?.length">
-      <div class="hist-ctx-k fs13" style="margin-bottom: 6px">Referencias</div>
-      <ul class="hist-ctx-reflist">
-        <li *ngFor="let r of c.references">
+    <div class="hist-ctx-refs" *ngIf="numberedRefs.length">
+      <div class="hist-ctx-k fs13" style="margin-bottom: 6px">Bibliografía (referencias)</div>
+      <ol class="hist-ctx-reflist hist-ctx-refnum">
+        <li *ngFor="let item of numberedRefs" [attr.value]="item.n">
+          <span class="hist-ctx-refn">[{{ item.n }}]</span>
           <a
-            *ngIf="r.url; else plainRef"
+            *ngIf="item.ref.url; else plainRef"
             class="app-lang-link"
-            [href]="r.url"
+            [href]="item.ref.url"
             target="_blank"
             rel="noopener noreferrer"
-            >{{ r.title }}</a
+            >{{ item.ref.title }}</a
           >
           <ng-template #plainRef>
-            <span>{{ r.title }}</span>
+            <span>{{ item.ref.title }}</span>
           </ng-template>
-          <span class="fs12 muted" *ngIf="r.citation"> — {{ r.citation }}</span>
-          <span class="fs12 muted" *ngIf="r.note"> ({{ r.note }})</span>
+          <span class="fs12 muted" *ngIf="item.ref.citation"> — {{ item.ref.citation }}</span>
+          <span class="fs12 muted" *ngIf="item.ref.locator"> · {{ item.ref.locator }}</span>
+          <span class="fs12 muted" *ngIf="item.ref.note"> ({{ item.ref.note }})</span>
         </li>
-      </ul>
+      </ol>
     </div>
 
     <p class="fs12 muted hist-ctx-source" *ngIf="c.sourceNote">{{ c.sourceNote }}</p>

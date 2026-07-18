@@ -18,39 +18,129 @@
   "timeline": [
     {
       "years": "248/249",
-      "label": "Episcopado en Cartago"
+      "label": "Episcopado en Cartago",
+      "refIds": [
+        "cyprian-ep",
+        "frend-rise"
+      ]
     },
     {
       "years": "250–251",
-      "label": "Persecución de Decio; cuestión de los lapsi"
+      "label": "Persecución de Decio; cuestión de los lapsi",
+      "refIds": [
+        "cyprian-ep",
+        "frend-rise"
+      ]
     },
     {
       "years": "255–256",
-      "label": "Controversia bautismal con Esteban de Roma"
+      "label": "Controversia bautismal con Esteban de Roma",
+      "refIds": [
+        "cyprian-ep",
+        "frend-rise"
+      ]
     },
     {
       "years": "258",
-      "label": "Martirio bajo Valeriano"
+      "label": "Martirio bajo Valeriano",
+      "refIds": [
+        "cyprian-ep",
+        "frend-rise"
+      ]
     }
   ],
   "references": [
     {
+      "id": "britannica-rome",
+      "title": "Encyclopaedia Britannica: Roman Empire / Late antiquity",
+      "url": "https://www.britannica.com/place/Roman-Empire",
+      "note": "Marco imperial y crisis del Occidente.",
+      "citation": "Encyclopaedia Britannica, s.v. Roman Empire (consulta general)."
+    },
+    {
+      "id": "chadwick-ec",
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed.",
+      "note": "Historia general de los siglos I–V."
+    },
+    {
+      "id": "kelly-ecd",
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum.",
+      "note": "Desarrollo dogmático trinitario y cristológico."
+    },
+    {
+      "id": "frend-rise",
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984.",
+      "note": "Sociedad, persecuciones y África cristiana."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "cyprian-ep",
       "title": "Cyprian of Carthage, Epistles",
       "url": "https://www.newadvent.org/fathers/0506.htm",
-      "citation": "Cipriano de Cartago, Epistolae; CSEL / BAC."
-    },
-    {
-      "title": "Henry Chadwick, The Early Church",
-      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed."
-    },
-    {
-      "title": "W.H.C. Frend, The Rise of Christianity",
-      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984."
-    },
-    {
-      "title": "Oxford Dictionary of the Christian Church",
-      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+      "citation": "Cipriano de Cartago, Epistolae; CSEL / BAC.",
+      "note": "Texto primario; persecución y unidad eclesial."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "cyprian-ep",
+    "frend-rise",
+    "chadwick-ec"
+  ],
+  "axisSources": {
+    "lugar": [
+      "cyprian-ep",
+      "frend-rise",
+      "odcc"
+    ],
+    "personajes": [
+      "cyprian-ep",
+      "frend-rise",
+      "chadwick-ec"
+    ],
+    "gobierno": [
+      "frend-rise",
+      "cyprian-ep",
+      "britannica-rome"
+    ],
+    "cultura": [
+      "cyprian-ep",
+      "chadwick-ec",
+      "odcc"
+    ],
+    "religion": [
+      "cyprian-ep",
+      "frend-rise",
+      "kelly-ecd"
+    ],
+    "antropologia": [
+      "cyprian-ep",
+      "frend-rise",
+      "chadwick-ec"
+    ],
+    "creenciasMundanas": [
+      "frend-rise",
+      "chadwick-ec",
+      "odcc"
+    ],
+    "creenciaCristiana": [
+      "cyprian-ep",
+      "kelly-ecd",
+      "pelikan-ct"
+    ]
+  }
 }

@@ -17,31 +17,102 @@
   "timeline": [
     {
       "years": "1963–1965",
-      "label": "Conclusión del Vaticano II"
+      "label": "Conclusión del Vaticano II",
+      "refIds": [
+        "paul-vi",
+        "vat2-docs"
+      ]
     },
     {
       "years": "1968",
-      "label": "Humanae vitae"
+      "label": "Humanae vitae",
+      "refIds": [
+        "paul-vi",
+        "vat2-docs"
+      ]
     },
     {
       "years": "1975",
-      "label": "Evangelii nuntiandi"
+      "label": "Evangelii nuntiandi",
+      "refIds": [
+        "paul-vi",
+        "vat2-docs"
+      ]
     }
   ],
   "references": [
     {
-      "title": "Pablo VI — magisterio (vatican.va)",
-      "url": "https://www.vatican.va/content/paul-vi/es.html"
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
     },
     {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "vat2-docs",
       "title": "Documentos del Concilio Vaticano II (vatican.va)",
       "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index_sp.htm",
-      "citation": "Acta Apostolicae Sedis / vatican.va — Concilio Vaticano II."
+      "citation": "Acta Apostolicae Sedis / vatican.va — Concilio Vaticano II.",
+      "note": "Textos oficiales de las constituciones y decretos."
     },
     {
-      "title": "Oxford Dictionary of the Christian Church",
-      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+      "id": "paul-vi",
+      "title": "Pablo VI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html",
+      "note": "Humanae vitae, Evangelii nuntiandi, cierre del Vaticano II."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "paul-vi",
+    "vat2-docs",
+    "odcc"
+  ],
+  "axisSources": {
+    "lugar": [
+      "paul-vi",
+      "vat2-docs",
+      "odcc"
+    ],
+    "personajes": [
+      "paul-vi",
+      "vat2-docs",
+      "odcc"
+    ],
+    "gobierno": [
+      "paul-vi",
+      "vat2-docs",
+      "odcc"
+    ],
+    "cultura": [
+      "paul-vi",
+      "vat2-docs",
+      "pelikan-ct"
+    ],
+    "religion": [
+      "paul-vi",
+      "vat2-docs",
+      "odcc"
+    ],
+    "antropologia": [
+      "paul-vi",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "creenciasMundanas": [
+      "paul-vi",
+      "odcc",
+      "vat2-docs"
+    ],
+    "creenciaCristiana": [
+      "paul-vi",
+      "vat2-docs",
+      "pelikan-ct"
+    ]
+  }
 }

@@ -99,6 +99,23 @@ function main() {
   assert.notStrictEqual(conf.chronologyNote, cdd.chronologyNote);
   assert.notStrictEqual(conf.compositionYears, cdd.compositionYears);
 
+  // Dense citations on author profile
+  const ag = JSON.parse(
+    fs.readFileSync(path.join(root, 'authors/agustin-hipona.json'), 'utf8'),
+  );
+  assert.ok((ag.summaryRefIds || []).length >= 1, 'author summaryRefIds');
+  assert.ok(ag.axisSources && ag.axisSources.lugar?.length >= 1, 'author axisSources');
+  assert.ok(
+    (ag.references || []).every((r) => r.id),
+    'author refs have stable ids',
+  );
+  assert.ok((conf.workSummaryRefIds || []).length >= 1, 'doc workSummaryRefIds');
+  assert.ok((conf.chronologyRefIds || []).length >= 1, 'doc chronologyRefIds');
+  assert.ok(
+    (conf.references || []).some((r) => r.id === 'aug-conf' || r.id === 'brown-ag'),
+    'confesiones bibliography includes primary/secondary ids',
+  );
+
   const samples = ['cic-es', 'nicea-i-la', 'agustin-02-confesiones-es'];
   for (const id of samples) {
     assert.ok(packIds.has(id), `sample ${id}`);
@@ -111,6 +128,7 @@ function main() {
       authors: a.authors.length,
       missing: 0,
       coverageFail: 0,
+      denseCitations: true,
       samples,
     }),
   );

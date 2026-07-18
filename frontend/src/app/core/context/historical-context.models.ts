@@ -1,7 +1,6 @@
 /**
  * Offline historical-context pack types for Angular consumers.
  * Canonical pure logic + types: historical-context-resolve.logic.ts
- * Pipeline twin: scripts-descarga/models/historical-context.model.ts
  */
 export {
   CONTEXT_AXES_KEYS,
@@ -10,6 +9,7 @@ export {
 } from './historical-context-resolve.logic';
 export type {
   AuthorContextProfile,
+  AxisSourceMap,
   ContextAxes,
   ContextReference,
   DocumentContextOverlay,

@@ -8,18 +8,60 @@
   "timelineSlice": [
     {
       "years": "1983",
-      "label": "Código de Derecho Canónico de la Iglesia latina."
+      "label": "Código de Derecho Canónico de la Iglesia latina.",
+      "refIds": [
+        "cic-1983",
+        "cceo-1990"
+      ]
     }
   ],
   "references": [
     {
+      "id": "cic-1983",
       "title": "Código de Derecho Canónico (1983) — vatican.va",
-      "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html"
+      "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html",
+      "note": "Promulgación y texto del CIC latino."
     },
     {
+      "id": "cceo-1990",
+      "title": "Código de los Cánones de las Iglesias Orientales",
+      "url": "https://www.vatican.va/holy_father/john_paul_ii/apost_constitutions/documents/hf_jp-ii_apc_19901018_codex-can-eccl-orient-sp.html",
+      "note": "CCEO 1990."
+    },
+    {
+      "id": "jp2",
       "title": "Juan Pablo II — magisterio (vatican.va)",
-      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html",
+      "note": "Encíclicas y exhortaciones 1978–2005."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "cic-1997",
+      "title": "Catecismo de la Iglesia Católica (vatican.va)",
+      "url": "https://www.vatican.va/archive/catechism_sp/index_sp.html",
+      "note": "Texto típico del Catecismo (1992/1997)."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
+  "workSummaryRefIds": [
+    "cic-1983",
+    "cceo-1990",
+    "jp2"
+  ],
+  "chronologyRefIds": [
+    "cic-1983",
+    "cceo-1990",
+    "jp2"
+  ]
 }

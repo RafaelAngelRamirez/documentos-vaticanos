@@ -17,26 +17,93 @@
   "timeline": [
     {
       "years": "1885–1888",
-      "label": "Immortale Dei, Libertas, Diuturnum"
+      "label": "Immortale Dei, Libertas, Diuturnum",
+      "refIds": [
+        "leo-xiii",
+        "odcc"
+      ]
     },
     {
       "years": "1891",
-      "label": "Rerum novarum (marco del corpus social)"
+      "label": "Rerum novarum (marco del corpus social)",
+      "refIds": [
+        "leo-xiii",
+        "odcc"
+      ]
     }
   ],
   "references": [
     {
-      "title": "León XIII — encíclicas (vatican.va)",
-      "url": "https://www.vatican.va/content/leo-xiii/es.html"
-    },
-    {
-      "title": "Oxford Dictionary of the Christian Church",
-      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
-    },
-    {
+      "id": "pelikan-ct",
       "title": "Jaroslav Pelikan, The Christian Tradition",
-      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press."
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "cds-2004",
+      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sp.html",
+      "note": "Síntesis de doctrina social (PCJP)."
+    },
+    {
+      "id": "leo-xiii",
+      "title": "León XIII — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/leo-xiii/es.html",
+      "note": "Corpus de encíclicas (Libertas, Immortale Dei, etc.)."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "leo-xiii",
+    "odcc",
+    "pelikan-ct"
+  ],
+  "axisSources": {
+    "lugar": [
+      "leo-xiii",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "personajes": [
+      "leo-xiii",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "gobierno": [
+      "leo-xiii",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "cultura": [
+      "leo-xiii",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "religion": [
+      "leo-xiii",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "antropologia": [
+      "leo-xiii",
+      "odcc",
+      "cds-2004"
+    ],
+    "creenciasMundanas": [
+      "leo-xiii",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "creenciaCristiana": [
+      "leo-xiii",
+      "pelikan-ct",
+      "odcc"
+    ]
+  }
 }

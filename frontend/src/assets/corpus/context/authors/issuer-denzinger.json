@@ -17,19 +17,86 @@
   "timeline": [
     {
       "years": "1854",
-      "label": "Primera edición Denzinger"
+      "label": "Primera edición Denzinger",
+      "refIds": [
+        "denzinger-dh",
+        "odcc"
+      ]
     }
   ],
   "references": [
     {
-      "title": "Denzinger-Hünermann, Enchiridion symbolorum",
-      "citation": "Denzinger, H. / Hünermann, P. Enchiridion symbolorum definitionum et declarationum de rebus fidei et morum.",
-      "url": "https://www.vatican.va/archive/catechism_lt/index_lt.htm"
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
     },
     {
+      "id": "odcc",
       "title": "Oxford Dictionary of the Christian Church",
-      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "tanner-dec",
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
+      "note": "Texto y traducción de decretos conciliares."
+    },
+    {
+      "id": "denzinger-dh",
+      "title": "Denzinger-Hünermann, Enchiridion symbolorum",
+      "citation": "Denzinger, H. / Hünermann, P. Enchiridion symbolorum definitionum et declarationum de rebus fidei et morum.",
+      "url": "https://www.vatican.va/archive/catechism_lt/index_lt.htm",
+      "note": "Compilación de definiciones magisteriales."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "denzinger-dh",
+    "odcc",
+    "pelikan-ct"
+  ],
+  "axisSources": {
+    "lugar": [
+      "denzinger-dh",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "personajes": [
+      "denzinger-dh",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "gobierno": [
+      "denzinger-dh",
+      "odcc",
+      "tanner-dec"
+    ],
+    "cultura": [
+      "denzinger-dh",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "religion": [
+      "denzinger-dh",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "antropologia": [
+      "denzinger-dh",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "creenciasMundanas": [
+      "denzinger-dh",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "creenciaCristiana": [
+      "denzinger-dh",
+      "tanner-dec",
+      "pelikan-ct"
+    ]
+  }
 }

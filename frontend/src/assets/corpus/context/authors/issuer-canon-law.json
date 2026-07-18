@@ -17,30 +17,113 @@
   "timeline": [
     {
       "years": "1917",
-      "label": "Código pio-benedictino"
+      "label": "Código pio-benedictino",
+      "refIds": [
+        "cic-1983",
+        "cceo-1990"
+      ]
     },
     {
       "years": "1983",
-      "label": "CIC latino"
+      "label": "CIC latino",
+      "refIds": [
+        "cic-1983",
+        "cceo-1990"
+      ]
     },
     {
       "years": "1990",
-      "label": "CCEO"
+      "label": "CCEO",
+      "refIds": [
+        "cic-1983",
+        "cceo-1990"
+      ]
     }
   ],
   "references": [
     {
-      "title": "Código de Derecho Canónico (1983) — vatican.va",
-      "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html"
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
     },
     {
-      "title": "Código de los Cánones de las Iglesias Orientales — vatican.va",
-      "url": "https://www.vatican.va/holy_father/john_paul_ii/apost_constitutions/documents/hf_jp-ii_apc_19901018_codex-can-eccl-orient-sp.html"
-    },
-    {
+      "id": "odcc",
       "title": "Oxford Dictionary of the Christian Church",
-      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "cic-1997",
+      "title": "Catecismo de la Iglesia Católica (vatican.va)",
+      "url": "https://www.vatican.va/archive/catechism_sp/index_sp.html",
+      "note": "Texto típico del Catecismo (1992/1997)."
+    },
+    {
+      "id": "cic-1983",
+      "title": "Código de Derecho Canónico (1983) — vatican.va",
+      "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html",
+      "note": "Promulgación y texto del CIC latino."
+    },
+    {
+      "id": "cceo-1990",
+      "title": "Código de los Cánones de las Iglesias Orientales",
+      "url": "https://www.vatican.va/holy_father/john_paul_ii/apost_constitutions/documents/hf_jp-ii_apc_19901018_codex-can-eccl-orient-sp.html",
+      "note": "CCEO 1990."
+    },
+    {
+      "id": "jp2",
+      "title": "Juan Pablo II — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html",
+      "note": "Encíclicas y exhortaciones 1978–2005."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "cic-1983",
+    "cceo-1990",
+    "odcc"
+  ],
+  "axisSources": {
+    "lugar": [
+      "cic-1983",
+      "cceo-1990",
+      "odcc"
+    ],
+    "personajes": [
+      "cic-1983",
+      "jp2",
+      "odcc"
+    ],
+    "gobierno": [
+      "cic-1983",
+      "cceo-1990",
+      "odcc"
+    ],
+    "cultura": [
+      "cic-1983",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "religion": [
+      "cic-1983",
+      "cceo-1990",
+      "cic-1997"
+    ],
+    "antropologia": [
+      "cic-1983",
+      "odcc",
+      "jp2"
+    ],
+    "creenciasMundanas": [
+      "cic-1983",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "creenciaCristiana": [
+      "cic-1983",
+      "cceo-1990",
+      "pelikan-ct"
+    ]
+  }
 }

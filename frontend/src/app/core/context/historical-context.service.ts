@@ -35,7 +35,11 @@ function profileToSaintContext(
       authorProfileId: author.id,
       chronologyNote:
         'Perfil general del autor/santo (todas las obras del corpus).',
+      chronologyRefIds: author.summaryRefIds || author.references?.map((r) => r.id!).filter(Boolean),
       compositionYears: author.years,
+      workSummary:
+        'Vista de autor: el contexto general aplica a todas las obras enlazadas; cada libro del corpus aporta su tramo cronológico propio en su ficha.',
+      workSummaryRefIds: author.summaryRefIds || author.references?.map((r) => r.id!).filter(Boolean),
     },
     author,
   );

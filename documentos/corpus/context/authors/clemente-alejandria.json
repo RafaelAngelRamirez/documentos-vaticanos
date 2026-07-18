@@ -18,31 +18,113 @@
   "timeline": [
     {
       "years": "c. 180–200",
-      "label": "Actividad docente en Alejandría"
+      "label": "Actividad docente en Alejandría",
+      "refIds": [
+        "clement-paed",
+        "chadwick-ec"
+      ]
     },
     {
       "years": "c. 190–200",
-      "label": "Composición del Pedagogo y el Protréptico"
+      "label": "Composición del Pedagogo y el Protréptico",
+      "refIds": [
+        "clement-paed",
+        "chadwick-ec"
+      ]
     }
   ],
   "references": [
     {
+      "id": "britannica-rome",
+      "title": "Encyclopaedia Britannica: Roman Empire / Late antiquity",
+      "url": "https://www.britannica.com/place/Roman-Empire",
+      "note": "Marco imperial y crisis del Occidente.",
+      "citation": "Encyclopaedia Britannica, s.v. Roman Empire (consulta general)."
+    },
+    {
+      "id": "chadwick-ec",
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed.",
+      "note": "Historia general de los siglos I–V."
+    },
+    {
+      "id": "kelly-ecd",
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum.",
+      "note": "Desarrollo dogmático trinitario y cristológico."
+    },
+    {
+      "id": "frend-rise",
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984.",
+      "note": "Sociedad, persecuciones y África cristiana."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "clement-paed",
       "title": "Clement of Alexandria, The Paedagogus",
       "url": "https://www.newadvent.org/fathers/0209.htm",
-      "citation": "Clemente de Alejandría, El Pedagogo; PG 8."
-    },
-    {
-      "title": "Henry Chadwick, The Early Church",
-      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed."
-    },
-    {
-      "title": "Jaroslav Pelikan, The Christian Tradition",
-      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press."
-    },
-    {
-      "title": "Oxford Dictionary of the Christian Church",
-      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+      "citation": "Clemente de Alejandría, El Pedagogo; PG 8.",
+      "note": "Texto primario; ética y paideia cristiana."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "clement-paed",
+    "chadwick-ec",
+    "odcc"
+  ],
+  "axisSources": {
+    "lugar": [
+      "clement-paed",
+      "chadwick-ec",
+      "odcc"
+    ],
+    "personajes": [
+      "clement-paed",
+      "odcc",
+      "chadwick-ec"
+    ],
+    "gobierno": [
+      "frend-rise",
+      "chadwick-ec",
+      "britannica-rome"
+    ],
+    "cultura": [
+      "clement-paed",
+      "chadwick-ec",
+      "pelikan-ct"
+    ],
+    "religion": [
+      "clement-paed",
+      "kelly-ecd",
+      "chadwick-ec"
+    ],
+    "antropologia": [
+      "clement-paed",
+      "chadwick-ec",
+      "frend-rise"
+    ],
+    "creenciasMundanas": [
+      "clement-paed",
+      "chadwick-ec",
+      "odcc"
+    ],
+    "creenciaCristiana": [
+      "clement-paed",
+      "kelly-ecd",
+      "pelikan-ct"
+    ]
+  }
 }

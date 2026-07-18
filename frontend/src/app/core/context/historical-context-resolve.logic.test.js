@@ -109,7 +109,7 @@ async function main() {
     (rCdd.workSummary || '').slice(0, 40),
   );
 
-  // Sample kinds
+  // Sample kinds + dense citations
   for (const sample of ['cic-es', 'nicea-i-es', 'dv-es']) {
     const o = loadJson(path.join(PACK_DOCS, `${sample}.json`));
     const a = o.authorProfileId
@@ -117,15 +117,69 @@ async function main() {
       : null;
     const r = logic.resolveHistoricalContext(sample, o, a);
     assert.ok(logic.isCoverageComplete(r), `sample ${sample} incomplete`);
+    assert.ok(
+      logic.hasDenseCitations(r),
+      `sample ${sample} missing dense per-axis/paragraph citations`,
+    );
   }
 
-  // axisRowsForUi skips empties
-  const rows = logic.axisRowsForUi(rConf.axes, logic.CONTEXT_AXIS_LABELS);
+  assert.ok(logic.hasDenseCitations(rConf), 'confesiones dense citations');
+  assert.ok(logic.hasDenseCitations(rCdd), 'ciudad de dios dense citations');
+  assert.ok(
+    (rConf.summaryRefIds || []).length >= 1,
+    'summaryRefIds on resolved',
+  );
+  assert.ok(
+    (rConf.workSummaryRefIds || []).length >= 1,
+    'workSummaryRefIds on resolved',
+  );
+  assert.ok(
+    (rConf.axisSources?.lugar || []).length >= 1,
+    'axisSources.lugar present',
+  );
+  // confesiones work sources should prefer primary text ids
+  assert.ok(
+    (rConf.workSummaryRefIds || []).some((id) =>
+      /aug-conf|brown|ce-augustine|conf/i.test(id),
+    ),
+    `confesiones work refs unexpected: ${(rConf.workSummaryRefIds || []).join(',')}`,
+  );
+
+  // axisRowsForUi with sources
+  const rows = logic.axisRowsForUi(
+    rConf.axes,
+    logic.CONTEXT_AXIS_LABELS,
+    rConf.axisSources,
+    rConf.references,
+  );
   assert.strictEqual(rows.length, 8);
+  assert.ok(rows.every((row) => row.sources && row.sources.length >= 1));
+
+  const order = logic.orderedRefIds(rConf);
+  assert.ok(order.length >= 3, 'ordered bibliography ids');
+  assert.ok(logic.sourceMarkers(rConf.summaryRefIds, order).startsWith('['));
+
+  // Dense gate over full corpus
+  let notDense = [];
+  for (const id of corpusIds) {
+    const entry = pack.documents.find((d) => d.documentId === id);
+    const overlay = loadJson(path.join(PACK_DOCS, `${id}.json`));
+    const author = entry.authorProfileId
+      ? loadJson(path.join(PACK_AUTH, `${entry.authorProfileId}.json`))
+      : null;
+    const resolved = logic.resolveHistoricalContext(id, overlay, author);
+    if (!logic.hasDenseCitations(resolved)) notDense.push(id);
+  }
+  assert.strictEqual(
+    notDense.length,
+    0,
+    `not dense: ${notDense.slice(0, 12).join(',')}`,
+  );
 
   // null-safe
   assert.strictEqual(logic.resolveHistoricalContext('x', null, null), null);
   assert.strictEqual(logic.isCoverageComplete(null), false);
+  assert.strictEqual(logic.hasDenseCitations(null), false);
 
   console.log('ok historical-context-resolve');
   console.log(
@@ -134,7 +188,9 @@ async function main() {
       packDocs: pack.documents.length,
       authors: pack.authors.length,
       incomplete: 0,
+      notDense: 0,
       agustinChronologyDiff: true,
+      denseCitations: true,
       samples: ['cic-es', 'nicea-i-es', 'dv-es', 'agustin-02-confesiones-es'],
     }),
   );

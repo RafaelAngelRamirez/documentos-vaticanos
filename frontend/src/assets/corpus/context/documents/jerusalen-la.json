@@ -8,18 +8,67 @@
   "timelineSlice": [
     {
       "years": "c. 49–50",
-      "label": "Concilio · Jerusalén"
+      "label": "Concilio · Jerusalén",
+      "refIds": [
+        "tanner-dec",
+        "ce-councils"
+      ]
     }
   ],
   "references": [
     {
+      "id": "tanner-dec",
       "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
-      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
+      "note": "Texto y traducción de decretos conciliares."
     },
     {
+      "id": "ce-councils",
       "title": "Catholic Encyclopedia: General Councils",
-      "url": "https://www.newadvent.org/cathen/04423f.htm"
+      "url": "https://www.newadvent.org/cathen/04423f.htm",
+      "note": "Síntesis de concilios ecuménicos."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "chadwick-ec",
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed.",
+      "note": "Historia general de los siglos I–V."
+    },
+    {
+      "id": "kelly-ecd",
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum.",
+      "note": "Desarrollo dogmático trinitario y cristológico."
+    },
+    {
+      "id": "frend-rise",
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress, 1984.",
+      "note": "Sociedad, persecuciones y África cristiana."
+    },
+    {
+      "id": "bible-canon",
+      "title": "Sagrada Escritura (canon judeocristiano)",
+      "citation": "Texto masorético / LXX / NT griego; ed. Pueblo de Dios (ES).",
+      "url": "https://www.vatican.va/archive/ESL0506/_INDEX.HTM",
+      "note": "Texto bíblico de referencia eclesial."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
+  "workSummaryRefIds": [
+    "tanner-dec",
+    "ce-councils",
+    "odcc"
+  ],
+  "chronologyRefIds": [
+    "tanner-dec",
+    "ce-councils",
+    "odcc"
+  ]
 }

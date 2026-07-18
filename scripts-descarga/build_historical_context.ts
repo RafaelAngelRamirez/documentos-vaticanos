@@ -14,6 +14,7 @@ import type {
 import { AUTHOR_PROFILES } from './src/context/seed_profiles';
 import { buildAllDocumentSeeds } from './src/context/seed_documents';
 import { writeHistoricalContextPack } from './src/context/write_context';
+import { enrichPack } from './src/context/dense_sources';
 import { R } from './src/context/refs';
 
 const REPO = path.resolve(__dirname, '..');
@@ -158,12 +159,20 @@ function main(): void {
   const used = new Set(
     documents.map((d) => d.authorProfileId).filter(Boolean) as string[],
   );
-  const authors = AUTHOR_PROFILES.filter((a) => used.has(a.id));
+  const authorsRaw = AUTHOR_PROFILES.filter((a) => used.has(a.id));
+
+  // Dense citations: per-axis / per-paragraph ref ids + bibliography with stable ids
+  const { authors, documents: documentsDense } = enrichPack({
+    authors: authorsRaw,
+    documents,
+  });
 
   const result = writeHistoricalContextPack({
     authors,
-    documents,
-    version: '1.0.0',
+    documents: documentsDense,
+    version: '1.1.0',
+    sourceNote:
+      'Pack de contexto histórico offline v1.1: ejes + citas densas (summaryRefIds, axisSources, work/chrono ref ids). Compilado; no monografía peer-reviewed.',
   });
 
   console.log(
@@ -175,6 +184,7 @@ function main(): void {
         authors: result.authorCount,
         autoFallback: missing.length,
         fallbackIds: missing,
+        denseCitations: true,
         roots: result.roots,
       },
       null,

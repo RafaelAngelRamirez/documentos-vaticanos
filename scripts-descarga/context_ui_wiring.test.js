@@ -34,8 +34,16 @@ function main() {
   const blockHtml = read(
     'components/historical-context-block/historical-context-block.component.html',
   );
-  assert.ok(/Referencias|references/.test(blockHtml));
+  assert.ok(/Bibliografía|Referencias|references|numberedRefs/.test(blockHtml));
   assert.ok(/axisRows|hist-ctx-axis/.test(blockHtml));
+  assert.ok(
+    /hist-ctx-mark|summaryMarkers|Fuentes/.test(blockHtml),
+    'UI shows per-block source markers or labels',
+  );
+  assert.ok(
+    /axisSources|row\.sources|hist-ctx-axis-sources/.test(blockHtml),
+    'UI lists per-axis sources',
+  );
 
   const docHtml = read('pages/documento-detalle/documento-detalle.component.html');
   assert.ok(

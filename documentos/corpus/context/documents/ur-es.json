@@ -8,23 +8,69 @@
   "timelineSlice": [
     {
       "years": "1962–1965",
-      "label": "Concilio Vaticano II"
+      "label": "Concilio Vaticano II",
+      "refIds": [
+        "vat2-docs",
+        "tanner-dec"
+      ]
     },
     {
       "years": "1964",
-      "label": "Promulgación de Unitatis redintegratio"
+      "label": "Promulgación de Unitatis redintegratio",
+      "refIds": [
+        "vat2-docs",
+        "tanner-dec"
+      ]
     }
   ],
   "references": [
     {
+      "id": "vat2-docs",
       "title": "Documentos del Concilio Vaticano II (vatican.va)",
       "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index_sp.htm",
-      "citation": "Acta Apostolicae Sedis / vatican.va — Concilio Vaticano II."
+      "citation": "Acta Apostolicae Sedis / vatican.va — Concilio Vaticano II.",
+      "note": "Textos oficiales de las constituciones y decretos."
     },
     {
+      "id": "tanner-dec",
       "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
-      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
+      "note": "Texto y traducción de decretos conciliares."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "john-xxiii",
+      "title": "Juan XXIII — Pacem in terris y entorno",
+      "url": "https://www.vatican.va/content/john-xxiii/es/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html",
+      "note": "Pacem in terris; convocatoria del Vaticano II."
+    },
+    {
+      "id": "paul-vi",
+      "title": "Pablo VI — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html",
+      "note": "Humanae vitae, Evangelii nuntiandi, cierre del Vaticano II."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
+  "workSummaryRefIds": [
+    "vat2-docs",
+    "tanner-dec",
+    "odcc"
+  ],
+  "chronologyRefIds": [
+    "vat2-docs",
+    "tanner-dec",
+    "odcc"
+  ]
 }

@@ -8,14 +8,54 @@
   "timelineSlice": [
     {
       "years": "1881",
-      "label": "Diuturnum illud: origen del poder civil."
+      "label": "Diuturnum illud: origen del poder civil.",
+      "refIds": [
+        "odcc",
+        "pelikan-ct"
+      ]
     }
   ],
   "references": [
     {
-      "title": "León XIII — encíclicas (vatican.va)",
-      "url": "https://www.vatican.va/content/leo-xiii/es.html"
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "tanner-dec",
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
+      "note": "Texto y traducción de decretos conciliares."
+    },
+    {
+      "id": "leo-xiii",
+      "title": "León XIII — magisterio (vatican.va)",
+      "url": "https://www.vatican.va/content/leo-xiii/es.html",
+      "note": "Corpus de encíclicas (Libertas, Immortale Dei, etc.)."
+    },
+    {
+      "id": "cds-2004",
+      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sp.html",
+      "note": "Síntesis de doctrina social (PCJP)."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
+  "workSummaryRefIds": [
+    "odcc",
+    "pelikan-ct",
+    "tanner-dec"
+  ],
+  "chronologyRefIds": [
+    "odcc",
+    "pelikan-ct",
+    "tanner-dec"
+  ]
 }

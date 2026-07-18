@@ -8,14 +8,58 @@
   "timelineSlice": [
     {
       "years": "1988",
-      "label": "Mulieris dignitatem: dignidad de la mujer."
+      "label": "Mulieris dignitatem: dignidad de la mujer.",
+      "refIds": [
+        "jp2",
+        "odcc"
+      ]
     }
   ],
   "references": [
     {
+      "id": "jp2",
       "title": "Juan Pablo II — magisterio (vatican.va)",
-      "url": "https://www.vatican.va/content/john-paul-ii/es.html"
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html",
+      "note": "Encíclicas y exhortaciones 1978–2005."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
+    },
+    {
+      "id": "cic-1997",
+      "title": "Catecismo de la Iglesia Católica (vatican.va)",
+      "url": "https://www.vatican.va/archive/catechism_sp/index_sp.html",
+      "note": "Texto típico del Catecismo (1992/1997)."
+    },
+    {
+      "id": "cic-1983",
+      "title": "Código de Derecho Canónico (1983) — vatican.va",
+      "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html",
+      "note": "Promulgación y texto del CIC latino."
+    },
+    {
+      "id": "cds-2004",
+      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sp.html",
+      "note": "Síntesis de doctrina social (PCJP)."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
+  "workSummaryRefIds": [
+    "jp2",
+    "odcc"
+  ],
+  "chronologyRefIds": [
+    "jp2",
+    "odcc"
+  ]
 }

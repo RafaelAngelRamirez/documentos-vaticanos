@@ -17,30 +17,99 @@
   "timeline": [
     {
       "years": "1864",
-      "label": "Quanta cura y Syllabus"
+      "label": "Quanta cura y Syllabus",
+      "refIds": [
+        "vat1-pa",
+        "quanta-cura"
+      ]
     },
     {
       "years": "1869–1870",
-      "label": "Concilio Vaticano I"
+      "label": "Concilio Vaticano I",
+      "refIds": [
+        "vat1-pa",
+        "quanta-cura"
+      ]
     }
   ],
   "references": [
     {
-      "title": "Concilio Vaticano I — Dei Filius / Pastor Aeternus",
-      "url": "https://www.vatican.va/content/pius-ix/la/documents/constitutio-dogmatica-pastor-aeternus-18-iulii-1870.html"
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
     },
     {
-      "title": "Pío IX, Quanta cura (1864)",
-      "url": "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html"
-    },
-    {
-      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
-      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
-    },
-    {
+      "id": "odcc",
       "title": "Oxford Dictionary of the Christian Church",
-      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press."
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "tanner-dec",
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
+      "note": "Texto y traducción de decretos conciliares."
+    },
+    {
+      "id": "vat1-pa",
+      "title": "Concilio Vaticano I — Pastor Aeternus / Dei Filius",
+      "url": "https://www.vatican.va/content/pius-ix/la/documents/constitutio-dogmatica-pastor-aeternus-18-iulii-1870.html",
+      "note": "Constituciones dogmáticas del Vaticano I."
+    },
+    {
+      "id": "quanta-cura",
+      "title": "Pío IX, Quanta cura (1864)",
+      "url": "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html",
+      "note": "Encíclica y Syllabus en el entorno."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "vat1-pa",
+    "quanta-cura",
+    "tanner-dec"
+  ],
+  "axisSources": {
+    "lugar": [
+      "vat1-pa",
+      "quanta-cura",
+      "odcc"
+    ],
+    "personajes": [
+      "vat1-pa",
+      "quanta-cura",
+      "odcc"
+    ],
+    "gobierno": [
+      "vat1-pa",
+      "quanta-cura",
+      "odcc"
+    ],
+    "cultura": [
+      "vat1-pa",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "religion": [
+      "vat1-pa",
+      "quanta-cura",
+      "pelikan-ct"
+    ],
+    "antropologia": [
+      "vat1-pa",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "creenciasMundanas": [
+      "quanta-cura",
+      "vat1-pa",
+      "odcc"
+    ],
+    "creenciaCristiana": [
+      "vat1-pa",
+      "tanner-dec",
+      "pelikan-ct"
+    ]
+  }
 }

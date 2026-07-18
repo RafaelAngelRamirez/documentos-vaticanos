@@ -11,18 +11,61 @@
   "timelineSlice": [
     {
       "years": "1215",
-      "label": "Concilio · Roma (Letrán)"
+      "label": "Concilio · Roma (Letrán)",
+      "refIds": [
+        "tanner-dec",
+        "ce-councils"
+      ]
     }
   ],
   "references": [
     {
+      "id": "tanner-dec",
       "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
-      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
+      "note": "Texto y traducción de decretos conciliares."
     },
     {
+      "id": "ce-councils",
       "title": "Catholic Encyclopedia: General Councils",
-      "url": "https://www.newadvent.org/cathen/04423f.htm"
+      "url": "https://www.newadvent.org/cathen/04423f.htm",
+      "note": "Síntesis de concilios ecuménicos."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "kelly-ecd",
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum.",
+      "note": "Desarrollo dogmático trinitario y cristológico."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias."
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
+  "workSummaryRefIds": [
+    "tanner-dec",
+    "ce-councils",
+    "odcc"
+  ],
+  "chronologyRefIds": [
+    "tanner-dec",
+    "ce-councils",
+    "odcc"
+  ],
+  "axisSources": {
+    "cultura": [
+      "tanner-dec",
+      "ce-councils",
+      "odcc"
+    ]
+  }
 }

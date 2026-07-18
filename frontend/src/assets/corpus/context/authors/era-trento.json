@@ -17,32 +17,102 @@
   "timeline": [
     {
       "years": "1545–1563",
-      "label": "Sesiones del Concilio de Trento"
+      "label": "Sesiones del Concilio de Trento",
+      "refIds": [
+        "trent-docs",
+        "tanner-dec"
+      ]
     },
     {
       "years": "1566",
-      "label": "Catecismo Romano (Pío V)"
+      "label": "Catecismo Romano (Pío V)",
+      "refIds": [
+        "trent-docs",
+        "tanner-dec"
+      ]
     }
   ],
   "references": [
     {
-      "title": "Concilio de Trento — documentos (vatican.va / Tanner)",
-      "url": "https://www.vatican.va/archive/hist_councils/tri_council/index.htm",
-      "citation": "Concilium Tridentinum; Tanner, Decrees…"
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas."
     },
     {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Entradas biográficas y de concilios/magisterio."
+    },
+    {
+      "id": "tanner-dec",
       "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
-      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990."
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC: Georgetown University Press, 1990.",
+      "note": "Texto y traducción de decretos conciliares."
     },
     {
+      "id": "trent-docs",
+      "title": "Concilio de Trento — documentos",
+      "url": "https://www.vatican.va/archive/hist_councils/tri_council/index.htm",
+      "citation": "Concilium Tridentinum; Tanner, Decrees…",
+      "note": "Actas y decretos tridentinos."
+    },
+    {
+      "id": "catech-roman",
       "title": "Catecismo Romano (Trento / Pío V)",
       "citation": "Catechismus Romanus ad parochos (1566); ed. críticas y traducciones.",
-      "url": "https://www.newadvent.org/cathen/13120c.htm"
-    },
-    {
-      "title": "Jaroslav Pelikan, The Christian Tradition",
-      "citation": "Pelikan, Jaroslav. The Christian Tradition. Vols. 1–5. Chicago: University of Chicago Press."
+      "url": "https://www.newadvent.org/cathen/13120c.htm",
+      "note": "Catecismo tridentino para párrocos."
     }
   ],
-  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta."
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "trent-docs",
+    "tanner-dec",
+    "catech-roman"
+  ],
+  "axisSources": {
+    "lugar": [
+      "trent-docs",
+      "tanner-dec",
+      "odcc"
+    ],
+    "personajes": [
+      "trent-docs",
+      "tanner-dec",
+      "odcc"
+    ],
+    "gobierno": [
+      "trent-docs",
+      "tanner-dec",
+      "odcc"
+    ],
+    "cultura": [
+      "trent-docs",
+      "pelikan-ct",
+      "catech-roman"
+    ],
+    "religion": [
+      "trent-docs",
+      "tanner-dec",
+      "pelikan-ct"
+    ],
+    "antropologia": [
+      "trent-docs",
+      "odcc",
+      "catech-roman"
+    ],
+    "creenciasMundanas": [
+      "trent-docs",
+      "odcc",
+      "pelikan-ct"
+    ],
+    "creenciaCristiana": [
+      "trent-docs",
+      "tanner-dec",
+      "catech-roman",
+      "pelikan-ct"
+    ]
+  }
 }
