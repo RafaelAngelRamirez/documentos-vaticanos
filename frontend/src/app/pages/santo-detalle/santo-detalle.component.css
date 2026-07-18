@@ -62,3 +62,69 @@
 .fuente-block a {
   word-break: break-all;
 }
+
+.primary {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.gbtn.listen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+  min-height: 48px;
+}
+
+.reinicio {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  background: none;
+  border: none;
+  font: inherit;
+  color: var(--muted);
+  cursor: pointer;
+  min-height: 48px;
+}
+
+.reinicio:hover {
+  color: var(--acc);
+}
+
+.pos {
+  margin-top: 12px;
+}
+
+.meta2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 16px;
+  max-width: 360px;
+}
+
+.theme-chip {
+  cursor: pointer;
+  font: inherit;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: inherit;
+}
+
+.theme-chip:hover,
+.theme-chip:active {
+  border-color: var(--acc);
+  color: var(--acc);
+}
+
+.toc {
+  cursor: pointer;
+}
+
+.toc:hover {
+  color: var(--acc);
+}

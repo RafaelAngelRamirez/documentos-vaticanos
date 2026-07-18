@@ -29,7 +29,7 @@
     "test:semantic-search": "node --experimental-strip-types src/app/core/search/semantic-search.logic.test.js",
     "test:related-suggestion": "node --experimental-strip-types src/app/core/search/related-suggestion.logic.test.js",
     "test:document-toc": "node --experimental-strip-types src/app/services/document-toc.logic.test.js",
-    "test:santoral": "node --experimental-strip-types src/app/core/santoral/santoral-resolve.logic.test.js"
+    "test:santoral": "node --experimental-strip-types src/app/core/santoral/santoral-resolve.logic.test.js && node --experimental-strip-types src/app/core/santoral/santoral-units.logic.test.js && node --experimental-strip-types src/app/core/santoral/santoral-progress.logic.test.js"
   },
   "dependencies": {
     "@angular/animations": "^16.0.1",

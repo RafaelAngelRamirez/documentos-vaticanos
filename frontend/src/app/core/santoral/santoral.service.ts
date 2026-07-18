@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, shareReplay, tap } from 'rxjs/operators';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, map, shareReplay, tap } from 'rxjs/operators';
 import {
   SANTORAL_MANIFEST_URL,
   SaintRecord,
@@ -13,7 +13,21 @@ import {
   siblingDocumentIds,
   SantoralDocRef,
 } from './santoral-resolve.logic';
+import {
+  isSaintDocumentId,
+  parseSaintDocumentId,
+  saintDocumentId,
+  saintToReadingDocument,
+  SaintLoadedDocument,
+} from './santoral-units.logic';
 import { CorpusService } from '../corpus/corpus.service';
+import {
+  Article,
+  DocumentMeta,
+  Indice,
+  IndiceDocumentos,
+  LoadedDocument,
+} from '../corpus/corpus.models';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +35,8 @@ import { CorpusService } from '../corpus/corpus.service';
 export class SantoralService {
   private manifest: SantoralManifest | null = null;
   private inflight$: Observable<SantoralManifest> | null = null;
+  /** In-memory cache of materialized saint bios for the reader path. */
+  private readonly saintDocs = new Map<string, LoadedDocument>();
 
   constructor(
     private readonly http: HttpClient,
@@ -129,4 +145,89 @@ export class SantoralService {
     });
   }
 
+  /** Stable documentId for reading a saint biography in the real lector. */
+  readingDocumentId(saintId: string): string {
+    return saintDocumentId(saintId);
+  }
+
+  /** True when id is `santoral:{saintId}` (not a corpus pack id). */
+  isReadingDocumentId(documentId: string | undefined | null): boolean {
+    return isSaintDocumentId(documentId);
+  }
+
+  /**
+   * Materialize saint bio as LoadedDocument for `/leyendo/santoral:…`.
+   * Offline-only; does not touch the Biblioteca catalog.
+   */
+  ensureSaintLoaded(documentId: string): Observable<LoadedDocument> {
+    if (!isSaintDocumentId(documentId)) {
+      return throwError(
+        () => new Error(`Not a santoral reading id: ${documentId}`),
+      );
+    }
+    const cached = this.saintDocs.get(documentId);
+    if (cached) {
+      return of(cached);
+    }
+    const saintId = parseSaintDocumentId(documentId)!;
+    return this.loadManifest().pipe(
+      map(() => {
+        const saint = this.getSaint(saintId);
+        if (!saint) {
+          throw new Error(`Santo no encontrado: ${saintId}`);
+        }
+        const built = saintToReadingDocument(saint);
+        if (!built) {
+          throw new Error(`No se pudo materializar biografía: ${saintId}`);
+        }
+        const loaded = this.toLoadedDocument(built);
+        this.saintDocs.set(documentId, loaded);
+        return loaded;
+      }),
+    );
+  }
+
+  /** Facade shape used by CargarDocumentosJsonService / lector. */
+  ensureSaintAsIndice(documentId: string): Observable<IndiceDocumentos> {
+    return this.ensureSaintLoaded(documentId).pipe(
+      map((loaded) => ({
+        id: loaded.meta.id,
+        nombre: loaded.meta.title || loaded.meta.id,
+        title: loaded.meta.title,
+        shortTitle: loaded.meta.shortTitle,
+        locale: loaded.meta.locale,
+        sourceUrl: loaded.meta.sourceUrl,
+        documento: loaded.documento as Article[],
+        indice: loaded.indice as Indice,
+      })),
+    );
+  }
+
+  /** Meta for a materialized saint doc (for chrome that calls getMeta). */
+  getSaintMeta(documentId: string): DocumentMeta | undefined {
+    const cached = this.saintDocs.get(documentId);
+    if (cached) return cached.meta;
+    const saintId = parseSaintDocumentId(documentId);
+    if (!saintId) return undefined;
+    const saint = this.getSaint(saintId);
+    if (!saint) return undefined;
+    const built = saintToReadingDocument(saint);
+    return built?.meta as DocumentMeta | undefined;
+  }
+
+  /**
+   * Ensure saint bio is ready and return LoadedDocument (preload from cover).
+   */
+  loadReadingDocumentForSaint(saint: SaintRecord): Observable<LoadedDocument> {
+    const id = saintDocumentId(saint.id);
+    return this.ensureSaintLoaded(id);
+  }
+
+  private toLoadedDocument(built: SaintLoadedDocument): LoadedDocument {
+    return {
+      meta: built.meta as DocumentMeta,
+      documento: built.documento as Article[],
+      indice: built.indice as Indice,
+    };
+  }
 }

@@ -17,8 +17,60 @@
       {{ s.quoteSource }}
     </div>
 
-    <div class="sect" *ngIf="s.bio">Vida</div>
-    <div class="bio" *ngIf="s.bio">{{ s.bio }}</div>
+    <div class="meta2" *ngIf="hasBio">
+      <div class="mcell">
+        <div class="mk">Contenido</div>
+        <div class="mv">{{ unidadesLabel }}</div>
+      </div>
+      <div class="mcell">
+        <div class="mk">Lectura</div>
+        <div class="mv">{{ lecturaEstimada }}</div>
+      </div>
+    </div>
+
+    <div class="fs13 muted tc pos" *ngIf="posicionLabel">
+      {{ posicionLabel }}
+    </div>
+
+    <!-- CTA lectura (paridad 2A) — biografía en el lector, no texto plano -->
+    <ng-container *ngIf="hasBio">
+      <button type="button" class="primary" (click)="comenzar()">
+        {{ ctaLabel }}
+      </button>
+      <button
+        type="button"
+        class="gbtn listen"
+        (click)="comenzarNarrador()"
+      >
+        ▶ Escuchar con narrador
+      </button>
+      <button
+        type="button"
+        class="back reinicio"
+        *ngIf="puedeContinuar"
+        (click)="reiniciar()"
+      >
+        Empezar desde el principio
+      </button>
+    </ng-container>
+    <div class="fs13 muted" *ngIf="!hasBio" style="margin-top: 12px">
+      No hay biografía en el pack offline todavía.
+    </div>
+
+    <!-- Índice de la biografía (unidades estables → lector) -->
+    <div class="sect" *ngIf="chapters.length > 1">Índice</div>
+    <div
+      class="toc"
+      *ngFor="let c of chapters"
+      role="button"
+      tabindex="0"
+      (click)="openChapter(c)"
+      (keydown.enter)="openChapter(c)"
+      (keydown.space)="$event.preventDefault(); openChapter(c)"
+    >
+      <span class="tnum">{{ c.num }}</span>
+      <span>{{ c.title }}</span>
+    </div>
 
     <app-historical-context-block
       *ngIf="historicalContext"
@@ -47,10 +99,26 @@
       No hay obras de este autor en el corpus offline todavía.
     </div>
 
+    <!-- Temas operativos → búsqueda offline -->
     <div class="sect" *ngIf="s.themes?.length">Temas</div>
     <div class="chips" *ngIf="s.themes?.length">
-      <span class="chip" *ngFor="let t of s.themes">{{ t }}</span>
+      <button
+        type="button"
+        class="chip theme-chip"
+        *ngFor="let t of s.themes"
+        (click)="openTheme(t)"
+      >
+        {{ t }}
+      </button>
     </div>
+
+    <!-- Relacionados: pasajes semánticos del corpus + obras ya listadas -->
+    <app-related-units-panel
+      *ngIf="relatedSeed"
+      [seedText]="relatedSeed"
+      [limit]="8"
+      heading="Relacionados"
+    ></app-related-units-panel>
 
     <div class="sect" *ngIf="s.feastDays?.length">Fiesta</div>
     <div class="fs13 muted" *ngIf="s.feastDays?.length">

@@ -38,11 +38,64 @@ function main() {
     'saint detail must link to /documento/:id',
   );
   assert.ok(/Obras en la biblioteca/.test(detail));
-  assert.ok(/s\.bio|santo\.bio|\*ngIf="s\.bio"/.test(detail) || /bio/.test(detail));
+
+  // Reading structure (parity with 2A): CTA + narrador, not flat-only bio
+  assert.ok(
+    /Comenzar la lectura|ctaLabel|comenzar\(\)/.test(detail),
+    'saint cover must expose Comenzar/Continuar reading CTA',
+  );
+  assert.ok(
+    /Escuchar con narrador|comenzarNarrador/.test(detail),
+    'saint cover must expose narrator entry',
+  );
+  assert.ok(/Temas/.test(detail), 'Temas section present');
+  assert.ok(
+    /openTheme|theme-chip|buscar/.test(detail) ||
+      /openTheme/.test(read('pages/santo-detalle/santo-detalle.component.ts')),
+    'Temas chips must be operable (search navigation)',
+  );
+  assert.ok(
+    /related-units|Relacionados/.test(detail),
+    'Relacionados panel or heading on saint cover',
+  );
 
   const detailTs = read('pages/santo-detalle/santo-detalle.component.ts');
   assert.ok(/worksForSaint|works/.test(detailTs));
   assert.ok(/\/documento/.test(detailTs) || /documento/.test(detail));
+  assert.ok(
+    /saintDocumentId|readingDocId|ROUTE\.leyendo/.test(detailTs),
+    'saint detail navigates into real lector with santoral documentId',
+  );
+  assert.ok(
+    /ReadingProgressService|canContinueSaintReading|puedeContinuar/.test(
+      detailTs,
+    ),
+    'progress / continuar wiring',
+  );
+  assert.ok(
+    /RelatedUnitsPanelComponent|related-units/.test(detailTs) ||
+      /related-units/.test(detail),
+    'related units panel imported',
+  );
+
+  // Units logic + service materialization path
+  const unitsLogic = read('core/santoral/santoral-units.logic.ts');
+  assert.ok(/bioToReadingUnits/.test(unitsLogic));
+  assert.ok(/saintDocumentId|santoral:/.test(unitsLogic));
+  assert.ok(/saintToReadingDocument/.test(unitsLogic));
+
+  const service = read('core/santoral/santoral.service.ts');
+  assert.ok(/SANTORAL_MANIFEST_URL|assets\/corpus\/santoral/.test(service));
+  assert.ok(
+    /ensureSaintLoaded|ensureSaintAsIndice/.test(service),
+    'SantoralService exposes saint document load for lector',
+  );
+
+  const cargar = read('services/cargar-documentos-json.service.ts');
+  assert.ok(
+    /isReadingDocumentId|ensureSaintAsIndice|santoral/.test(cargar),
+    'CargarDocumentosJsonService routes santoral:* to saint pack',
+  );
 
   const docHtml = read('pages/documento-detalle/documento-detalle.component.html');
   assert.ok(/relatedSaint|Referencias/.test(docHtml), 'doc cover has Referencias');
@@ -59,9 +112,6 @@ function main() {
   const wbar = read('components/wbar/wbar.component.ts');
   assert.ok(/santoral/.test(wbar), 'wbar exposes Santoral');
 
-  const service = read('core/santoral/santoral.service.ts');
-  assert.ok(/SANTORAL_MANIFEST_URL|assets\/corpus\/santoral/.test(service));
-
   console.log('ok santoral-ui-wiring');
   console.log(
     JSON.stringify({
@@ -69,6 +119,11 @@ function main() {
       wbar: true,
       docRefs: true,
       saintDetailDocs: true,
+      readingCta: true,
+      narrator: true,
+      temas: true,
+      relacionados: true,
+      santoralUnits: true,
     }),
   );
 }

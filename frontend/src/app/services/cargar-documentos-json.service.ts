@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, forkJoin, of } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 import { CorpusService } from '../core/corpus/corpus.service';
+import { SantoralService } from '../core/santoral/santoral.service';
 import {
   Article,
   DocumentMeta,
@@ -24,6 +25,7 @@ export type {
 /**
  * Thin facade over {@link CorpusService} to minimize consumer churn.
  * Documents are no longer statically imported; they load via HTTP on demand.
+ * Also serves synthetic saint biographies (`santoral:{id}`) for the lector.
  */
 @Injectable({
   providedIn: 'root',
@@ -35,7 +37,10 @@ export class CargarDocumentosJsonService {
    */
   documentos_disponibles: IndiceDocumentos[] = [];
 
-  constructor(private readonly corpus: CorpusService) {}
+  constructor(
+    private readonly corpus: CorpusService,
+    private readonly santoral: SantoralService,
+  ) {}
 
   loadManifest(): Observable<DocumentMeta[]> {
     return this.corpus.loadManifest();
@@ -46,6 +51,12 @@ export class CargarDocumentosJsonService {
   }
 
   ensureLoaded(documentId: string): Observable<IndiceDocumentos> {
+    // Saint biographies use the same lector path with namespaced documentId.
+    if (this.santoral.isReadingDocumentId(documentId)) {
+      return this.santoral.ensureSaintAsIndice(documentId).pipe(
+        tap((doc) => this.upsertDisponible(doc)),
+      );
+    }
     return this.corpus.ensureLoaded(documentId).pipe(
       map((loaded) => this.corpus.toIndiceDocumentos(loaded)),
       tap((doc) => this.upsertDisponible(doc))
