@@ -25,7 +25,8 @@
     "test:corpus-persist": "node --experimental-strip-types src/app/core/corpus/corpus-persist.test.js",
     "test:safe-area": "node --experimental-strip-types src/app/core/shell/safe-area.logic.test.js",
     "test:narrator-grok": "node --experimental-strip-types src/app/services/narrator-grok.logic.test.js && node --experimental-strip-types src/app/services/narrator-prefs.logic.test.js",
-    "test:speech-prep": "node --experimental-strip-types src/app/services/speech-prep.logic.test.js"
+    "test:speech-prep": "node --experimental-strip-types src/app/services/speech-prep.logic.test.js",
+    "test:semantic-search": "node --experimental-strip-types src/app/core/search/semantic-search.logic.test.js"
   },
   "dependencies": {
     "@angular/animations": "^16.0.1",

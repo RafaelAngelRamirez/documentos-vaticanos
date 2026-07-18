@@ -1,12 +1,15 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MensajesService } from 'src/services/mensajes.service';
+import {
+  parseSearchInput,
+  type ParsedSearch,
+} from 'src/app/core/search/semantic-search.logic';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BuscadorService {
-  constructor(private mensajeService: MensajesService) {}
+  constructor() {}
   global_control_search_input!: FormControl;
 
   terminos: TermsProcessed = {};
@@ -28,77 +31,42 @@ export class BuscadorService {
    *    - .123, .3455-3460
    *  3. Terminos textuales y busqueda por puntos.
    *    - catecismo, .200-205, .1000
+   *  4. Frases / intenciones (multi-palabra, sin comas).
+   *    - el amor de Dios  → contentTerms: amor, dios
    *
    * @param {string} t El termino
    * @memberof BuscadorService
    */
   procesar_cadena_de_terminos(t: string): TermsProcessed {
-    let valores = t
-      .split(',')
-      .map((v) => v.trim())
-      .filter((x) => x !== '');
-    let terminos = valores.filter((v) => v[0] !== '.');
-    let puntos: number[] = valores
-      .filter((v) => v[0] === '.')
-      .map((v) => v.replace('.', ''))
-      .reduce((previus, currentValue) => {
-        // Si incluye un guión, debemos generar el rango.
-        let sucesion = currentValue.split('-');
-
-        if (sucesion.length > 2)
-          this.mensajeService.error.general(
-            `El termino ${currentValue} no se puede procesar y se ignorará`
-          );
-        else {
-          let sucesion_numeros = sucesion
-            .map((v) => {
-              // Deben ser numeros
-              let is_nan = parseInt(v);
-              if (!is_nan) {
-                console.log(
-                  `Uno de los terminos para obtener puntos no es correcto "${v}" `
-                );
-                return -1;
-              }
-
-              return is_nan;
-            })
-            .filter((x) => x > 0)
-            .sort((a, b) => (a > b ? 1 : -1));
-
-          if (sucesion_numeros.length === 2) {
-            let inferior = sucesion_numeros[0];
-            let superior = sucesion_numeros[1];
-
-            let diferencia = 0;
-            if (inferior && superior) {
-              diferencia = superior - inferior;
-
-              sucesion_numeros = new Array(diferencia)
-                .fill(0)
-                .map((v, i) => inferior + i);
-
-              sucesion_numeros.push(superior);
-            }
-          }
-
-          return [...new Set([...previus, ...sucesion_numeros])];
-        }
-        return [];
-      }, [] as any);
-
-    terminos.sort();
-    puntos.sort((a, b) => (a > b ? 1 : -1));
-
-    let resultados = {
-      terminos,
-      puntos,
-    };
-    return resultados;
+    const parsed = parseSearchInput(t);
+    return termsFromParsed(parsed, t);
   }
 }
 
+export function termsFromParsed(
+  parsed: ParsedSearch,
+  raw?: string,
+): TermsProcessed {
+  if (parsed.empty) {
+    return { terminos: [], contentTerms: [], puntos: [], rawQuery: raw ?? '' };
+  }
+  return {
+    terminos: parsed.phrases.length ? [...parsed.phrases] : undefined,
+    contentTerms: [...parsed.contentTerms],
+    puntos: parsed.points.length ? [...parsed.points] : undefined,
+    rawQuery: raw ?? parsed.phrases.join(', '),
+  };
+}
+
 export interface TermsProcessed {
+  /** Raw phrase clauses (comma-separated text), for display / highlight seeds. */
   terminos?: string[];
+  /**
+   * Folded content tokens after stopword removal (intention / multi-word).
+   * Used by semantic ranking; may be empty when only `.punto` clauses.
+   */
+  contentTerms?: string[];
   puntos?: number[];
+  /** Original query string when available. */
+  rawQuery?: string;
 }

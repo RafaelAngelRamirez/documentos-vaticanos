@@ -10,6 +10,11 @@ import { ArticleInfo } from '../punto/punto/punto.component';
 import { UtilidadesService } from 'src/app/services/utilidades.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
+import {
+  parseSearchInput,
+  rankUnitsForDocument,
+  type RankedUnitHit,
+} from 'src/app/core/search/semantic-search.logic';
 
 const PAGE = 50;
 
@@ -141,43 +146,83 @@ export class BuscadorComponent implements OnInit, OnDestroy {
       return;
     }
 
+    const raw =
+      terminos.rawQuery ??
+      [
+        ...(terminos.terminos ?? []),
+        ...(terminos.puntos ?? []).map((p) => `.${p}`),
+      ].join(', ');
+    const parsed =
+      terminos.contentTerms != null || terminos.puntos != null
+        ? {
+            empty: !(
+              (terminos.contentTerms?.length ?? 0) > 0 ||
+              (terminos.puntos?.length ?? 0) > 0 ||
+              (terminos.terminos?.length ?? 0) > 0
+            ),
+            phrases: terminos.terminos ?? [],
+            contentTerms:
+              terminos.contentTerms ??
+              parseSearchInput(raw).contentTerms,
+            points: terminos.puntos ?? [],
+          }
+        : parseSearchInput(raw);
+
     this.docs_resultados = [];
+    if (parsed.empty) {
+      this.buildRows();
+      return;
+    }
+
+    /** Global ranked hits so multi-doc results respect relatedness score. */
+    const rankedAll: { hit: RankedUnitHit; doc: DocumentoDatos }[] = [];
+
     for (const doc of this.documentosService.documentos_disponibles) {
-      let indice_puntos_seleccionados: number[] = [];
+      const documentId = doc.id || doc.nombre || '';
+      const hits = rankUnitsForDocument(
+        {
+          documentId,
+          index: doc.indice,
+          units: doc.documento,
+        },
+        parsed,
+      );
+      for (const hit of hits) {
+        rankedAll.push({ hit, doc });
+      }
+    }
 
-      const puntos_senalados = terminos.puntos ?? [];
-      const indice_por_puntos = doc.indice.indice_por_punto;
+    rankedAll.sort(
+      (a, b) =>
+        b.hit.score - a.hit.score ||
+        a.hit.documentId.localeCompare(b.hit.documentId) ||
+        a.hit.unitIndex - b.hit.unitIndex,
+    );
 
-      puntos_senalados.forEach((p) => {
-        const i = this.buscar_por_valor_una_llave(p, indice_por_puntos);
-        if (i !== undefined) indice_puntos_seleccionados.push(i);
-      });
+    // Group back by document while preserving global score order within each doc.
+    const byDoc = new Map<DocumentoDatos, RankedUnitHit[]>();
+    const docOrder: DocumentoDatos[] = [];
+    for (const { hit, doc } of rankedAll) {
+      if (!byDoc.has(doc)) {
+        byDoc.set(doc, []);
+        docOrder.push(doc);
+      }
+      byDoc.get(doc)!.push(hit);
+    }
 
-      const palabras_a_buscar = (terminos.terminos ?? [])
-        .map((palabra) =>
-          this.utilidadesService.texto.eliminar_diacriticos(palabra)
-        )
-        .map((x) => x.toLowerCase());
-
-      palabras_a_buscar.forEach((palabra) => {
-        const p = doc.indice.indice[palabra];
-        if (p) indice_puntos_seleccionados.push(...p);
-      });
-
-      // de-dupe while preserving order
-      const seen = new Set<number>();
-      indice_puntos_seleccionados = indice_puntos_seleccionados.filter((i) => {
-        if (seen.has(i)) return false;
-        seen.add(i);
-        return true;
-      });
-
-      const puntos_completos = indice_puntos_seleccionados
-        .map((p) => doc.documento[p])
-        .filter((article) => !!article)
-        .map((article) => {
-          return { article, terms_pure: palabras_a_buscar } as ArticleInfo;
-        });
+    for (const doc of docOrder) {
+      const hits = byDoc.get(doc) ?? [];
+      const puntos_completos = hits
+        .map((hit) => {
+          const article = doc.documento[hit.unitIndex];
+          if (!article) return null;
+          const terms_pure =
+            hit.highlightTerms.length > 0
+              ? hit.highlightTerms
+              : parsed.contentTerms;
+          return { article, terms_pure } as ArticleInfo;
+        })
+        .filter((x): x is ArticleInfo => !!x);
 
       this.docs_resultados.push({
         doc,
@@ -186,7 +231,43 @@ export class BuscadorComponent implements OnInit, OnDestroy {
       });
     }
 
-    this.buildRows();
+    this.buildRowsFromRanked(rankedAll, parsed.contentTerms);
+  }
+
+  /**
+   * Flat 3E rows in global relatedness order (not per-document bag order).
+   */
+  private buildRowsFromRanked(
+    rankedAll: { hit: RankedUnitHit; doc: DocumentoDatos }[],
+    fallbackTerms: string[],
+  ): void {
+    const rows: SearchRow[] = [];
+    for (const { hit, doc } of rankedAll) {
+      const article = doc.documento[hit.unitIndex];
+      if (!article) continue;
+      const terms =
+        hit.highlightTerms.length > 0 ? hit.highlightTerms : fallbackTerms;
+      const punto = { article, terms_pure: terms } as ArticleInfo;
+      const resultado: ResultadoDeBusqueda = {
+        doc,
+        puntos: [punto],
+        puntos_paginados: [punto],
+      };
+      const docLabel = this.shortLabel(resultado);
+      const unidad =
+        article.biblia?.consecutivo_versiculo ||
+        (article.consecutivo && article.consecutivo !== 'no-encontrado'
+          ? article.consecutivo
+          : String((article.index_array ?? hit.unitIndex) + 1));
+      rows.push({
+        title: `${docLabel} · Nº ${unidad}`,
+        snippetHtml: this.buildSnippet(article.contenido ?? '', terms),
+        punto,
+        resultado,
+      });
+    }
+    this.rows = rows;
+    this.visibleCount = PAGE;
   }
 
   /** Aplana los resultados por documento en filas del diseño 3E. */
