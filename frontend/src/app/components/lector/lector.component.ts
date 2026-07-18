@@ -342,6 +342,21 @@ export class LectorComponent implements OnInit, OnDestroy {
     }
     const { index: speakIndex, prep } = hit;
     const text = prep.text;
+    // Prefijo de cita según preferencia (goal)
+    let speakText = prep.text;
+    if (this.narrPrefs.snapshot.readCitationPrefix) {
+      const unit = this.document?.documento?.[speakIndex];
+      const refs = (unit as any)?.referencias;
+      if (refs && Array.isArray(refs) && refs.length > 0) {
+        const labels = refs
+          .map((r: any) => r?.descripcion)
+          .filter((d: any): d is string => typeof d === "string" && d.trim().length > 0)
+          .join(", ");
+        if (labels) {
+          speakText = `Cita ${labels}. Dice: ${prep.text}`;
+        }
+      }
+    }
     // Headings: calmer rate (prep.rateScale) so titles breathe before body.
     const rateScale =
       prep.kind === 'heading' && prep.rateScale != null && prep.rateScale > 0
@@ -364,7 +379,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     // la zona para que la pastilla («Nº x de y», %) se refresque.
     this.zone.runOutsideAngular(() => {
       void this.narrator
-        .speak(text, {
+        .speak(speakText, {
           lang: 'es-ES',
           rate,
           voice: this.narrVoice,
