@@ -1,6 +1,6 @@
 # AGENTS.md — Documentos Vaticanos
 
-Reglas obligatorias para agentes y contribuidores. Prioridad: **no romper offline-first**, **no inventar UI fuera del design system**, **citas estables al corpus**, **push tras cada entrega para disparar el build CI** (§9).
+Reglas obligatorias para agentes y contribuidores. Prioridad: **no romper offline-first**, **no inventar UI fuera del design system**, **citas estables al corpus**, **opción de lectura siempre** (§2.4), **cinco idiomas del producto** (§2.5), **push tras cada entrega para disparar el build CI** (§9).
 
 | Superficie | ¿Aplica este documento? |
 |------------|-------------------------|
@@ -67,9 +67,9 @@ documentId  +  unitIndex   (índice en content.json; preferido)
              |  consecutivo (label humano: "CIC 27", "Gn 1,1", "LG 16")
 ```
 
-- `documentId` = id del pack (`cic-es`, `lg-es`, `bible-pueblo-de-dios-es`, …).
+- `documentId` = id del pack (`cic-es`, `lg-es`, `bible-pueblo-de-dios-es`, …); con multi-idioma, el locale va en el id (`cic-en`, `cic-ar`, …) — ver §2.5.
 - `unitIndex` = `index_array` del artículo (estable post-build del corpus).
-- No inventar IDs de cita distintos; no reindexar unidades a mano en la app.
+- No inventar IDs de cita distintos; no reindexar unidades a mano en la app; no compartir `unitIndex` entre locales.
 
 ### 1.4 Roles (Fase 2)
 
@@ -149,12 +149,59 @@ Rutas inmersivas (sin chrome de producto exterior): inicio, biblioteca, buscar, 
 7. **Concilios ecuménicos** (`kind: council`, latín `*-la`): inventario y clean en `documentos/concilios-source/` (misma plantilla que Padres: `pdf/` → `raw/` → `clean/` → corpus). Import: `npm run concilios:import -- --id <id>`. Vat. II ES document-level ya en corpus; no reimportar.
 8. **Imagen → texto (obligatorio):** la app solo empaqueta JSON de lectura. PDF con capa de texto → `extract_source_text.ts` / `pdftotext`. PDF solo imagen → `ocr_volume.sh` (tesseract; Padres `spa_fast`, Concilios `lat`/`lat+eng`). Preferir Archive.org `*_djvu.txt` cuando exista (ya OCR). Nunca servir páginas escaneadas en el lector.
 9. **Concilios ES:** packs `*-es` paralelos a `*-la`; `sourceNote` debe indicar traducción generada por IA (no oficial). Import: `npm run concilios:import-es`. No reasignar `doc-codes` al ES (citas → latín). Vat. II ES oficiales ya en corpus.
+10. **Locales de producto (§2.5):** al publicar un documento nuevo, planificar packs en `es` \| `en` \| `hi` \| `zh` \| `ar` (IDs con sufijo de locale). Latín `la` es fuente crítica, no reemplaza los cinco idiomas de producto.
+11. **Lectura (§2.4):** el pack debe poder abrirse en el lector (unidades en `content.json`); la ficha debe exponer CTA de lectura/escuchar. No añadir solo un blob de texto sin unidades ni entrada al lector.
 
 ### 2.3 UI de documentos
 
 - En listados, búsqueda y chrome del lector mostrar **`meta.title` (completo)**, no solo `shortTitle`.
 - `shortTitle` solo como badge secundario o rutas legacy.
 - Si hay `locale` + `sourceUrl`: enlace **`{Idioma} · fuente`** (`.app-lang-link` / `.reader-chrome-lang`) en pestaña nueva.
+
+### 2.4 Opción de lectura siempre (obligatorio en cada documento nuevo)
+
+**Todo contenido legible que entre al producto debe ofrecer al usuario una vía de lectura**, aunque la ficha principal no sea el lector inmersivo (`/leyendo/…`).
+
+| Superficie | Qué debe ofrecer la ficha / vista principal |
+|------------|-----------------------------------------------|
+| Documento de corpus (`/documento/:id`, 2A) | **Comenzar / Continuar la lectura** → `/leyendo/{id}/…` · **▶ Escuchar con narrador** (`dv.autoNarr` + mismo lector) |
+| Bio de santo / autor (`/santoral/:id`, y afines) | Misma paridad: unidades sintéticas (`santoral:{id}`) + CTA lectura + narrador → lector real |
+| Contexto histórico / paratexto de ficha | Al menos **voz alta** con `NarratorService` (mismo motor que el lector); si el texto es largo y unitizable, preferir además materializar unidades y abrir el lector |
+| Otros packs futuros (estudios embebidos, notas oficiales, etc.) | Mismo principio: no dejar solo texto plano sin CTA de lectura ni de escuchar |
+
+Reglas:
+
+1. **No basta** con mostrar un párrafo en la ficha: hace falta CTA de lectura y/o escuchar, salvo que el bloque sea solo metadata (autor, fecha, badge) sin prosa.
+2. El lector inmersivo **sigue siendo el canónico** para cuerpo de obra (unidades, progreso, anotaciones, narración continua). La ficha **ofrece la entrada**; no sustituye el lector.
+3. Si un tipo de contenido **no entra** en modo inmersivo completo (p. ej. contexto histórico corto en ficha), **igual** debe poder **escucharse** (y, cuando crezca, unitizarse).
+4. Al añadir un **documento nuevo** al corpus o un **tipo de ficha nuevo**, el checklist de entrega incluye: CTA lectura, narrador cuando haya prosa, y que el `documentId` (real o sintético) sea estable para citas/progreso.
+5. Reutilizar: `NavigationService` + `ROUTE.leyendo`, `NarratorService`, patrón `santoral:{id}` / `dv.autoNarr`, no inventar un segundo motor de TTS.
+
+### 2.5 Idiomas del producto (cinco locales)
+
+El producto se diseña y rellena para **cinco idiomas**. Todo **documento nuevo**, **traducción de pack**, **bio/santoral**, **contexto histórico** y **copy de producto orientado al lector** debe contemplarlos:
+
+| Código `locale` | Idioma | Notas |
+|-----------------|--------|--------|
+| **`es`** | Español | Locale de trabajo habitual del corpus actual; no es el único obligatorio a largo plazo |
+| **`en`** | English | Inglés |
+| **`hi`** | हिन्दी (Hindi) | Hindi |
+| **`zh`** | 中文 (chino mandarín) | Mandarín escrito; preferir chino simplificado salvo fuente oficial en tradicional |
+| **`ar`** | العربية (árabe estándar) | Árabe estándar moderno (MSA); UI RTL cuando el locale activo sea `ar` |
+
+Reglas de empaquetado e IDs:
+
+1. **Un pack por locale** cuando el texto difiere: `documentId` con sufijo de idioma, p. ej. `cic-es`, `cic-en`, `cic-hi`, `cic-zh`, `cic-ar` (mismo patrón que `*-es` / `*-la` ya usados).
+2. **`DocumentMeta.locale`** = uno de `es` \| `en` \| `hi` \| `zh` \| `ar` (o `la` solo para latín de fuente crítica / concilios; el latín **no** sustituye a los cinco idiomas de producto).
+3. **`title` / `shortTitle` / unidades** en el idioma del pack; no mezclar idiomas en un mismo `content.json`.
+4. **Paridad de locales:** al añadir un documento “canónico” nuevo (magisterio, catecismo, padre, etc.), el trabajo no se da por cerrado solo en español: hay que **planificar o generar** los cinco locales (aunque el pipeline sea por fases). Si un locale aún no está listo, no se finge en el manifest; se documenta el pendiente y el ID que ocupará.
+5. **Traducciones generadas (IA u otras):** marcar en `sourceNote` (como ya se hace en concilios ES): no presentar como versión oficial si no lo es; conservar `sourceUrl` del original cuando exista.
+6. **Citas estables:** cada locale es su propio `documentId`; no reutilizar `unitIndex` de otro idioma como si fuera el mismo pack. Cross-links entre locales (si se añaden) van por metadata / UI, no reindexando.
+7. **UI y narrador:** cadenas de chrome en los cinco idiomas cuando se toque i18n de producto; el narrador debe poder usar `lang` acorde al locale del documento (`es-*`, `en-*`, `hi-*`, `zh-*`, `ar-*`).
+8. **RTL:** con locale `ar`, layouts de lectura y fichas no deben romper (dir/RTL, no asumir solo LTR en CSS nuevo).
+9. **Contexto histórico / santoral:** el pack de contexto y las bios deben seguir la misma política multi-idioma (perfil o overlay por locale, o campos por locale), no solo español.
+
+Al implementar scrapers/adapters: dual-write en `documentos/corpus/` y `frontend/src/assets/corpus/` **por cada locale** que se publique.
 
 ---
 
@@ -329,6 +376,8 @@ Si necesitas un patrón nuevo: **añádelo a `styles.css` y documenta aquí**.
 | Offline-first | Corpus + anotaciones + temas locales sin cuenta |
 | Online enriquece | Login, sync, estudios, revisión |
 | Citas estables | `documentId` + `unitIndex` |
+| Lectura siempre | Toda prosa nueva ofrece CTA de lectura y/o escuchar (§2.4), aunque la ficha no sea el lector |
+| Cinco idiomas | `es`, `en`, `hi`, `zh`, `ar` — packs y copy de producto multi-locale (§2.5) |
 | Sin chatbot en v2.0 | IA conversacional fuera de alcance (aunque `README.plan.md` lo mencione como visión lejana) |
 | Fotos controladas | Solo temas/notas de usuario; pipeline de upload del backend |
 | Una base web | Capacitor empaqueta la misma UI |
@@ -385,12 +434,16 @@ cd android && ./gradlew assembleDebug
 - [ ] ¿Enlace idioma/fuente si hay `sourceUrl`?
 - [ ] ¿Citas con `documentId` + `unitIndex`?
 - [ ] ¿Corpus escrito en `documentos/corpus` **y** assets (si aplica scrape)?
+- [ ] ¿**Opción de lectura** en ficha (CTA comenzar/continuar y/o escuchar), aunque no se abra solo el modo inmersivo? (§2.4)
+- [ ] ¿**Locales del producto** contemplados: `es`, `en`, `hi`, `zh`, `ar` (packs o plan explícito de paridad; `sourceNote` si es traducción)? (§2.5)
+- [ ] ¿`locale` del `DocumentMeta` correcto y IDs con sufijo de idioma cuando hay gemelos?
 
 ### Producto / backend
 - [ ] ¿Sigue funcionando **sin** API / sin login?
 - [ ] ¿Sync o persistencia local sin romper claves existentes?
 - [ ] ¿Roles respetados (reader/teacher/admin)?
 - [ ] ¿Android WebView sin regresión forzada del shell nativo?
+- [ ] ¿RTL / `lang` razonables si se toca UI o narrador para `ar` u otros locales?
 
 ### Alcance
 - [ ] ¿Sin chatbot / sin Material “pink” / sin reintroducir Bootstrap o FA?
@@ -435,3 +488,5 @@ Entrypoint CI de referencia: `.ci-build.sh`. Artefactos de descarga pública y d
 | Schema DB | `backend/prisma/schema.prisma` |
 | Changelog reciente | `CHANGELOG.md` (sección Unreleased) |
 | CI / build remoto | `.ci-build.sh`, §9 (push obligatorio) |
+| Lectura siempre / narrador en ficha | §2.4; patrón santo `santoral:{id}` + 2A |
+| Cinco idiomas de producto | §2.5 (`es` `en` `hi` `zh` `ar`) |
