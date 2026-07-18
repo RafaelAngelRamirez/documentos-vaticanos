@@ -44,6 +44,15 @@ function main() {
     /axisSources|row\.sources|hist-ctx-axis-sources/.test(blockHtml),
     'UI lists per-axis sources',
   );
+  assert.ok(
+    /toggleSpeak|Escuchar contexto|listenLabel/.test(blockHtml) ||
+      /toggleSpeak|Escuchar contexto|listenLabel/.test(block),
+    'context block exposes listen/TTS control',
+  );
+  assert.ok(
+    /NarratorService|speakableHistoricalContext/.test(block),
+    'context block wires NarratorService or speakable helper',
+  );
 
   const docHtml = read('pages/documento-detalle/documento-detalle.component.html');
   assert.ok(
@@ -62,10 +71,23 @@ function main() {
     /app-historical-context-block/.test(santoHtml),
     'saint detail must host historical-context-block',
   );
+  // Bio se lee en el lector (misma estructura) con narrador
+  assert.ok(
+    /comenzarNarrador|Escuchar con narrador/.test(santoHtml),
+    'saint ficha must offer listen → lector narrator',
+  );
+  assert.ok(
+    /Comenzar la lectura|Continuar la lectura|comenzar\(/.test(santoHtml),
+    'saint ficha must open lector for biography reading',
+  );
 
   const santoTs = read('pages/santo-detalle/santo-detalle.component.ts');
   assert.ok(/HistoricalContextService/.test(santoTs));
   assert.ok(/contextForSaint/.test(santoTs));
+  assert.ok(
+    /dv\.autoNarr|comenzarNarrador|irALector|santoral:/.test(santoTs),
+    'saint bio uses synthetic santoral doc + autoNarr path',
+  );
 
   const padreHtml = read('pages/padre-detalle/padre-detalle.component.html');
   assert.ok(

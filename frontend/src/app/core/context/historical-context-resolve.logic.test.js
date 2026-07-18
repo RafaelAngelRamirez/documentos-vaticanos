@@ -177,6 +177,17 @@ async function main() {
     `not dense: ${notDense.slice(0, 12).join(',')}`,
   );
 
+  // Speakable text for in-ficha narrator (bio/context voice path)
+  const chunks = logic.speakableHistoricalContextChunks(rConf);
+  assert.ok(chunks.length >= 3, `expected several speak chunks, got ${chunks.length}`);
+  assert.ok(
+    chunks.some((c) => /obra|confesion|agustín|lugar/i.test(c)),
+    'chunks should include contextual prose',
+  );
+  const joined = logic.speakableHistoricalContext(rConf);
+  assert.ok(joined.length > 80);
+  assert.deepStrictEqual(logic.speakableHistoricalContextChunks(null), []);
+
   // null-safe
   assert.strictEqual(logic.resolveHistoricalContext('x', null, null), null);
   assert.strictEqual(logic.isCoverageComplete(null), false);

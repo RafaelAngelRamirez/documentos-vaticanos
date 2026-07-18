@@ -382,3 +382,63 @@ export function orderedRefIds(ctx: ResolvedHistoricalContext): string[] {
   }
   return order;
 }
+
+/**
+ * Build ordered speakable chunks for the narrator (no bibliography URLs).
+ * Used on ficha 2A / santoral — same NarratorService as the lector.
+ */
+export function speakableHistoricalContextChunks(
+  ctx: ResolvedHistoricalContext | null | undefined,
+  labels: Record<keyof ContextAxes, string> = CONTEXT_AXIS_LABELS,
+): string[] {
+  if (!ctx) return [];
+  const chunks: string[] = [];
+  const push = (s: string | undefined | null) => {
+    const t = nonEmpty(s);
+    if (t) chunks.push(t);
+  };
+
+  if (ctx.authorName || ctx.compositionYears || ctx.compositionPlace) {
+    const parts = [
+      ctx.authorName,
+      ctx.compositionYears,
+      ctx.compositionPlace,
+    ].filter((x) => nonEmpty(x));
+    if (parts.length) push(parts.join('. ') + '.');
+  }
+  push(ctx.generalSummary);
+  if (nonEmpty(ctx.workSummary)) {
+    push(`Esta obra. ${nonEmpty(ctx.workSummary)}`);
+  }
+  if (nonEmpty(ctx.chronologyNote)) {
+    push(`Cronología. ${nonEmpty(ctx.chronologyNote)}`);
+  }
+  if (ctx.timeline?.length) {
+    const lines = ctx.timeline
+      .map((t) => {
+        const y = nonEmpty(t.years);
+        const l = nonEmpty(t.label);
+        if (!y && !l) return '';
+        return y && l ? `${y}: ${l}` : y || l;
+      })
+      .filter(Boolean);
+    if (lines.length) {
+      push(`Línea de tiempo. ${lines.join('. ')}.`);
+    }
+  }
+  for (const k of CONTEXT_AXES_KEYS) {
+    const text = nonEmpty(ctx.axes?.[k]);
+    if (!text) continue;
+    const label = labels[k] || k;
+    push(`${label}. ${text}`);
+  }
+  return chunks;
+}
+
+/** Single string for short previews / tests (joins chunks with blank lines). */
+export function speakableHistoricalContext(
+  ctx: ResolvedHistoricalContext | null | undefined,
+  labels?: Record<keyof ContextAxes, string>,
+): string {
+  return speakableHistoricalContextChunks(ctx, labels).join('\n\n');
+}

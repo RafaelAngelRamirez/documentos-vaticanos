@@ -3,6 +3,18 @@
   margin-bottom: 4px;
 }
 
+.hist-ctx-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 10px;
+}
+
+.hist-ctx-listen {
+  min-height: 48px;
+  min-width: 48px;
+}
+
 .hist-ctx-toggle {
   display: flex;
   align-items: center;

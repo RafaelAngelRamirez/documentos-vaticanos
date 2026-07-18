@@ -11,6 +11,19 @@
     </button>
   </div>
 
+  <div class="hist-ctx-actions" *ngIf="canSpeak">
+    <button
+      type="button"
+      class="gbtn listen hist-ctx-listen"
+      [class.fav-on]="speaking"
+      (click)="toggleSpeak($event)"
+      [attr.aria-pressed]="speaking"
+      [attr.aria-label]="listenLabel"
+    >
+      {{ listenLabel }}
+    </button>
+  </div>
+
   <div class="hist-ctx-body" *ngIf="expanded">
     <div class="hist-ctx-meta fs13 muted" *ngIf="c.compositionYears || c.compositionPlace || c.authorName">
       <span *ngIf="c.authorName"><strong>{{ c.authorName }}</strong></span>
