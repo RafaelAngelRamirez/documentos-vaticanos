@@ -1,23 +1,9 @@
 {
-  "generatedAt": "2026-07-16T00:49:26.295Z",
-  "revision": "ocr-abc-v1",
+  "generatedAt": "2026-07-18T21:16:39.855Z",
+  "revision": "ocr-abc-v2",
   "description": "Volumes with high residual OCR garbage after mechanical a+b cleanup — candidates for re-OCR / page re-extract (not run in this goal).",
-  "count": 38,
+  "count": 42,
   "documents": [
-    {
-      "id": "agustin-01-primeros-escritos-es",
-      "kind": "patristic",
-      "residualScore": 951,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 63,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 1,
-      "tocLeaderHits": 2,
-      "units": 2181,
-      "reason": "body_noise=63; junk_runs=1; toc_leaders=2; queue:reocr",
-      "suggestedAction": "re-ocr-body-pages"
-    },
     {
       "id": "agustin-05-de-trinitate-es",
       "kind": "patristic",
@@ -30,6 +16,20 @@
       "tocLeaderHits": 0,
       "units": 3030,
       "reason": "body_noise=63; junk_runs=1; queue:reocr",
+      "suggestedAction": "re-ocr-body-pages"
+    },
+    {
+      "id": "agustin-01-primeros-escritos-es",
+      "kind": "patristic",
+      "residualScore": 921,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 61,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 1,
+      "tocLeaderHits": 2,
+      "units": 2181,
+      "reason": "body_noise=61; junk_runs=1; toc_leaders=2; queue:reocr",
       "suggestedAction": "re-ocr-body-pages"
     },
     {
@@ -63,16 +63,44 @@
     {
       "id": "agustin-18-epistolas-indices-es",
       "kind": "patristic",
-      "residualScore": 394,
+      "residualScore": 379,
       "garbageUnits": 0,
       "garbageRatio": 0,
-      "residualBodyNoiseUnits": 26,
+      "residualBodyNoiseUnits": 25,
       "spacedLetterRuns": 0,
       "junkRunHits": 2,
       "tocLeaderHits": 0,
       "units": 1916,
-      "reason": "body_noise=26; junk_runs=2; queue:reocr",
+      "reason": "body_noise=25; junk_runs=2; queue:reocr",
       "suggestedAction": "re-ocr-body-pages"
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-es",
+      "kind": "patristic",
+      "residualScore": 368,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 9,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 0,
+      "tocLeaderHits": 0,
+      "units": 776,
+      "reason": "short_spaced=134; spaced_digits=99; body_noise=9; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "catecismo-romano-es",
+      "kind": "catechism",
+      "residualScore": 359,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 8,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 0,
+      "tocLeaderHits": 0,
+      "units": 1162,
+      "reason": "short_spaced=239; body_noise=8; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
       "id": "agustin-09-gracia-2-es",
@@ -159,6 +187,20 @@
       "suggestedAction": "re-ocr-body-pages"
     },
     {
+      "id": "cipriano-cartas-es",
+      "kind": "patristic",
+      "residualScore": 251,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 1,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 0,
+      "tocLeaderHits": 0,
+      "units": 829,
+      "reason": "short_spaced=216; spaced_digits=20; body_noise=1; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
       "id": "agustin-31-antimaniqueos-2-es",
       "kind": "patristic",
       "residualScore": 218,
@@ -198,6 +240,20 @@
       "tocLeaderHits": 0,
       "units": 3168,
       "reason": "body_noise=13; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-es",
+      "kind": "patristic",
+      "residualScore": 194,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 4,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 0,
+      "tocLeaderHits": 2,
+      "units": 1015,
+      "reason": "short_spaced=120; spaced_digits=10; body_noise=4; toc_leaders=2; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
@@ -268,20 +324,6 @@
       "tocLeaderHits": 0,
       "units": 3002,
       "reason": "body_noise=10; queue:reocr",
-      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
-    },
-    {
-      "id": "clemente-alejandria-pedagogo-es",
-      "kind": "patristic",
-      "residualScore": 135,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 9,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 0,
-      "units": 776,
-      "reason": "body_noise=9; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
@@ -383,6 +425,20 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
+      "id": "catecismo-romano-la",
+      "kind": "catechism",
+      "residualScore": 82,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 0,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 1,
+      "tocLeaderHits": 3,
+      "units": 1162,
+      "reason": "short_spaced=14; spaced_digits=60; junk_runs=1; toc_leaders=3; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
       "id": "agustin-25-sermones-5-es",
       "kind": "patristic",
       "residualScore": 79,
@@ -425,20 +481,6 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
-      "id": "cirilo-jerusalen-catequesis-es",
-      "kind": "patristic",
-      "residualScore": 64,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 4,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 2,
-      "units": 1015,
-      "reason": "body_noise=4; toc_leaders=2; queue:reocr",
-      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
-    },
-    {
       "id": "agustin-28-escritos-biblicos-4-es",
       "kind": "patristic",
       "residualScore": 60,
@@ -478,6 +520,20 @@
       "tocLeaderHits": 0,
       "units": 2451,
       "reason": "body_noise=3; junk_runs=1; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-es",
+      "kind": "patristic",
+      "residualScore": 37,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 0,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 0,
+      "tocLeaderHits": 0,
+      "units": 250,
+      "reason": "short_spaced=35; spaced_digits=2; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {

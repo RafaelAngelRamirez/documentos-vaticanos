@@ -1,38 +1,47 @@
 {
   "documentId": "agustin-16-ciudad-de-dios-1-es",
-  "revision": "ocr-abc-v1",
-  "appliedAt": "2026-07-16T00:47:08.141Z",
+  "revision": "ocr-abc-v2",
+  "appliedAt": "2026-07-18T21:13:59.211Z",
   "ruleClasses": [
     "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
     "garbage-toc-exclude-placeholder",
     "punct-safe-compose"
   ],
   "unitsTotal": 3344,
-  "unitsChanged": 1212,
+  "unitsChanged": 1142,
   "unitsExcludedGarbage": 0,
-  "unitsCollapsedSpaced": 1212,
+  "unitsCollapsedSpaced": 1142,
   "before": {
     "units": 3344,
     "garbageUnits": 0,
     "garbageRatio": 0,
-    "spacedLetterRuns": 29811,
-    "junkRunHits": 9,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 3819,
+    "spacedDigitRuns": 625,
+    "junkRunHits": 12,
     "tocLeaderHits": 0,
-    "residualScore": 29829
+    "residualBodyNoiseUnits": 20,
+    "residualScore": 4768
   },
   "after": {
     "units": 3344,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
     "junkRunHits": 12,
     "tocLeaderHits": 0,
-    "residualScore": 24
+    "residualBodyNoiseUnits": 20,
+    "residualScore": 324
   },
-  "letterTokenOverlap": 0.884,
+  "letterTokenOverlap": 0.982,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+  "notes": "a) ≥4 spaced letters; a2) short dict words (Tal/que/de); a3) spaced digits/years; a4) qiíe/O'MEARA/p..; b) TOC junk placeholder (stable unitIndex)."
 }

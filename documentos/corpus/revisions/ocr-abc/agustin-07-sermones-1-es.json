@@ -1,38 +1,47 @@
 {
   "documentId": "agustin-07-sermones-1-es",
-  "revision": "ocr-abc-v1",
-  "appliedAt": "2026-07-16T00:47:51.059Z",
+  "revision": "ocr-abc-v2",
+  "appliedAt": "2026-07-18T21:15:02.711Z",
   "ruleClasses": [
     "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
     "garbage-toc-exclude-placeholder",
     "punct-safe-compose"
   ],
   "unitsTotal": 2181,
-  "unitsChanged": 37,
+  "unitsChanged": 238,
   "unitsExcludedGarbage": 0,
-  "unitsCollapsedSpaced": 37,
+  "unitsCollapsedSpaced": 238,
   "before": {
     "units": 2181,
     "garbageUnits": 0,
     "garbageRatio": 0,
-    "spacedLetterRuns": 86,
-    "junkRunHits": 0,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 290,
+    "spacedDigitRuns": 18,
+    "junkRunHits": 1,
     "tocLeaderHits": 0,
-    "residualScore": 86
+    "residualBodyNoiseUnits": 1,
+    "residualScore": 325
   },
   "after": {
     "units": 2181,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
     "junkRunHits": 1,
     "tocLeaderHits": 0,
-    "residualScore": 2
+    "residualBodyNoiseUnits": 1,
+    "residualScore": 17
   },
-  "letterTokenOverlap": 0.9989,
+  "letterTokenOverlap": 0.9976,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+  "notes": "a) ≥4 spaced letters; a2) short dict words (Tal/que/de); a3) spaced digits/years; a4) qiíe/O'MEARA/p..; b) TOC junk placeholder (stable unitIndex)."
 }

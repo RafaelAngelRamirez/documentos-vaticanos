@@ -1,38 +1,47 @@
 {
   "documentId": "agustin-22-enarraciones-salmos-4-es",
-  "revision": "ocr-abc-v1",
-  "appliedAt": "2026-07-16T00:47:23.956Z",
+  "revision": "ocr-abc-v2",
+  "appliedAt": "2026-07-18T21:14:15.951Z",
   "ruleClasses": [
     "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
     "garbage-toc-exclude-placeholder",
     "punct-safe-compose"
   ],
   "unitsTotal": 3002,
-  "unitsChanged": 129,
+  "unitsChanged": 388,
   "unitsExcludedGarbage": 0,
-  "unitsCollapsedSpaced": 129,
+  "unitsCollapsedSpaced": 388,
   "before": {
     "units": 3002,
     "garbageUnits": 0,
     "garbageRatio": 0,
-    "spacedLetterRuns": 2215,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 1601,
+    "spacedDigitRuns": 59,
     "junkRunHits": 0,
     "tocLeaderHits": 0,
-    "residualScore": 2215
+    "residualBodyNoiseUnits": 10,
+    "residualScore": 1810
   },
   "after": {
     "units": 3002,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
     "junkRunHits": 0,
     "tocLeaderHits": 0,
-    "residualScore": 0
+    "residualBodyNoiseUnits": 10,
+    "residualScore": 150
   },
-  "letterTokenOverlap": 0.9957,
+  "letterTokenOverlap": 0.997,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+  "notes": "a) ≥4 spaced letters; a2) short dict words (Tal/que/de); a3) spaced digits/years; a4) qiíe/O'MEARA/p..; b) TOC junk placeholder (stable unitIndex)."
 }

@@ -1,11 +1,14 @@
 /**
- * OCR residual cleanup (a)+(b):
+ * OCR residual cleanup (a)+(b) + short residual spacing:
  *  (a) collapse spaced-out letter runs: "H I S T O R I A" → "HISTORIA"
+ *  (a2) collapse short (2–3) spaced dictionary words: "T a l" → "Tal"
+ *  (a3) collapse spaced digit runs / year-page ranges: "1 9 4 7" → "1947"
+ *  (a4) tiny high-confidence OCR confusions (qiíe→que, O'MEARA, p..)
  *  (b) detect TOC / dotted-leader garbage units for exclusion (blank content,
  *      same array slot → stable unitIndex)
  *
  * Does NOT join internal lowercase.period.lowercase (ocr-punct v2 safety).
- * Does not paraphrase body wording.
+ * Does not paraphrase body wording. Does not blind-join arbitrary initials.
  */
 
 import {
@@ -20,11 +23,137 @@ const UPPER_CLASS = "A-ZÁÉÍÓÚÜÑÀ-ÿ";
 export const OCR_GARBAGE_PLACEHOLDER =
   "[OCR: índice o tabla ilegible omitido]";
 
+/**
+ * Safe 2–3 letter Spanish (and a few FR/LA biblio) words for short
+ * spaced-letter collapse. Longest-match packing; never invents prose.
+ * Intentionally omits ambiguous initials (pl, ch, ii, …).
+ */
+const SHORT_SPACED_WORDS = new Set([
+  // 2-letter Spanish function / common words
+  "de",
+  "la",
+  "el",
+  "en",
+  "un",
+  "no",
+  "se",
+  "su",
+  "al",
+  "lo",
+  "le",
+  "me",
+  "te",
+  "mi",
+  "mí",
+  "si",
+  "sí",
+  "ya",
+  "es",
+  "ha",
+  "he",
+  "os",
+  "ni",
+  "yo",
+  "tu",
+  "tú",
+  "él",
+  "da",
+  "do",
+  "di",
+  "du",
+  "et",
+  "il",
+  "ne",
+  "re",
+  "ex",
+  "in",
+  "ad",
+  "ab",
+  "ay",
+  "oh",
+  "ah",
+  // 3-letter Spanish
+  "que",
+  "qué",
+  "por",
+  "con",
+  "del",
+  "los",
+  "las",
+  "una",
+  "uno",
+  "mas",
+  "más",
+  "sin",
+  "ser",
+  "son",
+  "fue",
+  "hay",
+  "muy",
+  "tan",
+  "tal",
+  "nos",
+  "vos",
+  "sus",
+  "mis",
+  "tus",
+  "así",
+  "eso",
+  "esa",
+  "ese",
+  "aun",
+  "aún",
+  "han",
+  "has",
+  "soy",
+  "era",
+  "mal",
+  "hoy",
+  "vez",
+  "fin",
+  "luz",
+  "paz",
+  "voz",
+  "ley",
+  "dio",
+  "ver",
+  "dar",
+  "van",
+  "oir",
+  "oí",
+  // FR / LA biblio particles (high-frequency OCR spacing)
+  "mme",
+  "des",
+  "les",
+  "par",
+  "sur",
+  "une",
+  "aux",
+  "qui",
+  "non",
+  "oui",
+  "per",
+  "pro",
+  "sub",
+  "cum",
+  "sed",
+  "nec",
+  "nam",
+  "hic",
+  "hoc",
+  "hac",
+  "his",
+]);
+
 export interface SpacedLetterMetrics {
   /** Count of spaced single-letter runs (≥4 letters). */
   spacedLetterRuns: number;
   /** Total single letters inside those runs. */
   spacedLetterChars: number;
+  /** Short (2–3) spaced runs that match the safe dictionary. */
+  shortSpacedWordHits: number;
+  /** Spaced single-digit runs (≥2 digits). */
+  spacedDigitRuns: number;
 }
 
 export interface GarbageUnitScore {
@@ -38,6 +167,8 @@ export interface DocGarbageMetrics {
   garbageUnits: number;
   garbageRatio: number;
   spacedLetterRuns: number;
+  shortSpacedWordHits: number;
+  spacedDigitRuns: number;
   junkRunHits: number;
   tocLeaderHits: number;
   /**
@@ -85,9 +216,17 @@ export function isResidualBodyNoise(text: string): boolean {
 /**
  * Count spaced-out single-letter runs (e.g. H I S T O R I A).
  * Pattern: ≥4 single letters separated by single spaces.
+ * Also counts short dictionary hits and spaced digit runs (a2/a3).
  */
 export function scoreSpacedLetters(text: string): SpacedLetterMetrics {
-  if (!text) return { spacedLetterRuns: 0, spacedLetterChars: 0 };
+  if (!text) {
+    return {
+      spacedLetterRuns: 0,
+      spacedLetterChars: 0,
+      shortSpacedWordHits: 0,
+      spacedDigitRuns: 0,
+    };
+  }
   const re = new RegExp(
     `(?<![${LETTER_CLASS}])(?:[${LETTER_CLASS}])(?: [${LETTER_CLASS}]){3,}(?![${LETTER_CLASS}])`,
     "g",
@@ -102,7 +241,58 @@ export function scoreSpacedLetters(text: string): SpacedLetterMetrics {
       chars += parts.length;
     }
   }
-  return { spacedLetterRuns: runs, spacedLetterChars: chars };
+  return {
+    spacedLetterRuns: runs,
+    spacedLetterChars: chars,
+    shortSpacedWordHits: countShortSpacedWordHits(text),
+    spacedDigitRuns: countSpacedDigitRuns(text),
+  };
+}
+
+/** Count whitelist-matchable 2–3 letter spaced runs (inventory). */
+export function countShortSpacedWordHits(text: string): number {
+  if (!text) return 0;
+  const re = new RegExp(
+    `(?<![${LETTER_CLASS}])(?:[${LETTER_CLASS}])(?: [${LETTER_CLASS}]){1,2}(?![${LETTER_CLASS}])`,
+    "g",
+  );
+  let hits = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text)) !== null) {
+    const parts = m[0].split(" ");
+    if (!parts.every((p) => p.length === 1)) continue;
+    // longest-match packing count (same as collapse)
+    let i = 0;
+    while (i < parts.length) {
+      let matched = false;
+      for (let len = Math.min(3, parts.length - i); len >= 2; len--) {
+        const joined = parts.slice(i, i + len).join("").toLowerCase();
+        if (SHORT_SPACED_WORDS.has(joined)) {
+          hits += 1;
+          i += len;
+          matched = true;
+          break;
+        }
+      }
+      if (!matched) i += 1;
+    }
+  }
+  return hits;
+}
+
+/** Count spaced single-digit runs of length ≥2. */
+export function countSpacedDigitRuns(text: string): number {
+  if (!text) return 0;
+  const re = /(?<!\d)(?:\d)(?: \d){1,}(?!\d)/g;
+  let n = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text)) !== null) {
+    const parts = m[0].split(" ");
+    if (parts.length >= 2 && parts.every((p) => p.length === 1 && /\d/.test(p))) {
+      n += 1;
+    }
+  }
+  return n;
 }
 
 /**
@@ -135,6 +325,35 @@ function splitGluedUpperParticles(word: string): string {
   return [rest, ...out].filter(Boolean).join(" ");
 }
 
+/**
+ * Pack single letters with longest-match dictionary words (2–3).
+ * Returns hits so callers can fall back to blind join when nothing matched.
+ */
+function packShortSpacedParts(parts: string[]): { text: string; hits: number } {
+  const out: string[] = [];
+  let i = 0;
+  let hits = 0;
+  while (i < parts.length) {
+    let matched = false;
+    for (let len = Math.min(3, parts.length - i); len >= 2; len--) {
+      const slice = parts.slice(i, i + len);
+      const joined = slice.join("").toLowerCase();
+      if (SHORT_SPACED_WORDS.has(joined)) {
+        out.push(slice.join(""));
+        i += len;
+        hits += 1;
+        matched = true;
+        break;
+      }
+    }
+    if (!matched) {
+      out.push(parts[i]);
+      i += 1;
+    }
+  }
+  return { text: out.join(" "), hits };
+}
+
 /** Collapse one spaced-letter run; split on y/e conjunctions between words. */
 function collapseSpacedRun(parts: string[]): string {
   if (parts.length < 4) return parts.join(" ");
@@ -162,8 +381,23 @@ function collapseSpacedRun(parts: string[]): string {
     .map((g) => {
       if (g.length === 1) return g[0];
       if (g.length < 4) {
-        // short leftover (e.g. accidental) — join if all single letters
-        return g.join("");
+        // short leftover — prefer dictionary pack (n o → no), else blind-join
+        const packed = packShortSpacedParts(g);
+        return packed.hits > 0 ? packed.text : g.join("");
+      }
+      // ≥4: uppercase title runs blind-join; lowercase may dictionary-pack
+      // only when every letter lands in a dict word ("q u e n o" → "que no").
+      // Partial hits like "... a d o" must not block "arrastrado".
+      const upperCount = g.filter(
+        (p) => p === p.toUpperCase() && p !== p.toLowerCase(),
+      ).length;
+      const isUpperRun = upperCount >= Math.ceil(g.length * 0.75);
+      if (!isUpperRun) {
+        const packed = packShortSpacedParts(g);
+        const leftovers = packed.text
+          .split(/\s+/)
+          .filter((tok) => tok.length === 1).length;
+        if (packed.hits > 0 && leftovers === 0) return packed.text;
       }
       return splitGluedUpperParticles(g.join(""));
     })
@@ -190,6 +424,72 @@ export function collapseSpacedLetters(text: string): string {
     }
     return collapseSpacedRun(parts);
   });
+}
+
+/**
+ * (a2) Collapse short (2–3) spaced Spanish/function words via whitelist.
+ * "T a l" → "Tal", "q u e" → "que", "d e" → "de", "n o" → "no".
+ * Does not join arbitrary initials ("P L", "E J") or non-dict "y n o" as yno.
+ */
+export function collapseShortSpacedWords(text: string): string {
+  if (!text) return text;
+  const re = new RegExp(
+    `(?<![${LETTER_CLASS}])(?:[${LETTER_CLASS}])(?: [${LETTER_CLASS}]){1,2}(?![${LETTER_CLASS}])`,
+    "g",
+  );
+  return text.replace(re, (chunk) => {
+    const parts = chunk.split(" ");
+    if (parts.length < 2 || parts.length > 3) return chunk;
+    if (!parts.every((p) => p.length === 1 && /[A-Za-zÁ-ÿ]/u.test(p))) {
+      return chunk;
+    }
+    const packed = packShortSpacedParts(parts);
+    return packed.hits > 0 ? packed.text : chunk;
+  });
+}
+
+/**
+ * (a3) Collapse spaced digit runs: "1 9 4 7" → "1947".
+ * Also tightens digit ranges: "227 - 251" → "227-251".
+ */
+export function collapseSpacedDigits(text: string): string {
+  if (!text) return text;
+  let t = text.replace(/(?<!\d)(?:\d)(?: \d){1,}(?!\d)/g, (chunk) => {
+    const parts = chunk.split(" ");
+    if (parts.length < 2) return chunk;
+    if (!parts.every((p) => p.length === 1 && /\d/.test(p))) return chunk;
+    return parts.join("");
+  });
+  // Range punctuation between pure digit groups (years / pages).
+  t = t.replace(/(\d)\s+-\s+(\d)/g, "$1-$2");
+  return t;
+}
+
+/**
+ * (a4) Tiny high-confidence OCR confusions from residual samples.
+ * Mechanical only — no free literary rewrite.
+ */
+export function repairHighConfidenceOcrConfusions(text: string): string {
+  if (!text) return text;
+  let t = text;
+  // qiíe / qíie style misreads of "que"
+  t = t.replace(/\bqi[ií]e\b/gi, (m) =>
+    m[0] === m[0].toUpperCase() && m[0] !== m[0].toLowerCase() ? "Que" : "que",
+  );
+  t = t.replace(/\bq[ií]ie\b/gi, (m) =>
+    m[0] === m[0].toUpperCase() && m[0] !== m[0].toLowerCase() ? "Que" : "que",
+  );
+  // O ' MEARA / O 'MEARA / O' MEARA → O'MEARA
+  t = t.replace(/\bO\s*'\s*MEARA\b/g, "O'MEARA");
+  t = t.replace(/\bO\s*'\s*Meara\b/g, "O'Meara");
+  // Doubled abbreviation period: p..255 → p.255 (not ellipsis ...)
+  t = t.replace(/(?<!\.)\bp\.\.(?!\.)/gi, (m) =>
+    m.startsWith("P") ? "P." : "p.",
+  );
+  // MlCHELE (l/I) → MICHELE when all-caps body
+  t = t.replace(/\bMlCHELE\b/g, "MICHELE");
+  t = t.replace(/\bMlchele\b/g, "Michele");
+  return t;
 }
 
 /**
@@ -271,11 +571,14 @@ export function isGarbageUnit(text: string): boolean {
 }
 
 /**
- * Apply (a) collapse + optional punct soft pass; does not blank units.
- * Safe to run on any unit contenido.
+ * Apply (a)+(a2)+(a3)+(a4) + punct soft pass; does not blank units.
+ * Safe to run on any unit contenido. Idempotent on already-clean prose.
  */
 export function repairOcrSpacedText(text: string): string {
   let t = collapseSpacedLetters(text);
+  t = collapseShortSpacedWords(t);
+  t = collapseSpacedDigits(t);
+  t = repairHighConfidenceOcrConfusions(t);
   // Re-run punct repair for any new glued edges after collapse (join-safe)
   t = repairOcrPunctuation(t);
   return t;
@@ -311,12 +614,18 @@ export function repairOcrNoiseUnit(
       garbageScore: g.score,
     };
   }
-  const collapsed = collapseSpacedLetters(contenido);
-  const repaired = repairOcrPunctuation(collapsed);
+  const repaired = repairOcrSpacedText(contenido);
+  const collapsedOnly = collapseSpacedLetters(contenido);
+  const shortOrDigit =
+    collapseShortSpacedWords(collapsedOnly) !== collapsedOnly ||
+    collapseSpacedDigits(collapsedOnly) !== collapsedOnly;
   return {
     contenido: repaired,
     changed: repaired !== contenido,
-    collapsedSpaced: collapsed !== contenido,
+    collapsedSpaced:
+      collapsedOnly !== contenido ||
+      shortOrDigit ||
+      repairHighConfidenceOcrConfusions(contenido) !== contenido,
     excludedGarbage: false,
     garbageScore: g.score,
   };
@@ -328,6 +637,8 @@ export function scoreDocumentGarbage(
 ): DocGarbageMetrics {
   let garbageUnits = 0;
   let spacedLetterRuns = 0;
+  let shortSpacedWordHits = 0;
+  let spacedDigitRuns = 0;
   let junkRunHits = 0;
   let tocLeaderHits = 0;
   let residualBodyNoiseUnits = 0;
@@ -336,6 +647,8 @@ export function scoreDocumentGarbage(
     if (g.isGarbage) garbageUnits += 1;
     const sp = scoreSpacedLetters(t);
     spacedLetterRuns += sp.spacedLetterRuns;
+    shortSpacedWordHits += sp.shortSpacedWordHits;
+    spacedDigitRuns += sp.spacedDigitRuns;
     junkRunHits += (t.match(/[oncrim]{10,}/gi) || []).length;
     tocLeaderHits += (t.match(/\.{2,}\s*[oncrim]{4,}/gi) || []).length;
     if (isResidualBodyNoise(t)) residualBodyNoiseUnits += 1;
@@ -347,6 +660,8 @@ export function scoreDocumentGarbage(
     residualBodyNoiseUnits * 15 +
     garbageUnits * 10 +
     spacedLetterRuns +
+    shortSpacedWordHits +
+    spacedDigitRuns +
     junkRunHits * 2 +
     tocLeaderHits * 2 +
     Math.round(garbageRatio * 1000);
@@ -355,6 +670,8 @@ export function scoreDocumentGarbage(
     garbageUnits,
     garbageRatio: Math.round(garbageRatio * 10000) / 10000,
     spacedLetterRuns,
+    shortSpacedWordHits,
+    spacedDigitRuns,
     junkRunHits,
     tocLeaderHits,
     residualBodyNoiseUnits,

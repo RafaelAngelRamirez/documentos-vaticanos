@@ -1,38 +1,47 @@
 {
   "documentId": "agustin-02-confesiones-es",
-  "revision": "ocr-abc-v1",
-  "appliedAt": "2026-07-16T00:47:28.616Z",
+  "revision": "ocr-abc-v2",
+  "appliedAt": "2026-07-18T21:14:29.411Z",
   "ruleClasses": [
     "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
     "garbage-toc-exclude-placeholder",
     "punct-safe-compose"
   ],
   "unitsTotal": 1952,
-  "unitsChanged": 136,
+  "unitsChanged": 281,
   "unitsExcludedGarbage": 0,
-  "unitsCollapsedSpaced": 136,
+  "unitsCollapsedSpaced": 281,
   "before": {
     "units": 1952,
     "garbageUnits": 0,
     "garbageRatio": 0,
-    "spacedLetterRuns": 960,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 897,
+    "spacedDigitRuns": 54,
     "junkRunHits": 0,
     "tocLeaderHits": 1,
-    "residualScore": 962
+    "residualBodyNoiseUnits": 5,
+    "residualScore": 1028
   },
   "after": {
     "units": 1952,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
     "junkRunHits": 0,
     "tocLeaderHits": 1,
-    "residualScore": 2
+    "residualBodyNoiseUnits": 5,
+    "residualScore": 77
   },
-  "letterTokenOverlap": 0.9942,
+  "letterTokenOverlap": 0.9964,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+  "notes": "a) ≥4 spaced letters; a2) short dict words (Tal/que/de); a3) spaced digits/years; a4) qiíe/O'MEARA/p..; b) TOC junk placeholder (stable unitIndex)."
 }

@@ -1,38 +1,47 @@
 {
   "documentId": "agustin-03-obras-filosoficas-es",
-  "revision": "ocr-abc-v1",
-  "appliedAt": "2026-07-16T00:47:09.664Z",
+  "revision": "ocr-abc-v2",
+  "appliedAt": "2026-07-18T21:14:03.288Z",
   "ruleClasses": [
     "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
     "garbage-toc-exclude-placeholder",
     "punct-safe-compose"
   ],
   "unitsTotal": 2878,
-  "unitsChanged": 819,
+  "unitsChanged": 839,
   "unitsExcludedGarbage": 0,
-  "unitsCollapsedSpaced": 819,
+  "unitsCollapsedSpaced": 839,
   "before": {
     "units": 2878,
     "garbageUnits": 0,
     "garbageRatio": 0,
-    "spacedLetterRuns": 26075,
-    "junkRunHits": 0,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 3617,
+    "spacedDigitRuns": 308,
+    "junkRunHits": 2,
     "tocLeaderHits": 1,
-    "residualScore": 26077
+    "residualBodyNoiseUnits": 37,
+    "residualScore": 4486
   },
   "after": {
     "units": 2878,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
     "junkRunHits": 2,
     "tocLeaderHits": 1,
-    "residualScore": 6
+    "residualBodyNoiseUnits": 37,
+    "residualScore": 561
   },
-  "letterTokenOverlap": 0.9159,
+  "letterTokenOverlap": 0.9861,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+  "notes": "a) ≥4 spaced letters; a2) short dict words (Tal/que/de); a3) spaced digits/years; a4) qiíe/O'MEARA/p..; b) TOC junk placeholder (stable unitIndex)."
 }

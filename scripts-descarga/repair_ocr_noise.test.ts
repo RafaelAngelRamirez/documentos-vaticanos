@@ -4,9 +4,12 @@
  */
 import {
   OCR_GARBAGE_PLACEHOLDER,
+  collapseShortSpacedWords,
+  collapseSpacedDigits,
   collapseSpacedLetters,
   isGarbageUnit,
   isResidualBodyNoise,
+  repairHighConfidenceOcrConfusions,
   repairOcrNoiseUnit,
   repairOcrSpacedText,
   scoreDocumentGarbage,
@@ -180,6 +183,123 @@ assert(!isGarbageUnit(citations), "bible citation list not garbage");
   const once = repairOcrNoiseUnit(tocGarbage).contenido;
   const twice = repairOcrNoiseUnit(once).contenido;
   assertEq(once, twice, "placeholder exclusion idempotent");
+}
+
+// --- (a2) Short spaced dictionary words ---
+assertEq(collapseShortSpacedWords("T a l es la opinión"), "Tal es la opinión", "T a l → Tal");
+assertEq(collapseShortSpacedWords("q u e todavía"), "que todavía", "q u e → que");
+assertEq(collapseShortSpacedWords("habla d e la deformación"), "habla de la deformación", "d e → de");
+assertEq(collapseShortSpacedWords("p o r eso dice"), "por eso dice", "p o r → por");
+assertEq(collapseShortSpacedWords("si n o es posible"), "si no es posible", "n o → no");
+assertEq(
+  collapseShortSpacedWords("y n o el de Jesucristo"),
+  "y no el de Jesucristo",
+  "y n o → y no (not yno)",
+);
+assertEq(
+  collapseShortSpacedWords("según P L y E J citados"),
+  "según P L y E J citados",
+  "initials P L / E J not joined",
+);
+assertEq(
+  collapseShortSpacedWords("La fe es el fundamento de la salvación."),
+  "La fe es el fundamento de la salvación.",
+  "clean prose unchanged by short collapse",
+);
+
+// --- (a3) Spaced digits / years / page ranges ---
+assertEq(collapseSpacedDigits("París 1 9 4 7"), "París 1947", "year 1 9 4 7 → 1947");
+assertEq(
+  collapseSpacedDigits("p. 2 2 7 - 2 5 1"),
+  "p. 227-251",
+  "page range 2 2 7 - 2 5 1 → 227-251",
+);
+assertEq(
+  collapseSpacedDigits("Oxford 1950) 3 3 1 - 3 4 3"),
+  "Oxford 1950) 331-343",
+  "page range 331-343",
+);
+assertEq(collapseSpacedDigits("p. 6 5."), "p. 65.", "two-digit page 6 5 → 65");
+assertEq(
+  collapseSpacedDigits("año 1969 sin espacios"),
+  "año 1969 sin espacios",
+  "already continuous year unchanged",
+);
+
+// --- (a4) High-confidence sample confusions ---
+assertEq(repairHighConfidenceOcrConfusions("qiíe todavía"), "que todavía", "qiíe → que");
+assertEq(
+  repairHighConfidenceOcrConfusions("O ' MEARA, La jeunesse"),
+  "O'MEARA, La jeunesse",
+  "O ' MEARA → O'MEARA",
+);
+assertEq(
+  repairHighConfidenceOcrConfusions("p..255-58"),
+  "p.255-58",
+  "p.. → p.",
+);
+assertEq(
+  repairHighConfidenceOcrConfusions("MlCHELE PELLEGRINO"),
+  "MICHELE PELLEGRINO",
+  "MlCHELE → MICHELE",
+);
+
+// --- OBJECTIVE Piganiol bibliography snippet (full compose) ---
+const piganiolSnippet =
+  "2.s ed. en 1953 ( Roma ). O. c. p.107. T a l es la opinión de M. Piganiol, qiíe todavía habla d e la deformación retórica e insinceridad de las Confesiones en L'empire Romain (París 1 9 4 7 ). MlCHELE PELLEGRINO: Le «Confessioni» di S. Agosíino 161-174 (Roma 1 9 5 6 ). HELENEGROS. La valeur documentaire des Confessions. Edit. de «La Vie spirituelle» (París 1930); P. COURCELLE, Recherches sur les Confessions de S. Augustin p..255-58; O ' MEARA, La jeunesse de S. Augustin (París 1958) p. 2 2 7 - 2 5 1. Neo-platonisme m the conversión of S. Augustine: « Dominican Studies» 3 (Oxford 1950) 3 3 1 - 3 4 3; NÓRREGAARD, Augustins Bekehrung (Tübingem 1923); U- M. MANUCCI, La conversione di S. Agustino e la critica recente: «Miscellanea Agostiniana» II (Roma 1931) 23-48; F. BOLGIANI, La conversione di S. Agostino e il libro VIH delle Confessions (Torino 1956); S. B. FEMIANO, Reflessiorii critiche sul";
+
+{
+  const repaired = repairOcrSpacedText(piganiolSnippet);
+  assert(!/\bT a l\b/.test(repaired), "Piganiol: no residual T a l");
+  assert(!/\bd e\b/.test(repaired), "Piganiol: no residual d e");
+  assert(!/\bq u e\b/.test(repaired), "Piganiol: no residual q u e");
+  assert(!/\d \d \d \d/.test(repaired), "Piganiol: no spaced 4-digit years");
+  assert(!/qiíe/i.test(repaired), "Piganiol: qiíe fixed");
+  assert(!/O\s+'\s*MEARA/.test(repaired), "Piganiol: O ' MEARA fixed");
+  assert(!/p\.\.(?!\.)/.test(repaired), "Piganiol: p.. fixed");
+  assert(repaired.includes("Tal es la opinión"), "Piganiol: Tal joined");
+  assert(repaired.includes("habla de la"), "Piganiol: de joined");
+  assert(repaired.includes("1947"), "Piganiol: year 1947");
+  assert(repaired.includes("1956"), "Piganiol: year 1956");
+  assert(repaired.includes("227-251"), "Piganiol: pages 227-251");
+  assert(repaired.includes("331-343"), "Piganiol: pages 331-343");
+  assert(repaired.includes("O'MEARA"), "Piganiol: O'MEARA");
+  assert(repaired.includes("MICHELE PELLEGRINO"), "Piganiol: MICHELE");
+  // idempotent
+  assertEq(repairOcrSpacedText(repaired), repaired, "Piganiol repair idempotent");
+  // unit path
+  const unit = repairOcrNoiseUnit(piganiolSnippet);
+  assert(unit.changed === true, "Piganiol unit changed");
+  assert(unit.excludedGarbage === false, "Piganiol not garbage-excluded");
+  assertEq(unit.contenido, repaired, "unit path matches spaced text path");
+}
+
+// regression: ≥4 collapse + punct join-safety still hold after compose
+assertEq(
+  repairOcrSpacedText("DE LA H I S T O R I A , Y DEL"),
+  "DE LA HISTORIA, Y DEL",
+  "≥4 collapse still in compose after a2/a3",
+);
+assert(
+  repairOcrSpacedText("que.dista el sol; es.decir art.cit").includes("que.dista"),
+  "compose still preserves que.dista",
+);
+assert(
+  repairOcrSpacedText("es.decir, mueran").includes("es.decir"),
+  "compose still preserves es.decir",
+);
+assertEq(
+  repairOcrSpacedText(goodProse),
+  goodProse,
+  "clean prose fully unchanged by compose",
+);
+
+// metrics expose short/digit counts
+{
+  const m = scoreSpacedLetters("T a l y París 1 9 4 7 y H I S T O R I A");
+  assert(m.shortSpacedWordHits >= 1, `shortSpacedWordHits≥1 got ${m.shortSpacedWordHits}`);
+  assert(m.spacedDigitRuns >= 1, `spacedDigitRuns≥1 got ${m.spacedDigitRuns}`);
+  assert(m.spacedLetterRuns >= 1, `spacedLetterRuns≥1 got ${m.spacedLetterRuns}`);
 }
 
 console.log(`\n${passed} passed, ${failed} failed`);

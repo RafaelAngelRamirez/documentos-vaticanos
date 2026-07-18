@@ -1,38 +1,47 @@
 {
   "documentId": "agustin-38-antiarrianos-es",
-  "revision": "ocr-abc-v1",
-  "appliedAt": "2026-07-16T00:47:41.253Z",
+  "revision": "ocr-abc-v2",
+  "appliedAt": "2026-07-18T21:14:42.644Z",
   "ruleClasses": [
     "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
     "garbage-toc-exclude-placeholder",
     "punct-safe-compose"
   ],
   "unitsTotal": 1691,
-  "unitsChanged": 205,
-  "unitsExcludedGarbage": 3,
-  "unitsCollapsedSpaced": 202,
+  "unitsChanged": 267,
+  "unitsExcludedGarbage": 0,
+  "unitsCollapsedSpaced": 267,
   "before": {
     "units": 1691,
-    "garbageUnits": 3,
-    "garbageRatio": 0.0018,
-    "spacedLetterRuns": 300,
-    "junkRunHits": 12,
-    "tocLeaderHits": 3,
-    "residualScore": 362
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 267,
+    "spacedDigitRuns": 70,
+    "junkRunHits": 5,
+    "tocLeaderHits": 1,
+    "residualBodyNoiseUnits": 12,
+    "residualScore": 529
   },
   "after": {
     "units": 1691,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
     "junkRunHits": 5,
     "tocLeaderHits": 1,
-    "residualScore": 12
+    "residualBodyNoiseUnits": 12,
+    "residualScore": 192
   },
-  "letterTokenOverlap": 0.999,
+  "letterTokenOverlap": 0.9992,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+  "notes": "a) ≥4 spaced letters; a2) short dict words (Tal/que/de); a3) spaced digits/years; a4) qiíe/O'MEARA/p..; b) TOC junk placeholder (stable unitIndex)."
 }

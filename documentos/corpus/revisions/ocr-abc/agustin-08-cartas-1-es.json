@@ -1,38 +1,47 @@
 {
   "documentId": "agustin-08-cartas-1-es",
-  "revision": "ocr-abc-v1",
-  "appliedAt": "2026-07-16T00:47:55.145Z",
+  "revision": "ocr-abc-v2",
+  "appliedAt": "2026-07-18T21:14:47.634Z",
   "ruleClasses": [
     "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
     "garbage-toc-exclude-placeholder",
     "punct-safe-compose"
   ],
   "unitsTotal": 2468,
-  "unitsChanged": 52,
+  "unitsChanged": 279,
   "unitsExcludedGarbage": 0,
-  "unitsCollapsedSpaced": 52,
+  "unitsCollapsedSpaced": 279,
   "before": {
     "units": 2468,
     "garbageUnits": 0,
     "garbageRatio": 0,
-    "spacedLetterRuns": 56,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 251,
+    "spacedDigitRuns": 89,
     "junkRunHits": 0,
     "tocLeaderHits": 1,
-    "residualScore": 58
+    "residualBodyNoiseUnits": 10,
+    "residualScore": 492
   },
   "after": {
     "units": 2468,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
     "junkRunHits": 0,
     "tocLeaderHits": 1,
-    "residualScore": 2
+    "residualBodyNoiseUnits": 10,
+    "residualScore": 152
   },
   "letterTokenOverlap": 0.9992,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+  "notes": "a) ≥4 spaced letters; a2) short dict words (Tal/que/de); a3) spaced digits/years; a4) qiíe/O'MEARA/p..; b) TOC junk placeholder (stable unitIndex)."
 }

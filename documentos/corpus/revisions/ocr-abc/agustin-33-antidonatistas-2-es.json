@@ -1,38 +1,47 @@
 {
   "documentId": "agustin-33-antidonatistas-2-es",
-  "revision": "ocr-abc-v1",
-  "appliedAt": "2026-07-16T00:47:41.868Z",
+  "revision": "ocr-abc-v2",
+  "appliedAt": "2026-07-18T21:15:09.442Z",
   "ruleClasses": [
     "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
     "garbage-toc-exclude-placeholder",
     "punct-safe-compose"
   ],
   "unitsTotal": 884,
-  "unitsChanged": 154,
-  "unitsExcludedGarbage": 5,
-  "unitsCollapsedSpaced": 149,
+  "unitsChanged": 165,
+  "unitsExcludedGarbage": 0,
+  "unitsCollapsedSpaced": 165,
   "before": {
     "units": 884,
-    "garbageUnits": 5,
-    "garbageRatio": 0.0057,
-    "spacedLetterRuns": 247,
-    "junkRunHits": 28,
-    "tocLeaderHits": 1,
-    "residualScore": 361
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 126,
+    "spacedDigitRuns": 80,
+    "junkRunHits": 1,
+    "tocLeaderHits": 0,
+    "residualBodyNoiseUnits": 2,
+    "residualScore": 238
   },
   "after": {
     "units": 884,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
     "junkRunHits": 1,
     "tocLeaderHits": 0,
-    "residualScore": 2
+    "residualBodyNoiseUnits": 2,
+    "residualScore": 32
   },
-  "letterTokenOverlap": 0.9979,
+  "letterTokenOverlap": 0.9993,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+  "notes": "a) ≥4 spaced letters; a2) short dict words (Tal/que/de); a3) spaced digits/years; a4) qiíe/O'MEARA/p..; b) TOC junk placeholder (stable unitIndex)."
 }

@@ -18,16 +18,15 @@ import type { CorpusManifest, DocumentMeta } from "./models/corpus.model";
 import { buildIndex } from "./src/pipeline/build_index";
 import { CORPUS_ROOTS } from "./src/pipeline/write_corpus";
 import {
-  collapseSpacedLetters,
   letterTokenOverlap,
   repairOcrNoiseUnit,
+  repairOcrSpacedText,
   scoreDocumentGarbage,
   type DocGarbageMetrics,
 } from "./src/pipeline/repair_ocr_noise";
-import { repairOcrPunctuation } from "./src/pipeline/repair_ocr_punctuation";
 
 const REPO = path.resolve(__dirname, "..");
-const REVISION_TAG = "ocr-abc-v1";
+const REVISION_TAG = "ocr-abc-v2";
 const INVENTORY_PATH = path.join(
   REPO,
   "documentos",
@@ -162,6 +161,8 @@ function buildInventory(
     const metrics = scoreDocumentGarbage(unitTexts(units));
     const targetAbc =
       metrics.spacedLetterRuns >= minSpaced ||
+      metrics.shortSpacedWordHits >= minSpaced ||
+      metrics.spacedDigitRuns >= minSpaced ||
       metrics.garbageUnits >= minGarbage;
     // Queue for re-OCR: residual body noise / leftover junk a+b cannot fix
     const queueReocr =
@@ -174,6 +175,12 @@ function buildInventory(
     const reasons: string[] = [];
     if (metrics.spacedLetterRuns > 0) {
       reasons.push(`spaced_runs=${metrics.spacedLetterRuns}`);
+    }
+    if (metrics.shortSpacedWordHits > 0) {
+      reasons.push(`short_spaced=${metrics.shortSpacedWordHits}`);
+    }
+    if (metrics.spacedDigitRuns > 0) {
+      reasons.push(`spaced_digits=${metrics.spacedDigitRuns}`);
     }
     if (metrics.garbageUnits > 0) {
       reasons.push(
@@ -208,7 +215,12 @@ function buildInventory(
 function applyToDocument(docId: string): RevisionRecord | null {
   const units = loadUnits(docId);
   const before = scoreDocumentGarbage(unitTexts(units));
-  if (before.spacedLetterRuns === 0 && before.garbageUnits === 0) {
+  if (
+    before.spacedLetterRuns === 0 &&
+    before.shortSpacedWordHits === 0 &&
+    before.spacedDigitRuns === 0 &&
+    before.garbageUnits === 0
+  ) {
     // Still allow collapse of edge cases: check if any unit would change
     let any = false;
     for (const u of units) {
@@ -305,9 +317,8 @@ function applyToDocument(docId: string): RevisionRecord | null {
     const cleanPath = path.join(cleanRoot, `${docId}.txt`);
     if (!fs.existsSync(cleanPath)) continue;
     const clean = fs.readFileSync(cleanPath, "utf-8");
-    // Apply spaced collapse + punct only on clean (no unit blanking)
-    let next = collapseSpacedLetters(clean);
-    next = repairOcrPunctuation(next);
+    // Same pure spaced+digit+confusion+punct path as units (no garbage blanking)
+    const next = repairOcrSpacedText(clean);
     if (next !== clean) {
       fs.writeFileSync(
         cleanPath,
@@ -323,6 +334,9 @@ function applyToDocument(docId: string): RevisionRecord | null {
     appliedAt: new Date().toISOString(),
     ruleClasses: [
       "spaced-letter-collapse",
+      "short-spaced-word-collapse",
+      "spaced-digit-collapse",
+      "high-confidence-ocr-confusions",
       "garbage-toc-exclude-placeholder",
       "punct-safe-compose",
     ],
@@ -335,7 +349,7 @@ function applyToDocument(docId: string): RevisionRecord | null {
     letterTokenOverlap: Math.round(overlap * 10000) / 10000,
     dualWriteRoots: dualRoots,
     notes:
-      "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins.",
+      "a) ≥4 spaced letters; a2) short dict words (Tal/que/de); a3) spaced digits/years; a4) qiíe/O'MEARA/p..; b) TOC junk placeholder (stable unitIndex).",
   };
   void beforeText;
   void afterText;
