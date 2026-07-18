@@ -25,6 +25,7 @@
     "test:refs": "npm --prefix scripts-descarga run test:refs",
     "test:unlinked-refs": "npm --prefix scripts-descarga run test:unlinked-refs",
     "inventory:unlinked-refs": "npm --prefix scripts-descarga run inventory:unlinked-refs",
+    "test:corpus-structure": "node scripts-descarga/corpus_structure_contract.test.js",
     "test:electron-paths": "npm --prefix frontend run test:electron-paths",
     "dev:api": "npm --prefix backend run dev",
     "scrape": "npm --prefix scripts-descarga run scrape --",

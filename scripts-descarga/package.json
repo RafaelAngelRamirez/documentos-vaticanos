@@ -13,6 +13,7 @@
     "test:refs": "npx ts-node --transpile-only ref_parser.test.ts",
     "test:unlinked-refs": "npx ts-node --transpile-only unlinked_ref_classifier.test.ts",
     "inventory:unlinked-refs": "npx ts-node --transpile-only inventory_unlinked_refs.ts",
+    "test:corpus-structure": "node corpus_structure_contract.test.js",
     "scrape": "npx ts-node --transpile-only scrape_source.ts",
     "scrape:lg": "npx ts-node --transpile-only scrape_source.ts --source lg",
     "scrape:gs": "npx ts-node --transpile-only scrape_source.ts --source gs",
