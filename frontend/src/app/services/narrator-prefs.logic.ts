@@ -24,12 +24,19 @@ export interface NarratorDevicePrefs {
    * Vacío/null = Grok no disponible aquí. Nunca sincronizar a la nube.
    */
   xaiApiKey: string | null;
+  /**
+   * Si true, al leer por voz una unidad que contiene referencias/citas,
+   * antepone el prefijo "Cita [descripción]. Dice: " antes del texto principal.
+   * Cumple con el requisito de narración de referencias cruzadas.
+   */
+  readCitationPrefix: boolean;
 }
 
 export const DEFAULT_NARRATOR_DEVICE_PREFS: NarratorDevicePrefs = {
   grokEnabled: true,
   voiceId: null,
   xaiApiKey: null,
+  readCitationPrefix: true,
 };
 
 /** Normaliza una API key pegada (quita Bearer / espacios). */
@@ -74,6 +81,9 @@ export function parseNarratorDevicePrefs(
       } else if (typeof parsed.xaiApiKey === 'string') {
         base.xaiApiKey = normalizeXaiApiKey(parsed.xaiApiKey);
       }
+      if (typeof parsed.readCitationPrefix === 'boolean') {
+        base.readCitationPrefix = parsed.readCitationPrefix;
+      }
     } catch {
       /* corrupt → defaults */
     }
@@ -99,6 +109,7 @@ export function serializeNarratorDevicePrefs(
         ? null
         : String(prefs.voiceId),
     xaiApiKey: normalizeXaiApiKey(prefs.xaiApiKey),
+    readCitationPrefix: Boolean(prefs.readCitationPrefix),
   });
 }
 
@@ -115,6 +126,7 @@ export function narratorPrefsForBackup(
     grokEnabled: Boolean(p.grokEnabled),
     voiceId:
       p.voiceId == null || p.voiceId === '' ? null : String(p.voiceId),
+    readCitationPrefix: Boolean(p.readCitationPrefix),
     // xaiApiKey omitido a propósito
   };
 }
