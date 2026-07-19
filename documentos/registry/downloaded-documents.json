@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T05:29:14.887Z",
+  "updatedAt": "2026-07-19T05:34:17.060Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1385,6 +1385,26 @@
       "notes": ""
     },
     {
+      "id": "agustin-39-varios-1-hi",
+      "sourceId": "agustin-39-varios-1-hi",
+      "title": "Escritos varios 1",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpdEhRRFhtcGRBWGs/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T05:34:10.144Z",
+      "lastDownloadedAt": "2026-07-19T05:34:11.447Z",
+      "unitCount": 1230,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-39-varios-1-hi/content.json",
+        "index": "documents/agustin-39-varios-1-hi/index.json",
+        "meta": "documents/agustin-39-varios-1-hi/meta.json"
+      },
+      "notes": "«Escritos varios 1» (agustin-39-varios-1-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "agustin-39-varios-1-zh",
       "sourceId": "agustin-39-varios-1-zh",
       "title": "Escritos varios 1",
@@ -1394,7 +1414,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpdEhRRFhtcGRBWGs/view"
       ],
       "firstDownloadedAt": "2026-07-19T04:24:36.043Z",
-      "lastDownloadedAt": "2026-07-19T04:24:36.043Z",
+      "lastDownloadedAt": "2026-07-19T05:34:12.714Z",
       "unitCount": 1230,
       "status": "active",
       "corpusPaths": {
@@ -1974,7 +1994,7 @@
         "https://www.vatican.va/content/john-paul-ii/ar/apost_constitutions/documents/hf_jp-ii_apc_19901018_index-codex-can-eccl-orient.html"
       ],
       "firstDownloadedAt": "2026-07-19T05:18:52.324Z",
-      "lastDownloadedAt": "2026-07-19T05:18:52.324Z",
+      "lastDownloadedAt": "2026-07-19T05:34:14.985Z",
       "unitCount": 1514,
       "status": "active",
       "corpusPaths": {
@@ -2034,7 +2054,7 @@
         "https://www.vatican.va/content/john-paul-ii/hi/apost_constitutions/documents/hf_jp-ii_apc_19901018_index-codex-can-eccl-orient.html"
       ],
       "firstDownloadedAt": "2026-07-19T04:55:18.191Z",
-      "lastDownloadedAt": "2026-07-19T04:55:18.191Z",
+      "lastDownloadedAt": "2026-07-19T05:34:17.060Z",
       "unitCount": 1514,
       "status": "active",
       "corpusPaths": {

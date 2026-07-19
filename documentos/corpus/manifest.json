@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T05:33:04.555990Z",
+  "generatedAt": "2026-07-19T05:34:50.300125Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -974,6 +974,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). OCR tesseract del PDF escaneado BAC tomo 39."
+    },
+    {
+      "id": "agustin-39-varios-1-hi",
+      "title": "Escritos varios 1",
+      "shortTitle": "Escritos varios 1",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpdEhRRFhtcGRBWGs/view",
+      "bodyPath": "documents/agustin-39-varios-1-hi/content.json",
+      "indexPath": "documents/agustin-39-varios-1-hi/index.json",
+      "unitCount": 1230,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "«Escritos varios 1» (agustin-39-varios-1-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-39-varios-1-zh",
