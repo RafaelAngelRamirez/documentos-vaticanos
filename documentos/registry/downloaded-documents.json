@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T08:09:03.772Z",
+  "updatedAt": "2026-07-19T08:11:48.386Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -283,6 +283,26 @@
         "meta": "documents/agustin-02-confesiones-es/meta.json"
       },
       "notes": "Tomo BAC n=2: 02 Confesiones.pdf"
+    },
+    {
+      "id": "agustin-02-confesiones-hi",
+      "sourceId": "agustin-02-confesiones-hi",
+      "title": "Confesiones",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpR0xsOUdvQmJXbFk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T08:11:47.985Z",
+      "lastDownloadedAt": "2026-07-19T08:11:48.386Z",
+      "unitCount": 1952,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-02-confesiones-hi/content.json",
+        "index": "documents/agustin-02-confesiones-hi/index.json",
+        "meta": "documents/agustin-02-confesiones-hi/meta.json"
+      },
+      "notes": "«Confesiones» (agustin-02-confesiones-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-03-obras-filosoficas-es",
