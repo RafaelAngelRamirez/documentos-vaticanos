@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T16:22:16.547Z",
+  "updatedAt": "2026-07-19T16:29:13.352Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -2385,6 +2385,26 @@
       "notes": "由人工智能根据 pack「Sermones 5 (273–338)」(agustin-25-sermones-5-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
+      "id": "agustin-26-sermones-6-ar",
+      "sourceId": "agustin-26-sermones-6-ar",
+      "title": "Sermones 6",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbHpGdml5blVCUkk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T16:29:10.604Z",
+      "lastDownloadedAt": "2026-07-19T16:29:10.604Z",
+      "unitCount": 3149,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-26-sermones-6-ar/content.json",
+        "index": "documents/agustin-26-sermones-6-ar/index.json",
+        "meta": "documents/agustin-26-sermones-6-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Sermones 6» (agustin-26-sermones-6-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
       "id": "agustin-26-sermones-6-en",
       "sourceId": "agustin-26-sermones-6-en",
       "title": "Sermones 6",
@@ -2394,7 +2414,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpbHpGdml5blVCUkk/view"
       ],
       "firstDownloadedAt": "2026-07-19T16:22:16.546Z",
-      "lastDownloadedAt": "2026-07-19T16:22:16.546Z",
+      "lastDownloadedAt": "2026-07-19T16:29:13.352Z",
       "unitCount": 3149,
       "status": "active",
       "corpusPaths": {
