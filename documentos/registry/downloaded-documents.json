@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T09:28:14.462Z",
+  "updatedAt": "2026-07-19T09:30:33.274Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -263,6 +263,26 @@
         "meta": "documents/agustin-01-primeros-escritos-es/meta.json"
       },
       "notes": "Tomo BAC n=1: 01 San Agustín - Introducción y primeros escritos.pdf"
+    },
+    {
+      "id": "agustin-01-primeros-escritos-zh",
+      "sourceId": "agustin-01-primeros-escritos-zh",
+      "title": "San Agustín Introducción y primeros escritos",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpWTFzcXUzcHU2QWM/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T09:30:33.274Z",
+      "lastDownloadedAt": "2026-07-19T09:30:33.274Z",
+      "unitCount": 2181,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-01-primeros-escritos-zh/content.json",
+        "index": "documents/agustin-01-primeros-escritos-zh/index.json",
+        "meta": "documents/agustin-01-primeros-escritos-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「San Agustín Introducción y primeros escritos」(agustin-01-primeros-escritos-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-02-confesiones-ar",
