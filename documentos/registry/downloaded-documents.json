@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T14:00:04.669Z",
+  "updatedAt": "2026-07-19T14:00:23.408Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -4136,8 +4136,8 @@
         "https://www.vatican.va/chinese/ccc_zh.htm"
       ],
       "firstDownloadedAt": "2026-07-19T14:00:04.669Z",
-      "lastDownloadedAt": "2026-07-19T14:00:04.669Z",
-      "unitCount": 2728,
+      "lastDownloadedAt": "2026-07-19T14:00:23.407Z",
+      "unitCount": 2727,
       "status": "active",
       "corpusPaths": {
         "content": "documents/cic-zh/content.json",

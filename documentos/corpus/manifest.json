@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T14:00:13.654943Z",
+  "generatedAt": "2026-07-19T14:00:23.595372Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -2969,7 +2969,7 @@
       "sourceUrl": "https://www.vatican.va/chinese/ccc_zh.htm",
       "bodyPath": "documents/cic-zh/content.json",
       "indexPath": "documents/cic-zh/index.json",
-      "unitCount": 2728,
+      "unitCount": 2727,
       "sourceNote": "Official Traditional Chinese edition from vatican.va (chinese/ccc PDF / Libreria Editrice Vaticana). Sibling of cic-es; no docCode — stable citations remain on cic-es unitIndex/consecutivo.",
       "translationProvenance": "official"
     },
