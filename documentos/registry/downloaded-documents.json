@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T03:30:07.669Z",
+  "updatedAt": "2026-07-19T03:32:10.270Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1205,6 +1205,26 @@
       "notes": "Traducción al español generada por IA a partir del texto (English) del pack «On the Incarnation of the Word» (atanasio-de-incarnatione-en). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto de origen."
     },
     {
+      "id": "atanasio-de-incarnatione-zh",
+      "sourceId": "atanasio-de-incarnatione-zh",
+      "title": "On the Incarnation of the Word",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/2802.htm"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:31:43.289Z",
+      "lastDownloadedAt": "2026-07-19T03:31:43.289Z",
+      "unitCount": 95,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/atanasio-de-incarnatione-zh/content.json",
+        "index": "documents/atanasio-de-incarnatione-zh/index.json",
+        "meta": "documents/atanasio-de-incarnatione-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「On the Incarnation of the Word」(atanasio-de-incarnatione-en) 的English文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
       "id": "bible-pueblo-de-dios-es",
       "sourceId": "bible",
       "title": "Biblia (Pueblo de Dios)",
@@ -1545,6 +1565,26 @@
       "notes": "Catechismus Romanus ad parochos (Trento / Pío V). Texto latino de dominio público a partir de OCR DjVuTXT de Archive.org (ed. s. XIX). Requiere limpieza mecánica de OCR; no es edición crítica. Fuente: https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
     },
     {
+      "id": "cceo-en",
+      "sourceId": "cceo-en",
+      "title": "Código de los Cánones de las Iglesias Orientales",
+      "kind": "canon-law",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/en/apost_constitutions/documents/hf_jp-ii_apc_19901018_index-codex-can-eccl-orient.html"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:32:04.601Z",
+      "lastDownloadedAt": "2026-07-19T03:32:04.601Z",
+      "unitCount": 1514,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cceo-en/content.json",
+        "index": "documents/cceo-en/index.json",
+        "meta": "documents/cceo-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Código de los Cánones de las Iglesias Orientales» (cceo-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "cceo-es",
       "sourceId": "cceo-es",
       "title": "Código de los Cánones de las Iglesias Orientales",
@@ -1684,6 +1724,26 @@
         "meta": "documents/cd-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「Christus Dominus」(cd-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "cdc-en",
+      "sourceId": "cdc-en",
+      "title": "Código de Derecho Canónico",
+      "kind": "canon-law",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_en.html"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:32:10.269Z",
+      "lastDownloadedAt": "2026-07-19T03:32:10.269Z",
+      "unitCount": 1744,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cdc-en/content.json",
+        "index": "documents/cdc-en/index.json",
+        "meta": "documents/cdc-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Código de Derecho Canónico» (cdc-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "cdc-es",

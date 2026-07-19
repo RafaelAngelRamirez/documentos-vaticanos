@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T03:30:32.441143Z",
+  "generatedAt": "2026-07-19T03:33:12.934620Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -839,6 +839,21 @@
       "translationProvenance": "ai"
     },
     {
+      "id": "atanasio-de-incarnatione-zh",
+      "title": "On the Incarnation of the Word",
+      "shortTitle": "De Incarnatione",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrl": "https://www.newadvent.org/fathers/2802.htm",
+      "bodyPath": "documents/atanasio-de-incarnatione-zh/content.json",
+      "indexPath": "documents/atanasio-de-incarnatione-zh/index.json",
+      "unitCount": 95,
+      "author": "Athanasius of Alexandria",
+      "compiler": "New Advent / NPNF (public domain)",
+      "sourceNote": "由人工智能根据 pack「On the Incarnation of the Word」(atanasio-de-incarnatione-en) 的English文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
+      "translationProvenance": "ai"
+    },
+    {
       "id": "bible-pueblo-de-dios-es",
       "title": "Biblia (Pueblo de Dios)",
       "shortTitle": "Biblia",
@@ -1090,6 +1105,19 @@
       "sourceNote": "Catechismus Romanus ad parochos (Trento / Pío V). Texto latino de dominio público a partir de OCR DjVuTXT de Archive.org (ed. s. XIX). Requiere limpieza mecánica de OCR; no es edición crítica. Fuente: https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
     },
     {
+      "id": "cceo-en",
+      "title": "Código de los Cánones de las Iglesias Orientales",
+      "shortTitle": "CCEO",
+      "kind": "canon-law",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_constitutions/documents/hf_jp-ii_apc_19901018_index-codex-can-eccl-orient.html",
+      "bodyPath": "documents/cceo-en/content.json",
+      "indexPath": "documents/cceo-en/index.json",
+      "unitCount": 1514,
+      "sourceNote": "AI-generated English translation from the Español text of the pack «Código de los Cánones de las Iglesias Orientales» (cceo-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+      "translationProvenance": "ai"
+    },
+    {
       "id": "cceo-es",
       "title": "Código de los Cánones de las Iglesias Orientales",
       "shortTitle": "CCEO",
@@ -1176,6 +1204,19 @@
       "indexPath": "documents/cd-zh/index.json",
       "unitCount": 43,
       "sourceNote": "由人工智能根据 pack「Christus Dominus」(cd-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
+      "translationProvenance": "ai"
+    },
+    {
+      "id": "cdc-en",
+      "title": "Código de Derecho Canónico",
+      "shortTitle": "CDC",
+      "kind": "canon-law",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_en.html",
+      "bodyPath": "documents/cdc-en/content.json",
+      "indexPath": "documents/cdc-en/index.json",
+      "unitCount": 1744,
+      "sourceNote": "AI-generated English translation from the Español text of the pack «Código de Derecho Canónico» (cdc-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
     },
     {
