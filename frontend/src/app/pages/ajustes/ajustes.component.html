@@ -1,6 +1,6 @@
 <div class="app has-bnav">
   <!-- 3H.html:5-7 · fbar sin avatar -->
-  <app-fbar title="Ajustes" [avatar]="false"></app-fbar>
+  <app-fbar [title]="t('settings.title')" [avatar]="false"></app-fbar>
 
   <div class="inner">
     <!-- Perfil (3H) -->
@@ -32,27 +32,50 @@
       </div>
     </ng-template>
 
-    <div class="sect">Apariencia</div>
+    <div class="sect">{{ t('settings.appearance') }}</div>
     <div class="setrow nb">
       <span class="setk"
-        >Tema de la aplicación<span class="seth"
-          >Sepia, claro, oscuro o según el sistema</span
-        ></span
+        >{{ t('settings.theme_app')
+        }}<span class="seth">{{ t('settings.theme_app_hint') }}</span></span
       >
     </div>
     <div class="stepbtn themerow">
       <button
-        *ngFor="let t of themes"
+        *ngFor="let th of themes"
         type="button"
         class="szbtn"
-        [class.on]="prefs.theme === t.value"
-        (click)="setTheme(t.value)"
+        [class.on]="prefs.theme === th.value"
+        (click)="setTheme(th.value)"
       >
-        {{ t.label }}
+        {{ t(th.labelKey) }}
       </button>
     </div>
 
-    <div class="sect">Lectura</div>
+    <div class="sect">{{ t('settings.ui_language') }}</div>
+    <div class="setrow nb">
+      <span class="setk"
+        >{{ t('settings.ui_language')
+        }}<span class="seth">{{ t('settings.ui_language_hint') }}</span></span
+      >
+    </div>
+    <div
+      class="stepbtn themerow"
+      role="group"
+      [attr.aria-label]="t('settings.ui_language')"
+      data-testid="ajustes-ui-locale"
+    >
+      <button
+        *ngFor="let loc of uiLocales"
+        type="button"
+        class="szbtn"
+        [class.on]="prefs.uiLocale === loc.value"
+        (click)="setUiLocale(loc.value)"
+      >
+        {{ loc.label }}
+      </button>
+    </div>
+
+    <div class="sect">{{ t('settings.reading') }}</div>
     <div class="offok hair">
       ✓<span class="offtx"
         >Todos los documentos vienen incluidos en la app — no requiere
@@ -104,13 +127,15 @@
     </div>
     <div class="setrow nb">
       <span class="setk"
-        >Idioma de los textos<span class="seth"
-          >Cuando hay varias ediciones (p. ej. español y latín), se muestra la
-          preferida. Sistema usa el idioma del dispositivo.</span
-        ></span
+        >{{ t('settings.content_language')
+        }}<span class="seth">{{ t('settings.content_language_hint') }}</span></span
       >
     </div>
-    <div class="stepbtn themerow" role="group" aria-label="Idioma de los textos">
+    <div
+      class="stepbtn themerow"
+      role="group"
+      [attr.aria-label]="t('settings.content_language')"
+    >
       <button
         *ngFor="let loc of contentLocales"
         type="button"
@@ -135,7 +160,7 @@
     </div>
 
     <!-- Narrador · API key y voz solo en este dispositivo (no nube) -->
-    <div class="sect">Narrador</div>
+    <div class="sect">{{ t('settings.narrator') }}</div>
     <div class="setrow nb" *ngIf="!narrSupported">
       <span class="setk"
         >Narración no disponible<span class="seth"
@@ -338,7 +363,7 @@
       {{ dataMsg }}
     </div>
 
-    <div class="sect">Cuenta</div>
+    <div class="sect">{{ t('settings.account') }}</div>
     <ng-container *ngIf="auth.user; else anonAcct">
       <div
         class="setrow linkrow"
@@ -365,7 +390,7 @@
         (click)="logout()"
         (keyup.enter)="logout()"
       >
-        <span class="danger">Cerrar sesión</span><span></span>
+        <span class="danger">{{ t('account.logout') }}</span><span></span>
       </div>
     </ng-container>
     <ng-template #anonAcct>
@@ -376,7 +401,7 @@
         (click)="goCuenta()"
         (keyup.enter)="goCuenta()"
       >
-        <span>Iniciar sesión</span><span class="fs13 muted">›</span>
+        <span>{{ t('account.login') }}</span><span class="fs13 muted">›</span>
       </div>
     </ng-template>
 

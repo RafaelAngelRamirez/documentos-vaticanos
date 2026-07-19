@@ -9,6 +9,9 @@ import {
   UpdateAvailable,
 } from 'src/app/core/downloads/app-update.logic';
 import { AppUpdateService } from 'src/app/core/downloads/app-update.service';
+import { localeLabel } from 'src/app/core/corpus/document-locale.logic';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
+import { UI_LOCALES } from 'src/app/core/i18n/ui-i18n.logic';
 import { BackupService } from 'src/app/services/backup.service';
 import {
   ContentLocalePref,
@@ -16,8 +19,8 @@ import {
   ReaderPreferences,
   ReaderPreferencesService,
   ReaderTheme,
+  UiLocalePref,
 } from 'src/app/services/reader-preferences.service';
-import { localeLabel } from 'src/app/core/corpus/document-locale.logic';
 import {
   NarratorService,
   NarratorVoice,
@@ -34,7 +37,7 @@ import { environment } from 'src/environments/environment';
 
 interface ThemeOption {
   value: ReaderTheme;
-  label: string;
+  labelKey: string;
 }
 
 /** Pantalla 3H · Perfil y ajustes. */
@@ -59,21 +62,41 @@ export class AjustesComponent implements OnInit, OnDestroy {
   xaiKeyMsg: string | null = null;
   xaiKeyMsgError = false;
 
-  /** Orden del diseño 3F + Mono (monocromo oscuro, default). */
+  /** Orden del diseño 3F + Mono (monocromo oscuro, default). Labels via i18n. */
   readonly themes: ThemeOption[] = [
-    { value: 'mono', label: 'Mono' },
-    { value: 'sepia', label: 'Sepia' },
-    { value: 'claro', label: 'Claro' },
-    { value: 'oscuro', label: 'Oscuro' },
-    { value: 'system', label: 'Sistema' },
+    { value: 'mono', labelKey: 'settings.theme_mono' },
+    { value: 'sepia', labelKey: 'settings.theme_sepia' },
+    { value: 'claro', labelKey: 'settings.theme_claro' },
+    { value: 'oscuro', labelKey: 'settings.theme_oscuro' },
+    { value: 'system', labelKey: 'settings.theme_system' },
   ];
 
-  /** Idioma de los textos del corpus (no i18n de la UI). */
-  readonly contentLocales: { value: ContentLocalePref; label: string }[] = [
-    { value: 'system', label: 'Sistema' },
-    { value: 'es', label: localeLabel('es') },
-    { value: 'la', label: localeLabel('la') },
-  ];
+  /** Idiomas de interfaz (es / en / zh / hi / ar) — native labels. */
+  get uiLocales(): { value: UiLocalePref; label: string }[] {
+    return UI_LOCALES.map((code) => ({
+      value: code as UiLocalePref,
+      label: this.i18n.localeLabel(code),
+    }));
+  }
+
+  /**
+   * Idioma de los textos del corpus (no i18n de la UI).
+   * Expandido: system + es/en/zh/hi/ar/la. "System" label tracks UI locale.
+   */
+  get contentLocales(): { value: ContentLocalePref; label: string }[] {
+    return [
+      { value: 'system', label: this.t('settings.system') },
+      { value: 'es', label: localeLabel('es') },
+      { value: 'en', label: localeLabel('en') },
+      { value: 'zh', label: localeLabel('zh') },
+      { value: 'hi', label: localeLabel('hi') },
+      { value: 'ar', label: localeLabel('ar') },
+      { value: 'la', label: localeLabel('la') },
+    ];
+  }
+
+  /** Tick so templates re-evaluate `t()` when locale changes. */
+  localeTick = 0;
 
   private sub = new Subscription();
 
@@ -101,13 +124,25 @@ export class AjustesComponent implements OnInit, OnDestroy {
     private router: Router,
     private appUpdateSvc: AppUpdateService,
     private narrator: NarratorService,
-    private narratorPrefs: NarratorPreferencesService
+    private narratorPrefs: NarratorPreferencesService,
+    public i18n: UiI18nService,
   ) {}
+
+  /** Shortcut used by the template. */
+  t(key: string, params?: Record<string, string | number>): string {
+    void this.localeTick;
+    return this.i18n.t(key, params);
+  }
 
   ngOnInit(): void {
     this.sub.add(
       this.readerPrefs.prefs$.subscribe((p) => {
         this.prefs = p;
+      })
+    );
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
       })
     );
     this.sub.add(
@@ -183,6 +218,10 @@ export class AjustesComponent implements OnInit, OnDestroy {
 
   setContentLocale(locale: ContentLocalePref): void {
     this.readerPrefs.setContentLocale(locale);
+  }
+
+  setUiLocale(locale: UiLocalePref): void {
+    this.i18n.setLocale(locale);
   }
 
   toggleKeepAwake(): void {

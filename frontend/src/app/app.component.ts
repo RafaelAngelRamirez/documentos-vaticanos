@@ -9,6 +9,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { AppUpdateService } from './core/downloads/app-update.service';
+import { UiI18nService } from './core/i18n/ui-i18n.service';
 import { SafeAreaService } from './core/shell/safe-area.service';
 import { BackService } from './services/back.service';
 
@@ -59,7 +60,9 @@ export class AppComponent {
   constructor(
     back: BackService,
     appUpdate: AppUpdateService,
-    safeArea: SafeAreaService
+    safeArea: SafeAreaService,
+    /** Eager init: apply `lang`/`dir` from stored `uiLocale` before first paint of chrome. */
+    _uiI18n: UiI18nService,
   ) {
     // 7A · Back predecible (Android + web) — una sola inicialización.
     back.init();
@@ -69,6 +72,7 @@ export class AppComponent {
     // Inyectar el servicio dispara el check en su constructor; re-assert aquí
     // por si el árbol de providers se rehidrata sin re-construir el singleton.
     appUpdate.checkForUpdate();
+    void _uiI18n.locale;
   }
 
   prepareRoute(outlet: RouterOutlet): string {

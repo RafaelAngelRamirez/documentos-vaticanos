@@ -20,6 +20,8 @@ export interface DocumentMeta {
   compiler?: string;
   /** Human-readable provenance (edition, collection). */
   sourceNote?: string;
+  /** Whether this pack is an official edition or an AI translation sibling. */
+  translationProvenance?: 'official' | 'ai';
   /**
    * Path to body JSON. May be relative to the corpus root
    * (`documents/...`) or an absolute assets path (`assets/...`).

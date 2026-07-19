@@ -24,6 +24,7 @@
     "test:app-update": "bash ../scripts/node-strip-types.sh src/app/core/downloads/app-update.logic.test.js",
     "test:corpus-persist": "bash ../scripts/node-strip-types.sh src/app/core/corpus/corpus-persist.test.js",
     "test:document-locale": "bash ../scripts/node-strip-types.sh src/app/core/corpus/document-locale.logic.test.js",
+    "test:ui-i18n": "bash ../scripts/node-strip-types.sh src/app/core/i18n/ui-i18n.logic.test.js",
     "test:safe-area": "bash ../scripts/node-strip-types.sh src/app/core/shell/safe-area.logic.test.js",
     "test:narrator-grok": "bash ../scripts/node-strip-types.sh src/app/services/narrator-grok.logic.test.js && bash ../scripts/node-strip-types.sh src/app/services/narrator-prefs.logic.test.js",
     "test:speech-prep": "bash ../scripts/node-strip-types.sh src/app/services/speech-prep.logic.test.js",

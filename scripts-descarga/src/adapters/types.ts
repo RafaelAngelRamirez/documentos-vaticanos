@@ -30,6 +30,11 @@ export interface SourceConfig {
   compiler?: string;
   /** Provenance note (edition, collection). */
   sourceNote?: string;
+  /**
+   * How the body text was obtained for this locale pack.
+   * `ai` = machine/LLM twin (never assign docCode); `official` = human/source edition.
+   */
+  translationProvenance?: "official" | "ai";
 }
 
 export interface SourcesFile {

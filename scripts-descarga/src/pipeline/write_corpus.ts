@@ -86,6 +86,9 @@ export function writeCorpusDocument(
   if (config.compiler) meta.compiler = config.compiler;
   if (config.sourceNote) meta.sourceNote = config.sourceNote;
   else if (config.notes) meta.sourceNote = config.notes;
+  if (config.translationProvenance) {
+    meta.translationProvenance = config.translationProvenance;
+  }
 
   for (const root of CORPUS_ROOTS) {
     ensureDir(path.join(root, "documents", config.corpusDocId));

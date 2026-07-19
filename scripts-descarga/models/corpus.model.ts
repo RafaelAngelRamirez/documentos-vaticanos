@@ -30,6 +30,11 @@ export interface DocumentMeta {
    * Human-readable provenance (edition, collection, notes).
    */
   sourceNote?: string;
+  /**
+   * Whether this pack is an official edition or an AI translation sibling
+   * (e.g. `lg-en-ai`, concilios ES generated packs).
+   */
+  translationProvenance?: "official" | "ai";
   /** Relative path to body JSON (Article[]). */
   bodyPath: string;
   /** Relative path to index JSON ({ indice, indice_por_punto }). */

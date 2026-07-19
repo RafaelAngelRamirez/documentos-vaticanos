@@ -14,6 +14,10 @@ export type ReaderFont = 'serif' | 'sans';
  */
 export type ContentLocalePref = 'system' | string;
 
+/** Idiomas de interfaz soportados (`UiI18nService` / `assets/i18n`). */
+export const UI_LOCALE_CODES = ['es', 'en', 'zh', 'hi', 'ar'] as const;
+export type UiLocalePref = (typeof UI_LOCALE_CODES)[number];
+
 export interface ReaderPreferences {
   theme: ReaderTheme;
   font: ReaderFont;
@@ -27,6 +31,11 @@ export interface ReaderPreferences {
    * `system` → locale del dispositivo; fallback de catálogo `es`.
    */
   contentLocale: ContentLocalePref;
+  /**
+   * Idioma de la **interfaz** (menús, chrome). Independiente del corpus.
+   * Valores: `es` | `en` | `zh` | `hi` | `ar`. Default `es`.
+   */
+  uiLocale: UiLocalePref;
 }
 
 export const READER_PREFS_STORAGE_KEY = 'reader.prefs.v1';
@@ -39,6 +48,7 @@ export const DEFAULT_READER_PREFERENCES: ReaderPreferences = {
   maxWidthCh: 65,
   keepAwake: false,
   contentLocale: 'system',
+  uiLocale: 'es',
 };
 
 export const THEME_CYCLE: ReaderTheme[] = [
@@ -226,6 +236,18 @@ export class ReaderPreferencesService {
     this.update({ contentLocale });
   }
 
+  /** Idioma de la interfaz (`es`|`en`|`zh`|`hi`|`ar`). */
+  setUiLocale(uiLocale: string): void {
+    this.update({ uiLocale: this.clampUiLocale(uiLocale) });
+  }
+
+  private clampUiLocale(raw: string | null | undefined): UiLocalePref {
+    const code = (raw ?? 'es').toString().trim().toLowerCase().split(/[-_]/)[0];
+    return (UI_LOCALE_CODES as readonly string[]).includes(code)
+      ? (code as UiLocalePref)
+      : 'es';
+  }
+
   private clamp(prefs: ReaderPreferences): ReaderPreferences {
     const migrated =
       LEGACY_THEME_MAP[prefs.theme as string] ?? (prefs.theme as ReaderTheme);
@@ -245,6 +267,7 @@ export class ReaderPreferencesService {
       maxWidthCh: Math.min(80, Math.max(55, Math.round(prefs.maxWidthCh))),
       keepAwake: prefs.keepAwake === true,
       contentLocale,
+      uiLocale: this.clampUiLocale(prefs.uiLocale),
     };
   }
 

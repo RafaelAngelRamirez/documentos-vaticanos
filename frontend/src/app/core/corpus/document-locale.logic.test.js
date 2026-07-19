@@ -39,6 +39,17 @@ async function main() {
   assert.strictEqual(L.familyKey('cceo-es'), 'cceo'); // suffix without locale arg
   assert.strictEqual(L.familyKey('weird-doc'), 'weird-doc');
 
+  // familyKey: multi-locale + AI siblings
+  assert.strictEqual(L.familyKey('lg-en', 'en'), 'lg');
+  assert.strictEqual(L.familyKey('lg-en'), 'lg');
+  assert.strictEqual(L.familyKey('lg-zh', 'zh'), 'lg');
+  assert.strictEqual(L.familyKey('lg-en-ai', 'en'), 'lg');
+  assert.strictEqual(L.familyKey('lg-en-ai'), 'lg');
+  assert.strictEqual(L.familyKey('cceo-es-ai', 'es'), 'cceo');
+  assert.strictEqual(L.familyKey('cceo-es-ai'), 'cceo');
+  assert.strictEqual(L.familyKey('lg-hi-ai'), 'lg');
+  assert.strictEqual(L.familyKey('lg-ar'), 'lg');
+
   // resolveContentLocale
   assert.strictEqual(L.resolveContentLocale('es', 'en-US'), 'es');
   assert.strictEqual(L.resolveContentLocale('system', 'es-MX'), 'es');
@@ -55,6 +66,22 @@ async function main() {
   assert.strictEqual(L.pickPreferredEdition(cceo, 'la').id, 'cceo-la');
   assert.strictEqual(L.pickPreferredEdition(cceo, 'en').id, 'cceo-es'); // fallback es
   assert.strictEqual(L.pickPreferredEdition([meta('cic-es', 'es')], 'la').id, 'cic-es');
+
+  // pickPreferredEdition prefers en when available
+  const lgPack = [
+    meta('lg-es', 'es'),
+    meta('lg-en', 'en'),
+    meta('lg-la', 'la'),
+  ];
+  assert.strictEqual(L.pickPreferredEdition(lgPack, 'en').id, 'lg-en');
+  assert.strictEqual(L.pickPreferredEdition(lgPack, 'es').id, 'lg-es');
+  // prefer official over AI when same locale
+  const lgWithAi = [
+    meta('lg-en-ai', 'en', { translationProvenance: 'ai' }),
+    meta('lg-en', 'en'),
+    meta('lg-es', 'es'),
+  ];
+  assert.strictEqual(L.pickPreferredEdition(lgWithAi, 'en').id, 'lg-en');
 
   // group + listPreferred
   const pack = [
@@ -76,6 +103,16 @@ async function main() {
   assert.ok(prefLa.some((d) => d.id === 'cceo-la'));
   assert.ok(prefLa.some((d) => d.id === 'cic-es')); // only es edition
 
+  // editionsForDocument groups AI siblings with family
+  const packAi = [
+    meta('lg-es', 'es'),
+    meta('lg-en', 'en'),
+    meta('lg-en-ai', 'en', { translationProvenance: 'ai' }),
+  ];
+  const edsLg = L.editionsForDocument(packAi, 'lg-en-ai');
+  assert.strictEqual(edsLg.length, 3);
+  assert.ok(edsLg.every((e) => L.familyKey(e.id, e.locale) === 'lg'));
+
   // editionsForDocument
   const eds = L.editionsForDocument(pack, 'cceo-es');
   assert.strictEqual(eds.length, 2);
@@ -92,9 +129,92 @@ async function main() {
   // labels
   assert.strictEqual(L.localeLabel('es'), 'Español');
   assert.strictEqual(L.localeLabel('la'), 'Latina');
+  assert.strictEqual(L.localeLabel('zh'), '中文');
+  assert.strictEqual(L.localeLabel('hi'), 'हिन्दी');
+  assert.strictEqual(L.localeLabel('ar'), 'العربية');
   assert.strictEqual(L.localeBadge('es'), 'ES');
+  assert.strictEqual(L.localeBadge('zh'), 'ZH');
   assert.ok(L.multiLocaleSubtitle(cceo)?.includes('Español'));
   assert.strictEqual(L.multiLocaleSubtitle([meta('cic-es', 'es')]), null);
+
+  // isAiEdition
+  assert.strictEqual(L.isAiEdition(meta('lg-en-ai', 'en')), true);
+  assert.strictEqual(L.isAiEdition(meta('cceo-es-ai', 'es')), true);
+  assert.strictEqual(
+    L.isAiEdition(meta('lg-en', 'en', { translationProvenance: 'ai' })),
+    true,
+  );
+  assert.strictEqual(
+    L.isAiEdition(
+      meta('foo-es', 'es', {
+        sourceNote: 'Traducción generada por IA a partir del latín.',
+      }),
+    ),
+    true,
+  );
+  assert.strictEqual(
+    L.isAiEdition(
+      meta('foo-en', 'en', { sourceNote: 'AI translation for study only.' }),
+    ),
+    true,
+  );
+  assert.strictEqual(L.isAiEdition(meta('lg-en', 'en')), false);
+  assert.strictEqual(
+    L.isAiEdition(meta('cic-es', 'es', { translationProvenance: 'official' })),
+    false,
+  );
+
+  // localeProvenanceBadge
+  assert.strictEqual(L.localeProvenanceBadge('es', false), 'ES');
+  assert.strictEqual(L.localeProvenanceBadge('es', true), 'ES(IA)');
+  assert.strictEqual(L.localeProvenanceBadge('en', false), 'EN');
+  assert.strictEqual(L.localeProvenanceBadge('en', true), 'EN(AI)');
+  assert.strictEqual(L.localeProvenanceBadge('zh', false), 'ZH');
+  assert.strictEqual(L.localeProvenanceBadge('zh', true), 'ZH(AI)');
+  assert.strictEqual(L.localeProvenanceBadge('hi', true), 'HI(AI)');
+  assert.strictEqual(L.localeProvenanceBadge('ar', true), 'AR(AI)');
+  assert.strictEqual(L.localeBadge('es', true), 'ES(IA)');
+  assert.strictEqual(L.localeBadge('en', true), 'EN(AI)');
+
+  // multiLocaleSubtitle with AI provenance badges
+  const multiAi = [
+    meta('lg-es', 'es'),
+    meta('lg-en-ai', 'en', { translationProvenance: 'ai' }),
+  ];
+  const subAi = L.multiLocaleSubtitle(multiAi);
+  assert.ok(subAi?.includes('Español'), subAi);
+  assert.ok(subAi?.includes('EN(AI)'), subAi);
+
+  // aiSourceNote
+  const noteEs = L.aiSourceNote('es', 'Lumen gentium', 'lg-la', 'Latina');
+  assert.ok(/IA|inteligencia/i.test(noteEs) || /generada por IA/i.test(noteEs), noteEs);
+  assert.ok(/Santa Sede|oficial/i.test(noteEs), noteEs);
+  assert.ok(/estudio/i.test(noteEs), noteEs);
+  assert.ok(noteEs.includes('Lumen gentium'));
+  assert.ok(noteEs.includes('lg-la'));
+
+  const noteEn = L.aiSourceNote('en', 'Lumen gentium', 'lg-la', 'Latin');
+  assert.ok(/AI|generated/i.test(noteEn), noteEn);
+  assert.ok(/Holy See|official/i.test(noteEn), noteEn);
+  assert.ok(/study/i.test(noteEn), noteEn);
+
+  const noteZh = L.aiSourceNote('zh', 'Lumen gentium', 'lg-la', '拉丁语');
+  assert.ok(/人工智能|翻译/.test(noteZh), noteZh);
+
+  const noteHi = L.aiSourceNote('hi', 'Lumen gentium', 'lg-la', 'लैटिन');
+  assert.ok(/AI|अनुवाद|अध्ययन/.test(noteHi), noteHi);
+
+  const noteAr = L.aiSourceNote('ar', 'Lumen gentium', 'lg-la', 'اللاتينية');
+  assert.ok(/ذكاء|ترجمة|دراسة/.test(noteAr), noteAr);
+
+  // APP_UI_LOCALES / CONTENT_LOCALES exports
+  assert.ok(Array.isArray(L.APP_UI_LOCALES));
+  assert.deepStrictEqual([...L.APP_UI_LOCALES], ['es', 'en', 'zh', 'hi', 'ar']);
+  assert.ok(L.CONTENT_LOCALES.includes('la'));
+  assert.ok(L.CONTENT_LOCALES.includes('zh'));
+  assert.ok(L.KNOWN_LOCALE_SUFFIXES.includes('zh'));
+  assert.ok(L.KNOWN_LOCALE_SUFFIXES.includes('hi'));
+  assert.ok(L.KNOWN_LOCALE_SUFFIXES.includes('ar'));
 
   // Real manifest collapse smoke
   if (fs.existsSync(MANIFEST)) {
@@ -111,7 +231,7 @@ async function main() {
       if (fam.some((e) => (e.locale || '').startsWith('es') || e.id.endsWith('-es'))) {
         const pick = L.pickPreferredEdition(fam, 'es');
         assert.ok(
-          pick.locale === 'es' || pick.id.endsWith('-es'),
+          pick.locale === 'es' || pick.id.endsWith('-es') || pick.id.includes('-es-'),
           `preferred es for ${la.id} → ${pick.id}`,
         );
       }

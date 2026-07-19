@@ -27,7 +27,8 @@ import { PuntoModule } from '../punto/punto.module';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { DocumentMeta } from 'src/app/core/corpus/corpus.models';
 import {
-  localeBadge,
+  localeProvenanceBadge,
+  isAiEdition,
   mapUnitIndexOnLocaleSwitch,
 } from 'src/app/core/corpus/document-locale.logic';
 import { ReadingProgressService } from 'src/app/services/reading-progress.service';
@@ -472,7 +473,7 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   langBadge(ed: DocumentMeta): string {
-    return localeBadge(ed.locale);
+    return localeProvenanceBadge(ed.locale, isAiEdition(ed));
   }
 
   isCurrentLang(ed: DocumentMeta): boolean {
