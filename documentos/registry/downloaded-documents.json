@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T17:10:47.980Z",
+  "updatedAt": "2026-07-19T17:14:32.280Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1654,7 +1654,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpLTAwTHU0NHh3czA/view"
       ],
       "firstDownloadedAt": "2026-07-19T17:09:15.082Z",
-      "lastDownloadedAt": "2026-07-19T17:09:15.082Z",
+      "lastDownloadedAt": "2026-07-19T17:14:32.280Z",
       "unitCount": 3310,
       "status": "active",
       "corpusPaths": {
@@ -2083,6 +2083,26 @@
         "meta": "documents/agustin-21-enarraciones-salmos-3-hi/meta.json"
       },
       "notes": "«Narraciones sobre los salmos 3» (agustin-21-enarraciones-salmos-3-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-zh",
+      "sourceId": "agustin-21-enarraciones-salmos-3-zh",
+      "title": "Narraciones sobre los salmos 3",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpaGdheFVxa3haNFU/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T17:14:29.104Z",
+      "lastDownloadedAt": "2026-07-19T17:14:29.104Z",
+      "unitCount": 3168,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-21-enarraciones-salmos-3-zh/content.json",
+        "index": "documents/agustin-21-enarraciones-salmos-3-zh/index.json",
+        "meta": "documents/agustin-21-enarraciones-salmos-3-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Narraciones sobre los salmos 3」(agustin-21-enarraciones-salmos-3-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-22-enarraciones-salmos-4-ar",
