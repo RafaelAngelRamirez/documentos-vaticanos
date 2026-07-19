@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T05:05:40.079Z",
+  "updatedAt": "2026-07-19T05:12:23.775Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1823,6 +1823,26 @@
         "meta": "documents/carta-diogneto-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「Carta a Diogneto」(carta-diogneto-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "catecismo-romano-ar",
+      "sourceId": "catecismo-romano-ar",
+      "title": "Catecismo Romano",
+      "kind": "catechism",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
+      ],
+      "firstDownloadedAt": "2026-07-19T05:12:16.281Z",
+      "lastDownloadedAt": "2026-07-19T05:12:23.775Z",
+      "unitCount": 1162,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/catecismo-romano-ar/content.json",
+        "index": "documents/catecismo-romano-ar/index.json",
+        "meta": "documents/catecismo-romano-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Catecismo Romano» (catecismo-romano-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
     },
     {
       "id": "catecismo-romano-en",
@@ -4173,6 +4193,26 @@
       "notes": "Enchiridion symbolorum (Denzinger-Schönmetzer), texto español. Fuente pública Internet Archive (Public Domain Mark 1.0)."
     },
     {
+      "id": "ds-hi",
+      "sourceId": "ds-hi",
+      "title": "Enchiridion symbolorum (Denzinger-Schönmetzer)",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://archive.org/details/denzinger-schonmetzer"
+      ],
+      "firstDownloadedAt": "2026-07-19T05:12:19.938Z",
+      "lastDownloadedAt": "2026-07-19T05:12:19.938Z",
+      "unitCount": 1140,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ds-hi/content.json",
+        "index": "documents/ds-hi/index.json",
+        "meta": "documents/ds-hi/meta.json"
+      },
+      "notes": "«Enchiridion symbolorum (Denzinger-Schönmetzer)» (ds-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "ds-zh",
       "sourceId": "ds-zh",
       "title": "Enchiridion symbolorum (Denzinger-Schönmetzer)",
@@ -4182,7 +4222,7 @@
         "https://archive.org/details/denzinger-schonmetzer"
       ],
       "firstDownloadedAt": "2026-07-19T04:16:40.623Z",
-      "lastDownloadedAt": "2026-07-19T04:16:40.623Z",
+      "lastDownloadedAt": "2026-07-19T05:12:21.745Z",
       "unitCount": 1140,
       "status": "active",
       "corpusPaths": {
