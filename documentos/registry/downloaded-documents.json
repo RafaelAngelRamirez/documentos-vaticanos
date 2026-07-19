@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T06:11:04.406Z",
+  "updatedAt": "2026-07-19T06:14:53.928Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -843,6 +843,26 @@
         "meta": "documents/agustin-27-escritos-biblicos-3-es/meta.json"
       },
       "notes": "Tomo BAC n=27: 27 Escritos-Biblicos-3.pdf"
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-hi",
+      "sourceId": "agustin-27-escritos-biblicos-3-hi",
+      "title": "Escritos Bíblicos 3",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpdnczaDRBb0NKaTA/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T06:14:53.270Z",
+      "lastDownloadedAt": "2026-07-19T06:14:53.927Z",
+      "unitCount": 1625,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-27-escritos-biblicos-3-hi/content.json",
+        "index": "documents/agustin-27-escritos-biblicos-3-hi/index.json",
+        "meta": "documents/agustin-27-escritos-biblicos-3-hi/meta.json"
+      },
+      "notes": "«Escritos Bíblicos 3» (agustin-27-escritos-biblicos-3-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-28-escritos-biblicos-4-es",
