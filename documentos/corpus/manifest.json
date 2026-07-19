@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T05:22:54.336931Z",
+  "generatedAt": "2026-07-19T05:26:56.340078Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1356,6 +1356,19 @@
       "indexPath": "documents/catecismo-romano-es/index.json",
       "unitCount": 1162,
       "sourceNote": "Traducción al español generada por IA a partir del texto latino del pack «Catechismus Romanus» (catecismo-romano-la), limpio de OCR de dominio público (Archive.org). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino.",
+      "translationProvenance": "ai"
+    },
+    {
+      "id": "catecismo-romano-hi",
+      "title": "Catecismo Romano",
+      "shortTitle": "CR-ES",
+      "kind": "catechism",
+      "locale": "hi",
+      "sourceUrl": "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830",
+      "bodyPath": "documents/catecismo-romano-hi/content.json",
+      "indexPath": "documents/catecismo-romano-hi/index.json",
+      "unitCount": 1162,
+      "sourceNote": "«Catecismo Romano» (catecismo-romano-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।",
       "translationProvenance": "ai"
     },
     {

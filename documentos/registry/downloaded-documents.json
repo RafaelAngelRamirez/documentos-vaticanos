@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T05:18:52.324Z",
+  "updatedAt": "2026-07-19T05:26:55.083Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1905,6 +1905,26 @@
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Catechismus Romanus» (catecismo-romano-la), limpio de OCR de dominio público (Archive.org). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
     },
     {
+      "id": "catecismo-romano-hi",
+      "sourceId": "catecismo-romano-hi",
+      "title": "Catecismo Romano",
+      "kind": "catechism",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
+      ],
+      "firstDownloadedAt": "2026-07-19T05:26:53.273Z",
+      "lastDownloadedAt": "2026-07-19T05:26:53.273Z",
+      "unitCount": 1162,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/catecismo-romano-hi/content.json",
+        "index": "documents/catecismo-romano-hi/index.json",
+        "meta": "documents/catecismo-romano-hi/meta.json"
+      },
+      "notes": "«Catecismo Romano» (catecismo-romano-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "catecismo-romano-la",
       "sourceId": "catecismo-romano-la",
       "title": "Catechismus Romanus (ad parochos)",
@@ -1934,7 +1954,7 @@
         "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
       ],
       "firstDownloadedAt": "2026-07-19T04:22:45.074Z",
-      "lastDownloadedAt": "2026-07-19T04:22:45.074Z",
+      "lastDownloadedAt": "2026-07-19T05:26:55.082Z",
       "unitCount": 1162,
       "status": "active",
       "corpusPaths": {
