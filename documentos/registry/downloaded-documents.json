@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T09:40:09.287Z",
+  "updatedAt": "2026-07-19T09:42:20.779Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -263,6 +263,26 @@
         "meta": "documents/agustin-01-primeros-escritos-es/meta.json"
       },
       "notes": "Tomo BAC n=1: 01 San Agustín - Introducción y primeros escritos.pdf"
+    },
+    {
+      "id": "agustin-01-primeros-escritos-hi",
+      "sourceId": "agustin-01-primeros-escritos-hi",
+      "title": "San Agustín Introducción y primeros escritos",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpWTFzcXUzcHU2QWM/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T09:42:20.779Z",
+      "lastDownloadedAt": "2026-07-19T09:42:20.779Z",
+      "unitCount": 2181,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-01-primeros-escritos-hi/content.json",
+        "index": "documents/agustin-01-primeros-escritos-hi/index.json",
+        "meta": "documents/agustin-01-primeros-escritos-hi/meta.json"
+      },
+      "notes": "«San Agustín Introducción y primeros escritos» (agustin-01-primeros-escritos-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-01-primeros-escritos-zh",
