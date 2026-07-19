@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T06:45:31.698Z",
+  "updatedAt": "2026-07-19T06:50:33.279Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1463,6 +1463,26 @@
         "meta": "documents/agustin-38-antiarrianos-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "agustin-38-antiarrianos-hi",
+      "sourceId": "agustin-38-antiarrianos-hi",
+      "title": "Escritos Antiarrianos y otros herejes",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpTnNra0N0WXNfRVk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T06:50:30.848Z",
+      "lastDownloadedAt": "2026-07-19T06:50:33.279Z",
+      "unitCount": 1691,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-38-antiarrianos-hi/content.json",
+        "index": "documents/agustin-38-antiarrianos-hi/index.json",
+        "meta": "documents/agustin-38-antiarrianos-hi/meta.json"
+      },
+      "notes": "«Escritos Antiarrianos y otros herejes» (agustin-38-antiarrianos-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-39-varios-1-ar",
