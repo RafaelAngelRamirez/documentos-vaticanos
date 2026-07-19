@@ -26,6 +26,9 @@ import json
 import re
 import sys
 import time
+import urllib.error
+import urllib.parse
+import urllib.request
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
@@ -45,13 +48,14 @@ except ImportError:
 
 # Google free endpoint hard-caps ~5000 chars; stay well under (UTF-8 / markup expansion).
 # MyMemory free endpoint hard-caps ~500 chars.
+# GTX (translate.googleapis.com client=gtx) is typically ~4500–5000 safe.
 MAX_BATCH_CHARS = 3500
 MAX_SINGLE_CHARS = 4500
 MYMEMORY_MAX_CHARS = 450
 UNIT_SEP = "\n\n⟦U⟧\n\n"
 
-# Session-level: prefer MyMemory after Google rate-limit storms.
-_PREFERRED_BACKEND = "google"
+# Session-level preferred backend: gtx (direct) → google (deep_translator) → mymemory.
+_PREFERRED_BACKEND = "gtx"
 
 # MyMemory wants BCP-like codes (es-ES, en-GB, zh-CN, …).
 MYMEMORY_CODES = {
@@ -68,6 +72,59 @@ MYMEMORY_CODES = {
 }
 
 
+class GtxTranslator:
+    """Minimal Google Translate free endpoint (client=gtx).
+
+    More reliable under deep_translator rate-limits; still subject to IP quotas.
+    """
+
+    def __init__(self, source: str, target: str) -> None:
+        self.source = "zh-CN" if source == "zh" else source
+        self.target = "zh-CN" if target == "zh" else target
+
+    def translate(self, text: str) -> str:
+        if not text or not text.strip():
+            return text
+        params = urllib.parse.urlencode(
+            {
+                "client": "gtx",
+                "sl": self.source,
+                "tl": self.target,
+                "dt": "t",
+                "q": text,
+            }
+        )
+        url = f"https://translate.googleapis.com/translate_a/single?{params}"
+        req = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent": (
+                    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                    "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                )
+            },
+            method="GET",
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=45) as resp:
+                raw = resp.read().decode("utf-8", errors="replace")
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", errors="replace") if e.fp else ""
+            raise RuntimeError(f"gtx HTTP {e.code}: {body[:200]}") from e
+        data = json.loads(raw)
+        # Response: [[["translated","src",...], ...], ...]
+        if not data or not data[0]:
+            raise RuntimeError("gtx empty response")
+        parts: list[str] = []
+        for seg in data[0]:
+            if seg and seg[0]:
+                parts.append(str(seg[0]))
+        out = "".join(parts).strip()
+        if not out:
+            raise RuntimeError("gtx empty translation")
+        return out
+
+
 def _is_rate_limit(err: BaseException) -> bool:
     low = str(err).lower()
     return (
@@ -75,18 +132,24 @@ def _is_rate_limit(err: BaseException) -> bool:
         or "rate" in low
         or "429" in low
         or "5 requests per second" in low
+        or "quota" in low
+        or "available free translations" in low
     )
 
 
-def make_translator(source: str, target: str, backend: str = "google"):
-    """Build a deep_translator client for Google or MyMemory."""
+def make_translator(source: str, target: str, backend: str = "gtx"):
+    """Build a translator client: gtx | google | mymemory."""
     if backend == "mymemory":
-        src = MYMEMORY_CODES.get(source, source if "-" in source else f"{source}-{source.upper()}")
+        src = MYMEMORY_CODES.get(
+            source, source if "-" in source else f"{source}-{source.upper()}"
+        )
         dst = MYMEMORY_CODES.get(target, target if "-" in target else target)
-        # zh target key is "zh" → zh-CN already in map
         return MyMemoryTranslator(source=src, target=dst)
-    g_target = {"zh": "zh-CN"}.get(target, target)
-    return GoogleTranslator(source=source, target=g_target)
+    if backend == "google":
+        g_target = {"zh": "zh-CN"}.get(target, target)
+        return GoogleTranslator(source=source, target=g_target)
+    # default gtx
+    return GtxTranslator(source=source, target=target)
 
 CAN_RE = re.compile(
     r"\b[Cc]ann?\.\s*\d+(?:\s*(?:,|et|–|-|y|and|und)\s*\d+)*",
@@ -233,38 +296,50 @@ def translate_text(
                             for p in pieces
                         )
                     )
-            # Google rate-limit → switch session to MyMemory
-            if backend == "google" and _is_rate_limit(e):
-                print(
-                    "  [i] Google rate-limit — switching session to MyMemory",
-                    flush=True,
-                )
-                _PREFERRED_BACKEND = "mymemory"
-                backend = "mymemory"
-                max_chars = MYMEMORY_MAX_CHARS
-                active = make_translator(source_lang, target_lang, "mymemory")
-                # Re-chunk current text under MyMemory limit
-                pieces = _chunk_text(text, max_chars)
-                if len(pieces) > 1:
-                    return postprocess(
-                        " ".join(
-                            translate_text(
-                                active,
-                                p,
-                                retries,
-                                source_lang=source_lang,
-                                target_lang=target_lang,
-                                backend="mymemory",
-                            )
-                            for p in pieces
-                        )
+            # Rate-limit / quota → cascade backends: gtx → google → mymemory
+            if _is_rate_limit(e):
+                cascade = {
+                    "gtx": "google",
+                    "google": "mymemory",
+                    "mymemory": None,
+                }
+                nxt = cascade.get(backend)
+                if nxt:
+                    print(
+                        f"  [i] {backend} rate/quota — switching session to {nxt}",
+                        flush=True,
                     )
-                protected, toks = protect(text)
-                if len(protected) > max_chars:
-                    protected, toks = text, {}
-                time.sleep(1)
-                continue
-            wait = min(60, 2**attempt) if backend == "mymemory" else min(180, 30 + 20 * attempt)
+                    _PREFERRED_BACKEND = nxt
+                    backend = nxt
+                    max_chars = (
+                        MYMEMORY_MAX_CHARS if nxt == "mymemory" else MAX_SINGLE_CHARS
+                    )
+                    active = make_translator(source_lang, target_lang, nxt)
+                    pieces = _chunk_text(text, max_chars)
+                    if len(pieces) > 1:
+                        return postprocess(
+                            " ".join(
+                                translate_text(
+                                    active,
+                                    p,
+                                    retries,
+                                    source_lang=source_lang,
+                                    target_lang=target_lang,
+                                    backend=nxt,
+                                )
+                                for p in pieces
+                            )
+                        )
+                    protected, toks = protect(text)
+                    if len(protected) > max_chars:
+                        protected, toks = text, {}
+                    time.sleep(1)
+                    continue
+            wait = (
+                min(60, 2**attempt)
+                if backend == "mymemory"
+                else min(180, 30 + 20 * attempt)
+            )
             print(
                 f"  [retry {attempt+1}/{retries}] {type(e).__name__}: {err_s[:120]}; sleep {wait}s",
                 flush=True,
@@ -478,10 +553,14 @@ def main() -> int:
 
     def mt(text: str) -> str:
         # Keep translator in sync if session switched backends mid-run
-        if _PREFERRED_BACKEND == "mymemory" and not isinstance(
-            client["tr"], MyMemoryTranslator
-        ):
+        want = _PREFERRED_BACKEND
+        cur = client["tr"]
+        if want == "mymemory" and not isinstance(cur, MyMemoryTranslator):
             client["tr"] = make_translator(g_source, g_target, "mymemory")
+        elif want == "gtx" and not isinstance(cur, GtxTranslator):
+            client["tr"] = make_translator(g_source, g_target, "gtx")
+        elif want == "google" and not isinstance(cur, GoogleTranslator):
+            client["tr"] = make_translator(g_source, g_target, "google")
         return translate_text(
             client["tr"],
             text,

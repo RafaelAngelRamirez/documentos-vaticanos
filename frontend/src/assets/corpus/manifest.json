@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T03:51:14.630278Z",
+  "generatedAt": "2026-07-19T03:59:48.325587Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1520,6 +1520,21 @@
       "author": "Cirilo de Jerusalén",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpOERXcEQ5eU85Ykk/view. Edición: Edición castellana con introducción y notas (PG 33 / Migne). Edición/traducción de referencia: Edición castellana con introducción y notas (PG 33 / Migne). Procatequesis + Catequesis. Texto con notas."
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-hi",
+      "title": "Catequesis",
+      "shortTitle": "Catequesis Cirilo",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpOERXcEQ5eU85Ykk/view",
+      "bodyPath": "documents/cirilo-jerusalen-catequesis-hi/content.json",
+      "indexPath": "documents/cirilo-jerusalen-catequesis-hi/index.json",
+      "unitCount": 1015,
+      "author": "Cirilo de Jerusalén",
+      "compiler": "A. Cedano",
+      "sourceNote": "«Catequesis» (cirilo-jerusalen-catequesis-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।",
+      "translationProvenance": "ai"
     },
     {
       "id": "cl-ar",

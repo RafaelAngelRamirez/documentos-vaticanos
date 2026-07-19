@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T03:37:15.730Z",
+  "updatedAt": "2026-07-19T03:59:48.065Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -2185,6 +2185,26 @@
         "meta": "documents/cirilo-jerusalen-catequesis-es/meta.json"
       },
       "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpOERXcEQ5eU85Ykk/view. Edición: Edición castellana con introducción y notas (PG 33 / Migne). Edición/traducción de referencia: Edición castellana con introducción y notas (PG 33 / Migne). Procatequesis + Catequesis. Texto con notas."
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-hi",
+      "sourceId": "cirilo-jerusalen-catequesis-hi",
+      "title": "Catequesis",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpOERXcEQ5eU85Ykk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:59:48.064Z",
+      "lastDownloadedAt": "2026-07-19T03:59:48.064Z",
+      "unitCount": 1015,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cirilo-jerusalen-catequesis-hi/content.json",
+        "index": "documents/cirilo-jerusalen-catequesis-hi/index.json",
+        "meta": "documents/cirilo-jerusalen-catequesis-hi/meta.json"
+      },
+      "notes": "«Catequesis» (cirilo-jerusalen-catequesis-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "cl-ar",
