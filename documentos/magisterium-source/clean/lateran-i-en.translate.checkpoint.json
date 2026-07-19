@@ -1,0 +1,65 @@
+{
+"units": {
+"1": {
+"consecutivo": "1",
+"contenido": "Canon 1 of Simony Following in the footsteps of the holy Fathers, we strive to root out the simoniac heresy. Therefore, if someone has acquired with money the episcopate or an abbey or any ecclesiastical dignity, both the one who gave and the one who received should be deposed from their rank.",
+"src_len": 296,
+"dst_len": 294
+},
+"2": {
+"consecutivo": "2",
+"contenido": "Canon 2 No one in the Church receives the episcopate or an abbey through lay investiture. Whoever acts otherwise lacks said dignity, and the author of the investiture, until he has given satisfaction, is separated from communion.",
+"src_len": 236,
+"dst_len": 229
+},
+"3": {
+"consecutivo": "3",
+"contenido": "Canon 3 of continentia clericorum We completely prohibit priests, deacons and subdeacons from having concubines. Those who are found, be suspended from office and benefit until they mend their ways.",
+"src_len": 210,
+"dst_len": 198
+},
+"4": {
+"consecutivo": "4",
+"contenido": "Canon 4 We prohibit with apostolic authority that clerics constituted in sacred orders take wives. We judge the marriages of such as null and void.",
+"src_len": 149,
+"dst_len": 147
+},
+"5": {
+"consecutivo": "5",
+"contenido": "Canon 5 Let no layman dare to usurp ecclesiastical tithes for himself. Whoever does so will be judged as sacrilegious, unless he restores them to the Church.",
+"src_len": 160,
+"dst_len": 157
+},
+"6": {
+"consecutivo": "6",
+"contenido": "Canon 6 The monasteries and churches that are under the protection of the Apostolic See may not be disturbed by the violence of any bishop or prince.",
+"src_len": 155,
+"dst_len": 149
+},
+"7": {
+"consecutivo": "7",
+"contenido": "Canon 7 Bishops and abbots are not to dispose of ecclesiastical goods as their own goods, but as the powers of the Lord, with the consent of the clergy and monks, when necessary.",
+"src_len": 204,
+"dst_len": 178
+},
+"8": {
+"consecutivo": "8",
+"contenido": "Canon 8 of pace Dei The peace of God and the truce be firmly observed by all Christians from Friday to Monday, and on solemn feasts. The rapists be wounded with anathema.",
+"src_len": 195,
+"dst_len": 170
+},
+"9": {
+"consecutivo": "9",
+"contenido": "Canon 9 Those who have laid violent hands on clerics are to be separated from communion until they have given satisfaction to the Apostolic See, according to the canon on sacrilegious persons.",
+"src_len": 185,
+"dst_len": 192
+},
+"10": {
+"consecutivo": "10",
+"contenido": "Canon 10 All bishops and prelates publish these statutes in their dioceses and ensure that they are observed, so that the holy Church of God may flourish in peace and honesty.",
+"src_len": 172,
+"dst_len": 175
+}
+},
+"meta": {}
+}

@@ -1,0 +1,47 @@
+{
+"units": {
+"1": {
+"consecutivo": "1",
+"contenido": "Canon 1 The union of the Greeks with the Roman Church, in faith and obedience to the Roman Pontiff, received by us, remains firm.",
+"src_len": 144,
+"dst_len": 129
+},
+"2": {
+"consecutivo": "2",
+"contenido": "Canon 2 The primacy of the Roman Pontiff, as defined above, be maintained by all the faithful.",
+"src_len": 104,
+"dst_len": 94
+},
+"L": {
+"consecutivo": "L",
+"contenido": "Sessio Laetentur caeli Let the heavens rejoice and the earth exult: for that long division of Easterners and Westerners has been removed from the universal Church. We define that the Holy Apostolic See and the Roman Pontiff have primacy throughout the world, and that the Roman Pontiff himself is the successor of the blessed Peter, prince of the apostles, and true vicar of Christ and head of the entire Church and father and doctor of all Christians; and that to him in the blessed Peter has been given by our Lord Jesus Christ the full power to feed, govern and govern the universal Church.",
+"src_len": 610,
+"dst_len": 593
+},
+"sobre": {
+"consecutivo": "sobre",
+"contenido": "Session on the Armenians Decree for the Armenians: That there are seven sacraments of the new law, namely: baptism, confirmation, eucharist, penance, extreme unction, orders and marriage. Which differ greatly from the sacraments of the old law.",
+"src_len": 255,
+"dst_len": 244
+},
+"3": {
+"consecutivo": "3",
+"contenido": "Canon 3 The procession of the Holy Spirit of the Father and the Son, by a single breath, be confessed by Easterners and Westerners.",
+"src_len": 128,
+"dst_len": 131
+},
+"4": {
+"consecutivo": "4",
+"contenido": "Canon 4 Purgatory and the suffrages of the faithful, as holy Mother Church teaches, are created piously.",
+"src_len": 112,
+"dst_len": 104
+},
+"5": {
+"consecutivo": "5",
+"contenido": "Canon 5 We command that these decrees of union be received and kept by all.",
+"src_len": 82,
+"dst_len": 75
+}
+},
+"meta": {}
+}

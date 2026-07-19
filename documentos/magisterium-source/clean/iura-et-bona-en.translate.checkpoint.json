@@ -1,0 +1,23 @@
+{
+"units": {
+"1": {
+"consecutivo": "1",
+"contenido": "1. No one can attack the life of an innocent man without opposing God's love for him, without violating a fundamental, inalienable and inalienable right, without thereby committing a crime of extreme gravity.",
+"src_len": 217,
+"dst_len": 208
+},
+"2": {
+"consecutivo": "2",
+"contenido": "2. Every man has the duty to conform his life to God's plan. This has been entrusted to him as a good that must bear fruit here on earth, but that finds its full perfection only in eternal life.",
+"src_len": 230,
+"dst_len": 194
+},
+"3": {
+"consecutivo": "3",
+"contenido": "3. Voluntary death or suicide is, therefore, as unacceptable as homicide; Such an action constitutes in effect, on the part of man, the rejection of the sovereignty of God and his plan of love. Furthermore, suicide is often a rejection of love for oneself, a denial of the natural aspiration for life, a renunciation of the duties of justice and charity towards one's neighbor, towards the various communities and towards the entire society, although sometimes, as is known, psychological factors intervene that can attenuate or even remove responsibility.",
+"src_len": 590,
+"dst_len": 556
+}
+},
+"meta": {}
+}

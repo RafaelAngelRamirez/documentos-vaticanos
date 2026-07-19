@@ -1,0 +1,65 @@
+{
+"units": {
+"1": {
+"consecutivo": "1",
+"contenido": "Canon 1 The holy Roman Church obtains full power and principality over the universal Catholic Church, as contained in the promises of the Lord and in the traditions of the holy Fathers.",
+"src_len": 191,
+"dst_len": 185
+},
+"2": {
+"consecutivo": "2",
+"contenido": "Canon 2 de processione Spiritus Sancti We faithfully confess that the Holy Spirit proceeds eternally from the Father and the Son, not as from two beginnings, but as from a single beginning, not by two exhalations, but by a single exhalation.",
+"src_len": 237,
+"dst_len": 241
+},
+"3": {
+"consecutivo": "3",
+"contenido": "Canon 3 de unione Graecorum We welcome the Greeks to the unity of faith and obedience of the Roman Church, confessing the same faith on the procession of the Holy Spirit and on the primacy of the Roman Pontiff, saving its rites that are not contrary to the Catholic faith.",
+"src_len": 265,
+"dst_len": 272
+},
+"4": {
+"consecutivo": "4",
+"contenido": "Canon 4 For the relief of the Holy Land, we grant to all truly penitents and confessors who have gone there in person the full remission of sins.",
+"src_len": 180,
+"dst_len": 145
+},
+"5": {
+"consecutivo": "5",
+"contenido": "Canon 5 of conclavi So that there is no lasting vacancy in the Apostolic See, we establish that the cardinals, once the funeral of the deceased pontiff is over, gather in a single place and seclude themselves in conclave, and do not leave there until the election of the Roman Pontiff has been canonically celebrated, according to the form transmitted and expressed more fully by us in our constitutions.",
+"src_len": 408,
+"dst_len": 404
+},
+"6": {
+"consecutivo": "6",
+"contenido": "Canon 6 The plurality of benefits that have the cure of souls is prohibited, except by special indult from the Apostolic See.",
+"src_len": 121,
+"dst_len": 125
+},
+"7": {
+"consecutivo": "7",
+"contenido": "Canon 7 Prelates should not conceal the excesses of clerics, but should correct them with zeal for justice, lest they be punished in strict judgment for carelessness.",
+"src_len": 172,
+"dst_len": 166
+},
+"8": {
+"consecutivo": "8",
+"contenido": "Canon 8 The monks and religious should live in their cloisters according to the rule, nor should the possessions of the monks be converted to other people's uses.",
+"src_len": 132,
+"dst_len": 162
+},
+"9": {
+"consecutivo": "9",
+"contenido": "Canon 9 Those who have beaten clerics must go to the Apostolic See for absolution, except in an article of death, according to canonical sanctions.",
+"src_len": 151,
+"dst_len": 147
+},
+"10": {
+"consecutivo": "10",
+"contenido": "Canon 10 We command that everyone firmly hold the Catholic faith, as transmitted by the holy councils and by the Roman Pontiffs. Those who teach otherwise shall be struck with anathema.",
+"src_len": 199,
+"dst_len": 185
+}
+},
+"meta": {}
+}

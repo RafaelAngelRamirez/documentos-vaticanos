@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T03:33:22.152Z",
+  "updatedAt": "2026-07-19T03:37:15.730Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -985,6 +985,26 @@
       "notes": ""
     },
     {
+      "id": "agustin-36-antipelagianos-4-en",
+      "sourceId": "agustin-36-antipelagianos-4-en",
+      "title": "Escritos Antipelagianos 4",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpWEhwQUJfYlBROEk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:35:10.437Z",
+      "lastDownloadedAt": "2026-07-19T03:35:10.437Z",
+      "unitCount": 1056,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-36-antipelagianos-4-en/content.json",
+        "index": "documents/agustin-36-antipelagianos-4-en/index.json",
+        "meta": "documents/agustin-36-antipelagianos-4-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Escritos Antipelagianos 4» (agustin-36-antipelagianos-4-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "agustin-36-antipelagianos-4-es",
       "sourceId": "agustin-36-antipelagianos-4-es",
       "title": "Escritos Antipelagianos 4",
@@ -1125,6 +1145,26 @@
       "notes": ""
     },
     {
+      "id": "agustin-39-varios-1-en",
+      "sourceId": "agustin-39-varios-1-en",
+      "title": "Escritos varios 1",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpdEhRRFhtcGRBWGs/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:35:31.190Z",
+      "lastDownloadedAt": "2026-07-19T03:35:31.190Z",
+      "unitCount": 1230,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-39-varios-1-en/content.json",
+        "index": "documents/agustin-39-varios-1-en/index.json",
+        "meta": "documents/agustin-39-varios-1-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Escritos varios 1» (agustin-39-varios-1-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "agustin-39-varios-1-es",
       "sourceId": "agustin-39-varios-1-es",
       "title": "Escritos varios 1",
@@ -1163,6 +1203,26 @@
         "meta": "documents/agustin-40-varios-2-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "atanasio-de-incarnatione-ar",
+      "sourceId": "atanasio-de-incarnatione-ar",
+      "title": "On the Incarnation of the Word",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/2802.htm"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:34:56.763Z",
+      "lastDownloadedAt": "2026-07-19T03:34:56.763Z",
+      "unitCount": 95,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/atanasio-de-incarnatione-ar/content.json",
+        "index": "documents/atanasio-de-incarnatione-ar/index.json",
+        "meta": "documents/atanasio-de-incarnatione-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (English) للحزمة «On the Incarnation of the Word» (atanasio-de-incarnatione-en). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
     },
     {
       "id": "atanasio-de-incarnatione-en",
@@ -1545,6 +1605,26 @@
       "notes": "由人工智能根据 pack「Carta a Diogneto」(carta-diogneto-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
+      "id": "catecismo-romano-en",
+      "sourceId": "catecismo-romano-en",
+      "title": "Catecismo Romano",
+      "kind": "catechism",
+      "locale": "en",
+      "sourceUrls": [
+        "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:34:50.673Z",
+      "lastDownloadedAt": "2026-07-19T03:34:50.673Z",
+      "unitCount": 1162,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/catecismo-romano-en/content.json",
+        "index": "documents/catecismo-romano-en/index.json",
+        "meta": "documents/catecismo-romano-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Catecismo Romano» (catecismo-romano-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "catecismo-romano-es",
       "sourceId": "catecismo-romano-es",
       "title": "Catecismo Romano",
@@ -1643,6 +1723,26 @@
         "meta": "documents/cceo-la/meta.json"
       },
       "notes": "CCEO (1990). Full official Latin text on vatican.va (3 pages). Spanish full HTML not published on vatican.va (index stubs only). ~1546 canons (some reserved/missing in HTML)."
+    },
+    {
+      "id": "cceo-zh",
+      "sourceId": "cceo-zh",
+      "title": "Código de los Cánones de las Iglesias Orientales",
+      "kind": "canon-law",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/zh/apost_constitutions/documents/hf_jp-ii_apc_19901018_index-codex-can-eccl-orient.html"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:36:45.093Z",
+      "lastDownloadedAt": "2026-07-19T03:36:45.093Z",
+      "unitCount": 1514,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cceo-zh/content.json",
+        "index": "documents/cceo-zh/index.json",
+        "meta": "documents/cceo-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Código de los Cánones de las Iglesias Orientales」(cceo-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "cd-ar",
@@ -1784,6 +1884,26 @@
         "meta": "documents/cdc-es/meta.json"
       },
       "notes": "1983 Code of Canon Law (Latin Church). Multi-page (~251). docCode CDC (not CIC — CIC is the Catechism in this repo). ~1744 canons (some numbers reserved/abrogated in source HTML). Markup: <b>N</b>, <b>N.</b>, <b>Can. N -</b>, bare leading numbers."
+    },
+    {
+      "id": "cdc-zh",
+      "sourceId": "cdc-zh",
+      "title": "Código de Derecho Canónico",
+      "kind": "canon-law",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:37:15.729Z",
+      "lastDownloadedAt": "2026-07-19T03:37:15.729Z",
+      "unitCount": 1744,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cdc-zh/content.json",
+        "index": "documents/cdc-zh/index.json",
+        "meta": "documents/cdc-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Código de Derecho Canónico」(cdc-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "cds-ar",
@@ -3671,6 +3791,26 @@
         "meta": "documents/donum-vitae-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「Donum vitae」(donum-vitae-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "ds-en",
+      "sourceId": "ds-en",
+      "title": "Enchiridion symbolorum (Denzinger-Schönmetzer)",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrls": [
+        "https://archive.org/details/denzinger-schonmetzer"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:34:42.577Z",
+      "lastDownloadedAt": "2026-07-19T03:34:42.577Z",
+      "unitCount": 1140,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ds-en/content.json",
+        "index": "documents/ds-en/index.json",
+        "meta": "documents/ds-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Enchiridion symbolorum (Denzinger-Schönmetzer)» (ds-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "ds-es",

@@ -1,0 +1,59 @@
+{
+"units": {
+"1": {
+"consecutivo": "1",
+"contenido": "Canon 1 We firmly maintain and preach the Catholic faith, as transmitted by the sacred councils and by the holy Fathers.",
+"src_len": 136,
+"dst_len": 120
+},
+"2": {
+"consecutivo": "2",
+"contenido": "Canon 2 The schism between the obediences, which has lasted a long time, by the authority of this synod and by the union under one pastor, is removed and remains condemned.",
+"src_len": 167,
+"dst_len": 172
+},
+"4": {
+"consecutivo": "4",
+"contenido": "Canon 4 Prelates and clerics are to compose themselves in customs and office, so as not to be a scandal to the people of God.",
+"src_len": 109,
+"dst_len": 125
+},
+"5": {
+"consecutivo": "5",
+"contenido": "Canon 5 We command that these decrees be religiously observed by all the faithful of Christ.",
+"src_len": 98,
+"dst_len": 92
+},
+"8": {
+"consecutivo": "8",
+"contenido": "Session 8 on the errors of Wycleff We condemn and reprove the errors of John Wycleff, insofar as they disagree with the Catholic faith and the doctrine of the holy Fathers. We order that their books in which the errors are contained be burned, unless they are preserved for the refutation of the heresy.",
+"src_len": 308,
+"dst_len": 303
+},
+"15": {
+"consecutivo": "15",
+"contenido": "Sessio 15 on John Hus We condemn the articles of John Hus, which we have examined before this holy synod, as heretical and condemned by holy mother Church. And if he himself does not repent of them, we judge him a heretic.",
+"src_len": 233,
+"dst_len": 222
+},
+"39": {
+"consecutivo": "39",
+"contenido": "Session 39 The frequent celebration of general councils is the main cultivation of the Lord's field. Therefore, by this edict of perpetual validity, we sanction that from now on general councils be held: the first five years after the end of this council, the second seven years after the end of the immediately following one, and from ten years onwards perpetually.",
+"src_len": 395,
+"dst_len": 366
+},
+"40": {
+"consecutivo": "40",
+"contenido": "Session 40 To remove the schism and for the peace of the Church, we receive and obey Pope Martin V, canonically elected, as true and undoubted Roman Pontiff.",
+"src_len": 168,
+"dst_len": 157
+},
+"3": {
+"consecutivo": "3",
+"contenido": "Canon 3 The reform in the head and in the members must be pursued diligently, by the laws and constitutions of this and future councils.",
+"src_len": 150,
+"dst_len": 136
+}
+},
+"meta": {}
+}

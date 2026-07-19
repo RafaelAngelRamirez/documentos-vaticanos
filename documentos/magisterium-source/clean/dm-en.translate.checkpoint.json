@@ -1,0 +1,95 @@
+{
+"units": {
+"1": {
+"consecutivo": "1",
+"contenido": "1. Revelation of mercy",
+"src_len": 32,
+"dst_len": 22
+},
+"2": {
+"consecutivo": "2",
+"contenido": "2. Incarnation of mercy",
+"src_len": 33,
+"dst_len": 23
+},
+"3": {
+"consecutivo": "3",
+"contenido": "3. When Christ began to work and teach",
+"src_len": 42,
+"dst_len": 38
+},
+"4": {
+"consecutivo": "4",
+"contenido": "4. The concept of «mercy» in the Old Testament",
+"src_len": 59,
+"dst_len": 46
+},
+"5": {
+"consecutivo": "5",
+"contenido": "5. Analogy",
+"src_len": 11,
+"dst_len": 10
+},
+"6": {
+"consecutivo": "6",
+"contenido": "6. Particular reflection on human dignity",
+"src_len": 48,
+"dst_len": 41
+},
+"7": {
+"consecutivo": "7",
+"contenido": "7. Mercy revealed in the cross and in the resurrection",
+"src_len": 56,
+"dst_len": 54
+},
+"8": {
+"consecutivo": "8",
+"contenido": "8. Love stronger than death stronger than sin",
+"src_len": 57,
+"dst_len": 45
+},
+"9": {
+"consecutivo": "9",
+"contenido": "9. The Mother of Mercy",
+"src_len": 30,
+"dst_len": 22
+},
+"10": {
+"consecutivo": "10",
+"contenido": "10. Image of our generation",
+"src_len": 32,
+"dst_len": 27
+},
+"11": {
+"consecutivo": "11",
+"contenido": "11. Sources of concern",
+"src_len": 24,
+"dst_len": 22
+},
+"12": {
+"consecutivo": "12",
+"contenido": "12. Is justice enough?",
+"src_len": 25,
+"dst_len": 22
+},
+"13": {
+"consecutivo": "13",
+"contenido": "13. The Church professes the mercy of God and proclaims it",
+"src_len": 60,
+"dst_len": 58
+},
+"14": {
+"consecutivo": "14",
+"contenido": "14. The Church tries to practice mercy",
+"src_len": 49,
+"dst_len": 38
+},
+"15": {
+"consecutivo": "15",
+"contenido": "15. The Church turns to divine mercy",
+"src_len": 47,
+"dst_len": 36
+}
+},
+"meta": {}
+}
