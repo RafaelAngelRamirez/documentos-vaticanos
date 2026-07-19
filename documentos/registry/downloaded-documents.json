@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T14:36:28.194Z",
+  "updatedAt": "2026-07-19T14:41:25.225Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -465,6 +465,26 @@
       "notes": "Tomo BAC n=3: 03 Obras Filosóficas.pdf"
     },
     {
+      "id": "agustin-03-obras-filosoficas-hi",
+      "sourceId": "agustin-03-obras-filosoficas-hi",
+      "title": "Obras Filosóficas",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpS3cxY1RrVkFHS3c/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T14:41:15.386Z",
+      "lastDownloadedAt": "2026-07-19T14:41:15.386Z",
+      "unitCount": 2878,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-03-obras-filosoficas-hi/content.json",
+        "index": "documents/agustin-03-obras-filosoficas-hi/index.json",
+        "meta": "documents/agustin-03-obras-filosoficas-hi/meta.json"
+      },
+      "notes": "«Obras Filosóficas» (agustin-03-obras-filosoficas-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "agustin-03-obras-filosoficas-zh",
       "sourceId": "agustin-03-obras-filosoficas-zh",
       "title": "Obras Filosóficas",
@@ -474,7 +494,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpS3cxY1RrVkFHS3c/view"
       ],
       "firstDownloadedAt": "2026-07-19T14:24:58.598Z",
-      "lastDownloadedAt": "2026-07-19T14:24:58.598Z",
+      "lastDownloadedAt": "2026-07-19T14:41:18.440Z",
       "unitCount": 2878,
       "status": "active",
       "corpusPaths": {
@@ -494,7 +514,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpWS1vaU1vM0N1dWc/view"
       ],
       "firstDownloadedAt": "2026-07-19T14:36:28.194Z",
-      "lastDownloadedAt": "2026-07-19T14:36:28.194Z",
+      "lastDownloadedAt": "2026-07-19T14:41:21.736Z",
       "unitCount": 2880,
       "status": "active",
       "corpusPaths": {
@@ -514,7 +534,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpWS1vaU1vM0N1dWc/view"
       ],
       "firstDownloadedAt": "2026-07-19T14:33:46.264Z",
-      "lastDownloadedAt": "2026-07-19T14:33:46.264Z",
+      "lastDownloadedAt": "2026-07-19T14:41:25.225Z",
       "unitCount": 2880,
       "status": "active",
       "corpusPaths": {
