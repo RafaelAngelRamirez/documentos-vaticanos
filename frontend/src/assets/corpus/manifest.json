@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T15:58:17.331500Z",
+  "generatedAt": "2026-07-19T15:59:27.225896Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -497,6 +497,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "由人工智能根据 pack「De Trinitate」(agustin-05-de-trinitate-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
+      "translationProvenance": "ai"
+    },
+    {
+      "id": "agustin-06-gracia-1-en",
+      "title": "Tratados sobre la gracia 1",
+      "shortTitle": "Tratados sobre la gracia 1",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpZk1UdVVXMl9YZnc/view",
+      "bodyPath": "documents/agustin-06-gracia-1-en/content.json",
+      "indexPath": "documents/agustin-06-gracia-1-en/index.json",
+      "unitCount": 3070,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "AI-generated English translation from the Español text of the pack «Tratados sobre la gracia 1» (agustin-06-gracia-1-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
     },
     {

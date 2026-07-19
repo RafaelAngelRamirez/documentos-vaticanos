@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T15:55:34.938Z",
+  "updatedAt": "2026-07-19T15:58:55.922Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -703,6 +703,26 @@
         "meta": "documents/agustin-05-de-trinitate-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「De Trinitate」(agustin-05-de-trinitate-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "agustin-06-gracia-1-en",
+      "sourceId": "agustin-06-gracia-1-en",
+      "title": "Tratados sobre la gracia 1",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpZk1UdVVXMl9YZnc/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T15:58:55.921Z",
+      "lastDownloadedAt": "2026-07-19T15:58:55.921Z",
+      "unitCount": 3070,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-06-gracia-1-en/content.json",
+        "index": "documents/agustin-06-gracia-1-en/index.json",
+        "meta": "documents/agustin-06-gracia-1-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Tratados sobre la gracia 1» (agustin-06-gracia-1-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-06-gracia-1-es",
