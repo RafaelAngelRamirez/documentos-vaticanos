@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T09:59:34.771Z",
+  "updatedAt": "2026-07-19T10:04:29.664Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1083,6 +1083,26 @@
         "meta": "documents/agustin-23-sermones-juan-hechos-es/meta.json"
       },
       "notes": "Tomo BAC n=23: 23 Sermones-Juan-Hechos-Cartas.pdf"
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-hi",
+      "sourceId": "agustin-23-sermones-juan-hechos-hi",
+      "title": "Sermones (Juan, Hechos, Cartas)",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpd3ZHdmZuYWJWRFk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T10:04:29.664Z",
+      "lastDownloadedAt": "2026-07-19T10:04:29.664Z",
+      "unitCount": 2277,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-23-sermones-juan-hechos-hi/content.json",
+        "index": "documents/agustin-23-sermones-juan-hechos-hi/index.json",
+        "meta": "documents/agustin-23-sermones-juan-hechos-hi/meta.json"
+      },
+      "notes": "«Sermones (Juan, Hechos, Cartas)» (agustin-23-sermones-juan-hechos-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-24-sermones-4-es",
