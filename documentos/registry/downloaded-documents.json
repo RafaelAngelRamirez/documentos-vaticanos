@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T15:31:55.753Z",
+  "updatedAt": "2026-07-19T15:36:47.601Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -683,6 +683,26 @@
         "meta": "documents/agustin-05-de-trinitate-hi/meta.json"
       },
       "notes": "«De Trinitate» (agustin-05-de-trinitate-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "agustin-05-de-trinitate-zh",
+      "sourceId": "agustin-05-de-trinitate-zh",
+      "title": "De Trinitate",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpX0FjYVd0cVRseFk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T15:36:23.578Z",
+      "lastDownloadedAt": "2026-07-19T15:36:24.957Z",
+      "unitCount": 3030,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-05-de-trinitate-zh/content.json",
+        "index": "documents/agustin-05-de-trinitate-zh/index.json",
+        "meta": "documents/agustin-05-de-trinitate-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「De Trinitate」(agustin-05-de-trinitate-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-06-gracia-1-es",
@@ -1763,6 +1783,26 @@
         "meta": "documents/agustin-19-enarraciones-salmos-1-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「Enarraciones sobre los Salmos 1」(agustin-19-enarraciones-salmos-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-en",
+      "sourceId": "agustin-20-enarraciones-salmos-2-en",
+      "title": "Narraciones sobre los salmos 2",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbjRlR1JJVkJtYlU/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T15:36:47.600Z",
+      "lastDownloadedAt": "2026-07-19T15:36:47.600Z",
+      "unitCount": 3050,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-20-enarraciones-salmos-2-en/content.json",
+        "index": "documents/agustin-20-enarraciones-salmos-2-en/index.json",
+        "meta": "documents/agustin-20-enarraciones-salmos-2-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Narraciones sobre los salmos 2» (agustin-20-enarraciones-salmos-2-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-20-enarraciones-salmos-2-es",
