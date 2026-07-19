@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T05:43:14.584334Z",
+  "generatedAt": "2026-07-19T05:51:08.179442Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -537,6 +537,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpbHpGdml5blVCUkk/view. Colección BAC Obras de San Agustín (tomo 26)."
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-ar",
+      "title": "Escritos Bíblicos 3",
+      "shortTitle": "Escritos Bíblicos 3",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpdnczaDRBb0NKaTA/view",
+      "bodyPath": "documents/agustin-27-escritos-biblicos-3-ar/content.json",
+      "indexPath": "documents/agustin-27-escritos-biblicos-3-ar/index.json",
+      "unitCount": 1625,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Escritos Bíblicos 3» (agustin-27-escritos-biblicos-3-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-27-escritos-biblicos-3-en",
