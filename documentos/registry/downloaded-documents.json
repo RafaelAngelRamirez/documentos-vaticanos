@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T09:08:36.408Z",
+  "updatedAt": "2026-07-19T09:28:14.462Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -443,6 +443,26 @@
         "meta": "documents/agustin-06-gracia-1-es/meta.json"
       },
       "notes": "Tomo BAC n=6: 06 Tratados sobre la gracia-1.pdf"
+    },
+    {
+      "id": "agustin-07-sermones-1-en",
+      "sourceId": "agustin-07-sermones-1-en",
+      "title": "Sermones 1",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpSVV3aVZVaWkxdXM/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T09:28:14.462Z",
+      "lastDownloadedAt": "2026-07-19T09:28:14.462Z",
+      "unitCount": 2181,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-07-sermones-1-en/content.json",
+        "index": "documents/agustin-07-sermones-1-en/index.json",
+        "meta": "documents/agustin-07-sermones-1-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Sermones 1» (agustin-07-sermones-1-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-07-sermones-1-es",
