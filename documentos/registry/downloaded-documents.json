@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T11:19:04.752Z",
+  "updatedAt": "2026-07-19T11:25:19.782Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -843,6 +843,26 @@
         "meta": "documents/agustin-13-evangelio-juan-1-hi/meta.json"
       },
       "notes": "«Tratados sobre el Evangelio de San Juan (1)» (agustin-13-evangelio-juan-1-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-zh",
+      "sourceId": "agustin-13-evangelio-juan-1-zh",
+      "title": "Tratados sobre el Evangelio de San Juan (1)",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpQUVzY0hNckNhTWc/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T11:25:19.782Z",
+      "lastDownloadedAt": "2026-07-19T11:25:19.782Z",
+      "unitCount": 2318,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-13-evangelio-juan-1-zh/content.json",
+        "index": "documents/agustin-13-evangelio-juan-1-zh/index.json",
+        "meta": "documents/agustin-13-evangelio-juan-1-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Tratados sobre el Evangelio de San Juan (1)」(agustin-13-evangelio-juan-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-14-evangelio-juan-2-ar",
