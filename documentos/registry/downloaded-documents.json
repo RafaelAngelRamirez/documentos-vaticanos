@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T13:11:38.061Z",
+  "updatedAt": "2026-07-19T13:14:35.898Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -645,6 +645,26 @@
       "notes": "Tomo BAC n=8: 08 Cartas-1.pdf"
     },
     {
+      "id": "agustin-08-cartas-1-hi",
+      "sourceId": "agustin-08-cartas-1-hi",
+      "title": "Cartas 1",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpLUI0RERtTWk3Qm8/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T13:14:27.939Z",
+      "lastDownloadedAt": "2026-07-19T13:14:27.939Z",
+      "unitCount": 2468,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-08-cartas-1-hi/content.json",
+        "index": "documents/agustin-08-cartas-1-hi/index.json",
+        "meta": "documents/agustin-08-cartas-1-hi/meta.json"
+      },
+      "notes": "«Cartas 1» (agustin-08-cartas-1-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "agustin-08-cartas-1-zh",
       "sourceId": "agustin-08-cartas-1-zh",
       "title": "Cartas 1",
@@ -654,7 +674,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpLUI0RERtTWk3Qm8/view"
       ],
       "firstDownloadedAt": "2026-07-19T13:11:38.061Z",
-      "lastDownloadedAt": "2026-07-19T13:11:38.061Z",
+      "lastDownloadedAt": "2026-07-19T13:14:30.378Z",
       "unitCount": 2468,
       "status": "active",
       "corpusPaths": {
@@ -694,7 +714,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpd1E4Y0YteDdhSjA/view"
       ],
       "firstDownloadedAt": "2026-07-19T13:10:29.654Z",
-      "lastDownloadedAt": "2026-07-19T13:10:29.654Z",
+      "lastDownloadedAt": "2026-07-19T13:14:33.170Z",
       "unitCount": 2512,
       "status": "active",
       "corpusPaths": {
@@ -714,7 +734,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpd1E4Y0YteDdhSjA/view"
       ],
       "firstDownloadedAt": "2026-07-19T13:03:43.529Z",
-      "lastDownloadedAt": "2026-07-19T13:03:43.529Z",
+      "lastDownloadedAt": "2026-07-19T13:14:35.898Z",
       "unitCount": 2512,
       "status": "active",
       "corpusPaths": {
