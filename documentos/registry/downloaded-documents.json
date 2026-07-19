@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T13:14:35.898Z",
+  "updatedAt": "2026-07-19T13:26:34.514Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -683,6 +683,26 @@
         "meta": "documents/agustin-08-cartas-1-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「Cartas 1」(agustin-08-cartas-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "agustin-09-gracia-2-en",
+      "sourceId": "agustin-09-gracia-2-en",
+      "title": "Tratados sobre la gracia 2",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpZXpnemI1c3dVVVk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T13:26:33.043Z",
+      "lastDownloadedAt": "2026-07-19T13:26:34.514Z",
+      "unitCount": 2673,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-09-gracia-2-en/content.json",
+        "index": "documents/agustin-09-gracia-2-en/index.json",
+        "meta": "documents/agustin-09-gracia-2-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Tratados sobre la gracia 2» (agustin-09-gracia-2-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-09-gracia-2-es",
