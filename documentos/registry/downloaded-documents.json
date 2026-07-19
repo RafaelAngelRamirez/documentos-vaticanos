@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T14:48:22.867Z",
+  "updatedAt": "2026-07-19T14:54:28.690Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -565,6 +565,26 @@
       "notes": "Tomo BAC n=4: 04 Obras apologeticas.pdf"
     },
     {
+      "id": "agustin-04-obras-apologeticas-hi",
+      "sourceId": "agustin-04-obras-apologeticas-hi",
+      "title": "Obras apologeticas",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpWS1vaU1vM0N1dWc/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T14:54:26.203Z",
+      "lastDownloadedAt": "2026-07-19T14:54:26.203Z",
+      "unitCount": 2880,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-04-obras-apologeticas-hi/content.json",
+        "index": "documents/agustin-04-obras-apologeticas-hi/index.json",
+        "meta": "documents/agustin-04-obras-apologeticas-hi/meta.json"
+      },
+      "notes": "«Obras apologeticas» (agustin-04-obras-apologeticas-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "agustin-04-obras-apologeticas-zh",
       "sourceId": "agustin-04-obras-apologeticas-zh",
       "title": "Obras apologeticas",
@@ -574,7 +594,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpWS1vaU1vM0N1dWc/view"
       ],
       "firstDownloadedAt": "2026-07-19T14:48:22.866Z",
-      "lastDownloadedAt": "2026-07-19T14:48:22.866Z",
+      "lastDownloadedAt": "2026-07-19T14:54:28.690Z",
       "unitCount": 2880,
       "status": "active",
       "corpusPaths": {
