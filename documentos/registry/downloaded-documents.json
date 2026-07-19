@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T12:21:26.846Z",
+  "updatedAt": "2026-07-19T12:26:56.105Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1383,6 +1383,26 @@
         "meta": "documents/agustin-23-sermones-juan-hechos-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「Sermones (Juan, Hechos, Cartas)」(agustin-23-sermones-juan-hechos-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "agustin-24-sermones-4-en",
+      "sourceId": "agustin-24-sermones-4-en",
+      "title": "Sermones 4 (184–272)",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpQ2IyczZ0UkU3RHM/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T12:26:56.105Z",
+      "lastDownloadedAt": "2026-07-19T12:26:56.105Z",
+      "unitCount": 2460,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-24-sermones-4-en/content.json",
+        "index": "documents/agustin-24-sermones-4-en/index.json",
+        "meta": "documents/agustin-24-sermones-4-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Sermones 4 (184–272)» (agustin-24-sermones-4-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-24-sermones-4-es",
