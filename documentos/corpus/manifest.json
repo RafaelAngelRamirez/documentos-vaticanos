@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T04:36:52.504569Z",
+  "generatedAt": "2026-07-19T04:40:48.165601Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -709,6 +709,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). OCR tesseract del PDF escaneado BAC tomo 34."
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-en",
+      "title": "Escritos Antipelagianos 3",
+      "shortTitle": "Escritos Antipelagianos 3",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpcnpQc1RPQXRJODg/view",
+      "bodyPath": "documents/agustin-35-antipelagianos-3-en/content.json",
+      "indexPath": "documents/agustin-35-antipelagianos-3-en/index.json",
+      "unitCount": 1948,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "AI-generated English translation from the Español text of the pack «Escritos Antipelagianos 3» (agustin-35-antipelagianos-3-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-35-antipelagianos-3-es",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T04:36:35.069Z",
+  "updatedAt": "2026-07-19T04:40:32.916Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1023,6 +1023,26 @@
         "meta": "documents/agustin-34-antidonatistas-3-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-en",
+      "sourceId": "agustin-35-antipelagianos-3-en",
+      "title": "Escritos Antipelagianos 3",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpcnpQc1RPQXRJODg/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T04:40:32.916Z",
+      "lastDownloadedAt": "2026-07-19T04:40:32.916Z",
+      "unitCount": 1948,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-35-antipelagianos-3-en/content.json",
+        "index": "documents/agustin-35-antipelagianos-3-en/index.json",
+        "meta": "documents/agustin-35-antipelagianos-3-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Escritos Antipelagianos 3» (agustin-35-antipelagianos-3-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-35-antipelagianos-3-es",
