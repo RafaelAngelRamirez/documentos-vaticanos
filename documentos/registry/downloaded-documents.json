@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T14:00:23.408Z",
+  "updatedAt": "2026-07-19T14:14:49.337Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -403,6 +403,26 @@
         "meta": "documents/agustin-02-confesiones-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「Confesiones」(agustin-02-confesiones-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-en",
+      "sourceId": "agustin-03-obras-filosoficas-en",
+      "title": "Obras Filosóficas",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpS3cxY1RrVkFHS3c/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T14:14:49.337Z",
+      "lastDownloadedAt": "2026-07-19T14:14:49.337Z",
+      "unitCount": 2878,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-03-obras-filosoficas-en/content.json",
+        "index": "documents/agustin-03-obras-filosoficas-en/index.json",
+        "meta": "documents/agustin-03-obras-filosoficas-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Obras Filosóficas» (agustin-03-obras-filosoficas-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-03-obras-filosoficas-es",
