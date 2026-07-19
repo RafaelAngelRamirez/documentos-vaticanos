@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T13:58:50.997Z",
+  "updatedAt": "2026-07-19T14:00:04.669Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -4125,6 +4125,26 @@
       },
       "notes": "Seeded from existing corpus (migrated).",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "cic-zh",
+      "sourceId": "cic-zh",
+      "title": "天主教教理",
+      "kind": "catechism",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/chinese/ccc_zh.htm"
+      ],
+      "firstDownloadedAt": "2026-07-19T14:00:04.669Z",
+      "lastDownloadedAt": "2026-07-19T14:00:04.669Z",
+      "unitCount": 2728,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cic-zh/content.json",
+        "index": "documents/cic-zh/index.json",
+        "meta": "documents/cic-zh/meta.json"
+      },
+      "notes": "Official Traditional Chinese edition from vatican.va (chinese/ccc PDF / Libreria Editrice Vaticana). Sibling of cic-es; no docCode — stable citations remain on cic-es unitIndex/consecutivo."
     },
     {
       "id": "cipriano-cartas-ar",

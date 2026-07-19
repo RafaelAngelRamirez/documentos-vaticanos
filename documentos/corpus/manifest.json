@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T13:59:24.377796Z",
+  "generatedAt": "2026-07-19T14:00:13.654943Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -2959,6 +2959,19 @@
       "indexPath": "documents/cic-es/index.json",
       "unitCount": 5092,
       "sourceUrl": "https://www.vatican.va/archive/catechism_sp/index_sp.html"
+    },
+    {
+      "id": "cic-zh",
+      "title": "天主教教理",
+      "shortTitle": "CCC",
+      "kind": "catechism",
+      "locale": "zh",
+      "sourceUrl": "https://www.vatican.va/chinese/ccc_zh.htm",
+      "bodyPath": "documents/cic-zh/content.json",
+      "indexPath": "documents/cic-zh/index.json",
+      "unitCount": 2728,
+      "sourceNote": "Official Traditional Chinese edition from vatican.va (chinese/ccc PDF / Libreria Editrice Vaticana). Sibling of cic-es; no docCode — stable citations remain on cic-es unitIndex/consecutivo.",
+      "translationProvenance": "official"
     },
     {
       "id": "cipriano-cartas-ar",
