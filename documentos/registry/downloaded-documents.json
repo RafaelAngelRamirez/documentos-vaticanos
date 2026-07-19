@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T09:37:32.335Z",
+  "updatedAt": "2026-07-19T09:40:09.287Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -723,6 +723,26 @@
         "meta": "documents/agustin-13-evangelio-juan-1-es/meta.json"
       },
       "notes": "Tomo BAC n=13: 13 Tratados-sobre-el-evangelio-de-San-Juan_San-Agustin.pdf"
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-en",
+      "sourceId": "agustin-14-evangelio-juan-2-en",
+      "title": "Sobre el Evangelio de San Juan (36–124)",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpcy1FM1ByY1BxTG8/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T09:40:09.287Z",
+      "lastDownloadedAt": "2026-07-19T09:40:09.287Z",
+      "unitCount": 2199,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-14-evangelio-juan-2-en/content.json",
+        "index": "documents/agustin-14-evangelio-juan-2-en/index.json",
+        "meta": "documents/agustin-14-evangelio-juan-2-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Sobre el Evangelio de San Juan (36–124)» (agustin-14-evangelio-juan-2-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-14-evangelio-juan-2-es",
