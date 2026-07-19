@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T11:13:30.997Z",
+  "updatedAt": "2026-07-19T11:16:45.668Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -794,7 +794,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpQUVzY0hNckNhTWc/view"
       ],
       "firstDownloadedAt": "2026-07-19T10:51:30.311Z",
-      "lastDownloadedAt": "2026-07-19T10:51:30.311Z",
+      "lastDownloadedAt": "2026-07-19T11:13:33.709Z",
       "unitCount": 2318,
       "status": "active",
       "corpusPaths": {
@@ -1583,6 +1583,26 @@
         "meta": "documents/agustin-29-escritos-biblicos-5-es/meta.json"
       },
       "notes": "Tomo BAC n=29: 29 Escritos Biblicos 5.pdf"
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-hi",
+      "sourceId": "agustin-29-escritos-biblicos-5-hi",
+      "title": "Escritos Bíblicos 5",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpcVR1NmRfZ3QwM1E/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T11:16:45.668Z",
+      "lastDownloadedAt": "2026-07-19T11:16:45.668Z",
+      "unitCount": 2221,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-29-escritos-biblicos-5-hi/content.json",
+        "index": "documents/agustin-29-escritos-biblicos-5-hi/index.json",
+        "meta": "documents/agustin-29-escritos-biblicos-5-hi/meta.json"
+      },
+      "notes": "«Escritos Bíblicos 5» (agustin-29-escritos-biblicos-5-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-29-escritos-biblicos-5-zh",

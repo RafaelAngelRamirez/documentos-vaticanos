@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T11:13:32.328119Z",
+  "generatedAt": "2026-07-19T11:17:02.800064Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1134,6 +1134,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpcVR1NmRfZ3QwM1E/view. Colección BAC Obras de San Agustín (tomo 29)."
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-hi",
+      "title": "Escritos Bíblicos 5",
+      "shortTitle": "Escritos Bíblicos 5",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpcVR1NmRfZ3QwM1E/view",
+      "bodyPath": "documents/agustin-29-escritos-biblicos-5-hi/content.json",
+      "indexPath": "documents/agustin-29-escritos-biblicos-5-hi/index.json",
+      "unitCount": 2221,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "«Escritos Bíblicos 5» (agustin-29-escritos-biblicos-5-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-29-escritos-biblicos-5-zh",
