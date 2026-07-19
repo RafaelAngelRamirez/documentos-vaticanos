@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T13:03:43.530Z",
+  "updatedAt": "2026-07-19T13:10:29.655Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -663,6 +663,26 @@
         "meta": "documents/agustin-09-gracia-2-es/meta.json"
       },
       "notes": "Tomo BAC n=9: 09 Tratados-sobre-la-gracia-2.pdf"
+    },
+    {
+      "id": "agustin-10-sermones-2-ar",
+      "sourceId": "agustin-10-sermones-2-ar",
+      "title": "Sermones 2",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpd1E4Y0YteDdhSjA/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T13:10:29.654Z",
+      "lastDownloadedAt": "2026-07-19T13:10:29.654Z",
+      "unitCount": 2512,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-10-sermones-2-ar/content.json",
+        "index": "documents/agustin-10-sermones-2-ar/index.json",
+        "meta": "documents/agustin-10-sermones-2-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Sermones 2» (agustin-10-sermones-2-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
     },
     {
       "id": "agustin-10-sermones-2-en",
