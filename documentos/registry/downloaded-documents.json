@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T14:23:11.647Z",
+  "updatedAt": "2026-07-19T14:24:58.599Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -463,6 +463,26 @@
         "meta": "documents/agustin-03-obras-filosoficas-es/meta.json"
       },
       "notes": "Tomo BAC n=3: 03 Obras Filosóficas.pdf"
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-zh",
+      "sourceId": "agustin-03-obras-filosoficas-zh",
+      "title": "Obras Filosóficas",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpS3cxY1RrVkFHS3c/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T14:24:58.598Z",
+      "lastDownloadedAt": "2026-07-19T14:24:58.598Z",
+      "unitCount": 2878,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-03-obras-filosoficas-zh/content.json",
+        "index": "documents/agustin-03-obras-filosoficas-zh/index.json",
+        "meta": "documents/agustin-03-obras-filosoficas-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Obras Filosóficas」(agustin-03-obras-filosoficas-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-04-obras-apologeticas-es",
