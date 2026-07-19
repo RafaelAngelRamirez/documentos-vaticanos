@@ -464,7 +464,10 @@ def main() -> int:
 
     g_source = args.source_lang
     g_target = target
-    translator = make_translator(g_source, g_target, _PREFERRED_BACKEND)
+    # Mutable box so nested mt() can swap backends without free-var issues.
+    client: dict = {
+        "tr": make_translator(g_source, g_target, _PREFERRED_BACKEND),
+    }
 
     total = len(base_units)
     print(
@@ -474,14 +477,13 @@ def main() -> int:
     )
 
     def mt(text: str) -> str:
-        global translator
         # Keep translator in sync if session switched backends mid-run
         if _PREFERRED_BACKEND == "mymemory" and not isinstance(
-            translator, MyMemoryTranslator
+            client["tr"], MyMemoryTranslator
         ):
-            translator = make_translator(g_source, g_target, "mymemory")
+            client["tr"] = make_translator(g_source, g_target, "mymemory")
         return translate_text(
-            translator,
+            client["tr"],
             text,
             source_lang=g_source,
             target_lang=g_target,
