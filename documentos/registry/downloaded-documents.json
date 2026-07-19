@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T14:41:25.225Z",
+  "updatedAt": "2026-07-19T14:48:22.867Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -563,6 +563,26 @@
         "meta": "documents/agustin-04-obras-apologeticas-es/meta.json"
       },
       "notes": "Tomo BAC n=4: 04 Obras apologeticas.pdf"
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-zh",
+      "sourceId": "agustin-04-obras-apologeticas-zh",
+      "title": "Obras apologeticas",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpWS1vaU1vM0N1dWc/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T14:48:22.866Z",
+      "lastDownloadedAt": "2026-07-19T14:48:22.866Z",
+      "unitCount": 2880,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-04-obras-apologeticas-zh/content.json",
+        "index": "documents/agustin-04-obras-apologeticas-zh/index.json",
+        "meta": "documents/agustin-04-obras-apologeticas-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Obras apologeticas」(agustin-04-obras-apologeticas-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-05-de-trinitate-es",
