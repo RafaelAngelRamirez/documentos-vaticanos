@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T12:44:18.258893Z",
+  "generatedAt": "2026-07-19T12:46:06.674743Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -405,6 +405,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "由人工智能根据 pack「Sermones 1」(agustin-07-sermones-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
+      "translationProvenance": "ai"
+    },
+    {
+      "id": "agustin-08-cartas-1-en",
+      "title": "Cartas 1",
+      "shortTitle": "Cartas 1",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpLUI0RERtTWk3Qm8/view",
+      "bodyPath": "documents/agustin-08-cartas-1-en/content.json",
+      "indexPath": "documents/agustin-08-cartas-1-en/index.json",
+      "unitCount": 2468,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "AI-generated English translation from the Español text of the pack «Cartas 1» (agustin-08-cartas-1-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
     },
     {

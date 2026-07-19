@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T12:44:01.651Z",
+  "updatedAt": "2026-07-19T12:46:05.594Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -583,6 +583,26 @@
         "meta": "documents/agustin-07-sermones-1-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「Sermones 1」(agustin-07-sermones-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "agustin-08-cartas-1-en",
+      "sourceId": "agustin-08-cartas-1-en",
+      "title": "Cartas 1",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpLUI0RERtTWk3Qm8/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T12:46:05.594Z",
+      "lastDownloadedAt": "2026-07-19T12:46:05.594Z",
+      "unitCount": 2468,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-08-cartas-1-en/content.json",
+        "index": "documents/agustin-08-cartas-1-en/index.json",
+        "meta": "documents/agustin-08-cartas-1-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Cartas 1» (agustin-08-cartas-1-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-08-cartas-1-es",
@@ -1454,7 +1474,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpQ2IyczZ0UkU3RHM/view"
       ],
       "firstDownloadedAt": "2026-07-19T12:44:01.650Z",
-      "lastDownloadedAt": "2026-07-19T12:44:01.650Z",
+      "lastDownloadedAt": "2026-07-19T12:44:42.698Z",
       "unitCount": 2460,
       "status": "active",
       "corpusPaths": {
