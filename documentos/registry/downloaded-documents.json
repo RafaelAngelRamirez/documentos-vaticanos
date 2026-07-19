@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T12:26:56.105Z",
+  "updatedAt": "2026-07-19T12:28:53.358Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1385,6 +1385,26 @@
       "notes": "由人工智能根据 pack「Sermones (Juan, Hechos, Cartas)」(agustin-23-sermones-juan-hechos-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
+      "id": "agustin-24-sermones-4-ar",
+      "sourceId": "agustin-24-sermones-4-ar",
+      "title": "Sermones 4 (184–272)",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpQ2IyczZ0UkU3RHM/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T12:28:53.358Z",
+      "lastDownloadedAt": "2026-07-19T12:28:53.358Z",
+      "unitCount": 2460,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-24-sermones-4-ar/content.json",
+        "index": "documents/agustin-24-sermones-4-ar/index.json",
+        "meta": "documents/agustin-24-sermones-4-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Sermones 4 (184–272)» (agustin-24-sermones-4-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
       "id": "agustin-24-sermones-4-en",
       "sourceId": "agustin-24-sermones-4-en",
       "title": "Sermones 4 (184–272)",
@@ -1394,7 +1414,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpQ2IyczZ0UkU3RHM/view"
       ],
       "firstDownloadedAt": "2026-07-19T12:26:56.105Z",
-      "lastDownloadedAt": "2026-07-19T12:26:56.105Z",
+      "lastDownloadedAt": "2026-07-19T12:27:38.000Z",
       "unitCount": 2460,
       "status": "active",
       "corpusPaths": {
