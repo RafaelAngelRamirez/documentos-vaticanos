@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T06:38:47.303Z",
+  "updatedAt": "2026-07-19T06:45:31.698Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -603,6 +603,26 @@
         "meta": "documents/agustin-17-ciudad-de-dios-2-es/meta.json"
       },
       "notes": "Tomo BAC n=17: 17 La-ciudad-de-Dios-II.pdf"
+    },
+    {
+      "id": "agustin-18-epistolas-indices-ar",
+      "sourceId": "agustin-18-epistolas-indices-ar",
+      "title": "Exposicion de varias epistolas Indices San Agustin",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpNWdrZ3VUZ1JPNHc/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T06:45:31.698Z",
+      "lastDownloadedAt": "2026-07-19T06:45:31.698Z",
+      "unitCount": 1916,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-18-epistolas-indices-ar/content.json",
+        "index": "documents/agustin-18-epistolas-indices-ar/index.json",
+        "meta": "documents/agustin-18-epistolas-indices-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Exposicion de varias epistolas Indices San Agustin» (agustin-18-epistolas-indices-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
     },
     {
       "id": "agustin-18-epistolas-indices-en",

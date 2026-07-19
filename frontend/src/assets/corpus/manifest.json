@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T06:44:17.957697Z",
+  "generatedAt": "2026-07-19T06:46:02.295144Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -411,6 +411,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpLTAwTHU0NHh3czA/view. Colección BAC Obras de San Agustín (tomo 17)."
+    },
+    {
+      "id": "agustin-18-epistolas-indices-ar",
+      "title": "Exposicion de varias epistolas Indices San Agustin",
+      "shortTitle": "Exposicion de varias epistol…",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpNWdrZ3VUZ1JPNHc/view",
+      "bodyPath": "documents/agustin-18-epistolas-indices-ar/content.json",
+      "indexPath": "documents/agustin-18-epistolas-indices-ar/index.json",
+      "unitCount": 1916,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Exposicion de varias epistolas Indices San Agustin» (agustin-18-epistolas-indices-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-18-epistolas-indices-en",
