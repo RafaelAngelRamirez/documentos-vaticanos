@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T08:51:29.832Z",
+  "updatedAt": "2026-07-19T09:04:32.377Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1114,7 +1114,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpNFl5cy1LblR1bE0/view"
       ],
       "firstDownloadedAt": "2026-07-19T08:22:50.823Z",
-      "lastDownloadedAt": "2026-07-19T08:22:50.823Z",
+      "lastDownloadedAt": "2026-07-19T08:58:31.975Z",
       "unitCount": 1997,
       "status": "active",
       "corpusPaths": {
@@ -1134,7 +1134,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpNFl5cy1LblR1bE0/view"
       ],
       "firstDownloadedAt": "2026-07-19T08:28:53.410Z",
-      "lastDownloadedAt": "2026-07-19T08:28:53.410Z",
+      "lastDownloadedAt": "2026-07-19T08:58:34.278Z",
       "unitCount": 1997,
       "status": "active",
       "corpusPaths": {
@@ -1174,7 +1174,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpNFl5cy1LblR1bE0/view"
       ],
       "firstDownloadedAt": "2026-07-19T08:51:29.832Z",
-      "lastDownloadedAt": "2026-07-19T08:51:29.832Z",
+      "lastDownloadedAt": "2026-07-19T08:58:36.886Z",
       "unitCount": 1997,
       "status": "active",
       "corpusPaths": {
@@ -1403,6 +1403,26 @@
         "meta": "documents/agustin-34-antidonatistas-3-hi/meta.json"
       },
       "notes": "«Escritos Antidonatistas 3» (agustin-34-antidonatistas-3-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-zh",
+      "sourceId": "agustin-34-antidonatistas-3-zh",
+      "title": "Escritos Antidonatistas 3",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbm5SMFdveXZEVFU/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T09:04:32.376Z",
+      "lastDownloadedAt": "2026-07-19T09:04:32.376Z",
+      "unitCount": 1987,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-34-antidonatistas-3-zh/content.json",
+        "index": "documents/agustin-34-antidonatistas-3-zh/index.json",
+        "meta": "documents/agustin-34-antidonatistas-3-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Escritos Antidonatistas 3」(agustin-34-antidonatistas-3-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-35-antipelagianos-3-ar",
