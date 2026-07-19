@@ -169,10 +169,10 @@ async function main() {
   assert.strictEqual(L.localeProvenanceBadge('es', true), 'ES(IA)');
   assert.strictEqual(L.localeProvenanceBadge('en', false), 'EN');
   assert.strictEqual(L.localeProvenanceBadge('en', true), 'EN(AI)');
-  assert.strictEqual(L.localeProvenanceBadge('zh', false), 'ZH');
-  assert.strictEqual(L.localeProvenanceBadge('zh', true), 'ZH(AI)');
-  assert.strictEqual(L.localeProvenanceBadge('hi', true), 'HI(AI)');
-  assert.strictEqual(L.localeProvenanceBadge('ar', true), 'AR(AI)');
+  assert.strictEqual(L.localeProvenanceBadge('zh', false), '中文');
+  assert.strictEqual(L.localeProvenanceBadge('zh', true), '中文(AI)');
+  assert.strictEqual(L.localeProvenanceBadge('hi', true), 'हिन्दी(AI)');
+  assert.strictEqual(L.localeProvenanceBadge('ar', true), 'عربية(AI)');
   assert.strictEqual(L.localeBadge('es', true), 'ES(IA)');
   assert.strictEqual(L.localeBadge('en', true), 'EN(AI)');
 

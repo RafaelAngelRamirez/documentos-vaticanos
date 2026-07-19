@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T02:27:18.700Z",
+  "updatedAt": "2026-07-19T03:29:06.834Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1005,6 +1005,46 @@
       "notes": ""
     },
     {
+      "id": "agustin-37-antipelagianos-5-ar",
+      "sourceId": "agustin-37-antipelagianos-5-ar",
+      "title": "Escritos Antipelagianos 5",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpTkhZSEhFZEd0Z0E/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T02:44:29.492Z",
+      "lastDownloadedAt": "2026-07-19T02:44:29.492Z",
+      "unitCount": 944,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-37-antipelagianos-5-ar/content.json",
+        "index": "documents/agustin-37-antipelagianos-5-ar/index.json",
+        "meta": "documents/agustin-37-antipelagianos-5-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Escritos Antipelagianos 5» (agustin-37-antipelagianos-5-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-en",
+      "sourceId": "agustin-37-antipelagianos-5-en",
+      "title": "Escritos Antipelagianos 5",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpTkhZSEhFZEd0Z0E/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T02:47:58.064Z",
+      "lastDownloadedAt": "2026-07-19T02:47:58.064Z",
+      "unitCount": 944,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-37-antipelagianos-5-en/content.json",
+        "index": "documents/agustin-37-antipelagianos-5-en/index.json",
+        "meta": "documents/agustin-37-antipelagianos-5-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Escritos Antipelagianos 5» (agustin-37-antipelagianos-5-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "agustin-37-antipelagianos-5-es",
       "sourceId": "agustin-37-antipelagianos-5-es",
       "title": "Escritos Antipelagianos 5",
@@ -1023,6 +1063,46 @@
         "meta": "documents/agustin-37-antipelagianos-5-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-hi",
+      "sourceId": "agustin-37-antipelagianos-5-hi",
+      "title": "Escritos Antipelagianos 5",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpTkhZSEhFZEd0Z0E/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:04:03.717Z",
+      "lastDownloadedAt": "2026-07-19T03:04:03.717Z",
+      "unitCount": 944,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-37-antipelagianos-5-hi/content.json",
+        "index": "documents/agustin-37-antipelagianos-5-hi/index.json",
+        "meta": "documents/agustin-37-antipelagianos-5-hi/meta.json"
+      },
+      "notes": "«Escritos Antipelagianos 5» (agustin-37-antipelagianos-5-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-zh",
+      "sourceId": "agustin-37-antipelagianos-5-zh",
+      "title": "Escritos Antipelagianos 5",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpTkhZSEhFZEd0Z0E/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:15:23.809Z",
+      "lastDownloadedAt": "2026-07-19T03:15:23.809Z",
+      "unitCount": 944,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-37-antipelagianos-5-zh/content.json",
+        "index": "documents/agustin-37-antipelagianos-5-zh/index.json",
+        "meta": "documents/agustin-37-antipelagianos-5-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Escritos Antipelagianos 5」(agustin-37-antipelagianos-5-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-38-antiarrianos-es",
@@ -1825,6 +1905,46 @@
         "meta": "documents/cipriano-cartas-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「Cartas」(cipriano-cartas-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-ar",
+      "sourceId": "cirilo-jerusalen-catequesis-ar",
+      "title": "Catequesis",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpOERXcEQ5eU85Ykk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:26:43.975Z",
+      "lastDownloadedAt": "2026-07-19T03:26:43.975Z",
+      "unitCount": 1015,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cirilo-jerusalen-catequesis-ar/content.json",
+        "index": "documents/cirilo-jerusalen-catequesis-ar/index.json",
+        "meta": "documents/cirilo-jerusalen-catequesis-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Catequesis» (cirilo-jerusalen-catequesis-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-en",
+      "sourceId": "cirilo-jerusalen-catequesis-en",
+      "title": "Catequesis",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpOERXcEQ5eU85Ykk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:28:53.950Z",
+      "lastDownloadedAt": "2026-07-19T03:28:53.950Z",
+      "unitCount": 1015,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cirilo-jerusalen-catequesis-en/content.json",
+        "index": "documents/cirilo-jerusalen-catequesis-en/index.json",
+        "meta": "documents/cirilo-jerusalen-catequesis-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Catequesis» (cirilo-jerusalen-catequesis-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "cirilo-jerusalen-catequesis-es",
@@ -6903,6 +7023,26 @@
         "meta": "documents/missale-romanum-apc-en/meta.json"
       },
       "notes": "ES shell on vatican.va has no body — not shipped. IDs missale-romanum-apc-* ≠ rm-es."
+    },
+    {
+      "id": "missale-romanum-apc-es",
+      "sourceId": "missale-romanum-apc-es",
+      "title": "Missale Romanum (Constitutio apostolica, die III mensis Aprilis anno MCMLXIX)",
+      "kind": "magisterium",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.vatican.va/content/paul-vi/es/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:29:06.834Z",
+      "lastDownloadedAt": "2026-07-19T03:29:06.834Z",
+      "unitCount": 18,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/missale-romanum-apc-es/content.json",
+        "index": "documents/missale-romanum-apc-es/index.json",
+        "meta": "documents/missale-romanum-apc-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto (Latina) del pack «Missale Romanum (Constitutio apostolica, die III mensis Aprilis anno MCMLXIX)» (missale-romanum-apc-la). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto de origen."
     },
     {
       "id": "missale-romanum-apc-hi",

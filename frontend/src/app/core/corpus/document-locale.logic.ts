@@ -181,8 +181,9 @@ export function isAiEdition(meta: LocaleMeta): boolean {
 
 /**
  * Short provenance badge for chips / chrome.
- * Non-AI: ES, EN, ZH, HI, AR, LA…
- * AI: ES(IA), EN(AI), ZH(AI), HI(AI), AR(AI)…
+ * Non-AI: ES, EN, 中文, हिन्दी, عربية, LA…
+ * AI: ES(IA), EN(AI), 中文(AI), हिन्दी(AI), عربية(AI)…
+ * Spanish uses IA; other locales use AI (or native-script language name + AI).
  */
 export function localeProvenanceBadge(
   locale?: string | null,
@@ -190,10 +191,23 @@ export function localeProvenanceBadge(
 ): string {
   const code = normalizeLocaleCode(locale);
   if (!code) return isAi ? '?(AI)' : '?';
-  const short = code.toUpperCase();
-  if (!isAi) return short;
+  const native: Record<string, string> = {
+    es: 'ES',
+    en: 'EN',
+    zh: '中文',
+    hi: 'हिन्दी',
+    ar: 'عربية',
+    la: 'LA',
+    it: 'IT',
+    fr: 'FR',
+    de: 'DE',
+    pt: 'PT',
+    el: 'EL',
+  };
+  const label = native[code] || code.toUpperCase();
+  if (!isAi) return label;
   if (code === 'es') return 'ES(IA)';
-  return `${short}(AI)`;
+  return `${label}(AI)`;
 }
 
 /**
