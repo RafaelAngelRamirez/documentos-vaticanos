@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T04:35:18.553Z",
+  "updatedAt": "2026-07-19T04:36:35.069Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -423,6 +423,26 @@
         "meta": "documents/agustin-11-cartas-2-es/meta.json"
       },
       "notes": "Tomo BAC n=11: 11 Cartas-2.pdf"
+    },
+    {
+      "id": "agustin-12-tratados-morales-en",
+      "sourceId": "agustin-12-tratados-morales-en",
+      "title": "Tratados Morales",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpNGpQaWhOdFdmc2c/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T04:36:35.068Z",
+      "lastDownloadedAt": "2026-07-19T04:36:35.068Z",
+      "unitCount": 1828,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-12-tratados-morales-en/content.json",
+        "index": "documents/agustin-12-tratados-morales-en/index.json",
+        "meta": "documents/agustin-12-tratados-morales-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Tratados Morales» (agustin-12-tratados-morales-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-12-tratados-morales-es",
