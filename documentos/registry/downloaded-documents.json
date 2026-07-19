@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T10:51:55.716Z",
+  "updatedAt": "2026-07-19T11:03:09.255Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1325,6 +1325,26 @@
       "notes": "Tomo BAC n=25: 25 Sermones-5-273-a-338.pdf"
     },
     {
+      "id": "agustin-25-sermones-5-hi",
+      "sourceId": "agustin-25-sermones-5-hi",
+      "title": "Sermones 5 (273–338)",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpZzR6czFIMDVYOHM/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T11:03:06.882Z",
+      "lastDownloadedAt": "2026-07-19T11:03:06.882Z",
+      "unitCount": 2285,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-25-sermones-5-hi/content.json",
+        "index": "documents/agustin-25-sermones-5-hi/index.json",
+        "meta": "documents/agustin-25-sermones-5-hi/meta.json"
+      },
+      "notes": "«Sermones 5 (273–338)» (agustin-25-sermones-5-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "agustin-25-sermones-5-zh",
       "sourceId": "agustin-25-sermones-5-zh",
       "title": "Sermones 5 (273–338)",
@@ -1334,7 +1354,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpZzR6czFIMDVYOHM/view"
       ],
       "firstDownloadedAt": "2026-07-19T10:51:15.331Z",
-      "lastDownloadedAt": "2026-07-19T10:51:16.051Z",
+      "lastDownloadedAt": "2026-07-19T11:03:09.254Z",
       "unitCount": 2285,
       "status": "active",
       "corpusPaths": {
