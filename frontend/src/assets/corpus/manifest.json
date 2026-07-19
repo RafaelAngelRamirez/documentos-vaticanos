@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T09:07:04.763848Z",
+  "generatedAt": "2026-07-19T09:08:34.759554Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -862,6 +862,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "«Escritos Antimaniqueos 1» (agustin-30-antimaniqueos-1-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।",
+      "translationProvenance": "ai"
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-zh",
+      "title": "Escritos Antimaniqueos 1",
+      "shortTitle": "Escritos Antimaniqueos 1",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpNFl5cy1LblR1bE0/view",
+      "bodyPath": "documents/agustin-30-antimaniqueos-1-zh/content.json",
+      "indexPath": "documents/agustin-30-antimaniqueos-1-zh/index.json",
+      "unitCount": 1997,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "由人工智能根据 pack「Escritos Antimaniqueos 1」(agustin-30-antimaniqueos-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
       "translationProvenance": "ai"
     },
     {
