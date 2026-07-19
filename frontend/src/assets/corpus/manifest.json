@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T04:55:46.362465Z",
+  "generatedAt": "2026-07-19T05:00:19.702390Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1491,6 +1491,19 @@
       "bodyPath": "documents/cdc-es/content.json",
       "indexPath": "documents/cdc-es/index.json",
       "unitCount": 1744
+    },
+    {
+      "id": "cdc-hi",
+      "title": "Código de Derecho Canónico",
+      "shortTitle": "CDC",
+      "kind": "canon-law",
+      "locale": "hi",
+      "sourceUrl": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_hi.html",
+      "bodyPath": "documents/cdc-hi/content.json",
+      "indexPath": "documents/cdc-hi/index.json",
+      "unitCount": 1744,
+      "sourceNote": "«Código de Derecho Canónico» (cdc-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।",
+      "translationProvenance": "ai"
     },
     {
       "id": "cdc-zh",

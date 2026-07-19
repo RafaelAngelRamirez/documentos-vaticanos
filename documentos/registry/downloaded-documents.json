@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T04:55:18.192Z",
+  "updatedAt": "2026-07-19T05:00:12.897Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -2124,6 +2124,26 @@
         "meta": "documents/cdc-es/meta.json"
       },
       "notes": "1983 Code of Canon Law (Latin Church). Multi-page (~251). docCode CDC (not CIC — CIC is the Catechism in this repo). ~1744 canons (some numbers reserved/abrogated in source HTML). Markup: <b>N</b>, <b>N.</b>, <b>Can. N -</b>, bare leading numbers."
+    },
+    {
+      "id": "cdc-hi",
+      "sourceId": "cdc-hi",
+      "title": "Código de Derecho Canónico",
+      "kind": "canon-law",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-19T05:00:12.897Z",
+      "lastDownloadedAt": "2026-07-19T05:00:12.897Z",
+      "unitCount": 1744,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cdc-hi/content.json",
+        "index": "documents/cdc-hi/index.json",
+        "meta": "documents/cdc-hi/meta.json"
+      },
+      "notes": "«Código de Derecho Canónico» (cdc-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "cdc-zh",
