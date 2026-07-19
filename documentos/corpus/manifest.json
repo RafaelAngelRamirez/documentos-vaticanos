@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T13:55:28.090976Z",
+  "generatedAt": "2026-07-19T13:58:04.160364Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -2907,6 +2907,19 @@
       "unitCount": 583,
       "sourceNote": "由人工智能根据 pack「Compendio de la Doctrina Social de la Iglesia」(cds-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
       "translationProvenance": "ai"
+    },
+    {
+      "id": "cic-ar",
+      "title": "التعليم المسيحي للكنيسة الكاثوليكية",
+      "shortTitle": "CCC",
+      "kind": "catechism",
+      "locale": "ar",
+      "sourceUrl": "https://www.vatican.va/archive/catechism_ar/index_ar.htm",
+      "bodyPath": "documents/cic-ar/content.json",
+      "indexPath": "documents/cic-ar/index.json",
+      "unitCount": 2856,
+      "sourceNote": "Official Arabic edition from vatican.va (catechism_ar PDF / Libreria Editrice Vaticana). Sibling of cic-es; no docCode — stable citations remain on cic-es unitIndex/consecutivo.",
+      "translationProvenance": "official"
     },
     {
       "id": "cic-en",

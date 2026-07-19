@@ -40,6 +40,22 @@ const OFFICIAL: Record<
       "Official English edition from vatican.va (ENG0015 / Libreria Editrice Vaticana). " +
       "Sibling of cic-es; no docCode — stable citations remain on cic-es unitIndex/consecutivo.",
   },
+  ar: {
+    title: "التعليم المسيحي للكنيسة الكاثوليكية",
+    shortTitle: "CCC",
+    sourceUrl: "https://www.vatican.va/archive/catechism_ar/index_ar.htm",
+    note:
+      "Official Arabic edition from vatican.va (catechism_ar PDF / Libreria Editrice Vaticana). " +
+      "Sibling of cic-es; no docCode — stable citations remain on cic-es unitIndex/consecutivo.",
+  },
+  zh: {
+    title: "天主教教理",
+    shortTitle: "CCC",
+    sourceUrl: "https://www.vatican.va/chinese/ccc_zh.htm",
+    note:
+      "Official Traditional Chinese edition from vatican.va (chinese/ccc PDF / Libreria Editrice Vaticana). " +
+      "Sibling of cic-es; no docCode — stable citations remain on cic-es unitIndex/consecutivo.",
+  },
 };
 
 function main(): void {
