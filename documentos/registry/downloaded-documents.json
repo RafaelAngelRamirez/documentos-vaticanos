@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T00:48:36.133Z",
+  "updatedAt": "2026-07-19T02:27:18.700Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -845,6 +845,46 @@
       "notes": ""
     },
     {
+      "id": "agustin-33-antidonatistas-2-ar",
+      "sourceId": "agustin-33-antidonatistas-2-ar",
+      "title": "Escritos Antidonatistas 2",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpRTI3SWFiZGlNSGc/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T02:03:46.477Z",
+      "lastDownloadedAt": "2026-07-19T02:03:46.477Z",
+      "unitCount": 884,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-33-antidonatistas-2-ar/content.json",
+        "index": "documents/agustin-33-antidonatistas-2-ar/index.json",
+        "meta": "documents/agustin-33-antidonatistas-2-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Escritos Antidonatistas 2» (agustin-33-antidonatistas-2-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-en",
+      "sourceId": "agustin-33-antidonatistas-2-en",
+      "title": "Escritos Antidonatistas 2",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpRTI3SWFiZGlNSGc/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T02:06:31.600Z",
+      "lastDownloadedAt": "2026-07-19T02:06:31.600Z",
+      "unitCount": 884,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-33-antidonatistas-2-en/content.json",
+        "index": "documents/agustin-33-antidonatistas-2-en/index.json",
+        "meta": "documents/agustin-33-antidonatistas-2-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Escritos Antidonatistas 2» (agustin-33-antidonatistas-2-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "agustin-33-antidonatistas-2-es",
       "sourceId": "agustin-33-antidonatistas-2-es",
       "title": "Escritos Antidonatistas 2",
@@ -863,6 +903,46 @@
         "meta": "documents/agustin-33-antidonatistas-2-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-hi",
+      "sourceId": "agustin-33-antidonatistas-2-hi",
+      "title": "Escritos Antidonatistas 2",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpRTI3SWFiZGlNSGc/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T02:19:44.065Z",
+      "lastDownloadedAt": "2026-07-19T02:19:44.065Z",
+      "unitCount": 884,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-33-antidonatistas-2-hi/content.json",
+        "index": "documents/agustin-33-antidonatistas-2-hi/index.json",
+        "meta": "documents/agustin-33-antidonatistas-2-hi/meta.json"
+      },
+      "notes": "«Escritos Antidonatistas 2» (agustin-33-antidonatistas-2-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-zh",
+      "sourceId": "agustin-33-antidonatistas-2-zh",
+      "title": "Escritos Antidonatistas 2",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpRTI3SWFiZGlNSGc/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T02:27:18.699Z",
+      "lastDownloadedAt": "2026-07-19T02:27:18.699Z",
+      "unitCount": 884,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-33-antidonatistas-2-zh/content.json",
+        "index": "documents/agustin-33-antidonatistas-2-zh/index.json",
+        "meta": "documents/agustin-33-antidonatistas-2-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Escritos Antidonatistas 2」(agustin-33-antidonatistas-2-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-34-antidonatistas-3-es",
@@ -1587,6 +1667,46 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "cds-hi",
+      "sourceId": "cds-hi",
+      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "kind": "magisterium",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-19T00:55:05.908Z",
+      "lastDownloadedAt": "2026-07-19T00:55:05.908Z",
+      "unitCount": 583,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cds-hi/content.json",
+        "index": "documents/cds-hi/index.json",
+        "meta": "documents/cds-hi/meta.json"
+      },
+      "notes": "«Compendio de la Doctrina Social de la Iglesia» (cds-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "cds-zh",
+      "sourceId": "cds-zh",
+      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-19T00:59:12.037Z",
+      "lastDownloadedAt": "2026-07-19T00:59:12.037Z",
+      "unitCount": 583,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cds-zh/content.json",
+        "index": "documents/cds-zh/index.json",
+        "meta": "documents/cds-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Compendio de la Doctrina Social de la Iglesia」(cds-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
       "id": "cic-es",
       "sourceId": "catechism",
       "title": "Catecismo de la Iglesia Católica",
@@ -1607,6 +1727,46 @@
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
     },
     {
+      "id": "cipriano-cartas-ar",
+      "sourceId": "cipriano-cartas-ar",
+      "title": "Cartas",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpV0lydDFGd2RqNVE/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T01:29:57.613Z",
+      "lastDownloadedAt": "2026-07-19T01:29:57.613Z",
+      "unitCount": 829,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cipriano-cartas-ar/content.json",
+        "index": "documents/cipriano-cartas-ar/index.json",
+        "meta": "documents/cipriano-cartas-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Cartas» (cipriano-cartas-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "cipriano-cartas-en",
+      "sourceId": "cipriano-cartas-en",
+      "title": "Cartas",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpV0lydDFGd2RqNVE/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T01:31:55.779Z",
+      "lastDownloadedAt": "2026-07-19T01:31:55.779Z",
+      "unitCount": 829,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cipriano-cartas-en/content.json",
+        "index": "documents/cipriano-cartas-en/index.json",
+        "meta": "documents/cipriano-cartas-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Cartas» (cipriano-cartas-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "cipriano-cartas-es",
       "sourceId": "cipriano-cartas",
       "title": "Cartas",
@@ -1625,6 +1785,46 @@
         "meta": "documents/cipriano-cartas-es/meta.json"
       },
       "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpV0lydDFGd2RqNVE/view. Edición: Biblioteca Clásica Gredos. Edición/traducción de referencia: Biblioteca Clásica Gredos. Gredos. Párrafos + tope unidad."
+    },
+    {
+      "id": "cipriano-cartas-hi",
+      "sourceId": "cipriano-cartas-hi",
+      "title": "Cartas",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpV0lydDFGd2RqNVE/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T01:42:50.910Z",
+      "lastDownloadedAt": "2026-07-19T01:42:50.910Z",
+      "unitCount": 829,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cipriano-cartas-hi/content.json",
+        "index": "documents/cipriano-cartas-hi/index.json",
+        "meta": "documents/cipriano-cartas-hi/meta.json"
+      },
+      "notes": "«Cartas» (cipriano-cartas-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "cipriano-cartas-zh",
+      "sourceId": "cipriano-cartas-zh",
+      "title": "Cartas",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpV0lydDFGd2RqNVE/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T01:50:16.547Z",
+      "lastDownloadedAt": "2026-07-19T01:50:16.547Z",
+      "unitCount": 829,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cipriano-cartas-zh/content.json",
+        "index": "documents/cipriano-cartas-zh/index.json",
+        "meta": "documents/cipriano-cartas-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Cartas」(cipriano-cartas-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "cirilo-jerusalen-catequesis-es",
@@ -1748,6 +1948,46 @@
       "notes": "由人工智能根据 pack「Christifideles laici」(cl-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
+      "id": "clemente-alejandria-pedagogo-ar",
+      "sourceId": "clemente-alejandria-pedagogo-ar",
+      "title": "El Pedagogo",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbnNFLUF5eTRiM28/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T01:05:37.487Z",
+      "lastDownloadedAt": "2026-07-19T01:05:37.487Z",
+      "unitCount": 776,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/clemente-alejandria-pedagogo-ar/content.json",
+        "index": "documents/clemente-alejandria-pedagogo-ar/index.json",
+        "meta": "documents/clemente-alejandria-pedagogo-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «El Pedagogo» (clemente-alejandria-pedagogo-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-en",
+      "sourceId": "clemente-alejandria-pedagogo-en",
+      "title": "El Pedagogo",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbnNFLUF5eTRiM28/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T01:06:54.658Z",
+      "lastDownloadedAt": "2026-07-19T01:06:54.658Z",
+      "unitCount": 776,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/clemente-alejandria-pedagogo-en/content.json",
+        "index": "documents/clemente-alejandria-pedagogo-en/index.json",
+        "meta": "documents/clemente-alejandria-pedagogo-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «El Pedagogo» (clemente-alejandria-pedagogo-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "clemente-alejandria-pedagogo-es",
       "sourceId": "clemente-pedagogo",
       "title": "El Pedagogo",
@@ -1766,6 +2006,46 @@
         "meta": "documents/clemente-alejandria-pedagogo-es/meta.json"
       },
       "notes": "Compilación digital del P. A. Cedano. Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpbnNFLUF5eTRiM28/view. Edición: Biblioteca Clásica Gredos. Edición/traducción de referencia: Biblioteca Clásica Gredos. Biblioteca Clásica Gredos. Párrafos + tope unidad."
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-hi",
+      "sourceId": "clemente-alejandria-pedagogo-hi",
+      "title": "El Pedagogo",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbnNFLUF5eTRiM28/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T01:15:04.937Z",
+      "lastDownloadedAt": "2026-07-19T01:15:04.937Z",
+      "unitCount": 776,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/clemente-alejandria-pedagogo-hi/content.json",
+        "index": "documents/clemente-alejandria-pedagogo-hi/index.json",
+        "meta": "documents/clemente-alejandria-pedagogo-hi/meta.json"
+      },
+      "notes": "«El Pedagogo» (clemente-alejandria-pedagogo-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-zh",
+      "sourceId": "clemente-alejandria-pedagogo-zh",
+      "title": "El Pedagogo",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbnNFLUF5eTRiM28/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T01:19:39.372Z",
+      "lastDownloadedAt": "2026-07-19T01:19:39.372Z",
+      "unitCount": 776,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/clemente-alejandria-pedagogo-zh/content.json",
+        "index": "documents/clemente-alejandria-pedagogo-zh/index.json",
+        "meta": "documents/clemente-alejandria-pedagogo-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「El Pedagogo」(clemente-alejandria-pedagogo-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "constantinopla-i-ar",
