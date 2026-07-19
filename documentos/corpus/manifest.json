@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T04:21:45.843991Z",
+  "generatedAt": "2026-07-19T04:22:58.264997Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1221,6 +1221,19 @@
       "indexPath": "documents/catecismo-romano-la/index.json",
       "unitCount": 1162,
       "sourceNote": "Catechismus Romanus ad parochos (Trento / Pío V). Texto latino de dominio público a partir de OCR DjVuTXT de Archive.org (ed. s. XIX). Requiere limpieza mecánica de OCR; no es edición crítica. Fuente: https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
+    },
+    {
+      "id": "catecismo-romano-zh",
+      "title": "Catecismo Romano",
+      "shortTitle": "CR-ES",
+      "kind": "catechism",
+      "locale": "zh",
+      "sourceUrl": "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830",
+      "bodyPath": "documents/catecismo-romano-zh/content.json",
+      "indexPath": "documents/catecismo-romano-zh/index.json",
+      "unitCount": 1162,
+      "sourceNote": "由人工智能根据 pack「Catecismo Romano」(catecismo-romano-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
+      "translationProvenance": "ai"
     },
     {
       "id": "cceo-en",
