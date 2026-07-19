@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T04:22:45.075Z",
+  "updatedAt": "2026-07-19T04:23:38.526Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -543,6 +543,26 @@
         "meta": "documents/agustin-17-ciudad-de-dios-2-es/meta.json"
       },
       "notes": "Tomo BAC n=17: 17 La-ciudad-de-Dios-II.pdf"
+    },
+    {
+      "id": "agustin-18-epistolas-indices-en",
+      "sourceId": "agustin-18-epistolas-indices-en",
+      "title": "Exposicion de varias epistolas Indices San Agustin",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpNWdrZ3VUZ1JPNHc/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T04:23:38.525Z",
+      "lastDownloadedAt": "2026-07-19T04:23:38.525Z",
+      "unitCount": 1916,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-18-epistolas-indices-en/content.json",
+        "index": "documents/agustin-18-epistolas-indices-en/index.json",
+        "meta": "documents/agustin-18-epistolas-indices-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Exposicion de varias epistolas Indices San Agustin» (agustin-18-epistolas-indices-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-18-epistolas-indices-es",
