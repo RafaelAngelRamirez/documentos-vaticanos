@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T07:27:21.811Z",
+  "updatedAt": "2026-07-19T07:32:43.935Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -525,6 +525,26 @@
       "notes": "«Tratados Morales» (agustin-12-tratados-morales-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
+      "id": "agustin-12-tratados-morales-zh",
+      "sourceId": "agustin-12-tratados-morales-zh",
+      "title": "Tratados Morales",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpNGpQaWhOdFdmc2c/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T07:32:34.008Z",
+      "lastDownloadedAt": "2026-07-19T07:32:34.039Z",
+      "unitCount": 1828,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-12-tratados-morales-zh/content.json",
+        "index": "documents/agustin-12-tratados-morales-zh/index.json",
+        "meta": "documents/agustin-12-tratados-morales-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Tratados Morales」(agustin-12-tratados-morales-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
       "id": "agustin-13-evangelio-juan-1-es",
       "sourceId": "agustin-13",
       "title": "Tratados sobre el Evangelio de San Juan (1)",
@@ -634,7 +654,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpNWdrZ3VUZ1JPNHc/view"
       ],
       "firstDownloadedAt": "2026-07-19T06:45:31.698Z",
-      "lastDownloadedAt": "2026-07-19T06:45:31.698Z",
+      "lastDownloadedAt": "2026-07-19T07:32:36.551Z",
       "unitCount": 1916,
       "status": "active",
       "corpusPaths": {
@@ -654,7 +674,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpNWdrZ3VUZ1JPNHc/view"
       ],
       "firstDownloadedAt": "2026-07-19T04:23:38.525Z",
-      "lastDownloadedAt": "2026-07-19T04:23:38.525Z",
+      "lastDownloadedAt": "2026-07-19T07:32:38.887Z",
       "unitCount": 1916,
       "status": "active",
       "corpusPaths": {
@@ -694,7 +714,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpNWdrZ3VUZ1JPNHc/view"
       ],
       "firstDownloadedAt": "2026-07-19T07:11:12.430Z",
-      "lastDownloadedAt": "2026-07-19T07:11:12.430Z",
+      "lastDownloadedAt": "2026-07-19T07:32:41.871Z",
       "unitCount": 1916,
       "status": "active",
       "corpusPaths": {
@@ -714,7 +734,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpNWdrZ3VUZ1JPNHc/view"
       ],
       "firstDownloadedAt": "2026-07-19T07:27:21.811Z",
-      "lastDownloadedAt": "2026-07-19T07:27:21.811Z",
+      "lastDownloadedAt": "2026-07-19T07:32:43.935Z",
       "unitCount": 1916,
       "status": "active",
       "corpusPaths": {
