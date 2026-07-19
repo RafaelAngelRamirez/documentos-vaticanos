@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T13:10:29.655Z",
+  "updatedAt": "2026-07-19T13:11:38.061Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -643,6 +643,26 @@
         "meta": "documents/agustin-08-cartas-1-es/meta.json"
       },
       "notes": "Tomo BAC n=8: 08 Cartas-1.pdf"
+    },
+    {
+      "id": "agustin-08-cartas-1-zh",
+      "sourceId": "agustin-08-cartas-1-zh",
+      "title": "Cartas 1",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpLUI0RERtTWk3Qm8/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T13:11:38.061Z",
+      "lastDownloadedAt": "2026-07-19T13:11:38.061Z",
+      "unitCount": 2468,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-08-cartas-1-zh/content.json",
+        "index": "documents/agustin-08-cartas-1-zh/index.json",
+        "meta": "documents/agustin-08-cartas-1-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Cartas 1」(agustin-08-cartas-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-09-gracia-2-es",
