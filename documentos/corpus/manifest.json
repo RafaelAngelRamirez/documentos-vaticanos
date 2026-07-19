@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T13:02:42.131154Z",
+  "generatedAt": "2026-07-19T13:04:17.594487Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -464,6 +464,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpZXpnemI1c3dVVVk/view. Colección BAC Obras de San Agustín (tomo 9)."
+    },
+    {
+      "id": "agustin-10-sermones-2-en",
+      "title": "Sermones 2",
+      "shortTitle": "Sermones 2",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpd1E4Y0YteDdhSjA/view",
+      "bodyPath": "documents/agustin-10-sermones-2-en/content.json",
+      "indexPath": "documents/agustin-10-sermones-2-en/index.json",
+      "unitCount": 2512,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "AI-generated English translation from the Español text of the pack «Sermones 2» (agustin-10-sermones-2-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-10-sermones-2-es",
