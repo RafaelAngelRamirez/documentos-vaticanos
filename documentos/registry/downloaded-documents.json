@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T08:29:15.323Z",
+  "updatedAt": "2026-07-19T08:49:21.898Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -2905,6 +2905,26 @@
         "meta": "documents/cds-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「Compendio de la Doctrina Social de la Iglesia」(cds-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "cic-en",
+      "sourceId": "cic-en",
+      "title": "Catechism of the Catholic Church",
+      "kind": "catechism",
+      "locale": "en",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+      ],
+      "firstDownloadedAt": "2026-07-19T08:49:21.897Z",
+      "lastDownloadedAt": "2026-07-19T08:49:21.897Z",
+      "unitCount": 4021,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cic-en/content.json",
+        "index": "documents/cic-en/index.json",
+        "meta": "documents/cic-en/meta.json"
+      },
+      "notes": "Official English edition from vatican.va (ENG0015 / Libreria Editrice Vaticana). Sibling of cic-es; no docCode — stable citations remain on cic-es unitIndex/consecutivo."
     },
     {
       "id": "cic-es",
