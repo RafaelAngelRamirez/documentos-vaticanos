@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T05:12:23.775Z",
+  "updatedAt": "2026-07-19T05:18:17.196Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1323,6 +1323,26 @@
         "meta": "documents/agustin-38-antiarrianos-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "agustin-39-varios-1-ar",
+      "sourceId": "agustin-39-varios-1-ar",
+      "title": "Escritos varios 1",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpdEhRRFhtcGRBWGs/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T05:18:17.195Z",
+      "lastDownloadedAt": "2026-07-19T05:18:17.195Z",
+      "unitCount": 1230,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-39-varios-1-ar/content.json",
+        "index": "documents/agustin-39-varios-1-ar/index.json",
+        "meta": "documents/agustin-39-varios-1-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Escritos varios 1» (agustin-39-varios-1-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
     },
     {
       "id": "agustin-39-varios-1-en",
