@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T13:53:58.698Z",
+  "updatedAt": "2026-07-19T13:54:12.975Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -745,6 +745,26 @@
       "notes": "Tomo BAC n=9: 09 Tratados-sobre-la-gracia-2.pdf"
     },
     {
+      "id": "agustin-09-gracia-2-hi",
+      "sourceId": "agustin-09-gracia-2-hi",
+      "title": "Tratados sobre la gracia 2",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpZXpnemI1c3dVVVk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T13:54:10.097Z",
+      "lastDownloadedAt": "2026-07-19T13:54:10.097Z",
+      "unitCount": 2673,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-09-gracia-2-hi/content.json",
+        "index": "documents/agustin-09-gracia-2-hi/index.json",
+        "meta": "documents/agustin-09-gracia-2-hi/meta.json"
+      },
+      "notes": "«Tratados sobre la gracia 2» (agustin-09-gracia-2-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "agustin-09-gracia-2-zh",
       "sourceId": "agustin-09-gracia-2-zh",
       "title": "Tratados sobre la gracia 2",
@@ -754,7 +774,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpZXpnemI1c3dVVVk/view"
       ],
       "firstDownloadedAt": "2026-07-19T13:53:58.698Z",
-      "lastDownloadedAt": "2026-07-19T13:53:58.698Z",
+      "lastDownloadedAt": "2026-07-19T13:54:12.974Z",
       "unitCount": 2673,
       "status": "active",
       "corpusPaths": {
