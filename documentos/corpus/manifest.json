@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T14:56:10.805821Z",
+  "generatedAt": "2026-07-19T15:00:25.614105Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1262,6 +1262,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpaGdheFVxa3haNFU/view. Colección BAC Obras de San Agustín (tomo 21)."
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-ar",
+      "title": "Narraciones sobre los salmos 4",
+      "shortTitle": "Narraciones sobre los salmos…",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpNFNidE1DMGlwZW8/view",
+      "bodyPath": "documents/agustin-22-enarraciones-salmos-4-ar/content.json",
+      "indexPath": "documents/agustin-22-enarraciones-salmos-4-ar/index.json",
+      "unitCount": 3002,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Narraciones sobre los salmos 4» (agustin-22-enarraciones-salmos-4-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-22-enarraciones-salmos-4-en",
