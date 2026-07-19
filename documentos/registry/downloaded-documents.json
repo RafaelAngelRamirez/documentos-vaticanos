@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T04:54:14.206Z",
+  "updatedAt": "2026-07-19T04:55:18.192Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1923,6 +1923,26 @@
         "meta": "documents/cceo-es/meta.json"
       },
       "notes": "Traducción al español generada por IA a partir del texto latino del pack «Código de los Cánones de las Iglesias Orientales» (cceo-la) en vatican.va. No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto latino."
+    },
+    {
+      "id": "cceo-hi",
+      "sourceId": "cceo-hi",
+      "title": "Código de los Cánones de las Iglesias Orientales",
+      "kind": "canon-law",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/content/john-paul-ii/hi/apost_constitutions/documents/hf_jp-ii_apc_19901018_index-codex-can-eccl-orient.html"
+      ],
+      "firstDownloadedAt": "2026-07-19T04:55:18.191Z",
+      "lastDownloadedAt": "2026-07-19T04:55:18.191Z",
+      "unitCount": 1514,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cceo-hi/content.json",
+        "index": "documents/cceo-hi/index.json",
+        "meta": "documents/cceo-hi/meta.json"
+      },
+      "notes": "«Código de los Cánones de las Iglesias Orientales» (cceo-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "cceo-la",
