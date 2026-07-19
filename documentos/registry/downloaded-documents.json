@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T04:23:38.526Z",
+  "updatedAt": "2026-07-19T04:24:36.044Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1243,6 +1243,26 @@
         "meta": "documents/agustin-39-varios-1-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "agustin-39-varios-1-zh",
+      "sourceId": "agustin-39-varios-1-zh",
+      "title": "Escritos varios 1",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpdEhRRFhtcGRBWGs/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T04:24:36.043Z",
+      "lastDownloadedAt": "2026-07-19T04:24:36.043Z",
+      "unitCount": 1230,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-39-varios-1-zh/content.json",
+        "index": "documents/agustin-39-varios-1-zh/index.json",
+        "meta": "documents/agustin-39-varios-1-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Escritos varios 1」(agustin-39-varios-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-40-varios-2-en",
