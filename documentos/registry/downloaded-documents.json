@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T05:34:17.060Z",
+  "updatedAt": "2026-07-19T05:35:37.237Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1425,6 +1425,26 @@
       "notes": "由人工智能根据 pack「Escritos varios 1」(agustin-39-varios-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
+      "id": "agustin-40-varios-2-ar",
+      "sourceId": "agustin-40-varios-2-ar",
+      "title": "Escritos varios 2",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbEktREJoTEs5NWM/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T05:35:34.716Z",
+      "lastDownloadedAt": "2026-07-19T05:35:35.811Z",
+      "unitCount": 1559,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-40-varios-2-ar/content.json",
+        "index": "documents/agustin-40-varios-2-ar/index.json",
+        "meta": "documents/agustin-40-varios-2-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Escritos varios 2» (agustin-40-varios-2-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
       "id": "agustin-40-varios-2-en",
       "sourceId": "agustin-40-varios-2-en",
       "title": "Escritos varios 2",
@@ -1434,7 +1454,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpbEktREJoTEs5NWM/view"
       ],
       "firstDownloadedAt": "2026-07-19T04:08:16.095Z",
-      "lastDownloadedAt": "2026-07-19T04:08:16.095Z",
+      "lastDownloadedAt": "2026-07-19T05:35:37.237Z",
       "unitCount": 1559,
       "status": "active",
       "corpusPaths": {
