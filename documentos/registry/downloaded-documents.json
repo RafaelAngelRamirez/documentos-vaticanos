@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T10:51:16.051Z",
+  "updatedAt": "2026-07-19T10:51:55.716Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -765,6 +765,26 @@
       "notes": "由人工智能根据 pack「Tratados Morales」(agustin-12-tratados-morales-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
+      "id": "agustin-13-evangelio-juan-1-en",
+      "sourceId": "agustin-13-evangelio-juan-1-en",
+      "title": "Tratados sobre el Evangelio de San Juan (1)",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpQUVzY0hNckNhTWc/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T10:51:30.311Z",
+      "lastDownloadedAt": "2026-07-19T10:51:30.311Z",
+      "unitCount": 2318,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-13-evangelio-juan-1-en/content.json",
+        "index": "documents/agustin-13-evangelio-juan-1-en/index.json",
+        "meta": "documents/agustin-13-evangelio-juan-1-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Tratados sobre el Evangelio de San Juan (1)» (agustin-13-evangelio-juan-1-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "agustin-13-evangelio-juan-1-es",
       "sourceId": "agustin-13",
       "title": "Tratados sobre el Evangelio de San Juan (1)",
@@ -1123,6 +1143,26 @@
         "meta": "documents/agustin-22-enarraciones-salmos-4-es/meta.json"
       },
       "notes": "Tomo BAC n=22: 22 Narraciones-sobre-los-salmos-4.pdf"
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-ar",
+      "sourceId": "agustin-23-sermones-juan-hechos-ar",
+      "title": "Sermones (Juan, Hechos, Cartas)",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpd3ZHdmZuYWJWRFk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T10:51:55.716Z",
+      "lastDownloadedAt": "2026-07-19T10:51:55.716Z",
+      "unitCount": 2277,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-23-sermones-juan-hechos-ar/content.json",
+        "index": "documents/agustin-23-sermones-juan-hechos-ar/index.json",
+        "meta": "documents/agustin-23-sermones-juan-hechos-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Sermones (Juan, Hechos, Cartas)» (agustin-23-sermones-juan-hechos-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
     },
     {
       "id": "agustin-23-sermones-juan-hechos-en",

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T10:51:17.084975Z",
+  "generatedAt": "2026-07-19T10:51:59.723927Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -538,6 +538,21 @@
       "translationProvenance": "ai"
     },
     {
+      "id": "agustin-13-evangelio-juan-1-en",
+      "title": "Tratados sobre el Evangelio de San Juan (1)",
+      "shortTitle": "Tratados sobre el Evangelio …",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpQUVzY0hNckNhTWc/view",
+      "bodyPath": "documents/agustin-13-evangelio-juan-1-en/content.json",
+      "indexPath": "documents/agustin-13-evangelio-juan-1-en/index.json",
+      "unitCount": 2318,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "AI-generated English translation from the Español text of the pack «Tratados sobre el Evangelio de San Juan (1)» (agustin-13-evangelio-juan-1-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+      "translationProvenance": "ai"
+    },
+    {
       "id": "agustin-13-evangelio-juan-1-es",
       "title": "Tratados sobre el Evangelio de San Juan (1)",
       "shortTitle": "Tratados sobre el Evangelio …",
@@ -796,6 +811,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpNFNidE1DMGlwZW8/view. Colección BAC Obras de San Agustín (tomo 22)."
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-ar",
+      "title": "Sermones (Juan, Hechos, Cartas)",
+      "shortTitle": "Sermones (Juan, Hechos, Cart…",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpd3ZHdmZuYWJWRFk/view",
+      "bodyPath": "documents/agustin-23-sermones-juan-hechos-ar/content.json",
+      "indexPath": "documents/agustin-23-sermones-juan-hechos-ar/index.json",
+      "unitCount": 2277,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Sermones (Juan, Hechos, Cartas)» (agustin-23-sermones-juan-hechos-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-23-sermones-juan-hechos-en",
