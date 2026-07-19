@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T14:54:28.690Z",
+  "updatedAt": "2026-07-19T14:55:42.386Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1743,6 +1743,26 @@
         "meta": "documents/agustin-21-enarraciones-salmos-3-es/meta.json"
       },
       "notes": "Tomo BAC n=21: 21 Narraciones-sobre-los-salmos-3.pdf"
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-en",
+      "sourceId": "agustin-22-enarraciones-salmos-4-en",
+      "title": "Narraciones sobre los salmos 4",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpNFNidE1DMGlwZW8/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T14:55:42.386Z",
+      "lastDownloadedAt": "2026-07-19T14:55:42.386Z",
+      "unitCount": 3002,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-22-enarraciones-salmos-4-en/content.json",
+        "index": "documents/agustin-22-enarraciones-salmos-4-en/index.json",
+        "meta": "documents/agustin-22-enarraciones-salmos-4-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Narraciones sobre los salmos 4» (agustin-22-enarraciones-salmos-4-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-22-enarraciones-salmos-4-es",
