@@ -33,7 +33,7 @@ CORPUS_DOCS = REPO / "documentos/corpus/documents"
 OUT_DIR = REPO / "documentos/magisterium-source/clean"
 
 try:
-    from deep_translator import GoogleTranslator
+    from deep_translator import GoogleTranslator, MyMemoryTranslator
 except ImportError:
     print(
         "deep_translator required. e.g.\n"
@@ -44,9 +44,49 @@ except ImportError:
     sys.exit(1)
 
 # Google free endpoint hard-caps ~5000 chars; stay well under (UTF-8 / markup expansion).
+# MyMemory free endpoint hard-caps ~500 chars.
 MAX_BATCH_CHARS = 3500
 MAX_SINGLE_CHARS = 4500
+MYMEMORY_MAX_CHARS = 450
 UNIT_SEP = "\n\n⟦U⟧\n\n"
+
+# Session-level: prefer MyMemory after Google rate-limit storms.
+_PREFERRED_BACKEND = "google"
+
+# MyMemory wants BCP-like codes (es-ES, en-GB, zh-CN, …).
+MYMEMORY_CODES = {
+    "es": "es-ES",
+    "en": "en-GB",
+    "zh": "zh-CN",
+    "hi": "hi-IN",
+    "ar": "ar-SA",
+    "la": "la-XN",
+    "it": "it-IT",
+    "fr": "fr-FR",
+    "de": "de-DE",
+    "pt": "pt-PT",
+}
+
+
+def _is_rate_limit(err: BaseException) -> bool:
+    low = str(err).lower()
+    return (
+        "too many requests" in low
+        or "rate" in low
+        or "429" in low
+        or "5 requests per second" in low
+    )
+
+
+def make_translator(source: str, target: str, backend: str = "google"):
+    """Build a deep_translator client for Google or MyMemory."""
+    if backend == "mymemory":
+        src = MYMEMORY_CODES.get(source, source if "-" in source else f"{source}-{source.upper()}")
+        dst = MYMEMORY_CODES.get(target, target if "-" in target else target)
+        # zh target key is "zh" → zh-CN already in map
+        return MyMemoryTranslator(source=src, target=dst)
+    g_target = {"zh": "zh-CN"}.get(target, target)
+    return GoogleTranslator(source=source, target=g_target)
 
 CAN_RE = re.compile(
     r"\b[Cc]ann?\.\s*\d+(?:\s*(?:,|et|–|-|y|and|und)\s*\d+)*",
@@ -116,25 +156,60 @@ def _chunk_text(text: str, max_len: int = MAX_SINGLE_CHARS) -> list[str]:
 
 
 def translate_text(
-    translator: GoogleTranslator, text: str, retries: int = 8
+    translator,
+    text: str,
+    retries: int = 8,
+    *,
+    source_lang: str = "es",
+    target_lang: str = "en",
+    backend: str | None = None,
 ) -> str:
-    # Long units: translate piece by piece (Google free ~5k hard limit).
-    pieces = _chunk_text(text, MAX_SINGLE_CHARS)
+    """Translate text; auto-fallback Google → MyMemory on rate-limit."""
+    global _PREFERRED_BACKEND
+    backend = backend or _PREFERRED_BACKEND
+    max_chars = MYMEMORY_MAX_CHARS if backend == "mymemory" else MAX_SINGLE_CHARS
+
+    # Long units: translate piece by piece.
+    pieces = _chunk_text(text, max_chars)
     if len(pieces) > 1:
-        return postprocess(" ".join(translate_text(translator, p, retries) for p in pieces))
+        return postprocess(
+            " ".join(
+                translate_text(
+                    translator,
+                    p,
+                    retries,
+                    source_lang=source_lang,
+                    target_lang=target_lang,
+                    backend=backend,
+                )
+                for p in pieces
+            )
+        )
 
     protected, toks = protect(text)
-    # If protection ballooned past limit, translate without protect markers
-    if len(protected) > MAX_SINGLE_CHARS:
+    if len(protected) > max_chars:
         protected, toks = text, {}
-        pieces = _chunk_text(protected, MAX_SINGLE_CHARS)
+        pieces = _chunk_text(protected, max_chars)
         if len(pieces) > 1:
-            return postprocess(" ".join(translate_text(translator, p, retries) for p in pieces))
+            return postprocess(
+                " ".join(
+                    translate_text(
+                        translator,
+                        p,
+                        retries,
+                        source_lang=source_lang,
+                        target_lang=target_lang,
+                        backend=backend,
+                    )
+                    for p in pieces
+                )
+            )
 
     last_err: Exception | None = None
+    active = translator
     for attempt in range(retries):
         try:
-            raw = translator.translate(protected)
+            raw = active.translate(protected)
             if not raw or not str(raw).strip():
                 raise RuntimeError("empty translation")
             return postprocess(unprotect(str(raw), toks))
@@ -142,23 +217,54 @@ def translate_text(
             last_err = e
             err_s = str(e)
             # Immediate re-chunk if length error
-            if "5000" in err_s or "length" in err_s.lower():
-                pieces = _chunk_text(text, max(1500, MAX_SINGLE_CHARS // 2))
+            if "5000" in err_s or "500" in err_s or "length" in err_s.lower():
+                pieces = _chunk_text(text, max(200, max_chars // 2))
                 if len(pieces) > 1:
                     return postprocess(
-                        " ".join(translate_text(translator, p, retries) for p in pieces)
+                        " ".join(
+                            translate_text(
+                                active,
+                                p,
+                                retries,
+                                source_lang=source_lang,
+                                target_lang=target_lang,
+                                backend=backend,
+                            )
+                            for p in pieces
+                        )
                     )
-            # Google free MT rate-limit: long cooldown, then retry
-            low = err_s.lower()
-            if (
-                "too many requests" in low
-                or "rate" in low
-                or "429" in low
-                or "5 requests per second" in low
-            ):
-                wait = min(180, 30 + 20 * attempt)
-            else:
-                wait = min(60, 2**attempt)
+            # Google rate-limit → switch session to MyMemory
+            if backend == "google" and _is_rate_limit(e):
+                print(
+                    "  [i] Google rate-limit — switching session to MyMemory",
+                    flush=True,
+                )
+                _PREFERRED_BACKEND = "mymemory"
+                backend = "mymemory"
+                max_chars = MYMEMORY_MAX_CHARS
+                active = make_translator(source_lang, target_lang, "mymemory")
+                # Re-chunk current text under MyMemory limit
+                pieces = _chunk_text(text, max_chars)
+                if len(pieces) > 1:
+                    return postprocess(
+                        " ".join(
+                            translate_text(
+                                active,
+                                p,
+                                retries,
+                                source_lang=source_lang,
+                                target_lang=target_lang,
+                                backend="mymemory",
+                            )
+                            for p in pieces
+                        )
+                    )
+                protected, toks = protect(text)
+                if len(protected) > max_chars:
+                    protected, toks = text, {}
+                time.sleep(1)
+                continue
+            wait = min(60, 2**attempt) if backend == "mymemory" else min(180, 30 + 20 * attempt)
             print(
                 f"  [retry {attempt+1}/{retries}] {type(e).__name__}: {err_s[:120]}; sleep {wait}s",
                 flush=True,
@@ -356,29 +462,42 @@ def main() -> int:
     if args.force_retranslate:
         cp = {"units": {}, "meta": {}}
 
-    g_target = {"zh": "zh-CN", "hi": "hi", "ar": "ar", "en": "en"}.get(
-        target, target
-    )
     g_source = args.source_lang
-    translator = GoogleTranslator(source=g_source, target=g_target)
+    g_target = target
+    translator = make_translator(g_source, g_target, _PREFERRED_BACKEND)
 
     total = len(base_units)
     print(
         f"[i] translating {total} units {base_id} ({g_source}→{g_target}) "
-        f"family={fam}",
+        f"family={fam} backend={_PREFERRED_BACKEND}",
         flush=True,
     )
+
+    def mt(text: str) -> str:
+        global translator
+        # Keep translator in sync if session switched backends mid-run
+        if _PREFERRED_BACKEND == "mymemory" and not isinstance(
+            translator, MyMemoryTranslator
+        ):
+            translator = make_translator(g_source, g_target, "mymemory")
+        return translate_text(
+            translator,
+            text,
+            source_lang=g_source,
+            target_lang=g_target,
+        )
 
     done_new = 0
     i = 0
     while i < len(base_units):
-        if args.no_batch:
+        if args.no_batch or _PREFERRED_BACKEND == "mymemory":
+            # MyMemory: one unit (or small chunks inside mt) at a time
             key = str(base_units[i]["consecutivo"])
             if not args.force_retranslate and key in cp["units"]:
                 i += 1
                 continue
             body = (base_units[i].get("contenido") or "").strip()
-            es = translate_text(translator, body)
+            es = mt(body)
             cp["units"][key] = {
                 "consecutivo": key,
                 "contenido": es,
@@ -393,13 +512,13 @@ def main() -> int:
             )
             if not idxs:
                 break
-            translated = translate_text(translator, batch_text)
+            translated = mt(batch_text)
             chunks = unpack_batch(translated, len(idxs))
             for unit_i, chunk in zip(idxs, chunks):
                 k = str(base_units[unit_i]["consecutivo"])
                 src = (base_units[unit_i].get("contenido") or "").strip()
                 if not chunk and src:
-                    chunk = translate_text(translator, src)
+                    chunk = mt(src)
                 cp["units"][k] = {
                     "consecutivo": k,
                     "contenido": chunk,
@@ -412,7 +531,8 @@ def main() -> int:
         if done_new % 20 == 0 or done_new == 1:
             save_checkpoint(checkpoint, cp)
             print(
-                f"  progress new={done_new} checkpointed @ i≈{i}/{total}",
+                f"  progress new={done_new} checkpointed @ i≈{i}/{total} "
+                f"backend={_PREFERRED_BACKEND}",
                 flush=True,
             )
         time.sleep(args.sleep)
