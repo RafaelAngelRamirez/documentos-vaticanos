@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T16:17:58.136Z",
+  "updatedAt": "2026-07-19T16:19:40.165Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -783,6 +783,26 @@
         "meta": "documents/agustin-06-gracia-1-hi/meta.json"
       },
       "notes": "«Tratados sobre la gracia 1» (agustin-06-gracia-1-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "agustin-06-gracia-1-zh",
+      "sourceId": "agustin-06-gracia-1-zh",
+      "title": "Tratados sobre la gracia 1",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpZk1UdVVXMl9YZnc/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T16:19:39.989Z",
+      "lastDownloadedAt": "2026-07-19T16:19:40.165Z",
+      "unitCount": 3070,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-06-gracia-1-zh/content.json",
+        "index": "documents/agustin-06-gracia-1-zh/index.json",
+        "meta": "documents/agustin-06-gracia-1-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Tratados sobre la gracia 1」(agustin-06-gracia-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-07-sermones-1-ar",
