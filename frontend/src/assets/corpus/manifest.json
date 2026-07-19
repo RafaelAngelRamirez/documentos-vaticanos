@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T10:15:32.799667Z",
+  "generatedAt": "2026-07-19T10:16:47.577566Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -376,6 +376,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpSVV3aVZVaWkxdXM/view. Colección BAC Obras de San Agustín (tomo 7)."
+    },
+    {
+      "id": "agustin-07-sermones-1-hi",
+      "title": "Sermones 1",
+      "shortTitle": "Sermones 1",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpSVV3aVZVaWkxdXM/view",
+      "bodyPath": "documents/agustin-07-sermones-1-hi/content.json",
+      "indexPath": "documents/agustin-07-sermones-1-hi/index.json",
+      "unitCount": 2181,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "«Sermones 1» (agustin-07-sermones-1-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-07-sermones-1-zh",
