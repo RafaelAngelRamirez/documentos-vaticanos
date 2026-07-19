@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T15:06:30.588622Z",
+  "generatedAt": "2026-07-19T15:14:07.391473Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -423,6 +423,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "由人工智能根据 pack「Obras apologeticas」(agustin-04-obras-apologeticas-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
+      "translationProvenance": "ai"
+    },
+    {
+      "id": "agustin-05-de-trinitate-en",
+      "title": "De Trinitate",
+      "shortTitle": "De Trinitate",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpX0FjYVd0cVRseFk/view",
+      "bodyPath": "documents/agustin-05-de-trinitate-en/content.json",
+      "indexPath": "documents/agustin-05-de-trinitate-en/index.json",
+      "unitCount": 3030,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "AI-generated English translation from the Español text of the pack «De Trinitate» (agustin-05-de-trinitate-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
     },
     {
