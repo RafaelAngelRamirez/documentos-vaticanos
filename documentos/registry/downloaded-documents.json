@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T09:35:07.204Z",
+  "updatedAt": "2026-07-19T09:37:32.335Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -983,6 +983,26 @@
         "meta": "documents/agustin-22-enarraciones-salmos-4-es/meta.json"
       },
       "notes": "Tomo BAC n=22: 22 Narraciones-sobre-los-salmos-4.pdf"
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-en",
+      "sourceId": "agustin-23-sermones-juan-hechos-en",
+      "title": "Sermones (Juan, Hechos, Cartas)",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpd3ZHdmZuYWJWRFk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T09:37:32.335Z",
+      "lastDownloadedAt": "2026-07-19T09:37:32.335Z",
+      "unitCount": 2277,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-23-sermones-juan-hechos-en/content.json",
+        "index": "documents/agustin-23-sermones-juan-hechos-en/index.json",
+        "meta": "documents/agustin-23-sermones-juan-hechos-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Sermones (Juan, Hechos, Cartas)» (agustin-23-sermones-juan-hechos-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-23-sermones-juan-hechos-es",
