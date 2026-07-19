@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T09:42:20.779Z",
+  "updatedAt": "2026-07-19T09:51:38.145Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1243,6 +1243,26 @@
         "meta": "documents/agustin-28-escritos-biblicos-4-es/meta.json"
       },
       "notes": "Tomo BAC n=28: 28 Escritos-Biblicos-4.pdf"
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-en",
+      "sourceId": "agustin-29-escritos-biblicos-5-en",
+      "title": "Escritos Bíblicos 5",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpcVR1NmRfZ3QwM1E/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T09:51:38.145Z",
+      "lastDownloadedAt": "2026-07-19T09:51:38.145Z",
+      "unitCount": 2221,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-29-escritos-biblicos-5-en/content.json",
+        "index": "documents/agustin-29-escritos-biblicos-5-en/index.json",
+        "meta": "documents/agustin-29-escritos-biblicos-5-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Escritos Bíblicos 5» (agustin-29-escritos-biblicos-5-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-29-escritos-biblicos-5-es",
