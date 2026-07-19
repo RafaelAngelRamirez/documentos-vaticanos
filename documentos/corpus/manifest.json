@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T12:46:06.601744Z",
+  "generatedAt": "2026-07-19T12:46:49.306569Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1049,6 +1049,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpQ2IyczZ0UkU3RHM/view. Colección BAC Obras de San Agustín (tomo 24)."
+    },
+    {
+      "id": "agustin-24-sermones-4-hi",
+      "title": "Sermones 4 (184–272)",
+      "shortTitle": "Sermones 4 (184–272)",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpQ2IyczZ0UkU3RHM/view",
+      "bodyPath": "documents/agustin-24-sermones-4-hi/content.json",
+      "indexPath": "documents/agustin-24-sermones-4-hi/index.json",
+      "unitCount": 2460,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "«Sermones 4 (184–272)» (agustin-24-sermones-4-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-24-sermones-4-zh",

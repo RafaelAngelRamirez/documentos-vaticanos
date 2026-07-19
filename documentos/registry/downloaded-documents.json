@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T12:46:05.594Z",
+  "updatedAt": "2026-07-19T12:46:33.754Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1463,6 +1463,26 @@
         "meta": "documents/agustin-24-sermones-4-es/meta.json"
       },
       "notes": "Tomo BAC n=24: 24 Sermones-4-184-a-272.pdf"
+    },
+    {
+      "id": "agustin-24-sermones-4-hi",
+      "sourceId": "agustin-24-sermones-4-hi",
+      "title": "Sermones 4 (184–272)",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpQ2IyczZ0UkU3RHM/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T12:46:33.390Z",
+      "lastDownloadedAt": "2026-07-19T12:46:33.754Z",
+      "unitCount": 2460,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-24-sermones-4-hi/content.json",
+        "index": "documents/agustin-24-sermones-4-hi/index.json",
+        "meta": "documents/agustin-24-sermones-4-hi/meta.json"
+      },
+      "notes": "«Sermones 4 (184–272)» (agustin-24-sermones-4-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-24-sermones-4-zh",
