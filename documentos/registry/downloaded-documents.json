@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T06:29:36.925Z",
+  "updatedAt": "2026-07-19T06:38:47.303Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -443,6 +443,26 @@
         "meta": "documents/agustin-11-cartas-2-es/meta.json"
       },
       "notes": "Tomo BAC n=11: 11 Cartas-2.pdf"
+    },
+    {
+      "id": "agustin-12-tratados-morales-ar",
+      "sourceId": "agustin-12-tratados-morales-ar",
+      "title": "Tratados Morales",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpNGpQaWhOdFdmc2c/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T06:38:47.302Z",
+      "lastDownloadedAt": "2026-07-19T06:38:47.302Z",
+      "unitCount": 1828,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-12-tratados-morales-ar/content.json",
+        "index": "documents/agustin-12-tratados-morales-ar/index.json",
+        "meta": "documents/agustin-12-tratados-morales-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Tratados Morales» (agustin-12-tratados-morales-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
     },
     {
       "id": "agustin-12-tratados-morales-en",
