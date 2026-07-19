@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T15:13:34.359Z",
+  "updatedAt": "2026-07-19T15:16:02.053Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1823,6 +1823,26 @@
         "meta": "documents/agustin-22-enarraciones-salmos-4-es/meta.json"
       },
       "notes": "Tomo BAC n=22: 22 Narraciones-sobre-los-salmos-4.pdf"
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-hi",
+      "sourceId": "agustin-22-enarraciones-salmos-4-hi",
+      "title": "Narraciones sobre los salmos 4",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpNFNidE1DMGlwZW8/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T15:15:59.157Z",
+      "lastDownloadedAt": "2026-07-19T15:16:02.053Z",
+      "unitCount": 3002,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-22-enarraciones-salmos-4-hi/content.json",
+        "index": "documents/agustin-22-enarraciones-salmos-4-hi/index.json",
+        "meta": "documents/agustin-22-enarraciones-salmos-4-hi/meta.json"
+      },
+      "notes": "«Narraciones sobre los salmos 4» (agustin-22-enarraciones-salmos-4-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-23-sermones-juan-hechos-ar",
