@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T17:06:16.564092Z",
+  "generatedAt": "2026-07-19T17:09:25.825481Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1192,6 +1192,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpVEp1RFdhekt4R0k/view. Colección BAC Obras de San Agustín (tomo 16)."
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-ar",
+      "title": "La ciudad de Dios II",
+      "shortTitle": "La ciudad de Dios II",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpLTAwTHU0NHh3czA/view",
+      "bodyPath": "documents/agustin-17-ciudad-de-dios-2-ar/content.json",
+      "indexPath": "documents/agustin-17-ciudad-de-dios-2-ar/index.json",
+      "unitCount": 3310,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «La ciudad de Dios II» (agustin-17-ciudad-de-dios-2-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-17-ciudad-de-dios-2-en",
