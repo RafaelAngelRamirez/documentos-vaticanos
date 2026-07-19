@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T07:11:12.430Z",
+  "updatedAt": "2026-07-19T07:12:05.354Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -454,7 +454,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpNGpQaWhOdFdmc2c/view"
       ],
       "firstDownloadedAt": "2026-07-19T06:38:47.302Z",
-      "lastDownloadedAt": "2026-07-19T06:38:47.302Z",
+      "lastDownloadedAt": "2026-07-19T07:12:00.164Z",
       "unitCount": 1828,
       "status": "active",
       "corpusPaths": {
@@ -474,7 +474,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpNGpQaWhOdFdmc2c/view"
       ],
       "firstDownloadedAt": "2026-07-19T04:36:35.068Z",
-      "lastDownloadedAt": "2026-07-19T04:36:35.068Z",
+      "lastDownloadedAt": "2026-07-19T07:12:02.575Z",
       "unitCount": 1828,
       "status": "active",
       "corpusPaths": {
@@ -503,6 +503,26 @@
         "meta": "documents/agustin-12-tratados-morales-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "agustin-12-tratados-morales-hi",
+      "sourceId": "agustin-12-tratados-morales-hi",
+      "title": "Tratados Morales",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpNGpQaWhOdFdmc2c/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T07:11:49.563Z",
+      "lastDownloadedAt": "2026-07-19T07:12:05.353Z",
+      "unitCount": 1828,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-12-tratados-morales-hi/content.json",
+        "index": "documents/agustin-12-tratados-morales-hi/index.json",
+        "meta": "documents/agustin-12-tratados-morales-hi/meta.json"
+      },
+      "notes": "«Tratados Morales» (agustin-12-tratados-morales-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-13-evangelio-juan-1-es",
@@ -1505,6 +1525,26 @@
       "notes": "«Escritos Antiarrianos y otros herejes» (agustin-38-antiarrianos-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
+      "id": "agustin-38-antiarrianos-zh",
+      "sourceId": "agustin-38-antiarrianos-zh",
+      "title": "Escritos Antiarrianos y otros herejes",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpTnNra0N0WXNfRVk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T07:11:53.118Z",
+      "lastDownloadedAt": "2026-07-19T07:11:53.118Z",
+      "unitCount": 1691,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-38-antiarrianos-zh/content.json",
+        "index": "documents/agustin-38-antiarrianos-zh/index.json",
+        "meta": "documents/agustin-38-antiarrianos-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Escritos Antiarrianos y otros herejes」(agustin-38-antiarrianos-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
       "id": "agustin-39-varios-1-ar",
       "sourceId": "agustin-39-varios-1-ar",
       "title": "Escritos varios 1",
@@ -2455,7 +2495,7 @@
         "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_ar.html"
       ],
       "firstDownloadedAt": "2026-07-19T05:29:14.887Z",
-      "lastDownloadedAt": "2026-07-19T05:29:14.887Z",
+      "lastDownloadedAt": "2026-07-19T07:11:54.957Z",
       "unitCount": 1744,
       "status": "active",
       "corpusPaths": {
@@ -2515,7 +2555,7 @@
         "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_hi.html"
       ],
       "firstDownloadedAt": "2026-07-19T05:00:12.897Z",
-      "lastDownloadedAt": "2026-07-19T05:00:12.897Z",
+      "lastDownloadedAt": "2026-07-19T07:11:57.302Z",
       "unitCount": 1744,
       "status": "active",
       "corpusPaths": {
