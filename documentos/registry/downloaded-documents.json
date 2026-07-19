@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T16:29:13.352Z",
+  "updatedAt": "2026-07-19T16:43:50.063Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1965,6 +1965,26 @@
       "notes": "由人工智能根据 pack「Narraciones sobre los salmos 2」(agustin-20-enarraciones-salmos-2-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
+      "id": "agustin-21-enarraciones-salmos-3-en",
+      "sourceId": "agustin-21-enarraciones-salmos-3-en",
+      "title": "Narraciones sobre los salmos 3",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpaGdheFVxa3haNFU/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T16:43:50.062Z",
+      "lastDownloadedAt": "2026-07-19T16:43:50.062Z",
+      "unitCount": 3168,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-21-enarraciones-salmos-3-en/content.json",
+        "index": "documents/agustin-21-enarraciones-salmos-3-en/index.json",
+        "meta": "documents/agustin-21-enarraciones-salmos-3-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Narraciones sobre los salmos 3» (agustin-21-enarraciones-salmos-3-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "agustin-21-enarraciones-salmos-3-es",
       "sourceId": "agustin-21",
       "title": "Narraciones sobre los salmos 3",
@@ -2443,6 +2463,26 @@
         "meta": "documents/agustin-26-sermones-6-es/meta.json"
       },
       "notes": "Tomo BAC n=26: 26 Sermones-6.pdf"
+    },
+    {
+      "id": "agustin-26-sermones-6-hi",
+      "sourceId": "agustin-26-sermones-6-hi",
+      "title": "Sermones 6",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbHpGdml5blVCUkk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T16:43:40.818Z",
+      "lastDownloadedAt": "2026-07-19T16:43:40.818Z",
+      "unitCount": 3149,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-26-sermones-6-hi/content.json",
+        "index": "documents/agustin-26-sermones-6-hi/index.json",
+        "meta": "documents/agustin-26-sermones-6-hi/meta.json"
+      },
+      "notes": "«Sermones 6» (agustin-26-sermones-6-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-27-escritos-biblicos-3-ar",
