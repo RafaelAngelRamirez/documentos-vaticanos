@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T15:45:06.448Z",
+  "updatedAt": "2026-07-19T15:55:34.938Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1843,6 +1843,26 @@
         "meta": "documents/agustin-20-enarraciones-salmos-2-es/meta.json"
       },
       "notes": "Tomo BAC n=20: 20 Narraciones-sobre-los-salmos-2.pdf"
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-hi",
+      "sourceId": "agustin-20-enarraciones-salmos-2-hi",
+      "title": "Narraciones sobre los salmos 2",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbjRlR1JJVkJtYlU/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T15:55:34.937Z",
+      "lastDownloadedAt": "2026-07-19T15:55:34.937Z",
+      "unitCount": 3050,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-20-enarraciones-salmos-2-hi/content.json",
+        "index": "documents/agustin-20-enarraciones-salmos-2-hi/index.json",
+        "meta": "documents/agustin-20-enarraciones-salmos-2-hi/meta.json"
+      },
+      "notes": "«Narraciones sobre los salmos 2» (agustin-20-enarraciones-salmos-2-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-21-enarraciones-salmos-3-es",
