@@ -71,5 +71,8 @@ documentos/concilios-source/raw/
 # Scrape work copies (canonical corpus is documentos/corpus + frontend assets)
 scripts-descarga/documentos/
 
+# AI locale-twin MT checkpoints / intermediate clean dumps (resume-local only)
+documentos/magisterium-source/clean/
+
 # electron-builder / tooling caches
 .cache/
