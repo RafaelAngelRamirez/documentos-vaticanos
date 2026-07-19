@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T14:17:48.345Z",
+  "updatedAt": "2026-07-19T14:23:11.647Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -414,7 +414,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpS3cxY1RrVkFHS3c/view"
       ],
       "firstDownloadedAt": "2026-07-19T14:16:49.628Z",
-      "lastDownloadedAt": "2026-07-19T14:16:49.628Z",
+      "lastDownloadedAt": "2026-07-19T14:23:09.004Z",
       "unitCount": 2878,
       "status": "active",
       "corpusPaths": {
@@ -434,7 +434,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpS3cxY1RrVkFHS3c/view"
       ],
       "firstDownloadedAt": "2026-07-19T14:14:49.337Z",
-      "lastDownloadedAt": "2026-07-19T14:14:49.337Z",
+      "lastDownloadedAt": "2026-07-19T14:23:11.647Z",
       "unitCount": 2878,
       "status": "active",
       "corpusPaths": {
@@ -1545,6 +1545,26 @@
       "notes": "Tomo BAC n=19: 19 Enarraciones sobre los Salmos 1.pdf"
     },
     {
+      "id": "agustin-19-enarraciones-salmos-1-hi",
+      "sourceId": "agustin-19-enarraciones-salmos-1-hi",
+      "title": "Enarraciones sobre los Salmos 1",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpUDJfN0I2MWhZTVk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T14:23:04.154Z",
+      "lastDownloadedAt": "2026-07-19T14:23:04.154Z",
+      "unitCount": 2714,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-19-enarraciones-salmos-1-hi/content.json",
+        "index": "documents/agustin-19-enarraciones-salmos-1-hi/index.json",
+        "meta": "documents/agustin-19-enarraciones-salmos-1-hi/meta.json"
+      },
+      "notes": "«Enarraciones sobre los Salmos 1» (agustin-19-enarraciones-salmos-1-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "agustin-19-enarraciones-salmos-1-zh",
       "sourceId": "agustin-19-enarraciones-salmos-1-zh",
       "title": "Enarraciones sobre los Salmos 1",
@@ -1554,7 +1574,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpUDJfN0I2MWhZTVk/view"
       ],
       "firstDownloadedAt": "2026-07-19T14:17:48.344Z",
-      "lastDownloadedAt": "2026-07-19T14:17:48.344Z",
+      "lastDownloadedAt": "2026-07-19T14:23:06.377Z",
       "unitCount": 2714,
       "status": "active",
       "corpusPaths": {
