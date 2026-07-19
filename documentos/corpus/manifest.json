@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T10:30:32.679791Z",
+  "generatedAt": "2026-07-19T10:37:31.737772Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -854,6 +854,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpQ2IyczZ0UkU3RHM/view. Colección BAC Obras de San Agustín (tomo 24)."
+    },
+    {
+      "id": "agustin-25-sermones-5-ar",
+      "title": "Sermones 5 (273–338)",
+      "shortTitle": "Sermones 5 (273–338)",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpZzR6czFIMDVYOHM/view",
+      "bodyPath": "documents/agustin-25-sermones-5-ar/content.json",
+      "indexPath": "documents/agustin-25-sermones-5-ar/index.json",
+      "unitCount": 2285,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Sermones 5 (273–338)» (agustin-25-sermones-5-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-25-sermones-5-en",
