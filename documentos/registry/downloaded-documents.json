@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T12:28:53.358Z",
+  "updatedAt": "2026-07-19T12:44:01.651Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1443,6 +1443,26 @@
         "meta": "documents/agustin-24-sermones-4-es/meta.json"
       },
       "notes": "Tomo BAC n=24: 24 Sermones-4-184-a-272.pdf"
+    },
+    {
+      "id": "agustin-24-sermones-4-zh",
+      "sourceId": "agustin-24-sermones-4-zh",
+      "title": "Sermones 4 (184–272)",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpQ2IyczZ0UkU3RHM/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T12:44:01.650Z",
+      "lastDownloadedAt": "2026-07-19T12:44:01.650Z",
+      "unitCount": 2460,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-24-sermones-4-zh/content.json",
+        "index": "documents/agustin-24-sermones-4-zh/index.json",
+        "meta": "documents/agustin-24-sermones-4-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Sermones 4 (184–272)」(agustin-24-sermones-4-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-25-sermones-5-ar",
