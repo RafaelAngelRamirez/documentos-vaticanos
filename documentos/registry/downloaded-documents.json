@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T13:57:53.864Z",
+  "updatedAt": "2026-07-19T13:58:50.997Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1445,6 +1445,26 @@
       "notes": "由人工智能根据 pack「Exposicion de varias epistolas Indices San Agustin」(agustin-18-epistolas-indices-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
+      "id": "agustin-19-enarraciones-salmos-1-ar",
+      "sourceId": "agustin-19-enarraciones-salmos-1-ar",
+      "title": "Enarraciones sobre los Salmos 1",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpUDJfN0I2MWhZTVk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T13:58:48.458Z",
+      "lastDownloadedAt": "2026-07-19T13:58:48.458Z",
+      "unitCount": 2714,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-19-enarraciones-salmos-1-ar/content.json",
+        "index": "documents/agustin-19-enarraciones-salmos-1-ar/index.json",
+        "meta": "documents/agustin-19-enarraciones-salmos-1-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Enarraciones sobre los Salmos 1» (agustin-19-enarraciones-salmos-1-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
+    },
+    {
       "id": "agustin-19-enarraciones-salmos-1-en",
       "sourceId": "agustin-19-enarraciones-salmos-1-en",
       "title": "Enarraciones sobre los Salmos 1",
@@ -1454,7 +1474,7 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpUDJfN0I2MWhZTVk/view"
       ],
       "firstDownloadedAt": "2026-07-19T13:54:44.101Z",
-      "lastDownloadedAt": "2026-07-19T13:54:44.101Z",
+      "lastDownloadedAt": "2026-07-19T13:58:50.997Z",
       "unitCount": 2714,
       "status": "active",
       "corpusPaths": {
