@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T04:24:36.044Z",
+  "updatedAt": "2026-07-19T04:35:18.553Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1083,6 +1083,26 @@
         "meta": "documents/agustin-36-antipelagianos-4-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-hi",
+      "sourceId": "agustin-36-antipelagianos-4-hi",
+      "title": "Escritos Antipelagianos 4",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpWEhwQUJfYlBROEk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T04:35:18.553Z",
+      "lastDownloadedAt": "2026-07-19T04:35:18.553Z",
+      "unitCount": 1056,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-36-antipelagianos-4-hi/content.json",
+        "index": "documents/agustin-36-antipelagianos-4-hi/index.json",
+        "meta": "documents/agustin-36-antipelagianos-4-hi/meta.json"
+      },
+      "notes": "«Escritos Antipelagianos 4» (agustin-36-antipelagianos-4-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-37-antipelagianos-5-ar",

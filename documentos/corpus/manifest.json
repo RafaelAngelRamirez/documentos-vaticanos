@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T04:31:56.676290Z",
+  "generatedAt": "2026-07-19T04:36:01.441992Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -752,6 +752,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpWEhwQUJfYlBROEk/view. Colección BAC Obras de San Agustín (tomo 36). Texto vía OCR (PDF escaneado)."
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-hi",
+      "title": "Escritos Antipelagianos 4",
+      "shortTitle": "Antipelagianos 4",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpWEhwQUJfYlBROEk/view",
+      "bodyPath": "documents/agustin-36-antipelagianos-4-hi/content.json",
+      "indexPath": "documents/agustin-36-antipelagianos-4-hi/index.json",
+      "unitCount": 1056,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "«Escritos Antipelagianos 4» (agustin-36-antipelagianos-4-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-37-antipelagianos-5-ar",
