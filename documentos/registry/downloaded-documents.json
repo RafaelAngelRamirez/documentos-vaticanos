@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T14:16:49.629Z",
+  "updatedAt": "2026-07-19T14:17:48.345Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1543,6 +1543,26 @@
         "meta": "documents/agustin-19-enarraciones-salmos-1-es/meta.json"
       },
       "notes": "Tomo BAC n=19: 19 Enarraciones sobre los Salmos 1.pdf"
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-zh",
+      "sourceId": "agustin-19-enarraciones-salmos-1-zh",
+      "title": "Enarraciones sobre los Salmos 1",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpUDJfN0I2MWhZTVk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T14:17:48.344Z",
+      "lastDownloadedAt": "2026-07-19T14:17:48.344Z",
+      "unitCount": 2714,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-19-enarraciones-salmos-1-zh/content.json",
+        "index": "documents/agustin-19-enarraciones-salmos-1-zh/index.json",
+        "meta": "documents/agustin-19-enarraciones-salmos-1-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Enarraciones sobre los Salmos 1」(agustin-19-enarraciones-salmos-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-20-enarraciones-salmos-2-es",
