@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T05:55:18.768Z",
+  "updatedAt": "2026-07-19T06:02:14.124Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1103,6 +1103,26 @@
         "meta": "documents/agustin-35-antipelagianos-3-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-zh",
+      "sourceId": "agustin-35-antipelagianos-3-zh",
+      "title": "Escritos Antipelagianos 3",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpcnpQc1RPQXRJODg/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T06:02:14.124Z",
+      "lastDownloadedAt": "2026-07-19T06:02:14.124Z",
+      "unitCount": 1948,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-35-antipelagianos-3-zh/content.json",
+        "index": "documents/agustin-35-antipelagianos-3-zh/index.json",
+        "meta": "documents/agustin-35-antipelagianos-3-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Escritos Antipelagianos 3」(agustin-35-antipelagianos-3-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-36-antipelagianos-4-ar",
