@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T10:25:41.863Z",
+  "updatedAt": "2026-07-19T10:30:24.571Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1205,6 +1205,26 @@
       "notes": "Tomo BAC n=24: 24 Sermones-4-184-a-272.pdf"
     },
     {
+      "id": "agustin-25-sermones-5-en",
+      "sourceId": "agustin-25-sermones-5-en",
+      "title": "Sermones 5 (273–338)",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpZzR6czFIMDVYOHM/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T10:30:24.571Z",
+      "lastDownloadedAt": "2026-07-19T10:30:24.571Z",
+      "unitCount": 2285,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-25-sermones-5-en/content.json",
+        "index": "documents/agustin-25-sermones-5-en/index.json",
+        "meta": "documents/agustin-25-sermones-5-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Sermones 5 (273–338)» (agustin-25-sermones-5-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
+    },
+    {
       "id": "agustin-25-sermones-5-es",
       "sourceId": "agustin-25",
       "title": "Sermones 5 (273–338)",
@@ -1363,6 +1383,26 @@
         "meta": "documents/agustin-28-escritos-biblicos-4-es/meta.json"
       },
       "notes": "Tomo BAC n=28: 28 Escritos-Biblicos-4.pdf"
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-ar",
+      "sourceId": "agustin-29-escritos-biblicos-5-ar",
+      "title": "Escritos Bíblicos 5",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpcVR1NmRfZ3QwM1E/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T10:30:23.756Z",
+      "lastDownloadedAt": "2026-07-19T10:30:23.756Z",
+      "unitCount": 2221,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-29-escritos-biblicos-5-ar/content.json",
+        "index": "documents/agustin-29-escritos-biblicos-5-ar/index.json",
+        "meta": "documents/agustin-29-escritos-biblicos-5-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Escritos Bíblicos 5» (agustin-29-escritos-biblicos-5-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
     },
     {
       "id": "agustin-29-escritos-biblicos-5-en",
