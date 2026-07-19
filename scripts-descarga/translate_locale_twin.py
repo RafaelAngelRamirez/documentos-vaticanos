@@ -116,7 +116,7 @@ def _chunk_text(text: str, max_len: int = MAX_SINGLE_CHARS) -> list[str]:
 
 
 def translate_text(
-    translator: GoogleTranslator, text: str, retries: int = 5
+    translator: GoogleTranslator, text: str, retries: int = 8
 ) -> str:
     # Long units: translate piece by piece (Google free ~5k hard limit).
     pieces = _chunk_text(text, MAX_SINGLE_CHARS)
@@ -148,7 +148,17 @@ def translate_text(
                     return postprocess(
                         " ".join(translate_text(translator, p, retries) for p in pieces)
                     )
-            wait = min(60, 2**attempt)
+            # Google free MT rate-limit: long cooldown, then retry
+            low = err_s.lower()
+            if (
+                "too many requests" in low
+                or "rate" in low
+                or "429" in low
+                or "5 requests per second" in low
+            ):
+                wait = min(180, 30 + 20 * attempt)
+            else:
+                wait = min(60, 2**attempt)
             print(
                 f"  [retry {attempt+1}/{retries}] {type(e).__name__}: {err_s[:120]}; sleep {wait}s",
                 flush=True,
