@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T03:29:06.834Z",
+  "updatedAt": "2026-07-19T03:30:07.669Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1183,6 +1183,26 @@
         "meta": "documents/atanasio-de-incarnatione-en/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "atanasio-de-incarnatione-es",
+      "sourceId": "atanasio-de-incarnatione-es",
+      "title": "On the Incarnation of the Word",
+      "kind": "patristic",
+      "locale": "es",
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/2802.htm"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:30:07.669Z",
+      "lastDownloadedAt": "2026-07-19T03:30:07.669Z",
+      "unitCount": 95,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/atanasio-de-incarnatione-es/content.json",
+        "index": "documents/atanasio-de-incarnatione-es/index.json",
+        "meta": "documents/atanasio-de-incarnatione-es/meta.json"
+      },
+      "notes": "Traducción al español generada por IA a partir del texto (English) del pack «On the Incarnation of the Word» (atanasio-de-incarnatione-en). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto de origen."
     },
     {
       "id": "bible-pueblo-de-dios-es",
