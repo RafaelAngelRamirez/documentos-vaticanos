@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T08:50:35.400Z",
+  "updatedAt": "2026-07-19T08:51:29.832Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1163,6 +1163,26 @@
         "meta": "documents/agustin-30-antimaniqueos-1-es/meta.json"
       },
       "notes": "Tomo BAC n=30: 30 Escritos-antimaniqueos-01.pdf"
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-hi",
+      "sourceId": "agustin-30-antimaniqueos-1-hi",
+      "title": "Escritos Antimaniqueos 1",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpNFl5cy1LblR1bE0/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T08:51:29.832Z",
+      "lastDownloadedAt": "2026-07-19T08:51:29.832Z",
+      "unitCount": 1997,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-30-antimaniqueos-1-hi/content.json",
+        "index": "documents/agustin-30-antimaniqueos-1-hi/index.json",
+        "meta": "documents/agustin-30-antimaniqueos-1-hi/meta.json"
+      },
+      "notes": "«Escritos Antimaniqueos 1» (agustin-30-antimaniqueos-1-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-31-antimaniqueos-2-es",
