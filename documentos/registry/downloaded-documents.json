@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T09:51:38.145Z",
+  "updatedAt": "2026-07-19T09:54:31.543Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1283,6 +1283,26 @@
         "meta": "documents/agustin-29-escritos-biblicos-5-es/meta.json"
       },
       "notes": "Tomo BAC n=29: 29 Escritos Biblicos 5.pdf"
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-zh",
+      "sourceId": "agustin-29-escritos-biblicos-5-zh",
+      "title": "Escritos Bíblicos 5",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpcVR1NmRfZ3QwM1E/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T09:54:31.543Z",
+      "lastDownloadedAt": "2026-07-19T09:54:31.543Z",
+      "unitCount": 2221,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-29-escritos-biblicos-5-zh/content.json",
+        "index": "documents/agustin-29-escritos-biblicos-5-zh/index.json",
+        "meta": "documents/agustin-29-escritos-biblicos-5-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Escritos Bíblicos 5」(agustin-29-escritos-biblicos-5-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-30-antimaniqueos-1-ar",
