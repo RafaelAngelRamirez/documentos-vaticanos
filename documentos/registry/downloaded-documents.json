@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T04:08:16.096Z",
+  "updatedAt": "2026-07-19T04:16:40.624Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -723,6 +723,26 @@
         "meta": "documents/agustin-26-sermones-6-es/meta.json"
       },
       "notes": "Tomo BAC n=26: 26 Sermones-6.pdf"
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-en",
+      "sourceId": "agustin-27-escritos-biblicos-3-en",
+      "title": "Escritos Bíblicos 3",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpdnczaDRBb0NKaTA/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T04:16:01.427Z",
+      "lastDownloadedAt": "2026-07-19T04:16:02.524Z",
+      "unitCount": 1625,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-27-escritos-biblicos-3-en/content.json",
+        "index": "documents/agustin-27-escritos-biblicos-3-en/index.json",
+        "meta": "documents/agustin-27-escritos-biblicos-3-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Escritos Bíblicos 3» (agustin-27-escritos-biblicos-3-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-27-escritos-biblicos-3-es",
@@ -3891,6 +3911,26 @@
         "meta": "documents/ds-es/meta.json"
       },
       "notes": "Enchiridion symbolorum (Denzinger-Schönmetzer), texto español. Fuente pública Internet Archive (Public Domain Mark 1.0)."
+    },
+    {
+      "id": "ds-zh",
+      "sourceId": "ds-zh",
+      "title": "Enchiridion symbolorum (Denzinger-Schönmetzer)",
+      "kind": "magisterium",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://archive.org/details/denzinger-schonmetzer"
+      ],
+      "firstDownloadedAt": "2026-07-19T04:16:40.623Z",
+      "lastDownloadedAt": "2026-07-19T04:16:40.623Z",
+      "unitCount": 1140,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/ds-zh/content.json",
+        "index": "documents/ds-zh/index.json",
+        "meta": "documents/ds-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Enchiridion symbolorum (Denzinger-Schönmetzer)」(ds-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "dv-ar",
