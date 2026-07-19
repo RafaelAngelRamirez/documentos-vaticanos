@@ -36,72 +36,8 @@ if [[ ! -x "$PY" ]]; then
   PY=/tmp/grok-goal-bf844dbde623/implementer/venv/bin/python
 fi
 
-# Build work queue: baseId|locale
-mapfile -t JOBS < <("$PY" - <<'PY'
-import json, os, sys
-from pathlib import Path
-corpus = Path(os.environ["CORPUS"])
-man = json.loads((corpus / "manifest.json").read_text())
-docs = man["documents"]
-ids = {d["id"] for d in docs}
-by_id = {d["id"]: d for d in docs}
-
-def family(id_):
-    base = id_[:-3] if id_.endswith("-ai") else id_
-    for s in ("-es","-la","-en","-zh","-hi","-ar","-it","-fr","-de","-pt","-el"):
-        if base.endswith(s):
-            return base[: -len(s)]
-    return base
-
-locales = os.environ["LOCALES"].split(",")
-max_units = int(os.environ.get("MAX_UNITS") or "0")
-only = set(filter(None, os.environ.get("ONLY_FAMILY","").split(",")))
-
-# Prefer es pack per family
-fams = {}
-for d in docs:
-    f = family(d["id"])
-    fams.setdefault(f, []).append(d)
-
-jobs = []
-for f, eds in sorted(fams.items()):
-    if only and f not in only:
-        continue
-    es = next((e for e in eds if e.get("locale")=="es" or e["id"].endswith("-es")), None)
-    if not es:
-        la = next((e for e in eds if e.get("locale")=="la" or e["id"].endswith("-la")), None)
-        base = la
-        src_lang = "la"
-    else:
-        base = es
-        src_lang = "es"
-    if not base:
-        continue
-    uc = base.get("unitCount") or 0
-    if max_units and uc > max_units:
-        continue
-    for loc in locales:
-        # skip if any pack for this family+locale exists
-        has = any(
-            (e.get("locale")==loc) or e["id"].endswith(f"-{loc}") or e["id"].endswith(f"-{loc}-ai")
-            for e in eds
-        )
-        # also check id patterns not yet in eds list after concurrent writes
-        if f"{f}-{loc}" in ids or f"{f}-{loc}-ai" in ids:
-            has = True
-        if has:
-            continue
-        jobs.append(f"{base['id']}|{loc}|{src_lang}|{uc}")
-
-# small packs first
-jobs.sort(key=lambda j: int(j.split("|")[3]))
-for j in jobs:
-    print(j)
-PY
-)
-
 export CORPUS LOCALES MAX_UNITS ONLY_FAMILY
-# re-run python with env
+# Build work queue: baseId|locale (env must be set for CORPUS)
 mapfile -t JOBS < <(CORPUS="$CORPUS" LOCALES="$LOCALES" MAX_UNITS="$MAX_UNITS" ONLY_FAMILY="$ONLY_FAMILY" "$PY" - <<'PY'
 import json, os
 from pathlib import Path
