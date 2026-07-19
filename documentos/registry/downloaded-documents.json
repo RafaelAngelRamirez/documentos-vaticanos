@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T05:50:45.493Z",
+  "updatedAt": "2026-07-19T05:55:18.768Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1503,6 +1503,26 @@
         "meta": "documents/agustin-40-varios-2-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "agustin-40-varios-2-hi",
+      "sourceId": "agustin-40-varios-2-hi",
+      "title": "Escritos varios 2",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpbEktREJoTEs5NWM/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T05:55:18.149Z",
+      "lastDownloadedAt": "2026-07-19T05:55:18.768Z",
+      "unitCount": 1559,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-40-varios-2-hi/content.json",
+        "index": "documents/agustin-40-varios-2-hi/index.json",
+        "meta": "documents/agustin-40-varios-2-hi/meta.json"
+      },
+      "notes": "«Escritos varios 2» (agustin-40-varios-2-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "atanasio-de-incarnatione-ar",
