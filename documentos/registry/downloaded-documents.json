@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T05:00:12.897Z",
+  "updatedAt": "2026-07-19T05:05:40.079Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -223,6 +223,26 @@
         "meta": "documents/agustin-01-primeros-escritos-es/meta.json"
       },
       "notes": "Tomo BAC n=1: 01 San Agustín - Introducción y primeros escritos.pdf"
+    },
+    {
+      "id": "agustin-02-confesiones-en",
+      "sourceId": "agustin-02-confesiones-en",
+      "title": "Confesiones",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpR0xsOUdvQmJXbFk/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T05:05:40.078Z",
+      "lastDownloadedAt": "2026-07-19T05:05:40.078Z",
+      "unitCount": 1952,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-02-confesiones-en/content.json",
+        "index": "documents/agustin-02-confesiones-en/index.json",
+        "meta": "documents/agustin-02-confesiones-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Confesiones» (agustin-02-confesiones-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-02-confesiones-es",
