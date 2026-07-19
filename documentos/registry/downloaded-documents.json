@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T09:30:33.274Z",
+  "updatedAt": "2026-07-19T09:35:07.204Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -463,6 +463,26 @@
         "meta": "documents/agustin-06-gracia-1-es/meta.json"
       },
       "notes": "Tomo BAC n=6: 06 Tratados sobre la gracia-1.pdf"
+    },
+    {
+      "id": "agustin-07-sermones-1-ar",
+      "sourceId": "agustin-07-sermones-1-ar",
+      "title": "Sermones 1",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpSVV3aVZVaWkxdXM/view"
+      ],
+      "firstDownloadedAt": "2026-07-19T09:35:07.204Z",
+      "lastDownloadedAt": "2026-07-19T09:35:07.204Z",
+      "unitCount": 2181,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-07-sermones-1-ar/content.json",
+        "index": "documents/agustin-07-sermones-1-ar/index.json",
+        "meta": "documents/agustin-07-sermones-1-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Sermones 1» (agustin-07-sermones-1-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
     },
     {
       "id": "agustin-07-sermones-1-en",
