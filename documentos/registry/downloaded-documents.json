@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T03:32:10.270Z",
+  "updatedAt": "2026-07-19T03:33:22.152Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1203,6 +1203,26 @@
         "meta": "documents/atanasio-de-incarnatione-es/meta.json"
       },
       "notes": "Traducción al español generada por IA a partir del texto (English) del pack «On the Incarnation of the Word» (atanasio-de-incarnatione-en). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto de origen."
+    },
+    {
+      "id": "atanasio-de-incarnatione-hi",
+      "sourceId": "atanasio-de-incarnatione-hi",
+      "title": "On the Incarnation of the Word",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.newadvent.org/fathers/2802.htm"
+      ],
+      "firstDownloadedAt": "2026-07-19T03:33:22.152Z",
+      "lastDownloadedAt": "2026-07-19T03:33:22.152Z",
+      "unitCount": 95,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/atanasio-de-incarnatione-hi/content.json",
+        "index": "documents/atanasio-de-incarnatione-hi/index.json",
+        "meta": "documents/atanasio-de-incarnatione-hi/meta.json"
+      },
+      "notes": "«On the Incarnation of the Word» (atanasio-de-incarnatione-en) पैक के English पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "atanasio-de-incarnatione-zh",

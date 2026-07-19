@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-19T03:33:12.934620Z",
+  "generatedAt": "2026-07-19T03:34:14.017062Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -836,6 +836,21 @@
       "author": "Athanasius of Alexandria",
       "compiler": "New Advent / NPNF (public domain)",
       "sourceNote": "Traducción al español generada por IA a partir del texto (English) del pack «On the Incarnation of the Word» (atanasio-de-incarnatione-en). No es una traducción oficial de la Santa Sede ni una edición crítica. Destinada a estudio y lectura orientativa; en caso de duda, prevalece el texto de origen.",
+      "translationProvenance": "ai"
+    },
+    {
+      "id": "atanasio-de-incarnatione-hi",
+      "title": "On the Incarnation of the Word",
+      "shortTitle": "De Incarnatione",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrl": "https://www.newadvent.org/fathers/2802.htm",
+      "bodyPath": "documents/atanasio-de-incarnatione-hi/content.json",
+      "indexPath": "documents/atanasio-de-incarnatione-hi/index.json",
+      "unitCount": 95,
+      "author": "Athanasius of Alexandria",
+      "compiler": "New Advent / NPNF (public domain)",
+      "sourceNote": "«On the Incarnation of the Word» (atanasio-de-incarnatione-en) पैक के English पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।",
       "translationProvenance": "ai"
     },
     {
