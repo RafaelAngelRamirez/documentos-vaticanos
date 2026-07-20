@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T08:28:06.500Z",
+  "updatedAt": "2026-07-20T08:46:27.787Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -3314,7 +3314,7 @@
         "https://archive.org/details/obras-de-san-agustin-xxxii-escritos-antidonatistas-1o"
       ],
       "firstDownloadedAt": "2026-07-20T07:48:10.163Z",
-      "lastDownloadedAt": "2026-07-20T07:48:10.163Z",
+      "lastDownloadedAt": "2026-07-20T08:46:13.028Z",
       "unitCount": 6797,
       "status": "active",
       "corpusPaths": {
@@ -3334,7 +3334,7 @@
         "https://archive.org/details/obras-de-san-agustin-xxxii-escritos-antidonatistas-1o"
       ],
       "firstDownloadedAt": "2026-07-20T07:42:49.116Z",
-      "lastDownloadedAt": "2026-07-20T07:42:49.116Z",
+      "lastDownloadedAt": "2026-07-20T08:46:15.316Z",
       "unitCount": 6797,
       "status": "active",
       "corpusPaths": {
@@ -3374,7 +3374,7 @@
         "https://archive.org/details/obras-de-san-agustin-xxxii-escritos-antidonatistas-1o"
       ],
       "firstDownloadedAt": "2026-07-20T08:26:25.961Z",
-      "lastDownloadedAt": "2026-07-20T08:26:25.961Z",
+      "lastDownloadedAt": "2026-07-20T08:46:18.424Z",
       "unitCount": 6797,
       "status": "active",
       "corpusPaths": {
@@ -3394,7 +3394,7 @@
         "https://archive.org/details/obras-de-san-agustin-xxxii-escritos-antidonatistas-1o"
       ],
       "firstDownloadedAt": "2026-07-20T08:11:05.350Z",
-      "lastDownloadedAt": "2026-07-20T08:11:05.350Z",
+      "lastDownloadedAt": "2026-07-20T08:46:20.657Z",
       "unitCount": 6797,
       "status": "active",
       "corpusPaths": {
@@ -4314,7 +4314,7 @@
         "https://www.vatican.va/archive/ESL0506/__P1.HTM"
       ],
       "firstDownloadedAt": "2026-07-20T08:28:06.500Z",
-      "lastDownloadedAt": "2026-07-20T08:28:06.500Z",
+      "lastDownloadedAt": "2026-07-20T08:46:24.291Z",
       "unitCount": 35652,
       "status": "active",
       "corpusPaths": {
@@ -4334,7 +4334,7 @@
         "https://www.vatican.va/archive/ESL0506/__P1.HTM"
       ],
       "firstDownloadedAt": "2026-07-20T08:12:44.165Z",
-      "lastDownloadedAt": "2026-07-20T08:12:44.165Z",
+      "lastDownloadedAt": "2026-07-20T08:46:27.786Z",
       "unitCount": 35652,
       "status": "active",
       "corpusPaths": {
@@ -5285,6 +5285,26 @@
         "meta": "documents/cic-zh/meta.json"
       },
       "notes": "Official Traditional Chinese edition from vatican.va (chinese/ccc PDF / Libreria Editrice Vaticana). Sibling of cic-es; no docCode — stable citations remain on cic-es unitIndex/consecutivo."
+    },
+    {
+      "id": "cic-zh-ai",
+      "sourceId": "cic-zh-ai",
+      "title": "Catecismo de la Iglesia Católica",
+      "kind": "catechism",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/catechism_zh/index_zh.html"
+      ],
+      "firstDownloadedAt": "2026-07-20T08:46:10.455Z",
+      "lastDownloadedAt": "2026-07-20T08:46:10.455Z",
+      "unitCount": 5092,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cic-zh-ai/content.json",
+        "index": "documents/cic-zh-ai/index.json",
+        "meta": "documents/cic-zh-ai/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Catecismo de la Iglesia Católica」(cic-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "cipriano-cartas-ar",
