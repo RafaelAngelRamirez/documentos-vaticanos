@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T08:23:26.969Z",
+  "updatedAt": "2026-07-20T08:26:25.961Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -3363,6 +3363,26 @@
         "meta": "documents/agustin-32-antidonatistas-1-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-hi",
+      "sourceId": "agustin-32-antidonatistas-1-hi",
+      "title": "Escritos antidonatistas (1.º)",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://archive.org/details/obras-de-san-agustin-xxxii-escritos-antidonatistas-1o"
+      ],
+      "firstDownloadedAt": "2026-07-20T08:26:25.961Z",
+      "lastDownloadedAt": "2026-07-20T08:26:25.961Z",
+      "unitCount": 6797,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-32-antidonatistas-1-hi/content.json",
+        "index": "documents/agustin-32-antidonatistas-1-hi/index.json",
+        "meta": "documents/agustin-32-antidonatistas-1-hi/meta.json"
+      },
+      "notes": "«Escritos antidonatistas (1.º)» (agustin-32-antidonatistas-1-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "agustin-32-antidonatistas-1-zh",
