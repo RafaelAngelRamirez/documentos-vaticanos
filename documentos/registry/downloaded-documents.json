@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T10:32:47.651Z",
+  "updatedAt": "2026-07-20T10:46:37.402Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -4362,6 +4362,26 @@
         "index": "documents/bible-pueblo-de-dios-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated)."
+    },
+    {
+      "id": "bible-pueblo-de-dios-hi",
+      "sourceId": "bible-pueblo-de-dios-hi",
+      "title": "Biblia (Pueblo de Dios)",
+      "kind": "bible",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/ESL0506/__P1.HTM"
+      ],
+      "firstDownloadedAt": "2026-07-20T10:46:37.401Z",
+      "lastDownloadedAt": "2026-07-20T10:46:37.401Z",
+      "unitCount": 35652,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/bible-pueblo-de-dios-hi/content.json",
+        "index": "documents/bible-pueblo-de-dios-hi/index.json",
+        "meta": "documents/bible-pueblo-de-dios-hi/meta.json"
+      },
+      "notes": "«Biblia (Pueblo de Dios)» (bible-pueblo-de-dios-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "bible-pueblo-de-dios-zh",
