@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-20T11:48:31.573690Z",
+  "generatedAt": "2026-07-20T11:58:52.202510Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -3696,7 +3696,7 @@
       "indexPath": "documents/cdc-en/index.json",
       "unitCount": 1102,
       "translationProvenance": "official",
-      "sourceNote": "Official English text of the Code of Canon Law from vatican.va"
+      "sourceNote": "Official English text of the Code of Canon Law from vatican.va (archive/cod-iuris-canonici eng HTML). Public EN HTML index covers a subset of canons; the full AI twin remains as cdc-en-ai for complete offline reading."
     },
     {
       "id": "cdc-en-ai",
