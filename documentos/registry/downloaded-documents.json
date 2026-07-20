@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T07:26:55.306Z",
+  "updatedAt": "2026-07-20T07:42:49.116Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1665,6 +1665,26 @@
       "notes": "Tomo BAC n=15: 15 Tratados-escriturarios.pdf"
     },
     {
+      "id": "agustin-15-tratados-escriturarios-hi",
+      "sourceId": "agustin-15-tratados-escriturarios-hi",
+      "title": "Tratados escriturarios",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpY1hxUE16SW5PZmc/view"
+      ],
+      "firstDownloadedAt": "2026-07-20T07:42:46.844Z",
+      "lastDownloadedAt": "2026-07-20T07:42:46.844Z",
+      "unitCount": 4847,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-15-tratados-escriturarios-hi/content.json",
+        "index": "documents/agustin-15-tratados-escriturarios-hi/index.json",
+        "meta": "documents/agustin-15-tratados-escriturarios-hi/meta.json"
+      },
+      "notes": "«Tratados escriturarios» (agustin-15-tratados-escriturarios-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
       "id": "agustin-16-ciudad-de-dios-1-ar",
       "sourceId": "agustin-16-ciudad-de-dios-1-ar",
       "title": "La ciudad de Dios I",
@@ -3263,6 +3283,26 @@
         "meta": "documents/agustin-31-antimaniqueos-2-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「Escritos antimaniqueos (2.º) — Contra Fausto」(agustin-31-antimaniqueos-2-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-en",
+      "sourceId": "agustin-32-antidonatistas-1-en",
+      "title": "Escritos antidonatistas (1.º)",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://archive.org/details/obras-de-san-agustin-xxxii-escritos-antidonatistas-1o"
+      ],
+      "firstDownloadedAt": "2026-07-20T07:42:49.116Z",
+      "lastDownloadedAt": "2026-07-20T07:42:49.116Z",
+      "unitCount": 6797,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-32-antidonatistas-1-en/content.json",
+        "index": "documents/agustin-32-antidonatistas-1-en/index.json",
+        "meta": "documents/agustin-32-antidonatistas-1-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Escritos antidonatistas (1.º)» (agustin-32-antidonatistas-1-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-32-antidonatistas-1-es",
