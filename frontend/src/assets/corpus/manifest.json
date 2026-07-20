@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-20T08:46:39.270977Z",
+  "generatedAt": "2026-07-20T08:51:19.539995Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -3199,6 +3199,19 @@
       "indexPath": "documents/bible-pueblo-de-dios-es/index.json",
       "unitCount": 35652,
       "sourceUrl": "https://www.vatican.va/archive/ESL0506/__P1.HTM"
+    },
+    {
+      "id": "bible-pueblo-de-dios-zh",
+      "title": "Biblia (Pueblo de Dios)",
+      "shortTitle": "Biblia",
+      "kind": "bible",
+      "locale": "zh",
+      "sourceUrl": "https://www.vatican.va/archive/ESL0506/__P1.HTM",
+      "bodyPath": "documents/bible-pueblo-de-dios-zh/content.json",
+      "indexPath": "documents/bible-pueblo-de-dios-zh/index.json",
+      "unitCount": 35652,
+      "sourceNote": "由人工智能根据 pack「Biblia (Pueblo de Dios)」(bible-pueblo-de-dios-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
+      "translationProvenance": "ai"
     },
     {
       "id": "ca-ar",

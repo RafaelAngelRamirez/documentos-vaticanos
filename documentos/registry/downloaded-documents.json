@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T08:46:27.787Z",
+  "updatedAt": "2026-07-20T08:50:47.182Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -4362,6 +4362,26 @@
         "index": "documents/bible-pueblo-de-dios-es/index.json"
       },
       "notes": "Seeded from existing corpus (migrated)."
+    },
+    {
+      "id": "bible-pueblo-de-dios-zh",
+      "sourceId": "bible-pueblo-de-dios-zh",
+      "title": "Biblia (Pueblo de Dios)",
+      "kind": "bible",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/ESL0506/__P1.HTM"
+      ],
+      "firstDownloadedAt": "2026-07-20T08:50:47.182Z",
+      "lastDownloadedAt": "2026-07-20T08:50:47.182Z",
+      "unitCount": 35652,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/bible-pueblo-de-dios-zh/content.json",
+        "index": "documents/bible-pueblo-de-dios-zh/index.json",
+        "meta": "documents/bible-pueblo-de-dios-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Biblia (Pueblo de Dios)」(bible-pueblo-de-dios-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "ca-ar",
