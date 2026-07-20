@@ -404,6 +404,11 @@ def write_outputs(
     print(f"[✓] wrote {content_out}")
 
 
+def unit_key(index: int, unit: dict) -> str:
+    """Stable unique key: index first so duplicate `consecutivo` never collide."""
+    return f"{index}:{unit.get('consecutivo', '')}"
+
+
 def take_pending_batch(
     base_units: list[dict],
     start: int,
@@ -417,7 +422,7 @@ def take_pending_batch(
     i = start
     # Skip already translated
     while i < len(base_units):
-        key = str(base_units[i]["consecutivo"])
+        key = unit_key(i, base_units[i])
         if not force and key in cp["units"]:
             i += 1
             continue
@@ -430,7 +435,7 @@ def take_pending_batch(
     total_c = 0
     j = i
     while j < len(base_units):
-        key = str(base_units[j]["consecutivo"])
+        key = unit_key(j, base_units[j])
         if not force and key in cp["units"]:
             # Hit a done unit mid-stream: flush what we have
             break
@@ -573,7 +578,7 @@ def main() -> int:
     while i < len(base_units):
         if args.no_batch or _PREFERRED_BACKEND == "mymemory":
             # MyMemory: one unit (or small chunks inside mt) at a time
-            key = str(base_units[i]["consecutivo"])
+            key = unit_key(i, base_units[i])
             if not args.force_retranslate and key in cp["units"]:
                 i += 1
                 continue
@@ -585,7 +590,7 @@ def main() -> int:
             else:
                 es = mt(body)
             cp["units"][key] = {
-                "consecutivo": key,
+                "consecutivo": str(base_units[i].get("consecutivo", "")),
                 "contenido": es,
                 "src_len": len(body),
                 "dst_len": len(es),
@@ -601,10 +606,10 @@ def main() -> int:
             # If the whole batch is empty/whitespace, skip MT
             if not (batch_text or "").strip():
                 for unit_i in idxs:
-                    k = str(base_units[unit_i]["consecutivo"])
+                    k = unit_key(unit_i, base_units[unit_i])
                     src = (base_units[unit_i].get("contenido") or "").strip()
                     cp["units"][k] = {
-                        "consecutivo": k,
+                        "consecutivo": str(base_units[unit_i].get("consecutivo", "")),
                         "contenido": "",
                         "src_len": len(src),
                         "dst_len": 0,
@@ -615,14 +620,14 @@ def main() -> int:
                 translated = mt(batch_text)
                 chunks = unpack_batch(translated, len(idxs))
                 for unit_i, chunk in zip(idxs, chunks):
-                    k = str(base_units[unit_i]["consecutivo"])
+                    k = unit_key(unit_i, base_units[unit_i])
                     src = (base_units[unit_i].get("contenido") or "").strip()
                     if not src:
                         chunk = ""
                     elif not chunk and src:
                         chunk = mt(src)
                     cp["units"][k] = {
-                        "consecutivo": k,
+                        "consecutivo": str(base_units[unit_i].get("consecutivo", "")),
                         "contenido": chunk,
                         "src_len": len(src),
                         "dst_len": len(chunk),
@@ -643,16 +648,19 @@ def main() -> int:
 
     out_units: list[dict] = []
     missing = 0
-    for u in base_units:
-        key = str(u["consecutivo"])
+    for idx, u in enumerate(base_units):
+        key = unit_key(idx, u)
         body = cp["units"].get(key, {}).get("contenido")
+        if body is None:
+            # legacy checkpoints keyed only by consecutivo
+            body = cp["units"].get(str(u.get("consecutivo", "")), {}).get("contenido")
         if body is None:
             print(f"[!] missing translation for {key}", file=sys.stderr)
             body = ""
             missing += 1
         out_units.append(
             {
-                "consecutivo": key,
+                "consecutivo": str(u.get("consecutivo", "")),
                 "contenido": body,
                 "referencias": u.get("referencias") or [],
             }
