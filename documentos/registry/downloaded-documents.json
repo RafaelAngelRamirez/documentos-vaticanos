@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T08:50:47.182Z",
+  "updatedAt": "2026-07-20T10:32:47.651Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -4373,7 +4373,7 @@
         "https://www.vatican.va/archive/ESL0506/__P1.HTM"
       ],
       "firstDownloadedAt": "2026-07-20T08:50:47.182Z",
-      "lastDownloadedAt": "2026-07-20T08:50:47.182Z",
+      "lastDownloadedAt": "2026-07-20T10:32:47.651Z",
       "unitCount": 35652,
       "status": "active",
       "corpusPaths": {
