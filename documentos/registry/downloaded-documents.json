@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T07:42:49.116Z",
+  "updatedAt": "2026-07-20T07:44:55.385Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1683,6 +1683,26 @@
         "meta": "documents/agustin-15-tratados-escriturarios-hi/meta.json"
       },
       "notes": "«Tratados escriturarios» (agustin-15-tratados-escriturarios-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-zh",
+      "sourceId": "agustin-15-tratados-escriturarios-zh",
+      "title": "Tratados escriturarios",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpY1hxUE16SW5PZmc/view"
+      ],
+      "firstDownloadedAt": "2026-07-20T07:44:55.385Z",
+      "lastDownloadedAt": "2026-07-20T07:44:55.385Z",
+      "unitCount": 4847,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-15-tratados-escriturarios-zh/content.json",
+        "index": "documents/agustin-15-tratados-escriturarios-zh/index.json",
+        "meta": "documents/agustin-15-tratados-escriturarios-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Tratados escriturarios」(agustin-15-tratados-escriturarios-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-16-ciudad-de-dios-1-ar",
