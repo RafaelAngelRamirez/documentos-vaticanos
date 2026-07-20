@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-20T07:16:37.997345Z",
+  "generatedAt": "2026-07-20T07:18:09.256603Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1163,6 +1163,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "由人工智能根据 pack「Sobre el Evangelio de San Juan (36–124)」(agustin-14-evangelio-juan-2-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
+      "translationProvenance": "ai"
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-en",
+      "title": "Tratados escriturarios",
+      "shortTitle": "Tratados escriturarios",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpY1hxUE16SW5PZmc/view",
+      "bodyPath": "documents/agustin-15-tratados-escriturarios-en/content.json",
+      "indexPath": "documents/agustin-15-tratados-escriturarios-en/index.json",
+      "unitCount": 4847,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "AI-generated English translation from the Español text of the pack «Tratados escriturarios» (agustin-15-tratados-escriturarios-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
     },
     {

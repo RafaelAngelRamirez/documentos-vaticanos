@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T07:16:35.211Z",
+  "updatedAt": "2026-07-20T07:17:46.054Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1603,6 +1603,26 @@
         "meta": "documents/agustin-14-evangelio-juan-2-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「Sobre el Evangelio de San Juan (36–124)」(agustin-14-evangelio-juan-2-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-en",
+      "sourceId": "agustin-15-tratados-escriturarios-en",
+      "title": "Tratados escriturarios",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpY1hxUE16SW5PZmc/view"
+      ],
+      "firstDownloadedAt": "2026-07-20T07:17:46.053Z",
+      "lastDownloadedAt": "2026-07-20T07:17:46.053Z",
+      "unitCount": 4847,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-15-tratados-escriturarios-en/content.json",
+        "index": "documents/agustin-15-tratados-escriturarios-en/index.json",
+        "meta": "documents/agustin-15-tratados-escriturarios-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «Tratados escriturarios» (agustin-15-tratados-escriturarios-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-15-tratados-escriturarios-es",
