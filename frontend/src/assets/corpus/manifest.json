@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-20T07:07:53.068945Z",
+  "generatedAt": "2026-07-20T07:16:38.060106Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -2332,6 +2332,36 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Fuente pública (no en Drive Cedano). BAC XXXI. PDF: amadoresdecristo.org / también archive.org obras-de-san-agustin-xxxi-..."
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-hi",
+      "title": "Escritos antimaniqueos (2.º) — Contra Fausto",
+      "shortTitle": "Agustín",
+      "kind": "patristic",
+      "locale": "hi",
+      "sourceUrl": "https://amadoresdecristo.org/LIBROS/sAgustin/31.pdf",
+      "bodyPath": "documents/agustin-31-antimaniqueos-2-hi/content.json",
+      "indexPath": "documents/agustin-31-antimaniqueos-2-hi/index.json",
+      "unitCount": 3951,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "«Escritos antimaniqueos (2.º) — Contra Fausto» (agustin-31-antimaniqueos-2-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।",
+      "translationProvenance": "ai"
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-zh",
+      "title": "Escritos antimaniqueos (2.º) — Contra Fausto",
+      "shortTitle": "Agustín",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrl": "https://amadoresdecristo.org/LIBROS/sAgustin/31.pdf",
+      "bodyPath": "documents/agustin-31-antimaniqueos-2-zh/content.json",
+      "indexPath": "documents/agustin-31-antimaniqueos-2-zh/index.json",
+      "unitCount": 3951,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "由人工智能根据 pack「Escritos antimaniqueos (2.º) — Contra Fausto」(agustin-31-antimaniqueos-2-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-32-antidonatistas-1-es",
