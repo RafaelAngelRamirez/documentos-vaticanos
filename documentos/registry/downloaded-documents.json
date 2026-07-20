@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T06:35:09.638Z",
+  "updatedAt": "2026-07-20T06:37:48.617Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1723,6 +1723,26 @@
         "meta": "documents/agustin-17-ciudad-de-dios-2-es/meta.json"
       },
       "notes": "Tomo BAC n=17: 17 La-ciudad-de-Dios-II.pdf"
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-zh",
+      "sourceId": "agustin-17-ciudad-de-dios-2-zh",
+      "title": "La ciudad de Dios II",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpLTAwTHU0NHh3czA/view"
+      ],
+      "firstDownloadedAt": "2026-07-20T06:37:48.617Z",
+      "lastDownloadedAt": "2026-07-20T06:37:48.617Z",
+      "unitCount": 3310,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-17-ciudad-de-dios-2-zh/content.json",
+        "index": "documents/agustin-17-ciudad-de-dios-2-zh/index.json",
+        "meta": "documents/agustin-17-ciudad-de-dios-2-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「La ciudad de Dios II」(agustin-17-ciudad-de-dios-2-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-18-epistolas-indices-ar",
