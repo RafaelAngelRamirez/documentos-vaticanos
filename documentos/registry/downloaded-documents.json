@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T08:12:44.166Z",
+  "updatedAt": "2026-07-20T08:23:26.969Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -5205,6 +5205,26 @@
       },
       "notes": "Seeded from existing corpus (migrated).",
       "lastResolvedAt": "2026-07-18T15:51:41.776Z"
+    },
+    {
+      "id": "cic-hi",
+      "sourceId": "cic-hi",
+      "title": "Catecismo de la Iglesia Católica",
+      "kind": "catechism",
+      "locale": "hi",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/catechism_hi/index_hi.html"
+      ],
+      "firstDownloadedAt": "2026-07-20T08:23:26.969Z",
+      "lastDownloadedAt": "2026-07-20T08:23:26.969Z",
+      "unitCount": 5092,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/cic-hi/content.json",
+        "index": "documents/cic-hi/index.json",
+        "meta": "documents/cic-hi/meta.json"
+      },
+      "notes": "«Catecismo de la Iglesia Católica» (cic-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।"
     },
     {
       "id": "cic-zh",
