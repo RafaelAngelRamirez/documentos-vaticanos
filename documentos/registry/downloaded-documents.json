@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T07:48:10.164Z",
+  "updatedAt": "2026-07-20T08:11:05.350Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -3363,6 +3363,26 @@
         "meta": "documents/agustin-32-antidonatistas-1-es/meta.json"
       },
       "notes": ""
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-zh",
+      "sourceId": "agustin-32-antidonatistas-1-zh",
+      "title": "Escritos antidonatistas (1.º)",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrls": [
+        "https://archive.org/details/obras-de-san-agustin-xxxii-escritos-antidonatistas-1o"
+      ],
+      "firstDownloadedAt": "2026-07-20T08:11:05.350Z",
+      "lastDownloadedAt": "2026-07-20T08:11:05.350Z",
+      "unitCount": 6797,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-32-antidonatistas-1-zh/content.json",
+        "index": "documents/agustin-32-antidonatistas-1-zh/index.json",
+        "meta": "documents/agustin-32-antidonatistas-1-zh/meta.json"
+      },
+      "notes": "由人工智能根据 pack「Escritos antidonatistas (1.º)」(agustin-32-antidonatistas-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
     },
     {
       "id": "agustin-33-antidonatistas-2-ar",

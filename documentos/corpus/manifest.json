@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-20T08:10:27.518642Z",
+  "generatedAt": "2026-07-20T08:11:49.386518Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -2466,6 +2466,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Fuente pública (no en Drive Cedano). BAC XXXII. Internet Archive."
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-zh",
+      "title": "Escritos antidonatistas (1.º)",
+      "shortTitle": "Agustín",
+      "kind": "patristic",
+      "locale": "zh",
+      "sourceUrl": "https://archive.org/details/obras-de-san-agustin-xxxii-escritos-antidonatistas-1o",
+      "bodyPath": "documents/agustin-32-antidonatistas-1-zh/content.json",
+      "indexPath": "documents/agustin-32-antidonatistas-1-zh/index.json",
+      "unitCount": 6797,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "由人工智能根据 pack「Escritos antidonatistas (1.º)」(agustin-32-antidonatistas-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-33-antidonatistas-2-ar",
