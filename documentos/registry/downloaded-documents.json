@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T08:26:25.961Z",
+  "updatedAt": "2026-07-20T08:28:06.500Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -4303,6 +4303,26 @@
         "meta": "documents/atanasio-de-incarnatione-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「On the Incarnation of the Word」(atanasio-de-incarnatione-en) 的English文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "bible-pueblo-de-dios-ar",
+      "sourceId": "bible-pueblo-de-dios-ar",
+      "title": "Biblia (Pueblo de Dios)",
+      "kind": "bible",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://www.vatican.va/archive/ESL0506/__P1.HTM"
+      ],
+      "firstDownloadedAt": "2026-07-20T08:28:06.500Z",
+      "lastDownloadedAt": "2026-07-20T08:28:06.500Z",
+      "unitCount": 35652,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/bible-pueblo-de-dios-ar/content.json",
+        "index": "documents/bible-pueblo-de-dios-ar/index.json",
+        "meta": "documents/bible-pueblo-de-dios-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Biblia (Pueblo de Dios)» (bible-pueblo-de-dios-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
     },
     {
       "id": "bible-pueblo-de-dios-en",
