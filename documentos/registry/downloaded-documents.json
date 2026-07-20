@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T07:44:55.385Z",
+  "updatedAt": "2026-07-20T07:48:10.164Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -3303,6 +3303,26 @@
         "meta": "documents/agustin-31-antimaniqueos-2-zh/meta.json"
       },
       "notes": "由人工智能根据 pack「Escritos antimaniqueos (2.º) — Contra Fausto」(agustin-31-antimaniqueos-2-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。"
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-ar",
+      "sourceId": "agustin-32-antidonatistas-1-ar",
+      "title": "Escritos antidonatistas (1.º)",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrls": [
+        "https://archive.org/details/obras-de-san-agustin-xxxii-escritos-antidonatistas-1o"
+      ],
+      "firstDownloadedAt": "2026-07-20T07:48:10.163Z",
+      "lastDownloadedAt": "2026-07-20T07:48:10.163Z",
+      "unitCount": 6797,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-32-antidonatistas-1-ar/content.json",
+        "index": "documents/agustin-32-antidonatistas-1-ar/index.json",
+        "meta": "documents/agustin-32-antidonatistas-1-ar/meta.json"
+      },
+      "notes": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Escritos antidonatistas (1.º)» (agustin-32-antidonatistas-1-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي."
     },
     {
       "id": "agustin-32-antidonatistas-1-en",
