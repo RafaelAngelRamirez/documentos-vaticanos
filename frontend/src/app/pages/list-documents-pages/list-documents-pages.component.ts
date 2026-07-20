@@ -20,6 +20,7 @@ import {
 } from 'src/app/services/reading-progress.service';
 import { ROUTE } from 'src/app/services/navigation.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 
 /** Orden preferente de pestañas (solo se muestran las presentes). */
 const TAB_ORDER = [
@@ -62,6 +63,8 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
   lastRead: LastRead | null = null;
 
   private sub = new Subscription();
+  /** Tick so labels re-resolve when UI locale changes. */
+  localeTick = 0;
 
   constructor(
     public docService: CargarDocumentosJsonService,
@@ -69,7 +72,19 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
     private corpus: CorpusService,
     private progress: ReadingProgressService,
     private readerPrefs: ReaderPreferencesService,
-  ) {}
+    public i18n: UiI18nService,
+  ) {
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
+  }
+
+  t(key: string, params?: Record<string, string | number>): string {
+    void this.localeTick;
+    return this.i18n.t(key, params);
+  }
 
   ngOnInit(): void {
     this.lastRead = this.progress.getLastRead();

@@ -3,15 +3,15 @@
 
   <!-- 3D móvil -->
   <div class="only-mobile">
-    <app-fbar title="Biblioteca"></app-fbar>
+    <app-fbar [title]="t('library.title')"></app-fbar>
     <div class="lib">
       <input
         class="field"
         type="search"
-        placeholder="Buscar por título, autor o tema…"
+        [attr.placeholder]="t('library.search_placeholder')"
         [value]="query"
         (input)="onQuery($event)"
-        aria-label="Buscar por título, autor o tema"
+        [attr.aria-label]="t('library.search_placeholder')"
       />
       <div class="tabs" role="tablist" aria-label="Filtrar por tipo">
         <button
@@ -26,7 +26,7 @@
           {{ t }}
         </button>
       </div>
-      <div *ngIf="loading" class="empty" role="status">Cargando documentos…</div>
+      <div *ngIf="loading" class="empty" role="status">{{ t('library.loading') }}</div>
       <div *ngIf="load_error" class="empty" role="alert">{{ load_error }}</div>
       <ng-container *ngIf="!loading && !load_error">
         <button type="button" class="srow" *ngFor="let item of filtered" (click)="open(item)">
@@ -63,10 +63,10 @@
     </aside>
     <div class="wbody">
       <div class="fx ac jb" style="margin-bottom: 18px">
-        <h2 class="h2">Biblioteca</h2>
-        <span class="fs13 muted">{{ docCount }} documentos · disponibles sin conexión</span>
+        <h2 class="h2">{{ t('library.title') }}</h2>
+        <span class="fs13 muted">{{ t('library.doc_count_offline', { n: docCount }) }}</span>
       </div>
-      <div *ngIf="loading" class="fs13 muted">Cargando…</div>
+      <div *ngIf="loading" class="fs13 muted">{{ t('common.loading') }}</div>
       <div *ngIf="load_error" class="fs13" style="color: #b0563a">{{ load_error }}</div>
       <div class="cardgrid" *ngIf="!loading && !load_error">
         <button
