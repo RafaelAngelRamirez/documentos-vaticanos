@@ -1,14 +1,25 @@
 apply plugin: 'com.android.application'
 
+// CI / package-aab injects version + signing via -Pdv* properties (secrets never in VCS).
+def dvVersionCode = project.hasProperty('dvVersionCode') ? dvVersionCode.toInteger() : 1
+def dvVersionName = project.hasProperty('dvVersionName') ? dvVersionName.toString() : "1.0"
+def dvApplicationId = project.hasProperty('dvApplicationId')
+        ? dvApplicationId.toString()
+        : "digital.documentosvaticanos.app"
+def hasReleaseSigning = project.hasProperty('dvStoreFile') &&
+        project.hasProperty('dvStorePassword') &&
+        project.hasProperty('dvKeyAlias') &&
+        project.hasProperty('dvKeyPassword')
+
 android {
     namespace "digital.documentosvaticanos.app"
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "digital.documentosvaticanos.app"
+        applicationId dvApplicationId
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode dvVersionCode
+        versionName dvVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -16,10 +27,23 @@ android {
             ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        release {
+            if (hasReleaseSigning) {
+                storeFile file(dvStoreFile)
+                storePassword dvStorePassword
+                keyAlias dvKeyAlias
+                keyPassword dvKeyPassword
+            }
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if (hasReleaseSigning) {
+                signingConfig signingConfigs.release
+            }
         }
     }
     compileOptions {

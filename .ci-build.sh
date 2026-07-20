@@ -106,23 +106,38 @@ echo "==> [3/7] Web production + corpus"
 CURRENT_STAGE="Web production"; notify_step "$CURRENT_STAGE" || true
 bash scripts/package-web.sh
 
-echo "==> [4/7] APK instalable"
+echo "==> [4/8] APK instalable"
 CURRENT_STAGE="APK instalable"; notify_step "$CURRENT_STAGE" || true
 bash scripts/package-apk.sh
 
-echo "==> [5/7] Electron Linux + Windows"
+echo "==> [5/8] Signed AAB (Play closed testing)"
+CURRENT_STAGE="AAB signed"; notify_step "$CURRENT_STAGE" || true
+# Optional unless DV_PLAY_UPLOAD=1 or keystore env is present.
+if [[ "${DV_BUILD_AAB:-0}" == "1" || "${DV_PLAY_UPLOAD:-0}" == "1" || -n "${DV_KEYSTORE_PASSWORD:-}" ]]; then
+  if [[ -z "${DV_KEYSTORE_PASSWORD:-}" ]]; then
+    echo "WARN: skipping AAB — set DV_KEYSTORE_PATH + DV_KEYSTORE_PASSWORD (see deploy/PLAY-CLOSED-TESTING.md)"
+  else
+    # Default Console draft package for Codice Progressio / Documentos Vaticanos
+    export DV_PACKAGE_NAME="${DV_PACKAGE_NAME:-com.docvat}"
+    bash scripts/package-aab.sh
+  fi
+else
+  echo "==> AAB skipped (set DV_BUILD_AAB=1 or DV_PLAY_UPLOAD=1 or DV_KEYSTORE_PASSWORD to enable)"
+fi
+
+echo "==> [6/8] Electron Linux + Windows"
 CURRENT_STAGE="Electron linux+win"; notify_step "$CURRENT_STAGE" || true
 # CI requires both platforms when Wine is present
 export DV_ELECTRON_TARGETS="${DV_ELECTRON_TARGETS:-linux,win}"
 export DV_REQUIRE_WIN="${DV_REQUIRE_WIN:-1}"
 bash scripts/package-electron.sh
 
-echo "==> [6/7] Collect downloads into web tree"
+echo "==> [7/8] Collect downloads into web tree"
 CURRENT_STAGE="Collect downloads"; notify_step "$CURRENT_STAGE" || true
 export DV_REQUIRE_ALL_DOWNLOADS="${DV_REQUIRE_ALL_DOWNLOADS:-1}"
 bash scripts/package-collect-downloads.sh
 
-echo "==> [7/7] Docker image + push + deploy docvat"
+echo "==> [8/8] Docker image + push + deploy docvat"
 CURRENT_STAGE="Docker + deploy"; notify_step "$CURRENT_STAGE" || true
 # Ensure frontend dist has downloads (collect already copied)
 if [[ ! -d frontend/dist/documentos-vaticanos/downloads ]]; then
@@ -135,6 +150,23 @@ bash scripts/ci-docker-push.sh
 
 # Deploy / recreate the docvat container on the host network
 bash scripts/ci-deploy-docvat.sh
+
+# Optional: upload AAB to Play closed track (alpha) via Android Publisher API
+if [[ "${DV_PLAY_UPLOAD:-0}" == "1" ]]; then
+  CURRENT_STAGE="Play closed upload"; notify_step "$CURRENT_STAGE" || true
+  echo "==> Play closed-track upload (DV_PLAY_UPLOAD=1)"
+  export PLAY_PACKAGE_NAME="${PLAY_PACKAGE_NAME:-${DV_PACKAGE_NAME:-com.docvat}}"
+  export PLAY_TRACK="${PLAY_TRACK:-closed}"
+  export PLAY_AAB_PATH="${PLAY_AAB_PATH:-$ROOT/dist/documentos-vaticanos-release.aab}"
+  # PLAY_SERVICE_ACCOUNT_JSON must be mounted/available on the runner
+  if ! node "$ROOT/scripts/play-upload-closed.js"; then
+    echo "ERROR: play-upload-closed failed (see deploy/PLAY-CLOSED-TESTING.md)" >&2
+    exit 1
+  fi
+  echo "::DOCVAT_PLAY_UPLOAD_OK::${VERSION}"
+else
+  echo "==> Play upload skipped (set DV_PLAY_UPLOAD=1 + PLAY_SERVICE_ACCOUNT_JSON)"
+fi
 
 notify_done || true
 echo "::DOCVAT_BUILD_DONE::${VERSION}"

@@ -136,9 +136,23 @@ Compose fragment: `compose.docvat.yml` (external network `codice-progressio_defa
 
 ```bash
 npm run package:all          # web + apk + electron linux/win + collect downloads
+npm run package:aab          # signed Play App Bundle (needs DV_KEYSTORE_* env)
+npm run play:upload-closed   # upload AAB to Play closed track (API; needs service account)
 npm run test:downloads       # structural gates for download paths
 npm run test:electron-paths  # electron static server gates
+npm run test:android-version # versionCode / track payload helpers
 ```
 
 Windows build uses Wine + `signAndEditExecutable=false` (portable target by default).
 Set `DV_REQUIRE_WIN=1` and `DV_REQUIRE_ALL_DOWNLOADS=1` in CI.
+
+## Google Play closed testing
+
+See **`deploy/PLAY-CLOSED-TESTING.md`** for:
+
+- Console package `com.docvat`, closed track / API track `alpha`
+- Secret **names** (`DV_KEYSTORE_*`, `PLAY_SERVICE_ACCOUNT_JSON`, `DV_PLAY_UPLOAD`, …)
+- How Playwright was used only for **initial** Console setup (`rafa.yael@gmail.com`)
+- How n8n re-import activates workflow changes after editing `DOCVAT-build-v1-sidecar.json`
+
+Enable on the host/n8n Build sidecar with `DV_BUILD_AAB=1` + `DV_PLAY_UPLOAD=1` and mounted keystore + service-account JSON (never commit those files).
