@@ -29,6 +29,15 @@ if [[ ! -f "$SRC/assets/corpus/manifest.json" ]]; then
   exit 1
 fi
 
+# Ship hygiene: compact JSON, strip empty refs / load-stamped index_array, drop unused meta.json.
+# Runs on the frozen build tree (not source assets) so dual-write / git pack stay intact.
+echo "==> Corpus compress (ship hygiene)"
+run node "$ROOT/scripts/corpus-compress.js" --root "$SRC/assets/corpus"
+if [[ ! -f "$SRC/assets/corpus/manifest.json" ]]; then
+  echo "ERROR: corpus compress removed or broke manifest.json" >&2
+  exit 1
+fi
+
 echo "==> Collect web artifact → $OUT"
 rm -rf "$OUT"
 mkdir -p "$OUT"

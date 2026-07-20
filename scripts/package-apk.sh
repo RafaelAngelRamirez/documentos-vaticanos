@@ -22,6 +22,16 @@ echo "==> Production build + Capacitor sync"
 if [[ ! -f dist/documentos-vaticanos/index.html ]]; then
   run npm run build
 fi
+
+# Ship hygiene on frozen web dist before Cap copies assets into Android public/
+CORPUS_DIST="$FRONTEND/dist/documentos-vaticanos/assets/corpus"
+if [[ -f "$CORPUS_DIST/manifest.json" ]]; then
+  echo "==> Corpus compress (ship hygiene) → $CORPUS_DIST"
+  run node "$ROOT/scripts/corpus-compress.js" --root "$CORPUS_DIST"
+else
+  echo "WARN: no dist corpus at $CORPUS_DIST — skipping compress" >&2
+fi
+
 run npx cap sync android
 
 # cap sync must leave these files (commit-tracked stubs + regenerated plugins)

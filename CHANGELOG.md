@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [Unreleased]
+
+### Features
+
+* **package:** pre-package corpus compress (hygiene) so web/APK/Electron ship a smaller offline pack without changing reading (`scripts/corpus-compress.js`)
+
 ### [0.0.20](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.13...v0.0.20) (2026-07-19)
 
 

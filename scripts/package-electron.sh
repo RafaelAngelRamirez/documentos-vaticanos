@@ -26,6 +26,13 @@ if [[ ! -f dist/documentos-vaticanos/index.html ]]; then
   run npm run build
 fi
 
+# Ship hygiene when Electron packages an existing dist that may not have run package-web
+CORPUS_DIST="$FRONTEND/dist/documentos-vaticanos/assets/corpus"
+if [[ -f "$CORPUS_DIST/manifest.json" ]]; then
+  echo "==> Corpus compress (ship hygiene) → $CORPUS_DIST"
+  run node "$ROOT/scripts/corpus-compress.js" --root "$CORPUS_DIST"
+fi
+
 echo "==> Assert web dist for Electron"
 run node -e "require('./electron/paths').assertWebDistReady()"
 
