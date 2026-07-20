@@ -17,6 +17,23 @@ ASSETS_OUT="$ROOT/frontend/src/assets/downloads"
 
 mkdir -p "$WEB_OUT" "$FE_OUT" "$ASSETS_OUT" "$DIST"
 
+# Place a large binary under dest without doubling disk when same filesystem.
+# Prefer hardlink (ln -f); fall back to cp. Never write multi-MB bits into src/assets.
+place_binary() {
+  local src="$1"
+  local dest="$2"
+  mkdir -p "$(dirname "$dest")"
+  # Same inode already present
+  if [[ -f "$dest" ]] && [[ "$src" -ef "$dest" ]]; then
+    return 0
+  fi
+  rm -f "$dest"
+  if ln -f "$src" "$dest" 2>/dev/null; then
+    return 0
+  fi
+  cp -f "$src" "$dest"
+}
+
 copy_stable() {
   local src="$1"
   local dest_name="$2"
@@ -30,9 +47,11 @@ copy_stable() {
     echo "ERROR: $src too small ($size bytes) for $dest_name" >&2
     return 1
   fi
-  cp -f "$src" "$WEB_OUT/$dest_name"
-  cp -f "$src" "$FE_OUT/$dest_name"
-  # Do NOT copy multi-MB binaries into src/assets (git bloat); only symlink or skip
+  place_binary "$src" "$WEB_OUT/$dest_name"
+  # Second tree: hardlink from WEB_OUT when possible (saves a full second copy)
+  if ! place_binary "$WEB_OUT/$dest_name" "$FE_OUT/$dest_name"; then
+    place_binary "$src" "$FE_OUT/$dest_name"
+  fi
   echo "OK collect: $dest_name ($size bytes)"
   return 0
 }

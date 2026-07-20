@@ -42,6 +42,40 @@ else
 fi
 
 # ---------------------------------------------------------------------------
+# Disk preflight — Electron+APK+web peak easily needs >10G free on the shared
+# volume/host. Fail early with a clear message instead of mid-cp ENOSPC.
+# Override: DV_MIN_FREE_GB=0 to skip; default 12 GiB.
+# ---------------------------------------------------------------------------
+assert_disk_space() {
+  local min_gb="${DV_MIN_FREE_GB:-12}"
+  if [[ "$min_gb" == "0" ]]; then
+    echo "==> disk preflight skipped (DV_MIN_FREE_GB=0)"
+    return 0
+  fi
+  local path="${1:-$ROOT}"
+  local avail_kb avail_gb
+  avail_kb=$(df -Pk "$path" 2>/dev/null | awk 'NR==2 {print $4}')
+  if [[ -z "${avail_kb:-}" || ! "$avail_kb" =~ ^[0-9]+$ ]]; then
+    echo "WARN: could not read free space for $path — continuing" >&2
+    return 0
+  fi
+  avail_gb=$((avail_kb / 1024 / 1024))
+  echo "==> disk free on $path: ${avail_gb}G (min ${min_gb}G)"
+  df -h "$path" || true
+  if (( avail_gb < min_gb )); then
+    echo "ERROR: only ${avail_gb}G free on $path (need ≥ ${min_gb}G)." >&2
+    echo "ERROR: free Docker images/cache on the host, then re-run." >&2
+    echo "ERROR: hint: docker builder prune -af && docker image prune -af" >&2
+    echo "ERROR: keep imperium-build-runner-pin; do not prune --all without pin." >&2
+    return 1
+  fi
+}
+
+echo "==> [0/7] Disk preflight"
+CURRENT_STAGE="Disk preflight"; notify_step "$CURRENT_STAGE" || true
+assert_disk_space "$ROOT"
+
+# ---------------------------------------------------------------------------
 # [1/7] Release FIRST (clean tree) so standard-version can commit + tag.
 # Bump is persisted later by n8n "Artifact commit" + "Push" on /tmp/repo/docvat.
 # Set DV_SKIP_RELEASE=1 only for emergency rebuilds without a version bump.

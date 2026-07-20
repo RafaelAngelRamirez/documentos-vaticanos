@@ -90,6 +90,17 @@ for t in "${TARR[@]}"; do
   esac
 done
 
+# Drop unpacked trees once installers exist — they double peak disk on small CI volumes.
+# Keep only shippable files (AppImage, exe, zip, blockmap, latest*.yml, builder meta).
+if [[ "${DV_KEEP_ELECTRON_UNPACKED:-0}" != "1" ]]; then
+  for d in "$OUT_DIR"/linux-unpacked "$OUT_DIR"/win-unpacked "$OUT_DIR"/mac "$OUT_DIR"/*.AppDir; do
+    if [[ -e "$d" ]]; then
+      echo "==> removing intermediate electron tree: $d"
+      rm -rf "$d"
+    fi
+  done
+fi
+
 {
   echo "artifact=electron"
   echo "builtAt=$(date -Iseconds)"

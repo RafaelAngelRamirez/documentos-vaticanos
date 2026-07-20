@@ -62,6 +62,20 @@ docker start imperium-build-runner-pin \
   4. n8n pushes the release commit + tag back to GitHub. Messages containing `chore(release)` are ignored by the trigger (no loop).
   5. Emergency rebuild without bump: host/n8n env `DV_SKIP_RELEASE=1` (default **0**).
 - **Lock:** `/tmp/docvat-build.lock` inside the `n8n` container. Concurrent runs **wait** up to `DOCVAT_LOCK_WAIT_SEC` (default **7200** s) by polling `flock -n` (BusyBox-compatible; n8n Alpine has no util-linux `flock -w`) instead of failing immediately with “another DOCVAT build holds…”. Only one clone/build mutates the shared volume at a time.
+- **Disk (ENOSPC):** full DOCVAT builds peak multi‑GB (web corpus + APK + Electron). `.ci-build.sh` aborts early if free space on the work path is below `DV_MIN_FREE_GB` (default **12**). Collect uses hardlinks when possible; electron drops `*-unpacked` after packaging; `ci-docker-push.sh` keeps only `DV_IMAGE_KEEP` (default **2**) local `front-v*` tags plus `front-latest`.
+
+Host cleanup when builds fail with `No space left on device` (keep the runner pin):
+
+```bash
+docker builder prune -af
+docker image prune -af   # does not remove images used by running containers / pin
+# optional: wipe shared build volume when no active runner (not the pin)
+docker run --rm -v codice-progressio_n8n_build:/v alpine \
+  sh -c 'rm -rf /v/* /v/.[!.]* /v/..?* 2>/dev/null; du -sh /v'
+df -h /
+```
+
+Do **not** use `docker system prune --all` without `imperium-build-runner-pin` (see above).
 
 ### After changing this workflow JSON
 
