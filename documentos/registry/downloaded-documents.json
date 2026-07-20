@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T10:46:37.402Z",
+  "updatedAt": "2026-07-20T11:33:41.169Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -5296,7 +5296,7 @@
         "https://www.vatican.va/archive/catechism_hi/index_hi.html"
       ],
       "firstDownloadedAt": "2026-07-20T08:23:26.969Z",
-      "lastDownloadedAt": "2026-07-20T08:23:26.969Z",
+      "lastDownloadedAt": "2026-07-20T11:33:41.169Z",
       "unitCount": 5092,
       "status": "active",
       "corpusPaths": {
