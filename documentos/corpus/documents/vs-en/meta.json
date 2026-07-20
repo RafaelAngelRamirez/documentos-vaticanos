@@ -1,0 +1,13 @@
+{
+  "id": "vs-en",
+  "title": "Veritatis splendor",
+  "shortTitle": "VS",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_06081993_veritatis-splendor.html",
+  "bodyPath": "documents/vs-en/content.json",
+  "indexPath": "documents/vs-en/index.json",
+  "unitCount": 315,
+  "translationProvenance": "official",
+  "sourceNote": "Official English text from vatican.va"
+}

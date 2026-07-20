@@ -1,0 +1,13 @@
+{
+  "id": "pg-en",
+  "title": "Pastores gregis",
+  "shortTitle": "PG",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_20031016_pastores-gregis.html",
+  "bodyPath": "documents/pg-en/content.json",
+  "indexPath": "documents/pg-en/index.json",
+  "unitCount": 580,
+  "translationProvenance": "official",
+  "sourceNote": "Official English text from vatican.va"
+}

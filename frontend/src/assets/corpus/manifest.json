@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-20T11:04:18.662476Z",
+  "generatedAt": "2026-07-20T11:05:49.752347Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -8504,6 +8504,19 @@
       "translationProvenance": "ai"
     },
     {
+      "id": "pg-en",
+      "title": "Pastores gregis",
+      "shortTitle": "PG",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_20031016_pastores-gregis.html",
+      "bodyPath": "documents/pg-en/content.json",
+      "indexPath": "documents/pg-en/index.json",
+      "unitCount": 580,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
       "id": "pg-en-ai",
       "title": "Pastores gregis",
       "shortTitle": "PG",
@@ -8632,6 +8645,19 @@
       "translationProvenance": "ai"
     },
     {
+      "id": "pp-en",
+      "title": "Populorum progressio",
+      "shortTitle": "PP",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_26031967_populorum.html",
+      "bodyPath": "documents/pp-en/content.json",
+      "indexPath": "documents/pp-en/index.json",
+      "unitCount": 202,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
       "id": "pp-en-ai",
       "title": "Populorum progressio",
       "shortTitle": "PP",
@@ -8696,6 +8722,19 @@
       "translationProvenance": "ai"
     },
     {
+      "id": "pt-en",
+      "title": "Pacem in terris",
+      "shortTitle": "PT",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-xxiii/en/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html",
+      "bodyPath": "documents/pt-en/content.json",
+      "indexPath": "documents/pt-en/index.json",
+      "unitCount": 274,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
       "id": "pt-en-ai",
       "title": "Pacem in terris",
       "shortTitle": "PT",
@@ -8758,6 +8797,19 @@
       "unitCount": 96,
       "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Quanta cura» (quanta-cura-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
       "translationProvenance": "ai"
+    },
+    {
+      "id": "quanta-cura-en",
+      "title": "Quanta cura",
+      "shortTitle": "QC",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/pius-ix/en/documents/encyclica-quanta-cura-8-decembris-1864.html",
+      "bodyPath": "documents/quanta-cura-en/content.json",
+      "indexPath": "documents/quanta-cura-en/index.json",
+      "unitCount": 201,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
     },
     {
       "id": "quanta-cura-en-ai",
@@ -8837,6 +8889,19 @@
       "translationProvenance": "ai"
     },
     {
+      "id": "quas-primas-en",
+      "title": "Quas primas",
+      "shortTitle": "QP",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_11121925_quas-primas.html",
+      "bodyPath": "documents/quas-primas-en/content.json",
+      "indexPath": "documents/quas-primas-en/index.json",
+      "unitCount": 38,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
       "id": "quas-primas-en-ai",
       "title": "Quas primas",
       "shortTitle": "QP",
@@ -8899,6 +8964,19 @@
       "unitCount": 136,
       "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Redemptor hominis» (rh-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
       "translationProvenance": "ai"
+    },
+    {
+      "id": "rh-en",
+      "title": "Redemptor hominis",
+      "shortTitle": "RH",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_04031979_redemptor-hominis.html",
+      "bodyPath": "documents/rh-en/content.json",
+      "indexPath": "documents/rh-en/index.json",
+      "unitCount": 114,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
     },
     {
       "id": "rh-en-ai",
@@ -8965,6 +9043,19 @@
       "translationProvenance": "ai"
     },
     {
+      "id": "rm-en",
+      "title": "Redemptoris missio",
+      "shortTitle": "RM",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_07121990_redemptoris-missio.html",
+      "bodyPath": "documents/rm-en/content.json",
+      "indexPath": "documents/rm-en/index.json",
+      "unitCount": 326,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
       "id": "rm-en-ai",
       "title": "Redemptoris missio",
       "shortTitle": "RM",
@@ -9029,6 +9120,19 @@
       "translationProvenance": "ai"
     },
     {
+      "id": "rp-en",
+      "title": "Reconciliatio et paenitentia",
+      "shortTitle": "RP",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_02121984_reconciliatio-et-paenitentia.html",
+      "bodyPath": "documents/rp-en/content.json",
+      "indexPath": "documents/rp-en/index.json",
+      "unitCount": 352,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
       "id": "rp-en-ai",
       "title": "Reconciliatio et paenitentia",
       "shortTitle": "RP",
@@ -9091,6 +9195,19 @@
       "unitCount": 31,
       "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Salvifici doloris» (sa-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
       "translationProvenance": "ai"
+    },
+    {
+      "id": "sa-en",
+      "title": "Salvifici doloris",
+      "shortTitle": "SA",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1984/documents/hf_jp-ii_apl_11021984_salvifici-doloris.html",
+      "bodyPath": "documents/sa-en/content.json",
+      "indexPath": "documents/sa-en/index.json",
+      "unitCount": 145,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
     },
     {
       "id": "sa-en-ai",
@@ -9220,6 +9337,19 @@
       "translationProvenance": "ai"
     },
     {
+      "id": "srs-en",
+      "title": "Sollicitudo rei socialis",
+      "shortTitle": "SRS",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_30121987_sollicitudo-rei-socialis.html",
+      "bodyPath": "documents/srs-en/content.json",
+      "indexPath": "documents/srs-en/index.json",
+      "unitCount": 252,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
       "id": "srs-en-ai",
       "title": "Sollicitudo rei socialis",
       "shortTitle": "SRS",
@@ -9282,6 +9412,19 @@
       "unitCount": 59,
       "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Tertio millennio adveniente» (tma-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
       "translationProvenance": "ai"
+    },
+    {
+      "id": "tma-en",
+      "title": "Tertio millennio adveniente",
+      "shortTitle": "TMA",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1994/documents/hf_jp-ii_apl_19941110_tertio-millennio-adveniente.html",
+      "bodyPath": "documents/tma-en/content.json",
+      "indexPath": "documents/tma-en/index.json",
+      "unitCount": 131,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
     },
     {
       "id": "tma-en-ai",
@@ -9565,6 +9708,19 @@
       "translationProvenance": "ai"
     },
     {
+      "id": "vc-en",
+      "title": "Vita consecrata",
+      "shortTitle": "VC",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_25031996_vita-consecrata.html",
+      "bodyPath": "documents/vc-en/content.json",
+      "indexPath": "documents/vc-en/index.json",
+      "unitCount": 252,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
       "id": "vc-en-ai",
       "title": "Vita consecrata",
       "shortTitle": "VC",
@@ -9704,6 +9860,19 @@
       "unitCount": 184,
       "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Veritatis splendor» (vs-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
       "translationProvenance": "ai"
+    },
+    {
+      "id": "vs-en",
+      "title": "Veritatis splendor",
+      "shortTitle": "VS",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_06081993_veritatis-splendor.html",
+      "bodyPath": "documents/vs-en/content.json",
+      "indexPath": "documents/vs-en/index.json",
+      "unitCount": 315,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
     },
     {
       "id": "vs-en-ai",

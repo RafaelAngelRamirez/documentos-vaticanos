@@ -1,0 +1,13 @@
+{
+  "id": "srs-en",
+  "title": "Sollicitudo rei socialis",
+  "shortTitle": "SRS",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_30121987_sollicitudo-rei-socialis.html",
+  "bodyPath": "documents/srs-en/content.json",
+  "indexPath": "documents/srs-en/index.json",
+  "unitCount": 252,
+  "translationProvenance": "official",
+  "sourceNote": "Official English text from vatican.va"
+}

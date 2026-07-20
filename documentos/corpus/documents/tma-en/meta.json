@@ -1,0 +1,13 @@
+{
+  "id": "tma-en",
+  "title": "Tertio millennio adveniente",
+  "shortTitle": "TMA",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1994/documents/hf_jp-ii_apl_19941110_tertio-millennio-adveniente.html",
+  "bodyPath": "documents/tma-en/content.json",
+  "indexPath": "documents/tma-en/index.json",
+  "unitCount": 131,
+  "translationProvenance": "official",
+  "sourceNote": "Official English text from vatican.va"
+}
