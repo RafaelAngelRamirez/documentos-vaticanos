@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-20T06:58:28.001976Z",
+  "generatedAt": "2026-07-20T07:01:36.938210Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -2287,6 +2287,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "由人工智能根据 pack「Escritos Antimaniqueos 1」(agustin-30-antimaniqueos-1-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
+      "translationProvenance": "ai"
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-ar",
+      "title": "Escritos antimaniqueos (2.º) — Contra Fausto",
+      "shortTitle": "Agustín",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrl": "https://amadoresdecristo.org/LIBROS/sAgustin/31.pdf",
+      "bodyPath": "documents/agustin-31-antimaniqueos-2-ar/content.json",
+      "indexPath": "documents/agustin-31-antimaniqueos-2-ar/index.json",
+      "unitCount": 3951,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Escritos antimaniqueos (2.º) — Contra Fausto» (agustin-31-antimaniqueos-2-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
       "translationProvenance": "ai"
     },
     {
