@@ -578,7 +578,12 @@ def main() -> int:
                 i += 1
                 continue
             body = (base_units[i].get("contenido") or "").strip()
-            es = mt(body)
+            # Whitespace-only units: store empty without calling MT
+            # (free endpoints return empty and would exhaust retries).
+            if not body:
+                es = ""
+            else:
+                es = mt(body)
             cp["units"][key] = {
                 "consecutivo": key,
                 "contenido": es,
@@ -593,21 +598,37 @@ def main() -> int:
             )
             if not idxs:
                 break
-            translated = mt(batch_text)
-            chunks = unpack_batch(translated, len(idxs))
-            for unit_i, chunk in zip(idxs, chunks):
-                k = str(base_units[unit_i]["consecutivo"])
-                src = (base_units[unit_i].get("contenido") or "").strip()
-                if not chunk and src:
-                    chunk = mt(src)
-                cp["units"][k] = {
-                    "consecutivo": k,
-                    "contenido": chunk,
-                    "src_len": len(src),
-                    "dst_len": len(chunk),
-                }
-                done_new += 1
-            i = next_i
+            # If the whole batch is empty/whitespace, skip MT
+            if not (batch_text or "").strip():
+                for unit_i in idxs:
+                    k = str(base_units[unit_i]["consecutivo"])
+                    src = (base_units[unit_i].get("contenido") or "").strip()
+                    cp["units"][k] = {
+                        "consecutivo": k,
+                        "contenido": "",
+                        "src_len": len(src),
+                        "dst_len": 0,
+                    }
+                    done_new += 1
+                i = next_i
+            else:
+                translated = mt(batch_text)
+                chunks = unpack_batch(translated, len(idxs))
+                for unit_i, chunk in zip(idxs, chunks):
+                    k = str(base_units[unit_i]["consecutivo"])
+                    src = (base_units[unit_i].get("contenido") or "").strip()
+                    if not src:
+                        chunk = ""
+                    elif not chunk and src:
+                        chunk = mt(src)
+                    cp["units"][k] = {
+                        "consecutivo": k,
+                        "contenido": chunk,
+                        "src_len": len(src),
+                        "dst_len": len(chunk),
+                    }
+                    done_new += 1
+                i = next_i
 
         if done_new % 20 == 0 or done_new == 1:
             save_checkpoint(checkpoint, cp)
