@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-19T17:14:35.764Z",
+  "updatedAt": "2026-07-20T06:35:09.638Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1623,6 +1623,26 @@
         "meta": "documents/agustin-15-tratados-escriturarios-es/meta.json"
       },
       "notes": "Tomo BAC n=15: 15 Tratados-escriturarios.pdf"
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-en",
+      "sourceId": "agustin-16-ciudad-de-dios-1-en",
+      "title": "La ciudad de Dios I",
+      "kind": "patristic",
+      "locale": "en",
+      "sourceUrls": [
+        "https://drive.google.com/file/d/0B0jwB_jVsocpVEp1RFdhekt4R0k/view"
+      ],
+      "firstDownloadedAt": "2026-07-20T06:35:09.638Z",
+      "lastDownloadedAt": "2026-07-20T06:35:09.638Z",
+      "unitCount": 3344,
+      "status": "active",
+      "corpusPaths": {
+        "content": "documents/agustin-16-ciudad-de-dios-1-en/content.json",
+        "index": "documents/agustin-16-ciudad-de-dios-1-en/index.json",
+        "meta": "documents/agustin-16-ciudad-de-dios-1-en/meta.json"
+      },
+      "notes": "AI-generated English translation from the Español text of the pack «La ciudad de Dios I» (agustin-16-ciudad-de-dios-1-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails."
     },
     {
       "id": "agustin-16-ciudad-de-dios-1-es",
