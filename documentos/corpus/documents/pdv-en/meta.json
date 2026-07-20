@@ -1,1 +1,13 @@
-{"id":"pdv-en","title":"Pastores dabo vobis","shortTitle":"PDV","kind":"magisterium","locale":"en","sourceUrl":"https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_25031992_pastores-dabo-vobis.html","bodyPath":"documents/pdv-en/content.json","indexPath":"documents/pdv-en/index.json","unitCount":82,"sourceNote":"AI-generated English translation from the Español text of the pack «Pastores dabo vobis» (pdv-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.","translationProvenance":"ai"}
+{
+  "id": "pdv-en",
+  "title": "Pastores dabo vobis",
+  "shortTitle": "PDV",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_25031992_pastores-dabo-vobis.html",
+  "bodyPath": "documents/pdv-en/content.json",
+  "indexPath": "documents/pdv-en/index.json",
+  "unitCount": 544,
+  "translationProvenance": "official",
+  "sourceNote": "Official English text from vatican.va"
+}

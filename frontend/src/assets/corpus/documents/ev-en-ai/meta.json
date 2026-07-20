@@ -1,0 +1,13 @@
+{
+  "id": "ev-en-ai",
+  "title": "Evangelium vitae",
+  "shortTitle": "EV",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25031995_evangelium-vitae.html",
+  "bodyPath": "documents/ev-en-ai/content.json",
+  "indexPath": "documents/ev-en-ai/index.json",
+  "unitCount": 142,
+  "sourceNote": "AI-generated English translation from the Español text of the pack «Evangelium vitae» (ev-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+  "translationProvenance": "ai"
+}

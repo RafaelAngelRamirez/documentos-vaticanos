@@ -1,0 +1,13 @@
+{
+  "id": "ee-en-ai",
+  "title": "Ecclesia de Eucharistia",
+  "shortTitle": "EE",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_20030417_eccl-de-euch.html",
+  "bodyPath": "documents/ee-en-ai/content.json",
+  "indexPath": "documents/ee-en-ai/index.json",
+  "unitCount": 62,
+  "sourceNote": "AI-generated English translation from the Español text of the pack «Ecclesia de Eucharistia» (ee-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+  "translationProvenance": "ai"
+}

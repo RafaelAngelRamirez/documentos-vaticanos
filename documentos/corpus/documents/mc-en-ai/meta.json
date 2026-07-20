@@ -1,0 +1,13 @@
+{
+  "id": "mc-en-ai",
+  "title": "Marialis cultus",
+  "shortTitle": "MC",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/paul-vi/en/apost_exhortations/documents/hf_p-vi_exh_19740202_marialis-cultus.html",
+  "bodyPath": "documents/mc-en-ai/content.json",
+  "indexPath": "documents/mc-en-ai/index.json",
+  "unitCount": 102,
+  "sourceNote": "AI-generated English translation from the Español text of the pack «Marialis cultus» (mc-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+  "translationProvenance": "ai"
+}

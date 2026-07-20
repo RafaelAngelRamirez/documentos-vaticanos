@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-20T10:56:20.714712Z",
+  "generatedAt": "2026-07-20T11:04:18.662476Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -3248,6 +3248,19 @@
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_01051991_centesimus-annus.html",
       "bodyPath": "documents/ca-en/content.json",
       "indexPath": "documents/ca-en/index.json",
+      "unitCount": 203,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "ca-en-ai",
+      "title": "Centesimus annus",
+      "shortTitle": "CA",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_01051991_centesimus-annus.html",
+      "bodyPath": "documents/ca-en-ai/content.json",
+      "indexPath": "documents/ca-en-ai/index.json",
       "unitCount": 114,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Centesimus annus» (ca-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -3532,14 +3545,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "cceo-en",
+      "id": "cceo-en-ai",
       "title": "Código de los Cánones de las Iglesias Orientales",
       "shortTitle": "CCEO",
       "kind": "canon-law",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_constitutions/documents/hf_jp-ii_apc_19901018_index-codex-can-eccl-orient.html",
-      "bodyPath": "documents/cceo-en/content.json",
-      "indexPath": "documents/cceo-en/index.json",
+      "bodyPath": "documents/cceo-en-ai/content.json",
+      "indexPath": "documents/cceo-en-ai/index.json",
       "unitCount": 1514,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Código de los Cánones de las Iglesias Orientales» (cceo-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -3823,19 +3836,6 @@
       "sourceUrl": "https://www.vatican.va/archive/catechism_sp/index_sp.html"
     },
     {
-      "id": "cic-hi",
-      "title": "Catecismo de la Iglesia Católica",
-      "shortTitle": "Catecismo",
-      "kind": "catechism",
-      "locale": "hi",
-      "sourceUrl": "https://www.vatican.va/archive/catechism_hi/index_hi.html",
-      "bodyPath": "documents/cic-hi/content.json",
-      "indexPath": "documents/cic-hi/index.json",
-      "unitCount": 5092,
-      "sourceNote": "«Catecismo de la Iglesia Católica» (cic-es) पैक के Español पाठ से एआई द्वारा उत्पन्न हिन्दी अनुवाद। यह पवित्र सी की आधिकारिक अनुवाद या आलोचनात्मक संस्करण नहीं है। अध्ययन व मार्गदर्शन हेतु; संदेह की स्थिति में मूल पाठ मान्य होगा।",
-      "translationProvenance": "ai"
-    },
-    {
       "id": "cic-zh",
       "title": "天主教教理",
       "shortTitle": "CCC",
@@ -3847,19 +3847,6 @@
       "unitCount": 2727,
       "sourceNote": "Official Traditional Chinese edition from vatican.va (chinese/ccc PDF / Libreria Editrice Vaticana). Sibling of cic-es; no docCode — stable citations remain on cic-es unitIndex/consecutivo.",
       "translationProvenance": "official"
-    },
-    {
-      "id": "cic-zh-ai",
-      "title": "Catecismo de la Iglesia Católica",
-      "shortTitle": "Catecismo",
-      "kind": "catechism",
-      "locale": "zh",
-      "sourceUrl": "https://www.vatican.va/archive/catechism_zh/index_zh.html",
-      "bodyPath": "documents/cic-zh-ai/content.json",
-      "indexPath": "documents/cic-zh-ai/index.json",
-      "unitCount": 5092,
-      "sourceNote": "由人工智能根据 pack「Catecismo de la Iglesia Católica」(cic-es) 的Español文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
-      "translationProvenance": "ai"
     },
     {
       "id": "cipriano-cartas-ar",
@@ -4031,6 +4018,19 @@
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_30121988_christifideles-laici.html",
       "bodyPath": "documents/cl-en/content.json",
       "indexPath": "documents/cl-en/index.json",
+      "unitCount": 535,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "cl-en-ai",
+      "title": "Christifideles laici",
+      "shortTitle": "CL",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_30121988_christifideles-laici.html",
+      "bodyPath": "documents/cl-en-ai/content.json",
+      "indexPath": "documents/cl-en-ai/index.json",
       "unitCount": 64,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Christifideles laici» (cl-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -4554,6 +4554,19 @@
       "sourceUrl": "https://www.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19680630_credo.html",
       "bodyPath": "documents/cpd-en/content.json",
       "indexPath": "documents/cpd-en/index.json",
+      "unitCount": 39,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "cpd-en-ai",
+      "title": "Credo del Pueblo de Dios",
+      "shortTitle": "CPD",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/paul-vi/en/motu_proprio/documents/hf_p-vi_motu-proprio_19680630_credo.html",
+      "bodyPath": "documents/cpd-en-ai/content.json",
+      "indexPath": "documents/cpd-en-ai/index.json",
       "unitCount": 30,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Credo del Pueblo de Dios» (cpd-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -4618,6 +4631,19 @@
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_16101979_catechesi-tradendae.html",
       "bodyPath": "documents/ct-en/content.json",
       "indexPath": "documents/ct-en/index.json",
+      "unitCount": 255,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "ct-en-ai",
+      "title": "Catechesi tradendae",
+      "shortTitle": "CT",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_16101979_catechesi-tradendae.html",
+      "bodyPath": "documents/ct-en-ai/content.json",
+      "indexPath": "documents/ct-en-ai/index.json",
       "unitCount": 73,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Catechesi tradendae» (ct-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -4746,6 +4772,19 @@
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_18051986_dominum-et-vivificantem.html",
       "bodyPath": "documents/dev-en/content.json",
       "indexPath": "documents/dev-en/index.json",
+      "unitCount": 215,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "dev-en-ai",
+      "title": "Dominum et Vivificantem",
+      "shortTitle": "DeV",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_18051986_dominum-et-vivificantem.html",
+      "bodyPath": "documents/dev-en-ai/content.json",
+      "indexPath": "documents/dev-en-ai/index.json",
       "unitCount": 67,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Dominum et Vivificantem» (dev-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -4874,6 +4913,19 @@
       "sourceUrl": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_29061881_diuturnum.html",
       "bodyPath": "documents/diuturnum-en/content.json",
       "indexPath": "documents/diuturnum-en/index.json",
+      "unitCount": 42,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "diuturnum-en-ai",
+      "title": "Diuturnum illud",
+      "shortTitle": "Diut",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_29061881_diuturnum.html",
+      "bodyPath": "documents/diuturnum-en-ai/content.json",
+      "indexPath": "documents/diuturnum-en-ai/index.json",
       "unitCount": 21,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Diuturnum illud» (diuturnum-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -4938,6 +4990,19 @@
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_30111980_dives-in-misericordia.html",
       "bodyPath": "documents/dm-en/content.json",
       "indexPath": "documents/dm-en/index.json",
+      "unitCount": 117,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "dm-en-ai",
+      "title": "Dives in Misericordia",
+      "shortTitle": "DM",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_30111980_dives-in-misericordia.html",
+      "bodyPath": "documents/dm-en-ai/content.json",
+      "indexPath": "documents/dm-en-ai/index.json",
       "unitCount": 15,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Dives in Misericordia» (dm-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -5257,6 +5322,19 @@
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_20030417_eccl-de-euch.html",
       "bodyPath": "documents/ee-en/content.json",
       "indexPath": "documents/ee-en/index.json",
+      "unitCount": 214,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "ee-en-ai",
+      "title": "Ecclesia de Eucharistia",
+      "shortTitle": "EE",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_20030417_eccl-de-euch.html",
+      "bodyPath": "documents/ee-en-ai/content.json",
+      "indexPath": "documents/ee-en-ai/index.json",
       "unitCount": 62,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Ecclesia de Eucharistia» (ee-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -5398,6 +5476,19 @@
       "sourceUrl": "https://www.vatican.va/content/paul-vi/en/apost_exhortations/documents/hf_p-vi_exh_19751208_evangelii-nuntiandi.html",
       "bodyPath": "documents/en-en/content.json",
       "indexPath": "documents/en-en/index.json",
+      "unitCount": 268,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "en-en-ai",
+      "title": "Evangelii nuntiandi",
+      "shortTitle": "EN",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/paul-vi/en/apost_exhortations/documents/hf_p-vi_exh_19751208_evangelii-nuntiandi.html",
+      "bodyPath": "documents/en-en-ai/content.json",
+      "indexPath": "documents/en-en-ai/index.json",
       "unitCount": 82,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Evangelii nuntiandi» (en-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -5462,6 +5553,19 @@
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25031995_evangelium-vitae.html",
       "bodyPath": "documents/ev-en/content.json",
       "indexPath": "documents/ev-en/index.json",
+      "unitCount": 415,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "ev-en-ai",
+      "title": "Evangelium vitae",
+      "shortTitle": "EV",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_25031995_evangelium-vitae.html",
+      "bodyPath": "documents/ev-en-ai/content.json",
+      "indexPath": "documents/ev-en-ai/index.json",
       "unitCount": 142,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Evangelium vitae» (ev-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -5526,6 +5630,19 @@
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_19811122_familiaris-consortio.html",
       "bodyPath": "documents/fc-en/content.json",
       "indexPath": "documents/fc-en/index.json",
+      "unitCount": 549,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "fc-en-ai",
+      "title": "Familiaris consortio",
+      "shortTitle": "FC",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_19811122_familiaris-consortio.html",
+      "bodyPath": "documents/fc-en-ai/content.json",
+      "indexPath": "documents/fc-en-ai/index.json",
       "unitCount": 86,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Familiaris consortio» (fc-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -5932,6 +6049,19 @@
       "sourceUrl": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_25071968_humanae-vitae.html",
       "bodyPath": "documents/hv-en/content.json",
       "indexPath": "documents/hv-en/index.json",
+      "unitCount": 99,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "hv-en-ai",
+      "title": "Humanae vitae",
+      "shortTitle": "HV",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_25071968_humanae-vitae.html",
+      "bodyPath": "documents/hv-en-ai/content.json",
+      "indexPath": "documents/hv-en-ai/index.json",
       "unitCount": 30,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Humanae vitae» (hv-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -6151,6 +6281,19 @@
       "sourceUrl": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_01111885_immortale-dei.html",
       "bodyPath": "documents/immortale-dei-en/content.json",
       "indexPath": "documents/immortale-dei-en/index.json",
+      "unitCount": 58,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "immortale-dei-en-ai",
+      "title": "Immortale Dei",
+      "shortTitle": "IDei",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_01111885_immortale-dei.html",
+      "bodyPath": "documents/immortale-dei-en-ai/content.json",
+      "indexPath": "documents/immortale-dei-en-ai/index.json",
       "unitCount": 24,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Immortale Dei» (immortale-dei-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -6215,6 +6358,19 @@
       "sourceUrl": "https://www.vatican.va/content/paul-vi/en/apost_constitutions/documents/hf_p-vi_apc_01011967_indulgentiarum-doctrina.html",
       "bodyPath": "documents/indulgentiarum-doctrina-en/content.json",
       "indexPath": "documents/indulgentiarum-doctrina-en/index.json",
+      "unitCount": 114,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "indulgentiarum-doctrina-en-ai",
+      "title": "Indulgentiarum doctrina",
+      "shortTitle": "ID",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/paul-vi/en/apost_constitutions/documents/hf_p-vi_apc_01011967_indulgentiarum-doctrina.html",
+      "bodyPath": "documents/indulgentiarum-doctrina-en-ai/content.json",
+      "indexPath": "documents/indulgentiarum-doctrina-en-ai/index.json",
       "unitCount": 12,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Indulgentiarum doctrina» (indulgentiarum-doctrina-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -6805,6 +6961,19 @@
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_14091981_laborem-exercens.html",
       "bodyPath": "documents/le-en/content.json",
       "indexPath": "documents/le-en/index.json",
+      "unitCount": 147,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "le-en-ai",
+      "title": "Laborem exercens",
+      "shortTitle": "LE",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_14091981_laborem-exercens.html",
+      "bodyPath": "documents/le-en-ai/content.json",
+      "indexPath": "documents/le-en-ai/index.json",
       "unitCount": 87,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Laborem exercens» (le-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -6932,6 +7101,19 @@
       "sourceUrl": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_20061888_libertas.html",
       "bodyPath": "documents/libertas-en/content.json",
       "indexPath": "documents/libertas-en/index.json",
+      "unitCount": 55,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "libertas-en-ai",
+      "title": "Libertas praestantissimum",
+      "shortTitle": "Lib",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_20061888_libertas.html",
+      "bodyPath": "documents/libertas-en-ai/content.json",
+      "indexPath": "documents/libertas-en-ai/index.json",
       "unitCount": 34,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Libertas praestantissimum» (libertas-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -7214,6 +7396,19 @@
       "sourceUrl": "https://www.vatican.va/content/paul-vi/en/apost_exhortations/documents/hf_p-vi_exh_19740202_marialis-cultus.html",
       "bodyPath": "documents/mc-en/content.json",
       "indexPath": "documents/mc-en/index.json",
+      "unitCount": 209,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "mc-en-ai",
+      "title": "Marialis cultus",
+      "shortTitle": "MC",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/paul-vi/en/apost_exhortations/documents/hf_p-vi_exh_19740202_marialis-cultus.html",
+      "bodyPath": "documents/mc-en-ai/content.json",
+      "indexPath": "documents/mc-en-ai/index.json",
       "unitCount": 102,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Marialis cultus» (mc-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -7278,6 +7473,19 @@
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1988/documents/hf_jp-ii_apl_15081988_mulieris-dignitatem.html",
       "bodyPath": "documents/md-en/content.json",
       "indexPath": "documents/md-en/index.json",
+      "unitCount": 169,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "md-en-ai",
+      "title": "Mulieris dignitatem",
+      "shortTitle": "MD",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1988/documents/hf_jp-ii_apl_15081988_mulieris-dignitatem.html",
+      "bodyPath": "documents/md-en-ai/content.json",
+      "indexPath": "documents/md-en-ai/index.json",
       "unitCount": 31,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Mulieris dignitatem» (md-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -7342,6 +7550,19 @@
       "sourceUrl": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_03091965_mysterium.html",
       "bodyPath": "documents/mf-en/content.json",
       "indexPath": "documents/mf-en/index.json",
+      "unitCount": 140,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "mf-en-ai",
+      "title": "Mysterium Fidei",
+      "shortTitle": "MF",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_03091965_mysterium.html",
+      "bodyPath": "documents/mf-en-ai/content.json",
+      "indexPath": "documents/mf-en-ai/index.json",
       "unitCount": 8,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Mysterium Fidei» (mf-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -7523,6 +7744,19 @@
       "sourceUrl": "https://www.vatican.va/content/john-xxiii/en/encyclicals/documents/hf_j-xxiii_enc_15051961_mater.html",
       "bodyPath": "documents/mm-en/content.json",
       "indexPath": "documents/mm-en/index.json",
+      "unitCount": 314,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "mm-en-ai",
+      "title": "Mater et Magistra",
+      "shortTitle": "MM",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-xxiii/en/encyclicals/documents/hf_j-xxiii_enc_15051961_mater.html",
+      "bodyPath": "documents/mm-en-ai/content.json",
+      "indexPath": "documents/mm-en-ai/index.json",
       "unitCount": 251,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Mater et Magistra» (mm-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -7868,6 +8102,19 @@
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/2001/documents/hf_jp-ii_apl_20010106_novo-millennio-ineunte.html",
       "bodyPath": "documents/nmi-en/content.json",
       "indexPath": "documents/nmi-en/index.json",
+      "unitCount": 182,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "nmi-en-ai",
+      "title": "Novo millennio ineunte",
+      "shortTitle": "NMI",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/2001/documents/hf_jp-ii_apl_20010106_novo-millennio-ineunte.html",
+      "bodyPath": "documents/nmi-en-ai/content.json",
+      "indexPath": "documents/nmi-en-ai/index.json",
       "unitCount": 59,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Novo millennio ineunte» (nmi-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -8124,6 +8371,19 @@
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_25031992_pastores-dabo-vobis.html",
       "bodyPath": "documents/pdv-en/content.json",
       "indexPath": "documents/pdv-en/index.json",
+      "unitCount": 544,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text from vatican.va"
+    },
+    {
+      "id": "pdv-en-ai",
+      "title": "Pastores dabo vobis",
+      "shortTitle": "PDV",
+      "kind": "magisterium",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_25031992_pastores-dabo-vobis.html",
+      "bodyPath": "documents/pdv-en-ai/content.json",
+      "indexPath": "documents/pdv-en-ai/index.json",
       "unitCount": 82,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Pastores dabo vobis» (pdv-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -8244,14 +8504,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "pg-en",
+      "id": "pg-en-ai",
       "title": "Pastores gregis",
       "shortTitle": "PG",
       "kind": "magisterium",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_20031016_pastores-gregis.html",
-      "bodyPath": "documents/pg-en/content.json",
-      "indexPath": "documents/pg-en/index.json",
+      "bodyPath": "documents/pg-en-ai/content.json",
+      "indexPath": "documents/pg-en-ai/index.json",
       "unitCount": 74,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Pastores gregis» (pg-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -8372,14 +8632,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "pp-en",
+      "id": "pp-en-ai",
       "title": "Populorum progressio",
       "shortTitle": "PP",
       "kind": "magisterium",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_26031967_populorum.html",
-      "bodyPath": "documents/pp-en/content.json",
-      "indexPath": "documents/pp-en/index.json",
+      "bodyPath": "documents/pp-en-ai/content.json",
+      "indexPath": "documents/pp-en-ai/index.json",
       "unitCount": 87,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Populorum progressio» (pp-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -8436,14 +8696,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "pt-en",
+      "id": "pt-en-ai",
       "title": "Pacem in terris",
       "shortTitle": "PT",
       "kind": "magisterium",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/john-xxiii/en/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html",
-      "bodyPath": "documents/pt-en/content.json",
-      "indexPath": "documents/pt-en/index.json",
+      "bodyPath": "documents/pt-en-ai/content.json",
+      "indexPath": "documents/pt-en-ai/index.json",
       "unitCount": 169,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Pacem in terris» (pt-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -8500,14 +8760,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "quanta-cura-en",
+      "id": "quanta-cura-en-ai",
       "title": "Quanta cura",
       "shortTitle": "QC",
       "kind": "magisterium",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/pius-ix/en/documents/encyclica-quanta-cura-8-decembris-1864.html",
-      "bodyPath": "documents/quanta-cura-en/content.json",
-      "indexPath": "documents/quanta-cura-en/index.json",
+      "bodyPath": "documents/quanta-cura-en-ai/content.json",
+      "indexPath": "documents/quanta-cura-en-ai/index.json",
       "unitCount": 96,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Quanta cura» (quanta-cura-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -8577,14 +8837,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "quas-primas-en",
+      "id": "quas-primas-en-ai",
       "title": "Quas primas",
       "shortTitle": "QP",
       "kind": "magisterium",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/pius-xi/en/encyclicals/documents/hf_p-xi_enc_11121925_quas-primas.html",
-      "bodyPath": "documents/quas-primas-en/content.json",
-      "indexPath": "documents/quas-primas-en/index.json",
+      "bodyPath": "documents/quas-primas-en-ai/content.json",
+      "indexPath": "documents/quas-primas-en-ai/index.json",
       "unitCount": 35,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Quas primas» (quas-primas-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -8641,14 +8901,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "rh-en",
+      "id": "rh-en-ai",
       "title": "Redemptor hominis",
       "shortTitle": "RH",
       "kind": "magisterium",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_04031979_redemptor-hominis.html",
-      "bodyPath": "documents/rh-en/content.json",
-      "indexPath": "documents/rh-en/index.json",
+      "bodyPath": "documents/rh-en-ai/content.json",
+      "indexPath": "documents/rh-en-ai/index.json",
       "unitCount": 136,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Redemptor hominis» (rh-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -8705,14 +8965,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "rm-en",
+      "id": "rm-en-ai",
       "title": "Redemptoris missio",
       "shortTitle": "RM",
       "kind": "magisterium",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_07121990_redemptoris-missio.html",
-      "bodyPath": "documents/rm-en/content.json",
-      "indexPath": "documents/rm-en/index.json",
+      "bodyPath": "documents/rm-en-ai/content.json",
+      "indexPath": "documents/rm-en-ai/index.json",
       "unitCount": 92,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Redemptoris missio» (rm-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -8769,14 +9029,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "rp-en",
+      "id": "rp-en-ai",
       "title": "Reconciliatio et paenitentia",
       "shortTitle": "RP",
       "kind": "magisterium",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_02121984_reconciliatio-et-paenitentia.html",
-      "bodyPath": "documents/rp-en/content.json",
-      "indexPath": "documents/rp-en/index.json",
+      "bodyPath": "documents/rp-en-ai/content.json",
+      "indexPath": "documents/rp-en-ai/index.json",
       "unitCount": 35,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Reconciliatio et paenitentia» (rp-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -8833,14 +9093,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "sa-en",
+      "id": "sa-en-ai",
       "title": "Salvifici doloris",
       "shortTitle": "SA",
       "kind": "magisterium",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1984/documents/hf_jp-ii_apl_11021984_salvifici-doloris.html",
-      "bodyPath": "documents/sa-en/content.json",
-      "indexPath": "documents/sa-en/index.json",
+      "bodyPath": "documents/sa-en-ai/content.json",
+      "indexPath": "documents/sa-en-ai/index.json",
       "unitCount": 31,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Salvifici doloris» (sa-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -8960,14 +9220,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "srs-en",
+      "id": "srs-en-ai",
       "title": "Sollicitudo rei socialis",
       "shortTitle": "SRS",
       "kind": "magisterium",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_30121987_sollicitudo-rei-socialis.html",
-      "bodyPath": "documents/srs-en/content.json",
-      "indexPath": "documents/srs-en/index.json",
+      "bodyPath": "documents/srs-en-ai/content.json",
+      "indexPath": "documents/srs-en-ai/index.json",
       "unitCount": 49,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Sollicitudo rei socialis» (srs-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -9024,14 +9284,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "tma-en",
+      "id": "tma-en-ai",
       "title": "Tertio millennio adveniente",
       "shortTitle": "TMA",
       "kind": "magisterium",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1994/documents/hf_jp-ii_apl_19941110_tertio-millennio-adveniente.html",
-      "bodyPath": "documents/tma-en/content.json",
-      "indexPath": "documents/tma-en/index.json",
+      "bodyPath": "documents/tma-en-ai/content.json",
+      "indexPath": "documents/tma-en-ai/index.json",
       "unitCount": 59,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Tertio millennio adveniente» (tma-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -9305,14 +9565,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "vc-en",
+      "id": "vc-en-ai",
       "title": "Vita consecrata",
       "shortTitle": "VC",
       "kind": "magisterium",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_25031996_vita-consecrata.html",
-      "bodyPath": "documents/vc-en/content.json",
-      "indexPath": "documents/vc-en/index.json",
+      "bodyPath": "documents/vc-en-ai/content.json",
+      "indexPath": "documents/vc-en-ai/index.json",
       "unitCount": 112,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Vita consecrata» (vc-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
@@ -9446,14 +9706,14 @@
       "translationProvenance": "ai"
     },
     {
-      "id": "vs-en",
+      "id": "vs-en-ai",
       "title": "Veritatis splendor",
       "shortTitle": "VS",
       "kind": "magisterium",
       "locale": "en",
       "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_06081993_veritatis-splendor.html",
-      "bodyPath": "documents/vs-en/content.json",
-      "indexPath": "documents/vs-en/index.json",
+      "bodyPath": "documents/vs-en-ai/content.json",
+      "indexPath": "documents/vs-en-ai/index.json",
       "unitCount": 184,
       "sourceNote": "AI-generated English translation from the Español text of the pack «Veritatis splendor» (vs-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"

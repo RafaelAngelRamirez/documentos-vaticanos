@@ -1,0 +1,13 @@
+{
+  "id": "pp-en-ai",
+  "title": "Populorum progressio",
+  "shortTitle": "PP",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_26031967_populorum.html",
+  "bodyPath": "documents/pp-en-ai/content.json",
+  "indexPath": "documents/pp-en-ai/index.json",
+  "unitCount": 87,
+  "sourceNote": "AI-generated English translation from the Español text of the pack «Populorum progressio» (pp-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+  "translationProvenance": "ai"
+}
