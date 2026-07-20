@@ -20,8 +20,12 @@ UI links live under **Acerca de** (`/about`).
 - Workflow id: `DOCVATBuildV1sc`
 - Name: `DOCVAT-build v1 (sidecar)`
 - Triggers:
-  - GitHub push on `RafaelAngelRamirez/documentos-vaticanos` (branches `master`, `typescript-migration`), filtered to non-`chore(release)` commits (same pattern as Imperium)
-  - Manual webhook `POST /webhook/docvat-build` with body `{ "branch": "master" }`
+  - GitHub push on `RafaelAngelRamirez/documentos-vaticanos` (branches `master`, `typescript-migration`)
+  - Manual webhook `POST /webhook/docvat-build` with body `{ "branch": "typescript-migration" }`
+- **Skip-CI (no build)** when the push commit message(s) match any of:
+  - `chore(release)` — avoids loop after `standard-version` push
+  - `multi-locale twins progress` / `auto multi-locale twins` — corpus twin goal auto-commit bots  
+  Implemented in node **Nombre de la rama** (`skip_ci_flag`) + IF **No es commit de skip-CI**.
 - Runner: `imperium-build-runner:latest` (glibc sidecar) with volumes:
   - `codice-progressio_n8n_build`, `_android_sdk`, `_gradle`, `_electron`
 - Entry: clone → run **repo** `.ci-build.sh` in `imperium-build-runner` → package web/apk/electron → collect downloads → `ci-docker-push.sh` → `ci-deploy-docvat.sh` → n8n “Artifact commit” + push from `/tmp/repo/docvat`

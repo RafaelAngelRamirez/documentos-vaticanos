@@ -61,7 +61,7 @@
       },
       {
         "parameters": {
-          "jsCode": "// Normalize GitHub push or manual webhook into branch_name.\nconst out = [];\nfor (const item of $input.all()) {\n  const j = item.json;\n  // Manual webhook body: { branch: \"master\" } or { ref: \"refs/heads/master\" }\n  let ref = j.body?.ref || j.ref || (j.body?.branch ? `refs/heads/${j.body.branch}` : null);\n  if (!ref && j.body?.branch_name) ref = `refs/heads/${j.body.branch_name}`;\n  // Default to master for bare webhook pings\n  if (!ref && (j.headers || j.query)) ref = \"refs/heads/master\";\n  if (!ref || !String(ref).startsWith(\"refs/heads/\")) continue;\n  item.json.branch_name = String(ref).split(\"refs/heads/\")[1];\n  const staticData = $getWorkflowStaticData(\"global\");\n  staticData.branch_name = item.json.branch_name;\n  // commit message for filter\n  item.json.head_commit_message = j.body?.head_commit?.message || j.head_commit?.message || j.body?.message || \"\";\n  out.push(item);\n}\nreturn out.length ? out : [{ json: { branch_name: \"master\", head_commit_message: \"manual\" } }];\n"
+          "jsCode": "// Normalize GitHub push or manual webhook into branch_name + commit messages.\n// Skip patterns (filtered by IF \"No es una referencia de tag\"):\n//   - chore(release)  → avoid release loop after standard-version push\n//   - multi-locale twins progress / auto multi-locale twins → goal auto-commit bots\nconst out = [];\nconst SKIP_RE = /chore\\(release\\)|multi-locale\\s+twins\\s+progress|auto\\s+multi-locale\\s+twins/i;\n\nfor (const item of $input.all()) {\n  const j = item.json;\n  // Manual webhook body: { branch: \"master\" } or { ref: \"refs/heads/master\" }\n  let ref = j.body?.ref || j.ref || (j.body?.branch ? `refs/heads/${j.body.branch}` : null);\n  if (!ref && j.body?.branch_name) ref = `refs/heads/${j.body.branch_name}`;\n  // Default to typescript-migration for bare webhook pings (product branch)\n  if (!ref && (j.headers || j.query)) ref = \"refs/heads/typescript-migration\";\n  if (!ref || !String(ref).startsWith(\"refs/heads/\")) continue;\n\n  item.json.branch_name = String(ref).split(\"refs/heads/\")[1];\n  const staticData = $getWorkflowStaticData(\"global\");\n  staticData.branch_name = item.json.branch_name;\n\n  const body = j.body || {};\n  const commits = body.commits || j.commits || [];\n  const commitMsgs = commits.map((c) => c?.message || \"\").filter(Boolean);\n  const headMsg =\n    body.head_commit?.message ||\n    j.head_commit?.message ||\n    body.message ||\n    commitMsgs[0] ||\n    \"\";\n\n  item.json.head_commit_message = headMsg;\n  item.json.all_commit_messages = commitMsgs.length\n    ? commitMsgs.join(\"\\n---\\n\")\n    : headMsg;\n\n  // skip if head matches, or every commit in the push is skippable (bot-only push)\n  const headSkip = SKIP_RE.test(headMsg);\n  const allSkip =\n    commitMsgs.length > 0 && commitMsgs.every((m) => SKIP_RE.test(m));\n  item.json.skip_ci = headSkip || allSkip;\n  item.json.skip_ci_flag = (headSkip || allSkip) ? 'yes' : 'no';\n  item.json.skip_ci_reason = headSkip\n    ? \"head_commit matches skip pattern\"\n    : allSkip\n      ? \"all commits match skip pattern\"\n      : \"\";\n\n  out.push(item);\n}\n\n// Manual empty webhook → allow build on default branch (not skip)\nreturn out.length\n  ? out\n  : [\n      {\n        json: {\n          branch_name: \"typescript-migration\",\n          head_commit_message: \"manual\",\n          all_commit_messages: \"manual\",\n          skip_ci: false,\n          skip_ci_flag: 'no',\n          skip_ci_reason: '',\n        },\n      },\n    ];\n"
         },
         "type": "n8n-nodes-base.code",
         "typeVersion": 2,
@@ -78,14 +78,32 @@
             "options": {
               "caseSensitive": true,
               "leftValue": "",
-              "typeValidation": "strict",
+              "typeValidation": "loose",
               "version": 2
             },
             "conditions": [
               {
+                "id": "not-skip-flag",
+                "leftValue": "={{ $json.skip_ci_flag }}",
+                "rightValue": "yes",
+                "operator": {
+                  "type": "string",
+                  "operation": "notEquals"
+                }
+              },
+              {
                 "id": "no-release-tag",
                 "leftValue": "={{ $json.head_commit_message }}",
                 "rightValue": "chore(release)",
+                "operator": {
+                  "type": "string",
+                  "operation": "notContains"
+                }
+              },
+              {
+                "id": "no-twins-progress",
+                "leftValue": "={{ $json.all_commit_messages || $json.head_commit_message }}",
+                "rightValue": "multi-locale twins progress",
                 "operator": {
                   "type": "string",
                   "operation": "notContains"
@@ -103,7 +121,7 @@
           -912
         ],
         "id": "docvat-filter-release",
-        "name": "No es una referencia de tag"
+        "name": "No es commit de skip-CI"
       },
       {
         "parameters": {
@@ -465,25 +483,7 @@
         "main": [
           [
             {
-              "node": "No es una referencia de tag",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
-      },
-      "No es una referencia de tag": {
-        "main": [
-          [
-            {
-              "node": "Switch",
-              "type": "main",
-              "index": 0
-            }
-          ],
-          [
-            {
-              "node": "No Operation, do nothing",
+              "node": "No es commit de skip-CI",
               "type": "main",
               "index": 0
             }
@@ -652,6 +652,24 @@
           [
             {
               "node": "Fail after error notify",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "No es commit de skip-CI": {
+        "main": [
+          [
+            {
+              "node": "Switch",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "No Operation, do nothing",
               "type": "main",
               "index": 0
             }
