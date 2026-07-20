@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-20T11:47:51.471144Z",
+  "generatedAt": "2026-07-20T11:48:31.573690Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -3684,6 +3684,19 @@
       "unitCount": 1744,
       "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «Código de Derecho Canónico» (cdc-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
       "translationProvenance": "ai"
+    },
+    {
+      "id": "cdc-en",
+      "title": "Code of Canon Law",
+      "shortTitle": "CDC",
+      "kind": "canon-law",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_en.html",
+      "bodyPath": "documents/cdc-en/content.json",
+      "indexPath": "documents/cdc-en/index.json",
+      "unitCount": 1102,
+      "translationProvenance": "official",
+      "sourceNote": "Official English text of the Code of Canon Law from vatican.va"
     },
     {
       "id": "cdc-en-ai",

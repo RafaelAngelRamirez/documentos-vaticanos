@@ -1,0 +1,13 @@
+{
+  "id": "cdc-en",
+  "title": "Code of Canon Law",
+  "shortTitle": "CDC",
+  "kind": "canon-law",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_en.html",
+  "bodyPath": "documents/cdc-en/content.json",
+  "indexPath": "documents/cdc-en/index.json",
+  "unitCount": 1102,
+  "translationProvenance": "official",
+  "sourceNote": "Official English text of the Code of Canon Law from vatican.va"
+}
