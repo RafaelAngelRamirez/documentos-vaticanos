@@ -111,7 +111,13 @@ async function main() {
     'nav.saints',
     'nav.themes',
     'nav.search_placeholder',
+    'nav.search',
+    'nav.bottom_aria',
+    'nav.main_aria',
+    'nav.reader_aria',
     'app.name',
+    'auth.no_account',
+    'auth.create_account',
     'common.loading',
     'common.back',
     'common.source',
@@ -140,9 +146,12 @@ async function main() {
     'reader.language',
     'reader.markers',
     'reader.index',
+    'reader.reading',
+    'reader.prefs_aria',
     'account.title',
     'account.logout',
     'account.login',
+    'inicio.title_html',
     'inicio.lede',
     'inicio.start',
     'inicio.have_account',
@@ -158,6 +167,87 @@ async function main() {
       // no leftover raw keys as values (except intentional)
       assert.notStrictEqual(val, key, `${loc}: value is key leftover for ${key}`);
     }
+  }
+
+  // Chrome surfaces: keys used by shipped bnav / wbar / inicio templates
+  const chromeKeysBySurface = {
+    bnav: ['nav.home', 'nav.library', 'nav.study', 'nav.settings', 'nav.bottom_aria'],
+    wbar: [
+      'app.name',
+      'nav.home',
+      'nav.library',
+      'nav.study',
+      'nav.parents',
+      'nav.doctors',
+      'nav.saints',
+      'nav.themes',
+      'nav.search_placeholder',
+      'nav.search',
+      'nav.main_aria',
+      'nav.reader_aria',
+      'reader.index',
+      'reader.markers',
+      'reader.reading',
+      'reader.prefs_aria',
+      'auth.no_account',
+      'auth.create_account',
+      'nav.account',
+    ],
+    inicio: [
+      'inicio.title_html',
+      'inicio.lede',
+      'inicio.start',
+      'inicio.have_account',
+      'inicio.saints_today',
+    ],
+  };
+  const root = path.resolve(HERE, '../../..');
+  const sources = {
+    bnav: fs.readFileSync(
+      path.join(root, 'app/components/bnav/bnav.component.ts'),
+      'utf8',
+    ),
+    wbar: fs.readFileSync(
+      path.join(root, 'app/components/wbar/wbar.component.ts'),
+      'utf8',
+    ),
+    inicio:
+      fs.readFileSync(
+        path.join(root, 'app/pages/inicio/inicio.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/inicio/inicio.component.html'),
+        'utf8',
+      ),
+  };
+  for (const [surface, keys] of Object.entries(chromeKeysBySurface)) {
+    const src = sources[surface];
+    assert.ok(src.includes('UiI18nService') || surface === 'inicio', `${surface}: UiI18nService`);
+    if (surface === 'inicio') {
+      assert.ok(src.includes('UiI18nService'), 'inicio: UiI18nService import');
+    }
+    // no hardcoded Spanish nav labels in chrome templates
+    if (surface === 'bnav' || surface === 'wbar') {
+      assert.ok(!src.includes('>Inicio<'), `${surface}: leftover hardcoded Inicio`);
+      assert.ok(!src.includes('>Biblioteca<'), `${surface}: leftover hardcoded Biblioteca`);
+      assert.ok(!src.includes('>Ajustes<'), `${surface}: leftover hardcoded Ajustes`);
+    }
+    for (const key of keys) {
+      assert.ok(
+        src.includes(`'${key}'`) || src.includes(`"${key}"`),
+        `${surface}: template must reference key ${key}`,
+      );
+      for (const loc of LOCALES) {
+        const val = L.t(catalogs, loc, key);
+        assert.ok(val && val !== key, `${surface}/${loc}/${key} resolves`);
+      }
+    }
+  }
+  // Distinct labels across locales for primary nav (criterion 1)
+  for (const key of ['nav.home', 'nav.library', 'nav.study', 'nav.settings']) {
+    const vals = LOCALES.map((loc) => L.t(catalogs, loc, key));
+    assert.strictEqual(new Set(vals).size, LOCALES.length, `all locales differ for ${key}: ${vals}`);
   }
 
   // uiLocaleLabel native names

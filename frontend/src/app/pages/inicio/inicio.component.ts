@@ -35,6 +35,7 @@ import {
   pickPrimaryMisalEntry,
   pickSecondaryMisalEntry,
 } from 'src/app/core/misal/misal-liturgia.logic';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import { NavigationService, ROUTE } from 'src/app/services/navigation.service';
 import { ReadingProgressService } from 'src/app/services/reading-progress.service';
@@ -128,6 +129,8 @@ export class InicioComponent implements OnInit, OnDestroy {
   readonly misalLede = misalBlockLede();
 
   private sub = new Subscription();
+  /** Tick so template labels re-resolve when UI locale changes. */
+  localeTick = 0;
 
   get windowsDownloadName(): string {
     const href = this.links.windows || '';
@@ -146,7 +149,19 @@ export class InicioComponent implements OnInit, OnDestroy {
     private progress: ReadingProgressService,
     private corpus: CorpusService,
     private readerPrefs: ReaderPreferencesService,
-  ) {}
+    public i18n: UiI18nService,
+  ) {
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
+  }
+
+  t(key: string): string {
+    void this.localeTick;
+    return this.i18n.t(key);
+  }
 
   ngOnInit(): void {
     this.showDownloads = this.resolveShowDownloads();

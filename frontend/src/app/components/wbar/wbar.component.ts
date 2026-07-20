@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { ROUTE } from 'src/app/services/navigation.service';
 
 export type WbarSection =
@@ -34,13 +36,15 @@ export type WbarMode = 'nav' | 'auth' | 'reader';
       class="wbar desktop-wbar auth-wbar"
       role="banner"
     >
-      <a routerLink="/inicio" class="wmark-link" aria-label="Inicio">
+      <a routerLink="/inicio" class="wmark-link" [attr.aria-label]="t('nav.home')">
         <span class="wmark">DV</span>
       </a>
-      <span class="wname">Documentos Vaticanos</span>
+      <span class="wname">{{ t('app.name') }}</span>
       <span class="wlink auth-cta" style="margin-left: auto">
-        ¿Aún no tiene cuenta?
-        <a href="javascript:void(0)" (click)="createAccount.emit()">Crear cuenta</a>
+        {{ t('auth.no_account') }}
+        <a href="javascript:void(0)" (click)="createAccount.emit()">{{
+          t('auth.create_account')
+        }}</a>
       </span>
     </header>
 
@@ -49,24 +53,24 @@ export type WbarMode = 'nav' | 'auth' | 'reader';
       *ngIf="mode === 'reader'"
       class="wbar desktop-wbar reader-wbar"
       role="navigation"
-      aria-label="Chrome de lectura"
+      [attr.aria-label]="t('nav.reader_aria')"
     >
-      <a routerLink="/inicio" class="wmark-link" aria-label="Inicio">
+      <a routerLink="/inicio" class="wmark-link" [attr.aria-label]="t('nav.home')">
         <span class="wmark">DV</span>
       </a>
       <span class="fs13 muted reader-ttl" [attr.title]="readerTitle">{{
-        readerTitle || 'Lectura'
+        readerTitle || t('reader.reading')
       }}</span>
       <button type="button" class="wlink" style="margin-left: auto" (click)="indexClick.emit()">
-        Índice
+        {{ t('reader.index') }}
       </button>
-      <a routerLink="/notas" class="wlink">Marcadores</a>
+      <a routerLink="/notas" class="wlink">{{ t('reader.markers') }}</a>
       <button
         type="button"
         class="iconb serif"
         style="width: 34px; height: 34px"
         (click)="prefsClick.emit()"
-        aria-label="Ajustes de lectura"
+        [attr.aria-label]="t('reader.prefs_aria')"
       >
         Aa
       </button>
@@ -77,30 +81,42 @@ export type WbarMode = 'nav' | 'auth' | 'reader';
       *ngIf="mode === 'nav'"
       class="wbar desktop-wbar"
       role="navigation"
-      aria-label="Navegación principal"
+      [attr.aria-label]="t('nav.main_aria')"
     >
-      <a routerLink="/inicio" class="wmark-link" aria-label="Inicio">
+      <a routerLink="/inicio" class="wmark-link" [attr.aria-label]="t('nav.home')">
         <span class="wmark">DV</span>
       </a>
-      <span class="wname">Documentos Vaticanos</span>
-      <a routerLink="/inicio" class="wlink" [class.on]="section === 'inicio'">Inicio</a>
-      <a routerLink="/biblioteca" class="wlink" [class.on]="section === 'biblioteca'"
-        >Biblioteca</a
-      >
-      <a routerLink="/estudio" class="wlink" [class.on]="section === 'estudio'">Estudio</a>
-      <a routerLink="/padres" class="wlink" [class.on]="section === 'padres'">Padres</a>
-      <a routerLink="/doctores" class="wlink" [class.on]="section === 'doctores'">Doctores</a>
-      <a routerLink="/santoral" class="wlink" [class.on]="section === 'santoral'">Santoral</a>
-      <a routerLink="/cuenta/temas" class="wlink" [class.on]="section === 'temas'">Temas</a>
+      <span class="wname">{{ t('app.name') }}</span>
+      <a routerLink="/inicio" class="wlink" [class.on]="section === 'inicio'">{{
+        t('nav.home')
+      }}</a>
+      <a routerLink="/biblioteca" class="wlink" [class.on]="section === 'biblioteca'">{{
+        t('nav.library')
+      }}</a>
+      <a routerLink="/estudio" class="wlink" [class.on]="section === 'estudio'">{{
+        t('nav.study')
+      }}</a>
+      <a routerLink="/padres" class="wlink" [class.on]="section === 'padres'">{{
+        t('nav.parents')
+      }}</a>
+      <a routerLink="/doctores" class="wlink" [class.on]="section === 'doctores'">{{
+        t('nav.doctors')
+      }}</a>
+      <a routerLink="/santoral" class="wlink" [class.on]="section === 'santoral'">{{
+        t('nav.saints')
+      }}</a>
+      <a routerLink="/cuenta/temas" class="wlink" [class.on]="section === 'temas'">{{
+        t('nav.themes')
+      }}</a>
       <input
         class="wsearch"
         type="search"
-        placeholder="Buscar…"
+        [attr.placeholder]="t('nav.search_placeholder')"
         [value]="q"
         (keydown.enter)="search($event)"
-        aria-label="Buscar"
+        [attr.aria-label]="t('nav.search')"
       />
-      <a routerLink="/cuenta" class="dot" [attr.title]="auth.user?.name || 'Cuenta'">{{
+      <a routerLink="/cuenta" class="dot" [attr.title]="auth.user?.name || t('nav.account')">{{
         initials
       }}</a>
     </header>
@@ -160,7 +176,7 @@ export type WbarMode = 'nav' | 'auth' | 'reader';
     `,
   ],
 })
-export class WbarComponent {
+export class WbarComponent implements OnDestroy {
   @Input() active: WbarSection = null;
   @Input() mode: WbarMode = 'nav';
   /** 5D: título compacto del documento en lectura. */
@@ -169,11 +185,30 @@ export class WbarComponent {
   @Output() prefsClick = new EventEmitter<void>();
   @Output() indexClick = new EventEmitter<void>();
   q = '';
+  /** Tick so labels re-resolve when locale changes. */
+  localeTick = 0;
+  private sub = new Subscription();
 
   constructor(
     public auth: AuthService,
-    private router: Router
-  ) {}
+    private router: Router,
+    public i18n: UiI18nService,
+  ) {
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+
+  t(key: string): string {
+    void this.localeTick;
+    return this.i18n.t(key);
+  }
 
   get section(): WbarSection {
     if (this.active) return this.active;

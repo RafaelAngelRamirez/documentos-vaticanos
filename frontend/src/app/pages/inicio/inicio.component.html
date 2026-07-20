@@ -1,22 +1,19 @@
 <div class="app welcome">
   <div class="wbody">
     <div class="mark">DV</div>
-    <div class="wtitle serif">
-      Los grandes textos,<br />para leer con calma
-    </div>
+    <div class="wtitle serif" [innerHTML]="t('inicio.title_html')"></div>
     <p class="fs14 muted wlede">
-      Concilios, encíclicas, el Catecismo y los Padres de la Iglesia. Sin
-      distracciones, también sin conexión.
+      {{ t('inicio.lede') }}
     </p>
     <div class="dots" aria-hidden="true">
       <span class="dotp on"></span><span class="dotp"></span
       ><span class="dotp"></span>
     </div>
     <button type="button" class="primary wbtn" (click)="goDocuments()">
-      Empezar
+      {{ t('inicio.start') }}
     </button>
     <div class="fs13 wlink">
-      <a href="javascript:void(0)" (click)="goCuenta()">Ya tengo cuenta</a>
+      <a href="javascript:void(0)" (click)="goCuenta()">{{ t('inicio.have_account') }}</a>
     </div>
 
     <!-- Misal / liturgia (IGMR + APC · vatican.va free HTML) next to saints -->
@@ -90,7 +87,7 @@
       data-testid="inicio-saints-day"
       aria-labelledby="inicio-saints-heading"
     >
-      <h2 id="inicio-saints-heading" class="wsaints-title">Santos del día</h2>
+      <h2 id="inicio-saints-heading" class="wsaints-title">{{ t('inicio.saints_today') }}</h2>
       <p class="wsaints-date muted" *ngIf="feastLabelEs">
         {{ feastLabelEs }}
       </p>

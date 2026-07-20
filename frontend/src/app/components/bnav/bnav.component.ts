@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { ROUTE } from 'src/app/services/navigation.service';
 
 export type BnavSection =
@@ -20,14 +22,14 @@ export type BnavSection =
   selector: 'app-bnav',
   imports: [CommonModule],
   template: `
-    <nav class="bnav" aria-label="Navegación inferior">
+    <nav class="bnav" [attr.aria-label]="i18n.t('nav.bottom_aria')">
       <button
         type="button"
         class="bitem"
         [class.on]="section === 'inicio'"
         (click)="go(['/', route.inicio])"
       >
-        <span class="bico">⌂</span>Inicio
+        <span class="bico">⌂</span>{{ t('nav.home') }}
       </button>
       <button
         type="button"
@@ -35,7 +37,7 @@ export type BnavSection =
         [class.on]="section === 'biblioteca'"
         (click)="go(['/biblioteca'])"
       >
-        <span class="bico">▤</span>Biblioteca
+        <span class="bico">▤</span>{{ t('nav.library') }}
       </button>
       <button
         type="button"
@@ -43,7 +45,7 @@ export type BnavSection =
         [class.on]="section === 'estudio'"
         (click)="go(['/estudios'])"
       >
-        <span class="bico">✎</span>Estudio
+        <span class="bico">✎</span>{{ t('nav.study') }}
       </button>
       <button
         type="button"
@@ -51,7 +53,7 @@ export type BnavSection =
         [class.on]="section === 'ajustes'"
         (click)="go(['/ajustes'])"
       >
-        <span class="bico">☰</span>Ajustes
+        <span class="bico">☰</span>{{ t('nav.settings') }}
       </button>
     </nav>
   `,
@@ -65,13 +67,34 @@ export type BnavSection =
     `,
   ],
 })
-export class BnavComponent {
+export class BnavComponent implements OnDestroy {
   /** Forzar sección activa; si se omite, se deriva de la URL actual. */
   @Input() current: BnavSection = null;
 
   route = ROUTE;
+  /** Tick so labels re-resolve when locale changes. */
+  localeTick = 0;
+  private sub = new Subscription();
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    public i18n: UiI18nService,
+  ) {
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+
+  t(key: string): string {
+    void this.localeTick;
+    return this.i18n.t(key);
+  }
 
   get section(): BnavSection {
     if (this.current) return this.current;
@@ -84,8 +107,6 @@ export class BnavComponent {
       p.startsWith('/biblioteca') ||
       p.includes('documentos/listar') ||
       p.startsWith('/buscar') ||
-      // Padres, Santoral y Explorar/Temas pertenecen conceptualmente a Biblioteca
-      // (la wbar de escritorio tiene wlinks propios: Padres / Santoral / Temas).
       p.startsWith('/padres') ||
       p.startsWith('/doctores') ||
       p.startsWith('/santoral') ||
