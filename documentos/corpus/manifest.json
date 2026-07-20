@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-20T08:11:49.386518Z",
+  "generatedAt": "2026-07-20T08:13:28.379664Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -3146,6 +3146,19 @@
       "author": "Athanasius of Alexandria",
       "compiler": "New Advent / NPNF (public domain)",
       "sourceNote": "由人工智能根据 pack「On the Incarnation of the Word」(atanasio-de-incarnatione-en) 的English文本生成的中文翻译。并非罗马教廷的官方译本，亦非校勘本。仅供研读与参考；如有疑义，以源文本为准。",
+      "translationProvenance": "ai"
+    },
+    {
+      "id": "bible-pueblo-de-dios-en",
+      "title": "Biblia (Pueblo de Dios)",
+      "shortTitle": "Biblia",
+      "kind": "bible",
+      "locale": "en",
+      "sourceUrl": "https://www.vatican.va/archive/ESL0506/__P1.HTM",
+      "bodyPath": "documents/bible-pueblo-de-dios-en/content.json",
+      "indexPath": "documents/bible-pueblo-de-dios-en/index.json",
+      "unitCount": 35652,
+      "sourceNote": "AI-generated English translation from the Español text of the pack «Biblia (Pueblo de Dios)» (bible-pueblo-de-dios-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
       "translationProvenance": "ai"
     },
     {
