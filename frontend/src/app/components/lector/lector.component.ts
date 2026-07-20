@@ -31,6 +31,7 @@ import {
   isAiEdition,
   mapUnitIndexOnLocaleSwitch,
 } from 'src/app/core/corpus/document-locale.logic';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { ReadingProgressService } from 'src/app/services/reading-progress.service';
 import { AnotacionesService } from 'src/app/services/anotaciones.service';
 import { DvSheetComponent } from '../dv-sheet/dv-sheet.component';
@@ -176,6 +177,9 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.attachObserver(el?.nativeElement);
   }
 
+  /** Tick so chrome labels re-resolve when UI locale changes. */
+  localeTick = 0;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -190,13 +194,24 @@ export class LectorComponent implements OnInit, OnDestroy {
     private narrPrefs: NarratorPreferencesService,
     private narracionFg: NarracionFgService,
     private zone: NgZone,
-    private host: ElementRef<HTMLElement>
+    private host: ElementRef<HTMLElement>,
+    public i18n: UiI18nService,
   ) {
     this.sub.add(
       combineLatest([this.route.paramMap, this.route.url]).subscribe(() => {
         this.load_data();
       })
     );
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
+  }
+
+  t(key: string, params?: Record<string, string | number>): string {
+    void this.localeTick;
+    return this.i18n.t(key, params);
   }
 
   ngOnInit(): void {

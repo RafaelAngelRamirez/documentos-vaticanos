@@ -169,7 +169,7 @@ async function main() {
     }
   }
 
-  // Chrome surfaces: keys used by shipped bnav / wbar / inicio templates
+  // Chrome surfaces: keys used by shipped component templates
   const chromeKeysBySurface = {
     bnav: ['nav.home', 'nav.library', 'nav.study', 'nav.settings', 'nav.bottom_aria'],
     wbar: [
@@ -200,6 +200,22 @@ async function main() {
       'inicio.have_account',
       'inicio.saints_today',
     ],
+    cuenta: [
+      'account.title',
+      'account.logout',
+      'account.my_notes',
+      'account.enter',
+      'account.continue_google',
+      'account.welcome_back',
+    ],
+    lector: [
+      'reader.loading_document',
+      'reader.doc_start',
+      'reader.narrator',
+      'reader.prefs_title',
+      'reader.prefs_aria',
+      'common.back',
+    ],
   };
   const root = path.resolve(HERE, '../../..');
   const sources = {
@@ -220,18 +236,42 @@ async function main() {
         path.join(root, 'app/pages/inicio/inicio.component.html'),
         'utf8',
       ),
+    cuenta:
+      fs.readFileSync(
+        path.join(root, 'app/pages/cuenta/cuenta.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/cuenta/cuenta.component.html'),
+        'utf8',
+      ),
+    lector:
+      fs.readFileSync(
+        path.join(root, 'app/components/lector/lector.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/components/lector/lector.component.html'),
+        'utf8',
+      ),
   };
   for (const [surface, keys] of Object.entries(chromeKeysBySurface)) {
     const src = sources[surface];
-    assert.ok(src.includes('UiI18nService') || surface === 'inicio', `${surface}: UiI18nService`);
-    if (surface === 'inicio') {
-      assert.ok(src.includes('UiI18nService'), 'inicio: UiI18nService import');
-    }
+    assert.ok(src.includes('UiI18nService'), `${surface}: UiI18nService`);
     // no hardcoded Spanish nav labels in chrome templates
     if (surface === 'bnav' || surface === 'wbar') {
       assert.ok(!src.includes('>Inicio<'), `${surface}: leftover hardcoded Inicio`);
       assert.ok(!src.includes('>Biblioteca<'), `${surface}: leftover hardcoded Biblioteca`);
       assert.ok(!src.includes('>Ajustes<'), `${surface}: leftover hardcoded Ajustes`);
+    }
+    if (surface === 'cuenta') {
+      assert.ok(!src.includes('title="Cuenta"'), 'cuenta: hardcoded Cuenta title');
+      assert.ok(!src.includes('>Cerrar sesión<'), 'cuenta: hardcoded logout');
+    }
+    if (surface === 'lector') {
+      assert.ok(!src.includes('>Cargando documento…<'), 'lector: hardcoded loading');
+      assert.ok(!src.includes('>Narrador<'), 'lector: hardcoded Narrador');
+      assert.ok(!src.includes('>Inicio del documento<'), 'lector: hardcoded doc start');
     }
     for (const key of keys) {
       assert.ok(

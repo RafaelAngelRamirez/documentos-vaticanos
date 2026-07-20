@@ -2,7 +2,7 @@
   <!-- Perfil (sesión iniciada) -->
   <ng-container *ngIf="auth.user as user; else authTpl">
     <app-wbar></app-wbar>
-    <app-fbar title="Cuenta" class="hide-desktop"></app-fbar>
+    <app-fbar [title]="t('account.title')" class="hide-desktop"></app-fbar>
     <div class="fbody">
       <div *ngIf="error" class="empty errtx">{{ error }}</div>
       <div class="card" style="margin-bottom: 16px">
@@ -26,38 +26,38 @@
         </div>
       </div>
       <a routerLink="/notas" class="gbtn" style="margin-bottom: 10px; text-decoration: none"
-        >Mis notas y marcadores</a
+        >{{ t('account.my_notes') }}</a
       >
       <button type="button" class="gbtn" style="margin-bottom: 10px" (click)="goRefs()">
-        Mis referencias
+        {{ t('account.my_refs') }}
       </button>
       <button type="button" class="gbtn" style="margin-bottom: 10px" (click)="goThemes()">
-        Mis temas
+        {{ t('account.my_themes') }}
       </button>
       <a routerLink="/estudio" class="gbtn" style="margin-bottom: 10px; text-decoration: none"
-        >Estudio</a
+        >{{ t('account.study') }}</a
       >
       <a routerLink="/aprendizaje" class="gbtn" style="margin-bottom: 10px; text-decoration: none"
-        >Aprendizaje</a
+        >{{ t('account.learning') }}</a
       >
       <a routerLink="/explorar" class="gbtn" style="margin-bottom: 10px; text-decoration: none"
-        >Explorar</a
+        >{{ t('account.explore') }}</a
       >
       <a routerLink="/biblioteca" class="gbtn" style="margin-bottom: 10px; text-decoration: none"
-        >Biblioteca</a
+        >{{ t('account.library') }}</a
       >
       <a routerLink="/padres" class="gbtn" style="margin-bottom: 10px; text-decoration: none"
-        >Padres de la Iglesia</a
+        >{{ t('account.parents') }}</a
       >
       <a routerLink="/doctores" class="gbtn" style="margin-bottom: 10px; text-decoration: none"
-        >Doctores de la Iglesia</a
+        >{{ t('account.doctors') }}</a
       >
       <a
         *ngIf="auth.isAdmin"
         routerLink="/admin/revision"
         class="gbtn"
         style="margin-bottom: 10px; text-decoration: none"
-        >Cola de revisión (admin)</a
+        >{{ t('account.admin_queue') }}</a
       >
       <button
         *ngIf="user.role !== 'teacher' && user.role !== 'admin'"
@@ -67,10 +67,10 @@
         [disabled]="loading"
         (click)="upgrade()"
       >
-        Convertirme en maestro
+        {{ t('account.become_teacher') }}
       </button>
       <div class="tc fs13" style="margin-top: 18px">
-        <a href="javascript:void(0)" (click)="logout()">Cerrar sesión</a>
+        <a href="javascript:void(0)" (click)="logout()">{{ t('account.logout') }}</a>
       </div>
     </div>
   </ng-container>
@@ -84,16 +84,16 @@
       <ng-container *ngSwitchCase="'login'">
         <div class="mark only-mobile">DV</div>
         <div class="tc serif fw6 login-title">
-          <span class="only-mobile">Documentos Vaticanos</span>
-          <span class="only-desktop">Bienvenido de nuevo</span>
+          <span class="only-mobile">{{ t('app.name') }}</span>
+          <span class="only-desktop">{{ t('account.welcome_back') }}</span>
         </div>
         <div class="tc fs14 muted" style="margin: 8px 0 26px">
-          <span class="only-mobile">Su biblioteca de lectura y estudio</span>
-          <span class="only-desktop">Su biblioteca, su progreso y sus notas</span>
+          <span class="only-mobile">{{ t('account.subtitle_mobile') }}</span>
+          <span class="only-desktop">{{ t('account.subtitle_desktop') }}</span>
         </div>
 
         <div *ngIf="!apiEnabled" class="empty">
-          API no configurada. El lector offline sigue disponible.
+          {{ t('account.api_missing') }}
         </div>
         <div *ngIf="error" class="empty errtx">{{ error }}</div>
 
@@ -116,22 +116,27 @@
               d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.59A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z"
             />
           </svg>
-          Continuar con Google
+          {{ t('account.continue_google') }}
         </button>
 
-        <div class="divider">o con su correo</div>
+        <div class="divider">{{ t('account.or_email') }}</div>
 
         <form *ngIf="devAuth && apiEnabled" [formGroup]="form" (ngSubmit)="loginDev()">
-          <div class="flabel" style="margin-top: 0">Correo electrónico</div>
+          <div class="flabel" style="margin-top: 0">{{ t('account.email') }}</div>
           <input
             class="field"
             type="email"
             formControlName="email"
-            placeholder="nombre@ejemplo.com"
+            [attr.placeholder]="t('account.email_placeholder')"
           />
-          <div class="flabel">Nombre</div>
-          <input class="field" type="text" formControlName="name" placeholder="Su nombre" />
-          <div class="flabel">Contraseña</div>
+          <div class="flabel">{{ t('account.name') }}</div>
+          <input
+            class="field"
+            type="text"
+            formControlName="name"
+            [attr.placeholder]="t('account.name_placeholder')"
+          />
+          <div class="flabel">{{ t('account.password') }}</div>
           <input
             class="field"
             type="password"
@@ -144,30 +149,30 @@
             type="submit"
             [disabled]="loading || form.invalid"
           >
-            Entrar
+            {{ t('account.enter') }}
           </button>
         </form>
 
         <div class="tc fs13" style="margin-top: 18px">
           <a href="javascript:void(0)" (click)="switchView('recuperar')"
-            >¿Olvidó su contraseña?</a
+            >{{ t('account.forgot') }}</a
           >
         </div>
         <div class="tc fs13 muted only-mobile" style="margin-top: auto; padding-top: 24px">
-          ¿Aún no tiene cuenta?
-          <a href="javascript:void(0)" (click)="switchView('registro')">Crear cuenta</a>
+          {{ t('auth.no_account') }}
+          <a href="javascript:void(0)" (click)="switchView('registro')">{{ t('auth.create_account') }}</a>
         </div>
         <div class="tc fs13 muted" style="margin-top: 16px">
-          <a routerLink="/documentos/listar">Continuar sin cuenta (lectura offline)</a>
+          <a routerLink="/documentos/listar">{{ t('account.continue_offline') }}</a>
         </div>
       </ng-container>
 
       <!-- 3B · CREAR CUENTA -->
       <ng-container *ngSwitchCase="'registro'">
-        <div class="fs14 backlink" (click)="switchView('login')">← Volver</div>
-        <div class="serif fw6 vtitle">Crear cuenta</div>
+        <div class="fs14 backlink" (click)="switchView('login')">← {{ t('common.back') }}</div>
+        <div class="serif fw6 vtitle">{{ t('account.create_title') }}</div>
         <div class="fs14 muted vsub">
-          Para guardar su progreso y sus notas en todos sus dispositivos.
+          {{ t('account.create_sub') }}
         </div>
 
         <div *ngIf="error" class="empty errtx">{{ error }}</div>
@@ -191,31 +196,36 @@
               d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.59A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z"
             />
           </svg>
-          Registrarse con Google
+          {{ t('account.register_google') }}
         </button>
 
-        <div class="divider">o con su correo</div>
+        <div class="divider">{{ t('account.or_email') }}</div>
 
         <form [formGroup]="form" (ngSubmit)="registrar()">
-          <div class="flabel" style="margin-top: 0">Nombre</div>
-          <input class="field" type="text" formControlName="name" placeholder="María Aguilar" />
-          <div class="flabel">Correo electrónico</div>
+          <div class="flabel" style="margin-top: 0">{{ t('account.name') }}</div>
+          <input
+            class="field"
+            type="text"
+            formControlName="name"
+            [attr.placeholder]="t('account.name_placeholder')"
+          />
+          <div class="flabel">{{ t('account.email') }}</div>
           <input
             class="field"
             type="email"
             formControlName="email"
-            placeholder="nombre@ejemplo.com"
+            [attr.placeholder]="t('account.email_placeholder')"
           />
-          <div class="flabel">Contraseña</div>
+          <div class="flabel">{{ t('account.password') }}</div>
           <input
             class="field"
             type="password"
             formControlName="password"
-            placeholder="Mínimo 8 caracteres"
+            placeholder="••••••••"
             autocomplete="new-password"
           />
           <button class="primary" type="submit" [disabled]="loading">
-            Crear cuenta
+            {{ t('auth.create_account') }}
           </button>
         </form>
 
@@ -227,22 +237,22 @@
 
       <!-- 3C · RECUPERAR CONTRASEÑA -->
       <ng-container *ngSwitchCase="'recuperar'">
-        <div class="fs14 backlink" (click)="switchView('login')">← Volver</div>
-        <div class="serif fw6 vtitle">Recuperar contraseña</div>
-        <div class="fs14 muted vsub">Le enviaremos un enlace para restablecerla.</div>
+        <div class="fs14 backlink" (click)="switchView('login')">← {{ t('common.back') }}</div>
+        <div class="serif fw6 vtitle">{{ t('account.recover_title') }}</div>
+        <div class="fs14 muted vsub">{{ t('account.recover_sub') }}</div>
 
         <div *ngIf="error" class="empty errtx">{{ error }}</div>
 
         <form [formGroup]="form" (ngSubmit)="recuperar()">
-          <div class="flabel" style="margin-top: 0">Correo electrónico</div>
+          <div class="flabel" style="margin-top: 0">{{ t('account.email') }}</div>
           <input
             class="field"
             type="email"
             formControlName="email"
-            placeholder="nombre@ejemplo.com"
+            [attr.placeholder]="t('account.email_placeholder')"
           />
           <button class="primary" type="submit" [disabled]="loading">
-            Enviar enlace
+            {{ t('account.send_link') }}
           </button>
         </form>
 

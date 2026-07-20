@@ -9,7 +9,7 @@
 
   <!-- 2B mobile chrome -->
   <div class="fbar hair only-mobile" [class.bars-hidden]="barsHidden">
-    <button type="button" class="back" (click)="goBack()" aria-label="Volver">
+    <button type="button" class="back" (click)="goBack()" [attr.aria-label]="t('common.back')">
       ←
     </button>
     <div class="ttl fs13 muted" [attr.title]="documentTitle">
@@ -19,7 +19,7 @@
       class="lang-pills only-mobile"
       *ngIf="showLanguageSwitcher"
       role="group"
-      aria-label="Idioma del texto"
+      [attr.aria-label]="t('reader.language_aria')"
     >
       <button
         type="button"
@@ -37,7 +37,7 @@
       class="iconb serif"
       (click)="togglePrefs()"
       [attr.aria-expanded]="prefsOpen"
-      aria-label="Ajustes de lectura"
+      [attr.aria-label]="t('reader.prefs_aria')"
     >
       Aa
     </button>
@@ -45,7 +45,7 @@
 
   <div class="reader">
     <div class="rcolw">
-    <div *ngIf="loading" class="rstart" role="status">Cargando documento…</div>
+    <div *ngIf="loading" class="rstart" role="status">{{ t('reader.loading_document') }}</div>
     <div *ngIf="load_error" class="rstart error" role="alert">
       {{ load_error }}
     </div>
@@ -56,7 +56,7 @@
         class="lang-pills lang-pills-inline only-desktop"
         *ngIf="showLanguageSwitcher"
         role="group"
-        aria-label="Idioma del texto"
+        [attr.aria-label]="t('reader.language_aria')"
       >
         <button
           type="button"
@@ -72,10 +72,10 @@
 
       <div class="rstart" *ngIf="canLoadBefore">
         <a href="javascript:void(0)" class="muted" (click)="load_before()"
-          >↑ Cargar {{ quantity_to_load }} anteriores</a
+          >{{ t('reader.load_before', { n: quantity_to_load }) }}</a
         >
       </div>
-      <div class="rstart" *ngIf="!canLoadBefore">Inicio del documento</div>
+      <div class="rstart" *ngIf="!canLoadBefore">{{ t('reader.doc_start') }}</div>
 
       <div
         class="rtxt"
@@ -98,12 +98,12 @@
 
       <div class="rend" *ngIf="canLoadNext">
         <a href="javascript:void(0)" class="muted" (click)="load_next()"
-          >· el texto continúa al desplazar ·</a
+          >{{ t('reader.continues') }}</a
         >
       </div>
       <div class="rend" *ngIf="!canLoadNext">· · ·</div>
       <div class="fs12 muted tc only-desktop" style="margin-top: 20px" *ngIf="!loading && document">
-        · scroll infinito — el texto continúa al desplazar · el narrador avanza por numeral ·
+        {{ t('reader.scroll_hint') }}
       </div>
     </ng-container>
     </div>
@@ -115,17 +115,22 @@
   </div>
 
   <!-- 5D · Narrador (web / desktop; también usable en móvil) -->
-  <div class="narr" *ngIf="!loading && document && narrSupported" role="region" aria-label="Narrador">
+  <div
+    class="narr"
+    *ngIf="!loading && document && narrSupported"
+    role="region"
+    [attr.aria-label]="t('reader.narrator_aria')"
+  >
     <button
       type="button"
       class="play"
       (click)="toggleNarrator()"
-      [attr.aria-label]="narrPlaying ? 'Pausar narración' : 'Reproducir narración'"
+      [attr.aria-label]="narrPlaying ? t('reader.pause') : t('reader.play')"
     >
       {{ narrPlaying ? '❚❚' : '▶' }}
     </button>
     <div>
-      <div class="fs13 fw5" style="white-space: nowrap">Narrador</div>
+      <div class="fs13 fw5" style="white-space: nowrap">{{ t('reader.narrator') }}</div>
       <div class="nlabel">{{ narrLabel }}</div>
     </div>
     <div class="nline" aria-hidden="true">
@@ -147,7 +152,7 @@
       {{ narrVoiceLabel }}
     </button>
     <!-- 5D: pill adicional solo escritorio (lógica pendiente) -->
-    <button type="button" class="npill only-desktop">Dormir</button>
+    <button type="button" class="npill only-desktop">{{ t('reader.sleep') }}</button>
   </div>
 
   <!-- 4A · Popover de selección -->
@@ -211,12 +216,12 @@
 
   <dv-sheet
     *ngIf="prefsOpen"
-    label="Ajustes de lectura"
+    [label]="t('reader.prefs_title')"
     (closed)="togglePrefs()"
   >
-    <div class="fs12 muted shead">Ajustes de lectura</div>
+    <div class="fs12 muted shead">{{ t('reader.prefs_title') }}</div>
 
-    <div class="flabel first">Tamaño del texto</div>
+    <div class="flabel first">{{ t('reader.font_size') }}</div>
     <div class="stepbtn">
       <button
         type="button"
@@ -237,7 +242,7 @@
       </button>
     </div>
 
-    <div class="flabel">Tema</div>
+    <div class="flabel">{{ t('reader.theme') }}</div>
     <div class="stepbtn">
       <button
         *ngFor="let t of themeOptions"

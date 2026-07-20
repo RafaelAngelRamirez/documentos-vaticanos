@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -7,7 +7,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { SyncService } from 'src/app/services/sync.service';
 import { environment } from 'src/environments/environment';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
@@ -29,7 +31,7 @@ type AuthView = 'login' | 'registro' | 'recuperar';
   templateUrl: './cuenta.component.html',
   styleUrls: ['./cuenta.component.css'],
 })
-export class CuentaComponent implements OnInit {
+export class CuentaComponent implements OnInit, OnDestroy {
   error: string | null = null;
   loading = false;
   apiEnabled = environment.apiBaseUrl;
@@ -39,6 +41,10 @@ export class CuentaComponent implements OnInit {
 
   /** 3C: mostrar la tarjeta «Enlace enviado». */
   sent = false;
+
+  /** Tick so labels re-resolve when UI locale changes. */
+  localeTick = 0;
+  private sub = new Subscription();
 
   form = new FormGroup({
     email: new FormControl('dev@local.test', {
@@ -52,13 +58,29 @@ export class CuentaComponent implements OnInit {
   constructor(
     public auth: AuthService,
     private router: Router,
-    private sync: SyncService
-  ) {}
+    private sync: SyncService,
+    public i18n: UiI18nService,
+  ) {
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
+  }
 
   ngOnInit(): void {
     if (this.auth.isLoggedIn) {
       this.auth.refreshMe().subscribe();
     }
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+
+  t(key: string, params?: Record<string, string | number>): string {
+    void this.localeTick;
+    return this.i18n.t(key, params);
   }
 
   switchView(view: AuthView): void {
