@@ -37,7 +37,7 @@ Playwright was used **only for initial Console setup**. Do not drive every relea
 | `PLAY_TRACK` | `closed` → API track `alpha` |
 | `PLAY_AAB_PATH` | Defaults to `dist/documentos-vaticanos-release.aab` |
 | `PLAY_DRY_RUN=1` | Validate payload without calling Google |
-| `PLAY_STATUS` | `completed` (default) or `draft` |
+| `PLAY_STATUS` | `draft` (default; required while the Play app is still a **Borrador**) or `completed` once the app can ship testing releases |
 
 Suggested host paths (outside git):
 

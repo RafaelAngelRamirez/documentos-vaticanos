@@ -59,7 +59,8 @@ async function main() {
     process.env.PLAY_AAB_PATH ||
     path.join(ROOT, 'dist/documentos-vaticanos-release.aab');
   const saPath = process.env.PLAY_SERVICE_ACCOUNT_JSON || '';
-  const status = process.env.PLAY_STATUS || 'completed';
+  // Draft apps only accept status=draft until first production/closed rollout is published.
+  const status = process.env.PLAY_STATUS || 'draft';
   const meta = readMeta();
   const versionCode = Number(meta.versionCode || process.env.PLAY_VERSION_CODE || 0);
   const versionName =
