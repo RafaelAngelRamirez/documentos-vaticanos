@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "generatedAt": "2026-07-20T06:39:05.428147Z",
+  "generatedAt": "2026-07-20T06:40:06.505901Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1178,6 +1178,21 @@
       "author": "Agustín de Hipona",
       "compiler": "A. Cedano",
       "sourceNote": "Compilación digital del P. A. Cedano (sacerdote). Fuente Drive: https://drive.google.com/file/d/0B0jwB_jVsocpY1hxUE16SW5PZmc/view. Colección BAC Obras de San Agustín (tomo 15)."
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-ar",
+      "title": "La ciudad de Dios I",
+      "shortTitle": "La ciudad de Dios I",
+      "kind": "patristic",
+      "locale": "ar",
+      "sourceUrl": "https://drive.google.com/file/d/0B0jwB_jVsocpVEp1RFdhekt4R0k/view",
+      "bodyPath": "documents/agustin-16-ciudad-de-dios-1-ar/content.json",
+      "indexPath": "documents/agustin-16-ciudad-de-dios-1-ar/index.json",
+      "unitCount": 3344,
+      "author": "Agustín de Hipona",
+      "compiler": "A. Cedano",
+      "sourceNote": "ترجمة مولّدة بالذكاء الاصطناعي إلى العربية انطلاقاً من النص (Español) للحزمة «La ciudad de Dios I» (agustin-16-ciudad-de-dios-1-es). ليست ترجمة رسمية للكرسي الرسولي ولا طبعة نقدية. مخصّصة للدراسة والقراءة الاسترشادية؛ وعند الشك يُعتدّ بالنص الأصلي.",
+      "translationProvenance": "ai"
     },
     {
       "id": "agustin-16-ciudad-de-dios-1-en",
