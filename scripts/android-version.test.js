@@ -51,7 +51,7 @@ function main() {
   });
   assert.strictEqual(body.track, 'alpha');
   assert.strictEqual(body.releases.length, 1);
-  assert.strictEqual(body.releases[0].status, 'completed');
+  assert.strictEqual(body.releases[0].status, 'completed'); // explicit status in opts
   assert.deepStrictEqual(body.releases[0].versionCodes, ['20']);
   assert.strictEqual(body.releases[0].name, '0.0.20');
 
