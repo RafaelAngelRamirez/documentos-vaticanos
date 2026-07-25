@@ -32,7 +32,7 @@ async function main() {
   const L = await loadLogic();
   const catalogs = loadCatalogs();
 
-  // resolveUiLocale
+  // resolveUiLocale — device BCP-47 → app UI locale
   assert.strictEqual(L.resolveUiLocale(undefined), 'es');
   assert.strictEqual(L.resolveUiLocale(null), 'es');
   assert.strictEqual(L.resolveUiLocale(''), 'es');
@@ -41,6 +41,8 @@ async function main() {
   assert.strictEqual(L.resolveUiLocale('zh_CN'), 'zh');
   assert.strictEqual(L.resolveUiLocale('hi'), 'hi');
   assert.strictEqual(L.resolveUiLocale('ar-SA'), 'ar');
+  assert.strictEqual(L.resolveUiLocale('es-MX'), 'es');
+  assert.strictEqual(L.resolveUiLocale('en-GB'), 'en');
   assert.strictEqual(L.resolveUiLocale('fr'), 'es'); // unsupported → fallback
   assert.strictEqual(L.resolveUiLocale('xx', 'en'), 'en');
   assert.strictEqual(L.isUiLocale('es'), true);

@@ -64,7 +64,8 @@ export class CargarDocumentosJsonService {
   }
 
   /**
-   * Load manifest + every document body/index. Used by search and list UIs.
+   * Load manifest + every document body/index.
+   * Used by full-text search / related panels — not Biblioteca (catalog = manifest only).
    */
   ensureAllLoaded(): Observable<IndiceDocumentos[]> {
     return this.corpus.loadManifest().pipe(

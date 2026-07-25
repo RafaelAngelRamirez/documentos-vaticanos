@@ -20,8 +20,14 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  min-height: 48px;
   padding: calc(12px + var(--safe-area-inset-top)) 22px 12px;
   transition: transform 0.2s ease;
+}
+
+.fbar > .back,
+.fbar > .iconb {
+  flex-shrink: 0;
 }
 
 /* F4 — auto-ocultado al desplazar hacia abajo. */
@@ -74,43 +80,6 @@
 
 .rtxt {
   margin: 0 auto;
-}
-
-/* Multi-locale switch (ES / LA) — compact chrome, ≥48px touch target */
-.lang-pills {
-  display: inline-flex;
-  gap: 4px;
-  flex-shrink: 0;
-  margin-right: 4px;
-}
-
-.lang-pill {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  min-width: 48px;
-  min-height: 48px;
-  padding: 0 10px;
-  border-radius: 999px;
-  border: 1px solid var(--line, var(--app-line));
-  background: var(--card, var(--app-card, transparent));
-  color: var(--muted, var(--app-muted));
-  cursor: pointer;
-}
-
-.lang-pill.on {
-  color: var(--ink, var(--app-ink));
-  border-color: var(--acc, var(--app-acc));
-  background: color-mix(in srgb, var(--acc, var(--app-acc)) 14%, transparent);
-}
-
-.lang-pill:active {
-  opacity: 0.85;
-}
-
-.lang-pills-inline {
-  margin: 8px 0 0;
 }
 
 .rtxt.sans {

@@ -50,12 +50,19 @@ async function main() {
   assert.strictEqual(L.familyKey('lg-hi-ai'), 'lg');
   assert.strictEqual(L.familyKey('lg-ar'), 'lg');
 
-  // resolveContentLocale
+  // resolveContentLocale — device when pref is system / unset
   assert.strictEqual(L.resolveContentLocale('es', 'en-US'), 'es');
   assert.strictEqual(L.resolveContentLocale('system', 'es-MX'), 'es');
+  assert.strictEqual(L.resolveContentLocale('system', 'en-US'), 'en');
+  assert.strictEqual(L.resolveContentLocale('system', 'zh-CN'), 'zh');
+  assert.strictEqual(L.resolveContentLocale('system', 'hi-IN'), 'hi');
+  assert.strictEqual(L.resolveContentLocale('system', 'ar-SA'), 'ar');
   assert.strictEqual(L.resolveContentLocale(undefined, 'la'), 'la');
+  assert.strictEqual(L.resolveContentLocale(null, 'en-GB'), 'en');
   assert.strictEqual(L.resolveContentLocale('system', null, 'es'), 'es');
+  assert.strictEqual(L.resolveContentLocale('system', '', 'es'), 'es');
   assert.strictEqual(L.normalizeLocaleCode('pt-BR'), 'pt');
+  assert.strictEqual(L.normalizeLocaleCode('es-MX'), 'es');
 
   // pickPreferredEdition
   const cceo = [
