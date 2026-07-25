@@ -65,7 +65,23 @@ docker start imperium-build-runner-pin \
   3. Build/deploy use that version (`/downloads/manifest.json`, UI `environment.version`).
   4. n8n pushes the release commit + tag back to GitHub. Messages containing `chore(release)` are ignored by the trigger (no loop).
   5. Emergency rebuild without bump: host/n8n env `DV_SKIP_RELEASE=1` (default **0**).
-- **Lock:** `/tmp/docvat-build.lock` inside the `n8n` container. Concurrent runs **wait** up to `DOCVAT_LOCK_WAIT_SEC` (default **7200** s) by polling `flock -n` (BusyBox-compatible; n8n Alpine has no util-linux `flock -w`) instead of failing immediately with “another DOCVAT build holds…”. Only one clone/build mutates the shared volume at a time.
+- **Cola coalesce + mutex global (with IMPERIUM):** shared state file
+  `/tmp/codice-ci-global-build.json` (+ brief `/tmp/codice-ci-global-build.lock`)
+  inside the `n8n` container. `holder` is `imperium` \| `docvat` \| null; each
+  side has `pending` + `pending_branch`. While the global holder is set, further
+  GitHub pushes or webhook pings only mark `pending[me]` (Telegram «Build en
+  cola») and exit — they do **not** each run a full release, and they will not
+  wipe `/tmp/repo` while the other project is building. When the active build
+  finishes, **Cola: release** either runs **one** **Rebuild acumulado** on HEAD
+  for this project, or frees the lock and **Despertar otro proyecto** via
+  `POST http://127.0.0.1:5678/webhook/imperium-build` (and IMPERIUM nudges
+  `…/webhook/docvat-build`). Stale holders older than 4 h are cleared
+  automatically. Skip-CI / `chore(release)` still apply before acquire.
+- **Lock (belt-and-suspenders):** `/tmp/docvat-build.lock` inside the `n8n`
+  container. Concurrent shell steps still **wait** up to `DOCVAT_LOCK_WAIT_SEC`
+  (default **7200** s) by polling `flock -n` (BusyBox-compatible; n8n Alpine has
+  no util-linux `flock -w`). Coalesce should prevent most waits; flock remains
+  if two runners slip past the n8n mutex.
 - **Disk (ENOSPC):** full DOCVAT builds peak multi‑GB (web corpus + APK + Electron). `.ci-build.sh` aborts early if free space on the work path is below `DV_MIN_FREE_GB` (default **12**). Collect uses hardlinks when possible; electron drops `*-unpacked` after packaging; `ci-docker-push.sh` keeps only `DV_IMAGE_KEEP` (default **2**) local `front-v*` tags plus `front-latest`.
 
 Host cleanup when builds fail with `No space left on device` (keep the runner pin):
@@ -155,4 +171,4 @@ See **`deploy/PLAY-CLOSED-TESTING.md`** for:
 - How Playwright was used only for **initial** Console setup (`rafa.yael@gmail.com`)
 - How n8n re-import activates workflow changes after editing `DOCVAT-build-v1-sidecar.json`
 
-Enable on the host/n8n Build sidecar with `DV_BUILD_AAB=1` + `DV_PLAY_UPLOAD=1` and mounted keystore + service-account JSON (never commit those files).
+Enable on the host/n8n Build sidecar with `DV_BUILD_AAB=1` + `DV_PLAY_UPLOAD=1`, `PLAY_STATUS=completed` (once closed testing is live), and mounted keystore + service-account JSON (never commit those files). Play upload runs **after** docker deploy inside `.ci-build.sh`. Root dep `googleapis` is required for the Publisher API client.

@@ -55,6 +55,17 @@ function main() {
   assert.deepStrictEqual(body.releases[0].versionCodes, ['20']);
   assert.strictEqual(body.releases[0].name, '0.0.20');
 
+  section('buildTrackReleasePayload draft status (Borrador-safe)');
+  const draft = buildTrackReleasePayload({
+    track: 'closed',
+    versionCodes: [21],
+    releaseName: '0.0.21',
+    status: 'draft',
+  });
+  assert.strictEqual(draft.track, 'alpha');
+  assert.strictEqual(draft.releases[0].status, 'draft');
+  assert.deepStrictEqual(draft.releases[0].versionCodes, ['21']);
+
   section('buildTrackReleasePayload rejects empty versionCodes');
   assert.throws(
     () => buildTrackReleasePayload({ track: 'alpha', versionCodes: [] }),

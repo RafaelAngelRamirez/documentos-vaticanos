@@ -1,11 +1,11 @@
 [
   {
-    "updatedAt": "2026-07-15T21:00:00.000Z",
+    "updatedAt": "2026-07-25T14:03:47.000Z",
     "createdAt": "2026-07-15T16:13:30.000Z",
     "id": "DOCVATBuildV1sc",
     "name": "DOCVAT-build v1 (sidecar)",
-    "description": "Build + deploy Documentos Vaticanos → https://docvat.codice-progressio.online (web + APK + Electron Linux/Windows downloads)",
-    "active": false,
+    "description": "Build + deploy Documentos Vaticanos. Coalesce + mutex global con IMPERIUM vía /tmp/codice-ci-global-build.json. flock local se mantiene. Webhook POST /webhook/docvat-build para reencolar (también desde IMPERIUM).",
+    "active": true,
     "isArchived": false,
     "nodes": [
       {
@@ -206,7 +206,7 @@
       {
         "parameters": {
           "chatId": "-5285820658",
-          "text": "={{ \"🚀 Build Documentos Vaticanos iniciado\\n📂 RafaelAngelRamirez/documentos-vaticanos\\n🌿 Rama: \" + $(\"Nombre de la rama\").item.json.branch_name }}",
+          "text": "={{ \"🚀 Build Documentos Vaticanos iniciado\\n📂 RafaelAngelRamirez/documentos-vaticanos\\n🌿 Rama: \" + $('Branch ctx').last().json.branch_name }}",
           "additionalFields": {}
         },
         "type": "n8n-nodes-base.telegram",
@@ -265,7 +265,7 @@
         "parameters": {
           "operation": "switchBranch",
           "repositoryPath": "/tmp/repo",
-          "branchName": "={{ $('Nombre de la rama').item.json.branch_name }}",
+          "branchName": "={{ $('Branch ctx').last().json.branch_name }}",
           "options": {
             "force": true
           }
@@ -281,7 +281,7 @@
       },
       {
         "parameters": {
-          "command": "set -euo pipefail\nLOCK=/tmp/docvat-build.lock\nLOCK_WAIT_SEC=\"${DOCVAT_LOCK_WAIT_SEC:-7200}\"\nexec 9>\"$LOCK\"\necho \"==> waiting up to ${LOCK_WAIT_SEC}s for $LOCK (pid $$)\"\n# BusyBox flock (n8n Alpine) has no -w (util-linux only); poll with flock -n\n_deadline=$(( $(date +%s) + LOCK_WAIT_SEC ))\nwhile ! flock -n 9; do\n  if [ \"$(date +%s)\" -ge \"$_deadline\" ]; then\n    echo \"ERROR: timed out after ${LOCK_WAIT_SEC}s waiting for $LOCK\" >&2\n    exit 75\n  fi\n  sleep 5\ndone\necho \"==> lock acquired $$ $(date -u +%Y-%m-%dT%H:%M:%SZ)\"\necho \"$$ $(date -u +%Y-%m-%dT%H:%M:%SZ)\" > /tmp/docvat-build.owner\n\nBRANCH=\"${DOCVAT_BRANCH:-typescript-migration}\"\nif [[ -f /tmp/docvat-branch.txt ]]; then\n  BRANCH=$(cat /tmp/docvat-branch.txt)\nfi\n# Isolate from Imperium files that share codice-progressio_n8n_build\n# n8n sees volume at /tmp/repo; runner mounts same volume at /work\nWORKDIR=/tmp/repo/docvat\necho \"==> WORKDIR=$WORKDIR branch=$BRANCH\"\nrm -rf \"$WORKDIR\"\nmkdir -p \"$WORKDIR\"\ncd \"$WORKDIR\"\n\necho \"==> clone (shallow + tags + deepen for standard-version)\"\ngit clone --depth 1 --branch \"$BRANCH\" --single-branch \\\n  https://github.com/RafaelAngelRamirez/documentos-vaticanos.git .\n# History + tags so standard-version can see commits since last release tag\ngit fetch --tags --force origin || true\ngit fetch --deepen=300 origin \"$BRANCH\" || true\nCUR_VER=$(node -p \"require('./package.json').version\" 2>/dev/null || echo \"\")\nif [[ -n \"$CUR_VER\" ]]; then\n  git fetch origin \"refs/tags/v${CUR_VER}:refs/tags/v${CUR_VER}\" 2>/dev/null || true\nfi\ntest -f package.json\ntest -f .ci-build.sh\ntest -f scripts/package-apk.sh\ntest -f frontend/android/app/capacitor.build.gradle\nchmod +x .ci-build.sh\necho \"==> checkout $(git rev-parse --short HEAD) $(git log -1 --oneline)\"\necho \"==> describe $(git describe --tags --always 2>/dev/null || echo n/a) package=$(node -p \"require('./package.json').version\")\"\n\n# Ensure CI runner image exists. It is pinned by host container\n# imperium-build-runner-pin and mirrored as legna37/imperium-build-runner:latest.\n# (update.sh used to `docker system prune --all` and wipe this image.)\nensure_runner_image() {\n  if docker image inspect imperium-build-runner:latest >/dev/null 2>&1; then\n    echo \"==> runner image present: imperium-build-runner:latest\"\n    return 0\n  fi\n  echo \"==> imperium-build-runner:latest missing — restoring from Docker Hub\"\n  if [[ -n \"${DOCKER_USERNAME:-}\" && -n \"${DOCKER_TOKEN:-}\" ]]; then\n    echo \"$DOCKER_TOKEN\" | docker login -u \"$DOCKER_USERNAME\" --password-stdin >/dev/null\n  fi\n  docker pull legna37/imperium-build-runner:latest\n  docker tag legna37/imperium-build-runner:latest imperium-build-runner:latest\n  # re-pin so the next prune --all cannot delete it again\n  docker start imperium-build-runner-pin 2>/dev/null || \\\n    docker run -d --name imperium-build-runner-pin --restart unless-stopped \\\n      --label com.codice.keep-image=imperium-build-runner \\\n      imperium-build-runner:latest sleep infinity 2>/dev/null || true\n  if ! docker image inspect imperium-build-runner:latest >/dev/null 2>&1; then\n    echo \"ERROR: imperium-build-runner:latest still missing after pull\" >&2\n    exit 3\n  fi\n}\nensure_runner_image\n\nSOCK_GID=$(stat -c %g /var/run/docker.sock)\necho \"==> docker run sidecar (volume at /work, repo at /work/docvat)\"\n# Use repo .ci-build.sh (release first, then packages + deploy).\n# Version bump is ON by default. Emergency: DV_SKIP_RELEASE=1 on the host/n8n env.\ndocker run --rm --network codice-progressio_default --user 1000:1000 --group-add \"$SOCK_GID\" \\\n  -v /var/run/docker.sock:/var/run/docker.sock \\\n  -v codice-progressio_n8n_build:/work \\\n  -v codice-progressio_n8n_android_sdk:/work/docvat/frontend/.android-build-tools \\\n  -v codice-progressio_n8n_gradle:/cache/gradle \\\n  -v codice-progressio_n8n_electron:/cache/electron \\\n  ${DOCVAT_SECRETS_MOUNT:+-v $DOCVAT_SECRETS_MOUNT} \\\n  -e HOME=/cache/gradle/.home_runner \\\n  -e GRADLE_USER_HOME=/cache/gradle \\\n  -e ELECTRON_BUILDER_CACHE=/cache/electron \\\n  -e DOCKER_USERNAME=\"$DOCKER_USERNAME\" \\\n  -e DOCKER_TOKEN=\"$DOCKER_TOKEN\" \\\n  -e JAVA_HOME=/usr/lib/jvm/temurin-21-jdk-amd64 \\\n  -e DV_CI_ROOT=/work/docvat \\\n  -e DV_SKIP_RELEASE=\"${DV_SKIP_RELEASE:-0}\" \\\n  -e DV_REQUIRE_WIN=1 \\\n  -e DV_REQUIRE_ALL_DOWNLOADS=1 \\\n  -e DV_BUILD_AAB=\"${DV_BUILD_AAB:-0}\" \\\n  -e DV_PLAY_UPLOAD=\"${DV_PLAY_UPLOAD:-0}\" \\\n  -e DV_PACKAGE_NAME=\"${DV_PACKAGE_NAME:-com.docvat}\" \\\n  -e DV_KEYSTORE_PATH=\"${DV_KEYSTORE_PATH:-}\" \\\n  -e DV_KEYSTORE_PASSWORD=\"${DV_KEYSTORE_PASSWORD:-}\" \\\n  -e DV_KEY_ALIAS=\"${DV_KEY_ALIAS:-docvat-upload}\" \\\n  -e DV_KEY_PASSWORD=\"${DV_KEY_PASSWORD:-}\" \\\n  -e PLAY_SERVICE_ACCOUNT_JSON=\"${PLAY_SERVICE_ACCOUNT_JSON:-}\" \\\n  -e PLAY_PACKAGE_NAME=\"${PLAY_PACKAGE_NAME:-com.docvat}\" \\\n  -e PLAY_TRACK=\"${PLAY_TRACK:-closed}\" \\\n  -e PLAY_STATUS=\"${PLAY_STATUS:-draft}\" \\\n  -e BUILD_NOTIFY_WEBHOOK=http://n8n:5678/webhook/build-progress \\\n  -w /work/docvat \\\n  imperium-build-runner:latest bash /work/docvat/.ci-build.sh\nrc=$?\necho \"==> build exit $rc\"\nexit $rc\n"
+          "command": "set -euo pipefail\nLOCK=/tmp/docvat-build.lock\nLOCK_WAIT_SEC=\"${DOCVAT_LOCK_WAIT_SEC:-7200}\"\nexec 9>\"$LOCK\"\necho \"==> waiting up to ${LOCK_WAIT_SEC}s for $LOCK (pid $$)\"\n# BusyBox flock (n8n Alpine) has no -w (util-linux only); poll with flock -n\n_deadline=$(( $(date +%s) + LOCK_WAIT_SEC ))\nwhile ! flock -n 9; do\n  if [ \"$(date +%s)\" -ge \"$_deadline\" ]; then\n    echo \"ERROR: timed out after ${LOCK_WAIT_SEC}s waiting for $LOCK\" >&2\n    exit 75\n  fi\n  sleep 5\ndone\necho \"==> lock acquired $$ $(date -u +%Y-%m-%dT%H:%M:%SZ)\"\necho \"$$ $(date -u +%Y-%m-%dT%H:%M:%SZ)\" > /tmp/docvat-build.owner\n\nBRANCH=\"${DOCVAT_BRANCH:-typescript-migration}\"\nif [[ -f /tmp/docvat-branch.txt ]]; then\n  BRANCH=$(cat /tmp/docvat-branch.txt)\nfi\n# Isolate from Imperium files that share codice-progressio_n8n_build\n# n8n sees volume at /tmp/repo; runner mounts same volume at /work\nWORKDIR=/tmp/repo/docvat\necho \"==> WORKDIR=$WORKDIR branch=$BRANCH\"\nrm -rf \"$WORKDIR\"\nmkdir -p \"$WORKDIR\"\ncd \"$WORKDIR\"\n\necho \"==> clone (shallow + tags + deepen for standard-version)\"\ngit clone --depth 1 --branch \"$BRANCH\" --single-branch \\\n  https://github.com/RafaelAngelRamirez/documentos-vaticanos.git .\n# History + tags so standard-version can see commits since last release tag\ngit fetch --tags --force origin || true\ngit fetch --deepen=300 origin \"$BRANCH\" || true\nCUR_VER=$(node -p \"require('./package.json').version\" 2>/dev/null || echo \"\")\nif [[ -n \"$CUR_VER\" ]]; then\n  git fetch origin \"refs/tags/v${CUR_VER}:refs/tags/v${CUR_VER}\" 2>/dev/null || true\nfi\ntest -f package.json\ntest -f .ci-build.sh\ntest -f scripts/package-apk.sh\ntest -f frontend/android/app/capacitor.build.gradle\nchmod +x .ci-build.sh\necho \"==> checkout $(git rev-parse --short HEAD) $(git log -1 --oneline)\"\necho \"==> describe $(git describe --tags --always 2>/dev/null || echo n/a) package=$(node -p \"require('./package.json').version\")\"\n\n# Ensure CI runner image exists. It is pinned by host container\n# imperium-build-runner-pin and mirrored as legna37/imperium-build-runner:latest.\n# (update.sh used to `docker system prune --all` and wipe this image.)\nensure_runner_image() {\n  if docker image inspect imperium-build-runner:latest >/dev/null 2>&1; then\n    echo \"==> runner image present: imperium-build-runner:latest\"\n    return 0\n  fi\n  echo \"==> imperium-build-runner:latest missing — restoring from Docker Hub\"\n  if [[ -n \"${DOCKER_USERNAME:-}\" && -n \"${DOCKER_TOKEN:-}\" ]]; then\n    echo \"$DOCKER_TOKEN\" | docker login -u \"$DOCKER_USERNAME\" --password-stdin >/dev/null\n  fi\n  docker pull legna37/imperium-build-runner:latest\n  docker tag legna37/imperium-build-runner:latest imperium-build-runner:latest\n  # re-pin so the next prune --all cannot delete it again\n  docker start imperium-build-runner-pin 2>/dev/null || \\\n    docker run -d --name imperium-build-runner-pin --restart unless-stopped \\\n      --label com.codice.keep-image=imperium-build-runner \\\n      imperium-build-runner:latest sleep infinity 2>/dev/null || true\n  if ! docker image inspect imperium-build-runner:latest >/dev/null 2>&1; then\n    echo \"ERROR: imperium-build-runner:latest still missing after pull\" >&2\n    exit 3\n  fi\n}\nensure_runner_image\n\nSOCK_GID=$(stat -c %g /var/run/docker.sock)\necho \"==> docker run sidecar (volume at /work, repo at /work/docvat)\"\n# Use repo .ci-build.sh (release first, then packages + deploy).\n# Version bump is ON by default. Emergency: DV_SKIP_RELEASE=1 on the host/n8n env.\ndocker run --rm --network codice-progressio_default --user 1000:1000 --group-add \"$SOCK_GID\" \\\n  -v /var/run/docker.sock:/var/run/docker.sock \\\n  -v codice-progressio_n8n_build:/work \\\n  -v codice-progressio_n8n_android_sdk:/work/docvat/frontend/.android-build-tools \\\n  -v codice-progressio_n8n_gradle:/cache/gradle \\\n  -v codice-progressio_n8n_electron:/cache/electron \\\n  ${DOCVAT_SECRETS_MOUNT:+-v $DOCVAT_SECRETS_MOUNT} \\\n  -e HOME=/cache/gradle/.home_runner \\\n  -e GRADLE_USER_HOME=/cache/gradle \\\n  -e ELECTRON_BUILDER_CACHE=/cache/electron \\\n  -e DOCKER_USERNAME=\"$DOCKER_USERNAME\" \\\n  -e DOCKER_TOKEN=\"$DOCKER_TOKEN\" \\\n  -e JAVA_HOME=/usr/lib/jvm/temurin-21-jdk-amd64 \\\n  -e DV_CI_ROOT=/work/docvat \\\n  -e DV_SKIP_RELEASE=\"${DV_SKIP_RELEASE:-0}\" \\\n  -e DV_REQUIRE_WIN=1 \\\n  -e DV_REQUIRE_ALL_DOWNLOADS=1 \\\n  -e DV_BUILD_AAB=\"${DV_BUILD_AAB:-0}\" \\\n  -e DV_PLAY_UPLOAD=\"${DV_PLAY_UPLOAD:-0}\" \\\n  -e DV_PACKAGE_NAME=\"${DV_PACKAGE_NAME:-com.docvat}\" \\\n  -e DV_KEYSTORE_PATH=\"${DV_KEYSTORE_PATH:-}\" \\\n  -e DV_KEYSTORE_PASSWORD=\"${DV_KEYSTORE_PASSWORD:-}\" \\\n  -e DV_KEY_ALIAS=\"${DV_KEY_ALIAS:-docvat-upload}\" \\\n  -e DV_KEY_PASSWORD=\"${DV_KEY_PASSWORD:-}\" \\\n  -e PLAY_SERVICE_ACCOUNT_JSON=\"${PLAY_SERVICE_ACCOUNT_JSON:-}\" \\\n  -e PLAY_PACKAGE_NAME=\"${PLAY_PACKAGE_NAME:-com.docvat}\" \\\n  -e PLAY_TRACK=\"${PLAY_TRACK:-closed}\" \\\n  -e PLAY_STATUS=\"${PLAY_STATUS:-completed}\" \\\n  -e BUILD_NOTIFY_WEBHOOK=http://n8n:5678/webhook/build-progress \\\n  -w /work/docvat \\\n  imperium-build-runner:latest bash /work/docvat/.ci-build.sh\nrc=$?\necho \"==> build exit $rc\"\nexit $rc\n"
         },
         "type": "n8n-nodes-base.executeCommand",
         "typeVersion": 1,
@@ -372,7 +372,7 @@
           "operation": "push",
           "repositoryPath": "/tmp/repo/docvat",
           "options": {
-            "branch": "={{ $('Nombre de la rama').item.json.branch_name }}"
+            "branch": "={{ $('Branch ctx').last().json.branch_name }}"
           }
         },
         "type": "n8n-nodes-base.git",
@@ -430,7 +430,7 @@
       },
       {
         "parameters": {
-          "command": "={{ \"echo -n '\" + $('Nombre de la rama').item.json.branch_name + \"' > /tmp/docvat-branch.txt && cat /tmp/docvat-branch.txt\" }}"
+          "command": "={{ \"echo -n '\" + $('Branch ctx').last().json.branch_name + \"' > /tmp/docvat-branch.txt && cat /tmp/docvat-branch.txt\" }}"
         },
         "type": "n8n-nodes-base.executeCommand",
         "typeVersion": 1,
@@ -454,6 +454,340 @@
         ],
         "id": "docvat-stop-error",
         "name": "Fail after error notify"
+      },
+      {
+        "parameters": {
+          "command": "={{ 'CI_OWNER=docvat CI_OTHER=imperium CI_DEFAULT_BRANCH=typescript-migration CI_BRANCH=' + JSON.stringify($json.branch_name || 'typescript-migration') + ' sh -c \"echo Y29uc3QgZnMgPSByZXF1aXJlKCdmcycpOwpjb25zdCBTVEFURV9QQVRIID0gJy90bXAvY29kaWNlLWNpLWdsb2JhbC1idWlsZC5qc29uJzsKY29uc3QgTE9DS19QQVRIID0gJy90bXAvY29kaWNlLWNpLWdsb2JhbC1idWlsZC5sb2NrJzsKY29uc3QgT1dORVIgPSBwcm9jZXNzLmVudi5DSV9PV05FUjsKY29uc3QgT1RIRVIgPSBwcm9jZXNzLmVudi5DSV9PVEhFUjsKY29uc3QgU1RBTEVfTVMgPSA0ICogNjAgKiA2MCAqIDEwMDA7CmNvbnN0IGRlZmF1bHRCcmFuY2ggPSBwcm9jZXNzLmVudi5DSV9ERUZBVUxUX0JSQU5DSCB8fCAnc3RhYmxlJzsKY29uc3QgYnJhbmNoID0gcHJvY2Vzcy5lbnYuQ0lfQlJBTkNIIHx8IGRlZmF1bHRCcmFuY2g7CmNvbnN0IG5vdyA9IERhdGUubm93KCk7CgpmdW5jdGlvbiBzbGVlcChtcykgeyBjb25zdCBlID0gRGF0ZS5ub3coKSArIG1zOyB3aGlsZSAoRGF0ZS5ub3coKSA8IGUpIHt9IH0KZnVuY3Rpb24gd2l0aEZpbGVMb2NrKGZuKSB7CiAgY29uc3QgZGVhZGxpbmUgPSBEYXRlLm5vdygpICsgMTUwMDA7CiAgd2hpbGUgKHRydWUpIHsKICAgIHRyeSB7CiAgICAgIGNvbnN0IGZkID0gZnMub3BlblN5bmMoTE9DS19QQVRILCAnd3gnKTsKICAgICAgdHJ5IHsgcmV0dXJuIGZuKCk7IH0KICAgICAgZmluYWxseSB7CiAgICAgICAgdHJ5IHsgZnMuY2xvc2VTeW5jKGZkKTsgfSBjYXRjaCAoXykge30KICAgICAgICB0cnkgeyBmcy51bmxpbmtTeW5jKExPQ0tfUEFUSCk7IH0gY2F0Y2ggKF8pIHt9CiAgICAgIH0KICAgIH0gY2F0Y2ggKGUpIHsKICAgICAgaWYgKERhdGUubm93KCkgPj0gZGVhZGxpbmUpIHJldHVybiBmbigpOwogICAgICBzbGVlcCg0MCk7CiAgICB9CiAgfQp9CmZ1bmN0aW9uIGxvYWRTdGF0ZSgpIHsKICB0cnkgewogICAgY29uc3QgcyA9IEpTT04ucGFyc2UoZnMucmVhZEZpbGVTeW5jKFNUQVRFX1BBVEgsICd1dGY4JykpOwogICAgaWYgKCFzLnBlbmRpbmcpIHMucGVuZGluZyA9IHsgaW1wZXJpdW06IGZhbHNlLCBkb2N2YXQ6IGZhbHNlIH07CiAgICBpZiAoIXMucGVuZGluZ19icmFuY2gpIHMucGVuZGluZ19icmFuY2ggPSB7fTsKICAgIHJldHVybiBzOwogIH0gY2F0Y2ggKF8pIHsKICAgIHJldHVybiB7IGhvbGRlcjogbnVsbCwgc3RhcnRlZF9hdDogbnVsbCwgcGVuZGluZzogeyBpbXBlcml1bTogZmFsc2UsIGRvY3ZhdDogZmFsc2UgfSwgcGVuZGluZ19icmFuY2g6IHt9IH07CiAgfQp9CmZ1bmN0aW9uIHNhdmVTdGF0ZShzKSB7IGZzLndyaXRlRmlsZVN5bmMoU1RBVEVfUEFUSCwgSlNPTi5zdHJpbmdpZnkocykpOyB9Cgpjb25zdCByZXN1bHQgPSB3aXRoRmlsZUxvY2soKCkgPT4gewogIGNvbnN0IHMgPSBsb2FkU3RhdGUoKTsKICBpZiAocy5ob2xkZXIgJiYgcy5zdGFydGVkX2F0ICYmIChub3cgLSBOdW1iZXIocy5zdGFydGVkX2F0KSkgPiBTVEFMRV9NUykgewogICAgcy5ob2xkZXIgPSBudWxsOyBzLnN0YXJ0ZWRfYXQgPSBudWxsOyBzLnN0YWxlX2NsZWFyZWRfYXQgPSBub3c7CiAgfQogIHMucGVuZGluZ19icmFuY2hbT1dORVJdID0gYnJhbmNoOwogIGlmIChzLmhvbGRlcikgewogICAgcy5wZW5kaW5nW09XTkVSXSA9IHRydWU7CiAgICBzYXZlU3RhdGUocyk7CiAgICBjb25zdCB3aG8gPSBzLmhvbGRlciA9PT0gT1dORVIgPyAnZXN0ZSBwcm95ZWN0bycgOiBzLmhvbGRlcjsKICAgIHJldHVybiB7CiAgICAgIGJ1aWxkX2FjdGlvbjogJ3F1ZXVlZCcsCiAgICAgIGJyYW5jaF9uYW1lOiBicmFuY2gsCiAgICAgIG1lc3NhZ2U6ICdCdWlsZCBnbG9iYWwgb2N1cGFkbyBwb3IgJyArIHdobyArICc7IHNlIGFjdW11bGFyw6EgcmVidWlsZCBkZSAnICsgT1dORVIgKyAnICgnICsgYnJhbmNoICsgJyknLAogICAgICBnbG9iYWxfaG9sZGVyOiBzLmhvbGRlciwKICAgIH07CiAgfQogIHMuaG9sZGVyID0gT1dORVI7CiAgcy5zdGFydGVkX2F0ID0gbm93OwogIHMucGVuZGluZ1tPV05FUl0gPSBmYWxzZTsKICBzYXZlU3RhdGUocyk7CiAgcmV0dXJuIHsgYnVpbGRfYWN0aW9uOiAncnVuJywgYnJhbmNoX25hbWU6IGJyYW5jaCwgZ2xvYmFsX2hvbGRlcjogT1dORVIgfTsKfSk7CnByb2Nlc3Muc3Rkb3V0LndyaXRlKEpTT04uc3RyaW5naWZ5KHJlc3VsdCkpOw== | base64 -d > /tmp/codice-ci-acquire-docvat.js && node /tmp/codice-ci-acquire-docvat.js\"' }}"
+        },
+        "id": "docvat-cola-acquire-cmd",
+        "name": "Cola: acquire",
+        "type": "n8n-nodes-base.executeCommand",
+        "typeVersion": 1,
+        "position": [
+          -240,
+          -952
+        ]
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 2
+            },
+            "conditions": [
+              {
+                "id": "docvat-cond-run",
+                "leftValue": "={{ $json.build_action }}",
+                "rightValue": "run",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "id": "docvat-cola-if-run",
+        "name": "¿Ejecutar build?",
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2,
+        "position": [
+          -80,
+          -952
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "// Canonical branch for this build cycle (supports requeue loop).\nconst sd = $getWorkflowStaticData('global');\nconst input = $input.first().json || {};\nconst defaultBranch = \"typescript-migration\";\nconst branch = input.branch_name || sd.branch_name || defaultBranch;\nsd.branch_name = branch;\n// Each new attempt clears the failure flag; error path sets it again if needed.\nsd.last_build_failed = false;\nreturn [{\n  json: {\n    branch_name: branch,\n    build_action: input.build_action || 'run',\n  },\n}];\n"
+        },
+        "id": "docvat-branch-ctx",
+        "name": "Branch ctx",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          80,
+          -952
+        ]
+      },
+      {
+        "parameters": {
+          "chatId": "-5285820658",
+          "text": "={{ \"⏳ \" + $json.message + \"\\n(Los commits se acumulan; un solo rebuild al terminar el build actual)\" }}",
+          "additionalFields": {
+            "appendAttribution": false
+          }
+        },
+        "id": "docvat-cola-queued",
+        "name": "Build en cola",
+        "type": "n8n-nodes-base.telegram",
+        "typeVersion": 1.2,
+        "position": [
+          -80,
+          -752
+        ],
+        "webhookId": "docvat-wh-queued",
+        "credentials": {
+          "telegramApi": {
+            "id": "cNUwQMvv4Dga2R74",
+            "name": "Telegram account"
+          }
+        }
+      },
+      {
+        "parameters": {
+          "command": "={{ 'CI_OWNER=docvat CI_OTHER=imperium CI_DEFAULT_BRANCH=typescript-migration CI_OTHER_DEFAULT=stable CI_FAILED=' + JSON.stringify($json.ci_failed ? '1' : '0') + ' sh -c \"echo Y29uc3QgZnMgPSByZXF1aXJlKCdmcycpOwpjb25zdCBTVEFURV9QQVRIID0gJy90bXAvY29kaWNlLWNpLWdsb2JhbC1idWlsZC5qc29uJzsKY29uc3QgTE9DS19QQVRIID0gJy90bXAvY29kaWNlLWNpLWdsb2JhbC1idWlsZC5sb2NrJzsKY29uc3QgT1dORVIgPSBwcm9jZXNzLmVudi5DSV9PV05FUjsKY29uc3QgT1RIRVIgPSBwcm9jZXNzLmVudi5DSV9PVEhFUjsKY29uc3QgZGVmYXVsdEJyYW5jaCA9IHByb2Nlc3MuZW52LkNJX0RFRkFVTFRfQlJBTkNIIHx8ICdzdGFibGUnOwpjb25zdCBvdGhlckRlZmF1bHQgPSBwcm9jZXNzLmVudi5DSV9PVEhFUl9ERUZBVUxUIHx8ICdzdGFibGUnOwpjb25zdCBmYWlsZWQgPSBwcm9jZXNzLmVudi5DSV9GQUlMRUQgPT09ICcxJzsKCmZ1bmN0aW9uIHNsZWVwKG1zKSB7IGNvbnN0IGUgPSBEYXRlLm5vdygpICsgbXM7IHdoaWxlIChEYXRlLm5vdygpIDwgZSkge30gfQpmdW5jdGlvbiB3aXRoRmlsZUxvY2soZm4pIHsKICBjb25zdCBkZWFkbGluZSA9IERhdGUubm93KCkgKyAxNTAwMDsKICB3aGlsZSAodHJ1ZSkgewogICAgdHJ5IHsKICAgICAgY29uc3QgZmQgPSBmcy5vcGVuU3luYyhMT0NLX1BBVEgsICd3eCcpOwogICAgICB0cnkgeyByZXR1cm4gZm4oKTsgfQogICAgICBmaW5hbGx5IHsKICAgICAgICB0cnkgeyBmcy5jbG9zZVN5bmMoZmQpOyB9IGNhdGNoIChfKSB7fQogICAgICAgIHRyeSB7IGZzLnVubGlua1N5bmMoTE9DS19QQVRIKTsgfSBjYXRjaCAoXykge30KICAgICAgfQogICAgfSBjYXRjaCAoZSkgewogICAgICBpZiAoRGF0ZS5ub3coKSA+PSBkZWFkbGluZSkgcmV0dXJuIGZuKCk7CiAgICAgIHNsZWVwKDQwKTsKICAgIH0KICB9Cn0KZnVuY3Rpb24gbG9hZFN0YXRlKCkgewogIHRyeSB7CiAgICBjb25zdCBzID0gSlNPTi5wYXJzZShmcy5yZWFkRmlsZVN5bmMoU1RBVEVfUEFUSCwgJ3V0ZjgnKSk7CiAgICBpZiAoIXMucGVuZGluZykgcy5wZW5kaW5nID0geyBpbXBlcml1bTogZmFsc2UsIGRvY3ZhdDogZmFsc2UgfTsKICAgIGlmICghcy5wZW5kaW5nX2JyYW5jaCkgcy5wZW5kaW5nX2JyYW5jaCA9IHt9OwogICAgcmV0dXJuIHM7CiAgfSBjYXRjaCAoXykgewogICAgcmV0dXJuIHsgaG9sZGVyOiBudWxsLCBzdGFydGVkX2F0OiBudWxsLCBwZW5kaW5nOiB7IGltcGVyaXVtOiBmYWxzZSwgZG9jdmF0OiBmYWxzZSB9LCBwZW5kaW5nX2JyYW5jaDoge30gfTsKICB9Cn0KZnVuY3Rpb24gc2F2ZVN0YXRlKHMpIHsgZnMud3JpdGVGaWxlU3luYyhTVEFURV9QQVRILCBKU09OLnN0cmluZ2lmeShzKSk7IH0KCmNvbnN0IHJlc3VsdCA9IHdpdGhGaWxlTG9jaygoKSA9PiB7CiAgY29uc3QgcyA9IGxvYWRTdGF0ZSgpOwogIGNvbnN0IGJyYW5jaCA9IChzLnBlbmRpbmdfYnJhbmNoICYmIHMucGVuZGluZ19icmFuY2hbT1dORVJdKSB8fCBkZWZhdWx0QnJhbmNoOwogIGNvbnN0IG15UGVuZGluZyA9ICEhKHMucGVuZGluZyAmJiBzLnBlbmRpbmdbT1dORVJdKTsKICBjb25zdCBvdGhlclBlbmRpbmcgPSAhIShzLnBlbmRpbmcgJiYgcy5wZW5kaW5nW09USEVSXSk7CiAgY29uc3Qgb3RoZXJCcmFuY2ggPSAocy5wZW5kaW5nX2JyYW5jaCAmJiBzLnBlbmRpbmdfYnJhbmNoW09USEVSXSkgfHwgb3RoZXJEZWZhdWx0OwoKICBpZiAobXlQZW5kaW5nKSB7CiAgICBzLnBlbmRpbmdbT1dORVJdID0gZmFsc2U7CiAgICBzLmhvbGRlciA9IE9XTkVSOwogICAgcy5zdGFydGVkX2F0ID0gRGF0ZS5ub3coKTsKICAgIHNhdmVTdGF0ZShzKTsKICAgIHJldHVybiB7CiAgICAgIGJ1aWxkX2FjdGlvbjogJ3JlcnVuJywKICAgICAgYnJhbmNoX25hbWU6IGJyYW5jaCwKICAgICAgbWVzc2FnZTogJ1JlYnVpbGQgYWN1bXVsYWRvIChIRUFEKSByYW1hICcgKyBicmFuY2gsCiAgICAgIG51ZGdlX290aGVyOiBmYWxzZSwKICAgICAgb3RoZXJfcHJvamVjdDogT1RIRVIsCiAgICAgIG90aGVyX2JyYW5jaDogb3RoZXJCcmFuY2gsCiAgICB9OwogIH0KCiAgaWYgKHMuaG9sZGVyID09PSBPV05FUikgewogICAgcy5ob2xkZXIgPSBudWxsOwogICAgcy5zdGFydGVkX2F0ID0gbnVsbDsKICB9CiAgc2F2ZVN0YXRlKHMpOwoKICByZXR1cm4gewogICAgYnVpbGRfYWN0aW9uOiBmYWlsZWQgPyAnZmFpbGVkJyA6ICdkb25lJywKICAgIGJyYW5jaF9uYW1lOiBicmFuY2gsCiAgICBudWRnZV9vdGhlcjogb3RoZXJQZW5kaW5nLAogICAgb3RoZXJfcHJvamVjdDogT1RIRVIsCiAgICBvdGhlcl9icmFuY2g6IG90aGVyQnJhbmNoLAogICAgbWVzc2FnZTogb3RoZXJQZW5kaW5nCiAgICAgID8gKCdMaWJlcmFkbzsgZGVzcGVydGFuZG8gYnVpbGQgcGVuZGllbnRlIGRlICcgKyBPVEhFUiArICcgKCcgKyBvdGhlckJyYW5jaCArICcpJykKICAgICAgOiAnTGliZXJhZG87IHNpbiBwZW5kaWVudGVzIGdsb2JhbGVzJywKICB9Owp9KTsKcHJvY2Vzcy5zdGRvdXQud3JpdGUoSlNPTi5zdHJpbmdpZnkocmVzdWx0KSk7 | base64 -d > /tmp/codice-ci-release-docvat.js && node /tmp/codice-ci-release-docvat.js\"' }}"
+        },
+        "id": "docvat-cola-release-cmd",
+        "name": "Cola: release",
+        "type": "n8n-nodes-base.executeCommand",
+        "typeVersion": 1,
+        "position": [
+          2100,
+          -912
+        ]
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 2
+            },
+            "conditions": [
+              {
+                "id": "docvat-cond-rerun",
+                "leftValue": "={{ $json.build_action }}",
+                "rightValue": "rerun",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "id": "docvat-cola-if-rebuild",
+        "name": "¿Rebuild pendiente?",
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2,
+        "position": [
+          2280,
+          -912
+        ]
+      },
+      {
+        "parameters": {
+          "chatId": "-5285820658",
+          "text": "={{ \"🔁 \" + $json.message }}",
+          "additionalFields": {
+            "appendAttribution": false
+          }
+        },
+        "id": "docvat-cola-rebuild",
+        "name": "Rebuild acumulado",
+        "type": "n8n-nodes-base.telegram",
+        "typeVersion": 1.2,
+        "position": [
+          2460,
+          -992
+        ],
+        "webhookId": "docvat-wh-rebuild",
+        "credentials": {
+          "telegramApi": {
+            "id": "cNUwQMvv4Dga2R74",
+            "name": "Telegram account"
+          }
+        }
+      },
+      {
+        "parameters": {},
+        "id": "docvat-cola-done",
+        "name": "Cola: idle",
+        "type": "n8n-nodes-base.noOp",
+        "typeVersion": 1,
+        "position": [
+          2460,
+          -832
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "// Mark this attempt as failed so Cola: release can stopAndError if no pending rebuild.\nconst sd = $getWorkflowStaticData('global');\nsd.last_build_failed = true;\nconst input = $input.first().json || {};\nreturn [{ json: { ...input, last_build_failed: true } }];\n"
+        },
+        "id": "docvat-mark-fail",
+        "name": "Marcar fallo",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1900,
+          -1100
+        ]
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "strict",
+              "version": 2
+            },
+            "conditions": [
+              {
+                "id": "docvat-cond-failed",
+                "leftValue": "={{ $json.build_action }}",
+                "rightValue": "failed",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "id": "docvat-if-failed",
+        "name": "¿Falló el build?",
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2,
+        "position": [
+          2460,
+          -1000
+        ]
+      },
+      {
+        "parameters": {
+          "conditions": {
+            "options": {
+              "caseSensitive": true,
+              "leftValue": "",
+              "typeValidation": "loose",
+              "version": 2
+            },
+            "conditions": [
+              {
+                "id": "nudge-eq-true",
+                "leftValue": "={{ String($json.nudge_other) }}",
+                "rightValue": "true",
+                "operator": {
+                  "type": "string",
+                  "operation": "equals"
+                }
+              }
+            ],
+            "combinator": "and"
+          },
+          "options": {}
+        },
+        "id": "docvat-if-nudge",
+        "name": "¿Despertar otro proyecto?",
+        "type": "n8n-nodes-base.if",
+        "typeVersion": 2.2,
+        "position": [
+          2460,
+          -900
+        ]
+      },
+      {
+        "parameters": {
+          "chatId": "-5285820658",
+          "text": "={{ \"🔔 \" + ($json.message || ('Despertando ' + $json.other_project)) }}",
+          "additionalFields": {
+            "appendAttribution": false
+          }
+        },
+        "id": "docvat-tg-nudge",
+        "name": "Aviso despertar otro",
+        "type": "n8n-nodes-base.telegram",
+        "typeVersion": 1.2,
+        "position": [
+          2640,
+          -1000
+        ],
+        "webhookId": "docvat-tg-nudge-wh",
+        "credentials": {
+          "telegramApi": {
+            "id": "cNUwQMvv4Dga2R74",
+            "name": "Telegram account"
+          }
+        },
+        "continueOnFail": true
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "http://127.0.0.1:5678/webhook/imperium-build",
+          "sendBody": true,
+          "specifyBody": "json",
+          "jsonBody": "={{ JSON.stringify({ branch: $json.other_branch }) }}",
+          "options": {
+            "timeout": 15000,
+            "response": {
+              "response": {
+                "neverError": true
+              }
+            }
+          }
+        },
+        "id": "docvat-http-nudge",
+        "name": "Despertar otro proyecto",
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.2,
+        "position": [
+          2820,
+          -1000
+        ],
+        "onError": "continueRegularOutput",
+        "continueOnFail": true
+      },
+      {
+        "parameters": {
+          "jsCode": "// Parse Cola: acquire shell JSON + mirror into workflow staticData.\nconst raw = String($input.first().json.stdout || '').trim();\nlet result;\ntry { result = JSON.parse(raw); }\ncatch (e) {\n  throw new Error('Cola: acquire: invalid JSON from mutex script: ' + raw.slice(0, 300));\n}\nconst sd = $getWorkflowStaticData('global');\nconst branch = result.branch_name;\nsd.branch_name = branch;\nsd.pending_branch = branch;\nsd.build_busy = result.build_action === 'run';\nsd.build_pending = result.build_action === 'queued';\nif (result.build_action === 'run') sd.build_started_at = Date.now();\nreturn [{ json: result }];\n"
+        },
+        "id": "docvat-cola-parse-acquire",
+        "name": "Cola: parse acquire",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          -120,
+          -952
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "// Pass last_build_failed into the shell release script.\nconst sd = $getWorkflowStaticData('global');\nconst input = $input.first().json || {};\nreturn [{\n  json: {\n    ...input,\n    ci_failed: !!sd.last_build_failed,\n  },\n}];\n"
+        },
+        "id": "docvat-cola-pre-release",
+        "name": "Cola: pre-release",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          1940,
+          -912
+        ]
+      },
+      {
+        "parameters": {
+          "jsCode": "// Parse Cola: release shell JSON + clear local busy/fail flags when not rerunning.\nconst raw = String($input.first().json.stdout || '').trim();\nlet result;\ntry { result = JSON.parse(raw); }\ncatch (e) {\n  throw new Error('Cola: release: invalid JSON from mutex script: ' + raw.slice(0, 300));\n}\nconst sd = $getWorkflowStaticData('global');\nsd.branch_name = result.branch_name || sd.branch_name;\nsd.pending_branch = result.branch_name || sd.pending_branch;\nif (result.build_action === 'rerun') {\n  sd.build_busy = true;\n  sd.build_pending = false;\n  sd.build_started_at = Date.now();\n} else {\n  sd.build_busy = false;\n  sd.build_pending = false;\n  sd.build_started_at = null;\n  sd.last_build_failed = false;\n}\n// normalize boolean for IF nodes\nresult.nudge_other = result.nudge_other === true || result.nudge_other === 'true';\nreturn [{ json: result }];\n"
+        },
+        "id": "docvat-cola-parse-release",
+        "name": "Cola: parse release",
+        "type": "n8n-nodes-base.code",
+        "typeVersion": 2,
+        "position": [
+          2240,
+          -912
+        ]
       }
     ],
     "connections": {
@@ -494,24 +828,14 @@
         "main": [
           [
             {
-              "node": "Write branch file",
-              "type": "main",
-              "index": 0
-            },
-            {
-              "node": "Empieza Build",
+              "node": "Cola: acquire",
               "type": "main",
               "index": 0
             }
           ],
           [
             {
-              "node": "Write branch file",
-              "type": "main",
-              "index": 0
-            },
-            {
-              "node": "Empieza Build",
+              "node": "Cola: acquire",
               "type": "main",
               "index": 0
             }
@@ -637,21 +961,13 @@
         ]
       },
       "Version a compilar": {
-        "main": [
-          [
-            {
-              "node": "Finalizacion",
-              "type": "main",
-              "index": 0
-            }
-          ]
-        ]
+        "main": []
       },
       "Error de versionado": {
         "main": [
           [
             {
-              "node": "Fail after error notify",
+              "node": "Marcar fallo",
               "type": "main",
               "index": 0
             }
@@ -675,6 +991,210 @@
             }
           ]
         ]
+      },
+      "Cola: acquire": {
+        "main": [
+          [
+            {
+              "node": "Cola: parse acquire",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "¿Ejecutar build?": {
+        "main": [
+          [
+            {
+              "node": "Branch ctx",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Build en cola",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Branch ctx": {
+        "main": [
+          [
+            {
+              "node": "Write branch file",
+              "type": "main",
+              "index": 0
+            },
+            {
+              "node": "Empieza Build",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Build en cola": {
+        "main": []
+      },
+      "Finalizacion": {
+        "main": [
+          [
+            {
+              "node": "Cola: pre-release",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Cola: release": {
+        "main": [
+          [
+            {
+              "node": "Cola: parse release",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "¿Rebuild pendiente?": {
+        "main": [
+          [
+            {
+              "node": "Rebuild acumulado",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "¿Despertar otro proyecto?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Rebuild acumulado": {
+        "main": [
+          [
+            {
+              "node": "Branch ctx",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Cola: idle": {
+        "main": []
+      },
+      "Marcar fallo": {
+        "main": [
+          [
+            {
+              "node": "Cola: pre-release",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "¿Falló el build?": {
+        "main": [
+          [
+            {
+              "node": "Fail after error notify",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "Cola: idle",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "¿Despertar otro proyecto?": {
+        "main": [
+          [
+            {
+              "node": "Aviso despertar otro",
+              "type": "main",
+              "index": 0
+            }
+          ],
+          [
+            {
+              "node": "¿Falló el build?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Aviso despertar otro": {
+        "main": [
+          [
+            {
+              "node": "Despertar otro proyecto",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Despertar otro proyecto": {
+        "main": [
+          [
+            {
+              "node": "¿Falló el build?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Cola: parse acquire": {
+        "main": [
+          [
+            {
+              "node": "¿Ejecutar build?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Cola: pre-release": {
+        "main": [
+          [
+            {
+              "node": "Cola: release",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Cola: parse release": {
+        "main": [
+          [
+            {
+              "node": "¿Rebuild pendiente?",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
       }
     },
     "settings": {
@@ -686,7 +1206,16 @@
       "saveExecutionProgress": true,
       "timeSavedPerExecution": 4
     },
-    "staticData": null,
+    "staticData": {
+      "global": {
+        "branch_name": "typescript-migration",
+        "build_busy": false,
+        "build_pending": false,
+        "build_started_at": null,
+        "pending_branch": "typescript-migration",
+        "last_build_failed": false
+      }
+    },
     "meta": {
       "templateCredsSetupCompleted": true
     },

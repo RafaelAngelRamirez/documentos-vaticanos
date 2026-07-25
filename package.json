@@ -3,6 +3,7 @@
   "version": "0.0.20",
   "private": true,
   "dependencies": {
+    "googleapis": "^144.0.0",
     "standard-version": "^9.5.0"
   },
   "scripts": {

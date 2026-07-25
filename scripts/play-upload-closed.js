@@ -75,8 +75,13 @@ async function main() {
       }
     })();
 
-  log(`==> Play upload package=${packageName} track=${track} dryRun=${dryRun}`);
+  log(`==> Play upload package=${packageName} track=${track} status=${status} dryRun=${dryRun}`);
   log(`==> AAB path=${aabPath}`);
+  if (!dryRun && status === 'draft') {
+    log(
+      'WARN: PLAY_STATUS=draft — release will stay as Console draft and will NOT auto-roll out to closed testers. Set PLAY_STATUS=completed once the app is past Borrador.'
+    );
+  }
 
   if (!fs.existsSync(aabPath)) {
     fail(2, `ERROR: AAB missing at ${aabPath} — run scripts/package-aab.sh first`);

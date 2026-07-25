@@ -55,6 +55,18 @@ function main() {
   assert.match(ci, /package-aab\.sh/);
   assert.match(ci, /play-upload-closed\.js/);
   assert.match(ci, /DV_PLAY_UPLOAD/);
+  // Play must be after docker deploy (post-build), not before packaging.
+  const aabIdx = ci.indexOf('package-aab.sh');
+  const deployIdx = ci.indexOf('ci-deploy-docvat.sh');
+  const playIdx = ci.indexOf('play-upload-closed.js');
+  assert.ok(aabIdx > 0 && deployIdx > aabIdx, 'AAB before docker deploy');
+  assert.ok(playIdx > deployIdx, 'Play upload after docker deploy (post-build)');
+  assert.match(ci, /googleapis/);
+  assert.match(ci, /PLAY_STATUS/);
+
+  section('root package declares googleapis for Play API client');
+  const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
+  assert.ok(pkg.dependencies && pkg.dependencies.googleapis, 'googleapis in dependencies');
 
   section('n8n workflow passes Play env names');
   const wf = fs.readFileSync(path.join(ROOT, 'deploy/DOCVAT-build-v1-sidecar.json'), 'utf8');

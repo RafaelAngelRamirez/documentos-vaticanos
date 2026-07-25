@@ -151,21 +151,50 @@ bash scripts/ci-docker-push.sh
 # Deploy / recreate the docvat container on the host network
 bash scripts/ci-deploy-docvat.sh
 
-# Optional: upload AAB to Play closed track (alpha) via Android Publisher API
+# Optional: upload AAB to Play closed track (alpha) via Android Publisher API.
+# Runs ONLY after web/APK/Electron/docker deploy so a Play API failure does not
+# leave docvat without the other artifacts — but it still fails the build so
+# n8n surfaces the error (do not silent-skip when DV_PLAY_UPLOAD=1).
 if [[ "${DV_PLAY_UPLOAD:-0}" == "1" ]]; then
   CURRENT_STAGE="Play closed upload"; notify_step "$CURRENT_STAGE" || true
-  echo "==> Play closed-track upload (DV_PLAY_UPLOAD=1)"
+  echo "==> Play closed-track upload (DV_PLAY_UPLOAD=1) — post-build step"
   export PLAY_PACKAGE_NAME="${PLAY_PACKAGE_NAME:-${DV_PACKAGE_NAME:-com.docvat}}"
   export PLAY_TRACK="${PLAY_TRACK:-closed}"
   export PLAY_AAB_PATH="${PLAY_AAB_PATH:-$ROOT/dist/documentos-vaticanos-release.aab}"
-  # PLAY_SERVICE_ACCOUNT_JSON must be mounted/available on the runner
+  # Default draft only while the Console app is still Borrador. Once closed
+  # testing is live (com.docvat is), host should set PLAY_STATUS=completed so
+  # testers receive the release automatically.
+  export PLAY_STATUS="${PLAY_STATUS:-draft}"
+  echo "==> Play env package=${PLAY_PACKAGE_NAME} track=${PLAY_TRACK} status=${PLAY_STATUS}"
+  if [[ "${PLAY_STATUS}" == "draft" ]]; then
+    echo "WARN: PLAY_STATUS=draft — upload will NOT roll out to closed testers until status=completed (or Console promotes the draft)."
+  fi
+  if [[ ! -f "${PLAY_AAB_PATH}" ]]; then
+    echo "ERROR: AAB missing at ${PLAY_AAB_PATH} — cannot upload to Play (enable DV_BUILD_AAB + keystore earlier in this script)" >&2
+    exit 1
+  fi
+  if [[ -z "${PLAY_SERVICE_ACCOUNT_JSON:-}" || ! -f "${PLAY_SERVICE_ACCOUNT_JSON}" ]]; then
+    echo "ERROR: PLAY_SERVICE_ACCOUNT_JSON missing or not a readable file (path='${PLAY_SERVICE_ACCOUNT_JSON:-}')" >&2
+    echo "ERROR: mount host secrets via DOCVAT_SECRETS_MOUNT and set PLAY_SERVICE_ACCOUNT_JSON=/secrets/play-service-account.json" >&2
+    exit 2
+  fi
+  # Runner image / sparse install may omit googleapis; ensure it before upload.
+  if ! ( cd "$ROOT" && node -e "require('googleapis')" ) 2>/dev/null; then
+    echo "==> installing googleapis (Play Android Publisher client) into ${ROOT}"
+    ( cd "$ROOT" && npm install googleapis@^144.0.0 --no-save --no-fund --no-audit ) \
+      || ( cd "$ROOT" && npm install googleapis --no-save --no-fund --no-audit ) \
+      || {
+        echo "ERROR: could not install googleapis — Play upload requires it (see deploy/PLAY-CLOSED-TESTING.md)" >&2
+        exit 2
+      }
+  fi
   if ! node "$ROOT/scripts/play-upload-closed.js"; then
     echo "ERROR: play-upload-closed failed (see deploy/PLAY-CLOSED-TESTING.md)" >&2
     exit 1
   fi
   echo "::DOCVAT_PLAY_UPLOAD_OK::${VERSION}"
 else
-  echo "==> Play upload skipped (set DV_PLAY_UPLOAD=1 + PLAY_SERVICE_ACCOUNT_JSON)"
+  echo "==> Play upload skipped (set DV_PLAY_UPLOAD=1 + PLAY_SERVICE_ACCOUNT_JSON + post-build AAB)"
 fi
 
 notify_done || true

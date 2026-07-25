@@ -37,7 +37,7 @@ Playwright was used **only for initial Console setup**. Do not drive every relea
 | `PLAY_TRACK` | `closed` → API track `alpha` |
 | `PLAY_AAB_PATH` | Defaults to `dist/documentos-vaticanos-release.aab` |
 | `PLAY_DRY_RUN=1` | Validate payload without calling Google |
-| `PLAY_STATUS` | `draft` (default; required while the Play app is still a **Borrador**) or `completed` once the app can ship testing releases |
+| `PLAY_STATUS` | **`completed`** once closed testing is live (testers get the release). Use `draft` only while the Console app is still **Borrador**. Host default was historically `draft` — change to `completed` after the first successful closed release (Documentos Vaticanos / `com.docvat` already ships closed Alpha). |
 
 Suggested host paths (outside git):
 
@@ -81,6 +81,12 @@ Unit tests: `npm run test:android-version`.
 
 Without `PLAY_SERVICE_ACCOUNT_JSON`, `play-upload-closed.js` exits **2** with an explicit message (honest failure). Dry-run with `PLAY_DRY_RUN=1` still validates AAB + payload when the artifact exists.
 
+### Dependency: `googleapis`
+
+`scripts/play-upload-closed.js` uses the Google APIs Node client (`googleapis`). It is a **root** `package.json` dependency so `yarn install` / `npm install` in `.ci-build.sh` step `[2/7]` pulls it into the runner. If it is still missing at upload time, `.ci-build.sh` installs `googleapis@^144` with `npm install --no-save` before calling the script.
+
+**Root cause (2026-07):** builds with `DV_PLAY_UPLOAD=1` finished web/APK/docker then failed at Play with `ERROR: googleapis package not installed`, so n8n marked the whole job error and no new versionCode appeared after `0.0.20` on the Alpha track.
+
 ## n8n (DOCVAT-build)
 
 Workflow: `deploy/DOCVAT-build-v1-sidecar.json` · id `DOCVATBuildV1sc`.
@@ -98,8 +104,19 @@ The repo `.ci-build.sh` already contains optional AAB + upload steps. Wire secre
 -e PLAY_SERVICE_ACCOUNT_JSON=/secrets/play-service-account.json \
 -e PLAY_PACKAGE_NAME=com.docvat \
 -e PLAY_TRACK=closed \
+-e PLAY_STATUS=completed \
 -v /path/on/host/secrets:/secrets:ro \
 ```
+
+Ordering inside `.ci-build.sh` (do not reorder): release → deps → web → APK → **AAB** → Electron → collect downloads → docker push/deploy → **Play upload last**.
+
+Host checklist when testers do not see updates:
+
+1. Last n8n execution `success` and log contains `::DOCVAT_PLAY_UPLOAD_OK::` (not `googleapis package not installed` / `play-upload-closed failed`).
+2. `PLAY_STATUS=completed` on the n8n container (not stuck on `draft` after the app left Borrador).
+3. New `versionCode` / `versionName` higher than the active Alpha release (Console → Versiones y paquetes).
+4. Closed track **Alpha** (API `alpha`); custom track `closed` is optional and currently unused by CI.
+5. Target API level / policy notifications in Console must not block the release.
 
 Optional sibling: after a successful build, n8n can run only:
 
