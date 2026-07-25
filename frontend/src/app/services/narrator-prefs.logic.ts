@@ -138,6 +138,23 @@ export function shouldFetchGrokVoices(
   return prefs?.grokEnabled === true && hasXaiApiKey(prefs);
 }
 
+/**
+ * Resuelve la voz preferida del dispositivo dentro del catálogo actual.
+ * - Si `savedVoiceId` está en la lista → esa voz.
+ * - Si no hay id, o no está en el catálogo (p. ej. Grok offline) → `null`.
+ * **No muta** preferencias: un catálogo incompleto no debe pisar `voiceId`.
+ */
+export function resolvePreferredVoice<T extends { id: string }>(
+  voices: readonly T[] | null | undefined,
+  savedVoiceId: string | null | undefined
+): T | null {
+  if (!voices || voices.length === 0) return null;
+  if (savedVoiceId == null || savedVoiceId === '') return null;
+  const id = String(savedVoiceId).trim();
+  if (!id) return null;
+  return voices.find((v) => v != null && v.id === id) ?? null;
+}
+
 export type GrokServerStatus =
   | 'checking'
   | 'available'

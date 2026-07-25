@@ -35,7 +35,10 @@ import {
   NarratorVoice,
   narrVoicePillLabel,
 } from 'src/app/services/narrator.service';
-import { NarratorPreferencesService } from 'src/app/services/narrator-preferences.service';
+import {
+  NarratorPreferencesService,
+  resolvePreferredVoice,
+} from 'src/app/services/narrator-preferences.service';
 import { NarracionFgService } from 'src/app/services/narracion-fg.service';
 import { nextSpeakableIndex } from 'src/app/services/speech-prep.logic';
 import { coverNavCommandsForDocumentId } from 'src/app/core/santoral/santoral-units.logic';
@@ -98,6 +101,8 @@ export class LectorComponent implements OnInit, OnDestroy {
   /** 5D · Voces es-* disponibles y voz elegida (prefs por dispositivo). */
   narrVoices: NarratorVoice[] = [];
   narrVoice: NarratorVoice | null = null;
+  /** Promise of the latest voice load (autoNarr / play wait on this). */
+  private narrVoicesLoad: Promise<void> | null = null;
 
   /** Orden del diseño 3F + Mono (monocromo oscuro, default). */
   readonly themeOptions: ThemeOption[] = [
@@ -300,12 +305,26 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   /** 5D · Carga las voces es-* y restaura la elegida (prefs del dispositivo). */
-  private async loadNarrVoices(): Promise<void> {
+  private loadNarrVoices(): Promise<void> {
+    this.narrVoicesLoad = this.loadNarrVoicesInner();
+    return this.narrVoicesLoad;
+  }
+
+  private async loadNarrVoicesInner(): Promise<void> {
     this.narrVoices = await this.narrator.listVoices('es');
-    if (!this.narrVoices.length) return;
-    const savedId = this.narrPrefs.voiceId;
-    this.narrVoice =
-      this.narrVoices.find((v) => v.id === savedId) ?? null;
+    // Resolve from global prefs only; never invent / overwrite when missing.
+    this.narrVoice = resolvePreferredVoice(
+      this.narrVoices,
+      this.narrPrefs.voiceId
+    );
+  }
+
+  /** Apply global voiceId to current catalog (no side effects on prefs). */
+  private applyGlobalVoice(): void {
+    this.narrVoice = resolvePreferredVoice(
+      this.narrVoices,
+      this.narrPrefs.voiceId
+    );
   }
 
   /** 5D · Avanza a la siguiente voz; si narra, reanuda el párrafo actual. */
@@ -319,7 +338,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.flashFeedback(`Voz: ${this.narrVoiceName}`);
     if (this.narrPlaying) {
       this.pauseNarrator();
-      this.speakFrom(this.narrIndex);
+      void this.startNarratorFrom(this.narrIndex);
     }
   }
 
@@ -344,8 +363,21 @@ export class LectorComponent implements OnInit, OnDestroy {
   };
 
   private startNarrator(): void {
+    void this.startNarratorFrom(this.visibleIndex);
+  }
+
+  /**
+   * Arranca (o reanuda) narración resolviendo siempre la voz global
+   * guardada. Espera a listVoices si aún no hay catálogo (race autoNarr).
+   */
+  private async startNarratorFrom(index: number): Promise<void> {
     if (!this.narrSupported || !this.document) return;
-    this.narrIndex = this.visibleIndex;
+    if (!this.narrVoices.length) {
+      await (this.narrVoicesLoad ?? this.loadNarrVoices());
+    } else {
+      this.applyGlobalVoice();
+    }
+    this.narrIndex = index;
     this.speakFrom(this.narrIndex);
   }
 
@@ -365,7 +397,6 @@ export class LectorComponent implements OnInit, OnDestroy {
       return;
     }
     const { index: speakIndex, prep } = hit;
-    const text = prep.text;
     // Prefijo de cita según preferencia (goal)
     let speakText = prep.text;
     if (this.narrPrefs.snapshot.readCitationPrefix) {
@@ -381,6 +412,8 @@ export class LectorComponent implements OnInit, OnDestroy {
         }
       }
     }
+    // Re-resolve global voice each utterance (prefs may change; catalog may grow).
+    this.applyGlobalVoice();
     // Headings: calmer rate (prep.rateScale) so titles breathe before body.
     const rateScale =
       prep.kind === 'heading' && prep.rateScale != null && prep.rateScale > 0

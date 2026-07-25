@@ -20,7 +20,10 @@ import {
   speakableHistoricalContextChunks,
 } from 'src/app/core/context/historical-context-resolve.logic';
 import { NarratorService } from 'src/app/services/narrator.service';
-import { NarratorPreferencesService } from 'src/app/services/narrator-preferences.service';
+import {
+  NarratorPreferencesService,
+  resolvePreferredVoice,
+} from 'src/app/services/narrator-preferences.service';
 
 /**
  * Bloque reutilizable de contexto histórico (ficha 2A / santoral).
@@ -150,9 +153,7 @@ export class HistoricalContextBlockComponent implements OnChanges, OnDestroy {
     const gen = ++this.speakGen;
     this.speaking = true;
     const voices = await this.narrator.listVoices('es');
-    const savedId = this.narrPrefs.voiceId;
-    const voice =
-      (savedId && voices.find((v) => v.id === savedId)) || null;
+    const voice = resolvePreferredVoice(voices, this.narrPrefs.voiceId);
     try {
       for (const chunk of this.speakChunks) {
         if (gen !== this.speakGen) return;

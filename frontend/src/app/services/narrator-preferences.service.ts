@@ -17,6 +17,7 @@ export {
   NARRATOR_PREFS_STORAGE_KEY,
   NARRATOR_VOICE_LEGACY_KEY,
   shouldFetchGrokVoices,
+  resolvePreferredVoice,
   grokStatusLabel,
   maskXaiApiKey,
   hasXaiApiKey,

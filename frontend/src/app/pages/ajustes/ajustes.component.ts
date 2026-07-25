@@ -32,6 +32,7 @@ import {
   NarratorPreferencesService,
   grokStatusLabel,
   maskXaiApiKey,
+  resolvePreferredVoice,
 } from 'src/app/services/narrator-preferences.service';
 import { environment } from 'src/environments/environment';
 
@@ -320,14 +321,9 @@ export class AjustesComponent implements OnInit, OnDestroy {
     this.grokVoiceCount = probe.voiceCount;
     this.narrVoices = await this.narrator.listVoices('es');
     const saved = this.narratorPrefs.voiceId;
-    this.narrVoice =
-      this.narrVoices.find((v) => v.id === saved) ??
-      this.narrVoices[0] ??
-      null;
-    // Si la voz guardada ya no está (p. ej. Grok desactivado), alinear prefs.
-    if (this.narrVoice && this.narrVoice.id !== saved) {
-      this.narratorPrefs.setVoiceId(this.narrVoice.id);
-    }
+    // Match global prefs only. Incomplete catalog (Grok offline, etc.) must
+    // NOT overwrite voiceId — UI falls back to null / "Voz del sistema".
+    this.narrVoice = resolvePreferredVoice(this.narrVoices, saved);
   }
 
   exportarDatos(): void {
