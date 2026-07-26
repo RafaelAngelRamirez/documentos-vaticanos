@@ -26,7 +26,7 @@ import {
 } from "./src/pipeline/repair_ocr_noise";
 
 const REPO = path.resolve(__dirname, "..");
-const REVISION_TAG = "ocr-abc-v2";
+const REVISION_TAG = "ocr-abc-v3";
 const INVENTORY_PATH = path.join(
   REPO,
   "documentos",
@@ -335,10 +335,16 @@ function applyToDocument(docId: string): RevisionRecord | null {
     ruleClasses: [
       "spaced-letter-collapse",
       "short-spaced-word-collapse",
+      "residual-shred-collapse",
       "spaced-digit-collapse",
       "high-confidence-ocr-confusions",
+      "midline-hyphen-rejoin",
+      "glued-token-map",
+      "digit-letter-glue",
       "garbage-toc-exclude-placeholder",
-      "punct-safe-compose",
+      "bac-chrome-running-header-colophon-placeholder",
+      "index-zone-aggressive-garbage",
+      "punct-safe-compose-whitelist-internal",
     ],
     unitsTotal: units.length,
     unitsChanged,
@@ -349,7 +355,7 @@ function applyToDocument(docId: string): RevisionRecord | null {
     letterTokenOverlap: Math.round(overlap * 10000) / 10000,
     dualWriteRoots: dualRoots,
     notes:
-      "a) ≥4 spaced letters; a2) short dict words (Tal/que/de); a3) spaced digits/years; a4) qiíe/O'MEARA/p..; b) TOC junk placeholder (stable unitIndex).",
+      "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots.",
   };
   void beforeText;
   void afterText;

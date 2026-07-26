@@ -104,6 +104,18 @@ assertEq(
   "preserve ¡ and ¿ spacing",
 );
 
+// Closed whitelist: known mid-word OCR splits only
+assertEq(
+  repairOcrPunctuation("sancti.ficationis"),
+  "sanctificationis",
+  "whitelist joins sancti.ficationis",
+);
+assertEq(
+  repairOcrPunctuation("justi.ficationis et es.decir"),
+  "justificationis et es.decir",
+  "whitelist joins justi.ficationis but not es.decir",
+);
+
 // --- MUST NOT join lowercase.period.lowercase (wording essence) ---
 const noJoinCases: Array<[string, string]> = [
   ["que.dista el sol", "que.dista el sol"],
@@ -112,7 +124,6 @@ const noJoinCases: Array<[string, string]> = [
   ["quia.non sunt", "quia.non sunt"],
   ["prop.er peccatum", "prop.er peccatum"],
   ["Após.ol Pablo", "Após.ol Pablo"],
-  ["sancti.ficationis", "sancti.ficationis"],
   ["propt.er peccatum", "propt.er peccatum"],
 ];
 for (const [raw, exp] of noJoinCases) {

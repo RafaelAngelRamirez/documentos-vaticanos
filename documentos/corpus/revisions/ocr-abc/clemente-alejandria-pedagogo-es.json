@@ -1,38 +1,53 @@
 {
   "documentId": "clemente-alejandria-pedagogo-es",
-  "revision": "ocr-abc-v1",
-  "appliedAt": "2026-07-16T00:47:52.935Z",
+  "revision": "ocr-abc-v3",
+  "appliedAt": "2026-07-26T19:20:36.719Z",
   "ruleClasses": [
     "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "residual-shred-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
+    "midline-hyphen-rejoin",
+    "glued-token-map",
+    "digit-letter-glue",
     "garbage-toc-exclude-placeholder",
-    "punct-safe-compose"
+    "bac-chrome-running-header-colophon-placeholder",
+    "index-zone-aggressive-garbage",
+    "punct-safe-compose-whitelist-internal"
   ],
   "unitsTotal": 776,
-  "unitsChanged": 55,
-  "unitsExcludedGarbage": 0,
-  "unitsCollapsedSpaced": 55,
+  "unitsChanged": 358,
+  "unitsExcludedGarbage": 2,
+  "unitsCollapsedSpaced": 356,
   "before": {
     "units": 776,
     "garbageUnits": 0,
     "garbageRatio": 0,
-    "spacedLetterRuns": 62,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 134,
+    "spacedDigitRuns": 99,
     "junkRunHits": 0,
     "tocLeaderHits": 0,
-    "residualScore": 62
+    "residualBodyNoiseUnits": 9,
+    "residualScore": 368
   },
   "after": {
     "units": 776,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
     "junkRunHits": 0,
     "tocLeaderHits": 0,
-    "residualScore": 0
+    "residualBodyNoiseUnits": 9,
+    "residualScore": 135
   },
-  "letterTokenOverlap": 0.9946,
+  "letterTokenOverlap": 0.9959,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+  "notes": "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots."
 }

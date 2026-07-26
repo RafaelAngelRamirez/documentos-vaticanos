@@ -5,13 +5,23 @@
  * Safe rules only: space-before-punct, glued clause punct, sentence
  * boundaries after multi-letter lowercase runs, spaced ellipsis leaders.
  *
- * Does NOT delete periods between lowercase runs (que.dista, es.decir,
+ * Does NOT blind-join periods between lowercase runs (que.dista, es.decir,
  * art.cit, quia.non) — that merges real word boundaries / abbreviations
- * into nonsense tokens. Mid-word OCR splits like sancti.ficationis are
- * left alone rather than risk mass false joins.
+ * into nonsense tokens. A tiny closed whitelist joins known mid-word OCR
+ * splits only (e.g. sancti.ficationis → sanctificationis).
  *
  * Does not re-segment units or paraphrase theological content.
  */
+
+/** Closed mid-word OCR splits safe to join (stem.stem → stemstem). */
+const INTERNAL_PERIOD_JOIN_WHITELIST: Array<[RegExp, string]> = [
+  [/\bsancti\.ficationis\b/gi, "sanctificationis"],
+  [/\bsancti\.ficatio\b/gi, "sanctificatio"],
+  [/\bjusti\.ficationis\b/gi, "justificationis"],
+  [/\bjusti\.ficatio\b/gi, "justificatio"],
+  [/\bmorti\.ficationis\b/gi, "mortificationis"],
+  [/\bedi\.ficationis\b/gi, "edificationis"],
+];
 
 export interface OcrPunctMetrics {
   spaceBeforePunct: number;
@@ -106,9 +116,11 @@ export function repairOcrPunctuation(text: string): string {
   // If inverted marks were glued to preceding sentence punct, restore space: ".¿" → ". ¿"
   t = t.replace(/([.!?])([¿¡])/g, "$1 $2");
 
-  // NOTE: intentionally NO internal lowercase.period.lowercase join.
-  // Joining merges real boundaries/abbreviations (que.dista→quedista,
-  // es.decir→esdecir, art.cit→artcit). Prefer leaving mid-word OCR noise.
+  // Closed whitelist only — never blind-join lowercase.period.lowercase
+  // (que.dista, es.decir, art.cit must stay intact).
+  for (const [re, rep] of INTERNAL_PERIOD_JOIN_WHITELIST) {
+    t = t.replace(re, rep);
+  }
 
   // Missing space after sentence period: "omisiones.En" → "omisiones. En"
   // ≥2 lowercase guard avoids "n.I", "c.7", "S.Ag".

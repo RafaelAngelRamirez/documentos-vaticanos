@@ -1,13 +1,33 @@
 {
-  "generatedAt": "2026-07-18T21:16:39.854Z",
-  "revision": "ocr-abc-v2",
+  "generatedAt": "2026-07-26T19:23:59.282Z",
+  "revision": "ocr-abc-v3",
   "minSpaced": 1,
   "minGarbage": 1,
   "minResidualQueue": 30,
-  "count": 89,
-  "targetAbcCount": 26,
-  "queueReocrCount": 42,
+  "count": 358,
+  "targetAbcCount": 151,
+  "queueReocrCount": 130,
   "documents": [
+    {
+      "id": "agustin-18-epistolas-indices-zh",
+      "kind": "patristic",
+      "units": 1916,
+      "metrics": {
+        "units": 1916,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 3,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 107,
+        "residualScore": 1609
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=3; short_spaced=1; body_noise=107; queue:reocr"
+    },
     {
       "id": "agustin-05-de-trinitate-es",
       "kind": "patristic",
@@ -47,6 +67,66 @@
       "targetAbc": false,
       "queueReocr": true,
       "reason": "body_noise=61; junk_runs=1; toc_leaders=2; queue:reocr"
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-zh",
+      "kind": "patristic",
+      "units": 1987,
+      "metrics": {
+        "units": 1987,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 7,
+        "shortSpacedWordHits": 5,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 4,
+        "tocLeaderHits": 3,
+        "residualBodyNoiseUnits": 53,
+        "residualScore": 823
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=7; short_spaced=5; spaced_digits=2; body_noise=53; junk_runs=4; toc_leaders=3; queue:reocr"
+    },
+    {
+      "id": "agustin-18-epistolas-indices-ar",
+      "kind": "patristic",
+      "units": 1916,
+      "metrics": {
+        "units": 1916,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 3,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 22,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 52,
+        "residualScore": 806
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=3; short_spaced=1; spaced_digits=22; body_noise=52; queue:reocr"
+    },
+    {
+      "id": "agustin-26-sermones-6-zh",
+      "kind": "patristic",
+      "units": 3149,
+      "metrics": {
+        "units": 3149,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 3,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 42,
+        "residualScore": 635
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=3; spaced_digits=2; body_noise=42; queue:reocr"
     },
     {
       "id": "agustin-15-tratados-escriturarios-es",
@@ -89,44 +169,84 @@
       "reason": "body_noise=37; junk_runs=2; toc_leaders=1; queue:reocr"
     },
     {
-      "id": "agustin-18-epistolas-indices-es",
+      "id": "agustin-32-antidonatistas-1-zh",
       "kind": "patristic",
-      "units": 1916,
+      "units": 6797,
       "metrics": {
-        "units": 1916,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
+        "units": 6797,
+        "garbageUnits": 3,
+        "garbageRatio": 0.0004,
         "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 2,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 25,
-        "residualScore": 379
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=25; junk_runs=2; queue:reocr"
-    },
-    {
-      "id": "clemente-alejandria-pedagogo-es",
-      "kind": "patristic",
-      "units": 776,
-      "metrics": {
-        "units": 776,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 134,
-        "spacedDigitRuns": 99,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 9,
-        "residualScore": 368
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 6,
+        "tocLeaderHits": 5,
+        "residualBodyNoiseUnits": 33,
+        "residualScore": 550
       },
       "targetAbc": true,
       "queueReocr": true,
-      "reason": "short_spaced=134; spaced_digits=99; body_noise=9; queue:reocr"
+      "reason": "short_spaced=1; spaced_digits=2; garbage_units=3/6797 (0.04%); body_noise=33; junk_runs=6; toc_leaders=5; queue:reocr"
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-zh",
+      "kind": "patristic",
+      "units": 1997,
+      "metrics": {
+        "units": 1997,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 3,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 35,
+        "residualScore": 529
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=1; spaced_digits=3; body_noise=35; queue:reocr"
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-ar",
+      "kind": "patristic",
+      "units": 1987,
+      "metrics": {
+        "units": 1987,
+        "garbageUnits": 1,
+        "garbageRatio": 0.0005,
+        "spacedLetterRuns": 7,
+        "shortSpacedWordHits": 2,
+        "spacedDigitRuns": 4,
+        "junkRunHits": 0,
+        "tocLeaderHits": 2,
+        "residualBodyNoiseUnits": 32,
+        "residualScore": 508
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=7; short_spaced=2; spaced_digits=4; garbage_units=1/1987 (0.05%); body_noise=32; toc_leaders=2; queue:reocr"
+    },
+    {
+      "id": "agustin-40-varios-2-zh",
+      "kind": "patristic",
+      "units": 1559,
+      "metrics": {
+        "units": 1559,
+        "garbageUnits": 1,
+        "garbageRatio": 0.0006,
+        "spacedLetterRuns": 6,
+        "shortSpacedWordHits": 11,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 26,
+        "residualScore": 420
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=6; short_spaced=11; garbage_units=1/1559 (0.06%); body_noise=26; toc_leaders=1; queue:reocr"
     },
     {
       "id": "catecismo-romano-es",
@@ -167,6 +287,26 @@
       "targetAbc": false,
       "queueReocr": true,
       "reason": "body_noise=23; queue:reocr"
+    },
+    {
+      "id": "agustin-18-epistolas-indices-es",
+      "kind": "patristic",
+      "units": 1916,
+      "metrics": {
+        "units": 1916,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 22,
+        "residualScore": 334
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=22; junk_runs=2; queue:reocr"
     },
     {
       "id": "agustin-30-antimaniqueos-1-es",
@@ -269,24 +409,24 @@
       "reason": "body_noise=17; toc_leaders=1; queue:reocr"
     },
     {
-      "id": "cipriano-cartas-es",
+      "id": "agustin-30-antimaniqueos-1-ar",
       "kind": "patristic",
-      "units": 829,
+      "units": 1997,
       "metrics": {
-        "units": 829,
+        "units": 1997,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 216,
-        "spacedDigitRuns": 20,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 19,
         "junkRunHits": 0,
         "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 1,
-        "residualScore": 251
+        "residualBodyNoiseUnits": 14,
+        "residualScore": 229
       },
       "targetAbc": true,
       "queueReocr": true,
-      "reason": "short_spaced=216; spaced_digits=20; body_noise=1; queue:reocr"
+      "reason": "spaced_digits=19; body_noise=14; queue:reocr"
     },
     {
       "id": "agustin-31-antimaniqueos-2-es",
@@ -309,6 +449,46 @@
       "reason": "body_noise=14; junk_runs=3; toc_leaders=1; queue:reocr"
     },
     {
+      "id": "agustin-19-enarraciones-salmos-1-en",
+      "kind": "patristic",
+      "units": 2714,
+      "metrics": {
+        "units": 2714,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 14,
+        "residualScore": 212
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=14; junk_runs=1; queue:reocr"
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-ar",
+      "kind": "patristic",
+      "units": 6797,
+      "metrics": {
+        "units": 6797,
+        "garbageUnits": 3,
+        "garbageRatio": 0.0004,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 17,
+        "junkRunHits": 5,
+        "tocLeaderHits": 3,
+        "residualBodyNoiseUnits": 9,
+        "residualScore": 198
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_digits=17; garbage_units=3/6797 (0.04%); body_noise=9; junk_runs=5; toc_leaders=3; queue:reocr"
+    },
+    {
       "id": "agustin-32-antidonatistas-1-es",
       "kind": "patristic",
       "units": 6797,
@@ -320,13 +500,33 @@
         "shortSpacedWordHits": 0,
         "spacedDigitRuns": 0,
         "junkRunHits": 4,
-        "tocLeaderHits": 5,
-        "residualBodyNoiseUnits": 13,
-        "residualScore": 213
+        "tocLeaderHits": 4,
+        "residualBodyNoiseUnits": 12,
+        "residualScore": 196
       },
       "targetAbc": false,
       "queueReocr": true,
-      "reason": "body_noise=13; junk_runs=4; toc_leaders=5; queue:reocr"
+      "reason": "body_noise=12; junk_runs=4; toc_leaders=4; queue:reocr"
+    },
+    {
+      "id": "agustin-39-varios-1-zh",
+      "kind": "patristic",
+      "units": 1230,
+      "metrics": {
+        "units": 1230,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 17,
+        "shortSpacedWordHits": 8,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 11,
+        "residualScore": 196
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=17; short_spaced=8; spaced_digits=2; body_noise=11; junk_runs=2; queue:reocr"
     },
     {
       "id": "agustin-21-enarraciones-salmos-3-es",
@@ -349,44 +549,84 @@
       "reason": "body_noise=13; queue:reocr"
     },
     {
-      "id": "cirilo-jerusalen-catequesis-es",
+      "id": "agustin-32-antidonatistas-1-en",
       "kind": "patristic",
-      "units": 1015,
+      "units": 6797,
       "metrics": {
-        "units": 1015,
+        "units": 6797,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 120,
-        "spacedDigitRuns": 10,
-        "junkRunHits": 0,
-        "tocLeaderHits": 2,
-        "residualBodyNoiseUnits": 4,
-        "residualScore": 194
+        "shortSpacedWordHits": 5,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 4,
+        "tocLeaderHits": 5,
+        "residualBodyNoiseUnits": 11,
+        "residualScore": 189
       },
       "targetAbc": true,
       "queueReocr": true,
-      "reason": "short_spaced=120; spaced_digits=10; body_noise=4; toc_leaders=2; queue:reocr"
+      "reason": "short_spaced=5; spaced_digits=1; body_noise=11; junk_runs=4; toc_leaders=5; queue:reocr"
     },
     {
-      "id": "agustin-38-antiarrianos-es",
+      "id": "agustin-29-escritos-biblicos-5-zh",
       "kind": "patristic",
-      "units": 1691,
+      "units": 2221,
       "metrics": {
-        "units": 1691,
+        "units": 2221,
         "garbageUnits": 0,
         "garbageRatio": 0,
-        "spacedLetterRuns": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 12,
+        "residualScore": 182
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=1; spaced_digits=1; body_noise=12; queue:reocr"
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-hi",
+      "kind": "patristic",
+      "units": 3002,
+      "metrics": {
+        "units": 3002,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 181,
         "shortSpacedWordHits": 0,
         "spacedDigitRuns": 0,
-        "junkRunHits": 5,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 12,
-        "residualScore": 192
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 181
       },
-      "targetAbc": false,
+      "targetAbc": true,
       "queueReocr": true,
-      "reason": "body_noise=12; junk_runs=5; toc_leaders=1; queue:reocr"
+      "reason": "spaced_runs=181; queue:reocr"
+    },
+    {
+      "id": "agustin-40-varios-2-ar",
+      "kind": "patristic",
+      "units": 1559,
+      "metrics": {
+        "units": 1559,
+        "garbageUnits": 1,
+        "garbageRatio": 0.0006,
+        "spacedLetterRuns": 14,
+        "shortSpacedWordHits": 3,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 10,
+        "residualScore": 181
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=14; short_spaced=3; spaced_digits=1; garbage_units=1/1559 (0.06%); body_noise=10; toc_leaders=1; queue:reocr"
     },
     {
       "id": "agustin-06-gracia-1-es",
@@ -409,6 +649,46 @@
       "reason": "body_noise=12; queue:reocr"
     },
     {
+      "id": "agustin-38-antiarrianos-es",
+      "kind": "patristic",
+      "units": 1691,
+      "metrics": {
+        "units": 1691,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 3,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 11,
+        "residualScore": 173
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=11; junk_runs=3; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-39-varios-1-ar",
+      "kind": "patristic",
+      "units": 1230,
+      "metrics": {
+        "units": 1230,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 20,
+        "shortSpacedWordHits": 7,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 3,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 9,
+        "residualScore": 169
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=20; short_spaced=7; spaced_digits=1; body_noise=9; junk_runs=3; queue:reocr"
+    },
+    {
       "id": "agustin-17-ciudad-de-dios-2-es",
       "kind": "patristic",
       "units": 3310,
@@ -427,6 +707,66 @@
       "targetAbc": false,
       "queueReocr": true,
       "reason": "body_noise=10; junk_runs=9; queue:reocr"
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-en",
+      "kind": "patristic",
+      "units": 1987,
+      "metrics": {
+        "units": 1987,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 2,
+        "shortSpacedWordHits": 5,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 3,
+        "residualBodyNoiseUnits": 10,
+        "residualScore": 165
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=2; short_spaced=5; body_noise=10; junk_runs=1; toc_leaders=3; queue:reocr"
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-hi",
+      "kind": "patristic",
+      "units": 776,
+      "metrics": {
+        "units": 776,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 4,
+        "spacedDigitRuns": 159,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 163
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=4; spaced_digits=159; queue:reocr"
+    },
+    {
+      "id": "agustin-38-antiarrianos-zh",
+      "kind": "patristic",
+      "units": 1691,
+      "metrics": {
+        "units": 1691,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 6,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 6,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 9,
+        "residualScore": 154
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=6; spaced_digits=1; body_noise=9; junk_runs=6; queue:reocr"
     },
     {
       "id": "agustin-08-cartas-1-es",
@@ -449,24 +789,104 @@
       "reason": "body_noise=10; toc_leaders=1; queue:reocr"
     },
     {
-      "id": "agustin-22-enarraciones-salmos-4-es",
+      "id": "agustin-38-antiarrianos-en",
       "kind": "patristic",
-      "units": 3002,
+      "units": 1691,
       "metrics": {
-        "units": 3002,
+        "units": 1691,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 3,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 5,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 9,
+        "residualScore": 149
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=3; short_spaced=1; body_noise=9; junk_runs=5; queue:reocr"
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-en",
+      "kind": "patristic",
+      "units": 776,
+      "metrics": {
+        "units": 776,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 36,
+        "spacedDigitRuns": 89,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 140
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=36; spaced_digits=89; body_noise=1; queue:reocr"
+    },
+    {
+      "id": "agustin-26-sermones-6-en",
+      "kind": "patristic",
+      "units": 3149,
+      "metrics": {
+        "units": 3149,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 33,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 7,
+        "residualScore": 138
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=33; body_noise=7; queue:reocr"
+    },
+    {
+      "id": "agustin-01-primeros-escritos-zh",
+      "kind": "patristic",
+      "units": 2181,
+      "metrics": {
+        "units": 2181,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 9,
+        "residualScore": 136
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=1; body_noise=9; queue:reocr"
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-en",
+      "kind": "patristic",
+      "units": 2221,
+      "metrics": {
+        "units": 2221,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
         "shortSpacedWordHits": 0,
         "spacedDigitRuns": 0,
         "junkRunHits": 0,
         "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 10,
-        "residualScore": 150
+        "residualBodyNoiseUnits": 9,
+        "residualScore": 136
       },
-      "targetAbc": false,
+      "targetAbc": true,
       "queueReocr": true,
-      "reason": "body_noise=10; queue:reocr"
+      "reason": "spaced_runs=1; body_noise=9; queue:reocr"
     },
     {
       "id": "agustin-20-enarraciones-salmos-2-es",
@@ -489,6 +909,86 @@
       "reason": "body_noise=9; queue:reocr"
     },
     {
+      "id": "agustin-22-enarraciones-salmos-4-es",
+      "kind": "patristic",
+      "units": 3002,
+      "metrics": {
+        "units": 3002,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 9,
+        "residualScore": 135
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=9; queue:reocr"
+    },
+    {
+      "id": "agustin-38-antiarrianos-ar",
+      "kind": "patristic",
+      "units": 1691,
+      "metrics": {
+        "units": 1691,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 7,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 4,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 8,
+        "residualScore": 135
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=7; body_noise=8; junk_runs=4; queue:reocr"
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-es",
+      "kind": "patristic",
+      "units": 776,
+      "metrics": {
+        "units": 776,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 9,
+        "residualScore": 135
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=9; queue:reocr"
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-zh",
+      "kind": "patristic",
+      "units": 1948,
+      "metrics": {
+        "units": 1948,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 8,
+        "shortSpacedWordHits": 2,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 8,
+        "residualScore": 132
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=8; short_spaced=2; body_noise=8; junk_runs=1; queue:reocr"
+    },
+    {
       "id": "agustin-34-antidonatistas-3-es",
       "kind": "patristic",
       "units": 1987,
@@ -507,6 +1007,26 @@
       "targetAbc": false,
       "queueReocr": true,
       "reason": "body_noise=8; junk_runs=2; toc_leaders=3; queue:reocr"
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-zh",
+      "kind": "patristic",
+      "units": 776,
+      "metrics": {
+        "units": 776,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 24,
+        "spacedDigitRuns": 87,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 126
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=24; spaced_digits=87; body_noise=1; queue:reocr"
     },
     {
       "id": "agustin-40-varios-2-es",
@@ -549,6 +1069,66 @@
       "reason": "body_noise=8; queue:reocr"
     },
     {
+      "id": "agustin-05-de-trinitate-zh",
+      "kind": "patristic",
+      "units": 3030,
+      "metrics": {
+        "units": 3030,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 3,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 7,
+        "residualScore": 111
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=7; junk_runs=3; queue:reocr"
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-ar",
+      "kind": "patristic",
+      "units": 776,
+      "metrics": {
+        "units": 776,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 19,
+        "spacedDigitRuns": 75,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 109
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=19; spaced_digits=75; body_noise=1; queue:reocr"
+    },
+    {
+      "id": "agustin-01-primeros-escritos-ar",
+      "kind": "patristic",
+      "units": 2181,
+      "metrics": {
+        "units": 2181,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 15,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 6,
+        "residualScore": 107
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_digits=15; body_noise=6; toc_leaders=1; queue:reocr"
+    },
+    {
       "id": "agustin-26-sermones-6-es",
       "kind": "patristic",
       "units": 3149,
@@ -567,6 +1147,46 @@
       "targetAbc": false,
       "queueReocr": true,
       "reason": "body_noise=7; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-hi",
+      "kind": "patristic",
+      "units": 2221,
+      "metrics": {
+        "units": 2221,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 2,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 7,
+        "residualScore": 107
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=2; body_noise=7; queue:reocr"
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-en",
+      "kind": "patristic",
+      "units": 3168,
+      "metrics": {
+        "units": 3168,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 7,
+        "residualScore": 106
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=1; body_noise=7; queue:reocr"
     },
     {
       "id": "agustin-14-evangelio-juan-2-es",
@@ -589,24 +1209,104 @@
       "reason": "body_noise=7; queue:reocr"
     },
     {
-      "id": "agustin-39-varios-1-es",
+      "id": "agustin-21-enarraciones-salmos-3-zh",
       "kind": "patristic",
-      "units": 1230,
+      "units": 3168,
       "metrics": {
-        "units": 1230,
+        "units": 3168,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
         "shortSpacedWordHits": 0,
         "spacedDigitRuns": 0,
-        "junkRunHits": 2,
+        "junkRunHits": 0,
         "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 6,
-        "residualScore": 94
+        "residualBodyNoiseUnits": 7,
+        "residualScore": 105
       },
       "targetAbc": false,
       "queueReocr": true,
-      "reason": "body_noise=6; junk_runs=2; queue:reocr"
+      "reason": "body_noise=7; queue:reocr"
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-ar",
+      "kind": "patristic",
+      "units": 1948,
+      "metrics": {
+        "units": 1948,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 12,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 6,
+        "residualScore": 104
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=12; short_spaced=1; spaced_digits=1; body_noise=6; queue:reocr"
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-en",
+      "kind": "patristic",
+      "units": 3951,
+      "metrics": {
+        "units": 3951,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 3,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 6,
+        "residualScore": 99
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=1; body_noise=6; junk_runs=3; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-40-varios-2-en",
+      "kind": "patristic",
+      "units": 1559,
+      "metrics": {
+        "units": 1559,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 4,
+        "shortSpacedWordHits": 2,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 6,
+        "residualScore": 98
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=4; short_spaced=2; body_noise=6; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-en",
+      "kind": "patristic",
+      "units": 1948,
+      "metrics": {
+        "units": 1948,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 5,
+        "shortSpacedWordHits": 4,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 5,
+        "residualScore": 84
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=5; short_spaced=4; body_noise=5; queue:reocr"
     },
     {
       "id": "catecismo-romano-la",
@@ -629,6 +1329,46 @@
       "reason": "short_spaced=14; spaced_digits=60; junk_runs=1; toc_leaders=3; queue:reocr"
     },
     {
+      "id": "agustin-05-de-trinitate-en",
+      "kind": "patristic",
+      "units": 3030,
+      "metrics": {
+        "units": 3030,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 5,
+        "residualScore": 79
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=5; junk_runs=2; queue:reocr"
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-zh",
+      "kind": "patristic",
+      "units": 2714,
+      "metrics": {
+        "units": 2714,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 5,
+        "residualScore": 79
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=5; junk_runs=2; queue:reocr"
+    },
+    {
       "id": "agustin-25-sermones-5-es",
       "kind": "patristic",
       "units": 2285,
@@ -647,6 +1387,26 @@
       "targetAbc": false,
       "queueReocr": true,
       "reason": "body_noise=5; junk_runs=1; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-39-varios-1-es",
+      "kind": "patristic",
+      "units": 1230,
+      "metrics": {
+        "units": 1230,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 5,
+        "residualScore": 79
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=5; junk_runs=2; queue:reocr"
     },
     {
       "id": "agustin-02-confesiones-es",
@@ -689,6 +1449,246 @@
       "reason": "body_noise=5; toc_leaders=1; queue:reocr"
     },
     {
+      "id": "agustin-29-escritos-biblicos-5-ar",
+      "kind": "patristic",
+      "units": 2221,
+      "metrics": {
+        "units": 2221,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 2,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 5,
+        "residualScore": 77
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=2; body_noise=5; queue:reocr"
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-ar",
+      "kind": "patristic",
+      "units": 884,
+      "metrics": {
+        "units": 884,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 10,
+        "shortSpacedWordHits": 2,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 4,
+        "residualScore": 76
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=10; short_spaced=2; spaced_digits=2; body_noise=4; junk_runs=1; queue:reocr"
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-zh",
+      "kind": "patristic",
+      "units": 3050,
+      "metrics": {
+        "units": 3050,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 5,
+        "residualScore": 75
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=5; queue:reocr"
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-ar",
+      "kind": "patristic",
+      "units": 3168,
+      "metrics": {
+        "units": 3168,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 5,
+        "residualScore": 75
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=5; queue:reocr"
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-zh",
+      "kind": "patristic",
+      "units": 3951,
+      "metrics": {
+        "units": 3951,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 3,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 4,
+        "residualScore": 68
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=4; junk_runs=3; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-en",
+      "kind": "patristic",
+      "units": 3344,
+      "metrics": {
+        "units": 3344,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 10,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 66
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=1; body_noise=3; junk_runs=10; queue:reocr"
+    },
+    {
+      "id": "agustin-18-epistolas-indices-hi",
+      "kind": "patristic",
+      "units": 1916,
+      "metrics": {
+        "units": 1916,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 49,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 65
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=49; spaced_digits=1; body_noise=1; queue:reocr"
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-es",
+      "kind": "patristic",
+      "units": 1015,
+      "metrics": {
+        "units": 1015,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 2,
+        "residualBodyNoiseUnits": 4,
+        "residualScore": 64
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=4; toc_leaders=2; queue:reocr"
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-ar",
+      "kind": "patristic",
+      "units": 2714,
+      "metrics": {
+        "units": 2714,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 4,
+        "residualScore": 62
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=4; junk_runs=1; queue:reocr"
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-hi",
+      "kind": "patristic",
+      "units": 3951,
+      "metrics": {
+        "units": 3951,
+        "garbageUnits": 3,
+        "garbageRatio": 0.0008,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 6,
+        "tocLeaderHits": 2,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 62
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "garbage_units=3/3951 (0.08%); body_noise=1; junk_runs=6; toc_leaders=2; queue:reocr"
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-en",
+      "kind": "patristic",
+      "units": 3002,
+      "metrics": {
+        "units": 3002,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 4,
+        "residualScore": 61
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=1; body_noise=4; queue:reocr"
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-ar",
+      "kind": "patristic",
+      "units": 3050,
+      "metrics": {
+        "units": 3050,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 4,
+        "residualScore": 60
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=4; queue:reocr"
+    },
+    {
       "id": "agustin-28-escritos-biblicos-4-es",
       "kind": "patristic",
       "units": 2414,
@@ -709,24 +1709,164 @@
       "reason": "body_noise=4; queue:reocr"
     },
     {
-      "id": "agustin-36-antipelagianos-4-es",
+      "id": "agustin-16-ciudad-de-dios-1-zh",
       "kind": "patristic",
-      "units": 1056,
+      "units": 3344,
       "metrics": {
-        "units": 1056,
+        "units": 3344,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 12,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 55
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=1; body_noise=2; junk_runs=12; queue:reocr"
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-ar",
+      "kind": "patristic",
+      "units": 3344,
+      "metrics": {
+        "units": 3344,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
         "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 3,
-        "residualScore": 47
+        "spacedDigitRuns": 7,
+        "junkRunHits": 8,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 53
       },
-      "targetAbc": false,
+      "targetAbc": true,
       "queueReocr": true,
-      "reason": "body_noise=3; toc_leaders=1; queue:reocr"
+      "reason": "spaced_digits=7; body_noise=2; junk_runs=8; queue:reocr"
+    },
+    {
+      "id": "agustin-11-cartas-2-zh",
+      "kind": "patristic",
+      "units": 2451,
+      "metrics": {
+        "units": 2451,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 3,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 52
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_digits=1; body_noise=3; junk_runs=3; queue:reocr"
+    },
+    {
+      "id": "agustin-05-de-trinitate-hi",
+      "kind": "patristic",
+      "units": 3030,
+      "metrics": {
+        "units": 3030,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 50
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=1; body_noise=3; junk_runs=2; queue:reocr"
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-hi",
+      "kind": "patristic",
+      "units": 3344,
+      "metrics": {
+        "units": 3344,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 2,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 8,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 49
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=2; spaced_digits=1; body_noise=2; junk_runs=8; queue:reocr"
+    },
+    {
+      "id": "agustin-39-varios-1-hi",
+      "kind": "patristic",
+      "units": 1230,
+      "metrics": {
+        "units": 1230,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 2,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 49
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=2; spaced_digits=2; body_noise=3; queue:reocr"
+    },
+    {
+      "id": "agustin-05-de-trinitate-ar",
+      "kind": "patristic",
+      "units": 3030,
+      "metrics": {
+        "units": 3030,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 48
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=1; body_noise=3; junk_runs=1; queue:reocr"
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-zh",
+      "kind": "patristic",
+      "units": 2414,
+      "metrics": {
+        "units": 2414,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 48
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_digits=1; body_noise=3; junk_runs=1; queue:reocr"
     },
     {
       "id": "agustin-11-cartas-2-es",
@@ -749,44 +1889,524 @@
       "reason": "body_noise=3; junk_runs=1; queue:reocr"
     },
     {
-      "id": "gregorio-nisa-gran-catequesis-es",
+      "id": "agustin-36-antipelagianos-4-es",
       "kind": "patristic",
-      "units": 250,
+      "units": 1056,
       "metrics": {
-        "units": 250,
+        "units": 1056,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 35,
-        "spacedDigitRuns": 2,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 47
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=3; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-09-gracia-2-en",
+      "kind": "patristic",
+      "units": 2673,
+      "metrics": {
+        "units": 2673,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
         "junkRunHits": 0,
         "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 0,
-        "residualScore": 37
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 46
       },
       "targetAbc": true,
       "queueReocr": true,
-      "reason": "short_spaced=35; spaced_digits=2; queue:reocr"
+      "reason": "spaced_digits=1; body_noise=3; queue:reocr"
     },
     {
-      "id": "agustin-33-antidonatistas-2-es",
+      "id": "agustin-22-enarraciones-salmos-4-zh",
+      "kind": "patristic",
+      "units": 3002,
+      "metrics": {
+        "units": 3002,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 46
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=1; body_noise=3; queue:reocr"
+    },
+    {
+      "id": "agustin-25-sermones-5-en",
+      "kind": "patristic",
+      "units": 2285,
+      "metrics": {
+        "units": 2285,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 46
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_digits=1; body_noise=3; queue:reocr"
+    },
+    {
+      "id": "agustin-25-sermones-5-zh",
+      "kind": "patristic",
+      "units": 2285,
+      "metrics": {
+        "units": 2285,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 46
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_digits=1; body_noise=3; queue:reocr"
+    },
+    {
+      "id": "agustin-39-varios-1-en",
+      "kind": "patristic",
+      "units": 1230,
+      "metrics": {
+        "units": 1230,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 6,
+        "shortSpacedWordHits": 5,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 46
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=6; short_spaced=5; spaced_digits=1; body_noise=2; junk_runs=2; queue:reocr"
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-zh",
+      "kind": "patristic",
+      "units": 1056,
+      "metrics": {
+        "units": 1056,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 6,
+        "shortSpacedWordHits": 8,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 45
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=6; short_spaced=8; spaced_digits=1; body_noise=2; queue:reocr"
+    },
+    {
+      "id": "atanasio-de-incarnatione-es",
+      "kind": "patristic",
+      "units": 95,
+      "metrics": {
+        "units": 95,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 45
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=3; queue:reocr"
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-ar",
+      "kind": "patristic",
+      "units": 3951,
+      "metrics": {
+        "units": 3951,
+        "garbageUnits": 1,
+        "garbageRatio": 0.0003,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 14,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 43
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_digits=14; garbage_units=1/3951 (0.03%); body_noise=1; junk_runs=2; queue:reocr"
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-zh",
       "kind": "patristic",
       "units": 884,
       "metrics": {
         "units": 884,
         "garbageUnits": 0,
         "garbageRatio": 0,
+        "spacedLetterRuns": 6,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 4,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 42
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=6; spaced_digits=4; body_noise=2; junk_runs=1; queue:reocr"
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-en",
+      "kind": "patristic",
+      "units": 3310,
+      "metrics": {
+        "units": 3310,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 2,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 4,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 41
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=1; short_spaced=2; body_noise=2; junk_runs=4; queue:reocr"
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-hi",
+      "kind": "patristic",
+      "units": 884,
+      "metrics": {
+        "units": 884,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 6,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 41
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=1; spaced_digits=6; body_noise=2; junk_runs=2; queue:reocr"
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-ar",
+      "kind": "patristic",
+      "units": 1056,
+      "metrics": {
+        "units": 1056,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 8,
+        "shortSpacedWordHits": 2,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 40
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=8; short_spaced=2; body_noise=2; queue:reocr"
+    },
+    {
+      "id": "cipriano-cartas-zh",
+      "kind": "patristic",
+      "units": 829,
+      "metrics": {
+        "units": 829,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 5,
+        "spacedDigitRuns": 19,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 39
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=5; spaced_digits=19; body_noise=1; queue:reocr"
+    },
+    {
+      "id": "agustin-12-tratados-morales-ar",
+      "kind": "patristic",
+      "units": 1828,
+      "metrics": {
+        "units": 1828,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 7,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 38
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=7; short_spaced=1; body_noise=2; queue:reocr"
+    },
+    {
+      "id": "agustin-25-sermones-5-ar",
+      "kind": "patristic",
+      "units": 2285,
+      "metrics": {
+        "units": 2285,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 5,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 38
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=1; spaced_digits=5; body_noise=2; junk_runs=1; queue:reocr"
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-hi",
+      "kind": "patristic",
+      "units": 3310,
+      "metrics": {
+        "units": 3310,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
         "spacedLetterRuns": 0,
         "shortSpacedWordHits": 0,
         "spacedDigitRuns": 0,
+        "junkRunHits": 3,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 36
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=2; junk_runs=3; queue:reocr"
+    },
+    {
+      "id": "agustin-18-epistolas-indices-en",
+      "kind": "patristic",
+      "units": 1916,
+      "metrics": {
+        "units": 1916,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 3,
+        "shortSpacedWordHits": 3,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 36
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=3; short_spaced=3; body_noise=2; queue:reocr"
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-en",
+      "kind": "patristic",
+      "units": 884,
+      "metrics": {
+        "units": 884,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 3,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
         "junkRunHits": 1,
         "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 36
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=3; spaced_digits=1; body_noise=2; junk_runs=1; queue:reocr"
+    },
+    {
+      "id": "agustin-02-confesiones-ar",
+      "kind": "patristic",
+      "units": 1952,
+      "metrics": {
+        "units": 1952,
+        "garbageUnits": 1,
+        "garbageRatio": 0.0005,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 5,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 34
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=1; spaced_digits=5; garbage_units=1/1952 (0.05%); body_noise=1; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-en",
+      "kind": "patristic",
+      "units": 1997,
+      "metrics": {
+        "units": 1997,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 4,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 34
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=4; body_noise=2; queue:reocr"
+    },
+    {
+      "id": "agustin-01-primeros-escritos-en",
+      "kind": "patristic",
+      "units": 2181,
+      "metrics": {
+        "units": 2181,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 33
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=1; body_noise=2; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-08-cartas-1-ar",
+      "kind": "patristic",
+      "units": 2468,
+      "metrics": {
+        "units": 2468,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 33
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_digits=1; body_noise=2; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-zh",
+      "kind": "patristic",
+      "units": 1625,
+      "metrics": {
+        "units": 1625,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 33
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_digits=1; body_noise=2; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-08-cartas-1-en",
+      "kind": "patristic",
+      "units": 2468,
+      "metrics": {
+        "units": 2468,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
         "residualBodyNoiseUnits": 2,
         "residualScore": 32
       },
       "targetAbc": false,
       "queueReocr": true,
-      "reason": "body_noise=2; junk_runs=1; queue:reocr"
+      "reason": "body_noise=2; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-ar",
+      "kind": "patristic",
+      "units": 2277,
+      "metrics": {
+        "units": 2277,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 32
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_digits=2; body_noise=2; queue:reocr"
     },
     {
       "id": "agustin-23-sermones-juan-hechos-es",
@@ -809,11 +2429,91 @@
       "reason": "body_noise=2; toc_leaders=1; queue:reocr"
     },
     {
+      "id": "agustin-02-confesiones-zh",
+      "kind": "patristic",
+      "units": 1952,
+      "metrics": {
+        "units": 1952,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 31
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_runs=1; body_noise=2; queue:reocr"
+    },
+    {
+      "id": "agustin-11-cartas-2-en",
+      "kind": "patristic",
+      "units": 2451,
+      "metrics": {
+        "units": 2451,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 31
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_digits=1; body_noise=2; queue:reocr"
+    },
+    {
       "id": "agustin-12-tratados-morales-es",
       "kind": "patristic",
       "units": 1828,
       "metrics": {
         "units": 1828,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 30
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=2; queue:reocr"
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-en",
+      "kind": "patristic",
+      "units": 3050,
+      "metrics": {
+        "units": 3050,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 30
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=2; queue:reocr"
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-ar",
+      "kind": "patristic",
+      "units": 3002,
+      "metrics": {
+        "units": 3002,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -849,6 +2549,246 @@
       "reason": "body_noise=2; queue:reocr"
     },
     {
+      "id": "agustin-27-escritos-biblicos-3-hi",
+      "kind": "patristic",
+      "units": 1625,
+      "metrics": {
+        "units": 1625,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 30
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=2; queue:reocr"
+    },
+    {
+      "id": "cipriano-cartas-en",
+      "kind": "patristic",
+      "units": 829,
+      "metrics": {
+        "units": 829,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 11,
+        "spacedDigitRuns": 19,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 30
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "short_spaced=11; spaced_digits=19; queue:reocr"
+    },
+    {
+      "id": "cipriano-cartas-hi",
+      "kind": "patristic",
+      "units": 829,
+      "metrics": {
+        "units": 829,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 30,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 30
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "spaced_digits=30; queue:reocr"
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-ar",
+      "kind": "patristic",
+      "units": 2878,
+      "metrics": {
+        "units": 2878,
+        "garbageUnits": 1,
+        "garbageRatio": 0.0003,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 29
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "garbage_units=1/2878 (0.03%); body_noise=1; junk_runs=1; toc_leaders=1"
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-zh",
+      "kind": "patristic",
+      "units": 2318,
+      "metrics": {
+        "units": 2318,
+        "garbageUnits": 1,
+        "garbageRatio": 0.0004,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 28
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=1; garbage_units=1/2318 (0.04%); body_noise=1; toc_leaders=1"
+    },
+    {
+      "id": "agustin-24-sermones-4-ar",
+      "kind": "patristic",
+      "units": 2460,
+      "metrics": {
+        "units": 2460,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 9,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 28
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=9; body_noise=1; junk_runs=2"
+    },
+    {
+      "id": "agustin-02-confesiones-en",
+      "kind": "patristic",
+      "units": 1952,
+      "metrics": {
+        "units": 1952,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 8,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 2,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 27
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=8; body_noise=1; toc_leaders=2"
+    },
+    {
+      "id": "agustin-12-tratados-morales-zh",
+      "kind": "patristic",
+      "units": 1828,
+      "metrics": {
+        "units": 1828,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 7,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 26
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=7; spaced_digits=2; body_noise=1; junk_runs=1"
+    },
+    {
+      "id": "agustin-09-gracia-2-zh",
+      "kind": "patristic",
+      "units": 2673,
+      "metrics": {
+        "units": 2673,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 4,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 24
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=1; body_noise=1; junk_runs=4"
+    },
+    {
+      "id": "agustin-24-sermones-4-zh",
+      "kind": "patristic",
+      "units": 2460,
+      "metrics": {
+        "units": 2460,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 3,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 23
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=3; spaced_digits=1; body_noise=1; junk_runs=2"
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-zh",
+      "kind": "patristic",
+      "units": 2878,
+      "metrics": {
+        "units": 2878,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 2,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 22
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=1; body_noise=1; junk_runs=2; toc_leaders=1"
+    },
+    {
+      "id": "agustin-08-cartas-1-zh",
+      "kind": "patristic",
+      "units": 2468,
+      "metrics": {
+        "units": 2468,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 2,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 22
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=1; body_noise=1; junk_runs=2; toc_leaders=1"
+    },
+    {
       "id": "calcedonia-es",
       "kind": "council",
       "units": 35,
@@ -869,6 +2809,86 @@
       "reason": "short_spaced=7; body_noise=1"
     },
     {
+      "id": "agustin-07-sermones-1-zh",
+      "kind": "patristic",
+      "units": 2181,
+      "metrics": {
+        "units": 2181,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 3,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 21
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; junk_runs=3; below-threshold"
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-zh",
+      "kind": "patristic",
+      "units": 3310,
+      "metrics": {
+        "units": 3310,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 3,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 21
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; junk_runs=3; below-threshold"
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-zh",
+      "kind": "patristic",
+      "units": 250,
+      "metrics": {
+        "units": 250,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 3,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 20
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=3; spaced_digits=2; body_noise=1"
+    },
+    {
+      "id": "agustin-24-sermones-4-en",
+      "kind": "patristic",
+      "units": 2460,
+      "metrics": {
+        "units": 2460,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 19
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; junk_runs=2; below-threshold"
+    },
+    {
       "id": "agustin-24-sermones-4-es",
       "kind": "patristic",
       "units": 2460,
@@ -887,6 +2907,86 @@
       "targetAbc": false,
       "queueReocr": false,
       "reason": "body_noise=1; junk_runs=2; below-threshold"
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-en",
+      "kind": "patristic",
+      "units": 1056,
+      "metrics": {
+        "units": 1056,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 2,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 19
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=1; short_spaced=2; spaced_digits=1; body_noise=1"
+    },
+    {
+      "id": "cipriano-cartas-ar",
+      "kind": "patristic",
+      "units": 829,
+      "metrics": {
+        "units": 829,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 18,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 19
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=1; spaced_digits=18"
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-zh",
+      "kind": "patristic",
+      "units": 2880,
+      "metrics": {
+        "units": 2880,
+        "garbageUnits": 1,
+        "garbageRatio": 0.0003,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 3,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 18
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "garbage_units=1/2880 (0.03%); junk_runs=3; toc_leaders=1"
+    },
+    {
+      "id": "agustin-06-gracia-1-zh",
+      "kind": "patristic",
+      "units": 3070,
+      "metrics": {
+        "units": 3070,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 17
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; junk_runs=1; below-threshold"
     },
     {
       "id": "agustin-07-sermones-1-es",
@@ -929,6 +3029,366 @@
       "reason": "body_noise=1; toc_leaders=1; below-threshold"
     },
     {
+      "id": "agustin-10-sermones-2-zh",
+      "kind": "patristic",
+      "units": 2512,
+      "metrics": {
+        "units": 2512,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 17
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; junk_runs=1; below-threshold"
+    },
+    {
+      "id": "agustin-11-cartas-2-ar",
+      "kind": "patristic",
+      "units": 2451,
+      "metrics": {
+        "units": 2451,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 17
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=1; spaced_digits=1; body_noise=1"
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-en",
+      "kind": "patristic",
+      "units": 2318,
+      "metrics": {
+        "units": 2318,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 17
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; toc_leaders=1; below-threshold"
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-zh",
+      "kind": "patristic",
+      "units": 2277,
+      "metrics": {
+        "units": 2277,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 17
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; junk_runs=1; below-threshold"
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-en",
+      "kind": "patristic",
+      "units": 2414,
+      "metrics": {
+        "units": 2414,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 17
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=1; short_spaced=1; body_noise=1"
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-hi",
+      "kind": "patristic",
+      "units": 1056,
+      "metrics": {
+        "units": 1056,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 2,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 17
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=2; body_noise=1"
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-hi",
+      "kind": "patristic",
+      "units": 1015,
+      "metrics": {
+        "units": 1015,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 17,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 17
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=17"
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-en",
+      "kind": "patristic",
+      "units": 4847,
+      "metrics": {
+        "units": 4847,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 16
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=1; body_noise=1"
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-ar",
+      "kind": "patristic",
+      "units": 1625,
+      "metrics": {
+        "units": 1625,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 16
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=1; body_noise=1"
+    },
+    {
+      "id": "agustin-06-gracia-1-ar",
+      "kind": "patristic",
+      "units": 3070,
+      "metrics": {
+        "units": 3070,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 15
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; below-threshold"
+    },
+    {
+      "id": "agustin-10-sermones-2-hi",
+      "kind": "patristic",
+      "units": 2512,
+      "metrics": {
+        "units": 2512,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 15
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; below-threshold"
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-ar",
+      "kind": "patristic",
+      "units": 2199,
+      "metrics": {
+        "units": 2199,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 15
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; below-threshold"
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-hi",
+      "kind": "patristic",
+      "units": 3050,
+      "metrics": {
+        "units": 3050,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 15
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; below-threshold"
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-en",
+      "kind": "patristic",
+      "units": 2277,
+      "metrics": {
+        "units": 2277,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 15
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; below-threshold"
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-hi",
+      "kind": "patristic",
+      "units": 2277,
+      "metrics": {
+        "units": 2277,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 15
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; below-threshold"
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-en",
+      "kind": "patristic",
+      "units": 1625,
+      "metrics": {
+        "units": 1625,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 15
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; below-threshold"
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-es",
+      "kind": "patristic",
+      "units": 884,
+      "metrics": {
+        "units": 884,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 15
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; below-threshold"
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-hi",
+      "kind": "patristic",
+      "units": 1948,
+      "metrics": {
+        "units": 1948,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 15
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; below-threshold"
+    },
+    {
       "id": "agustin-37-antipelagianos-5-es",
       "kind": "patristic",
       "units": 944,
@@ -949,16 +3409,116 @@
       "reason": "body_noise=1; below-threshold"
     },
     {
-      "id": "constantinopla-ii-es",
-      "kind": "council",
-      "units": 16,
+      "id": "cipriano-cartas-es",
+      "kind": "patristic",
+      "units": 829,
       "metrics": {
-        "units": 16,
+        "units": 829,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 10,
+        "shortSpacedWordHits": 0,
         "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 15
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; below-threshold"
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-hi",
+      "kind": "patristic",
+      "units": 6797,
+      "metrics": {
+        "units": 6797,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 11,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 13
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=11; junk_runs=1"
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-ar",
+      "kind": "patristic",
+      "units": 2880,
+      "metrics": {
+        "units": 2880,
+        "garbageUnits": 1,
+        "garbageRatio": 0.0003,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 12
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "garbage_units=1/2880 (0.03%); toc_leaders=1"
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-hi",
+      "kind": "patristic",
+      "units": 2880,
+      "metrics": {
+        "units": 2880,
+        "garbageUnits": 1,
+        "garbageRatio": 0.0003,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 12
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "garbage_units=1/2880 (0.03%); toc_leaders=1"
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-ar",
+      "kind": "patristic",
+      "units": 2318,
+      "metrics": {
+        "units": 2318,
+        "garbageUnits": 1,
+        "garbageRatio": 0.0004,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 12
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "garbage_units=1/2318 (0.04%); toc_leaders=1"
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-en",
+      "kind": "patristic",
+      "units": 1015,
+      "metrics": {
+        "units": 1015,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 10,
         "junkRunHits": 0,
         "tocLeaderHits": 0,
         "residualBodyNoiseUnits": 0,
@@ -966,7 +3526,7 @@
       },
       "targetAbc": true,
       "queueReocr": false,
-      "reason": "short_spaced=10"
+      "reason": "spaced_digits=10"
     },
     {
       "id": "constantinopla-i-es",
@@ -989,6 +3549,66 @@
       "reason": "short_spaced=10"
     },
     {
+      "id": "constantinopla-ii-es",
+      "kind": "council",
+      "units": 16,
+      "metrics": {
+        "units": 16,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 10,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 10
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=10"
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-ar",
+      "kind": "patristic",
+      "units": 944,
+      "metrics": {
+        "units": 944,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 6,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 9
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=6; short_spaced=1; junk_runs=1"
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-zh",
+      "kind": "patristic",
+      "units": 1015,
+      "metrics": {
+        "units": 1015,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 9,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 9
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=9"
+    },
+    {
       "id": "nicea-ii-es",
       "kind": "council",
       "units": 27,
@@ -1007,6 +3627,66 @@
       "targetAbc": true,
       "queueReocr": false,
       "reason": "short_spaced=8"
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-ar",
+      "kind": "patristic",
+      "units": 1015,
+      "metrics": {
+        "units": 1015,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 7,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 7
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=7"
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-ar",
+      "kind": "patristic",
+      "units": 3310,
+      "metrics": {
+        "units": 3310,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 6
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=2; junk_runs=2"
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-zh",
+      "kind": "patristic",
+      "units": 944,
+      "metrics": {
+        "units": 944,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 4,
+        "shortSpacedWordHits": 2,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 6
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=4; short_spaced=2"
     },
     {
       "id": "constantinopla-iii-es",
@@ -1029,6 +3709,146 @@
       "reason": "short_spaced=6"
     },
     {
+      "id": "agustin-01-primeros-escritos-hi",
+      "kind": "patristic",
+      "units": 2181,
+      "metrics": {
+        "units": 2181,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 5,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 5
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=5"
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-en",
+      "kind": "patristic",
+      "units": 2878,
+      "metrics": {
+        "units": 2878,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 5
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=1; junk_runs=1; toc_leaders=1"
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-zh",
+      "kind": "patristic",
+      "units": 4847,
+      "metrics": {
+        "units": 4847,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 5
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=1; junk_runs=2"
+    },
+    {
+      "id": "agustin-26-sermones-6-ar",
+      "kind": "patristic",
+      "units": 3149,
+      "metrics": {
+        "units": 3149,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 2,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 5
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=1; short_spaced=2; spaced_digits=2"
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-en",
+      "kind": "patristic",
+      "units": 944,
+      "metrics": {
+        "units": 944,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 3,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 5
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=3; junk_runs=1"
+    },
+    {
+      "id": "agustin-38-antiarrianos-hi",
+      "kind": "patristic",
+      "units": 1691,
+      "metrics": {
+        "units": 1691,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 2,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 5
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=2; spaced_digits=1; junk_runs=1"
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-en",
+      "kind": "patristic",
+      "units": 250,
+      "metrics": {
+        "units": 250,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 3,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 5
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=3; spaced_digits=2"
+    },
+    {
       "id": "jerusalen-es",
       "kind": "council",
       "units": 41,
@@ -1049,11 +3869,111 @@
       "reason": "short_spaced=5"
     },
     {
-      "id": "lateran-v-es",
-      "kind": "council",
-      "units": 23,
+      "id": "agustin-03-obras-filosoficas-hi",
+      "kind": "patristic",
+      "units": 2878,
       "metrics": {
-        "units": 23,
+        "units": 2878,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 4
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "junk_runs=2; below-threshold"
+    },
+    {
+      "id": "agustin-07-sermones-1-ar",
+      "kind": "patristic",
+      "units": 2181,
+      "metrics": {
+        "units": 2181,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 4,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 4
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=4"
+    },
+    {
+      "id": "agustin-11-cartas-2-hi",
+      "kind": "patristic",
+      "units": 2451,
+      "metrics": {
+        "units": 2451,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 2,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 4
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=2; spaced_digits=2"
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-hi",
+      "kind": "patristic",
+      "units": 1987,
+      "metrics": {
+        "units": 1987,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 3,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 4
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=1; spaced_digits=3"
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-hi",
+      "kind": "patristic",
+      "units": 944,
+      "metrics": {
+        "units": 944,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 2,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 4
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=2; junk_runs=1"
+    },
+    {
+      "id": "constanza-es",
+      "kind": "council",
+      "units": 17,
+      "metrics": {
+        "units": 17,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1089,11 +4009,11 @@
       "reason": "short_spaced=4"
     },
     {
-      "id": "constanza-es",
+      "id": "lateran-v-es",
       "kind": "council",
-      "units": 17,
+      "units": 23,
       "metrics": {
-        "units": 17,
+        "units": 23,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1107,26 +4027,6 @@
       "targetAbc": true,
       "queueReocr": false,
       "reason": "short_spaced=4"
-    },
-    {
-      "id": "carta-diogneto-es",
-      "kind": "patristic",
-      "units": 17,
-      "metrics": {
-        "units": 17,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 3,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 0,
-        "residualScore": 3
-      },
-      "targetAbc": true,
-      "queueReocr": false,
-      "reason": "short_spaced=3"
     },
     {
       "id": "constantinopla-iv-es",
@@ -1147,6 +4047,246 @@
       "targetAbc": true,
       "queueReocr": false,
       "reason": "short_spaced=3"
+    },
+    {
+      "id": "agustin-02-confesiones-hi",
+      "kind": "patristic",
+      "units": 1952,
+      "metrics": {
+        "units": 1952,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=2"
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-en",
+      "kind": "patristic",
+      "units": 2880,
+      "metrics": {
+        "units": 2880,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "toc_leaders=1; below-threshold"
+    },
+    {
+      "id": "agustin-09-gracia-2-ar",
+      "kind": "patristic",
+      "units": 2673,
+      "metrics": {
+        "units": 2673,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=1; spaced_digits=1"
+    },
+    {
+      "id": "agustin-10-sermones-2-ar",
+      "kind": "patristic",
+      "units": 2512,
+      "metrics": {
+        "units": 2512,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=2"
+    },
+    {
+      "id": "agustin-10-sermones-2-en",
+      "kind": "patristic",
+      "units": 2512,
+      "metrics": {
+        "units": 2512,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "toc_leaders=1; below-threshold"
+    },
+    {
+      "id": "agustin-12-tratados-morales-en",
+      "kind": "patristic",
+      "units": 1828,
+      "metrics": {
+        "units": 1828,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 2,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=2"
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-zh",
+      "kind": "patristic",
+      "units": 2199,
+      "metrics": {
+        "units": 2199,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "junk_runs=1; below-threshold"
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-ar",
+      "kind": "patristic",
+      "units": 4847,
+      "metrics": {
+        "units": 4847,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=1; spaced_digits=1"
+    },
+    {
+      "id": "agustin-25-sermones-5-hi",
+      "kind": "patristic",
+      "units": 2285,
+      "metrics": {
+        "units": 2285,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=2"
+    },
+    {
+      "id": "agustin-26-sermones-6-hi",
+      "kind": "patristic",
+      "units": 3149,
+      "metrics": {
+        "units": 3149,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 2,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=2"
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-ar",
+      "kind": "patristic",
+      "units": 250,
+      "metrics": {
+        "units": 250,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=1; spaced_digits=1"
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-hi",
+      "kind": "patristic",
+      "units": 250,
+      "metrics": {
+        "units": 250,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 2,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=2"
     },
     {
       "id": "lateran-iv-es",
@@ -1189,11 +4329,11 @@
       "reason": "short_spaced=2"
     },
     {
-      "id": "vienne-es",
+      "id": "nicea-i-es",
       "kind": "council",
-      "units": 17,
+      "units": 25,
       "metrics": {
-        "units": 17,
+        "units": 25,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1229,11 +4369,11 @@
       "reason": "short_spaced=2"
     },
     {
-      "id": "nicea-i-es",
+      "id": "vienne-es",
       "kind": "council",
-      "units": 25,
+      "units": 17,
       "metrics": {
-        "units": 25,
+        "units": 17,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1249,11 +4389,131 @@
       "reason": "short_spaced=2"
     },
     {
-      "id": "lyon-i-es",
-      "kind": "council",
-      "units": 14,
+      "id": "agustin-07-sermones-1-hi",
+      "kind": "patristic",
+      "units": 2181,
       "metrics": {
-        "units": 14,
+        "units": 2181,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 1
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=1"
+    },
+    {
+      "id": "agustin-09-gracia-2-hi",
+      "kind": "patristic",
+      "units": 2673,
+      "metrics": {
+        "units": 2673,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 1
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=1"
+    },
+    {
+      "id": "agustin-24-sermones-4-hi",
+      "kind": "patristic",
+      "units": 2460,
+      "metrics": {
+        "units": 2460,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 1
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=1"
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-ar",
+      "kind": "patristic",
+      "units": 2414,
+      "metrics": {
+        "units": 2414,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 1
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=1"
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-hi",
+      "kind": "patristic",
+      "units": 2414,
+      "metrics": {
+        "units": 2414,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 1,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 1
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_digits=1"
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-hi",
+      "kind": "patristic",
+      "units": 1997,
+      "metrics": {
+        "units": 1997,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 1,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 1
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "spaced_runs=1"
+    },
+    {
+      "id": "efeso-es",
+      "kind": "council",
+      "units": 11,
+      "metrics": {
+        "units": 11,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1289,6 +4549,26 @@
       "reason": "short_spaced=1"
     },
     {
+      "id": "lyon-i-es",
+      "kind": "council",
+      "units": 14,
+      "metrics": {
+        "units": 14,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 1,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 1
+      },
+      "targetAbc": true,
+      "queueReocr": false,
+      "reason": "short_spaced=1"
+    },
+    {
       "id": "vat-i-es",
       "kind": "council",
       "units": 23,
@@ -1309,31 +4589,11 @@
       "reason": "short_spaced=1"
     },
     {
-      "id": "efeso-es",
-      "kind": "council",
-      "units": 11,
+      "id": "agustin-06-gracia-1-en",
+      "kind": "patristic",
+      "units": 3070,
       "metrics": {
-        "units": 11,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 1,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 0,
-        "residualScore": 1
-      },
-      "targetAbc": true,
-      "queueReocr": false,
-      "reason": "short_spaced=1"
-    },
-    {
-      "id": "nicea-i-la",
-      "kind": "council",
-      "units": 25,
-      "metrics": {
-        "units": 25,
+        "units": 3070,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1349,11 +4609,351 @@
       "reason": "below-threshold"
     },
     {
-      "id": "constantinopla-i-la",
-      "kind": "council",
-      "units": 11,
+      "id": "agustin-06-gracia-1-hi",
+      "kind": "patristic",
+      "units": 3070,
       "metrics": {
-        "units": 11,
+        "units": 3070,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "agustin-07-sermones-1-en",
+      "kind": "patristic",
+      "units": 2181,
+      "metrics": {
+        "units": 2181,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "agustin-08-cartas-1-hi",
+      "kind": "patristic",
+      "units": 2468,
+      "metrics": {
+        "units": 2468,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "agustin-12-tratados-morales-hi",
+      "kind": "patristic",
+      "units": 1828,
+      "metrics": {
+        "units": 1828,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-hi",
+      "kind": "patristic",
+      "units": 2318,
+      "metrics": {
+        "units": 2318,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-en",
+      "kind": "patristic",
+      "units": 2199,
+      "metrics": {
+        "units": 2199,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-hi",
+      "kind": "patristic",
+      "units": 2199,
+      "metrics": {
+        "units": 2199,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-hi",
+      "kind": "patristic",
+      "units": 4847,
+      "metrics": {
+        "units": 4847,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-hi",
+      "kind": "patristic",
+      "units": 2714,
+      "metrics": {
+        "units": 2714,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-hi",
+      "kind": "patristic",
+      "units": 3168,
+      "metrics": {
+        "units": 3168,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "agustin-40-varios-2-hi",
+      "kind": "patristic",
+      "units": 1559,
+      "metrics": {
+        "units": 1559,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "atanasio-de-incarnatione-ar",
+      "kind": "patristic",
+      "units": 95,
+      "metrics": {
+        "units": 95,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "atanasio-de-incarnatione-en",
+      "kind": "patristic",
+      "units": 95,
+      "metrics": {
+        "units": 95,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "atanasio-de-incarnatione-hi",
+      "kind": "patristic",
+      "units": 95,
+      "metrics": {
+        "units": 95,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "atanasio-de-incarnatione-zh",
+      "kind": "patristic",
+      "units": 95,
+      "metrics": {
+        "units": 95,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "calcedonia-ar",
+      "kind": "council",
+      "units": 35,
+      "metrics": {
+        "units": 35,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "calcedonia-en",
+      "kind": "council",
+      "units": 35,
+      "metrics": {
+        "units": 35,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "calcedonia-hi",
+      "kind": "council",
+      "units": 35,
+      "metrics": {
+        "units": 35,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1389,11 +4989,371 @@
       "reason": "below-threshold"
     },
     {
+      "id": "calcedonia-zh",
+      "kind": "council",
+      "units": 35,
+      "metrics": {
+        "units": 35,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "carta-diogneto-ar",
+      "kind": "patristic",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "carta-diogneto-en",
+      "kind": "patristic",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "carta-diogneto-es",
+      "kind": "patristic",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "carta-diogneto-hi",
+      "kind": "patristic",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "carta-diogneto-zh",
+      "kind": "patristic",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-i-ar",
+      "kind": "council",
+      "units": 11,
+      "metrics": {
+        "units": 11,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-i-en",
+      "kind": "council",
+      "units": 11,
+      "metrics": {
+        "units": 11,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-i-hi",
+      "kind": "council",
+      "units": 11,
+      "metrics": {
+        "units": 11,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-i-la",
+      "kind": "council",
+      "units": 11,
+      "metrics": {
+        "units": 11,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-i-zh",
+      "kind": "council",
+      "units": 11,
+      "metrics": {
+        "units": 11,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-ii-ar",
+      "kind": "council",
+      "units": 16,
+      "metrics": {
+        "units": 16,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-ii-en",
+      "kind": "council",
+      "units": 16,
+      "metrics": {
+        "units": 16,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-ii-hi",
+      "kind": "council",
+      "units": 16,
+      "metrics": {
+        "units": 16,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
       "id": "constantinopla-ii-la",
       "kind": "council",
       "units": 16,
       "metrics": {
         "units": 16,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-ii-zh",
+      "kind": "council",
+      "units": 16,
+      "metrics": {
+        "units": 16,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-iii-ar",
+      "kind": "council",
+      "units": 13,
+      "metrics": {
+        "units": 13,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-iii-en",
+      "kind": "council",
+      "units": 13,
+      "metrics": {
+        "units": 13,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-iii-hi",
+      "kind": "council",
+      "units": 13,
+      "metrics": {
+        "units": 13,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1429,11 +5389,11 @@
       "reason": "below-threshold"
     },
     {
-      "id": "nicea-ii-la",
+      "id": "constantinopla-iii-zh",
       "kind": "council",
-      "units": 27,
+      "units": 13,
       "metrics": {
-        "units": 27,
+        "units": 13,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1449,11 +5409,11 @@
       "reason": "below-threshold"
     },
     {
-      "id": "jerusalen-la",
+      "id": "constantinopla-iv-ar",
       "kind": "council",
-      "units": 41,
+      "units": 26,
       "metrics": {
-        "units": 41,
+        "units": 26,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1469,11 +5429,11 @@
       "reason": "below-threshold"
     },
     {
-      "id": "trento-la",
+      "id": "constantinopla-iv-en",
       "kind": "council",
-      "units": 48,
+      "units": 26,
       "metrics": {
-        "units": 48,
+        "units": 26,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1489,11 +5449,111 @@
       "reason": "below-threshold"
     },
     {
-      "id": "vat-i-la",
+      "id": "constantinopla-iv-hi",
       "kind": "council",
-      "units": 23,
+      "units": 26,
       "metrics": {
-        "units": 23,
+        "units": 26,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-iv-la",
+      "kind": "council",
+      "units": 26,
+      "metrics": {
+        "units": 26,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constantinopla-iv-zh",
+      "kind": "council",
+      "units": 26,
+      "metrics": {
+        "units": 26,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constanza-ar",
+      "kind": "council",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constanza-en",
+      "kind": "council",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constanza-hi",
+      "kind": "council",
+      "units": 17,
+      "metrics": {
+        "units": 17,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1510,6 +5570,206 @@
     },
     {
       "id": "constanza-la",
+      "kind": "council",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "constanza-zh",
+      "kind": "council",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "efeso-ar",
+      "kind": "council",
+      "units": 11,
+      "metrics": {
+        "units": 11,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "efeso-en",
+      "kind": "council",
+      "units": 11,
+      "metrics": {
+        "units": 11,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "efeso-hi",
+      "kind": "council",
+      "units": 11,
+      "metrics": {
+        "units": 11,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "efeso-la",
+      "kind": "council",
+      "units": 11,
+      "metrics": {
+        "units": 11,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "efeso-zh",
+      "kind": "council",
+      "units": 11,
+      "metrics": {
+        "units": 11,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "florencia-ar",
+      "kind": "council",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "florencia-en",
+      "kind": "council",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "florencia-es",
+      "kind": "council",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "florencia-hi",
       "kind": "council",
       "units": 17,
       "metrics": {
@@ -1549,7 +5809,7 @@
       "reason": "below-threshold"
     },
     {
-      "id": "vienne-la",
+      "id": "florencia-zh",
       "kind": "council",
       "units": 17,
       "metrics": {
@@ -1569,11 +5829,11 @@
       "reason": "below-threshold"
     },
     {
-      "id": "lateran-v-la",
-      "kind": "council",
-      "units": 23,
+      "id": "gregorio-nisa-gran-catequesis-es",
+      "kind": "patristic",
+      "units": 250,
       "metrics": {
-        "units": 23,
+        "units": 250,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1589,11 +5849,171 @@
       "reason": "below-threshold"
     },
     {
-      "id": "lateran-iv-la",
+      "id": "jerusalen-ar",
       "kind": "council",
-      "units": 18,
+      "units": 41,
       "metrics": {
-        "units": 18,
+        "units": 41,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "jerusalen-en",
+      "kind": "council",
+      "units": 41,
+      "metrics": {
+        "units": 41,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "jerusalen-hi",
+      "kind": "council",
+      "units": 41,
+      "metrics": {
+        "units": 41,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "jerusalen-la",
+      "kind": "council",
+      "units": 41,
+      "metrics": {
+        "units": 41,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "jerusalen-zh",
+      "kind": "council",
+      "units": 41,
+      "metrics": {
+        "units": 41,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-i-ar",
+      "kind": "council",
+      "units": 14,
+      "metrics": {
+        "units": 14,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-i-en",
+      "kind": "council",
+      "units": 14,
+      "metrics": {
+        "units": 14,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-i-es",
+      "kind": "council",
+      "units": 14,
+      "metrics": {
+        "units": 14,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-i-hi",
+      "kind": "council",
+      "units": 14,
+      "metrics": {
+        "units": 14,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1629,7 +6049,167 @@
       "reason": "below-threshold"
     },
     {
+      "id": "lateran-i-zh",
+      "kind": "council",
+      "units": 14,
+      "metrics": {
+        "units": 14,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-ii-ar",
+      "kind": "council",
+      "units": 15,
+      "metrics": {
+        "units": 15,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-ii-en",
+      "kind": "council",
+      "units": 15,
+      "metrics": {
+        "units": 15,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-ii-hi",
+      "kind": "council",
+      "units": 15,
+      "metrics": {
+        "units": 15,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
       "id": "lateran-ii-la",
+      "kind": "council",
+      "units": 15,
+      "metrics": {
+        "units": 15,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-ii-zh",
+      "kind": "council",
+      "units": 15,
+      "metrics": {
+        "units": 15,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-iii-ar",
+      "kind": "council",
+      "units": 15,
+      "metrics": {
+        "units": 15,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-iii-en",
+      "kind": "council",
+      "units": 15,
+      "metrics": {
+        "units": 15,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-iii-hi",
       "kind": "council",
       "units": 15,
       "metrics": {
@@ -1669,11 +6249,371 @@
       "reason": "below-threshold"
     },
     {
+      "id": "lateran-iii-zh",
+      "kind": "council",
+      "units": 15,
+      "metrics": {
+        "units": 15,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-iv-ar",
+      "kind": "council",
+      "units": 18,
+      "metrics": {
+        "units": 18,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-iv-en",
+      "kind": "council",
+      "units": 18,
+      "metrics": {
+        "units": 18,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-iv-hi",
+      "kind": "council",
+      "units": 18,
+      "metrics": {
+        "units": 18,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-iv-la",
+      "kind": "council",
+      "units": 18,
+      "metrics": {
+        "units": 18,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-iv-zh",
+      "kind": "council",
+      "units": 18,
+      "metrics": {
+        "units": 18,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-v-ar",
+      "kind": "council",
+      "units": 23,
+      "metrics": {
+        "units": 23,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-v-en",
+      "kind": "council",
+      "units": 23,
+      "metrics": {
+        "units": 23,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-v-hi",
+      "kind": "council",
+      "units": 23,
+      "metrics": {
+        "units": 23,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-v-la",
+      "kind": "council",
+      "units": 23,
+      "metrics": {
+        "units": 23,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lateran-v-zh",
+      "kind": "council",
+      "units": 23,
+      "metrics": {
+        "units": 23,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lyon-i-ar",
+      "kind": "council",
+      "units": 14,
+      "metrics": {
+        "units": 14,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lyon-i-en",
+      "kind": "council",
+      "units": 14,
+      "metrics": {
+        "units": 14,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lyon-i-hi",
+      "kind": "council",
+      "units": 14,
+      "metrics": {
+        "units": 14,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
       "id": "lyon-i-la",
       "kind": "council",
       "units": 14,
       "metrics": {
         "units": 14,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lyon-i-zh",
+      "kind": "council",
+      "units": 14,
+      "metrics": {
+        "units": 14,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lyon-ii-ar",
+      "kind": "council",
+      "units": 15,
+      "metrics": {
+        "units": 15,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lyon-ii-en",
+      "kind": "council",
+      "units": 15,
+      "metrics": {
+        "units": 15,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "lyon-ii-hi",
+      "kind": "council",
+      "units": 15,
+      "metrics": {
+        "units": 15,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1709,11 +6649,11 @@
       "reason": "below-threshold"
     },
     {
-      "id": "constantinopla-iv-la",
+      "id": "lyon-ii-zh",
       "kind": "council",
-      "units": 26,
+      "units": 15,
       "metrics": {
-        "units": 26,
+        "units": 15,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1729,11 +6669,11 @@
       "reason": "below-threshold"
     },
     {
-      "id": "efeso-la",
+      "id": "nicea-i-ar",
       "kind": "council",
-      "units": 11,
+      "units": 25,
       "metrics": {
-        "units": 11,
+        "units": 25,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1749,11 +6689,11 @@
       "reason": "below-threshold"
     },
     {
-      "id": "lateran-i-es",
+      "id": "nicea-i-en",
       "kind": "council",
-      "units": 14,
+      "units": 25,
       "metrics": {
-        "units": 14,
+        "units": 25,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -1769,7 +6709,447 @@
       "reason": "below-threshold"
     },
     {
-      "id": "florencia-es",
+      "id": "nicea-i-hi",
+      "kind": "council",
+      "units": 25,
+      "metrics": {
+        "units": 25,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "nicea-i-la",
+      "kind": "council",
+      "units": 25,
+      "metrics": {
+        "units": 25,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "nicea-i-zh",
+      "kind": "council",
+      "units": 25,
+      "metrics": {
+        "units": 25,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "nicea-ii-ar",
+      "kind": "council",
+      "units": 27,
+      "metrics": {
+        "units": 27,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "nicea-ii-en",
+      "kind": "council",
+      "units": 27,
+      "metrics": {
+        "units": 27,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "nicea-ii-hi",
+      "kind": "council",
+      "units": 27,
+      "metrics": {
+        "units": 27,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "nicea-ii-la",
+      "kind": "council",
+      "units": 27,
+      "metrics": {
+        "units": 27,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "nicea-ii-zh",
+      "kind": "council",
+      "units": 27,
+      "metrics": {
+        "units": 27,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "trento-ar",
+      "kind": "council",
+      "units": 48,
+      "metrics": {
+        "units": 48,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "trento-en",
+      "kind": "council",
+      "units": 48,
+      "metrics": {
+        "units": 48,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "trento-hi",
+      "kind": "council",
+      "units": 48,
+      "metrics": {
+        "units": 48,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "trento-la",
+      "kind": "council",
+      "units": 48,
+      "metrics": {
+        "units": 48,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "trento-zh",
+      "kind": "council",
+      "units": 48,
+      "metrics": {
+        "units": 48,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vat-i-ar",
+      "kind": "council",
+      "units": 23,
+      "metrics": {
+        "units": 23,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vat-i-en",
+      "kind": "council",
+      "units": 23,
+      "metrics": {
+        "units": 23,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vat-i-hi",
+      "kind": "council",
+      "units": 23,
+      "metrics": {
+        "units": 23,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vat-i-la",
+      "kind": "council",
+      "units": 23,
+      "metrics": {
+        "units": 23,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vat-i-zh",
+      "kind": "council",
+      "units": 23,
+      "metrics": {
+        "units": 23,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vienne-ar",
+      "kind": "council",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vienne-en",
+      "kind": "council",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vienne-hi",
+      "kind": "council",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vienne-la",
+      "kind": "council",
+      "units": 17,
+      "metrics": {
+        "units": 17,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 0
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "below-threshold"
+    },
+    {
+      "id": "vienne-zh",
       "kind": "council",
       "units": 17,
       "metrics": {

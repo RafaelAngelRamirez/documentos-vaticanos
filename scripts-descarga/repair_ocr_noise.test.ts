@@ -4,11 +4,17 @@
  */
 import {
   OCR_GARBAGE_PLACEHOLDER,
+  collapseResidualShreds,
   collapseShortSpacedWords,
   collapseSpacedDigits,
   collapseSpacedLetters,
+  isEditorialChromeUnit,
   isGarbageUnit,
   isResidualBodyNoise,
+  isRunningHeaderUnit,
+  rejoinMidLineHyphen,
+  repairDigitLetterGlue,
+  repairGluedTokens,
   repairHighConfidenceOcrConfusions,
   repairOcrNoiseUnit,
   repairOcrSpacedText,
@@ -300,6 +306,116 @@ assertEq(
   assert(m.shortSpacedWordHits >= 1, `shortSpacedWordHits≥1 got ${m.shortSpacedWordHits}`);
   assert(m.spacedDigitRuns >= 1, `spacedDigitRuns≥1 got ${m.spacedDigitRuns}`);
   assert(m.spacedLetterRuns >= 1, `spacedLetterRuns≥1 got ${m.spacedLetterRuns}`);
+}
+
+// --- v3: BAC chrome / headers / glue / hyphen / shreds / digit glue ---
+assert(
+  isEditorialChromeUnit(
+    "BIBLIOTECA DE AUTORES CRISTIANOS MADRID. MCMLXXIX",
+  ),
+  "BAC chrome short unit",
+);
+assert(
+  isEditorialChromeUnit(
+    "LA EDITORIAL CATÓLICA, S. A. — APARTADO 466 MADRID",
+  ),
+  "Editorial Católica chrome",
+);
+assert(
+  isEditorialChromeUnit(
+    "ACABÓSE DE IMPRIMIR ESTA OBRA EL DÍA 15 DE MARZO LAUS DEO",
+  ),
+  "colophon chrome",
+);
+assert(
+  !isEditorialChromeUnit(goodProse),
+  "good prose is not editorial chrome",
+);
+assert(
+  isRunningHeaderUnit("DEL BIEN DEL MATRIMONIO. C-25 15"),
+  "running header with C-page",
+);
+assert(
+  isRunningHeaderUnit("Prólogo a las «Confesiones»"),
+  "prologue running header",
+);
+assert(!isRunningHeaderUnit(goodProse), "good prose not running header");
+
+assertEq(
+  repairGluedTokens("POR LOSSEÑORESSIGUIENTES:"),
+  "POR LOS SEÑORES SIGUIENTES:",
+  "LOSSEÑORESSIGUIENTES unglued",
+);
+assertEq(
+  repairGluedTokens("obras de SANAGUSTÍN en laEpístola"),
+  "obras de SAN AGUSTÍN en la Epístola",
+  "SANAGUSTÍN + laEpístola",
+);
+assertEq(
+  rejoinMidLineHyphen("pro- puestas y abati- tormidad"),
+  "propuestas y abatitormidad",
+  "mid-line hyphen rejoin",
+);
+assertEq(
+  rejoinMidLineHyphen("Madrid-Alcalá sigue"),
+  "Madrid-Alcalá sigue",
+  "proper compound hyphen kept (capital second)",
+);
+assertEq(
+  collapseResidualShreds("porq u e todavía hay obst áculo"),
+  "porque todavía hay obstáculo",
+  "porq u e + obst áculo",
+);
+assertEq(repairDigitLetterGlue("luz1 divina"), "luz 1 divina", "luz1 → luz 1");
+assertEq(
+  repairDigitLetterGlue("sabbata22 y resto"),
+  "sabbata 22 y resto",
+  "sabbata22 spaced",
+);
+assertEq(
+  repairHighConfidenceOcrConfusions("aue diio CONJSEJO limo. SKOUNDA"),
+  "que dijo CONSEJO ilmo. SEGUNDA",
+  "a4 v3 confusions",
+);
+assert(
+  repairOcrPunctuation("sancti.ficationis y es.decir art.cit").includes(
+    "sanctificationis",
+  ),
+  "whitelist joins sancti.ficationis",
+);
+assert(
+  repairOcrPunctuation("sancti.ficationis y es.decir art.cit").includes(
+    "es.decir",
+  ),
+  "whitelist does not join es.decir",
+);
+assert(
+  repairOcrPunctuation("que.dista").includes("que.dista"),
+  "que.dista still preserved",
+);
+
+// compose path: chrome blanks via unit path
+{
+  const r = repairOcrNoiseUnit(
+    "BIBLIOTECA DE AUTORES CRISTIANOS MADRID MCMLXXIX",
+  );
+  assert(r.excludedGarbage === true, "chrome unit excluded");
+  assertEq(r.contenido, OCR_GARBAGE_PLACEHOLDER, "chrome → placeholder");
+}
+{
+  const r = repairOcrNoiseUnit(
+    "LOSSEÑORESSIGUIENTES firmaron y porq u e pro- puestas luz1",
+  );
+  assert(r.excludedGarbage === false, "body glue not chrome");
+  assert(r.contenido.includes("LOS SEÑORES SIGUIENTES"), "compose unglues");
+  assert(r.contenido.includes("porque"), "compose porq u e");
+  assert(r.contenido.includes("propuestas"), "compose hyphen");
+  assert(r.contenido.includes("luz 1"), "compose digit glue");
+  assertEq(
+    repairOcrSpacedText(r.contenido),
+    r.contenido,
+    "v3 body repair idempotent",
+  );
 }
 
 console.log(`\n${passed} passed, ${failed} failed`);

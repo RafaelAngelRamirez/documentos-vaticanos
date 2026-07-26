@@ -1,14 +1,19 @@
 /**
- * OCR residual cleanup (a)+(b) + short residual spacing:
+ * OCR residual cleanup (a)+(b) + BAC residual pass (v3):
  *  (a) collapse spaced-out letter runs: "H I S T O R I A" → "HISTORIA"
  *  (a2) collapse short (2–3) spaced dictionary words: "T a l" → "Tal"
+ *  (a2b) residual shreds: "porq u e" → "porque"
  *  (a3) collapse spaced digit runs / year-page ranges: "1 9 4 7" → "1947"
- *  (a4) tiny high-confidence OCR confusions (qiíe→que, O'MEARA, p..)
- *  (b) detect TOC / dotted-leader garbage units for exclusion (blank content,
- *      same array slot → stable unitIndex)
+ *  (a4) high-confidence OCR confusions (qiíe→que, aue→que, CONJSEJO, …)
+ *  (a5) mid-line hyphen rejoin: "pro- puestas" → "propuestas"
+ *  (a6) closed glued-token map + ALLCAPS peel (LOSSEÑORESSIGUIENTES, …)
+ *  (a7) digit↔letter glue: "luz1" → "luz 1" (excludes bible-like codes)
+ *  (b) TOC / dotted-leader garbage + BAC chrome / running headers / colophon
+ *      + aggressive index-zone scoring → placeholder (stable unitIndex)
  *
- * Does NOT join internal lowercase.period.lowercase (ocr-punct v2 safety).
+ * Does NOT join internal lowercase.period.lowercase (except whitelist in punct).
  * Does not paraphrase body wording. Does not blind-join arbitrary initials.
+ * Does not re-OCR or re-download — post-import corpus repair only.
  */
 
 import {
@@ -479,6 +484,22 @@ export function repairHighConfidenceOcrConfusions(text: string): string {
   t = t.replace(/\bq[ií]ie\b/gi, (m) =>
     m[0] === m[0].toUpperCase() && m[0] !== m[0].toLowerCase() ? "Que" : "que",
   );
+  // aue (common OCR of que) — whole word only
+  t = t.replace(/\baue\b/g, "que");
+  t = t.replace(/\bAue\b/g, "Que");
+  t = t.replace(/\bAUE\b/g, "QUE");
+  // diio → dijo
+  t = t.replace(/\bdiio\b/g, "dijo");
+  t = t.replace(/\bDiio\b/g, "Dijo");
+  t = t.replace(/\bDIIO\b/g, "DIJO");
+  // CONJSEJO / limo. / SKOUNDA (BAC front samples)
+  t = t.replace(/\bCONJSEJO\b/g, "CONSEJO");
+  t = t.replace(/\bConjsejo\b/g, "Consejo");
+  t = t.replace(/\blimo\.(?=\s|$)/gi, (m) =>
+    m[0] === "L" ? "Ilmo." : "ilmo.",
+  );
+  t = t.replace(/\bSKOUNDA\b/g, "SEGUNDA");
+  t = t.replace(/\bSkounda\b/g, "Segunda");
   // O ' MEARA / O 'MEARA / O' MEARA → O'MEARA
   t = t.replace(/\bO\s*'\s*MEARA\b/g, "O'MEARA");
   t = t.replace(/\bO\s*'\s*Meara\b/g, "O'Meara");
@@ -493,8 +514,224 @@ export function repairHighConfidenceOcrConfusions(text: string): string {
 }
 
 /**
+ * (a2b) Residual multi-token shreds not covered by 2–3 letter a2.
+ * Closed list only — no open dictionary expansion.
+ */
+export function collapseResidualShreds(text: string): string {
+  if (!text) return text;
+  let t = text;
+  // porq u e / porq  u  e → porque
+  t = t.replace(/\bporq\s+u\s+e\b/gi, (m) =>
+    m[0] === m[0].toUpperCase() && m[0] !== m[0].toLowerCase()
+      ? "Porque"
+      : "porque",
+  );
+  // obst áculo / obst  áculo
+  t = t.replace(/\bobst\s+áculo\b/gi, (m) =>
+    m[0] === "O" ? "Obstáculo" : "obstáculo",
+  );
+  return t;
+}
+
+/**
+ * (a5) Rejoin mid-line hyphenation left by PDF line breaks without \n:
+ * "pro- puestas" → "propuestas". Does not touch "Madrid-Alcalá" style
+ * proper compounds (second part capitalized) or pure digit ranges.
+ */
+const LOWER_ONLY = "a-záéíóúüñà-ÿ";
+
+export function rejoinMidLineHyphen(text: string): string {
+  if (!text) return text;
+  return text.replace(
+    new RegExp(`([${LETTER_CLASS}]{2,})-\\s+([${LOWER_ONLY}]{2,})`, "gu"),
+    (full, a: string, b: string) => {
+      // Guard: first side looks like chapter label crumbs
+      if (/^(?:CAP|LIB|TOM|VOL|ART)\.?$/i.test(a)) return full;
+      return a + b;
+    },
+  );
+}
+
+/** Exact glued-token fixes from Agustín BAC residual inventory. */
+const GLUED_EXACT: Array<[RegExp, string]> = [
+  [/\bLOSSEÑORESSIGUIENTES\b/g, "LOS SEÑORES SIGUIENTES"],
+  [/\bLOSSEÑORES\b/g, "LOS SEÑORES"],
+  [/\bLASSEÑORAS\b/g, "LAS SEÑORAS"],
+  [/\bSANAGUSTÍN\b/g, "SAN AGUSTÍN"],
+  [/\bSANAGUSTIN\b/g, "SAN AGUSTIN"],
+  [/\bSanAgustín\b/g, "San Agustín"],
+  [/\bSanAgustin\b/g, "San Agustin"],
+  [/\blaEpístola\b/g, "la Epístola"],
+  [/\blaEpistola\b/g, "la Epistola"],
+  [/\bGénesisa\b/g, "Génesis a"],
+  [/\bGenesisa\b/g, "Genesis a"],
+  [/\bPORLOS\b/g, "POR LOS"],
+  [/\bENELAÑO\b/g, "EN EL AÑO"],
+  [/\bDELA\b(?=[A-ZÁÉÍÓÚÑ])/g, "DE LA "],
+];
+
+/**
+ * (a6) Closed glued-token map + peel of ALLCAPS Spanish particles glued
+ * to a following capital run (LOSSIGUIENTES already exact; LOS+SEÑORES…).
+ */
+export function repairGluedTokens(text: string): string {
+  if (!text) return text;
+  let t = text;
+  for (const [re, rep] of GLUED_EXACT) {
+    t = t.replace(re, rep);
+  }
+  // Peel leading particles glued into ALLCAPS: LOSSEÑORES already handled;
+  // generic: LOS|LAS|DEL|SAN + ≥4 more uppercase letters
+  t = t.replace(
+    new RegExp(
+      `\\b(LOS|LAS|DEL|SAN|POR|CON)(?=[${UPPER_CLASS}]{4,})`,
+      "g",
+    ),
+    "$1 ",
+  );
+  // lowercase particle + Capitalized word glued: laEpístola already exact;
+  // generic: de|la|el|del|al + Upper then lower
+  t = t.replace(
+    /\b(de|la|el|del|al|los|las|por|con|una|uno)(?=[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]{2,})/g,
+    "$1 ",
+  );
+  // Collapse accidental double spaces from peels
+  t = t.replace(/[ \t]{2,}/g, " ");
+  return t;
+}
+
+/**
+ * (a7) Insert space between letter-run and short digit glue (luz1 → luz 1).
+ * Excludes common biblical / code patterns (1Cor, 2Tim, Jn3 style left alone
+ * when digit leads a short capital book code).
+ */
+export function repairDigitLetterGlue(text: string): string {
+  if (!text) return text;
+  let t = text;
+  // word + 1–3 digits at word end or before letter: luz1 / sabbata22
+  t = t.replace(
+    new RegExp(
+      `([${LETTER_CLASS}]{2,})(\\d{1,3})(?=[${LETTER_CLASS}\\s,.;:!?»"”)]|$)`,
+      "gu",
+    ),
+    (full, w: string, d: string) => {
+      // Keep things like "siglo11" still spaced — good. Skip pure Roman digits noise.
+      if (/^(?:I|II|III|IV|V|VI|VII|VIII|IX|X)$/i.test(w)) return full;
+      // Skip already-intentional catalog codes like "BAC422" short all-caps+digits mid
+      if (w.length <= 3 && w === w.toUpperCase() && w !== w.toLowerCase()) {
+        return full;
+      }
+      return `${w} ${d}`;
+    },
+  );
+  // digits then long lowercase word glued: 22sabbata — rare; skip bible 1Cor
+  t = t.replace(
+    new RegExp(`(?<![\\d${LETTER_CLASS}])(\\d{1,2})([a-záéíóúüñ]{4,})\\b`, "gu"),
+    (full, d: string, w: string) => {
+      // bible-ish: 1corinthians already lower — still space is OK for Spanish body
+      return `${d} ${w}`;
+    },
+  );
+  // Do NOT touch digit+Capital book codes: 1Cor, 2Tim, 3Jn
+  // (negative: our second replace only hits lowercase)
+  return t;
+}
+
+/** True when unit is BAC / editorial chrome (front matter or colophon). */
+export function isEditorialChromeUnit(text: string): boolean {
+  if (!text) return false;
+  const t = text.trim();
+  if (!t || t === OCR_GARBAGE_PLACEHOLDER) return false;
+  if (t.length > 1200) return false;
+
+  const patterns: RegExp[] = [
+    /BIBLIOTECA\s+DE\s+AUTORES\s+CRISTIANOS/i,
+    /INMEDIATA\s+RELACI[OÓ]N\s+CON\s+LA\s+B\.?\s*A\.?\s*C/i,
+    /PONTIFICIA\s+UNIVERSIDAD(?:\s+DE)?\s+SALAMANCA/i,
+    /Nihil\s+obstat|Nih[uü]\s+obstat/i,
+    /Imprim[aá]tur|Imprim[ií]\s+polest/i,
+    /Dep[oó]sito\s+legal/i,
+    /Impreso\s+en\s+Espa[nñ]a/i,
+    /Printed\s+in\s+Spain/i,
+    /LA\s+EDITORIAL\s+CAT[OÓ]LICA/i,
+    /ACAB[OÓ]SE\s+DE\s+IMPRIMIR|ACAD[OÓ]GE\s+DE\s+IM/i,
+    /LAUS\s+DEO/i,
+    /VICEPRESIDENTE\s*:/i,
+    /Gran\s+Canciller\s+de\s+la\s+(?:Pontificia\s+)?Universidad/i,
+    /APARTADO\s+466/i,
+    /TALLERES\s+/i,
+  ];
+  let hits = 0;
+  for (const p of patterns) {
+    if (p.test(t)) hits += 1;
+  }
+  if (hits >= 2) return true;
+  if (hits >= 1 && t.length <= 450) return true;
+  if (
+    hits >= 1 &&
+    /MCML|AÑO\s+19\d{2}|SEÑORES\s+SIGUIENTES|LOSSEÑORES|POR\s+LOS\s+SEÑORES/i.test(
+      t,
+    )
+  ) {
+    return true;
+  }
+  // Colophon shred (short ALLCAPS soup + print anchors)
+  if (
+    t.length <= 500 &&
+    /ACAB|IMPRIMIR|LAUS\s+DEO|TALLERES|VIRGINIQUE/i.test(t) &&
+    /[A-ZÁÉÍÓÚÑ]{8,}/.test(t)
+  ) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * True when unit is only a running page header (short, title + page crumbs).
+ * Fail-closed: long prose never matches.
+ */
+export function isRunningHeaderUnit(text: string): boolean {
+  if (!text) return false;
+  const t = text.trim();
+  if (!t || t === OCR_GARBAGE_PLACEHOLDER) return false;
+  if (t.length > 100) return false;
+  // Pure short prologue / section running title
+  if (/^Pr[oó]logo\s+a\s+las\s+«?Confesiones»?\.?$/i.test(t)) return true;
+  if (/^ÍNDICE\s+GENERAL(?:\s+DE\s+\w+){0,4}\.?$/i.test(t)) return true;
+  // Title-ish + trailing page number
+  if (
+    /^[A-ZÁÉÍÓÚÑ«»"A-Za-zÁ-ÿ\s.,;:—-]{12,90}\s+\d{1,4}$/.test(t) &&
+    !/[.!?]{2}/.test(t)
+  ) {
+    const letters = (t.match(new RegExp(`[${LETTER_CLASS}]`, "g")) || []).length;
+    if (letters >= 12 && letters / Math.max(t.replace(/\s/g, "").length, 1) > 0.55) {
+      return true;
+    }
+  }
+  // "DEL BIEN DEL MATRIMONIO. C-25 15" style
+  if (
+    /^[A-ZÁÉÍÓÚÑ\s.«»"-]{10,80}\.\s*C-?\d+/i.test(t) ||
+    /^[A-ZÁÉÍÓÚÑ\s.«»"-]{10,70}\s+C-\d+/i.test(t)
+  ) {
+    return true;
+  }
+  return false;
+}
+
+/** Index / materias zone cue for stricter garbage scoring. */
+export function isIndexZoneUnit(text: string): boolean {
+  if (!text) return false;
+  return (
+    /[ÍI]NDICE\s+GENERAL/i.test(text) ||
+    /[ÍI]NDICE\s+DE\s+(?:CONCEPTOS|MATERIAS|NOMBRES)/i.test(text) ||
+    /DE\s+MATERIAS\s+DE\s+LOS\s+(?:DIECIOCHO|18)/i.test(text)
+  );
+}
+
+/**
  * (b) Score a unit for TOC dotted-leader / unreadable index noise.
  * High-confidence only — good prose and citation lists should score low.
+ * Index-zone units (ÍNDICE GENERAL DE MATERIAS…) use a lower threshold.
  */
 export function scoreGarbageUnit(text: string): GarbageUnitScore {
   const reasons: string[] = [];
@@ -503,6 +740,11 @@ export function scoreGarbageUnit(text: string): GarbageUnitScore {
   }
   const t = text;
   let score = 0;
+  const indexZone = isIndexZoneUnit(t);
+  if (indexZone) {
+    score += 1;
+    reasons.push("index_zone");
+  }
 
   // TOC leaders: ".... oooonnn" / "..oooccc"
   const tocLeader = (
@@ -555,29 +797,59 @@ export function scoreGarbageUnit(text: string): GarbageUnitScore {
     reasons.push(`junk_density=${(junkChars / nonSpace).toFixed(2)}`);
   }
 
+  // Index-zone: glue density / short-token soup without classic leaders
+  if (indexZone && t.length > 80) {
+    const words = t.match(new RegExp(`[${LETTER_CLASS}]+`, "g")) || [];
+    const short = words.filter((w) => w.length <= 2).length;
+    const shortRatio = short / Math.max(words.length, 1);
+    const longGlued = (
+      t.match(new RegExp(`[${LETTER_CLASS}]{18,}`, "g")) || []
+    ).length;
+    if (shortRatio > 0.4 && words.length > 20) {
+      score += 2;
+      reasons.push(`index_short_tokens=${shortRatio.toFixed(2)}`);
+    }
+    if (longGlued >= 2) {
+      score += 2;
+      reasons.push(`index_long_glued=${longGlued}`);
+    }
+    // intermixed page crumbs: many bare numbers
+    if (digits > 30 && digitRatio > 0.08 && vowelRatio < 0.38) {
+      score += 2;
+      reasons.push("index_digit_crumb");
+    }
+  }
+
   // Threshold: need clear TOC/junk signal (not mere short citation lines)
+  // Index zone: slightly lower bar (score ≥ 3) for shredded materias lists.
   const isGarbage =
     score >= 5 ||
+    (indexZone && score >= 3 && t.length > 60) ||
     (tocLeader >= 2 && junkRuns >= 1) ||
     junkRuns >= 3 ||
-    (tocLeader >= 3);
+    tocLeader >= 3;
 
   return { isGarbage, score, reasons };
 }
 
 /** True when unit should be blanked for the reader. */
 export function isGarbageUnit(text: string): boolean {
+  if (isEditorialChromeUnit(text) || isRunningHeaderUnit(text)) return true;
   return scoreGarbageUnit(text).isGarbage;
 }
 
 /**
- * Apply (a)+(a2)+(a3)+(a4) + punct soft pass; does not blank units.
- * Safe to run on any unit contenido. Idempotent on already-clean prose.
+ * Apply (a)+(a2)+(a2b)+(a3)+(a4)+(a5)+(a6)+(a7) + punct soft pass.
+ * Does not blank units. Idempotent on already-clean prose.
  */
 export function repairOcrSpacedText(text: string): string {
   let t = collapseSpacedLetters(text);
   t = collapseShortSpacedWords(t);
+  t = collapseResidualShreds(t);
   t = collapseSpacedDigits(t);
+  t = rejoinMidLineHyphen(t);
+  t = repairGluedTokens(t);
+  t = repairDigitLetterGlue(t);
   t = repairHighConfidenceOcrConfusions(t);
   // Re-run punct repair for any new glued edges after collapse (join-safe)
   t = repairOcrPunctuation(t);
@@ -593,7 +865,8 @@ export interface UnitNoiseRepairResult {
 }
 
 /**
- * (a)+(b) per unit. Garbage units keep the array slot: contenido → placeholder.
+ * (a)+(b) per unit. Garbage / chrome / header units keep the array slot:
+ * contenido → placeholder.
  */
 export function repairOcrNoiseUnit(
   contenido: string,
@@ -601,7 +874,9 @@ export function repairOcrNoiseUnit(
 ): UnitNoiseRepairResult {
   const excludeGarbage = options?.excludeGarbage !== false;
   const g = scoreGarbageUnit(contenido);
-  if (excludeGarbage && g.isGarbage) {
+  const chrome =
+    isEditorialChromeUnit(contenido) || isRunningHeaderUnit(contenido);
+  if (excludeGarbage && (g.isGarbage || chrome)) {
     const next =
       contenido.trim() === OCR_GARBAGE_PLACEHOLDER
         ? contenido
@@ -611,21 +886,25 @@ export function repairOcrNoiseUnit(
       changed: next !== contenido,
       collapsedSpaced: false,
       excludedGarbage: true,
-      garbageScore: g.score,
+      garbageScore: chrome ? Math.max(g.score, 5) : g.score,
     };
   }
   const repaired = repairOcrSpacedText(contenido);
   const collapsedOnly = collapseSpacedLetters(contenido);
   const shortOrDigit =
     collapseShortSpacedWords(collapsedOnly) !== collapsedOnly ||
-    collapseSpacedDigits(collapsedOnly) !== collapsedOnly;
+    collapseSpacedDigits(collapsedOnly) !== collapsedOnly ||
+    collapseResidualShreds(collapsedOnly) !== collapsedOnly;
+  const mechanical =
+    rejoinMidLineHyphen(contenido) !== contenido ||
+    repairGluedTokens(contenido) !== contenido ||
+    repairDigitLetterGlue(contenido) !== contenido ||
+    repairHighConfidenceOcrConfusions(contenido) !== contenido;
   return {
     contenido: repaired,
     changed: repaired !== contenido,
     collapsedSpaced:
-      collapsedOnly !== contenido ||
-      shortOrDigit ||
-      repairHighConfidenceOcrConfusions(contenido) !== contenido,
+      collapsedOnly !== contenido || shortOrDigit || mechanical,
     excludedGarbage: false,
     garbageScore: g.score,
   };

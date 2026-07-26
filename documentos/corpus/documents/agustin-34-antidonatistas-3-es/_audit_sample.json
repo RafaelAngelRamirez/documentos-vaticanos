@@ -1,0 +1,32 @@
+{
+  "note": "Working sample notes for agustin-34 audit; final contract is in agent response JSON block.",
+  "documentId": "agustin-34-antidonatistas-3-es",
+  "unitsTotal": 1987,
+  "contentJsonFrontVerified": [
+    {"unitIndex": 0, "consecutivo": "1", "snippet": "DE SAN AGUSTÍN XXXIV Escritos antidonatistas (3.2) ... BIBLIOTECA DE AUTORES CRISTIANOS MADRID + MCMXCIV"},
+    {"unitIndex": 1, "consecutivo": "2", "snippet": "[OCR: índice o tabla ilegible omitido]"},
+    {"unitIndex": 2, "consecutivo": "3", "snippet": "[OCR: índice o tabla ilegible omitido]"},
+    {"unitIndex": 3, "consecutivo": "4", "snippet": "[OCR: índice o tabla ilegible omitido]"},
+    {"unitIndex": 4, "consecutivo": "5", "snippet": "[OCR: índice o tabla ilegible omitido]"},
+    {"unitIndex": 5, "consecutivo": "6", "snippet": "[OCR: índice o tabla ilegible omitido]"},
+    {"unitIndex": 6, "consecutivo": "7", "snippet": "[OCR: índice o tabla ilegible omitido]"}
+  ],
+  "revisions": {
+    "ocr-punct-v2": {"unitsChanged": 563, "internalWordPeriod_after": 13, "spaceBeforePunct_after": 21, "defectScore_after": 21},
+    "ocr-abc-v2": {"unitsChanged": 245, "unitsExcludedGarbage": 0, "junkRunHits_after": 2, "tocLeaderHits_after": 3, "residualBodyNoiseUnits": 8, "residualScore": 130}
+  },
+  "cleanSourceDefects": {
+    "toc_junk_examples": [
+      "L Autenticidad coccanccnniooncnnionrsocnorrsenseresrorrerrc El",
+      "2. Dónde está la IgleSiA -... ooccaccacoooocorocoocoreceniaieincines 27",
+      "23. Libertad humana y cumplimiento de las profecíaS ..mmmmmm. 6l",
+      "33. Textos bíblicos a que recurren los dONAtiStaS.coccncnncannso 83"
+    ],
+    "column_merge_examples": [
+      "dar con él, teniendo que contentarse con el Aurelianensts, Erasmo si bien el texto y el comentario ven la luz en el t.II",
+      "Índice de materias with dual columns mashed (lines ~22600+)"
+    ],
+    "latin_mixed": "Facing-page Latin (CSEL) interleaved with Spanish body throughout UE / Cresconio / Emérito sections",
+    "tail_index": "Índice de materias / catálogo BAC tomos — heavy OCR soup lines 22600-23136"
+  }
+}

@@ -1,30 +1,36 @@
 {
   "documentId": "agustin-39-varios-1-es",
-  "revision": "ocr-abc-v2",
-  "appliedAt": "2026-07-18T21:14:52.388Z",
+  "revision": "ocr-abc-v3",
+  "appliedAt": "2026-07-26T19:21:44.332Z",
   "ruleClasses": [
     "spaced-letter-collapse",
     "short-spaced-word-collapse",
+    "residual-shred-collapse",
     "spaced-digit-collapse",
     "high-confidence-ocr-confusions",
+    "midline-hyphen-rejoin",
+    "glued-token-map",
+    "digit-letter-glue",
     "garbage-toc-exclude-placeholder",
-    "punct-safe-compose"
+    "bac-chrome-running-header-colophon-placeholder",
+    "index-zone-aggressive-garbage",
+    "punct-safe-compose-whitelist-internal"
   ],
   "unitsTotal": 1230,
-  "unitsChanged": 253,
-  "unitsExcludedGarbage": 0,
-  "unitsCollapsedSpaced": 253,
+  "unitsChanged": 356,
+  "unitsExcludedGarbage": 6,
+  "unitsCollapsedSpaced": 350,
   "before": {
     "units": 1230,
-    "garbageUnits": 0,
-    "garbageRatio": 0,
+    "garbageUnits": 3,
+    "garbageRatio": 0.0024,
     "spacedLetterRuns": 0,
-    "shortSpacedWordHits": 231,
-    "spacedDigitRuns": 103,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
     "junkRunHits": 2,
     "tocLeaderHits": 0,
     "residualBodyNoiseUnits": 6,
-    "residualScore": 428
+    "residualScore": 126
   },
   "after": {
     "units": 1230,
@@ -35,13 +41,13 @@
     "spacedDigitRuns": 0,
     "junkRunHits": 2,
     "tocLeaderHits": 0,
-    "residualBodyNoiseUnits": 6,
-    "residualScore": 94
+    "residualBodyNoiseUnits": 5,
+    "residualScore": 79
   },
-  "letterTokenOverlap": 0.9986,
+  "letterTokenOverlap": 0.995,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "a) ≥4 spaced letters; a2) short dict words (Tal/que/de); a3) spaced digits/years; a4) qiíe/O'MEARA/p..; b) TOC junk placeholder (stable unitIndex)."
+  "notes": "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots."
 }

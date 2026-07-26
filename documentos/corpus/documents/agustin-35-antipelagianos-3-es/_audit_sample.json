@@ -1,0 +1,85 @@
+{
+  "note": "Residual OCR/syntax audit notes for agustin-35-antipelagianos-3-es. content.json is single-line (read_file truncates); shell unavailable under workflow capability_mode=read-only. Front units verified from content.json grep; body/tail defect types verified against clean OCR + parent pattern inventory on this documentId; unitIndex for body classes estimated only where clean→units sequential mapping is reliable for front placeholders and inventory residual metrics.",
+  "documentId": "agustin-35-antipelagianos-3-es",
+  "unitsTotal": 1948,
+  "unitsSampledStrategy": "front≈80 content.json + mid/tail clean+inventory",
+  "contentJsonFrontVerified": [
+    {
+      "unitIndex": 0,
+      "consecutivo": "1",
+      "snippet": "DE XXXV Escritos antipelagianos (3.')"
+    },
+    {
+      "unitIndex": 1,
+      "consecutivo": "2",
+      "snippet": "La perfección de la justicia del hombre. El matrimonio y la concupiscencia. Réplica a Juliano INTRODUCCION GENERAL DE ARGIMIRO TURRADO TRADUCCION, INTRODUCCIONES Y NOTAS DE TEODORO C. MADRID 1d LUIS ARIAS ALVAREZ BIBLIOTECA DE AUTORES CRISTIANOS"
+    },
+    {
+      "unitIndex": 2,
+      "consecutivo": "3",
+      "snippet": "[OCR: índice o tabla ilegible omitido]"
+    },
+    {
+      "unitIndex": 3,
+      "consecutivo": "4",
+      "snippet": "[OCR: índice o tabla ilegible omitido]"
+    },
+    {
+      "unitIndex": 4,
+      "consecutivo": "5",
+      "snippet": "[OCR: índice o tabla ilegible omitido]"
+    },
+    {
+      "unitIndex": 5,
+      "consecutivo": "6",
+      "snippet": "[OCR: índice o tabla ilegible omitido]"
+    },
+    {
+      "unitIndex": 6,
+      "consecutivo": "7",
+      "snippet": "[OCR: índice o tabla ilegible omitido]"
+    },
+    {
+      "unitIndex": 7,
+      "consecutivo": "8",
+      "snippet": "[OCR: índice o tabla ilegible omitido]"
+    },
+    {
+      "unitIndex": 8,
+      "consecutivo": "9",
+      "snippet": "[OCR: índice o tabla ilegible omitido]"
+    }
+  ],
+  "revisions": {
+    "ocr-punct-v2": {
+      "unitsChanged": 579,
+      "spaceBeforePunct_after": 20,
+      "internalWordPeriod_after": 8,
+      "defectScore_after": 20
+    },
+    "ocr-abc-v2": {
+      "unitsChanged": 324,
+      "unitsExcludedGarbage": 0,
+      "shortSpacedWordHits_after": 0,
+      "spacedDigitRuns_after": 0,
+      "residualBodyNoiseUnits": 8,
+      "residualScore": 120
+    }
+  },
+  "parentInventoryHits": {
+    "broken_word_hyphen": 1119,
+    "digit_glued_word": 201,
+    "page_chrome": 150,
+    "repeated_punct": 203,
+    "rn_m_confusions": 1617,
+    "missing_accents_common": 1508
+  },
+  "cleanSourceDefects": {
+    "toc_leaders": "lines 1–207: dotted leaders, oncrim junk runs, dual-column TOC",
+    "bac_chrome": "title page + Depósito legal/ISBN/Impreso en España mashed into TOC (lines 45–50)",
+    "wrong_column_merge": "intro and treatises: left/right pages interleaved (e.g. clean ~5000–5070, 8000–8050)",
+    "latin_mixed": "bilingual BAC facing Latin (CSEL/PL) interleaved with Spanish body",
+    "hyphen_mid_line": "residual 'pala- bra' style after import rejoin (e.g. 'des- 9. La corrupción', 'Eze- as')",
+    "tail_index": "Índice de materias dual-column OCR soup ~22000–22470; BAC catalog at end"
+  }
+}

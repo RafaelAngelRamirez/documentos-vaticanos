@@ -1,30 +1,36 @@
 {
   "documentId": "agustin-04-obras-apologeticas-es",
-  "revision": "ocr-abc-v2",
-  "appliedAt": "2026-07-18T21:14:40.691Z",
+  "revision": "ocr-abc-v3",
+  "appliedAt": "2026-07-26T19:21:01.568Z",
   "ruleClasses": [
     "spaced-letter-collapse",
     "short-spaced-word-collapse",
+    "residual-shred-collapse",
     "spaced-digit-collapse",
     "high-confidence-ocr-confusions",
+    "midline-hyphen-rejoin",
+    "glued-token-map",
+    "digit-letter-glue",
     "garbage-toc-exclude-placeholder",
-    "punct-safe-compose"
+    "bac-chrome-running-header-colophon-placeholder",
+    "index-zone-aggressive-garbage",
+    "punct-safe-compose-whitelist-internal"
   ],
   "unitsTotal": 2880,
-  "unitsChanged": 298,
-  "unitsExcludedGarbage": 0,
-  "unitsCollapsedSpaced": 298,
+  "unitsChanged": 431,
+  "unitsExcludedGarbage": 5,
+  "unitsCollapsedSpaced": 426,
   "before": {
     "units": 2880,
-    "garbageUnits": 0,
-    "garbageRatio": 0,
+    "garbageUnits": 1,
+    "garbageRatio": 0.0003,
     "spacedLetterRuns": 0,
-    "shortSpacedWordHits": 354,
-    "spacedDigitRuns": 25,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
     "junkRunHits": 0,
     "tocLeaderHits": 1,
     "residualBodyNoiseUnits": 17,
-    "residualScore": 636
+    "residualScore": 267
   },
   "after": {
     "units": 2880,
@@ -38,10 +44,10 @@
     "residualBodyNoiseUnits": 17,
     "residualScore": 257
   },
-  "letterTokenOverlap": 0.9963,
+  "letterTokenOverlap": 0.9939,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "a) ≥4 spaced letters; a2) short dict words (Tal/que/de); a3) spaced digits/years; a4) qiíe/O'MEARA/p..; b) TOC junk placeholder (stable unitIndex)."
+  "notes": "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots."
 }

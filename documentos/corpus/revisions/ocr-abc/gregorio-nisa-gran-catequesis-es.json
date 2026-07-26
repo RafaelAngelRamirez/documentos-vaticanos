@@ -1,38 +1,53 @@
 {
   "documentId": "gregorio-nisa-gran-catequesis-es",
-  "revision": "ocr-abc-v1",
-  "appliedAt": "2026-07-16T00:47:55.284Z",
+  "revision": "ocr-abc-v3",
+  "appliedAt": "2026-07-26T19:22:15.952Z",
   "ruleClasses": [
     "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "residual-shred-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
+    "midline-hyphen-rejoin",
+    "glued-token-map",
+    "digit-letter-glue",
     "garbage-toc-exclude-placeholder",
-    "punct-safe-compose"
+    "bac-chrome-running-header-colophon-placeholder",
+    "index-zone-aggressive-garbage",
+    "punct-safe-compose-whitelist-internal"
   ],
   "unitsTotal": 250,
-  "unitsChanged": 1,
+  "unitsChanged": 95,
   "unitsExcludedGarbage": 1,
-  "unitsCollapsedSpaced": 0,
+  "unitsCollapsedSpaced": 94,
   "before": {
     "units": 250,
-    "garbageUnits": 1,
-    "garbageRatio": 0.004,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
     "spacedLetterRuns": 0,
-    "junkRunHits": 8,
-    "tocLeaderHits": 5,
-    "residualScore": 40
+    "shortSpacedWordHits": 35,
+    "spacedDigitRuns": 2,
+    "junkRunHits": 0,
+    "tocLeaderHits": 0,
+    "residualBodyNoiseUnits": 0,
+    "residualScore": 37
   },
   "after": {
     "units": 250,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
     "junkRunHits": 0,
     "tocLeaderHits": 0,
+    "residualBodyNoiseUnits": 0,
     "residualScore": 0
   },
-  "letterTokenOverlap": 1,
+  "letterTokenOverlap": 0.994,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "a) collapse spaced letters; b) blank TOC/junk units via placeholder (stable unitIndex). No internal-period joins."
+  "notes": "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots."
 }

@@ -1,30 +1,36 @@
 {
   "documentId": "agustin-13-evangelio-juan-1-es",
-  "revision": "ocr-abc-v2",
-  "appliedAt": "2026-07-18T21:14:24.966Z",
+  "revision": "ocr-abc-v3",
+  "appliedAt": "2026-07-26T19:22:02.076Z",
   "ruleClasses": [
     "spaced-letter-collapse",
     "short-spaced-word-collapse",
+    "residual-shred-collapse",
     "spaced-digit-collapse",
     "high-confidence-ocr-confusions",
+    "midline-hyphen-rejoin",
+    "glued-token-map",
+    "digit-letter-glue",
     "garbage-toc-exclude-placeholder",
-    "punct-safe-compose"
+    "bac-chrome-running-header-colophon-placeholder",
+    "index-zone-aggressive-garbage",
+    "punct-safe-compose-whitelist-internal"
   ],
   "unitsTotal": 2318,
-  "unitsChanged": 566,
-  "unitsExcludedGarbage": 0,
-  "unitsCollapsedSpaced": 566,
+  "unitsChanged": 268,
+  "unitsExcludedGarbage": 4,
+  "unitsCollapsedSpaced": 264,
   "before": {
     "units": 2318,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
-    "shortSpacedWordHits": 995,
-    "spacedDigitRuns": 291,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
     "junkRunHits": 0,
     "tocLeaderHits": 1,
     "residualBodyNoiseUnits": 5,
-    "residualScore": 1363
+    "residualScore": 77
   },
   "after": {
     "units": 2318,
@@ -38,10 +44,10 @@
     "residualBodyNoiseUnits": 5,
     "residualScore": 77
   },
-  "letterTokenOverlap": 0.9634,
+  "letterTokenOverlap": 0.9995,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "a) ≥4 spaced letters; a2) short dict words (Tal/que/de); a3) spaced digits/years; a4) qiíe/O'MEARA/p..; b) TOC junk placeholder (stable unitIndex)."
+  "notes": "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots."
 }
