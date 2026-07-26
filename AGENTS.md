@@ -296,6 +296,7 @@ Reglas:
 | `dv-sheet` | Bottom sheet (3F, 4B, …) + 7E |
 | `app-lector` / `app-punto` | Lectura por unidades (único lector inmersivo) |
 | `app-cover-header` · `app-meta-grid` · `app-doc-toc` · `app-reading-ctas` | Átomos de portada 2A/5C (`components/reading-cover/`) |
+| `app-reading-cover` | Portada documento unificada 2A+5C (slots lang/source/context/refs/related) |
 | `app-person-ficha` | Ficha de persona 2D (Padre / Doctor / Santo) |
 | `app-era-list` | Listado por eras 2C (Padres / Doctores / Santoral lista) |
 | `NavigationService.openReading` | Entrada única al lector (`documentId` + `unitIndex` + `autoNarr`) |

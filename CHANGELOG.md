@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Refactor
 
 * **ui:** shared cover atoms, person ficha, era-list; `NavigationService.openReading` for document + santoral entry (Escuchar also on 2A mobile)
+* **ui:** `app-reading-cover` unifies document detail 2A/5C into one content tree
 
 ### 0.0.21 (2026-07-25)
 

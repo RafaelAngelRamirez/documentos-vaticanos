@@ -1,228 +1,99 @@
 <div class="app web-shell">
   <app-wbar active="biblioteca"></app-wbar>
 
-  <!-- 2A móvil -->
-  <div class="only-mobile">
-    <div class="fbar hair">
-      <button type="button" class="back" (click)="volver()">← Biblioteca</button>
-      <button
-        type="button"
-        class="iconb"
-        [class.fav-on]="fav"
-        [attr.aria-pressed]="fav"
-        (click)="toggleFav()"
-        aria-label="Marcar como favorito"
-      >
-        {{ fav ? '♥' : '♡' }}
-      </button>
-    </div>
-
-    <div *ngIf="loading" class="empty" role="status">Cargando…</div>
-    <div *ngIf="error" class="empty" role="alert">{{ error }}</div>
-
-    <ng-container *ngIf="!loading && meta">
-      <app-cover-header
-        [kindLine]="kindLine"
-        [title]="meta!.title"
-        [subtitle]="display.subtitulo"
-        [wrapInner]="true"
-      ></app-cover-header>
-
-      <div class="cuerpo">
-        <app-meta-grid [cells]="metaCellsMobile"></app-meta-grid>
-
-        <div class="sect" *ngIf="showLanguageSwitcher">Idioma</div>
-        <div
-          class="seg lang-seg"
-          *ngIf="showLanguageSwitcher"
-          role="group"
-          aria-label="Idioma del texto"
+  <app-reading-cover
+    backLabel="← Biblioteca"
+    [loading]="loading"
+    [error]="error"
+    [kindLine]="kindLine"
+    [title]="meta?.title || ''"
+    [subtitle]="display.subtitulo"
+    [metaCells]="metaCells"
+    [chapters]="chapters"
+    [tocEmptyHint]="tocEmptyHint"
+    [canContinue]="puedeContinuar"
+    [positionLabel]="posicionLabel"
+    [fav]="fav"
+    [showFav]="true"
+    (back)="volver()"
+    (favToggle)="toggleFav()"
+    (start)="comenzar()"
+    (listen)="comenzarNarrador()"
+    (restart)="reiniciar()"
+    (selectToc)="openChapter($event)"
+  >
+    <!-- Idioma (multi-edición) -->
+    <div cover-lang *ngIf="meta && showLanguageSwitcher">
+      <div class="sect">Idioma</div>
+      <div class="seg lang-seg" role="group" aria-label="Idioma del texto">
+        <button
+          type="button"
+          class="segbtn"
+          *ngFor="let ed of languageEditions"
+          [class.on]="isCurrentLang(ed)"
+          [attr.aria-pressed]="isCurrentLang(ed)"
+          (click)="selectLanguage(ed)"
         >
-          <button
-            type="button"
-            class="segbtn"
-            *ngFor="let ed of languageEditions"
-            [class.on]="isCurrentLang(ed)"
-            [attr.aria-pressed]="isCurrentLang(ed)"
-            (click)="selectLanguage(ed)"
-          >
-            {{ langLabel(ed) }}
-          </button>
-        </div>
+          {{ langLabel(ed) }}
+        </button>
+      </div>
+    </div>
 
-        <div class="fs13 muted fuente-block" *ngIf="display.compilador || meta?.sourceUrl || display.fuenteNota">
-          <div *ngIf="display.compilador">
-            Compilación: <strong>{{ display.compilador }}</strong>
-          </div>
-          <div *ngIf="display.fuenteNota" class="fuente-nota">{{ display.fuenteNota }}</div>
-          <a
-            *ngIf="meta?.sourceUrl"
-            class="app-lang-link"
-            [href]="meta!.sourceUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >{{ fuenteLangLabel }} · fuente</a>
-        </div>
+    <!-- Fuente / compilador -->
+    <div
+      cover-source
+      class="fs13 muted fuente-block"
+      *ngIf="meta && (display.compilador || meta.sourceUrl || display.fuenteNota)"
+    >
+      <div *ngIf="display.compilador">
+        Compilación: <strong>{{ display.compilador }}</strong>
+      </div>
+      <div *ngIf="display.fuenteNota" class="fuente-nota">{{ display.fuenteNota }}</div>
+      <a
+        *ngIf="meta.sourceUrl"
+        class="app-lang-link"
+        [href]="meta.sourceUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        >{{ fuenteLangLabel }} · fuente</a
+      >
+    </div>
 
-        <app-historical-context-block
-          *ngIf="historicalContext"
-          [ctx]="historicalContext"
-        ></app-historical-context-block>
+    <app-historical-context-block
+      cover-context
+      *ngIf="historicalContext"
+      [ctx]="historicalContext"
+    ></app-historical-context-block>
 
-        <!-- Referencias santoral: autor santo + obras hermanas -->
-        <div class="sect" *ngIf="relatedSaint">Referencias</div>
-        <div class="ref-block" *ngIf="relatedSaint">
-          <a class="toc obra-link" [routerLink]="['/santoral', relatedSaint.id]">
-            <span class="tnum">†</span>
-            <span>Santo / autor: {{ saintLabel() }}</span>
+    <!-- Referencias santoral: autor + obras hermanas -->
+    <div cover-refs *ngIf="relatedSaint">
+      <div class="sect">Referencias</div>
+      <div class="ref-block">
+        <a class="toc obra-link" [routerLink]="['/santoral', relatedSaint.id]">
+          <span class="tnum">†</span>
+          <span>Santo / autor: {{ saintLabel() }}</span>
+        </a>
+        <ng-container *ngFor="let w of siblingWorks; let i = index">
+          <a class="toc obra-link" [routerLink]="['/documento', w.documentId]">
+            <span class="tnum">{{ i + 1 }}</span>
+            <span>{{ w.title }}</span>
           </a>
-          <ng-container *ngFor="let w of siblingWorks; let i = index">
-            <a class="toc obra-link" [routerLink]="['/documento', w.documentId]">
-              <span class="tnum">{{ i + 1 }}</span>
-              <span>{{ w.title }}</span>
-            </a>
-          </ng-container>
-          <div class="fs12 muted" *ngIf="siblingWorks.length > 0" style="margin-top: 6px">
-            Otras obras del mismo autor en el corpus
-          </div>
-        </div>
-
-        <app-related-units-panel
-          *ngIf="relatedSeed"
-          [seedText]="relatedSeed"
-          [limit]="6"
-          variant="document"
-          [hideWhenEmpty]="true"
-          [excludeDocumentId]="meta!.id"
-          heading="Relacionados"
-        ></app-related-units-panel>
-
-        <app-doc-toc
-          [entries]="chapters"
-          (select)="openChapter($event)"
-        ></app-doc-toc>
-
-        <app-reading-ctas
-          layout="stack"
-          [canContinue]="puedeContinuar"
-          [positionLabel]="posicionLabel"
-          (start)="comenzar()"
-          (listen)="comenzarNarrador()"
-          (restart)="reiniciar()"
-        ></app-reading-ctas>
-      </div>
-    </ng-container>
-  </div>
-
-  <!-- 5C web -->
-  <div class="wmain only-desktop">
-    <div class="wbody">
-      <div class="fs13" style="margin-bottom: 20px">
-        <a href="javascript:void(0)" (click)="volver()">← Biblioteca</a>
-      </div>
-      <div *ngIf="loading" class="fs13 muted">Cargando…</div>
-      <div *ngIf="error" class="fs13" style="color: var(--app-danger)">{{ error }}</div>
-
-      <div class="wcols" *ngIf="!loading && meta">
-        <div class="col-main">
-          <app-cover-header
-            variant="web"
-            [kindLine]="kindLine"
-            [title]="meta!.title"
-            [subtitle]="display.subtitulo"
-          ></app-cover-header>
-
-          <app-reading-ctas
-            layout="inline"
-            [canContinue]="puedeContinuar"
-            [showRestart]="false"
-            (start)="comenzar()"
-            (listen)="comenzarNarrador()"
-          >
-            <button
-              cta-extra
-              type="button"
-              class="iconb fav-box"
-              [class.fav-on]="fav"
-              (click)="toggleFav()"
-              aria-label="Marcar como favorito"
-            >
-              {{ fav ? '♥' : '♡' }}
-            </button>
-          </app-reading-ctas>
-
-          <app-meta-grid
-            [cells]="metaCellsDesktop"
-            maxWidth="480px"
-          ></app-meta-grid>
-
-          <div class="sect" *ngIf="showLanguageSwitcher" style="margin-top: 12px">Idioma</div>
-          <div
-            class="seg lang-seg"
-            *ngIf="showLanguageSwitcher"
-            role="group"
-            aria-label="Idioma del texto"
-          >
-            <button
-              type="button"
-              class="segbtn"
-              *ngFor="let ed of languageEditions"
-              [class.on]="isCurrentLang(ed)"
-              [attr.aria-pressed]="isCurrentLang(ed)"
-              (click)="selectLanguage(ed)"
-            >
-              {{ langLabel(ed) }}
-            </button>
-          </div>
-          <div class="fs13 muted fuente-block" *ngIf="display.compilador || meta?.sourceUrl || display.fuenteNota">
-            <div *ngIf="display.compilador">
-              Compilación: <strong>{{ display.compilador }}</strong>
-            </div>
-            <div *ngIf="display.fuenteNota" class="fuente-nota">{{ display.fuenteNota }}</div>
-            <a
-              *ngIf="meta?.sourceUrl"
-              class="app-lang-link"
-              [href]="meta!.sourceUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >{{ fuenteLangLabel }} · fuente</a>
-          </div>
-          <app-historical-context-block
-            *ngIf="historicalContext"
-            [ctx]="historicalContext"
-          ></app-historical-context-block>
-          <div class="sect" *ngIf="relatedSaint" style="margin-top: 20px">Referencias</div>
-          <div class="ref-block" *ngIf="relatedSaint">
-            <a class="toc obra-link" [routerLink]="['/santoral', relatedSaint.id]">
-              <span class="tnum">†</span>
-              <span>Santo / autor: {{ saintLabel() }}</span>
-            </a>
-            <ng-container *ngFor="let w of siblingWorks; let i = index">
-              <a class="toc obra-link" [routerLink]="['/documento', w.documentId]">
-                <span class="tnum">{{ i + 1 }}</span>
-                <span>{{ w.title }}</span>
-              </a>
-            </ng-container>
-          </div>
-          <app-related-units-panel
-            *ngIf="relatedSeed"
-            [seedText]="relatedSeed"
-            [limit]="6"
-            variant="document"
-            [hideWhenEmpty]="true"
-            [excludeDocumentId]="meta!.id"
-            heading="Relacionados"
-          ></app-related-units-panel>
-        </div>
-        <div class="col-side">
-          <app-doc-toc
-            [entries]="chapters"
-            [emptyHint]="tocEmptyHint"
-            headingMarginTop="4px"
-            (select)="openChapter($event)"
-          ></app-doc-toc>
+        </ng-container>
+        <div class="fs12 muted" *ngIf="siblingWorks.length > 0" style="margin-top: 6px">
+          Otras obras del mismo autor en el corpus
         </div>
       </div>
     </div>
-  </div>
+
+    <app-related-units-panel
+      cover-related
+      *ngIf="relatedSeed && meta"
+      [seedText]="relatedSeed"
+      [limit]="6"
+      variant="document"
+      [hideWhenEmpty]="true"
+      [excludeDocumentId]="meta.id"
+      heading="Relacionados"
+    ></app-related-units-panel>
+  </app-reading-cover>
 </div>

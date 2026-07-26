@@ -26,11 +26,8 @@ import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import { HistoricalContextBlockComponent } from 'src/app/components/historical-context-block/historical-context-block.component';
 import { RelatedUnitsPanelComponent } from 'src/app/components/related-units/related-units-panel.component';
 import {
-  CoverHeaderComponent,
-  DocTocComponent,
   MetaGridCell,
-  MetaGridComponent,
-  ReadingCtasComponent,
+  ReadingCoverComponent,
 } from 'src/app/components/reading-cover';
 import { SaintRecord } from 'src/app/core/santoral/santoral-resolve.logic';
 import { SantoralService } from 'src/app/core/santoral/santoral.service';
@@ -40,7 +37,7 @@ import { relatedSeedForDocument } from 'src/app/core/search/semantic-search.logi
 
 const FAVS_KEY = 'dv.favs';
 
-/** Pantalla 2A · Detalle del documento + 5C web. */
+/** Pantalla 2A · Detalle del documento + 5C web (via app-reading-cover). */
 @Component({
   standalone: true,
   selector: 'app-documento-detalle',
@@ -50,10 +47,7 @@ const FAVS_KEY = 'dv.favs';
     WbarComponent,
     HistoricalContextBlockComponent,
     RelatedUnitsPanelComponent,
-    CoverHeaderComponent,
-    MetaGridComponent,
-    DocTocComponent,
-    ReadingCtasComponent,
+    ReadingCoverComponent,
   ],
   templateUrl: './documento-detalle.component.html',
   styleUrls: ['./documento-detalle.component.css'],
@@ -120,23 +114,13 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     return `${n.toLocaleString('es')} ${unidad}`;
   }
 
-  /** Meta grid for 2A mobile (Lectura). */
-  get metaCellsMobile(): MetaGridCell[] {
-    return [
-      { key: 'Autor', value: this.display.autor || '—' },
-      { key: 'Fecha', value: this.fechaLabel },
-      { key: 'Capítulos', value: this.unidadesLabel },
-      { key: 'Lectura', value: this.lecturaEstimada },
-    ];
-  }
-
-  /** Meta grid for 5C desktop (Audio). */
-  get metaCellsDesktop(): MetaGridCell[] {
+  /** Unified meta grid (2A + 5C). */
+  get metaCells(): MetaGridCell[] {
     return [
       { key: 'Autor', value: this.display.autor || '—' },
       { key: 'Fecha', value: this.fechaLabel },
       { key: 'Contenido', value: this.unidadesLabel },
-      { key: 'Audio', value: this.audioEstimado },
+      { key: 'Lectura', value: this.lecturaEstimada },
     ];
   }
 
@@ -171,11 +155,6 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     return `Última posición: unidad ${this.lastRead.unitIndex + 1} de ${
       this.meta.unitCount
     }`;
-  }
-
-  /** Estimación de audio ≈ lectura. */
-  get audioEstimado(): string {
-    return this.lecturaEstimada.replace('≈', '≈').replace(' min', ' min narradas').replace(' h', ' h narradas');
   }
 
   get showLanguageSwitcher(): boolean {
