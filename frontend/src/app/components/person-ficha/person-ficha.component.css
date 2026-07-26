@@ -1,0 +1,73 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 22px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.hair {
+  border-bottom: 1px solid var(--line);
+}
+
+.back {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.back:hover {
+  color: var(--acc);
+}
+
+.fbody {
+  padding: 28px 24px 48px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .fbody {
+    max-width: 640px;
+    padding: 32px 40px 56px;
+  }
+}
+
+.obra-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.obra-link:hover {
+  color: var(--acc);
+}
+
+.obra-pending {
+  opacity: 0.75;
+}
+
+.theme-chip {
+  cursor: default;
+  font: inherit;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: inherit;
+}
+
+.theme-chip:not(.static) {
+  cursor: pointer;
+}
+
+.theme-chip:not(.static):hover,
+.theme-chip:not(.static):active {
+  border-color: var(--acc);
+  color: var(--acc);
+}

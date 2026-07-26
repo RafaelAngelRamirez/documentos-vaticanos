@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Unreleased
+
+### Refactor
+
+* **ui:** shared cover atoms, person ficha, era-list; `NavigationService.openReading` for document + santoral entry (Escuchar also on 2A mobile)
+
 ### 0.0.21 (2026-07-25)
 
 

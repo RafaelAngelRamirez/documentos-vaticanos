@@ -3,6 +3,11 @@ import { Router } from '@angular/router';
 import { ResultadoDeBusqueda } from '../components/buscador/buscador.component';
 import { ArticleInfo } from '../components/punto/punto/punto.component';
 import { IndiceDocumentos } from './cargar-documentos-json.service';
+import {
+  applyAutoNarrFlag,
+  resolveOpenReadingIndex,
+  type OpenReadingOptions,
+} from './open-reading.logic';
 
 export enum ROUTE {
   'leyendo' = 'leyendo',
@@ -34,6 +39,11 @@ export interface NavigateToUnitOptions {
   fromRef?: boolean;
   consecutivo?: string;
   label?: string;
+  /**
+   * When true, set sessionStorage `dv.autoNarr` so LectorComponent starts
+   * the narrator after load (cover CTA “Escuchar con narrador”).
+   */
+  autoNarr?: boolean;
 }
 
 @Injectable({
@@ -85,6 +95,20 @@ export class NavigationService {
   }
 
   /**
+   * Cover / CTA entry to the immersive reader (corpus pack or `santoral:{id}`).
+   * Thin wrapper over {@link navigateToUnit} with index normalization + autoNarr.
+   */
+  openReading(
+    documentId: string,
+    options?: OpenReadingOptions,
+  ): void {
+    if (!documentId) return;
+    const idx = resolveOpenReadingIndex(options?.unitIndex);
+    if (idx == null) return;
+    this.navigateToUnit(documentId, idx, { autoNarr: options?.autoNarr });
+  }
+
+  /**
    * Navigate to a unit by document id + array index.
    * When `fromRef` is set, the current frame is pushed onto the stack.
    */
@@ -100,6 +124,8 @@ export class NavigationService {
     if (options?.fromRef) {
       this.pushCurrentFrame(options.label);
     }
+
+    applyAutoNarrFlag(options?.autoNarr);
 
     const sameDoc =
       this.document_selected &&

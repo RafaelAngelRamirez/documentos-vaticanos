@@ -4,6 +4,11 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { BnavComponent } from 'src/app/components/bnav/bnav.component';
+import {
+  EraListComponent,
+  EraListGroup,
+  EraListItem,
+} from 'src/app/components/era-list/era-list.component';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import { SaintRecord } from 'src/app/core/santoral/santoral-resolve.logic';
 import { SantoralService } from 'src/app/core/santoral/santoral.service';
@@ -41,12 +46,15 @@ export type CalendarLevel = 'anio' | 'mes' | 'dia';
     AppFbarComponent,
     BnavComponent,
     WbarComponent,
+    EraListComponent,
   ],
   templateUrl: './santoral.component.html',
   styleUrls: ['./santoral.component.css'],
 })
 export class SantoralComponent implements OnInit, OnDestroy {
   groups: { era: string; items: SaintRecord[] }[] = [];
+  /** Presentational groups for app-era-list (lista mode). */
+  eraListGroups: EraListGroup[] = [];
   allSaints: SaintRecord[] = [];
   loading = true;
   error: string | null = null;
@@ -100,6 +108,15 @@ export class SantoralComponent implements OnInit, OnDestroy {
         this.santoral.loadManifest().subscribe({
           next: (m) => {
             this.groups = this.santoral.groupsByEra();
+            this.eraListGroups = this.groups.map((g) => ({
+              era: g.era,
+              items: g.items.map((s) => ({
+                id: s.id,
+                name: this.label(s),
+                meta: this.sub(s),
+                initials: this.initials(s),
+              })),
+            }));
             this.allSaints = m.saints || [];
             this.total = this.allSaints.length;
             this.rebuildCalendarViews();
@@ -211,6 +228,10 @@ export class SantoralComponent implements OnInit, OnDestroy {
 
   open(s: SaintRecord): void {
     this.router.navigate(['/santoral', s.id]);
+  }
+
+  openListItem(it: EraListItem): void {
+    this.router.navigate(['/santoral', it.id]);
   }
 
   openMisal(): void {

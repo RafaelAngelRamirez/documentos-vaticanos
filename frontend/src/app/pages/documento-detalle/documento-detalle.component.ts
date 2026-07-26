@@ -13,7 +13,7 @@ import {
   isAiEdition,
   localeLabel,
 } from 'src/app/core/corpus/document-locale.logic';
-import { NavigationService, ROUTE } from 'src/app/services/navigation.service';
+import { NavigationService } from 'src/app/services/navigation.service';
 import {
   LastRead,
   ReadingProgressService,
@@ -25,6 +25,13 @@ import {
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import { HistoricalContextBlockComponent } from 'src/app/components/historical-context-block/historical-context-block.component';
 import { RelatedUnitsPanelComponent } from 'src/app/components/related-units/related-units-panel.component';
+import {
+  CoverHeaderComponent,
+  DocTocComponent,
+  MetaGridCell,
+  MetaGridComponent,
+  ReadingCtasComponent,
+} from 'src/app/components/reading-cover';
 import { SaintRecord } from 'src/app/core/santoral/santoral-resolve.logic';
 import { SantoralService } from 'src/app/core/santoral/santoral.service';
 import { HistoricalContextService } from 'src/app/core/context/historical-context.service';
@@ -43,6 +50,10 @@ const FAVS_KEY = 'dv.favs';
     WbarComponent,
     HistoricalContextBlockComponent,
     RelatedUnitsPanelComponent,
+    CoverHeaderComponent,
+    MetaGridComponent,
+    DocTocComponent,
+    ReadingCtasComponent,
   ],
   templateUrl: './documento-detalle.component.html',
   styleUrls: ['./documento-detalle.component.css'],
@@ -109,6 +120,36 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     return `${n.toLocaleString('es')} ${unidad}`;
   }
 
+  /** Meta grid for 2A mobile (Lectura). */
+  get metaCellsMobile(): MetaGridCell[] {
+    return [
+      { key: 'Autor', value: this.display.autor || '—' },
+      { key: 'Fecha', value: this.fechaLabel },
+      { key: 'Capítulos', value: this.unidadesLabel },
+      { key: 'Lectura', value: this.lecturaEstimada },
+    ];
+  }
+
+  /** Meta grid for 5C desktop (Audio). */
+  get metaCellsDesktop(): MetaGridCell[] {
+    return [
+      { key: 'Autor', value: this.display.autor || '—' },
+      { key: 'Fecha', value: this.fechaLabel },
+      { key: 'Contenido', value: this.unidadesLabel },
+      { key: 'Audio', value: this.audioEstimado },
+    ];
+  }
+
+  private get fechaLabel(): string {
+    const a = this.display.anio;
+    if (a == null || a === undefined) return '—';
+    return String(a);
+  }
+
+  get tocEmptyHint(): string {
+    return `${this.unidadesLabel} · abra el lector para navegar por unidades.`;
+  }
+
   /** Estimación aproximada: ~1,1 min por numeral; versículos más breves. */
   get lecturaEstimada(): string {
     const n = this.meta?.unitCount || 0;
@@ -123,10 +164,6 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
 
   get puedeContinuar(): boolean {
     return !!this.lastRead && this.lastRead.unitIndex > 0;
-  }
-
-  get ctaLabel(): string {
-    return this.puedeContinuar ? 'Continuar la lectura' : 'Comenzar la lectura';
   }
 
   get posicionLabel(): string {
@@ -181,14 +218,10 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     this.irALector(entry.unitIndex);
   }
 
-  /** 5C: misma entrada al lector; el narrador se activa en 5D. */
+  /** 2A/5C: misma entrada al lector; el narrador se activa en 5D. */
   comenzarNarrador(): void {
-    try {
-      sessionStorage.setItem('dv.autoNarr', '1');
-    } catch {
-      // ignore
-    }
-    this.comenzar();
+    const idx = this.puedeContinuar ? this.lastRead!.unitIndex : 0;
+    this.irALector(idx, { autoNarr: true });
   }
 
   reiniciar(): void {
@@ -316,14 +349,12 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     return this.relatedSaint.displayName || this.relatedSaint.name;
   }
 
-  private irALector(idx: number): void {
+  private irALector(idx: number, opts?: { autoNarr?: boolean }): void {
     if (!this.meta) return;
-    this.navigationService.document_selected = undefined;
-    this.navigationService.document_id = this.meta.id;
-    this.navigationService.actual_index = idx;
-    this.navigationService.article_selected = undefined;
-    this.navigationService.save_actual_index();
-    this.router.navigate([ROUTE.leyendo, this.meta.id, ROUTE.punto, idx]);
+    this.navigationService.openReading(this.meta.id, {
+      unitIndex: idx,
+      autoNarr: opts?.autoNarr,
+    });
   }
 
   private leerFavs(): string[] {

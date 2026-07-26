@@ -80,30 +80,10 @@
   padding: 8px 14px;
 }
 
-.dcover .inner,
 .cuerpo {
   max-width: 640px;
   margin: 0 auto;
-}
-
-.cuerpo {
   padding: 20px 24px 60px;
-}
-
-.pos {
-  margin-top: 14px;
-}
-
-.primary {
-  display: block;
-  width: 100%;
-  margin-top: 22px;
-}
-
-.reinicio {
-  display: block;
-  margin: 14px auto 0;
-  color: var(--muted);
 }
 
 .fav-on {
@@ -118,36 +98,6 @@
   padding: 40px 24px;
   text-align: center;
   color: var(--muted);
-}
-
-.web-title {
-  font-size: 40px;
-  line-height: 1.1;
-  margin: 12px 0 8px;
-}
-
-.web-sub {
-  font-size: 19px;
-}
-
-.actions {
-  margin-top: 24px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-}
-
-.cta {
-  margin: 0;
-  width: auto;
-  padding: 13px 26px;
-  display: inline-block;
-}
-
-.listen {
-  width: auto;
-  padding: 13px 20px;
 }
 
 .fav-box {

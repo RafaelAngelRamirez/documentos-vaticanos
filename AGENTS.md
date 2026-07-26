@@ -294,7 +294,11 @@ Reglas:
 | `app-fbar` | Top bar de producto (`←` + título) |
 | `app-wbar` | Shell desktop (`nav` \| `auth` \| `reader`) |
 | `dv-sheet` | Bottom sheet (3F, 4B, …) + 7E |
-| `app-lector` / `app-punto` | Lectura por unidades |
+| `app-lector` / `app-punto` | Lectura por unidades (único lector inmersivo) |
+| `app-cover-header` · `app-meta-grid` · `app-doc-toc` · `app-reading-ctas` | Átomos de portada 2A/5C (`components/reading-cover/`) |
+| `app-person-ficha` | Ficha de persona 2D (Padre / Doctor / Santo) |
+| `app-era-list` | Listado por eras 2C (Padres / Doctores / Santoral lista) |
+| `NavigationService.openReading` | Entrada única al lector (`documentId` + `unitIndex` + `autoNarr`) |
 
 **Prohibido:** Bootstrap, Font Awesome, themes Material de color (pink/indigo). `@angular/material` no debe usarse para chrome visual; el look sale de `styles.css` + handoff.
 

@@ -1,52 +1,22 @@
-<div class="app web-shell" *ngIf="padre as p">
-  <app-wbar active="padres"></app-wbar>
-
-  <div class="fbar hair">
-    <a class="fs14 back" routerLink="/padres">← Padres</a>
-    <span class="iconb" title="Favorito">♡</span>
-  </div>
-
-  <div class="dcover">
-    <div class="dkind">{{ p.eraLabel }} · {{ p.years }}</div>
-    <div class="dtitle">{{ p.name }}</div>
-    <div class="dsub">{{ p.role }}</div>
-  </div>
-
-  <div class="fbody">
-    <div class="quote" *ngIf="p.quote">«{{ p.quote }}»</div>
-    <div class="fs12 muted" style="margin-top: 8px" *ngIf="p.quoteSource">
-      {{ p.quoteSource }}
-    </div>
-
+<app-person-ficha
+  *ngIf="padre as p"
+  wbarActive="padres"
+  backLink="/padres"
+  backLabel="← Padres"
+  [kindLine]="kindLine"
+  [title]="p.name"
+  [subtitle]="p.role"
+  [quote]="p.quote"
+  [quoteSource]="p.quoteSource"
+  [works]="works"
+  [themes]="p.themes"
+>
+  <span ficha-fbar-end class="iconb" title="Favorito">♡</span>
+  <div ficha-after-quote>
     <app-historical-context-block
       *ngIf="historicalContext"
       [ctx]="historicalContext"
       sectionTitle="Contexto histórico"
     ></app-historical-context-block>
-
-    <div class="sect">Obras en la biblioteca</div>
-    <ng-container *ngFor="let w of p.works; let i = index">
-      <a
-        *ngIf="w.documentId as docId"
-        class="toc obra-link"
-        [routerLink]="['/documento', docId]"
-      >
-        <span class="tnum">{{ i + 1 }}</span>
-        <span>{{ w.title }}</span>
-      </a>
-      <div *ngIf="!w.documentId" class="toc obra-pending">
-        <span class="tnum">{{ i + 1 }}</span>
-        <span>{{ w.title }}</span>
-        <span class="fs12 muted"> · próximamente</span>
-      </div>
-    </ng-container>
-    <div class="fs13 muted" *ngIf="!p.works.length" style="margin-top: 8px">
-      Obras próximamente en el corpus.
-    </div>
-
-    <div class="sect">Temas</div>
-    <div class="chips">
-      <span class="chip" *ngFor="let t of p.themes">{{ t }}</span>
-    </div>
   </div>
-</div>
+</app-person-ficha>

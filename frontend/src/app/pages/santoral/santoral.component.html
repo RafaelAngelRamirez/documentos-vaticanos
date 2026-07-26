@@ -54,42 +54,12 @@
 
     <!-- ===== LISTA (era groups) ===== -->
     <ng-container *ngIf="!loading && !error && mode === 'lista'">
-      <ng-container *ngFor="let g of groups">
-        <div class="era">{{ g.era }}</div>
+      <app-era-list
+        [groups]="eraListGroups"
+        (open)="openListItem($event)"
+      ></app-era-list>
 
-        <div class="only-mobile">
-          <div
-            class="mrow"
-            *ngFor="let s of g.items"
-            role="button"
-            tabindex="0"
-            (click)="open(s)"
-            (keydown.enter)="open(s)"
-            style="cursor: pointer"
-          >
-            <span class="avatar">{{ initials(s) }}</span>
-            <div class="f1">
-              <div class="mname">{{ label(s) }}</div>
-              <div class="mmeta">{{ sub(s) }}</div>
-            </div>
-            <span class="chev">›</span>
-          </div>
-        </div>
-
-        <div class="cardgrid only-desktop">
-          <button
-            type="button"
-            class="bookcard"
-            *ngFor="let s of g.items"
-            (click)="open(s)"
-          >
-            <span class="bt">{{ label(s) }}</span>
-            <span class="bm">{{ sub(s) }}</span>
-          </button>
-        </div>
-      </ng-container>
-
-      <div class="empty" *ngIf="!groups.length">
+      <div class="empty" *ngIf="!eraListGroups.length">
         Aún no hay entradas en el pack del santoral.
       </div>
     </ng-container>

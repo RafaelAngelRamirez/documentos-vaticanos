@@ -21,33 +21,15 @@
     <div *ngIf="error" class="empty" role="alert">{{ error }}</div>
 
     <ng-container *ngIf="!loading && meta">
-      <div class="dcover">
-        <div class="inner">
-          <div class="dkind">{{ kindLine }}</div>
-          <div class="dtitle">{{ meta!.title }}</div>
-          <div class="dsub" *ngIf="display.subtitulo">{{ display.subtitulo }}</div>
-        </div>
-      </div>
+      <app-cover-header
+        [kindLine]="kindLine"
+        [title]="meta!.title"
+        [subtitle]="display.subtitulo"
+        [wrapInner]="true"
+      ></app-cover-header>
 
       <div class="cuerpo">
-        <div class="meta2">
-          <div class="mcell">
-            <div class="mk">Autor</div>
-            <div class="mv">{{ display.autor || '—' }}</div>
-          </div>
-          <div class="mcell">
-            <div class="mk">Fecha</div>
-            <div class="mv">{{ display.anio || '—' }}</div>
-          </div>
-          <div class="mcell">
-            <div class="mk">Capítulos</div>
-            <div class="mv">{{ unidadesLabel }}</div>
-          </div>
-          <div class="mcell">
-            <div class="mk">Lectura</div>
-            <div class="mv">{{ lecturaEstimada }}</div>
-          </div>
-        </div>
+        <app-meta-grid [cells]="metaCellsMobile"></app-meta-grid>
 
         <div class="sect" *ngIf="showLanguageSwitcher">Idioma</div>
         <div
@@ -105,7 +87,6 @@
           </div>
         </div>
 
-        <!-- Relacionados: otras obras del corpus (quality gate; no el pack actual) -->
         <app-related-units-panel
           *ngIf="relatedSeed"
           [seedText]="relatedSeed"
@@ -116,36 +97,19 @@
           heading="Relacionados"
         ></app-related-units-panel>
 
-        <div class="fs13 muted tc pos" *ngIf="posicionLabel">
-          {{ posicionLabel }}
-        </div>
+        <app-doc-toc
+          [entries]="chapters"
+          (select)="openChapter($event)"
+        ></app-doc-toc>
 
-        <!-- Índice (handoff 2A.html:32-52) — jump to unitIndex -->
-        <div class="sect" *ngIf="chapters.length">Índice</div>
-        <div
-          class="toc"
-          *ngFor="let c of chapters"
-          role="button"
-          tabindex="0"
-          (click)="openChapter(c)"
-          (keydown.enter)="openChapter(c)"
-          (keydown.space)="$event.preventDefault(); openChapter(c)"
-        >
-          <span class="tnum">{{ c.num }}</span>
-          <span>{{ c.title }}</span>
-        </div>
-
-        <button type="button" class="primary" (click)="comenzar()">
-          {{ ctaLabel }}
-        </button>
-        <button
-          type="button"
-          class="back reinicio"
-          *ngIf="puedeContinuar"
-          (click)="reiniciar()"
-        >
-          Empezar desde el principio
-        </button>
+        <app-reading-ctas
+          layout="stack"
+          [canContinue]="puedeContinuar"
+          [positionLabel]="posicionLabel"
+          (start)="comenzar()"
+          (listen)="comenzarNarrador()"
+          (restart)="reiniciar()"
+        ></app-reading-ctas>
       </div>
     </ng-container>
   </div>
@@ -161,17 +125,22 @@
 
       <div class="wcols" *ngIf="!loading && meta">
         <div class="col-main">
-          <div class="dkind">{{ kindLine }}</div>
-          <div class="serif fw6 web-title">{{ meta!.title }}</div>
-          <div class="dsub web-sub" *ngIf="display.subtitulo">{{ display.subtitulo }}</div>
-          <div class="fx gap8 actions">
-            <button type="button" class="primary cta" (click)="comenzar()">
-              {{ ctaLabel }}
-            </button>
-            <button type="button" class="gbtn listen" (click)="comenzarNarrador()">
-              ▶ Escuchar con narrador
-            </button>
+          <app-cover-header
+            variant="web"
+            [kindLine]="kindLine"
+            [title]="meta!.title"
+            [subtitle]="display.subtitulo"
+          ></app-cover-header>
+
+          <app-reading-ctas
+            layout="inline"
+            [canContinue]="puedeContinuar"
+            [showRestart]="false"
+            (start)="comenzar()"
+            (listen)="comenzarNarrador()"
+          >
             <button
+              cta-extra
               type="button"
               class="iconb fav-box"
               [class.fav-on]="fav"
@@ -180,25 +149,13 @@
             >
               {{ fav ? '♥' : '♡' }}
             </button>
-          </div>
-          <div class="meta2" style="max-width: 480px">
-            <div class="mcell">
-              <div class="mk">Autor</div>
-              <div class="mv">{{ display.autor || '—' }}</div>
-            </div>
-            <div class="mcell">
-              <div class="mk">Fecha</div>
-              <div class="mv">{{ display.anio || '—' }}</div>
-            </div>
-            <div class="mcell">
-              <div class="mk">Contenido</div>
-              <div class="mv">{{ unidadesLabel }}</div>
-            </div>
-            <div class="mcell">
-              <div class="mk">Audio</div>
-              <div class="mv">{{ audioEstimado }}</div>
-            </div>
-          </div>
+          </app-reading-ctas>
+
+          <app-meta-grid
+            [cells]="metaCellsDesktop"
+            maxWidth="480px"
+          ></app-meta-grid>
+
           <div class="sect" *ngIf="showLanguageSwitcher" style="margin-top: 12px">Idioma</div>
           <div
             class="seg lang-seg"
@@ -258,22 +215,12 @@
           ></app-related-units-panel>
         </div>
         <div class="col-side">
-          <div class="sect" style="margin-top: 4px">Índice</div>
-          <div
-            class="toc"
-            *ngFor="let c of chapters"
-            role="button"
-            tabindex="0"
-            (click)="openChapter(c)"
-            (keydown.enter)="openChapter(c)"
-            (keydown.space)="$event.preventDefault(); openChapter(c)"
-          >
-            <span class="tnum">{{ c.num }}</span>
-            <span>{{ c.title }}</span>
-          </div>
-          <div class="fs13 muted" *ngIf="!chapters.length" style="margin-top: 8px">
-            {{ unidadesLabel }} · abra el lector para navegar por unidades.
-          </div>
+          <app-doc-toc
+            [entries]="chapters"
+            [emptyHint]="tocEmptyHint"
+            headingMarginTop="4px"
+            (select)="openChapter($event)"
+          ></app-doc-toc>
         </div>
       </div>
     </div>

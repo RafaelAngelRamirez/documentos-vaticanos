@@ -4,7 +4,6 @@
     <app-fbar title="Padres de la Iglesia"></app-fbar>
   </div>
 
-  <!-- 2C móvil: lista · 5F web: cardgrid -->
   <div class="fbody padres-body">
     <h2 class="h2 only-desktop">Padres de la Iglesia</h2>
     <div class="fs14 muted" style="line-height: 1.6; max-width: 70ch">
@@ -16,42 +15,7 @@
       (biografías de la Santa Sede y autores del corpus).
     </div>
 
-    <ng-container *ngFor="let g of groups">
-      <div class="era">{{ g.era }}</div>
-
-      <!-- móvil: mrow -->
-      <div class="only-mobile">
-        <div
-          class="mrow"
-          *ngFor="let p of g.items"
-          role="button"
-          tabindex="0"
-          (click)="open(p)"
-          (keydown.enter)="open(p)"
-          style="cursor: pointer"
-        >
-          <span class="avatar">{{ p.initials }}</span>
-          <div class="f1">
-            <div class="mname">{{ p.name }}</div>
-            <div class="mmeta">{{ p.meta }}</div>
-          </div>
-          <span class="chev">›</span>
-        </div>
-      </div>
-
-      <!-- 5F desktop: bookcards -->
-      <div class="cardgrid only-desktop">
-        <button
-          type="button"
-          class="bookcard"
-          *ngFor="let p of g.items"
-          (click)="open(p)"
-        >
-          <span class="bt">{{ p.name }}</span>
-          <span class="bm">{{ p.meta }}</span>
-        </button>
-      </div>
-    </ng-container>
+    <app-era-list [groups]="groups" (open)="open($event)"></app-era-list>
   </div>
 
   <app-bnav></app-bnav>
