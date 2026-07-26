@@ -1,8 +1,8 @@
 {
-  "revision": "ocr-abc-v3",
-  "appliedAt": "2026-07-26T19:23:59.293Z",
+  "revision": "ocr-abc-v4",
+  "appliedAt": "2026-07-26T19:49:16.391Z",
   "documentCount": 46,
-  "thisRunChanged": 46,
+  "thisRunChanged": 4,
   "documents": [
     {
       "id": "agustin-01-primeros-escritos-es",
@@ -336,25 +336,25 @@
     },
     {
       "id": "agustin-31-antimaniqueos-2-es",
-      "unitsChanged": 95,
-      "unitsExcludedGarbage": 21,
-      "unitsCollapsedSpaced": 74,
+      "unitsChanged": 17,
+      "unitsExcludedGarbage": 16,
+      "unitsCollapsedSpaced": 1,
       "spacedBefore": 0,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 9,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9984
+      "letterTokenOverlap": 1
     },
     {
       "id": "agustin-32-antidonatistas-1-es",
-      "unitsChanged": 219,
-      "unitsExcludedGarbage": 39,
-      "unitsCollapsedSpaced": 180,
+      "unitsChanged": 21,
+      "unitsExcludedGarbage": 17,
+      "unitsCollapsedSpaced": 3,
       "spacedBefore": 0,
       "spacedAfter": 0,
-      "garbageBefore": 12,
+      "garbageBefore": 10,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9978
+      "letterTokenOverlap": 0.9999
     },
     {
       "id": "agustin-33-antidonatistas-2-es",
@@ -369,25 +369,25 @@
     },
     {
       "id": "agustin-34-antidonatistas-3-es",
-      "unitsChanged": 579,
-      "unitsExcludedGarbage": 8,
-      "unitsCollapsedSpaced": 571,
+      "unitsChanged": 4,
+      "unitsExcludedGarbage": 4,
+      "unitsCollapsedSpaced": 0,
       "spacedBefore": 0,
       "spacedAfter": 0,
-      "garbageBefore": 7,
+      "garbageBefore": 3,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9967
+      "letterTokenOverlap": 1
     },
     {
       "id": "agustin-35-antipelagianos-3-es",
-      "unitsChanged": 1112,
-      "unitsExcludedGarbage": 7,
-      "unitsCollapsedSpaced": 1105,
+      "unitsChanged": 5,
+      "unitsExcludedGarbage": 5,
+      "unitsCollapsedSpaced": 0,
       "spacedBefore": 0,
       "spacedAfter": 0,
-      "garbageBefore": 6,
+      "garbageBefore": 4,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9905
+      "letterTokenOverlap": 1
     },
     {
       "id": "agustin-36-antipelagianos-4-es",
