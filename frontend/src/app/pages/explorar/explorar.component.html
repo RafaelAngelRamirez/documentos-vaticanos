@@ -31,7 +31,9 @@
       </button>
     </div>
 
-    <div *ngIf="loading" class="fs13 muted">Cargando…</div>
+    <div *ngIf="loading && tab === 'maestros'" class="fs13 muted">
+      Cargando…
+    </div>
 
     <ng-container *ngIf="tab === 'maestros'">
       <div
@@ -50,12 +52,78 @@
     </ng-container>
 
     <ng-container *ngIf="tab === 'temas'">
-      <div class="sect">Temas</div>
-      <div class="chips">
-        <span class="chip" *ngFor="let c of topicChips" (click)="chip(c)">{{
-          c
-        }}</span>
-      </div>
+      <div class="sect">Temas del corpus (índice offline)</div>
+      <p class="fs13 muted temas-note">
+        Índice temático del pack offline (no son tus listas personales).
+        <a routerLink="/cuenta/temas" class="app-lang-link">Mis temas personales →</a>
+      </p>
+
+      <div *ngIf="topicsLoading" class="fs13 muted">Cargando temas…</div>
+
+      <ng-container *ngIf="!topicsLoading && !packEmpty">
+        <label class="flabel" for="topic-filter">Filtrar</label>
+        <input
+          id="topic-filter"
+          class="field"
+          type="search"
+          autocomplete="off"
+          placeholder="Nombre, slug o alias…"
+          [value]="topicFilter"
+          (input)="onTopicFilterInput($event)"
+        />
+
+        <div class="sect" *ngIf="filteredFeatured.length">Destacados</div>
+        <div class="chips" *ngIf="filteredFeatured.length">
+          <span
+            class="chip"
+            *ngFor="let t of filteredFeatured"
+            (click)="openTopic(t)"
+            role="button"
+            tabindex="0"
+            (keydown.enter)="openTopic(t)"
+            >{{ t.label }}</span
+          >
+        </div>
+
+        <div class="sect">Todos los temas</div>
+        <div
+          class="mrow"
+          *ngFor="let t of filteredTopics"
+          style="cursor: pointer"
+          (click)="openTopic(t)"
+          role="button"
+          tabindex="0"
+          (keydown.enter)="openTopic(t)"
+        >
+          <div>
+            <div class="mname">{{ t.label }}</div>
+            <div class="mmeta" *ngIf="topicMeta(t)">{{ topicMeta(t) }}</div>
+          </div>
+          <span class="chev">›</span>
+        </div>
+        <div *ngIf="!filteredTopics.length" class="fs13 muted">
+          Ningún tema coincide con el filtro.
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="!topicsLoading && packEmpty">
+        <div class="fs13 muted empty-topics">
+          El índice temático offline no está disponible todavía. Puedes buscar
+          por texto o usar las sugerencias.
+        </div>
+        <div class="sect">Sugerencias</div>
+        <div class="chips">
+          <span
+            class="chip"
+            *ngFor="let c of fallbackTopicChips"
+            (click)="chip(c)"
+            role="button"
+            tabindex="0"
+            (keydown.enter)="chip(c)"
+            >{{ c }}</span
+          >
+        </div>
+      </ng-container>
     </ng-container>
 
     <ng-container *ngIf="tab === 'epocas'">

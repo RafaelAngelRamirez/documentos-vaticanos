@@ -31,3 +31,17 @@
 .chip {
   cursor: pointer;
 }
+
+.temas-note {
+  line-height: 1.55;
+  margin: 0 0 12px;
+}
+
+.empty-topics {
+  line-height: 1.55;
+  margin: 0 0 8px;
+}
+
+.field {
+  margin-bottom: 4px;
+}

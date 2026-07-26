@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { of, Subscription } from 'rxjs';
+import { catchError, finalize } from 'rxjs/operators';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { BnavComponent } from 'src/app/components/bnav/bnav.component';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
@@ -10,6 +12,9 @@ import {
   CatalogDisplay,
 } from 'src/app/core/corpus/catalog.display';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
+import { TopicIndexService } from 'src/app/core/search/topic-index.service';
+import { TopicRecord } from 'src/app/core/search/topic-pack.models';
+import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import { environment } from 'src/environments/environment';
 
 type Tab = 'maestros' | 'temas' | 'epocas';
@@ -28,6 +33,18 @@ interface EpochRow {
   docIds: string[];
 }
 
+/** Fallback chips when topic pack is empty / feature off → search. */
+const FALLBACK_TOPIC_CHIPS = [
+  'Fe y razón',
+  'Familia',
+  'Eucaristía',
+  'Esperanza',
+  'Caridad',
+  'Creación',
+];
+
+const FEATURED_ROOT_LIMIT = 12;
+
 @Component({
   standalone: true,
   selector: 'app-explorar',
@@ -41,28 +58,36 @@ interface EpochRow {
   templateUrl: './explorar.component.html',
   styleUrls: ['./explorar.component.css'],
 })
-export class ExplorarComponent implements OnInit {
+export class ExplorarComponent implements OnInit, OnDestroy {
   tab: Tab = 'maestros';
   teachers: TeacherRow[] = [];
-  topicChips = [
-    'Fe y razón',
-    'Familia',
-    'Eucaristía',
-    'Esperanza',
-    'Caridad',
-    'Creación',
-  ];
+  /** Fallback labels only (pack empty / feature off). */
+  fallbackTopicChips = FALLBACK_TOPIC_CHIPS;
   epochs: EpochRow[] = [];
   loading = false;
+
+  /** Corpus topic pack (offline). */
+  topics: TopicRecord[] = [];
+  featuredTopics: TopicRecord[] = [];
+  topicFilter = '';
+  topicsLoading = false;
+  topicsLoaded = false;
+  packEmpty = true;
+
+  private topicsLocale: string | null = null;
+  private topicsSub: Subscription | null = null;
 
   constructor(
     private studies: StudiesService,
     private corpus: CorpusService,
-    private router: Router
+    private router: Router,
+    private topicIndex: TopicIndexService,
+    private readerPrefs: ReaderPreferencesService,
   ) {}
 
   ngOnInit(): void {
     this.buildEpochsFromCatalog();
+    this.ensureTopicsPack();
     if (!environment.apiBaseUrl) {
       this.loadFallbackAuthors();
       return;
@@ -81,6 +106,10 @@ export class ExplorarComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.topicsSub?.unsubscribe();
+  }
+
   /** El catálogo se carga async: espera al manifiesto antes de agrupar autores. */
   private loadFallbackAuthors(): void {
     this.corpus.loadManifest().subscribe(() => {
@@ -90,6 +119,106 @@ export class ExplorarComponent implements OnInit {
 
   setTab(t: Tab): void {
     this.tab = t;
+    if (t === 'temas') this.ensureTopicsPack();
+  }
+
+  /**
+   * Load offline topic pack for contentLocale once (reload if locale changes).
+   * Soft-empty when feature off or assets missing.
+   */
+  private ensureTopicsPack(): void {
+    const locale =
+      (this.readerPrefs.resolveContentLocale() || 'es')
+        .trim()
+        .toLowerCase()
+        .split(/[-_]/)[0] || 'es';
+
+    if (
+      this.topicsLocale === locale &&
+      (this.topicsLoaded || this.topicsLoading)
+    ) {
+      return;
+    }
+
+    this.topicsLocale = locale;
+    this.topicsSub?.unsubscribe();
+    this.topicsLoading = true;
+    this.topicsLoaded = false;
+
+    this.topicsSub = this.topicIndex
+      .loadPack(locale)
+      .pipe(
+        catchError(() => of(null)),
+        finalize(() => {
+          this.topicsLoading = false;
+          this.topicsLoaded = true;
+        }),
+      )
+      .subscribe((pack) => {
+        const raw = pack?.topics ?? [];
+        const seeds = raw
+          .filter((t) => !t.kind || t.kind === 'seed')
+          .slice()
+          .sort((a, b) =>
+            (a.label || a.slug).localeCompare(b.label || b.slug, 'es', {
+              sensitivity: 'base',
+            }),
+          );
+
+        this.topics = seeds;
+        const roots = seeds.filter(
+          (t) => t.parentId == null || t.parentId === undefined,
+        );
+        this.featuredTopics = (
+          roots.length ? roots : seeds
+        ).slice(0, FEATURED_ROOT_LIMIT);
+        this.packEmpty = seeds.length === 0;
+      });
+  }
+
+  get filteredFeatured(): TopicRecord[] {
+    return this.filterTopics(this.featuredTopics);
+  }
+
+  get filteredTopics(): TopicRecord[] {
+    return this.filterTopics(this.topics);
+  }
+
+  private filterTopics(list: TopicRecord[]): TopicRecord[] {
+    const q = (this.topicFilter || '').trim().toLowerCase();
+    if (!q) return list;
+    return list.filter((t) => {
+      if ((t.label || '').toLowerCase().includes(q)) return true;
+      if ((t.slug || '').toLowerCase().includes(q)) return true;
+      return (t.aliases || []).some((a) =>
+        (a || '').toLowerCase().includes(q),
+      );
+    });
+  }
+
+  onTopicFilterInput(ev: Event): void {
+    const el = ev.target as HTMLInputElement | null;
+    this.topicFilter = el?.value ?? '';
+  }
+
+  openTopic(t: TopicRecord): void {
+    if (!t?.slug) return;
+    this.router.navigate(['/explorar/topicos', t.slug]);
+  }
+
+  topicMeta(t: TopicRecord): string {
+    const parts: string[] = [];
+    if (t.unitCount != null && t.unitCount > 0) {
+      parts.push(
+        `${t.unitCount} cita${t.unitCount === 1 ? '' : 's'}`,
+      );
+    }
+    if (t.documentCount != null && t.documentCount > 0) {
+      parts.push(
+        `${t.documentCount} doc${t.documentCount === 1 ? '' : 's'}`,
+      );
+    }
+    return parts.join(' · ');
   }
 
   private groupTeachers(studies: Study[]): TeacherRow[] {
@@ -193,6 +322,7 @@ export class ExplorarComponent implements OnInit {
     }
   }
 
+  /** Fallback chip → full-text search. */
   chip(c: string): void {
     this.router.navigate(['/buscar'], { queryParams: { q: c } });
   }

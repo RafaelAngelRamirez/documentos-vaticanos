@@ -15,6 +15,7 @@ import { EstudioEditarComponent } from './estudio-editar/estudio-editar.componen
 import { BuscarComponent } from './buscar/buscar.component';
 import { AprendizajeComponent } from './aprendizaje/aprendizaje.component';
 import { ExplorarComponent } from './explorar/explorar.component';
+import { TopicoDetalleComponent } from './topico-detalle/topico-detalle.component';
 import { AjustesComponent } from './ajustes/ajustes.component';
 import { DocumentoDetalleComponent } from './documento-detalle/documento-detalle.component';
 import { NotasComponent } from './notas/notas.component';
@@ -47,6 +48,8 @@ const routes: Routes = [
   { path: 'estudios/:id', component: EstudioDetalleComponent },
   /** Design 1D / 1E */
   { path: 'aprendizaje', component: AprendizajeComponent },
+  /** PR6 · tema del corpus (índice temático offline); more specific before explorar */
+  { path: 'explorar/topicos/:slug', component: TopicoDetalleComponent },
   { path: 'explorar', component: ExplorarComponent },
   { path: 'ajustes', component: AjustesComponent },
   { path: 'documento/:id', component: DocumentoDetalleComponent },

@@ -1,0 +1,85 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbody,
+.topico-body {
+  padding: 28px 24px 40px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.topico-back {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.topico-back:hover {
+  color: var(--acc);
+}
+
+.topico-eyebrow {
+  letter-spacing: 0.14em;
+  margin-bottom: 6px;
+}
+
+.topico-title {
+  font-family: var(--app-font-serif, 'EB Garamond', Georgia, serif);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+.topico-lede {
+  margin: 0 0 8px;
+  line-height: 1.55;
+  max-width: 70ch;
+}
+
+.topico-note {
+  margin: 0 0 4px;
+  line-height: 1.5;
+}
+
+.topico-search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 12px;
+  min-height: 48px;
+}
+
+.topico-count {
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-left: 4px;
+}
+
+.chip {
+  cursor: pointer;
+}
+
+.srow:focus-visible {
+  outline: 2px solid var(--acc);
+  outline-offset: 2px;
+}
+
+@media (min-width: 1024px) {
+  .topico-body {
+    max-width: 720px;
+    padding: 36px 40px 56px;
+  }
+
+  .topico-title {
+    font-size: 32px;
+  }
+}

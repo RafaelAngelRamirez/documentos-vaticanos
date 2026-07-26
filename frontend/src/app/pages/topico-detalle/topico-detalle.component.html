@@ -1,0 +1,121 @@
+<div class="app-product web-shell has-bnav">
+  <app-wbar></app-wbar>
+  <div class="only-mobile">
+    <app-fbar
+      [title]="fbarTitle"
+      back="← Explorar"
+      backLink="/explorar"
+    ></app-fbar>
+  </div>
+
+  <div class="fbody topico-body">
+    <a routerLink="/explorar" class="fs14 back only-desktop topico-back"
+      >← Explorar</a
+    >
+
+    <div *ngIf="loading" class="fs13 muted" role="status">Cargando tema…</div>
+
+    <!-- Topic not found / empty pack -->
+    <ng-container *ngIf="!loading && (notFound || packEmpty)">
+      <div class="fs12 upper muted topico-eyebrow">Tema del corpus</div>
+      <h1 class="topico-title">{{ slug || rawSlug || 'Tema' }}</h1>
+      <p class="fs14 muted topico-lede" *ngIf="packEmpty">
+        El índice temático offline no está disponible en este idioma todavía.
+      </p>
+      <p class="fs14 muted topico-lede" *ngIf="!packEmpty && notFound">
+        No encontramos este tema en el catálogo offline.
+      </p>
+      <div class="chips" style="margin-top: 16px">
+        <a routerLink="/buscar" class="chip" style="text-decoration: none"
+          >Buscar en el texto</a
+        >
+        <a routerLink="/explorar" class="chip" style="text-decoration: none"
+          >Volver a Explorar</a
+        >
+      </div>
+    </ng-container>
+
+    <!-- Topic found -->
+    <ng-container *ngIf="!loading && topic as t">
+      <div class="fs12 upper muted topico-eyebrow">Tema del corpus</div>
+      <h1 class="topico-title">{{ t.label }}</h1>
+      <p class="fs14 muted topico-lede" *ngIf="lede">{{ lede }}</p>
+      <p class="fs13 muted topico-note">
+        Citas sugeridas del índice temático offline (documentId + unitIndex).
+      </p>
+
+      <!-- §2.4 CTAs -->
+      <app-reading-ctas
+        *ngIf="hasPostings"
+        layout="stack"
+        [canContinue]="false"
+        [showRestart]="false"
+        startLabel="Comenzar la lectura"
+        (start)="openFirst(false)"
+        (listen)="openFirst(true)"
+      ></app-reading-ctas>
+
+      <div *ngIf="!hasPostings" class="fs13 muted" style="margin-top: 16px">
+        Este tema aún no tiene citas en el índice. Puede buscar el término en el
+        corpus.
+      </div>
+
+      <button
+        type="button"
+        class="gbtn topico-search-btn"
+        (click)="goSearch()"
+      >
+        Buscar en el texto
+      </button>
+
+      <!-- Citations -->
+      <div class="sect" *ngIf="hasPostings">
+        Citas
+        <span class="topico-count" *ngIf="postings.length"
+          >({{ postings.length }})</span
+        >
+      </div>
+
+      <div
+        class="srow"
+        *ngFor="let row of visiblePostings"
+        role="link"
+        tabindex="0"
+        (click)="openCitation(row)"
+        (keyup.enter)="openCitation(row)"
+      >
+        <span class="fx ac jb">
+          <span class="st">{{ row.label }}</span>
+          <span class="fs12 muted" *ngIf="confLabel(row.conf) as c">{{
+            c
+          }}</span>
+        </span>
+        <span class="sx">{{ row.documentId }} · índice {{ row.unitIndex }}</span>
+      </div>
+
+      <button
+        type="button"
+        class="gbtn"
+        *ngIf="hasMore"
+        style="margin-top: 12px; width: 100%"
+        (click)="expandList()"
+      >
+        Ver {{ remainingCount }} más
+      </button>
+
+      <!-- Related topics -->
+      <div class="sect" *ngIf="related.length">Temas relacionados</div>
+      <div class="chips" *ngIf="related.length">
+        <a
+          class="chip"
+          *ngFor="let r of related"
+          [routerLink]="['/explorar/topicos', r.slug]"
+          style="text-decoration: none"
+          >{{ r.label }}</a
+        >
+      </div>
+    </ng-container>
+  </div>
+
+  <app-bnav></app-bnav>
+</div>
