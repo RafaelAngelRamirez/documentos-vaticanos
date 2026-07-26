@@ -48,6 +48,18 @@ export interface LoadedDocument {
   indice: Indice;
 }
 
+/**
+ * Index-only load for progressive search (PR2b).
+ * `bodyLoaded` is false until {@link CorpusLoadEngine.ensureLoaded} hydrates body.
+ */
+export interface IndexedDocument {
+  meta: DocumentMeta;
+  indice: Indice;
+  bodyLoaded: boolean;
+  /** Empty array when body not loaded; full units after ensureLoaded. */
+  documento: Article[];
+}
+
 // --- Durable store ---
 
 export interface StoredManifest {
@@ -190,8 +202,11 @@ export class CorpusLoadEngine {
   private manifest: DocumentMeta[] | null = null;
   private packVersion: string | number | null = null;
   private cache: Map<string, LoadedDocument> = new Map();
+  /** Index-only memory cache (PR2b). Not written to durable store alone. */
+  private indexCache: Map<string, Indice> = new Map();
   private manifestInflight: Promise<DocumentMeta[]> | null = null;
   private inflight: Map<string, Promise<LoadedDocument>> = new Map();
+  private indexInflight: Map<string, Promise<IndexedDocument>> = new Map();
 
   private httpGet: CorpusHttpGet;
   private store: CorpusDurableStore;
@@ -207,8 +222,10 @@ export class CorpusLoadEngine {
     this.manifest = null;
     this.packVersion = null;
     this.cache.clear();
+    this.indexCache.clear();
     this.manifestInflight = null;
     this.inflight.clear();
+    this.indexInflight.clear();
   }
 
   hasManifestInMemory(): boolean {
@@ -225,6 +242,107 @@ export class CorpusLoadEngine {
 
   getLoaded(documentId: string): LoadedDocument | undefined {
     return this.cache.get(documentId);
+  }
+
+  /** Cached inverted index without requiring a full body load. */
+  getIndex(documentId: string): Indice | undefined {
+    const full = this.cache.get(documentId);
+    if (full) return full.indice;
+    return this.indexCache.get(documentId);
+  }
+
+  /**
+   * Load inverted index only (index.json). Does not fetch content.json.
+   * Reuses full cache / durable full doc when available.
+   * Never writes a body-less document to durable storage.
+   */
+  async ensureIndex(documentId: string): Promise<IndexedDocument> {
+    const full = this.cache.get(documentId);
+    if (full) {
+      return {
+        meta: full.meta,
+        indice: full.indice,
+        bodyLoaded: true,
+        documento: full.documento,
+      };
+    }
+
+    const pending = this.indexInflight.get(documentId);
+    if (pending) return pending;
+
+    const request = this.loadIndexOnly(documentId).finally(() => {
+      this.indexInflight.delete(documentId);
+    });
+    this.indexInflight.set(documentId, request);
+    return request;
+  }
+
+  private async loadIndexOnly(documentId: string): Promise<IndexedDocument> {
+    const metas = await this.loadManifest();
+    const meta = metas.find((m) => this.matchesMeta(m, documentId));
+    if (!meta) {
+      throw new Error(`Document not found in manifest: ${documentId}`);
+    }
+
+    // Race: full load may have completed while we waited on manifest.
+    const full = this.cache.get(meta.id);
+    if (full) {
+      return {
+        meta: full.meta,
+        indice: full.indice,
+        bodyLoaded: true,
+        documento: full.documento,
+      };
+    }
+
+    // Durable full doc → use index without HTTP body.
+    try {
+      const stored = await this.store.getDocument(meta.id);
+      if (isStoredDocumentValid(stored, meta) && stored) {
+        const indice = this.normalizeIndex(stored.indice);
+        this.indexCache.set(meta.id, indice);
+        // Promote to full memory cache so subsequent ensureLoaded is free.
+        const loaded: LoadedDocument = {
+          meta,
+          documento: this.stampIndexArray(
+            Array.isArray(stored.documento)
+              ? ([...stored.documento] as Article[])
+              : [],
+          ),
+          indice,
+        };
+        this.remember(loaded);
+        return {
+          meta,
+          indice,
+          bodyLoaded: true,
+          documento: loaded.documento,
+        };
+      }
+    } catch {
+      /* fall through */
+    }
+
+    const cachedIdx = this.indexCache.get(meta.id);
+    if (cachedIdx) {
+      return {
+        meta,
+        indice: cachedIdx,
+        bodyLoaded: false,
+        documento: [],
+      };
+    }
+
+    const indexUrl = this.resolveAssetPath(meta.indexPath);
+    const rawIndex = await this.getJson<unknown>(indexUrl);
+    const indice = this.normalizeIndex(rawIndex);
+    this.indexCache.set(meta.id, indice);
+    return {
+      meta,
+      indice,
+      bodyLoaded: false,
+      documento: [],
+    };
   }
 
   async loadManifest(): Promise<DocumentMeta[]> {
@@ -318,21 +436,26 @@ export class CorpusLoadEngine {
     }
 
     const bodyUrl = this.resolveAssetPath(meta.bodyPath);
-    const indexUrl = this.resolveAssetPath(meta.indexPath);
-
     const body = await this.getJson<Article[]>(bodyUrl);
-    const rawIndex = await this.getJson<unknown>(indexUrl);
+
+    // Reuse index-only cache when present (PR2b: avoid double index fetch).
+    let indice = this.indexCache.get(meta.id);
+    if (!indice) {
+      const indexUrl = this.resolveAssetPath(meta.indexPath);
+      const rawIndex = await this.getJson<unknown>(indexUrl);
+      indice = this.normalizeIndex(rawIndex);
+    }
 
     const documento = this.stampIndexArray(
       Array.isArray(body) ? ([...body] as Article[]) : []
     );
-    const indice = this.normalizeIndex(rawIndex);
     const loaded: LoadedDocument = {
       meta,
       documento,
       indice,
     };
     this.remember(loaded);
+    this.indexCache.set(meta.id, indice);
 
     const storedDoc: StoredDocument = {
       documentId: meta.id,
@@ -416,6 +539,7 @@ export class CorpusLoadEngine {
     if (loaded.meta.shortTitle) {
       this.cache.set(loaded.meta.shortTitle, loaded);
     }
+    this.indexCache.set(loaded.meta.id, loaded.indice);
   }
 
   private stampIndexArray(articles: Article[]): Article[] {

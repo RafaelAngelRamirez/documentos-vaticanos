@@ -16,9 +16,16 @@ import {
   rankUnitsForDocument,
   type RankedUnitHit,
 } from 'src/app/core/search/semantic-search.logic';
-import { DEFAULT_BODY_LOAD_CONCURRENCY } from 'src/app/core/search/search-load.logic';
+import {
+  DEFAULT_BODY_LOAD_CONCURRENCY,
+  DEFAULT_INDEX_LOAD_CONCURRENCY,
+} from 'src/app/core/search/search-load.logic';
 
 const PAGE = 50;
+/** Unique documents to hydrate for snippets after index-only ranking. */
+const SNIPPET_DOC_CAP = 24;
+/** Cap ranked hits considered for body hydration. */
+const RANK_HYDRATE_HIT_CAP = 80;
 
 /** Fila plana de resultado (diseño 3E: doc · Nº + fragmento). */
 export interface SearchRow {
@@ -183,24 +190,24 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     this.load_error = null;
     const locale = this.readerPrefs.resolveContentLocale();
 
+    // PR2b: rank on index.json only, then hydrate bodies for top-N docs.
     this.sub.add(
       this.documentosService
-        .ensureLoadedForLocale(locale, {
+        .ensureIndexForLocale(locale, {
           allLocales: this.allLocales,
-          concurrency: DEFAULT_BODY_LOAD_CONCURRENCY,
+          concurrency: DEFAULT_INDEX_LOAD_CONCURRENCY,
           isCancelled: () => myGen !== this.searchGen,
         })
         .subscribe({
-          next: (docs) => {
+          next: (indexDocs) => {
             if (myGen !== this.searchGen) return;
-            this.loading_docs = false;
-            this.applyRanking(docs, parsed);
+            this.rankThenHydrate(indexDocs, parsed, myGen);
           },
           error: (err) => {
             if (myGen !== this.searchGen) return;
             this.loading_docs = false;
             this.load_error =
-              err?.message ?? 'No se pudieron cargar documentos para buscar.';
+              err?.message ?? 'No se pudieron cargar índices para buscar.';
             this.docs_resultados = [];
             this.rows = [];
             console.error(err);
@@ -209,25 +216,30 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     );
   }
 
-  /** Rank loaded docs for the current parsed query (locale-scoped pool). */
-  private applyRanking(
-    docs: DocumentoDatos[],
+  /**
+   * Index-only rank → ensureLoaded only unique docs among top hits (snippets).
+   */
+  private rankThenHydrate(
+    indexDocs: DocumentoDatos[],
     parsed: {
       empty: boolean;
       phrases: string[];
       contentTerms: string[];
       points: number[];
     },
+    myGen: number,
   ): void {
     const rankedAll: { hit: RankedUnitHit; doc: DocumentoDatos }[] = [];
+    const byId = new Map<string, DocumentoDatos>();
 
-    for (const doc of docs) {
+    for (const doc of indexDocs) {
       const documentId = doc.id || doc.nombre || '';
+      if (documentId) byId.set(documentId, doc);
       const hits = rankUnitsForDocument(
         {
           documentId,
           index: doc.indice,
-          units: doc.documento,
+          units: [], // body lazy — phrase bonus deferred until hydrate
         },
         parsed,
       );
@@ -243,6 +255,86 @@ export class BuscadorComponent implements OnInit, OnDestroy {
         a.hit.unitIndex - b.hit.unitIndex,
     );
 
+    const topSlice = rankedAll.slice(0, RANK_HYDRATE_HIT_CAP);
+    const hydrateIds: string[] = [];
+    const seen = new Set<string>();
+    for (const { hit } of topSlice) {
+      if (seen.has(hit.documentId)) continue;
+      seen.add(hit.documentId);
+      hydrateIds.push(hit.documentId);
+      if (hydrateIds.length >= SNIPPET_DOC_CAP) break;
+    }
+
+    if (!hydrateIds.length) {
+      if (myGen !== this.searchGen) return;
+      this.loading_docs = false;
+      this.docs_resultados = [];
+      this.rows = [];
+      return;
+    }
+
+    this.sub.add(
+      this.documentosService
+        .ensureLoadedMany(hydrateIds, {
+          concurrency: DEFAULT_BODY_LOAD_CONCURRENCY,
+          isCancelled: () => myGen !== this.searchGen,
+        })
+        .subscribe({
+          next: (fullDocs) => {
+            if (myGen !== this.searchGen) return;
+            this.loading_docs = false;
+            for (const d of fullDocs) {
+              const id = d.id || d.nombre || '';
+              if (id) byId.set(id, d);
+            }
+            // Re-rank hydrated docs with bodies for phrase bonus on those packs.
+            const reRanked: { hit: RankedUnitHit; doc: DocumentoDatos }[] = [];
+            for (const id of hydrateIds) {
+              const doc = byId.get(id);
+              if (!doc) continue;
+              const hits = rankUnitsForDocument(
+                {
+                  documentId: id,
+                  index: doc.indice,
+                  units: doc.documento,
+                },
+                parsed,
+              );
+              for (const hit of hits) {
+                reRanked.push({ hit, doc });
+              }
+            }
+            // Keep non-hydrated index-only hits after hydrated ones if needed.
+            const hydratedSet = new Set(hydrateIds);
+            for (const row of rankedAll) {
+              if (!hydratedSet.has(row.hit.documentId)) {
+                reRanked.push(row);
+              }
+            }
+            reRanked.sort(
+              (a, b) =>
+                b.hit.score - a.hit.score ||
+                a.hit.documentId.localeCompare(b.hit.documentId) ||
+                a.hit.unitIndex - b.hit.unitIndex,
+            );
+            this.applyRankingFromHits(reRanked, parsed.contentTerms);
+          },
+          error: (err) => {
+            if (myGen !== this.searchGen) return;
+            // Degrade: show index-only rows without snippets.
+            this.loading_docs = false;
+            this.applyRankingFromHits(topSlice, parsed.contentTerms);
+            console.warn('snippet hydrate failed; index-only results', err);
+          },
+        }),
+    );
+  }
+
+  /** Group ranked hits into docs_resultados + flat 3E rows. */
+  private applyRankingFromHits(
+    rankedAll: { hit: RankedUnitHit; doc: DocumentoDatos }[],
+    fallbackTerms: string[],
+  ): void {
     const byDoc = new Map<DocumentoDatos, RankedUnitHit[]>();
     const docOrder: DocumentoDatos[] = [];
     for (const { hit, doc } of rankedAll) {
@@ -258,12 +350,27 @@ export class BuscadorComponent implements OnInit, OnDestroy {
       const hits = byDoc.get(doc) ?? [];
       const puntos_completos = hits
         .map((hit) => {
-          const article = doc.documento[hit.unitIndex];
-          if (!article) return null;
+          const article = doc.documento?.[hit.unitIndex];
+          if (!article) {
+            // Index-only hit without body: synthetic stub for navigation.
+            const stub = {
+              index_array: hit.unitIndex,
+              consecutivo: hit.consecutivo || String(hit.unitIndex),
+              contenido: '',
+            };
+            const terms_pure =
+              hit.highlightTerms.length > 0
+                ? hit.highlightTerms
+                : fallbackTerms;
+            return {
+              article: stub,
+              terms_pure,
+            } as ArticleInfo;
+          }
           const terms_pure =
             hit.highlightTerms.length > 0
               ? hit.highlightTerms
-              : parsed.contentTerms;
+              : fallbackTerms;
           return { article, terms_pure } as ArticleInfo;
         })
         .filter((x): x is ArticleInfo => !!x);
@@ -275,7 +382,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
       });
     }
 
-    this.buildRowsFromRanked(rankedAll, parsed.contentTerms);
+    this.buildRowsFromRanked(rankedAll, fallbackTerms);
   }
 
   /**

@@ -7,6 +7,8 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
+import { of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import {
   RelatedCitationRow,
   suggestRelatedCitations,
@@ -17,6 +19,12 @@ import {
   toSearchDocumentInput,
 } from 'src/app/core/search/semantic-search.logic';
 import { DEFAULT_BODY_LOAD_CONCURRENCY } from 'src/app/core/search/search-load.logic';
+import { TopicIndexService } from 'src/app/core/search/topic-index.service';
+import {
+  mergeRelatedByEvidence,
+  neighborsFromGraph,
+  rowsFromGraphNeighbors,
+} from 'src/app/core/search/topic-search.logic';
 import { CargarDocumentosJsonService } from 'src/app/services/cargar-documentos-json.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
@@ -25,6 +33,7 @@ export type RelatedUnitsVariant = 'passage' | 'saint' | 'document';
 
 /**
  * Offline “pasajes relacionados” list (3E-style rows).
+ * PR3: merges ref citation graph neighbors with bounded lexical hubs.
  * Loads corpus when needed; degrades to empty list on failure (no crash).
  */
 @Component({
@@ -71,6 +80,7 @@ export class RelatedUnitsPanelComponent implements OnChanges {
     private docs: CargarDocumentosJsonService,
     private nav: NavigationService,
     private readerPrefs: ReaderPreferencesService,
+    private topics: TopicIndexService,
   ) {}
 
   get resolvedLede(): string {
@@ -81,7 +91,7 @@ export class RelatedUnitsPanelComponent implements OnChanges {
     if (this.variant === 'document') {
       return 'Pasajes de otras obras del corpus con vocabulario afín (sugerencia offline).';
     }
-    return 'Sugeridos offline a partir del pasaje (mismas citas estables del corpus).';
+    return 'Sugeridos offline: citas enlazadas del corpus y pasajes con vocabulario afín.';
   }
 
   /** Whether the host should render this panel at all. */
@@ -121,21 +131,44 @@ export class RelatedUnitsPanelComponent implements OnChanges {
     this.loadError = null;
 
     const locale = this.readerPrefs.resolveContentLocale();
-    const extraIds = [
-      step?.documentId,
-      this.excludeDocumentId || undefined,
-      ...(this.preferDocumentIds || []),
-    ].filter((id): id is string => !!id);
+    const preferIds = this.preferDocumentIds || [];
 
-    // PR2a: bounded hub pool + seed/prefer docs — no full multi-locale bulk load.
-    this.docs
-      .ensureLoadedRelatedPool(locale, {
-        extraIds,
-        concurrency: DEFAULT_BODY_LOAD_CONCURRENCY,
-        isCancelled: () => myGen !== this.gen,
-      })
+    // Load topic pack (graph) + seed doc first, then hubs + graph neighbor docs.
+    this.topics
+      .loadPack(locale)
+      .pipe(
+        catchError(() => of(null)),
+        switchMap((pack) => {
+          const graph = pack?.graph ?? null;
+          const seedNeighbors =
+            step && graph
+              ? neighborsFromGraph(graph, step.documentId, step.unitIndex)
+              : [];
+          const neighborDocIds = seedNeighbors.map((e) => e.documentId);
+          const extraIds = [
+            step?.documentId,
+            this.excludeDocumentId || undefined,
+            ...preferIds,
+            ...neighborDocIds,
+          ].filter((id): id is string => !!id);
+
+          return this.docs
+            .ensureLoadedRelatedPool(locale, {
+              extraIds,
+              concurrency: DEFAULT_BODY_LOAD_CONCURRENCY,
+              isCancelled: () => myGen !== this.gen,
+            })
+            .pipe(
+              map((list) => ({
+                list,
+                graph,
+                seedNeighbors,
+              })),
+            );
+        }),
+      )
       .subscribe({
-        next: (list) => {
+        next: ({ list, graph, seedNeighbors }) => {
           if (myGen !== this.gen) return;
           try {
             const inputs = list.map((d) =>
@@ -145,33 +178,63 @@ export class RelatedUnitsPanelComponent implements OnChanges {
                 d.documento || [],
               ),
             );
-            let rows: RelatedCitationRow[] = [];
+
+            let lexical: RelatedCitationRow[] = [];
             if (step) {
-              rows = suggestRelatedForStep(step, inputs, {
+              lexical = suggestRelatedForStep(step, inputs, {
                 limit: this.limit,
                 quality: 'passage',
               });
             } else if (text && this.variant === 'saint') {
-              rows = suggestRelatedForSaint(text, inputs, {
+              lexical = suggestRelatedForSaint(text, inputs, {
                 limit: this.limit,
-                preferDocumentIds: this.preferDocumentIds || undefined,
+                preferDocumentIds: preferIds.length ? preferIds : undefined,
               });
             } else if (text && this.variant === 'document') {
-              rows = suggestRelatedForDocument(text, inputs, {
+              lexical = suggestRelatedForDocument(text, inputs, {
                 documentId: this.excludeDocumentId || undefined,
                 limit: this.limit,
               });
             } else if (text) {
-              rows = suggestRelatedCitations(text, inputs, {
+              lexical = suggestRelatedCitations(text, inputs, {
                 limit: this.limit,
                 quality: 'passage',
                 excludeDocumentId: this.excludeDocumentId || undefined,
               });
             }
-            this.rows = rows;
+            // Tag lexical rows for merge.
+            lexical = lexical.map((r) => ({
+              ...r,
+              reason: r.reason || 'lexical',
+            }));
+
+            let graphRows: RelatedCitationRow[] = [];
+            if (step && seedNeighbors.length) {
+              graphRows = rowsFromGraphNeighbors(
+                step.documentId,
+                step.unitIndex,
+                seedNeighbors,
+                inputs,
+                {
+                  excludeDocumentId: this.excludeDocumentId,
+                  limit: this.limit,
+                },
+              ) as RelatedCitationRow[];
+            }
+
+            // Saints: keep strict lexical only (graph often points to bible noise).
+            if (this.variant === 'saint') {
+              this.rows = lexical.slice(0, this.limit);
+            } else {
+              this.rows = mergeRelatedByEvidence(
+                graphRows,
+                lexical,
+                this.limit,
+              ) as RelatedCitationRow[];
+            }
           } catch {
             this.rows = [];
-            this.loadError = null; // degrade quietly offline
+            this.loadError = null;
           }
           this.loading = false;
         },
@@ -195,5 +258,13 @@ export class RelatedUnitsPanelComponent implements OnChanges {
   add(ev: Event, row: RelatedCitationRow): void {
     ev.stopPropagation();
     this.addCitation.emit(row);
+  }
+
+  /** Optional chrome for reason chip (template may ignore). */
+  reasonLabel(row: RelatedCitationRow): string {
+    if (row.reason === 'ref') return 'Cita';
+    if (row.reason === 'topic') return 'Tema';
+    if (row.reason === 'lexical') return 'Texto';
+    return '';
   }
 }

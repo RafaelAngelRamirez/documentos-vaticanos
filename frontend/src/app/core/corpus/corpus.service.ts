@@ -10,7 +10,10 @@ import {
   LoadedDocument,
 } from './corpus.models';
 import { IndexedDbCorpusStore } from './corpus-durable-idb.store';
-import { CorpusLoadEngine } from './corpus-load.logic';
+import {
+  CorpusLoadEngine,
+  type IndexedDocument,
+} from './corpus-load.logic';
 import {
   DocumentFamily,
   editionsForDocument,
@@ -30,6 +33,10 @@ export class CorpusService {
   /** In-flight Observable wrappers so concurrent subscribers share one request. */
   private manifestInflight$: Observable<DocumentMeta[]> | null = null;
   private readonly inflight$ = new Map<string, Observable<LoadedDocument>>();
+  private readonly indexInflight$ = new Map<
+    string,
+    Observable<IndexedDocument>
+  >();
 
   constructor(
     private readonly http: HttpClient,
@@ -46,6 +53,7 @@ export class CorpusService {
     this.engine.clearMemory();
     this.manifestInflight$ = null;
     this.inflight$.clear();
+    this.indexInflight$.clear();
   }
 
   loadManifest(): Observable<DocumentMeta[]> {
@@ -140,6 +148,34 @@ export class CorpusService {
     return request$;
   }
 
+  /**
+   * Progressive search (PR2b): load inverted index without content body.
+   * Share in-flight requests per documentId.
+   */
+  ensureIndex(documentId: string): Observable<IndexedDocument> {
+    const full = this.engine.getLoaded(documentId);
+    if (full) {
+      return of({
+        meta: full.meta,
+        indice: full.indice,
+        bodyLoaded: true,
+        documento: full.documento,
+      } as IndexedDocument);
+    }
+    const pending = this.indexInflight$.get(documentId);
+    if (pending) return pending;
+
+    const request$ = from(
+      this.engine.ensureIndex(documentId) as Promise<IndexedDocument>,
+    ).pipe(shareReplay(1));
+    this.indexInflight$.set(documentId, request$);
+    request$.subscribe({
+      complete: () => this.indexInflight$.delete(documentId),
+      error: () => this.indexInflight$.delete(documentId),
+    });
+    return request$;
+  }
+
   getLoaded(documentId: string): LoadedDocument | undefined {
     return this.engine.getLoaded(documentId) as LoadedDocument | undefined;
   }
@@ -155,6 +191,24 @@ export class CorpusService {
       sourceUrl: loaded.meta.sourceUrl,
       documento: loaded.documento,
       indice: loaded.indice,
+    };
+  }
+
+  /** Index-only → IndiceDocumentos (empty documento until ensureLoaded). */
+  toIndiceFromIndex(indexed: IndexedDocument): IndiceDocumentos {
+    return {
+      id: indexed.meta.id,
+      nombre:
+        indexed.meta.title || indexed.meta.shortTitle || indexed.meta.id,
+      title: indexed.meta.title,
+      shortTitle: indexed.meta.shortTitle,
+      locale: indexed.meta.locale,
+      sourceUrl: indexed.meta.sourceUrl,
+      // Engine Article has optional index_array; stamp is applied on full load.
+      documento: (indexed.bodyLoaded
+        ? indexed.documento
+        : []) as unknown as Article[],
+      indice: indexed.indice as Indice,
     };
   }
 

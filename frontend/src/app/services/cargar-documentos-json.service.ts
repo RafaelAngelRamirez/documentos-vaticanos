@@ -13,6 +13,7 @@ import {
 } from '../core/corpus/corpus.models';
 import {
   DEFAULT_BODY_LOAD_CONCURRENCY,
+  DEFAULT_INDEX_LOAD_CONCURRENCY,
   DEFAULT_RELATED_HUB_CAP,
   mapPool,
   metasForSearchLocale,
@@ -83,6 +84,88 @@ export class CargarDocumentosJsonService {
   }
 
   /**
+   * Index-only load (PR2b). Saints fall back to full ensureLoaded (no separate index).
+   */
+  ensureIndex(documentId: string): Observable<IndiceDocumentos> {
+    if (this.santoral.isReadingDocumentId(documentId)) {
+      return this.ensureLoaded(documentId);
+    }
+    return this.corpus.ensureIndex(documentId).pipe(
+      map((indexed) => this.corpus.toIndiceFromIndex(indexed)),
+      tap((doc) => this.upsertDisponible(doc)),
+    );
+  }
+
+  /**
+   * Load many inverted indexes with concurrency pool (PR2b ranking path).
+   */
+  ensureIndexMany(
+    documentIds: string[],
+    options: EnsureLoadedManyOptions = {},
+  ): Observable<IndiceDocumentos[]> {
+    const ids = [...new Set(documentIds.filter(Boolean))];
+    if (!ids.length) return of([]);
+    const concurrency =
+      options.concurrency ?? DEFAULT_INDEX_LOAD_CONCURRENCY;
+    const soft = options.softFail !== false;
+    const isCancelled = options.isCancelled;
+
+    return from(
+      mapPool(
+        ids,
+        concurrency,
+        async (id) => {
+          if (isCancelled?.()) return null;
+          try {
+            return await new Promise<IndiceDocumentos>((resolve, reject) => {
+              this.ensureIndex(id).subscribe({
+                next: resolve,
+                error: reject,
+              });
+            });
+          } catch (err) {
+            if (soft) {
+              console.warn(`ensureIndexMany soft-fail ${id}`, err);
+              return null;
+            }
+            throw err;
+          }
+        },
+        isCancelled,
+      ),
+    ).pipe(
+      map((rows) => rows.filter((d): d is IndiceDocumentos => d != null)),
+    );
+  }
+
+  /**
+   * Locale-scoped index-only load for general search ranking (PR2b).
+   * Does not fetch content.json; use ensureLoadedMany for snippet docs.
+   */
+  ensureIndexForLocale(
+    contentLocale: string,
+    opts: EnsureLoadedManyOptions & { allLocales?: boolean } = {},
+  ): Observable<IndiceDocumentos[]> {
+    return this.corpus.loadManifest().pipe(
+      switchMap((metas) => {
+        const scoped = metasForSearchLocale(
+          metas,
+          contentLocale,
+          opts.allLocales === true,
+        );
+        return this.ensureIndexMany(
+          scoped.map((m) => m.id),
+          {
+            ...opts,
+            concurrency:
+              opts.concurrency ?? DEFAULT_INDEX_LOAD_CONCURRENCY,
+          },
+        );
+      }),
+    );
+  }
+
+  /**
    * Load many document ids with a concurrency pool (PR2a progressive search).
    * Prefer this over {@link ensureAllLoaded}. Soft-fails per doc by default.
    */
@@ -127,8 +210,8 @@ export class CargarDocumentosJsonService {
   }
 
   /**
-   * Locale-scoped progressive load for general search (PR2a).
-   * Loads body+index for matching locale only — residual ES ~194MB until PR2b ensureIndex.
+   * Locale-scoped full body load (legacy PR2a debt path).
+   * Prefer {@link ensureIndexForLocale} + ensureLoadedMany(top-N) for search.
    * Does **not** load the full multi-locale pack.
    */
   ensureLoadedForLocale(

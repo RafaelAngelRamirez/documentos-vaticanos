@@ -22,7 +22,15 @@
       (keyup.enter)="open(row)"
     >
       <span class="fx ac jb related-top">
-        <span class="st">{{ row.title }}</span>
+        <span class="st">
+          {{ row.title }}
+          <span
+            *ngIf="reasonLabel(row) as rl"
+            class="related-reason"
+            [attr.data-reason]="row.reason"
+            >{{ rl }}</span
+          >
+        </span>
         <button
           *ngIf="showAdd"
           type="button"

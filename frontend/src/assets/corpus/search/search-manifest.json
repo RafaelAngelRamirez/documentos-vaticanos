@@ -4,5 +4,5 @@
   "locales": {
     "es": "es"
   },
-  "sourceNote": "Topic-search pack scaffolding (PR1). Empty catalog until topics:build ships seed + postings."
+  "sourceNote": "Topic-search pack with ref citation graph (PR3)."
 }

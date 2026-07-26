@@ -1,12 +1,12 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "schema": 1,
   "locale": "es",
-  "generatedAt": "2026-07-26T00:00:00.000Z",
+  "generatedAt": "2026-07-26T20:10:57.090Z",
   "corpusFingerprint": {
     "algo": "sha256",
-    "value": "scaffold",
-    "docCount": 0
+    "value": "8d2b2f98c4cd8987",
+    "docCount": 135
   },
   "caps": {
     "maxTopics": 250,
@@ -14,11 +14,12 @@
     "maxRawBytes": 12000000
   },
   "topicCount": 0,
-  "edgeCount": 0,
+  "edgeCount": 9932,
   "files": {
     "topics": "topics.json",
     "postings": "topic-postings.json",
-    "termTopics": "term-topics.json"
+    "termTopics": "term-topics.json",
+    "graph": "unit-graph.json"
   },
-  "sourceNote": "Empty ES topic pack scaffold. Degrades gracefully until PR4 seed/postings."
+  "sourceNote": "Ref-only unit graph for locale es. nodes=5026 edges=9932."
 }

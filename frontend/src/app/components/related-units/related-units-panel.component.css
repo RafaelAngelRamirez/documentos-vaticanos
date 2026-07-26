@@ -20,3 +20,21 @@
   padding: 6px 12px;
   font-size: 13px;
 }
+
+.related-reason {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: var(--app-font-sans);
+  font-weight: 500;
+  color: var(--app-muted, var(--muted));
+  background: color-mix(in srgb, var(--app-line, var(--line)) 55%, transparent);
+  vertical-align: middle;
+}
+
+.related-reason[data-reason='ref'] {
+  color: var(--app-acc-ink, var(--app-ink, var(--ink)));
+  background: color-mix(in srgb, var(--app-acc, #c4a35a) 28%, transparent);
+}

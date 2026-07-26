@@ -126,8 +126,16 @@ async function main() {
     'facade still exposes ensureLoaded / ensureAllLoaded'
   );
   assert.ok(
+    facadeSrc.includes('ensureIndex') && facadeSrc.includes('ensureIndexForLocale'),
+    'facade exposes ensureIndex progressive APIs (PR2b)'
+  );
+  assert.ok(
     facadeSrc.includes('this.corpus.ensureLoaded'),
     'ensureAllLoaded path goes through corpus.ensureLoaded (durable hit path)'
+  );
+  assert.ok(
+    serviceSrc.includes('ensureIndex'),
+    'CorpusService exposes ensureIndex'
   );
 
   const {
@@ -355,6 +363,56 @@ async function main() {
     'offline ensureLoaded does not need body HTTP when durable has doc'
   );
   console.log('  offline load ok; durable docs:', store.size());
+
+  section('(e) ensureIndex loads index.json only; ensureLoaded reuses index cache');
+  {
+    const store2 = new MemoryCorpusStore();
+    const http2 = createHttpLayer({
+      [MANIFEST_URL]: fixturePack(
+        [meta('doc-a'), meta('doc-b')],
+        'ensure-index',
+      ),
+      [`${CORPUS_ROOT}/documents/doc-a/content.json`]: [
+        article('1', 'alpha one'),
+        article('2', 'alpha two'),
+      ],
+      [`${CORPUS_ROOT}/documents/doc-a/index.json`]: {
+        indice: { alpha: [0], one: [0] },
+        indice_por_punto: { 0: 1, 1: 2 },
+      },
+    });
+    let eng = new CorpusLoadEngine({
+      httpGet: http2.httpGet,
+      store: store2,
+    });
+    const indexed = await eng.ensureIndex('doc-a');
+    assert.ok(indexed.indice && indexed.indice.indice);
+    assert.strictEqual(indexed.bodyLoaded, false);
+    assert.strictEqual(indexed.documento.length, 0);
+    assert.ok(
+      http2.urls.some((u) => u.endsWith('/doc-a/index.json')),
+      'index.json fetched',
+    );
+    assert.strictEqual(
+      http2.urls.filter((u) => u.endsWith('/doc-a/content.json')).length,
+      0,
+      'content.json must not load on ensureIndex',
+    );
+
+    http2.resetLog();
+    const full = await eng.ensureLoaded('doc-a');
+    assert.strictEqual(full.documento[0].contenido, 'alpha one');
+    assert.ok(
+      http2.urls.some((u) => u.endsWith('/doc-a/content.json')),
+      'body fetched on ensureLoaded',
+    );
+    assert.strictEqual(
+      http2.urls.filter((u) => u.endsWith('/doc-a/index.json')).length,
+      0,
+      'index not re-fetched when indexCache warm',
+    );
+    console.log('  ensureIndex → ensureLoaded reuse OK');
+  }
 
   section('summary');
   console.log('All corpus persistence scenarios passed.');

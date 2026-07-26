@@ -161,3 +161,139 @@ export function preferReason(
   if (!b) return a;
   return rank[a] >= rank[b] ? a : b;
 }
+
+/** Minimal related row shape for merge (aligned with RelatedCitationRow). */
+export interface RelatedRowLike {
+  documentId: string;
+  unitIndex: number;
+  consecutivo?: string;
+  score: number;
+  title: string;
+  snippet: string;
+  matchedTerms: string[];
+  reason?: RelatedEvidenceReason;
+}
+
+/**
+ * Merge graph (ref) neighbors with lexical related rows.
+ * Ref rows bypass lexical quality gates; sorted reason rank then score.
+ */
+export function mergeRelatedByEvidence(
+  graphRows: RelatedRowLike[],
+  lexicalRows: RelatedRowLike[],
+  limit = 8,
+): RelatedRowLike[] {
+  const byKey = new Map<string, RelatedRowLike>();
+  const keyOf = (r: RelatedRowLike) => `${r.documentId}:${r.unitIndex}`;
+
+  for (const r of graphRows) {
+    const k = keyOf(r);
+    const prev = byKey.get(k);
+    if (!prev) {
+      byKey.set(k, { ...r, reason: r.reason || 'ref' });
+      continue;
+    }
+    byKey.set(k, {
+      ...prev,
+      score: Math.max(prev.score, r.score),
+      reason: preferReason(prev.reason, r.reason || 'ref'),
+      snippet: prev.snippet || r.snippet,
+      title: prev.title || r.title,
+      matchedTerms: [
+        ...new Set([...(prev.matchedTerms || []), ...(r.matchedTerms || [])]),
+      ],
+    });
+  }
+
+  for (const r of lexicalRows) {
+    const k = keyOf(r);
+    const prev = byKey.get(k);
+    if (!prev) {
+      byKey.set(k, { ...r, reason: r.reason || 'lexical' });
+      continue;
+    }
+    byKey.set(k, {
+      ...prev,
+      score: Math.max(prev.score, r.score),
+      reason: preferReason(prev.reason, r.reason || 'lexical'),
+      snippet: prev.snippet?.length ? prev.snippet : r.snippet,
+      title: prev.title || r.title,
+      matchedTerms: [
+        ...new Set([...(prev.matchedTerms || []), ...(r.matchedTerms || [])]),
+      ],
+    });
+  }
+
+  const rankReason = (r?: RelatedEvidenceReason) =>
+    r === 'ref' ? 3 : r === 'topic' ? 2 : 1;
+
+  return [...byKey.values()]
+    .sort(
+      (a, b) =>
+        rankReason(b.reason) - rankReason(a.reason) ||
+        b.score - a.score ||
+        a.documentId.localeCompare(b.documentId) ||
+        a.unitIndex - b.unitIndex,
+    )
+    .slice(0, limit);
+}
+
+/**
+ * Build related rows from unit-graph neighbors (no lexical gate).
+ * `docs` must include neighbor document packs for snippets when available.
+ */
+export function rowsFromGraphNeighbors(
+  seedDocumentId: string,
+  seedUnitIndex: number,
+  neighbors: UnitGraphEdge[],
+  docs: Array<{
+    documentId: string;
+    units?: Array<{ consecutivo?: string; contenido?: string }>;
+  }>,
+  opts: {
+    excludeDocumentId?: string | null;
+    limit?: number;
+  } = {},
+): RelatedRowLike[] {
+  const byId = new Map(docs.map((d) => [d.documentId, d]));
+  const limit = opts.limit ?? 8;
+  const rows: RelatedRowLike[] = [];
+  for (const e of neighbors) {
+    if (opts.excludeDocumentId && e.documentId === opts.excludeDocumentId) {
+      continue;
+    }
+    if (
+      e.documentId === seedDocumentId &&
+      e.unitIndex === seedUnitIndex
+    ) {
+      continue;
+    }
+    const doc = byId.get(e.documentId);
+    const unit = doc?.units?.[e.unitIndex];
+    const consec =
+      unit?.consecutivo && unit.consecutivo !== 'no-encontrado'
+        ? unit.consecutivo
+        : String(e.unitIndex);
+    const snippet = (unit?.contenido || '')
+      .replace(/\[\+\[\d+\]\+\]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 140);
+    rows.push({
+      documentId: e.documentId,
+      unitIndex: e.unitIndex,
+      consecutivo: unit?.consecutivo,
+      score: 10 * (e.weight || 1) + (e.type === 'ref' ? 2 : 0),
+      title: `${e.documentId} · Nº ${consec}`,
+      snippet: snippet
+        ? snippet.length >= 140
+          ? snippet.slice(0, 139) + '…'
+          : snippet
+        : 'Cita enlazada en el corpus',
+      matchedTerms: [],
+      reason: 'ref',
+    });
+    if (rows.length >= limit) break;
+  }
+  return rows;
+}

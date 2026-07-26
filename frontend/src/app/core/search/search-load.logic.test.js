@@ -119,8 +119,12 @@ async function main() {
     'buscador must not call ensureAllLoaded',
   );
   assert.ok(
-    /\bensureLoadedForLocale\b/.test(buscadorSrc),
-    'buscador must use ensureLoadedForLocale',
+    /\bensureIndexForLocale\b/.test(buscadorSrc),
+    'buscador must use ensureIndexForLocale (PR2b)',
+  );
+  assert.ok(
+    /\bensureLoadedMany\b/.test(buscadorSrc),
+    'buscador must hydrate snippets via ensureLoadedMany',
   );
   assert.ok(
     !/\bensureAllLoaded\b/.test(relatedSrc),
