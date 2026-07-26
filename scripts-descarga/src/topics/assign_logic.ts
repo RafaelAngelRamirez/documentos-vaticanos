@@ -12,12 +12,23 @@ export const HUB_KINDS = [
 
 export type HubKind = (typeof HUB_KINDS)[number];
 
-export const MAX_TOPICS_PER_UNIT = 3;
+/** Max topics assigned per unit (PR4c: raised 3→4 for coverage; pack size via M). */
+export const MAX_TOPICS_PER_UNIT = 4;
 export const MAX_POSTINGS_PER_TOPIC = 200;
 export const PRIMARY_TERM_WEIGHT = 1;
 export const ALIAS_TERM_WEIGHT = 0.7;
 /** Minimum raw score to assign a topic (one primary term hit). */
 export const SCORE_THRESHOLD = 1.0;
+/** Hits beyond this do not increase score (bounded multi-hit). */
+export const MAX_SCORE_HITS_PER_TERM = 6;
+/** First N tokens count as “early” for position bonus. */
+export const EARLY_TOKEN_WINDOW = 32;
+/** Bounded bonus when a primary term hits inside the early window. */
+export const EARLY_POSITION_BONUS = 0.25;
+/** Max extra gap tokens between multi-word phrase parts when expand=true. */
+export const EXPAND_PHRASE_MAX_GAP = 1;
+/** Min folded term length for light inflection expand (token startsWith). */
+export const EXPAND_STEM_MIN_LEN = 5;
 
 export interface SeedTopicInput {
   slug: string;
@@ -351,53 +362,199 @@ function uniqueNonEmpty(arr: string[]): string[] {
   return out;
 }
 
-/** Count non-overlapping / sliding phrase hits of term tokens in unit tokens. */
-export function countPhraseHits(
+export interface PhraseMatchOpts {
+  /**
+   * Improved multi-word + light inflection matching (PR4c).
+   * Default true when used from assignTopicsToUnit expand path.
+   */
+  expand?: boolean;
+}
+
+export interface PhraseMatchResult {
+  hits: number;
+  /** Index of first matched unit token (−1 if none). */
+  firstIndex: number;
+}
+
+/** Common short Spanish inflection tails for expand stem match. */
+const EXPAND_INFLECTION =
+  /^(s|es|a|o|as|os|is|mente|cion|ciones|sion|siones|ico|ica|icos|icas|amiento|imientos)?$/;
+
+/**
+ * Light inflection: unit token equals term or term+short ending (term len ≥ 5).
+ * Avoids matching short noise like "fe" / "don" inside longer words.
+ */
+export function tokenMatchesTerm(unitToken: string, term: string, expand: boolean): boolean {
+  if (unitToken === term) return true;
+  if (!expand || term.length < EXPAND_STEM_MIN_LEN) return false;
+  if (unitToken.length <= term.length) return false;
+  if (!unitToken.startsWith(term)) return false;
+  return EXPAND_INFLECTION.test(unitToken.slice(term.length));
+}
+
+/**
+ * Ordered multi-word match allowing up to maxGap non-matching tokens between
+ * consecutive phrase tokens (non-overlapping). Word-boundary semantics via tokens.
+ */
+export function countOrderedPhraseWithGaps(
+  unitTokens: string[],
+  phrase: string[],
+  maxGap: number,
+  expand: boolean,
+): PhraseMatchResult {
+  if (!phrase.length) return { hits: 0, firstIndex: -1 };
+  let hits = 0;
+  let firstIndex = -1;
+  let i = 0;
+  while (i < unitTokens.length) {
+    if (!tokenMatchesTerm(unitTokens[i], phrase[0], expand)) {
+      i++;
+      continue;
+    }
+    let pos = i + 1;
+    let pi = 1;
+    let ok = true;
+    while (pi < phrase.length) {
+      let found = -1;
+      const limit = Math.min(unitTokens.length, pos + maxGap + 1);
+      for (let j = pos; j < limit; j++) {
+        if (tokenMatchesTerm(unitTokens[j], phrase[pi], expand)) {
+          found = j;
+          break;
+        }
+      }
+      if (found < 0) {
+        ok = false;
+        break;
+      }
+      pos = found + 1;
+      pi++;
+    }
+    if (ok) {
+      if (firstIndex < 0) firstIndex = i;
+      hits++;
+      i = pos;
+    } else {
+      i++;
+    }
+  }
+  return { hits, firstIndex };
+}
+
+/**
+ * Count non-overlapping phrase hits of term tokens in unit tokens.
+ * Multi-word uses consecutive tokens; with expand, also allows small gaps and
+ * light inflection tails (word-boundary token matching).
+ */
+export function matchPhrase(
   unitTokens: string[],
   phraseFolded: string,
-): number {
+  opts?: PhraseMatchOpts,
+): PhraseMatchResult {
+  const expand = !!opts?.expand;
   const phrase = tokenizeFolded(phraseFolded);
-  if (!phrase.length) return 0;
+  if (!phrase.length) return { hits: 0, firstIndex: -1 };
+
   if (phrase.length === 1) {
     const p = phrase[0];
-    let n = 0;
-    for (const t of unitTokens) {
-      if (t === p) n++;
+    let hits = 0;
+    let firstIndex = -1;
+    for (let i = 0; i < unitTokens.length; i++) {
+      if (tokenMatchesTerm(unitTokens[i], p, expand)) {
+        if (firstIndex < 0) firstIndex = i;
+        hits++;
+      }
     }
-    return n;
+    return { hits, firstIndex };
   }
-  let n = 0;
+
+  // Strict consecutive multi-word (word boundaries via tokens)
+  let hits = 0;
+  let firstIndex = -1;
   const plen = phrase.length;
-  for (let i = 0; i <= unitTokens.length - plen; i++) {
+  let i = 0;
+  while (i <= unitTokens.length - plen) {
     let ok = true;
     for (let j = 0; j < plen; j++) {
-      if (unitTokens[i + j] !== phrase[j]) {
+      if (!tokenMatchesTerm(unitTokens[i + j], phrase[j], expand)) {
         ok = false;
         break;
       }
     }
-    if (ok) n++;
+    if (ok) {
+      if (firstIndex < 0) firstIndex = i;
+      hits++;
+      i += plen;
+    } else {
+      i++;
+    }
   }
-  return n;
+
+  // Expand: if no consecutive hit, try ordered match with small gaps
+  // (e.g. "tres divinas personas" ≈ "tres personas")
+  if (expand && hits === 0) {
+    return countOrderedPhraseWithGaps(
+      unitTokens,
+      phrase,
+      EXPAND_PHRASE_MAX_GAP,
+      expand,
+    );
+  }
+  return { hits, firstIndex };
 }
 
+/** Count-only wrapper (compat). expand defaults false for pure count tests. */
+export function countPhraseHits(
+  unitTokens: string[],
+  phraseFolded: string,
+  opts?: PhraseMatchOpts,
+): number {
+  return matchPhrase(unitTokens, phraseFolded, opts).hits;
+}
+
+/**
+ * Score a topic against unit tokens.
+ * expand (default true): better multi-word / light stem + early position bonus;
+ * multi-hit contribution per term is capped (MAX_SCORE_HITS_PER_TERM).
+ */
 export function scoreTopicOnTokens(
   unitTokens: string[],
   topic: AssignTopic,
+  opts?: PhraseMatchOpts & { earlyBonus?: boolean },
 ): { score: number; primaryHits: number } {
+  const expand = opts?.expand !== false;
+  const earlyBonus = opts?.earlyBonus !== false && expand;
   let score = 0;
   let primaryHits = 0;
+  let earliestPrimary = Infinity;
+
   for (const term of topic.primaryTerms) {
-    const hits = countPhraseHits(unitTokens, term);
-    if (hits > 0) {
-      score += hits * PRIMARY_TERM_WEIGHT;
-      primaryHits += hits;
+    const m = matchPhrase(unitTokens, term, { expand });
+    if (m.hits > 0) {
+      const scoredHits = Math.min(m.hits, MAX_SCORE_HITS_PER_TERM);
+      score += scoredHits * PRIMARY_TERM_WEIGHT;
+      primaryHits += m.hits;
+      if (m.firstIndex >= 0 && m.firstIndex < earliestPrimary) {
+        earliestPrimary = m.firstIndex;
+      }
     }
   }
   for (const term of topic.aliasTerms) {
-    const hits = countPhraseHits(unitTokens, term);
-    if (hits > 0) score += hits * ALIAS_TERM_WEIGHT;
+    const m = matchPhrase(unitTokens, term, { expand });
+    if (m.hits > 0) {
+      const scoredHits = Math.min(m.hits, MAX_SCORE_HITS_PER_TERM);
+      score += scoredHits * ALIAS_TERM_WEIGHT;
+    }
   }
+
+  if (
+    earlyBonus &&
+    primaryHits > 0 &&
+    earliestPrimary < EARLY_TOKEN_WINDOW
+  ) {
+    score += EARLY_POSITION_BONUS;
+  }
+
   return { score, primaryHits };
 }
 
@@ -464,6 +621,7 @@ export function isNoiseTerm(folded: string): boolean {
 /**
  * Score all topics against unit text; return top-K above threshold.
  * Prefer topics with at least one primary term hit (score ≥ SCORE_THRESHOLD).
+ * expand defaults true (PR4c improved matching).
  */
 export function assignTopicsToUnit(
   contenido: string,
@@ -471,16 +629,21 @@ export function assignTopicsToUnit(
   opts?: {
     maxTopics?: number;
     threshold?: number;
+    /** Improved multi-word / early bonus matching. Default true. */
+    expand?: boolean;
   },
 ): TopicAssignment[] {
   const maxTopics = opts?.maxTopics ?? MAX_TOPICS_PER_UNIT;
   const threshold = opts?.threshold ?? SCORE_THRESHOLD;
+  const expand = opts?.expand !== false;
   const tokens = tokenizeFolded(foldText(contenido));
   if (!tokens.length || !topics.length) return [];
 
   const scored: TopicAssignment[] = [];
   for (const topic of topics) {
-    const { score, primaryHits } = scoreTopicOnTokens(tokens, topic);
+    const { score, primaryHits } = scoreTopicOnTokens(tokens, topic, {
+      expand,
+    });
     if (score < threshold && primaryHits < 1) continue;
     if (score < threshold) continue;
     scored.push({

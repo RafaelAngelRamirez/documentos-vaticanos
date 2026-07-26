@@ -4,6 +4,7 @@
  * Flags:
  *   --locale es
  *   --hubs-only (default true)
+ *   --expand / --no-expand  improved matching (default true, PR4c)
  *   --seed <path>  override seed file
  *   --max-postings 200
  *   --threshold 1
@@ -58,6 +59,7 @@ interface ManifestDoc {
 function parseArgs(argv: string[]) {
   let locale = 'es';
   let hubsOnly = true;
+  let expand = true;
   let seedPath = DEFAULT_SEED;
   let maxPostings = MAX_POSTINGS_PER_TOPIC;
   let threshold = SCORE_THRESHOLD;
@@ -67,6 +69,8 @@ function parseArgs(argv: string[]) {
     if (a === '--locale' && argv[i + 1]) locale = argv[++i];
     else if (a === '--hubs-only') hubsOnly = true;
     else if (a === '--all-kinds') hubsOnly = false;
+    else if (a === '--expand') expand = true;
+    else if (a === '--no-expand') expand = false;
     else if (a === '--seed' && argv[i + 1]) seedPath = path.resolve(argv[++i]);
     else if (a === '--max-postings' && argv[i + 1])
       maxPostings = Math.max(1, parseInt(argv[++i], 10) || MAX_POSTINGS_PER_TOPIC);
@@ -75,12 +79,20 @@ function parseArgs(argv: string[]) {
     else if (a === '--write-catalog') writeCatalog = true;
     else if (a === '--help') {
       console.log(
-        `Usage: build_topic_postings.ts [--locale es] [--hubs-only] [--seed path] [--max-postings 200] [--threshold 1] [--write-catalog]`,
+        `Usage: build_topic_postings.ts [--locale es] [--hubs-only] [--expand|--no-expand] [--seed path] [--max-postings 200] [--threshold 1] [--write-catalog]`,
       );
       process.exit(0);
     }
   }
-  return { locale, hubsOnly, seedPath, maxPostings, threshold, writeCatalog };
+  return {
+    locale,
+    hubsOnly,
+    expand,
+    seedPath,
+    maxPostings,
+    threshold,
+    writeCatalog,
+  };
 }
 
 function loadManifest(root: string): {
@@ -193,8 +205,15 @@ function resolveCatalog(
 }
 
 function main() {
-  const { locale, hubsOnly, seedPath, maxPostings, threshold, writeCatalog } =
-    parseArgs(process.argv.slice(2));
+  const {
+    locale,
+    hubsOnly,
+    expand,
+    seedPath,
+    maxPostings,
+    threshold,
+    writeCatalog,
+  } = parseArgs(process.argv.slice(2));
   const primary = CORPUS_ROOTS[0];
   if (!fs.existsSync(path.join(primary, 'manifest.json'))) {
     console.error(`Missing manifest under ${primary}`);
@@ -228,6 +247,7 @@ function main() {
         phase: 'start',
         locale,
         hubsOnly,
+        expand,
         catalogSource: catalog.source,
         topicCount: topics.length,
         hubDocs: hubDocs.length,
@@ -283,6 +303,7 @@ function main() {
       const hits = assignTopicsToUnit(text, topics, {
         maxTopics: MAX_TOPICS_PER_UNIT,
         threshold,
+        expand,
       });
       if (!hits.length) continue;
       for (const h of hits) {
@@ -326,7 +347,7 @@ function main() {
   }
 
   topicCounts.sort((a, b) => b.count - a.count);
-  const topTopics = topicCounts.slice(0, 15);
+  const topTopics = topicCounts.slice(0, 20);
 
   const postingsFile = {
     version: 1,
@@ -392,11 +413,12 @@ function main() {
       termTopics: prevFiles.termTopics || 'term-topics.json',
       ...(hasGraph ? { graph: prevFiles.graph || 'unit-graph.json' } : {}),
     },
-    sourceNote: `Hub topic postings for locale ${locale}. catalog=${catalog.source}; hubs=${docsScanned}; assignments=${assignments}; postings=${postingsTotal}.`,
+    sourceNote: `Hub topic postings for locale ${locale}. catalog=${catalog.source}; expand=${expand}; hubs=${docsScanned}; assignments=${assignments}; postings=${postingsTotal}.`,
   };
   const locManJson = JSON.stringify(locMan, null, 2) + '\n';
 
-  // Optional topics.json unitCount refresh (from primary, then mirror)
+  // Always refresh topics.json unitCount/documentCount when building postings
+  // (merge with existing catalog metadata; full rewrite if --write-catalog).
   let topicsJsonOut: string | null = null;
   if (shouldWriteCatalog) {
     topicsJsonOut = JSON.stringify({ topics: topicRecords }, null, 2) + '\n';
@@ -432,6 +454,10 @@ function main() {
         /* leave */
       }
     }
+    // Fallback: write from assign catalog if pack topics.json missing
+    if (!topicsJsonOut) {
+      topicsJsonOut = JSON.stringify({ topics: topicRecords }, null, 2) + '\n';
+    }
   }
   const termTopicsJson = shouldWriteCatalog
     ? JSON.stringify({ version: 1, locale, terms: termTopics }, null, 2) + '\n'
@@ -466,7 +492,7 @@ function main() {
       version: '0.2.0',
       schema: 1,
       locales: { [locale]: locale },
-      sourceNote: 'Topic-search pack (hub postings PR4b).',
+      sourceNote: 'Topic-search pack (hub postings PR4c).',
     };
     if (fs.existsSync(rootManPath)) {
       try {
@@ -476,7 +502,7 @@ function main() {
         /* */
       }
     }
-    rootMan.sourceNote = 'Topic-search pack (hub postings PR4b).';
+    rootMan.sourceNote = 'Topic-search pack (hub postings PR4c).';
     fs.writeFileSync(rootManPath, JSON.stringify(rootMan, null, 2) + '\n');
 
     const bytes = fs.statSync(postingsPath).size;
@@ -491,13 +517,18 @@ function main() {
     console.warn(`note: unit-graph.json missing at ${graphPath} (not deleted by this script)`);
   }
 
+  // Empty / zero-posting topics (for quality report)
+  const emptyTopics = topicCounts.filter((t) => t.count === 0).map((t) => t.topicId);
+
   console.log(
     JSON.stringify(
       {
         locale,
         hubsOnly,
+        expand,
         catalogSource: catalog.source,
-        catalogWritten: shouldWriteCatalog,
+        catalogWritten: !!topicsJsonOut,
+        topicsUnitCountsWritten: !!topicsJsonOut,
         docsScanned,
         docsSkipped,
         unitsScanned,
@@ -505,7 +536,10 @@ function main() {
         postingsTotal,
         topicCount: topics.length,
         maxPostings,
-        topTopics,
+        maxTopicsPerUnit: MAX_TOPICS_PER_UNIT,
+        topTopicsByPostings: topTopics,
+        emptyTopicCount: emptyTopics.length,
+        emptyTopics: emptyTopics.slice(0, 20),
         aliasWeight: ALIAS_TERM_WEIGHT,
         fingerprint: fp,
       },

@@ -64,6 +64,18 @@
   margin-left: 4px;
 }
 
+.topico-snippets-loading {
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.topico-snippet {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
 .chip {
   cursor: pointer;
 }

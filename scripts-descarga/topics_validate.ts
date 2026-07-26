@@ -6,12 +6,16 @@
  *   - each postings list ≤ 200
  *   - total raw size of search/{locale}/*.json ≤ 12_000_000
  *   - every posting documentId non-empty, unitIndex non-negative int
- * Soft (warn): golden topics gracia, trinidad, eucaristia, matrimonio have ≥3
- * postings when those topics exist.
+ * Golden (fixture fixtures/topics-golden.es.json):
+ *   - Strict by default (CI): each existing golden slug ≥ minPostings (8)
+ *   - Soft mode: --soft-golden (warn instead of error when below min, but
+ *     still error if golden exists with 0 postings)
+ * Dual-write roots: optional size parity warn
  *
  * Usage:
  *   npx ts-node --transpile-only topics_validate.ts --locale es
  *   npm run topics:validate -- --locale es
+ *   npm run topics:validate -- --locale es --soft-golden
  */
 
 import * as fs from 'fs';
@@ -26,23 +30,89 @@ const CORPUS_ROOTS = [
   path.join(REPO, 'frontend', 'src', 'assets', 'corpus'),
 ];
 
-const GOLDEN_SLUGS = ['gracia', 'trinidad', 'eucaristia', 'matrimonio'];
+const DEFAULT_GOLDEN = path.join(
+  __dirname,
+  'fixtures',
+  'topics-golden.es.json',
+);
+
+/** Fallback if fixture file is missing. */
+const FALLBACK_GOLDEN_SLUGS = [
+  'gracia',
+  'trinidad',
+  'eucaristia',
+  'matrimonio',
+  'bautismo',
+  'fe',
+  'iglesia',
+  'pecado',
+];
+const FALLBACK_MIN_POSTINGS = 8;
+
+interface GoldenFixture {
+  locale?: string;
+  minPostings?: number;
+  slugs?: string[];
+}
 
 function parseArgs(argv: string[]) {
   let locale = 'es';
-  let strictGolden = false;
+  /** Strict golden is default for CI (PR4c). */
+  let softGolden = false;
+  let goldenPath = DEFAULT_GOLDEN;
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--locale' && argv[i + 1]) locale = argv[++i];
-    else if (a === '--strict-golden') strictGolden = true;
+    else if (a === '--soft-golden') softGolden = true;
+    else if (a === '--strict-golden') softGolden = false;
+    else if (a === '--golden' && argv[i + 1])
+      goldenPath = path.resolve(argv[++i]);
     else if (a === '--help') {
       console.log(
-        `Usage: topics_validate.ts [--locale es] [--strict-golden]`,
+        `Usage: topics_validate.ts [--locale es] [--soft-golden] [--strict-golden] [--golden path]`,
       );
       process.exit(0);
     }
   }
-  return { locale, strictGolden };
+  return { locale, softGolden, goldenPath };
+}
+
+function loadGolden(goldenPath: string, locale: string): {
+  minPostings: number;
+  slugs: string[];
+  source: string;
+} {
+  if (fs.existsSync(goldenPath)) {
+    try {
+      const raw = JSON.parse(
+        fs.readFileSync(goldenPath, 'utf8'),
+      ) as GoldenFixture;
+      const slugs = Array.isArray(raw.slugs)
+        ? raw.slugs.map((s) => String(s).trim().toLowerCase()).filter(Boolean)
+        : FALLBACK_GOLDEN_SLUGS;
+      const minPostings =
+        typeof raw.minPostings === 'number' && raw.minPostings > 0
+          ? raw.minPostings
+          : FALLBACK_MIN_POSTINGS;
+      if (raw.locale && raw.locale !== locale) {
+        console.warn(
+          `golden fixture locale ${raw.locale} != --locale ${locale}; still applying slugs`,
+        );
+      }
+      return {
+        minPostings,
+        slugs,
+        source: path.relative(REPO, goldenPath),
+      };
+    } catch (e) {
+      console.warn(`Failed to parse golden fixture ${goldenPath}`, e);
+    }
+  }
+  return {
+    minPostings: FALLBACK_MIN_POSTINGS,
+    slugs: FALLBACK_GOLDEN_SLUGS,
+    source: 'fallback',
+  };
 }
 
 function dirSizeJson(dir: string): { total: number; files: Record<string, number> } {
@@ -61,7 +131,9 @@ function dirSizeJson(dir: string): { total: number; files: Record<string, number
 }
 
 function main() {
-  const { locale, strictGolden } = parseArgs(process.argv.slice(2));
+  const { locale, softGolden, goldenPath } = parseArgs(process.argv.slice(2));
+  const strictGolden = !softGolden;
+  const golden = loadGolden(goldenPath, locale);
   const errors: string[] = [];
   const warnings: string[] = [];
 
@@ -81,7 +153,7 @@ function main() {
 
   // topics
   const topicsPath = path.join(primary, 'topics.json');
-  let topics: Array<{ id?: string; slug?: string }> = [];
+  let topics: Array<{ id?: string; slug?: string; unitCount?: number }> = [];
   if (!fs.existsSync(topicsPath)) {
     errors.push(`missing topics.json`);
   } else {
@@ -167,21 +239,69 @@ function main() {
     }
   }
 
-  // golden soft check
+  // golden checks (fixture-driven)
   const topicBySlug = new Map<string, string>();
   for (const t of topics) {
-    if (t.slug) topicBySlug.set(String(t.slug), t.id || `topic:${locale}:${t.slug}`);
+    if (t.slug) {
+      topicBySlug.set(
+        String(t.slug).toLowerCase(),
+        t.id || `topic:${locale}:${t.slug}`,
+      );
+    }
   }
-  for (const slug of GOLDEN_SLUGS) {
+  const goldenReport: Array<{
+    slug: string;
+    topicId: string | null;
+    postings: number;
+    status: 'ok' | 'missing_topic' | 'empty' | 'below_min';
+  }> = [];
+
+  for (const slug of golden.slugs) {
     const id =
       topicBySlug.get(slug) ||
-      Object.keys(postings).find((k) => k.endsWith(`:${slug}`));
-    if (!id) continue;
+      Object.keys(postings).find((k) => k.endsWith(`:${slug}`)) ||
+      null;
+    if (!id) {
+      // Topic not in catalog — skip (not an error)
+      goldenReport.push({
+        slug,
+        topicId: null,
+        postings: 0,
+        status: 'missing_topic',
+      });
+      continue;
+    }
     const n = postings[id]?.length ?? 0;
-    if (n < 3) {
-      const msg = `golden topic ${slug} (${id}) has ${n} postings (<3)`;
+    if (n === 0) {
+      // Always hard error: golden exists but has 0 postings
+      errors.push(
+        `golden topic ${slug} (${id}) has 0 postings (must be ≥ ${golden.minPostings})`,
+      );
+      goldenReport.push({
+        slug,
+        topicId: id,
+        postings: 0,
+        status: 'empty',
+      });
+      continue;
+    }
+    if (n < golden.minPostings) {
+      const msg = `golden topic ${slug} (${id}) has ${n} postings (<${golden.minPostings})`;
       if (strictGolden) errors.push(msg);
       else warnings.push(msg);
+      goldenReport.push({
+        slug,
+        topicId: id,
+        postings: n,
+        status: 'below_min',
+      });
+    } else {
+      goldenReport.push({
+        slug,
+        topicId: id,
+        postings: n,
+        status: 'ok',
+      });
     }
   }
 
@@ -211,6 +331,10 @@ function main() {
   const summary = {
     ok: errors.length === 0,
     locale,
+    goldenMode: strictGolden ? 'strict' : 'soft',
+    goldenSource: golden.source,
+    goldenMinPostings: golden.minPostings,
+    golden: goldenReport,
     topicCount: topics.length,
     postingTopics: Object.keys(postings).length,
     postingRows,

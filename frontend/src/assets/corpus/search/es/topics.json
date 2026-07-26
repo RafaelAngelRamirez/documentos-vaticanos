@@ -35,7 +35,7 @@
         "culto de adoración"
       ],
       "unitCount": 46,
-      "documentCount": 14
+      "documentCount": 13
     },
     {
       "id": "topic:es:alianza",
@@ -54,7 +54,7 @@
         "pacto"
       ],
       "unitCount": 200,
-      "documentCount": 16
+      "documentCount": 28
     },
     {
       "id": "topic:es:alma",
@@ -73,7 +73,7 @@
         "alma racional"
       ],
       "unitCount": 200,
-      "documentCount": 33
+      "documentCount": 34
     },
     {
       "id": "topic:es:amor",
@@ -109,8 +109,8 @@
         "espíritus celestes",
         "arcángeles"
       ],
-      "unitCount": 62,
-      "documentCount": 6
+      "unitCount": 91,
+      "documentCount": 10
     },
     {
       "id": "topic:es:ano-liturgico",
@@ -127,8 +127,8 @@
         "calendario litúrgico",
         "tiempo litúrgico"
       ],
-      "unitCount": 74,
-      "documentCount": 17
+      "unitCount": 61,
+      "documentCount": 12
     },
     {
       "id": "topic:es:apostolado",
@@ -163,8 +163,8 @@
         "contrición",
         "dolor de los pecados"
       ],
-      "unitCount": 56,
-      "documentCount": 10
+      "unitCount": 47,
+      "documentCount": 8
     },
     {
       "id": "topic:es:ascension",
@@ -181,7 +181,7 @@
         "ascensión del Señor",
         "subida al cielo"
       ],
-      "unitCount": 10,
+      "unitCount": 12,
       "documentCount": 3
     },
     {
@@ -199,8 +199,8 @@
         "asunción de María",
         "asunta al cielo"
       ],
-      "unitCount": 11,
-      "documentCount": 6
+      "unitCount": 9,
+      "documentCount": 5
     },
     {
       "id": "topic:es:bautismo",
@@ -219,7 +219,7 @@
         "bautismo de agua"
       ],
       "unitCount": 200,
-      "documentCount": 11
+      "documentCount": 13
     },
     {
       "id": "topic:es:beatitudes",
@@ -235,8 +235,8 @@
       "aliases": [
         "bienaventuranzas del sermón del monte"
       ],
-      "unitCount": 44,
-      "documentCount": 11
+      "unitCount": 65,
+      "documentCount": 12
     },
     {
       "id": "topic:es:bien-comun",
@@ -254,7 +254,7 @@
         "bien común de la sociedad"
       ],
       "unitCount": 200,
-      "documentCount": 22
+      "documentCount": 29
     },
     {
       "id": "topic:es:bioetica",
@@ -272,7 +272,7 @@
         "ética de la vida",
         "cuestiones biomédicas"
       ],
-      "unitCount": 2,
+      "unitCount": 3,
       "documentCount": 2
     },
     {
@@ -291,7 +291,7 @@
         "canon de las Escrituras"
       ],
       "unitCount": 200,
-      "documentCount": 27
+      "documentCount": 22
     },
     {
       "id": "topic:es:caracter-sacramental",
@@ -308,8 +308,8 @@
         "sello indeleble",
         "carácter indeleble"
       ],
-      "unitCount": 153,
-      "documentCount": 22
+      "unitCount": 159,
+      "documentCount": 26
     },
     {
       "id": "topic:es:caridad",
@@ -328,7 +328,7 @@
         "caridad teologal"
       ],
       "unitCount": 200,
-      "documentCount": 34
+      "documentCount": 36
     },
     {
       "id": "topic:es:carismas",
@@ -345,8 +345,8 @@
         "dones carismáticos",
         "carismas del Espíritu"
       ],
-      "unitCount": 35,
-      "documentCount": 13
+      "unitCount": 49,
+      "documentCount": 15
     },
     {
       "id": "topic:es:castidad",
@@ -363,8 +363,8 @@
         "pureza",
         "virtud de la castidad"
       ],
-      "unitCount": 86,
-      "documentCount": 12
+      "unitCount": 84,
+      "documentCount": 11
     },
     {
       "id": "topic:es:catequesis",
@@ -401,8 +401,8 @@
         "visión beatífica",
         "gloria"
       ],
-      "unitCount": 182,
-      "documentCount": 21
+      "unitCount": 200,
+      "documentCount": 22
     },
     {
       "id": "topic:es:comunion-de-los-santos",
@@ -421,7 +421,7 @@
         "comunión eclesial"
       ],
       "unitCount": 200,
-      "documentCount": 30
+      "documentCount": 28
     },
     {
       "id": "topic:es:conciencia",
@@ -440,7 +440,7 @@
         "juicio de conciencia"
       ],
       "unitCount": 200,
-      "documentCount": 32
+      "documentCount": 34
     },
     {
       "id": "topic:es:concilios",
@@ -459,7 +459,7 @@
         "concilio general"
       ],
       "unitCount": 200,
-      "documentCount": 46
+      "documentCount": 44
     },
     {
       "id": "topic:es:confianza",
@@ -477,7 +477,7 @@
         "confianza filial",
         "abandono en Dios"
       ],
-      "unitCount": 106,
+      "unitCount": 101,
       "documentCount": 25
     },
     {
@@ -495,8 +495,8 @@
         "sacramento de la confirmación",
         "crisma"
       ],
-      "unitCount": 161,
-      "documentCount": 13
+      "unitCount": 174,
+      "documentCount": 16
     },
     {
       "id": "topic:es:contemplacion",
@@ -513,8 +513,8 @@
         "oración contemplativa",
         "contemplación mística"
       ],
-      "unitCount": 40,
-      "documentCount": 12
+      "unitCount": 42,
+      "documentCount": 11
     },
     {
       "id": "topic:es:conversion",
@@ -532,8 +532,8 @@
         "metanoia",
         "conversión del corazón"
       ],
-      "unitCount": 92,
-      "documentCount": 25
+      "unitCount": 95,
+      "documentCount": 24
     },
     {
       "id": "topic:es:creacion",
@@ -551,7 +551,7 @@
         "creación del mundo"
       ],
       "unitCount": 200,
-      "documentCount": 23
+      "documentCount": 26
     },
     {
       "id": "topic:es:credos",
@@ -569,8 +569,8 @@
         "credo niceno",
         "credo de los apóstoles"
       ],
-      "unitCount": 27,
-      "documentCount": 9
+      "unitCount": 104,
+      "documentCount": 11
     },
     {
       "id": "topic:es:cruz",
@@ -587,8 +587,8 @@
         "santa cruz",
         "cruz de Cristo"
       ],
-      "unitCount": 112,
-      "documentCount": 21
+      "unitCount": 104,
+      "documentCount": 22
     },
     {
       "id": "topic:es:cuerpo",
@@ -606,7 +606,7 @@
         "corporalidad"
       ],
       "unitCount": 200,
-      "documentCount": 19
+      "documentCount": 25
     },
     {
       "id": "topic:es:cuerpo-mistico",
@@ -623,8 +623,8 @@
         "cuerpo místico de Cristo",
         "cuerpo de Cristo"
       ],
-      "unitCount": 51,
-      "documentCount": 14
+      "unitCount": 70,
+      "documentCount": 18
     },
     {
       "id": "topic:es:culto",
@@ -641,7 +641,7 @@
         "culto a Dios",
         "latría"
       ],
-      "unitCount": 146,
+      "unitCount": 152,
       "documentCount": 21
     },
     {
@@ -661,7 +661,7 @@
         "diablo",
         "espíritu maligno"
       ],
-      "unitCount": 66,
+      "unitCount": 70,
       "documentCount": 7
     },
     {
@@ -679,8 +679,8 @@
         "depósito revelado",
         "depositum fidei"
       ],
-      "unitCount": 13,
-      "documentCount": 6
+      "unitCount": 11,
+      "documentCount": 5
     },
     {
       "id": "topic:es:derechos-humanos",
@@ -698,7 +698,7 @@
         "derechos fundamentales"
       ],
       "unitCount": 200,
-      "documentCount": 21
+      "documentCount": 30
     },
     {
       "id": "topic:es:dialogo-interreligioso",
@@ -715,7 +715,7 @@
         "diálogo con las religiones",
         "religiones no cristianas"
       ],
-      "unitCount": 30,
+      "unitCount": 34,
       "documentCount": 14
     },
     {
@@ -733,8 +733,8 @@
         "Decálogo",
         "mandamientos de la Ley de Dios"
       ],
-      "unitCount": 171,
-      "documentCount": 16
+      "unitCount": 175,
+      "documentCount": 17
     },
     {
       "id": "topic:es:dignidad",
@@ -752,7 +752,7 @@
         "dignidad del hombre"
       ],
       "unitCount": 200,
-      "documentCount": 24
+      "documentCount": 25
     },
     {
       "id": "topic:es:dios",
@@ -789,8 +789,8 @@
         "discernimiento de espíritus",
         "discernir la voluntad de Dios"
       ],
-      "unitCount": 33,
-      "documentCount": 15
+      "unitCount": 30,
+      "documentCount": 13
     },
     {
       "id": "topic:es:divorcio",
@@ -807,7 +807,7 @@
         "ruptura del matrimonio",
         "divorcio civil"
       ],
-      "unitCount": 14,
+      "unitCount": 16,
       "documentCount": 5
     },
     {
@@ -826,8 +826,8 @@
         "doctrina social de la Iglesia",
         "enseñanza social"
       ],
-      "unitCount": 87,
-      "documentCount": 10
+      "unitCount": 93,
+      "documentCount": 9
     },
     {
       "id": "topic:es:dogmas",
@@ -844,8 +844,8 @@
         "dogma de fe",
         "definiciones dogmáticas"
       ],
-      "unitCount": 21,
-      "documentCount": 6
+      "unitCount": 42,
+      "documentCount": 11
     },
     {
       "id": "topic:es:dones-del-espiritu",
@@ -863,7 +863,7 @@
         "dones del Espíritu Santo"
       ],
       "unitCount": 65,
-      "documentCount": 22
+      "documentCount": 19
     },
     {
       "id": "topic:es:economia",
@@ -882,7 +882,7 @@
         "economía justa"
       ],
       "unitCount": 200,
-      "documentCount": 19
+      "documentCount": 21
     },
     {
       "id": "topic:es:ecumenismo",
@@ -899,8 +899,8 @@
         "unidad de los cristianos",
         "movimiento ecuménico"
       ],
-      "unitCount": 42,
-      "documentCount": 19
+      "unitCount": 51,
+      "documentCount": 20
     },
     {
       "id": "topic:es:educacion",
@@ -918,7 +918,7 @@
         "formación de la juventud"
       ],
       "unitCount": 200,
-      "documentCount": 33
+      "documentCount": 35
     },
     {
       "id": "topic:es:encarnacion",
@@ -935,8 +935,8 @@
         "Verbo encarnado",
         "misterio de la encarnación"
       ],
-      "unitCount": 54,
-      "documentCount": 16
+      "unitCount": 64,
+      "documentCount": 19
     },
     {
       "id": "topic:es:escatologia",
@@ -956,7 +956,7 @@
         "últimas realidades",
         "fin de los tiempos"
       ],
-      "unitCount": 11,
+      "unitCount": 9,
       "documentCount": 4
     },
     {
@@ -975,8 +975,8 @@
         "virtud de la esperanza",
         "esperanza cristiana"
       ],
-      "unitCount": 99,
-      "documentCount": 29
+      "unitCount": 137,
+      "documentCount": 31
     },
     {
       "id": "topic:es:espiritu-santo",
@@ -996,7 +996,7 @@
         "Espíritu de Dios"
       ],
       "unitCount": 200,
-      "documentCount": 19
+      "documentCount": 21
     },
     {
       "id": "topic:es:eucaristia",
@@ -1016,7 +1016,7 @@
         "cuerpo y sangre de Cristo"
       ],
       "unitCount": 200,
-      "documentCount": 20
+      "documentCount": 18
     },
     {
       "id": "topic:es:eutanasia",
@@ -1034,7 +1034,7 @@
         "muerte asistida",
         "homicidio por piedad"
       ],
-      "unitCount": 5,
+      "unitCount": 7,
       "documentCount": 2
     },
     {
@@ -1071,8 +1071,8 @@
         "liberación del demonio",
         "rito de exorcismo"
       ],
-      "unitCount": 92,
-      "documentCount": 17
+      "unitCount": 103,
+      "documentCount": 23
     },
     {
       "id": "topic:es:familia",
@@ -1090,7 +1090,7 @@
         "iglesia doméstica"
       ],
       "unitCount": 200,
-      "documentCount": 25
+      "documentCount": 27
     },
     {
       "id": "topic:es:fe",
@@ -1110,7 +1110,7 @@
         "creer"
       ],
       "unitCount": 200,
-      "documentCount": 29
+      "documentCount": 36
     },
     {
       "id": "topic:es:fe-y-razon",
@@ -1146,8 +1146,8 @@
         "virtud de la fortaleza",
         "valor cristiano"
       ],
-      "unitCount": 69,
-      "documentCount": 21
+      "unitCount": 154,
+      "documentCount": 33
     },
     {
       "id": "topic:es:gracia",
@@ -1167,7 +1167,7 @@
         "gracia actual"
       ],
       "unitCount": 200,
-      "documentCount": 20
+      "documentCount": 29
     },
     {
       "id": "topic:es:guerra-y-paz",
@@ -1184,8 +1184,8 @@
         "guerra justa",
         "conflicto armado"
       ],
-      "unitCount": 189,
-      "documentCount": 29
+      "unitCount": 200,
+      "documentCount": 30
     },
     {
       "id": "topic:es:herejia",
@@ -1202,8 +1202,8 @@
         "error doctrinal",
         "hereje"
       ],
-      "unitCount": 44,
-      "documentCount": 13
+      "unitCount": 88,
+      "documentCount": 17
     },
     {
       "id": "topic:es:hijo",
@@ -1222,8 +1222,8 @@
         "segunda persona",
         "Verbo"
       ],
-      "unitCount": 106,
-      "documentCount": 15
+      "unitCount": 174,
+      "documentCount": 25
     },
     {
       "id": "topic:es:iglesia",
@@ -1243,7 +1243,7 @@
         "Esposa de Cristo"
       ],
       "unitCount": 200,
-      "documentCount": 32
+      "documentCount": 30
     },
     {
       "id": "topic:es:imagen-de-dios",
@@ -1260,8 +1260,8 @@
         "imago Dei",
         "a imagen y semejanza"
       ],
-      "unitCount": 28,
-      "documentCount": 7
+      "unitCount": 53,
+      "documentCount": 12
     },
     {
       "id": "topic:es:indisolubilidad",
@@ -1278,8 +1278,8 @@
         "matrimonio indisoluble",
         "vínculo indisoluble"
       ],
-      "unitCount": 13,
-      "documentCount": 8
+      "unitCount": 19,
+      "documentCount": 11
     },
     {
       "id": "topic:es:indulgencias",
@@ -1296,8 +1296,8 @@
         "indulgencia plenaria",
         "indulgencia parcial"
       ],
-      "unitCount": 29,
-      "documentCount": 10
+      "unitCount": 53,
+      "documentCount": 13
     },
     {
       "id": "topic:es:infalibilidad",
@@ -1314,8 +1314,8 @@
         "infalibilidad papal",
         "infalibilidad del magisterio"
       ],
-      "unitCount": 6,
-      "documentCount": 4
+      "unitCount": 10,
+      "documentCount": 6
     },
     {
       "id": "topic:es:infierno",
@@ -1333,8 +1333,8 @@
         "condenación eterna",
         "gehenna"
       ],
-      "unitCount": 32,
-      "documentCount": 6
+      "unitCount": 46,
+      "documentCount": 7
     },
     {
       "id": "topic:es:inmaculada",
@@ -1351,8 +1351,8 @@
         "inmaculada concepción",
         "María sin pecado original"
       ],
-      "unitCount": 8,
-      "documentCount": 5
+      "unitCount": 10,
+      "documentCount": 6
     },
     {
       "id": "topic:es:inspiracion-biblica",
@@ -1369,8 +1369,8 @@
         "inspiración de la Escritura",
         "palabra inspirada"
       ],
-      "unitCount": 26,
-      "documentCount": 11
+      "unitCount": 48,
+      "documentCount": 16
     },
     {
       "id": "topic:es:jerarquia",
@@ -1388,8 +1388,8 @@
         "jerarquía eclesiástica",
         "orden jerárquico"
       ],
-      "unitCount": 48,
-      "documentCount": 11
+      "unitCount": 51,
+      "documentCount": 12
     },
     {
       "id": "topic:es:jesucristo",
@@ -1429,7 +1429,7 @@
         "juicio escatológico"
       ],
       "unitCount": 200,
-      "documentCount": 11
+      "documentCount": 10
     },
     {
       "id": "topic:es:juicio-final",
@@ -1466,7 +1466,7 @@
         "juicio al morir",
         "juicio individual"
       ],
-      "unitCount": 1,
+      "unitCount": 2,
       "documentCount": 1
     },
     {
@@ -1485,7 +1485,7 @@
         "dar a cada uno lo suyo"
       ],
       "unitCount": 200,
-      "documentCount": 24
+      "documentCount": 22
     },
     {
       "id": "topic:es:justicia-social",
@@ -1502,8 +1502,8 @@
       "aliases": [
         "justicia social cristiana"
       ],
-      "unitCount": 33,
-      "documentCount": 11
+      "unitCount": 57,
+      "documentCount": 14
     },
     {
       "id": "topic:es:justificacion",
@@ -1521,8 +1521,8 @@
         "justificación del pecador",
         "ser justificado"
       ],
-      "unitCount": 50,
-      "documentCount": 9
+      "unitCount": 71,
+      "documentCount": 13
     },
     {
       "id": "topic:es:laicos",
@@ -1540,8 +1540,8 @@
         "fieles laicos",
         "seglares"
       ],
-      "unitCount": 154,
-      "documentCount": 33
+      "unitCount": 200,
+      "documentCount": 34
     },
     {
       "id": "topic:es:lectio-divina",
@@ -1558,8 +1558,8 @@
         "lectura orante",
         "lectura de la Escritura"
       ],
-      "unitCount": 15,
-      "documentCount": 5
+      "unitCount": 24,
+      "documentCount": 8
     },
     {
       "id": "topic:es:ley-moral",
@@ -1576,8 +1576,8 @@
         "ley de Dios",
         "norma moral"
       ],
-      "unitCount": 22,
-      "documentCount": 7
+      "unitCount": 40,
+      "documentCount": 11
     },
     {
       "id": "topic:es:ley-natural",
@@ -1594,8 +1594,8 @@
         "ley natural moral",
         "orden natural"
       ],
-      "unitCount": 110,
-      "documentCount": 23
+      "unitCount": 188,
+      "documentCount": 27
     },
     {
       "id": "topic:es:libertad",
@@ -1615,7 +1615,7 @@
         "libertad moral"
       ],
       "unitCount": 200,
-      "documentCount": 32
+      "documentCount": 31
     },
     {
       "id": "topic:es:libertad-religiosa",
@@ -1632,8 +1632,8 @@
         "libertad de religión",
         "libertad de culto"
       ],
-      "unitCount": 7,
-      "documentCount": 6
+      "unitCount": 14,
+      "documentCount": 9
     },
     {
       "id": "topic:es:libre-albedrio",
@@ -1651,8 +1651,8 @@
         "libre albedrío",
         "voluntad libre"
       ],
-      "unitCount": 13,
-      "documentCount": 4
+      "unitCount": 15,
+      "documentCount": 6
     },
     {
       "id": "topic:es:liturgia",
@@ -1671,7 +1671,7 @@
         "acción litúrgica"
       ],
       "unitCount": 200,
-      "documentCount": 15
+      "documentCount": 16
     },
     {
       "id": "topic:es:magisterio",
@@ -1689,8 +1689,8 @@
         "magisterio de la Iglesia",
         "enseñanza oficial"
       ],
-      "unitCount": 63,
-      "documentCount": 15
+      "unitCount": 82,
+      "documentCount": 16
     },
     {
       "id": "topic:es:maria",
@@ -1710,7 +1710,7 @@
         "Santísima Virgen"
       ],
       "unitCount": 200,
-      "documentCount": 30
+      "documentCount": 29
     },
     {
       "id": "topic:es:martirio",
@@ -1727,8 +1727,8 @@
         "testimonio hasta la muerte",
         "mártires"
       ],
-      "unitCount": 15,
-      "documentCount": 10
+      "unitCount": 34,
+      "documentCount": 14
     },
     {
       "id": "topic:es:maternidad-divina",
@@ -1745,8 +1745,8 @@
         "Madre de Dios",
         "Theotokos"
       ],
-      "unitCount": 7,
-      "documentCount": 4
+      "unitCount": 13,
+      "documentCount": 5
     },
     {
       "id": "topic:es:matrimonio",
@@ -1783,8 +1783,8 @@
         "moral conyugal",
         "ética del matrimonio"
       ],
-      "unitCount": 33,
-      "documentCount": 10
+      "unitCount": 53,
+      "documentCount": 11
     },
     {
       "id": "topic:es:meritos",
@@ -1801,8 +1801,8 @@
         "mérito de las obras",
         "méritos de Cristo"
       ],
-      "unitCount": 20,
-      "documentCount": 7
+      "unitCount": 53,
+      "documentCount": 14
     },
     {
       "id": "topic:es:migracion",
@@ -1820,8 +1820,8 @@
         "refugiados",
         "emigración"
       ],
-      "unitCount": 11,
-      "documentCount": 7
+      "unitCount": 20,
+      "documentCount": 6
     },
     {
       "id": "topic:es:milagros",
@@ -1838,8 +1838,8 @@
         "signos milagrosos",
         "prodigios"
       ],
-      "unitCount": 44,
-      "documentCount": 10
+      "unitCount": 79,
+      "documentCount": 19
     },
     {
       "id": "topic:es:misa",
@@ -1856,8 +1856,8 @@
         "celebración eucarística",
         "santo sacrificio"
       ],
-      "unitCount": 177,
-      "documentCount": 13
+      "unitCount": 200,
+      "documentCount": 16
     },
     {
       "id": "topic:es:misericordia",
@@ -1875,8 +1875,8 @@
         "misericordia divina",
         "compasión de Dios"
       ],
-      "unitCount": 97,
-      "documentCount": 19
+      "unitCount": 144,
+      "documentCount": 23
     },
     {
       "id": "topic:es:mision",
@@ -1893,8 +1893,8 @@
         "misión de la Iglesia",
         "misión ad gentes"
       ],
-      "unitCount": 188,
-      "documentCount": 33
+      "unitCount": 200,
+      "documentCount": 31
     },
     {
       "id": "topic:es:misterio-pascual",
@@ -1912,8 +1912,8 @@
         "pascua de Cristo",
         "misterio de la pascua"
       ],
-      "unitCount": 69,
-      "documentCount": 17
+      "unitCount": 87,
+      "documentCount": 18
     },
     {
       "id": "topic:es:moral",
@@ -1932,7 +1932,7 @@
         "vida moral"
       ],
       "unitCount": 200,
-      "documentCount": 22
+      "documentCount": 21
     },
     {
       "id": "topic:es:muerte",
@@ -1968,7 +1968,7 @@
         "muerte en la cruz",
         "sacrificio de Cristo"
       ],
-      "unitCount": 8,
+      "unitCount": 11,
       "documentCount": 3
     },
     {
@@ -1986,8 +1986,8 @@
         "re-evangelización",
         "nueva evangelización"
       ],
-      "unitCount": 2,
-      "documentCount": 2
+      "unitCount": 3,
+      "documentCount": 3
     },
     {
       "id": "topic:es:obispos",
@@ -2005,7 +2005,7 @@
         "sucesores de los apóstoles"
       ],
       "unitCount": 200,
-      "documentCount": 20
+      "documentCount": 22
     },
     {
       "id": "topic:es:obras",
@@ -2023,7 +2023,7 @@
         "obras de misericordia",
         "buenas obras"
       ],
-      "unitCount": 101,
+      "unitCount": 117,
       "documentCount": 23
     },
     {
@@ -2061,8 +2061,8 @@
         "sacramento del orden",
         "ordenación"
       ],
-      "unitCount": 150,
-      "documentCount": 20
+      "unitCount": 200,
+      "documentCount": 30
     },
     {
       "id": "topic:es:padre",
@@ -2081,7 +2081,7 @@
         "primera persona"
       ],
       "unitCount": 200,
-      "documentCount": 20
+      "documentCount": 30
     },
     {
       "id": "topic:es:padrenuestro",
@@ -2098,8 +2098,8 @@
         "oración del Señor",
         "Pater noster"
       ],
-      "unitCount": 17,
-      "documentCount": 2
+      "unitCount": 29,
+      "documentCount": 3
     },
     {
       "id": "topic:es:papado",
@@ -2119,7 +2119,7 @@
         "romano pontífice"
       ],
       "unitCount": 200,
-      "documentCount": 26
+      "documentCount": 28
     },
     {
       "id": "topic:es:parusia",
@@ -2136,8 +2136,8 @@
         "segunda venida",
         "venida gloriosa de Cristo"
       ],
-      "unitCount": 0,
-      "documentCount": 0
+      "unitCount": 2,
+      "documentCount": 2
     },
     {
       "id": "topic:es:pasion",
@@ -2155,8 +2155,8 @@
         "pasión del Señor",
         "vía dolorosa"
       ],
-      "unitCount": 28,
-      "documentCount": 9
+      "unitCount": 70,
+      "documentCount": 12
     },
     {
       "id": "topic:es:paz",
@@ -2174,8 +2174,8 @@
         "paz de Cristo",
         "paz social"
       ],
-      "unitCount": 76,
-      "documentCount": 16
+      "unitCount": 94,
+      "documentCount": 20
     },
     {
       "id": "topic:es:pecado",
@@ -2194,7 +2194,7 @@
         "ofensa a Dios"
       ],
       "unitCount": 200,
-      "documentCount": 17
+      "documentCount": 13
     },
     {
       "id": "topic:es:pecado-mortal",
@@ -2212,8 +2212,8 @@
         "pecado grave",
         "pecado mortal"
       ],
-      "unitCount": 52,
-      "documentCount": 10
+      "unitCount": 77,
+      "documentCount": 12
     },
     {
       "id": "topic:es:pecado-original",
@@ -2231,8 +2231,8 @@
         "caída original",
         "pecado de Adán"
       ],
-      "unitCount": 70,
-      "documentCount": 9
+      "unitCount": 95,
+      "documentCount": 10
     },
     {
       "id": "topic:es:pecado-venial",
@@ -2249,8 +2249,8 @@
         "faltas veniales",
         "pecado leve"
       ],
-      "unitCount": 12,
-      "documentCount": 2
+      "unitCount": 25,
+      "documentCount": 7
     },
     {
       "id": "topic:es:pecados-capitales",
@@ -2267,8 +2267,8 @@
         "siete pecados capitales",
         "vicios capitales"
       ],
-      "unitCount": 43,
-      "documentCount": 10
+      "unitCount": 50,
+      "documentCount": 9
     },
     {
       "id": "topic:es:penitencia",
@@ -2285,8 +2285,8 @@
         "obras de penitencia",
         "satisfacción"
       ],
-      "unitCount": 147,
-      "documentCount": 15
+      "unitCount": 197,
+      "documentCount": 20
     },
     {
       "id": "topic:es:perdon",
@@ -2303,8 +2303,8 @@
         "perdón de los pecados",
         "remisión"
       ],
-      "unitCount": 83,
-      "documentCount": 10
+      "unitCount": 130,
+      "documentCount": 13
     },
     {
       "id": "topic:es:persona-humana",
@@ -2323,7 +2323,7 @@
         "antropología cristiana"
       ],
       "unitCount": 200,
-      "documentCount": 25
+      "documentCount": 29
     },
     {
       "id": "topic:es:pobreza",
@@ -2341,8 +2341,8 @@
         "opción por los pobres",
         "pobres de Yahvé"
       ],
-      "unitCount": 128,
-      "documentCount": 27
+      "unitCount": 200,
+      "documentCount": 35
     },
     {
       "id": "topic:es:politica",
@@ -2360,7 +2360,7 @@
         "bien político"
       ],
       "unitCount": 200,
-      "documentCount": 23
+      "documentCount": 24
     },
     {
       "id": "topic:es:predestinacion",
@@ -2377,8 +2377,8 @@
         "elección divina",
         "predestinación a la gloria"
       ],
-      "unitCount": 25,
-      "documentCount": 6
+      "unitCount": 36,
+      "documentCount": 9
     },
     {
       "id": "topic:es:providencia",
@@ -2395,8 +2395,8 @@
         "providencia divina",
         "gobierno de Dios"
       ],
-      "unitCount": 30,
-      "documentCount": 7
+      "unitCount": 55,
+      "documentCount": 13
     },
     {
       "id": "topic:es:prudencia",
@@ -2413,8 +2413,8 @@
         "virtud de la prudencia",
         "discreción"
       ],
-      "unitCount": 52,
-      "documentCount": 9
+      "unitCount": 82,
+      "documentCount": 12
     },
     {
       "id": "topic:es:pueblo-de-dios",
@@ -2431,8 +2431,8 @@
         "pueblo santo",
         "pueblo elegido"
       ],
-      "unitCount": 33,
-      "documentCount": 13
+      "unitCount": 66,
+      "documentCount": 16
     },
     {
       "id": "topic:es:purgatorio",
@@ -2450,8 +2450,8 @@
         "purificación final",
         "almas del purgatorio"
       ],
-      "unitCount": 16,
-      "documentCount": 4
+      "unitCount": 20,
+      "documentCount": 5
     },
     {
       "id": "topic:es:quinto-mandamiento",
@@ -2469,8 +2469,8 @@
         "no matarás",
         "mandamiento de la vida"
       ],
-      "unitCount": 22,
-      "documentCount": 4
+      "unitCount": 34,
+      "documentCount": 5
     },
     {
       "id": "topic:es:realeza-de-cristo",
@@ -2487,8 +2487,8 @@
         "Cristo Rey",
         "reinado social de Cristo"
       ],
-      "unitCount": 6,
-      "documentCount": 3
+      "unitCount": 10,
+      "documentCount": 4
     },
     {
       "id": "topic:es:reconciliacion",
@@ -2507,8 +2507,8 @@
         "sacramento de la penitencia",
         "perdón sacramental"
       ],
-      "unitCount": 111,
-      "documentCount": 14
+      "unitCount": 151,
+      "documentCount": 15
     },
     {
       "id": "topic:es:redencion",
@@ -2527,8 +2527,8 @@
         "rescate",
         "salvación en Cristo"
       ],
-      "unitCount": 25,
-      "documentCount": 13
+      "unitCount": 56,
+      "documentCount": 23
     },
     {
       "id": "topic:es:reino-de-dios",
@@ -2546,8 +2546,8 @@
         "reino de los cielos",
         "reinado de Cristo"
       ],
-      "unitCount": 34,
-      "documentCount": 11
+      "unitCount": 47,
+      "documentCount": 15
     },
     {
       "id": "topic:es:resurreccion",
@@ -2565,8 +2565,8 @@
         "resurrección del Señor",
         "Cristo resucitado"
       ],
-      "unitCount": 94,
-      "documentCount": 15
+      "unitCount": 128,
+      "documentCount": 20
     },
     {
       "id": "topic:es:resurreccion-de-los-muertos",
@@ -2603,8 +2603,8 @@
         "revelación divina",
         "palabra revelada"
       ],
-      "unitCount": 81,
-      "documentCount": 16
+      "unitCount": 121,
+      "documentCount": 25
     },
     {
       "id": "topic:es:sacerdocio",
@@ -2623,7 +2623,7 @@
         "sacerdocio común"
       ],
       "unitCount": 200,
-      "documentCount": 23
+      "documentCount": 21
     },
     {
       "id": "topic:es:sacramentales",
@@ -2640,8 +2640,8 @@
         "sacramentales de la Iglesia",
         "bendiciones"
       ],
-      "unitCount": 57,
-      "documentCount": 7
+      "unitCount": 77,
+      "documentCount": 8
     },
     {
       "id": "topic:es:sacramentos",
@@ -2660,7 +2660,7 @@
         "sacramentos de la Nueva Alianza"
       ],
       "unitCount": 200,
-      "documentCount": 16
+      "documentCount": 19
     },
     {
       "id": "topic:es:sagrada-escritura",
@@ -2680,7 +2680,7 @@
         "Sagradas Escrituras"
       ],
       "unitCount": 200,
-      "documentCount": 34
+      "documentCount": 29
     },
     {
       "id": "topic:es:sagrado-corazon",
@@ -2697,8 +2697,8 @@
         "Corazón de Jesús",
         "devoción al Sagrado Corazón"
       ],
-      "unitCount": 3,
-      "documentCount": 3
+      "unitCount": 2,
+      "documentCount": 2
     },
     {
       "id": "topic:es:salvacion",
@@ -2716,8 +2716,8 @@
         "salvación eterna",
         "ser salvado"
       ],
-      "unitCount": 124,
-      "documentCount": 33
+      "unitCount": 200,
+      "documentCount": 36
     },
     {
       "id": "topic:es:santidad",
@@ -2736,7 +2736,7 @@
         "vida santa"
       ],
       "unitCount": 200,
-      "documentCount": 24
+      "documentCount": 29
     },
     {
       "id": "topic:es:santificacion",
@@ -2753,8 +2753,8 @@
         "santificación del cristiano",
         "ser santificado"
       ],
-      "unitCount": 23,
-      "documentCount": 7
+      "unitCount": 41,
+      "documentCount": 12
     },
     {
       "id": "topic:es:santos",
@@ -2773,7 +2773,7 @@
         "canonizados"
       ],
       "unitCount": 200,
-      "documentCount": 35
+      "documentCount": 24
     },
     {
       "id": "topic:es:sexto-mandamiento",
@@ -2790,7 +2790,7 @@
         "no cometerás adulterio",
         "mandamiento de la pureza"
       ],
-      "unitCount": 25,
+      "unitCount": 29,
       "documentCount": 7
     },
     {
@@ -2809,8 +2809,8 @@
         "sexualidad humana",
         "dimensión sexual"
       ],
-      "unitCount": 70,
-      "documentCount": 20
+      "unitCount": 130,
+      "documentCount": 30
     },
     {
       "id": "topic:es:solidaridad",
@@ -2827,8 +2827,8 @@
       "aliases": [
         "principio de solidaridad"
       ],
-      "unitCount": 48,
-      "documentCount": 14
+      "unitCount": 72,
+      "documentCount": 16
     },
     {
       "id": "topic:es:subsidiariedad",
@@ -2844,7 +2844,7 @@
       "aliases": [
         "principio de subsidiariedad"
       ],
-      "unitCount": 4,
+      "unitCount": 6,
       "documentCount": 2
     },
     {
@@ -2863,8 +2863,8 @@
         "dolor humano",
         "cruz del cristiano"
       ],
-      "unitCount": 60,
-      "documentCount": 14
+      "unitCount": 91,
+      "documentCount": 18
     },
     {
       "id": "topic:es:templanza",
@@ -2881,8 +2881,8 @@
         "virtud de la templanza",
         "moderación"
       ],
-      "unitCount": 18,
-      "documentCount": 7
+      "unitCount": 26,
+      "documentCount": 8
     },
     {
       "id": "topic:es:tentacion",
@@ -2900,8 +2900,8 @@
         "prueba",
         "tentación diabólica"
       ],
-      "unitCount": 73,
-      "documentCount": 11
+      "unitCount": 154,
+      "documentCount": 16
     },
     {
       "id": "topic:es:testimonio",
@@ -2918,8 +2918,8 @@
         "testimonio cristiano",
         "ser testigos"
       ],
-      "unitCount": 161,
-      "documentCount": 15
+      "unitCount": 200,
+      "documentCount": 23
     },
     {
       "id": "topic:es:trabajo",
@@ -2936,8 +2936,8 @@
         "trabajo humano",
         "dignidad del trabajo"
       ],
-      "unitCount": 180,
-      "documentCount": 21
+      "unitCount": 200,
+      "documentCount": 23
     },
     {
       "id": "topic:es:tradicion",
@@ -2955,7 +2955,7 @@
         "Tradición viva"
       ],
       "unitCount": 200,
-      "documentCount": 33
+      "documentCount": 25
     },
     {
       "id": "topic:es:trinidad",
@@ -2974,8 +2974,8 @@
         "Dios trino",
         "misterio trinitario"
       ],
-      "unitCount": 49,
-      "documentCount": 8
+      "unitCount": 61,
+      "documentCount": 9
     },
     {
       "id": "topic:es:uncion-de-los-enfermos",
@@ -2993,8 +2993,8 @@
         "extremaunción",
         "sacramento de los enfermos"
       ],
-      "unitCount": 78,
-      "documentCount": 8
+      "unitCount": 98,
+      "documentCount": 12
     },
     {
       "id": "topic:es:verdad",
@@ -3013,7 +3013,7 @@
         "veritas"
       ],
       "unitCount": 200,
-      "documentCount": 29
+      "documentCount": 33
     },
     {
       "id": "topic:es:vicios",
@@ -3030,8 +3030,8 @@
         "vicios morales",
         "hábitos malos"
       ],
-      "unitCount": 15,
-      "documentCount": 3
+      "unitCount": 43,
+      "documentCount": 6
     },
     {
       "id": "topic:es:vida",
@@ -3050,7 +3050,7 @@
         "vida desde la concepción"
       ],
       "unitCount": 200,
-      "documentCount": 31
+      "documentCount": 33
     },
     {
       "id": "topic:es:vida-consagrada",
@@ -3070,7 +3070,7 @@
         "vida religiosa"
       ],
       "unitCount": 200,
-      "documentCount": 23
+      "documentCount": 25
     },
     {
       "id": "topic:es:vida-espiritual",
@@ -3088,8 +3088,8 @@
         "camino espiritual",
         "ascética y mística"
       ],
-      "unitCount": 6,
-      "documentCount": 6
+      "unitCount": 10,
+      "documentCount": 9
     },
     {
       "id": "topic:es:vida-eterna",
@@ -3107,8 +3107,8 @@
         "vida perdurable",
         "vida eterna en Cristo"
       ],
-      "unitCount": 84,
-      "documentCount": 19
+      "unitCount": 115,
+      "documentCount": 24
     },
     {
       "id": "topic:es:virtudes",
@@ -3126,8 +3126,8 @@
         "virtudes cristianas",
         "hábitos buenos"
       ],
-      "unitCount": 101,
-      "documentCount": 16
+      "unitCount": 200,
+      "documentCount": 31
     },
     {
       "id": "topic:es:virtudes-cardinales",
@@ -3144,8 +3144,8 @@
       "aliases": [
         "cuatro virtudes cardinales"
       ],
-      "unitCount": 128,
-      "documentCount": 19
+      "unitCount": 191,
+      "documentCount": 21
     },
     {
       "id": "topic:es:virtudes-teologales",
@@ -3163,7 +3163,7 @@
         "fe esperanza y caridad"
       ],
       "unitCount": 200,
-      "documentCount": 23
+      "documentCount": 26
     },
     {
       "id": "topic:es:vocacion",
@@ -3181,8 +3181,8 @@
         "llamada de Dios",
         "vocación cristiana"
       ],
-      "unitCount": 67,
-      "documentCount": 24
+      "unitCount": 170,
+      "documentCount": 37
     }
   ]
 }

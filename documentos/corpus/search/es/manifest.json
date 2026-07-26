@@ -2,10 +2,10 @@
   "version": "0.2.0",
   "schema": 1,
   "locale": "es",
-  "generatedAt": "2026-07-26T20:38:43.473Z",
+  "generatedAt": "2026-07-26T21:39:37.929Z",
   "corpusFingerprint": {
     "algo": "sha256",
-    "value": "8d2b2f98c4cd8987",
+    "value": "c1f4fcf153bd5cdb",
     "docCount": 135
   },
   "caps": {
@@ -21,5 +21,5 @@
     "termTopics": "term-topics.json",
     "graph": "unit-graph.json"
   },
-  "sourceNote": "Hub topic postings for locale es. catalog=seed scripts-descarga/config/topics-seed.es.json; hubs=88; assignments=37501; postings=17479."
+  "sourceNote": "Hub topic postings for locale es. catalog=seed scripts-descarga/config/topics-seed.es.json; expand=true; hubs=88; assignments=48538; postings=19912."
 }

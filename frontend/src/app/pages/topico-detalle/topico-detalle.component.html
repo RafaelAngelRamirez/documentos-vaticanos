@@ -76,6 +76,14 @@
         >
       </div>
 
+      <p
+        *ngIf="hasPostings && snippetsLoading"
+        class="fs12 muted topico-snippets-loading"
+        role="status"
+      >
+        Cargando extractos…
+      </p>
+
       <div
         class="srow"
         *ngFor="let row of visiblePostings"
@@ -90,7 +98,7 @@
             c
           }}</span>
         </span>
-        <span class="sx">{{ row.documentId }} · índice {{ row.unitIndex }}</span>
+        <span class="sx topico-snippet">{{ row.snippet }}</span>
       </div>
 
       <button

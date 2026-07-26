@@ -6,6 +6,7 @@ import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component
 import { BnavComponent } from 'src/app/components/bnav/bnav.component';
 import { ReadingCtasComponent } from 'src/app/components/reading-cover/reading-ctas.component';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
+import { IndiceDocumentos } from 'src/app/core/corpus/corpus.models';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import {
   TopicCitation,
@@ -14,10 +15,17 @@ import {
 } from 'src/app/core/search/topic-pack.models';
 import { TopicIndexService } from 'src/app/core/search/topic-index.service';
 import { findTopicInPack } from 'src/app/core/search/topic-query.logic';
+import { DEFAULT_BODY_LOAD_CONCURRENCY } from 'src/app/core/search/search-load.logic';
+import { CargarDocumentosJsonService } from 'src/app/services/cargar-documentos-json.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 
+/** Rows shown before “Ver más”. */
 const VISIBLE_LIMIT = 40;
+/** Cap unique document packs hydrated for unit body snippets. */
+const SNIPPET_DOC_CAP = 24;
+/** Default plain-text snippet length (chars). */
+const SNIPPET_MAX = 160;
 
 export interface TopicCitationRow {
   documentId: string;
@@ -27,6 +35,11 @@ export interface TopicCitationRow {
   /** Display title from corpus meta when available. */
   title: string;
   label: string;
+  /**
+   * Plain unit extract when body is hydrated; else
+   * `documentId · índice unitIndex` fallback.
+   */
+  snippet: string;
 }
 
 /**
@@ -62,8 +75,14 @@ export class TopicoDetalleComponent implements OnInit, OnDestroy {
   notFound = false;
   showAll = false;
   locale = 'es';
+  /** True while body packs for snippets are loading. */
+  snippetsLoading = false;
 
   private sub = new Subscription();
+  /** Bump on slug change / destroy to cancel stale hydrate. */
+  private snippetGen = 0;
+  /** documentId → full pack (bodies) after ensureLoadedMany. */
+  private bodyByDocId = new Map<string, IndiceDocumentos>();
 
   constructor(
     private route: ActivatedRoute,
@@ -72,6 +91,7 @@ export class TopicoDetalleComponent implements OnInit, OnDestroy {
     private readerPrefs: ReaderPreferencesService,
     private nav: NavigationService,
     private corpus: CorpusService,
+    private docs: CargarDocumentosJsonService,
   ) {}
 
   ngOnInit(): void {
@@ -85,6 +105,7 @@ export class TopicoDetalleComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.snippetGen++;
     this.sub.unsubscribe();
   }
 
@@ -141,6 +162,11 @@ export class TopicoDetalleComponent implements OnInit, OnDestroy {
   }
 
   load(): void {
+    // Cancel any in-flight snippet hydrate for previous slug.
+    this.snippetGen++;
+    this.bodyByDocId.clear();
+    this.snippetsLoading = false;
+
     this.loading = true;
     this.topic = null;
     this.postings = [];
@@ -207,6 +233,77 @@ export class TopicoDetalleComponent implements OnInit, OnDestroy {
       toCitationRow(c, this.corpus),
     );
     this.related = resolveRelated(topic, pack.topics);
+
+    // Titles first; hydrate unit bodies only for top visible unique docs.
+    this.hydrateSnippets();
+  }
+
+  /**
+   * Load content.json only for unique documentIds among currently visible
+   * postings (capped at SNIPPET_DOC_CAP). Never loads the whole corpus.
+   */
+  private hydrateSnippets(): void {
+    const visible = this.visiblePostings;
+    if (!visible.length) {
+      this.snippetsLoading = false;
+      return;
+    }
+
+    const ids: string[] = [];
+    const seen = new Set<string>();
+    for (const row of visible) {
+      if (!row.documentId || seen.has(row.documentId)) continue;
+      if (this.bodyByDocId.has(row.documentId)) continue;
+      seen.add(row.documentId);
+      ids.push(row.documentId);
+      if (ids.length >= SNIPPET_DOC_CAP) break;
+    }
+
+    // Re-apply snippets for any bodies already in memory (e.g. expand).
+    if (!ids.length) {
+      this.applySnippetsFromBodies();
+      this.snippetsLoading = false;
+      return;
+    }
+
+    const myGen = ++this.snippetGen;
+    this.snippetsLoading = true;
+
+    this.sub.add(
+      this.docs
+        .ensureLoadedMany(ids, {
+          concurrency: DEFAULT_BODY_LOAD_CONCURRENCY,
+          isCancelled: () => myGen !== this.snippetGen,
+        })
+        .subscribe({
+          next: (fullDocs) => {
+            if (myGen !== this.snippetGen) return;
+            for (const d of fullDocs) {
+              const id = d.id || d.nombre || '';
+              if (id) this.bodyByDocId.set(id, d);
+            }
+            this.applySnippetsFromBodies();
+            this.snippetsLoading = false;
+          },
+          error: () => {
+            if (myGen !== this.snippetGen) return;
+            // Soft-degrade: keep fallback snippets.
+            this.snippetsLoading = false;
+          },
+        }),
+    );
+  }
+
+  private applySnippetsFromBodies(): void {
+    for (const row of this.postings) {
+      const doc = this.bodyByDocId.get(row.documentId);
+      const unit = doc?.documento?.[row.unitIndex];
+      const snip = plainSnippet(unit?.contenido, SNIPPET_MAX);
+      if (snip) {
+        row.snippet = snip;
+      }
+      // else keep existing fallback
+    }
   }
 
   openFirst(autoNarr = false): void {
@@ -234,6 +331,8 @@ export class TopicoDetalleComponent implements OnInit, OnDestroy {
 
   expandList(): void {
     this.showAll = true;
+    // Hydrate additional unique docs among newly visible rows.
+    this.hydrateSnippets();
   }
 
   confLabel(conf: number | undefined): string {
@@ -250,6 +349,23 @@ export function stripTopicIdToSlug(raw: string): string {
   if (!s) return '';
   const m = /^topic:[^:]+:(.+)$/i.exec(s);
   return (m?.[1] || s).trim();
+}
+
+/**
+ * Plain list snippet from unit body: strip `[+[n]+]` markers, collapse
+ * whitespace, truncate with ellipsis. Self-contained pure helper.
+ */
+export function plainSnippet(
+  contenido: string | undefined,
+  max = SNIPPET_MAX,
+): string {
+  const raw = (contenido || '')
+    .replace(/\[\+\[\d+\]\+\]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!raw) return '';
+  if (raw.length <= max) return raw;
+  return raw.slice(0, max - 1).trimEnd() + '…';
 }
 
 function sortCitations(list: TopicCitation[]): TopicCitation[] {
@@ -287,6 +403,7 @@ function toCitationRow(
     conf: c.conf,
     title,
     label: `${title} · Nº ${num}`,
+    snippet: `${c.documentId} · índice ${c.unitIndex}`,
   };
 }
 
