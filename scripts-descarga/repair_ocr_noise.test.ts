@@ -8,8 +8,10 @@ import {
   collapseShortSpacedWords,
   collapseSpacedDigits,
   collapseSpacedLetters,
+  isDualColumnShredUnit,
   isEditorialChromeUnit,
   isGarbageUnit,
+  isLeaderSoupUnit,
   isResidualBodyNoise,
   isRunningHeaderUnit,
   rejoinMidLineHyphen,
@@ -416,6 +418,65 @@ assert(
     r.contenido,
     "v3 body repair idempotent",
   );
+}
+
+// --- v4: leader-soup, dual-column shred blank, S.Ag headers, a4 front ---
+assert(
+  isLeaderSoupUnit(
+    "INDICE Págs. intro .. ccoocioo onononic coo 87",
+  ),
+  "leader-soup short TOC unit",
+);
+assert(!isLeaderSoupUnit(goodProse), "good prose not leader-soup");
+assert(
+  isRunningHeaderUnit("S.Ag. 12  145"),
+  "S.Ag. N running header",
+);
+assert(
+  isRunningHeaderUnit("Contra Fausto maniqueo 221"),
+  "Contra Fausto + page header",
+);
+assertEq(
+  repairHighConfidenceOcrConfusions(
+    "Academico de Fslosofia Trilingue VOcALEs Escrriros BIBLICGRAFIA",
+  ),
+  "Académico de Filosofía Trilingüe VOCALES Escritos BIBLIOGRAFIA",
+  "a4 front shred dict",
+);
+{
+  const shred =
+    "estilística: los editores benedictinos detec- escritos antidonatistas, 19,34 " +
+    "Zugesprochenen fiwr Religion- und siécles 210 n.1 S 498";
+  assert(isDualColumnShredUnit(shred) === true, "dual-column shred classified");
+  const r = repairOcrNoiseUnit(shred);
+  assert(r.excludedGarbage === true, "dual-column shred blanked");
+  assertEq(r.contenido, OCR_GARBAGE_PLACEHOLDER, "dual-column → placeholder");
+  // a5 must not rejoin inside shred (unit path blanks first)
+  assertEq(
+    rejoinMidLineHyphen(shred),
+    shred,
+    "no mid-line rejoin on dual-column shred",
+  );
+}
+assert(
+  !isDualColumnShredUnit(goodProse),
+  "good prose not dual-column shred",
+);
+assert(
+  repairOcrPunctuation("confesaban.en la fe y es.decir").includes(
+    "confesaban en",
+  ),
+  "whitelist confesaban.en → confesaban en",
+);
+assert(
+  repairOcrPunctuation("confesaban.en la fe y es.decir").includes("es.decir"),
+  "confesaban.en whitelist keeps es.decir",
+);
+{
+  const r = repairOcrNoiseUnit(
+    "Esckrrros rFiLosórFicOsS catalogo OBRAS COMPLETAS DE SAN AGUST T. XXX VOcALEs Academico Fslosofia",
+  );
+  assert(r.excludedGarbage === true, "catalog shred chrome blanked");
 }
 
 console.log(`\n${passed} passed, ${failed} failed`);

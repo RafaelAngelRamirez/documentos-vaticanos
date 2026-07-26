@@ -1,7 +1,7 @@
 {
   "documentId": "agustin-34-antidonatistas-3-es",
-  "revision": "ocr-abc-v3",
-  "appliedAt": "2026-07-26T19:21:12.403Z",
+  "revision": "ocr-abc-v4",
+  "appliedAt": "2026-07-26T19:47:33.839Z",
   "ruleClasses": [
     "spaced-letter-collapse",
     "short-spaced-word-collapse",
@@ -13,24 +13,26 @@
     "digit-letter-glue",
     "garbage-toc-exclude-placeholder",
     "bac-chrome-running-header-colophon-placeholder",
+    "leader-soup-placeholder",
+    "dual-column-shred-placeholder",
     "index-zone-aggressive-garbage",
     "punct-safe-compose-whitelist-internal"
   ],
   "unitsTotal": 1987,
-  "unitsChanged": 579,
-  "unitsExcludedGarbage": 8,
-  "unitsCollapsedSpaced": 571,
+  "unitsChanged": 4,
+  "unitsExcludedGarbage": 4,
+  "unitsCollapsedSpaced": 0,
   "before": {
     "units": 1987,
-    "garbageUnits": 7,
-    "garbageRatio": 0.0035,
+    "garbageUnits": 3,
+    "garbageRatio": 0.0015,
     "spacedLetterRuns": 0,
     "shortSpacedWordHits": 0,
     "spacedDigitRuns": 0,
     "junkRunHits": 2,
     "tocLeaderHits": 3,
-    "residualBodyNoiseUnits": 8,
-    "residualScore": 204
+    "residualBodyNoiseUnits": 6,
+    "residualScore": 132
   },
   "after": {
     "units": 1987,
@@ -41,13 +43,13 @@
     "spacedDigitRuns": 0,
     "junkRunHits": 2,
     "tocLeaderHits": 3,
-    "residualBodyNoiseUnits": 8,
-    "residualScore": 130
+    "residualBodyNoiseUnits": 6,
+    "residualScore": 100
   },
-  "letterTokenOverlap": 0.9967,
+  "letterTokenOverlap": 1,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots."
+  "notes": "ocr-abc-v4 in-place on existing corpus (no re-download). v3 + leader-soup TOC, dual-column shred blank (no demerge), S.Ag headers, front a4 shred dict, wider index-zone; stable unitIndex; dual-write roots."
 }

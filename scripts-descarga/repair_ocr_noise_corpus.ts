@@ -26,7 +26,7 @@ import {
 } from "./src/pipeline/repair_ocr_noise";
 
 const REPO = path.resolve(__dirname, "..");
-const REVISION_TAG = "ocr-abc-v3";
+const REVISION_TAG = "ocr-abc-v4";
 const INVENTORY_PATH = path.join(
   REPO,
   "documentos",
@@ -343,6 +343,8 @@ function applyToDocument(docId: string): RevisionRecord | null {
       "digit-letter-glue",
       "garbage-toc-exclude-placeholder",
       "bac-chrome-running-header-colophon-placeholder",
+      "leader-soup-placeholder",
+      "dual-column-shred-placeholder",
       "index-zone-aggressive-garbage",
       "punct-safe-compose-whitelist-internal",
     ],
@@ -355,7 +357,7 @@ function applyToDocument(docId: string): RevisionRecord | null {
     letterTokenOverlap: Math.round(overlap * 10000) / 10000,
     dualWriteRoots: dualRoots,
     notes:
-      "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots.",
+      "ocr-abc-v4 in-place on existing corpus (no re-download). v3 + leader-soup TOC, dual-column shred blank (no demerge), S.Ag headers, front a4 shred dict, wider index-zone; stable unitIndex; dual-write roots.",
   };
   void beforeText;
   void afterText;

@@ -21,6 +21,8 @@ const INTERNAL_PERIOD_JOIN_WHITELIST: Array<[RegExp, string]> = [
   [/\bjusti\.ficatio\b/gi, "justificatio"],
   [/\bmorti\.ficationis\b/gi, "mortificationis"],
   [/\bedi\.ficationis\b/gi, "edificationis"],
+  // Period used as space (not mid-word stem): closed phrase only
+  [/\bconfesaban\.en\b/gi, "confesaban en"],
 ];
 
 export interface OcrPunctMetrics {

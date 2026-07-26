@@ -8,8 +8,9 @@
  *  (a5) mid-line hyphen rejoin: "pro- puestas" → "propuestas"
  *  (a6) closed glued-token map + ALLCAPS peel (LOSSEÑORESSIGUIENTES, …)
  *  (a7) digit↔letter glue: "luz1" → "luz 1" (excludes bible-like codes)
- *  (b) TOC / dotted-leader garbage + BAC chrome / running headers / colophon
- *      + aggressive index-zone scoring → placeholder (stable unitIndex)
+ *  (b) TOC / leader-soup + BAC chrome / running headers / colophon
+ *      + dual-column shred blank + aggressive index-zone → placeholder
+ *      (stable unitIndex; never demerge LA∥ES columns)
  *
  * Does NOT join internal lowercase.period.lowercase (except whitelist in punct).
  * Does not paraphrase body wording. Does not blind-join arbitrary initials.
@@ -500,6 +501,19 @@ export function repairHighConfidenceOcrConfusions(text: string): string {
   );
   t = t.replace(/\bSKOUNDA\b/g, "SEGUNDA");
   t = t.replace(/\bSkounda\b/g, "Segunda");
+  // BAC front OCR shreds (closed whole-word map)
+  t = t.replace(/\bAcademico\b/g, "Académico");
+  t = t.replace(/\bACADEMICO\b/g, "ACADÉMICO");
+  t = t.replace(/\bFslosofia\b/g, "Filosofía");
+  t = t.replace(/\bFSLOSOFIA\b/g, "FILOSOFÍA");
+  t = t.replace(/\bTrilingue\b/g, "Trilingüe");
+  t = t.replace(/\bTRILINGUE\b/g, "TRILINGÜE");
+  t = t.replace(/\bVOcALEs\b/g, "VOCALES");
+  t = t.replace(/\bVocALE[sS]\b/g, "VOCALES");
+  t = t.replace(/\b(?:Escrriros|Escurros|Esckrrros)\b/g, "Escritos");
+  t = t.replace(/\b(?:ESCRRIROS|ESCURROS|ESCKRRROS)\b/g, "ESCRITOS");
+  t = t.replace(/\bBIBLICGRAFIA\b/g, "BIBLIOGRAFIA");
+  t = t.replace(/\bBiblicgrafia\b/g, "Bibliografia");
   // O ' MEARA / O 'MEARA / O' MEARA → O'MEARA
   t = t.replace(/\bO\s*'\s*MEARA\b/g, "O'MEARA");
   t = t.replace(/\bO\s*'\s*Meara\b/g, "O'Meara");
@@ -542,11 +556,15 @@ const LOWER_ONLY = "a-záéíóúüñà-ÿ";
 
 export function rejoinMidLineHyphen(text: string): string {
   if (!text) return text;
+  // Never rejoin hyphens inside dual-column shred (would glue wrong streams)
+  if (isDualColumnShredUnit(text)) return text;
   return text.replace(
     new RegExp(`([${LETTER_CLASS}]{2,})-\\s+([${LOWER_ONLY}]{2,})`, "gu"),
     (full, a: string, b: string) => {
       // Guard: first side looks like chapter label crumbs
       if (/^(?:CAP|LIB|TOM|VOL|ART)\.?$/i.test(a)) return full;
+      // Guard: second side looks like abbreviation / single-stem foreign crumb
+      if (b.length <= 2) return full;
       return a + b;
     },
   );
@@ -660,6 +678,7 @@ export function isEditorialChromeUnit(text: string): boolean {
     /Gran\s+Canciller\s+de\s+la\s+(?:Pontificia\s+)?Universidad/i,
     /APARTADO\s+466/i,
     /TALLERES\s+/i,
+    /OBRAS\s+COMPLETAS\s+DE\s+SAN\s+AGUST/i,
   ];
   let hits = 0;
   for (const p of patterns) {
@@ -683,6 +702,22 @@ export function isEditorialChromeUnit(text: string): boolean {
   ) {
     return true;
   }
+  // Commission / catalog shred (VOcALEs, Fslosofia, Esckrrros…) — blank, not rewrite
+  if (t.length >= 80 && t.length <= 1200) {
+    const shredMarks = (
+      t.match(
+        /VOcALE|Academico|Fslosofia|Trilingue|Escrriros|Escurros|Esckrrros|BIBLICGRAFIA|rFiLos|ANTIMANIQUEOSS?/gi,
+      ) || []
+    ).length;
+    if (shredMarks >= 3) return true;
+    if (
+      shredMarks >= 1 &&
+      /OBRAS\s+COMPLETAS|T\.\s*[IVXLC]{1,6}|ESCRITOS\s+ANT/i.test(t) &&
+      t.length <= 600
+    ) {
+      return true;
+    }
+  }
   return false;
 }
 
@@ -698,6 +733,12 @@ export function isRunningHeaderUnit(text: string): boolean {
   // Pure short prologue / section running title
   if (/^Pr[oó]logo\s+a\s+las\s+«?Confesiones»?\.?$/i.test(t)) return true;
   if (/^ÍNDICE\s+GENERAL(?:\s+DE\s+\w+){0,4}\.?$/i.test(t)) return true;
+  // S.Ag. N / S. Ag. N running headers
+  if (/^S\.?\s*Ag\.?\s*\d{1,2}\b/i.test(t) && t.length <= 80) return true;
+  // Contra Fausto + page crumb
+  if (/^Contra\s+Fausto\b/i.test(t) && /\d{1,4}\s*$/.test(t) && t.length <= 90) {
+    return true;
+  }
   // Title-ish + trailing page number
   if (
     /^[A-ZÁÉÍÓÚÑ«»"A-Za-zÁ-ÿ\s.,;:—-]{12,90}\s+\d{1,4}$/.test(t) &&
@@ -718,13 +759,92 @@ export function isRunningHeaderUnit(text: string): boolean {
   return false;
 }
 
+/**
+ * Short TOC leader-soup units: dotted leaders misread as ccoo/onononic runs
+ * with page-number tails. Fail-closed on long readable prose.
+ */
+export function isLeaderSoupUnit(text: string): boolean {
+  if (!text) return false;
+  const t = text.trim();
+  if (!t || t === OCR_GARBAGE_PLACEHOLDER) return false;
+  if (t.length > 220) return false;
+  const soup = (
+    t.match(
+      /(?:ccoo|ccoocioo|onononic|cooicn|oonin|occoc|cnnion|onorere|mio\s+cco|onn\s+nn)/gi,
+    ) || []
+  ).length;
+  const junkRun = (t.match(/[oncrim]{8,}/gi) || []).length;
+  const pageTail = /\d{1,4}\s*$/.test(t) || /\bP[aá]gs?\.?\b/i.test(t);
+  if (soup >= 1 && (pageTail || junkRun >= 1) && t.length < 200) return true;
+  if (junkRun >= 2 && pageTail && t.length < 180) return true;
+  // Classic ".... oooonnn 87" even without named soup tokens
+  if (/\.{2,}\s*[oncrim]{4,}/i.test(t) && pageTail && t.length < 200) return true;
+  return false;
+}
+
+/**
+ * Dual-column OCR shred: interleaved streams / page crumbs that cannot be
+ * demerged mechanically. Blank only — never invent column split.
+ * Fail-closed: intentional short Latin lemmata + Spanish prose stay.
+ */
+export function isDualColumnShredUnit(text: string): boolean {
+  if (!text) return false;
+  const t = text.trim();
+  if (!t || t === OCR_GARBAGE_PLACEHOLDER) return false;
+  // Prefer mid-length shredded units; long clean body rarely matches
+  if (t.length < 40 || t.length > 900) return false;
+
+  const hyphenBreaks = (t.match(/\w{3,}-\s+\w{2,}/g) || []).length;
+  const pageCrumbs = (t.match(/\b\d{1,3}\b/g) || []).length;
+  // Foreign diacritic crumbs typical of dual-column German/French biblio bleed
+  const foreignCrumb = (
+    t.match(/[äöüßæœ]|fiwr|fir\s|siécles|thent|zugesproch/gi) || []
+  ).length;
+  // Mid-unit capital islands mixed with lowercase glue (two streams)
+  const midCaps = (t.match(/(?<=[a-záéíóúñ]{4,})\s+[A-ZÁÉÍÓÚÑ]{4,}\b/g) || [])
+    .length;
+  const soup = (t.match(/[oncrim]{8,}/gi) || []).length;
+
+  // Strong: hyphen breaks + foreign crumb or dense page crumbs on short unit
+  if (hyphenBreaks >= 2 && (foreignCrumb >= 1 || pageCrumbs >= 4) && t.length < 500) {
+    return true;
+  }
+  if (hyphenBreaks >= 1 && foreignCrumb >= 2 && t.length < 400) return true;
+  if (pageCrumbs >= 6 && midCaps >= 2 && soup >= 1 && t.length < 350) return true;
+  // Short unit with ≥2 bare page-like numbers and clear stream glue
+  if (
+    t.length < 180 &&
+    pageCrumbs >= 2 &&
+    hyphenBreaks >= 1 &&
+    /[A-ZÁÉÍÓÚÑ]{3,}.*[a-záéíóúñ]{4,}.*[A-ZÁÉÍÓÚÑ]{3,}/.test(t)
+  ) {
+    return true;
+  }
+  return false;
+}
+
 /** Index / materias zone cue for stricter garbage scoring. */
 export function isIndexZoneUnit(text: string): boolean {
   if (!text) return false;
   return (
     /[ÍI]NDICE\s+GENERAL/i.test(text) ||
-    /[ÍI]NDICE\s+DE\s+(?:CONCEPTOS|MATERIAS|NOMBRES)/i.test(text) ||
-    /DE\s+MATERIAS\s+DE\s+LOS\s+(?:DIECIOCHO|18)/i.test(text)
+    /[ÍI]NDICE\s+DE\s+(?:CONCEPTOS|MATERIAS|NOMBRES|LUGARES)/i.test(text) ||
+    /[ÍI]ndice\s+b[ií]blico/i.test(text) ||
+    /[ÍI]NDICE\s+B[IÍ]BLICO/i.test(text) ||
+    /DE\s+MATERIAS\s+DE\s+LOS\s+(?:DIECIOCHO|18)/i.test(text) ||
+    /\bNOTAS\b.*\b[ÍI]NDICE/i.test(text) ||
+    /\b[ÍI]NDICE\b.*\bNOTAS\b/i.test(text)
+  );
+}
+
+/** Units that should be blanked (slot kept) for residual BAC/OCR noise. */
+export function shouldBlankUnit(text: string): boolean {
+  return (
+    isEditorialChromeUnit(text) ||
+    isRunningHeaderUnit(text) ||
+    isLeaderSoupUnit(text) ||
+    isDualColumnShredUnit(text) ||
+    scoreGarbageUnit(text).isGarbage
   );
 }
 
@@ -762,9 +882,18 @@ export function scoreGarbageUnit(text: string): GarbageUnitScore {
     reasons.push(`junk_runs=${junkRuns}`);
   }
 
+  // Named leader-soup tokens (ccoo / onononic) without classic "...."
+  const leaderSoupHits = (
+    t.match(/(?:ccoo|ccoocioo|onononic|cooicn|oonin|occoc)/gi) || []
+  ).length;
+  if (leaderSoupHits >= 1) {
+    score += leaderSoupHits * 2;
+    reasons.push(`leader_soup=${leaderSoupHits}`);
+  }
+
   // Dense classic dotted leaders with page-number-ish tails
   const denseDots = (t.match(/(?:\.\s*){8,}|\.{8,}/g) || []).length;
-  if (denseDots >= 1 && (junkRuns >= 1 || tocLeader >= 1)) {
+  if (denseDots >= 1 && (junkRuns >= 1 || tocLeader >= 1 || leaderSoupHits >= 1)) {
     score += 2;
     reasons.push(`dense_dots=${denseDots}`);
   }
@@ -822,9 +951,12 @@ export function scoreGarbageUnit(text: string): GarbageUnitScore {
 
   // Threshold: need clear TOC/junk signal (not mere short citation lines)
   // Index zone: slightly lower bar (score ≥ 3) for shredded materias lists.
+  // Leader-soup short units: score ≥ 3 is enough when page crumbs present.
+  const pageTail = /\d{1,4}\s*$/.test(t.trim()) || /\bP[aá]gs?\.?\b/i.test(t);
   const isGarbage =
     score >= 5 ||
     (indexZone && score >= 3 && t.length > 60) ||
+    (leaderSoupHits >= 1 && pageTail && t.length < 220 && score >= 3) ||
     (tocLeader >= 2 && junkRuns >= 1) ||
     junkRuns >= 3 ||
     tocLeader >= 3;
@@ -834,8 +966,7 @@ export function scoreGarbageUnit(text: string): GarbageUnitScore {
 
 /** True when unit should be blanked for the reader. */
 export function isGarbageUnit(text: string): boolean {
-  if (isEditorialChromeUnit(text) || isRunningHeaderUnit(text)) return true;
-  return scoreGarbageUnit(text).isGarbage;
+  return shouldBlankUnit(text);
 }
 
 /**
@@ -874,9 +1005,12 @@ export function repairOcrNoiseUnit(
 ): UnitNoiseRepairResult {
   const excludeGarbage = options?.excludeGarbage !== false;
   const g = scoreGarbageUnit(contenido);
-  const chrome =
-    isEditorialChromeUnit(contenido) || isRunningHeaderUnit(contenido);
-  if (excludeGarbage && (g.isGarbage || chrome)) {
+  const blank =
+    isEditorialChromeUnit(contenido) ||
+    isRunningHeaderUnit(contenido) ||
+    isLeaderSoupUnit(contenido) ||
+    isDualColumnShredUnit(contenido);
+  if (excludeGarbage && (g.isGarbage || blank)) {
     const next =
       contenido.trim() === OCR_GARBAGE_PLACEHOLDER
         ? contenido
@@ -886,7 +1020,7 @@ export function repairOcrNoiseUnit(
       changed: next !== contenido,
       collapsedSpaced: false,
       excludedGarbage: true,
-      garbageScore: chrome ? Math.max(g.score, 5) : g.score,
+      garbageScore: blank ? Math.max(g.score, 5) : g.score,
     };
   }
   const repaired = repairOcrSpacedText(contenido);
