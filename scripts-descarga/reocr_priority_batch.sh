@@ -13,11 +13,16 @@ STAMP=$(date +%Y%m%d-%H%M%S)
 LOG="$LOG_DIR/priority-batch-$STAMP.log"
 SUMMARY="$LOG_DIR/priority-batch-$STAMP.summary.txt"
 
-IDS=(
-  "agustin-05-de-trinitate-es"
-  "agustin-15-tratados-escriturarios-es"
-  "agustin-18-epistolas-indices-es"
-)
+# Override: REOCR_IDS="id1,id2,id3" or default first priority trio
+if [[ -n "${REOCR_IDS:-}" ]]; then
+  IFS=',' read -ra IDS <<< "$REOCR_IDS"
+else
+  IDS=(
+    "agustin-05-de-trinitate-es"
+    "agustin-15-tratados-escriturarios-es"
+    "agustin-18-epistolas-indices-es"
+  )
+fi
 
 DO_IMPORT="${DO_IMPORT:-1}"
 DO_REPAIR="${DO_REPAIR:-1}"
@@ -30,6 +35,7 @@ log() { echo "$(date -Iseconds) [priority-batch] $*"; }
 
 log "START log=$LOG"
 log "jobs=$JOBS dpi=$DPI do_import=$DO_IMPORT do_repair=$DO_REPAIR"
+log "ids=${IDS[*]}"
 log "policy: local PDF only — no Drive/download"
 
 echo "reocr priority batch $STAMP" > "$SUMMARY"
