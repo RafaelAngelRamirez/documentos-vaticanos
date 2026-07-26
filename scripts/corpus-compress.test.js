@@ -243,6 +243,77 @@ function main() {
     fs.rmSync(tmpRoot, { recursive: true, force: true });
   }
 
+  section('search/ sibling pack is preserved (topic-search scaffold)');
+  {
+    const tmpSearch = fs.mkdtempSync(
+      path.join(os.tmpdir(), 'corpus-compress-search-'),
+    );
+    try {
+      fs.writeFileSync(
+        path.join(tmpSearch, 'manifest.json'),
+        JSON.stringify({ version: '1', documents: [] }),
+      );
+      const searchDir = path.join(tmpSearch, 'search', 'es');
+      fs.mkdirSync(searchDir, { recursive: true });
+      const searchFiles = {
+        'manifest.json': JSON.stringify({
+          version: '0.1.0',
+          schema: 1,
+          locale: 'es',
+          topicCount: 0,
+          files: {
+            topics: 'topics.json',
+            postings: 'topic-postings.json',
+            termTopics: 'term-topics.json',
+          },
+        }),
+        'topics.json': JSON.stringify({ topics: [] }),
+        'topic-postings.json': JSON.stringify({
+          version: 1,
+          locale: 'es',
+          postings: {},
+        }),
+        'term-topics.json': JSON.stringify({
+          version: 1,
+          locale: 'es',
+          terms: {},
+        }),
+      };
+      for (const [name, body] of Object.entries(searchFiles)) {
+        fs.writeFileSync(path.join(searchDir, name), body);
+      }
+      fs.writeFileSync(
+        path.join(tmpSearch, 'search', 'search-manifest.json'),
+        JSON.stringify({ version: '0.1.0', schema: 1, locales: { es: 'es' } }),
+      );
+      // decoy meta under search must not be deleted
+      fs.writeFileSync(
+        path.join(searchDir, 'meta.json'),
+        JSON.stringify({ keep: true }),
+      );
+
+      compressCorpusTree(tmpSearch, { keepMeta: false });
+
+      for (const name of Object.keys(searchFiles)) {
+        assert.ok(
+          fs.existsSync(path.join(searchDir, name)),
+          `search/es/${name} must survive compress`,
+        );
+      }
+      assert.ok(
+        fs.existsSync(path.join(tmpSearch, 'search', 'search-manifest.json')),
+        'search-manifest.json must survive',
+      );
+      assert.ok(
+        fs.existsSync(path.join(searchDir, 'meta.json')),
+        'meta.json under search/ must not be stripped',
+      );
+      console.log('  search/ pack preserved OK');
+    } finally {
+      fs.rmSync(tmpSearch, { recursive: true, force: true });
+    }
+  }
+
   section('package scripts hook the prescript before freezing deliverables');
   for (const [label, file] of [
     ['package-web.sh', PACKAGE_WEB],

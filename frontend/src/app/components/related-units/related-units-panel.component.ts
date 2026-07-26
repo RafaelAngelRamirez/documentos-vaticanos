@@ -16,8 +16,10 @@ import {
   ThemeStepSeed,
   toSearchDocumentInput,
 } from 'src/app/core/search/semantic-search.logic';
+import { DEFAULT_BODY_LOAD_CONCURRENCY } from 'src/app/core/search/search-load.logic';
 import { CargarDocumentosJsonService } from 'src/app/services/cargar-documentos-json.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 
 export type RelatedUnitsVariant = 'passage' | 'saint' | 'document';
 
@@ -68,6 +70,7 @@ export class RelatedUnitsPanelComponent implements OnChanges {
   constructor(
     private docs: CargarDocumentosJsonService,
     private nav: NavigationService,
+    private readerPrefs: ReaderPreferencesService,
   ) {}
 
   get resolvedLede(): string {
@@ -117,54 +120,68 @@ export class RelatedUnitsPanelComponent implements OnChanges {
     this.loading = true;
     this.loadError = null;
 
-    this.docs.ensureAllLoaded().subscribe({
-      next: (list) => {
-        if (myGen !== this.gen) return;
-        try {
-          const inputs = list.map((d) =>
-            toSearchDocumentInput(
-              d.id || d.nombre || '',
-              d.indice,
-              d.documento || [],
-            ),
-          );
-          let rows: RelatedCitationRow[] = [];
-          if (step) {
-            rows = suggestRelatedForStep(step, inputs, {
-              limit: this.limit,
-              quality: 'passage',
-            });
-          } else if (text && this.variant === 'saint') {
-            rows = suggestRelatedForSaint(text, inputs, {
-              limit: this.limit,
-              preferDocumentIds: this.preferDocumentIds || undefined,
-            });
-          } else if (text && this.variant === 'document') {
-            rows = suggestRelatedForDocument(text, inputs, {
-              documentId: this.excludeDocumentId || undefined,
-              limit: this.limit,
-            });
-          } else if (text) {
-            rows = suggestRelatedCitations(text, inputs, {
-              limit: this.limit,
-              quality: 'passage',
-              excludeDocumentId: this.excludeDocumentId || undefined,
-            });
+    const locale = this.readerPrefs.resolveContentLocale();
+    const extraIds = [
+      step?.documentId,
+      this.excludeDocumentId || undefined,
+      ...(this.preferDocumentIds || []),
+    ].filter((id): id is string => !!id);
+
+    // PR2a: bounded hub pool + seed/prefer docs — no full multi-locale bulk load.
+    this.docs
+      .ensureLoadedRelatedPool(locale, {
+        extraIds,
+        concurrency: DEFAULT_BODY_LOAD_CONCURRENCY,
+        isCancelled: () => myGen !== this.gen,
+      })
+      .subscribe({
+        next: (list) => {
+          if (myGen !== this.gen) return;
+          try {
+            const inputs = list.map((d) =>
+              toSearchDocumentInput(
+                d.id || d.nombre || '',
+                d.indice,
+                d.documento || [],
+              ),
+            );
+            let rows: RelatedCitationRow[] = [];
+            if (step) {
+              rows = suggestRelatedForStep(step, inputs, {
+                limit: this.limit,
+                quality: 'passage',
+              });
+            } else if (text && this.variant === 'saint') {
+              rows = suggestRelatedForSaint(text, inputs, {
+                limit: this.limit,
+                preferDocumentIds: this.preferDocumentIds || undefined,
+              });
+            } else if (text && this.variant === 'document') {
+              rows = suggestRelatedForDocument(text, inputs, {
+                documentId: this.excludeDocumentId || undefined,
+                limit: this.limit,
+              });
+            } else if (text) {
+              rows = suggestRelatedCitations(text, inputs, {
+                limit: this.limit,
+                quality: 'passage',
+                excludeDocumentId: this.excludeDocumentId || undefined,
+              });
+            }
+            this.rows = rows;
+          } catch {
+            this.rows = [];
+            this.loadError = null; // degrade quietly offline
           }
-          this.rows = rows;
-        } catch {
+          this.loading = false;
+        },
+        error: () => {
+          if (myGen !== this.gen) return;
           this.rows = [];
-          this.loadError = null; // degrade quietly offline
-        }
-        this.loading = false;
-      },
-      error: () => {
-        if (myGen !== this.gen) return;
-        this.rows = [];
-        this.loading = false;
-        this.loadError = null;
-      },
-    });
+          this.loading = false;
+          this.loadError = null;
+        },
+      });
   }
 
   open(row: RelatedCitationRow): void {

@@ -10,11 +10,13 @@ import { ArticleInfo } from '../punto/punto/punto.component';
 import { UtilidadesService } from 'src/app/services/utilidades.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
+import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import {
   parseSearchInput,
   rankUnitsForDocument,
   type RankedUnitHit,
 } from 'src/app/core/search/semantic-search.logic';
+import { DEFAULT_BODY_LOAD_CONCURRENCY } from 'src/app/core/search/search-load.logic';
 
 const PAGE = 50;
 
@@ -44,49 +46,51 @@ export class BuscadorComponent implements OnInit, OnDestroy {
 
   loading_docs = false;
   load_error: string | null = null;
-  private docs_ready = false;
-  private pending_terminos: TermsProcessed | null = null;
+  /**
+   * Opt-in: search all manifest locales (heavier). Default false = contentLocale only.
+   */
+  allLocales = false;
   private sub = new Subscription();
+  /** Bumps on each search so in-flight progressive loads can be dropped. */
+  private searchGen = 0;
 
   constructor(
     public busadorService: BuscadorService,
     private documentosService: CargarDocumentosJsonService,
     private utilidadesService: UtilidadesService,
     private navigationService: NavigationService,
-    private corpus: CorpusService
+    private corpus: CorpusService,
+    private readerPrefs: ReaderPreferencesService,
   ) {}
 
   ngOnInit(): void {
-    this.sub.add(
-      this.busadorService.terminos_emit.subscribe((terminos) => {
-        this.terminos = terminos;
-        this.procesar_busqueda(terminos);
-      })
-    );
-
+    // Manifest only on open — progressive locale load on query (PR2a).
     this.loading_docs = true;
     this.sub.add(
-      this.documentosService.ensureAllLoaded().subscribe({
+      this.documentosService.loadManifest().subscribe({
         next: () => {
           this.loading_docs = false;
-          this.docs_ready = true;
           this.load_error = null;
-          if (this.pending_terminos) {
-            this.procesar_busqueda(this.pending_terminos);
-            this.pending_terminos = null;
-          }
         },
         error: (err) => {
           this.loading_docs = false;
           this.load_error =
-            err?.message ?? 'No se pudieron cargar los documentos.';
+            err?.message ?? 'No se pudo cargar el catálogo del corpus.';
           console.error(err);
         },
-      })
+      }),
+    );
+
+    this.sub.add(
+      this.busadorService.terminos_emit.subscribe((terminos) => {
+        this.terminos = terminos;
+        this.procesar_busqueda(terminos);
+      }),
     );
   }
 
   ngOnDestroy(): void {
+    this.searchGen++;
     this.sub.unsubscribe();
   }
 
@@ -144,11 +148,6 @@ export class BuscadorComponent implements OnInit, OnDestroy {
   }
 
   procesar_busqueda(terminos: TermsProcessed) {
-    if (!this.docs_ready) {
-      this.pending_terminos = terminos;
-      return;
-    }
-
     const raw =
       terminos.rawQuery ??
       [
@@ -173,14 +172,56 @@ export class BuscadorComponent implements OnInit, OnDestroy {
 
     this.docs_resultados = [];
     if (parsed.empty) {
+      this.searchGen++;
+      this.loading_docs = false;
       this.buildRows();
       return;
     }
 
-    /** Global ranked hits so multi-doc results respect relatedness score. */
+    const myGen = ++this.searchGen;
+    this.loading_docs = true;
+    this.load_error = null;
+    const locale = this.readerPrefs.resolveContentLocale();
+
+    this.sub.add(
+      this.documentosService
+        .ensureLoadedForLocale(locale, {
+          allLocales: this.allLocales,
+          concurrency: DEFAULT_BODY_LOAD_CONCURRENCY,
+          isCancelled: () => myGen !== this.searchGen,
+        })
+        .subscribe({
+          next: (docs) => {
+            if (myGen !== this.searchGen) return;
+            this.loading_docs = false;
+            this.applyRanking(docs, parsed);
+          },
+          error: (err) => {
+            if (myGen !== this.searchGen) return;
+            this.loading_docs = false;
+            this.load_error =
+              err?.message ?? 'No se pudieron cargar documentos para buscar.';
+            this.docs_resultados = [];
+            this.rows = [];
+            console.error(err);
+          },
+        }),
+    );
+  }
+
+  /** Rank loaded docs for the current parsed query (locale-scoped pool). */
+  private applyRanking(
+    docs: DocumentoDatos[],
+    parsed: {
+      empty: boolean;
+      phrases: string[];
+      contentTerms: string[];
+      points: number[];
+    },
+  ): void {
     const rankedAll: { hit: RankedUnitHit; doc: DocumentoDatos }[] = [];
 
-    for (const doc of this.documentosService.documentos_disponibles) {
+    for (const doc of docs) {
       const documentId = doc.id || doc.nombre || '';
       const hits = rankUnitsForDocument(
         {
@@ -202,7 +243,6 @@ export class BuscadorComponent implements OnInit, OnDestroy {
         a.hit.unitIndex - b.hit.unitIndex,
     );
 
-    // Group back by document while preserving global score order within each doc.
     const byDoc = new Map<DocumentoDatos, RankedUnitHit[]>();
     const docOrder: DocumentoDatos[] = [];
     for (const { hit, doc } of rankedAll) {
@@ -213,6 +253,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
       byDoc.get(doc)!.push(hit);
     }
 
+    this.docs_resultados = [];
     for (const doc of docOrder) {
       const hits = byDoc.get(doc) ?? [];
       const puntos_completos = hits

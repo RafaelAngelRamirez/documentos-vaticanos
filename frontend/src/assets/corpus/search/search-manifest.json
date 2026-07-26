@@ -1,0 +1,8 @@
+{
+  "version": "0.1.0",
+  "schema": 1,
+  "locales": {
+    "es": "es"
+  },
+  "sourceNote": "Topic-search pack scaffolding (PR1). Empty catalog until topics:build ships seed + postings."
+}

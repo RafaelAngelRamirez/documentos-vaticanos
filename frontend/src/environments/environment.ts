@@ -11,4 +11,9 @@ export const environment = {
    * of the embedded static pack — so a new publish is visible without reinstall.
    */
   downloadsPublicOrigin: 'https://docvat.codice-progressio.online',
+  /**
+   * Offline topic-search pack (`assets/corpus/search/`). When false, loader
+   * returns empty packs without HTTP. Opt-out via reader prefs later.
+   */
+  featureTopicSearch: true,
 };

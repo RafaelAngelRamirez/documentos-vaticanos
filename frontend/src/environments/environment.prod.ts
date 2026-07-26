@@ -9,4 +9,6 @@ export const environment = {
    * Must stay absolute so Capacitor/Electron do not read the empaquetado stub.
    */
   downloadsPublicOrigin: 'https://docvat.codice-progressio.online',
+  /** Offline topic-search pack under assets/corpus/search/. */
+  featureTopicSearch: true,
 };

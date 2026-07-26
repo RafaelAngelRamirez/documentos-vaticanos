@@ -11,6 +11,7 @@
  *
  * Does NOT reindex units, rename document ids, drop content.json / index.json,
  * or change consecutivo / contenido / non-empty referencias.
+ * Does NOT delete sibling packs under search/ or context/ (topic-search, history).
  *
  * Usage:
  *   node scripts/corpus-compress.js --root <corpusDir> [--dry-run] [--keep-meta]
@@ -200,7 +201,14 @@ function compressCorpusTree(rootDir, opts = {}) {
       const before = st.size;
       stats.bytesBefore += before;
 
-      if (ent.name === 'meta.json' && !keepMeta) {
+      // Never strip sibling offline packs (topic-search, historical context).
+      // meta.json only exists under documents/<id>/ for reading packs.
+      const relFromRoot = path.relative(rootDir, full).split(path.sep).join('/');
+      const underSiblingPack =
+        relFromRoot.startsWith('search/') ||
+        relFromRoot.startsWith('context/');
+
+      if (ent.name === 'meta.json' && !keepMeta && !underSiblingPack) {
         stats.metaRemoved += 1;
         // omitted from ship: 0 after bytes
         if (!dryRun) {

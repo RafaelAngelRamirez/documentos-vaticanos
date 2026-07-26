@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, forkJoin, of } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { Observable, from, of } from 'rxjs';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { CorpusService } from '../core/corpus/corpus.service';
 import { SantoralService } from '../core/santoral/santoral.service';
 import {
@@ -11,6 +11,13 @@ import {
   LoadedDocument,
   Referencia,
 } from '../core/corpus/corpus.models';
+import {
+  DEFAULT_BODY_LOAD_CONCURRENCY,
+  DEFAULT_RELATED_HUB_CAP,
+  mapPool,
+  metasForSearchLocale,
+  pickRelatedHubMetas,
+} from '../core/search/search-load.logic';
 
 // Re-export models so existing imports keep working.
 export type {
@@ -22,6 +29,18 @@ export type {
   Referencia,
 };
 
+export interface EnsureLoadedManyOptions {
+  /** Max concurrent ensureLoaded calls (default 6). */
+  concurrency?: number;
+  /** When true, abort scheduling further loads (stale query gen). */
+  isCancelled?: () => boolean;
+  /**
+   * When true (default), failed individual docs are skipped instead of
+   * failing the whole batch.
+   */
+  softFail?: boolean;
+}
+
 /**
  * Thin facade over {@link CorpusService} to minimize consumer churn.
  * Documents are no longer statically imported; they load via HTTP on demand.
@@ -32,8 +51,8 @@ export type {
 })
 export class CargarDocumentosJsonService {
   /**
-   * Populated after {@link ensureAllLoaded} / individual loads.
-   * Prefer async APIs for new code.
+   * Populated after progressive / individual loads.
+   * Prefer async APIs for new code. Not a full-corpus guarantee.
    */
   documentos_disponibles: IndiceDocumentos[] = [];
 
@@ -64,8 +83,107 @@ export class CargarDocumentosJsonService {
   }
 
   /**
-   * Load manifest + every document body/index.
-   * Used by full-text search / related panels — not Biblioteca (catalog = manifest only).
+   * Load many document ids with a concurrency pool (PR2a progressive search).
+   * Prefer this over {@link ensureAllLoaded}. Soft-fails per doc by default.
+   */
+  ensureLoadedMany(
+    documentIds: string[],
+    options: EnsureLoadedManyOptions = {},
+  ): Observable<IndiceDocumentos[]> {
+    const ids = [...new Set(documentIds.filter(Boolean))];
+    if (!ids.length) return of([]);
+    const concurrency = options.concurrency ?? DEFAULT_BODY_LOAD_CONCURRENCY;
+    const soft = options.softFail !== false;
+    const isCancelled = options.isCancelled;
+
+    return from(
+      mapPool(
+        ids,
+        concurrency,
+        async (id) => {
+          if (isCancelled?.()) return null;
+          try {
+            return await new Promise<IndiceDocumentos>((resolve, reject) => {
+              this.ensureLoaded(id).subscribe({
+                next: resolve,
+                error: reject,
+              });
+            });
+          } catch (err) {
+            if (soft) {
+              console.warn(`ensureLoadedMany soft-fail ${id}`, err);
+              return null;
+            }
+            throw err;
+          }
+        },
+        isCancelled,
+      ),
+    ).pipe(
+      map((rows) =>
+        rows.filter((d): d is IndiceDocumentos => d != null),
+      ),
+    );
+  }
+
+  /**
+   * Locale-scoped progressive load for general search (PR2a).
+   * Loads body+index for matching locale only — residual ES ~194MB until PR2b ensureIndex.
+   * Does **not** load the full multi-locale pack.
+   */
+  ensureLoadedForLocale(
+    contentLocale: string,
+    opts: EnsureLoadedManyOptions & { allLocales?: boolean } = {},
+  ): Observable<IndiceDocumentos[]> {
+    return this.corpus.loadManifest().pipe(
+      switchMap((metas) => {
+        const scoped = metasForSearchLocale(
+          metas,
+          contentLocale,
+          opts.allLocales === true,
+        );
+        return this.ensureLoadedMany(
+          scoped.map((m) => m.id),
+          opts,
+        );
+      }),
+    );
+  }
+
+  /**
+   * Bounded hub pool for related citations (PR2a/C.3) — not full locale.
+   */
+  ensureLoadedRelatedPool(
+    contentLocale: string,
+    opts: EnsureLoadedManyOptions & {
+      allLocales?: boolean;
+      hubCap?: number;
+      extraIds?: string[];
+    } = {},
+  ): Observable<IndiceDocumentos[]> {
+    return this.corpus.loadManifest().pipe(
+      switchMap((metas) => {
+        const hubs = pickRelatedHubMetas(
+          metas,
+          contentLocale,
+          opts.hubCap ?? DEFAULT_RELATED_HUB_CAP,
+          opts.allLocales === true,
+        );
+        const ids = [
+          ...new Set([
+            ...hubs.map((m) => m.id),
+            ...(opts.extraIds || []).filter(Boolean),
+          ]),
+        ];
+        return this.ensureLoadedMany(ids, opts);
+      }),
+    );
+  }
+
+  /**
+   * @deprecated Prefer {@link ensureLoadedForLocale} / {@link ensureLoadedMany}.
+   * Loads **every** manifest document (multi-locale OOM risk on device).
+   * Kept only for emergency / tests; search UI must not call this.
    */
   ensureAllLoaded(): Observable<IndiceDocumentos[]> {
     return this.corpus.loadManifest().pipe(
@@ -74,12 +192,15 @@ export class CargarDocumentosJsonService {
           this.documentos_disponibles = [];
           return of([]);
         }
-        return forkJoin(metas.map((m) => this.ensureLoaded(m.id))).pipe(
+        return this.ensureLoadedMany(
+          metas.map((m) => m.id),
+          { concurrency: DEFAULT_BODY_LOAD_CONCURRENCY },
+        ).pipe(
           tap((docs) => {
             this.documentos_disponibles = docs;
-          })
+          }),
         );
-      })
+      }),
     );
   }
 

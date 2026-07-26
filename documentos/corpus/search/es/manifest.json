@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "schema": 1,
+  "locale": "es",
+  "generatedAt": "2026-07-26T00:00:00.000Z",
+  "corpusFingerprint": {
+    "algo": "sha256",
+    "value": "scaffold",
+    "docCount": 0
+  },
+  "caps": {
+    "maxTopics": 250,
+    "maxPostingsPerTopic": 200,
+    "maxRawBytes": 12000000
+  },
+  "topicCount": 0,
+  "edgeCount": 0,
+  "files": {
+    "topics": "topics.json",
+    "postings": "topic-postings.json",
+    "termTopics": "term-topics.json"
+  },
+  "sourceNote": "Empty ES topic pack scaffold. Degrades gracefully until PR4 seed/postings."
+}

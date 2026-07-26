@@ -715,6 +715,8 @@ export function searchCorpus(
 
 // ── Product-facing related citations (themes / notes) ───────────────────
 
+export type RelatedEvidenceReason = 'ref' | 'topic' | 'lexical';
+
 export interface RelatedCitationRow {
   documentId: string;
   unitIndex: number;
@@ -725,6 +727,8 @@ export interface RelatedCitationRow {
   /** Short plain snippet for list rows. */
   snippet: string;
   matchedTerms: string[];
+  /** Optional evidence source when graph/topic merge runs (PR3+). */
+  reason?: RelatedEvidenceReason;
 }
 
 export interface ThemeStepSeed {
