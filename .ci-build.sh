@@ -155,8 +155,9 @@ CURRENT_STAGE="APK instalable"
 notify_step "$CURRENT_STAGE" || true
 bash scripts/package-apk.sh
 
-# Optional AAB (Play) — not on the default critical path unless keystore/env set.
-if [[ "${DV_BUILD_AAB:-0}" == "1" || "${DV_PLAY_UPLOAD:-0}" == "1" || -n "${DV_KEYSTORE_PASSWORD:-}" ]]; then
+# Optional AAB (Play) — off unless explicitly requested. Keystore alone must NOT
+# enable AAB (n8n/host often mounts secrets; critical path is web+APK only).
+if [[ "${DV_BUILD_AAB:-0}" == "1" || "${DV_PLAY_UPLOAD:-0}" == "1" ]]; then
   CURRENT_STAGE="AAB signed"
   notify_step "$CURRENT_STAGE" || true
   if [[ -z "${DV_KEYSTORE_PASSWORD:-}" ]]; then
@@ -166,7 +167,7 @@ if [[ "${DV_BUILD_AAB:-0}" == "1" || "${DV_PLAY_UPLOAD:-0}" == "1" || -n "${DV_K
     bash scripts/package-aab.sh
   fi
 else
-  echo "==> AAB skipped (set DV_BUILD_AAB=1 or DV_PLAY_UPLOAD=1 or DV_KEYSTORE_PASSWORD)"
+  echo "==> AAB skipped (critical path web+APK; set DV_BUILD_AAB=1 or DV_PLAY_UPLOAD=1 to enable)"
 fi
 
 # Electron is expensive (Wine for Windows). Default OFF on CI critical path.
