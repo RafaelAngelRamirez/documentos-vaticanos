@@ -10,6 +10,7 @@ import { debounceTime } from 'rxjs';
 /**
  * Full-text search (app feature beyond the design catalog filter).
  * Reached from Biblioteca → "Buscar en el texto".
+ * PR5: also accepts `?mode=topic&slug=gracia` (or `topic=`) deep links.
  */
 @Component({
   standalone: true,
@@ -29,12 +30,22 @@ export class BuscarComponent {
     // Keep global control in sync (legacy consumers / deep links).
     this.buscadorService.global_control_search_input = this.control;
     this.control.valueChanges.pipe(debounceTime(400)).subscribe((v) => {
+      // Typing clears forced topic opts from the route snapshot (user overrides).
       this.buscadorService.buscar(v);
     });
-    const q = this.route.snapshot.queryParamMap.get('q');
-    if (q) {
-      this.control.setValue(q);
-      this.buscadorService.buscar(q);
+
+    const qp = this.route.snapshot.queryParamMap;
+    const q = qp.get('q');
+    const mode = qp.get('mode');
+    const slug = qp.get('slug') || qp.get('topic');
+    const display =
+      q ||
+      (mode === 'topic' && slug ? `tema:${slug}` : slug) ||
+      '';
+
+    if (display || mode === 'topic' || slug) {
+      this.control.setValue(display, { emitEvent: false });
+      this.buscadorService.buscar(display || null, { mode, slug, topic: qp.get('topic') });
     }
   }
 

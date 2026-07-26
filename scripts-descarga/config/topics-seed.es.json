@@ -1,0 +1,1375 @@
+{
+  "version": 1,
+  "locale": "es",
+  "sourceNote": "Curated ES Catholic theological seed for offline topic search (PR4a). IDs topic:es:{slug}.",
+  "topics": [
+    {
+      "slug": "aborto",
+      "label": "Aborto",
+      "aliases": ["interrupción del embarazo", "aborto procurado"],
+      "terms": ["aborto", "abortar", "abortivo", "abortados"],
+      "parent": "vida",
+      "related": ["bioetica", "dignidad", "eutanasia", "quinto-mandamiento"]
+    },
+    {
+      "slug": "adoracion",
+      "label": "Adoración",
+      "aliases": ["adoración eucarística", "culto de adoración"],
+      "terms": ["adoracion", "adorar", "adoracion eucaristica", "latria"],
+      "parent": "oracion",
+      "related": ["eucaristia", "liturgia", "culto"]
+    },
+    {
+      "slug": "alianza",
+      "label": "Alianza",
+      "aliases": ["nueva alianza", "antigua alianza", "pacto"],
+      "terms": ["alianza", "pacto", "testamento"],
+      "parent": "sagrada-escritura",
+      "related": ["jesucristo", "eucaristia", "salvacion"]
+    },
+    {
+      "slug": "alma",
+      "label": "Alma",
+      "aliases": ["alma inmortal", "alma racional"],
+      "terms": ["alma", "almas", "inmortal", "espiritual"],
+      "parent": "persona-humana",
+      "related": ["cuerpo", "muerte", "cielo", "infierno"]
+    },
+    {
+      "slug": "amor",
+      "label": "Amor",
+      "aliases": ["amor de Dios", "amor al prójimo"],
+      "terms": ["amor", "amar", "amado", "amada", "amores"],
+      "parent": null,
+      "related": ["caridad", "misericordia", "dios"]
+    },
+    {
+      "slug": "angeles",
+      "label": "Ángeles",
+      "aliases": ["ángeles de Dios", "espíritus celestes", "arcángeles"],
+      "terms": ["angel", "angeles", "arcangel", "serafines", "querubines"],
+      "parent": "creacion",
+      "related": ["demonio", "dios", "liturgia"]
+    },
+    {
+      "slug": "apostolado",
+      "label": "Apostolado",
+      "aliases": ["misión apostólica", "obra apostólica"],
+      "terms": ["apostolado", "apostol", "apostoles", "apostolico"],
+      "parent": "mision",
+      "related": ["laicos", "evangelizacion", "iglesia"]
+    },
+    {
+      "slug": "arrepentimiento",
+      "label": "Arrepentimiento",
+      "aliases": ["contrición", "dolor de los pecados"],
+      "terms": ["arrepentimiento", "contricion", "arrepentirse", "compuncion"],
+      "parent": "conversion",
+      "related": ["pecado", "reconciliacion", "penitencia"]
+    },
+    {
+      "slug": "ascension",
+      "label": "Ascensión",
+      "aliases": ["ascensión del Señor", "subida al cielo"],
+      "terms": ["ascension", "ascendio", "subio al cielo"],
+      "parent": "jesucristo",
+      "related": ["resurreccion", "parusia", "cielo"]
+    },
+    {
+      "slug": "asuncion",
+      "label": "Asunción",
+      "aliases": ["asunción de María", "asunta al cielo"],
+      "terms": ["asuncion", "asunta", "asunta al cielo"],
+      "parent": "maria",
+      "related": ["inmaculada", "cielo", "comunion-de-los-santos"]
+    },
+    {
+      "slug": "bautismo",
+      "label": "Bautismo",
+      "aliases": ["sacramento del bautismo", "bautismo de agua"],
+      "terms": ["bautismo", "bautizar", "bautizado", "bautismal", "baptismo"],
+      "parent": "sacramentos",
+      "related": ["confirmacion", "eucaristia", "gracia", "pecado-original"]
+    },
+    {
+      "slug": "beatitudes",
+      "label": "Bienaventuranzas",
+      "aliases": ["bienaventuranzas del sermón del monte"],
+      "terms": ["bienaventuranzas", "bienaventurado", "beatitudes"],
+      "parent": "moral",
+      "related": ["reino-de-dios", "caridad", "santidad"]
+    },
+    {
+      "slug": "bien-comun",
+      "label": "Bien común",
+      "aliases": ["bien común de la sociedad"],
+      "terms": ["bien comun", "comun"],
+      "parent": "doctrina-social",
+      "related": ["justicia-social", "solidaridad", "subsidiariedad", "paz"]
+    },
+    {
+      "slug": "bioetica",
+      "label": "Bioética",
+      "aliases": ["ética de la vida", "cuestiones biomédicas"],
+      "terms": ["bioetica", "biomedica", "reproduccion asistida", "clonacion"],
+      "parent": "moral",
+      "related": ["vida", "aborto", "eutanasia", "dignidad"]
+    },
+    {
+      "slug": "canon-biblico",
+      "label": "Canon bíblico",
+      "aliases": ["libros canónicos", "canon de las Escrituras"],
+      "terms": ["canon", "canonico", "deuterocanonicos", "apocrifos"],
+      "parent": "sagrada-escritura",
+      "related": ["inspiracion-biblica", "tradicion", "magisterio"]
+    },
+    {
+      "slug": "caracter-sacramental",
+      "label": "Carácter sacramental",
+      "aliases": ["sello indeleble", "carácter indeleble"],
+      "terms": ["caracter", "indeleble", "sello sacramental"],
+      "parent": "sacramentos",
+      "related": ["bautismo", "confirmacion", "orden"]
+    },
+    {
+      "slug": "caridad",
+      "label": "Caridad",
+      "aliases": ["amor cristiano", "caridad teologal"],
+      "terms": ["caridad", "caritativo", "caritativo", "agape"],
+      "parent": "virtudes-teologales",
+      "related": ["amor", "fe", "esperanza", "misericordia"]
+    },
+    {
+      "slug": "carismas",
+      "label": "Carismas",
+      "aliases": ["dones carismáticos", "carismas del Espíritu"],
+      "terms": ["carisma", "carismas", "carismaticos"],
+      "parent": "espiritu-santo",
+      "related": ["dones-del-espiritu", "iglesia", "apostolado"]
+    },
+    {
+      "slug": "castidad",
+      "label": "Castidad",
+      "aliases": ["pureza", "virtud de la castidad"],
+      "terms": ["castidad", "casto", "pureza", "continencia"],
+      "parent": "templanza",
+      "related": ["sexualidad", "matrimonio-moral", "sexto-mandamiento"]
+    },
+    {
+      "slug": "catequesis",
+      "label": "Catequesis",
+      "aliases": ["enseñanza de la fe", "formación catequética"],
+      "terms": ["catequesis", "catequista", "catecismo", "catequizar"],
+      "parent": "evangelizacion",
+      "related": ["fe", "magisterio", "sagrada-escritura"]
+    },
+    {
+      "slug": "cielo",
+      "label": "Cielo",
+      "aliases": ["paraíso", "visión beatífica", "gloria"],
+      "terms": ["cielo", "paraiso", "beatifica", "gloria eterna"],
+      "parent": "escatologia",
+      "related": ["infierno", "purgatorio", "vida-eterna", "comunion-de-los-santos"]
+    },
+    {
+      "slug": "comunion-de-los-santos",
+      "label": "Comunión de los santos",
+      "aliases": ["comunión de los santos", "comunión eclesial"],
+      "terms": ["comunion de los santos", "comunion", "santos"],
+      "parent": "iglesia",
+      "related": ["santos", "cielo", "purgatorio", "iglesia"]
+    },
+    {
+      "slug": "conciencia",
+      "label": "Conciencia",
+      "aliases": ["conciencia moral", "juicio de conciencia"],
+      "terms": ["conciencia", "conciencias", "escrupulo"],
+      "parent": "persona-humana",
+      "related": ["libertad", "ley-moral", "pecado", "conversion"]
+    },
+    {
+      "slug": "concilios",
+      "label": "Concilios",
+      "aliases": ["concilios ecuménicos", "concilio general"],
+      "terms": ["concilio", "concilios", "ecumenico", "sinodo"],
+      "parent": "magisterio",
+      "related": ["papado", "dogmas", "tradicion", "iglesia"]
+    },
+    {
+      "slug": "confirmacion",
+      "label": "Confirmación",
+      "aliases": ["sacramento de la confirmación", "crisma"],
+      "terms": ["confirmacion", "confirmar", "crisma", "crismacion"],
+      "parent": "sacramentos",
+      "related": ["bautismo", "espiritu-santo", "caracter-sacramental"]
+    },
+    {
+      "slug": "contemplacion",
+      "label": "Contemplación",
+      "aliases": ["oración contemplativa", "contemplación mística"],
+      "terms": ["contemplacion", "contemplar", "mistica"],
+      "parent": "oracion",
+      "related": ["lectio-divina", "santidad", "espiritu-santo"]
+    },
+    {
+      "slug": "conversion",
+      "label": "Conversión",
+      "aliases": ["metanoia", "conversión del corazón"],
+      "terms": ["conversion", "convertirse", "metanoia", "conversion del corazon"],
+      "parent": "moral",
+      "related": ["arrepentimiento", "pecado", "reconciliacion", "gracia"]
+    },
+    {
+      "slug": "creacion",
+      "label": "Creación",
+      "aliases": ["obra creadora", "creación del mundo"],
+      "terms": ["creacion", "creador", "crear", "creado", "creatura"],
+      "parent": "dios",
+      "related": ["providencia", "persona-humana", "angeles"]
+    },
+    {
+      "slug": "credos",
+      "label": "Credos",
+      "aliases": ["símbolo de la fe", "credo niceno", "credo de los apóstoles"],
+      "terms": ["credo", "credos", "simbolo de la fe", "profesion de fe"],
+      "parent": "fe",
+      "related": ["trinidad", "iglesia", "dogmas"]
+    },
+    {
+      "slug": "cruz",
+      "label": "Cruz",
+      "aliases": ["santa cruz", "cruz de Cristo"],
+      "terms": ["cruz", "crucificado", "crucifixion", "madero"],
+      "parent": "pasion",
+      "related": ["redencion", "misterio-pascual", "sufrimiento"]
+    },
+    {
+      "slug": "cuerpo",
+      "label": "Cuerpo humano",
+      "aliases": ["cuerpo y alma", "corporalidad"],
+      "terms": ["cuerpo", "corporal", "carne"],
+      "parent": "persona-humana",
+      "related": ["alma", "resurreccion-de-los-muertos", "sexualidad"]
+    },
+    {
+      "slug": "cuerpo-mistico",
+      "label": "Cuerpo místico",
+      "aliases": ["cuerpo místico de Cristo", "cuerpo de Cristo"],
+      "terms": ["cuerpo mistico", "cuerpo de cristo", "miembros de cristo"],
+      "parent": "iglesia",
+      "related": ["pueblo-de-dios", "eucaristia", "jesucristo"]
+    },
+    {
+      "slug": "culto",
+      "label": "Culto divino",
+      "aliases": ["culto a Dios", "latría"],
+      "terms": ["culto", "latria", "dulia", "hiperdulia"],
+      "parent": "liturgia",
+      "related": ["adoracion", "misa", "oracion"]
+    },
+    {
+      "slug": "demonio",
+      "label": "Demonio",
+      "aliases": ["Satanás", "diablo", "espíritu maligno"],
+      "terms": ["demonio", "demonios", "satanas", "diablo", "lucifer"],
+      "parent": "creacion",
+      "related": ["angeles", "tentacion", "exorcismo", "pecado"]
+    },
+    {
+      "slug": "deposito-de-la-fe",
+      "label": "Depósito de la fe",
+      "aliases": ["depósito revelado", "depositum fidei"],
+      "terms": ["deposito de la fe", "depositum", "deposito revelado"],
+      "parent": "revelacion",
+      "related": ["tradicion", "sagrada-escritura", "magisterio"]
+    },
+    {
+      "slug": "derechos-humanos",
+      "label": "Derechos humanos",
+      "aliases": ["derechos de la persona", "derechos fundamentales"],
+      "terms": ["derechos humanos", "derechos", "fundamentales"],
+      "parent": "doctrina-social",
+      "related": ["dignidad", "libertad-religiosa", "justicia-social"]
+    },
+    {
+      "slug": "diez-mandamientos",
+      "label": "Diez mandamientos",
+      "aliases": ["Decálogo", "mandamientos de la Ley de Dios"],
+      "terms": ["mandamientos", "decalogo", "diez mandamientos", "preceptos"],
+      "parent": "ley-moral",
+      "related": ["ley-natural", "moral", "amor"]
+    },
+    {
+      "slug": "dignidad",
+      "label": "Dignidad humana",
+      "aliases": ["dignidad de la persona", "dignidad del hombre"],
+      "terms": ["dignidad", "digno", "persona"],
+      "parent": "persona-humana",
+      "related": ["imagen-de-dios", "vida", "derechos-humanos"]
+    },
+    {
+      "slug": "dios",
+      "label": "Dios",
+      "aliases": ["Dios uno", "Señor", "Altísimo"],
+      "terms": ["dios", "señor", "senor", "altisimo", "yhwh"],
+      "parent": null,
+      "related": ["trinidad", "creacion", "providencia", "revelacion"]
+    },
+    {
+      "slug": "discernimiento",
+      "label": "Discernimiento",
+      "aliases": ["discernimiento de espíritus", "discernir la voluntad de Dios"],
+      "terms": ["discernimiento", "discernir", "discernimiento de espiritus"],
+      "parent": "vida-espiritual",
+      "related": ["conciencia", "espiritu-santo", "oracion"]
+    },
+    {
+      "slug": "divorcio",
+      "label": "Divorcio",
+      "aliases": ["ruptura del matrimonio", "divorcio civil"],
+      "terms": ["divorcio", "divorciados", "separacion conyugal"],
+      "parent": "matrimonio-moral",
+      "related": ["matrimonio", "familia", "indisolubilidad"]
+    },
+    {
+      "slug": "doctrina-social",
+      "label": "Doctrina social",
+      "aliases": ["doctrina social de la Iglesia", "enseñanza social"],
+      "terms": ["doctrina social", "ensenanza social", "social de la iglesia"],
+      "parent": "moral",
+      "related": ["bien-comun", "justicia-social", "pobreza", "trabajo"]
+    },
+    {
+      "slug": "dogmas",
+      "label": "Dogmas",
+      "aliases": ["dogma de fe", "definiciones dogmáticas"],
+      "terms": ["dogma", "dogmas", "dogmatico", "definicion dogmatica"],
+      "parent": "magisterio",
+      "related": ["fe", "infalibilidad", "deposito-de-la-fe"]
+    },
+    {
+      "slug": "dones-del-espiritu",
+      "label": "Dones del Espíritu",
+      "aliases": ["siete dones", "dones del Espíritu Santo"],
+      "terms": ["dones", "dones del espiritu", "siete dones", "don del espiritu"],
+      "parent": "espiritu-santo",
+      "related": ["carismas", "confirmacion", "gracia"]
+    },
+    {
+      "slug": "economia",
+      "label": "Economía y ética",
+      "aliases": ["ética económica", "economía justa"],
+      "terms": ["economia", "economico", "mercado", "riqueza"],
+      "parent": "doctrina-social",
+      "related": ["trabajo", "pobreza", "justicia-social", "bien-comun"]
+    },
+    {
+      "slug": "ecumenismo",
+      "label": "Ecumenismo",
+      "aliases": ["unidad de los cristianos", "movimiento ecuménico"],
+      "terms": ["ecumenismo", "ecumenico", "unidad de los cristianos"],
+      "parent": "iglesia",
+      "related": ["mision", "dialogo-interreligioso", "tradicion"]
+    },
+    {
+      "slug": "encarnacion",
+      "label": "Encarnación",
+      "aliases": ["Verbo encarnado", "misterio de la encarnación"],
+      "terms": ["encarnacion", "encarnado", "verbo se hizo carne", "hipostatica"],
+      "parent": "jesucristo",
+      "related": ["trinidad", "maria", "salvacion"]
+    },
+    {
+      "slug": "escatologia",
+      "label": "Escatología",
+      "aliases": ["novísimos", "últimas realidades", "fin de los tiempos"],
+      "terms": ["escatologia", "novisimos", "ultimos tiempos", "parusia"],
+      "parent": null,
+      "related": ["muerte", "juicio", "cielo", "infierno", "purgatorio"]
+    },
+    {
+      "slug": "esperanza",
+      "label": "Esperanza",
+      "aliases": ["virtud de la esperanza", "esperanza cristiana"],
+      "terms": ["esperanza", "esperar", "esperanzado"],
+      "parent": "virtudes-teologales",
+      "related": ["fe", "caridad", "vida-eterna", "parusia"]
+    },
+    {
+      "slug": "espiritu-santo",
+      "label": "Espíritu Santo",
+      "aliases": ["Paráclito", "Consolador", "Espíritu de Dios"],
+      "terms": ["espiritu santo", "espiritu", "paraclito", "consolador", "pneuma"],
+      "parent": "trinidad",
+      "related": ["confirmacion", "dones-del-espiritu", "carismas", "iglesia"]
+    },
+    {
+      "slug": "eucaristia",
+      "label": "Eucaristía",
+      "aliases": ["santísimo sacramento", "comunión", "cuerpo y sangre de Cristo"],
+      "terms": ["eucaristia", "eucaristico", "comunion", "hostia", "transubstanciacion"],
+      "parent": "sacramentos",
+      "related": ["misa", "adoracion", "misterio-pascual", "jesucristo"]
+    },
+    {
+      "slug": "eutanasia",
+      "label": "Eutanasia",
+      "aliases": ["muerte asistida", "homicidio por piedad"],
+      "terms": ["eutanasia", "suicidio asistido", "encarnizamiento terapeutico"],
+      "parent": "vida",
+      "related": ["aborto", "bioetica", "dignidad", "sufrimiento"]
+    },
+    {
+      "slug": "evangelizacion",
+      "label": "Evangelización",
+      "aliases": ["anuncio del Evangelio", "misión evangelizadora"],
+      "terms": ["evangelizacion", "evangelizar", "evangelio", "kerygma"],
+      "parent": "mision",
+      "related": ["catequesis", "nueva-evangelizacion", "iglesia", "apostolado"]
+    },
+    {
+      "slug": "exorcismo",
+      "label": "Exorcismo",
+      "aliases": ["liberación del demonio", "rito de exorcismo"],
+      "terms": ["exorcismo", "exorcista", "posesion", "liberacion"],
+      "parent": "sacramentales",
+      "related": ["demonio", "bautismo", "oracion"]
+    },
+    {
+      "slug": "familia",
+      "label": "Familia",
+      "aliases": ["familia cristiana", "iglesia doméstica"],
+      "terms": ["familia", "familiar", "hogar", "padres", "hijos"],
+      "parent": "matrimonio",
+      "related": ["matrimonio-moral", "educacion", "doctrina-social"]
+    },
+    {
+      "slug": "fe",
+      "label": "Fe",
+      "aliases": ["virtud de la fe", "fe cristiana", "creer"],
+      "terms": ["fe", "creer", "creencia", "fiel", "fides"],
+      "parent": "virtudes-teologales",
+      "related": ["esperanza", "caridad", "revelacion", "justificacion"]
+    },
+    {
+      "slug": "fe-y-razon",
+      "label": "Fe y razón",
+      "aliases": ["fe y razón", "fides et ratio", "inteligencia de la fe"],
+      "terms": ["razon", "inteligencia", "filosofia", "fides et ratio"],
+      "parent": "fe",
+      "related": ["verdad", "magisterio", "persona-humana"]
+    },
+    {
+      "slug": "fortaleza",
+      "label": "Fortaleza",
+      "aliases": ["virtud de la fortaleza", "valor cristiano"],
+      "terms": ["fortaleza", "valor", "coraje", "perseverancia"],
+      "parent": "virtudes-cardinales",
+      "related": ["martirio", "sufrimiento", "tentacion"]
+    },
+    {
+      "slug": "gracia",
+      "label": "Gracia",
+      "aliases": ["gracia de Dios", "gracia santificante", "gracia actual"],
+      "terms": ["gracia", "gracias", "santificante", "gratia", "don"],
+      "parent": null,
+      "related": ["justificacion", "sacramentos", "fe", "libre-albedrio"]
+    },
+    {
+      "slug": "guerra-y-paz",
+      "label": "Guerra y paz",
+      "aliases": ["guerra justa", "conflicto armado"],
+      "terms": ["guerra", "paz", "violencia", "desarme", "guerra justa"],
+      "parent": "doctrina-social",
+      "related": ["paz", "justicia-social", "bien-comun"]
+    },
+    {
+      "slug": "herejia",
+      "label": "Herejía",
+      "aliases": ["error doctrinal", "hereje"],
+      "terms": ["herejia", "hereje", "herejes", "heterodoxia"],
+      "parent": "deposito-de-la-fe",
+      "related": ["dogmas", "magisterio", "fe"]
+    },
+    {
+      "slug": "hijo",
+      "label": "Dios Hijo",
+      "aliases": ["Hijo de Dios", "segunda persona", "Verbo"],
+      "terms": ["hijo de dios", "verbo", "logos", "unigenito"],
+      "parent": "trinidad",
+      "related": ["jesucristo", "padre", "espiritu-santo", "encarnacion"]
+    },
+    {
+      "slug": "iglesia",
+      "label": "Iglesia",
+      "aliases": ["Iglesia católica", "Ecclesia", "Esposa de Cristo"],
+      "terms": ["iglesia", "ecclesia", "eclesial", "eclesiologia"],
+      "parent": null,
+      "related": ["pueblo-de-dios", "cuerpo-mistico", "sacramentos", "magisterio"]
+    },
+    {
+      "slug": "imagen-de-dios",
+      "label": "Imagen de Dios",
+      "aliases": ["imago Dei", "a imagen y semejanza"],
+      "terms": ["imagen de dios", "imago dei", "semejanza"],
+      "parent": "persona-humana",
+      "related": ["creacion", "dignidad", "alma"]
+    },
+    {
+      "slug": "inmaculada",
+      "label": "Inmaculada Concepción",
+      "aliases": ["inmaculada concepción", "María sin pecado original"],
+      "terms": ["inmaculada", "inmaculada concepcion", "sin pecado original"],
+      "parent": "maria",
+      "related": ["asuncion", "pecado-original", "gracia"]
+    },
+    {
+      "slug": "indisolubilidad",
+      "label": "Indisolubilidad del matrimonio",
+      "aliases": ["matrimonio indisoluble", "vínculo indisoluble"],
+      "terms": ["indisolubilidad", "indisoluble", "vinculo conyugal"],
+      "parent": "matrimonio",
+      "related": ["divorcio", "matrimonio-moral", "familia"]
+    },
+    {
+      "slug": "indulgencias",
+      "label": "Indulgencias",
+      "aliases": ["indulgencia plenaria", "indulgencia parcial"],
+      "terms": ["indulgencia", "indulgencias", "plenaria", "parcial"],
+      "parent": "reconciliacion",
+      "related": ["purgatorio", "penitencia", "comunion-de-los-santos"]
+    },
+    {
+      "slug": "infalibilidad",
+      "label": "Infalibilidad",
+      "aliases": ["infalibilidad papal", "infalibilidad del magisterio"],
+      "terms": ["infalibilidad", "infalible", "ex cathedra"],
+      "parent": "magisterio",
+      "related": ["papado", "dogmas", "concilios"]
+    },
+    {
+      "slug": "infierno",
+      "label": "Infierno",
+      "aliases": ["condenación eterna", "gehenna"],
+      "terms": ["infierno", "condenacion", "gehenna", "tinieblas"],
+      "parent": "escatologia",
+      "related": ["cielo", "juicio", "pecado-mortal", "demonio"]
+    },
+    {
+      "slug": "inspiracion-biblica",
+      "label": "Inspiración bíblica",
+      "aliases": ["inspiración de la Escritura", "palabra inspirada"],
+      "terms": ["inspiracion", "inspirada", "inspirado", "theopneustos"],
+      "parent": "sagrada-escritura",
+      "related": ["canon-biblico", "revelacion", "espiritu-santo"]
+    },
+    {
+      "slug": "jerarquia",
+      "label": "Jerarquía",
+      "aliases": ["jerarquía eclesiástica", "orden jerárquico"],
+      "terms": ["jerarquia", "jerarquico", "jerarcas"],
+      "parent": "iglesia",
+      "related": ["papado", "obispos", "sacerdocio", "laicos"]
+    },
+    {
+      "slug": "jesucristo",
+      "label": "Jesucristo",
+      "aliases": ["Jesús", "Cristo", "Mesías", "Señor Jesús"],
+      "terms": ["jesucristo", "jesus", "cristo", "mesias", "nazareno"],
+      "parent": null,
+      "related": ["encarnacion", "misterio-pascual", "redencion", "trinidad"]
+    },
+    {
+      "slug": "juicio",
+      "label": "Juicio",
+      "aliases": ["juicio de Dios", "juicio escatológico"],
+      "terms": ["juicio", "juzgar", "juez"],
+      "parent": "escatologia",
+      "related": ["juicio-particular", "juicio-final", "muerte", "justicia"]
+    },
+    {
+      "slug": "juicio-final",
+      "label": "Juicio final",
+      "aliases": ["juicio universal", "parusía y juicio"],
+      "terms": ["juicio final", "juicio universal", "ultimo dia"],
+      "parent": "juicio",
+      "related": ["parusia", "resurreccion-de-los-muertos", "cielo", "infierno"]
+    },
+    {
+      "slug": "juicio-particular",
+      "label": "Juicio particular",
+      "aliases": ["juicio al morir", "juicio individual"],
+      "terms": ["juicio particular", "juicio individual"],
+      "parent": "juicio",
+      "related": ["muerte", "cielo", "infierno", "purgatorio"]
+    },
+    {
+      "slug": "justicia",
+      "label": "Justicia",
+      "aliases": ["virtud de la justicia", "dar a cada uno lo suyo"],
+      "terms": ["justicia", "justo", "equidad"],
+      "parent": "virtudes-cardinales",
+      "related": ["justicia-social", "ley-moral", "bien-comun"]
+    },
+    {
+      "slug": "justicia-social",
+      "label": "Justicia social",
+      "aliases": ["justicia social cristiana"],
+      "terms": ["justicia social", "injusticia", "desigualdad"],
+      "parent": "doctrina-social",
+      "related": ["bien-comun", "pobreza", "trabajo", "solidaridad"]
+    },
+    {
+      "slug": "justificacion",
+      "label": "Justificación",
+      "aliases": ["justificación del pecador", "ser justificado"],
+      "terms": ["justificacion", "justificar", "justificado", "justos"],
+      "parent": "gracia",
+      "related": ["fe", "santificacion", "pecado", "libre-albedrio"]
+    },
+    {
+      "slug": "laicos",
+      "label": "Laicos",
+      "aliases": ["fieles laicos", "seglares"],
+      "terms": ["laico", "laicos", "seglar", "seglares", "laicado"],
+      "parent": "iglesia",
+      "related": ["apostolado", "vocacion", "familia", "trabajo"]
+    },
+    {
+      "slug": "lectio-divina",
+      "label": "Lectio divina",
+      "aliases": ["lectura orante", "lectura de la Escritura"],
+      "terms": ["lectio divina", "lectio", "lectura orante", "meditacion"],
+      "parent": "oracion",
+      "related": ["sagrada-escritura", "contemplacion", "contemplacion"]
+    },
+    {
+      "slug": "ley-moral",
+      "label": "Ley moral",
+      "aliases": ["ley de Dios", "norma moral"],
+      "terms": ["ley moral", "norma moral", "precepto moral"],
+      "parent": "moral",
+      "related": ["ley-natural", "diez-mandamientos", "conciencia"]
+    },
+    {
+      "slug": "ley-natural",
+      "label": "Ley natural",
+      "aliases": ["ley natural moral", "orden natural"],
+      "terms": ["ley natural", "natural", "orden natural"],
+      "parent": "ley-moral",
+      "related": ["diez-mandamientos", "persona-humana", "moral"]
+    },
+    {
+      "slug": "libertad",
+      "label": "Libertad",
+      "aliases": ["libertad humana", "libre albedrío", "libertad moral"],
+      "terms": ["libertad", "libre", "libres"],
+      "parent": "persona-humana",
+      "related": ["libre-albedrio", "conciencia", "gracia", "pecado"]
+    },
+    {
+      "slug": "libertad-religiosa",
+      "label": "Libertad religiosa",
+      "aliases": ["libertad de religión", "libertad de culto"],
+      "terms": ["libertad religiosa", "libertad de religion", "libertad de culto"],
+      "parent": "doctrina-social",
+      "related": ["derechos-humanos", "conciencia", "iglesia"]
+    },
+    {
+      "slug": "libre-albedrio",
+      "label": "Libre albedrío",
+      "aliases": ["libre albedrío", "voluntad libre"],
+      "terms": ["libre albedrio", "albedrio", "voluntad libre"],
+      "parent": "gracia",
+      "related": ["libertad", "predestinacion", "justificacion", "pecado"]
+    },
+    {
+      "slug": "liturgia",
+      "label": "Liturgia",
+      "aliases": ["liturgia de la Iglesia", "acción litúrgica"],
+      "terms": ["liturgia", "liturgico", "rito", "ritos"],
+      "parent": null,
+      "related": ["misa", "sacramentos", "oracion", "ano-liturgico"]
+    },
+    {
+      "slug": "magisterio",
+      "label": "Magisterio",
+      "aliases": ["magisterio de la Iglesia", "enseñanza oficial"],
+      "terms": ["magisterio", "ensenanza", "magisterial"],
+      "parent": "iglesia",
+      "related": ["tradicion", "sagrada-escritura", "papado", "concilios"]
+    },
+    {
+      "slug": "maria",
+      "label": "María",
+      "aliases": ["Virgen María", "Madre de Dios", "Santísima Virgen"],
+      "terms": ["maria", "virgen", "madrede dios", "theotokos", "mariana"],
+      "parent": null,
+      "related": ["inmaculada", "asuncion", "maternidad-divina", "jesucristo"]
+    },
+    {
+      "slug": "martirio",
+      "label": "Martirio",
+      "aliases": ["testimonio hasta la muerte", "mártires"],
+      "terms": ["martirio", "martir", "martires", "sangre de martires"],
+      "parent": "santidad",
+      "related": ["fortaleza", "fe", "testimonio"]
+    },
+    {
+      "slug": "maternidad-divina",
+      "label": "Maternidad divina",
+      "aliases": ["Madre de Dios", "Theotokos"],
+      "terms": ["madre de dios", "theotokos", "maternidad divina", "dei genitrix"],
+      "parent": "maria",
+      "related": ["encarnacion", "inmaculada", "asuncion"]
+    },
+    {
+      "slug": "matrimonio",
+      "label": "Matrimonio",
+      "aliases": ["sacramento del matrimonio", "matrimonio cristiano"],
+      "terms": ["matrimonio", "matrimonial", "esposos", "conyuges", "nupcias"],
+      "parent": "sacramentos",
+      "related": ["familia", "indisolubilidad", "matrimonio-moral", "sexualidad"]
+    },
+    {
+      "slug": "matrimonio-moral",
+      "label": "Matrimonio y moral",
+      "aliases": ["moral conyugal", "ética del matrimonio"],
+      "terms": ["moral conyugal", "conyugal", "fidelidad conyugal"],
+      "parent": "moral",
+      "related": ["matrimonio", "castidad", "familia", "divorcio"]
+    },
+    {
+      "slug": "meritos",
+      "label": "Méritos",
+      "aliases": ["mérito de las obras", "méritos de Cristo"],
+      "terms": ["merito", "meritos", "merecer", "obras meritorias"],
+      "parent": "gracia",
+      "related": ["justificacion", "santificacion", "obras"]
+    },
+    {
+      "slug": "migracion",
+      "label": "Migración",
+      "aliases": ["migrantes", "refugiados", "emigración"],
+      "terms": ["migracion", "migrantes", "refugiados", "emigrantes", "extranjero"],
+      "parent": "doctrina-social",
+      "related": ["solidaridad", "justicia-social", "dignidad"]
+    },
+    {
+      "slug": "milagros",
+      "label": "Milagros",
+      "aliases": ["signos milagrosos", "prodigios"],
+      "terms": ["milagro", "milagros", "prodigio", "signos"],
+      "parent": "revelacion",
+      "related": ["jesucristo", "fe", "sagrada-escritura"]
+    },
+    {
+      "slug": "misericordia",
+      "label": "Misericordia",
+      "aliases": ["misericordia divina", "compasión de Dios"],
+      "terms": ["misericordia", "misericordioso", "compasion", "piedad"],
+      "parent": "dios",
+      "related": ["amor", "perdon", "reconciliacion", "caridad"]
+    },
+    {
+      "slug": "misa",
+      "label": "Santa Misa",
+      "aliases": ["celebración eucarística", "santo sacrificio"],
+      "terms": ["misa", "eucaristica", "sacrificio de la misa", "liturgia eucaristica"],
+      "parent": "liturgia",
+      "related": ["eucaristia", "culto", "sacerdocio"]
+    },
+    {
+      "slug": "mision",
+      "label": "Misión",
+      "aliases": ["misión de la Iglesia", "misión ad gentes"],
+      "terms": ["mision", "misionero", "misioneros", "ad gentes"],
+      "parent": "iglesia",
+      "related": ["evangelizacion", "apostolado", "bautismo"]
+    },
+    {
+      "slug": "misterio-pascual",
+      "label": "Misterio pascual",
+      "aliases": ["pascua de Cristo", "misterio de la pascua"],
+      "terms": ["misterio pascual", "pascua", "pascual"],
+      "parent": "jesucristo",
+      "related": ["pasion", "muerte-de-cristo", "resurreccion", "eucaristia"]
+    },
+    {
+      "slug": "moral",
+      "label": "Moral cristiana",
+      "aliases": ["teología moral", "vida moral"],
+      "terms": ["moral", "etica", "vida moral", "comportamiento"],
+      "parent": null,
+      "related": ["pecado", "virtudes", "ley-moral", "conciencia"]
+    },
+    {
+      "slug": "muerte",
+      "label": "Muerte",
+      "aliases": ["muerte humana", "tránsito"],
+      "terms": ["muerte", "morir", "muerto", "fallecimiento"],
+      "parent": "escatologia",
+      "related": ["juicio-particular", "alma", "resurreccion-de-los-muertos"]
+    },
+    {
+      "slug": "muerte-de-cristo",
+      "label": "Muerte de Cristo",
+      "aliases": ["muerte en la cruz", "sacrificio de Cristo"],
+      "terms": ["muerte de cristo", "murio por", "sacrificio de cristo"],
+      "parent": "misterio-pascual",
+      "related": ["cruz", "pasion", "redencion", "resurreccion"]
+    },
+    {
+      "slug": "nueva-evangelizacion",
+      "label": "Nueva evangelización",
+      "aliases": ["re-evangelización", "nueva evangelización"],
+      "terms": ["nueva evangelizacion", "reevangelizacion"],
+      "parent": "evangelizacion",
+      "related": ["catequesis", "mision", "iglesia"]
+    },
+    {
+      "slug": "obispos",
+      "label": "Obispos",
+      "aliases": ["colegio episcopal", "sucesores de los apóstoles"],
+      "terms": ["obispo", "obispos", "episcopal", "episcopado"],
+      "parent": "jerarquia",
+      "related": ["papado", "sacerdocio", "concilios"]
+    },
+    {
+      "slug": "obras",
+      "label": "Obras buenas",
+      "aliases": ["obras de misericordia", "buenas obras"],
+      "terms": ["obras", "obras de misericordia", "buenas obras"],
+      "parent": "moral",
+      "related": ["caridad", "meritos", "justificacion", "pobreza"]
+    },
+    {
+      "slug": "oracion",
+      "label": "Oración",
+      "aliases": ["oración cristiana", "plegaria", "rezo"],
+      "terms": ["oracion", "orar", "rezar", "plegaria", "suplica"],
+      "parent": null,
+      "related": ["liturgia", "padrenuestro", "contemplacion", "adoracion"]
+    },
+    {
+      "slug": "orden",
+      "label": "Orden sagrado",
+      "aliases": ["sacramento del orden", "ordenación"],
+      "terms": ["orden sagrado", "ordenacion", "ordenado", "presbiterado", "diaconado"],
+      "parent": "sacramentos",
+      "related": ["sacerdocio", "obispos", "caracter-sacramental"]
+    },
+    {
+      "slug": "padre",
+      "label": "Dios Padre",
+      "aliases": ["Padre celestial", "primera persona"],
+      "terms": ["padre", "padre celestial", "abbá", "abba"],
+      "parent": "trinidad",
+      "related": ["hijo", "espiritu-santo", "creacion", "padrenuestro"]
+    },
+    {
+      "slug": "padrenuestro",
+      "label": "Padre nuestro",
+      "aliases": ["oración del Señor", "Pater noster"],
+      "terms": ["padre nuestro", "padrenuestro", "pater noster", "oracion del señor"],
+      "parent": "oracion",
+      "related": ["padre", "liturgia", "reino-de-dios"]
+    },
+    {
+      "slug": "papado",
+      "label": "Papado",
+      "aliases": ["primado de Pedro", "Sucesor de Pedro", "romano pontífice"],
+      "terms": ["papa", "papado", "pontifice", "pedro", "primado"],
+      "parent": "jerarquia",
+      "related": ["infalibilidad", "obispos", "iglesia", "magisterio"]
+    },
+    {
+      "slug": "parusia",
+      "label": "Parusía",
+      "aliases": ["segunda venida", "venida gloriosa de Cristo"],
+      "terms": ["parusia", "segunda venida", "venida gloriosa", "retorno de cristo"],
+      "parent": "escatologia",
+      "related": ["juicio-final", "resurreccion-de-los-muertos", "esperanza"]
+    },
+    {
+      "slug": "pasion",
+      "label": "Pasión de Cristo",
+      "aliases": ["pasión del Señor", "vía dolorosa"],
+      "terms": ["pasion", "padecimiento", "via crucis", "getsemani"],
+      "parent": "misterio-pascual",
+      "related": ["cruz", "muerte-de-cristo", "redencion", "sufrimiento"]
+    },
+    {
+      "slug": "paz",
+      "label": "Paz",
+      "aliases": ["paz de Cristo", "paz social"],
+      "terms": ["paz", "pacifico", "pacificacion", "shalom"],
+      "parent": "doctrina-social",
+      "related": ["guerra-y-paz", "justicia-social", "bien-comun", "caridad"]
+    },
+    {
+      "slug": "pecado",
+      "label": "Pecado",
+      "aliases": ["pecado humano", "ofensa a Dios"],
+      "terms": ["pecado", "pecados", "pecador", "culpa", "transgresion"],
+      "parent": "moral",
+      "related": ["pecado-original", "pecado-mortal", "conversion", "gracia"]
+    },
+    {
+      "slug": "pecado-mortal",
+      "label": "Pecado mortal",
+      "aliases": ["pecado grave", "pecado mortal"],
+      "terms": ["pecado mortal", "pecado grave", "gravedad"],
+      "parent": "pecado",
+      "related": ["pecado-venial", "reconciliacion", "infierno", "gracia"]
+    },
+    {
+      "slug": "pecado-original",
+      "label": "Pecado original",
+      "aliases": ["caída original", "pecado de Adán"],
+      "terms": ["pecado original", "caida", "adan", "eva", "concupiscencia"],
+      "parent": "pecado",
+      "related": ["bautismo", "gracia", "redencion", "creacion"]
+    },
+    {
+      "slug": "pecado-venial",
+      "label": "Pecado venial",
+      "aliases": ["faltas veniales", "pecado leve"],
+      "terms": ["pecado venial", "venial", "faltas"],
+      "parent": "pecado",
+      "related": ["pecado-mortal", "conversion", "purgatorio"]
+    },
+    {
+      "slug": "pecados-capitales",
+      "label": "Pecados capitales",
+      "aliases": ["siete pecados capitales", "vicios capitales"],
+      "terms": ["capitales", "soberbia", "avaricia", "lujuria", "ira", "gula", "envidia", "pereza"],
+      "parent": "pecado",
+      "related": ["vicios", "virtudes", "tentacion"]
+    },
+    {
+      "slug": "penitencia",
+      "label": "Penitencia",
+      "aliases": ["obras de penitencia", "satisfacción"],
+      "terms": ["penitencia", "penitente", "ayuno", "abstinencia", "satisfaccion"],
+      "parent": "conversion",
+      "related": ["reconciliacion", "arrepentimiento", "indulgencias"]
+    },
+    {
+      "slug": "perdon",
+      "label": "Perdón",
+      "aliases": ["perdón de los pecados", "remisión"],
+      "terms": ["perdon", "perdonar", "remision", "absolucion"],
+      "parent": "misericordia",
+      "related": ["reconciliacion", "pecado", "caridad"]
+    },
+    {
+      "slug": "persona-humana",
+      "label": "Persona humana",
+      "aliases": ["ser humano", "antropología cristiana"],
+      "terms": ["persona", "humano", "hombre", "mujer", "antropologia"],
+      "parent": "creacion",
+      "related": ["imagen-de-dios", "dignidad", "alma", "cuerpo"]
+    },
+    {
+      "slug": "pobreza",
+      "label": "Pobreza",
+      "aliases": ["opción por los pobres", "pobres de Yahvé"],
+      "terms": ["pobreza", "pobre", "pobres", "necesitados", "indigencia"],
+      "parent": "doctrina-social",
+      "related": ["caridad", "justicia-social", "obras", "bien-comun"]
+    },
+    {
+      "slug": "politica",
+      "label": "Política y fe",
+      "aliases": ["compromiso político", "bien político"],
+      "terms": ["politica", "politico", "estado", "ciudadania"],
+      "parent": "doctrina-social",
+      "related": ["bien-comun", "libertad-religiosa", "justicia-social"]
+    },
+    {
+      "slug": "predestinacion",
+      "label": "Predestinación",
+      "aliases": ["elección divina", "predestinación a la gloria"],
+      "terms": ["predestinacion", "elegidos", "eleccion divina"],
+      "parent": "gracia",
+      "related": ["libre-albedrio", "providencia", "salvacion"]
+    },
+    {
+      "slug": "providencia",
+      "label": "Providencia",
+      "aliases": ["providencia divina", "gobierno de Dios"],
+      "terms": ["providencia", "proveer", "gobierno divino"],
+      "parent": "dios",
+      "related": ["creacion", "predestinacion", "confianza"]
+    },
+    {
+      "slug": "prudencia",
+      "label": "Prudencia",
+      "aliases": ["virtud de la prudencia", "discreción"],
+      "terms": ["prudencia", "prudente", "discrecion"],
+      "parent": "virtudes-cardinales",
+      "related": ["conciencia", "discernimiento", "justicia"]
+    },
+    {
+      "slug": "pueblo-de-dios",
+      "label": "Pueblo de Dios",
+      "aliases": ["pueblo santo", "pueblo elegido"],
+      "terms": ["pueblo de dios", "pueblo santo", "pueblo elegido"],
+      "parent": "iglesia",
+      "related": ["cuerpo-mistico", "laicos", "alianza"]
+    },
+    {
+      "slug": "purgatorio",
+      "label": "Purgatorio",
+      "aliases": ["purificación final", "almas del purgatorio"],
+      "terms": ["purgatorio", "purificacion", "almas del purgatorio"],
+      "parent": "escatologia",
+      "related": ["cielo", "indulgencias", "comunion-de-los-santos", "muerte"]
+    },
+    {
+      "slug": "quinto-mandamiento",
+      "label": "Quinto mandamiento",
+      "aliases": ["no matarás", "mandamiento de la vida"],
+      "terms": ["no mataras", "quinto mandamiento", "homicidio"],
+      "parent": "diez-mandamientos",
+      "related": ["vida", "aborto", "eutanasia", "guerra-y-paz"]
+    },
+    {
+      "slug": "reconciliacion",
+      "label": "Reconciliación",
+      "aliases": ["confesión", "sacramento de la penitencia", "perdón sacramental"],
+      "terms": ["reconciliacion", "confession", "confesion", "penitencia sacramental", "absolucion"],
+      "parent": "sacramentos",
+      "related": ["pecado", "conversion", "perdon", "gracia"]
+    },
+    {
+      "slug": "redencion",
+      "label": "Redención",
+      "aliases": ["obra redentora", "rescate", "salvación en Cristo"],
+      "terms": ["redencion", "redentor", "rescatar", "rescate"],
+      "parent": "jesucristo",
+      "related": ["salvacion", "cruz", "misterio-pascual", "gracia"]
+    },
+    {
+      "slug": "reino-de-dios",
+      "label": "Reino de Dios",
+      "aliases": ["reino de los cielos", "reinado de Cristo"],
+      "terms": ["reino de dios", "reino de los cielos", "reinado"],
+      "parent": "jesucristo",
+      "related": ["beatitudes", "parusia", "evangelizacion", "iglesia"]
+    },
+    {
+      "slug": "resurreccion",
+      "label": "Resurrección de Cristo",
+      "aliases": ["resurrección del Señor", "Cristo resucitado"],
+      "terms": ["resurreccion", "resucito", "resucitado", "vacio el sepulcro"],
+      "parent": "misterio-pascual",
+      "related": ["ascension", "vida-eterna", "eucaristia", "esperanza"]
+    },
+    {
+      "slug": "resurreccion-de-los-muertos",
+      "label": "Resurrección de los muertos",
+      "aliases": ["resurrección de la carne", "resurrección final"],
+      "terms": ["resurreccion de los muertos", "resurreccion de la carne", "cuerpos gloriosos"],
+      "parent": "escatologia",
+      "related": ["juicio-final", "cielo", "alma", "cuerpo"]
+    },
+    {
+      "slug": "revelacion",
+      "label": "Revelación",
+      "aliases": ["revelación divina", "palabra revelada"],
+      "terms": ["revelacion", "revelar", "revelada", "autopresentacion"],
+      "parent": null,
+      "related": ["sagrada-escritura", "tradicion", "fe", "deposito-de-la-fe"]
+    },
+    {
+      "slug": "sacerdocio",
+      "label": "Sacerdocio",
+      "aliases": ["sacerdocio ministerial", "sacerdocio común"],
+      "terms": ["sacerdocio", "sacerdote", "sacerdotes", "presbitero"],
+      "parent": "jerarquia",
+      "related": ["orden", "eucaristia", "laicos", "misa"]
+    },
+    {
+      "slug": "sacramentales",
+      "label": "Sacramentales",
+      "aliases": ["sacramentales de la Iglesia", "bendiciones"],
+      "terms": ["sacramentales", "bendicion", "bendiciones", "agua bendita"],
+      "parent": "liturgia",
+      "related": ["sacramentos", "exorcismo", "culto"]
+    },
+    {
+      "slug": "sacramentos",
+      "label": "Sacramentos",
+      "aliases": ["siete sacramentos", "sacramentos de la Nueva Alianza"],
+      "terms": ["sacramento", "sacramentos", "sacramental"],
+      "parent": null,
+      "related": ["gracia", "iglesia", "liturgia", "bautismo"]
+    },
+    {
+      "slug": "sagrada-escritura",
+      "label": "Sagrada Escritura",
+      "aliases": ["Biblia", "Palabra de Dios", "Sagradas Escrituras"],
+      "terms": ["escritura", "escrituras", "biblia", "palabra de dios", "sagrada escritura"],
+      "parent": "revelacion",
+      "related": ["tradicion", "inspiracion-biblica", "canon-biblico", "lectio-divina"]
+    },
+    {
+      "slug": "salvacion",
+      "label": "Salvación",
+      "aliases": ["salvación eterna", "ser salvado"],
+      "terms": ["salvacion", "salvar", "salvador", "soteriologia"],
+      "parent": null,
+      "related": ["redencion", "gracia", "jesucristo", "fe"]
+    },
+    {
+      "slug": "santidad",
+      "label": "Santidad",
+      "aliases": ["llamada a la santidad", "vida santa"],
+      "terms": ["santidad", "santo", "santos", "santificacion"],
+      "parent": null,
+      "related": ["gracia", "virtudes", "vocacion", "santos"]
+    },
+    {
+      "slug": "santificacion",
+      "label": "Santificación",
+      "aliases": ["santificación del cristiano", "ser santificado"],
+      "terms": ["santificacion", "santificar", "santificado"],
+      "parent": "gracia",
+      "related": ["justificacion", "espiritu-santo", "santidad"]
+    },
+    {
+      "slug": "santos",
+      "label": "Santos",
+      "aliases": ["comunión de los santos", "canonizados"],
+      "terms": ["santos", "santo", "santa", "canonizado", "beato"],
+      "parent": "comunion-de-los-santos",
+      "related": ["santidad", "martirio", "cielo", "liturgia"]
+    },
+    {
+      "slug": "sexto-mandamiento",
+      "label": "Sexto mandamiento",
+      "aliases": ["no cometerás adulterio", "mandamiento de la pureza"],
+      "terms": ["sexto mandamiento", "adulterio", "fornicacion"],
+      "parent": "diez-mandamientos",
+      "related": ["castidad", "sexualidad", "matrimonio-moral"]
+    },
+    {
+      "slug": "sexualidad",
+      "label": "Sexualidad",
+      "aliases": ["sexualidad humana", "dimensión sexual"],
+      "terms": ["sexualidad", "sexo", "sexual", "genero"],
+      "parent": "persona-humana",
+      "related": ["castidad", "matrimonio", "sexto-mandamiento", "templanza"]
+    },
+    {
+      "slug": "solidaridad",
+      "label": "Solidaridad",
+      "aliases": ["principio de solidaridad"],
+      "terms": ["solidaridad", "solidario", "fraternidad"],
+      "parent": "doctrina-social",
+      "related": ["subsidiariedad", "bien-comun", "pobreza", "caridad"]
+    },
+    {
+      "slug": "subsidiariedad",
+      "label": "Subsidiariedad",
+      "aliases": ["principio de subsidiariedad"],
+      "terms": ["subsidiariedad", "subsidiario"],
+      "parent": "doctrina-social",
+      "related": ["solidaridad", "bien-comun", "politica"]
+    },
+    {
+      "slug": "sufrimiento",
+      "label": "Sufrimiento",
+      "aliases": ["dolor humano", "cruz del cristiano"],
+      "terms": ["sufrimiento", "dolor", "padecer", "enfermedad"],
+      "parent": "persona-humana",
+      "related": ["cruz", "uncion-de-los-enfermos", "redencion", "esperanza"]
+    },
+    {
+      "slug": "templanza",
+      "label": "Templanza",
+      "aliases": ["virtud de la templanza", "moderación"],
+      "terms": ["templanza", "moderacion", "sobriedad", "continencia"],
+      "parent": "virtudes-cardinales",
+      "related": ["castidad", "pecados-capitales", "libertad"]
+    },
+    {
+      "slug": "tentacion",
+      "label": "Tentación",
+      "aliases": ["prueba", "tentación diabólica"],
+      "terms": ["tentacion", "tentar", "tentado", "prueba"],
+      "parent": "vida-espiritual",
+      "related": ["demonio", "pecado", "oracion", "fortaleza"]
+    },
+    {
+      "slug": "tradicion",
+      "label": "Tradición",
+      "aliases": ["Tradición apostólica", "Tradición viva"],
+      "terms": ["tradicion", "apostolica", "tradicion viva"],
+      "parent": "revelacion",
+      "related": ["sagrada-escritura", "magisterio", "deposito-de-la-fe"]
+    },
+    {
+      "slug": "trabajo",
+      "label": "Trabajo",
+      "aliases": ["trabajo humano", "dignidad del trabajo"],
+      "terms": ["trabajo", "trabajador", "labor", "empleo", "salario"],
+      "parent": "doctrina-social",
+      "related": ["justicia-social", "economia", "persona-humana"]
+    },
+    {
+      "slug": "trinidad",
+      "label": "Trinidad",
+      "aliases": ["Santísima Trinidad", "Dios trino", "misterio trinitario"],
+      "terms": ["trinidad", "trino", "trinitario", "tres personas"],
+      "parent": "dios",
+      "related": ["padre", "hijo", "espiritu-santo", "bautismo"]
+    },
+    {
+      "slug": "uncion-de-los-enfermos",
+      "label": "Unción de los enfermos",
+      "aliases": ["extremaunción", "sacramento de los enfermos"],
+      "terms": ["uncion", "uncion de los enfermos", "extremauncion", "enfermos"],
+      "parent": "sacramentos",
+      "related": ["sufrimiento", "muerte", "gracia", "oracion"]
+    },
+    {
+      "slug": "verdad",
+      "label": "Verdad",
+      "aliases": ["verdad divina", "veritas"],
+      "terms": ["verdad", "verdadero", "veritas", "mentira"],
+      "parent": null,
+      "related": ["fe-y-razon", "dios", "conciencia", "revelacion"]
+    },
+    {
+      "slug": "vicios",
+      "label": "Vicios",
+      "aliases": ["vicios morales", "hábitos malos"],
+      "terms": ["vicio", "vicios", "habito malo"],
+      "parent": "moral",
+      "related": ["pecados-capitales", "virtudes", "pecado"]
+    },
+    {
+      "slug": "vida",
+      "label": "Vida humana",
+      "aliases": ["respeto a la vida", "vida desde la concepción"],
+      "terms": ["vida", "vivir", "natalidad", "concepcion"],
+      "parent": "moral",
+      "related": ["aborto", "eutanasia", "dignidad", "quinto-mandamiento"]
+    },
+    {
+      "slug": "vida-consagrada",
+      "label": "Vida consagrada",
+      "aliases": ["religiosos", "consejos evangélicos", "vida religiosa"],
+      "terms": ["vida consagrada", "religioso", "religiosa", "votos", "consejos evangelicos"],
+      "parent": "iglesia",
+      "related": ["vocacion", "santidad", "castidad", "pobreza"]
+    },
+    {
+      "slug": "vida-espiritual",
+      "label": "Vida espiritual",
+      "aliases": ["camino espiritual", "ascética y mística"],
+      "terms": ["vida espiritual", "espiritualidad", "ascetica", "mistica"],
+      "parent": null,
+      "related": ["oracion", "santidad", "discernimiento", "gracia"]
+    },
+    {
+      "slug": "vida-eterna",
+      "label": "Vida eterna",
+      "aliases": ["vida perdurable", "vida eterna en Cristo"],
+      "terms": ["vida eterna", "eterna", "perdurable", "inmortalidad"],
+      "parent": "escatologia",
+      "related": ["cielo", "resurreccion", "esperanza", "gracia"]
+    },
+    {
+      "slug": "virtudes",
+      "label": "Virtudes",
+      "aliases": ["virtudes cristianas", "hábitos buenos"],
+      "terms": ["virtud", "virtudes", "virtuoso"],
+      "parent": "moral",
+      "related": ["virtudes-teologales", "virtudes-cardinales", "gracia", "vicios"]
+    },
+    {
+      "slug": "virtudes-cardinales",
+      "label": "Virtudes cardinales",
+      "aliases": ["cuatro virtudes cardinales"],
+      "terms": ["cardinales", "prudencia", "justicia", "fortaleza", "templanza"],
+      "parent": "virtudes",
+      "related": ["prudencia", "justicia", "fortaleza", "templanza"]
+    },
+    {
+      "slug": "virtudes-teologales",
+      "label": "Virtudes teologales",
+      "aliases": ["fe esperanza y caridad"],
+      "terms": ["teologales", "fe", "esperanza", "caridad"],
+      "parent": "virtudes",
+      "related": ["fe", "esperanza", "caridad", "gracia"]
+    },
+    {
+      "slug": "vocacion",
+      "label": "Vocación",
+      "aliases": ["llamada de Dios", "vocación cristiana"],
+      "terms": ["vocacion", "llamada", "llamamiento"],
+      "parent": "persona-humana",
+      "related": ["santidad", "sacerdocio", "matrimonio", "vida-consagrada"]
+    },
+    {
+      "slug": "ano-liturgico",
+      "label": "Año litúrgico",
+      "aliases": ["calendario litúrgico", "tiempo litúrgico"],
+      "terms": ["ano liturgico", "calendario liturgico", "adviento", "cuaresma", "pascua"],
+      "parent": "liturgia",
+      "related": ["misa", "misterio-pascual", "culto"]
+    },
+    {
+      "slug": "dialogo-interreligioso",
+      "label": "Diálogo interreligioso",
+      "aliases": ["diálogo con las religiones", "religiones no cristianas"],
+      "terms": ["dialogo interreligioso", "religiones", "no cristianos"],
+      "parent": "iglesia",
+      "related": ["ecumenismo", "mision", "verdad"]
+    },
+    {
+      "slug": "educacion",
+      "label": "Educación",
+      "aliases": ["educación cristiana", "formación de la juventud"],
+      "terms": ["educacion", "educar", "enseñanza", "formacion"],
+      "parent": "familia",
+      "related": ["catequesis", "familia", "doctrina-social"]
+    },
+    {
+      "slug": "confianza",
+      "label": "Confianza en Dios",
+      "aliases": ["confianza filial", "abandono en Dios"],
+      "terms": ["confianza", "confiar", "abandono", "filial"],
+      "parent": "vida-espiritual",
+      "related": ["providencia", "esperanza", "oracion", "fe"]
+    },
+    {
+      "slug": "testimonio",
+      "label": "Testimonio",
+      "aliases": ["testimonio cristiano", "ser testigos"],
+      "terms": ["testimonio", "testigo", "testigos", "martyria"],
+      "parent": "evangelizacion",
+      "related": ["martirio", "apostolado", "fe"]
+    },
+    {
+      "slug": "sagrado-corazon",
+      "label": "Sagrado Corazón",
+      "aliases": ["Corazón de Jesús", "devoción al Sagrado Corazón"],
+      "terms": ["sagrado corazon", "corazon de jesus", "corazon de cristo"],
+      "parent": "jesucristo",
+      "related": ["amor", "misericordia", "adoracion"]
+    },
+    {
+      "slug": "realeza-de-cristo",
+      "label": "Realeza de Cristo",
+      "aliases": ["Cristo Rey", "reinado social de Cristo"],
+      "terms": ["cristo rey", "realeza", "reinado de cristo"],
+      "parent": "jesucristo",
+      "related": ["reino-de-dios", "parusia", "liturgia"]
+    }
+  ]
+}

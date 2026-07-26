@@ -1,3 +1,3188 @@
 {
-  "topics": []
+  "topics": [
+    {
+      "id": "topic:es:aborto",
+      "slug": "aborto",
+      "label": "Aborto",
+      "kind": "seed",
+      "parentId": "topic:es:vida",
+      "relatedIds": [
+        "topic:es:bioetica",
+        "topic:es:dignidad",
+        "topic:es:eutanasia",
+        "topic:es:quinto-mandamiento"
+      ],
+      "aliases": [
+        "interrupción del embarazo",
+        "aborto procurado"
+      ],
+      "unitCount": 23,
+      "documentCount": 7
+    },
+    {
+      "id": "topic:es:adoracion",
+      "slug": "adoracion",
+      "label": "Adoración",
+      "kind": "seed",
+      "parentId": "topic:es:oracion",
+      "relatedIds": [
+        "topic:es:eucaristia",
+        "topic:es:liturgia",
+        "topic:es:culto"
+      ],
+      "aliases": [
+        "adoración eucarística",
+        "culto de adoración"
+      ],
+      "unitCount": 46,
+      "documentCount": 14
+    },
+    {
+      "id": "topic:es:alianza",
+      "slug": "alianza",
+      "label": "Alianza",
+      "kind": "seed",
+      "parentId": "topic:es:sagrada-escritura",
+      "relatedIds": [
+        "topic:es:jesucristo",
+        "topic:es:eucaristia",
+        "topic:es:salvacion"
+      ],
+      "aliases": [
+        "nueva alianza",
+        "antigua alianza",
+        "pacto"
+      ],
+      "unitCount": 200,
+      "documentCount": 16
+    },
+    {
+      "id": "topic:es:alma",
+      "slug": "alma",
+      "label": "Alma",
+      "kind": "seed",
+      "parentId": "topic:es:persona-humana",
+      "relatedIds": [
+        "topic:es:cuerpo",
+        "topic:es:muerte",
+        "topic:es:cielo",
+        "topic:es:infierno"
+      ],
+      "aliases": [
+        "alma inmortal",
+        "alma racional"
+      ],
+      "unitCount": 200,
+      "documentCount": 33
+    },
+    {
+      "id": "topic:es:amor",
+      "slug": "amor",
+      "label": "Amor",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:caridad",
+        "topic:es:misericordia",
+        "topic:es:dios"
+      ],
+      "aliases": [
+        "amor de Dios",
+        "amor al prójimo"
+      ],
+      "unitCount": 200,
+      "documentCount": 30
+    },
+    {
+      "id": "topic:es:angeles",
+      "slug": "angeles",
+      "label": "Ángeles",
+      "kind": "seed",
+      "parentId": "topic:es:creacion",
+      "relatedIds": [
+        "topic:es:demonio",
+        "topic:es:dios",
+        "topic:es:liturgia"
+      ],
+      "aliases": [
+        "ángeles de Dios",
+        "espíritus celestes",
+        "arcángeles"
+      ],
+      "unitCount": 62,
+      "documentCount": 6
+    },
+    {
+      "id": "topic:es:ano-liturgico",
+      "slug": "ano-liturgico",
+      "label": "Año litúrgico",
+      "kind": "seed",
+      "parentId": "topic:es:liturgia",
+      "relatedIds": [
+        "topic:es:misa",
+        "topic:es:misterio-pascual",
+        "topic:es:culto"
+      ],
+      "aliases": [
+        "calendario litúrgico",
+        "tiempo litúrgico"
+      ],
+      "unitCount": 74,
+      "documentCount": 17
+    },
+    {
+      "id": "topic:es:apostolado",
+      "slug": "apostolado",
+      "label": "Apostolado",
+      "kind": "seed",
+      "parentId": "topic:es:mision",
+      "relatedIds": [
+        "topic:es:laicos",
+        "topic:es:evangelizacion",
+        "topic:es:iglesia"
+      ],
+      "aliases": [
+        "misión apostólica",
+        "obra apostólica"
+      ],
+      "unitCount": 200,
+      "documentCount": 35
+    },
+    {
+      "id": "topic:es:arrepentimiento",
+      "slug": "arrepentimiento",
+      "label": "Arrepentimiento",
+      "kind": "seed",
+      "parentId": "topic:es:conversion",
+      "relatedIds": [
+        "topic:es:pecado",
+        "topic:es:reconciliacion",
+        "topic:es:penitencia"
+      ],
+      "aliases": [
+        "contrición",
+        "dolor de los pecados"
+      ],
+      "unitCount": 56,
+      "documentCount": 10
+    },
+    {
+      "id": "topic:es:ascension",
+      "slug": "ascension",
+      "label": "Ascensión",
+      "kind": "seed",
+      "parentId": "topic:es:jesucristo",
+      "relatedIds": [
+        "topic:es:resurreccion",
+        "topic:es:parusia",
+        "topic:es:cielo"
+      ],
+      "aliases": [
+        "ascensión del Señor",
+        "subida al cielo"
+      ],
+      "unitCount": 10,
+      "documentCount": 3
+    },
+    {
+      "id": "topic:es:asuncion",
+      "slug": "asuncion",
+      "label": "Asunción",
+      "kind": "seed",
+      "parentId": "topic:es:maria",
+      "relatedIds": [
+        "topic:es:inmaculada",
+        "topic:es:cielo",
+        "topic:es:comunion-de-los-santos"
+      ],
+      "aliases": [
+        "asunción de María",
+        "asunta al cielo"
+      ],
+      "unitCount": 11,
+      "documentCount": 6
+    },
+    {
+      "id": "topic:es:bautismo",
+      "slug": "bautismo",
+      "label": "Bautismo",
+      "kind": "seed",
+      "parentId": "topic:es:sacramentos",
+      "relatedIds": [
+        "topic:es:confirmacion",
+        "topic:es:eucaristia",
+        "topic:es:gracia",
+        "topic:es:pecado-original"
+      ],
+      "aliases": [
+        "sacramento del bautismo",
+        "bautismo de agua"
+      ],
+      "unitCount": 200,
+      "documentCount": 11
+    },
+    {
+      "id": "topic:es:beatitudes",
+      "slug": "beatitudes",
+      "label": "Bienaventuranzas",
+      "kind": "seed",
+      "parentId": "topic:es:moral",
+      "relatedIds": [
+        "topic:es:reino-de-dios",
+        "topic:es:caridad",
+        "topic:es:santidad"
+      ],
+      "aliases": [
+        "bienaventuranzas del sermón del monte"
+      ],
+      "unitCount": 44,
+      "documentCount": 11
+    },
+    {
+      "id": "topic:es:bien-comun",
+      "slug": "bien-comun",
+      "label": "Bien común",
+      "kind": "seed",
+      "parentId": "topic:es:doctrina-social",
+      "relatedIds": [
+        "topic:es:justicia-social",
+        "topic:es:solidaridad",
+        "topic:es:subsidiariedad",
+        "topic:es:paz"
+      ],
+      "aliases": [
+        "bien común de la sociedad"
+      ],
+      "unitCount": 200,
+      "documentCount": 22
+    },
+    {
+      "id": "topic:es:bioetica",
+      "slug": "bioetica",
+      "label": "Bioética",
+      "kind": "seed",
+      "parentId": "topic:es:moral",
+      "relatedIds": [
+        "topic:es:vida",
+        "topic:es:aborto",
+        "topic:es:eutanasia",
+        "topic:es:dignidad"
+      ],
+      "aliases": [
+        "ética de la vida",
+        "cuestiones biomédicas"
+      ],
+      "unitCount": 2,
+      "documentCount": 2
+    },
+    {
+      "id": "topic:es:canon-biblico",
+      "slug": "canon-biblico",
+      "label": "Canon bíblico",
+      "kind": "seed",
+      "parentId": "topic:es:sagrada-escritura",
+      "relatedIds": [
+        "topic:es:inspiracion-biblica",
+        "topic:es:tradicion",
+        "topic:es:magisterio"
+      ],
+      "aliases": [
+        "libros canónicos",
+        "canon de las Escrituras"
+      ],
+      "unitCount": 200,
+      "documentCount": 27
+    },
+    {
+      "id": "topic:es:caracter-sacramental",
+      "slug": "caracter-sacramental",
+      "label": "Carácter sacramental",
+      "kind": "seed",
+      "parentId": "topic:es:sacramentos",
+      "relatedIds": [
+        "topic:es:bautismo",
+        "topic:es:confirmacion",
+        "topic:es:orden"
+      ],
+      "aliases": [
+        "sello indeleble",
+        "carácter indeleble"
+      ],
+      "unitCount": 153,
+      "documentCount": 22
+    },
+    {
+      "id": "topic:es:caridad",
+      "slug": "caridad",
+      "label": "Caridad",
+      "kind": "seed",
+      "parentId": "topic:es:virtudes-teologales",
+      "relatedIds": [
+        "topic:es:amor",
+        "topic:es:fe",
+        "topic:es:esperanza",
+        "topic:es:misericordia"
+      ],
+      "aliases": [
+        "amor cristiano",
+        "caridad teologal"
+      ],
+      "unitCount": 200,
+      "documentCount": 34
+    },
+    {
+      "id": "topic:es:carismas",
+      "slug": "carismas",
+      "label": "Carismas",
+      "kind": "seed",
+      "parentId": "topic:es:espiritu-santo",
+      "relatedIds": [
+        "topic:es:dones-del-espiritu",
+        "topic:es:iglesia",
+        "topic:es:apostolado"
+      ],
+      "aliases": [
+        "dones carismáticos",
+        "carismas del Espíritu"
+      ],
+      "unitCount": 35,
+      "documentCount": 13
+    },
+    {
+      "id": "topic:es:castidad",
+      "slug": "castidad",
+      "label": "Castidad",
+      "kind": "seed",
+      "parentId": "topic:es:templanza",
+      "relatedIds": [
+        "topic:es:sexualidad",
+        "topic:es:matrimonio-moral",
+        "topic:es:sexto-mandamiento"
+      ],
+      "aliases": [
+        "pureza",
+        "virtud de la castidad"
+      ],
+      "unitCount": 86,
+      "documentCount": 12
+    },
+    {
+      "id": "topic:es:catequesis",
+      "slug": "catequesis",
+      "label": "Catequesis",
+      "kind": "seed",
+      "parentId": "topic:es:evangelizacion",
+      "relatedIds": [
+        "topic:es:fe",
+        "topic:es:magisterio",
+        "topic:es:sagrada-escritura"
+      ],
+      "aliases": [
+        "enseñanza de la fe",
+        "formación catequética"
+      ],
+      "unitCount": 200,
+      "documentCount": 12
+    },
+    {
+      "id": "topic:es:cielo",
+      "slug": "cielo",
+      "label": "Cielo",
+      "kind": "seed",
+      "parentId": "topic:es:escatologia",
+      "relatedIds": [
+        "topic:es:infierno",
+        "topic:es:purgatorio",
+        "topic:es:vida-eterna",
+        "topic:es:comunion-de-los-santos"
+      ],
+      "aliases": [
+        "paraíso",
+        "visión beatífica",
+        "gloria"
+      ],
+      "unitCount": 182,
+      "documentCount": 21
+    },
+    {
+      "id": "topic:es:comunion-de-los-santos",
+      "slug": "comunion-de-los-santos",
+      "label": "Comunión de los santos",
+      "kind": "seed",
+      "parentId": "topic:es:iglesia",
+      "relatedIds": [
+        "topic:es:santos",
+        "topic:es:cielo",
+        "topic:es:purgatorio",
+        "topic:es:iglesia"
+      ],
+      "aliases": [
+        "comunión de los santos",
+        "comunión eclesial"
+      ],
+      "unitCount": 200,
+      "documentCount": 30
+    },
+    {
+      "id": "topic:es:conciencia",
+      "slug": "conciencia",
+      "label": "Conciencia",
+      "kind": "seed",
+      "parentId": "topic:es:persona-humana",
+      "relatedIds": [
+        "topic:es:libertad",
+        "topic:es:ley-moral",
+        "topic:es:pecado",
+        "topic:es:conversion"
+      ],
+      "aliases": [
+        "conciencia moral",
+        "juicio de conciencia"
+      ],
+      "unitCount": 200,
+      "documentCount": 32
+    },
+    {
+      "id": "topic:es:concilios",
+      "slug": "concilios",
+      "label": "Concilios",
+      "kind": "seed",
+      "parentId": "topic:es:magisterio",
+      "relatedIds": [
+        "topic:es:papado",
+        "topic:es:dogmas",
+        "topic:es:tradicion",
+        "topic:es:iglesia"
+      ],
+      "aliases": [
+        "concilios ecuménicos",
+        "concilio general"
+      ],
+      "unitCount": 200,
+      "documentCount": 46
+    },
+    {
+      "id": "topic:es:confianza",
+      "slug": "confianza",
+      "label": "Confianza en Dios",
+      "kind": "seed",
+      "parentId": "topic:es:vida-espiritual",
+      "relatedIds": [
+        "topic:es:providencia",
+        "topic:es:esperanza",
+        "topic:es:oracion",
+        "topic:es:fe"
+      ],
+      "aliases": [
+        "confianza filial",
+        "abandono en Dios"
+      ],
+      "unitCount": 106,
+      "documentCount": 25
+    },
+    {
+      "id": "topic:es:confirmacion",
+      "slug": "confirmacion",
+      "label": "Confirmación",
+      "kind": "seed",
+      "parentId": "topic:es:sacramentos",
+      "relatedIds": [
+        "topic:es:bautismo",
+        "topic:es:espiritu-santo",
+        "topic:es:caracter-sacramental"
+      ],
+      "aliases": [
+        "sacramento de la confirmación",
+        "crisma"
+      ],
+      "unitCount": 161,
+      "documentCount": 13
+    },
+    {
+      "id": "topic:es:contemplacion",
+      "slug": "contemplacion",
+      "label": "Contemplación",
+      "kind": "seed",
+      "parentId": "topic:es:oracion",
+      "relatedIds": [
+        "topic:es:lectio-divina",
+        "topic:es:santidad",
+        "topic:es:espiritu-santo"
+      ],
+      "aliases": [
+        "oración contemplativa",
+        "contemplación mística"
+      ],
+      "unitCount": 40,
+      "documentCount": 12
+    },
+    {
+      "id": "topic:es:conversion",
+      "slug": "conversion",
+      "label": "Conversión",
+      "kind": "seed",
+      "parentId": "topic:es:moral",
+      "relatedIds": [
+        "topic:es:arrepentimiento",
+        "topic:es:pecado",
+        "topic:es:reconciliacion",
+        "topic:es:gracia"
+      ],
+      "aliases": [
+        "metanoia",
+        "conversión del corazón"
+      ],
+      "unitCount": 92,
+      "documentCount": 25
+    },
+    {
+      "id": "topic:es:creacion",
+      "slug": "creacion",
+      "label": "Creación",
+      "kind": "seed",
+      "parentId": "topic:es:dios",
+      "relatedIds": [
+        "topic:es:providencia",
+        "topic:es:persona-humana",
+        "topic:es:angeles"
+      ],
+      "aliases": [
+        "obra creadora",
+        "creación del mundo"
+      ],
+      "unitCount": 200,
+      "documentCount": 23
+    },
+    {
+      "id": "topic:es:credos",
+      "slug": "credos",
+      "label": "Credos",
+      "kind": "seed",
+      "parentId": "topic:es:fe",
+      "relatedIds": [
+        "topic:es:trinidad",
+        "topic:es:iglesia",
+        "topic:es:dogmas"
+      ],
+      "aliases": [
+        "símbolo de la fe",
+        "credo niceno",
+        "credo de los apóstoles"
+      ],
+      "unitCount": 27,
+      "documentCount": 9
+    },
+    {
+      "id": "topic:es:cruz",
+      "slug": "cruz",
+      "label": "Cruz",
+      "kind": "seed",
+      "parentId": "topic:es:pasion",
+      "relatedIds": [
+        "topic:es:redencion",
+        "topic:es:misterio-pascual",
+        "topic:es:sufrimiento"
+      ],
+      "aliases": [
+        "santa cruz",
+        "cruz de Cristo"
+      ],
+      "unitCount": 112,
+      "documentCount": 21
+    },
+    {
+      "id": "topic:es:cuerpo",
+      "slug": "cuerpo",
+      "label": "Cuerpo humano",
+      "kind": "seed",
+      "parentId": "topic:es:persona-humana",
+      "relatedIds": [
+        "topic:es:alma",
+        "topic:es:resurreccion-de-los-muertos",
+        "topic:es:sexualidad"
+      ],
+      "aliases": [
+        "cuerpo y alma",
+        "corporalidad"
+      ],
+      "unitCount": 200,
+      "documentCount": 19
+    },
+    {
+      "id": "topic:es:cuerpo-mistico",
+      "slug": "cuerpo-mistico",
+      "label": "Cuerpo místico",
+      "kind": "seed",
+      "parentId": "topic:es:iglesia",
+      "relatedIds": [
+        "topic:es:pueblo-de-dios",
+        "topic:es:eucaristia",
+        "topic:es:jesucristo"
+      ],
+      "aliases": [
+        "cuerpo místico de Cristo",
+        "cuerpo de Cristo"
+      ],
+      "unitCount": 51,
+      "documentCount": 14
+    },
+    {
+      "id": "topic:es:culto",
+      "slug": "culto",
+      "label": "Culto divino",
+      "kind": "seed",
+      "parentId": "topic:es:liturgia",
+      "relatedIds": [
+        "topic:es:adoracion",
+        "topic:es:misa",
+        "topic:es:oracion"
+      ],
+      "aliases": [
+        "culto a Dios",
+        "latría"
+      ],
+      "unitCount": 146,
+      "documentCount": 21
+    },
+    {
+      "id": "topic:es:demonio",
+      "slug": "demonio",
+      "label": "Demonio",
+      "kind": "seed",
+      "parentId": "topic:es:creacion",
+      "relatedIds": [
+        "topic:es:angeles",
+        "topic:es:tentacion",
+        "topic:es:exorcismo",
+        "topic:es:pecado"
+      ],
+      "aliases": [
+        "Satanás",
+        "diablo",
+        "espíritu maligno"
+      ],
+      "unitCount": 66,
+      "documentCount": 7
+    },
+    {
+      "id": "topic:es:deposito-de-la-fe",
+      "slug": "deposito-de-la-fe",
+      "label": "Depósito de la fe",
+      "kind": "seed",
+      "parentId": "topic:es:revelacion",
+      "relatedIds": [
+        "topic:es:tradicion",
+        "topic:es:sagrada-escritura",
+        "topic:es:magisterio"
+      ],
+      "aliases": [
+        "depósito revelado",
+        "depositum fidei"
+      ],
+      "unitCount": 13,
+      "documentCount": 6
+    },
+    {
+      "id": "topic:es:derechos-humanos",
+      "slug": "derechos-humanos",
+      "label": "Derechos humanos",
+      "kind": "seed",
+      "parentId": "topic:es:doctrina-social",
+      "relatedIds": [
+        "topic:es:dignidad",
+        "topic:es:libertad-religiosa",
+        "topic:es:justicia-social"
+      ],
+      "aliases": [
+        "derechos de la persona",
+        "derechos fundamentales"
+      ],
+      "unitCount": 200,
+      "documentCount": 21
+    },
+    {
+      "id": "topic:es:dialogo-interreligioso",
+      "slug": "dialogo-interreligioso",
+      "label": "Diálogo interreligioso",
+      "kind": "seed",
+      "parentId": "topic:es:iglesia",
+      "relatedIds": [
+        "topic:es:ecumenismo",
+        "topic:es:mision",
+        "topic:es:verdad"
+      ],
+      "aliases": [
+        "diálogo con las religiones",
+        "religiones no cristianas"
+      ],
+      "unitCount": 30,
+      "documentCount": 14
+    },
+    {
+      "id": "topic:es:diez-mandamientos",
+      "slug": "diez-mandamientos",
+      "label": "Diez mandamientos",
+      "kind": "seed",
+      "parentId": "topic:es:ley-moral",
+      "relatedIds": [
+        "topic:es:ley-natural",
+        "topic:es:moral",
+        "topic:es:amor"
+      ],
+      "aliases": [
+        "Decálogo",
+        "mandamientos de la Ley de Dios"
+      ],
+      "unitCount": 171,
+      "documentCount": 16
+    },
+    {
+      "id": "topic:es:dignidad",
+      "slug": "dignidad",
+      "label": "Dignidad humana",
+      "kind": "seed",
+      "parentId": "topic:es:persona-humana",
+      "relatedIds": [
+        "topic:es:imagen-de-dios",
+        "topic:es:vida",
+        "topic:es:derechos-humanos"
+      ],
+      "aliases": [
+        "dignidad de la persona",
+        "dignidad del hombre"
+      ],
+      "unitCount": 200,
+      "documentCount": 24
+    },
+    {
+      "id": "topic:es:dios",
+      "slug": "dios",
+      "label": "Dios",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:trinidad",
+        "topic:es:creacion",
+        "topic:es:providencia",
+        "topic:es:revelacion"
+      ],
+      "aliases": [
+        "Dios uno",
+        "Señor",
+        "Altísimo"
+      ],
+      "unitCount": 200,
+      "documentCount": 23
+    },
+    {
+      "id": "topic:es:discernimiento",
+      "slug": "discernimiento",
+      "label": "Discernimiento",
+      "kind": "seed",
+      "parentId": "topic:es:vida-espiritual",
+      "relatedIds": [
+        "topic:es:conciencia",
+        "topic:es:espiritu-santo",
+        "topic:es:oracion"
+      ],
+      "aliases": [
+        "discernimiento de espíritus",
+        "discernir la voluntad de Dios"
+      ],
+      "unitCount": 33,
+      "documentCount": 15
+    },
+    {
+      "id": "topic:es:divorcio",
+      "slug": "divorcio",
+      "label": "Divorcio",
+      "kind": "seed",
+      "parentId": "topic:es:matrimonio-moral",
+      "relatedIds": [
+        "topic:es:matrimonio",
+        "topic:es:familia",
+        "topic:es:indisolubilidad"
+      ],
+      "aliases": [
+        "ruptura del matrimonio",
+        "divorcio civil"
+      ],
+      "unitCount": 14,
+      "documentCount": 5
+    },
+    {
+      "id": "topic:es:doctrina-social",
+      "slug": "doctrina-social",
+      "label": "Doctrina social",
+      "kind": "seed",
+      "parentId": "topic:es:moral",
+      "relatedIds": [
+        "topic:es:bien-comun",
+        "topic:es:justicia-social",
+        "topic:es:pobreza",
+        "topic:es:trabajo"
+      ],
+      "aliases": [
+        "doctrina social de la Iglesia",
+        "enseñanza social"
+      ],
+      "unitCount": 87,
+      "documentCount": 10
+    },
+    {
+      "id": "topic:es:dogmas",
+      "slug": "dogmas",
+      "label": "Dogmas",
+      "kind": "seed",
+      "parentId": "topic:es:magisterio",
+      "relatedIds": [
+        "topic:es:fe",
+        "topic:es:infalibilidad",
+        "topic:es:deposito-de-la-fe"
+      ],
+      "aliases": [
+        "dogma de fe",
+        "definiciones dogmáticas"
+      ],
+      "unitCount": 21,
+      "documentCount": 6
+    },
+    {
+      "id": "topic:es:dones-del-espiritu",
+      "slug": "dones-del-espiritu",
+      "label": "Dones del Espíritu",
+      "kind": "seed",
+      "parentId": "topic:es:espiritu-santo",
+      "relatedIds": [
+        "topic:es:carismas",
+        "topic:es:confirmacion",
+        "topic:es:gracia"
+      ],
+      "aliases": [
+        "siete dones",
+        "dones del Espíritu Santo"
+      ],
+      "unitCount": 65,
+      "documentCount": 22
+    },
+    {
+      "id": "topic:es:economia",
+      "slug": "economia",
+      "label": "Economía y ética",
+      "kind": "seed",
+      "parentId": "topic:es:doctrina-social",
+      "relatedIds": [
+        "topic:es:trabajo",
+        "topic:es:pobreza",
+        "topic:es:justicia-social",
+        "topic:es:bien-comun"
+      ],
+      "aliases": [
+        "ética económica",
+        "economía justa"
+      ],
+      "unitCount": 200,
+      "documentCount": 19
+    },
+    {
+      "id": "topic:es:ecumenismo",
+      "slug": "ecumenismo",
+      "label": "Ecumenismo",
+      "kind": "seed",
+      "parentId": "topic:es:iglesia",
+      "relatedIds": [
+        "topic:es:mision",
+        "topic:es:dialogo-interreligioso",
+        "topic:es:tradicion"
+      ],
+      "aliases": [
+        "unidad de los cristianos",
+        "movimiento ecuménico"
+      ],
+      "unitCount": 42,
+      "documentCount": 19
+    },
+    {
+      "id": "topic:es:educacion",
+      "slug": "educacion",
+      "label": "Educación",
+      "kind": "seed",
+      "parentId": "topic:es:familia",
+      "relatedIds": [
+        "topic:es:catequesis",
+        "topic:es:familia",
+        "topic:es:doctrina-social"
+      ],
+      "aliases": [
+        "educación cristiana",
+        "formación de la juventud"
+      ],
+      "unitCount": 200,
+      "documentCount": 33
+    },
+    {
+      "id": "topic:es:encarnacion",
+      "slug": "encarnacion",
+      "label": "Encarnación",
+      "kind": "seed",
+      "parentId": "topic:es:jesucristo",
+      "relatedIds": [
+        "topic:es:trinidad",
+        "topic:es:maria",
+        "topic:es:salvacion"
+      ],
+      "aliases": [
+        "Verbo encarnado",
+        "misterio de la encarnación"
+      ],
+      "unitCount": 54,
+      "documentCount": 16
+    },
+    {
+      "id": "topic:es:escatologia",
+      "slug": "escatologia",
+      "label": "Escatología",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:muerte",
+        "topic:es:juicio",
+        "topic:es:cielo",
+        "topic:es:infierno",
+        "topic:es:purgatorio"
+      ],
+      "aliases": [
+        "novísimos",
+        "últimas realidades",
+        "fin de los tiempos"
+      ],
+      "unitCount": 11,
+      "documentCount": 4
+    },
+    {
+      "id": "topic:es:esperanza",
+      "slug": "esperanza",
+      "label": "Esperanza",
+      "kind": "seed",
+      "parentId": "topic:es:virtudes-teologales",
+      "relatedIds": [
+        "topic:es:fe",
+        "topic:es:caridad",
+        "topic:es:vida-eterna",
+        "topic:es:parusia"
+      ],
+      "aliases": [
+        "virtud de la esperanza",
+        "esperanza cristiana"
+      ],
+      "unitCount": 99,
+      "documentCount": 29
+    },
+    {
+      "id": "topic:es:espiritu-santo",
+      "slug": "espiritu-santo",
+      "label": "Espíritu Santo",
+      "kind": "seed",
+      "parentId": "topic:es:trinidad",
+      "relatedIds": [
+        "topic:es:confirmacion",
+        "topic:es:dones-del-espiritu",
+        "topic:es:carismas",
+        "topic:es:iglesia"
+      ],
+      "aliases": [
+        "Paráclito",
+        "Consolador",
+        "Espíritu de Dios"
+      ],
+      "unitCount": 200,
+      "documentCount": 19
+    },
+    {
+      "id": "topic:es:eucaristia",
+      "slug": "eucaristia",
+      "label": "Eucaristía",
+      "kind": "seed",
+      "parentId": "topic:es:sacramentos",
+      "relatedIds": [
+        "topic:es:misa",
+        "topic:es:adoracion",
+        "topic:es:misterio-pascual",
+        "topic:es:jesucristo"
+      ],
+      "aliases": [
+        "santísimo sacramento",
+        "comunión",
+        "cuerpo y sangre de Cristo"
+      ],
+      "unitCount": 200,
+      "documentCount": 20
+    },
+    {
+      "id": "topic:es:eutanasia",
+      "slug": "eutanasia",
+      "label": "Eutanasia",
+      "kind": "seed",
+      "parentId": "topic:es:vida",
+      "relatedIds": [
+        "topic:es:aborto",
+        "topic:es:bioetica",
+        "topic:es:dignidad",
+        "topic:es:sufrimiento"
+      ],
+      "aliases": [
+        "muerte asistida",
+        "homicidio por piedad"
+      ],
+      "unitCount": 5,
+      "documentCount": 2
+    },
+    {
+      "id": "topic:es:evangelizacion",
+      "slug": "evangelizacion",
+      "label": "Evangelización",
+      "kind": "seed",
+      "parentId": "topic:es:mision",
+      "relatedIds": [
+        "topic:es:catequesis",
+        "topic:es:nueva-evangelizacion",
+        "topic:es:iglesia",
+        "topic:es:apostolado"
+      ],
+      "aliases": [
+        "anuncio del Evangelio",
+        "misión evangelizadora"
+      ],
+      "unitCount": 200,
+      "documentCount": 30
+    },
+    {
+      "id": "topic:es:exorcismo",
+      "slug": "exorcismo",
+      "label": "Exorcismo",
+      "kind": "seed",
+      "parentId": "topic:es:sacramentales",
+      "relatedIds": [
+        "topic:es:demonio",
+        "topic:es:bautismo",
+        "topic:es:oracion"
+      ],
+      "aliases": [
+        "liberación del demonio",
+        "rito de exorcismo"
+      ],
+      "unitCount": 92,
+      "documentCount": 17
+    },
+    {
+      "id": "topic:es:familia",
+      "slug": "familia",
+      "label": "Familia",
+      "kind": "seed",
+      "parentId": "topic:es:matrimonio",
+      "relatedIds": [
+        "topic:es:matrimonio-moral",
+        "topic:es:educacion",
+        "topic:es:doctrina-social"
+      ],
+      "aliases": [
+        "familia cristiana",
+        "iglesia doméstica"
+      ],
+      "unitCount": 200,
+      "documentCount": 25
+    },
+    {
+      "id": "topic:es:fe",
+      "slug": "fe",
+      "label": "Fe",
+      "kind": "seed",
+      "parentId": "topic:es:virtudes-teologales",
+      "relatedIds": [
+        "topic:es:esperanza",
+        "topic:es:caridad",
+        "topic:es:revelacion",
+        "topic:es:justificacion"
+      ],
+      "aliases": [
+        "virtud de la fe",
+        "fe cristiana",
+        "creer"
+      ],
+      "unitCount": 200,
+      "documentCount": 29
+    },
+    {
+      "id": "topic:es:fe-y-razon",
+      "slug": "fe-y-razon",
+      "label": "Fe y razón",
+      "kind": "seed",
+      "parentId": "topic:es:fe",
+      "relatedIds": [
+        "topic:es:verdad",
+        "topic:es:magisterio",
+        "topic:es:persona-humana"
+      ],
+      "aliases": [
+        "fe y razón",
+        "fides et ratio",
+        "inteligencia de la fe"
+      ],
+      "unitCount": 200,
+      "documentCount": 22
+    },
+    {
+      "id": "topic:es:fortaleza",
+      "slug": "fortaleza",
+      "label": "Fortaleza",
+      "kind": "seed",
+      "parentId": "topic:es:virtudes-cardinales",
+      "relatedIds": [
+        "topic:es:martirio",
+        "topic:es:sufrimiento",
+        "topic:es:tentacion"
+      ],
+      "aliases": [
+        "virtud de la fortaleza",
+        "valor cristiano"
+      ],
+      "unitCount": 69,
+      "documentCount": 21
+    },
+    {
+      "id": "topic:es:gracia",
+      "slug": "gracia",
+      "label": "Gracia",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:justificacion",
+        "topic:es:sacramentos",
+        "topic:es:fe",
+        "topic:es:libre-albedrio"
+      ],
+      "aliases": [
+        "gracia de Dios",
+        "gracia santificante",
+        "gracia actual"
+      ],
+      "unitCount": 200,
+      "documentCount": 20
+    },
+    {
+      "id": "topic:es:guerra-y-paz",
+      "slug": "guerra-y-paz",
+      "label": "Guerra y paz",
+      "kind": "seed",
+      "parentId": "topic:es:doctrina-social",
+      "relatedIds": [
+        "topic:es:paz",
+        "topic:es:justicia-social",
+        "topic:es:bien-comun"
+      ],
+      "aliases": [
+        "guerra justa",
+        "conflicto armado"
+      ],
+      "unitCount": 189,
+      "documentCount": 29
+    },
+    {
+      "id": "topic:es:herejia",
+      "slug": "herejia",
+      "label": "Herejía",
+      "kind": "seed",
+      "parentId": "topic:es:deposito-de-la-fe",
+      "relatedIds": [
+        "topic:es:dogmas",
+        "topic:es:magisterio",
+        "topic:es:fe"
+      ],
+      "aliases": [
+        "error doctrinal",
+        "hereje"
+      ],
+      "unitCount": 44,
+      "documentCount": 13
+    },
+    {
+      "id": "topic:es:hijo",
+      "slug": "hijo",
+      "label": "Dios Hijo",
+      "kind": "seed",
+      "parentId": "topic:es:trinidad",
+      "relatedIds": [
+        "topic:es:jesucristo",
+        "topic:es:padre",
+        "topic:es:espiritu-santo",
+        "topic:es:encarnacion"
+      ],
+      "aliases": [
+        "Hijo de Dios",
+        "segunda persona",
+        "Verbo"
+      ],
+      "unitCount": 106,
+      "documentCount": 15
+    },
+    {
+      "id": "topic:es:iglesia",
+      "slug": "iglesia",
+      "label": "Iglesia",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:pueblo-de-dios",
+        "topic:es:cuerpo-mistico",
+        "topic:es:sacramentos",
+        "topic:es:magisterio"
+      ],
+      "aliases": [
+        "Iglesia católica",
+        "Ecclesia",
+        "Esposa de Cristo"
+      ],
+      "unitCount": 200,
+      "documentCount": 32
+    },
+    {
+      "id": "topic:es:imagen-de-dios",
+      "slug": "imagen-de-dios",
+      "label": "Imagen de Dios",
+      "kind": "seed",
+      "parentId": "topic:es:persona-humana",
+      "relatedIds": [
+        "topic:es:creacion",
+        "topic:es:dignidad",
+        "topic:es:alma"
+      ],
+      "aliases": [
+        "imago Dei",
+        "a imagen y semejanza"
+      ],
+      "unitCount": 28,
+      "documentCount": 7
+    },
+    {
+      "id": "topic:es:indisolubilidad",
+      "slug": "indisolubilidad",
+      "label": "Indisolubilidad del matrimonio",
+      "kind": "seed",
+      "parentId": "topic:es:matrimonio",
+      "relatedIds": [
+        "topic:es:divorcio",
+        "topic:es:matrimonio-moral",
+        "topic:es:familia"
+      ],
+      "aliases": [
+        "matrimonio indisoluble",
+        "vínculo indisoluble"
+      ],
+      "unitCount": 13,
+      "documentCount": 8
+    },
+    {
+      "id": "topic:es:indulgencias",
+      "slug": "indulgencias",
+      "label": "Indulgencias",
+      "kind": "seed",
+      "parentId": "topic:es:reconciliacion",
+      "relatedIds": [
+        "topic:es:purgatorio",
+        "topic:es:penitencia",
+        "topic:es:comunion-de-los-santos"
+      ],
+      "aliases": [
+        "indulgencia plenaria",
+        "indulgencia parcial"
+      ],
+      "unitCount": 29,
+      "documentCount": 10
+    },
+    {
+      "id": "topic:es:infalibilidad",
+      "slug": "infalibilidad",
+      "label": "Infalibilidad",
+      "kind": "seed",
+      "parentId": "topic:es:magisterio",
+      "relatedIds": [
+        "topic:es:papado",
+        "topic:es:dogmas",
+        "topic:es:concilios"
+      ],
+      "aliases": [
+        "infalibilidad papal",
+        "infalibilidad del magisterio"
+      ],
+      "unitCount": 6,
+      "documentCount": 4
+    },
+    {
+      "id": "topic:es:infierno",
+      "slug": "infierno",
+      "label": "Infierno",
+      "kind": "seed",
+      "parentId": "topic:es:escatologia",
+      "relatedIds": [
+        "topic:es:cielo",
+        "topic:es:juicio",
+        "topic:es:pecado-mortal",
+        "topic:es:demonio"
+      ],
+      "aliases": [
+        "condenación eterna",
+        "gehenna"
+      ],
+      "unitCount": 32,
+      "documentCount": 6
+    },
+    {
+      "id": "topic:es:inmaculada",
+      "slug": "inmaculada",
+      "label": "Inmaculada Concepción",
+      "kind": "seed",
+      "parentId": "topic:es:maria",
+      "relatedIds": [
+        "topic:es:asuncion",
+        "topic:es:pecado-original",
+        "topic:es:gracia"
+      ],
+      "aliases": [
+        "inmaculada concepción",
+        "María sin pecado original"
+      ],
+      "unitCount": 8,
+      "documentCount": 5
+    },
+    {
+      "id": "topic:es:inspiracion-biblica",
+      "slug": "inspiracion-biblica",
+      "label": "Inspiración bíblica",
+      "kind": "seed",
+      "parentId": "topic:es:sagrada-escritura",
+      "relatedIds": [
+        "topic:es:canon-biblico",
+        "topic:es:revelacion",
+        "topic:es:espiritu-santo"
+      ],
+      "aliases": [
+        "inspiración de la Escritura",
+        "palabra inspirada"
+      ],
+      "unitCount": 26,
+      "documentCount": 11
+    },
+    {
+      "id": "topic:es:jerarquia",
+      "slug": "jerarquia",
+      "label": "Jerarquía",
+      "kind": "seed",
+      "parentId": "topic:es:iglesia",
+      "relatedIds": [
+        "topic:es:papado",
+        "topic:es:obispos",
+        "topic:es:sacerdocio",
+        "topic:es:laicos"
+      ],
+      "aliases": [
+        "jerarquía eclesiástica",
+        "orden jerárquico"
+      ],
+      "unitCount": 48,
+      "documentCount": 11
+    },
+    {
+      "id": "topic:es:jesucristo",
+      "slug": "jesucristo",
+      "label": "Jesucristo",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:encarnacion",
+        "topic:es:misterio-pascual",
+        "topic:es:redencion",
+        "topic:es:trinidad"
+      ],
+      "aliases": [
+        "Jesús",
+        "Cristo",
+        "Mesías",
+        "Señor Jesús"
+      ],
+      "unitCount": 200,
+      "documentCount": 26
+    },
+    {
+      "id": "topic:es:juicio",
+      "slug": "juicio",
+      "label": "Juicio",
+      "kind": "seed",
+      "parentId": "topic:es:escatologia",
+      "relatedIds": [
+        "topic:es:juicio-particular",
+        "topic:es:juicio-final",
+        "topic:es:muerte",
+        "topic:es:justicia"
+      ],
+      "aliases": [
+        "juicio de Dios",
+        "juicio escatológico"
+      ],
+      "unitCount": 200,
+      "documentCount": 11
+    },
+    {
+      "id": "topic:es:juicio-final",
+      "slug": "juicio-final",
+      "label": "Juicio final",
+      "kind": "seed",
+      "parentId": "topic:es:juicio",
+      "relatedIds": [
+        "topic:es:parusia",
+        "topic:es:resurreccion-de-los-muertos",
+        "topic:es:cielo",
+        "topic:es:infierno"
+      ],
+      "aliases": [
+        "juicio universal",
+        "parusía y juicio"
+      ],
+      "unitCount": 8,
+      "documentCount": 4
+    },
+    {
+      "id": "topic:es:juicio-particular",
+      "slug": "juicio-particular",
+      "label": "Juicio particular",
+      "kind": "seed",
+      "parentId": "topic:es:juicio",
+      "relatedIds": [
+        "topic:es:muerte",
+        "topic:es:cielo",
+        "topic:es:infierno",
+        "topic:es:purgatorio"
+      ],
+      "aliases": [
+        "juicio al morir",
+        "juicio individual"
+      ],
+      "unitCount": 1,
+      "documentCount": 1
+    },
+    {
+      "id": "topic:es:justicia",
+      "slug": "justicia",
+      "label": "Justicia",
+      "kind": "seed",
+      "parentId": "topic:es:virtudes-cardinales",
+      "relatedIds": [
+        "topic:es:justicia-social",
+        "topic:es:ley-moral",
+        "topic:es:bien-comun"
+      ],
+      "aliases": [
+        "virtud de la justicia",
+        "dar a cada uno lo suyo"
+      ],
+      "unitCount": 200,
+      "documentCount": 24
+    },
+    {
+      "id": "topic:es:justicia-social",
+      "slug": "justicia-social",
+      "label": "Justicia social",
+      "kind": "seed",
+      "parentId": "topic:es:doctrina-social",
+      "relatedIds": [
+        "topic:es:bien-comun",
+        "topic:es:pobreza",
+        "topic:es:trabajo",
+        "topic:es:solidaridad"
+      ],
+      "aliases": [
+        "justicia social cristiana"
+      ],
+      "unitCount": 33,
+      "documentCount": 11
+    },
+    {
+      "id": "topic:es:justificacion",
+      "slug": "justificacion",
+      "label": "Justificación",
+      "kind": "seed",
+      "parentId": "topic:es:gracia",
+      "relatedIds": [
+        "topic:es:fe",
+        "topic:es:santificacion",
+        "topic:es:pecado",
+        "topic:es:libre-albedrio"
+      ],
+      "aliases": [
+        "justificación del pecador",
+        "ser justificado"
+      ],
+      "unitCount": 50,
+      "documentCount": 9
+    },
+    {
+      "id": "topic:es:laicos",
+      "slug": "laicos",
+      "label": "Laicos",
+      "kind": "seed",
+      "parentId": "topic:es:iglesia",
+      "relatedIds": [
+        "topic:es:apostolado",
+        "topic:es:vocacion",
+        "topic:es:familia",
+        "topic:es:trabajo"
+      ],
+      "aliases": [
+        "fieles laicos",
+        "seglares"
+      ],
+      "unitCount": 154,
+      "documentCount": 33
+    },
+    {
+      "id": "topic:es:lectio-divina",
+      "slug": "lectio-divina",
+      "label": "Lectio divina",
+      "kind": "seed",
+      "parentId": "topic:es:oracion",
+      "relatedIds": [
+        "topic:es:sagrada-escritura",
+        "topic:es:contemplacion",
+        "topic:es:contemplacion"
+      ],
+      "aliases": [
+        "lectura orante",
+        "lectura de la Escritura"
+      ],
+      "unitCount": 15,
+      "documentCount": 5
+    },
+    {
+      "id": "topic:es:ley-moral",
+      "slug": "ley-moral",
+      "label": "Ley moral",
+      "kind": "seed",
+      "parentId": "topic:es:moral",
+      "relatedIds": [
+        "topic:es:ley-natural",
+        "topic:es:diez-mandamientos",
+        "topic:es:conciencia"
+      ],
+      "aliases": [
+        "ley de Dios",
+        "norma moral"
+      ],
+      "unitCount": 22,
+      "documentCount": 7
+    },
+    {
+      "id": "topic:es:ley-natural",
+      "slug": "ley-natural",
+      "label": "Ley natural",
+      "kind": "seed",
+      "parentId": "topic:es:ley-moral",
+      "relatedIds": [
+        "topic:es:diez-mandamientos",
+        "topic:es:persona-humana",
+        "topic:es:moral"
+      ],
+      "aliases": [
+        "ley natural moral",
+        "orden natural"
+      ],
+      "unitCount": 110,
+      "documentCount": 23
+    },
+    {
+      "id": "topic:es:libertad",
+      "slug": "libertad",
+      "label": "Libertad",
+      "kind": "seed",
+      "parentId": "topic:es:persona-humana",
+      "relatedIds": [
+        "topic:es:libre-albedrio",
+        "topic:es:conciencia",
+        "topic:es:gracia",
+        "topic:es:pecado"
+      ],
+      "aliases": [
+        "libertad humana",
+        "libre albedrío",
+        "libertad moral"
+      ],
+      "unitCount": 200,
+      "documentCount": 32
+    },
+    {
+      "id": "topic:es:libertad-religiosa",
+      "slug": "libertad-religiosa",
+      "label": "Libertad religiosa",
+      "kind": "seed",
+      "parentId": "topic:es:doctrina-social",
+      "relatedIds": [
+        "topic:es:derechos-humanos",
+        "topic:es:conciencia",
+        "topic:es:iglesia"
+      ],
+      "aliases": [
+        "libertad de religión",
+        "libertad de culto"
+      ],
+      "unitCount": 7,
+      "documentCount": 6
+    },
+    {
+      "id": "topic:es:libre-albedrio",
+      "slug": "libre-albedrio",
+      "label": "Libre albedrío",
+      "kind": "seed",
+      "parentId": "topic:es:gracia",
+      "relatedIds": [
+        "topic:es:libertad",
+        "topic:es:predestinacion",
+        "topic:es:justificacion",
+        "topic:es:pecado"
+      ],
+      "aliases": [
+        "libre albedrío",
+        "voluntad libre"
+      ],
+      "unitCount": 13,
+      "documentCount": 4
+    },
+    {
+      "id": "topic:es:liturgia",
+      "slug": "liturgia",
+      "label": "Liturgia",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:misa",
+        "topic:es:sacramentos",
+        "topic:es:oracion",
+        "topic:es:ano-liturgico"
+      ],
+      "aliases": [
+        "liturgia de la Iglesia",
+        "acción litúrgica"
+      ],
+      "unitCount": 200,
+      "documentCount": 15
+    },
+    {
+      "id": "topic:es:magisterio",
+      "slug": "magisterio",
+      "label": "Magisterio",
+      "kind": "seed",
+      "parentId": "topic:es:iglesia",
+      "relatedIds": [
+        "topic:es:tradicion",
+        "topic:es:sagrada-escritura",
+        "topic:es:papado",
+        "topic:es:concilios"
+      ],
+      "aliases": [
+        "magisterio de la Iglesia",
+        "enseñanza oficial"
+      ],
+      "unitCount": 63,
+      "documentCount": 15
+    },
+    {
+      "id": "topic:es:maria",
+      "slug": "maria",
+      "label": "María",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:inmaculada",
+        "topic:es:asuncion",
+        "topic:es:maternidad-divina",
+        "topic:es:jesucristo"
+      ],
+      "aliases": [
+        "Virgen María",
+        "Madre de Dios",
+        "Santísima Virgen"
+      ],
+      "unitCount": 200,
+      "documentCount": 30
+    },
+    {
+      "id": "topic:es:martirio",
+      "slug": "martirio",
+      "label": "Martirio",
+      "kind": "seed",
+      "parentId": "topic:es:santidad",
+      "relatedIds": [
+        "topic:es:fortaleza",
+        "topic:es:fe",
+        "topic:es:testimonio"
+      ],
+      "aliases": [
+        "testimonio hasta la muerte",
+        "mártires"
+      ],
+      "unitCount": 15,
+      "documentCount": 10
+    },
+    {
+      "id": "topic:es:maternidad-divina",
+      "slug": "maternidad-divina",
+      "label": "Maternidad divina",
+      "kind": "seed",
+      "parentId": "topic:es:maria",
+      "relatedIds": [
+        "topic:es:encarnacion",
+        "topic:es:inmaculada",
+        "topic:es:asuncion"
+      ],
+      "aliases": [
+        "Madre de Dios",
+        "Theotokos"
+      ],
+      "unitCount": 7,
+      "documentCount": 4
+    },
+    {
+      "id": "topic:es:matrimonio",
+      "slug": "matrimonio",
+      "label": "Matrimonio",
+      "kind": "seed",
+      "parentId": "topic:es:sacramentos",
+      "relatedIds": [
+        "topic:es:familia",
+        "topic:es:indisolubilidad",
+        "topic:es:matrimonio-moral",
+        "topic:es:sexualidad"
+      ],
+      "aliases": [
+        "sacramento del matrimonio",
+        "matrimonio cristiano"
+      ],
+      "unitCount": 200,
+      "documentCount": 12
+    },
+    {
+      "id": "topic:es:matrimonio-moral",
+      "slug": "matrimonio-moral",
+      "label": "Matrimonio y moral",
+      "kind": "seed",
+      "parentId": "topic:es:moral",
+      "relatedIds": [
+        "topic:es:matrimonio",
+        "topic:es:castidad",
+        "topic:es:familia",
+        "topic:es:divorcio"
+      ],
+      "aliases": [
+        "moral conyugal",
+        "ética del matrimonio"
+      ],
+      "unitCount": 33,
+      "documentCount": 10
+    },
+    {
+      "id": "topic:es:meritos",
+      "slug": "meritos",
+      "label": "Méritos",
+      "kind": "seed",
+      "parentId": "topic:es:gracia",
+      "relatedIds": [
+        "topic:es:justificacion",
+        "topic:es:santificacion",
+        "topic:es:obras"
+      ],
+      "aliases": [
+        "mérito de las obras",
+        "méritos de Cristo"
+      ],
+      "unitCount": 20,
+      "documentCount": 7
+    },
+    {
+      "id": "topic:es:migracion",
+      "slug": "migracion",
+      "label": "Migración",
+      "kind": "seed",
+      "parentId": "topic:es:doctrina-social",
+      "relatedIds": [
+        "topic:es:solidaridad",
+        "topic:es:justicia-social",
+        "topic:es:dignidad"
+      ],
+      "aliases": [
+        "migrantes",
+        "refugiados",
+        "emigración"
+      ],
+      "unitCount": 11,
+      "documentCount": 7
+    },
+    {
+      "id": "topic:es:milagros",
+      "slug": "milagros",
+      "label": "Milagros",
+      "kind": "seed",
+      "parentId": "topic:es:revelacion",
+      "relatedIds": [
+        "topic:es:jesucristo",
+        "topic:es:fe",
+        "topic:es:sagrada-escritura"
+      ],
+      "aliases": [
+        "signos milagrosos",
+        "prodigios"
+      ],
+      "unitCount": 44,
+      "documentCount": 10
+    },
+    {
+      "id": "topic:es:misa",
+      "slug": "misa",
+      "label": "Santa Misa",
+      "kind": "seed",
+      "parentId": "topic:es:liturgia",
+      "relatedIds": [
+        "topic:es:eucaristia",
+        "topic:es:culto",
+        "topic:es:sacerdocio"
+      ],
+      "aliases": [
+        "celebración eucarística",
+        "santo sacrificio"
+      ],
+      "unitCount": 177,
+      "documentCount": 13
+    },
+    {
+      "id": "topic:es:misericordia",
+      "slug": "misericordia",
+      "label": "Misericordia",
+      "kind": "seed",
+      "parentId": "topic:es:dios",
+      "relatedIds": [
+        "topic:es:amor",
+        "topic:es:perdon",
+        "topic:es:reconciliacion",
+        "topic:es:caridad"
+      ],
+      "aliases": [
+        "misericordia divina",
+        "compasión de Dios"
+      ],
+      "unitCount": 97,
+      "documentCount": 19
+    },
+    {
+      "id": "topic:es:mision",
+      "slug": "mision",
+      "label": "Misión",
+      "kind": "seed",
+      "parentId": "topic:es:iglesia",
+      "relatedIds": [
+        "topic:es:evangelizacion",
+        "topic:es:apostolado",
+        "topic:es:bautismo"
+      ],
+      "aliases": [
+        "misión de la Iglesia",
+        "misión ad gentes"
+      ],
+      "unitCount": 188,
+      "documentCount": 33
+    },
+    {
+      "id": "topic:es:misterio-pascual",
+      "slug": "misterio-pascual",
+      "label": "Misterio pascual",
+      "kind": "seed",
+      "parentId": "topic:es:jesucristo",
+      "relatedIds": [
+        "topic:es:pasion",
+        "topic:es:muerte-de-cristo",
+        "topic:es:resurreccion",
+        "topic:es:eucaristia"
+      ],
+      "aliases": [
+        "pascua de Cristo",
+        "misterio de la pascua"
+      ],
+      "unitCount": 69,
+      "documentCount": 17
+    },
+    {
+      "id": "topic:es:moral",
+      "slug": "moral",
+      "label": "Moral cristiana",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:pecado",
+        "topic:es:virtudes",
+        "topic:es:ley-moral",
+        "topic:es:conciencia"
+      ],
+      "aliases": [
+        "teología moral",
+        "vida moral"
+      ],
+      "unitCount": 200,
+      "documentCount": 22
+    },
+    {
+      "id": "topic:es:muerte",
+      "slug": "muerte",
+      "label": "Muerte",
+      "kind": "seed",
+      "parentId": "topic:es:escatologia",
+      "relatedIds": [
+        "topic:es:juicio-particular",
+        "topic:es:alma",
+        "topic:es:resurreccion-de-los-muertos"
+      ],
+      "aliases": [
+        "muerte humana",
+        "tránsito"
+      ],
+      "unitCount": 200,
+      "documentCount": 23
+    },
+    {
+      "id": "topic:es:muerte-de-cristo",
+      "slug": "muerte-de-cristo",
+      "label": "Muerte de Cristo",
+      "kind": "seed",
+      "parentId": "topic:es:misterio-pascual",
+      "relatedIds": [
+        "topic:es:cruz",
+        "topic:es:pasion",
+        "topic:es:redencion",
+        "topic:es:resurreccion"
+      ],
+      "aliases": [
+        "muerte en la cruz",
+        "sacrificio de Cristo"
+      ],
+      "unitCount": 8,
+      "documentCount": 3
+    },
+    {
+      "id": "topic:es:nueva-evangelizacion",
+      "slug": "nueva-evangelizacion",
+      "label": "Nueva evangelización",
+      "kind": "seed",
+      "parentId": "topic:es:evangelizacion",
+      "relatedIds": [
+        "topic:es:catequesis",
+        "topic:es:mision",
+        "topic:es:iglesia"
+      ],
+      "aliases": [
+        "re-evangelización",
+        "nueva evangelización"
+      ],
+      "unitCount": 2,
+      "documentCount": 2
+    },
+    {
+      "id": "topic:es:obispos",
+      "slug": "obispos",
+      "label": "Obispos",
+      "kind": "seed",
+      "parentId": "topic:es:jerarquia",
+      "relatedIds": [
+        "topic:es:papado",
+        "topic:es:sacerdocio",
+        "topic:es:concilios"
+      ],
+      "aliases": [
+        "colegio episcopal",
+        "sucesores de los apóstoles"
+      ],
+      "unitCount": 200,
+      "documentCount": 20
+    },
+    {
+      "id": "topic:es:obras",
+      "slug": "obras",
+      "label": "Obras buenas",
+      "kind": "seed",
+      "parentId": "topic:es:moral",
+      "relatedIds": [
+        "topic:es:caridad",
+        "topic:es:meritos",
+        "topic:es:justificacion",
+        "topic:es:pobreza"
+      ],
+      "aliases": [
+        "obras de misericordia",
+        "buenas obras"
+      ],
+      "unitCount": 101,
+      "documentCount": 23
+    },
+    {
+      "id": "topic:es:oracion",
+      "slug": "oracion",
+      "label": "Oración",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:liturgia",
+        "topic:es:padrenuestro",
+        "topic:es:contemplacion",
+        "topic:es:adoracion"
+      ],
+      "aliases": [
+        "oración cristiana",
+        "plegaria",
+        "rezo"
+      ],
+      "unitCount": 200,
+      "documentCount": 14
+    },
+    {
+      "id": "topic:es:orden",
+      "slug": "orden",
+      "label": "Orden sagrado",
+      "kind": "seed",
+      "parentId": "topic:es:sacramentos",
+      "relatedIds": [
+        "topic:es:sacerdocio",
+        "topic:es:obispos",
+        "topic:es:caracter-sacramental"
+      ],
+      "aliases": [
+        "sacramento del orden",
+        "ordenación"
+      ],
+      "unitCount": 150,
+      "documentCount": 20
+    },
+    {
+      "id": "topic:es:padre",
+      "slug": "padre",
+      "label": "Dios Padre",
+      "kind": "seed",
+      "parentId": "topic:es:trinidad",
+      "relatedIds": [
+        "topic:es:hijo",
+        "topic:es:espiritu-santo",
+        "topic:es:creacion",
+        "topic:es:padrenuestro"
+      ],
+      "aliases": [
+        "Padre celestial",
+        "primera persona"
+      ],
+      "unitCount": 200,
+      "documentCount": 20
+    },
+    {
+      "id": "topic:es:padrenuestro",
+      "slug": "padrenuestro",
+      "label": "Padre nuestro",
+      "kind": "seed",
+      "parentId": "topic:es:oracion",
+      "relatedIds": [
+        "topic:es:padre",
+        "topic:es:liturgia",
+        "topic:es:reino-de-dios"
+      ],
+      "aliases": [
+        "oración del Señor",
+        "Pater noster"
+      ],
+      "unitCount": 17,
+      "documentCount": 2
+    },
+    {
+      "id": "topic:es:papado",
+      "slug": "papado",
+      "label": "Papado",
+      "kind": "seed",
+      "parentId": "topic:es:jerarquia",
+      "relatedIds": [
+        "topic:es:infalibilidad",
+        "topic:es:obispos",
+        "topic:es:iglesia",
+        "topic:es:magisterio"
+      ],
+      "aliases": [
+        "primado de Pedro",
+        "Sucesor de Pedro",
+        "romano pontífice"
+      ],
+      "unitCount": 200,
+      "documentCount": 26
+    },
+    {
+      "id": "topic:es:parusia",
+      "slug": "parusia",
+      "label": "Parusía",
+      "kind": "seed",
+      "parentId": "topic:es:escatologia",
+      "relatedIds": [
+        "topic:es:juicio-final",
+        "topic:es:resurreccion-de-los-muertos",
+        "topic:es:esperanza"
+      ],
+      "aliases": [
+        "segunda venida",
+        "venida gloriosa de Cristo"
+      ],
+      "unitCount": 0,
+      "documentCount": 0
+    },
+    {
+      "id": "topic:es:pasion",
+      "slug": "pasion",
+      "label": "Pasión de Cristo",
+      "kind": "seed",
+      "parentId": "topic:es:misterio-pascual",
+      "relatedIds": [
+        "topic:es:cruz",
+        "topic:es:muerte-de-cristo",
+        "topic:es:redencion",
+        "topic:es:sufrimiento"
+      ],
+      "aliases": [
+        "pasión del Señor",
+        "vía dolorosa"
+      ],
+      "unitCount": 28,
+      "documentCount": 9
+    },
+    {
+      "id": "topic:es:paz",
+      "slug": "paz",
+      "label": "Paz",
+      "kind": "seed",
+      "parentId": "topic:es:doctrina-social",
+      "relatedIds": [
+        "topic:es:guerra-y-paz",
+        "topic:es:justicia-social",
+        "topic:es:bien-comun",
+        "topic:es:caridad"
+      ],
+      "aliases": [
+        "paz de Cristo",
+        "paz social"
+      ],
+      "unitCount": 76,
+      "documentCount": 16
+    },
+    {
+      "id": "topic:es:pecado",
+      "slug": "pecado",
+      "label": "Pecado",
+      "kind": "seed",
+      "parentId": "topic:es:moral",
+      "relatedIds": [
+        "topic:es:pecado-original",
+        "topic:es:pecado-mortal",
+        "topic:es:conversion",
+        "topic:es:gracia"
+      ],
+      "aliases": [
+        "pecado humano",
+        "ofensa a Dios"
+      ],
+      "unitCount": 200,
+      "documentCount": 17
+    },
+    {
+      "id": "topic:es:pecado-mortal",
+      "slug": "pecado-mortal",
+      "label": "Pecado mortal",
+      "kind": "seed",
+      "parentId": "topic:es:pecado",
+      "relatedIds": [
+        "topic:es:pecado-venial",
+        "topic:es:reconciliacion",
+        "topic:es:infierno",
+        "topic:es:gracia"
+      ],
+      "aliases": [
+        "pecado grave",
+        "pecado mortal"
+      ],
+      "unitCount": 52,
+      "documentCount": 10
+    },
+    {
+      "id": "topic:es:pecado-original",
+      "slug": "pecado-original",
+      "label": "Pecado original",
+      "kind": "seed",
+      "parentId": "topic:es:pecado",
+      "relatedIds": [
+        "topic:es:bautismo",
+        "topic:es:gracia",
+        "topic:es:redencion",
+        "topic:es:creacion"
+      ],
+      "aliases": [
+        "caída original",
+        "pecado de Adán"
+      ],
+      "unitCount": 70,
+      "documentCount": 9
+    },
+    {
+      "id": "topic:es:pecado-venial",
+      "slug": "pecado-venial",
+      "label": "Pecado venial",
+      "kind": "seed",
+      "parentId": "topic:es:pecado",
+      "relatedIds": [
+        "topic:es:pecado-mortal",
+        "topic:es:conversion",
+        "topic:es:purgatorio"
+      ],
+      "aliases": [
+        "faltas veniales",
+        "pecado leve"
+      ],
+      "unitCount": 12,
+      "documentCount": 2
+    },
+    {
+      "id": "topic:es:pecados-capitales",
+      "slug": "pecados-capitales",
+      "label": "Pecados capitales",
+      "kind": "seed",
+      "parentId": "topic:es:pecado",
+      "relatedIds": [
+        "topic:es:vicios",
+        "topic:es:virtudes",
+        "topic:es:tentacion"
+      ],
+      "aliases": [
+        "siete pecados capitales",
+        "vicios capitales"
+      ],
+      "unitCount": 43,
+      "documentCount": 10
+    },
+    {
+      "id": "topic:es:penitencia",
+      "slug": "penitencia",
+      "label": "Penitencia",
+      "kind": "seed",
+      "parentId": "topic:es:conversion",
+      "relatedIds": [
+        "topic:es:reconciliacion",
+        "topic:es:arrepentimiento",
+        "topic:es:indulgencias"
+      ],
+      "aliases": [
+        "obras de penitencia",
+        "satisfacción"
+      ],
+      "unitCount": 147,
+      "documentCount": 15
+    },
+    {
+      "id": "topic:es:perdon",
+      "slug": "perdon",
+      "label": "Perdón",
+      "kind": "seed",
+      "parentId": "topic:es:misericordia",
+      "relatedIds": [
+        "topic:es:reconciliacion",
+        "topic:es:pecado",
+        "topic:es:caridad"
+      ],
+      "aliases": [
+        "perdón de los pecados",
+        "remisión"
+      ],
+      "unitCount": 83,
+      "documentCount": 10
+    },
+    {
+      "id": "topic:es:persona-humana",
+      "slug": "persona-humana",
+      "label": "Persona humana",
+      "kind": "seed",
+      "parentId": "topic:es:creacion",
+      "relatedIds": [
+        "topic:es:imagen-de-dios",
+        "topic:es:dignidad",
+        "topic:es:alma",
+        "topic:es:cuerpo"
+      ],
+      "aliases": [
+        "ser humano",
+        "antropología cristiana"
+      ],
+      "unitCount": 200,
+      "documentCount": 25
+    },
+    {
+      "id": "topic:es:pobreza",
+      "slug": "pobreza",
+      "label": "Pobreza",
+      "kind": "seed",
+      "parentId": "topic:es:doctrina-social",
+      "relatedIds": [
+        "topic:es:caridad",
+        "topic:es:justicia-social",
+        "topic:es:obras",
+        "topic:es:bien-comun"
+      ],
+      "aliases": [
+        "opción por los pobres",
+        "pobres de Yahvé"
+      ],
+      "unitCount": 128,
+      "documentCount": 27
+    },
+    {
+      "id": "topic:es:politica",
+      "slug": "politica",
+      "label": "Política y fe",
+      "kind": "seed",
+      "parentId": "topic:es:doctrina-social",
+      "relatedIds": [
+        "topic:es:bien-comun",
+        "topic:es:libertad-religiosa",
+        "topic:es:justicia-social"
+      ],
+      "aliases": [
+        "compromiso político",
+        "bien político"
+      ],
+      "unitCount": 200,
+      "documentCount": 23
+    },
+    {
+      "id": "topic:es:predestinacion",
+      "slug": "predestinacion",
+      "label": "Predestinación",
+      "kind": "seed",
+      "parentId": "topic:es:gracia",
+      "relatedIds": [
+        "topic:es:libre-albedrio",
+        "topic:es:providencia",
+        "topic:es:salvacion"
+      ],
+      "aliases": [
+        "elección divina",
+        "predestinación a la gloria"
+      ],
+      "unitCount": 25,
+      "documentCount": 6
+    },
+    {
+      "id": "topic:es:providencia",
+      "slug": "providencia",
+      "label": "Providencia",
+      "kind": "seed",
+      "parentId": "topic:es:dios",
+      "relatedIds": [
+        "topic:es:creacion",
+        "topic:es:predestinacion",
+        "topic:es:confianza"
+      ],
+      "aliases": [
+        "providencia divina",
+        "gobierno de Dios"
+      ],
+      "unitCount": 30,
+      "documentCount": 7
+    },
+    {
+      "id": "topic:es:prudencia",
+      "slug": "prudencia",
+      "label": "Prudencia",
+      "kind": "seed",
+      "parentId": "topic:es:virtudes-cardinales",
+      "relatedIds": [
+        "topic:es:conciencia",
+        "topic:es:discernimiento",
+        "topic:es:justicia"
+      ],
+      "aliases": [
+        "virtud de la prudencia",
+        "discreción"
+      ],
+      "unitCount": 52,
+      "documentCount": 9
+    },
+    {
+      "id": "topic:es:pueblo-de-dios",
+      "slug": "pueblo-de-dios",
+      "label": "Pueblo de Dios",
+      "kind": "seed",
+      "parentId": "topic:es:iglesia",
+      "relatedIds": [
+        "topic:es:cuerpo-mistico",
+        "topic:es:laicos",
+        "topic:es:alianza"
+      ],
+      "aliases": [
+        "pueblo santo",
+        "pueblo elegido"
+      ],
+      "unitCount": 33,
+      "documentCount": 13
+    },
+    {
+      "id": "topic:es:purgatorio",
+      "slug": "purgatorio",
+      "label": "Purgatorio",
+      "kind": "seed",
+      "parentId": "topic:es:escatologia",
+      "relatedIds": [
+        "topic:es:cielo",
+        "topic:es:indulgencias",
+        "topic:es:comunion-de-los-santos",
+        "topic:es:muerte"
+      ],
+      "aliases": [
+        "purificación final",
+        "almas del purgatorio"
+      ],
+      "unitCount": 16,
+      "documentCount": 4
+    },
+    {
+      "id": "topic:es:quinto-mandamiento",
+      "slug": "quinto-mandamiento",
+      "label": "Quinto mandamiento",
+      "kind": "seed",
+      "parentId": "topic:es:diez-mandamientos",
+      "relatedIds": [
+        "topic:es:vida",
+        "topic:es:aborto",
+        "topic:es:eutanasia",
+        "topic:es:guerra-y-paz"
+      ],
+      "aliases": [
+        "no matarás",
+        "mandamiento de la vida"
+      ],
+      "unitCount": 22,
+      "documentCount": 4
+    },
+    {
+      "id": "topic:es:realeza-de-cristo",
+      "slug": "realeza-de-cristo",
+      "label": "Realeza de Cristo",
+      "kind": "seed",
+      "parentId": "topic:es:jesucristo",
+      "relatedIds": [
+        "topic:es:reino-de-dios",
+        "topic:es:parusia",
+        "topic:es:liturgia"
+      ],
+      "aliases": [
+        "Cristo Rey",
+        "reinado social de Cristo"
+      ],
+      "unitCount": 6,
+      "documentCount": 3
+    },
+    {
+      "id": "topic:es:reconciliacion",
+      "slug": "reconciliacion",
+      "label": "Reconciliación",
+      "kind": "seed",
+      "parentId": "topic:es:sacramentos",
+      "relatedIds": [
+        "topic:es:pecado",
+        "topic:es:conversion",
+        "topic:es:perdon",
+        "topic:es:gracia"
+      ],
+      "aliases": [
+        "confesión",
+        "sacramento de la penitencia",
+        "perdón sacramental"
+      ],
+      "unitCount": 111,
+      "documentCount": 14
+    },
+    {
+      "id": "topic:es:redencion",
+      "slug": "redencion",
+      "label": "Redención",
+      "kind": "seed",
+      "parentId": "topic:es:jesucristo",
+      "relatedIds": [
+        "topic:es:salvacion",
+        "topic:es:cruz",
+        "topic:es:misterio-pascual",
+        "topic:es:gracia"
+      ],
+      "aliases": [
+        "obra redentora",
+        "rescate",
+        "salvación en Cristo"
+      ],
+      "unitCount": 25,
+      "documentCount": 13
+    },
+    {
+      "id": "topic:es:reino-de-dios",
+      "slug": "reino-de-dios",
+      "label": "Reino de Dios",
+      "kind": "seed",
+      "parentId": "topic:es:jesucristo",
+      "relatedIds": [
+        "topic:es:beatitudes",
+        "topic:es:parusia",
+        "topic:es:evangelizacion",
+        "topic:es:iglesia"
+      ],
+      "aliases": [
+        "reino de los cielos",
+        "reinado de Cristo"
+      ],
+      "unitCount": 34,
+      "documentCount": 11
+    },
+    {
+      "id": "topic:es:resurreccion",
+      "slug": "resurreccion",
+      "label": "Resurrección de Cristo",
+      "kind": "seed",
+      "parentId": "topic:es:misterio-pascual",
+      "relatedIds": [
+        "topic:es:ascension",
+        "topic:es:vida-eterna",
+        "topic:es:eucaristia",
+        "topic:es:esperanza"
+      ],
+      "aliases": [
+        "resurrección del Señor",
+        "Cristo resucitado"
+      ],
+      "unitCount": 94,
+      "documentCount": 15
+    },
+    {
+      "id": "topic:es:resurreccion-de-los-muertos",
+      "slug": "resurreccion-de-los-muertos",
+      "label": "Resurrección de los muertos",
+      "kind": "seed",
+      "parentId": "topic:es:escatologia",
+      "relatedIds": [
+        "topic:es:juicio-final",
+        "topic:es:cielo",
+        "topic:es:alma",
+        "topic:es:cuerpo"
+      ],
+      "aliases": [
+        "resurrección de la carne",
+        "resurrección final"
+      ],
+      "unitCount": 2,
+      "documentCount": 1
+    },
+    {
+      "id": "topic:es:revelacion",
+      "slug": "revelacion",
+      "label": "Revelación",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:sagrada-escritura",
+        "topic:es:tradicion",
+        "topic:es:fe",
+        "topic:es:deposito-de-la-fe"
+      ],
+      "aliases": [
+        "revelación divina",
+        "palabra revelada"
+      ],
+      "unitCount": 81,
+      "documentCount": 16
+    },
+    {
+      "id": "topic:es:sacerdocio",
+      "slug": "sacerdocio",
+      "label": "Sacerdocio",
+      "kind": "seed",
+      "parentId": "topic:es:jerarquia",
+      "relatedIds": [
+        "topic:es:orden",
+        "topic:es:eucaristia",
+        "topic:es:laicos",
+        "topic:es:misa"
+      ],
+      "aliases": [
+        "sacerdocio ministerial",
+        "sacerdocio común"
+      ],
+      "unitCount": 200,
+      "documentCount": 23
+    },
+    {
+      "id": "topic:es:sacramentales",
+      "slug": "sacramentales",
+      "label": "Sacramentales",
+      "kind": "seed",
+      "parentId": "topic:es:liturgia",
+      "relatedIds": [
+        "topic:es:sacramentos",
+        "topic:es:exorcismo",
+        "topic:es:culto"
+      ],
+      "aliases": [
+        "sacramentales de la Iglesia",
+        "bendiciones"
+      ],
+      "unitCount": 57,
+      "documentCount": 7
+    },
+    {
+      "id": "topic:es:sacramentos",
+      "slug": "sacramentos",
+      "label": "Sacramentos",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:gracia",
+        "topic:es:iglesia",
+        "topic:es:liturgia",
+        "topic:es:bautismo"
+      ],
+      "aliases": [
+        "siete sacramentos",
+        "sacramentos de la Nueva Alianza"
+      ],
+      "unitCount": 200,
+      "documentCount": 16
+    },
+    {
+      "id": "topic:es:sagrada-escritura",
+      "slug": "sagrada-escritura",
+      "label": "Sagrada Escritura",
+      "kind": "seed",
+      "parentId": "topic:es:revelacion",
+      "relatedIds": [
+        "topic:es:tradicion",
+        "topic:es:inspiracion-biblica",
+        "topic:es:canon-biblico",
+        "topic:es:lectio-divina"
+      ],
+      "aliases": [
+        "Biblia",
+        "Palabra de Dios",
+        "Sagradas Escrituras"
+      ],
+      "unitCount": 200,
+      "documentCount": 34
+    },
+    {
+      "id": "topic:es:sagrado-corazon",
+      "slug": "sagrado-corazon",
+      "label": "Sagrado Corazón",
+      "kind": "seed",
+      "parentId": "topic:es:jesucristo",
+      "relatedIds": [
+        "topic:es:amor",
+        "topic:es:misericordia",
+        "topic:es:adoracion"
+      ],
+      "aliases": [
+        "Corazón de Jesús",
+        "devoción al Sagrado Corazón"
+      ],
+      "unitCount": 3,
+      "documentCount": 3
+    },
+    {
+      "id": "topic:es:salvacion",
+      "slug": "salvacion",
+      "label": "Salvación",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:redencion",
+        "topic:es:gracia",
+        "topic:es:jesucristo",
+        "topic:es:fe"
+      ],
+      "aliases": [
+        "salvación eterna",
+        "ser salvado"
+      ],
+      "unitCount": 124,
+      "documentCount": 33
+    },
+    {
+      "id": "topic:es:santidad",
+      "slug": "santidad",
+      "label": "Santidad",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:gracia",
+        "topic:es:virtudes",
+        "topic:es:vocacion",
+        "topic:es:santos"
+      ],
+      "aliases": [
+        "llamada a la santidad",
+        "vida santa"
+      ],
+      "unitCount": 200,
+      "documentCount": 24
+    },
+    {
+      "id": "topic:es:santificacion",
+      "slug": "santificacion",
+      "label": "Santificación",
+      "kind": "seed",
+      "parentId": "topic:es:gracia",
+      "relatedIds": [
+        "topic:es:justificacion",
+        "topic:es:espiritu-santo",
+        "topic:es:santidad"
+      ],
+      "aliases": [
+        "santificación del cristiano",
+        "ser santificado"
+      ],
+      "unitCount": 23,
+      "documentCount": 7
+    },
+    {
+      "id": "topic:es:santos",
+      "slug": "santos",
+      "label": "Santos",
+      "kind": "seed",
+      "parentId": "topic:es:comunion-de-los-santos",
+      "relatedIds": [
+        "topic:es:santidad",
+        "topic:es:martirio",
+        "topic:es:cielo",
+        "topic:es:liturgia"
+      ],
+      "aliases": [
+        "comunión de los santos",
+        "canonizados"
+      ],
+      "unitCount": 200,
+      "documentCount": 35
+    },
+    {
+      "id": "topic:es:sexto-mandamiento",
+      "slug": "sexto-mandamiento",
+      "label": "Sexto mandamiento",
+      "kind": "seed",
+      "parentId": "topic:es:diez-mandamientos",
+      "relatedIds": [
+        "topic:es:castidad",
+        "topic:es:sexualidad",
+        "topic:es:matrimonio-moral"
+      ],
+      "aliases": [
+        "no cometerás adulterio",
+        "mandamiento de la pureza"
+      ],
+      "unitCount": 25,
+      "documentCount": 7
+    },
+    {
+      "id": "topic:es:sexualidad",
+      "slug": "sexualidad",
+      "label": "Sexualidad",
+      "kind": "seed",
+      "parentId": "topic:es:persona-humana",
+      "relatedIds": [
+        "topic:es:castidad",
+        "topic:es:matrimonio",
+        "topic:es:sexto-mandamiento",
+        "topic:es:templanza"
+      ],
+      "aliases": [
+        "sexualidad humana",
+        "dimensión sexual"
+      ],
+      "unitCount": 70,
+      "documentCount": 20
+    },
+    {
+      "id": "topic:es:solidaridad",
+      "slug": "solidaridad",
+      "label": "Solidaridad",
+      "kind": "seed",
+      "parentId": "topic:es:doctrina-social",
+      "relatedIds": [
+        "topic:es:subsidiariedad",
+        "topic:es:bien-comun",
+        "topic:es:pobreza",
+        "topic:es:caridad"
+      ],
+      "aliases": [
+        "principio de solidaridad"
+      ],
+      "unitCount": 48,
+      "documentCount": 14
+    },
+    {
+      "id": "topic:es:subsidiariedad",
+      "slug": "subsidiariedad",
+      "label": "Subsidiariedad",
+      "kind": "seed",
+      "parentId": "topic:es:doctrina-social",
+      "relatedIds": [
+        "topic:es:solidaridad",
+        "topic:es:bien-comun",
+        "topic:es:politica"
+      ],
+      "aliases": [
+        "principio de subsidiariedad"
+      ],
+      "unitCount": 4,
+      "documentCount": 2
+    },
+    {
+      "id": "topic:es:sufrimiento",
+      "slug": "sufrimiento",
+      "label": "Sufrimiento",
+      "kind": "seed",
+      "parentId": "topic:es:persona-humana",
+      "relatedIds": [
+        "topic:es:cruz",
+        "topic:es:uncion-de-los-enfermos",
+        "topic:es:redencion",
+        "topic:es:esperanza"
+      ],
+      "aliases": [
+        "dolor humano",
+        "cruz del cristiano"
+      ],
+      "unitCount": 60,
+      "documentCount": 14
+    },
+    {
+      "id": "topic:es:templanza",
+      "slug": "templanza",
+      "label": "Templanza",
+      "kind": "seed",
+      "parentId": "topic:es:virtudes-cardinales",
+      "relatedIds": [
+        "topic:es:castidad",
+        "topic:es:pecados-capitales",
+        "topic:es:libertad"
+      ],
+      "aliases": [
+        "virtud de la templanza",
+        "moderación"
+      ],
+      "unitCount": 18,
+      "documentCount": 7
+    },
+    {
+      "id": "topic:es:tentacion",
+      "slug": "tentacion",
+      "label": "Tentación",
+      "kind": "seed",
+      "parentId": "topic:es:vida-espiritual",
+      "relatedIds": [
+        "topic:es:demonio",
+        "topic:es:pecado",
+        "topic:es:oracion",
+        "topic:es:fortaleza"
+      ],
+      "aliases": [
+        "prueba",
+        "tentación diabólica"
+      ],
+      "unitCount": 73,
+      "documentCount": 11
+    },
+    {
+      "id": "topic:es:testimonio",
+      "slug": "testimonio",
+      "label": "Testimonio",
+      "kind": "seed",
+      "parentId": "topic:es:evangelizacion",
+      "relatedIds": [
+        "topic:es:martirio",
+        "topic:es:apostolado",
+        "topic:es:fe"
+      ],
+      "aliases": [
+        "testimonio cristiano",
+        "ser testigos"
+      ],
+      "unitCount": 161,
+      "documentCount": 15
+    },
+    {
+      "id": "topic:es:trabajo",
+      "slug": "trabajo",
+      "label": "Trabajo",
+      "kind": "seed",
+      "parentId": "topic:es:doctrina-social",
+      "relatedIds": [
+        "topic:es:justicia-social",
+        "topic:es:economia",
+        "topic:es:persona-humana"
+      ],
+      "aliases": [
+        "trabajo humano",
+        "dignidad del trabajo"
+      ],
+      "unitCount": 180,
+      "documentCount": 21
+    },
+    {
+      "id": "topic:es:tradicion",
+      "slug": "tradicion",
+      "label": "Tradición",
+      "kind": "seed",
+      "parentId": "topic:es:revelacion",
+      "relatedIds": [
+        "topic:es:sagrada-escritura",
+        "topic:es:magisterio",
+        "topic:es:deposito-de-la-fe"
+      ],
+      "aliases": [
+        "Tradición apostólica",
+        "Tradición viva"
+      ],
+      "unitCount": 200,
+      "documentCount": 33
+    },
+    {
+      "id": "topic:es:trinidad",
+      "slug": "trinidad",
+      "label": "Trinidad",
+      "kind": "seed",
+      "parentId": "topic:es:dios",
+      "relatedIds": [
+        "topic:es:padre",
+        "topic:es:hijo",
+        "topic:es:espiritu-santo",
+        "topic:es:bautismo"
+      ],
+      "aliases": [
+        "Santísima Trinidad",
+        "Dios trino",
+        "misterio trinitario"
+      ],
+      "unitCount": 49,
+      "documentCount": 8
+    },
+    {
+      "id": "topic:es:uncion-de-los-enfermos",
+      "slug": "uncion-de-los-enfermos",
+      "label": "Unción de los enfermos",
+      "kind": "seed",
+      "parentId": "topic:es:sacramentos",
+      "relatedIds": [
+        "topic:es:sufrimiento",
+        "topic:es:muerte",
+        "topic:es:gracia",
+        "topic:es:oracion"
+      ],
+      "aliases": [
+        "extremaunción",
+        "sacramento de los enfermos"
+      ],
+      "unitCount": 78,
+      "documentCount": 8
+    },
+    {
+      "id": "topic:es:verdad",
+      "slug": "verdad",
+      "label": "Verdad",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:fe-y-razon",
+        "topic:es:dios",
+        "topic:es:conciencia",
+        "topic:es:revelacion"
+      ],
+      "aliases": [
+        "verdad divina",
+        "veritas"
+      ],
+      "unitCount": 200,
+      "documentCount": 29
+    },
+    {
+      "id": "topic:es:vicios",
+      "slug": "vicios",
+      "label": "Vicios",
+      "kind": "seed",
+      "parentId": "topic:es:moral",
+      "relatedIds": [
+        "topic:es:pecados-capitales",
+        "topic:es:virtudes",
+        "topic:es:pecado"
+      ],
+      "aliases": [
+        "vicios morales",
+        "hábitos malos"
+      ],
+      "unitCount": 15,
+      "documentCount": 3
+    },
+    {
+      "id": "topic:es:vida",
+      "slug": "vida",
+      "label": "Vida humana",
+      "kind": "seed",
+      "parentId": "topic:es:moral",
+      "relatedIds": [
+        "topic:es:aborto",
+        "topic:es:eutanasia",
+        "topic:es:dignidad",
+        "topic:es:quinto-mandamiento"
+      ],
+      "aliases": [
+        "respeto a la vida",
+        "vida desde la concepción"
+      ],
+      "unitCount": 200,
+      "documentCount": 31
+    },
+    {
+      "id": "topic:es:vida-consagrada",
+      "slug": "vida-consagrada",
+      "label": "Vida consagrada",
+      "kind": "seed",
+      "parentId": "topic:es:iglesia",
+      "relatedIds": [
+        "topic:es:vocacion",
+        "topic:es:santidad",
+        "topic:es:castidad",
+        "topic:es:pobreza"
+      ],
+      "aliases": [
+        "religiosos",
+        "consejos evangélicos",
+        "vida religiosa"
+      ],
+      "unitCount": 200,
+      "documentCount": 23
+    },
+    {
+      "id": "topic:es:vida-espiritual",
+      "slug": "vida-espiritual",
+      "label": "Vida espiritual",
+      "kind": "seed",
+      "parentId": null,
+      "relatedIds": [
+        "topic:es:oracion",
+        "topic:es:santidad",
+        "topic:es:discernimiento",
+        "topic:es:gracia"
+      ],
+      "aliases": [
+        "camino espiritual",
+        "ascética y mística"
+      ],
+      "unitCount": 6,
+      "documentCount": 6
+    },
+    {
+      "id": "topic:es:vida-eterna",
+      "slug": "vida-eterna",
+      "label": "Vida eterna",
+      "kind": "seed",
+      "parentId": "topic:es:escatologia",
+      "relatedIds": [
+        "topic:es:cielo",
+        "topic:es:resurreccion",
+        "topic:es:esperanza",
+        "topic:es:gracia"
+      ],
+      "aliases": [
+        "vida perdurable",
+        "vida eterna en Cristo"
+      ],
+      "unitCount": 84,
+      "documentCount": 19
+    },
+    {
+      "id": "topic:es:virtudes",
+      "slug": "virtudes",
+      "label": "Virtudes",
+      "kind": "seed",
+      "parentId": "topic:es:moral",
+      "relatedIds": [
+        "topic:es:virtudes-teologales",
+        "topic:es:virtudes-cardinales",
+        "topic:es:gracia",
+        "topic:es:vicios"
+      ],
+      "aliases": [
+        "virtudes cristianas",
+        "hábitos buenos"
+      ],
+      "unitCount": 101,
+      "documentCount": 16
+    },
+    {
+      "id": "topic:es:virtudes-cardinales",
+      "slug": "virtudes-cardinales",
+      "label": "Virtudes cardinales",
+      "kind": "seed",
+      "parentId": "topic:es:virtudes",
+      "relatedIds": [
+        "topic:es:prudencia",
+        "topic:es:justicia",
+        "topic:es:fortaleza",
+        "topic:es:templanza"
+      ],
+      "aliases": [
+        "cuatro virtudes cardinales"
+      ],
+      "unitCount": 128,
+      "documentCount": 19
+    },
+    {
+      "id": "topic:es:virtudes-teologales",
+      "slug": "virtudes-teologales",
+      "label": "Virtudes teologales",
+      "kind": "seed",
+      "parentId": "topic:es:virtudes",
+      "relatedIds": [
+        "topic:es:fe",
+        "topic:es:esperanza",
+        "topic:es:caridad",
+        "topic:es:gracia"
+      ],
+      "aliases": [
+        "fe esperanza y caridad"
+      ],
+      "unitCount": 200,
+      "documentCount": 23
+    },
+    {
+      "id": "topic:es:vocacion",
+      "slug": "vocacion",
+      "label": "Vocación",
+      "kind": "seed",
+      "parentId": "topic:es:persona-humana",
+      "relatedIds": [
+        "topic:es:santidad",
+        "topic:es:sacerdocio",
+        "topic:es:matrimonio",
+        "topic:es:vida-consagrada"
+      ],
+      "aliases": [
+        "llamada de Dios",
+        "vocación cristiana"
+      ],
+      "unitCount": 67,
+      "documentCount": 24
+    }
+  ]
 }

@@ -2,7 +2,7 @@
   "version": "0.2.0",
   "schema": 1,
   "locale": "es",
-  "generatedAt": "2026-07-26T20:10:57.108Z",
+  "generatedAt": "2026-07-26T20:38:43.473Z",
   "corpusFingerprint": {
     "algo": "sha256",
     "value": "8d2b2f98c4cd8987",
@@ -13,7 +13,7 @@
     "maxPostingsPerTopic": 200,
     "maxRawBytes": 12000000
   },
-  "topicCount": 0,
+  "topicCount": 171,
   "edgeCount": 9932,
   "files": {
     "topics": "topics.json",
@@ -21,5 +21,5 @@
     "termTopics": "term-topics.json",
     "graph": "unit-graph.json"
   },
-  "sourceNote": "Ref-only unit graph for locale es. nodes=5026 edges=9932."
+  "sourceNote": "Hub topic postings for locale es. catalog=seed scripts-descarga/config/topics-seed.es.json; hubs=88; assignments=37501; postings=17479."
 }

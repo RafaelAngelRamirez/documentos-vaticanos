@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, of } from 'rxjs';
+import { catchError, map, switchMap, take } from 'rxjs/operators';
 import { BuscadorService, TermsProcessed } from './buscador.service';
 import {
   CargarDocumentosJsonService,
@@ -20,6 +21,15 @@ import {
   DEFAULT_BODY_LOAD_CONCURRENCY,
   DEFAULT_INDEX_LOAD_CONCURRENCY,
 } from 'src/app/core/search/search-load.logic';
+import { TopicIndexService } from 'src/app/core/search/topic-index.service';
+import type { TopicPack } from 'src/app/core/search/topic-pack.models';
+import {
+  applyTopicBoostIfAny,
+  findTopicInPack,
+  hitsFromTopicPostings,
+  parseTopicQuery,
+  type TopicPackQueryLike,
+} from 'src/app/core/search/topic-query.logic';
 
 const PAGE = 50;
 /** Unique documents to hydrate for snippets after index-only ranking. */
@@ -60,6 +70,8 @@ export class BuscadorComponent implements OnInit, OnDestroy {
   private sub = new Subscription();
   /** Bumps on each search so in-flight progressive loads can be dropped. */
   private searchGen = 0;
+  /** Locale for which topic pack was last requested (avoid duplicate loads). */
+  private topicPackLocale: string | null = null;
 
   constructor(
     public busadorService: BuscadorService,
@@ -68,6 +80,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     private navigationService: NavigationService,
     private corpus: CorpusService,
     private readerPrefs: ReaderPreferencesService,
+    private topics: TopicIndexService,
   ) {}
 
   ngOnInit(): void {
@@ -88,11 +101,26 @@ export class BuscadorComponent implements OnInit, OnDestroy {
       }),
     );
 
+    // Warm topic pack for content locale once (soft-empty if missing / flag off).
+    const locale = this.readerPrefs.resolveContentLocale();
+    this.ensureTopicPack(locale);
+
     this.sub.add(
       this.busadorService.terminos_emit.subscribe((terminos) => {
         this.terminos = terminos;
         this.procesar_busqueda(terminos);
       }),
+    );
+  }
+
+  /** Subscribe loadPack once per locale (shareReplay inside service). */
+  private ensureTopicPack(locale: string): void {
+    if (!this.topics.featureEnabled) return;
+    const loc = (locale || 'es').trim().toLowerCase().split(/[-_]/)[0] || 'es';
+    if (this.topicPackLocale === loc && this.topics.isReady(loc)) return;
+    this.topicPackLocale = loc;
+    this.sub.add(
+      this.topics.loadPack(loc).pipe(catchError(() => of(null))).subscribe(),
     );
   }
 
@@ -161,8 +189,21 @@ export class BuscadorComponent implements OnInit, OnDestroy {
         ...(terminos.terminos ?? []),
         ...(terminos.puntos ?? []).map((p) => `.${p}`),
       ].join(', ');
+    const topicQ = parseTopicQuery(raw, {
+      mode: terminos.mode,
+      slug: terminos.topicSlug,
+    });
+    const isTopicMode = topicQ.mode === 'topic' && !!topicQ.slug;
+
+    const lexicalSource =
+      isTopicMode && topicQ.lexicalRaw
+        ? topicQ.lexicalRaw
+        : isTopicMode
+          ? topicQ.slug!
+          : raw;
+
     const parsed =
-      terminos.contentTerms != null || terminos.puntos != null
+      !isTopicMode && (terminos.contentTerms != null || terminos.puntos != null)
         ? {
             empty: !(
               (terminos.contentTerms?.length ?? 0) > 0 ||
@@ -175,10 +216,10 @@ export class BuscadorComponent implements OnInit, OnDestroy {
               parseSearchInput(raw).contentTerms,
             points: terminos.puntos ?? [],
           }
-        : parseSearchInput(raw);
+        : parseSearchInput(lexicalSource);
 
     this.docs_resultados = [];
-    if (parsed.empty) {
+    if (parsed.empty && !isTopicMode) {
       this.searchGen++;
       this.loading_docs = false;
       this.buildRows();
@@ -189,19 +230,43 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     this.loading_docs = true;
     this.load_error = null;
     const locale = this.readerPrefs.resolveContentLocale();
+    this.ensureTopicPack(locale);
 
-    // PR2b: rank on index.json only, then hydrate bodies for top-N docs.
+    // Topic pack (optional) + index load; soft-empty pack never blocks search.
+    const pack$ = this.topics.featureEnabled
+      ? this.topics.loadPack(locale).pipe(
+          take(1),
+          catchError(() => of(null as TopicPack | null)),
+        )
+      : of(null as TopicPack | null);
+
     this.sub.add(
-      this.documentosService
-        .ensureIndexForLocale(locale, {
-          allLocales: this.allLocales,
-          concurrency: DEFAULT_INDEX_LOAD_CONCURRENCY,
-          isCancelled: () => myGen !== this.searchGen,
-        })
+      pack$
+        .pipe(
+          switchMap((pack) =>
+            this.documentosService
+              .ensureIndexForLocale(locale, {
+                allLocales: this.allLocales,
+                concurrency: DEFAULT_INDEX_LOAD_CONCURRENCY,
+                isCancelled: () => myGen !== this.searchGen,
+              })
+              .pipe(map((indexDocs) => ({ pack, indexDocs }))),
+          ),
+        )
         .subscribe({
-          next: (indexDocs) => {
+          next: ({ pack, indexDocs }) => {
             if (myGen !== this.searchGen) return;
-            this.rankThenHydrate(indexDocs, parsed, myGen);
+            if (isTopicMode && topicQ.slug) {
+              this.rankTopicThenHydrate(
+                indexDocs,
+                pack,
+                topicQ.slug,
+                parsed,
+                myGen,
+              );
+              return;
+            }
+            this.rankThenHydrate(indexDocs, parsed, pack, myGen);
           },
           error: (err) => {
             if (myGen !== this.searchGen) return;
@@ -217,7 +282,93 @@ export class BuscadorComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Index-only rank → ensureLoaded only unique docs among top hits (snippets).
+   * Thematic mode: rank by topic postings; soft-fall back to lexical if empty.
+   */
+  private rankTopicThenHydrate(
+    indexDocs: DocumentoDatos[],
+    pack: TopicPack | null,
+    slug: string,
+    parsed: {
+      empty: boolean;
+      phrases: string[];
+      contentTerms: string[];
+      points: number[];
+    },
+    myGen: number,
+  ): void {
+    const byId = new Map<string, DocumentoDatos>();
+    for (const doc of indexDocs) {
+      const id = doc.id || doc.nombre || '';
+      if (id) byId.set(id, doc);
+    }
+
+    const packLike = pack as TopicPackQueryLike | null;
+    const topicHits = hitsFromTopicPostings(
+      packLike,
+      slug,
+      RANK_HYDRATE_HIT_CAP,
+    );
+
+    if (!topicHits.length) {
+      // Soft-degrade: lexical on topic label / slug when postings empty.
+      const topic = findTopicInPack(packLike, slug);
+      const fallbackQ = topic?.label || slug;
+      const fallbackParsed = parseSearchInput(fallbackQ);
+      if (!fallbackParsed.empty) {
+        this.rankThenHydrate(indexDocs, fallbackParsed, pack, myGen);
+        return;
+      }
+      if (myGen !== this.searchGen) return;
+      this.loading_docs = false;
+      this.docs_resultados = [];
+      this.rows = [];
+      return;
+    }
+
+    const rankedAll: { hit: RankedUnitHit; doc: DocumentoDatos }[] = [];
+    for (const th of topicHits) {
+      const doc = byId.get(th.documentId);
+      if (!doc) continue;
+      rankedAll.push({
+        hit: {
+          documentId: th.documentId,
+          unitIndex: th.unitIndex,
+          consecutivo: th.consecutivo,
+          score: th.score,
+          matchedTerms: th.matchedTerms ?? [slug],
+          highlightTerms: th.highlightTerms ?? [slug],
+        },
+        doc,
+      });
+    }
+
+    if (!rankedAll.length) {
+      // Postings point at docs outside locale index scope — fall back lexical.
+      const topic = findTopicInPack(packLike, slug);
+      const fallbackParsed = parseSearchInput(topic?.label || slug);
+      if (!fallbackParsed.empty) {
+        this.rankThenHydrate(indexDocs, fallbackParsed, pack, myGen);
+        return;
+      }
+      if (myGen !== this.searchGen) return;
+      this.loading_docs = false;
+      this.docs_resultados = [];
+      this.rows = [];
+      return;
+    }
+
+    this.hydrateRankedHits(
+      rankedAll,
+      byId,
+      parsed,
+      pack,
+      myGen,
+      /* skipLexicalRerank */ true,
+    );
+  }
+
+  /**
+   * Index-only rank → optional topic boost → ensureLoaded top-N docs (snippets).
    */
   private rankThenHydrate(
     indexDocs: DocumentoDatos[],
@@ -227,6 +378,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
       contentTerms: string[];
       points: number[];
     },
+    pack: TopicPack | null,
     myGen: number,
   ): void {
     const rankedAll: { hit: RankedUnitHit; doc: DocumentoDatos }[] = [];
@@ -255,6 +407,43 @@ export class BuscadorComponent implements OnInit, OnDestroy {
         a.hit.unitIndex - b.hit.unitIndex,
     );
 
+    // PR5: soft topic boost after lexical rank (no-op when pack empty).
+    const boostIn = rankedAll.map((r) => r.hit);
+    const { hits: boostedHits, boosted } = applyTopicBoostIfAny(
+      boostIn,
+      pack as TopicPackQueryLike | null,
+      parsed.contentTerms,
+    );
+    if (boosted) {
+      const docByKey = new Map(
+        rankedAll.map((r) => [`${r.hit.documentId}:${r.hit.unitIndex}`, r.doc]),
+      );
+      rankedAll.length = 0;
+      for (const hit of boostedHits) {
+        const doc = docByKey.get(`${hit.documentId}:${hit.unitIndex}`);
+        if (doc) rankedAll.push({ hit: hit as RankedUnitHit, doc });
+      }
+    }
+
+    this.hydrateRankedHits(rankedAll, byId, parsed, pack, myGen, false);
+  }
+
+  /**
+   * Body-hydrate unique docs among top hits; optional phrase re-rank on hydrated packs.
+   */
+  private hydrateRankedHits(
+    rankedAll: { hit: RankedUnitHit; doc: DocumentoDatos }[],
+    byId: Map<string, DocumentoDatos>,
+    parsed: {
+      empty: boolean;
+      phrases: string[];
+      contentTerms: string[];
+      points: number[];
+    },
+    pack: TopicPack | null,
+    myGen: number,
+    skipLexicalRerank: boolean,
+  ): void {
     const topSlice = rankedAll.slice(0, RANK_HYDRATE_HIT_CAP);
     const hydrateIds: string[] = [];
     const seen = new Set<string>();
@@ -287,6 +476,19 @@ export class BuscadorComponent implements OnInit, OnDestroy {
               const id = d.id || d.nombre || '';
               if (id) byId.set(id, d);
             }
+
+            if (skipLexicalRerank) {
+              // Topic mode: keep posting scores; only refresh doc refs for snippets.
+              const refreshed: { hit: RankedUnitHit; doc: DocumentoDatos }[] =
+                [];
+              for (const row of topSlice) {
+                const doc = byId.get(row.hit.documentId) ?? row.doc;
+                refreshed.push({ hit: row.hit, doc });
+              }
+              this.applyRankingFromHits(refreshed, parsed.contentTerms);
+              return;
+            }
+
             // Re-rank hydrated docs with bodies for phrase bonus on those packs.
             const reRanked: { hit: RankedUnitHit; doc: DocumentoDatos }[] = [];
             for (const id of hydrateIds) {
@@ -317,7 +519,26 @@ export class BuscadorComponent implements OnInit, OnDestroy {
                 a.hit.documentId.localeCompare(b.hit.documentId) ||
                 a.hit.unitIndex - b.hit.unitIndex,
             );
-            this.applyRankingFromHits(reRanked, parsed.contentTerms);
+            // Re-apply topic boost after body re-rank (scores may change).
+            const boostIn = reRanked.map((r) => r.hit);
+            const { hits: boostedHits } = applyTopicBoostIfAny(
+              boostIn,
+              pack as TopicPackQueryLike | null,
+              parsed.contentTerms,
+            );
+            const docByKey = new Map(
+              reRanked.map((r) => [
+                `${r.hit.documentId}:${r.hit.unitIndex}`,
+                r.doc,
+              ]),
+            );
+            const finalRows: { hit: RankedUnitHit; doc: DocumentoDatos }[] =
+              [];
+            for (const hit of boostedHits) {
+              const doc = docByKey.get(`${hit.documentId}:${hit.unitIndex}`);
+              if (doc) finalRows.push({ hit: hit as RankedUnitHit, doc });
+            }
+            this.applyRankingFromHits(finalRows, parsed.contentTerms);
           },
           error: (err) => {
             if (myGen !== this.searchGen) return;

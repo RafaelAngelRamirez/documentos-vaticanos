@@ -1,5 +1,8288 @@
 {
   "version": 1,
   "locale": "es",
-  "terms": {}
+  "terms": {
+    "a imagen y semejanza": [
+      {
+        "topicId": "topic:es:imagen-de-dios",
+        "w": 0.7
+      }
+    ],
+    "abandono": [
+      {
+        "topicId": "topic:es:confianza",
+        "w": 1
+      }
+    ],
+    "abandono en dios": [
+      {
+        "topicId": "topic:es:confianza",
+        "w": 0.7
+      }
+    ],
+    "abba": [
+      {
+        "topicId": "topic:es:padre",
+        "w": 1
+      }
+    ],
+    "abortados": [
+      {
+        "topicId": "topic:es:aborto",
+        "w": 1
+      }
+    ],
+    "abortar": [
+      {
+        "topicId": "topic:es:aborto",
+        "w": 1
+      }
+    ],
+    "abortivo": [
+      {
+        "topicId": "topic:es:aborto",
+        "w": 1
+      }
+    ],
+    "aborto": [
+      {
+        "topicId": "topic:es:aborto",
+        "w": 1
+      }
+    ],
+    "aborto procurado": [
+      {
+        "topicId": "topic:es:aborto",
+        "w": 0.7
+      }
+    ],
+    "absolucion": [
+      {
+        "topicId": "topic:es:perdon",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:reconciliacion",
+        "w": 1
+      }
+    ],
+    "abstinencia": [
+      {
+        "topicId": "topic:es:penitencia",
+        "w": 1
+      }
+    ],
+    "accion": [
+      {
+        "topicId": "topic:es:liturgia",
+        "w": 0.7
+      }
+    ],
+    "accion liturgica": [
+      {
+        "topicId": "topic:es:liturgia",
+        "w": 0.7
+      }
+    ],
+    "actual": [
+      {
+        "topicId": "topic:es:gracia",
+        "w": 0.7
+      }
+    ],
+    "ad": [
+      {
+        "topicId": "topic:es:mision",
+        "w": 0.7
+      }
+    ],
+    "ad gentes": [
+      {
+        "topicId": "topic:es:mision",
+        "w": 1
+      }
+    ],
+    "adan": [
+      {
+        "topicId": "topic:es:pecado-original",
+        "w": 1
+      }
+    ],
+    "adoracion": [
+      {
+        "topicId": "topic:es:adoracion",
+        "w": 1
+      }
+    ],
+    "adoracion eucaristica": [
+      {
+        "topicId": "topic:es:adoracion",
+        "w": 1
+      }
+    ],
+    "adorar": [
+      {
+        "topicId": "topic:es:adoracion",
+        "w": 1
+      }
+    ],
+    "adulterio": [
+      {
+        "topicId": "topic:es:sexto-mandamiento",
+        "w": 1
+      }
+    ],
+    "adviento": [
+      {
+        "topicId": "topic:es:ano-liturgico",
+        "w": 1
+      }
+    ],
+    "agape": [
+      {
+        "topicId": "topic:es:caridad",
+        "w": 1
+      }
+    ],
+    "agua": [
+      {
+        "topicId": "topic:es:bautismo",
+        "w": 0.7
+      }
+    ],
+    "agua bendita": [
+      {
+        "topicId": "topic:es:sacramentales",
+        "w": 1
+      }
+    ],
+    "al": [
+      {
+        "topicId": "topic:es:amor",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:ascension",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:asuncion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:juicio-particular",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sagrado-corazon",
+        "w": 0.7
+      }
+    ],
+    "albedrio": [
+      {
+        "topicId": "topic:es:libre-albedrio",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:libertad",
+        "w": 0.7
+      }
+    ],
+    "alianza": [
+      {
+        "topicId": "topic:es:alianza",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:sacramentos",
+        "w": 0.7
+      }
+    ],
+    "alma": [
+      {
+        "topicId": "topic:es:alma",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:cuerpo",
+        "w": 0.7
+      }
+    ],
+    "alma inmortal": [
+      {
+        "topicId": "topic:es:alma",
+        "w": 0.7
+      }
+    ],
+    "alma racional": [
+      {
+        "topicId": "topic:es:alma",
+        "w": 0.7
+      }
+    ],
+    "almas": [
+      {
+        "topicId": "topic:es:alma",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:purgatorio",
+        "w": 0.7
+      }
+    ],
+    "almas del purgatorio": [
+      {
+        "topicId": "topic:es:purgatorio",
+        "w": 1
+      }
+    ],
+    "altisimo": [
+      {
+        "topicId": "topic:es:dios",
+        "w": 1
+      }
+    ],
+    "amada": [
+      {
+        "topicId": "topic:es:amor",
+        "w": 1
+      }
+    ],
+    "amado": [
+      {
+        "topicId": "topic:es:amor",
+        "w": 1
+      }
+    ],
+    "amar": [
+      {
+        "topicId": "topic:es:amor",
+        "w": 1
+      }
+    ],
+    "amor": [
+      {
+        "topicId": "topic:es:amor",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:caridad",
+        "w": 0.7
+      }
+    ],
+    "amor al projimo": [
+      {
+        "topicId": "topic:es:amor",
+        "w": 0.7
+      }
+    ],
+    "amor cristiano": [
+      {
+        "topicId": "topic:es:caridad",
+        "w": 0.7
+      }
+    ],
+    "amor de dios": [
+      {
+        "topicId": "topic:es:amor",
+        "w": 0.7
+      }
+    ],
+    "amores": [
+      {
+        "topicId": "topic:es:amor",
+        "w": 1
+      }
+    ],
+    "angel": [
+      {
+        "topicId": "topic:es:angeles",
+        "w": 1
+      }
+    ],
+    "angeles": [
+      {
+        "topicId": "topic:es:angeles",
+        "w": 1
+      }
+    ],
+    "angeles de dios": [
+      {
+        "topicId": "topic:es:angeles",
+        "w": 0.7
+      }
+    ],
+    "ano liturgico": [
+      {
+        "topicId": "topic:es:ano-liturgico",
+        "w": 1
+      }
+    ],
+    "antigua": [
+      {
+        "topicId": "topic:es:alianza",
+        "w": 0.7
+      }
+    ],
+    "antigua alianza": [
+      {
+        "topicId": "topic:es:alianza",
+        "w": 0.7
+      }
+    ],
+    "antropologia": [
+      {
+        "topicId": "topic:es:persona-humana",
+        "w": 1
+      }
+    ],
+    "antropologia cristiana": [
+      {
+        "topicId": "topic:es:persona-humana",
+        "w": 0.7
+      }
+    ],
+    "anuncio": [
+      {
+        "topicId": "topic:es:evangelizacion",
+        "w": 0.7
+      }
+    ],
+    "anuncio del evangelio": [
+      {
+        "topicId": "topic:es:evangelizacion",
+        "w": 0.7
+      }
+    ],
+    "apocrifos": [
+      {
+        "topicId": "topic:es:canon-biblico",
+        "w": 1
+      }
+    ],
+    "apostol": [
+      {
+        "topicId": "topic:es:apostolado",
+        "w": 1
+      }
+    ],
+    "apostolado": [
+      {
+        "topicId": "topic:es:apostolado",
+        "w": 1
+      }
+    ],
+    "apostoles": [
+      {
+        "topicId": "topic:es:apostolado",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:credos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:obispos",
+        "w": 0.7
+      }
+    ],
+    "apostolica": [
+      {
+        "topicId": "topic:es:tradicion",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:apostolado",
+        "w": 0.7
+      }
+    ],
+    "apostolico": [
+      {
+        "topicId": "topic:es:apostolado",
+        "w": 1
+      }
+    ],
+    "arcangel": [
+      {
+        "topicId": "topic:es:angeles",
+        "w": 1
+      }
+    ],
+    "arcangeles": [
+      {
+        "topicId": "topic:es:angeles",
+        "w": 0.7
+      }
+    ],
+    "armado": [
+      {
+        "topicId": "topic:es:guerra-y-paz",
+        "w": 0.7
+      }
+    ],
+    "arrepentimiento": [
+      {
+        "topicId": "topic:es:arrepentimiento",
+        "w": 1
+      }
+    ],
+    "arrepentirse": [
+      {
+        "topicId": "topic:es:arrepentimiento",
+        "w": 1
+      }
+    ],
+    "ascendio": [
+      {
+        "topicId": "topic:es:ascension",
+        "w": 1
+      }
+    ],
+    "ascension": [
+      {
+        "topicId": "topic:es:ascension",
+        "w": 1
+      }
+    ],
+    "ascension del señor": [
+      {
+        "topicId": "topic:es:ascension",
+        "w": 0.7
+      }
+    ],
+    "ascetica": [
+      {
+        "topicId": "topic:es:vida-espiritual",
+        "w": 1
+      }
+    ],
+    "ascetica y mistica": [
+      {
+        "topicId": "topic:es:vida-espiritual",
+        "w": 0.7
+      }
+    ],
+    "asistida": [
+      {
+        "topicId": "topic:es:eutanasia",
+        "w": 0.7
+      }
+    ],
+    "asuncion": [
+      {
+        "topicId": "topic:es:asuncion",
+        "w": 1
+      }
+    ],
+    "asuncion de maria": [
+      {
+        "topicId": "topic:es:asuncion",
+        "w": 0.7
+      }
+    ],
+    "asunta": [
+      {
+        "topicId": "topic:es:asuncion",
+        "w": 1
+      }
+    ],
+    "asunta al cielo": [
+      {
+        "topicId": "topic:es:asuncion",
+        "w": 1
+      }
+    ],
+    "autopresentacion": [
+      {
+        "topicId": "topic:es:revelacion",
+        "w": 1
+      }
+    ],
+    "avaricia": [
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 1
+      }
+    ],
+    "ayuno": [
+      {
+        "topicId": "topic:es:penitencia",
+        "w": 1
+      }
+    ],
+    "año liturgico": [
+      {
+        "topicId": "topic:es:ano-liturgico",
+        "w": 1
+      }
+    ],
+    "baptismo": [
+      {
+        "topicId": "topic:es:bautismo",
+        "w": 1
+      }
+    ],
+    "bautismal": [
+      {
+        "topicId": "topic:es:bautismo",
+        "w": 1
+      }
+    ],
+    "bautismo": [
+      {
+        "topicId": "topic:es:bautismo",
+        "w": 1
+      }
+    ],
+    "bautismo de agua": [
+      {
+        "topicId": "topic:es:bautismo",
+        "w": 0.7
+      }
+    ],
+    "bautizado": [
+      {
+        "topicId": "topic:es:bautismo",
+        "w": 1
+      }
+    ],
+    "bautizar": [
+      {
+        "topicId": "topic:es:bautismo",
+        "w": 1
+      }
+    ],
+    "beatifica": [
+      {
+        "topicId": "topic:es:cielo",
+        "w": 1
+      }
+    ],
+    "beatitudes": [
+      {
+        "topicId": "topic:es:beatitudes",
+        "w": 1
+      }
+    ],
+    "beato": [
+      {
+        "topicId": "topic:es:santos",
+        "w": 1
+      }
+    ],
+    "bendicion": [
+      {
+        "topicId": "topic:es:sacramentales",
+        "w": 1
+      }
+    ],
+    "bendiciones": [
+      {
+        "topicId": "topic:es:sacramentales",
+        "w": 1
+      }
+    ],
+    "biblia": [
+      {
+        "topicId": "topic:es:sagrada-escritura",
+        "w": 1
+      }
+    ],
+    "bien": [
+      {
+        "topicId": "topic:es:bien-comun",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:politica",
+        "w": 0.7
+      }
+    ],
+    "bien comun": [
+      {
+        "topicId": "topic:es:bien-comun",
+        "w": 1
+      }
+    ],
+    "bien comun de la sociedad": [
+      {
+        "topicId": "topic:es:bien-comun",
+        "w": 0.7
+      }
+    ],
+    "bien politico": [
+      {
+        "topicId": "topic:es:politica",
+        "w": 0.7
+      }
+    ],
+    "bienaventurado": [
+      {
+        "topicId": "topic:es:beatitudes",
+        "w": 1
+      }
+    ],
+    "bienaventuranzas": [
+      {
+        "topicId": "topic:es:beatitudes",
+        "w": 1
+      }
+    ],
+    "bienaventuranzas del sermon del monte": [
+      {
+        "topicId": "topic:es:beatitudes",
+        "w": 0.7
+      }
+    ],
+    "bioetica": [
+      {
+        "topicId": "topic:es:bioetica",
+        "w": 1
+      }
+    ],
+    "biomedica": [
+      {
+        "topicId": "topic:es:bioetica",
+        "w": 1
+      }
+    ],
+    "biomedicas": [
+      {
+        "topicId": "topic:es:bioetica",
+        "w": 0.7
+      }
+    ],
+    "buenas": [
+      {
+        "topicId": "topic:es:obras",
+        "w": 0.7
+      }
+    ],
+    "buenas obras": [
+      {
+        "topicId": "topic:es:obras",
+        "w": 1
+      }
+    ],
+    "buenos": [
+      {
+        "topicId": "topic:es:virtudes",
+        "w": 0.7
+      }
+    ],
+    "cada": [
+      {
+        "topicId": "topic:es:justicia",
+        "w": 0.7
+      }
+    ],
+    "caida": [
+      {
+        "topicId": "topic:es:pecado-original",
+        "w": 1
+      }
+    ],
+    "caida original": [
+      {
+        "topicId": "topic:es:pecado-original",
+        "w": 0.7
+      }
+    ],
+    "calendario": [
+      {
+        "topicId": "topic:es:ano-liturgico",
+        "w": 0.7
+      }
+    ],
+    "calendario liturgico": [
+      {
+        "topicId": "topic:es:ano-liturgico",
+        "w": 1
+      }
+    ],
+    "camino": [
+      {
+        "topicId": "topic:es:vida-espiritual",
+        "w": 0.7
+      }
+    ],
+    "camino espiritual": [
+      {
+        "topicId": "topic:es:vida-espiritual",
+        "w": 0.7
+      }
+    ],
+    "canon": [
+      {
+        "topicId": "topic:es:canon-biblico",
+        "w": 1
+      }
+    ],
+    "canon biblico": [
+      {
+        "topicId": "topic:es:canon-biblico",
+        "w": 1
+      }
+    ],
+    "canon de las escrituras": [
+      {
+        "topicId": "topic:es:canon-biblico",
+        "w": 0.7
+      }
+    ],
+    "canonico": [
+      {
+        "topicId": "topic:es:canon-biblico",
+        "w": 1
+      }
+    ],
+    "canonicos": [
+      {
+        "topicId": "topic:es:canon-biblico",
+        "w": 0.7
+      }
+    ],
+    "canonizado": [
+      {
+        "topicId": "topic:es:santos",
+        "w": 1
+      }
+    ],
+    "canonizados": [
+      {
+        "topicId": "topic:es:santos",
+        "w": 0.7
+      }
+    ],
+    "capitales": [
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 1
+      }
+    ],
+    "caracter": [
+      {
+        "topicId": "topic:es:caracter-sacramental",
+        "w": 1
+      }
+    ],
+    "caracter indeleble": [
+      {
+        "topicId": "topic:es:caracter-sacramental",
+        "w": 0.7
+      }
+    ],
+    "caracter sacramental": [
+      {
+        "topicId": "topic:es:caracter-sacramental",
+        "w": 1
+      }
+    ],
+    "cardinales": [
+      {
+        "topicId": "topic:es:virtudes-cardinales",
+        "w": 1
+      }
+    ],
+    "caridad": [
+      {
+        "topicId": "topic:es:caridad",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:virtudes-teologales",
+        "w": 1
+      }
+    ],
+    "caridad teologal": [
+      {
+        "topicId": "topic:es:caridad",
+        "w": 0.7
+      }
+    ],
+    "carisma": [
+      {
+        "topicId": "topic:es:carismas",
+        "w": 1
+      }
+    ],
+    "carismas": [
+      {
+        "topicId": "topic:es:carismas",
+        "w": 1
+      }
+    ],
+    "carismas del espiritu": [
+      {
+        "topicId": "topic:es:carismas",
+        "w": 0.7
+      }
+    ],
+    "carismaticos": [
+      {
+        "topicId": "topic:es:carismas",
+        "w": 1
+      }
+    ],
+    "caritativo": [
+      {
+        "topicId": "topic:es:caridad",
+        "w": 1
+      }
+    ],
+    "carne": [
+      {
+        "topicId": "topic:es:cuerpo",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:resurreccion-de-los-muertos",
+        "w": 0.7
+      }
+    ],
+    "castidad": [
+      {
+        "topicId": "topic:es:castidad",
+        "w": 1
+      }
+    ],
+    "casto": [
+      {
+        "topicId": "topic:es:castidad",
+        "w": 1
+      }
+    ],
+    "catecismo": [
+      {
+        "topicId": "topic:es:catequesis",
+        "w": 1
+      }
+    ],
+    "catequesis": [
+      {
+        "topicId": "topic:es:catequesis",
+        "w": 1
+      }
+    ],
+    "catequetica": [
+      {
+        "topicId": "topic:es:catequesis",
+        "w": 0.7
+      }
+    ],
+    "catequista": [
+      {
+        "topicId": "topic:es:catequesis",
+        "w": 1
+      }
+    ],
+    "catequizar": [
+      {
+        "topicId": "topic:es:catequesis",
+        "w": 1
+      }
+    ],
+    "catolica": [
+      {
+        "topicId": "topic:es:iglesia",
+        "w": 0.7
+      }
+    ],
+    "celebracion": [
+      {
+        "topicId": "topic:es:misa",
+        "w": 0.7
+      }
+    ],
+    "celebracion eucaristica": [
+      {
+        "topicId": "topic:es:misa",
+        "w": 0.7
+      }
+    ],
+    "celestes": [
+      {
+        "topicId": "topic:es:angeles",
+        "w": 0.7
+      }
+    ],
+    "celestial": [
+      {
+        "topicId": "topic:es:padre",
+        "w": 0.7
+      }
+    ],
+    "cielo": [
+      {
+        "topicId": "topic:es:cielo",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:ascension",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:asuncion",
+        "w": 0.7
+      }
+    ],
+    "cielos": [
+      {
+        "topicId": "topic:es:reino-de-dios",
+        "w": 0.7
+      }
+    ],
+    "ciudadania": [
+      {
+        "topicId": "topic:es:politica",
+        "w": 1
+      }
+    ],
+    "civil": [
+      {
+        "topicId": "topic:es:divorcio",
+        "w": 0.7
+      }
+    ],
+    "clonacion": [
+      {
+        "topicId": "topic:es:bioetica",
+        "w": 1
+      }
+    ],
+    "colegio": [
+      {
+        "topicId": "topic:es:obispos",
+        "w": 0.7
+      }
+    ],
+    "colegio episcopal": [
+      {
+        "topicId": "topic:es:obispos",
+        "w": 0.7
+      }
+    ],
+    "cometeras": [
+      {
+        "topicId": "topic:es:sexto-mandamiento",
+        "w": 0.7
+      }
+    ],
+    "compasion": [
+      {
+        "topicId": "topic:es:misericordia",
+        "w": 1
+      }
+    ],
+    "compasion de dios": [
+      {
+        "topicId": "topic:es:misericordia",
+        "w": 0.7
+      }
+    ],
+    "comportamiento": [
+      {
+        "topicId": "topic:es:moral",
+        "w": 1
+      }
+    ],
+    "compromiso": [
+      {
+        "topicId": "topic:es:politica",
+        "w": 0.7
+      }
+    ],
+    "compromiso politico": [
+      {
+        "topicId": "topic:es:politica",
+        "w": 0.7
+      }
+    ],
+    "compuncion": [
+      {
+        "topicId": "topic:es:arrepentimiento",
+        "w": 1
+      }
+    ],
+    "comun": [
+      {
+        "topicId": "topic:es:bien-comun",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:sacerdocio",
+        "w": 0.7
+      }
+    ],
+    "comunion": [
+      {
+        "topicId": "topic:es:comunion-de-los-santos",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:eucaristia",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:santos",
+        "w": 0.7
+      }
+    ],
+    "comunion de los santos": [
+      {
+        "topicId": "topic:es:comunion-de-los-santos",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:santos",
+        "w": 0.7
+      }
+    ],
+    "comunion eclesial": [
+      {
+        "topicId": "topic:es:comunion-de-los-santos",
+        "w": 0.7
+      }
+    ],
+    "con": [
+      {
+        "topicId": "topic:es:dialogo-interreligioso",
+        "w": 0.7
+      }
+    ],
+    "concepcion": [
+      {
+        "topicId": "topic:es:vida",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:inmaculada",
+        "w": 0.7
+      }
+    ],
+    "conciencia": [
+      {
+        "topicId": "topic:es:conciencia",
+        "w": 1
+      }
+    ],
+    "conciencia moral": [
+      {
+        "topicId": "topic:es:conciencia",
+        "w": 0.7
+      }
+    ],
+    "conciencias": [
+      {
+        "topicId": "topic:es:conciencia",
+        "w": 1
+      }
+    ],
+    "concilio": [
+      {
+        "topicId": "topic:es:concilios",
+        "w": 1
+      }
+    ],
+    "concilio general": [
+      {
+        "topicId": "topic:es:concilios",
+        "w": 0.7
+      }
+    ],
+    "concilios": [
+      {
+        "topicId": "topic:es:concilios",
+        "w": 1
+      }
+    ],
+    "concilios ecumenicos": [
+      {
+        "topicId": "topic:es:concilios",
+        "w": 0.7
+      }
+    ],
+    "concupiscencia": [
+      {
+        "topicId": "topic:es:pecado-original",
+        "w": 1
+      }
+    ],
+    "condenacion": [
+      {
+        "topicId": "topic:es:infierno",
+        "w": 1
+      }
+    ],
+    "condenacion eterna": [
+      {
+        "topicId": "topic:es:infierno",
+        "w": 0.7
+      }
+    ],
+    "confesion": [
+      {
+        "topicId": "topic:es:reconciliacion",
+        "w": 1
+      }
+    ],
+    "confession": [
+      {
+        "topicId": "topic:es:reconciliacion",
+        "w": 1
+      }
+    ],
+    "confianza": [
+      {
+        "topicId": "topic:es:confianza",
+        "w": 1
+      }
+    ],
+    "confianza en dios": [
+      {
+        "topicId": "topic:es:confianza",
+        "w": 1
+      }
+    ],
+    "confianza filial": [
+      {
+        "topicId": "topic:es:confianza",
+        "w": 0.7
+      }
+    ],
+    "confiar": [
+      {
+        "topicId": "topic:es:confianza",
+        "w": 1
+      }
+    ],
+    "confirmacion": [
+      {
+        "topicId": "topic:es:confirmacion",
+        "w": 1
+      }
+    ],
+    "confirmar": [
+      {
+        "topicId": "topic:es:confirmacion",
+        "w": 1
+      }
+    ],
+    "conflicto": [
+      {
+        "topicId": "topic:es:guerra-y-paz",
+        "w": 0.7
+      }
+    ],
+    "conflicto armado": [
+      {
+        "topicId": "topic:es:guerra-y-paz",
+        "w": 0.7
+      }
+    ],
+    "consejos": [
+      {
+        "topicId": "topic:es:vida-consagrada",
+        "w": 0.7
+      }
+    ],
+    "consejos evangelicos": [
+      {
+        "topicId": "topic:es:vida-consagrada",
+        "w": 1
+      }
+    ],
+    "consolador": [
+      {
+        "topicId": "topic:es:espiritu-santo",
+        "w": 1
+      }
+    ],
+    "contemplacion": [
+      {
+        "topicId": "topic:es:contemplacion",
+        "w": 1
+      }
+    ],
+    "contemplacion mistica": [
+      {
+        "topicId": "topic:es:contemplacion",
+        "w": 0.7
+      }
+    ],
+    "contemplar": [
+      {
+        "topicId": "topic:es:contemplacion",
+        "w": 1
+      }
+    ],
+    "contemplativa": [
+      {
+        "topicId": "topic:es:contemplacion",
+        "w": 0.7
+      }
+    ],
+    "continencia": [
+      {
+        "topicId": "topic:es:castidad",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:templanza",
+        "w": 1
+      }
+    ],
+    "contricion": [
+      {
+        "topicId": "topic:es:arrepentimiento",
+        "w": 1
+      }
+    ],
+    "conversion": [
+      {
+        "topicId": "topic:es:conversion",
+        "w": 1
+      }
+    ],
+    "conversion del corazon": [
+      {
+        "topicId": "topic:es:conversion",
+        "w": 1
+      }
+    ],
+    "convertirse": [
+      {
+        "topicId": "topic:es:conversion",
+        "w": 1
+      }
+    ],
+    "conyugal": [
+      {
+        "topicId": "topic:es:matrimonio-moral",
+        "w": 1
+      }
+    ],
+    "conyuges": [
+      {
+        "topicId": "topic:es:matrimonio",
+        "w": 1
+      }
+    ],
+    "coraje": [
+      {
+        "topicId": "topic:es:fortaleza",
+        "w": 1
+      }
+    ],
+    "corazon": [
+      {
+        "topicId": "topic:es:conversion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sagrado-corazon",
+        "w": 0.7
+      }
+    ],
+    "corazon de cristo": [
+      {
+        "topicId": "topic:es:sagrado-corazon",
+        "w": 1
+      }
+    ],
+    "corazon de jesus": [
+      {
+        "topicId": "topic:es:sagrado-corazon",
+        "w": 1
+      }
+    ],
+    "corporal": [
+      {
+        "topicId": "topic:es:cuerpo",
+        "w": 1
+      }
+    ],
+    "corporalidad": [
+      {
+        "topicId": "topic:es:cuerpo",
+        "w": 0.7
+      }
+    ],
+    "creacion": [
+      {
+        "topicId": "topic:es:creacion",
+        "w": 1
+      }
+    ],
+    "creacion del mundo": [
+      {
+        "topicId": "topic:es:creacion",
+        "w": 0.7
+      }
+    ],
+    "creado": [
+      {
+        "topicId": "topic:es:creacion",
+        "w": 1
+      }
+    ],
+    "creador": [
+      {
+        "topicId": "topic:es:creacion",
+        "w": 1
+      }
+    ],
+    "creadora": [
+      {
+        "topicId": "topic:es:creacion",
+        "w": 0.7
+      }
+    ],
+    "crear": [
+      {
+        "topicId": "topic:es:creacion",
+        "w": 1
+      }
+    ],
+    "creatura": [
+      {
+        "topicId": "topic:es:creacion",
+        "w": 1
+      }
+    ],
+    "credo": [
+      {
+        "topicId": "topic:es:credos",
+        "w": 1
+      }
+    ],
+    "credo de los apostoles": [
+      {
+        "topicId": "topic:es:credos",
+        "w": 0.7
+      }
+    ],
+    "credo niceno": [
+      {
+        "topicId": "topic:es:credos",
+        "w": 0.7
+      }
+    ],
+    "credos": [
+      {
+        "topicId": "topic:es:credos",
+        "w": 1
+      }
+    ],
+    "creencia": [
+      {
+        "topicId": "topic:es:fe",
+        "w": 1
+      }
+    ],
+    "creer": [
+      {
+        "topicId": "topic:es:fe",
+        "w": 1
+      }
+    ],
+    "crisma": [
+      {
+        "topicId": "topic:es:confirmacion",
+        "w": 1
+      }
+    ],
+    "crismacion": [
+      {
+        "topicId": "topic:es:confirmacion",
+        "w": 1
+      }
+    ],
+    "cristiana": [
+      {
+        "topicId": "topic:es:educacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:esperanza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:familia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:fe",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:justicia-social",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:oracion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:persona-humana",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:vocacion",
+        "w": 0.7
+      }
+    ],
+    "cristianas": [
+      {
+        "topicId": "topic:es:dialogo-interreligioso",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:virtudes",
+        "w": 0.7
+      }
+    ],
+    "cristiano": [
+      {
+        "topicId": "topic:es:caridad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:fortaleza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:matrimonio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:santificacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sufrimiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:testimonio",
+        "w": 0.7
+      }
+    ],
+    "cristianos": [
+      {
+        "topicId": "topic:es:ecumenismo",
+        "w": 0.7
+      }
+    ],
+    "cristo": [
+      {
+        "topicId": "topic:es:jesucristo",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:cruz",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:cuerpo-mistico",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:eucaristia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:iglesia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:meritos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:misterio-pascual",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:muerte-de-cristo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:parusia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:paz",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:realeza-de-cristo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:redencion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:reino-de-dios",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:resurreccion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:vida-eterna",
+        "w": 0.7
+      }
+    ],
+    "cristo resucitado": [
+      {
+        "topicId": "topic:es:resurreccion",
+        "w": 0.7
+      }
+    ],
+    "cristo rey": [
+      {
+        "topicId": "topic:es:realeza-de-cristo",
+        "w": 1
+      }
+    ],
+    "crucificado": [
+      {
+        "topicId": "topic:es:cruz",
+        "w": 1
+      }
+    ],
+    "crucifixion": [
+      {
+        "topicId": "topic:es:cruz",
+        "w": 1
+      }
+    ],
+    "cruz": [
+      {
+        "topicId": "topic:es:cruz",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:muerte-de-cristo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sufrimiento",
+        "w": 0.7
+      }
+    ],
+    "cruz de cristo": [
+      {
+        "topicId": "topic:es:cruz",
+        "w": 0.7
+      }
+    ],
+    "cruz del cristiano": [
+      {
+        "topicId": "topic:es:sufrimiento",
+        "w": 0.7
+      }
+    ],
+    "cuaresma": [
+      {
+        "topicId": "topic:es:ano-liturgico",
+        "w": 1
+      }
+    ],
+    "cuatro": [
+      {
+        "topicId": "topic:es:virtudes-cardinales",
+        "w": 0.7
+      }
+    ],
+    "cuatro virtudes cardinales": [
+      {
+        "topicId": "topic:es:virtudes-cardinales",
+        "w": 0.7
+      }
+    ],
+    "cuerpo": [
+      {
+        "topicId": "topic:es:cuerpo",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:cuerpo-mistico",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:eucaristia",
+        "w": 0.7
+      }
+    ],
+    "cuerpo de cristo": [
+      {
+        "topicId": "topic:es:cuerpo-mistico",
+        "w": 1
+      }
+    ],
+    "cuerpo humano": [
+      {
+        "topicId": "topic:es:cuerpo",
+        "w": 1
+      }
+    ],
+    "cuerpo mistico": [
+      {
+        "topicId": "topic:es:cuerpo-mistico",
+        "w": 1
+      }
+    ],
+    "cuerpo mistico de cristo": [
+      {
+        "topicId": "topic:es:cuerpo-mistico",
+        "w": 0.7
+      }
+    ],
+    "cuerpo y alma": [
+      {
+        "topicId": "topic:es:cuerpo",
+        "w": 0.7
+      }
+    ],
+    "cuerpo y sangre de cristo": [
+      {
+        "topicId": "topic:es:eucaristia",
+        "w": 0.7
+      }
+    ],
+    "cuerpos gloriosos": [
+      {
+        "topicId": "topic:es:resurreccion-de-los-muertos",
+        "w": 1
+      }
+    ],
+    "cuestiones": [
+      {
+        "topicId": "topic:es:bioetica",
+        "w": 0.7
+      }
+    ],
+    "cuestiones biomedicas": [
+      {
+        "topicId": "topic:es:bioetica",
+        "w": 0.7
+      }
+    ],
+    "culpa": [
+      {
+        "topicId": "topic:es:pecado",
+        "w": 1
+      }
+    ],
+    "culto": [
+      {
+        "topicId": "topic:es:culto",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:adoracion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:libertad-religiosa",
+        "w": 0.7
+      }
+    ],
+    "culto a dios": [
+      {
+        "topicId": "topic:es:culto",
+        "w": 0.7
+      }
+    ],
+    "culto de adoracion": [
+      {
+        "topicId": "topic:es:adoracion",
+        "w": 0.7
+      }
+    ],
+    "culto divino": [
+      {
+        "topicId": "topic:es:culto",
+        "w": 1
+      }
+    ],
+    "dar": [
+      {
+        "topicId": "topic:es:justicia",
+        "w": 0.7
+      }
+    ],
+    "dar a cada uno lo suyo": [
+      {
+        "topicId": "topic:es:justicia",
+        "w": 0.7
+      }
+    ],
+    "de": [
+      {
+        "topicId": "topic:es:adoracion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:amor",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:angeles",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:arrepentimiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:asuncion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:bautismo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:bien-comun",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:bioetica",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:canon-biblico",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:castidad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:catequesis",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:comunion-de-los-santos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:conciencia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:confirmacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:credos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:cruz",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:cuerpo-mistico",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:derechos-humanos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:diez-mandamientos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:dignidad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:discernimiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:doctrina-social",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:dogmas",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:ecumenismo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:educacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:encarnacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:escatologia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:esperanza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:espiritu-santo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:eucaristia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:exorcismo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:fe",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:fe-y-razon",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:fortaleza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:gracia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:hijo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:iglesia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:inspiracion-biblica",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:juicio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:justicia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:lectio-divina",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:ley-moral",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:libertad-religiosa",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:liturgia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:magisterio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:maria",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:maternidad-divina",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:meritos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:misericordia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:mision",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:misterio-pascual",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:muerte-de-cristo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:obispos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:obras",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:papado",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:parusia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:paz",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pecado-original",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:penitencia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:perdon",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pobreza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:providencia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:prudencia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:quinto-mandamiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:realeza-de-cristo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:reconciliacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:reino-de-dios",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:resurreccion-de-los-muertos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sacramentales",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sacramentos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sagrada-escritura",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sagrado-corazon",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:santos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sexto-mandamiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:solidaridad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:subsidiariedad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:templanza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:uncion-de-los-enfermos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:vocacion",
+        "w": 0.7
+      }
+    ],
+    "decalogo": [
+      {
+        "topicId": "topic:es:diez-mandamientos",
+        "w": 1
+      }
+    ],
+    "definicion dogmatica": [
+      {
+        "topicId": "topic:es:dogmas",
+        "w": 1
+      }
+    ],
+    "definiciones": [
+      {
+        "topicId": "topic:es:dogmas",
+        "w": 0.7
+      }
+    ],
+    "definiciones dogmaticas": [
+      {
+        "topicId": "topic:es:dogmas",
+        "w": 0.7
+      }
+    ],
+    "dei": [
+      {
+        "topicId": "topic:es:imagen-de-dios",
+        "w": 0.7
+      }
+    ],
+    "dei genitrix": [
+      {
+        "topicId": "topic:es:maternidad-divina",
+        "w": 1
+      }
+    ],
+    "del": [
+      {
+        "topicId": "topic:es:aborto",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:ascension",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:bautismo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:beatitudes",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:carismas",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:conversion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:creacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:dignidad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:divorcio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:dones-del-espiritu",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:evangelizacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:exorcismo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:infalibilidad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:justificacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:matrimonio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:matrimonio-moral",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:orden",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:padrenuestro",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pasion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:purgatorio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:resurreccion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:santificacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sufrimiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:trabajo",
+        "w": 0.7
+      }
+    ],
+    "demonio": [
+      {
+        "topicId": "topic:es:demonio",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:exorcismo",
+        "w": 0.7
+      }
+    ],
+    "demonios": [
+      {
+        "topicId": "topic:es:demonio",
+        "w": 1
+      }
+    ],
+    "deposito": [
+      {
+        "topicId": "topic:es:deposito-de-la-fe",
+        "w": 0.7
+      }
+    ],
+    "deposito de la fe": [
+      {
+        "topicId": "topic:es:deposito-de-la-fe",
+        "w": 1
+      }
+    ],
+    "deposito revelado": [
+      {
+        "topicId": "topic:es:deposito-de-la-fe",
+        "w": 1
+      }
+    ],
+    "depositum": [
+      {
+        "topicId": "topic:es:deposito-de-la-fe",
+        "w": 1
+      }
+    ],
+    "depositum fidei": [
+      {
+        "topicId": "topic:es:deposito-de-la-fe",
+        "w": 0.7
+      }
+    ],
+    "derechos": [
+      {
+        "topicId": "topic:es:derechos-humanos",
+        "w": 1
+      }
+    ],
+    "derechos de la persona": [
+      {
+        "topicId": "topic:es:derechos-humanos",
+        "w": 0.7
+      }
+    ],
+    "derechos fundamentales": [
+      {
+        "topicId": "topic:es:derechos-humanos",
+        "w": 0.7
+      }
+    ],
+    "derechos humanos": [
+      {
+        "topicId": "topic:es:derechos-humanos",
+        "w": 1
+      }
+    ],
+    "desarme": [
+      {
+        "topicId": "topic:es:guerra-y-paz",
+        "w": 1
+      }
+    ],
+    "desde": [
+      {
+        "topicId": "topic:es:vida",
+        "w": 0.7
+      }
+    ],
+    "desigualdad": [
+      {
+        "topicId": "topic:es:justicia-social",
+        "w": 1
+      }
+    ],
+    "deuterocanonicos": [
+      {
+        "topicId": "topic:es:canon-biblico",
+        "w": 1
+      }
+    ],
+    "devocion": [
+      {
+        "topicId": "topic:es:sagrado-corazon",
+        "w": 0.7
+      }
+    ],
+    "devocion al sagrado corazon": [
+      {
+        "topicId": "topic:es:sagrado-corazon",
+        "w": 0.7
+      }
+    ],
+    "diablo": [
+      {
+        "topicId": "topic:es:demonio",
+        "w": 1
+      }
+    ],
+    "diabolica": [
+      {
+        "topicId": "topic:es:tentacion",
+        "w": 0.7
+      }
+    ],
+    "diaconado": [
+      {
+        "topicId": "topic:es:orden",
+        "w": 1
+      }
+    ],
+    "dialogo": [
+      {
+        "topicId": "topic:es:dialogo-interreligioso",
+        "w": 0.7
+      }
+    ],
+    "dialogo con las religiones": [
+      {
+        "topicId": "topic:es:dialogo-interreligioso",
+        "w": 0.7
+      }
+    ],
+    "dialogo interreligioso": [
+      {
+        "topicId": "topic:es:dialogo-interreligioso",
+        "w": 1
+      }
+    ],
+    "diez mandamientos": [
+      {
+        "topicId": "topic:es:diez-mandamientos",
+        "w": 1
+      }
+    ],
+    "dignidad": [
+      {
+        "topicId": "topic:es:dignidad",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:trabajo",
+        "w": 0.7
+      }
+    ],
+    "dignidad de la persona": [
+      {
+        "topicId": "topic:es:dignidad",
+        "w": 0.7
+      }
+    ],
+    "dignidad del hombre": [
+      {
+        "topicId": "topic:es:dignidad",
+        "w": 0.7
+      }
+    ],
+    "dignidad del trabajo": [
+      {
+        "topicId": "topic:es:trabajo",
+        "w": 0.7
+      }
+    ],
+    "dignidad humana": [
+      {
+        "topicId": "topic:es:dignidad",
+        "w": 1
+      }
+    ],
+    "digno": [
+      {
+        "topicId": "topic:es:dignidad",
+        "w": 1
+      }
+    ],
+    "dimension": [
+      {
+        "topicId": "topic:es:sexualidad",
+        "w": 0.7
+      }
+    ],
+    "dimension sexual": [
+      {
+        "topicId": "topic:es:sexualidad",
+        "w": 0.7
+      }
+    ],
+    "dios": [
+      {
+        "topicId": "topic:es:dios",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:amor",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:angeles",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:confianza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:culto",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:diez-mandamientos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:discernimiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:espiritu-santo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:gracia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:hijo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:juicio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:ley-moral",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:maria",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:maternidad-divina",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:misericordia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pecado",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:providencia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sagrada-escritura",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:trinidad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:vocacion",
+        "w": 0.7
+      }
+    ],
+    "dios hijo": [
+      {
+        "topicId": "topic:es:hijo",
+        "w": 1
+      }
+    ],
+    "dios padre": [
+      {
+        "topicId": "topic:es:padre",
+        "w": 1
+      }
+    ],
+    "dios trino": [
+      {
+        "topicId": "topic:es:trinidad",
+        "w": 0.7
+      }
+    ],
+    "dios uno": [
+      {
+        "topicId": "topic:es:dios",
+        "w": 0.7
+      }
+    ],
+    "discernimiento": [
+      {
+        "topicId": "topic:es:discernimiento",
+        "w": 1
+      }
+    ],
+    "discernimiento de espiritus": [
+      {
+        "topicId": "topic:es:discernimiento",
+        "w": 1
+      }
+    ],
+    "discernir": [
+      {
+        "topicId": "topic:es:discernimiento",
+        "w": 1
+      }
+    ],
+    "discernir la voluntad de dios": [
+      {
+        "topicId": "topic:es:discernimiento",
+        "w": 0.7
+      }
+    ],
+    "discrecion": [
+      {
+        "topicId": "topic:es:prudencia",
+        "w": 1
+      }
+    ],
+    "divina": [
+      {
+        "topicId": "topic:es:misericordia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:predestinacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:providencia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:revelacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:verdad",
+        "w": 0.7
+      }
+    ],
+    "divorciados": [
+      {
+        "topicId": "topic:es:divorcio",
+        "w": 1
+      }
+    ],
+    "divorcio": [
+      {
+        "topicId": "topic:es:divorcio",
+        "w": 1
+      }
+    ],
+    "divorcio civil": [
+      {
+        "topicId": "topic:es:divorcio",
+        "w": 0.7
+      }
+    ],
+    "doctrina": [
+      {
+        "topicId": "topic:es:doctrina-social",
+        "w": 0.7
+      }
+    ],
+    "doctrina social": [
+      {
+        "topicId": "topic:es:doctrina-social",
+        "w": 1
+      }
+    ],
+    "doctrina social de la iglesia": [
+      {
+        "topicId": "topic:es:doctrina-social",
+        "w": 0.7
+      }
+    ],
+    "doctrinal": [
+      {
+        "topicId": "topic:es:herejia",
+        "w": 0.7
+      }
+    ],
+    "dogma": [
+      {
+        "topicId": "topic:es:dogmas",
+        "w": 1
+      }
+    ],
+    "dogma de fe": [
+      {
+        "topicId": "topic:es:dogmas",
+        "w": 0.7
+      }
+    ],
+    "dogmas": [
+      {
+        "topicId": "topic:es:dogmas",
+        "w": 1
+      }
+    ],
+    "dogmaticas": [
+      {
+        "topicId": "topic:es:dogmas",
+        "w": 0.7
+      }
+    ],
+    "dogmatico": [
+      {
+        "topicId": "topic:es:dogmas",
+        "w": 1
+      }
+    ],
+    "dolor": [
+      {
+        "topicId": "topic:es:sufrimiento",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:arrepentimiento",
+        "w": 0.7
+      }
+    ],
+    "dolor de los pecados": [
+      {
+        "topicId": "topic:es:arrepentimiento",
+        "w": 0.7
+      }
+    ],
+    "dolor humano": [
+      {
+        "topicId": "topic:es:sufrimiento",
+        "w": 0.7
+      }
+    ],
+    "dolorosa": [
+      {
+        "topicId": "topic:es:pasion",
+        "w": 0.7
+      }
+    ],
+    "domestica": [
+      {
+        "topicId": "topic:es:familia",
+        "w": 0.7
+      }
+    ],
+    "don": [
+      {
+        "topicId": "topic:es:gracia",
+        "w": 1
+      }
+    ],
+    "don del espiritu": [
+      {
+        "topicId": "topic:es:dones-del-espiritu",
+        "w": 1
+      }
+    ],
+    "dones": [
+      {
+        "topicId": "topic:es:dones-del-espiritu",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:carismas",
+        "w": 0.7
+      }
+    ],
+    "dones carismaticos": [
+      {
+        "topicId": "topic:es:carismas",
+        "w": 0.7
+      }
+    ],
+    "dones del espiritu": [
+      {
+        "topicId": "topic:es:dones-del-espiritu",
+        "w": 1
+      }
+    ],
+    "dones del espiritu santo": [
+      {
+        "topicId": "topic:es:dones-del-espiritu",
+        "w": 0.7
+      }
+    ],
+    "dulia": [
+      {
+        "topicId": "topic:es:culto",
+        "w": 1
+      }
+    ],
+    "ecclesia": [
+      {
+        "topicId": "topic:es:iglesia",
+        "w": 1
+      }
+    ],
+    "eclesial": [
+      {
+        "topicId": "topic:es:iglesia",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:comunion-de-los-santos",
+        "w": 0.7
+      }
+    ],
+    "eclesiastica": [
+      {
+        "topicId": "topic:es:jerarquia",
+        "w": 0.7
+      }
+    ],
+    "eclesiologia": [
+      {
+        "topicId": "topic:es:iglesia",
+        "w": 1
+      }
+    ],
+    "economia": [
+      {
+        "topicId": "topic:es:economia",
+        "w": 1
+      }
+    ],
+    "economia justa": [
+      {
+        "topicId": "topic:es:economia",
+        "w": 0.7
+      }
+    ],
+    "economia y etica": [
+      {
+        "topicId": "topic:es:economia",
+        "w": 1
+      }
+    ],
+    "economica": [
+      {
+        "topicId": "topic:es:economia",
+        "w": 0.7
+      }
+    ],
+    "economico": [
+      {
+        "topicId": "topic:es:economia",
+        "w": 1
+      }
+    ],
+    "ecumenico": [
+      {
+        "topicId": "topic:es:concilios",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:ecumenismo",
+        "w": 1
+      }
+    ],
+    "ecumenicos": [
+      {
+        "topicId": "topic:es:concilios",
+        "w": 0.7
+      }
+    ],
+    "ecumenismo": [
+      {
+        "topicId": "topic:es:ecumenismo",
+        "w": 1
+      }
+    ],
+    "educacion": [
+      {
+        "topicId": "topic:es:educacion",
+        "w": 1
+      }
+    ],
+    "educacion cristiana": [
+      {
+        "topicId": "topic:es:educacion",
+        "w": 0.7
+      }
+    ],
+    "educar": [
+      {
+        "topicId": "topic:es:educacion",
+        "w": 1
+      }
+    ],
+    "eleccion": [
+      {
+        "topicId": "topic:es:predestinacion",
+        "w": 0.7
+      }
+    ],
+    "eleccion divina": [
+      {
+        "topicId": "topic:es:predestinacion",
+        "w": 1
+      }
+    ],
+    "elegido": [
+      {
+        "topicId": "topic:es:pueblo-de-dios",
+        "w": 0.7
+      }
+    ],
+    "elegidos": [
+      {
+        "topicId": "topic:es:predestinacion",
+        "w": 1
+      }
+    ],
+    "embarazo": [
+      {
+        "topicId": "topic:es:aborto",
+        "w": 0.7
+      }
+    ],
+    "emigracion": [
+      {
+        "topicId": "topic:es:migracion",
+        "w": 0.7
+      }
+    ],
+    "emigrantes": [
+      {
+        "topicId": "topic:es:migracion",
+        "w": 1
+      }
+    ],
+    "empleo": [
+      {
+        "topicId": "topic:es:trabajo",
+        "w": 1
+      }
+    ],
+    "en": [
+      {
+        "topicId": "topic:es:confianza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:muerte-de-cristo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:redencion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:vida-eterna",
+        "w": 0.7
+      }
+    ],
+    "encarnacion": [
+      {
+        "topicId": "topic:es:encarnacion",
+        "w": 1
+      }
+    ],
+    "encarnado": [
+      {
+        "topicId": "topic:es:encarnacion",
+        "w": 1
+      }
+    ],
+    "encarnizamiento terapeutico": [
+      {
+        "topicId": "topic:es:eutanasia",
+        "w": 1
+      }
+    ],
+    "enfermedad": [
+      {
+        "topicId": "topic:es:sufrimiento",
+        "w": 1
+      }
+    ],
+    "enfermos": [
+      {
+        "topicId": "topic:es:uncion-de-los-enfermos",
+        "w": 1
+      }
+    ],
+    "ensenanza": [
+      {
+        "topicId": "topic:es:magisterio",
+        "w": 1
+      }
+    ],
+    "ensenanza social": [
+      {
+        "topicId": "topic:es:doctrina-social",
+        "w": 1
+      }
+    ],
+    "enseñanza": [
+      {
+        "topicId": "topic:es:educacion",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:catequesis",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:doctrina-social",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:magisterio",
+        "w": 0.7
+      }
+    ],
+    "enseñanza de la fe": [
+      {
+        "topicId": "topic:es:catequesis",
+        "w": 0.7
+      }
+    ],
+    "enseñanza oficial": [
+      {
+        "topicId": "topic:es:magisterio",
+        "w": 0.7
+      }
+    ],
+    "enseñanza social": [
+      {
+        "topicId": "topic:es:doctrina-social",
+        "w": 0.7
+      }
+    ],
+    "envidia": [
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 1
+      }
+    ],
+    "episcopado": [
+      {
+        "topicId": "topic:es:obispos",
+        "w": 1
+      }
+    ],
+    "episcopal": [
+      {
+        "topicId": "topic:es:obispos",
+        "w": 1
+      }
+    ],
+    "equidad": [
+      {
+        "topicId": "topic:es:justicia",
+        "w": 1
+      }
+    ],
+    "error": [
+      {
+        "topicId": "topic:es:herejia",
+        "w": 0.7
+      }
+    ],
+    "error doctrinal": [
+      {
+        "topicId": "topic:es:herejia",
+        "w": 0.7
+      }
+    ],
+    "escatologia": [
+      {
+        "topicId": "topic:es:escatologia",
+        "w": 1
+      }
+    ],
+    "escatologico": [
+      {
+        "topicId": "topic:es:juicio",
+        "w": 0.7
+      }
+    ],
+    "escritura": [
+      {
+        "topicId": "topic:es:sagrada-escritura",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:inspiracion-biblica",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:lectio-divina",
+        "w": 0.7
+      }
+    ],
+    "escrituras": [
+      {
+        "topicId": "topic:es:sagrada-escritura",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:canon-biblico",
+        "w": 0.7
+      }
+    ],
+    "escrupulo": [
+      {
+        "topicId": "topic:es:conciencia",
+        "w": 1
+      }
+    ],
+    "esperanza": [
+      {
+        "topicId": "topic:es:esperanza",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:virtudes-teologales",
+        "w": 1
+      }
+    ],
+    "esperanza cristiana": [
+      {
+        "topicId": "topic:es:esperanza",
+        "w": 0.7
+      }
+    ],
+    "esperanzado": [
+      {
+        "topicId": "topic:es:esperanza",
+        "w": 1
+      }
+    ],
+    "esperar": [
+      {
+        "topicId": "topic:es:esperanza",
+        "w": 1
+      }
+    ],
+    "espiritu": [
+      {
+        "topicId": "topic:es:espiritu-santo",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:carismas",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:demonio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:dones-del-espiritu",
+        "w": 0.7
+      }
+    ],
+    "espiritu de dios": [
+      {
+        "topicId": "topic:es:espiritu-santo",
+        "w": 0.7
+      }
+    ],
+    "espiritu maligno": [
+      {
+        "topicId": "topic:es:demonio",
+        "w": 0.7
+      }
+    ],
+    "espiritu santo": [
+      {
+        "topicId": "topic:es:espiritu-santo",
+        "w": 1
+      }
+    ],
+    "espiritual": [
+      {
+        "topicId": "topic:es:alma",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:vida-espiritual",
+        "w": 0.7
+      }
+    ],
+    "espiritualidad": [
+      {
+        "topicId": "topic:es:vida-espiritual",
+        "w": 1
+      }
+    ],
+    "espiritus": [
+      {
+        "topicId": "topic:es:angeles",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:discernimiento",
+        "w": 0.7
+      }
+    ],
+    "espiritus celestes": [
+      {
+        "topicId": "topic:es:angeles",
+        "w": 0.7
+      }
+    ],
+    "esposa": [
+      {
+        "topicId": "topic:es:iglesia",
+        "w": 0.7
+      }
+    ],
+    "esposa de cristo": [
+      {
+        "topicId": "topic:es:iglesia",
+        "w": 0.7
+      }
+    ],
+    "esposos": [
+      {
+        "topicId": "topic:es:matrimonio",
+        "w": 1
+      }
+    ],
+    "estado": [
+      {
+        "topicId": "topic:es:politica",
+        "w": 1
+      }
+    ],
+    "et": [
+      {
+        "topicId": "topic:es:fe-y-razon",
+        "w": 0.7
+      }
+    ],
+    "eterna": [
+      {
+        "topicId": "topic:es:vida-eterna",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:infierno",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:salvacion",
+        "w": 0.7
+      }
+    ],
+    "etica": [
+      {
+        "topicId": "topic:es:moral",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:bioetica",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:economia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:matrimonio-moral",
+        "w": 0.7
+      }
+    ],
+    "etica de la vida": [
+      {
+        "topicId": "topic:es:bioetica",
+        "w": 0.7
+      }
+    ],
+    "etica del matrimonio": [
+      {
+        "topicId": "topic:es:matrimonio-moral",
+        "w": 0.7
+      }
+    ],
+    "etica economica": [
+      {
+        "topicId": "topic:es:economia",
+        "w": 0.7
+      }
+    ],
+    "eucaristia": [
+      {
+        "topicId": "topic:es:eucaristia",
+        "w": 1
+      }
+    ],
+    "eucaristica": [
+      {
+        "topicId": "topic:es:misa",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:adoracion",
+        "w": 0.7
+      }
+    ],
+    "eucaristico": [
+      {
+        "topicId": "topic:es:eucaristia",
+        "w": 1
+      }
+    ],
+    "eutanasia": [
+      {
+        "topicId": "topic:es:eutanasia",
+        "w": 1
+      }
+    ],
+    "eva": [
+      {
+        "topicId": "topic:es:pecado-original",
+        "w": 1
+      }
+    ],
+    "evangelicos": [
+      {
+        "topicId": "topic:es:vida-consagrada",
+        "w": 0.7
+      }
+    ],
+    "evangelio": [
+      {
+        "topicId": "topic:es:evangelizacion",
+        "w": 1
+      }
+    ],
+    "evangelizacion": [
+      {
+        "topicId": "topic:es:evangelizacion",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:nueva-evangelizacion",
+        "w": 0.7
+      }
+    ],
+    "evangelizadora": [
+      {
+        "topicId": "topic:es:evangelizacion",
+        "w": 0.7
+      }
+    ],
+    "evangelizar": [
+      {
+        "topicId": "topic:es:evangelizacion",
+        "w": 1
+      }
+    ],
+    "ex cathedra": [
+      {
+        "topicId": "topic:es:infalibilidad",
+        "w": 1
+      }
+    ],
+    "exorcismo": [
+      {
+        "topicId": "topic:es:exorcismo",
+        "w": 1
+      }
+    ],
+    "exorcista": [
+      {
+        "topicId": "topic:es:exorcismo",
+        "w": 1
+      }
+    ],
+    "extranjero": [
+      {
+        "topicId": "topic:es:migracion",
+        "w": 1
+      }
+    ],
+    "extremauncion": [
+      {
+        "topicId": "topic:es:uncion-de-los-enfermos",
+        "w": 1
+      }
+    ],
+    "fallecimiento": [
+      {
+        "topicId": "topic:es:muerte",
+        "w": 1
+      }
+    ],
+    "faltas": [
+      {
+        "topicId": "topic:es:pecado-venial",
+        "w": 1
+      }
+    ],
+    "faltas veniales": [
+      {
+        "topicId": "topic:es:pecado-venial",
+        "w": 0.7
+      }
+    ],
+    "familia": [
+      {
+        "topicId": "topic:es:familia",
+        "w": 1
+      }
+    ],
+    "familia cristiana": [
+      {
+        "topicId": "topic:es:familia",
+        "w": 0.7
+      }
+    ],
+    "familiar": [
+      {
+        "topicId": "topic:es:familia",
+        "w": 1
+      }
+    ],
+    "fe": [
+      {
+        "topicId": "topic:es:fe",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:virtudes-teologales",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:catequesis",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:credos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:dogmas",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:fe-y-razon",
+        "w": 0.7
+      }
+    ],
+    "fe cristiana": [
+      {
+        "topicId": "topic:es:fe",
+        "w": 0.7
+      }
+    ],
+    "fe esperanza y caridad": [
+      {
+        "topicId": "topic:es:virtudes-teologales",
+        "w": 0.7
+      }
+    ],
+    "fe y razon": [
+      {
+        "topicId": "topic:es:fe-y-razon",
+        "w": 1
+      }
+    ],
+    "fidei": [
+      {
+        "topicId": "topic:es:deposito-de-la-fe",
+        "w": 0.7
+      }
+    ],
+    "fidelidad conyugal": [
+      {
+        "topicId": "topic:es:matrimonio-moral",
+        "w": 1
+      }
+    ],
+    "fides": [
+      {
+        "topicId": "topic:es:fe",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:fe-y-razon",
+        "w": 0.7
+      }
+    ],
+    "fides et ratio": [
+      {
+        "topicId": "topic:es:fe-y-razon",
+        "w": 1
+      }
+    ],
+    "fiel": [
+      {
+        "topicId": "topic:es:fe",
+        "w": 1
+      }
+    ],
+    "fieles": [
+      {
+        "topicId": "topic:es:laicos",
+        "w": 0.7
+      }
+    ],
+    "fieles laicos": [
+      {
+        "topicId": "topic:es:laicos",
+        "w": 0.7
+      }
+    ],
+    "filial": [
+      {
+        "topicId": "topic:es:confianza",
+        "w": 1
+      }
+    ],
+    "filosofia": [
+      {
+        "topicId": "topic:es:fe-y-razon",
+        "w": 1
+      }
+    ],
+    "fin": [
+      {
+        "topicId": "topic:es:escatologia",
+        "w": 0.7
+      }
+    ],
+    "fin de los tiempos": [
+      {
+        "topicId": "topic:es:escatologia",
+        "w": 0.7
+      }
+    ],
+    "final": [
+      {
+        "topicId": "topic:es:purgatorio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:resurreccion-de-los-muertos",
+        "w": 0.7
+      }
+    ],
+    "formacion": [
+      {
+        "topicId": "topic:es:educacion",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:catequesis",
+        "w": 0.7
+      }
+    ],
+    "formacion catequetica": [
+      {
+        "topicId": "topic:es:catequesis",
+        "w": 0.7
+      }
+    ],
+    "formacion de la juventud": [
+      {
+        "topicId": "topic:es:educacion",
+        "w": 0.7
+      }
+    ],
+    "fornicacion": [
+      {
+        "topicId": "topic:es:sexto-mandamiento",
+        "w": 1
+      }
+    ],
+    "fortaleza": [
+      {
+        "topicId": "topic:es:fortaleza",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:virtudes-cardinales",
+        "w": 1
+      }
+    ],
+    "fraternidad": [
+      {
+        "topicId": "topic:es:solidaridad",
+        "w": 1
+      }
+    ],
+    "fundamentales": [
+      {
+        "topicId": "topic:es:derechos-humanos",
+        "w": 1
+      }
+    ],
+    "gehenna": [
+      {
+        "topicId": "topic:es:infierno",
+        "w": 1
+      }
+    ],
+    "general": [
+      {
+        "topicId": "topic:es:concilios",
+        "w": 0.7
+      }
+    ],
+    "genero": [
+      {
+        "topicId": "topic:es:sexualidad",
+        "w": 1
+      }
+    ],
+    "gentes": [
+      {
+        "topicId": "topic:es:mision",
+        "w": 0.7
+      }
+    ],
+    "getsemani": [
+      {
+        "topicId": "topic:es:pasion",
+        "w": 1
+      }
+    ],
+    "gloria": [
+      {
+        "topicId": "topic:es:cielo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:predestinacion",
+        "w": 0.7
+      }
+    ],
+    "gloria eterna": [
+      {
+        "topicId": "topic:es:cielo",
+        "w": 1
+      }
+    ],
+    "gloriosa": [
+      {
+        "topicId": "topic:es:parusia",
+        "w": 0.7
+      }
+    ],
+    "gobierno": [
+      {
+        "topicId": "topic:es:providencia",
+        "w": 0.7
+      }
+    ],
+    "gobierno de dios": [
+      {
+        "topicId": "topic:es:providencia",
+        "w": 0.7
+      }
+    ],
+    "gobierno divino": [
+      {
+        "topicId": "topic:es:providencia",
+        "w": 1
+      }
+    ],
+    "gracia": [
+      {
+        "topicId": "topic:es:gracia",
+        "w": 1
+      }
+    ],
+    "gracia actual": [
+      {
+        "topicId": "topic:es:gracia",
+        "w": 0.7
+      }
+    ],
+    "gracia de dios": [
+      {
+        "topicId": "topic:es:gracia",
+        "w": 0.7
+      }
+    ],
+    "gracia santificante": [
+      {
+        "topicId": "topic:es:gracia",
+        "w": 0.7
+      }
+    ],
+    "gracias": [
+      {
+        "topicId": "topic:es:gracia",
+        "w": 1
+      }
+    ],
+    "gratia": [
+      {
+        "topicId": "topic:es:gracia",
+        "w": 1
+      }
+    ],
+    "grave": [
+      {
+        "topicId": "topic:es:pecado-mortal",
+        "w": 0.7
+      }
+    ],
+    "gravedad": [
+      {
+        "topicId": "topic:es:pecado-mortal",
+        "w": 1
+      }
+    ],
+    "guerra": [
+      {
+        "topicId": "topic:es:guerra-y-paz",
+        "w": 1
+      }
+    ],
+    "guerra justa": [
+      {
+        "topicId": "topic:es:guerra-y-paz",
+        "w": 1
+      }
+    ],
+    "guerra y paz": [
+      {
+        "topicId": "topic:es:guerra-y-paz",
+        "w": 1
+      }
+    ],
+    "gula": [
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 1
+      }
+    ],
+    "habito malo": [
+      {
+        "topicId": "topic:es:vicios",
+        "w": 1
+      }
+    ],
+    "habitos": [
+      {
+        "topicId": "topic:es:vicios",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:virtudes",
+        "w": 0.7
+      }
+    ],
+    "habitos buenos": [
+      {
+        "topicId": "topic:es:virtudes",
+        "w": 0.7
+      }
+    ],
+    "habitos malos": [
+      {
+        "topicId": "topic:es:vicios",
+        "w": 0.7
+      }
+    ],
+    "hasta": [
+      {
+        "topicId": "topic:es:martirio",
+        "w": 0.7
+      }
+    ],
+    "hereje": [
+      {
+        "topicId": "topic:es:herejia",
+        "w": 1
+      }
+    ],
+    "herejes": [
+      {
+        "topicId": "topic:es:herejia",
+        "w": 1
+      }
+    ],
+    "herejia": [
+      {
+        "topicId": "topic:es:herejia",
+        "w": 1
+      }
+    ],
+    "heterodoxia": [
+      {
+        "topicId": "topic:es:herejia",
+        "w": 1
+      }
+    ],
+    "hijo": [
+      {
+        "topicId": "topic:es:hijo",
+        "w": 1
+      }
+    ],
+    "hijo de dios": [
+      {
+        "topicId": "topic:es:hijo",
+        "w": 1
+      }
+    ],
+    "hijos": [
+      {
+        "topicId": "topic:es:familia",
+        "w": 1
+      }
+    ],
+    "hiperdulia": [
+      {
+        "topicId": "topic:es:culto",
+        "w": 1
+      }
+    ],
+    "hipostatica": [
+      {
+        "topicId": "topic:es:encarnacion",
+        "w": 1
+      }
+    ],
+    "hogar": [
+      {
+        "topicId": "topic:es:familia",
+        "w": 1
+      }
+    ],
+    "hombre": [
+      {
+        "topicId": "topic:es:persona-humana",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:dignidad",
+        "w": 0.7
+      }
+    ],
+    "homicidio": [
+      {
+        "topicId": "topic:es:quinto-mandamiento",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:eutanasia",
+        "w": 0.7
+      }
+    ],
+    "homicidio por piedad": [
+      {
+        "topicId": "topic:es:eutanasia",
+        "w": 0.7
+      }
+    ],
+    "hostia": [
+      {
+        "topicId": "topic:es:eucaristia",
+        "w": 1
+      }
+    ],
+    "humana": [
+      {
+        "topicId": "topic:es:libertad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:muerte",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sexualidad",
+        "w": 0.7
+      }
+    ],
+    "humano": [
+      {
+        "topicId": "topic:es:persona-humana",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:pecado",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sufrimiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:trabajo",
+        "w": 0.7
+      }
+    ],
+    "iglesia": [
+      {
+        "topicId": "topic:es:iglesia",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:doctrina-social",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:familia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:liturgia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:magisterio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:mision",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sacramentales",
+        "w": 0.7
+      }
+    ],
+    "iglesia catolica": [
+      {
+        "topicId": "topic:es:iglesia",
+        "w": 0.7
+      }
+    ],
+    "iglesia domestica": [
+      {
+        "topicId": "topic:es:familia",
+        "w": 0.7
+      }
+    ],
+    "imagen": [
+      {
+        "topicId": "topic:es:imagen-de-dios",
+        "w": 0.7
+      }
+    ],
+    "imagen de dios": [
+      {
+        "topicId": "topic:es:imagen-de-dios",
+        "w": 1
+      }
+    ],
+    "imago": [
+      {
+        "topicId": "topic:es:imagen-de-dios",
+        "w": 0.7
+      }
+    ],
+    "imago dei": [
+      {
+        "topicId": "topic:es:imagen-de-dios",
+        "w": 1
+      }
+    ],
+    "indeleble": [
+      {
+        "topicId": "topic:es:caracter-sacramental",
+        "w": 1
+      }
+    ],
+    "indigencia": [
+      {
+        "topicId": "topic:es:pobreza",
+        "w": 1
+      }
+    ],
+    "indisolubilidad": [
+      {
+        "topicId": "topic:es:indisolubilidad",
+        "w": 1
+      }
+    ],
+    "indisolubilidad del matrimonio": [
+      {
+        "topicId": "topic:es:indisolubilidad",
+        "w": 1
+      }
+    ],
+    "indisoluble": [
+      {
+        "topicId": "topic:es:indisolubilidad",
+        "w": 1
+      }
+    ],
+    "individual": [
+      {
+        "topicId": "topic:es:juicio-particular",
+        "w": 0.7
+      }
+    ],
+    "indulgencia": [
+      {
+        "topicId": "topic:es:indulgencias",
+        "w": 1
+      }
+    ],
+    "indulgencia parcial": [
+      {
+        "topicId": "topic:es:indulgencias",
+        "w": 0.7
+      }
+    ],
+    "indulgencia plenaria": [
+      {
+        "topicId": "topic:es:indulgencias",
+        "w": 0.7
+      }
+    ],
+    "indulgencias": [
+      {
+        "topicId": "topic:es:indulgencias",
+        "w": 1
+      }
+    ],
+    "infalibilidad": [
+      {
+        "topicId": "topic:es:infalibilidad",
+        "w": 1
+      }
+    ],
+    "infalibilidad del magisterio": [
+      {
+        "topicId": "topic:es:infalibilidad",
+        "w": 0.7
+      }
+    ],
+    "infalibilidad papal": [
+      {
+        "topicId": "topic:es:infalibilidad",
+        "w": 0.7
+      }
+    ],
+    "infalible": [
+      {
+        "topicId": "topic:es:infalibilidad",
+        "w": 1
+      }
+    ],
+    "infierno": [
+      {
+        "topicId": "topic:es:infierno",
+        "w": 1
+      }
+    ],
+    "injusticia": [
+      {
+        "topicId": "topic:es:justicia-social",
+        "w": 1
+      }
+    ],
+    "inmaculada": [
+      {
+        "topicId": "topic:es:inmaculada",
+        "w": 1
+      }
+    ],
+    "inmaculada concepcion": [
+      {
+        "topicId": "topic:es:inmaculada",
+        "w": 1
+      }
+    ],
+    "inmortal": [
+      {
+        "topicId": "topic:es:alma",
+        "w": 1
+      }
+    ],
+    "inmortalidad": [
+      {
+        "topicId": "topic:es:vida-eterna",
+        "w": 1
+      }
+    ],
+    "inspiracion": [
+      {
+        "topicId": "topic:es:inspiracion-biblica",
+        "w": 1
+      }
+    ],
+    "inspiracion biblica": [
+      {
+        "topicId": "topic:es:inspiracion-biblica",
+        "w": 1
+      }
+    ],
+    "inspiracion de la escritura": [
+      {
+        "topicId": "topic:es:inspiracion-biblica",
+        "w": 0.7
+      }
+    ],
+    "inspirada": [
+      {
+        "topicId": "topic:es:inspiracion-biblica",
+        "w": 1
+      }
+    ],
+    "inspirado": [
+      {
+        "topicId": "topic:es:inspiracion-biblica",
+        "w": 1
+      }
+    ],
+    "inteligencia": [
+      {
+        "topicId": "topic:es:fe-y-razon",
+        "w": 1
+      }
+    ],
+    "inteligencia de la fe": [
+      {
+        "topicId": "topic:es:fe-y-razon",
+        "w": 0.7
+      }
+    ],
+    "interrupcion": [
+      {
+        "topicId": "topic:es:aborto",
+        "w": 0.7
+      }
+    ],
+    "interrupcion del embarazo": [
+      {
+        "topicId": "topic:es:aborto",
+        "w": 0.7
+      }
+    ],
+    "ira": [
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 1
+      }
+    ],
+    "jerarcas": [
+      {
+        "topicId": "topic:es:jerarquia",
+        "w": 1
+      }
+    ],
+    "jerarquia": [
+      {
+        "topicId": "topic:es:jerarquia",
+        "w": 1
+      }
+    ],
+    "jerarquia eclesiastica": [
+      {
+        "topicId": "topic:es:jerarquia",
+        "w": 0.7
+      }
+    ],
+    "jerarquico": [
+      {
+        "topicId": "topic:es:jerarquia",
+        "w": 1
+      }
+    ],
+    "jesucristo": [
+      {
+        "topicId": "topic:es:jesucristo",
+        "w": 1
+      }
+    ],
+    "jesus": [
+      {
+        "topicId": "topic:es:jesucristo",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:sagrado-corazon",
+        "w": 0.7
+      }
+    ],
+    "juez": [
+      {
+        "topicId": "topic:es:juicio",
+        "w": 1
+      }
+    ],
+    "juicio": [
+      {
+        "topicId": "topic:es:juicio",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:conciencia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:juicio-final",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:juicio-particular",
+        "w": 0.7
+      }
+    ],
+    "juicio al morir": [
+      {
+        "topicId": "topic:es:juicio-particular",
+        "w": 0.7
+      }
+    ],
+    "juicio de conciencia": [
+      {
+        "topicId": "topic:es:conciencia",
+        "w": 0.7
+      }
+    ],
+    "juicio de dios": [
+      {
+        "topicId": "topic:es:juicio",
+        "w": 0.7
+      }
+    ],
+    "juicio escatologico": [
+      {
+        "topicId": "topic:es:juicio",
+        "w": 0.7
+      }
+    ],
+    "juicio final": [
+      {
+        "topicId": "topic:es:juicio-final",
+        "w": 1
+      }
+    ],
+    "juicio individual": [
+      {
+        "topicId": "topic:es:juicio-particular",
+        "w": 1
+      }
+    ],
+    "juicio particular": [
+      {
+        "topicId": "topic:es:juicio-particular",
+        "w": 1
+      }
+    ],
+    "juicio universal": [
+      {
+        "topicId": "topic:es:juicio-final",
+        "w": 1
+      }
+    ],
+    "justa": [
+      {
+        "topicId": "topic:es:economia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:guerra-y-paz",
+        "w": 0.7
+      }
+    ],
+    "justicia": [
+      {
+        "topicId": "topic:es:justicia",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:virtudes-cardinales",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:justicia-social",
+        "w": 0.7
+      }
+    ],
+    "justicia social": [
+      {
+        "topicId": "topic:es:justicia-social",
+        "w": 1
+      }
+    ],
+    "justicia social cristiana": [
+      {
+        "topicId": "topic:es:justicia-social",
+        "w": 0.7
+      }
+    ],
+    "justificacion": [
+      {
+        "topicId": "topic:es:justificacion",
+        "w": 1
+      }
+    ],
+    "justificacion del pecador": [
+      {
+        "topicId": "topic:es:justificacion",
+        "w": 0.7
+      }
+    ],
+    "justificado": [
+      {
+        "topicId": "topic:es:justificacion",
+        "w": 1
+      }
+    ],
+    "justificar": [
+      {
+        "topicId": "topic:es:justificacion",
+        "w": 1
+      }
+    ],
+    "justo": [
+      {
+        "topicId": "topic:es:justicia",
+        "w": 1
+      }
+    ],
+    "justos": [
+      {
+        "topicId": "topic:es:justificacion",
+        "w": 1
+      }
+    ],
+    "juventud": [
+      {
+        "topicId": "topic:es:educacion",
+        "w": 0.7
+      }
+    ],
+    "juzgar": [
+      {
+        "topicId": "topic:es:juicio",
+        "w": 1
+      }
+    ],
+    "kerygma": [
+      {
+        "topicId": "topic:es:evangelizacion",
+        "w": 1
+      }
+    ],
+    "la": [
+      {
+        "topicId": "topic:es:bien-comun",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:bioetica",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:castidad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:catequesis",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:confirmacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:credos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:derechos-humanos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:diez-mandamientos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:dignidad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:discernimiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:doctrina-social",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:educacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:encarnacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:esperanza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:fe",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:fe-y-razon",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:fortaleza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:inspiracion-biblica",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:justicia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:lectio-divina",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:liturgia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:magisterio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:martirio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:mision",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:misterio-pascual",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:muerte-de-cristo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:predestinacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:prudencia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:quinto-mandamiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:reconciliacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:resurreccion-de-los-muertos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sacramentales",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sacramentos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:santidad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sexto-mandamiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:templanza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:vida",
+        "w": 0.7
+      }
+    ],
+    "labor": [
+      {
+        "topicId": "topic:es:trabajo",
+        "w": 1
+      }
+    ],
+    "laicado": [
+      {
+        "topicId": "topic:es:laicos",
+        "w": 1
+      }
+    ],
+    "laico": [
+      {
+        "topicId": "topic:es:laicos",
+        "w": 1
+      }
+    ],
+    "laicos": [
+      {
+        "topicId": "topic:es:laicos",
+        "w": 1
+      }
+    ],
+    "las": [
+      {
+        "topicId": "topic:es:canon-biblico",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:dialogo-interreligioso",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:meritos",
+        "w": 0.7
+      }
+    ],
+    "latria": [
+      {
+        "topicId": "topic:es:adoracion",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:culto",
+        "w": 1
+      }
+    ],
+    "lectio": [
+      {
+        "topicId": "topic:es:lectio-divina",
+        "w": 1
+      }
+    ],
+    "lectio divina": [
+      {
+        "topicId": "topic:es:lectio-divina",
+        "w": 1
+      }
+    ],
+    "lectura": [
+      {
+        "topicId": "topic:es:lectio-divina",
+        "w": 0.7
+      }
+    ],
+    "lectura de la escritura": [
+      {
+        "topicId": "topic:es:lectio-divina",
+        "w": 0.7
+      }
+    ],
+    "lectura orante": [
+      {
+        "topicId": "topic:es:lectio-divina",
+        "w": 1
+      }
+    ],
+    "leve": [
+      {
+        "topicId": "topic:es:pecado-venial",
+        "w": 0.7
+      }
+    ],
+    "ley": [
+      {
+        "topicId": "topic:es:diez-mandamientos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:ley-moral",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:ley-natural",
+        "w": 0.7
+      }
+    ],
+    "ley de dios": [
+      {
+        "topicId": "topic:es:ley-moral",
+        "w": 0.7
+      }
+    ],
+    "ley moral": [
+      {
+        "topicId": "topic:es:ley-moral",
+        "w": 1
+      }
+    ],
+    "ley natural": [
+      {
+        "topicId": "topic:es:ley-natural",
+        "w": 1
+      }
+    ],
+    "ley natural moral": [
+      {
+        "topicId": "topic:es:ley-natural",
+        "w": 0.7
+      }
+    ],
+    "liberacion": [
+      {
+        "topicId": "topic:es:exorcismo",
+        "w": 1
+      }
+    ],
+    "liberacion del demonio": [
+      {
+        "topicId": "topic:es:exorcismo",
+        "w": 0.7
+      }
+    ],
+    "libertad": [
+      {
+        "topicId": "topic:es:libertad",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:libertad-religiosa",
+        "w": 0.7
+      }
+    ],
+    "libertad de culto": [
+      {
+        "topicId": "topic:es:libertad-religiosa",
+        "w": 1
+      }
+    ],
+    "libertad de religion": [
+      {
+        "topicId": "topic:es:libertad-religiosa",
+        "w": 1
+      }
+    ],
+    "libertad humana": [
+      {
+        "topicId": "topic:es:libertad",
+        "w": 0.7
+      }
+    ],
+    "libertad moral": [
+      {
+        "topicId": "topic:es:libertad",
+        "w": 0.7
+      }
+    ],
+    "libertad religiosa": [
+      {
+        "topicId": "topic:es:libertad-religiosa",
+        "w": 1
+      }
+    ],
+    "libre": [
+      {
+        "topicId": "topic:es:libertad",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:libre-albedrio",
+        "w": 0.7
+      }
+    ],
+    "libre albedrio": [
+      {
+        "topicId": "topic:es:libre-albedrio",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:libertad",
+        "w": 0.7
+      }
+    ],
+    "libres": [
+      {
+        "topicId": "topic:es:libertad",
+        "w": 1
+      }
+    ],
+    "libros": [
+      {
+        "topicId": "topic:es:canon-biblico",
+        "w": 0.7
+      }
+    ],
+    "libros canonicos": [
+      {
+        "topicId": "topic:es:canon-biblico",
+        "w": 0.7
+      }
+    ],
+    "liturgia": [
+      {
+        "topicId": "topic:es:liturgia",
+        "w": 1
+      }
+    ],
+    "liturgia de la iglesia": [
+      {
+        "topicId": "topic:es:liturgia",
+        "w": 0.7
+      }
+    ],
+    "liturgia eucaristica": [
+      {
+        "topicId": "topic:es:misa",
+        "w": 1
+      }
+    ],
+    "liturgica": [
+      {
+        "topicId": "topic:es:liturgia",
+        "w": 0.7
+      }
+    ],
+    "liturgico": [
+      {
+        "topicId": "topic:es:liturgia",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:ano-liturgico",
+        "w": 0.7
+      }
+    ],
+    "llamada": [
+      {
+        "topicId": "topic:es:vocacion",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:santidad",
+        "w": 0.7
+      }
+    ],
+    "llamada a la santidad": [
+      {
+        "topicId": "topic:es:santidad",
+        "w": 0.7
+      }
+    ],
+    "llamada de dios": [
+      {
+        "topicId": "topic:es:vocacion",
+        "w": 0.7
+      }
+    ],
+    "llamamiento": [
+      {
+        "topicId": "topic:es:vocacion",
+        "w": 1
+      }
+    ],
+    "lo": [
+      {
+        "topicId": "topic:es:justicia",
+        "w": 0.7
+      }
+    ],
+    "logos": [
+      {
+        "topicId": "topic:es:hijo",
+        "w": 1
+      }
+    ],
+    "los": [
+      {
+        "topicId": "topic:es:arrepentimiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:comunion-de-los-santos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:credos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:ecumenismo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:escatologia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:obispos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:perdon",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pobreza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:reino-de-dios",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:santos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:uncion-de-los-enfermos",
+        "w": 0.7
+      }
+    ],
+    "lucifer": [
+      {
+        "topicId": "topic:es:demonio",
+        "w": 1
+      }
+    ],
+    "lujuria": [
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 1
+      }
+    ],
+    "madero": [
+      {
+        "topicId": "topic:es:cruz",
+        "w": 1
+      }
+    ],
+    "madre": [
+      {
+        "topicId": "topic:es:maria",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:maternidad-divina",
+        "w": 0.7
+      }
+    ],
+    "madre de dios": [
+      {
+        "topicId": "topic:es:maternidad-divina",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:maria",
+        "w": 0.7
+      }
+    ],
+    "madrede dios": [
+      {
+        "topicId": "topic:es:maria",
+        "w": 1
+      }
+    ],
+    "magisterial": [
+      {
+        "topicId": "topic:es:magisterio",
+        "w": 1
+      }
+    ],
+    "magisterio": [
+      {
+        "topicId": "topic:es:magisterio",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:infalibilidad",
+        "w": 0.7
+      }
+    ],
+    "magisterio de la iglesia": [
+      {
+        "topicId": "topic:es:magisterio",
+        "w": 0.7
+      }
+    ],
+    "maligno": [
+      {
+        "topicId": "topic:es:demonio",
+        "w": 0.7
+      }
+    ],
+    "malos": [
+      {
+        "topicId": "topic:es:vicios",
+        "w": 0.7
+      }
+    ],
+    "mandamiento": [
+      {
+        "topicId": "topic:es:quinto-mandamiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sexto-mandamiento",
+        "w": 0.7
+      }
+    ],
+    "mandamiento de la pureza": [
+      {
+        "topicId": "topic:es:sexto-mandamiento",
+        "w": 0.7
+      }
+    ],
+    "mandamiento de la vida": [
+      {
+        "topicId": "topic:es:quinto-mandamiento",
+        "w": 0.7
+      }
+    ],
+    "mandamientos": [
+      {
+        "topicId": "topic:es:diez-mandamientos",
+        "w": 1
+      }
+    ],
+    "mandamientos de la ley de dios": [
+      {
+        "topicId": "topic:es:diez-mandamientos",
+        "w": 0.7
+      }
+    ],
+    "maria": [
+      {
+        "topicId": "topic:es:maria",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:asuncion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:inmaculada",
+        "w": 0.7
+      }
+    ],
+    "maria sin pecado original": [
+      {
+        "topicId": "topic:es:inmaculada",
+        "w": 0.7
+      }
+    ],
+    "mariana": [
+      {
+        "topicId": "topic:es:maria",
+        "w": 1
+      }
+    ],
+    "martir": [
+      {
+        "topicId": "topic:es:martirio",
+        "w": 1
+      }
+    ],
+    "martires": [
+      {
+        "topicId": "topic:es:martirio",
+        "w": 1
+      }
+    ],
+    "martirio": [
+      {
+        "topicId": "topic:es:martirio",
+        "w": 1
+      }
+    ],
+    "martyria": [
+      {
+        "topicId": "topic:es:testimonio",
+        "w": 1
+      }
+    ],
+    "mataras": [
+      {
+        "topicId": "topic:es:quinto-mandamiento",
+        "w": 0.7
+      }
+    ],
+    "maternidad divina": [
+      {
+        "topicId": "topic:es:maternidad-divina",
+        "w": 1
+      }
+    ],
+    "matrimonial": [
+      {
+        "topicId": "topic:es:matrimonio",
+        "w": 1
+      }
+    ],
+    "matrimonio": [
+      {
+        "topicId": "topic:es:matrimonio",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:divorcio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:indisolubilidad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:matrimonio-moral",
+        "w": 0.7
+      }
+    ],
+    "matrimonio cristiano": [
+      {
+        "topicId": "topic:es:matrimonio",
+        "w": 0.7
+      }
+    ],
+    "matrimonio indisoluble": [
+      {
+        "topicId": "topic:es:indisolubilidad",
+        "w": 0.7
+      }
+    ],
+    "matrimonio moral": [
+      {
+        "topicId": "topic:es:matrimonio-moral",
+        "w": 1
+      }
+    ],
+    "matrimonio y moral": [
+      {
+        "topicId": "topic:es:matrimonio-moral",
+        "w": 1
+      }
+    ],
+    "meditacion": [
+      {
+        "topicId": "topic:es:lectio-divina",
+        "w": 1
+      }
+    ],
+    "mentira": [
+      {
+        "topicId": "topic:es:verdad",
+        "w": 1
+      }
+    ],
+    "mercado": [
+      {
+        "topicId": "topic:es:economia",
+        "w": 1
+      }
+    ],
+    "merecer": [
+      {
+        "topicId": "topic:es:meritos",
+        "w": 1
+      }
+    ],
+    "merito": [
+      {
+        "topicId": "topic:es:meritos",
+        "w": 1
+      }
+    ],
+    "merito de las obras": [
+      {
+        "topicId": "topic:es:meritos",
+        "w": 0.7
+      }
+    ],
+    "meritos": [
+      {
+        "topicId": "topic:es:meritos",
+        "w": 1
+      }
+    ],
+    "meritos de cristo": [
+      {
+        "topicId": "topic:es:meritos",
+        "w": 0.7
+      }
+    ],
+    "mesias": [
+      {
+        "topicId": "topic:es:jesucristo",
+        "w": 1
+      }
+    ],
+    "metanoia": [
+      {
+        "topicId": "topic:es:conversion",
+        "w": 1
+      }
+    ],
+    "miembros de cristo": [
+      {
+        "topicId": "topic:es:cuerpo-mistico",
+        "w": 1
+      }
+    ],
+    "migracion": [
+      {
+        "topicId": "topic:es:migracion",
+        "w": 1
+      }
+    ],
+    "migrantes": [
+      {
+        "topicId": "topic:es:migracion",
+        "w": 1
+      }
+    ],
+    "milagro": [
+      {
+        "topicId": "topic:es:milagros",
+        "w": 1
+      }
+    ],
+    "milagros": [
+      {
+        "topicId": "topic:es:milagros",
+        "w": 1
+      }
+    ],
+    "milagrosos": [
+      {
+        "topicId": "topic:es:milagros",
+        "w": 0.7
+      }
+    ],
+    "ministerial": [
+      {
+        "topicId": "topic:es:sacerdocio",
+        "w": 0.7
+      }
+    ],
+    "misa": [
+      {
+        "topicId": "topic:es:misa",
+        "w": 1
+      }
+    ],
+    "misericordia": [
+      {
+        "topicId": "topic:es:misericordia",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:obras",
+        "w": 0.7
+      }
+    ],
+    "misericordia divina": [
+      {
+        "topicId": "topic:es:misericordia",
+        "w": 0.7
+      }
+    ],
+    "misericordioso": [
+      {
+        "topicId": "topic:es:misericordia",
+        "w": 1
+      }
+    ],
+    "mision": [
+      {
+        "topicId": "topic:es:mision",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:apostolado",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:evangelizacion",
+        "w": 0.7
+      }
+    ],
+    "mision ad gentes": [
+      {
+        "topicId": "topic:es:mision",
+        "w": 0.7
+      }
+    ],
+    "mision apostolica": [
+      {
+        "topicId": "topic:es:apostolado",
+        "w": 0.7
+      }
+    ],
+    "mision de la iglesia": [
+      {
+        "topicId": "topic:es:mision",
+        "w": 0.7
+      }
+    ],
+    "mision evangelizadora": [
+      {
+        "topicId": "topic:es:evangelizacion",
+        "w": 0.7
+      }
+    ],
+    "misionero": [
+      {
+        "topicId": "topic:es:mision",
+        "w": 1
+      }
+    ],
+    "misioneros": [
+      {
+        "topicId": "topic:es:mision",
+        "w": 1
+      }
+    ],
+    "misterio": [
+      {
+        "topicId": "topic:es:encarnacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:misterio-pascual",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:trinidad",
+        "w": 0.7
+      }
+    ],
+    "misterio de la encarnacion": [
+      {
+        "topicId": "topic:es:encarnacion",
+        "w": 0.7
+      }
+    ],
+    "misterio de la pascua": [
+      {
+        "topicId": "topic:es:misterio-pascual",
+        "w": 0.7
+      }
+    ],
+    "misterio pascual": [
+      {
+        "topicId": "topic:es:misterio-pascual",
+        "w": 1
+      }
+    ],
+    "misterio trinitario": [
+      {
+        "topicId": "topic:es:trinidad",
+        "w": 0.7
+      }
+    ],
+    "mistica": [
+      {
+        "topicId": "topic:es:contemplacion",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:vida-espiritual",
+        "w": 1
+      }
+    ],
+    "mistico": [
+      {
+        "topicId": "topic:es:cuerpo-mistico",
+        "w": 0.7
+      }
+    ],
+    "moderacion": [
+      {
+        "topicId": "topic:es:templanza",
+        "w": 1
+      }
+    ],
+    "monte": [
+      {
+        "topicId": "topic:es:beatitudes",
+        "w": 0.7
+      }
+    ],
+    "moral": [
+      {
+        "topicId": "topic:es:moral",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:conciencia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:ley-moral",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:ley-natural",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:libertad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:matrimonio-moral",
+        "w": 0.7
+      }
+    ],
+    "moral conyugal": [
+      {
+        "topicId": "topic:es:matrimonio-moral",
+        "w": 1
+      }
+    ],
+    "moral cristiana": [
+      {
+        "topicId": "topic:es:moral",
+        "w": 1
+      }
+    ],
+    "morales": [
+      {
+        "topicId": "topic:es:vicios",
+        "w": 0.7
+      }
+    ],
+    "morir": [
+      {
+        "topicId": "topic:es:muerte",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:juicio-particular",
+        "w": 0.7
+      }
+    ],
+    "mortal": [
+      {
+        "topicId": "topic:es:pecado-mortal",
+        "w": 0.7
+      }
+    ],
+    "movimiento": [
+      {
+        "topicId": "topic:es:ecumenismo",
+        "w": 0.7
+      }
+    ],
+    "movimiento ecumenico": [
+      {
+        "topicId": "topic:es:ecumenismo",
+        "w": 0.7
+      }
+    ],
+    "muerte": [
+      {
+        "topicId": "topic:es:muerte",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:eutanasia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:martirio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:muerte-de-cristo",
+        "w": 0.7
+      }
+    ],
+    "muerte asistida": [
+      {
+        "topicId": "topic:es:eutanasia",
+        "w": 0.7
+      }
+    ],
+    "muerte de cristo": [
+      {
+        "topicId": "topic:es:muerte-de-cristo",
+        "w": 1
+      }
+    ],
+    "muerte en la cruz": [
+      {
+        "topicId": "topic:es:muerte-de-cristo",
+        "w": 0.7
+      }
+    ],
+    "muerte humana": [
+      {
+        "topicId": "topic:es:muerte",
+        "w": 0.7
+      }
+    ],
+    "muerto": [
+      {
+        "topicId": "topic:es:muerte",
+        "w": 1
+      }
+    ],
+    "mujer": [
+      {
+        "topicId": "topic:es:persona-humana",
+        "w": 1
+      }
+    ],
+    "mundo": [
+      {
+        "topicId": "topic:es:creacion",
+        "w": 0.7
+      }
+    ],
+    "murio por": [
+      {
+        "topicId": "topic:es:muerte-de-cristo",
+        "w": 1
+      }
+    ],
+    "natalidad": [
+      {
+        "topicId": "topic:es:vida",
+        "w": 1
+      }
+    ],
+    "natural": [
+      {
+        "topicId": "topic:es:ley-natural",
+        "w": 1
+      }
+    ],
+    "nazareno": [
+      {
+        "topicId": "topic:es:jesucristo",
+        "w": 1
+      }
+    ],
+    "necesitados": [
+      {
+        "topicId": "topic:es:pobreza",
+        "w": 1
+      }
+    ],
+    "niceno": [
+      {
+        "topicId": "topic:es:credos",
+        "w": 0.7
+      }
+    ],
+    "no": [
+      {
+        "topicId": "topic:es:dialogo-interreligioso",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:quinto-mandamiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sexto-mandamiento",
+        "w": 0.7
+      }
+    ],
+    "no cometeras adulterio": [
+      {
+        "topicId": "topic:es:sexto-mandamiento",
+        "w": 0.7
+      }
+    ],
+    "no cristianos": [
+      {
+        "topicId": "topic:es:dialogo-interreligioso",
+        "w": 1
+      }
+    ],
+    "no mataras": [
+      {
+        "topicId": "topic:es:quinto-mandamiento",
+        "w": 1
+      }
+    ],
+    "norma": [
+      {
+        "topicId": "topic:es:ley-moral",
+        "w": 0.7
+      }
+    ],
+    "norma moral": [
+      {
+        "topicId": "topic:es:ley-moral",
+        "w": 1
+      }
+    ],
+    "noster": [
+      {
+        "topicId": "topic:es:padrenuestro",
+        "w": 0.7
+      }
+    ],
+    "novisimos": [
+      {
+        "topicId": "topic:es:escatologia",
+        "w": 1
+      }
+    ],
+    "nueva": [
+      {
+        "topicId": "topic:es:alianza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:nueva-evangelizacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sacramentos",
+        "w": 0.7
+      }
+    ],
+    "nueva alianza": [
+      {
+        "topicId": "topic:es:alianza",
+        "w": 0.7
+      }
+    ],
+    "nueva evangelizacion": [
+      {
+        "topicId": "topic:es:nueva-evangelizacion",
+        "w": 1
+      }
+    ],
+    "nupcias": [
+      {
+        "topicId": "topic:es:matrimonio",
+        "w": 1
+      }
+    ],
+    "obispo": [
+      {
+        "topicId": "topic:es:obispos",
+        "w": 1
+      }
+    ],
+    "obispos": [
+      {
+        "topicId": "topic:es:obispos",
+        "w": 1
+      }
+    ],
+    "obra": [
+      {
+        "topicId": "topic:es:apostolado",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:creacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:redencion",
+        "w": 0.7
+      }
+    ],
+    "obra apostolica": [
+      {
+        "topicId": "topic:es:apostolado",
+        "w": 0.7
+      }
+    ],
+    "obra creadora": [
+      {
+        "topicId": "topic:es:creacion",
+        "w": 0.7
+      }
+    ],
+    "obra redentora": [
+      {
+        "topicId": "topic:es:redencion",
+        "w": 0.7
+      }
+    ],
+    "obras": [
+      {
+        "topicId": "topic:es:obras",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:meritos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:penitencia",
+        "w": 0.7
+      }
+    ],
+    "obras buenas": [
+      {
+        "topicId": "topic:es:obras",
+        "w": 1
+      }
+    ],
+    "obras de misericordia": [
+      {
+        "topicId": "topic:es:obras",
+        "w": 1
+      }
+    ],
+    "obras de penitencia": [
+      {
+        "topicId": "topic:es:penitencia",
+        "w": 0.7
+      }
+    ],
+    "obras meritorias": [
+      {
+        "topicId": "topic:es:meritos",
+        "w": 1
+      }
+    ],
+    "ofensa": [
+      {
+        "topicId": "topic:es:pecado",
+        "w": 0.7
+      }
+    ],
+    "ofensa a dios": [
+      {
+        "topicId": "topic:es:pecado",
+        "w": 0.7
+      }
+    ],
+    "oficial": [
+      {
+        "topicId": "topic:es:magisterio",
+        "w": 0.7
+      }
+    ],
+    "opcion": [
+      {
+        "topicId": "topic:es:pobreza",
+        "w": 0.7
+      }
+    ],
+    "opcion por los pobres": [
+      {
+        "topicId": "topic:es:pobreza",
+        "w": 0.7
+      }
+    ],
+    "oracion": [
+      {
+        "topicId": "topic:es:oracion",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:contemplacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:padrenuestro",
+        "w": 0.7
+      }
+    ],
+    "oracion contemplativa": [
+      {
+        "topicId": "topic:es:contemplacion",
+        "w": 0.7
+      }
+    ],
+    "oracion cristiana": [
+      {
+        "topicId": "topic:es:oracion",
+        "w": 0.7
+      }
+    ],
+    "oracion del señor": [
+      {
+        "topicId": "topic:es:padrenuestro",
+        "w": 1
+      }
+    ],
+    "orante": [
+      {
+        "topicId": "topic:es:lectio-divina",
+        "w": 0.7
+      }
+    ],
+    "orar": [
+      {
+        "topicId": "topic:es:oracion",
+        "w": 1
+      }
+    ],
+    "orden": [
+      {
+        "topicId": "topic:es:orden",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:jerarquia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:ley-natural",
+        "w": 0.7
+      }
+    ],
+    "orden jerarquico": [
+      {
+        "topicId": "topic:es:jerarquia",
+        "w": 0.7
+      }
+    ],
+    "orden natural": [
+      {
+        "topicId": "topic:es:ley-natural",
+        "w": 1
+      }
+    ],
+    "orden sagrado": [
+      {
+        "topicId": "topic:es:orden",
+        "w": 1
+      }
+    ],
+    "ordenacion": [
+      {
+        "topicId": "topic:es:orden",
+        "w": 1
+      }
+    ],
+    "ordenado": [
+      {
+        "topicId": "topic:es:orden",
+        "w": 1
+      }
+    ],
+    "original": [
+      {
+        "topicId": "topic:es:inmaculada",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pecado-original",
+        "w": 0.7
+      }
+    ],
+    "pacificacion": [
+      {
+        "topicId": "topic:es:paz",
+        "w": 1
+      }
+    ],
+    "pacifico": [
+      {
+        "topicId": "topic:es:paz",
+        "w": 1
+      }
+    ],
+    "pacto": [
+      {
+        "topicId": "topic:es:alianza",
+        "w": 1
+      }
+    ],
+    "padecer": [
+      {
+        "topicId": "topic:es:sufrimiento",
+        "w": 1
+      }
+    ],
+    "padecimiento": [
+      {
+        "topicId": "topic:es:pasion",
+        "w": 1
+      }
+    ],
+    "padre": [
+      {
+        "topicId": "topic:es:padre",
+        "w": 1
+      }
+    ],
+    "padre celestial": [
+      {
+        "topicId": "topic:es:padre",
+        "w": 1
+      }
+    ],
+    "padre nuestro": [
+      {
+        "topicId": "topic:es:padrenuestro",
+        "w": 1
+      }
+    ],
+    "padrenuestro": [
+      {
+        "topicId": "topic:es:padrenuestro",
+        "w": 1
+      }
+    ],
+    "padres": [
+      {
+        "topicId": "topic:es:familia",
+        "w": 1
+      }
+    ],
+    "palabra": [
+      {
+        "topicId": "topic:es:inspiracion-biblica",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:revelacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sagrada-escritura",
+        "w": 0.7
+      }
+    ],
+    "palabra de dios": [
+      {
+        "topicId": "topic:es:sagrada-escritura",
+        "w": 1
+      }
+    ],
+    "palabra inspirada": [
+      {
+        "topicId": "topic:es:inspiracion-biblica",
+        "w": 0.7
+      }
+    ],
+    "palabra revelada": [
+      {
+        "topicId": "topic:es:revelacion",
+        "w": 0.7
+      }
+    ],
+    "papa": [
+      {
+        "topicId": "topic:es:papado",
+        "w": 1
+      }
+    ],
+    "papado": [
+      {
+        "topicId": "topic:es:papado",
+        "w": 1
+      }
+    ],
+    "papal": [
+      {
+        "topicId": "topic:es:infalibilidad",
+        "w": 0.7
+      }
+    ],
+    "paraclito": [
+      {
+        "topicId": "topic:es:espiritu-santo",
+        "w": 1
+      }
+    ],
+    "paraiso": [
+      {
+        "topicId": "topic:es:cielo",
+        "w": 1
+      }
+    ],
+    "parcial": [
+      {
+        "topicId": "topic:es:indulgencias",
+        "w": 1
+      }
+    ],
+    "parusia": [
+      {
+        "topicId": "topic:es:escatologia",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:parusia",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:juicio-final",
+        "w": 0.7
+      }
+    ],
+    "parusia y juicio": [
+      {
+        "topicId": "topic:es:juicio-final",
+        "w": 0.7
+      }
+    ],
+    "pascua": [
+      {
+        "topicId": "topic:es:ano-liturgico",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:misterio-pascual",
+        "w": 1
+      }
+    ],
+    "pascua de cristo": [
+      {
+        "topicId": "topic:es:misterio-pascual",
+        "w": 0.7
+      }
+    ],
+    "pascual": [
+      {
+        "topicId": "topic:es:misterio-pascual",
+        "w": 1
+      }
+    ],
+    "pasion": [
+      {
+        "topicId": "topic:es:pasion",
+        "w": 1
+      }
+    ],
+    "pasion de cristo": [
+      {
+        "topicId": "topic:es:pasion",
+        "w": 1
+      }
+    ],
+    "pasion del señor": [
+      {
+        "topicId": "topic:es:pasion",
+        "w": 0.7
+      }
+    ],
+    "pater": [
+      {
+        "topicId": "topic:es:padrenuestro",
+        "w": 0.7
+      }
+    ],
+    "pater noster": [
+      {
+        "topicId": "topic:es:padrenuestro",
+        "w": 1
+      }
+    ],
+    "paz": [
+      {
+        "topicId": "topic:es:guerra-y-paz",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:paz",
+        "w": 1
+      }
+    ],
+    "paz de cristo": [
+      {
+        "topicId": "topic:es:paz",
+        "w": 0.7
+      }
+    ],
+    "paz social": [
+      {
+        "topicId": "topic:es:paz",
+        "w": 0.7
+      }
+    ],
+    "pecado": [
+      {
+        "topicId": "topic:es:pecado",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:inmaculada",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pecado-mortal",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pecado-original",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pecado-venial",
+        "w": 0.7
+      }
+    ],
+    "pecado de adan": [
+      {
+        "topicId": "topic:es:pecado-original",
+        "w": 0.7
+      }
+    ],
+    "pecado grave": [
+      {
+        "topicId": "topic:es:pecado-mortal",
+        "w": 1
+      }
+    ],
+    "pecado humano": [
+      {
+        "topicId": "topic:es:pecado",
+        "w": 0.7
+      }
+    ],
+    "pecado leve": [
+      {
+        "topicId": "topic:es:pecado-venial",
+        "w": 0.7
+      }
+    ],
+    "pecado mortal": [
+      {
+        "topicId": "topic:es:pecado-mortal",
+        "w": 1
+      }
+    ],
+    "pecado original": [
+      {
+        "topicId": "topic:es:pecado-original",
+        "w": 1
+      }
+    ],
+    "pecado venial": [
+      {
+        "topicId": "topic:es:pecado-venial",
+        "w": 1
+      }
+    ],
+    "pecador": [
+      {
+        "topicId": "topic:es:pecado",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:justificacion",
+        "w": 0.7
+      }
+    ],
+    "pecados": [
+      {
+        "topicId": "topic:es:pecado",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:arrepentimiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:perdon",
+        "w": 0.7
+      }
+    ],
+    "pecados capitales": [
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 1
+      }
+    ],
+    "pedro": [
+      {
+        "topicId": "topic:es:papado",
+        "w": 1
+      }
+    ],
+    "penitencia": [
+      {
+        "topicId": "topic:es:penitencia",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:reconciliacion",
+        "w": 0.7
+      }
+    ],
+    "penitencia sacramental": [
+      {
+        "topicId": "topic:es:reconciliacion",
+        "w": 1
+      }
+    ],
+    "penitente": [
+      {
+        "topicId": "topic:es:penitencia",
+        "w": 1
+      }
+    ],
+    "perdon": [
+      {
+        "topicId": "topic:es:perdon",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:reconciliacion",
+        "w": 0.7
+      }
+    ],
+    "perdon de los pecados": [
+      {
+        "topicId": "topic:es:perdon",
+        "w": 0.7
+      }
+    ],
+    "perdon sacramental": [
+      {
+        "topicId": "topic:es:reconciliacion",
+        "w": 0.7
+      }
+    ],
+    "perdonar": [
+      {
+        "topicId": "topic:es:perdon",
+        "w": 1
+      }
+    ],
+    "perdurable": [
+      {
+        "topicId": "topic:es:vida-eterna",
+        "w": 1
+      }
+    ],
+    "pereza": [
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 1
+      }
+    ],
+    "perseverancia": [
+      {
+        "topicId": "topic:es:fortaleza",
+        "w": 1
+      }
+    ],
+    "persona": [
+      {
+        "topicId": "topic:es:dignidad",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:persona-humana",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:derechos-humanos",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:hijo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:padre",
+        "w": 0.7
+      }
+    ],
+    "persona humana": [
+      {
+        "topicId": "topic:es:persona-humana",
+        "w": 1
+      }
+    ],
+    "piedad": [
+      {
+        "topicId": "topic:es:misericordia",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:eutanasia",
+        "w": 0.7
+      }
+    ],
+    "plegaria": [
+      {
+        "topicId": "topic:es:oracion",
+        "w": 1
+      }
+    ],
+    "plenaria": [
+      {
+        "topicId": "topic:es:indulgencias",
+        "w": 1
+      }
+    ],
+    "pneuma": [
+      {
+        "topicId": "topic:es:espiritu-santo",
+        "w": 1
+      }
+    ],
+    "pobre": [
+      {
+        "topicId": "topic:es:pobreza",
+        "w": 1
+      }
+    ],
+    "pobres": [
+      {
+        "topicId": "topic:es:pobreza",
+        "w": 1
+      }
+    ],
+    "pobres de yahve": [
+      {
+        "topicId": "topic:es:pobreza",
+        "w": 0.7
+      }
+    ],
+    "pobreza": [
+      {
+        "topicId": "topic:es:pobreza",
+        "w": 1
+      }
+    ],
+    "politica": [
+      {
+        "topicId": "topic:es:politica",
+        "w": 1
+      }
+    ],
+    "politica y fe": [
+      {
+        "topicId": "topic:es:politica",
+        "w": 1
+      }
+    ],
+    "politico": [
+      {
+        "topicId": "topic:es:politica",
+        "w": 1
+      }
+    ],
+    "pontifice": [
+      {
+        "topicId": "topic:es:papado",
+        "w": 1
+      }
+    ],
+    "por": [
+      {
+        "topicId": "topic:es:eutanasia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pobreza",
+        "w": 0.7
+      }
+    ],
+    "posesion": [
+      {
+        "topicId": "topic:es:exorcismo",
+        "w": 1
+      }
+    ],
+    "precepto moral": [
+      {
+        "topicId": "topic:es:ley-moral",
+        "w": 1
+      }
+    ],
+    "preceptos": [
+      {
+        "topicId": "topic:es:diez-mandamientos",
+        "w": 1
+      }
+    ],
+    "predestinacion": [
+      {
+        "topicId": "topic:es:predestinacion",
+        "w": 1
+      }
+    ],
+    "predestinacion a la gloria": [
+      {
+        "topicId": "topic:es:predestinacion",
+        "w": 0.7
+      }
+    ],
+    "presbiterado": [
+      {
+        "topicId": "topic:es:orden",
+        "w": 1
+      }
+    ],
+    "presbitero": [
+      {
+        "topicId": "topic:es:sacerdocio",
+        "w": 1
+      }
+    ],
+    "primado": [
+      {
+        "topicId": "topic:es:papado",
+        "w": 1
+      }
+    ],
+    "primado de pedro": [
+      {
+        "topicId": "topic:es:papado",
+        "w": 0.7
+      }
+    ],
+    "primera": [
+      {
+        "topicId": "topic:es:padre",
+        "w": 0.7
+      }
+    ],
+    "primera persona": [
+      {
+        "topicId": "topic:es:padre",
+        "w": 0.7
+      }
+    ],
+    "principio": [
+      {
+        "topicId": "topic:es:solidaridad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:subsidiariedad",
+        "w": 0.7
+      }
+    ],
+    "principio de solidaridad": [
+      {
+        "topicId": "topic:es:solidaridad",
+        "w": 0.7
+      }
+    ],
+    "principio de subsidiariedad": [
+      {
+        "topicId": "topic:es:subsidiariedad",
+        "w": 0.7
+      }
+    ],
+    "procurado": [
+      {
+        "topicId": "topic:es:aborto",
+        "w": 0.7
+      }
+    ],
+    "prodigio": [
+      {
+        "topicId": "topic:es:milagros",
+        "w": 1
+      }
+    ],
+    "prodigios": [
+      {
+        "topicId": "topic:es:milagros",
+        "w": 0.7
+      }
+    ],
+    "profesion de fe": [
+      {
+        "topicId": "topic:es:credos",
+        "w": 1
+      }
+    ],
+    "projimo": [
+      {
+        "topicId": "topic:es:amor",
+        "w": 0.7
+      }
+    ],
+    "proveer": [
+      {
+        "topicId": "topic:es:providencia",
+        "w": 1
+      }
+    ],
+    "providencia": [
+      {
+        "topicId": "topic:es:providencia",
+        "w": 1
+      }
+    ],
+    "providencia divina": [
+      {
+        "topicId": "topic:es:providencia",
+        "w": 0.7
+      }
+    ],
+    "prudencia": [
+      {
+        "topicId": "topic:es:prudencia",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:virtudes-cardinales",
+        "w": 1
+      }
+    ],
+    "prudente": [
+      {
+        "topicId": "topic:es:prudencia",
+        "w": 1
+      }
+    ],
+    "prueba": [
+      {
+        "topicId": "topic:es:tentacion",
+        "w": 1
+      }
+    ],
+    "pueblo": [
+      {
+        "topicId": "topic:es:pueblo-de-dios",
+        "w": 0.7
+      }
+    ],
+    "pueblo de dios": [
+      {
+        "topicId": "topic:es:pueblo-de-dios",
+        "w": 1
+      }
+    ],
+    "pueblo elegido": [
+      {
+        "topicId": "topic:es:pueblo-de-dios",
+        "w": 1
+      }
+    ],
+    "pueblo santo": [
+      {
+        "topicId": "topic:es:pueblo-de-dios",
+        "w": 1
+      }
+    ],
+    "pureza": [
+      {
+        "topicId": "topic:es:castidad",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:sexto-mandamiento",
+        "w": 0.7
+      }
+    ],
+    "purgatorio": [
+      {
+        "topicId": "topic:es:purgatorio",
+        "w": 1
+      }
+    ],
+    "purificacion": [
+      {
+        "topicId": "topic:es:purgatorio",
+        "w": 1
+      }
+    ],
+    "purificacion final": [
+      {
+        "topicId": "topic:es:purgatorio",
+        "w": 0.7
+      }
+    ],
+    "querubines": [
+      {
+        "topicId": "topic:es:angeles",
+        "w": 1
+      }
+    ],
+    "quinto mandamiento": [
+      {
+        "topicId": "topic:es:quinto-mandamiento",
+        "w": 1
+      }
+    ],
+    "racional": [
+      {
+        "topicId": "topic:es:alma",
+        "w": 0.7
+      }
+    ],
+    "ratio": [
+      {
+        "topicId": "topic:es:fe-y-razon",
+        "w": 0.7
+      }
+    ],
+    "razon": [
+      {
+        "topicId": "topic:es:fe-y-razon",
+        "w": 1
+      }
+    ],
+    "re": [
+      {
+        "topicId": "topic:es:nueva-evangelizacion",
+        "w": 0.7
+      }
+    ],
+    "re evangelizacion": [
+      {
+        "topicId": "topic:es:nueva-evangelizacion",
+        "w": 0.7
+      }
+    ],
+    "realeza": [
+      {
+        "topicId": "topic:es:realeza-de-cristo",
+        "w": 1
+      }
+    ],
+    "realeza de cristo": [
+      {
+        "topicId": "topic:es:realeza-de-cristo",
+        "w": 1
+      }
+    ],
+    "realidades": [
+      {
+        "topicId": "topic:es:escatologia",
+        "w": 0.7
+      }
+    ],
+    "reconciliacion": [
+      {
+        "topicId": "topic:es:reconciliacion",
+        "w": 1
+      }
+    ],
+    "redencion": [
+      {
+        "topicId": "topic:es:redencion",
+        "w": 1
+      }
+    ],
+    "redentor": [
+      {
+        "topicId": "topic:es:redencion",
+        "w": 1
+      }
+    ],
+    "redentora": [
+      {
+        "topicId": "topic:es:redencion",
+        "w": 0.7
+      }
+    ],
+    "reevangelizacion": [
+      {
+        "topicId": "topic:es:nueva-evangelizacion",
+        "w": 1
+      }
+    ],
+    "refugiados": [
+      {
+        "topicId": "topic:es:migracion",
+        "w": 1
+      }
+    ],
+    "reinado": [
+      {
+        "topicId": "topic:es:reino-de-dios",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:realeza-de-cristo",
+        "w": 0.7
+      }
+    ],
+    "reinado de cristo": [
+      {
+        "topicId": "topic:es:realeza-de-cristo",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:reino-de-dios",
+        "w": 0.7
+      }
+    ],
+    "reinado social de cristo": [
+      {
+        "topicId": "topic:es:realeza-de-cristo",
+        "w": 0.7
+      }
+    ],
+    "reino": [
+      {
+        "topicId": "topic:es:reino-de-dios",
+        "w": 0.7
+      }
+    ],
+    "reino de dios": [
+      {
+        "topicId": "topic:es:reino-de-dios",
+        "w": 1
+      }
+    ],
+    "reino de los cielos": [
+      {
+        "topicId": "topic:es:reino-de-dios",
+        "w": 1
+      }
+    ],
+    "religion": [
+      {
+        "topicId": "topic:es:libertad-religiosa",
+        "w": 0.7
+      }
+    ],
+    "religiones": [
+      {
+        "topicId": "topic:es:dialogo-interreligioso",
+        "w": 1
+      }
+    ],
+    "religiones no cristianas": [
+      {
+        "topicId": "topic:es:dialogo-interreligioso",
+        "w": 0.7
+      }
+    ],
+    "religiosa": [
+      {
+        "topicId": "topic:es:vida-consagrada",
+        "w": 1
+      }
+    ],
+    "religioso": [
+      {
+        "topicId": "topic:es:vida-consagrada",
+        "w": 1
+      }
+    ],
+    "religiosos": [
+      {
+        "topicId": "topic:es:vida-consagrada",
+        "w": 0.7
+      }
+    ],
+    "remision": [
+      {
+        "topicId": "topic:es:perdon",
+        "w": 1
+      }
+    ],
+    "reproduccion asistida": [
+      {
+        "topicId": "topic:es:bioetica",
+        "w": 1
+      }
+    ],
+    "rescatar": [
+      {
+        "topicId": "topic:es:redencion",
+        "w": 1
+      }
+    ],
+    "rescate": [
+      {
+        "topicId": "topic:es:redencion",
+        "w": 1
+      }
+    ],
+    "respeto": [
+      {
+        "topicId": "topic:es:vida",
+        "w": 0.7
+      }
+    ],
+    "respeto a la vida": [
+      {
+        "topicId": "topic:es:vida",
+        "w": 0.7
+      }
+    ],
+    "resucitado": [
+      {
+        "topicId": "topic:es:resurreccion",
+        "w": 1
+      }
+    ],
+    "resucito": [
+      {
+        "topicId": "topic:es:resurreccion",
+        "w": 1
+      }
+    ],
+    "resurreccion": [
+      {
+        "topicId": "topic:es:resurreccion",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:resurreccion-de-los-muertos",
+        "w": 0.7
+      }
+    ],
+    "resurreccion de cristo": [
+      {
+        "topicId": "topic:es:resurreccion",
+        "w": 1
+      }
+    ],
+    "resurreccion de la carne": [
+      {
+        "topicId": "topic:es:resurreccion-de-los-muertos",
+        "w": 1
+      }
+    ],
+    "resurreccion de los muertos": [
+      {
+        "topicId": "topic:es:resurreccion-de-los-muertos",
+        "w": 1
+      }
+    ],
+    "resurreccion del señor": [
+      {
+        "topicId": "topic:es:resurreccion",
+        "w": 0.7
+      }
+    ],
+    "resurreccion final": [
+      {
+        "topicId": "topic:es:resurreccion-de-los-muertos",
+        "w": 0.7
+      }
+    ],
+    "retorno de cristo": [
+      {
+        "topicId": "topic:es:parusia",
+        "w": 1
+      }
+    ],
+    "revelacion": [
+      {
+        "topicId": "topic:es:revelacion",
+        "w": 1
+      }
+    ],
+    "revelacion divina": [
+      {
+        "topicId": "topic:es:revelacion",
+        "w": 0.7
+      }
+    ],
+    "revelada": [
+      {
+        "topicId": "topic:es:revelacion",
+        "w": 1
+      }
+    ],
+    "revelado": [
+      {
+        "topicId": "topic:es:deposito-de-la-fe",
+        "w": 0.7
+      }
+    ],
+    "revelar": [
+      {
+        "topicId": "topic:es:revelacion",
+        "w": 1
+      }
+    ],
+    "rey": [
+      {
+        "topicId": "topic:es:realeza-de-cristo",
+        "w": 0.7
+      }
+    ],
+    "rezar": [
+      {
+        "topicId": "topic:es:oracion",
+        "w": 1
+      }
+    ],
+    "rezo": [
+      {
+        "topicId": "topic:es:oracion",
+        "w": 0.7
+      }
+    ],
+    "riqueza": [
+      {
+        "topicId": "topic:es:economia",
+        "w": 1
+      }
+    ],
+    "rito": [
+      {
+        "topicId": "topic:es:liturgia",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:exorcismo",
+        "w": 0.7
+      }
+    ],
+    "rito de exorcismo": [
+      {
+        "topicId": "topic:es:exorcismo",
+        "w": 0.7
+      }
+    ],
+    "ritos": [
+      {
+        "topicId": "topic:es:liturgia",
+        "w": 1
+      }
+    ],
+    "romano": [
+      {
+        "topicId": "topic:es:papado",
+        "w": 0.7
+      }
+    ],
+    "romano pontifice": [
+      {
+        "topicId": "topic:es:papado",
+        "w": 0.7
+      }
+    ],
+    "ruptura": [
+      {
+        "topicId": "topic:es:divorcio",
+        "w": 0.7
+      }
+    ],
+    "ruptura del matrimonio": [
+      {
+        "topicId": "topic:es:divorcio",
+        "w": 0.7
+      }
+    ],
+    "sacerdocio": [
+      {
+        "topicId": "topic:es:sacerdocio",
+        "w": 1
+      }
+    ],
+    "sacerdocio comun": [
+      {
+        "topicId": "topic:es:sacerdocio",
+        "w": 0.7
+      }
+    ],
+    "sacerdocio ministerial": [
+      {
+        "topicId": "topic:es:sacerdocio",
+        "w": 0.7
+      }
+    ],
+    "sacerdote": [
+      {
+        "topicId": "topic:es:sacerdocio",
+        "w": 1
+      }
+    ],
+    "sacerdotes": [
+      {
+        "topicId": "topic:es:sacerdocio",
+        "w": 1
+      }
+    ],
+    "sacramental": [
+      {
+        "topicId": "topic:es:sacramentos",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:reconciliacion",
+        "w": 0.7
+      }
+    ],
+    "sacramentales": [
+      {
+        "topicId": "topic:es:sacramentales",
+        "w": 1
+      }
+    ],
+    "sacramentales de la iglesia": [
+      {
+        "topicId": "topic:es:sacramentales",
+        "w": 0.7
+      }
+    ],
+    "sacramento": [
+      {
+        "topicId": "topic:es:sacramentos",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:bautismo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:confirmacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:eucaristia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:matrimonio",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:orden",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:reconciliacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:uncion-de-los-enfermos",
+        "w": 0.7
+      }
+    ],
+    "sacramento de la confirmacion": [
+      {
+        "topicId": "topic:es:confirmacion",
+        "w": 0.7
+      }
+    ],
+    "sacramento de la penitencia": [
+      {
+        "topicId": "topic:es:reconciliacion",
+        "w": 0.7
+      }
+    ],
+    "sacramento de los enfermos": [
+      {
+        "topicId": "topic:es:uncion-de-los-enfermos",
+        "w": 0.7
+      }
+    ],
+    "sacramento del bautismo": [
+      {
+        "topicId": "topic:es:bautismo",
+        "w": 0.7
+      }
+    ],
+    "sacramento del matrimonio": [
+      {
+        "topicId": "topic:es:matrimonio",
+        "w": 0.7
+      }
+    ],
+    "sacramento del orden": [
+      {
+        "topicId": "topic:es:orden",
+        "w": 0.7
+      }
+    ],
+    "sacramentos": [
+      {
+        "topicId": "topic:es:sacramentos",
+        "w": 1
+      }
+    ],
+    "sacramentos de la nueva alianza": [
+      {
+        "topicId": "topic:es:sacramentos",
+        "w": 0.7
+      }
+    ],
+    "sacrificio": [
+      {
+        "topicId": "topic:es:misa",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:muerte-de-cristo",
+        "w": 0.7
+      }
+    ],
+    "sacrificio de cristo": [
+      {
+        "topicId": "topic:es:muerte-de-cristo",
+        "w": 1
+      }
+    ],
+    "sacrificio de la misa": [
+      {
+        "topicId": "topic:es:misa",
+        "w": 1
+      }
+    ],
+    "sagrada escritura": [
+      {
+        "topicId": "topic:es:sagrada-escritura",
+        "w": 1
+      }
+    ],
+    "sagradas": [
+      {
+        "topicId": "topic:es:sagrada-escritura",
+        "w": 0.7
+      }
+    ],
+    "sagradas escrituras": [
+      {
+        "topicId": "topic:es:sagrada-escritura",
+        "w": 0.7
+      }
+    ],
+    "sagrado": [
+      {
+        "topicId": "topic:es:sagrado-corazon",
+        "w": 0.7
+      }
+    ],
+    "sagrado corazon": [
+      {
+        "topicId": "topic:es:sagrado-corazon",
+        "w": 1
+      }
+    ],
+    "salario": [
+      {
+        "topicId": "topic:es:trabajo",
+        "w": 1
+      }
+    ],
+    "salvacion": [
+      {
+        "topicId": "topic:es:salvacion",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:redencion",
+        "w": 0.7
+      }
+    ],
+    "salvacion en cristo": [
+      {
+        "topicId": "topic:es:redencion",
+        "w": 0.7
+      }
+    ],
+    "salvacion eterna": [
+      {
+        "topicId": "topic:es:salvacion",
+        "w": 0.7
+      }
+    ],
+    "salvado": [
+      {
+        "topicId": "topic:es:salvacion",
+        "w": 0.7
+      }
+    ],
+    "salvador": [
+      {
+        "topicId": "topic:es:salvacion",
+        "w": 1
+      }
+    ],
+    "salvar": [
+      {
+        "topicId": "topic:es:salvacion",
+        "w": 1
+      }
+    ],
+    "sangre": [
+      {
+        "topicId": "topic:es:eucaristia",
+        "w": 0.7
+      }
+    ],
+    "sangre de martires": [
+      {
+        "topicId": "topic:es:martirio",
+        "w": 1
+      }
+    ],
+    "santa": [
+      {
+        "topicId": "topic:es:santos",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:cruz",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:santidad",
+        "w": 0.7
+      }
+    ],
+    "santa cruz": [
+      {
+        "topicId": "topic:es:cruz",
+        "w": 0.7
+      }
+    ],
+    "santa misa": [
+      {
+        "topicId": "topic:es:misa",
+        "w": 1
+      }
+    ],
+    "santidad": [
+      {
+        "topicId": "topic:es:santidad",
+        "w": 1
+      }
+    ],
+    "santificacion": [
+      {
+        "topicId": "topic:es:santidad",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:santificacion",
+        "w": 1
+      }
+    ],
+    "santificacion del cristiano": [
+      {
+        "topicId": "topic:es:santificacion",
+        "w": 0.7
+      }
+    ],
+    "santificado": [
+      {
+        "topicId": "topic:es:santificacion",
+        "w": 1
+      }
+    ],
+    "santificante": [
+      {
+        "topicId": "topic:es:gracia",
+        "w": 1
+      }
+    ],
+    "santificar": [
+      {
+        "topicId": "topic:es:santificacion",
+        "w": 1
+      }
+    ],
+    "santisima": [
+      {
+        "topicId": "topic:es:maria",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:trinidad",
+        "w": 0.7
+      }
+    ],
+    "santisima trinidad": [
+      {
+        "topicId": "topic:es:trinidad",
+        "w": 0.7
+      }
+    ],
+    "santisima virgen": [
+      {
+        "topicId": "topic:es:maria",
+        "w": 0.7
+      }
+    ],
+    "santisimo": [
+      {
+        "topicId": "topic:es:eucaristia",
+        "w": 0.7
+      }
+    ],
+    "santisimo sacramento": [
+      {
+        "topicId": "topic:es:eucaristia",
+        "w": 0.7
+      }
+    ],
+    "santo": [
+      {
+        "topicId": "topic:es:santidad",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:santos",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:dones-del-espiritu",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:misa",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pueblo-de-dios",
+        "w": 0.7
+      }
+    ],
+    "santo sacrificio": [
+      {
+        "topicId": "topic:es:misa",
+        "w": 0.7
+      }
+    ],
+    "santos": [
+      {
+        "topicId": "topic:es:comunion-de-los-santos",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:santidad",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:santos",
+        "w": 1
+      }
+    ],
+    "satanas": [
+      {
+        "topicId": "topic:es:demonio",
+        "w": 1
+      }
+    ],
+    "satisfaccion": [
+      {
+        "topicId": "topic:es:penitencia",
+        "w": 1
+      }
+    ],
+    "seglar": [
+      {
+        "topicId": "topic:es:laicos",
+        "w": 1
+      }
+    ],
+    "seglares": [
+      {
+        "topicId": "topic:es:laicos",
+        "w": 1
+      }
+    ],
+    "segunda": [
+      {
+        "topicId": "topic:es:hijo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:parusia",
+        "w": 0.7
+      }
+    ],
+    "segunda persona": [
+      {
+        "topicId": "topic:es:hijo",
+        "w": 0.7
+      }
+    ],
+    "segunda venida": [
+      {
+        "topicId": "topic:es:parusia",
+        "w": 1
+      }
+    ],
+    "sello": [
+      {
+        "topicId": "topic:es:caracter-sacramental",
+        "w": 0.7
+      }
+    ],
+    "sello indeleble": [
+      {
+        "topicId": "topic:es:caracter-sacramental",
+        "w": 0.7
+      }
+    ],
+    "sello sacramental": [
+      {
+        "topicId": "topic:es:caracter-sacramental",
+        "w": 1
+      }
+    ],
+    "semejanza": [
+      {
+        "topicId": "topic:es:imagen-de-dios",
+        "w": 1
+      }
+    ],
+    "senor": [
+      {
+        "topicId": "topic:es:dios",
+        "w": 1
+      }
+    ],
+    "separacion conyugal": [
+      {
+        "topicId": "topic:es:divorcio",
+        "w": 1
+      }
+    ],
+    "ser": [
+      {
+        "topicId": "topic:es:justificacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:persona-humana",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:salvacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:santificacion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:testimonio",
+        "w": 0.7
+      }
+    ],
+    "ser humano": [
+      {
+        "topicId": "topic:es:persona-humana",
+        "w": 0.7
+      }
+    ],
+    "ser justificado": [
+      {
+        "topicId": "topic:es:justificacion",
+        "w": 0.7
+      }
+    ],
+    "ser salvado": [
+      {
+        "topicId": "topic:es:salvacion",
+        "w": 0.7
+      }
+    ],
+    "ser santificado": [
+      {
+        "topicId": "topic:es:santificacion",
+        "w": 0.7
+      }
+    ],
+    "ser testigos": [
+      {
+        "topicId": "topic:es:testimonio",
+        "w": 0.7
+      }
+    ],
+    "serafines": [
+      {
+        "topicId": "topic:es:angeles",
+        "w": 1
+      }
+    ],
+    "sermon": [
+      {
+        "topicId": "topic:es:beatitudes",
+        "w": 0.7
+      }
+    ],
+    "sexo": [
+      {
+        "topicId": "topic:es:sexualidad",
+        "w": 1
+      }
+    ],
+    "sexto mandamiento": [
+      {
+        "topicId": "topic:es:sexto-mandamiento",
+        "w": 1
+      }
+    ],
+    "sexual": [
+      {
+        "topicId": "topic:es:sexualidad",
+        "w": 1
+      }
+    ],
+    "sexualidad": [
+      {
+        "topicId": "topic:es:sexualidad",
+        "w": 1
+      }
+    ],
+    "sexualidad humana": [
+      {
+        "topicId": "topic:es:sexualidad",
+        "w": 0.7
+      }
+    ],
+    "señor": [
+      {
+        "topicId": "topic:es:dios",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:ascension",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:jesucristo",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:padrenuestro",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pasion",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:resurreccion",
+        "w": 0.7
+      }
+    ],
+    "señor jesus": [
+      {
+        "topicId": "topic:es:jesucristo",
+        "w": 0.7
+      }
+    ],
+    "shalom": [
+      {
+        "topicId": "topic:es:paz",
+        "w": 1
+      }
+    ],
+    "siete": [
+      {
+        "topicId": "topic:es:dones-del-espiritu",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:sacramentos",
+        "w": 0.7
+      }
+    ],
+    "siete dones": [
+      {
+        "topicId": "topic:es:dones-del-espiritu",
+        "w": 1
+      }
+    ],
+    "siete pecados capitales": [
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 0.7
+      }
+    ],
+    "siete sacramentos": [
+      {
+        "topicId": "topic:es:sacramentos",
+        "w": 0.7
+      }
+    ],
+    "signos": [
+      {
+        "topicId": "topic:es:milagros",
+        "w": 1
+      }
+    ],
+    "signos milagrosos": [
+      {
+        "topicId": "topic:es:milagros",
+        "w": 0.7
+      }
+    ],
+    "simbolo": [
+      {
+        "topicId": "topic:es:credos",
+        "w": 0.7
+      }
+    ],
+    "simbolo de la fe": [
+      {
+        "topicId": "topic:es:credos",
+        "w": 1
+      }
+    ],
+    "sin": [
+      {
+        "topicId": "topic:es:inmaculada",
+        "w": 0.7
+      }
+    ],
+    "sin pecado original": [
+      {
+        "topicId": "topic:es:inmaculada",
+        "w": 1
+      }
+    ],
+    "sinodo": [
+      {
+        "topicId": "topic:es:concilios",
+        "w": 1
+      }
+    ],
+    "soberbia": [
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 1
+      }
+    ],
+    "sobriedad": [
+      {
+        "topicId": "topic:es:templanza",
+        "w": 1
+      }
+    ],
+    "social": [
+      {
+        "topicId": "topic:es:doctrina-social",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:justicia-social",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:paz",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:realeza-de-cristo",
+        "w": 0.7
+      }
+    ],
+    "social de la iglesia": [
+      {
+        "topicId": "topic:es:doctrina-social",
+        "w": 1
+      }
+    ],
+    "sociedad": [
+      {
+        "topicId": "topic:es:bien-comun",
+        "w": 0.7
+      }
+    ],
+    "solidaridad": [
+      {
+        "topicId": "topic:es:solidaridad",
+        "w": 1
+      }
+    ],
+    "solidario": [
+      {
+        "topicId": "topic:es:solidaridad",
+        "w": 1
+      }
+    ],
+    "soteriologia": [
+      {
+        "topicId": "topic:es:salvacion",
+        "w": 1
+      }
+    ],
+    "subida": [
+      {
+        "topicId": "topic:es:ascension",
+        "w": 0.7
+      }
+    ],
+    "subida al cielo": [
+      {
+        "topicId": "topic:es:ascension",
+        "w": 0.7
+      }
+    ],
+    "subio al cielo": [
+      {
+        "topicId": "topic:es:ascension",
+        "w": 1
+      }
+    ],
+    "subsidiariedad": [
+      {
+        "topicId": "topic:es:subsidiariedad",
+        "w": 1
+      }
+    ],
+    "subsidiario": [
+      {
+        "topicId": "topic:es:subsidiariedad",
+        "w": 1
+      }
+    ],
+    "sucesor": [
+      {
+        "topicId": "topic:es:papado",
+        "w": 0.7
+      }
+    ],
+    "sucesor de pedro": [
+      {
+        "topicId": "topic:es:papado",
+        "w": 0.7
+      }
+    ],
+    "sucesores": [
+      {
+        "topicId": "topic:es:obispos",
+        "w": 0.7
+      }
+    ],
+    "sucesores de los apostoles": [
+      {
+        "topicId": "topic:es:obispos",
+        "w": 0.7
+      }
+    ],
+    "sufrimiento": [
+      {
+        "topicId": "topic:es:sufrimiento",
+        "w": 1
+      }
+    ],
+    "suicidio asistido": [
+      {
+        "topicId": "topic:es:eutanasia",
+        "w": 1
+      }
+    ],
+    "suplica": [
+      {
+        "topicId": "topic:es:oracion",
+        "w": 1
+      }
+    ],
+    "suyo": [
+      {
+        "topicId": "topic:es:justicia",
+        "w": 0.7
+      }
+    ],
+    "templanza": [
+      {
+        "topicId": "topic:es:templanza",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:virtudes-cardinales",
+        "w": 1
+      }
+    ],
+    "tentacion": [
+      {
+        "topicId": "topic:es:tentacion",
+        "w": 1
+      }
+    ],
+    "tentacion diabolica": [
+      {
+        "topicId": "topic:es:tentacion",
+        "w": 0.7
+      }
+    ],
+    "tentado": [
+      {
+        "topicId": "topic:es:tentacion",
+        "w": 1
+      }
+    ],
+    "tentar": [
+      {
+        "topicId": "topic:es:tentacion",
+        "w": 1
+      }
+    ],
+    "teologal": [
+      {
+        "topicId": "topic:es:caridad",
+        "w": 0.7
+      }
+    ],
+    "teologales": [
+      {
+        "topicId": "topic:es:virtudes-teologales",
+        "w": 1
+      }
+    ],
+    "teologia": [
+      {
+        "topicId": "topic:es:moral",
+        "w": 0.7
+      }
+    ],
+    "teologia moral": [
+      {
+        "topicId": "topic:es:moral",
+        "w": 0.7
+      }
+    ],
+    "testamento": [
+      {
+        "topicId": "topic:es:alianza",
+        "w": 1
+      }
+    ],
+    "testigo": [
+      {
+        "topicId": "topic:es:testimonio",
+        "w": 1
+      }
+    ],
+    "testigos": [
+      {
+        "topicId": "topic:es:testimonio",
+        "w": 1
+      }
+    ],
+    "testimonio": [
+      {
+        "topicId": "topic:es:testimonio",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:martirio",
+        "w": 0.7
+      }
+    ],
+    "testimonio cristiano": [
+      {
+        "topicId": "topic:es:testimonio",
+        "w": 0.7
+      }
+    ],
+    "testimonio hasta la muerte": [
+      {
+        "topicId": "topic:es:martirio",
+        "w": 0.7
+      }
+    ],
+    "theopneustos": [
+      {
+        "topicId": "topic:es:inspiracion-biblica",
+        "w": 1
+      }
+    ],
+    "theotokos": [
+      {
+        "topicId": "topic:es:maria",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:maternidad-divina",
+        "w": 1
+      }
+    ],
+    "tiempo": [
+      {
+        "topicId": "topic:es:ano-liturgico",
+        "w": 0.7
+      }
+    ],
+    "tiempo liturgico": [
+      {
+        "topicId": "topic:es:ano-liturgico",
+        "w": 0.7
+      }
+    ],
+    "tiempos": [
+      {
+        "topicId": "topic:es:escatologia",
+        "w": 0.7
+      }
+    ],
+    "tinieblas": [
+      {
+        "topicId": "topic:es:infierno",
+        "w": 1
+      }
+    ],
+    "trabajador": [
+      {
+        "topicId": "topic:es:trabajo",
+        "w": 1
+      }
+    ],
+    "trabajo": [
+      {
+        "topicId": "topic:es:trabajo",
+        "w": 1
+      }
+    ],
+    "trabajo humano": [
+      {
+        "topicId": "topic:es:trabajo",
+        "w": 0.7
+      }
+    ],
+    "tradicion": [
+      {
+        "topicId": "topic:es:tradicion",
+        "w": 1
+      }
+    ],
+    "tradicion apostolica": [
+      {
+        "topicId": "topic:es:tradicion",
+        "w": 0.7
+      }
+    ],
+    "tradicion viva": [
+      {
+        "topicId": "topic:es:tradicion",
+        "w": 1
+      }
+    ],
+    "transgresion": [
+      {
+        "topicId": "topic:es:pecado",
+        "w": 1
+      }
+    ],
+    "transito": [
+      {
+        "topicId": "topic:es:muerte",
+        "w": 0.7
+      }
+    ],
+    "transubstanciacion": [
+      {
+        "topicId": "topic:es:eucaristia",
+        "w": 1
+      }
+    ],
+    "tres personas": [
+      {
+        "topicId": "topic:es:trinidad",
+        "w": 1
+      }
+    ],
+    "trinidad": [
+      {
+        "topicId": "topic:es:trinidad",
+        "w": 1
+      }
+    ],
+    "trinitario": [
+      {
+        "topicId": "topic:es:trinidad",
+        "w": 1
+      }
+    ],
+    "trino": [
+      {
+        "topicId": "topic:es:trinidad",
+        "w": 1
+      }
+    ],
+    "ultimas": [
+      {
+        "topicId": "topic:es:escatologia",
+        "w": 0.7
+      }
+    ],
+    "ultimas realidades": [
+      {
+        "topicId": "topic:es:escatologia",
+        "w": 0.7
+      }
+    ],
+    "ultimo dia": [
+      {
+        "topicId": "topic:es:juicio-final",
+        "w": 1
+      }
+    ],
+    "ultimos tiempos": [
+      {
+        "topicId": "topic:es:escatologia",
+        "w": 1
+      }
+    ],
+    "uncion": [
+      {
+        "topicId": "topic:es:uncion-de-los-enfermos",
+        "w": 1
+      }
+    ],
+    "uncion de los enfermos": [
+      {
+        "topicId": "topic:es:uncion-de-los-enfermos",
+        "w": 1
+      }
+    ],
+    "unidad": [
+      {
+        "topicId": "topic:es:ecumenismo",
+        "w": 0.7
+      }
+    ],
+    "unidad de los cristianos": [
+      {
+        "topicId": "topic:es:ecumenismo",
+        "w": 1
+      }
+    ],
+    "unigenito": [
+      {
+        "topicId": "topic:es:hijo",
+        "w": 1
+      }
+    ],
+    "universal": [
+      {
+        "topicId": "topic:es:juicio-final",
+        "w": 0.7
+      }
+    ],
+    "uno": [
+      {
+        "topicId": "topic:es:dios",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:justicia",
+        "w": 0.7
+      }
+    ],
+    "vacio el sepulcro": [
+      {
+        "topicId": "topic:es:resurreccion",
+        "w": 1
+      }
+    ],
+    "valor": [
+      {
+        "topicId": "topic:es:fortaleza",
+        "w": 1
+      }
+    ],
+    "valor cristiano": [
+      {
+        "topicId": "topic:es:fortaleza",
+        "w": 0.7
+      }
+    ],
+    "venial": [
+      {
+        "topicId": "topic:es:pecado-venial",
+        "w": 1
+      }
+    ],
+    "veniales": [
+      {
+        "topicId": "topic:es:pecado-venial",
+        "w": 0.7
+      }
+    ],
+    "venida": [
+      {
+        "topicId": "topic:es:parusia",
+        "w": 0.7
+      }
+    ],
+    "venida gloriosa": [
+      {
+        "topicId": "topic:es:parusia",
+        "w": 1
+      }
+    ],
+    "venida gloriosa de cristo": [
+      {
+        "topicId": "topic:es:parusia",
+        "w": 0.7
+      }
+    ],
+    "verbo": [
+      {
+        "topicId": "topic:es:hijo",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:encarnacion",
+        "w": 0.7
+      }
+    ],
+    "verbo encarnado": [
+      {
+        "topicId": "topic:es:encarnacion",
+        "w": 0.7
+      }
+    ],
+    "verbo se hizo carne": [
+      {
+        "topicId": "topic:es:encarnacion",
+        "w": 1
+      }
+    ],
+    "verdad": [
+      {
+        "topicId": "topic:es:verdad",
+        "w": 1
+      }
+    ],
+    "verdad divina": [
+      {
+        "topicId": "topic:es:verdad",
+        "w": 0.7
+      }
+    ],
+    "verdadero": [
+      {
+        "topicId": "topic:es:verdad",
+        "w": 1
+      }
+    ],
+    "veritas": [
+      {
+        "topicId": "topic:es:verdad",
+        "w": 1
+      }
+    ],
+    "via": [
+      {
+        "topicId": "topic:es:pasion",
+        "w": 0.7
+      }
+    ],
+    "via crucis": [
+      {
+        "topicId": "topic:es:pasion",
+        "w": 1
+      }
+    ],
+    "via dolorosa": [
+      {
+        "topicId": "topic:es:pasion",
+        "w": 0.7
+      }
+    ],
+    "vicio": [
+      {
+        "topicId": "topic:es:vicios",
+        "w": 1
+      }
+    ],
+    "vicios": [
+      {
+        "topicId": "topic:es:vicios",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 0.7
+      }
+    ],
+    "vicios capitales": [
+      {
+        "topicId": "topic:es:pecados-capitales",
+        "w": 0.7
+      }
+    ],
+    "vicios morales": [
+      {
+        "topicId": "topic:es:vicios",
+        "w": 0.7
+      }
+    ],
+    "vida": [
+      {
+        "topicId": "topic:es:vida",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:bioetica",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:moral",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:quinto-mandamiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:santidad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:vida-consagrada",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:vida-eterna",
+        "w": 0.7
+      }
+    ],
+    "vida consagrada": [
+      {
+        "topicId": "topic:es:vida-consagrada",
+        "w": 1
+      }
+    ],
+    "vida desde la concepcion": [
+      {
+        "topicId": "topic:es:vida",
+        "w": 0.7
+      }
+    ],
+    "vida espiritual": [
+      {
+        "topicId": "topic:es:vida-espiritual",
+        "w": 1
+      }
+    ],
+    "vida eterna": [
+      {
+        "topicId": "topic:es:vida-eterna",
+        "w": 1
+      }
+    ],
+    "vida eterna en cristo": [
+      {
+        "topicId": "topic:es:vida-eterna",
+        "w": 0.7
+      }
+    ],
+    "vida humana": [
+      {
+        "topicId": "topic:es:vida",
+        "w": 1
+      }
+    ],
+    "vida moral": [
+      {
+        "topicId": "topic:es:moral",
+        "w": 1
+      }
+    ],
+    "vida perdurable": [
+      {
+        "topicId": "topic:es:vida-eterna",
+        "w": 0.7
+      }
+    ],
+    "vida religiosa": [
+      {
+        "topicId": "topic:es:vida-consagrada",
+        "w": 0.7
+      }
+    ],
+    "vida santa": [
+      {
+        "topicId": "topic:es:santidad",
+        "w": 0.7
+      }
+    ],
+    "vinculo": [
+      {
+        "topicId": "topic:es:indisolubilidad",
+        "w": 0.7
+      }
+    ],
+    "vinculo conyugal": [
+      {
+        "topicId": "topic:es:indisolubilidad",
+        "w": 1
+      }
+    ],
+    "vinculo indisoluble": [
+      {
+        "topicId": "topic:es:indisolubilidad",
+        "w": 0.7
+      }
+    ],
+    "violencia": [
+      {
+        "topicId": "topic:es:guerra-y-paz",
+        "w": 1
+      }
+    ],
+    "virgen": [
+      {
+        "topicId": "topic:es:maria",
+        "w": 1
+      }
+    ],
+    "virgen maria": [
+      {
+        "topicId": "topic:es:maria",
+        "w": 0.7
+      }
+    ],
+    "virtud": [
+      {
+        "topicId": "topic:es:virtudes",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:castidad",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:esperanza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:fe",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:fortaleza",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:justicia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:prudencia",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:templanza",
+        "w": 0.7
+      }
+    ],
+    "virtud de la castidad": [
+      {
+        "topicId": "topic:es:castidad",
+        "w": 0.7
+      }
+    ],
+    "virtud de la esperanza": [
+      {
+        "topicId": "topic:es:esperanza",
+        "w": 0.7
+      }
+    ],
+    "virtud de la fe": [
+      {
+        "topicId": "topic:es:fe",
+        "w": 0.7
+      }
+    ],
+    "virtud de la fortaleza": [
+      {
+        "topicId": "topic:es:fortaleza",
+        "w": 0.7
+      }
+    ],
+    "virtud de la justicia": [
+      {
+        "topicId": "topic:es:justicia",
+        "w": 0.7
+      }
+    ],
+    "virtud de la prudencia": [
+      {
+        "topicId": "topic:es:prudencia",
+        "w": 0.7
+      }
+    ],
+    "virtud de la templanza": [
+      {
+        "topicId": "topic:es:templanza",
+        "w": 0.7
+      }
+    ],
+    "virtudes": [
+      {
+        "topicId": "topic:es:virtudes",
+        "w": 1
+      },
+      {
+        "topicId": "topic:es:virtudes-cardinales",
+        "w": 0.7
+      }
+    ],
+    "virtudes cardinales": [
+      {
+        "topicId": "topic:es:virtudes-cardinales",
+        "w": 1
+      }
+    ],
+    "virtudes cristianas": [
+      {
+        "topicId": "topic:es:virtudes",
+        "w": 0.7
+      }
+    ],
+    "virtudes teologales": [
+      {
+        "topicId": "topic:es:virtudes-teologales",
+        "w": 1
+      }
+    ],
+    "virtuoso": [
+      {
+        "topicId": "topic:es:virtudes",
+        "w": 1
+      }
+    ],
+    "vision": [
+      {
+        "topicId": "topic:es:cielo",
+        "w": 0.7
+      }
+    ],
+    "vision beatifica": [
+      {
+        "topicId": "topic:es:cielo",
+        "w": 0.7
+      }
+    ],
+    "viva": [
+      {
+        "topicId": "topic:es:tradicion",
+        "w": 0.7
+      }
+    ],
+    "vivir": [
+      {
+        "topicId": "topic:es:vida",
+        "w": 1
+      }
+    ],
+    "vocacion": [
+      {
+        "topicId": "topic:es:vocacion",
+        "w": 1
+      }
+    ],
+    "vocacion cristiana": [
+      {
+        "topicId": "topic:es:vocacion",
+        "w": 0.7
+      }
+    ],
+    "voluntad": [
+      {
+        "topicId": "topic:es:discernimiento",
+        "w": 0.7
+      },
+      {
+        "topicId": "topic:es:libre-albedrio",
+        "w": 0.7
+      }
+    ],
+    "voluntad libre": [
+      {
+        "topicId": "topic:es:libre-albedrio",
+        "w": 1
+      }
+    ],
+    "votos": [
+      {
+        "topicId": "topic:es:vida-consagrada",
+        "w": 1
+      }
+    ],
+    "yahve": [
+      {
+        "topicId": "topic:es:pobreza",
+        "w": 0.7
+      }
+    ],
+    "yhwh": [
+      {
+        "topicId": "topic:es:dios",
+        "w": 1
+      }
+    ]
+  }
 }
