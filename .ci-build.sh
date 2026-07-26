@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # CI entrypoint for n8n sidecar (imperium-build-runner).
-# Builds web + APK + Electron (Linux + Windows) + Docker image + deploys docvat.
+# Critical path is mobile-first: web + APK + Docker deploy.
+# Electron (esp. Windows/Wine) is OFF by default — opt in with DV_BUILD_ELECTRON=1.
 #
 # Layout note: n8n clones into /work/docvat (volume root is /work). When this
 # file is used directly, set DV_CI_ROOT or run from the repo root.
@@ -8,6 +9,17 @@ set -euo pipefail
 
 export HOME="${HOME:-/cache/gradle/.home_runner}"
 mkdir -p "$HOME"
+
+# Shared caches (n8n mounts these when present)
+export YARN_CACHE_FOLDER="${YARN_CACHE_FOLDER:-/cache/yarn}"
+export GRADLE_USER_HOME="${GRADLE_USER_HOME:-/cache/gradle}"
+export ELECTRON_CACHE="${ELECTRON_CACHE:-/cache/electron/electron}"
+export ELECTRON_BUILDER_CACHE="${ELECTRON_BUILDER_CACHE:-/cache/electron/electron-builder}"
+export DOCKER_BUILDX_CACHE="${DOCKER_BUILDX_CACHE:-/cache/buildx}"
+export BUILD_NOTIFY_HEARTBEAT="${BUILD_NOTIFY_HEARTBEAT:-15}"
+mkdir -p "$YARN_CACHE_FOLDER" "$GRADLE_USER_HOME" \
+  "$ELECTRON_CACHE" "$ELECTRON_BUILDER_CACHE" \
+  "${DOCKER_BUILDX_CACHE}" 2>/dev/null || true
 
 ROOT="${DV_CI_ROOT:-}"
 if [[ -z "$ROOT" ]]; then
@@ -27,27 +39,36 @@ git config --global user.email "mr.nochon@codice-progressio.online" 2>/dev/null 
 cd "$ROOT"
 
 CURRENT_STAGE="iniciando"
-# Optional progress webhook (no-op helper if missing)
+# Progress bar via BUILD-progress webhook (same as IMPERIUM). No-op if helper missing.
 if [[ -f "$ROOT/scripts/notify-build.sh" ]]; then
   # shellcheck disable=SC1091
   source "$ROOT/scripts/notify-build.sh"
   set -E
-  trap 'notify_fail "$CURRENT_STAGE" 2>/dev/null || true' ERR
-  notify_init "Documentos Vaticanos CI" 7 || true
+  trap 'ec=$?; notify_fail "${CURRENT_STAGE:-build}" "exit ${ec} · ${BASH_COMMAND}" 2>/dev/null || true' ERR
 else
   notify_step() { :; }
   notify_done() { :; }
   notify_fail() { :; }
   notify_init() { :; }
+  notify_exec() { "$@"; }
+  notify_stage_log() { printf '%s' "/dev/null"; }
 fi
 
+# Stages on the critical path (mobile-first). Electron is optional and not counted
+# unless DV_BUILD_ELECTRON=1 (then total becomes 8).
+_STAGES=7
+if [[ "${DV_BUILD_ELECTRON:-0}" == "1" ]]; then
+  _STAGES=8
+fi
+BRANCH="$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo typescript-migration)"
+notify_init "Documentos Vaticanos CI" "$_STAGES" "${BRANCH}" || true
+
 # ---------------------------------------------------------------------------
-# Disk preflight — Electron+APK+web peak easily needs >10G free on the shared
-# volume/host. Fail early with a clear message instead of mid-cp ENOSPC.
-# Override: DV_MIN_FREE_GB=0 to skip; default 12 GiB.
+# Disk preflight — APK+web peak needs free space on the shared volume/host.
+# Override: DV_MIN_FREE_GB=0 to skip; default 10 GiB (was 12 with Electron+Win).
 # ---------------------------------------------------------------------------
 assert_disk_space() {
-  local min_gb="${DV_MIN_FREE_GB:-12}"
+  local min_gb="${DV_MIN_FREE_GB:-10}"
   if [[ "$min_gb" == "0" ]]; then
     echo "==> disk preflight skipped (DV_MIN_FREE_GB=0)"
     return 0
@@ -71,17 +92,19 @@ assert_disk_space() {
   fi
 }
 
-echo "==> [0/7] Disk preflight"
-CURRENT_STAGE="Disk preflight"; notify_step "$CURRENT_STAGE" || true
+echo "==> [1/${_STAGES}] Disk preflight"
+CURRENT_STAGE="Disk preflight"
+notify_step "$CURRENT_STAGE" || true
 assert_disk_space "$ROOT"
 
 # ---------------------------------------------------------------------------
-# [1/7] Release FIRST (clean tree) so standard-version can commit + tag.
+# Release FIRST (clean tree) so standard-version can commit + tag.
 # Bump is persisted later by n8n "Artifact commit" + "Push" on /tmp/repo/docvat.
 # Set DV_SKIP_RELEASE=1 only for emergency rebuilds without a version bump.
 # ---------------------------------------------------------------------------
-echo "==> [1/7] Release: standard-version (bump + CHANGELOG + tag, push via n8n)"
-CURRENT_STAGE="Release (standard-version)"; notify_step "$CURRENT_STAGE" || true
+echo "==> [2/${_STAGES}] Release: standard-version (bump + CHANGELOG + tag, push via n8n)"
+CURRENT_STAGE="Release (standard-version)"
+notify_step "$CURRENT_STAGE" || true
 if [[ "${DV_SKIP_RELEASE:-0}" != "1" ]]; then
   # Fail hard — swallowing errors left production stuck at 0.0.13.
   npx --yes standard-version@9.5.0
@@ -91,110 +114,137 @@ fi
 VERSION="v$(node -p "require('./package.json').version")"
 echo "::DOCVAT_VERSION::${VERSION}"
 echo "==> release version ${VERSION} (HEAD $(git rev-parse --short HEAD 2>/dev/null || echo n/a))"
-
-echo "==> [2/7] Dependencias (root + frontend + backend)"
-CURRENT_STAGE="Dependencias"; notify_step "$CURRENT_STAGE" || true
-if command -v yarn >/dev/null 2>&1; then
-  yarn install --production=false || npm install --prefix . || true
-else
-  npm install || true
+if [[ -n "${BUILD_RUN_ID:-}" && -d "/tmp/build-notify-${BUILD_RUN_ID}.d" ]]; then
+  printf '%s' "${BRANCH} · ${VERSION}" > "/tmp/build-notify-${BUILD_RUN_ID}.d/subtitle" 2>/dev/null || true
 fi
-( cd frontend && (yarn install --production=false || npm install) )
-( cd backend && (yarn install --production=false || npm install) || true )
 
-echo "==> [3/7] Web production + corpus"
-CURRENT_STAGE="Web production"; notify_step "$CURRENT_STAGE" || true
+echo "==> [3/${_STAGES}] Dependencias (root + frontend + backend) [YARN_CACHE_FOLDER=$YARN_CACHE_FOLDER]"
+CURRENT_STAGE="Dependencias"
+notify_step "$CURRENT_STAGE" || true
+yarn_install() {
+  local dir="${1:-.}"
+  if [[ "$dir" == "." ]]; then
+    if command -v yarn >/dev/null 2>&1; then
+      yarn install --production=false --prefer-offline || yarn install --production=false
+    else
+      npm install
+    fi
+  else
+    (
+      cd "$dir"
+      if command -v yarn >/dev/null 2>&1; then
+        yarn install --production=false --prefer-offline || yarn install --production=false
+      else
+        npm install
+      fi
+    )
+  fi
+}
+yarn_install .
+yarn_install frontend
+yarn_install backend || true
+
+echo "==> [4/${_STAGES}] Web production + corpus"
+CURRENT_STAGE="Web production"
+notify_step "$CURRENT_STAGE" || true
 bash scripts/package-web.sh
 
-echo "==> [4/8] APK instalable"
-CURRENT_STAGE="APK instalable"; notify_step "$CURRENT_STAGE" || true
+# Mobile-first: APK is the product priority (before Electron / desktop).
+echo "==> [5/${_STAGES}] APK instalable (mobile-first)"
+CURRENT_STAGE="APK instalable"
+notify_step "$CURRENT_STAGE" || true
 bash scripts/package-apk.sh
 
-echo "==> [5/8] Signed AAB (Play closed testing)"
-CURRENT_STAGE="AAB signed"; notify_step "$CURRENT_STAGE" || true
-# Optional unless DV_PLAY_UPLOAD=1 or keystore env is present.
+# Optional AAB (Play) — not on the default critical path unless keystore/env set.
 if [[ "${DV_BUILD_AAB:-0}" == "1" || "${DV_PLAY_UPLOAD:-0}" == "1" || -n "${DV_KEYSTORE_PASSWORD:-}" ]]; then
+  CURRENT_STAGE="AAB signed"
+  notify_step "$CURRENT_STAGE" || true
   if [[ -z "${DV_KEYSTORE_PASSWORD:-}" ]]; then
-    echo "WARN: skipping AAB — set DV_KEYSTORE_PATH + DV_KEYSTORE_PASSWORD (see deploy/PLAY-CLOSED-TESTING.md)"
+    echo "WARN: skipping AAB — set DV_KEYSTORE_PATH + DV_KEYSTORE_PASSWORD"
   else
-    # Default Console draft package for Codice Progressio / Documentos Vaticanos
     export DV_PACKAGE_NAME="${DV_PACKAGE_NAME:-com.docvat}"
     bash scripts/package-aab.sh
   fi
 else
-  echo "==> AAB skipped (set DV_BUILD_AAB=1 or DV_PLAY_UPLOAD=1 or DV_KEYSTORE_PASSWORD to enable)"
+  echo "==> AAB skipped (set DV_BUILD_AAB=1 or DV_PLAY_UPLOAD=1 or DV_KEYSTORE_PASSWORD)"
 fi
 
-echo "==> [6/8] Electron Linux + Windows"
-CURRENT_STAGE="Electron linux+win"; notify_step "$CURRENT_STAGE" || true
-# CI requires both platforms when Wine is present
-export DV_ELECTRON_TARGETS="${DV_ELECTRON_TARGETS:-linux,win}"
-export DV_REQUIRE_WIN="${DV_REQUIRE_WIN:-1}"
-bash scripts/package-electron.sh
+# Electron is expensive (Wine for Windows). Default OFF on CI critical path.
+# Opt in: DV_BUILD_ELECTRON=1. Windows still off unless DV_REQUIRE_WIN=1 or
+# DV_ELECTRON_TARGETS includes win.
+if [[ "${DV_BUILD_ELECTRON:-0}" == "1" ]]; then
+  echo "==> [6/${_STAGES}] Electron (opt-in DV_BUILD_ELECTRON=1)"
+  CURRENT_STAGE="Electron"
+  notify_step "$CURRENT_STAGE" || true
+  # Default linux-only when building electron in CI; Win requires explicit targets.
+  export DV_ELECTRON_TARGETS="${DV_ELECTRON_TARGETS:-linux}"
+  export DV_REQUIRE_WIN="${DV_REQUIRE_WIN:-0}"
+  bash scripts/package-electron.sh
+else
+  echo "==> Electron skipped (critical path is mobile-first; set DV_BUILD_ELECTRON=1 to enable)"
+fi
 
-echo "==> [7/8] Collect downloads into web tree"
-CURRENT_STAGE="Collect downloads"; notify_step "$CURRENT_STAGE" || true
-export DV_REQUIRE_ALL_DOWNLOADS="${DV_REQUIRE_ALL_DOWNLOADS:-1}"
+echo "==> [collect] downloads into web tree (APK required)"
+CURRENT_STAGE="Collect downloads"
+notify_step "$CURRENT_STAGE" || true
+# Require APK only — desktop installers are optional on the critical path.
+export DV_REQUIRE_APK="${DV_REQUIRE_APK:-1}"
+export DV_REQUIRE_ALL_DOWNLOADS="${DV_REQUIRE_ALL_DOWNLOADS:-0}"
 bash scripts/package-collect-downloads.sh
 
-echo "==> [8/8] Docker image + push + deploy docvat"
-CURRENT_STAGE="Docker + deploy"; notify_step "$CURRENT_STAGE" || true
-# Ensure frontend dist has downloads (collect already copied)
+echo "==> [final] Docker image + push + deploy docvat"
+CURRENT_STAGE="Docker + deploy"
+notify_step "$CURRENT_STAGE" || true
 if [[ ! -d frontend/dist/documentos-vaticanos/downloads ]]; then
   echo "ERROR: downloads missing under frontend dist" >&2
   exit 1
 fi
+if [[ ! -f frontend/dist/documentos-vaticanos/downloads/documentos-vaticanos.apk ]] \
+  && [[ "${DV_REQUIRE_APK:-1}" == "1" ]]; then
+  echo "ERROR: APK missing under frontend dist downloads (mobile-first CI)" >&2
+  exit 1
+fi
 
-# docker-compilar expects to rebuild; we already built — use a CI-friendly path
 bash scripts/ci-docker-push.sh
-
-# Deploy / recreate the docvat container on the host network
 bash scripts/ci-deploy-docvat.sh
 
-# Optional: upload AAB to Play closed track (alpha) via Android Publisher API.
-# Runs ONLY after web/APK/Electron/docker deploy so a Play API failure does not
-# leave docvat without the other artifacts — but it still fails the build so
-# n8n surfaces the error (do not silent-skip when DV_PLAY_UPLOAD=1).
+# Optional: upload AAB to Play closed track (post-deploy).
 if [[ "${DV_PLAY_UPLOAD:-0}" == "1" ]]; then
-  CURRENT_STAGE="Play closed upload"; notify_step "$CURRENT_STAGE" || true
+  CURRENT_STAGE="Play closed upload"
+  notify_step "$CURRENT_STAGE" || true
   echo "==> Play closed-track upload (DV_PLAY_UPLOAD=1) — post-build step"
   export PLAY_PACKAGE_NAME="${PLAY_PACKAGE_NAME:-${DV_PACKAGE_NAME:-com.docvat}}"
   export PLAY_TRACK="${PLAY_TRACK:-closed}"
   export PLAY_AAB_PATH="${PLAY_AAB_PATH:-$ROOT/dist/documentos-vaticanos-release.aab}"
-  # Default draft only while the Console app is still Borrador. Once closed
-  # testing is live (com.docvat is), host should set PLAY_STATUS=completed so
-  # testers receive the release automatically.
   export PLAY_STATUS="${PLAY_STATUS:-draft}"
   echo "==> Play env package=${PLAY_PACKAGE_NAME} track=${PLAY_TRACK} status=${PLAY_STATUS}"
   if [[ "${PLAY_STATUS}" == "draft" ]]; then
-    echo "WARN: PLAY_STATUS=draft — upload will NOT roll out to closed testers until status=completed (or Console promotes the draft)."
+    echo "WARN: PLAY_STATUS=draft — upload will NOT roll out to closed testers until status=completed"
   fi
   if [[ ! -f "${PLAY_AAB_PATH}" ]]; then
-    echo "ERROR: AAB missing at ${PLAY_AAB_PATH} — cannot upload to Play (enable DV_BUILD_AAB + keystore earlier in this script)" >&2
+    echo "ERROR: AAB missing at ${PLAY_AAB_PATH}" >&2
     exit 1
   fi
   if [[ -z "${PLAY_SERVICE_ACCOUNT_JSON:-}" || ! -f "${PLAY_SERVICE_ACCOUNT_JSON}" ]]; then
-    echo "ERROR: PLAY_SERVICE_ACCOUNT_JSON missing or not a readable file (path='${PLAY_SERVICE_ACCOUNT_JSON:-}')" >&2
-    echo "ERROR: mount host secrets via DOCVAT_SECRETS_MOUNT and set PLAY_SERVICE_ACCOUNT_JSON=/secrets/play-service-account.json" >&2
+    echo "ERROR: PLAY_SERVICE_ACCOUNT_JSON missing or not a readable file" >&2
     exit 2
   fi
-  # Runner image / sparse install may omit googleapis; ensure it before upload.
   if ! ( cd "$ROOT" && node -e "require('googleapis')" ) 2>/dev/null; then
-    echo "==> installing googleapis (Play Android Publisher client) into ${ROOT}"
+    echo "==> installing googleapis into ${ROOT}"
     ( cd "$ROOT" && npm install googleapis@^144.0.0 --no-save --no-fund --no-audit ) \
       || ( cd "$ROOT" && npm install googleapis --no-save --no-fund --no-audit ) \
       || {
-        echo "ERROR: could not install googleapis — Play upload requires it (see deploy/PLAY-CLOSED-TESTING.md)" >&2
+        echo "ERROR: could not install googleapis" >&2
         exit 2
       }
   fi
   if ! node "$ROOT/scripts/play-upload-closed.js"; then
-    echo "ERROR: play-upload-closed failed (see deploy/PLAY-CLOSED-TESTING.md)" >&2
+    echo "ERROR: play-upload-closed failed" >&2
     exit 1
   fi
   echo "::DOCVAT_PLAY_UPLOAD_OK::${VERSION}"
 else
-  echo "==> Play upload skipped (set DV_PLAY_UPLOAD=1 + PLAY_SERVICE_ACCOUNT_JSON + post-build AAB)"
+  echo "==> Play upload skipped (set DV_PLAY_UPLOAD=1 + PLAY_SERVICE_ACCOUNT_JSON)"
 fi
 
 notify_done || true

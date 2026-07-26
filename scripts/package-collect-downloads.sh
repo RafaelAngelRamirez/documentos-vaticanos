@@ -212,7 +212,15 @@ EOF
 echo "======== downloads collected ========"
 ls -lah "$WEB_OUT" || true
 
-# Require at least one binary for package:all success in CI; local may only have partial
+# Mobile-first CI: require APK only (Electron/Win optional).
+if [[ "${DV_REQUIRE_APK:-0}" == "1" ]]; then
+  if [[ $HAVE_APK -ne 1 ]]; then
+    echo "ERROR: DV_REQUIRE_APK=1 but APK missing (apk=$HAVE_APK linux=$HAVE_LINUX windows=$HAVE_WIN)" >&2
+    exit 1
+  fi
+fi
+
+# Full package:all / desktop matrix — require every platform.
 if [[ "${DV_REQUIRE_ALL_DOWNLOADS:-0}" == "1" ]]; then
   if [[ $HAVE_APK -ne 1 || $HAVE_LINUX -ne 1 || $HAVE_WIN -ne 1 ]]; then
     echo "ERROR: DV_REQUIRE_ALL_DOWNLOADS=1 but missing apk=$HAVE_APK linux=$HAVE_LINUX windows=$HAVE_WIN" >&2
