@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-20T11:33:41.169Z",
+  "updatedAt": "2026-07-26T21:35:54.265Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -654,15 +654,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpX0FjYVd0cVRseFk/view"
       ],
       "firstDownloadedAt": "2026-07-12T22:29:48.045Z",
-      "lastDownloadedAt": "2026-07-12T22:29:48.045Z",
-      "unitCount": 3030,
+      "lastDownloadedAt": "2026-07-26T21:26:48.543Z",
+      "unitCount": 2839,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-05-de-trinitate-es/content.json",
         "index": "documents/agustin-05-de-trinitate-es/index.json",
         "meta": "documents/agustin-05-de-trinitate-es/meta.json"
       },
-      "notes": "Tomo BAC n=5: 05 De Trinitate.pdf"
+      "notes": "Tomo BAC n=5: 05 De Trinitate.pdf (OCR)"
     },
     {
       "id": "agustin-05-de-trinitate-hi",
@@ -1654,15 +1654,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpY1hxUE16SW5PZmc/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:11:19.150Z",
-      "lastDownloadedAt": "2026-07-13T00:14:22.676Z",
-      "unitCount": 4847,
+      "lastDownloadedAt": "2026-07-26T21:31:23.941Z",
+      "unitCount": 2207,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-15-tratados-escriturarios-es/content.json",
         "index": "documents/agustin-15-tratados-escriturarios-es/index.json",
         "meta": "documents/agustin-15-tratados-escriturarios-es/meta.json"
       },
-      "notes": "Tomo BAC n=15: 15 Tratados-escriturarios.pdf"
+      "notes": "Tomo BAC n=15: 15 Tratados-escriturarios.pdf (OCR)"
     },
     {
       "id": "agustin-15-tratados-escriturarios-hi",
@@ -1954,15 +1954,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpNWdrZ3VUZ1JPNHc/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:11:26.035Z",
-      "lastDownloadedAt": "2026-07-13T00:14:27.720Z",
-      "unitCount": 1916,
+      "lastDownloadedAt": "2026-07-26T21:35:54.264Z",
+      "unitCount": 1104,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-18-epistolas-indices-es/content.json",
         "index": "documents/agustin-18-epistolas-indices-es/index.json",
         "meta": "documents/agustin-18-epistolas-indices-es/meta.json"
       },
-      "notes": "Tomo BAC n=18: 18 Exposicion-de-varias-epistolas-Indices-San-Agustin.pdf"
+      "notes": "Tomo BAC n=18: 18 Exposicion-de-varias-epistolas-Indices-San-Agustin.pdf (OCR)"
     },
     {
       "id": "agustin-18-epistolas-indices-hi",

@@ -1,8 +1,8 @@
 {
   "revision": "ocr-abc-v4",
-  "appliedAt": "2026-07-26T19:49:16.391Z",
+  "appliedAt": "2026-07-26T21:42:37.519Z",
   "documentCount": 46,
-  "thisRunChanged": 4,
+  "thisRunChanged": 0,
   "documents": [
     {
       "id": "agustin-01-primeros-escritos-es",
@@ -50,14 +50,14 @@
     },
     {
       "id": "agustin-05-de-trinitate-es",
-      "unitsChanged": 768,
-      "unitsExcludedGarbage": 7,
-      "unitsCollapsedSpaced": 761,
-      "spacedBefore": 0,
+      "unitsChanged": 1686,
+      "unitsExcludedGarbage": 16,
+      "unitsCollapsedSpaced": 1641,
+      "spacedBefore": 86,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 8,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.947
+      "letterTokenOverlap": 0.9844
     },
     {
       "id": "agustin-06-gracia-1-es",
@@ -160,14 +160,14 @@
     },
     {
       "id": "agustin-15-tratados-escriturarios-es",
-      "unitsChanged": 498,
-      "unitsExcludedGarbage": 6,
-      "unitsCollapsedSpaced": 492,
-      "spacedBefore": 0,
+      "unitsChanged": 426,
+      "unitsExcludedGarbage": 4,
+      "unitsCollapsedSpaced": 118,
+      "spacedBefore": 94,
       "spacedAfter": 0,
       "garbageBefore": 0,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9952
+      "letterTokenOverlap": 0.9998
     },
     {
       "id": "agustin-16-ciudad-de-dios-1-es",
@@ -193,14 +193,14 @@
     },
     {
       "id": "agustin-18-epistolas-indices-es",
-      "unitsChanged": 347,
-      "unitsExcludedGarbage": 51,
-      "unitsCollapsedSpaced": 295,
-      "spacedBefore": 0,
+      "unitsChanged": 189,
+      "unitsExcludedGarbage": 58,
+      "unitsCollapsedSpaced": 46,
+      "spacedBefore": 33,
       "spacedAfter": 0,
-      "garbageBefore": 43,
+      "garbageBefore": 53,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9976
+      "letterTokenOverlap": 0.9998
     },
     {
       "id": "agustin-19-enarraciones-salmos-1-es",

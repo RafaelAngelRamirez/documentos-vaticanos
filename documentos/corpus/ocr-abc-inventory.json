@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T19:49:16.376Z",
+  "generatedAt": "2026-07-26T21:42:37.508Z",
   "revision": "ocr-abc-v4",
   "minSpaced": 1,
   "minGarbage": 1,
@@ -31,22 +31,22 @@
     {
       "id": "agustin-05-de-trinitate-es",
       "kind": "patristic",
-      "units": 3030,
+      "units": 2839,
       "metrics": {
-        "units": 3030,
+        "units": 2839,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
         "shortSpacedWordHits": 0,
         "spacedDigitRuns": 0,
-        "junkRunHits": 1,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 63,
-        "residualScore": 947
+        "junkRunHits": 17,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 66,
+        "residualScore": 1026
       },
       "targetAbc": false,
       "queueReocr": true,
-      "reason": "body_noise=63; junk_runs=1; queue:reocr"
+      "reason": "body_noise=66; junk_runs=17; toc_leaders=1; queue:reocr"
     },
     {
       "id": "agustin-01-primeros-escritos-es",
@@ -127,26 +127,6 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "short_spaced=3; spaced_digits=2; body_noise=42; queue:reocr"
-    },
-    {
-      "id": "agustin-15-tratados-escriturarios-es",
-      "kind": "patristic",
-      "units": 4847,
-      "metrics": {
-        "units": 4847,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 39,
-        "residualScore": 587
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=39; toc_leaders=1; queue:reocr"
     },
     {
       "id": "agustin-32-antidonatistas-1-zh",
@@ -269,6 +249,26 @@
       "reason": "short_spaced=239; body_noise=8; queue:reocr"
     },
     {
+      "id": "agustin-15-tratados-escriturarios-es",
+      "kind": "patristic",
+      "units": 2207,
+      "metrics": {
+        "units": 2207,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 2,
+        "residualBodyNoiseUnits": 23,
+        "residualScore": 351
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=23; junk_runs=1; toc_leaders=2; queue:reocr"
+    },
+    {
       "id": "agustin-09-gracia-2-es",
       "kind": "patristic",
       "units": 2673,
@@ -287,26 +287,6 @@
       "targetAbc": false,
       "queueReocr": true,
       "reason": "body_noise=23; queue:reocr"
-    },
-    {
-      "id": "agustin-18-epistolas-indices-es",
-      "kind": "patristic",
-      "units": 1916,
-      "metrics": {
-        "units": 1916,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 2,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 22,
-        "residualScore": 334
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=22; junk_runs=2; queue:reocr"
     },
     {
       "id": "agustin-30-antimaniqueos-1-es",
@@ -767,6 +747,26 @@
       "targetAbc": false,
       "queueReocr": true,
       "reason": "body_noise=10; junk_runs=1; queue:reocr"
+    },
+    {
+      "id": "agustin-18-epistolas-indices-es",
+      "kind": "patristic",
+      "units": 1104,
+      "metrics": {
+        "units": 1104,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 10,
+        "residualScore": 150
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=10; queue:reocr"
     },
     {
       "id": "agustin-38-antiarrianos-en",

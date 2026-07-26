@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T19:49:16.378Z",
+  "generatedAt": "2026-07-26T21:42:37.509Z",
   "revision": "ocr-abc-v4",
   "description": "Volumes with high residual OCR garbage after mechanical a+b cleanup — candidates for re-OCR / page re-extract (not run in this goal).",
   "count": 131,
@@ -21,15 +21,15 @@
     {
       "id": "agustin-05-de-trinitate-es",
       "kind": "patristic",
-      "residualScore": 947,
+      "residualScore": 1026,
       "garbageUnits": 0,
       "garbageRatio": 0,
-      "residualBodyNoiseUnits": 63,
+      "residualBodyNoiseUnits": 66,
       "spacedLetterRuns": 0,
-      "junkRunHits": 1,
-      "tocLeaderHits": 0,
-      "units": 3030,
-      "reason": "body_noise=63; junk_runs=1; queue:reocr",
+      "junkRunHits": 17,
+      "tocLeaderHits": 1,
+      "units": 2839,
+      "reason": "body_noise=66; junk_runs=17; toc_leaders=1; queue:reocr",
       "suggestedAction": "re-ocr-body-pages"
     },
     {
@@ -86,20 +86,6 @@
       "tocLeaderHits": 0,
       "units": 3149,
       "reason": "short_spaced=3; spaced_digits=2; body_noise=42; queue:reocr",
-      "suggestedAction": "re-ocr-body-pages"
-    },
-    {
-      "id": "agustin-15-tratados-escriturarios-es",
-      "kind": "patristic",
-      "residualScore": 587,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 39,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 1,
-      "units": 4847,
-      "reason": "body_noise=39; toc_leaders=1; queue:reocr",
       "suggestedAction": "re-ocr-body-pages"
     },
     {
@@ -187,6 +173,20 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
+      "id": "agustin-15-tratados-escriturarios-es",
+      "kind": "patristic",
+      "residualScore": 351,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 23,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 1,
+      "tocLeaderHits": 2,
+      "units": 2207,
+      "reason": "body_noise=23; junk_runs=1; toc_leaders=2; queue:reocr",
+      "suggestedAction": "re-ocr-body-pages"
+    },
+    {
       "id": "agustin-09-gracia-2-es",
       "kind": "patristic",
       "residualScore": 345,
@@ -198,20 +198,6 @@
       "tocLeaderHits": 0,
       "units": 2673,
       "reason": "body_noise=23; queue:reocr",
-      "suggestedAction": "re-ocr-body-pages"
-    },
-    {
-      "id": "agustin-18-epistolas-indices-es",
-      "kind": "patristic",
-      "residualScore": 334,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 22,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 2,
-      "tocLeaderHits": 0,
-      "units": 1916,
-      "reason": "body_noise=22; junk_runs=2; queue:reocr",
       "suggestedAction": "re-ocr-body-pages"
     },
     {
@@ -534,6 +520,20 @@
       "tocLeaderHits": 0,
       "units": 3951,
       "reason": "body_noise=10; junk_runs=1; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "agustin-18-epistolas-indices-es",
+      "kind": "patristic",
+      "residualScore": 150,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 10,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 0,
+      "tocLeaderHits": 0,
+      "units": 1104,
+      "reason": "body_noise=10; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
