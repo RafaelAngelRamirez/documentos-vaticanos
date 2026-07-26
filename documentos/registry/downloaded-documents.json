@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-26T21:35:54.265Z",
+  "updatedAt": "2026-07-26T22:55:06.180Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -254,15 +254,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpWTFzcXUzcHU2QWM/view"
       ],
       "firstDownloadedAt": "2026-07-12T22:39:07.512Z",
-      "lastDownloadedAt": "2026-07-12T22:39:14.643Z",
-      "unitCount": 2181,
+      "lastDownloadedAt": "2026-07-26T22:48:30.007Z",
+      "unitCount": 2035,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-01-primeros-escritos-es/content.json",
         "index": "documents/agustin-01-primeros-escritos-es/index.json",
         "meta": "documents/agustin-01-primeros-escritos-es/meta.json"
       },
-      "notes": "Tomo BAC n=1: 01 San Agustín - Introducción y primeros escritos.pdf"
+      "notes": "Tomo BAC n=1: 01 San Agustín - Introducción y primeros escritos.pdf (OCR)"
     },
     {
       "id": "agustin-01-primeros-escritos-hi",
@@ -454,15 +454,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpS3cxY1RrVkFHS3c/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:08:27.645Z",
-      "lastDownloadedAt": "2026-07-13T00:08:27.645Z",
-      "unitCount": 2878,
+      "lastDownloadedAt": "2026-07-26T22:51:52.250Z",
+      "unitCount": 2521,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-03-obras-filosoficas-es/content.json",
         "index": "documents/agustin-03-obras-filosoficas-es/index.json",
         "meta": "documents/agustin-03-obras-filosoficas-es/meta.json"
       },
-      "notes": "Tomo BAC n=3: 03 Obras Filosóficas.pdf"
+      "notes": "Tomo BAC n=3: 03 Obras Filosóficas.pdf (OCR)"
     },
     {
       "id": "agustin-03-obras-filosoficas-hi",
@@ -1054,15 +1054,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpZXpnemI1c3dVVVk/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:09:43.795Z",
-      "lastDownloadedAt": "2026-07-13T00:09:43.795Z",
-      "unitCount": 2673,
+      "lastDownloadedAt": "2026-07-26T22:55:06.180Z",
+      "unitCount": 1867,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-09-gracia-2-es/content.json",
         "index": "documents/agustin-09-gracia-2-es/index.json",
         "meta": "documents/agustin-09-gracia-2-es/meta.json"
       },
-      "notes": "Tomo BAC n=9: 09 Tratados-sobre-la-gracia-2.pdf"
+      "notes": "Tomo BAC n=9: 09 Tratados-sobre-la-gracia-2.pdf (OCR)"
     },
     {
       "id": "agustin-09-gracia-2-hi",

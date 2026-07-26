@@ -1,19 +1,19 @@
 {
   "revision": "ocr-abc-v4",
-  "appliedAt": "2026-07-26T21:42:37.519Z",
+  "appliedAt": "2026-07-26T22:57:47.184Z",
   "documentCount": 46,
-  "thisRunChanged": 0,
+  "thisRunChanged": 1,
   "documents": [
     {
       "id": "agustin-01-primeros-escritos-es",
-      "unitsChanged": 188,
-      "unitsExcludedGarbage": 8,
-      "unitsCollapsedSpaced": 180,
-      "spacedBefore": 0,
+      "unitsChanged": 854,
+      "unitsExcludedGarbage": 15,
+      "unitsCollapsedSpaced": 819,
+      "spacedBefore": 57,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 7,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9963
+      "letterTokenOverlap": 0.9924
     },
     {
       "id": "agustin-02-confesiones-es",
@@ -28,14 +28,14 @@
     },
     {
       "id": "agustin-03-obras-filosoficas-es",
-      "unitsChanged": 205,
-      "unitsExcludedGarbage": 10,
-      "unitsCollapsedSpaced": 195,
-      "spacedBefore": 0,
+      "unitsChanged": 1036,
+      "unitsExcludedGarbage": 16,
+      "unitsCollapsedSpaced": 987,
+      "spacedBefore": 40,
       "spacedAfter": 0,
-      "garbageBefore": 1,
+      "garbageBefore": 6,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9967
+      "letterTokenOverlap": 0.9916
     },
     {
       "id": "agustin-04-obras-apologeticas-es",
@@ -94,14 +94,14 @@
     },
     {
       "id": "agustin-09-gracia-2-es",
-      "unitsChanged": 437,
-      "unitsExcludedGarbage": 5,
-      "unitsCollapsedSpaced": 432,
-      "spacedBefore": 0,
+      "unitsChanged": 986,
+      "unitsExcludedGarbage": 17,
+      "unitsCollapsedSpaced": 951,
+      "spacedBefore": 25,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 9,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9944
+      "letterTokenOverlap": 0.9882
     },
     {
       "id": "agustin-10-sermones-2-es",

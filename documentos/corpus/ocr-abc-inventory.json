@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T21:42:37.508Z",
+  "generatedAt": "2026-07-26T22:57:47.174Z",
   "revision": "ocr-abc-v4",
   "minSpaced": 1,
   "minGarbage": 1,
@@ -49,26 +49,6 @@
       "reason": "body_noise=66; junk_runs=17; toc_leaders=1; queue:reocr"
     },
     {
-      "id": "agustin-01-primeros-escritos-es",
-      "kind": "patristic",
-      "units": 2181,
-      "metrics": {
-        "units": 2181,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 1,
-        "tocLeaderHits": 2,
-        "residualBodyNoiseUnits": 61,
-        "residualScore": 921
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=61; junk_runs=1; toc_leaders=2; queue:reocr"
-    },
-    {
       "id": "agustin-34-antidonatistas-3-zh",
       "kind": "patristic",
       "units": 1987,
@@ -109,6 +89,26 @@
       "reason": "spaced_runs=3; short_spaced=1; spaced_digits=22; body_noise=52; queue:reocr"
     },
     {
+      "id": "agustin-01-primeros-escritos-es",
+      "kind": "patristic",
+      "units": 2035,
+      "metrics": {
+        "units": 2035,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 6,
+        "tocLeaderHits": 5,
+        "residualBodyNoiseUnits": 44,
+        "residualScore": 682
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=44; junk_runs=6; toc_leaders=5; queue:reocr"
+    },
+    {
       "id": "agustin-26-sermones-6-zh",
       "kind": "patristic",
       "units": 3149,
@@ -147,26 +147,6 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "short_spaced=1; spaced_digits=2; garbage_units=6/6797 (0.09%); body_noise=33; junk_runs=6; toc_leaders=5; queue:reocr"
-    },
-    {
-      "id": "agustin-03-obras-filosoficas-es",
-      "kind": "patristic",
-      "units": 2878,
-      "metrics": {
-        "units": 2878,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 2,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 37,
-        "residualScore": 561
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=37; junk_runs=2; toc_leaders=1; queue:reocr"
     },
     {
       "id": "agustin-30-antimaniqueos-1-zh",
@@ -229,6 +209,26 @@
       "reason": "spaced_runs=6; short_spaced=11; garbage_units=1/1559 (0.06%); body_noise=26; toc_leaders=1; queue:reocr"
     },
     {
+      "id": "agustin-03-obras-filosoficas-es",
+      "kind": "patristic",
+      "units": 2521,
+      "metrics": {
+        "units": 2521,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 4,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 24,
+        "residualScore": 368
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=24; junk_runs=4; queue:reocr"
+    },
+    {
       "id": "catecismo-romano-es",
       "kind": "catechism",
       "units": 1162,
@@ -267,26 +267,6 @@
       "targetAbc": false,
       "queueReocr": true,
       "reason": "body_noise=23; junk_runs=1; toc_leaders=2; queue:reocr"
-    },
-    {
-      "id": "agustin-09-gracia-2-es",
-      "kind": "patristic",
-      "units": 2673,
-      "metrics": {
-        "units": 2673,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 23,
-        "residualScore": 345
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=23; queue:reocr"
     },
     {
       "id": "agustin-30-antimaniqueos-1-es",
@@ -454,6 +434,26 @@
       "units": 2714,
       "metrics": {
         "units": 2714,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 14,
+        "residualScore": 212
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=14; junk_runs=1; queue:reocr"
+    },
+    {
+      "id": "agustin-09-gracia-2-es",
+      "kind": "patristic",
+      "units": 1867,
+      "metrics": {
+        "units": 1867,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,

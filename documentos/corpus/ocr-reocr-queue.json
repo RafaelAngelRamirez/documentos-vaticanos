@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T21:42:37.509Z",
+  "generatedAt": "2026-07-26T22:57:47.175Z",
   "revision": "ocr-abc-v4",
   "description": "Volumes with high residual OCR garbage after mechanical a+b cleanup — candidates for re-OCR / page re-extract (not run in this goal).",
   "count": 131,
@@ -33,20 +33,6 @@
       "suggestedAction": "re-ocr-body-pages"
     },
     {
-      "id": "agustin-01-primeros-escritos-es",
-      "kind": "patristic",
-      "residualScore": 921,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 61,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 1,
-      "tocLeaderHits": 2,
-      "units": 2181,
-      "reason": "body_noise=61; junk_runs=1; toc_leaders=2; queue:reocr",
-      "suggestedAction": "re-ocr-body-pages"
-    },
-    {
       "id": "agustin-34-antidonatistas-3-zh",
       "kind": "patristic",
       "residualScore": 823,
@@ -75,6 +61,20 @@
       "suggestedAction": "re-ocr-body-pages"
     },
     {
+      "id": "agustin-01-primeros-escritos-es",
+      "kind": "patristic",
+      "residualScore": 682,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 44,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 6,
+      "tocLeaderHits": 5,
+      "units": 2035,
+      "reason": "body_noise=44; junk_runs=6; toc_leaders=5; queue:reocr",
+      "suggestedAction": "re-ocr-body-pages"
+    },
+    {
       "id": "agustin-26-sermones-6-zh",
       "kind": "patristic",
       "residualScore": 635,
@@ -100,20 +100,6 @@
       "tocLeaderHits": 5,
       "units": 6797,
       "reason": "short_spaced=1; spaced_digits=2; garbage_units=6/6797 (0.09%); body_noise=33; junk_runs=6; toc_leaders=5; queue:reocr",
-      "suggestedAction": "re-ocr-body-pages"
-    },
-    {
-      "id": "agustin-03-obras-filosoficas-es",
-      "kind": "patristic",
-      "residualScore": 561,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 37,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 2,
-      "tocLeaderHits": 1,
-      "units": 2878,
-      "reason": "body_noise=37; junk_runs=2; toc_leaders=1; queue:reocr",
       "suggestedAction": "re-ocr-body-pages"
     },
     {
@@ -159,6 +145,20 @@
       "suggestedAction": "re-ocr-body-pages"
     },
     {
+      "id": "agustin-03-obras-filosoficas-es",
+      "kind": "patristic",
+      "residualScore": 368,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 24,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 4,
+      "tocLeaderHits": 0,
+      "units": 2521,
+      "reason": "body_noise=24; junk_runs=4; queue:reocr",
+      "suggestedAction": "re-ocr-body-pages"
+    },
+    {
       "id": "catecismo-romano-es",
       "kind": "catechism",
       "residualScore": 359,
@@ -184,20 +184,6 @@
       "tocLeaderHits": 2,
       "units": 2207,
       "reason": "body_noise=23; junk_runs=1; toc_leaders=2; queue:reocr",
-      "suggestedAction": "re-ocr-body-pages"
-    },
-    {
-      "id": "agustin-09-gracia-2-es",
-      "kind": "patristic",
-      "residualScore": 345,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 23,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 0,
-      "units": 2673,
-      "reason": "body_noise=23; queue:reocr",
       "suggestedAction": "re-ocr-body-pages"
     },
     {
@@ -323,6 +309,20 @@
       "junkRunHits": 1,
       "tocLeaderHits": 0,
       "units": 2714,
+      "reason": "body_noise=14; junk_runs=1; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "agustin-09-gracia-2-es",
+      "kind": "patristic",
+      "residualScore": 212,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 14,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 1,
+      "tocLeaderHits": 0,
+      "units": 1867,
       "reason": "body_noise=14; junk_runs=1; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
