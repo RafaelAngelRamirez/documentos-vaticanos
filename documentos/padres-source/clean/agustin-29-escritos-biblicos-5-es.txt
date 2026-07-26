@@ -54,16 +54,10 @@ MANUEL SÁNCHEZ
 
 CARO, Rector Magnífico.
 VOCALES: Dr. ANTONIO GARCÍA MADRID, Vicerrector Académico;
-Dra. M." FRANCISCA MARTÍN TABERNERO, Vicerrectora de Inves-
+Dra. M." FRANCISCA MARTÍN TABERNERO, Vicerrectora de Investigación; Dr. JOSÉ ROMÁN FLECHA ANDRÉS, Decano de la Facultad de Teología; Dr. JUAN LUIS ACEBAL LUJAN, Decano de la
 
-tigación; Dr. JOSÉ ROMÁN FLECHA ANDRÉS, Decano de la Facultad de Teología; Dr. JUAN LUIS ACEBAL LUJAN, Decano de la
-
-Facultad de Derecho Canónico; Dr. JUAN GONZÁLEZ ANLEO, De-
-
-cano de la Facultad de Ciencias Políticas y Sociología; Dr.
-DIONISIO CASTILLEJO CABALLERO, Decano de la Facultad de Fi-
-
-losofía; Dr. JOSÉ OROZ RETA, Decano de la Facultad de Filología Bíblica
+Facultad de Derecho Canónico; Dr. JUAN GONZÁLEZ ANLEO, Decano de la Facultad de Ciencias Políticas y Sociología; Dr.
+DIONISIO CASTILLEJO CABALLERO, Decano de la Facultad de Filosofía; Dr. JOSÉ OROZ RETA, Decano de la Facultad de Filología Bíblica
 
 Trilingüe;
 
@@ -110,7 +104,7 @@ OBRAS COMPLETAS
 DE
 
 CARTAS: T. VIII, Xla, Xlb.
-CONFESIONES: T. II.
+CON FESIONES: T. II.
 ESCRITOS APOLOGÉTICOS: T. IV, V, XVI, XVII.
 ESCRITOS BÍBLICOS: T. XV, XVIII, XXVII, XXVIII,
 XXIX.
@@ -188,7 +182,7 @@ XLI.
 BIBLIOTECA DE AUTORES CRISTIANOS
 MADRID • MCMXCII
 
-T Xt0 IatÍn0
+T Xt 0 IatÍn 0
 e CSEL 283 43
 ~
 ^ - por ENRIQUE
@@ -213,7 +207,7 @@ AL LIBRO DE JOB
 
 Anotaciones al libro de Job
 
-LA CONCORDANCIA
+LA CON CORDANCIA
 Introducción
 Tomado de las Revisiones
 Libro I
@@ -284,7 +278,7 @@ Israel
 27. Lamentable situación del paganismo
 28. Profecías que se están cumpliendo
 29- Más incoherencias de los paganos
-30. El Dios de Israel, un «Dios incierto255
+30. El Dios de Israel, un «Dios incierto 255
 31. Maliciosos panegiristas de Cristo
 32. Panegiristas de Cristo y detractores de los cristianos .. 262
 33. La verdadera causa del declinar de la prosperidad
@@ -321,7 +315,7 @@ Se trata de dos momentos distintos
 Mt 2,22 - Le 2,4
 Visita a Jerusalén en vida de Arquelao
 Engañado Herodes, ¿cómo osan subir al templo?
-Mt 3, 1-3 - Me 1,3/Lc3,4/Jn 1,23
+Mt 3, 1-3 - Me 1,3/Lc 3,4/Jn 1,23
 Mt 3, 13-15 - Me 1,9/Lc 3,21/Jn 1,32-34
 Mt 3, 16-17 - Me 1,10-11/Lc 3,22
 M t 3, l 4 b - c - J n 1,33
@@ -376,7 +370,7 @@ Págs.
 Mt 4,1-11 -Le 4,1-13/Mc 1,12-13
 Mt 4,12 Me 1,14/Lc 4, l 4 / ( J n 1,39-2,11); (Jn 1,42 Mt 16,18)
 (Jn 1,43-Mt 4,12/Mt 1,14/Lc 4,13)
-Mt5, l-7,29ss
+Mt 5, l-7,29ss
 Mt 8,5-13 - Le 7,1-10
 Mt 8, 14-15 - Me 1,29-31/Lc 4,38-39
 Mt 8, 16-17 - Me 1,32-35/Lc 4,41
@@ -1055,9 +1049,7 @@ quiescerem (Iob 3,13): moriendo huic mundo. Cum regibus honoratis terrae: in ecc
 est: et gladium spiritus, quod est Verbum Dei (Eph 6,17). Aut cum
 principibus, quibus mul[512]tum fuit aurum: sapientia. Qui compleuerunt domos suas argento (Iob 3,15): eloquio Domini. Aut tamquam abortiuumprolapsum
 de uulua matris: ut numquam emineret.
-Aut tamquam infantes quiñón uiderunt lucem (Iob 3,16): ad nobili-
-
-tatem aliquam non peruenerunt. Ibi inpii deposueruntfurorem
+Aut tamquam infantes quiñón uiderunt lucem (Iob 3,16): ad nobilitatem aliquam non peruenerunt. Ibi inpii deposueruntfurorem
 suum:
 in morte ab hoc mundo. Ibi requieueruntfatigati
 corpore (Iob 3,17):
@@ -1443,7 +1435,7 @@ inpatientis ad dolorem. Numquidpotest sine sale edipañis? Quasi ei
 diceretur: cur sic ea per figuras dicis? Respondit, quia si ex persona sua
 ea diceret, insulsa essent. Aut est sapor in sermonibus uanis? (lob
 6,6). Vanos sermones hominum dicit, quia pañis uerba Dei sunt, sed
-pañis caelestis (cfMt4,4; Iob6,50). Sic nec anima mea potest cessare
+pañis caelestis (cfMt 4,4; Iob 6,50). Sic nec anima mea potest cessare
 (lob 6,7): quomodo non potest sine [519] sale edi pañis, sic nunc
 ministerium praebeo uerbi Dei propter illud: quomodo audient sine
 praedicante? (Rom 10,14). Foetidas enim uideo escás meas sicut est
@@ -1548,9 +1540,7 @@ temían cayeron ahora sobre mí: el diablo y sus ángeles.
 Perecí y salí desterrado de mi casa: sea de la morada celestial, sea de la conciencia. Por eso se estaba sentado fuera de
 su casa. Contemplad los caminos de Tema, ved las sendas
 de Saba. En estos pueblos están simbolizados los que confían en las realidades temporales, de las cuales dice que no
-presume personalmente, es decir, el hombre del que es signo. Pero ahora también vosotros os habéis levantado contra mí sin piedad: creyendo que la felicidad humana consis-
-
-te en la abundancia de las realidades carnales. Preferían provocar la burla a ejercer la misericordia o compasión. Pero
+presume personalmente, es decir, el hombre del que es signo. Pero ahora también vosotros os habéis levantado contra mí sin piedad: creyendo que la felicidad humana consiste en la abundancia de las realidades carnales. Preferían provocar la burla a ejercer la misericordia o compasión. Pero
 temed todos los que veis mi dolencia. Y al comprender su
 sentido, temed los castigos venideros. ¿Qué queréis? ¿Es
 que os he pedido algo? ¿Acaso tengo necesidad de vuestra
@@ -1711,7 +1701,7 @@ esta vida, que son sueños, como sueños son los bienes de esta
 vida. Desatas mi alma de mi espíritu: a causa de los terrores
 subsisto (Iob 7,8); interficis enim in me uitam carnalem in qua fui.
 Tamquam nubes expurgata de cáelo (Iob 7,9): aut per caelum purgata
--quomodo dicimus de ferro purgata- ut hic significauerit auxilium sibi
+-quomodo dicimus de ferro purgataut hic significauerit auxilium sibi
 fuisse de cáelo, ut purgaretur, aut cene ut iam non sit nubes, sed in
 aerem purum extenuetur, tamquam radiis solis expurgata, ut obscuritas
 carnis et sanguinis non sit in cáelo. Non enim caro et sanguis regnum
@@ -2123,9 +2113,7 @@ iustitia discedentes, ut Ule fllius minor profectus in regionem longinquam (cf. 
 beatae sunt, id est operibus iustitiae, inclinauerunt se ad terrenas uoluptates. Quodsi et locutus fuero, obliuiscor dum loquor (Iob 9,27):
 locutio: quemadmodum adfectum habuit ad exteriora, sic anima dum
 progreditur ad ea quae foris sunt cupiditate fruendi creatura obliuiscitur interiorem creatorem. Declinans in faciera ingemiscam (Iob
-9,27): illam enim declinationem dolores sequuntur. Commoueor om-
-
-nibus membris (Iob 9,28): tinior, quo incipit recurrere. Et quia sum
+9,27): illam enim declinationem dolores sequuntur. Commoueor omnibus membris (Iob 9,28): tinior, quo incipit recurrere. Et quia sum
 inpius, quare non sum mortuus et laboro? (Iob 9,29) "Scio" subaudis. Aut dicit se laborare, quia inpietati mortuus non est. Et mundatus
 fuero mundis manibus (Iob 9,30): aut Dei manibus aut suis, id est:
 bonis operibus per regenerationem. Satis in sorde me tinxisti: in istam
@@ -2396,9 +2384,7 @@ omnia ista de ecclesia.
 12. Verba Iob. Sed iustus uir et sine crimine uenit in derisum
 (Iob 12,4): de Domino intellegendus est. Sensus: non ergo mirum, si et
 ego uobis in derisum ueni. Et domus eius ut deuastaretur ab iniquis:
-ecclesia a persecutoribus. Immo uero nullus confidat, cum sit ne-
-
-quam, se inpunitum futurum (Iob 12,6): quia iudicium a domo Dei
+ecclesia a persecutoribus. Immo uero nullus confidat, cum sit nequam, se inpunitum futurum (Iob 12,6): quia iudicium a domo Dei
 (1 Petr 4,17). Tamquam inquisitio in eos non sit futura (Iob 12,6):
 non confidant. Sed tamen interroga quadrupedia, si Ubi respondeant
 (Iob 12,7): ideo recte inquirit iniquos, quia ex operibus potuerunt
@@ -2458,9 +2444,7 @@ prophetias. Etproduxit in lucem umbram mortis (Iob 12,22): id est
 fecit, ut congnosceretur uita ista, quia umbra mortis est. Decipiens
 gentes etperdens eas: putantes quod nocerent ecclesiae Dei, cum sibi
 nocerent, quod de inpiis intellegendum est. Sternens gentes et in uiam
-ducens eas (Iob 12,23): ad humilitatem tamquam illum asinum. Reconcilians corda principum populi terrae: sibi reconcilians uel Iu-
-
-daeos uel reges terrae, qui primo persequebantur ecclesiam. Seduxit
+ducens eas (Iob 12,23): ad humilitatem tamquam illum asinum. Reconcilians corda principum populi terrae: sibi reconcilians uel Iudaeos uel reges terrae, qui primo persequebantur ecclesiam. Seduxit
 autem eos in uiam quam non nouerant (Iob 12,24): subruendo legis
 opera, ut simpliciter intellegerentur: hinc eis uisus est peccator. Quo
 errare tenebratisunt tamquam ebrius (Iob 12,25).
@@ -2633,9 +2617,7 @@ maldecir. Pero, hombre, ¿eres tú por ventura el primer
 nacido, para que tanto te envalentones? ¿Es que adquiriste
 consistencia antes que las colinas? También los montes
 entran dentro del común denominador de colinas, es decir,
-con anterioridad a todas las potestades, a los espíritus poderosos. También se halla entre nosotros el anciano y decrépito. Hay entre nosotros quien conoce lo que nosotros igno-
-
-lapides, a lapidibus ad arenam, quia has minutiones carnales patiuntur.
+con anterioridad a todas las potestades, a los espíritus poderosos. También se halla entre nosotros el anciano y decrépito. Hay entre nosotros quien conoce lo que nosotros ignolapides, a lapidibus ad arenam, quia has minutiones carnales patiuntur.
 Et bene iam 'perdidisti" dixit. Inpulisti enim infinem: in consumptionem, [540] ut pereat spes ista, qua carnales gaudent. Mutasti faciem
 eius, dimisisti eum (Iob 14,20): cum imago (841) Dei in eo exterminata est. Et cum multi fuerint filii eius, nescit (Iob 14,21): quia
 moritur, quamuis propagetur sobóles. Sed carnes eius super eum doluerunt (Iob 14,22): id est, talem condicionem suam homo camaliter
@@ -2805,7 +2787,7 @@ factus sapiens fiarh. Adprehendisti me et in testimonium factus sum
 (Iob 16,7-8): conuicisti me de peccatis meis et aduersum me ego sum
 testis. Et surrexit super me mendacium meum: cum mihi iustus uidebar. Contra faciem meam respondí (Iob 16,9), hoc est: statuam te
 antefaciem tuam (Ps, 49,21). Iracundia usus deiecit me (Iob 16,9):
-benedixit usus iracun[543]dia -non enim eam patitur- deiecit autem
+benedixit usus iracun[543]dia -non enim eam patiturdeiecit autem
 tamquam superbum. Fremuit super me dentibus: obiurgauit me, ut
 
 dentes pro uerbis accipiantur. Sagittae piratarum eius super me deciderunt. Aeriae potestates quibus utitur Deus et eis permittit, ut aut
@@ -2962,9 +2944,7 @@ Discurso de Bildad, suhita. Y se extinguirá la luz de los impíos: no te extra�
 se ha extinguido como la del impío. Su luz fueron las tinieblas dentro de su tienda: es decir, el diablo o el anticristo
 alumbraron su casa. Y su lámpara se extinguirá encima de
 él: la luz pequeña y terrenal. Que los más pequeños se
-apoderen de sus bienes: que los humildes tengan todo cuan-
-
-sumat audaciam (Iob 17,9): spei audaciam, ut confiteatur Christum et
+apoderen de sus bienes: que los humildes tengan todo cuansumat audaciam (Iob 17,9): spei audaciam, ut confiteatur Christum et
 in persecutione. Non enim inuenit in uos ueritatem (Iob 17,10):
 ómnibus enim tam Iudaeis quam alus gratis necessaria est. Et conuulsae
 sunt compages coráis mei (Iob 17,11): ut non celem peccata mea.
@@ -2978,7 +2958,7 @@ spes? Subauditur: si sustinuero. Aut bona mea uidebo? (Iob 17,15).
 Quibus seductus est, conuerti noluit et sustinuit peccatorem.
 18. Verba Baldad Sauchitis. Et lumem inpiorum
 extinguetur
-(Iob 18,5): noli ergo mirari, si et tuum tamquam inpii lumem extinc1 um est. Lux eiusfuerunt tenebrae in domo: claritas domus eius, id est
+(Iob 18,5): noli ergo mirari, si et tuum tamquam inpii lumem extinc 1 um est. Lux eiusfuerunt tenebrae in domo: claritas domus eius, id est
 liierunt aut diabolus aut antichristus. Et lucerna super eum extinguetur (Iob 18,6): exiguum et terrenum lumen. Capiant infimi substanliam eius (Iob 18,7): quae habere [547] ille uoluit, habeant humiles.
 
 Anotaciones al libro de Job
@@ -3366,7 +3346,7 @@ sus señales: o las de los impíos que dan los transeúntes al
 predecirles el futuro, o las que permiten conocer a los impíos. ¿Quién denunciará delante de él su proceder? En
 presencia del impío nadie pone al descubierto su conducta.
 Sólo lo hace el Señor con aplomo y seguridad en sí mismo,
-porque le hace frente. Y, con todo, él mismo - el Señor- fue
+porque le hace frente. Y, con todo, él mismo - el Señorfue
 llevado al sepulcro: por eso no hay que esperar para aquí el
 premio de la piedad. Y veló sobre la muchedumbre: porque
 resucitó con anterioridad al grupo de los resucitadores.
@@ -4094,9 +4074,7 @@ todo
 cuanto hay de precioso: el ojo humano a través de la palabra
 hecha carne. Reveló las profundidades
 de los ríos: las virtudes que supone tolerar las persecuciones en el martirio son
-algo oculto y profundo en el hombre hasta que se manifies-
-
-ten en la tentación de la persecución. Y mostró su poder en
+algo oculto y profundo en el hombre hasta que se manifiesten en la tentación de la persecución. Y mostró su poder en
 la luz: en aquellos a quienes dijo: Vosotros sois la luz del
 mundo. Por conducto de éstos se convirtió incluso un sector
 no pequeño de judíos. El abismo dice: No está en mí: por
@@ -4813,7 +4791,7 @@ Spiritus diuinus quifecit me (Iob 33,4): subaudis,, est", ut sit: Spiritus diuin
 exaudiuit me? (Iob 33,12) Quasi aduersario dixerit Iob. Semel enim
 loquitur Dominus (Iob 33,14): quasi uocationem omnium iustorum
 semel fecit Dominus et temporaliter circa singulos hoc agit diuina
-ptQ\ñ(862)ácnti2.. Per somnium aut in uisitatione nocturna: aut in
+ptQ\ñ(862)ácnti 2.. Per somnium aut in uisitatione nocturna: aut in
 ignorantia aut in tribulatione. Aut sicut incidit saeuus timor in homines cum dormiunt in cubiculis (Iob 33,15): securi. Et corpus eius a
 
 Anotaciones al libro de Job
@@ -4877,7 +4855,7 @@ justo»? ¿Qué dijo de bueno al hablar? Y en mi juicio
 mintió. Por eso se dice-. Yo esperaba bienes. Por eso decayó
 en su esperanza, porquemintió. ¿Qué hombre hay
 como
-Job? Prosiguen las palabras deJob. Puestoque ha dichoque
+Job? Prosiguen las palabras de Job. Puestoque ha dichoque
 no será visitado el hombre que camina al lado de Dios:
 creequeen este punto está enun error, porhaberhecho
 todoaquelloesperandoen eso, obienporquenocreeque
@@ -5057,9 +5035,7 @@ los malvados: se sobrentiende -clamarán». La razón es que
 el Señor no quiere ver vaciedades: Dios no quiere atender a
 quienes demandan vaciedades ya quienes en la aflicción no
 gritan esperando conseguir los bienes eternos. Pues han sido
-objeto de segregación de entre los cuadrúpedos y han recibi-
-
-bus uerbis: ego dabo Ubi responsum et tribus amicis meis (lob 35,4).
+objeto de segregación de entre los cuadrúpedos y han recibibus uerbis: ego dabo Ubi responsum et tribus amicis meis (lob 35,4).
 Aspice in caelum et uide; réspice in nubes quam altae [585] sint a te
 (lob 35,5). Sipeccasti, quidagis? Confirmat quod ab eo dictum est: Si
 ego peccaui, quid possum Ubi faceré? Aut si multa iniusta fecisti,
@@ -5205,9 +5181,7 @@ los que están aprisionados con grilletes: de estos grilletes
 habla el Apóstol cuando dice que le vendría bien verse
 libre y estar con Cristo, es decir, liberarse de las amarras
 de esta vida en que el cuerpo corruptible es una carga
-para el alma. Se verán atados con lazos de miseria: queda-
-
-rán amarrados por la continua costumbre de los placeres
+para el alma. Se verán atados con lazos de miseria: quedarán amarrados por la continua costumbre de los placeres
 carnales que dimanan de la penuria de las realidades en que
 se basa y actúa la vida mortal. Y se les anuncian sus propias
 obras: no ciertamente buenas. Puede ser una referencia a las
@@ -5581,9 +5555,7 @@ sera tune erit et infructuosa infidelium paenitentia. Tonabit fortis in
 uoce sua mirabiliter (Iob 37,5): quia non fortitudinis eius, sed infirmitatis nostrae ex participatione mortalitatis uox illa fuit primi aduentus
 eius, de quo dictum est: quod infirmum est Dei, fortius est hominibus
 (1 Cor. 1,25). Fecit enim magna quae nesciebamus (Iob 37,5): haec
-in primo aduentu; et ideo postea ad exigenda quae dedit iudex uentu-
-
-rus, est. Quae nesciebamus autem dictum est ex persona eorum, quos
+in primo aduentu; et ideo postea ad exigenda quae dedit iudex uenturus, est. Quae nesciebamus autem dictum est ex persona eorum, quos
 latuit diuinitas Domini, infirmitatem carnis intuentes. Praecipiens nubi: esto super terram: carni suae, ut per sacramentum [595] accipiatur
 in memoria eius ad imitationem humilitatis et formationem caritatis (cf.
 Le 19,20). Et tempestaspluuiae et tempestas imbriumpotestatis
@@ -5674,7 +5646,7 @@ mandauerit eis: gubernacula, in quibus illa nubes per circuitum uertitur, praedi
 37,12): a Domino nostro Iesu Christo. Siue in tribu siue in térra sua
 (Iob 37,13): siue in tribu luda, unde secundum carnem natus est et
 passus et resurrexit et ascendit in caelum - ex hac enim geniti erant
-apostoli et multi frates prope inuenti et salui facti- siue ante passionem
+apostoli et multi frates prope inuenti et salui factisiue ante passionem
 eius per ipsum uocati siue post ascensionem per apostólos in ipsa Hierulsalem atque in ecclesiis Iudaeae, quae erant in Christo, sicut commemorant apostolus Paulus: propter ueritatem Dei ad confirmandaspromissionespatrum (Rom 15,8).Siue in misericordia inueniri uoluerit
 eam (Iob 37,13): illam nubem scilicet in misericordia uoluerit inueniri
 a credentibus gentibus; hoc enim sequitur: gentes autem super misericordiam glorificare Deum (Rom 15,9). Auribus percipe haec, Iob:
@@ -5754,7 +5726,7 @@ en la remisión de los pecados y también al tema de la iluminación de la graci
 aprecia su reverbero en las nubes. Pero no es luz propia de
 las nubes; la reciben. Pues una cosa es el objeto que brilla
 con luz propia y otra cosa lo que brilla porque es iluminado.
-rum Iudaeae, quae in Christum est- propterea sensus hic est, ut [598]
+rum Iudaeae, quae in Christum estpropterea sensus hic est, ut [598]
 per interrogationem pronuntietur: numquid tu quiescente térra ab
 austro (lob 37,17), id est iam non existente in hac uita plebe ulla
 christiana ex Iudaeis, firmabis eum eo euangelistas et Diuinarum Scripturarum libros, qui per misericordiam Dei non solis Iudaeis, sed etiam
@@ -6098,7 +6070,7 @@ animal? (Iob 38,14). Siue ipsum Adam commemoret siue quod nunc
 sexta aetate saeculi, sicut tune sexto die, de peccatoribus, tamquam de
 luto terrae, homo factus est secundum imaginem eius qui creauit eum
 (cf. Gen 2,7; 1,27). Non utique hoc fecit ecclesia, sed in hoc potius
-facta est per uerbum oportuno tempore inf874)carnatum, per quod
+facta est per uerbum oportuno tempore inf 874)carnatum, per quod
 facta sunt omnia (cf. lo 1,3). Etfamosum eum posuisti super terram?
 (Iob 38,14). Magis iste homo famosus positus super terram, qui sexta
 aetate saeculi factus est, quam ille qui sexta die, antequam essent ceteri
@@ -6133,9 +6105,7 @@ caer en el abismo que les angustiaba, sino para acogerse al
 espacio que ocupa Cristo, de modo que Cristo camine, morando en ellos, por donde caminaba pisoteándolos a ellos: en
 las huellas del abismo que permanecen en el recuerdo de
 sus pecados. De modo que, mientras hacen recuento del
-peligro en que se vieron, amen más a aquel a quien acogieron y que tan grandes pecados les perdonó. ¿Se te han abier-
-
-topor miedo las puertas de la muerte? A todos los mortales
+peligro en que se vieron, amen más a aquel a quien acogieron y que tan grandes pecados les perdonó. ¿Se te han abiertopor miedo las puertas de la muerte? A todos los mortales
 se les abren las puertas de la muerte, pero no por miedo,
 como le aconteció de manera exclusiva a aquel que murió
 para destruir la muerte. Ciertamente se abren para resucitar.
@@ -6402,10 +6372,10 @@ parauit ualidade pluuiae flumen? (Iob 38,25). Quod inpleat et qua
 currat, sicut sunt uasa iraeperfecta adperditionem (cf. Rom 9,22),
 quae illo modo, quo dixi, Scripturas accipiunt; per illos enim habet
 liberiorem cursum perniciosa illa interpretado, quam agri fructiferi non
-recipiunt, et tanto maiore inpetu inpellit et deicit et trahit quod instabile inuenerit, quanto uidetur de auctoritate diuina suscepta- uentis uero
+recipiunt, et tanto maiore inpetu inpellit et deicit et trahit quod instabile inuenerit, quanto uidetur de auctoritate diuina susceptauentis uero
 tentatur, quem inflant inanes suasiones hominum superborum, id est ex
 propria auctoritate uerba uaná iactantium. Qui ergo iudicio Dei praeparatur ad perditionem non obtemperando uerbis eius -quod est super
-arenam aedificare- non resistit uentis talibus et cadendo fit uia uocibus
+arenam aedificarenon resistit uentis talibus et cadendo fit uia uocibus
 tempestatis. Validae soleva pluuiae dictum arbitror "difficilis ad capiendum", id est ad intellegendum. Vtpluat super terram ubi non est
 uir. Subaudiendum est "quis praeparauit"? Per uirum autem legem
 uidetur significare, quae data est Iudaeis. Ergo super gentes intellegimus imbrem euangelii. In deserto ubi non est homo (Iob 38,26): in
@@ -6493,15 +6463,13 @@ quiquos iustificauit, ipsos et glorificauit (cf. Rom 8,30). Aut intellexisti nex
 proprietates istorum siderum, ut hunc locum intellegere possimus? Miror, si hoc congruit sermoni nostro, et cene nimis longum est; transimus
 ergo ad alia. An quibusdam sideribus nominatis figura locutionis, qua
 intellegitur a parte totum, omnia sidera accipienda sunt? -si tamen et
-Mazuroth sidus est, quod interpretatum nec in graeca [611] lingua inuenimus; nam hebraeum esse nomen satis adparet- ita enim a parte totum
+Mazuroth sidus est, quod interpretatum nec in graeca [611] lingua inuenimus; nam hebraeum esse nomen satis adparetita enim a parte totum
 intellegitur et quod scriptum est: ante luciferum genui te (Ps 109,3).
 Non enim lucifer in omni creatura prior est conditus, ut ante luciferum
 ante omnem creaturam dictum uideatur; sed per luciferum omnia sidera
--quod est a parte totum- et per omnia sidera omnia témpora intelleguntur -de sideribus enim scriptum est: et sint in signis et in temporibus
+-quod est a parte totumet per omnia sidera omnia témpora intelleguntur -de sideribus enim scriptum est: et sint in signis et in temporibus
 (Gen 1,14)- ut Dominus natus ante omnia témpora non utique natus in
-tempore et ob hoc patri coaeternus insinuaretur. Pleiadis ergo et Orio-
-
-nis et Mazuroth et Vesperi commemoratio cuneta sidera intellegenda de
+tempore et ob hoc patri coaeternus insinuaretur. Pleiadis ergo et Orionis et Mazuroth et Vesperi commemoratio cuneta sidera intellegenda de
 compendio persuadet. Si enim uno Lucífero, quanto magis tot nominatis
 etiam cetera accipi per huius modi locutionem licet! Cur ergo alibi
 dictum est "intellexisti nexus", alibi "aperuisti", alibi "aperiens in
@@ -6546,9 +6514,7 @@ cuando dice: También nosotros seremos
 transformados.
 Cuando se realice la transformación de los justos se transformará el cielo, ya que el cielo es el trono de Dios, la Palabra
 de Dios es la Sabiduría y la Palabra era Dios y el alma del
-justo es trono de la sabiduría. ¿O se refiere a ambos cam-
-
-bios? Porque no ha dicho el cambio, sino los cambios. ¿O
+justo es trono de la sabiduría. ¿O se refiere a ambos cambios? Porque no ha dicho el cambio, sino los cambios. ¿O
 todas las cosas que ocurren bajo el cielo? Del mismo modo
 que los cambios del cielo afectan a las criaturas que se hallan
 bajo el cielo, así los cambios de los justos, tanto a mejor
@@ -6743,9 +6709,7 @@ hasta que, con agilidad de ciervos y después de superar las
 insinuaciones de la serpiente, vivan según el espíritu y vayan
 en pos del espíritu, de modo que no reine el pecado (de ahí
 el símil del macho cabrío) en su cuerpo mortal para secundar sus deseos. ¿Has protegido el parto de las ciervas? De
-las iglesias contabilizadas entre las espirituales que con sen-
-
-diaboli et angelorum eius, quibus consenserunt. Pauidi enitn sunt in
+las iglesias contabilizadas entre las espirituales que con sendiaboli et angelorum eius, quibus consenserunt. Pauidi enitn sunt in
 cubilibus suis (Iob 38,40): in latebris insidiarum suarum. Nam si
 (880) pauidi non essent, quís subsisteret? Pauent autem iüius imperium, sub quo exclamarunt: quid uenisti ante tempus perderé nos?
 (Me 1,24). Et quemadmodum de porcis manifestum est, quod in eos
@@ -6774,7 +6738,7 @@ hircus est, aliam legem in membris suis repugnantem legi mentís suae
 et captiuantem se in lege peccati (cf. Rom 7,22.23). Peperit autem
 talibus petras oportuno tempore ille, qui firmamenta solida exemplorum in Scripturis posuit, in quibus et quiescentes de se non desperent,
 quorum caro concupiscit aduersus spiritum et spiritus aduersus carnem (cf. Gal 5,17), doñee uiuacitate cerui serpentinis suasionibus
-superatis spiritu uiuant et spiritum sectentur, ne regnet peccatum -unde similitudo hirci ducitur- in eorum mortali corpore ad oboediendum desideriis eius (cf. Rom 6,12). Autpartus ceruarum custodisti?
+superatis spiritu uiuant et spiritum sectentur, ne regnet peccatum -unde similitudo hirci duciturin eorum mortali corpore ad oboediendum desideriis eius (cf. Rom 6,12). Autpartus ceruarum custodisti?
 (Iob 39,1). Ecclesiarum in numero spiritalium, materno affectu imita-
 
 Anotaciones al libro de Job
@@ -6846,7 +6810,7 @@ sus non per interrogationem pronuntiaiidi sunt. Quis autem est qui
 dimisit onagrum liberum? Mirum nisi eos per onagrum significat, qui
 pauci ab omni negotio liberi Deo seruiunt. Et uincula eius quis resoluit? (Iob 39,5). Affectionum carnalium atque popularium. Posui
 enim habitaculum desertum et tabernáculo eius salsuginem (Iob
-39,6). Vndeclamet: sitiuit inte anima mea (Ps62,2). Inridens multitudinem ciuitatis (Iob 39,7): quamBabyloniam Scriptura dicit, perambulantem per latamuiam, quae ducit adperditionem (cf. Mt 7,13). Et
+39,6). Vndeclamet: sitiuit inte anima mea (Ps 62,2). Inridens multitudinem ciuitatis (Iob 39,7): quamBabyloniam Scriptura dicit, perambulantem per latamuiam, quae ducit adperditionem (cf. Mt 7,13). Et
 querelam exactoris non audiens (Iob 39,7): nemini quidquam debens. Considerauit montes pascuae suae: magnitudinem reuelationum. Et post omne [618] uiride quaerit (Iob 39,8): omne sempiternum. Volet autem monoceros seruire tibí? Superbus dignitate huius
 saeculi, quia et tales subiugauit Christus et ministros ecclesiae constituit; uovoxepüx; enim unicornis est, quod superbiam significat. Aut
 dormiré super praesepe tuum? Sicut super illius humilitatem, qui
@@ -6879,7 +6843,7 @@ resulta más que difícil que este monókeros o unicornio
 tenga talante de sumisión, pero dentro del espíritu humano
 también esto es un don eficaz del único que hace maravillas, destructor de proyectos y de toda altivez que se empingorota contra la ciencia de Dios, y cautivador de todo
 entendimiento
-reduciéndolo a su obediencia2».
+reduciéndolo a su obediencia 2».
 El ala de los avestruces se mezcla con las alas de la
 garza y del halcón: a los de ingenio torpe, personificados
 non asperis restibus peccatorum. Aut ducet tibí sulcos in campo? (Iob
@@ -6999,9 +6963,7 @@ gozo el arco y la espada: a través de la confesión personal se
 ratifica la amenaza de Dios que anuncia en lontananza los
 castigos invisibles. Campea, asimismo, el testimonio de la
 palabra que en cierto modo destruye de cerca todos los
-errores. Naturalmente que una cosa es amenazar con el futu-
-
-ullo timore (Iob 39,16): hoc antequam conuertatur; laborat enim spe
+errores. Naturalmente que una cosa es amenazar con el futuullo timore (Iob 39,16): hoc antequam conuertatur; laborat enim spe
 saeculi sine fructu et, quod est insipientius, sine ullo timore, dum
 praesumit in rebus incertis. Quia [620] despexit eam Deus in sapientia
 et non distribuit ei intellectum (Iob 39,17): quid enim stultius quam
@@ -7013,9 +6975,7 @@ ut praeciperetur diuitibus huius saeculi non superbe sapere nec sperare in incer
 sursum cor habere ad Dominum et deridere superbos persecutores,
 quos Dominus proiecit in mare; tune enim penna struthionis mixta
 uelocibus auibus caelum petit et cetera quae de hoc animali supra dicta
-sunt fiunt. An tu circumdedisti equo uirtutem? Martyrem uidetur des-
-
-cribere, intrepidum et alacrem testem fidei salutaris, non tamen uirtute
+sunt fiunt. An tu circumdedisti equo uirtutem? Martyrem uidetur describere, intrepidum et alacrem testem fidei salutaris, non tamen uirtute
 propria, sed qua eum circumdedit Dominus. Et inseruisti eolio eius
 hinnitum? (Iob 39,19). indulte uos armaturam Dei, utpossitis resistere in die malo (Ephes 6,11). Etgloriaepectoris eius audacia? (Iob
 39,20). Haec est audacia qua Esaias audet et dicit (cf. Is 65,1; Rom
@@ -7382,9 +7342,7 @@ clamor de los habitantes de Sodoma. A esta locuacidad y
 griterío se contrapone aquel venturosísimo silencio del que
 se habla: Y callará sin miedo ante toda maldad. Por eso
 dice que ha hablado una sola vez en conversación ininterrumpida a lo largo de toda la vida del hombre viejo, siendo
-como es un soplo que pasa y no vuelve. Pero ahora, ponien-
-
-increpatus a Domino audiens talia, cunt nihil sim? (Iob 39,33.34).
+como es un soplo que pasa y no vuelve. Pero ahora, ponienincrepatus a Domino audiens talia, cunt nihil sim? (Iob 39,33.34).
 Id est: quid ergo mihi iudicium comparo, cum me commonet et arguit
 Dominus, si ei contradicam. Audiens talia, id est talia intellegens quanta iustitia et misericordia mecum sic agatur, cum per me ipsum utique
 nihil sim. Quod responsum dabo? Id est: quid potero contradicere
@@ -7408,12 +7366,12 @@ Amén.
 manum inponens ori, ne ultra progrediatur, promittit se non adicere
 iterum, ne recedat a Deo. Amen.
 
-LA CONCORDANCIA
+LA CON CORDANCIA
 DE LOS
 EVANGELISTAS
 Introducción, traducción y notas de Pío DE LUIS
 
-DE CONSENSU
+DE CON SENSU
 
 EVANGELISTARUM
 QUATTUOR
@@ -7475,7 +7433,7 @@ mientras que los opositores reales aparecen mucho más osados i». No son los pr
 son. Quienes pregonan la dissonantia entre los evangelistas
 son vel infideles vel imperiti homines (3,12,7). Ahora bien,
 esos infideles no pueden ser sino los paganos 12. Más aún, un
-texto indica explícitamente que también los paganos suelen calumniar al Evangelio, por lo que les arguye ad hominem13. Si también ellos, es que hay otros.
+texto indica explícitamente que también los paganos suelen calumniar al Evangelio, por lo que les arguye ad hominem 13. Si también ellos, es que hay otros.
 ¿Quiénes son estos otros? Ya hemos indicado que algunos ven en ellos a los maniqueos. En principio, parece demasiado afirmar, como hace Merkel n, que la contradicción
 entre los evangelistas sea el punto central de la crítica maniquea 15. Es cierto que Agustín sostiene que los maniqueos
 consideraban que había muchas contradicciones en el interior de los evangelios y de unos respecto a otros i«; pero es
@@ -7484,7 +7442,7 @@ difícil establecer una comparación entre las objeciones que
 Destinatarios
 Quiénes sean estas terceras personas resulta un poco
 misterioso. Misterioso es sobre todo el hecho de que no las
-mencione nominalmente ni en la obra ni en las Retractationes. Es cierto que los paganos son mencionados explícitamente, pero ellos no son los únicos ni -así creemos- los
+mencione nominalmente ni en la obra ni en las Retractationes. Es cierto que los paganos son mencionados explícitamente, pero ellos no son los únicos ni -así creemoslos
 principales. Al respecto, los autores no se han puesto de
 acuerdo. F. Weihrich, el editor de la obra en el CSEL, opina
 que son los paganos 2. El autor de la única monografía que
@@ -7553,8 +7511,8 @@ no sólo por exclusión, sino porque hay otros elementos
 que apuntan en esa dirección. Destacamos que aquí (1,7,10;
 3,7,10) como en otros textos antimaniqueos is recurra, refiriéndose a ellos, a los conceptos de imperitia y de temerttas; que aparezcan contrapuestos a los infideles y que en un
 sermón se sirva para describir a los maniqueos de la expresión qui voluntfidem
-derogare libris evangelicis i», la misma con que los describe en De consensu20.
-Ahora bien, la lectura del De consensu deja una sensación extraña. Resulta misterioso -decíamos- que Agustín no
+derogare libris evangelicis i», la misma con que los describe en De consensu 20.
+Ahora bien, la lectura del De consensu deja una sensación extraña. Resulta misterioso -decíamosque Agustín no
 mencione explícitamente a sus adversarios, contra su praxis
 habitual de polemista. Aunque es evidente que se enfrenta a
 objeciones provenientes de los maniqueos, no parece que la
@@ -7569,9 +7527,7 @@ correligionarios, sino también a las posibles de cualquier
 procedencia, incluidas, por supuesto, las apenas perceptibles de los paganos, sin olvidar las dificultades que podían
 experimentar los mismos católicos (1,7,10). Sorprende en
 concreto la falta de toda referencia, aunque sea sutil, a la
-doctrina maniquea (dejando de lado los problemas de armo-
-
-nía entre los evangelios). Mucho más presente está, sin embargo, la polémica antidonatista. La preocupación de Agustín ya parece más antidonatista que antimaniquea. Veamos
+doctrina maniquea (dejando de lado los problemas de armonía entre los evangelios). Mucho más presente está, sin embargo, la polémica antidonatista. La preocupación de Agustín ya parece más antidonatista que antimaniquea. Veamos
 esta presencia donatista.
 Al ocuparse del número 40, presente en la genealogía
 ofrecida por Mateo, Agustín señala que simboliza el tiempo
@@ -7672,7 +7628,7 @@ F. G. Cremer propone dos fechas alternativas: el
 399-400 o el 403-404 2 ». D. de Bruyne quiso posponer la
 fecha hasta el 405-410 para descongestionar el período anterior, que parecía demasiado cargado de obras 2 ». J.J.
 
-CSEL43 (Viena 1904) p.6.
+CSEL 43 (Viena 1904) p.6.
 Sí. Augustins Schrift «De consensu evangelistarump.15-18.
 PL 34,1041.
 Saeculum. History and Society in tbe Theology ofSt. Augustine (Cambridge
@@ -7772,7 +7728,7 @@ respecto al texto jeronimiano <». Otros piensan diversamente. Vogels optó por 
 posterior sustituyó por el de la Vulgata *K Piensa también en
 un viejo texto latino O. Bardenhewer «. Penna deja entender
 también que Agustín desconocía la Vulgata al componer el
-37 P.XXVI1.
+37 P.XXVI 1.
 is
 A Reconstruction of the Old-latin Text or Texts of the Gospels used by St.
 Augustine (1926).
@@ -7811,7 +7767,7 @@ grammatica^.
 Gramática y retórica fueron instrumentos que siempre
 tuvo a mano en su ministerio pastoral, tanto para comentar la
 palabra de Dios como para predicarla a los fieles. Instrumentos de que por cierto se sirvió abundantemente. Al respecto,
-la retórica ha sido lo suficientemente estudiada &; la gramáti4Í
+la retórica ha sido lo suficientemente estudiada &; la gramáti 4Í
 
 // "De consensu
 
@@ -7934,7 +7890,7 @@ las exigencias de la narratio brevis, si bien en algún caso sea
 en detrimento de la narratio aperta, por la que opta de
 forma inequívoca Lucas?9.
 Ello implica que al leer a los evangelistas hay que centrar más la atención en lo expresado que en el cauce de
-expresión; en las res60 y sententiae^ más que en las verba o
+expresión; en las res 60 y sententiae^ más que en las verba o
 locutiones de que se sirven para manifestarlas. Como cualquier autor, para expresar algo, ellos tuvieron en cuenta la
 polisemia de los términos; utilizaron, según los casos, un
 lenguaje propio, vulgar o figurado <"; se sirvieron del valor
@@ -7997,7 +7953,7 @@ cuatro evangelistas, negando cualquier incoherencia en el
 interior de cada uno o contradicción entre ellos 67. Si Agustín
 se ha vestido el uniforme de grammaticus, no ha sido para
 satisfacer su pasión por las letras ni para rememorar su pasado, sino para servir a esa causa. Pero antes se puso, sea por
-breve tiempo, la librea de teólogo. Por supuesto, no otorgamos al término -antes- un valor cronológico, sino lógico.
+breve tiempo, la librea de teólogo. Por supuesto, no otorgamos al término -antesun valor cronológico, sino lógico.
 Como hombre de fe y teólogo, Agustín acepta una especial acción de Dios sobre los evangelistas <», lo cual es ya
 
 garantía suprema de verdad. Si El controla y dirige sus mentes, y de modo especial sus recuerdos 6 », no cabe ni siquiera
@@ -8096,7 +8052,7 @@ afectará necesariamente a la forma externa, en cuanto que el
 primero puede suprimir o abreviar elementos narrativos, y el
 segundo puede introducirlos o ampliarlos en función de una
 mayor claridad 78. Un ejemplo claro de esto lo encuentra en
-Lucas7». El hecho explica que haya divergencias, pero no
+Lucas 7». El hecho explica que haya divergencias, pero no
 que se las considere como desacuerdos. Presuntas contradicciones se resuelven, por ejemplo, en la consideración generalitero distinctius (3,2,7), o, más fácil y frecuentemente,
 en el reconocimiento del empleo de alguna figura literaria,
 en particular la sinécdoque, en la variedad de sus formas 80.
@@ -8130,7 +8086,7 @@ que en los evangelios no siempre el sujeto real coincide con
 el gramatical, pues la Escritura -advierte él - tiene sus usos
 (mos) o sus locutiones, entre las cuales merece especial
 relieve el empleo de la tercera persona en lugar de la primera. Más aún, a la hora de las atribuciones, los evangelistas
--sigue señalando- no establecen distinción entre el sujeto
+-sigue señalandono establecen distinción entre el sujeto
 físico y quien le representa o aquellos con quienes mantiene
 una unidad estrecha, independientemente de cuál sea el
 fundamento de dicha unión 85. El esfuerzo no le resulta improductivo respecto al objetivo armonizador: si aparentemente se trata de distintas personas, lo que lleva a pensar en
@@ -8171,7 +8127,7 @@ conduce además a presentar a Cristo como la Verdad 0 n
 afirmar que Cristo es el sujeto real, aun cuando el gramatical
 
 Teología
-A esta obra agustiniana no se la puede calificar de teológica; es fundamentalmente -señalamos- la obra de un gramático. Pero la teología no está ausente del todo. Ya hicimos
+A esta obra agustiniana no se la puede calificar de teológica; es fundamentalmente -señalamosla obra de un gramático. Pero la teología no está ausente del todo. Ya hicimos
 mención de algunos principios de carácter teológico en que
 
 Cf. nota complementaria 20: «Voluntas*.
@@ -8290,7 +8246,7 @@ KLEMM, H. G., Die Widersprüche
 zwischen
 den
 Evangelien:
-Zeitschrift für Religions- und Geistesgeschichte 26 (1974)
+Zeitschrift für Religionsund Geistesgeschichte 26 (1974)
 60-63.
 LA BONNARDIÉRE, A. M., Irénée de Lyon et Augustin
 d'Hippone:
@@ -8299,7 +8255,7 @@ septembre 1958 (Les Belles Lettres, Paris 1960) 344-346.
 - Recherches de chronologie augustinienne
 (Paris 1965).
 
-LAMOTTE, J., Le Mithe de Rome -Vilie Eternelle- el Saint Augustin:
+LAMOTTE, J., Le Mithe de Rome -Vilie Eternelleel Saint Augustin:
 Augustiniana 11 (1961) 225-260.
 LOWE, E. A. (Ed.), Códices latint antiquiores. A Paleograpbical
 Guide to Latin Manuscripts prior to tbeNintb Century. Part X
@@ -8330,7 +8286,7 @@ O'MEARA, J., Porphyry's Philosopby Jrom Oracles in Augustine:
 litúrgicos latinos de la
 Universidad de Salamanca: Analecta Sacra Tarraconensia 22
 (1949) 75-92.
-PENNA, A., // "De consensu evangelistarum- ed i «canoni eusebiani». Bíblica 36 (1955) 1-19.
+PENNA, A., // "De consensu evangelistarumed i «canoni eusebiani». Bíblica 36 (1955) 1-19.
 PEPIN, J., Theologie cosmique et tbéologie ebrétienne
 (Ambroise,
 Exam. 1,1,1-4). Bibliotheque de philosophie contemporaine
@@ -8383,7 +8339,7 @@ ZEDDA, S., La veridicita dei Vangeli nel -De consensu
 evangelistarum» e nella «Expositio Evangelii secundum Lucam» di S.
 Ambrogio: Divus Thomas 66 (1963) 424-431.
 
-LA CONCORDANCIA DÉLOS EVANGELISTAS
+LA CON CORDANCIA DÉLOS EVANGELISTAS
 TOMADO DE LAS «REVISIONES» (II 42
 
 [16])
@@ -8403,7 +8359,7 @@ pueblo hebreo haya comenzado con Abrahán i, como si «Hebreos» procediese de �
 más conforme a la verdad que hayan recibido el nombre de
 Héber, como si fuesen «Hebereos». Sobre este asunto ya he
 
-DE CONSENSV EVANGEHSTARVM
+DE CON SENSV EVANGEHSTARVM
 
 LIBRIQ VA TTVOR
 
@@ -8417,7 +8373,7 @@ discipulis, quos existimant ei diuinitatem, qua crederetur Deus, errore
 tribuisse.
 2.- In quo libro ex Abraham coepisse gentem Hebreorum est
 quidem et hoc credibile, ut Hebrei uelut Abrahei dicti esse uideantur,
-sed ex illo uerius intelleguntur appellati, qui uocabatur Heber, tam1
+sed ex illo uerius intelleguntur appellati, qui uocabatur Heber, tam 1
 
 De cons. evang. 1,14,24.
 
@@ -8443,7 +8399,7 @@ mismo nombre.
 divinas
 auctoritates.
 
-LA CONCORDANCIA
+LA CON CORDANCIA
 
 DÉLOS
 
@@ -8459,7 +8415,7 @@ anticiparon como futuro. Los primeros en anunciarlo fueron
 los apóstoles, quienes vieron al mismo Jesucristo, nuestro
 Señor y Salvador, aún viviendo aquí '. No sólo recordaban * lo
 
-DE CONSENSVEVANGELISTARVM,
+DE CON SENSVEVANGELISTARVM,
 quam (637) Heberei, de qua re iu libro sexto décimo de Ciuitate Dei
 satis disserui.
 3. In secundo, cum agerem de duobus patribus Ioseph, ab altero
@@ -8475,16 +8431,16 @@ alter fiíerit, quamuis et ipse hoc uocaretur.
 Decons. etaang. 23, 5.
 Decora, evaag. 2,4,12.
 
-LIBR1QVATTVOR
+LIBR 1QVATTVOR
 
 SANCTI AVRELI AVGVSTINI
 HIPPONIENSIS EPISCOPI
-[CSEL43, 1] (PL34, 1041)
+[CSEL 43, 1] (PL34, 1041)
 LÍBER PRIMVS
 1. 1. ínter omnes diuinas auctoritates, quae Sanctis Litteris
 (1042) continentur, Euangelium mérito excellit. Quod enim Lex et
 Prophetae futurum praenuntiaf/0-í3^uerunt, hoc redditum adque conpletum in Euangelio demonstratur. Cuius primi praedicatores apostoli
-fuerunt, qui Dominum ipsum et saluatorem nostrum [2] Iesum Chris1
+fuerunt, qui Dominum ipsum et saluatorem nostrum [2] Iesum Chris 1
 Autoridades son cada uno de los libros de la Escritura. Dado que su autoridad
 es la mayor, Agustín, recurriendo a la figura de la -antonomasia" (cf.
 QIIINTILIANO, ¡nsiitutio oratoria VIII 6,29-30), los designa sin más como -autoridades".
@@ -8584,7 +8540,7 @@ La autoridad oficial, canónica, no es un dato sólo dogmático, sino que se apo
 en la credibilidad (fides) que, a juicio de la Iglesia, merecen los autores sagrados.
 Agustín distingue bien la autoridad canónica de cualquier otra autoridad. Cf. Contra
 Faustum 11, 2.
-" Cf. L. CILLERUELO, El concepto 'regula- en San Agustín: La Ciudad de Dios 181
+" Cf. L. CILLERUELO, El concepto 'regulaen San Agustín: La Ciudad de Dios 181
 (1968) 816-824, y C P. MAYER, Herkunft und Normativitat des Terminus
 -Regulabei Augustin: Mélanges T.J. van Bavel, I 127-154 (= Augustiniana 40 [1990]). Obviamente, el término -católico» tiene el sentido etimológico, es decir, -universal», la fe
 que profesa la Iglesia entera, no el -confesional».
@@ -8624,7 +8580,7 @@ ultimum Iohannes, ut reliqui dúo, qui ex illo numero non erant, sed
 Cf. nota complementaria 5: El número de los evangelios.
 Este orden no era umversalmente aceptado. Por ejemplo, el Ambrosiáster, en la
 Quaestio IV de las Quaestiones Veteris et Novi Testamenti, propone y fundamenta
-este otro: Mateo, Lucas, Marcos y Juan. Dice así: -El orden de los evangelios se fundamenta en los contenidos- más que en su fecha. En consecuencia, ha de ponerse en
+este otro: Mateo, Lucas, Marcos y Juan. Dice así: -El orden de los evangelios se fundamenta en los contenidosmás que en su fecha. En consecuencia, ha de ponerse en
 primer lugar a Mateo, porque comenzó con la misma promesa hecha a Abrahán de la
 encarnación del Señor; después de él viene Lucas, que narra cómo tuvo lugar dicha
 encarnación; el tercero es Marcos, quien afirma que el Evangelio predicado por Cristo
@@ -8634,7 +8590,7 @@ veteris et novi
 testamenti.
 Appendix quaestionum novi testamenti IV). El mismo orden se halla en un canon
 griego de hacia-el 400 (cf. H. MERKEL, Die Wiedersprúcbe, p.153, n.l 13)18
-En el número anterior nos indicaba que el escribir el Evangelio era una -autoridad- que otorgaba Dios por su Espíritu. Agustín tiene especial interés en recalcar que
+En el número anterior nos indicaba que el escribir el Evangelio era una -autoridadque otorgaba Dios por su Espíritu. Agustín tiene especial interés en recalcar que
 los autores de evangelios escribieron bajo el mandato divino. Si Dios ha ordenado su
 escritura, él está detrás avalando todo, como garante de su verdad.
 
@@ -8652,7 +8608,7 @@ en lengua hebrea 20; los demás lo hicieron en griego. Y aunque parezca que cada
 en el relato 21, no se advierte que cada uno de ellos haya
 querido escribir como desentendiéndose de lo escrito por su
 predecesor, o que haya omitido, por ignorancia, lo referido
-por otro. Al contrario, según la inspiración personal recibida 22, hizo de su trabajo una aportación no superflua23.
+por otro. Al contrario, según la inspiración personal recibida 22, hizo de su trabajo una aportación no superflua 23.
 Se entiende que Mateo asumió el mostrar la estirpe regia
 en la encarnación del Señor y la conformidad de la mayor
 parte de lo que hizo y dijo con la vida presente de los homtamen Christum in illis loquentem secuti erant, tamquam filii ample[4]
@@ -8683,11 +8639,11 @@ Concordancia de los evangelistas
 
 1, 3, 5
 
-bres24. Marcos le siguió como detrás y parece que hace un
+bres 24. Marcos le siguió como detrás y parece que hace un
 compendio de él. Lo exclusivamente suyo es muy poco. Sólo
 con Juan no tiene nada en común. En pocas cosas coincide
 sólo con Lucas, mientras que con Mateo coincide en muchísimas, ya sea con él solo, ya también con los otros; y en
-muchas de ellas casi en el mismo tenor verbal25.
+muchas de ellas casi en el mismo tenor verbal 25.
 Por su parte, Lucas aparece más ocupado con la estirpe y
 función ¿6 sacerdotal del Señor 27. En efecto, no se remontó,
 siguiendo el árbol genealógico regio, hasta el mismo David;
@@ -8863,7 +8819,7 @@ hubiera bebido de forma más abundante y en cierto modo
 más íntima el secreto de su divinidad en el pecho del mismo
 Señor, sobre el que acostumbraba recostarse en los banquetes 4?.
 Los SINÓPTICOS REPRESENTAN LA VIDA ACTIVA;
-JUAN, LA CONTEMPLATIVA
+JUAN, LA CON TEMPLATIVA
 
 58. Dos son las virtualidades que se ofrecen al alma
 humana: una activa, otra contemplativa 46. Aquélla, el medio
@@ -9038,7 +8994,7 @@ cuantas confusiones están en su poder, algunos hermanos,
 manteniendo íntegra la fe, desean saber qué pueden responueracis narrationis derogent fidem, per quos christiana religio disseminata per mundum tanta fertilitate prouenit, ut nomines infideles iam
 inter se ipsos calumnias suas mussitare [11] uix audeant conpressi fide
 gentium et omnium deuotione populorum. Verum tamen, quia nonnullos adhue calumniosis disputationibus suis uel retardant a fide, ne credant, uel iam credentes, quantum potuerint, exagitando perturbant,
-nonnulli autem fratres salua fide nosse desiderant, quid talibus respon5í
+nonnulli autem fratres salua fide nosse desiderant, quid talibus respon 5í
 Vel ímpta vanitate vel imperita temeritate: con estos términos Agustín indica
 aquellas personas o grupos contra los que se propone escribir su obra. ¿Quiénes son?
 En nuestra opinión, con la expresión impia vanitas se designa a los paganos y con
@@ -9076,7 +9032,7 @@ puede verse en Sermo 51,3.4.
 Libro I
 
 der a tales cuestiones ss, ya para adelantar en la propia ciencia, ya para refutar la palabrería de ellos. Por eso, con la
-inspiración y la ayuda del Señor nuestro Dios, he emprendido en esta obra - que ojalá sirva también para su salvación- la
+inspiración y la ayuda del Señor nuestro Dios, he emprendido en esta obra - que ojalá sirva también para su salvaciónla
 tarea de demostrar el error o la temeridad de quienes creen
 presentar objeciones suficientemente agudas contra los cuatro libros del evangelio que escribieron, independientemente, los cuatro evangelistas. Para que ello sea realidad, he de
 mostrar cómo no se contradicen esos mismos cuatro autores 59. Esta suele ser la objeción palmaria que presenta su
@@ -9088,7 +9044,7 @@ origina dificultad a algunos 61, a saber-, por qué el Señor no
 escribió personalmente nada, con la consecuencia de que es
 deant quaestionibus, uel ad prouectum scientiae suae uel ad illorum
 uaniloquia refellenda, inspirante adque adiuuante Domino Deo nostro
--quod utinam et ipsorum saluti prosit- hoc opere demonstrare suscepimus errorem uel temeritatem eorum, qui contra euangelii quattuor
+-quod utinam et ipsorum saluti prosithoc opere demonstrare suscepimus errorem uel temeritatem eorum, qui contra euangelii quattuor
 libros, quos euangelistae quattuor singulos conscripserunt, satis argutas
 criminationes se proferre arbitrantur. Quod ut fíat, quam non sibi aduersentur Ídem scriptores quattuor, ostendendum est. Hoc enim solent
 quasi palmare suae uanitatis obicere, quod ipsi euangelistae inter se
@@ -9127,7 +9083,7 @@ son una sola cosa, y otras posibles afirmaciones semejantes,
 presentes en los escritos apostólicos, por los que hemos
 aprendido que, como a Hijo único de Dios, se le debe adoración juntamente con el Padre. Consideran que merece todo
 honor como hombre sapientísimo, pero niegan que haya que
-adorarle como Dios62.
+adorarle como Dios 62.
 12. Al preguntar por qué él no escribió nada, dan la
 impresión de que estaban dispuestos a creer lo que él hubiese escrito sobre sí mismo, no lo que otros hubiesen predicado a su antojo de él. A los tales les pregunto por qué creen,
 respecto a ciertos destacadísimos filósofos suyos, lo que sobre ellos dejaron escrito sus discípulos para la posteridad, si
@@ -9171,7 +9127,7 @@ sentencias ajenas antes que las propias.
 ¿Cuál es, entonces, el motivo por el que respecto a estos
 personajes creen lo que sus discípulos confiaron a la escritura, y respecto a Cristo no quieran creer lo que escribieron de
 él los suyos? Sobre todo teniendo en cuenta su reconocimiento de que supera a todos los hombres en sabiduría,
-aunque no quieran admitir que es Dios6?. ¿Acaso aquéllos,
+aunque no quieran admitir que es Dios 6?. ¿Acaso aquéllos,
 de quienes no dudan que fueron muy inferiores a él, pudieron procurarse discípulos que dijeran verdad acerca de
 ellos, mientras que Jesucristo no fue capaz? Si decir esto es el
 tune habuit Graecia clarius, non tantum de se, sed nec de ulla re aliquid
@@ -9187,8 +9143,8 @@ quamuis eum fateri Deum nolint? An uero illi, quos isto multo inferiores
 fuisse non dubitant, ueraces de se discípulos faceré potuerunt et iste
 Cf. De civ. Dei 8, 4: «... Se dice que Sócrates sobresalió en la vida activa y que
 Pitágoras se dedicó más a la contemplativa con todos los recursos de su talento-. Cf.
-PORFIRIO, Vita Pitagorae 57; EUSEBIO, Praeparatio evangélica 10,7; CLAUDIANO, De statu
-animae23.
+POR FIRIO, Vita Pitagorae 57; EUSEBIO, Praeparatio evangélica 10,7; CLAUDIANO, De statu
+animae 23.
 Cf. De Ctv. Dei 8,4 (nota anterior): LACTANCIO, Divinae Institutiones 3,13,21.
 
 PLATÓN, Fedo'n p. 6 l B; DIÓGENES LAERCIO, Vitaepbiiosopborum
@@ -9199,9 +9155,7 @@ Cf. De civ. Dei 8,14. CICERÓN, Deoratore
 
 3,16,60. PLUTARCO, De fortuna
 
-Alexan-
-
-dri 1,4; DIÓGENES LAERCIO, Vitae, 1,16.
+Alexandri 1,4; DIÓGENES LAERCIO, Vitae, 1,16.
 
 Cf. De civ. Dei 8,14; 18,37; Retractationes 2,16, y más adelante 1,34,52. De
 baeresibus 8,10; Epist. 120,3,15; In lo. ev. 36,2.
@@ -9427,7 +9381,7 @@ consecrasse delirant, utrum potuerit magicis artibus tantos prophetas
 Diuino Spiritu antequam in térra nasceretur implere, qui de illo talia
 futura praelocuti sunt, qualia iam praeterita in euangelio legimus et
 qualia in orbe terrarum praesentia nunc uidemus. Ñeque enim, si magicis artibus fecit, ut [17] coleretur et mortuus, magus erat antequam
-natus, cui prophetando uenturo gens una deputata est, cuius reipubli76
+natus, cui prophetando uenturo gens una deputata est, cuius reipubli 76
 
 Cf. Contra Faustum
 
@@ -9471,7 +9425,7 @@ de dis gentium, quas subiugabant rnPenH
 " autem Romani
 suscipere. Hoc de Deo genfis Hebraeaet? p r ° pltiare « ^rum sacra
 uel uicerunt, faceré nolLunt Credo ^ 0 ^, ^ ^
-°bPu8na^runt
+°bPu 8na^runt
 reciperent, qui se solum delet s etfam ' líUldebant > « eius Dei sacra
 da esse omnia quae prius cotn £ Tmulacnscoh ¡ "beret, dimitten¡«nperium suur^creuisse arb° aban tur "T™'
 ^ T " 1 ^^^nibus
@@ -9534,7 +9488,7 @@ primordia sua recolant, facinorosorum asylum et Romuli fratricidium.
 Ñeque enim, quando asylum constituerunt Remus et Romulus, ut quisquís cuiuslibet sceleris reus eo confugisset inultum haberet commissum, praecepta paenitentiae dederunt ad saluandas animas miserorum
 (cf. Gen 19,17; Le 9,56; Iac 1,21; 5,20) ac non potius collectam
 timentium manum contra suas ciuitates, quarum leges timebant, mercede inpunitatis armarunt, aut quando Romulus fratrem, qui nihil in eum
-mali perpetrarat, occidit, iustitiam uindicandi ac non principatum do78
+mali perpetrarat, occidit, iustitiam uindicandi ac non principatum do 78
 
 VIRGILIO, Aeneida 10,100. Cf. también Enchiridium 3,11.
 ™ De civ. Dei 5,21. EUSEBIO, Hist. Eccl. 7,18,4.
@@ -9543,7 +9497,7 @@ atribuían a su falta de piedad hacia los dioses el declinar del Imperio y de la
 era que sus victorias se debieron a que los dioses de los pueblos vencidos amaron y
 eligieron la piedad y costumbres romanas. Es a lo que se. refiere aquí Agustín. Cf. Sermo
 105,10,13; De civ. Dei 5,23; in ps. 96,12.
-" Cf De civ. Dei 1, 34; 3, 6; 15, 5; CIPRIANO, Quod idola dii non sunt5; LIVIO, Ab
+" Cf De civ. Dei 1, 34; 3, 6; 15, 5; CIPRIANO, Quod idola dii non sunt 5; LIVIO, Ab
 urbe condita 1,8; 2,1; VIRGILIO, Aeneida 8,432; TÁCITO, Historia 3,71; PLUTARCO, ÍOJIII lus 9.10; DIÓGENES 47,19.
 
 1, 13, 20
@@ -9767,7 +9721,7 @@ erradicar la fe cristiana a la vez que honran y alaban a Cristo,
 porque en verdad los discípulos de Cristo anunciaron los
 hechos y los dichos de que consta la religión cristiana, enemiga de ellos, poquísimos ya, que, aunque no la atacan, aún
 murmuran de ella? 6. Si no quieren creer que Cristo enseñó
-tales cosas, lean a los profetas97, que no sólo mandaron
+tales cosas, lean a los profetas 97, que no sólo mandaron
 aniquilar las supersticiones de los ídolos, sino que hasta
 predijeron que dicha aniquilación tendría lugar en los tiemresponsa conentur, continent blasphemias a Christo et eas in discípulos
 eius effundunt; mihi autem uidetur, quod illi di gentium, quos philosophi paganorum consulere potuerunt, etiam, si de discipulis Christi
@@ -9959,7 +9913,7 @@ ut nec laedere ualeant nisi eos, quos ita laedendos esse ille iudicat, qui
 omnia potest? Sicut autem ipsi coguntur fateri, minora certe quam ille
 potuerunt. Si enim di sunt, quorum uates consulti ab hominibus ut non
 dicam fefellerunt, próxima tamen priuatis negotiis responderunt, quomodo non est Deus, cuius uates non solum ea, quae ad tempus consulebantur, congrue responderunt, uerum etiam unde non consulebantur de
-uniuerso genere humano adque ómnibus gentibus ea tanto ante praedi104
+uniuerso genere humano adque ómnibus gentibus ea tanto ante praedi 104
 
 Una vez más. Agustín recurre a los profetas como apoyo a la verdad del Dios de
 los hebreos y cristianos; sus profetas superan a los vates paganos en la universalidad:
@@ -10002,7 +9956,7 @@ desertis se unum Deum colere iuberentur et iussi famularentur? (cf. Is
 2,17-20).
 20. 28. Aut legant, si possunt, uel aliquam Sibyllarum uel quemlibet aliorum uatum suorum praedixisse hoc futurum, ut Deus Hebraeorum Deus Israhel ab ómnibus gentibus coleretur, et quod eum cultores
 aliorum deorum recte antea respuissent, futuras etiam litteras prophetarum eius in auctoritate ita sublimi, ut his obtemperans etiam imperium
-Romanorum iuberet deleri simulacra, monuisse etiam, ne talibus prae105
+Romanorum iuberet deleri simulacra, monuisse etiam, ne talibus prae 105
 Cf. VIRGILIO, Aeneida 3,444; 6,9-97; Oracula Sibyllina 13,82; 14,185. También
 De civ. Dei 18,46. Agustín nunca estuvo convencido del valor cristiano de las profecías
 sibilinas: Ep. ad rom. tncoata exp. 3; Contra Faustum 13,15; Epist. 258,5. Cf. P.
@@ -10148,7 +10102,7 @@ suspicari quam louem. Sed siue qui Saturnum siuc qui louem Deum
 1,1
 
 Cf. nota 97.
-'" Cf. De civ. Dei7, 19; Contra Pauslum 18,5; 20,13.
+'" Cf. De civ. Dei 7, 19; Contra Pauslum 18,5; 20,13.
 Sobre Varrón y su obra habla Agustín abundante y repetidamente en los libros 6,
 7, 18, 19, 21 y 22 del De civ. Dei.
 IM
@@ -10224,7 +10178,7 @@ VIRGILIO. Georgicaell 325-326; cf. De civ. Dei 4.10.11; De genesi ad litteram
 líber imperfectas 4.14.
 "» Doxographi graeci, ed. DIELS. p.608.19; 304a 2, b 23; 571.9; 537. a 7; cf.
 CICEROS. De natura deorum 1.12.30.
-Cf. De civ. Dei6.7; 7.27. LACTANCIO. DivinaeInstitutiones
+Cf. De civ. Dei 6.7; 7.27. LACTANCIO. DivinaeInstitutiones
 1,11.33; CICERÓN, De
 natura deorum 1.42.119; EISEBIO. Praeparatio evangélica 2,2; Doxographi Graeci
 297.15 Cf también nota complementaria 3; Evemerismo, en Obras completas de San
@@ -10261,7 +10215,7 @@ ipsi illi maiorum gentium di hinc a nobis profecti in caelum repperientur. Quaer
 quoniam es ini[31]tiatus. quae tradantur mysteriis. Tum denique, quam
 hoc late pateat. intelleges». Hic cene istorum déos homines fuisse satis
 confitetur. in caelum autem peruenisse beniuole suspicatur. quamquam et hunc honorem opinionis ab hominibus eis esse delatum, non
-dubitauit publice dicere. cum de Rómulo loqueretur; -qui nana- inquit. -urbem condidit. Romulum ad déos inmortales beniuolentia famaque sustulimus-. Quid igitur mirum est, si hoc fecerunt antiquiores
+dubitauit publice dicere. cum de Rómulo loqueretur; -qui nanainquit. -urbem condidit. Romulum ad déos inmortales beniuolentia famaque sustulimus-. Quid igitur mirum est, si hoc fecerunt antiquiores
 homines de Ioue et Saturno et ceteris. quod Romani de Rómulo, quod
 
 '-' De natura deorum 1.119: De civ. Dei ~. 2 " \ 1.
@@ -10361,7 +10315,7 @@ i
 '"> Texto adscrito a la obra de Varrón De gentepopuli romani, por Fr. Ffister, G.
 Boissier y P. Courcelle. Cf. H. HAGENDAHL, Augustine and the Latin Classics (Góteborg
 1967), p.315, n.3.
-Ií0
+Ií 0
 Cf. VARRÓN, Antiquitates rer. div. 1,57.
 u' Cf. Contra Faustum 20,9 y nota 116.
 ' « VIRGILIO, Aeneida 8,320-324. Cf. más adelante 1,25,38; De civ. Dei 7,27,1;
@@ -10450,7 +10404,7 @@ p.378ss.
 "" Cf. nota 116. Téngase en cuenta que la novitas solfa ser un contravalor en eí
 mundo antiguo.
 '»» Cf. De civ. Dei 19,22; 22,28.
-'•o VIRGILIO, Eglogae 3,60; De civ. Dei4,9.ll;
+'•o VIRGILIO, Eglogae 3,60; De civ. Dei 4,9.ll;
 7,9. Cf. antes 1,23,31
 "' De civ. Dei 8,5; 10,2. PLOTINO, Enneadae 2,9,1; 5,1,4; 2, 1; 8,4.5.
 
@@ -10473,7 +10427,7 @@ que había que adorar sobre todo a Júpiter, no pensaron como
 éstos. Si los que participaron de esta nueva i« opinión hubiesen tenido algún poder en estos asuntos, hubiesen dedicado
 a Saturno las más altas ciudadelas; igualmente hubiesen eliminado ante todo a los matemáticos y astrólogos, quienes
 hacían de Saturno, a quien ellos consideran como creador de
-sabios, un dios maléfico entre los otros astros i«. Esta opi5,1; 8,1-36; 9,10; 15,33; 24,14; 27,11; Eccli 6,23-37; 11,15; 15,10;
+sabios, un dios maléfico entre los otros astros i«. Esta opi 5,1; 8,1-36; 9,10; 15,33; 24,14; 27,11; Eccli 6,23-37; 11,15; 15,10;
 19,18; 21,13; 39.8; 43,37; Dan 2,20-22; lo 1,16; 1 Cor 1,30; 2,6-16;
 Eph 1,17; Col 1,9; 2,3; Iac 3,7). Vtrum autem uniuersa ista corporalis
 moles, quae mundus appellatur, [35] habeat quandam animam uel quasi
@@ -10774,7 +10728,7 @@ una virgen concebirá y dará a luz un hijo, y le pondrán
 por nombre Enmanuel. Enmanuel significa «Dios con nosotros». El Dios de Israel, que prohibió el culto de otros dioses,
 que prohibió la fabricación de ídolos, que mandó derribarlos, que predijo por medio del profeta que pueblos procedentes del extremo de la tierra dirían:
 Verdaderamente
-nuestros padres rindieron culto a mentiras y no hay utili41. Quis enim haec euertit nisi Deus Israhel? Ipsi enim populo
+nuestros padres rindieron culto a mentiras y no hay utili 41. Quis enim haec euertit nisi Deus Israhel? Ipsi enim populo
 dictum est per diuinas uoces factas ad Moysen: audi Israhel, Dominus
 Deus tuus Dominus unus est (Deut 6,4). Non facies Ubi idolum
 ñeque cuiusquam similitudinem, ñeque quae in cáelo sursum ñeque
@@ -10865,7 +10819,7 @@ quos Deus Israhel suam exserit potestatem iam subditos Christi nomini,
 sicut longe ante promisit dicens per prophetam: et adorabunt eum
 omnes reges terrae, omnes gentes seruient illi? (Ps 71,11).
 28. 43- Nempe iam impletur quod per prophetam identidem
-canitur, quod remissurus esset impiam plebem suam -non quidem to158
+canitur, quod remissurus esset impiam plebem suam -non quidem to 158
 Situación en que se encontraban los paganos como consecuencia de las numerosas leyes emanadas contra ellos, de las que recordamos las posteriores a Teodosio,
 con su respectiva fecha: Arcadio y Honorio confirman las leyes de Teodosio, prohibiendo la entrada y sacrificios en los templos (7.8.395); Los sacerdotes paganos pierden sus
 privilegios, inmunidades y prerrogativas legales (7.12.396); Arcadio renueva la prohibición de los sacrificios (29.1.399); Honorio suprime las tasas en favor de los templos
@@ -11145,9 +11099,7 @@ toda la tierra: He aquí, dice, que mi siervo estará en mi
 mente, será exaltado y glorificado sobremanera.
 Como
 muchos se admirarán de ti, así también los hombres verán tu aspecto indecoroso y tu honor. Así muchos pueblos
-se admirarán y los reyes contendrán su boca porque aque-
-
-ita longum est, ut oporteat praetermitti. Dicuntur enim multa de praesentia et humilitate et passione Christi et corpore eius, cui caput est, id
+se admirarán y los reyes contendrán su boca porque aqueita longum est, ut oporteat praetermitti. Dicuntur enim multa de praesentia et humilitate et passione Christi et corpore eius, cui caput est, id
 est Ecclesia eius, cum appellatur tamquam sterilis, quae non pariebat.
 Per multos enim annos Ecclesia, quae futura erat in ómnibus gentibus in
 filiis suis, hoc est in sanctis suis, non apparuit nondum Christo adnuntiato per euangelistas eis, quibus non est adnuntiatus per prophetas, et
@@ -11472,7 +11424,7 @@ guaridas de torpezas y profesión pública de deshonestidad, y
 caen también los foros y murallas en los que se adoraba a los
 demonios 172. ¿A qué se debe que caigan, sino a la penuria de
 los materiales con cuyo uso lascivo y sacrilego se han levantado?
-Cuando Cicerón elogió a cierto histrión de nombre Roscioi73, ¿no dijo que era tan competente que era el único
+Cuando Cicerón elogió a cierto histrión de nombre Roscioi 73, ¿no dijo que era tan competente que era el único
 digno y merecedor de subir a las tablas, y tan bueno que era
 el único digno y merecedor de no acercarse a ellas? ¿Qué
 manifestaba con la máxima claridad sino que aquel espectáculo era tan deshonesto que tanto menos debía entrar allí
@@ -11498,7 +11450,7 @@ frecuente en la predicación de Agustín. Cf. Sermones 25,3; 73,4; 80,8; 311,8; 
 De civ. Dei, puede verse al respecto Epist. 17; 102, 138,9; Sermo 296,7.
 Nótense las diferentes respuestas de Agustín a la misma objeción de los paganos,
 según la cercanía mayor o menor de la caída de Roma. Cf. J. LAMOTTE, Le mitbe de Rome
--Ville Éternelle- et saint Augustin: Augustiniana 11 (1961) 225-260.
+-Ville Éternelleet saint Augustin: Augustiniana 11 (1961) 225-260.
 •*J Pro Quinctio 78. Cf. H. Hagendahl, Augustine and the Latín Classics p.480
 n.10
 
@@ -11622,7 +11574,7 @@ eius a sui magistri doctrina deuiasse, cum déos gentium coli prohibuerint, ne u
 demoniis haberemus uel creaturae potius quam creatori religionis obsequio seruiremus (cf. Rom 1,25).
 35. 53. Quapropter, cum sit ipse Christi sapientia Dei, per quam
 creata sunt omnia, cumque nullae mentes rationales siue angelorum
-siue hominum nisi participatione ipsius sapientes fiant, cui per Spiri182
+siue hominum nisi participatione ipsius sapientes fiant, cui per Spiri 182
 
 Cf. nota 97.
 Insensatum es uno de los epítetos más frecuentes de simulacrum. Cf. In ps.
@@ -11796,7 +11748,7 @@ scripserunt quemadmodum sibi adque inter se congruant, ne quid ex
 hoc in fide christiana offendiculi patiantur qui curiosiores quam capaciores sunt, quod non utcumque perlectis, sed quasi diligentius perscrutatis euangelicis libris inconuenientia quaedam et repugnantia se
 Cf. 1,7,11.
 ' Cf. 1,31 48; 8,13; 27,42; 34,52.
-' En este primer párrafo se refiere todavía al -paréntesis- que ocupó gran parte del
+' En este primer párrafo se refiere todavía al -paréntesisque ocupó gran parte del
 libro primero (1,7,1 lss). A partir de aquí (nunc iam videamus) comienza a tratar lo
 que era intención principal, a la que se refirió al comienzo de la obra (1,1-1,7,11).
 
@@ -11881,7 +11833,7 @@ eius quem non ex sua coniuge procreatum alicunde adoptasset.
 3. Putabatur quidem Christus etiam aliter filius Ioseph, tamquam
 ex eius omnino carne progenitus, (1072) sed ab eis hoc putabatur quos
 ' Cf. G. BAVAIID, Un théme augustinien: le mystére de l'incarnation, á la lumiére
-de la distinction entre le verbe intérieur et le verbepro/ere': Revue des Étndes Augustiniennes9 (1963) 95-101.
+de la distinction entre le verbe intérieur et le verbepro/ere': Revue des Étndes Augustiniennes 9 (1963) 95-101.
 » Cf Sermo 51,13,21; De nuptiis et concupiscentia 1,11,13; De sermone domini
 in monte 1,15,42; Contra Faustum 23,8. Cf. también P LANGA, San Agustín y el
 progreso de la teología matrimonial (Toledo 1984), p. 205ss.
@@ -11985,7 +11937,7 @@ progenitores, mientras Lucas menciona otros en la suya, ascendente, desde José 
 advertir que José pudo tener dos padres, uno que lo engendró y otro que lo adoptó. También en el pueblo de Dios
 existe la antigua costumbre de adoptar y, de esa manera,
 adquirir como hijos a los que no se ha engendrado. Dejando
-de lado que la hija del faraón - que era extranjera- había
+de lado que la hija del faraón - que era extranjerahabía
 adoptado a Moisés, el mismo Jacob adoptó, con palabras que
 no dejan lugar a duda, a sus nietos, hijos de José, al decir:
 Ahora tus dos hijos que te nacieron antes de venir yo
@@ -12001,7 +11953,7 @@ enumerat descendens a Dauid usque ad Ioseph (cf. Mt 1,1.16), alios
 autem Lucas ascendens a Ioseph usque ad Dauid (cf. Le 3,23-38), facile
 est, ut aduertant dúos patres habere potuisse Ioseph, unum a quo genitus, alterum a quo fuerit adoptatus. Antiqua est enim [85] consuetudo
 adoptandi etiam (1073) in illo populo Dei, ut sibi filios facerent, quos
-non ipsi genuissent. Nam excepto quod filia Pharaonis Moysen adoptauerat (cf. Ex 2,10) -illa quippe alienígena fuit- ipse Iacob nepotes
+non ipsi genuissent. Nam excepto quod filia Pharaonis Moysen adoptauerat (cf. Ex 2,10) -illa quippe alienígena fuitipse Iacob nepotes
 suos ex Ioseph natos uerbis manifestissimis adoptauit dicens: nunc
 itaquefilii tui dúo, quifacti sunt Ubi, priusquam ad te uenirem, mei
 sunt, Efrem et Manasse tamquam Rubén et Symeon erunt mihi. Natos autem si genueris postea, tibí erunt (Gen 48,5.6). Vnde etiam
@@ -12050,7 +12002,7 @@ autem genuit Ioseph (Mt 1,16), satis expressit ad eum patrem se perduxisse ordin
 erat.
 6. Quamquam si etiam Lucas genitum diceret Ioseph ab Heli, nec
 sic nos hoc uerbum perturbare deberet, ut aliud crederemus quam ab
-uno euangelista gignentem, ab altero adoptantem patrem fuisse comme18
+uno euangelista gignentem, ab altero adoptantem patrem fuisse comme 18
 Sobre la adopción judía, cf. Sertno 51,18,28, donde citan, además de los casos
 mencionados aquí (Ex 2,10: la hija del faraón que adopta a Moisés, y Gen 48,5-6: Jacob
 que adopta a los hijos de su hijo), ejemplos referidos a mujeres: Gen 16,1-4 (Sara) y
@@ -12087,9 +12039,7 @@ recibiéramos la filiación adoptiva. Y, sin embargo, afirmamos que hemos nacido
 haber recibido el poder ser hijos de Dios, nosotros, que ya
 éramos hombres, nos hacemos hijos por la gracia, no por
 naturaleza 21.
-En efecto, si fuésemos hijos por naturaleza, nunca hubié-
-
-sernos sido lo otro. Juan, después de decir: Les dio el poder
+En efecto, si fuésemos hijos por naturaleza, nunca hubiésernos sido lo otro. Juan, después de decir: Les dio el poder
 de ser hijos de Dios a los que creen en su nombre, añade
 inmediatamente: Los cuales no han nacido de la sangre, ni
 de la voluntad de la carne ni de la voluntad de varón, sino
@@ -12211,9 +12161,7 @@ observado que Mateo, que había proyectado evidenciar la
 función regia en Cristo 26, nombró cuarenta personas en la
 serie de generaciones, excluido el mismo Cristo ". Este número simboliza el tiempo en que conviene que Cristo nos
 gobierne 2« en este mundo y en esta tierra 2 », de acuerdo a una
-disciplina fatigosa, con la que, según está escrito, Diosflage-
-
-uideret, quibus causis homo unus dúos patres habere potuerit. Hoc et
+disciplina fatigosa, con la que, según está escrito, Diosflageuideret, quibus causis homo unus dúos patres habere potuerit. Hoc et
 illis calumniosis oceurreret, nisi litigare quam considerare maluissent.
 4. 8. Illud autem quod deinceps insinuandum est, re uera ut
 aduerti et uideri posset, lectorem adtentissimum et diligentissimum
@@ -12224,7 +12172,7 @@ nos oportet a Christo secundum disciplinam laboriosam, qua flagellat
 De nuevo (cf. 2,1) el considerare frente al contentiose obiecereoal litigare de
 los enemigos a los que trata de rebatir. El considerare es la reflexión objetiva, sin
 prejuicios ni partidos tomados. Las palabras anteriores de Agustín muestran cómo una
-intención -torcida- obnubila la mente. Cf. 2,5,16; 2,17,36.37; 2,21,52; 2,28,65;
+intención -torcidaobnubila la mente. Cf. 2,5,16; 2,17,36.37; 2,21,52; 2,28,65;
 2,42,90; 2,61,119; 2,75,144; 2,77,147; 2,78,153; 2,79,158; 3,8,35; 3,13,40;
 3,24,68; 3,25,70 (2); 3,25,73; 3,25,80.81; 4,1 (2); 4,1,2; 4,4,5; 4,7,8;
 Cf. S. JUAN CRISÓSTOMO, Hotniliae in Matthaeum 4.
@@ -12368,7 +12316,7 @@ mismo a través de los recursos literarios utilizados por él. Es lo que hace aq
 Si Mateo comenzó por Abrahán y enumeró cuarenta personas, se debe a que mediante
 ese número pretendía mostrar que Cristo vino a este mundo ya esta vida mortal de los
 hombres para gobernarnos en los sinsabores de las pruebas, como dice aquí. Desde la
-lectura "atenta e inteligente- del texto desaparece lo que de contradicción pudiera
+lectura "atenta e inteligentedel texto desaparece lo que de contradicción pudiera
 aparecer respecto del texto de Lucas. Agustín no está haciendo sino crítica literaria,
 tratando de descubrir lo que el autor quiso indicar.
 
@@ -12383,7 +12331,7 @@ creyesen en él de una y otra parte. Esto lo preparaba Dios
 entonces como figura de las realidades que iban a acaecer en
 verdad 37. En efecto, el mismo Jeconías, que prefiguraba este
 ángulo, se traduce por «preparación de Dios» 38. Así, pues, no
-son cuarenta y dos - el resultado de catorce por tres- sino,
+son cuarenta y dos - el resultado de catorce por tressino,
 considerando que uno ha sido contado dos veces, cuarenta y
 una, si incluimos también a Cristo, que preside regiamente,
 para gobernarla, a esta nuestra vida temporal y terrena, cual
@@ -12454,7 +12402,7 @@ testimonium Iohannes ipsi perhibuit dicens: ecce qui tollit peccata
 mundi (lo 1,29). Ascendendo autem transit et Abraham et peruenit ad
 Deum, cui [93] mundati et expiati reconciliamur (cf. Rom 5,10). Mérito et adoptionis originem ipse suscepit, quia per adoptionem efficimur
 filii Dei credendo in Filium Dei. Per carnalem uero generationem Filius
-Dei potius propter nos filius hominis factus est. Satis autem demons40
+Dei potius propter nos filius hominis factus est. Satis autem demons 40
 La consideración de ía voluntas del autor es fundamental para entender su texto
 y no ver contradicciones donde no existen. "... quia... voluit significare..., ideo... enarrat». La narratio está al servicio de algo que es preciso tener en cuenta para
 entender el texto.
@@ -12511,7 +12459,7 @@ Mattheus ab ipso Dauid per Salomonem descendit, in cuius marre ille
 peccauit; Lucas uero ad ipsum Dauid per Nathan ascendit, per quem
 prophetam Deus peccatum illius (1077) expiauit (cf. 2 Reg 11,4;
 12,1.14). Ipse quoque numerus, quem Lucas exsequitur, certissime
-prorsus abolitionem indicat peccatorum. Quia enim Christi aliqua iniquitas, qui nullam habuit, non est utique coniuncta iniquitatibus homi43
+prorsus abolitionem indicat peccatorum. Quia enim Christi aliqua iniquitas, qui nullam habuit, non est utique coniuncta iniquitatibus homi 43
 La divergencia está explicada en función de lo que cada uno quiere significar
 (significatur), que es lo que motiva el modo de la narración (ideo... enarrat).
 De nuevo recurre al valor simbólico atribuido a los números. Como el número
@@ -12929,9 +12877,7 @@ regnabit in domo Iacob in aeternum et regni eius non eritfinis. Dixit
 autem Maria ad angelum: quomodo fiet istud, quoniam uirum non
 cognosco? Et respondens ángelus dixit ei: Spiritus Sanctus superueniet in te et uirtus Altissimi obumbrabit Ubi, ideoque et quod nascetur sanctum uocabitur Filius Dei, et ecce Elisabeth cognata tua et
 ipsa concepit filium in senectute sua, et hic mensis est sextus Mi quae
-uocabatur sterilis, quia non erit inpossibile aput Deum omne uer-
-
-bum. Dixit autem Maria: ecce ancilla Domini, fiat mihi secundum
+uocabatur sterilis, quia non erit inpossibile aput Deum omne uerbum. Dixit autem Maria: ecce ancilla Domini, fiat mihi secundum
 uerbum tuum. Et discessit ab illa ángelus. Exsurgens autem Maria in
 diebus Mis abiit in montana cum festinatione in ciuitatem luda et
 intrauit in domum Zachariae et salutauit Elisabeth. Etfactum est, ut
@@ -13095,9 +13041,7 @@ se les había dicho.
 Cuando se cumplieron los ocho días para circuncidarle, se le puso el nombre de Jesús, el que le dio el ángel antes
 de concebirlo en el seno.
 He aquí que llegaron a Jerusalén unos magos de
-Oriente preguntando: ¿Dónde ha nacido el rey de los ju-
-
-praeibis enim ante faciem Dominipraeparare uias eius (cf. Mal 3,1;
+Oriente preguntando: ¿Dónde ha nacido el rey de los jupraeibis enim ante faciem Dominipraeparare uias eius (cf. Mal 3,1;
 4,5) ad dandam scientiam salutisplebieius in remissionempeccatorum eorumper uiscera misericordiae Dei nostri, in quibus uisitauit
 nos oriens ex alto, inluminare bis qui in tenebris et in umbra mortis
 sedent ad dirigendospedes nostros in uiampacis (cf. Zach 3,8; 6,12;
@@ -13409,7 +13353,7 @@ lo que ha visto que se hizo aquí.
 19. Veamos ya, como dije, la concordancia de los cuatro evangelistas acerca de Juan. Mateo sigue así: En aquellos
 días vino Juan Bautista predicando en el desierto de Judea. Marcos no dijo «en aquellos días» 6 ' porque no había
 puesto delante ninguna serie de acontecimientos, a los que
-se referiría -se puede comprender- si hubiese dicho «en
+se referiría -se puede comprendersi hubiese dicho «en
 aquellos días». Lucas, en cambio, expresó el momento de la
 predicación o bautismo de Juan recurriendo a las autoridades terrenas al decir: En el año decimoquinto
 del imperio
@@ -13550,7 +13494,7 @@ Galilaeam uideantur (1087), quia ciuitas eorum erat Nazareth Galilaea,
 sicut Lucas non tacuit (cf. Le 2,4). Sed intellegendum est, ubi ángelus in
 somnis in Aegypto dixit ad Ioseph: surge et accipe puerum et matrem
 eius et uade in terram lsrahel (Mt 2,13), sic intellectum esse primo a
-Ioseph, ut putaret iussum se esse pergere in Iudaeam -ipsa enim primi70
+Ioseph, ut putaret iussum se esse pergere in Iudaeam -ipsa enim primi 70
 
 A través del comentario histórico consigue la armonización.
 
@@ -13578,7 +13522,7 @@ VISITA A JERUSALÉN EN VIDA DE ARQUELAO
 todos los años, según narra Lucas, si el temor a Arquelao les
 impedía acercarse allí? No me sería difícil solucionar esta
 dificultad ni aun en el caso de que algún evangelista hubiese
-tus intellegi potuit térra Israhel- porro autem posteaquam conperit illic
+tus intellegi potuit térra Israhelporro autem posteaquam conperit illic
 regnare filium Herodis Archelaum, noluit obicere se illi periculo, cum
 posset térra Israhel etiam sic intellegi, ut et Galilaea illic deputaretur,
 quia et ipsam populus Israhel incolebat. Quamquam et alio modo solui
@@ -13590,7 +13534,7 @@ Archelao quod timebant deberent contemnere.
 10. 23. An et hoc aliquis dicit: quomodo ergo, sicut Lucas narrat,
 ibant parentes eius per omnes annos pueritiae Christi in Hierusalem (cf.
 Le 2,41), si Archelai timore illuc prohibebantur accederé? Hoc mihi
-dissoluere non esset difficile, nec si aliquis euangelistarum expressis71
+dissoluere non esset difficile, nec si aliquis euangelistarum expressis 71
 
 Cf. nota complementaria 13: -Quaestio».
 Con frecuencia Agustín presenta diversas soluciones, que pueden ser alternativas o no. A él no le importa tanto llegar a una solución auténtica cuanto a una solución
@@ -13750,7 +13694,7 @@ in deserto: párate uiam Domini, rectas facite semitas eius (cf. Mt
 esse de Iohanne (cf. Me 1,3; Le 3,4). Nam plura uerba etiam consequentia ex eodem propheta Lucas commemorauit, cum de baptista Iohanne
 narraret. Iohannes autem euangelista ipsum Iohannem baptistam de se
 ipso ídem testimonium Esaiae protulisse commemorat (cf. lo 1,23),
-sicut nunc Mattheus dixit quaedam Iohannis uerba, quae alii non dixerunt. Praedicans, inquit, in deserto [123] Iudaeae et dicens: paenitentiam agite, adpropinquauit enim regnum caelorum. Haec uerba Iohannis alii praetermiserunt. Iam uero quod sequitur Mattheus et adiun78
+sicut nunc Mattheus dixit quaedam Iohannis uerba, quae alii non dixerunt. Praedicans, inquit, in deserto [123] Iudaeae et dicens: paenitentiam agite, adpropinquauit enim regnum caelorum. Haec uerba Iohannis alii praetermiserunt. Iam uero quod sequitur Mattheus et adiun 78
 
 "
 
@@ -13878,7 +13822,7 @@ toda la región del Jordán, y el los
 bautizaba en el Jordán, confesando ellos sus pecados.
 eius (lo 21,24), non dixit 'ego sum' aut 'uerum est testimonium
 meum'. Dominus autem ipse saepissime dicit filius hominis aut Filius
-Dei(Mt9,6; 16; 27; 17,9; Me 8,31-38; lo 5,25), et non dicit 'ego', et:
+Dei(Mt 9,6; 16; 27; 17,9; Me 8,31-38; lo 5,25), et non dicit 'ego', et:
 opertebat, inquit, Christum pati et resurgere [124] tertio die (Le
 24,46), non ait 'oportebat me pati'. Potuit ergo et Iohannes baptista,
 cum dixisset: agitepaenitentia, adpropinquauit enim regnum caelorum, de se ipso adiungere quae sequuntur hic est enim qui dictus est
@@ -13931,7 +13875,7 @@ uos aqua, ille uero baptizabit uos Spiritu Sancto (Me 1,6-8). De
 calciamentis ergo hoc a Luca distat, quod addidit procumbens, de baptismo autem hoc ab utroque, quia non dixit et igni, sed tantum Spiritu
 Sancto. Sicut enim Mattheus, ita et Lucas dixit et eodem ordine: ipse
 uos baptizabit in spiritu et igni, nisi quod Lucas non ad[127]didit
-sancto, sicut Mattheus dixit in Spiritu Sancto et igni. His tribus adtesta84
+sancto, sicut Mattheus dixit in Spiritu Sancto et igni. His tribus adtesta 84
 
 Cf. nota complementaria 6: «Ordo-.
 Aquí, como en otros casos, Agustín se muestra atento a las variantes del texto.
@@ -13948,7 +13892,7 @@ viene detrás de mí se ha puesto delante de mí porque
 existía antes que yo. De esta manera muestra que dijo esto
 cuando aquéllos recuerdan que lo dijo, y que lo repitió, y
 mencionó que lo había dicho al indicar: Este era a quien
-aludí al decir: quien viene detrás de mí8S.
+aludí al decir: quien viene detrás de mí 8S.
 27.
 Así, pues, si se pregunta qué palabras dijo exactamente Juan Bautista, si las que Mateo menciona haber dicho,
 las que menciona Lucas, o las que indicó Marcos en las pocas
@@ -13991,7 +13935,7 @@ de la autoridades para la palabra de Dios que permanece
 eterna e inmutable sobre toda criatura, palabra dispensada
 mediante la criatura a través de signos temporales y lenguas
 humanas. En este mismo hecho aparece -cosa que afecta al
-máximo a nuestro tema- que no debemos pensar que miente
+máximo a nuestro temaque no debemos pensar que miente
 alguien si muchos que oyeron o vieron algo» 4, al recordarlo!", no lo refieren del mismo modo o con las mismas
 palabras; o si se cambia el ordena de las palabras, o si se
 utilizan unas en lugar de otras, siempre que signifiquen lo
@@ -14024,7 +13968,7 @@ Es decir, el recurso al lenguaje figurado o a los sinónimos.
 9H
 Es decir, si deja algo a la capacidad deductiva del lector.
 Es decir, sí admite una digresión explicativa.
-Cf. nota complementaria 14: -Sententia101
+Cf. nota complementaria 14: -Sententia 101
 Cf. nota complementaria 1: Autoridad.
 
 2, 12, 28
@@ -14033,7 +13977,7 @@ Libro II
 
 idea i°2, no logra, aunque lo intente, repetir de memoria en
 su integridad las palabras que incluso oyó.
-Alguien dirá que a los evangelistas se les debió conceder, ciertamente por el poder del Espíritu Santo, no discrepar ni en la clase de palabras ni en el orden ni en el número io3. Ese no comprende que cuanto más destaca la autoridad de los evangelistas 104, tanto más había que afirmar,
+Alguien dirá que a los evangelistas se les debió conceder, ciertamente por el poder del Espíritu Santo, no discrepar ni en la clase de palabras ni en el orden ni en el número io 3. Ese no comprende que cuanto más destaca la autoridad de los evangelistas 104, tanto más había que afirmar,
 mediante ellos, la seguridad de otros hombres que hablan
 verdad. De modo que a nadie se le pueda tachar de mentiroso si, cuando relatan muchos la misma cosa, uno discrepa de
 otro, de tal manera que puede ampararse incluso en el ejemplo precedente de los evangelistas.
@@ -14246,14 +14190,14 @@ Concordancia de los evangelistas
 2, 16, 33
 Padre agradó a los hombres en el Hijo, recibe un aviso de la
 otra: En ti me ha
-complacidoi22.
+complacidoi 22.
 De donde aparece con suficiencia que, fuese quien fuese el evangelista que conservó también las palabras de la voz
 celeste, los otros cambiaron las palabras para exponer de
 forma más familiar la misma sentencia i». Así se entiende
 que todos dijeron lo equivalente a «en ti he puesto mi complacencia», esto es: «por ti se lleva a cabo lo que me agrada».
 Algunos códices 124 del evangelio según Lucas tienen
 que en aquella voz se oyó lo que está escrito en el salmo: Tu
-eres mi Hijo, yo te he engendrado hoy12?, aunque no resulta
+eres mi Hijo, yo te he engendrado hoy 12?, aunque no resulta
 que se halle en los griegos más antiguos. Con todo, si se
 pudiese confirmar con algunos ejemplares dignos de fe, ¿qué
 hay que entender sino que del cielo se oyó una y otra cosa
@@ -14299,7 +14243,7 @@ hodiegenui te (Ps 2,7; Le 3,22), quamquam in antiquioribus codicibus
 Graecis non inueniri prehibeatur, tamen si aliquibus fide dignis exemplaribus confirman possit, quid aliud quam utrumque intellegendum
 est quolibet uerborum ordine de cáelo sonuisse?
 [133] 15. 32. Quod autem secundum Iohannem de columba dicitur non quando factum est narratur, sed uerba Iohannis baptistae
-referentur commemorantis, quid uiderit. In quo quaeritur, quemadmo122
+referentur commemorantis, quid uiderit. In quo quaeritur, quemadmo 122
 Agustín no hace afirmaciones vagas y genéricas, sino que es norma suya confirmarlas con ejemplos, tomados del mismo texto que considera. Explica el texto por el
 texto.
 < De nuevo la variatio al servicio de la narratio aperta.
@@ -14787,7 +14731,7 @@ posteaquam baptizatus est, quando illic aquam conuertit in uinum
 in Gali[l43]laeam conexuisse narrationibus suis, qui post Iohannem
 traditum factus est. De quo eius reditu in Galilaeam etiam ipse Iohannes
 euangelista sic loquitur: ul ergo cognouit Iesus, quia audierunt Pharisaei, quia Iesus plures discípulos facit et baptizat quam Iohannes,
-quamquam Iesus non baptizaret, sed discipuli eius, reliquit Iu145
+quamquam Iesus non baptizaret, sed discipuli eius, reliquit Iu 145
 
 Cf. nota complementaria 10: Los evangelios
 
@@ -15011,7 +14955,7 @@ sunt eum turbae multae, et ecce leprosus ueniens adorabat eum (Mt
 8,1-2), potest intellegi post utrumque sermonem factum fuisse, non
 solum quem Mattheus, uerum etiam quem Lucas interponit. Ñeque
 enim apparet post descensionem de monte quantum temporis fuerit
-interpositum, sed hoc solum uoluit significare Mattheus post illam desIS9
+interpositum, sed hoc solum uoluit significare Mattheus post illam desIS 9
 Antes había dicho que lo único que hay que tratar de averiguar es la voluntad
 del autor. Cf. 2,12,29 y nota complementaria 20: -Voluntas'.
 
@@ -15036,9 +14980,7 @@ previa de nadie, cada cual lo pudo ver personalmente de
 forma espontánea lfi 2- que si alguien omite algo que dice
 otro no hay en ello contradicción, ni siquiera si uno dice
 algo de modo distinto, siempre que se exponga la misma
-verdad de los hechos y sentencias. De esta manera, las pala-
-
-censionem multas turbas fuisse cum Domino, quando leprosum mundauit, non quantum temporis interfuerit, praesertim cum eundem leprosum Lucas iam in ciutate pósito Domino dicat esse mundatum (cf. Le
+verdad de los hechos y sentencias. De esta manera, las palacensionem multas turbas fuisse cum Domino, quando leprosum mundauit, non quantum temporis interfuerit, praesertim cum eundem leprosum Lucas iam in ciutate pósito Domino dicat esse mundatum (cf. Le
 5,12), quod Mattheus dicere non curauit.
 47. Quamquam etiam illud possit oceurrere, in ali(l 100)qua
 excelsiore parte montis primo cum solis discipulis Dominum fuisse,
@@ -15050,11 +14992,9 @@ ac postea cum sedisset, accessisse propinquius discípulos eius adque ita
 illis ceterisque turbis praesentibus unum habuisse sermonem, quem
 Mattheus Lucasque narrarunt diuerso narrandi modo, sed eadem ueritate rerum et sententiarum, quas ambo dixerunt. Iam enim praemonuimus, quod et nullo praemonente unicuique sponte uidendum fuit, si
 quis praetermittat aliquid quod alius dicat, non esse contrarium, nec si
-alius alio modo aliquid dicat, dum eadem rerum sententiarumque uerii6
+alius alio modo aliquid dicat, dum eadem rerum sententiarumque uerii 6
 
-° Cada autor tiene sus peculiaridades narrativas, pero que no afectan al conte-
-
-nido.
+° Cada autor tiene sus peculiaridades narrativas, pero que no afectan al contenido.
 
 Cf. notas complementarias 17: -Res- y 14:.Sententia».
 Cf. nota 76.
@@ -15216,7 +15156,7 @@ quibus premebatur (cf. Le 8,42-48; Mt 9,20; Me 5,25). Vt enim haec,
 quo magis credidit, eo magis tetigit Dominum, ita et centurio, quo
 magis credidit, eo magis accessit ad Dominum. Iam cetera in hoc capitulo quae alter dicit et alter prae[152]termittit superfluo pertractantur,
 Agustín, que se ha mantenido muy fiel a la -letra», no ha podido vencer la
-tentación de dar el salto a la -mística- como él dice. Ha asociado la afirmación del
+tentación de dar el salto a la -místicacomo él dice. Ha asociado la afirmación del
 evangelista al salmo 33,6 a través del verbo accederé y atribuye al evangelista el haber
 querido decir lo que él piensa, fiel a su principio de averiguar la voluntad del sabio
 (prudens) autor: -ipsum potius accessisse ad Christum dicere voluit prudens evangelista quam illos per quos verba sua miserat-. Cf. nota complementaria 20: -Voluntas-.
@@ -15364,7 +15304,7 @@ dice -al atardecer», ni el amanecer de la misma noche donde
 se dice -amanecer»; con todo se puede ver que aquí se ha
 mantenido el orden de los acontecimientos en atención al
 orden cronológico establecido l 88.
-Lucas no pone «al atardecer- tras su relato sobre la suegra
+Lucas no pone «al atardecertras su relato sobre la suegra
 de Pedro; pero añadió algo de significado idéntico al decir:
 Al ponerse el sol, todos los que tenían enfermos
 aquejados
@@ -15383,7 +15323,7 @@ quia tu es Filius Dei. Et increpans non sinebat ea loqui, quia sciebant
 ipsum esse Christum. Pacta autem die egressus ibat in desertum
 locum (Le 4,40-42). Et hic uidemus eundem prorsus ordinem temporum custoditum, quem conperimus aput Marcum. Mattheus autem, qui
 uidetur non ordine, quo gestum est, sed quo praetermissum recolit, hoc
-ia7 jvjfo es frecuente que Agustín ceda a Marcos el referir la auténtica sucesión
+ia 7 jvjfo es frecuente que Agustín ceda a Marcos el referir la auténtica sucesión
 temporal de los hechos.
 '•* El ordo gestarum es el orden de los acontecimientos objetivo, mientras que el
 ordo temporum se refiere aquí a la indicación por el evangelista del sucederse de los
@@ -15509,7 +15449,7 @@ Et totum quidem dici potuit: quid timidi estis? Vbi est fides uestra?
 Modicae fidei. Vnde aliud hic, aliud ille commemorat. Et illud quod
 excitantes eum dixerunt Mattheus sic: Domine, salua nos, perimus,
 m
-Iq6
+Iq 6
 
 Cf. nota complementaria 6: -Ordo».
 Cf. nota complementaria 14: «Sententia».
@@ -15553,7 +15493,7 @@ hablen en plural y según aquéllos en singular, puesto que
 también ellos refieren que, preguntado cómo se llamaba,
 respondió que era una legión, porque había muchos demonios. Ni tampoco en el hecho de que Marcos ubique la piara
 de cerdos al lado de la montaña y Lucas en la montaña misma, pues la piara de cerdos sería tan grande que una parte de
-ella estaba en la montaña y otra al lado de ella206. Según
+ella estaba en la montaña y otra al lado de ella 206. Según
 Marcos indica expresamente, había unos dos mil cerdos.
 
 Marcus: magister, non ad te pertinet, quia perimus? Lucas: praeceptor, perimus (Mt 8,25; Me 4,38; Le 8,24), una eademque sententia est
@@ -15731,7 +15671,7 @@ Er 3,4-7), quis dubitauerit in ciuitate sua hoc fecisse Iesum, cum hoc
 fecerit in ciuitate Capharnaum, ciuitate Galilaeae, quo transfretando
 redierat de regione Gerasenorum, ut ueníens in Galilaeam recte diceretur uenisse in ciuitatem suam, in quocumque oppido esset Galilaeae,
 praesertim quia et ipsa Capharnaum ita excellebat in Galilaea, ut tamquam metrópolis haberetur? Quod si prorsus non liceret accipere ciuitatem Christi uel ipsam Galilaeam, in qua erat Nazareth, uel ipsam
-Capharnaum, quae sicut caput Galilaeae ciuitatibus eminebat, dicere110
+Capharnaum, quae sicut caput Galilaeae ciuitatibus eminebat, dicere 110
 2,1
 
 Como es habitual, su afirmación la prueba con un ejemplo.
@@ -15810,7 +15750,7 @@ monte tune Lucas commemorat omnes duodecim ex plurimis discipulis
 electos, quos et apostólos nominauit (cf. Le 6,13).
 (1107) 27. 60. Sequitur itaque Mattheus et dicit: etfactum est
 discumbente eo in domo, ecce multi publicani etpeccatores uenientes discumbebant cum Iesu et discipulis eius, et cetera usque ad illud
-ubi ait: sed uinum nouum in utres nouos mittunt et ambo conseruantur (Mt9,10; cf. 10-17). Hic Mattheus non expressit, incuiusdomo
+ubi ait: sed uinum nouum in utres nouos mittunt et ambo conseruantur (Mt 9,10; cf. 10-17). Hic Mattheus non expressit, incuiusdomo
 discumbebat Iesus cum publicanis et peccatoribus. Vnde posset uideri
 non hoc ex ordine subiunxisse, sed quod alio tempore factum est recordatus interposuisse, nisi Marcus et Lucas, qui hoc omnino similiter
 narrant (cf. Me 2,15-22; Le 5,27-39), manifestarent in domo Leui, hoc
@@ -15849,7 +15789,7 @@ itaque, in cuius domo ista gerebantur.
 illo responsa omnes isti tres euangelistae posuerunt. Mattheus: et uidentes, inquit, Pharisaei dicebant discipulis eius: quare cum publicanis
 et peccatoribus manducat magister uester? (Mt 9,11). Totidem paene
 uerbis hoc ait et Marcus: quare cum publicanis et peccatoribus manducat et bibit magister uester? (Me 2,16). Praetermissum est ergo a
-Mattheo quod iste addidit bibit. Sed quid ad rem, cum plena sit senten217
+Mattheo quod iste addidit bibit. Sed quid ad rem, cum plena sit senten 217
 El comentario gramatical solía ser muy puntilloso, yendo palabra por palabra.
 Agustín puede explicitar a quién se refiere un pronombre, gracias a los otros evangelistas.
 2,8
@@ -16052,7 +15992,7 @@ espirituales y por eso mismo alejada en cierto modo de los
 alimentos corporales, lo significó el Señor con las semejanzas ulteriores del paño viejo y del vino nuevo. Mostraba así
 que esta clase de ayuno no va con los hombres animales y
 carnales, ocupados en su cuerpo, y por ello arrastrando aún
-el antiguo modo de pensar234. Estas semejanzas las expusieron también de modo parecido los otros dos. Ya queda, pues,
+el antiguo modo de pensar 234. Estas semejanzas las expusieron también de modo parecido los otros dos. Ya queda, pues,
 suficientemente a la vista que, aunque uno diga lo que otro
 omite, no hay oposición, sea en palabras, sea en contenidos,
 siempre que no se aparte de la misma sentencia o, si tal vez
@@ -16068,7 +16008,7 @@ ob hoc ueterem adhuc sensum trahentibus hoc genus ieiunii non congruat. Quas sim
 satis in promtu est nihil esse [168] contrarium, si quid alius dicit quod
 alius praetermittit seu uerbi seu rei, dum uel ab eadem sententia non
 recedatur uel quae forte alia ponitur aliae non aduersetur.
-28. 64. Sequitur deinde Mattheus adhuc temporum ordinem seruans: haec illo loquente ad eos ecceprinceps unus accessit et adora232
+28. 64. Sequitur deinde Mattheus adhuc temporum ordinem seruans: haec illo loquente ad eos ecceprinceps unus accessit et adora 232
 Agustín deduce el significado de las expresiones de un evangelista de la comparación con las de los otros. Los evangelios son, en última instancia, una obra única, lo
 que permite ese tipo de explicaciones. A pesar del número plural de autores, siempre
 se puede hablar del explicar el texto por el texto.
@@ -16167,9 +16107,7 @@ al Señor que su hija iba a morir, o que estaba muriéndose, o
 que se hallaba en el límite de la vida, sino que ya estaba
 muerta; los otros dos, en cambio, que estaba próxima a la
 muerte, pero que aún no había muerto; hasta el punto que
-afirman que él se puso en movimiento después que le anun-
-
-aliud continuo sequitur quam hoc de archisynagogi filia. Sic enim ipse
+afirman que él se puso en movimiento después que le anunaliud continuo sequitur quam hoc de archisynagogi filia. Sic enim ipse
 contexit, ut ipse transitus apene indicet hoc consequenter narrari quod
 et consequenter factum est, quando quidem cum superius commemorasset quae de panno nouo et de uino nouo lesus dixerit, continuo
 subiecit: haec illo loquente ad eos ecce princeps unus accessit
@@ -16279,7 +16217,7 @@ reproche a quien desconfía, sino una confirmación a quien
 creía más intensamente. Pues él tenía una fe como la de
 aquel otro que decía: Creo, Señor, pero ayuda mi incredulidad.
 67. Estando así las cosas, mediante este tipo de formas
-de expresión251 de los evangelistas, distintas 2? 2, pero no
+de expresión 251 de los evangelistas, distintas 2? 2, pero no
 opuestas, aprendemos algo muy útil y necesario, a saber: que
 en las palabras de cualquier persona no debemos investigar
 otra cosa que su voluntad, a cuyo servicio han de estar las
@@ -16422,7 +16360,7 @@ recordado sua fuerit, sicut dictum est, non apparet. Hunc locum breuiter uidetur
 circuibat castella in circuitu docens. Et conuocauit duodecim et
 coepit eos mittere binos, et dabat illis potestatem spirituum inmundorum, et cetera (Me 6,6-7; cf. 6-11) usque ad illud ubi ait: excutite
 puluerem de pedibus uestris in testimonium illis (Me 6,11). Sed
-antequam hoc narraret Marcus, prius post resuscitatam filiam archisyna261
+antequam hoc narraret Marcus, prius post resuscitatam filiam archisyna 261
 
 Cf. nota complementaria 6: -Ordo~.
 Una vez más pone de relieve la característica literaria más destacada por Agustín
@@ -16446,7 +16384,7 @@ discípulos y la exhortación oportuna, inmediatamente después de la resurrecci
 de los acontecimientos. En cuanto al nombre de los discípulos, Lucas, que los menciona con nombre distinto cuando
 son elegidos primeramente en la montaña, no discrepa de
 Mateo, a no ser en el nombre de Judas el de Santiago, al que
-Mateo llama Tadeo, y algunos códices Lebdeo266. ¿Quién
+Mateo llama Tadeo, y algunos códices Lebdeo 266. ¿Quién
 prohibió alguna vez que a un único hombre se le llamase por
 dos o tres nombres? 267
 71. Suele preguntarse cómo Mateo y Lucas mencionan
@@ -16462,7 +16400,7 @@ nominibus ergo discipulorum Lucas, qui eos alio nomine nominat, cum
 prius eliguntur in monte, a Mattheo non discrepat nisi in nomine Iudae
 Iacobi, quem Mattheus Thaddeum appellat (cf. Mt 10,3), nonnulli autem códices habent Lebdeum. Quis autem umquam prohibuerit duobus
 uel tribus nominibus hominem unum uocari?
-71. Solet Ítem quaeri, quomodo Mattheus et Lucas commemo263
+71. Solet Ítem quaeri, quomodo Mattheus et Lucas commemo 263
 
 Cf. nota complementaria 23:
 -PraeoccupatioRecapitulatio-.
@@ -16597,7 +16535,7 @@ túnicas ñeque calciamenta ñeque uirgam, continuo subiecit: dignus
 est enim operarius cibo suo (Mt 10,9-10). Vnde satis ostendit, cur eos
 haec possidere ac ferré noluerit, non quod necessaria non sint sustenta" ' En toda esta obra Agustín se mantiene siempre muy cercano a la literalidad del
 texto. Sólo muy pocas veces recurre a la alegoría en búsqueda de la solución al
-problema de la divergencia entre los evangelistas. En este caso busca para -bastón- otro
+problema de la divergencia entre los evangelistas. En este caso busca para -bastónotro
 significado -espiritual- {spiritaliter), además del propio (carnaliter). Son las figuratas significationes. Cf. Nota complementaria 28: -Locutio
 figúrala-.
 27í
@@ -16890,7 +16828,7 @@ Cf. nota complementaria 6: -Ordo-.
 
 Libro II
 
-esto lo dijo dos veces2l>0. Incluso en un solo evangelista se
+esto lo dijo dos veces 2l>0. Incluso en un solo evangelista se
 hallan ciertas cosas que el Señor dijo dos veces. Por ejemplo,
 en Lucas se halla que el Señor dijo dos veces lo referente a no
 tomar mochila para el camino, etc. ¿Qué tiene de extraño
@@ -16959,7 +16897,7 @@ sabbato per sata, discipuli autent eius esurientes coeperunt uellere
 spicas et manducare, et cetera usque (Mt 12,1; cf. 1-8) ad illud ubi ait:
 Dominus est enimfilius [184] hominis etiam sabbati (Mt 12,8). Hoc
 quoque sine ulla repugnantiae quaestione commemoratur et a Marco et
-aLuca (cf. Me 2,23-28; cf. Lc6, l-3), sedillinondicunt in illo tempore.
+aLuca (cf. Me 2,23-28; cf. Lc 6, l-3), sedillinondicunt in illo tempore.
 Vnde fortassis raagis Mattheus reí gestae hic ordinem tenuit, illi autem
 recordationis suae, nisi latius accipitur quod dictum est illo tempore, id
 est quo haec multa et diuersa gerebantur.
@@ -17090,7 +17028,7 @@ Mr 12,23-37 -Me 3,22-30/Le 11,14-26
 suis et ad eum turbas confluxisse, sanasse eum plurimos (cf. Me
 3,6-12). Vnde autem coeperit in aliud iré, non quod ordine sequeretur,
 uix apparet, utrum ubi dicit conuenisse ad eum turbas -potuit enim hoc
-iam et alio tempore- an ubi dicit: ascendit in montem. Quod et Lucas
+iam et alio temporean ubi dicit: ascendit in montem. Quod et Lucas
 uidetur commemorare dicens: factum est autem in illis diebus, exiit in
 montem orare (Le 6,12); dicendo enim in illis diebus satis ostendit
 non continuo factum.
@@ -17098,7 +17036,7 @@ non continuo factum.
 ei demonium habens caecus et mutus et curauit eum ita ut loqueretur et uidiret (Mt 12,22). Hoc non isto ordine, sed post alia multa Lucas
 commemorat et mutum dicit tantum (cf. Le 11,14-15), non etiam caecum. Sed non ex eo quod aliquid tacet de alio dicere putandus est, ea
 enim sequentia etiam ipse contexit quae Mattheus.
-38. 85. Sequitur Mattheus dicens: et stupebant [187] omnes turbae et dicebant: numquid hic est filius Dauid? Pharisaei autem au245
+38. 85. Sequitur Mattheus dicens: et stupebant [187] omnes turbae et dicebant: numquid hic est filius Dauid? Pharisaei autem au 245
 
 Cf. nota complementaria 6: «Ordo-.
 
@@ -17353,7 +17291,7 @@ aliquanto diuersum alius alium teneat partim gestarum rerum [192]
 partim recordationis suae, uideo quid uel cui quisque aduersetur.
 42. 89. Sequitur ergo Mattheus: et factum est, cum consummasset Iesus parábolas istas, transiit inde. Et ueniens in patriam
 suam docebat eos in synagogis eorum, et cetera (Mt 13,53-54; 53-58)
-usque ad illud ubi ait: et nonfecit ibi uirtutes multaspropter incredulitatem illorum (Mt 13,58). A superiore sermone parabolarum sic tran301 Nueva mención de una mos scripturarum, referido esta vez a una indicación
+usque ad illud ubi ait: et nonfecit ibi uirtutes multaspropter incredulitatem illorum (Mt 13,58). A superiore sermone parabolarum sic tran 301 Nueva mención de una mos scripturarum, referido esta vez a una indicación
 cronológica. Cf. nota 81.
 -*°* Lenguaje del comentarista: transitus,
 connectere.
@@ -17710,7 +17648,7 @@ refieren a lo que el rumor hizo llegar a Herodes, hasta sentirse afectado y duda
 tales cosas, siendo así que a Juan le había dado muerte él.
 Marcos, en cambio, después de narrar la muerte de Juan,
 menciona que los discípulos antes enviados volvieron junto
-a Jesús y le informaron de todo lo que habían hecho y enseñado; que el Señor -cosa que sólo él transmite- les indicó que
+a Jesús y le informaron de todo lo que habían hecho y enseñado; que el Señor -cosa que sólo él transmiteles indicó que
 descansasen un poco en un lugar solitario, que subió con
 ellos a una nave y se fue; que la muchedumbre, viéndolo, se
 anticipó a ellos al lugar donde el Señor, compadecido de
@@ -17724,12 +17662,10 @@ añade a continuación lo mismo que Marcos, es decir, que
 regresaron junto a él los apóstoles y que le informaron de
 cuanto habían hecho; que, tomándolos consigo, se apartó a
 un lugar desierto; que la muchedumbre le siguió hasta allí;
-que les habló del reino de Dios y que sanó a los que necesitaban curación. Y también él menciona, a partir de este mo-
-
-nem ego decollaui. Illa enim posteriora dcbent intellegi, quae ad Herodem pertulit fama, ut moueretur et haesitaret, quisnam iste esse posset,
+que les habló del reino de Dios y que sanó a los que necesitaban curación. Y también él menciona, a partir de este monem ego decollaui. Illa enim posteriora dcbent intellegi, quae ad Herodem pertulit fama, ut moueretur et haesitaret, quisnam iste esse posset,
 de quo audíret talia, cum Iohannem ipse occidisset. Marcus autem,
 posteaquam passionem Iohannis narrauit, commemorat discípulos missos redisse ad lesum et renuntiasse illi omnia quae egerant et docuerant
-et Dominum eis -quod ipse solus commemorat- dixisse, ut requiescerent pusillum in deserto, et ascendisse cum eis in nauem et isse, et
+et Dominum eis -quod ipse solus commemoratdixisse, ut requiescerent pusillum in deserto, et ascendisse cum eis in nauem et isse, et
 turbas hoc uidentes praeuenisse eos illuc, quarum misertum Dominum
 docuisse multa, et hora iam progrediente factum esse, ut de quinqué
 panibus et duobus piscibus omnes qui aderant pascerentur (cf. Me
@@ -17757,7 +17693,7 @@ luego vino a Cana de Galilea, donde había convertido el agua
 en vino, y que sanó al hijo de cierto funcionario real. Juan
 calla otras cosas que otros evangelistas refirieron que había
 hecho y dicho en Galilea. Pero, a su vez, dice -cosa que ellos
-callaron- que él subió el día de la fiesta de Jerusalén y que
+callaronque él subió el día de la fiesta de Jerusalén y que
 allí hizo el milagro a aquel hombre que llevaba treinta y
 ocho años enfermo y que no tenía a nadie que le metiese en
 la piscina en la que hallaban curación los aquejados de varias
@@ -17903,7 +17839,7 @@ hordiaciis, quae superfuerunt his qui manducauerunt (lo 6,5-13).
 hordiacios enim fuisse non tacuit, quod ceteri tacuerunt. Ñeque hoc
 quaeritur quod iste non dixit, fuisse ibi etiam praeter quinqué milia
 uirorum mulieres et paruulos, quod dicit Mattheus (cf. Mt 14,21). Et
-omnino iam certum esse debet et regulariter teneri in talibus quaestionibus neminem moueri oportere, cum ab alio dicitur quod ab alio praetermittitur. Sed quaeritur, quo[204]modo ea quae dixerunt uera sint omnia, ne narrationem alterius narrans aliud alter excludat. Si enim Dominus secundum narrationem Iohannis prospectis turbis quaesiuit a Philippo temtams eum, unde illis escae dari possent, potest mouere, quo321
+omnino iam certum esse debet et regulariter teneri in talibus quaestionibus neminem moueri oportere, cum ab alio dicitur quod ab alio praetermittitur. Sed quaeritur, quo[204]modo ea quae dixerunt uera sint omnia, ne narrationem alterius narrans aliud alter excludat. Si enim Dominus secundum narrationem Iohannis prospectis turbis quaesiuit a Philippo temtams eum, unde illis escae dari possent, potest mouere, quo 321
 
 Cf. S. AMBROSIO, In Lucam 6,81.
 Cf. nota complementaria 11; -Regulae-.
@@ -17930,9 +17866,7 @@ que Marcos recuerda que dijo el Señor: ¿Cuántos
 panes
 tenéis?, las omitieron los demás. El apunte de Andrés, según
 Juan, sobre los cinco panes y los dos peces, lo refirieron
-también los demás poniendo el plural por el singular, referido a la persona de los discípulos 324. También Lucas compen-
-
-modo sit uerum, quod alii narrauerunt, prius dixisse Domino discípulos, ut dimitteret turbas, quo possent sibi alimenta emere de proximis
+también los demás poniendo el plural por el singular, referido a la persona de los discípulos 324. También Lucas compenmodo sit uerum, quod alii narrauerunt, prius dixisse Domino discípulos, ut dimitteret turbas, quo possent sibi alimenta emere de proximis
 locis quibus ille respondit secundum Mattheum: non habent necesse
 iré, date eis uos manducare (Mt 14,16; cf. Me 6,37; Le 9,13). Cui
 etiam Marcus Lucasque consentiunt tantum hoc praetermittentes quod
@@ -17947,7 +17881,7 @@ ait Marcus: euntes emenus ducentis denariis panes et dabimus eis
 manducare (Me 6,37-38). Quod autem commemorat idem Marcus
 dixisse Dominum: Quot panes habetis? praetermiserunt ceteri. Quod
 autem Andreas aput Iohannem de quinqué panibus et duobus piscibus
-suggessit (cf. lo 6,9), hoc ceteri pluralem numerum pro singulari ponentes ex discipulorum persona rettulerunt. Et Lucas quidem respon323
+suggessit (cf. lo 6,9), hoc ceteri pluralem numerum pro singulari ponentes ex discipulorum persona rettulerunt. Et Lucas quidem respon 323
 
 doque.
 
@@ -17987,7 +17921,7 @@ tantos? (lo 6,9). Hoc est dicere: nisi forte nos eamus et emamus in
 omnem hanc turbam escás.
 97. Ex qua uniuersa uarietate uerborum, rerum autem sententiarumque concordia satis apparet salubriter nos doceri nihil quaerendum
 in uerbis nisi loquentium uoluntatem, cui demonstrandae inuigilare
-(1127) debent omnes ueridici narratores, cum de homine uel de ange32s
+(1127) debent omnes ueridici narratores, cum de homine uel de ange 32s
 No es ésta la única vez en que Agustín presenta a Lucas con afán de brevedad,
 aunque habitualmente le hace maestro de la narratio aperta. Cf. nota 265 y complementarías 4: Lucas y 22: -Narratio brevis et aperta».
 Fiel a su concepción de que en los relatos de cada evangelista hay lagunas, trata
@@ -18275,9 +18209,9 @@ una variedad de temas. Y, sin embargo, ni siquiera en lo que
 se aparta de ellos su transición a otras cosas contradice en
 algo el orden seguido por ellos. En efecto, ¿qué impide
 comprender que el Señor sanó a aquellos a que hacen referencia Mateo y Marcos, y que habló a los que le siguieron al
-otro lado del mar - lo que aporta Juan- si Cafarnaún, adonde
--según Juan- se dirigieron, está junto al mar de Genesaret,
-lugar donde -según Mateo- desembarcaron?
+otro lado del mar - lo que aporta Juansi Cafarnaún, adonde
+-según Juanse dirigieron, está junto al mar de Genesaret,
+lugar donde -según Mateodesembarcaron?
 MT 15,21-28-Me 7,24-30
 49 103
 Después del discurso en que el Señor trató
@@ -18352,9 +18286,7 @@ significare quam post ambulantem Dominum mulierem illam deprecatorias uoces emis
 est dixisse quidem Marcum quod intrauerit, ubi erat Iesus, cum eum
 praedixisset fuisse in domo? Sed quia Mattheus ait: non respondit ei
 uerbum (Mt 15,23), dedit agnoscere, quod ambo tacuerunt in eo,
-silentio egressum fuisse Iesum de domo illa, adque ita cetera contexun-
-
-tur, quae iam in nullo discordant. Quod enim Marcus commemorat ei
+silentio egressum fuisse Iesum de domo illa, adque ita cetera contexuntur, quae iam in nullo discordant. Quod enim Marcus commemorat ei
 Dominum respondisse de pane filiorum non mittendo canibus, illis
 interpositis dictum est quae Mattheus dicta non tacuit, [213] id est quia
 discipuli rogauerunt eum pro illa et quia respondit non se esse missum
@@ -18755,7 +18687,7 @@ in Galilaea dixit Mis lesus: filius hominis [221] tradendus est in
 manibus hominum, et occident eum, et tertio die resurget. Et contristan sunt uehementer (Mt 17,21-22). Hoc eodem ordine Marcus Lucasque commemorant (cf. Me 9,29-31; Le 9,44-45).
 60. 118. Sequitur Mattheus: et cum uenissent
 Capharnaum,
-accesserunt qui diáragma accipiebant ad Petrum et dixerunt ei: ma359
+accesserunt qui diáragma accipiebant ad Petrum et dixerunt ei: ma 359
 
 Cf. nota complementaria 6: -Ordo.
 Cf. nota complementaria 6: -Ordo».
@@ -18835,7 +18767,7 @@ Eadem itaque saepe ac pluribus locis Iesum dixisse, necubi moueamur,
 si ordo dictorum quibusdam repugnare putabitur, sicut iam totiens
 commendauimus, meminisse debemus, ne hoc semper admonere necesse sit.
 62. 120. Sequitur Mattheus ita narrans: etfactum est, cum consummasset lesus sermones istos, migrauit a Galilaea et uenit in fines
-Iudaeae trans Iordanen. Et secutae sunt eum turbae multae, et cu362
+Iudaeae trans Iordanen. Et secutae sunt eum turbae multae, et cu 362
 
 Cf. nota complementaria 6: -Ordo-.
 Cf. nota complementaria 11: •Kegulae-.
@@ -18890,7 +18822,7 @@ Concordancia de los evangelistas
 
 2,62,122
 
-bra- la hicieron ellos al Señor, que prohibía la separación y
+brala hicieron ellos al Señor, que prohibía la separación y
 apoyaba su sentencia en la ley, o si fueron ellos los que
 respondieron esto mismo a él que les preguntaba sobre el
 precepto de Moisés. Pues no era su intención darles explicación de por qué Moisés les había permitido tal cosa, si no la
@@ -19046,7 +18978,7 @@ daré animam suam redemtionempro multis (Mt 20,28). Hunc cum
 illo ordinem etiam Marcus tenet filios Zebedaei perhibens dixisse quod
 ab eis, non per eos ipsos, sed per matrem dictum esse Mattheus expressit, cum illa eorum uoluntatem attulisset ad Dominum. Vnde magis
 ipsos quam illan dixisse quod dictum est Marcus breuiter intimauit (cf.
-Me 10,32-45). Denique et Dominus et secundum Mattheum et secundum Marcum ipsis potius quam matri respondit. Lucas autem, postea373
+Me 10,32-45). Denique et Dominus et secundum Mattheum et secundum Marcum ipsis potius quam matri respondit. Lucas autem, postea 373
 
 Cf. nota complementaria 19: Asimilación y disimilación de hechos.
 De nuevo destaca la narratio brevis de Marcos. Cf. notas complementarias 7:
@@ -19246,7 +19178,7 @@ recedendo nihil aliud demonstrare uoluerunt quam hoc ipsum quod
 i8s
 Cf. nota complementaria 21: Códices. La interpretado usitata entendemos que
 era la litúrgica de Hipona.
-ía9
+ía 9
 Ya lo afirmó antes (1,2,4) y lo afirmará después (2,79,157) con idéntica
 prudencia: perhibetur. Cf. nota complementaria 2: Mateo.
 "» Sin duda referencia a San Jerónimo.
@@ -19321,7 +19253,7 @@ Le 19,45-46; lo 2,1-17), sed Iohannes longe diuerso ordine. Nam post
 testimonium baptistae Iohannis de Iesu, cum eum commemorasset isse
 in Galilaeam, quando aquam conuertit in uinum, inde post commemorationem paucorum in Capharnaum dierum dicit eum ascendisse in
 Hierosolymam, cum esset pascha Iudaeorum, et facto flagello [232] de
-resticulis expulisse de templo uenf7i-í0)dentes. Vnde manifestum est
+resticulis expulisse de templo uenf 7i-í0)dentes. Vnde manifestum est
 non semel, sed iterum hoc esse a Domino factum, sed illud primum
 commemoratum a Iohanne, hoc ultimum a ceteris tribus.
 68. 130. Sequitur Mattheus: et accesserunt ad eum caeci et
@@ -19416,7 +19348,7 @@ testantur. Miratos autem esse discípulos, quod arbor aruerit, et eis Dominum re
 secundo die, quo dixit arbori: iam non amplius in aeternum quisquam ex te fructum manducet (Me 11,14), sed tertio die dicit. Ipso
 quippe die secundo commemorauit idem Marcus [234] de templo eiectos uendentes, quod primo die factum praetermiserat. Ipso ergo secundo die dicit facta uespera egressum de ciuitate, et cum mane transiret,
 uidisse discípulos ficum aridam factam a radicibus et (1141) recordatum Petrum dixisse ei: rabbi, ecce ficus, cui maledixisti, aruit (Me
-11,21), tune eum de potentia fidei respondisse, Mattheus autem, tamí9?
+11,21), tune eum de potentia fidei respondisse, Mattheus autem, tamí 9?
 
 Cf. nota complementaria 6: -Ordo».
 
@@ -19483,7 +19415,7 @@ procedía?, etc., hasta: Tampoco yo os digo con qué poder
 hago estas cosas. Todo esto lo expusieron también los otros
 dos, Marcos y Lucas, casi con las mismas palabras. Tampoco
 parecen distanciarse en el orden, si exceptuamos - de ello he
-hablado antes- que Mateo, omitiendo algunas cosas que co[235] fructus nascatur in sempiternum; et arefacta est continuo ficulnea, praetermissis ceteris ad eundem diem pertinentibus adiunxit
+hablado antesque Mateo, omitiendo algunas cosas que co[235] fructus nascatur in sempiternum; et arefacta est continuo ficulnea, praetermissis ceteris ad eundem diem pertinentibus adiunxit
 statim: et uidentes discipuli miratisunt dicentes: quomodo continuo
 aruit? (Mt 21,17-20). Quod alio die uiderunt alio die mirati sunt.
 Intellegitur autem non tune aruisse, quando uiderunt, sed continuo
@@ -19829,7 +19761,7 @@ uere liberi eritis.
 Scio, quia filii Abrahae estis [242], sed quaeritis (1145) me interficere, quia sermo meus non capit in uobis (lo, 8,31-37). Non utique illis
 diceret: quaeritis me interficere, qui in eum iam crediderant, quibus
 dixerat: si uos manseritis in sermone meo, uere discipuli mei eritis;
-sed quia hoc ad eos dixerat, qui iam in eum crediderant, ea uero multit u do praesens erat, quae plures habebat inimicos, etiam non exprimente euangelista, qui essent qui responderunt, ex hoc ipso, quod respondo5 Agustín trata de eliminar la ambiguitas, en condición de gramático, mediante
+sed quia hoc ad eos dixerat, qui iam in eum crediderant, ea uero multit u do praesens erat, quae plures habebat inimicos, etiam non exprimente euangelista, qui essent qui responderunt, ex hoc ipso, quod respondo 5 Agustín trata de eliminar la ambiguitas, en condición de gramático, mediante
 el análisis morfológico.
 Aquí el recurso a los códices no está al servicio de la emendatio, sino al de la
 explanatio. Cf. nota complementaria 21: Códices.
@@ -19871,7 +19803,7 @@ sacerdotum et Pharisaeiparábolas
 eius, cognouerunt
 quod de ipsis diceret
 et quaerentes eum tenere timuerunt
-turbas, quoniam sicut prophe407
+turbas, quoniam sicut prophe 407
 De nuevo encontramos al gramático. Aquí Agustín explícita lo que ha sido
 norma continua de su proceder: atribuir cada expresión a aquellas personas a las que
 han de atribuírseles: quae verba quibus sunt tribuenda personis. En efecto, los
@@ -20260,7 +20192,7 @@ in nomine Domini (Mt 21,9; 23,39; Le 13,35); secundum quippe
 Lucae ordinem nondum illuc uenerat et nondum dictum erat. Sed quia
 non dicit, quod inde tune abscesserit, ut non ueniret nisi eo tempore,
 quo iam illud diceretur -perseuerat quippe in itinere suo, doñee ueniat
-Hierusalem- adque illud quod ait: ecce eicio demonia et sanitates
+Hierusalemadque illud quod ait: ecce eicio demonia et sanitates
 pérfido hodie et craset tertia consummor (Le 13,32), mystice ab illo
 et figúrate dicta intelleguntur -ñeque [250] enim eo die passus est, qui
 est ab hoc die tertius, cum continuo dicat: oportet me hodie et eras et
@@ -20332,9 +20264,7 @@ templo.
 Lucas menciona asimismo pocas cosas sobre la precaución ante la hipocresía de los fariseos después de la disputa
 sobre la filiación davídica del Cristo. A partir de ahí, igual
 que Marcos, encamina el relato hacia la viuda que echó en el
-cepillo dos monedas de escaso valor. A continuación intro-
-
-dico [251] uobis, non relinquetur hic lapis super lapidem, qui non
+cepillo dos monedas de escaso valor. A continuación introdico [251] uobis, non relinquetur hic lapis super lapidem, qui non
 destruatur (Mt 24,1-2). Marcus etiam commemorat hoc eodem paene
 ordine post aliquantam digressionem ad hoc factam, ut comtnemoraret
 de uidua, quae misit dúo minuta in gazophylacio, quod cuín eo Lucas
@@ -20464,7 +20394,7 @@ tejado, que no baje a tomar nada de su casa, y lo que dijo
 que, dado que quizá haya una enorme confusión al acercarse
 tan gran peligro, aquellos a quienes el asedio haya cogido
 dentro - y eso significarían «i las palabras los que estén en
-medio de ella- estarán atónitos en el tejado y deseando ver
+medio de ellaestarán atónitos en el tejado y deseando ver
 qué va a sobrevenir o adonde han de dirigirse.
 nis stantem in loco sancto, aut: ubi non debet, sed ait: cum autem
 uideritis circumdari ab (1151) exercitu Hierusalem, tune scitote,
@@ -20687,9 +20617,7 @@ días antes de la Pascua, referida por dos de ellos. Como
 Lucas al decir: Se acercaba el día de la fiesta de los Ácimos,
 no mencionó los dos días, sino la cercanía, debemos aceptar
 un intervalo de dos días. En cambio, Juan, al decir: Estaba
-próxima la Pascua de los judíos, no quiere que se entien-
-
-dan esos dos días, sino los seis anteriores a la Pascua. Por lo
+próxima la Pascua de los judíos, no quiere que se entiendan esos dos días, sino los seis anteriores a la Pascua. Por lo
 cual, después de mencionar algunas cosas posteriores a esas
 palabras, queriendo mostrar ya cuan próxima había afirmado
 que estaba la Pascua, dijo: Seis días antes de la Pascua,
@@ -20711,9 +20639,7 @@ de la memoria y recapitulando, y reconstituimos ese mismo
 orden, así se urde el discurso, según Mateo, diciendo el
 Señor: Sabéis que dentro de dos días es la Pascua y que el
 Hijo del hombre será entregado para que le crucifiquen.
-Entonces se congregaron los sumos sacerdotes y los ancia-
-
-biduo praedicationem suam, sed ante iam factum, cum adhuc sex dies
+Entonces se congregaron los sumos sacerdotes y los anciabiduo praedicationem suam, sed ante iam factum, cum adhuc sex dies
 (1153) essent ad pasha. Non enim quisquam eorum, cum dixisset post
 biduum futurum pascha, sic adiunxit de illo facto in Bethania, ut diceret
 'post haec cum esset Bethaniae', sed Mattheus quidem: cum autem
@@ -21225,7 +21151,7 @@ mayor abundancia de datos que el Señor habló de ello. Ahora
 menciona que el Señor se levantó de la cena, lavó los pies de
 los discípulos y dio también la razón« de por qué lo hizo.
 Con ella el Señor había indicado aún de forma oscura, mediante el testimonio de la Escritura, que le entregaría quien
-comiese su pan. Luego llegó al pasaje que refieren conjunta1. 2. Hinc igitur incipiamus secundum Mattheum: cenantibus
+comiese su pan. Luego llegó al pasaje que refieren conjunta 1. 2. Hinc igitur incipiamus secundum Mattheum: cenantibus
 eis accepit Iesus panem et benedixit acfregit deditque discipulis suis
 et ait: accipite et comedite, hoc est corpus meum (Mt 26,26). Hoc et
 Marcus Lucasque commemorant (Me 14,17-22; Le 22,14-23). Quod
@@ -21425,7 +21351,7 @@ omnes ex una eademque occasione sermonis ad eam commemorandam
 ueniunt. Nam Mattheus et Marcus parí prorsus ordine et eodem narrationis suae loco eam subnectunt ambo, posteaquam Dominus egressus est
 ex illa domo, ubi manducauerant pascha, Lucas uero et Iohannes, antequam inde esset egressus. Sed facile possemus [273] intellegere aut illos
 dúos eam recapitulando posuisse aut istos praeoecupando, nisi magis
-moueret, quod tam diuersa non tantum uerba sed etiam sententias Domini praemittunt, quibus permotus Petrus illam praesumtionem profe9
+moueret, quod tam diuersa non tantum uerba sed etiam sententias Domini praemittunt, quibus permotus Petrus illam praesumtionem profe 9
 Cf. nota complementaria 23: -Praeoccupatio-Recapitulatio~.
 propuesta es hipotética
 
@@ -21715,7 +21641,7 @@ probabilius indagatur, siue aliquo narrandi ordine possint omnium
 euangelistarum commemorationes in unum redigi, quibus demonstretur semel Dominum praedixisse Petro praesumenti, quod eum negatu(1163)ms esset, nulla hic euangelistarum repugnantia deprehendi poterit, sicut nulla est.
 3. 9- Nunc ergo quantum possumus ipsum ex ómnibus ordinem
 iam sequamur. Cum itaque secundum Iohannem hoc Petro praedictum
-esset, sequitur idem Iohannes et conserit [279] Domini sermonem di19
+esset, sequitur idem Iohannes et conserit [279] Domini sermonem di 19
 Nueva relativización del valor de las palabras, cuando lo que importa es la
 sententia. Cf. nota 197 del libro anterior.
 Es et sueño de Agustín: hacer de los cuatro relatos evangélicos una única
@@ -21914,9 +21840,7 @@ ha mencionado la inclusión del silencio del Señor, dificulta
 la comprensión, hasta reclamar aquellas palabras otra pronunciación 26.
 12.
 
-Lucas puso delante cuántas veces había orado. Di-
-
-dicit illis: dormite iam et requiescite; ecce adpropinquauit hora et
+Lucas puso delante cuántas veces había orado. Didicit illis: dormite iam et requiescite; ecce adpropinquauit hora et
 filius hominis tradetur in manus peccatorum. Surgite, eamus; ecce
 adpropinquauit qui me tradet. Quomodo enim supra dormite iam et
 requiescite, cuín conectat: ecce ad (1165) propinquauit hora, et ideo
@@ -21968,7 +21892,7 @@ Lucas autem, quantum ab eis progressus, id est auulsus fuerit, ut oraret,
 manifestáis aperuit dicens: quantum iactus est lapidis (Le 22,41).
 Porro autem Marcus primo ex uerbis suis Ídem narrauit rogasse Dominum: ut, si fieriposset, transiret ab eo illa hora (Me 14,35), id est
 passionis, quam calicis nomine mox significauit. Deinde uerba ipsa
-Domini sic enuntiauit: Abba Pater, omnia tibipossibilia sunt, trans2
+Domini sic enuntiauit: Abba Pater, omnia tibipossibilia sunt, trans 2
 " Tanto Orígenes {Comentarios al evangelio de Mateo 92) como Apolinar de
 Laodicea {Comentario a San Juan, fragm.132) achacan el silencio de Juan sobre lo
 acontecido en Getsemaní al hecho de que él se ocupa más de la divinidad del Señor que
@@ -22129,7 +22053,7 @@ había dicho: No he perdido a ninguno de los que me diste.
 16.
 Viendo los que estaban con él lo que iba a suceder, según informa Lucas, le dijeron: Señor, ¿herimos a
 espada? Y uno de ellos hirió - el dato lo mencionan los
-cuatro- al siervo del sumo sacerdote y le cortó la oreja
+cuatroal siervo del sumo sacerdote y le cortó la oreja
 derecha, como refieren Lucas y Juan. Según Juan, el que
 hirió fue Pedro y el herido se llamaba Maleo. Luego viene lo
 que refiere Lucas: Respondió Jesús y dijo: Dejad, ¡hasta
@@ -23053,13 +22977,13 @@ igitur et quae dicta sunt per Hieremiam tam sint Zachariae quam Hieremiae et qua
 nomen oceurrens a se scriptum relegisset ac non potius sequens auctoritatem Spiritus Sancti, a quo mentem suam regi plus nobis Ule utique
 sentiebat, ita hoc scriptum relinqueret, sicut eum admonendo constituerat ei Dominus, ad informandos nos tantam uerborum suorum inter
 prophetas esse concordiam, ut non absurde, immo congruentissime
-etiam Hieremiae deputaremus quod per Zachariam dictum repperire61
+etiam Hieremiae deputaremus quod per Zachariam dictum repperire 61
 
 Cf. nota complementaria 18: Inspiración.
 ** Cf. nota complementaria 16: Verdad.
 *' Cf. nota 62.
 Cf. nota complementaria 18: Inspiración.
-*7 Agustín recurre a la explicación teológica, a la -autoría- del Espíritu Santo, para
+*7 Agustín recurre a la explicación teológica, a la -autoríadel Espíritu Santo, para
 
 3,7, 30
 
@@ -23184,7 +23108,7 @@ iubetur mitti in uas fictile et emitur hic de pretio Domini ager figuli, et
 hoc ad sepulturam peregrinorum tamquam ad permansionem quietis
 eorum qui in hoc saeculo peregrinantes consepeliuntur Christo per
 baptismum (cf. Col 2,12). Nam et illam emtionem agri hoc significare
-Hieremiae dicit Dominus, quia erit permansio de captiuitate liberatorum in illa térra. Haec tamquam delinianda arbitratus sum, cum admo73
+Hieremiae dicit Dominus, quia erit permansio de captiuitate liberatorum in illa térra. Haec tamquam delinianda arbitratus sum, cum admo 73
 De nuevo Agustín tiene que refugiarse en el sentido místico {mystice
 significari). A partir de aquí ya es fácil dar el salto a la exégesis e interpretación
 {enucleare sensum}. Cf. nota complementaria 28: «Locutio figurata».
@@ -23427,9 +23351,7 @@ suéltanos a Barrabás. Este había sido enviado a la cárcel
 por cierto motín promovido en la ciudad y un homicidio.
 De nuevo les dirigió la palabra Pilato queriendo soltar a
 Jesús. Pero ellos gritaban desde abajo: Crucifícalo, crucifícalo. Por tercera vez les dijo: ¿Quéha hecho de malo? No
-hallo en él causa alguna de muerte; le castigaré y le solta-
-
-locis aput alios possit inueniri, ceteri autem ea tantum dicere uoluerunt
+hallo en él causa alguna de muerte; le castigaré y le soltalocis aput alios possit inueniri, ceteri autem ea tantum dicere uoluerunt
 quae aput Pilatum gesta sum, quousque Dominus cruciflgendus traderetur. Rediens ergo Lucas ad ea quae aput praesidem gerebantur, unde
 digressus erat, ut narraret quod aput Herodem actum (1179) est, ita
 sequitur: Pilatus autem conuocatisprincipibus sacerdotum et magistratibus et plebe dixit ad tilos: optulistis mihi bunc hominem quasi
@@ -23727,7 +23649,7 @@ exuerunt eum clamydem et induerunt eum uestimentis eius et duxerunt eum, ut cruc
 iam duceretur. Marcus hoc ita dicit: et postquam inluserunt ei, exuerunt illumpurpura et induerunt eum uestimentis suis (Me 15,20).
 10. 37. Sequitur ergo Mattheus: exeuntes autem
 inuenerunt
-bominem Cyreneum, nomine Simonem; hunc angariauerunt, ut tolleret crucem eius (Mt 27,32). Marcus quoque: et educunt illum, inquit, ut crucifigerent eum. Et angariauerunt praetereuntem Simo81
+bominem Cyreneum, nomine Simonem; hunc angariauerunt, ut tolleret crucem eius (Mt 27,32). Marcus quoque: et educunt illum, inquit, ut crucifigerent eum. Et angariauerunt praetereuntem Simo 81
 
 Cf. AMBROSIO, In Lucam 10, 117-118: CC 14, 378ss.
 Cf nota complementaria 23:
@@ -24267,13 +24189,13 @@ malifecit? Quia, si diceret 'dixit', quasi semel dictum intellegeremus;
 quia uero ait: dicebat, satis intimauit intellegentibus multis modis et
 saepe dictum esse, quo usque inciperet hora sexta. Cogitemus ergo,
 quam breuiter hoc dixerit Marcus in conparatione Matthei, quam breuiter Mattheus in conparatione Lucae, quam breuiter Lucas in conparatione Iohannis, cum tamen alia adque alia quisque commemoraret, et
-quam denique breuiter ipse Iohannes in conparatione rerum, quae ges101
+quam denique breuiter ipse Iohannes in conparatione rerum, quae ges 101
 Afirmación teórica y práctica de que, a nivel literario, preocupación primaria
 de Marcos fue la narratio brevis. Cf. notas complementarias 7: Marcos y 22: •Narratio
 brevis et aperta-.
 Al servicio de! objetivo de la obra aparece de nuevo en acción el gramático,
 atento al significado exacto de los tiempos verbales. Como buen escritor, el evangelista
--sugiere Agustín- los usó con propiedad y conocimiento de causa al servicio de lo que
+-sugiere Agustínlos usó con propiedad y conocimiento de causa al servicio de lo que
 quería que el lector entendiese.
 
 S.Ag.
@@ -24419,7 +24341,7 @@ Libro III
 
 50. No faltarán quienes quieran que se entienda la
 parasceve -mencionada por Juan al decir: Era la parasceve,
-casi la hora sexta- como la hora tercia del día, en la que se
+casi la hora sextacomo la hora tercia del día, en la que se
 sentó Pilato en el tribunal. De ese modo parecería que concluyó a esa misma hora tercia en que fue crucificado; que, ya
 pendiente él del madero, pasaron otras tres horas; que entregó su espíritu, y que a partir de la hora en que murió, es
 decir, la hora sexta del día, se hicieron tinieblas hasta la hora
@@ -24429,7 +24351,7 @@ era la parasceve de los judíos, porque a partir del mismo
 sábado ya comenzaban los Ácimos. Pero la Pascua verdadera,
 no la de los judíos, sino la de los cristianos, que ya estaba
 teniendo lugar en la pasión del Señor, se comenzó a preparar
-- es decir, comenzó la parasceve- desde la hora octava de la
+- es decir, comenzó la parascevedesde la hora octava de la
 noche, puesto que el Señor se preparaba para que le diesen
 muerte los judíos. Parasceve significa preparación. Así,
 pues, a partir de la hora nona de la noche hasta su crucifixión
@@ -24692,7 +24614,7 @@ ofrecía de beber diciendo: Dejad, veamos si viene Elias a
 descolgarle.
 Según Mateo, lo referente a Elias no son palabras del que
 le ofreció la esponja con vinagre, sino de los otros. Refiere:
-Los restantes decían: Deja, veamos si viene Elias a liberar17. 54. Sequitur Mattheus etdicit: a sexta autem hora tenebrae
+Los restantes decían: Deja, veamos si viene Elias a liberar 17. 54. Sequitur Mattheus etdicit: a sexta autem hora tenebrae
 factae sunt super uniuersam terram usque ad horam nonam (Mt
 27,45). Hoc et dúo alii contestantur (cf. Me 15,3-36; Le 23,44.45);
 addit autem Lucas etiam, unde factae sint tenebrae, id est solem obscuratum. Sequitur Mattheus: et circa horam nonam clamauit Iesus uoce
@@ -24884,7 +24806,7 @@ quae fiebant timuerunt ualde dicentes: uere Dei Filius erat iste (Mt
 27,54). Marcus sic: uidens autem centurio, qui ex aduerso stabat,
 quia sic clamans expirasset, ait: uere homo hic Filius Dei erat (Me
 15,39). Lucas sic: uidens autem centurio quod factum fuerat glorificauit Deum dicens: uere hic homo iustus erat (Le 23,47). Non est
-contrarium, quod Mattheus dicit uiso terrae motu admiratum centurio123
+contrarium, quod Mattheus dicit uiso terrae motu admiratum centurio 123
 
 Cf. nota complementaria 23:
 
@@ -25047,9 +24969,7 @@ mulieres, quae secutae erant eum a Galilaea, haec uidentes (Le
 23,48.49). Vnde superioribus duobus de mulierum praesentia satis
 consentit, quamuis nullam earum nominatim exprimat. De turba etiam,
 quae simul aderat et uidentes quae fiebant tundebant pectora sua et
-reuertebantur, consentit Mattheo, quamuis seorsum adnexuerit: centu-
-
-rio autem et qui cum eo erant (Mt 27,54). Quapropter tantum modo
+reuertebantur, consentit Mattheo, quamuis seorsum adnexuerit: centurio autem et qui cum eo erant (Mt 27,54). Quapropter tantum modo
 de notis eius, qui stabant a longe, solus inuenitur dixisse. Nam et Iohannes commemorauit de praesentia feminarum, antequam Dominus emisisset spiritum, ita narrans: stabat autem iuxta crucem lesu mater eius
 et sóror matris eius Maria Cleopae et Maria Magdalene. Cum uidisset
 ergo lesus matrem et discipulum stantem, quem diligebat, dicit matri suae: mulier, ecce filius tuus. Deinde dicit discípulo: ecce mater
@@ -25256,7 +25176,7 @@ qui crucifixus est, quaeritis. Non est hic, surrexit enim sicut dixit.
 Venite, uidete locum, ubipositus erat Dominus. Et cito euntes dicite
 discipulis eius qtiia surrexit et ecce praecedit uos in Galilaeam, ibi
 eum uidebitis. Ecce dixi uobis (Mt 28,1 -7). Huic Marcus consonat (cf.
-Me 16,1-11). Sedpotest mouere, quomodo secundum Mattheum ángelus super lapiden sedebat reuolutum a monumento -Marcus enim intraeuntes eas in raonumentum dicit uidisse iuuenem sedentem in dextris coopertum stola candida et obstipuisse- nisi intellegamus aut Mattheum tacuisse de illo angelo, quem intrantes uiderunt, Marcum uero de
+Me 16,1-11). Sedpotest mouere, quomodo secundum Mattheum ángelus super lapiden sedebat reuolutum a monumento -Marcus enim intraeuntes eas in raonumentum dicit uidisse iuuenem sedentem in dextris coopertum stola candida et obstipuissenisi intellegamus aut Mattheum tacuisse de illo angelo, quem intrantes uiderunt, Marcum uero de
 illo tacuisse, quem foris uiderunt sedentem super lapidem, ut dúos
 
 3, 24, 64
@@ -25330,9 +25250,9 @@ cum uero et ipse dicat: et exierunt cito de monumento cum timore et
 gaudio magno, nihil ex hac re quaestionis remanere permittit.
 [354] 65. De hora quoque ipsa, qua uenerunt mulieres ad monumentum, non contemnenda exoritur quaestio. Cum enim Mattheus dicat: uespere autem sabbati, quae lucescit in primam sabbati, uenit
 María Magdalene et alia María uidere sepulchrum (Mt 28,1), quid
-est, quod dicit (1198) Marcus: et ualde mane una sabbatorum ueniuntad monumentum oriente iam solé? (Mcl6,2). In quo quidem a
+est, quod dicit (1198) Marcus: et ualde mane una sabbatorum ueniuntad monumentum oriente iam solé? (Mcl 6,2). In quo quidem a
 ceteris duobus, id est Luca et Iohanne, non discrepat. Quod enim dicit
-Lucas: ualde diluculo (Le 24,1), et Iohannes: mane cum adhuc tenebrae essent (Io20, l), hoc intellegitur Marcus dicere: ualde mane
+Lucas: ualde diluculo (Le 24,1), et Iohannes: mane cum adhuc tenebrae essent (Io 20, l), hoc intellegitur Marcus dicere: ualde mane
 oriente iam solé, id est cum caelum ab orientis parte iam albesceret,
 quod non fit utique nisi solis orientis uicinitate; eius enim est ille
 fulgor, qui nomine aurorae appellari solet. Ideo non repugnat illi qui
@@ -25454,14 +25374,12 @@ ipsius quamuis extrema parte uenerunt.
 66. Nam et ipsum triduum, quo Dominus mortuus est et resurrexit, nisi isto loquendi modo, quo a parte totum dici solet, recte intellegi
 non potest. Ipse quippe ait: sicut enim Ionafuit in uentre ceti tribus
 diebus et tribus noctibus, sic erit et filius hominis in corde terrae
-lí0
+lí 0
 , J1
 
 Esto es, se sirvió de la sinécdoque. Cf. nota complementaria 27: Sinécdoque.
 Nuevo recurso al lenguaje figurado {significauit)
-por parte del evange-
-
-lista.
+por parte del evangelista.
 , sl
 De nuevo, recurso a la sinécdoque. Cf. nota complementaria 27: Sinécdoque.
 Cf. AMBROSIO, In tucam 10,151: CC l4,388ss.
@@ -26171,14 +26089,14 @@ iam appellatur ipsa Bethlem, quae ciuitas antea uocitata est, quamuis
 nunc sit honoris amplioris nomine Domini, qui in illa natus est, sic per
 ecclesias omnium gentium diffamato, et in codicibus quidem Graecis
 magis agrum inuenimus quam uillam; agri autem nomine non castella
-tantum, uerum etiam municipia et coloniae solent uocari extra ciui141
+tantum, uerum etiam municipia et coloniae solent uocari extra ciui 141
 En Quaestiones in Heptateuchum 1,117 habrá resuelto ya la duda. Sobre el
 significado del número 12, cf. Sermones 203,2; 351,8 y M. PONTET, L'éxégése de saint
 Augustinprédicateur
 (Toulouse 1944), p. 299.
 Cf. nota 104 y nota complementaria 16: Verdad.
 u
-^ De nuevo la brevedad de Marcos. Cf- notas complementarias 7: Marcos y 22:
+^ De nuevo la brevedad de Marcos. Cfnotas complementarias 7: Marcos y 22:
 -Narratio brevis et aperta».
 H6 EI gramático está atento a los significados posibles de las palabras para una
 comprensión correcta del texto que evite cualquier tipo de incoherencia o contradicción interna.
@@ -26322,7 +26240,7 @@ reconocer a aquellos a quienes se había aparecido bajo otro
 aspecto.
 Sin duda, Marcos pasó por alto cómo le reconocieron
 para poder anunciarlo. Esto hay que confiarlo a la memoria,
-para habituarse a advertir la costumbre de los evangelistas is2)
+para habituarse a advertir la costumbre de los evangelistas is 2)
 que pasan por alto lo que no mencionan y lo que mencionan
 lo enlazan de tal manera que a quienes no están habituados
 a esta consideración no les llegue el error especialmente de
@@ -26690,7 +26608,7 @@ supra diximus magis suadent hunc nouissimum diem fuisse, quam ut
 intellegantur undecim, qui Thoma absenté decem fuerunt, ideo post
 hanc locutionem, quam Marcus commemorat, adiunctis etiam consequenter illis uerbis uel discipulorum uel ipsius, quae commemorantur
 in Actitus Apostolorum, credendum est adsumtum Dominum in caelum
-(cf. Act 1,4-8), quaC121 íjdragesimo scilicet die post diem resurrectionis eius.
+(cf. Act 1,4-8), quaC 121 íjdragesimo scilicet die post diem resurrectionis eius.
 78. Iohannes autem, quamuis fateatur multa se praetermisisse
 quae fecit Iesus (cf. lo 21,25), uoluit tamen etiam tertiam eius reprae'? Una muestra más de la prudencia de Agustín en sus afirmaciones.
 
@@ -27088,7 +27006,7 @@ tamen eis per omnes quadraginta continuos apparuerat. Nam post diem
 primum resurrectionis eius alios octo dies interuenisse dicit Iohannes,
 post quos eis rursus apparuit (cf. lo 20,26-29), tertio autem ad mare
 Tiberiadis (cf. lo 21,1-24), fortassis con('72/5 > )tinuo consequenti die
--nihil enim repugnat- et deinde, quando uoluit, constituens eis, quod
+-nihil enim repugnatet deinde, quando uoluit, constituens eis, quod
 et ante praedixerat, ut eos in Galilaeae montem praecederet, adque
 omnino per illos quadraginta dies, quotiens uoluit, quibus uoluit, quemadmodum uoluit; sicut Petrus dicit, quando eum Cornelio et his qui
 cum illo fuerant praedicabat: qui simul, inquit, manducauimus et
@@ -27153,7 +27071,7 @@ a un abortivo, pero esto ya desde el cielo, después de no
 corto tiempo de su resurrección.
 86. Veamos ya lo que habíamos diferido, es decir:
 ¿Qué cosa quería significarles cuando, al resucitar, les dio,
-según Mateo y Marcos, este mandato: Os precederé a Galilea, allí me veréis? Cosa que, si bien se cumplió, fue después de mucho tiempo, no obstante que del modo de mandarlo cabía suponer que -aunque sin prejuicio de la necesidad- se debía hacer o sólo eso o eso lo primero. Sin duda,
+según Mateo y Marcos, este mandato: Os precederé a Galilea, allí me veréis? Cosa que, si bien se cumplió, fue después de mucho tiempo, no obstante que del modo de mandarlo cabía suponer que -aunque sin prejuicio de la necesidadse debía hacer o sólo eso o eso lo primero. Sin duda,
 puesto que las palabras no son del evangelista que relata que
 así aconteció, sino del ángel por mandato divino y luego
 personalmente del Señor; mejor, del evangelista que lo relata, pero porque así lo dijo el ángel y el Señor, hay que
@@ -27639,9 +27557,7 @@ incorporados a su unidad, sino porque ya están gobernados
 por la misericordia de Dios de tal manera que llegan a esos
 hechos y salen seguros de este mundo.
 Efectivamente, éstos, incluso antes de asociarse al número de los cristianos, son más útiles que aquellos otros que,
-llamándose ya cristianos e imbuidos incluso de los sacramentos cristianos, persuaden tales cosas que arrastran consi-
-
-go al castigo eterno a aquellos a quienes las persuaden u. A
+llamándose ya cristianos e imbuidos incluso de los sacramentos cristianos, persuaden tales cosas que arrastran consigo al castigo eterno a aquellos a quienes las persuaden u. A
 ésos les da el nombre de miembros; y, como si se tratase de
 una mano o un ojo que es ocasión de pecado, manda arrancarlos del cuerpo, es decir, de la misma sociedad de la unidad, siendo mejor llegar a la vida sin su compañía que ir a la
 gehena con ellos. Separarse de ellos consiste en no darles
@@ -28288,7 +28204,7 @@ No hay que reclamar aquí lo que quizá se pueda ofrecer en
 otro momento «. En efecto, lo que hemos querido encarecer
 a los amantes de la palabra de Dios ya los entregados a la
 santa verdad es esto: aunque Juan anuncia y proclama en su
-obra al mismo Cristo -verdadero y veraz- que los otros tres
+obra al mismo Cristo -verdadero y verazque los otros tres
 evangelistas y que los otros apóstoles que no se propusieron
 lauit, sed, cum expressus per buccellam traditor eius exisset, remanentibus cum illo undecim, in sermone ipsius mirabiliter stupendo maximeque diuturno Ídem Iohannes inmoratus est, ubi dixit: qui uidit me,
 uidit et Patrem (lo 14,9). Vbi multa (1227) locutus est de Spiritu
@@ -28376,7 +28292,7 @@ el alma de la costumbre de esta vida, se adhiera a ella en
 forma constante e indefectible. Ese tal no entiende ni qué es
 lo que busca ni quién el que lo busca. Crea más bien a la
 autoridad sublime y nunca falaz que, mientras estamos en
-este mundo, somos peregrinos lejos del Señor y que camina20. Postremo suas oues Petro se amanti eumque amorem ter confitenti commendans dicit eundem Iohannem sic se uelle manere, doñee
+este mundo, somos peregrinos lejos del Señor y que camina 20. Postremo suas oues Petro se amanti eumque amorem ter confitenti commendans dicit eundem Iohannem sic se uelle manere, doñee
 ueniat (cf. lo 21,15-23). Vbi etiam mihi uidetur alto docuisse mysterio
 istam ipsam Iohannis euangelicam dispensationem, qua in lucem liquidissimam uerbi sublimiter fertur, ubi Trinitatis aequalitas et incommutabilitas uideri potest, et qua máxime proprietate distet a ceteris homo,
 cuius susceptione Verbum caro factum est, perspicue cerni cognoscique non [4l6] posse, nisi cum ipse Dominus uenerit. Ideo sic manebit,
@@ -28421,9 +28337,7 @@ esto el alma de un hombre en la que, sin embargo, habita
 Cristo por la fe, debe esforzarse en disminuir y dar fin a las
 apetencias mundanas sirviéndose de la virtud moral caminando con Cristo mediador como en compañía de los otros
 tres evangelistas. Con la alegría que produce la gran esperanza, retenga en la fe a aquel que, siendo siempre Hijo de Dios,
-se hizo por nosotros hijo del hombre, para que su sempiter-
-
-no poder y divinidad, adaptados a nuestra debilidad y mortalidad, nos hiciese, de lo que tomó de nosotros, un camino en
+se hizo por nosotros hijo del hombre, para que su sempiterno poder y divinidad, adaptados a nuestra debilidad y mortalidad, nos hiciese, de lo que tomó de nosotros, un camino en
 él y hacia él. Para no pecar, déjese gobernar por Cristo. Y en
 el caso de que haya pecado, acepte la expiación del mismo
 Cristo sacerdote. De esta manera, nutridas en el esfuerzo de
@@ -28882,9 +28796,7 @@ referencia más bíblica: los cuatro ríos del paraíso (HIPÓLITO, Comentario a
 
 1,17; CIPRIANO, Epistula
 
-73, 10; VICTORINO DE PETTAU, Co-
-
-mentario al Apocalipsis: CSEL 49, 1916, p. 54 ).
+73, 10; VICTORINO DE PETTAU, Comentario al Apocalipsis: CSEL 49, 1916, p. 54 ).
 También en el ámbito latino, el autor conocido como Ambrosiáster,
 en el Líber quaestionum
 Veteris et Novi Testamenti, se plantea expresamente la cuestión de por qué los hechos y dichos del Señor se hallan
@@ -29275,7 +29187,7 @@ Para afirmar su posición en el problema, Agustín recurre a la terminología de
 páginas encontramos contrarium, adversan, repugnare, discrepare,
 dissentire, dissonare, y discordare, etc., obviamente precedidos del
 non. Pero ello es sólo una parte, pues con igual de frecuencia recurre a
-la formulación positiva que cambia el dis- por el con-: al dissentire se
+la formulación positiva que cambia el dispor el con-: al dissentire se
 le opone el consentiré; al dissonare, el consonare; al discordare el
 concordare, al lado de concinno. Nada mejor que la preposición cum,
 la preposición de la compañía, para indicar el caminar juntos y armoniosos de los cuatro evangelistas, además del apóstol Pablo.
@@ -29283,7 +29195,7 @@ Los términos se comprenden mejor si se colocan en el campo de la
 crítica literaria. Aunque lo que preocupa a Agustín y lo que pretende no
 es sino mostrar la armonía entre los evangelistas, no lo hace desde
 afirmaciones categóricas, sino desde el análisis literario. Para que una
-narratio -y el evangelio es una narratio- sea creíble ha de conseguir la
+narratio -y el evangelio es una narratiosea creíble ha de conseguir la
 congruentia de sus elementos. Eso es lo que expresan de forma clara los
 términos antes indicados, a los que cabe añadir el verbo congruere;
 aunque su presencia en la obra agustiniana no sea tan frecuente como la
@@ -29481,9 +29393,7 @@ advierta o es un osado o un inerudito (temeré e inerudite) (2,30,76).
 Estas últimas palabrasson significativas. La eruditio era el contenido de
 la cultura científica del tiempo (Cf. H. I. MARROU, Saint Augustin et la
 fin déla culture antique [París 1938.], p.l46.559ss). La conclusión es
-que mantener que existen contradicciones en los evangelios es colocar-
-
-complementarias
+que mantener que existen contradicciones en los evangelios es colocarcomplementarias
 
 se fuera de la cultura. Lo cual indica el ámbito en el que se ha colocado
 Agustín en la solución de los problemas. El ha actuado simplemente
@@ -29562,7 +29472,7 @@ Heptateuchum).
 Al menos ése es el espíritu dentro del que se mueve.
 La diferencia pudiera estar en que aquí se trata de un examen del texto
 entero, y no sólo de ciertos puntos que pudieran ofrecer dificultad. Pero
-el hecho se debe aque todo el texto es.cuestionable- desde el punto de
+el hecho se debe aque todo el texto es.cuestionabledesde el punto de
 vista de la armonía y concordia entre los autores sagrados.
 El ocuparse de las quaestiones
 no es debido a interés erudito, sino
@@ -29599,9 +29509,7 @@ quomodo
 quemadmodum
 ( 2, 15, 32 ), a las «ipsissima" verba de un autor ( 2, 12, 27. 29; 2, 14, 31 );
 topamos con la quaestio de loco ( 2, 25, 58 ), de tempore ( 3, 24, 65;
-3, 25, 79 ), de ordine ( 2, 58, 116; 2, 39, 86 ), todas ellas referidas a diversos pasajes evangélicos. No es un tratamiento sistemático, sino el resul-
-
-complementarias
+3, 25, 79 ), de ordine ( 2, 58, 116; 2, 39, 86 ), todas ellas referidas a diversos pasajes evangélicos. No es un tratamiento sistemático, sino el resulcomplementarias
 
 tado de la lectura del texto mismo. Hay diversidad de categorías entre
 las quaestiones; algunas suelen estimular de modo especial la desvergüenza de los contenciosos y perturbar la ignorancia de los débiles
@@ -29725,7 +29633,7 @@ hay que buscar ( 3, 4, 14 ). Expresado de otra manera, está para indicar
 que lo que hay que buscar es la voluntad de quien habló ( 2, 46, 97 ), la
 voluntas sententiae ( 2, 70, 135 ). Otras veces procede de exigencias de
 claridad ( 2, 27, 61; 2, 38, 85; 2, 19, 47 ). En efecto, una afirmación queda
-mejor "insinuada- cuando existe variedad de expresión sin alterar la
+mejor "insinuadacuando existe variedad de expresión sin alterar la
 verdad ( 2, 27, 61 ). Los evangelistas no sólo relatan, sino que incluso
 intentan explicar la sententia, uno de forma más breve, otro de forma
 más larga, y de aquí suelen provenir diferencias entre ellos ( 2, 12, 27 ).
@@ -29803,7 +29711,7 @@ Como dice en un texto ya mencionado, el hombre no es dueño de su
 memoria; ella actúa al margen de su propia libertad y voluntad. En ese
 sentido el evangelista es siervo de ella. Es frecuente que le suministre
 los datos a destiempo, ya sea con retraso, y entonces el evangelista tiene
-que -recuperar- lo olvidado, o con adelanto, y entonces «anticipa»
+que -recuperarlo olvidado, o con adelanto, y entonces «anticipa»
 (praeoccupat)
 lo que ocurrió con posterioridad ( 2, 19, 44; 2, 21, 51; cf.
 nota complementaria 23: «Praeoccupatio-Recapitulatio»).
@@ -29826,9 +29734,7 @@ puede recordar el núcleo central del hechoo el contenido de una
 afirmación, pero no los detalles o palabras exactas, de donde la mutatio
 del ordo verborum, y el usar alia pro aliis con idéntico contenido
 significativo. Alguien podría pensar que en tal caso hay que hablar de
-mentira. La mente providencialista y moralista de Agustín le hace tradu-
-
-cir lo ocurrido a los evangelistas a una lección moral. Ellos sufrieron
+mentira. La mente providencialista y moralista de Agustín le hace traducir lo ocurrido a los evangelistas a una lección moral. Ellos sufrieron
 también esos límites y consecuencias de su memoria, pero, dada su
 excelente autoridad, no se les puede acusar en ningún modo de haber
 mentido o engañado. La consecuencia que saca es la siguiente: Como no
@@ -29935,7 +29841,7 @@ En última instancia, hay verdad porque es palabra de la Verdad. Se
 atribuyen a Cristo, porque son verdad y él es la Verdad (2,70,138).
 [17] «Res». El término res aparece con frecuencia en la obra,
 pero sin ser unívoco. Sus significados son múltiples.
-1) En primer lugar aparece el sentido genérico de -asunto- de que
+1) En primer lugar aparece el sentido genérico de -asuntode que
 se trata (2,12,29; 2,16,33; 2,27,63; 2,39,86; 2,50,105; 2,62,121).
 2) Topamos igualmente con el significado de cualquier realidad
 que puede ser objeto de conocimiento, tanto en el plano de los objetos,
@@ -30161,7 +30067,7 @@ cielo en el bautismo del Señor) (2, l4,31); Jn 1,35-44 con Mt 4,19, Me
 4,18.21 y Me 1,16.19 (de dos en dos, por separado) con Le 5,10
 (juntos) (2,17,41); Mt 4,12 (se retira a Galilea después de entregado
 Juan) con Jn 1,43 (se retira antes de ser entregado Juan) y Le 4,13 (se
-retira después del bautismo) (2,18,42); Mt 5, lss (sermón en la montaña) yLc6,20bss (en el llano) (2,198,45); Me 5,11 (junto a la montaña)
+retira después del bautismo) (2,18,42); Mt 5, lss (sermón en la montaña) yLc 6,20bss (en el llano) (2,198,45); Me 5,11 (junto a la montaña)
 y Le 3,32 (en la montaña) (2,24,56); Mt 9,2c y Me 2,5b (hijo) con Le
 5,20b (hombre) (2,25,57); Mt 10,10 y Le 9,3 (no bastón) con Me 6,8
 (sólo bastón) (2,30,71); Mt 12,9-13 (pregunta al Señor) con Me 3,1-6
@@ -30835,7 +30741,7 @@ cada evangelista diga la verdad a pesar de que aporten distintos comentarios de 
 descubrir esa multiplicidad de sujetos requiere un cierto esfuerzo. La
 comparación entre los evangelistas o la lógica misma del texto permite
 descubrir quiénes y de quiénes dijeron algo. Al respecto, Agustín presenta un verdadero análisis gramatical para determinar el sujeto de los
-verbos "llegan- y «dicen- de Me 2,18, resultando que lo dicen alios de
+verbos "llegan- y «dicende Me 2,18, resultando que lo dicen alios de
 aliis, es decir, de terceras personas, como lo confirma Le 5,33. En
 consecuencia, si se trata de distintos sujetos, son distintas las afirmaciones que presentan Mt 9,14 y Me 2, 18, y no cabe hablar de contradicción. A veces los sujetos están implícitos y el descubrirlos significa
 solucionar la dificultad. Un sujeto implícito hay que reconocer, piensa
@@ -33097,7 +33003,7 @@ SO.
 MI
 
 íNrT)r.ir\^
-^. m Ss O0 S O0 mrMTmi»rmOT-iv^mOi^r ri\AHi ríN>r '.M. if\i/"\r f ITNi - if\*m ^. ^i Ar vi fj \->vrt mi ^us oMrM- rn-ixAoiNn \Oí ) >—
+^. m Ss O0 S O0 mrMTmi»rmOT-iv^mOi^r ri\AHi ríN>r '.M. if\i/"\r f ITNi - if\*m ^. ^i Ar vi fj \->vrt mi ^us oMrMrn-ixAoiNn \Oí ) >—
 m ^ - -- - ** m
 0 ' 00 rC^°-*tT
 ,
@@ -35089,7 +34995,7 @@ s de los Ap
 
 00
 oaooo> oaooo
-n nu3
+n nu 3
 WHJHBn
 M w m - m B... NJ
 
@@ -35185,7 +35091,7 @@ o>£
 
 AWCOM
 
-JlJIJHJI ^ J l * s *. *. UJUJtOMMMMMMlp0
+JlJIJHJI ^ J l * s *. *. UJUJtOMMMMMMlp 0
 W —
 M M
 N)
@@ -35257,7 +35163,7 @@ yjyj UJ _tj _to _ro o O - „ - „ - ^ - „ - ^ - ^ - ^ ^
 
 U u i Sfl sn k í
 
-bssyi4KLNUJNJ
+bssyi 4KLNUJNJ
 
 MSOOJMMOOHJAUÍ
 
@@ -35854,8 +35760,8 @@ non 2, 21, 52; 2, 41, 87; 2, 28, 66;
 3,24,62; 3, 25, 84. 85; 4, 2, 3; 4, 4, 5;
 4,7,8; 4,8,9.
 
--Testor5,\,2;
-3,6,21; 3,24,69; adteslor2,12,26; 2,13,30; 2,16,34; 2,19,45;
+-Testor 5,\,2;
+3,6,21; 3,24,69; adteslor 2,12,26; 2,13,30; 2,16,34; 2,19,45;
 2,79,154; 3,13,41.42; 3,24,69;
 3, 25, 70. 74; contestor
 3,17,54;
@@ -36005,7 +35911,7 @@ dioses de los filósofos 1,23,31; el D. de
 los judíos, D. de todos los pueblos
 1,25,39; D. Sabaot: interpretación
 1,29,45; qué queda del culto de los dioses paganos? 1,32,50; -ofendimos a
-nuestros dioses y nos abandonaron1,32,50.
+nuestros dioses y nos abandonaron 1,32,50.
 Disciplina: 1,14,22; 2,4,8; d. de Cristo
 rey 2,4,9.
 Discípulos: quiénes son d. 2,17,40.
@@ -36307,7 +36213,7 @@ sugerere
 inspiratione
 suggestum est 3,13,48; mentes evangelistarum in recolendo gubernans et
 regens 2,21,52; providentia... qua
-mentes suntgubernatae3,7,5Q;
+mentes suntgubernatae 3,7,5Q;
 auctoritas Spiritus Sancti a quo mentem
 suam regí Ule sentiebat 3,7,30; sancti
 
@@ -36630,7 +36536,7 @@ m. 3, 16, 53;
 3,24,65.
 Monte: el hombre AJ 14 (539); los espíritus poderosos AJ 15 (540); los profetas AJ 29 (570); revelaciones AJ 39
 (617).
-Mos.m Scripturarum2,4\,8H;
+Mos.m Scripturarum 2,4\,8H;
 3,25,84;
 mos Iohannis 2,48,102; m. hominum
 2,79,154; m. evangelistarum
@@ -37015,7 +36921,7 @@ Tabernáculo: corazón y conciencia AJ
 19 (548).
 Teatros: caen 1,33,51
 Templos: derruidos 1,16,24.
-Tentación: estavidaAJ7 (521.525).
+Tentación: estavidaAJ 7 (521.525).
 Tiempos: t. cristianos 1,26,40; disminuye la felicidad terrena 1,33,51
 Tierra: AJ 15 (541); cuerpo de los justos
 AJ 9 (529); cuerpo de Jesús AJ 9 (529);
@@ -37085,11 +36991,11 @@ A)
 
 Volúmenes ya publicados
 I. ESCRITOS FILOSÓFICOS: Introducción y bibliografía general.-Vida de San Agustín, escrita por San Posidio. Soliloquios.-La vida feliz.-El orden (5." ed.).
-II. CONFESIONES (7." e d ).
+II. CON FESIONES (7." e d ).
 
 ACABÓSE DE IMPRIMIR ESTE VOLUMEN XXIX DE LAS
 «OBRAS COMPLETAS DE SAN AGUSTÍN., DE LA BIBLIOTECA DE AUTORES CRISTIANOS, EL DÍA
-24 DE JULIO DE 1992, VIGILIA DE LA FESTIVIDAD DE SANTIAGO APÓSTOL, EN
+24 DE JULIO DE 1992, VIGILIA DE LA FESTIVIDAD DE SAN TIAGO APÓSTOL, EN
 LA IMPRENTA DE LOS SUCESORES DE RIVADENEYRA, CUESTA DE SAN VICENTE, 28.
 MADRID
 

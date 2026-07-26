@@ -46,7 +46,7 @@ de la Facultad de Teología; Dr. TEODORO JIMÉNEZ URRES-
 TI, Decano de la Facultad de Derecho Canónico; Dr. MANUEL CAPELO MARTÍNEZ, Decano de la Facultad de Ciencias Políticas y Sociología; Dr. ANTONIO PINTOR RAMOS,
 Decano de la Facultad de Filosofía; Dr. CARLOS CARRETE
 PARRONDO, Decano de la Facultad de Filología Bíblica
-Trilingüe; Dr. JUAN ANTONIO CABEZAS SANDOVAL, Decano de la Facultad de Pedagogía; Dr. ANTONIO VÁZQUEZ
+Trilingüe; Dr. JUAN ANTONIO CABEZAS SAN DOVAL, Decano de la Facultad de Pedagogía; Dr. ANTONIO VÁZQUEZ
 
 FERNÁNDEZ, Decano de la Facultad de Psicología; Dr.
 General de la Universidad Pontificia.
@@ -64,7 +64,7 @@ MIGUEL FUERTES LANERO
 Emmo. y Rvdmo. Sr. D. ÁNGEL SUQUÍA GOICOECHEA,
 Cardenal Arzobispo de Madrid-Alcalá y Gran Canciller
 de la Universidad Pontificia.
-VICEPRESIDENTE: limo. Sr. Dr. JUAN LUIS
+VICEPRESIDENTE: ilmo. Sr. Dr. JUAN LUIS
 LUJAN, Rector Magnífico.
 
 Promovida por la Federación
@@ -88,7 +88,7 @@ SAN AGUSTÍN
 
 T. VIII, Xla, Xlb.
 
-CONFESIONES: T.
+CON FESIONES: T.
 
 II.
 
@@ -506,7 +506,7 @@ correspondiente en la firma del autor.
 El mismo género literario es un tanto vago. Según Agustín,
 debe llevar el nombre del autor, del correspondiente y un tema,
 en oposición a los «libros», «tratados» y «cuestiones» 4. Sin
-embargo, no siempre se cumplen las formalidades5. Entre las
+embargo, no siempre se cumplen las formalidades 5. Entre las
 cartas recientemente descubiertas por J. Divjak encontramos
 varias «comunicaciones» (commonitoria) que podrían llamarse
 cartas ó. El mismo Agustín enumera algunas cartas entre sus libros 7. A veces los mismos materiales y métodos (papel, escritura, copista, técnica de cobro por página o por línea, etc.)
@@ -594,7 +594,7 @@ a Agustín 2 ', nos describe detalles de un códice priscilianista.
 Por esas cartas nuevas, precisamente por no tratarse de temas
 doctrinales en general, vemos mejor el movimiento de las cartas que circulaban por todas las Iglesias. Vemos también que
 para Agustín es una carga pesada escribir cartas, pero una carga necesaria que lleva con resignación apostólica: «citaré todo
-lo que he dictado desde que volví de Cartago: contesté de nue13 Cartas 67,2; 68,1-2; 72,1.
+lo que he dictado desde que volví de Cartago: contesté de nue 13 Cartas 67,2; 68,1-2; 72,1.
 Carta 59: Hanc epistulam signatam misi annulo, qui exprimit jaciem hominis
 attendentis in latas.
 15 Ibid.
@@ -621,7 +621,7 @@ CLASIFICACIÓN
 El ideal sería un riguroso orden cronológico, y ya los Maurinos trataron de establecerlo. Después de ellos, otros han colaborado, pero quedan muchas dificultades aún. Estas dificultades aumentan con la aparición de las cartas inéditas. Migne
 (PL) conservó el orden cronológico, y Goldbacher (CSEL) se
 limitó a señalar con la letra A las cartas nuevas, para no introducir confusión en las ediciones anteriores y en las citas de
-autores. De Bruyne pudo corregir algo la cronología24. Divjak
+autores. De Bruyne pudo corregir algo la cronología 24. Divjak
 creyó que no debía intercalar las nuevas cartas, para no aumentar las dificultades, y que tampoco debía pensar en un apéndice con los números siguientes al 270. Optó por ordenar su edición con los números 1-29 con un asterisco. En esta forma la
 clasificación es aceptada por todos 25.
 Algunos han intentado una clasificación por el argumento,
@@ -675,7 +675,7 @@ Las cartas privadas no estaban destinadas a la publicación,
 pero accidentalmente podían publicarse como propaganda o
 como documento 27. Las públicas se transmitían de mano en
 mano y las conservaban tanto los autores, que guardaban copia,
-como los corresponsales, que las daban a copiar28. Agustín deja
+como los corresponsales, que las daban a copiar 28. Agustín deja
 entrever que esperaba su difusión, y por eso las revisaba 29. Tales usos eran corrientes 30, pero aun así muchas cartas se perdían 31. Las indicaciones del mismo Agustín y de Posidio prueban que algunas cartas no han llegado a nosotros, sin duda porque no fueron recogidas en «colecciones» tradicionales.
 El modo de trasmisión del epistolario se va revelando por
 la sucesiva y continua aparición de nuevas cartas, evidenciando
@@ -683,7 +683,7 @@ que el modo de trasmisión fue la formación de «colecciones»
 y la copia de las mismas. Goldbacher opinaba que las colecciones fueron haciéndose con el tiempo y lentamente 32. Lietzmann
 aceptaba esa opinión en general, pero añadiendo que ya Agustín había publicado algunas pequeñas colecciones sobre asuntos
 particulares de propaganda; los corresponsales, a su vez, habrían ido juntando las que hallaron a mano, y así se explicarían
-algunas lagunas, difíciles de entender 33. De Bruyne lo contra26
+algunas lagunas, difíciles de entender 33. De Bruyne lo contra 26
 No conocemos las supuestas «normas retóricas» ni en griego ni en latín. En
 cambio, vemos que Cicerón y Séneca, por ejemplo, tienen normas demasiado genéricas. Dada la originalidad de Agustín, podemos dudar de la observancia de rígidas
 «normas retóricas». En la práctica, vemos que Agustín tiene en muchas cartas diferentes tipos lógicos y normativos.
@@ -699,9 +699,7 @@ V.
 Cartas 12; 149,2.
 GOLDBACHER, CSEL 58,9.
 Lietzmann cree, además, que Agustín publicó diferentes colecciones pequeñas
-A raíz de las Confesiones había publicado una colección; a la muerte de San Jeró-
-
-nimo, otra, y otra al publicar las Revisiones. Cf. H. LIETZMANN, Zur Enstebungsgeschichte der Briefsammlung Augustins: Kleine Schriften, Band I (Berlín 1958) 260-304;
+A raíz de las Confesiones había publicado una colección; a la muerte de San Jerónimo, otra, y otra al publicar las Revisiones. Cf. H. LIETZMANN, Zur Enstebungsgeschichte der Briefsammlung Augustins: Kleine Schriften, Band I (Berlín 1958) 260-304;
 'G. PASQUALI, Storia della tradizione e della critica del testo (Firenze 1934) p.449s.
 
 D.
@@ -766,7 +764,7 @@ sucede, muchas cosas cambian de sentido. Así, por ejemplo, el
 EL TEMA BIOGRÁFICO
 
 Aunque la propia salud no suele ser tema de sociedad, a
-veces hallamos confidencias a los amigos36. Agustín era de
+veces hallamos confidencias a los amigos 36. Agustín era de
 constitución sana 37, como lo prueba su vida de trabajo, de ascesis, de preocupación, de estudio, de meditación, de ocupaciones públicas. En las nuevas cartas se afianza cada vez más esa
 conclusión de la crítica 38. Padece frecuentes achaques por esa
 vida sedentaria, preocupada, que parecen crisis de agotamiento, y que aparecen ya en los días de su conversión, cuando se
@@ -813,7 +811,7 @@ que entre Dios y el hombre hay «trascendencia cualitativa», y
 el hombre sólo puede ir a Dios por medio de Cristo.
 Por eso la filosofía no puede separarse tampoco de la teología, ni lo sobrenatural puede separarse de lo natural. No hay
 confusión ni separación, sino distinción e integración. En este
-sentido tienen importancia algunas cartasA5 y 4Ó. Sin entrar en
+sentido tienen importancia algunas cartasA 5 y 4Ó. Sin entrar en
 el sistema filosófico de Agustín, bastará recordar sus teorías
 sobre la interioridad, sobre el a priori, etc.
 Con frecuencia se acusa a Agustín de los extremos más
@@ -905,7 +903,7 @@ terrarum in quacumque parte terrarum.
 Toda la realidad de la Iglesia, juntamente visible e invisible, como Cristo, supone una ley que podríamos llamar «ley de
 la encarnación redentora», presencia invisible del Espíritu de
 Cristo, esto es, «el principio místico de la unidad». Este principio dinámico viene del Padre por la misión del Hijo y del
-Espíritu, y vuelve al Padre mediante el impulso o amor del Es47
+Espíritu, y vuelve al Padre mediante el impulso o amor del Es 47
 
 p.52.
 
@@ -1259,7 +1257,7 @@ BRISSON, J. P., La correspondance de saint Augustin. Essay de classement logique
 BUCKLEY, J. M.: Saint Augustine's correspondence on the Temporal
 Responsablity of the Christian (Institut Catholique de París, 1965)
 (tesis doctoral, dactyl.).
-CAVALLERA, F., Saint ]ér6me, sa vie et son oeuvre (París-Louvaina
+CAVALLERA, F., Saint ]ér 6me, sa vie et son oeuvre (París-Louvaina
 1922).
 CHADWICK, H., New Letters of St. Augustine: The Journal of Theological Studies 34 (1983) 425-452.
 CHARLIER, C, Liste des extraits augustiniens (apéndice a La compilation
@@ -1427,7 +1425,7 @@ Agostiniana II 353-358.
 CARTAS
 1-123
 
-S. A VREL1I A VG VSTINI
+S. A VREL 1I A VG VSTINI
 HIPPONIENSIS EPISCOPI
 
 EPISTVLAE
@@ -1467,7 +1465,7 @@ auderem —quando enim me tantorum uírorum
 non moueret auctoritas?—, nisi eos aputarem longe in aliama, quam uulgo creditum est,
 fuisse sententiam. quare potius eos imitatus sum, quantum ualui, quam
 expugnaui, quod omnino non ualeo. uidetur enim mihi satis congruisse
-temporibus, ut, si quid sincerum de fonte Platónico flueret, ínter um1
+temporibus, ut, si quid sincerum de fonte Platónico flueret, ínter um 1
 Epist. 1,1- San Agustín se convirtió al catolicismo en la ciudad de Milán ese
 año de 386, a fines de agosto o primeros de septiembre. Se retiró, alegando su falta
 de salud, a la finca de su amigo Verecundo, llamada Casiciaco, desde donde escribe
@@ -1485,7 +1483,7 @@ A Hermogeniano
 de su fuente, por un boscaje sombrío y espinoso a disposición
 de unos pocos, que dejarla correr a campo abierto ante los
 rebaños que aparecen a cada momento e imposibilitan el conservarla pura y limpia. ¿No es lo más conveniente para una
-bestia opinar que el alma es corporal? Pienso, pues, que contra esta gente se urdió útilmente el arte y razón de ocultar2
+bestia opinar que el alma es corporal? Pienso, pues, que contra esta gente se urdió útilmente el arte y razón de ocultar 2
 la verdad. En cambio, en nuestros días, ya no vemos filósofos,
 a no ser quizá en el atuendo corporal, ya ésos no los considero dignos de tan venerable nombre. Hoy tenemos que infundir a los hombres, a quienes la teoría de los académicos,
 con su ingenioso modo de hablar apartó de la comprensión
@@ -1639,7 +1637,7 @@ III
 NEBRIDIO AUGUSTINUS
 
 1. Utrum nescio quo, ut ita dicam, blandiloquio tuo factum putem,
-an uere ita se res habeat, incertum apud me est. f5] nam repente accidit nec satis deliberatum est, quatenus debeat committi fidei. ex1
+an uere ita se res habeat, incertum apud me est. f5] nam repente accidit nec satis deliberatum est, quatenus debeat committi fidei. ex 1
 Se refiere al El orden (II 7,20: PL 32,1003). Ya en esta carta aparece el conflicto
 entre el esencialismo griego y platónico, y el exístencialismo personal y cristiano de
 Agustín.
@@ -1933,7 +1931,7 @@ in ea, quae uerissime uera sunt, adtolli coepero, tanta non numquam
 rerum manentium praesumptione compleor, ut mirer interdum illa mihi
 opus esse ratiocinatione, ut haec esse credam, quae [11] tanta insunt
 praesentia, quanta sibi quisque ipse fit a praesens. recolé tu quoque;
-nam te fateor huius reí esse diligentiorem, ne quid forte nesciens rescrip1
+nam te fateor huius reí esse diligentiorem, ne quid forte nesciens rescrip 1
 Agustín identifica el retiro espiritual con la catarsis platónica o «purificación»
 (vía purgativa), ya negativa (abstine), ya positiva (sustitte), o bien «mortificación y
 estudio». Para reconocer el progreso establece dos criterios o síntomas: pensar sin imágenes y no tener miedo a la muerte.
@@ -2145,7 +2143,7 @@ rerum sine ulla imaginatione memoria.
 II 3. Iam uero quod tibi uidetur anima etiam non usa (69) sensibus
 corporis corporalia posse imaginan, falsum esse conuincitur isto modo, si
 anima, priusquam corpore utatur ad corpora sentienda, eadem corpora
-imaginan potest et melius, quod nemo sanus ambígit, affecta erat, ante1
+imaginan potest et melius, quod nemo sanus ambígit, affecta erat, ante 1
 Agustín muestra su simpatía por la anamnesis platónica, pero rechaza el platonismo imaginativo: no hay en el alma ningún elemento sensible que no haya entrado
 por los sentidos.
 a] qua PL
@@ -2227,7 +2225,7 @@ terram contineri, et similia. haec enim omnia, ut se cogitationis tempestas habu
 genus adtinet imaginum, numeris máxime atque dimensionibus agitur,
 quod partim est in rerum natura, cum totius mundi figura inuenitur et
 hanc inuentionem in animo cogitantis imago sequitur, partim in disciplinis tamquam in figuris geometricis et rhythmicis musicis et infinita
-uarietate numerorum. quae quamuis uera, sic ut ego autumo, coroprehen2
+uarietate numerorum. quae quamuis uera, sic ut ego autumo, coroprehen 2
 Personajes de las comedias de Terencio,
 a] uelut PL
 b] tamen et PL
@@ -2309,7 +2307,7 @@ uero eorum in alíis atque alus rebus adtigerat. ita nos pueri apud me;
 diterraneos nati atque nutriti uel in paruo cálice aqua uisa iam imaginan
 maria poteramus, cum sapor fragorum et cornorum, antequam in Italia
 gustaremus, millo modo ueniret in mentem. hinc est, quod a prima aetate
-caeci, cum de luce coloribusque interrogantur, quid respondeant, non inueniunt; non enim coloratas ullas patiuntur imagines, qui senserint0
+caeci, cum de luce coloribusque interrogantur, quid respondeant, non inueniunt; non enim coloratas ullas patiuntur imagines, qui senserint 0
 nullas.
 7. Nec mirere *, quo pacto ea, quae in rerum natura figurantur, effingi
 
@@ -2338,7 +2336,7 @@ maravillosos que dejo a tu consideración, cuando los números
 ocultos se activan en el alma sin figura alguna de falsedades
 corpóreas. Ya que ves tantos movimientos del alma, exentos
 de todas esas imágenes, sobre las que me consultas ahora, quiero que entiendas que el alma se une al cuerpo por un impulso
-diferente de esas formas sensibles de la imaginación4; pienso,
+diferente de esas formas sensibles de la imaginación 4; pienso,
 pues, que de ningún modo pudo ser impresionada antes de
 usar del cuerpo y de los sentidos. Por lo cual, movido por
 nuestra familiaridad y por la fidelidad al mismo derecho divino, amigo carísimo y amabilísimo, te aconsejaría que no
@@ -3341,7 +3339,7 @@ mis tablillas, si las tienes ahí, para cubrir tales necesidades. He
 escrito algo acerca de la religión católica, en cuanto el Señor
 se dignó inspirarme, y deseo enviártelo antes de que yo vaya
 a ésa, si no se me acaba entretanto el papel 1. Tendrás que tolerar una caligrafía que no viene del escritorio de Mayorino.
-He perdido todo el remanente de los códices, excepto los libros De Oratore2. Lo único que pude contestarte fue que tomases los que quisieras, y ésa es mi respuesta actual, pues no
+He perdido todo el remanente de los códices, excepto los libros De Oratore 2. Lo único que pude contestarte fue que tomases los que quisieras, y ésa es mi respuesta actual, pues no
 veo qué más puedo hacer estando ausente.
 2. Mucho me plugo que en tu última carta quisieras hacerme partícipe de tu felicidad doméstica, pero
 ¿me mandas ignorar las apariencias del mar tranquilo
@@ -3444,7 +3442,7 @@ ignoramus. nam deus ómnibus religionibus commune nomen est. ita fit,
 ut, dum eius quasi quaedam membra carptim uariis supplicarionibus
 prosequimur, totum colere profecto uideamur.
 2. Sed inpatientem me esse tanti erroris dissimulare non possum.
-quis enLn ferat Ioui fulmina uibranti praeferri Migginem0, [38] Iunoni,
+quis enLn ferat Ioui fulmina uibranti praeferri Migginem 0, [38] Iunoni,
 Mineruae, Veneri Vestaeque Sanamemd et cunctis, pro nefas! diis inmortalibus archimartyrem Namphamoneme? inter quos Luchas etiam
 haud minore cultu suscipitur atque alii interminato numero, diis hominibusque odiosa nomina, qui conscientia nefandorum facinorum specie
 gloriosae mortis scelera sua sceleribus cumulantes dignum moribus factisque suis exitum maculad reppererunt. horum busta, si memoratu
@@ -4012,7 +4010,7 @@ padre, con sincera caridad en la presencia de Dios, AGUSTÍN, presbítero, salud
 1. Pido ante todo que tu religiosa prudencia piense que
 en esta vida, máxime en estos tiempos, nada hay más fácil,
 más placentero y de mayor aceptación entre los hombres que
-el ministerio- de obispo, presbítero o diácono, si se desempeña
+el ministeriode obispo, presbítero o diácono, si se desempeña
 por mero cumplimiento y adulación. Pero, al mismo tiempo,
 nada hay más torpe, triste y abominable ante Dios que esa
 conducta. Del mismo modo, nada hay en esta vida, máxime
@@ -4024,7 +4022,7 @@ XXI
 
 (PL 33,88)
 
-DOMINO BEATISSIMO ET VENERABILI ET IN CONSPECTU DOMINI SINCERA
+DOMINO BEATISSIMO ET VENERABILI ET IN CON SPECTU DOMINI SINCERA
 CARITATE CARISSIMO PATRI VALERIO EPISCOPO AUGUSTINUS PRESBYTER
 IN DOMINO SALUTEM
 
@@ -4201,7 +4199,7 @@ affectum inploro, ut miserearis mei et concedas mihi ad hoc, quod
 rogaui, tempus, quantum rogaui, atque adiuues me orationibus tuis, ut
 non sit inane desiderium meum nec [54] infructuosa ecclesiae Christi
 atque utilitati fratrum et conseruorum meorum absentia mea. scio quod
-illam caritatem pro me orantem máxime in tali causa, non despicit domi4
+illam caritatem pro me orantem máxime in tali causa, non despicit domi 4
 Con frecuencia, los pleitos de la Iglesia habían de resolverse en Roma o Milán,
 ante el tribunal imperial.
 a] eo add. PL
@@ -4275,7 +4273,7 @@ gemitibusaue interpellant.
 (91) 2. Scias itaque, domine beatissime et plenissima caritate uenerabilis, non desperare nos, immo sperare nos uehementer, quod dominus
 et deus noster per auctoritatem personae, quam geris, quam non carni,
 sed spiritu b tuo inpositam esse confidimus, multas carnales foeditates
-et aegritudines, quas Africana ecclesia in multis patitur, in paucis gemit... conciliorum0 graui ense d et tua grauitate6 posse sanari. cum [56] enim
+et aegritudines, quas Africana ecclesia in multis patitur, in paucis gemit... conciliorum 0 graui ense d et tua grauitate 6 posse sanari. cum [56] enim
 apostolus tria breuiter genera uitiorum detestanda et uitanda uno in
 
 El texto presenta una laguna.
@@ -4457,7 +4455,7 @@ ebrietatibus dicta sint.
 II 7. De contentione autem et zelo b quid me attinet dicere, quando
 ista uitia non in plebe, sed in nostro numero grauiora sunt? horum autem
 morborum mater superbia est et humanae laudis aiuditas, quae etiam
-hypocrisin saepe generat. huic non resistitur, nisi cref93)bris diuinorum
+hypocrisin saepe generat. huic non resistitur, nisi cref 93)bris diuinorum
 librorum testimoniis incutiatur timor et caritas dei, si tamen ille, qui hoc
 agit, se ipsum praebeat patientiae atque humilitatis exemplum minus
 sibi adsumendo, quam offertur, sed tamen ab eis, qui se honorant, nec
@@ -4702,9 +4700,7 @@ con tu intención, que no creo que lo hayas rebautizado.
 3. Por lo tanto, hermano, te suplico por la divinidad y
 humanidad de nuestro Señor Jesucristo, que te dignes comunicarme lo sucedido. Contéstame en la idea de que he de leer
 en la iglesia a mis hermanos tu informe. De antemano te lo
-prevengo, no sea que, si hago lo que tú no esperabas, se ofen-
-
-da tu caridad, y delante de nuestros comunes amigos te quejes
+prevengo, no sea que, si hago lo que tú no esperabas, se ofenda tu caridad, y delante de nuestros comunes amigos te quejes
 con justicia de mí. No veo qué dificultad puedes hallar en
 contestarme. Si rebautizas, nada debes temer de tus partidarios, al confesar que haces lo que ellos mismos te obligarían
 a hacer aunque no quisieras. Si defiendes que se debe rebautizar con cuantos documentos puedas, no sólo no se encolerizarán contra ti, sino que te alabarán por ello. Y si no rebautizas, haz uso de la libertad cristiana, hermano Maximino. Mantenía, te ruego. Contemplando a Cristo, no te arredre reprensión de hombre alguno ni temas su poder. El honor de este
@@ -4861,9 +4857,7 @@ sino presentar a tu consideración mis palabras, y mi intención,
 a Dios.
 6.
 
-Dejemos a un lado las vanas acusaciones que los con-
-
-concilia, frater, exterreant. si enim hoc eis displicuerit, non sunt digni,
+Dejemos a un lado las vanas acusaciones que los conconcilia, frater, exterreant. si enim hoc eis displicuerit, non sunt digni,
 qui te habeant; si autem placuerit, credimus de misericordia domini,
 qui timentes sibi displicere et conantes placeré numquam deserit, quod
 inter uos et nos cito pax etit, ne propter honores nostros, de qua
@@ -4935,7 +4929,7 @@ A Maximino
 Paulino y Terasia a Alipio
 
 esta carta, para que por lo menos los míos se avergüencen de
-dejarse rebautizar, al comprobar vuestra desconfianza4.
+dejarse rebautizar, al comprobar vuestra desconfianza 4.
 7. No lo haré en presencia del soldado, para que ninguno
 de los vuestros piense que trato de producir mayor alboroto
 que el requerido por la paz. Lo haré cuando se haya ido el
@@ -5053,7 +5047,7 @@ ita uisceribus tuis insinuare dignatus est, ut peculiarem nobis caritatís
 tuae fiduciam uindicemus his officiis atque muneribus prouocati, ut nos
 diffidenter aut leuiter te amare non Iiceat.
 año 394. Eso prueba que Alipio escribió a Paulino el año 393, informando de que en
-la provincia de África había ya tres monasterios organÍ2ados. Es gratuito hablar de
+la provincia de África había ya tres monasterios organÍ 2 ados. Es gratuito hablar de
 otros monasterios, aunque por Cartago pasasen muchos monjes trashumantes.
 
 24, 3
@@ -5076,7 +5070,7 @@ preocupación de la carne y sangre, te has constituido un yermo, separado de los
 3. Para corresponderte de algún modo, aunque inferior a
 ti en todo, me procuré, como me ordenabas, la Historia universal, de Eusebio, venerable obispo de Constantinopla. No
 pude de momento cumplir tu encargo, pues no tenía el códice, y hube de pedirlo a Roma, a nuestro santísimo pariente
-Domnión, quien me prestó ese servicio sin dudar y con la ma2. Accepimus enim insigne praecipuum dilectionis et sollicitudinis
+Domnión, quien me prestó ese servicio sin dudar y con la ma 2. Accepimus enim insigne praecipuum dilectionis et sollicitudinis
 tuae opus sancti et perfecti in domino Christo uirí, fratris nostri Augustini, libris quinqué confectum, quod ita miramur atque suspicimus, ut
 dictata diuinitus uerba credamus. itaque fiducia suspiciendaea nobis
 unanimitatis tuae et ad ipsum scribere ausi sumus, dum nos illi per te
@@ -5122,10 +5116,8 @@ incorporarte al linaje real y sacerdotal. Me indicas que ya en
 Milán oíste el nombre de mi humilde persona, cuando te iniciabas allí. Confieso que siento curiosidad de informarme también yo, para conocerte del todo, y congratularme más contigo,
 si es que fuiste llamado a la fe o consagrado al sacerdocio por
 nuestro padre Ambrosio, para mí apreciadísimo, pues ambos
-pudiéramos tener el mismo padre. Porque aunque yo fui bau-
-
-tizado por Delfín de Burdeos y ordenado por Lampadio de
-Barcelona3, forzado por la plebe inesperadamente arrebatada,
+pudiéramos tener el mismo padre. Porque aunque yo fui bautizado por Delfín de Burdeos y ordenado por Lampadio de
+Barcelona 3, forzado por la plebe inesperadamente arrebatada,
 sin embargo, siempre fui estimulado por el amor de Ambrosio
 para llegar a la fe y aún me protege en el orden sacerdotal.
 En fin, ha querido contarme en su clero, de modo que dondequiera que habite sea yo su presbítero.
@@ -5163,9 +5155,7 @@ humilitatis nostrae nomine apud Mediolanium te didicisse, cum illic
 initiareris, fateor curiosius me uelle condiscere, ut omni parte te nouerim,
 quo magis gratuler, si a suscipiendo mihi patre nostro Ambrosio uel ad
 fidem inuitatus es uel ad sacerdotium consecratus, ut eundem ambo
-habere uideamur auctorem. nam ego etsi a Delphino Burdigalae bapti-
-
-zatus, a Lampio apud Barcilonem in Hispania per uim inflammatae
+habere uideamur auctorem. nam ego etsi a Delphino Burdigalae baptizatus, a Lampio apud Barcilonem in Hispania per uim inflammatae
 súbito plebis sacratus sim, tamen Ambrosii semper et dilectione ad fidem
 innutritus sum et nunc in sacerdotii ordinationea confoueor. denique
 suo me clero uoluit uindicare, ut, etsi diuersis locis degam, ipsius
@@ -5425,7 +5415,7 @@ recepisse te per beatissimum sacerdotem Alypium, quia dignatur, patrem
 nostrum, confido. ís enim sine dubio de se tibí exemplum praebuit nos
 ante notitiam et supra meritum diligendi, qui incógnitos sibi nos et
 longinqua soli uel sali intercapedine disparates spiritu uerae dilectionis.
-qui ubique et penetrat et effunditur, et uidere diligendo potuit et ad3
+qui ubique et penetrat et effunditur, et uidere diligendo potuit et ad 3
 Agustín se hizo problema de este pensamiento con el texto concupivi desiderare
 (Comentario al salmo 118,8,3: PL 36,1520).
 
@@ -5553,7 +5543,7 @@ excoquat, ineptum putaui a.
 si suis legibus non staret, si mensuris inparibus aurem auditoris offenderet,
 puderet te certe nec differres nec desisteres, doñee ordinares, corrigeres,
 statueres, aequares uersum tuum discendo et agendo artem metricam
-acérrimo studio et labore quolibet. quid, cum inordinatus ipse peruerte2
+acérrimo studio et labore quolibet. quid, cum inordinatus ipse peruerte 2
 TERENCIO, Adelfoe 5.
 a] sequitur in PL «Carmen Licentü ad Augustinum praeceptorenw, quod vide infra
 in fine epistulae.
@@ -5815,7 +5805,7 @@ me impedirían seguirte con solícito pie!
 iría en el verano hacia el Neuros y en el invierno hacia el
 [Danubio.
 
-ao5)
+ao 5)
 [91]
 
 art.
@@ -5979,7 +5969,7 @@ o las ciudades del Caspio de las poblaciones cimerias.
 Las regiones de los Meotas, que baña el Helesponto,
 separen más aún Europa del Asia. ¿Acaso Dodona
 quam mihi post tergum ueniant tua dona, magister.
-arcet amor coplamque6 tenet communis honesti.
+arcet amor coplamque 6 tenet communis honesti.
 hic, hic regnat amicitiae decus hoste fugato.
 105 nam ñeque propter opes uitreas aurumque rebelle
 iungimus adsensus animorum; nam ñeque nulgi
@@ -6323,7 +6313,7 @@ piensa en la gran misericordia de Dios y en sus dones maravillosos. Cuando Alipi
 deseo de que te escribiese su autobiografía, aceptaba el encargo en atención a tu benevolencia, pero lo rehusaba por
 no ruborizarse; viéndole yo vacilante entre el pudor y el
 amor, eché sobre mis hombros su carga, pues me lo encargó
-también en una carta1. Si Dios me ayuda, pronto meteré a
+también en una carta 1. Si Dios me ayuda, pronto meteré a
 Alipio entero en tu corazón. Lo que yo más temía era que
 él se ruborizase de narrar todos los dones con que le ha favorecido el Señor. La lectura de su vida no había de quedar
 dolore; in his uero, quae de azymo ünceritath et ueritatis (1 Cor 5,7.8)
@@ -6465,7 +6455,7 @@ XXVIII
 (PL 33.1U)
 
 DOMINO DILECTISSIMO ET CULTU SINCERISSIMO CARITATTS OBSERVANDO "
-ATQUE AMPLECTENDO FRATRI ET CONPRESBYTERO HLERONÍMO AÜGUSTINUS
+ATQUE AMPLECTENDO FRATRI ET CON PRESBYTERO HLERONÍMO AÜGUSTINUS
 
 I 1. Numquam aeque quisquam facie b cuilibet innotuit quam mihi
 tuorum in domino studiorum quieta laetitia ° et uere ex^rcitatio liberalis.
@@ -6476,7 +6466,7 @@ possum magna ex parte mihi esse relatu eius inpressam et ante reditum,
 cum te Ule ibi uidebat, ego uidebam sed oculis eius. non enim animo
 me atque illum sed corpore dúos, qui nouerit, dixerit, concordia dum
 
-Véase la nota complementaria 4: Correspondencia con S. Jeróninj0 p.939.
+Véase la nota complementaria 4: Correspondencia con S. Jeróninj 0 p.939.
 Alipio navegó a Palestina con el propósito de reunir libros. A¡ regresar a Tagaste
 fue consagrado obispo. En cambio, encontramos en Cartago a PrC)futuro, otro monje
 íntimo de Agustín y de Alipio: también él trata de ir a Palestina para adquirir libros
@@ -6875,9 +6865,7 @@ de Dios, siendo así que para ella está cerrado el reino. Luego
 pasé a aquel otro capítulo que dice: Cuando os juntáis, no
 es ya para celebrar la cena del Señor, pues cada uno toma de
 antemano la suya para consumirla; uno pasa hambre, y otro
-se embriaga. ¿Por ventura no tenéis casas para comer y beber, o despreciáis la iglesia de Dios? Recitado el pasaje, advertí que en la iglesia no se deben celebrar ni siquiera con-
-
-vites honestos y sobrios. El Apóstol no dijo: «¿por ventura
+se embriaga. ¿Por ventura no tenéis casas para comer y beber, o despreciáis la iglesia de Dios? Recitado el pasaje, advertí que en la iglesia no se deben celebrar ni siquiera convites honestos y sobrios. El Apóstol no dijo: «¿por ventura
 no tenéis casas para embriagaros?», como si la embriaguez
 fuese lo único que se prohibe dentro de la iglesia. Dijo para
 comer y beber, y eso pueden hacerlo honestamente los que
@@ -6987,9 +6975,7 @@ de los que habían asistido a la plática anterior, no cesaban de
 protestar. Tenía tal fuerza la costumbre pésima en ellos, que,
 dejándose gobernar por la voz de la misma, decían: «¿Por qué
 ahora? Los que antes no lo prohibieron, no dejaban por eso
-de ser cristianos.» Al oír esto, ya no sabía yo de qué argu-
-
-spiritus est caritas, gaudium, pax, longanimitas, benignitas, bonitas, fides,
+de ser cristianos.» Al oír esto, ya no sabía yo de qué arguspiritus est caritas, gaudium, pax, longanimitas, benignitas, bonitas, fides,
 mansuetudo, continentia (Gal 5,22-23), egique, ut considerarent, quam
 esset pudendum atque plangendum, quod de illis fructibus carnis non
 solum [118] priuatim uiuere, sed etiam honorem ecclesiae deferre cuperent et, si potestas daretur, totum tam magnae basilicae spatium turbis
@@ -7049,9 +7035,7 @@ injuria sobre los que antes de nosotros permitieron o no osaron prohibir tan man
 expuse las circunstancias en que se introdujeron tales abusos
 en la iglesia. Les hice ver que, después de tantas y tan crueles
 persecuciones, al retornar la paz, multitud de gentiles quería
-recibir el nombre cristiano; pero se veía impedida por su costumbre de celebrar las fiestas de los ídolos con festines abun-
-
-dantes y con embriagueces. No podían abstenerse con facilidad de sus torpísimas e inveteradas diversiones. Entonces les
+recibir el nombre cristiano; pero se veía impedida por su costumbre de celebrar las fiestas de los ídolos con festines abundantes y con embriagueces. No podían abstenerse con facilidad de sus torpísimas e inveteradas diversiones. Entonces les
 pareció a nuestros mayores que se debía transigir con esa debilidad, permitiendo a los neófitos celebrar las fiestas en honor
 de los santos mártires en sustitución de las que dejaban; el
 exceso sería igual, pero menor el sacrilegio. Una vez que estuviesen congregados bajo el nombre de Cristo y sometidos a
@@ -7382,7 +7366,7 @@ uenire in uestrae caritatis manus, ut aliquo pacto absens cito possem
 esse uobiscum, lucrum mihi uestrae epistulae contulit tarditas mea.
 bonus dominus, qui non tribuit saepe, quod uolumus, ut, quod mallemus,
 adtribuat. aliud est enim, quod accepta epistula mea scripturi estis, aliud,
-quod non accipiendo scripsistis. quo4 cum laetissime legerimus, defuisset
+quod non accipiendo scripsistis. quo 4 cum laetissime legerimus, defuisset
 
 A Paulino y Terasia
 
@@ -7537,9 +7521,7 @@ sólo Dios, mientras que de lo que realmente poseían son testigos también los 
 terrenas y superfluas se aman, coaccionan más si se poseen que
 si sólo se codician. ¿Por qué se marchó triste aquel joven que
 pedía al Señor un consejo para conseguir la vida eterna, cuando oyó que para ser perfecto tenía que vender todos sus bienes y distribuirlos a los pobres, para tener un tesoro en el
-cielo? Porque poseía grandes riquezas, como lo refiere el Evan-
-
-gelio. Una cosa es no querer incorporarse lo que se echa de
+cielo? Porque poseía grandes riquezas, como lo refiere el Evangelio. Una cosa es no querer incorporarse lo que se echa de
 menos, y otra cosa es no querer arrancarse lo que se lleva incorporado: aquello se rehusa como vianda, esto se corta como
 miembro propio. ¿Con qué gozo, por ende, ve la caridad cristiana en nuestros tiempos que por el Evangelio se realiza con
 gozo lo que el joven escuchó con tristeza de labios del Señor?
@@ -7555,9 +7537,7 @@ soberbia y son modelos de una alcanzable perfección. No sé si
 podéis hacer actualmente mayor obra de misericordia que no
 ocultar que ahora de hecho sois tales, cuales antes quisisteis
 ser.
-7. Recomiendo a vuestra benignidad y caridad al mucha-
-
-ego inpudenter rogo uos et postulo et flagito, ut in Africam [5] maiore
+7. Recomiendo a vuestra benignidad y caridad al muchaego inpudenter rogo uos et postulo et flagito, ut in Africam [5] maiore
 talium hominum siti quam siccitatis nobilitate laborantem uenire dignemini.
 5. Scit deus, quamb non solum propter desiderium meum ñeque
 solum propter eos, qui uel per nos uestrum propositara uel undecumque
@@ -7622,7 +7602,7 @@ cuánto lo deseas.
 8. Me he informado por los hermanos de que estás escribiendo contra los paganos. Si algo merezco de tu buen corazón, envíamelo sin escrúpulo para que lo lea. Porque ese
 tati caritatique commendo. causas calamitatis et peregrinationis eius
 audietis ex ipso. nam et propositum eius, [7] quo seruiturum se esse
-polf225)licetur deo, tempus prolixius et aetas robustior et transactus
+polf 225)licetur deo, tempus prolixius et aetas robustior et transactus
 timor certius indicabunt. tres libros atque utinam tam grandis quaestionis
 ita explicatores ut grandes tanto minus metuens in te laborem legendi,
 quanto ardorem perspicio diligendi, misi sanctitati
@@ -7688,9 +7668,7 @@ CARTA
 Fecha: Año 395.
 Lugar: Ñola.
 Tema: Recomendación y Poema de Licencio.
-PAULINO yTERASIAa ROMANIANO, señor justo y loable y ho-
-
-norable hermano.
+PAULINO yTERASIAa ROMANIANO, señor justo y loable y honorable hermano.
 1. El día antes de entregar esta carta al correo llegaron
 de vuelta de África nuestros hermanos, cuya tardanza nos tenía nerviosos, como viste, ¡oh tú!, el más deseado de todos
 los santos y queridos varones. Con ellos recibimos diferentes
@@ -7746,7 +7724,7 @@ Iglesia en estos selectos suyos, para reprimir el poder de los
 pecadores, esto es, de los donatistas y maniqueos, como lo prometió por el profeta.
 3.
 ¡Ojalá que ahora esa trompeta dominical que resuena
-en la boca de Agustín retiña en el oído de nuestro hijo Li2. Non autem tantum hoc scribimus gratulandum, quod episcopatum Augustinus acceperit, sed quod hanc dei curam meruerint Africanae
+en la boca de Agustín retiña en el oído de nuestro hijo Li 2. Non autem tantum hoc scribimus gratulandum, quod episcopatum Augustinus acceperit, sed quod hanc dei curam meruerint Africanae
 ecclesiae, ut uerba caelestia Augustini ore perciperent, qui ad maiorem
 dominici muneris gratiam nouo more prouectus ita consecratus est, ut
 non succederet in cathedra episcopo, sed accederet. nam incolumi Valerio
@@ -8272,9 +8250,7 @@ por cartas, éstas se leerán a las feligresías para que al fin no
 hablemos de feligresías, sino de feligreses. En fin, acepto complacido lo que quieras, lo que mandes, lo que gustes. Respecto a la intención de mi beatísimo y venerable padre Valerio, ahora ausente, te puedo prometer con toda seguridad que
 lo recibirá con harto regocijo: yo sé cuánto ama la paz y que
 no alardea frivolamente de fausto vano.
-5. Por favor, ¿qué tenemos que ver nosotros con las an-
-
-grauitas nollet audire, non illa contumacia sed fiducia nominanda est.
+5. Por favor, ¿qué tenemos que ver nosotros con las angrauitas nollet audire, non illa contumacia sed fiducia nominanda est.
 conlatorem enim et disputatorem, non assentatorem et adulatorem se
 esse cupiebat. nam hoc est oleum peccatoris, quo [20] propheta non
 uult inpinguari caput; ita enim dicit: Emendabit me iustus in misericordia et arguet me; oleum autem peccatoris non inpinguet caput meum
@@ -8290,9 +8266,7 @@ sed iustus est ille, qui dixit: Ego sum neritas (lo 14,6). itaque de
 cuiuslibet hominis ore nobis uerum cum aliqua asperitate sonuerit, non
 ab illo homine, qui forte peccator est, sed ab ipsa ueritate, hoc est
 a Christo, qui iustus est, emendamur, ne nostrum caput blandae sed
-perniciosae adulationis unctio, hoc est oleum peccatoris inpinguet. quamquam etiam si frater Euodius aliquantum pro suae communionis defen-
-
-sione turbatior aliquid elatius animo commotiore dixisset, aetati hominis
+perniciosae adulationis unctio, hoc est oleum peccatoris inpinguet. quamquam etiam si frater Euodius aliquantum pro suae communionis defensione turbatior aliquid elatius animo commotiore dixisset, aetati hominis
 et necessitati causae te oporteret ignoscere.
 4. Illud tamen, quod promittere dignatus es, peto memineris, ut
 sedentibus, quos ipse delegeris, dummodo uerba nostra [21] non inaniter uentilentur, sed stilo excipiantur, ut et tranquillius et ordinatius
@@ -8498,9 +8472,7 @@ se dice ya que Proculeyano no mandó lo que el registro público denuncia?
 5. ¿Cabe mayor modestia en mí que tratar este asunto
 tan grave contigo, pues estás dotado de una clarísima dignidad
 y de una cordura tan reflexiva? Te rogué, por medio de los
-buenos hermanos y honrados varones que envié a tu eminen-
-
-cía, lo que te pido ahora: dígnate informarme si Víctor, el
+buenos hermanos y honrados varones que envié a tu eminencía, lo que te pido ahora: dígnate informarme si Víctor, el
 presbítero de Proculeyano, no recibió de su obispo ese mandato que las actas públicas pregonan. Quizá Víctor dijo ambiguamente otra cosa y las actas se lo atribuyan a Proculeyano,
 por ser de la misma comunión. Si Proculeyano admite el cargo, convengo en que podemos tratar plácidamente todo el asunto de nuestra disensión, para que el error, que ya es manifiesto, se ponga todavía más en evidencia. He oído que Proculeyano propuso un trato para ver dónde está la verdad, según
 las Escrituras, sin ruido popular, en presencia de diez graves
@@ -8535,9 +8507,7 @@ etiam apud ipsam Hipponem iam dicitur non hoc Proculianum mandasse, quod publicu
 5. Quid autem modestius agere possumus, quam ut tam grauem
 causam per te tamen agam, uirum et clarissima dignitate praeditum et
 considerantissima uoluntate tranquillum? peto igitur, sicut iam petiui
-per fratres nostros, bonos atque honestos uiros, quos ad tuam eximie-
-
-tatem misi, ut quaerere digneris, utrum Proculiani presbyter Víctor non
+per fratres nostros, bonos atque honestos uiros, quos ad tuam eximietatem misi, ut quaerere digneris, utrum Proculiani presbyter Víctor non
 hoc [26] ab episcopo suo mandatum acceperit, quod officio publico
 renuntiauit, an forte, cum et ipse Víctor aliud dixerit, falsum illi apud
 acta prosecuti sint, cum sint communionis eiusdem; aut, si consentit, ut
@@ -8792,7 +8762,7 @@ XXXVI
 
 (PL 33,136)
 
-DiLECTISSIMO ET DESIDERANTISSIMO FRATRI ET CONPRESBYTERO CASULANK
+DiLECTISSIMO ET DESIDERANTISSIMO FRATRI ET CON PRESBYTERO CASULANK
 AUGUSTINUS IN DOMINO SALUTEM
 ^
 
@@ -9106,9 +9076,7 @@ explica qué es ayunar legítimamente, añadiendo: «purificando
 en las fuentes del ayuno, la limosna y la oración cualquier
 error, aunque leve, de los seis días». Es decir, que estima que
 los que ayunan menos de seis días a la semana no practican
-legítimamente el ayuno, ni son consagrados a Dios, ni purifi-
-
-rum, non intrabitis in regnum caelorum (Mt a5,20), ut, nisi amplius
+legítimamente el ayuno, ni son consagrados a Dios, ni purifirum, non intrabitis in regnum caelorum (Mt a5,20), ut, nisi amplius
 quam bis in sabbato ieiunemus, hoc praeceptum non possimus implere,
 bene quod septem dies sunt, qui uolumine temporum per sua uestigia
 reuocantur. cum ergo ex his biduum quisque detraxerit, ne sabbato
@@ -9206,9 +9174,7 @@ aconseja un poco para quitarlo todo. La observancia de estos
 preceptos no consigue doblar a los ventrícolas».
 12. ¿No parece que con esas palabras pretende que se
 ayune también el domingo? De otro modo, será más santo el
-sábado, en que el Señor descansó en el sepulcro, que el domin-
-
-nec maculas erroris, quae de ista mor [39] talitate contrahuntur, abluere.
+sábado, en que el Señor descansó en el sepulcro, que el dominnec maculas erroris, quae de ista mor [39] talitate contrahuntur, abluere.
 uideant ergo Romani, quid agant, quia etiam ipsi nimium contumeliose
 huius disputatione tractantur, apud quos ómnibus istis sex diebus praeter
 paucissimos clericos aut monachos quotusquisque inuenitur, qui frequentet cotidiana ieiunia, máxime quia ibi ieiunandum quinta sabbati non
@@ -9407,7 +9373,7 @@ eorum fornican sunt et ceciderunt una die uiginti tria milia (1 Cor 10,8).
 quid sibi etiam uult, quod ait: Sedit autem populus manducare et
 bibere et surrexerunt ludere»? (Ex 32,6; 1 Cor 10,7). posuit quidem
 et apostolus hoc testimonium, sed ut a seruitute idolorum, non a sabbati
-prandio prohiberet. sabfí4Jjbato autem íllud factum esse iste non probat,
+prandio prohiberet. sabfí 4Jjbato autem íllud factum esse iste non probat,
 sed, ut libitum est, suspicatur. sicut autem fieri potest, ut ieiunetur et,
 cum ieiunium soluitur, si quisque ebriosus est, tune inebrietur, ita fieri
 potest, ut non ieiunetur et, si temperantes sunt nomines, modestissime
@@ -9453,7 +9419,7 @@ corpore regnat», quasi ieiunium non praedicent, qui sabbato non ieiunant, sicut
 Helias eo tempore ieiunauerit, quo populus dei etiam sabbato ieiunabat.
 quod autem tespondimus de quadraginta diebus ieiunii Moysi, hoc deputo
 esse respondendum etiam de quadraginta diebus Heliae (cf. 3 Reg 19,8;
-4 Reg 2,11). «ieiunio», inquit, «Danihel leonum sicca rabie3, ora inlaesus euasit» (cf. Dan 6,16-23), quasi legerit, quod sabbato ieiunauerit aut
+4 Reg 2,11). «ieiunio», inquit, «Danihel leonum sicca rabie 3, ora inlaesus euasit» (cf. Dan 6,16-23), quasi legerit, quod sabbato ieiunauerit aut
 etiam cum ipsis leonibus sabbato fuerit, ubi tamen legimus, quod et
 pranderit. «ieiunio», inquit, «trium fida germanitas ignibus coruscanti
 carceri dominata rogi hospitio susceptum dominum adorauit» (cf. Dan
@@ -9548,9 +9514,7 @@ dominical». Pero en tal caso se celebra la eulogia y no la alogia.
 Yo no sé qué le habrá ofendido ese sábado que el Señor santificó, para pensar que en él no se puede comer y beber con
 esa alegría exenta de embriaguez. Si podemos ayunar antes del
 sábado, como dice que se ha de ayunar el sábado antes del
-domingo, ¿acaso piensa que es pecado comer dos días segui-
-
-quia isto confitente aliquanto religiosius die dominico ad ecclesiam
+domingo, ¿acaso piensa que es pecado comer dos días seguiquia isto confitente aliquanto religiosius die dominico ad ecclesiam
 pertinemus, quando tamen et ípso concédeme prandemus.
 VIII 18. «Cur», inquit, «sacrificium potioti domino carum murmuremus offerre, quod spiritus desiderat et ángelus laudat?» deinde
 adiungit angelí testimonium dicentis: Bona est oratio cum ieiunio et
@@ -9944,7 +9908,7 @@ congruentius quam dominico die soluitur. si autem post hebdomadem
 corpus reficitur, non utique ad ieiunandum dies dominicus eligitur, sed
 in numero, quem uoueri placuit, inuenitur.
 [57] 28. Nec illud moueat, quod Priscillianistae Manichaeorum
-simillimi ad ieiunandum die dominico sofJ49)lent testimonium de
+simillimi ad ieiunandum die dominico sofJ 49)lent testimonium de
 a] quadraginta PL
 
 A Casulano
@@ -9992,9 +9956,7 @@ sed, no de agua, sino de la palabra, no sólo desdeñó la comida
 carnal, sino también la cena.
 29. Aunque en aquel tiempo no tuviesen costumbre de
 ayunar el domingo, tampoco se le ofendía gran cosa a la Iglesia al descuidar la restauración del cuerpo en una tal necesidad
-como la que acuciaba al apóstol Pablo, durante todo el domin-
-
-apostolorum actibus adhibere, cum esset Paulus apostolus in Troade.
+como la que acuciaba al apóstol Pablo, durante todo el dominapostolorum actibus adhibere, cum esset Paulus apostolus in Troade.
 sic enim scriptum est: In una autem sábbati congregatis nobis frangere
 panem Paulus disputabat lilis exiturus alia die produxitque sermonem
 usque ad médium noctis (Act 20,7). deinde cum descendisset de cenáculo, ubi congregati erant, ad resuscitandum adulescentem, qui grauatus
@@ -10009,9 +9971,7 @@ aut ergo post peracrum diem sabbati noctis initio fuerant congregati,
 quae utique nox iam ad diem dominicum, hoc est ad unam sabbati
 pertinebat, et ita eadem nocte fracturus panem, sicut frangitur in sacramento corporis Christi, produxit sermonem usque ad médium noctis,
 ut post celebrata sacramenta rursus usque ad diluculum [58] adloquens
-congregatos, quoniam multum festinabat, lucescente proficisceretur do-
-
-miníco die, aut certe, si in una sabbati non per noctem sed per diem
+congregatos, quoniam multum festinabat, lucescente proficisceretur dominíco die, aut certe, si in una sabbati non per noctem sed per diem
 hora dominici fuerant congregati, eo ipso, quod dictum est: Paulus
 disputabat illis exiturus alia die, expressa est producendi causa sermonis,
 quia fuerat exiturus et eos sufficienter instruere cupiebat. non ergo
@@ -10351,7 +10311,7 @@ dum cauemus, ne recipiatur malus. sed in affectibus animi contra est.
 nam incomparabiliter salubrius est irae etiam iuste pulsanti non aperire
 penetrale cordis quam admitiere non facile recessuram et peruenturam
 de surculo ad trabem. audet quippe inpudenter etiam crescere citius,
-quam putatur. non enim erubescit in tenebris, cum super eam sol occi1
+quam putatur. non enim erubescit in tenebris, cum super eam sol occi 1
 Megalio se había resistido a consagrar a Agustín, dando crédito a una calumnia
 injuriosa, aunque al fin le consagró al advertir ¡a sinrazón. Dirigió al mismo Agustín
 una carta injuriosa, que los donatistas propalaban, aunque más tarde se retractó públicamente (cf. Réplica al gramático Cresconio III 80,92).
@@ -10447,9 +10407,7 @@ CARTA
 Fecha: A finales del año 397.
 Lugar; Hipona.
 Tema: La verdad de la Escritura.
-AGUSTÍN a JERÓNIMO, señor amadísimo, hermano digno de res-
-
-peto y de ser abrazado en el cultivo sincerísimo de la caridad y compresbítero.
+AGUSTÍN a JERÓNIMO, señor amadísimo, hermano digno de respeto y de ser abrazado en el cultivo sincerísimo de la caridad y compresbítero.
 11. Celebro que, con tu saludo, me hayas enviado una
 carta. Viene llena, si bien es mucho más breve que la que yo
 espero de ti; siendo quien eres, tu palabra no puede ser prolija, por mucho tiempo que consuma. Me veo envuelto en graves preocupaciones de negocios ajenos y de carácter secular,
@@ -10466,7 +10424,7 @@ te conocerías, pues que no ves tu cara. Y si tú te conoces caXL
 (PL 33,154)
 
 DOMINO DILECTISSIMO ET CULTU SINCERISSIMO CARITATTS OBSERVANDO
-ATQUE AMPLECTENDO FRATRI ET CONPRESBYTERO HLERONYMO AUGUSTINUS
+ATQUE AMPLECTENDO FRATRI ET CON PRESBYTERO HLERONYMO AUGUSTINUS
 
 I 1. Habeo gratiam, quod pro subscripta salutatione plenam mihi
 epistulam reddidisti sed breuiorem multo, quam ex te uellem sumere tali
@@ -10792,7 +10750,7 @@ fCSEL 34/2,81]
 33,158)
 
 DOMINO BEATISSIMO ET VENERABILITER SUSCIPIENDO SINCERISSIMF.QUE
-CARISSIMO FRATRI ET CONSACERDOTI PAPAF. AURELIO AL.YPIUS ET
+CARISSIMO FRATRI ET CON SACERDOTI PAPAF. AURELIO AL.YPIUS ET
 AUGUSTINUS IN DOMINO SALUTEM
 
 1. Impletum est gaudio os nostrum et lingua nostra exultalione
@@ -10894,9 +10852,7 @@ pasa, pues me hacéis sentir la sed durante dos veranos, y por
 cierto africanos? ¿Qué más os he de decir? ¡Oh! Puesto que
 cada día repartís vuestros bienes, pagad la deuda. Te anuncié
 
-AGUSTÍN a Jos hermanos GLORIO, ELEUSIO, Jos FÉLIX, GRA-
-
-benedictione perfudit, ut iubeas singulos, quos uolueris, sermones eorum
+AGUSTÍN a Jos hermanos GLORIO, ELEUSIO, Jos FÉLIX, GRAbenedictione perfudit, ut iubeas singulos, quos uolueris, sermones eorum
 conscriptos et emendatos mitti nobis. nam et ego, quod iussisti, non
 neglego et de Tychonii septena regulis uel clauibus, sicut saepe iam
 scripsi, cognoscere, quid tibi uideatur, expecto.
@@ -10925,7 +10881,7 @@ XLII
 
 (PL 33,159)
 
-ÜOMINUS LAUDABILIBUS IN CHRISTO SANCTISSIMIS FRATIUBUS PAULINO
+ÜOMINUS LAUDABILIBUS IN CHRISTO SAN CTISSIMIS FRATIUBUS PAULINO
 ET THERASIAE AUGUSTINUS IN DOMINO SALUTEM
 
 Num etiam hoc sperari aut expectari posset, ut per fratrem Seuerum rescripta flagitaremus tam diu tam ardentibus nobis a uestra caritate
@@ -11574,9 +11530,7 @@ por estos donatistas, teniendo otros jueces, ante quienes podía
 probar con facilidad su inocencia si el pleito se suscitaba? No
 se hubiese entregado a los donatistas ni aunque hubiese sido
 peregrino y ordenado por sorpresa obispo de la iglesia cartaginesa. No ignoraba el poder que tenía para corromper los ánimos de los malvados y de los ignorantes aquella adinerada
-mujer Lucila, a quien, siendo diácono, había ofendido por de-
-
-subtractos esse diceretur. promisit idem Donatus, quod eos esset exhibiturus. quod cum non semel sed saepius promisisset, amplius ad illud
+mujer Lucila, a quien, siendo diácono, había ofendido por desubtractos esse diceretur. promisit idem Donatus, quod eos esset exhibiturus. quod cum non semel sed saepius promisisset, amplius ad illud
 iudicium accederé noluit, ubi iam erat tanta confessus, ut nihil aliud
 deinceps non accedendo nisi praesens damnari noluisse uideretut, cum
 tamen ea, quae damnanda essent, eo praesente atque interrogato manifestata fuetint. accessít aliud, ut a quibusdam aduersus Caecilianum
@@ -11801,7 +11755,7 @@ de muertos, que son falsos; aunque fuesen verdaderos, son
 extraños. No entienden que ellos son reos de esos vicios que
 nosotros les echamos en cara; en cambio, en lo que ellos nos
 echan en rostro, condenan a la paja o a la cizaña de la mies
-etiam Caecilianus uenisset, ipsum quoque, sicut scripsit, exhibuit cognitaque causa qua diligentia, qua cautela, qua prouisione, sicut eius indicant litfJ70)terae, Caecilianum innocentissimum, illos inprobíssimos iudicauit.
+etiam Caecilianus uenisset, ipsum quoque, sicut scripsit, exhibuit cognitaque causa qua diligentia, qua cautela, qua prouisione, sicut eius indicant litfJ 70)terae, Caecilianum innocentissimum, illos inprobíssimos iudicauit.
 VIH 21. Et adhuc baptizant extra ecclesiam et, si possint, rebaptizant ecclesiam; sacrificant in dissensione et schismate et pacis nomine
 populos salutant, quos a pace salutis exterminant. conscinditur unitas
 Christi, blasphematur hereditas Chri[103]sti, exsufflatur baptisma Christi et nolunt in se ista per ordinarias humanas potestates flagellis temporalibus emendari, ne in aeternas poenas pro tantis sacrilegiis destinentur, nos eis obicimus furorem schismatis, rebaptizationis insaniam, ab
@@ -12134,7 +12088,7 @@ DOMINIS DILECTISSTMTS ET PRAEDICABILIBUS FRATKIBUS F.LEUSTO, GtORTO
 ET FELICIBUS AÜGUSTINUS
 
 I 1. Fortunium, quem Tubursicu habetis episcopum, per eandem
-ciuitatem quamquam festinantissime cum ad Cirtensem ecclesiam pergeremus, experti sumus ita omníno, ut de illo soletis befí74)nignissime
+ciuitatem quamquam festinantissime cum ad Cirtensem ecclesiam pergeremus, experti sumus ita omníno, ut de illo soletis befí 74)nignissime
 polliceri. eam ipsam quippe uestram de illo nobis sermocinationem cum
 ei renuntiaremus uolentes eum uidere, non abnuit. uenimus itaque ad
 eum, quia aetati eius id a nobis deferendum uidebatur potius quam
@@ -12385,7 +12339,7 @@ audieramus Arríanos, cum a communione catholica discrepassent, Donatistas in Á
 Alypius suggessit. tune accepto ipso uolumine eiusdem concilii statuta
 considerans legi Athanasium episcopum Alexandrinum catholicum, cuius
 máxime aduersus Arríanos acerrimarum disputationum conflictus eminuit,
-et Iulium ecclesiae0 Romanae episcopum nihilo minus catholicum illo
+et Iulium ecclesiae 0 Romanae episcopum nihilo minus catholicum illo
 concilio Serdicensi fuisse inprobatos. unde apud nos constitit Arrianorum fuisse concilium, quibus isti episcopi catholici uehementissime resistebant. itaque ad diligentiorem etiam temporum discussionem uoluimus ipsum uolumen accipere atque auferre nobiscum. qui noluit daré
 dicens ibi nos habere illud, quando aliquid in eo considerare uellemus.
 rogaui etiam, ut manu mea notari permitteret, fateor, timens, ne mihi
@@ -12875,9 +12829,7 @@ uno me dijo que se jura y otro me dijo que no se jura? ¿ He
 de comprobar con testigos quién de los dos dice la verdad, y no
 tocar ni los frutos ni el precio mientras no se demuestre que
 dijo verdad quien afirmó que no se jura?
-5. Supongamos que el bárbaro que ha prestado su perverso juramento exige que el colono cristiano, o el tribuno cristia-
-
-no de la frontera, le jure también a él fidelidad por la custodia
+5. Supongamos que el bárbaro que ha prestado su perverso juramento exige que el colono cristiano, o el tribuno cristiano de la frontera, le jure también a él fidelidad por la custodia
 de los frutos. ¿Queda mancillado sólo el cristiano o también
 esos frutos por cuya causa jura?
 Supongamos que el inspector de la frontera es pagano y hace
@@ -13069,7 +13021,7 @@ AGUSTÍN
 
 1. Las perplejidades de tu alma se hicieron también mías
 en cuanto me enteré de ellas por tu carta. No es que me imquale iuramentum, non significauit scriptura; iterum de idolis, ubi ad
-Gedeon dictum est a domino in libro iudicum, ut de uitulo, quem occiderat, holocaustum faceret (cf. Iud 6,26); et in Iesu Ñaue de [129]
+Gedeon dictum est a domino in libro iudicum, ut de uitulo, quem occiderat, holocaustum faceret (cf. Iud 6,26); et in Iesu Ñque de [129]
 Hiericho, ut omne aurum, argentum et aeramentum inferretur in thesauris domini, et sanctum uocatum est de emítate, quae anathema est
 (cf. los 36,19.16-17); et quid est illud, quod in Deuteronomio positum
 est: Non inferes abominationem in domum tuam et anathema eris, sicut
@@ -13387,9 +13339,7 @@ Fecha: Año 398 probablemente.
 Lugar: Hipona.
 Tema: Vida contemplativa-vida activa.
 AGUSTÍN y los hermanos que están con él saludan en el Señor
-a EUDOXIO, señor amado, deseadísimo hermano y copres-
-
-bítero, ya los hermanos que le acompañan.
+a EUDOXIO, señor amado, deseadísimo hermano y copresbítero, ya los hermanos que le acompañan.
 1. Cuando pienso en ese sosiego que tenéis en Cristo,
 también yo reposo en vuestra caridad, aunque me debato en
 duros y múltiples trabajos. Somos un solo Cuerpo bajo una
@@ -13406,7 +13356,7 @@ XLVIII
 
 (PL 33,187)
 
-DOMINO DILECTO ET EXOPTATISSIMO FRATRI ET CONPRESBYTERO EUDOXIO
+DOMINO DILECTO ET EXOPTATISSIMO FRATRI ET CON PRESBYTERO EUDOXIO
 ET QUI TECUM SUNT FRATRIBUS AUGUSTINUS ET QUI MECUM SUNT FRATRES
 IN DOMINO SALUTEM
 
@@ -13485,7 +13435,7 @@ transeat iniquitas (Ps 56,2) et in iudicium iustitia conuertatur (Ps 93,15).
 operamini siue in orationibus siue in ieiuniis siue in elemosynis uel tribuentes aliquid indigentibus uel donantes iniurias, sicut et deus in
 Christo donauit nobis (Eph 4,32; Col 3,13). siue edomantes perniciosas
 consuetudines castigantesque corpus et seruituti subicientes (1 Cor 9,27)
-siue sufferentes tribulationem et ante omnia uos ipsos inuicem in dilec2
+siue sufferentes tribulationem et ante omnia uos ipsos inuicem in dilec 2
 AI convertir el monasterio en seminario, se colocaba a los monjes en una nueva
 situación, pues podían estar siempre esperando la llamada de la jerarquía, la «vocación». Esto creaba nuevos problemas.
 b] cogitemus PL
@@ -13504,7 +13454,7 @@ modo que vuestra alma sea loada en el Señor. La actividad del
 camino recto es la que tiene siempre los ojos colocados en el
 Señor, pues El libra del lazo nuestros pies. Una tal actividad
 espiritual ni hierve en la ocupación ni se enfría en la contemplación; no es turbulenta ni floja, ni audaz ni fugaz, ni precipitada ni negada. Obrad así y el Señor de la paz será con
-vosotros3.
+vosotros 3.
 4. No nos juzgue importunos vuestra caridad por haber
 querido hablar con vosotros por carta. Porque os amonestamos
 a que hagáis lo que ya hacéis. Creemos que nos recomendáis a
@@ -13694,7 +13644,7 @@ A
 AC PRINCIPIBUS VEL SENIORIBUS COLONIAE SUFETANAE
 AUGUSTINUS EPISCOPUS
 
-Immanitatis uestrae famosissimum scelus et inopifI91)nata crudelitas
+Immanitatis uestrae famosissimum scelus et inopifI 91)nata crudelitas
 terram concutit et percutit caelum, ut in plateis ac delubris uestris eluceat sanguis et resonet homicidium. apud uos Romanae sepultae sunt
 leges, iudidorum rectorum calcatus est terror, imperatomm certe nuUa
 ueneratio nec timor. apud uos sexaginta numero fratrum innocens effusus est sanguis et, si quis plures occidit, functus est laudibus et in
@@ -13728,7 +13678,7 @@ rumor de que quieres probar suerte conmigo y entablar una
 discusión acerca del punto que separa nuestra comunión. Mira
 cuan de repente se suprimen todos los inconvenientes. Contéstame a esta carta, si te place, y quizá será bastante para mí
 y para todos los que desean oírnos. Y si no basta, repetiremos
-truculenta11 uestra manus contorsit et, sicuti a nobis uester Hercules
+truculenta 11 uestra manus contorsit et, sicuti a nobis uester Hercules
 redhibetur, sic etiam a uobis tantorum animae reddantur.
 LI
 [CSEL 34/2,144] (PL 33,191)
@@ -13795,7 +13745,7 @@ copado del que los expulsasteis? Me refiero a Feliciano Mustitano ya Pretéxtate
 soléis decir a los ignorantes, en el número de aquellos a quienes
 el concilio prorrogó y señaló la fecha antes de la cual debían
 reincorporarse a vuestra comunión, bajo pena de sufrir el mismo castigo que los principales promotores. Estos fueron condenados sin dilación, en el mismo día en que prorrogasteis la
-fecha para los otros. Si lo niegas, lo probaré. Vuestro concilio2
+fecha para los otros. Si lo niegas, lo probaré. Vuestro concilio 2
 habla; tengo en la mano las actas proconsulares, en las que lo
 alegasteis más de una vez. Prepara, pues, otra defensa, si puedes, para no hacerme perder tiempo por negar. Si Pretextato
 y Feliciano eran inocentes, ¿por qué fueron condenados de
@@ -13896,9 +13846,7 @@ cierto que reconciliaron con su persona, en vuestra comunión,
 al volver, a todos aquellos a quienes habían bautizado en el
 cisma de Maximiano, sin necesidad de repetir el bautismo.
 5. ¿Qué lágrimas serán suficientes para lamentar que se
-admita el bautismo de los maximianistas y se rechace el bautismo del mundo entero? Condenasteis a Feliciano ya Pretex-
-
-tanto justa o injustamente, después de oírlos o sin oírlos. Dime:
+admita el bautismo de los maximianistas y se rechace el bautismo del mundo entero? Condenasteis a Feliciano ya Pretextanto justa o injustamente, después de oírlos o sin oírlos. Dime:
 ¿a qué obispo de los corintios ha oído o condenado alguno
 de los vuestros, o de los gálatas, efesios, colosenses, filipenses,
 tesalonicenses, o de las demás ciudades de que se dijo: Adorarán en su presencia todos los países de las gentes? Se admite
@@ -14217,7 +14165,7 @@ dicunt enim et non faciunt (Mt 23,3). ut certa sit spes fidelis, quae non
 in nomine sed in domino conlocata numquam tempestate sacrilegi schismatis dissipetur, sicut isti dissipati sunt, qui legunt in codicibus sanctis
 ecclesias, quibus apostoli scripserunt, et nullum in eis habent episcopum.
 A esos donatistas refugiados en Roma se los llamaba «montenses», en el sentido
-de 2montaraces, para subrayar su carácter agreste. Nada sabemos de los cutzupitas.
+de 2 montaraces, para subrayar su carácter agreste. Nada sabemos de los cutzupitas.
 Atanasio inició su pontificado el año 398 y murió el 402.
 a] Álexander, Alexandro add. PL
 b] Álexander. Alexandro] Eleutherius, Eleutherio PL
@@ -14272,9 +14220,7 @@ energía que los donatistas fueron aplastados por la inocencia
 de Ceciliano. Si quisiere, oirá, enmudecerá y dejará de socavar
 la verdad.
 36. Nosotros no presumimos de estos documentos tanto
-como de las santas Escrituras, en las que está prometida la herencia de Cristo en todas las naciones hasta los últimos confi-
-
-quid autem peruersius et insanius quam lectoribus easdem epistulas
+como de las santas Escrituras, en las que está prometida la herencia de Cristo en todas las naciones hasta los últimos confiquid autem peruersius et insanius quam lectoribus easdem epistulas
 legentibus dicere: «Pax tecum» et ab earum ecclesiarum pace separari,
 quibus ipsae epistulae scriptae sunt?
 II 4. Tamen ne sibi etiam de Constantinensi, hoc est ciuitatis
@@ -14331,9 +14277,7 @@ se vieron obligados por Opiato Gildoniano 3 a readmitir a algunos de ellos en lo
 a quienes ellos habían rebautizado durante el tiempo de la
 excomunión. No se sintieron mancillados por unos hombres
 a quienes por boca propia excomulgaron como sacrilegos y criminales, a quienes compararon con aquellos otros cismáticos
-tragados vivos por la tierra. Los recibieron de nuevo en su dig-
-
-nidad y viven en comunión con ellos. Despierten de una vez
+tragados vivos por la tierra. Los recibieron de nuevo en su dignidad y viven en comunión con ellos. Despierten de una vez
 y consideren que es una ceguera y una locura decir que el mundo entero ha sido mancillado por los crímenes desconocidos de
 ciertos africanos, y que ha sido destruida la herencia de Cristo,
 prometida a todas las naciones, por la comunión contagiosa
@@ -14547,8 +14491,8 @@ celestial. Porque he sentido con frecuencia, lleno de dolor y de
 pesar, que perturba mucho a los débiles la obstinación contenciosa o la asustadiza superstición de ciertos hermanos: no
 pueden demostrar con certidumbre ningún partido, ni por la
 autoridad de la Santa Escritura, ni por la tradición de la Iglesia
-ferenter habendum et pro 0 eorum, inter quos uiuitur, societate4 seruandum est.
-3. Credo te aliquando6 audisse, tamen etiam nunc commemoro:
+ferenter habendum et pro 0 eorum, inter quos uiuitur, societate 4 seruandum est.
+3. Credo te aliquando 6 audisse, tamen etiam nunc commemoro:
 mater mea Mediolanium me consecuta inuenit ecclesiam sabbato non
 ieiunare. coeperat perturban et fluctúan, quid [161] ageret. tune ego
 talia non curabam, sed propter ipsam consului de hac re beatissimae
@@ -14558,7 +14502,7 @@ ego putassem nulla reddita ratione auctorítate sola sua nos uoluisse
 admonere, ne (201) sabbato ieiunaremus, subsecutus est et ait mihi:
 «Cum Romam uenio, ieiuno sabbato; cum hic sum, non ieiuno: sic
 etiam tu, ad quam forte ecclesiam ueneris, eius morem serua, si cuiquam
-non uis esse scandalum1 nec quemquam tibi». hoc cum matri renuntiassem, libenter amplexa est. ego uero de hac sententia etiam atque etiam
+non uis esse scandalum 1 nec quemquam tibi». hoc cum matri renuntiassem, libenter amplexa est. ego uero de hac sententia etiam atque etiam
 cogitans ita semper habui, tamquam eam caelesti oráculo acceperim. sensi
 enim saepe dolens et gemens multas infirmorum perturbationes fieri per
 quorundam fratrum contentiosam obstinationem uel superstitiosam timiditatem, qui in rebus huius modi, quae ñeque sanctae scripturae auctorítate ñeque uniuersalis ecclesiae traditione ñeque uitae corrigendae
@@ -14593,9 +14537,7 @@ acerque a la comunión según le plazca. Y si los pecados no
 son tan grandes como para merecer la excomunión, no se
 debe apartar de la medicina cotidiana del cuerpo del Señor».
 Quizá un tercero, más ponderado, pudiera dirimir la contienda
-entre ambos, amonestándoles a permanecer en la paz de Cris-
-
-to, que es lo principal, y observar cada uno lo que crea que
+entre ambos, amonestándoles a permanecer en la paz de Cristo, que es lo principal, y observar cada uno lo que crea que
 debe hacer, según su fe. Porque ninguno de los dos trata de
 menospreciar el cuerpo y la sangre del Señor; ambos tratan
 de honrar a porfía al salubérrimo Sacramento. No contendían
@@ -14634,9 +14576,7 @@ tempore accipiat, quo debet agere paenitentiam—, non ut arbitrio suo,
 cum libet, uel auferat se communioni uel reddat. ceterum si tanta non
 sunt, ut excommunicandus quisque homo iudícetur, non se deberé a
 cotidiana medicina dominici corporis separare», rectius Ínter eos fortasse
-quispiam dirimit litem, qui monet, ut praecipue in Christi pace per-
-
-maneant. faciat autem unusquisque, quod secundum fidem [163] suam
+quispiam dirimit litem, qui monet, ut praecipue in Christi pace permaneant. faciat autem unusquisque, quod secundum fidem [163] suam
 pie credit esse faciendum. neuter enim eorum exhonerat corpus et sanguinem domini, sed saluberrimum sacramentum certatim honorare contendunt. ñeque enim litigauerunt Ínter se aut quisquam eorum se alteri
 praeposuit Zachaeus et ille centurio, cum alter eorum gaudens in domum
 suam susceperit domnum (cf. Le 19,6), alter dixerit: No» sunt dignus, ut
@@ -15063,7 +15003,7 @@ corrompiendo, en oposición al interior, que se renueva de día
 en día. Ese es el principio de nuestro vivir, el hombre nuevo
 de que se nos manda revestir, al tiempo que nos desnudamos
 del viejo. Así nos limpiamos de la vieja levadura, para ser
-nueva aspersión, porque nuestra pascua2 es Cristo, que se nos
+nueva aspersión, porque nuestra pascua 2 es Cristo, que se nos
 ha inmolado. Por esa renovación de nuestro vivir se ha escogido el primer mes del año para poner en él esta celebración.
 En efecto, se le llama mes de las primicias. Si consideramos la
 factam esse [174] et fidem quorundam subuertunt (2 Tim 2,17-18). idem
@@ -15291,9 +15231,7 @@ del siglo futuro? He ahí por qué, cuando paseaban el arca alrededor de los mur
 que al referirse a la luna nos presentan la significación de la
 Iglesia, que va peregrinando en esta mortalidad, en sufrimiento y fatiga, lejos de aquella Jerusalén cuyos santos ciudadanos
 son los ángeles.
-11. No por eso han de pensar esos necios, reacios en cam-
-
-bilibus ad inuisibilia et de corporalibus ad spiritalia sacramenta similitudinem ducens transitum illum de alia uita in alíam uitam, quod pascha
+11. No por eso han de pensar esos necios, reacios en cambilibus ad inuisibilia et de corporalibus ad spiritalia sacramenta similitudinem ducens transitum illum de alia uita in alíam uitam, quod pascha
 nominatur, a quarta decima luna uoluit obseruari, ut non (209) solum
 propter tempus tertíum, quod supra commemoraui, quia inde incipit
 hebdómada tertia, sed etiam propter ipsam conuersionem ab exterioribus
@@ -15623,9 +15561,7 @@ descanso que nos ha de dar a los hombres después de las buenas obras. Del mismo
 se dice que El obra en nosotros, así, cuando descansamos, se
 dice que El descansa, pues descansamos por un don suyo.
 11 20. Sabido es que los tres primeros preceptos del decálogo se refieren a Dios, mientras los otros siete pertenecen
-al prójimo, es decir, al hombre, ya que en dos preceptos se en-
-
-habebit, quia requies illa, quae sempiterna est, excipitur ab octauo, non
+al prójimo, es decir, al hombre, ya que en dos preceptos se enhabebit, quia requies illa, quae sempiterna est, excipitur ab octauo, non
 extinguitur; ñeque enim esset aliter sempiterna, ita ergo erit octauus,
 qui primus, ut prima uita sed aeterna reddatur.
 X 18. Sabbatum tamen commendatum est priori populo in otio
@@ -15986,7 +15922,7 @@ el espíritu de aquel que resucitó a Jesucristo de entre los muertos habita en 
 muertos vivificará vuestros cuerpos mortales por su Espíritu,
 que habita en vosotros.
 nunc inchoatur et spe geritur; nam tuneb erit, cum absorbebitur mors
-in uictoriam0 (1 Cor 15,54), cum illa nouissima inimica destruetur mors
+in uictoriam 0 (1 Cor 15,54), cum illa nouissima inimica destruetur mors
 (1 Cor 15,26), cum inmutati fuerimus et aequales angelis facti: Omnes
 enim, inquit, resurgemus, sed non omnes inmutabimur (1 Cor 15,51),
 et dominus: Erunt, inquit, aequales angelis dei (Le 20,36). adprehensi
@@ -16786,7 +16722,7 @@ LIX
 
 (PL 33,226)
 
-DOMINO BEATISSIMO ET VENERABILI PATRI ET CONSACERDOTI
+DOMINO BEATISSIMO ET VENERABILI PATRI ET CON SACERDOTI
 VICTORINO AUGUSTINUS IN DOMINO SALUTEM
 
 1. Tractoria ad me quinto Idus Nouembris uenit iam finito die
@@ -16809,7 +16745,7 @@ A Victorino
 
 59, 2
 
-Tagosense2 afirma que él es el primado; muchos le tienen por
+Tagosense 2 afirma que él es el primado; muchos le tienen por
 tal, y como tal envía cartas. Si vuestra santidad puede reconocer y corregir fácilmente ese error, no debió pasarse por alto
 su nombre en la carta-circular que vuestra venerabilidad envió.
 Me habría causado asombro que no se le citase en primer lugar, sino hacia el medio. ¡Cuánto más me he maravillado cuando ni siquiera se le menciona, siendo así que es el primero que
@@ -16879,7 +16815,7 @@ LX
 (PL 33,227)
 
 DOMINO BEATISSIMO ET DEBITA OBSERVANTIA VENERABILI SINCERITERQUE
-CARIS SIMO FRATRI ET CONSACERDOTI PAPAE AURELIO IN DOMINO SALUTEM
+CARIS SIMO FRATRI ET CON SACERDOTI PAPAE AURELIO IN DOMINO SALUTEM
 
 1. Litteras millas tuae uenerabilitatis, ex quo ab inuicem corporaliter digressi sumus, accepi. nunc uero legi epistulam benignitatis tuae
 de Donato et fratre eius et, quid responderán, diu fluctuaui. sed tamen
@@ -17070,7 +17006,7 @@ CARTA
 Fecha: A mediados del 402.
 Lugar: Hipona.
 Tema: Conflicto a propósito de un clérigo llamado Timoteo.
-y SANSUCIO y los hermanos que están con
+y SAN SUCIO y los hermanos que están con
 nosotros saludan en el Señor a SEVERO, señor beatísimo y
 venerablemente amadísimo y auténtico hermano y consacerdote, ya los que le acompañan.
 
@@ -17090,7 +17026,7 @@ contra nosotros, y quisieron dejar todo como estaba hasta nuestra llegada, supon
 (PL 33,229)
 
 DOMINO BEATISSIMO ET VENERABILITER CARISSIMO ET SINCERISSIMO FRATRI
-ET CONSACERDOTI SEVERO ET QUI TECUM SUNT FRATRIBUS ALYPIUS ET
+ET CON SACERDOTI SEVERO ET QUI TECUM SUNT FRATRIBUS ALYPIUS ET
 AUGUSTINUS ET SAMSUCIUS ET QUI NOBISCUM SUNT FRATRES IN DOMINO
 SALUTEM
 
@@ -17182,7 +17118,7 @@ LXIII
 (PL 33,230)
 
 (231) DOMINO BEATISSIMO ET VENERABILI ET SINCERISSIMA CARITATE
-AMPLECTENDO FRATRI ET CONSACERDOTI SEVERO ET QUI TECUM SUNT
+AMPLECTENDO FRATRI ET CON SACERDOTI SEVERO ET QUI TECUM SUNT
 FRATRIBUS AUGUSTINUS ET FRATRES QUI MECUM SUNT IN DOMINO SALUTEM
 
 1. Si dicam, quae me ipsa causa cogit dicere, ubi erit sollicitudo
@@ -17363,7 +17299,7 @@ LXIV
 
 33,232)
 
-DOMINO DILECTISSIMO FRATRI ET CONPRESBYTERO QUINTIANO AUGUSTINUS
+DOMINO DILECTISSIMO FRATRI ET CON PRESBYTERO QUINTIANO AUGUSTINUS
 IN DOMINO SALUTEM
 
 1. Nos non dedignamur aspicere corpora minus pulchra, praesertim
@@ -17475,9 +17411,7 @@ eos, qui ad nos a uobis ad monasterium ueniunt, ut, quod statutum est
 a nobis in concilio, permaneret, et tu non memineris in concilio institutum, quae sint scripturae canonicae, quae in populo dei legi debeant.
 récense ergo concilium et omnia, quae ibi legeris, commenda memoriae;
 et ibi etiam inuenies de solis clericis fuisse statutum, non etiam de laicis,
-ut undecumque uenientes non recipiantur in monasterium, non quia mo-
-
-nasterii facta mentio est, sed quia sic institutum est, ut clericum alienum
+ut undecumque uenientes non recipiantur in monasterium, non quia monasterii facta mentio est, sed quia sic institutum est, ut clericum alienum
 nemo suscipiat. recenti autem concilio statutum est, ut (234) de aliquo
 monasterio qui recesserint uel proiecti fuerint, non
 fiant alibi clerici aut
@@ -17531,7 +17465,7 @@ LXV
 (PL 33,234)
 
 DOMINO BEATISSIMO ET VENERABILITER SUSCIPIENDO PATRI ET
-CONSACERDOTI SENI XANTHIPPO AUGUSTINUS IN DOMINO SALUTEM
+CON SACERDOTI SENI XANTHIPPO AUGUSTINUS IN DOMINO SALUTEM
 
 1. Officio debito meritis tuis salutans dignationem tuam tuisque
 me orationibus ualde commendans insinuó prudentiae tuae Abundantium
@@ -17567,9 +17501,7 @@ avisar a tu prudencia, ante todo para que no te vaya por ahí
 con alguna falacia.
 2.
 
-Conocí su caso cuando faltaban cien días para el do-
-
-possem ad aliqua malae conuersationis eius certa indicia peruenire. ac
+Conocí su caso cuando faltaban cien días para el dopossem ad aliqua malae conuersationis eius certa indicia peruenire. ac
 primo comperi eum pecuniam cuiusdam rusti[233]cani diuino apud se
 commendato interuertisse, ita ut nullam inde posset probabilem reddere
 rationem. deinde conuictus atque confessus est die ieiunii natalis domini, quo etiam Gippitana ecclesia sicut ceterae ieiunabant, cum tamquam
@@ -17738,7 +17670,7 @@ LXVII
 (PL 33,236)
 
 DOMINO CARISSIMO ET DESIDERANTISSIMO ET HONORANDO IN CHRISTO FRATRI
-ET CONPRESBYTERO HLERONYMO AÜGUSTINUS IN DOMINO SALUTEM
+ET CON PRESBYTERO HLERONYMO AÜGUSTINUS IN DOMINO SALUTEM
 
 I 1. Audiui peruenisse in manus (237) tuas litteras meas; sed quod
 adhuc rescripta non merui, nequáquam inputauerim dilectioni tuae; allquid procul dubio impedimenti fuit. unde agnosco a me dominum potius
@@ -17852,7 +17784,7 @@ ceterum optime nouit prudentia tua unumquemque in suo sensu abundare et puerilis
 sum, ut [242] diuersitate explanationum tuarum me laedi putem, quia
 nec tu laederis, si nos contraria senserimus. sed illa est uera ínter amicos
 reprehensio, si nostram peram non uidentes aliorum iuxta Persium manticam consideremus. superest, ut diligas diligentem et in scripturarum
-campo iuuenis senem non prouoces. nos nostra habuimus témpora et cu2
+campo iuuenis senem non prouoces. nos nostra habuimus témpora et cu 2
 Santa Paula, que había dirigido la congregación de mujeres del Aventíno con el
 consejo de San Jerónimo, partió con él y con su hija Eustoquio el año 385, Fundó
 y dirigió un monasterio en Belén, y allí murió el 26 de enero del 404.
@@ -17998,7 +17930,7 @@ sunt dei. cui melius seruiunt quam illi, a quo tributa sunt, ut et custodiantur 
 saeculo, ne uanescant cum illo atque dispereant. non diu tecum in hoc
 agendum nouimus, quanta facilítate consideres spes inanium hominum et
 insatiabiles cupiditates et incertam uitam. abice igitur ex animo, quicquid
-terrenae atque falsae felicif240)tatis expectatione conceperat; operare in
+terrenae atque falsae felicif 240)tatis expectatione conceperat; operare in
 agro dei, ubi certus est fructus, ubi tam multa tanto ante promissa completa sunt, ut ea, quae restant, insanissime desperentur. obsecramus te
 per Christi diuinitatem et humanitatem, per pacem caelestis illius ciuitatis, unde peregrinantes labore temporali aeternam réquiem comparamus,
 ut in episcopatum Bagaiensis ecclesiae fratri tuo non ignominiose cadenti sed glorióse cedenti succedas. plebs illa, cui per tuam mentem ac
@@ -18102,9 +18034,7 @@ Lugar: Fíipona.
 Tema: Defensa de los Setenta.
 AGUSTÍN saluda en el Señor a JERÓNIMO,
 
-señor venerable, san-
-
-to y deseado hermano y copresbítero.
+señor venerable, santo y deseado hermano y copresbítero.
 11. Desde que comencé a escribirte y apetecer tus escritos, nunca se me presentó mejor ocasión de comercio epistolar que ahora, que va a llevarte mi carta un siervo de Dios,
 ministro fidelísimo y carísimo para mí, como lo es nuestro hijo
 el diácono Cipriano. Por él espero tu misiva con tal seguridad,
@@ -18121,7 +18051,7 @@ LXXI
 (PL 33,241)
 
 DOMINO VENERABILI ET DESIDERABILI SANCTO FRATRI ET
-CONPRESBYTERO HLERONYMO AUGUSTINUS IN DOMINO SALUTEM
+CON PRESBYTERO HLERONYMO AUGUSTINUS IN DOMINO SALUTEM
 
 I I. Ex quo coepi ad te scribere ac tua scripta desiderare, numquam
 mihi melior oceurrit occasio, quam ut per dei seruum ac ministrum fidelissimum mihique carissimum mea tibi adferretur epistula, qualis est
@@ -18165,7 +18095,7 @@ Profuturum, qui postea collega [250] nobis factus iam ex hac uita migrauit nec e
 est, etiam nunc mittere uolui, ut scias, in tua conloquia quam olim inardescam et quam uim patiar, quod a me tam longe absunt sensus corporis
 tui, per quos adire possit ad animum tuum animus meus, mi frater dulcissime et in domini membris honorande.
 II 3. In hac autem epistula hoc addo, quod postea didicimus, Iob
-ex Hebraeo te a interpretatum, cum iam quandam haberemus interpre1
+ex Hebraeo te a interpretatum, cum iam quandam haberemus interpre 1
 Agustín había escrito ya tres cartas a San Jerónimo (Cartas 28, 40 y 67). Pero la
 última se cruzó con esta 71, en el camino. Agustín confiesa que la carta llegada a
 Jerónimo era auténtica, pero que no estaba escrita contra él.
@@ -18509,9 +18439,7 @@ por hallar puntos reprensibles en los Evangelios y Profetas,
 quiero decir que ya piense que hay algo que reprender en tus
 escritos. En realidad nunca me he puesto a leerlos; no hay
 aquí abundancia de tales ejemplares, fuera de tus libros de
-los Soliloquios y de ciertos pequeños comentarios a los Salmos. Si quisiese discutir estos últimos, te advertiría que dis-
-
-crepan, no diré de mí, que no soy nada, sino de las interpretaciones de los antiguos autores griegos 4. Adiós, amigo mío,
+los Soliloquios y de ciertos pequeños comentarios a los Salmos. Si quisiese discutir estos últimos, te advertiría que discrepan, no diré de mí, que no soy nada, sino de las interpretaciones de los antiguos autores griegos 4. Adiós, amigo mío,
 carísimo, hijo por la edad y padre por la dignidad. Un último
 ruego: procura que lo que me escribas lo hagas llegar ante
 todo a mí.
@@ -18562,7 +18490,7 @@ DOMINO
 
 (PL 33,245)
 
-VENERANDO ET DESIDERANTISSIMO FRATRI ET CONPRESBYTERO
+VENERANDO ET DESIDERANTISSIMO FRATRI ET CON PRESBYTERO
 HLERONYMO AÜGUSTINUS IN DOMINO SALUTEM
 
 I 1. Quamuis existimem, antequam istas sumeres, uenisse in manus
@@ -19042,9 +18970,7 @@ JERÓNIMO saluda en el Señor a AGUSTÍN, señor
 
 Lugar: Hipona.
 
-verdaderamen-
-
-te santo y beatísimo Padre.
+verdaderamente santo y beatísimo Padre.
 
 Tema: Súplica de intercesión.
 AGUSTÍN saluda en el Señor a PRESIDIO,
@@ -19085,7 +19011,7 @@ LXXIV
 
 33,250)
 
-DOMINO BEATISSIMO ET MÉRITO VENERANDO FRATRI ET CONSACERDOTI
+DOMINO BEATISSIMO ET MÉRITO VENERANDO FRATRI ET CON SACERDOTI
 PRAESIDIO AUGUSTINUS IN DOMINO SALUTEM
 
 Sicut praesens rogaui sinceritatem tuam, nunc quoque commoneo,
@@ -19238,7 +19164,7 @@ el prólogo a mis Comentarios, que dice en mi nombre: «¿Qué
 importa? ¿Soy necio o temerario al prometer lo que él no
 pudo cumplir? De ningún modo. Por el contrario, me parece
 que yo soy más tímido y cauto; pues sintiendo la debilidad
-de mís fuer2as, he seguido los Comentarios de Orígenes. Escribió él sobre la carta a los Gálatas cinco volúmenes colmados
+de mís fuer 2as, he seguido los Comentarios de Orígenes. Escribió él sobre la carta a los Gálatas cinco volúmenes colmados
 y completos, con una explicación o apéndice en el décimo libro
 de sus Stromata; compuso además varios tratados y extractos.
 que por sí solos podrían bastar. Paso por alto a Dídimo, mi
@@ -19461,9 +19387,7 @@ años, subí de nuevo a Jerusalén con Bernabé, llevándome a
 Tito. Pero subí en virtud de una revelación y les expuse el
 Evangelio que predico entre los gentiles. Así da a entender
 que no tenía seguridad en la predicación de su Evangelio, si
-no lo veía confirmado por Pedro y los demás que con él es-
-
-taban. Y luego prosigue: Separadamente a aquellos que tenían
+no lo veía confirmado por Pedro y los demás que con él estaban. Y luego prosigue: Separadamente a aquellos que tenían
 alguna representación, no fuera que yo corriese o hubiese corrido en vano. ¿Por qué separadamente y no en público? Para
 que no sirviese de escándalo a los fieles judíos que creían que
 había que cumplir la ley, y sólo así se había de creer en el
@@ -19479,9 +19403,7 @@ puede dudar de que Pedro fue el autor de esa sentencia de
 que ahora Pablo le acusa como prevaricador. Y la causa de la
 prevaricación fue el temor de los judíos. Porque dice la Escritura que antes comía con los gentiles, y cuando bajaron algunos de parte de Santiago, se apartó y retiró, temiendo a los
 que eran de la circuncisión. Teme que los judíos, de quienes
-era apóstol, fuesen a apartarse de la fe de Cristo con ese mo-
-
-scitis, quoniam ab antiquis diebus in nobis elegit deus per os meum
+era apóstol, fuesen a apartarse de la fe de Cristo con ese moscitis, quoniam ab antiquis diebus in nobis elegit deus per os meum
 audire gentes uerbum euangelii et credere et, qui nouit corda, deus
 testimonium perhibuit dans illis spiritum sanctum sicut et nobis et nihil
 discreuit Ínter nos et tilos fide purificans corda eorutn. nunc ergo quid
@@ -19553,9 +19475,7 @@ Por atención a los judíos que estaban en aquellos lugares. Pues
 ya que te perdonas a ti mismo el circuncidar a un discípulo
 que viene de los gentiles, perdona a Pedro, tu predecesor, el
 que haya hecho algunas cosas por miedo a los judíos fieles.
-También está escrito: Pablo, después de haberse detenido mu-
-
-chos días, se despidió de los hermanos y navegó hacia Siria
+También está escrito: Pablo, después de haberse detenido muchos días, se despidió de los hermanos y navegó hacia Siria
 con Priscila y Aquila. En Generes se rapó la cabeza, pues habían hecho voto. He ahí cómo por temor de los judíos se vio
 obligado a hacer lo que no quería. ¿Por qué se dejó crecer la
 cabellera por voto y después en Cencres se la cortó para cumplir la ley, que es lo que solían hacer los nazareos consagrados
@@ -19645,9 +19565,7 @@ miedo a los judíos. ¿Con qué cara y con qué audacia pudo reprender Pablo en 
 dicho, otros antes de mí, expusieron la causa que ellos pensaron. Pero no defendieron la mentira oficiosa, como tú escribes,
 sino que expusieron la honesta necesidad en el ejercicio de su
 ministerio. Así mostraban la prudencia de los apóstoles y reprendían la impudencia de Porfirio, pues afirma que Pedro y
-Pablo combatieron entre sí una pueril contienda; es más, afir-
-
-laa que Pablo se encendió de envidia por la virtud de Pedro
+Pablo combatieron entre sí una pueril contienda; es más, afirlaa que Pablo se encendió de envidia por la virtud de Pedro
 y escribió por jactancia lo que no hizo, o, si lo hizo, fue una
 procacidad, a saber: reprender en otro lo que él mismo hacía.
 Dichos comentaristas expusieron el pasaje como pudieron.
@@ -19746,7 +19664,7 @@ Jerónimo a Agustín
 
 cristianos. Ya que pensaste que debías curar mi pequeña herida, un pinchazo o un punto de aguja, como suele decirse,
 cura, por favor, la llaga de esa sentencia, que ha sido abierta
-por una lanza falárica6, por decirlo así. Cuando se exponen
+por una lanza falárica 6, por decirlo así. Cuando se exponen
 las Sagradas Escrituras, no es igual delito el presentar las diversas sentencias de los mayores que el introducir de nuevo
 en la Iglesia una herejía criminal. Y si es que tenemos obligación de recibir a los judíos con todos sus ritos y va a serles
 lícito el observar en las iglesias de Cristo lo que hicieron en
@@ -20017,7 +19935,7 @@ nisi se luxuriosum probasset, et misericorditer, ut ipse dicis, subuenire
 miseris, nisi se miserum ipse sentiret. uere enim miselli et misericorditer
 deplorandi, qui contentione sua et amore legis abolitae apostolum
 Christi fecere Iudaeum. nec multum interest ínter meam et tuam sententiam, quia ego dico et Petrum et Paulum timore fidelium Iudaeorum
-legis exercuisse, immo simuf261)lasse mandata. tu autem adseris hoc eos
+legis exercuisse, immo simuf 261)lasse mandata. tu autem adseris hoc eos
 fecisse clementer «non mentientis [314] astu sed compatientis affectu»,
 dum modo illud constet uel metu uel misericordia eos simulasse se esse,
 quod non erant. illud autem argumentum, quo aduersum nos uteris,
@@ -20164,9 +20082,7 @@ Porque eres tú quien tejes esa fábula en tu carta: «Cierto obispo, hermano nu
 la iglesia que él gobierna. Extrañó al pueblo que tradujeras
 un pasaje del profeta Jonás de modo muy distinto del que estaba grabado en los sentidos y memoria de todos y que se
 había cantado durante tan larga sucesión de generaciones. Hubo
-tumulto popular, máxime cuando los griegos protestaron y re-
-
-multis uoluminibus primus Orígenes, secundus Eusebius Caesariensis,
+tumulto popular, máxime cuando los griegos protestaron y remultis uoluminibus primus Orígenes, secundus Eusebius Caesariensis,
 tertius Theodorus Heracleotes, quartus Asteríus Scythopolita, quintus
 Apollinaris Laodicenus, sextus Didymus Alexandrinus. feruntur et diuersorum in paucos psalmos opuscula, sed nunc de integro psalmorum corpore dicimus. apud Latinos autem Hilarius Pictauensis et Eusebius Vercellensis episcopus Origenem et Eusebium transtulerunt, quorum priorem
 et noster Ambrosius in quibusdam secutus est. respondeat mihi prudentia
@@ -20508,9 +20424,7 @@ CARTA
 Fecha: Entre el año 401 y el 408.
 Lugar: Hipona.
 Tema: Exhortación a la calma.
-AGUSTÍN saluda en el Señor a FÉLIX e HILARINO, señores ama-
-
-dísimos y hermanos dignos de un justo honor.
+AGUSTÍN saluda en el Señor a FÉLIX e HILARINO, señores amadísimos y hermanos dignos de un justo honor.
 1. No me admiro de que Satanás perturbe el ánimo de
 los fieles. Resistidle manteniéndoos en la esperanza de las promesas de Dios, que no puede engañar. No sólo se ha dignado
 prometernos a los que creemos y esperamos en El y perseveramos en su amor hasta el fin un galardón eterno, sino que
@@ -20592,9 +20506,7 @@ Fecha: Entre el año 401 y el 408.
 Lugar: Hipona.
 Tema: Exhortación a la calma ante el escándalo.
 AGUSTÍN saluda en el Señor a los HERMANOS amadísimos, al
-CLERO, a las AUTORIDADES ya todo el PUEBLO de la Igle-
-
-sia de Hipona a la que sirvo en el amor de Cristo.
+CLERO, a las AUTORIDADES ya todo el PUEBLO de la Iglesia de Hipona a la que sirvo en el amor de Cristo.
 1. Ojalá resolvieseis con atención solícita las Escrituras
 de Dios y no tuvieseis necesidad de mi palabra en cualesquiera
 linaje de escándalos. Os consolaría Aquel que me consuela a
@@ -20866,9 +20778,7 @@ bebían vino. Pero hemos aprendido que también por ellos tenemos que orar y que
 de algún obispo, clérigo, monje d monja? En seguida creen,
 discuten, pregonan que todos son lo mismo, aunque no en todos se pueda averiguar. Mas cuando alguna casada ha caído
 en adulterio, esos mismos no despiden a sus mujeres ni acusan a sus madres. Sólo cuando se inventa falsamente o se descubre algún pecado verdadero, en alguno que ostenta una profesión santa, insisten, se interesan, se fatigan para que se crea
-que todos son lo mismo. Puesto que sacan de nuestros dolores cierta suavidad para su mala lengua, podemos comparar-
-
-fratre suo iudicet et sic ab illo implicatus absorbeatur. et quis omnes
+que todos son lo mismo. Puesto que sacan de nuestros dolores cierta suavidad para su mala lengua, podemos compararfratre suo iudicet et sic ab illo implicatus absorbeatur. et quis omnes
 eius captiones et circumuentiones uel comprehendere uel enumerare sufficiat? aduersus haec tamen tria, quae ad causam praesentem pertinent,
 prius, ne mala exempla imitando ad nequitiam seducamini, ita uos per
 apostolum adloquitut deus: Ne sitis iugum ducentes cum infidelibus;
@@ -21119,7 +21029,7 @@ no debía, puesto que iba a vosotros, con quienes se encuentra
 más a su gusto. Por eso me apresuré a dictarle y entregarle
 esta pequenez, confesándome deudor de una carta más prolija
 cuando me haya dejado satisfecho la vuelta de los venerables
-hermanos Teasio y Evodio, mis colegas1. Porque espero, en
+hermanos Teasio y Evodio, mis colegas 1. Porque espero, en
 el nombre y auxilio de Cristo, que en su corazón y labios
 vendréis vosotros con mayor plenitud que en una carta. Pocos
 días antes de dictar la presente, os envié otra por mi hijo ForLXXX
@@ -21129,7 +21039,7 @@ días antes de dictar la presente, os envié otra por mi hijo ForLXXX
 
 33,273)
 
-SANCTIS ET DEO DILECTIS MÉRITO VENERABILIBUS ET MULTUM
+SAN CTIS ET DEO DILECTIS MÉRITO VENERABILIBUS ET MULTUM
 DESIDERABILIBUS FRATRIBUS PAULINO ET THERASIAEAÜGUSTINUS
 IN DOMINO SALUTEM
 
@@ -21140,7 +21050,7 @@ cum eum tenere non possem et, quia ad uos, cum quibus ei melius esset, properaba
 meorum Theasi et Euodi primum uestri ex parte satiatus fuero, uberius
 enim ad nos in eorum pectoribus et oribus uos esse uenturos iam iamque
 in Christi nomine atque adiutorio speramus. cum haec scriberemus, et
-per unanimem filium nostrum Tagastensis ecclesiae presbyteruro Fortu1
+per unanimem filium nostrum Tagastensis ecclesiae presbyteruro Fortu 1
 Teasio y Evodio habían sido enviados al emperador Honorio (concilio Cartaginés
 del 26 de junio de 404) para recordarle la carta sinodal, en que se pedía la aplicación
 de la ley del año 392 contra los cismáticos obstinados.
@@ -21195,9 +21105,7 @@ a la Verdad y nos obliga a partir. Te ruego que me expongas
 con mayor amplitud y precisión lo que opinas acerca de esta
 tercera especie de motivos que tenemos para cambiar de voluntad. Es frecuente que en tales circunstancias nos veamos
 turbados; es fácil omitir algo que se debía ejecutar por negarnos a cambiar de parecer. Cierto, nuestro parecer no era
-malo, pero se hace malo al postergar lo que ocasionalmente de-
-
-natianum Romam nauigaturum aliam epistulam paucis ante diebus iam
+malo, pero se hace malo al postergar lo que ocasionalmente denatianum Romam nauigaturum aliam epistulam paucis ante diebus iam
 dederam. nunc ergo, quod soleo, rogo, ut, quod soletis, faciatis: (274)
 oretis pro nobis, ut uideat dominus humilitatem nostram et laborem
 nostrum et dimittat omnia peccata nostra (Ps 24,18).
@@ -21249,9 +21157,7 @@ Lugar: Belén.
 Tema: Jerónimo se excusa ante Agustín.
 JERÓNIMO saluda en el Señor a AGUSTÍN, señor
 
-verdaderamen-
-
-te santo y beatísimo padre.
+verdaderamente santo y beatísimo padre.
 Pregunté a nuestro santo hermano Firmo por tus ocupaciones con solicitud. Supe con alegría que estás bien 1. Insistí
 no ya para pedirle, sino para exigirle tu carta, y me contestó
 que había partido de África sin avisarte. Así cumplo por su
@@ -21271,7 +21177,7 @@ IN CHRISTO SALUTEM
 Cum a sancto fratre nostro Firmo sollícite quaererem, quid ageres,
 sospitem te laetus audiui. rursum cum tuas litteras non jico sperarem,
 sed exigerem, nesciente te de África profectum esse se dixit. itaque reddo
-tibi per eum salutationis officia, qui te único amore complectitur, simulque obsecro, ut ignoscas pudori meo, quod diu praecipíenti, ut rescri1
+tibi per eum salutationis officia, qui te único amore complectitur, simulque obsecro, ut ignoscas pudori meo, quod diu praecipíenti, ut rescri 1
 Agustín dialoga con Jerónimo a mayor profundidad. Jerónimo, a su vez, suaviza
 su postura, y se excusa de su dureza, alegando que había sido provocado y recordando
 lo acontecido con Rufino.
@@ -21340,7 +21246,7 @@ culpa por tu parte en este episodio. Lo hice más bien lamenLXXXII
 (PL 33,275)
 
 (276) DOMINO DILECTISSIMO ET IN CHRISTI VISCERIBUS HONORANDO SANCTO
-FRATRI CONPRESBYTERO HLERONYMO AUGUSTINUS IN DOMINO SALUTEM
+FRATRI CON PRESBYTERO HLERONYMO AUGUSTINUS IN DOMINO SALUTEM
 
 I 1. Iam pridem tnae caritati prolixam epistulam misi respondens
 illi tuae, quam per sanctum filiurn tuum Asterium nunc iam non solum
@@ -21548,9 +21454,7 @@ petsonis aliquando credere timeo reprehendenda, ipsa diuina eloquia
 (278) mihi sint ubique suspecta.
 6. Manichaei plurima diuinarum scripturarum, quibus eorum nefarius error clarissima sententiarum perspicuitate conuincitur, quia in
 alium sensum detorquere non possunt, falsa esse contendunt, ita tamen,
-ut eandem falsitatem non scribentibus apostolis tribuant sed nescio quibus codicum corruptoribus. quod tamen quia nec pluribus siue antiquio-
-
-ribus exemplaribus nec praecedentis linguae auctoritate, unde Latini
+ut eandem falsitatem non scribentibus apostolis tribuant sed nescio quibus codicum corruptoribus. quod tamen quia nec pluribus siue antiquioribus exemplaribus nec praecedentis linguae auctoritate, unde Latini
 librí interpretati sunt, probare aliquando potuerunt, notissima ómnibus
 ueritate superati confusique discedunt. itane non intellegit sancta prudentia tua, quanta malitiae illorum patescat occasio, si non ab alus apostólicas litteras esse falsatas, sed ipsos apostólos falsa scripsisse dicamus?
 7. Non est, inquis, credibile hoc in Petro Paulum, quod ipse Paulus
@@ -21842,7 +21746,7 @@ et tamen nihil inde legimus in canonicis libris praeceptum esse Christianis. qua
 ipsa Christiana fide negare non possum, qua didici non eo me iustificari
 sed gratia dei per Iesum Christum dominum nostrum! (cf. Rom 3,24).
 15. Dico ergo circumcisionem praeputii et cetera huius modi priori
-populo per testamentum, quod uetus dicitur, diuinitus data ad significationem futurorum, quae per Christum oportebat impleri. quibus aduenien2
+populo per testamentum, quod uetus dicitur, diuinitus data ad significationem futurorum, quae per Christum oportebat impleri. quibus aduenien 2
 
 Kzequiel dice que Dios deja a los hebreos seguir sus vanas legislaciones en castigo de no haber aceptado las divinas.
 
@@ -22102,9 +22006,7 @@ que la ley también manda: No codiciarás, y confesamos que
 también los cristianos deben observarlo. La ilustración evangélica lo pregona muy alto. El Apóstol dice que la ley es santa,
 y el mandato, santo, y justo, y bueno. Además, añade: ¿Luego
 lo que es bueno se ha convertido en muerte para mí? No tal,
-sino que el pecado, para aparecer como tal pecado, se ha va-
-
-patribus eorum (cf. Ier 31,31), non tamen arbitror ipsum dominum
+sino que el pecado, para aparecer como tal pecado, se ha vapatribus eorum (cf. Ier 31,31), non tamen arbitror ipsum dominum
 fallaciter a parentibus circumcisum aut, si hoc propter aetatem minime
 prohibebat, nec illud ar(284)bítror eum dixisse fallaciter leproso, quem
 certe non illa per Moysen praecepta obseruatio sed ipse mundauerat h:
@@ -22293,7 +22195,7 @@ recentioribus opusculis tuis et non mediocriter nec de mediocribus
 quaestionibus, quamuis Origenem mirabiliter ante laudaueris. cum his
 ergo errare puto quia nec te ipse patieris, quamuis hoc perinde dicatur,
 Agustín le estimaba más que Jerónimo, ya por los motivos de su conversión, ya
-por5 razones filosóficas.
+por 5 razones filosóficas.
 Aunque Apolinar había sido condenado el año 377 y varias otras veces en Oriente,
 en África no era aún conocida la excomunión del hereje.
 
@@ -22496,9 +22398,7 @@ simulando lo que no era, sino teniendo compasión porque podía llegar a serlo, 
 4 30. Mírate, por favor, a ti mismo, si te place. Mira lo
 que tú me escribiste a mí. Recuerda o, si tienes los escritos,
 lee tus palabras en aquella breve carta que me enviaste por
-nuestro hermano, y ahora colega mío, Cipriano. Con qué ver-
-
-dad, auténtico y pleno afecto de caridad, al reclamar solemnemente por ciertas inconsideraciones que yo había cometido
+nuestro hermano, y ahora colega mío, Cipriano. Con qué verdad, auténtico y pleno afecto de caridad, al reclamar solemnemente por ciertas inconsideraciones que yo había cometido
 contra ti, añadiste: «Con eso se ofende la amistad; con eso
 se vulneran los derechos de la familiaridad. No aparezcamos
 como luchando puerilmente y demos a nuestros respectivos
@@ -22703,7 +22603,7 @@ quam dixi, ad te trahas, cum continuo subiecerim non
 hoc ideo me
 dixisse, ut oculos cordis reciperes, «quos absit», inquamb, «ut amiseris»,
 sed ut aduerteres, quos sanos ac uigiles haberes, propter solam ergo
-traAivcú31av, si aliquid [385] scripserimus, quod scripto posteriore destruere debeamus, imitandam, non propter Stesichori caecitatem, quam cordi
+traAivcú 31av, si aliquid [385] scripserimus, quod scripto posteriore destruere debeamus, imitandam, non propter Stesichori caecitatem, quam cordi
 tuo nec tribuí nec timui, adtingendum illud existimaui. atque identidem
 rogo, ut me fidenter corrigas, ubi mihi hoc opus esse perspexeris. quamquam enim secundum honorum uocabula, quae iam ecclesiae usus
 obtinuit, episcopatus presbyterio maior sit, tamen in multis rebus
@@ -22952,9 +22852,7 @@ illis resisteremus. uehementer exhorruit et nobis hoc uisum esse miratus
 est nulla re alia permotus nisi ipsa [391] specie foeda, non nostra sed
 cuiuslibet uita ac moribus indignissima.
 5. Proinde obsecro, ut epistulam, quam eis communi nomine scripsi,
-subscriptam non difieras mittere. et si forte illic illud iustum acutis-
-
-sime" peruides, non cogantur infirmi modo discere, quod ego nondum
+subscriptam non difieras mittere. et si forte illic illud iustum acutissime" peruides, non cogantur infirmi modo discere, quod ego nondum
 intellego, ut hoc circa eos in hac causa seruetur, quod dominus ait:
 Multa babeo uobis dicere, sed non potestis illa portare modo (lo 16,12).
 tali quippe infirmitati parcens etiam illud de tributo soluendo ait: Ergo
@@ -23010,7 +22908,7 @@ LXXXIV
 33,294)
 
 DOMINO BEATISSIMO ET VENERABILI AC DESIDERABILI FRATRI ET
-CONSACERDOTI NOVATO ET QUI TECUM SUNT FRATRIBUS AUGUSTINUS
+CON SACERDOTI NOVATO ET QUI TECUM SUNT FRATRIBUS AUGUSTINUS
 ET QUI MECUM SUTÍT FRATRES IN DOMINO SALUTEM
 
 1. Et ego sentio, quam durus uidear,. et me ipsea uix fero, quod
@@ -23087,9 +22985,7 @@ Fecha: Año 405/407 probablemente.
 Lugar: Hipona.
 Tema: Reprensión a un obispo de nombre
 Pablo'.
-AGUSTÍN saluda en el Señor a PABLO, señor sinceramente ama-
-
-bilísimo, hermano a quien todos desean felicidad, y cosacerdote.
+AGUSTÍN saluda en el Señor a PABLO, señor sinceramente amabilísimo, hermano a quien todos desean felicidad, y cosacerdote.
 1. No me acusarías tanto de inexorable si no me tuvieses
 también por mentiroso. Pues ¿qué es lo que crees de mis
 intenciones, cuando tales cosas me escribes, sino que me he
@@ -23107,7 +23003,7 @@ mi hermano, sino también mi colega. Porque no puede suceder que no sea colega m
 (PL 33,295)
 
 DOMINO SINCERITER DILECTISSIMO ET VOTIS ÓMNIBUS BEATIFICANDO
-FRATRI ET CONSACERDOTI PAULO AUGUSTINUS IN DOMINO SALUTEM
+FRATRI ET CON SACERDOTI PAULO AUGUSTINUS IN DOMINO SALUTEM
 
 1. Tam inexorabilem me non uocares, nisi etiam mendacem putares,
 quid enim aliud de animo meo credis, quando talia mihi scribis, nisi
@@ -23385,7 +23281,7 @@ quam etiam haeresem male perseuerando fecistis. quanti autem diuino
 iudicio pendatur hoc facinus, lege, quod te legisse non ambigo. inuenies
 Dathan et Abiron hiatu terrae deuoratos ceterosque omnes, qui eis consenserant, igne de medio eorum existente consumptos (cf. Num 16,2735). illud ergo scelus ad exemplum deuitandi dominus deus praesenti
 supplicio denotauit, ut, cum talibus patientissime parcit, quali ultimo iudicio reseruet, ostenderet. ñeque enim reprehendimus rationes uestras, si
-eo tempore, quo uesana potentia furere iactabatur Optatus, cum eius ac1
+eo tempore, quo uesana potentia furere iactabatur Optatus, cum eius ac 1
 
 Es el obispo donatista famoso por sus crímenes.
 
@@ -23577,7 +23473,7 @@ ordinatis tuitionem petunt, non qua uos persequantur, sed qua se defendant, sicu
 necarent (cf. Act 23,12-24), antequam esset Romanum imperium Christianum, egit, ut sibi tuitio etiam armatorum daretur. sed illi principes
 qualibet occasione cognoscentes uestri schismatis nefas constituunt aduersus uos pro sua sollicitudine ac potestate, quod uolunt. non enim frustra
 gladium portant; dei enim ministri sunt. uindices in iram in eos, qui
-male agunt. postremo etiam si aliqui nostrorum non Christiana modera2
+male agunt. postremo etiam si aliqui nostrorum non Christiana modera 2
 
 Alude a la petición de los embajadores del concilio Cartaginés del año 404.
 «7 illic PL
@@ -23738,7 +23634,7 @@ de crímenes que se achacaban a Ceciliano:
 «A Nuestros Augustos, Anulino, varón consular, procónsul de
 África.
 2, Recibidos y adorados los escritos celestes de vuestra
-majestad2, mi devoción procuró participar su contenido mediante las actas de mi pequenez, a Ceciliano y sus subordinados, que se llaman clérigos. Exhorté a los mismos a procurar
+majestad 2, mi devoción procuró participar su contenido mediante las actas de mi pequenez, a Ceciliano y sus subordinados, que se llaman clérigos. Exhorté a los mismos a procurar
 la unidad por común acuerdo de todos, puesto que por el don
 del indulto de vuestra majestad han quedado exentos de toda
 función pública; les exhorté a ponerse al servicio de las cosas
@@ -23758,7 +23654,7 @@ A. GGG.
 
 NNN.
 
-ANULINUS ve. PRO CONSULE AFRICAE
+ANULINUS ve. PRO CON SULE AFRICAE
 
 Scripta caelestia maiestatis uestrae accepta atque adorata Caeciliano
 et his, qui sub eodem agunt qm(303)qae clerici appellantur, deuotio
@@ -23848,7 +23744,7 @@ causa discussa atque finita sit. nam memotatus imperator in hac ipsa
 causa uestros apud se accusatores et assiduos interpellato('304/)res litteris
 suis fuisse testatur, quarum exemplum infra scripsimus.
 [410]
-4. IMPERATORES CAESARES FLAVII a CONSTANTINUS MAXIMUS
+4. IMPERATORES CAESARES FLAVII a CON STANTINUS MAXIMUS
 ET VALERIUS LICINIANUS b LICINIUS AD PROBIANUM PROCONSULEM AFRICAE
 
 Aelianus praedecessor tuus mérito, dum uir perfectissimus Verus,
@@ -24585,9 +24481,7 @@ Lugar: Calama.
 Tema: Súplica de perdón en favor de los ciudadanos de Calama.
 NECTARIO al obispo AGUSTÍN,
 
-señor insigne y hermano mere-
-
-cedor de ser acogido.
+señor insigne y hermano merecedor de ser acogido.
 Paso por alto el amor de la patria, pues conoces cuan gran
 cosa es. Es el único que supera justamente al amor de los padres. Si los buenos tuvieran límite o término en su servicio,
 ya tendría yo causa digna para excusarme de los deberes de
@@ -24739,9 +24633,7 @@ al Dios verdadero y veraz. Y este Dios no sólo nos manda,
 sino que nos propina su ayuda para alcanzar todas esas virtudes que informan y forman al alma humana en la sociedad
 divina y la dignifican para habitar la celeste ciudad. Por eso
 predijo ese mismo Dios que vendrían a tierra los dioses múltiples y falsos y mandó derrocar sus ídolos. Porque nada hay
-que haga a los hombres tan insociables y perversos en su con-
-
-ducta como la imitación de esos dioses, tal como sus hazañas
+que haga a los hombres tan insociables y perversos en su conducta como la imitación de esos dioses, tal como sus hazañas
 se describen y recomiendan en vuestra literatura.
 4. En fin, vuestros doctísimos sabios estudiaban y aun
 describían en sus disputas domésticas la índole de la república
@@ -24760,9 +24652,7 @@ superstición de los impíos. Lee o recuerda con cuánta prudencia, los libros, 
 pueblos aceptado tales descripciones y acciones en las comedias si ellas no hubiesen estado de acuerdo con las costumbres
 de esos pueblos que las aceptaban. Así se puede confirmar con
 la autoridad de tan altos varones, distinguidos en la república
-y teorizantes acerca de la república, que los hombres perver-
-
-correctione prauorum, florentem te patriam putas relicturum? o flores
+y teorizantes acerca de la república, que los hombres pervercorrectione prauorum, florentem te patriam putas relicturum? o flores
 non plañe fructuum sed spinarum! compara nunc, utrum malis florere
 patriam tuam pietate an impunitate, correctis moribus an securis ausibus;
 compara ista et uide, utrum in patriae tuae amore nos uincas, utrum
@@ -24978,9 +24868,7 @@ sospecha y no verdad; no discutamos lo que sólo podríamos
 averiguar sometiendo al tormento a los que debiéramos hacer
 cantar. Concedamos asimismo la venia al temor de los que pensaron que rogar a Dios por el obispo y por sus siervos era mejor conducta que oponerse a los poderosos enemigos de la Iglesia. ¿Piensas que los restantes no deben ser sometidos a disciplina alguna o que debe recomendarse con la impunidad ejemplo de tan bárbaro furor? No tratamos de alimentar nuestra
 ira pidiendo venganza por cosas pasadas, pero nos interesamos
-misericordiosamente pensando en el futuro. Los cristianos tienen sobre qué hacer recaer el castigo, no sólo con mansedumbre, sino también con provecho y ventaja, respecto a esos perversos. Estos tienen la incolumidad del cuerpo para vivir, medios para vivir y hasta para malvivir. Dejemos intactos el cuerpo y los medios necesarios para que vivan después de arrepen-
-
-tidos: eso lo deseamos, eso lo procuramos con insistencia y
+misericordiosamente pensando en el futuro. Los cristianos tienen sobre qué hacer recaer el castigo, no sólo con mansedumbre, sino también con provecho y ventaja, respecto a esos perversos. Estos tienen la incolumidad del cuerpo para vivir, medios para vivir y hasta para malvivir. Dejemos intactos el cuerpo y los medios necesarios para que vivan después de arrepentidos: eso lo deseamos, eso lo procuramos con insistencia y
 con intervención activa cuando nos es posible. En cuanto a los
 medios de malvivir, Dios castigará, si quiere, con mucha misericordia, tronchándolos como miembros podridos y nocivos.
 Y si Dios quiere más aún y no permite ni siquiera eso, El tendrá en sí la razón de un más alto y seguramente más justo
@@ -25236,9 +25124,7 @@ de visión se dijo: faz a faz.
 Dios es espíritu, y por eso los que adoran a Dios deben adorarle en espíritu y en verdad. Si deben adorarle en espíritu,
 ¿cuánto más si se trata de verle? ¿Quién osará afirmar que
 la sustancia de Dios se ve corporalmente, en tanto que se resiste a adorarla corporalmente? Pero se imaginan que son agudos cuando dicen y presionan preguntando: «¿Pudo Cristo
-otorgar a su carne el privilegio de ver corporalmente a su Pa-
-
-dre o no lo pudo?» Si decimos que no lo pudo, pregonan que
+otorgar a su carne el privilegio de ver corporalmente a su Padre o no lo pudo?» Si decimos que no lo pudo, pregonan que
 suprimimos la omnipotencia de Dios. Y si decimos que pudo,
 entonces de nuestra respuesta coligen su argumentación y conclusión. Pero es más tolerable la necedad de aquellos que afirman que la carne se convertirá en sustancia de Dios y que
 llegará a ser lo que Dios es; por lo menos hacen idónea para
@@ -25358,7 +25244,7 @@ XCII A a
 [CSEL 34/2,444]
 DOMINO
 
-MÉRITO SINCERISSIMO ET SANCTO FRATRI ET CONPRESBYTERO
+MÉRITO SINCERISSIMO ET SANCTO FRATRI ET CON PRESBYTERO
 CYPRIANO AUGUSTINUS IN DOMINO SALUTEM
 
 Benedictae filiae nostrae Italicae litteras misi, quas ad eam peto ipse
@@ -25910,9 +25796,7 @@ hechos? Si nada hay que demandar en justicia al emperador,
 ¿por qué se le pidió a Juliano lo que se estimó justo?
 13. ¿Es que uno puede acudir al emperador para recuperar lo suyo, pero no para acusar a otro, a quien tenga que
 reprimir el emperador? Por de pronto, en la reclamación de
-esas posesiones que los donatistas querían recuperar ya se apartaron del ejemplo de los apóstoles, pues no sabemos que nin-
-
-seueritate cohercemini. et hoc quidem uel de ómnibus haereticis, qui
+esas posesiones que los donatistas querían recuperar ya se apartaron del ejemplo de los apóstoles, pues no sabemos que ninseueritate cohercemini. et hoc quidem uel de ómnibus haereticis, qui
 Christianis sacramentis inbuuntur et a Christi ueritate siue unitate dissentiunt uel Donatistis ómnibus dixerim,
 11. Quod autem ad uos adtinet, qui non solum cum illis communiter Donatístae a Donato uerum etíam proptíe Rogatístae a Rogato
 appellamini, mitiores quidem esse uidemini, quia Circumcellionum immanissimis gregibus non saeuitis; sed nulla bestia, si neminem uulneret,
@@ -26568,9 +26452,7 @@ hoc nescitís, incerti uobismet ípsis sitis, quod necesse est contingat
 ñeque enim potestis dicere: «Si hoc contigisset, nos latere non posset,
 cum, in África ípsa quot iam partes factae sint ex parte Donati, si
 interrogemini, non dicatis, praesertim quia tanto sibi uidentur, qui hoc
-faciunt, iustiores, quanto fuerint pauciores, et utique tanto sunt laten-
-
-tiores. ac per hoc incerti estís, ne forte aliqui pauci iusti et ideo minime
+faciunt, iustiores, quanto fuerint pauciores, et utique tanto sunt latentiores. ac per hoc incerti estís, ne forte aliqui pauci iusti et ideo minime
 noti alicubi longe contra Áfricae meridiem, antequam pars Donati
 iustitiam [471] suam a ceterorum hominum iniquitate secerneret, se
 primitus causa aequissima separauerint in latere aquilonis et ipsa sit
@@ -27057,9 +26939,7 @@ justifica su salida.
 38. No se equipara a Cipriano en méritos el que no se
 atreve a rebautizar ni a los mismos herejes porque admite la
 comunión de sacramentos; como se equipara a Pedro en méritos quien no obliga a los gentiles a judaizar. Las Escrituras
-canónicas refieren no sólo el hecho de la claudicación de Pe-
-
-dro, sino también su corrección. Del mismo modo, encontramos, no en las Escrituras canónicas, pero sí en las cartas de
+canónicas refieren no sólo el hecho de la claudicación de Pedro, sino también su corrección. Del mismo modo, encontramos, no en las Escrituras canónicas, pero sí en las cartas de
 Cigriano y en las del concilio, que Cipriano tuvo acerca del
 bautismo una opinión algo diferente de la forma y costumbre
 que refiere la Iglesia. Es también cierto que no se hace constar
@@ -27149,9 +27029,7 @@ lleno de frutos, el Padre lo podó con la segur de la pasión,
 si algo tenía que corregir, como dice el Señor: Al sarmiento
 que en mí da fruto, le podará mi Padre para que dé más fruto.
 Y ¿por qué, sino porque se mantuvo unido a la vitalidad de
-la vid y no perdió la raíz de la unidad? Porque, aunque hu-
-
-biese entregado su cuerpo a las llamas, si no hubiese tenido
+la vid y no perdió la raíz de la unidad? Porque, aunque hubiese entregado su cuerpo a las llamas, si no hubiese tenido
 caridad, de nada le hubiese servido.
 41. Presta un poco más de atención todavía a la carta
 de Cipriano, para que veas lo inexcusable que, según él, es
@@ -27327,9 +27205,7 @@ certissima et apertissima esse ostenderentur.
 45. Sed de his taceo. contende Tychonium esse mentitum; ad Cyprianum te reuoco, cuius mentionem ipse fecisti. prorsus secundum
 scripta Cypriani, si peccatis alienis in unitate quisque maculatur, iam
 ante Cyprianum periit ecclesia nec erat unde existeret ipse Cyprianus.
-si autem hoc sentiré sacrilegum est (343) et certum est ecclesiam per-
-
-siste. Luego nadie se mancilla con pecados ajenos dentro de
+si autem hoc sentiré sacrilegum est (343) et certum est ecclesiam persiste. Luego nadie se mancilla con pecados ajenos dentro de
 la unidad. En vano, hijos malos, os llamáis justos, pues no
 justificáis ni excusáis vuestra separación.
 11 46. Y tú replicas: «¿Pues por qué nos buscáis? ¿Por
@@ -27419,9 +27295,7 @@ bautizados cuanto mejor era Pablo, si él los hubiese bautizado.
 En fin, cuando dice: Yo planté, Apolo regó, parece dar a entender que él evangelizó y Apolo bautizó. ¿Acaso era mejor
 Apolo que Juan? Pues ¿por qué no bautizó después de Apolo
 quien había bautizado después de Juan, sino porque aquel bautismo era de Cristo, fuese quien fuese el que lo administrara,
-y, en cambio, este otro bautismo era de Juan, aunque prepa-
-
-habetis illic, ubi estis, nobiscum autem estis in baptismo, in symbolo, in
+y, en cambio, este otro bautismo era de Juan, aunque prepahabetis illic, ubi estis, nobiscum autem estis in baptismo, in symbolo, in
 ceteris dominicis sacramentis. in spiritu autem unitatis et uinculo pacis
 (cf. Eph 4,3), in ipsa denique [489] catholka ecclesia nobiscum non
 estis. haec si accipiatis, non tune adetunt, sed tune prodetunt, quae
@@ -27835,7 +27709,7 @@ docuisti me in spiritu ueritatis salubre moderandi in occiduis mortalibus
 animi [499]
 temperamentum, quo et íllam beatam matrem et auiam
 Melaniuma fleuisse carnalem obitum unici filii taciturno quidem luctu
-non tamen sicco a maternis lacrimis dolore uidisti. cuius quidem rao1
+non tamen sicco a maternis lacrimis dolore uidisti. cuius quidem rao 1
 Melania la Mayor, de la que habla San Paulino, se casó con Publicóla y quedó
 viuda a los veintidós años. Se retiró a Palestina y allí edificó un monasterio para
 50 vírgenes en el monte de los Olivos. Después de treinta años volvió a Italia y
@@ -28091,7 +27965,7 @@ reuelationis (cf. Eph 1,17; Sap 7,15; Prov 18,4; Eccli 1,5) ab ipso duce
 et fonte sapientium, ut, sicut praeterita cognouisti et praesentia uides,
 ita etiam de futuris aestimes (cf. Sap 8,8), quid censeas de his caelestium
 creaturarum uel etiam super cáelos in conspectu altissimi agentium uoci(351)bus sempiternis, quibus tándem organis exprimantur. quamlibet
-enim apostolus dicendo: Si linguis angelorum loquar (1 Cor 13,1) pro2
+enim apostolus dicendo: Si linguis angelorum loquar (1 Cor 13,1) pro 2
 El problema de la espiritualidad de los ángeles fue siempre un tormento para
 los Padres. En los siglos vil y VIII se aceptó su total espiritualidad, pero continuó
 el problema de los «espíritus puros» como «mentes separadas», evitando los textos
@@ -28182,8 +28056,8 @@ xcv
 
 (PL 33,351)
 
-DOMINIS CAR1SSIMIS ET SINCERISSIMIS, SANCTIS ET DESIDERABILIBUS ET
-VENERABILIBUS FRATRIBUS SUB MAGISTRO DOMINO IESU CONDISCIPUXIS
+DOMINIS CAR1SSIMIS ET SINCERISSIMIS, SAN CTIS ET DESIDERABILIBUS ET
+VENERABILIBUS FRATRIBUS SUB MAGISTRO DOMINO IESU CON DISCIPUXIS
 PAULINO ET THERASIAE AUGUSTINUS IN DOMINO SALUTEM
 
 1. Cum nos fratres nostri coniunctissimi nobis, quos nobiscum
@@ -28375,9 +28249,7 @@ y devoran mutuamente, es de temer que mutuamente se consuman. Por lo tanto, ¿qu
 volaré y me sosegaré? Ya porque los peligros en que cada
 cual se debate parezcan más graves que los que no ha experimentado, ya porque así es en realidad, a mí me parece menos molesta cualquier pusilanimidad y tempestad del yermo
 que todo esto que tengo que padecer y tolerar entre la gente.
-5. Por eso me parece muy bien tu juicio: hemos de tra-
-
-enim deus [509] statuere illum (Rom 14,4), unde confirmat de his se
+5. Por eso me parece muy bien tu juicio: hemos de traenim deus [509] statuere illum (Rom 14,4), unde confirmat de his se
 dicete, qui intus sunt. et rursus eos iudicari iubet, cum dicit: Quid
 enim mihi de his, qui forís sunt, iudicare? nonne de his, qui intus sunt,
 uos iudicatis? auferte malum ex uobis ipsis (1 Cor 5,12-13). quod cum
@@ -28581,7 +28453,7 @@ corpora non habentes gerere illa omnia potuerint, in illa tamen ciuitate
 sanctorum, ubi etiam per Christum redempti a generatione hac in aeternum (Ps 11,8) coniungentur milibus angelorum, uoces corporales non
 latentes ánimos indicabunt, quia in illa societate diuina (cf. Hebr 12,22)
 nihil cogitationis próximo poterit oceultari, sed erit consonans in del
-laude concordia non solum spiritu uerum etiam spif356jritali corpore
+laude concordia non solum spiritu uerum etiam spif 356jritali corpore
 expressa °.
 9. Hoc mihi interim uidetur. si quid congruentius ueritati uel iam
 tenes uel a doctioribus audire potueris, per te nosse studiosissime experto, récense sane epistulam meam, cui quoniam festinantíssime te
@@ -28818,9 +28690,7 @@ que tenías antes, cuando ya nos felicitábamos de tus muchas
 y grandes obras buenas.
 4.
 
-Mucho nos congratulábamos por la fe constante y fir-
-
-mecum sincerissimam dilectionem multum salutat, per Hipponem-Regium,
+Mucho nos congratulábamos por la fe constante y firmecum sincerissimam dilectionem multum salutat, per Hipponem-Regium,
 ubi ego sum, transiré iussus est, quia, cum forte simul essemus in magnis ecclesiae tribulationibus et perturbationibus, quaerebamus occasionem
 scribendi ad eximietatem tuam et non inueniebamus. iam quidem unam
 epistulam miseram in negotio sancti fratris et collegae mei Bonifatii
@@ -28904,7 +28774,7 @@ iniquitatis obstringi, cui milla sua [521] uoluntate consentit. et anima
 enim patris mea est, inquit, et anima filii mea est. anima, quae peecauerit, ipsa morietur (Ez 18,4). non autem peccat ipsa, cum parentes
 ei omnino nescienti uel quílibet alius adhibet sacrilegia daemoniorum,
 sed ideo ex Adam traxit, quod sacramenti illius gratia solueretur, quia
-nondum erat anima separatim uiuens, id est altera anima, de qua dicere1
+nondum erat anima separatim uiuens, id est altera anima, de qua dicere 1
 
 Bonifacio ya nos es conocido (cf. cartas 96,143 y 149).
 
@@ -28943,7 +28813,7 @@ gratiae et spiritus operans intrinsecus beneficium gratiae, [522] soluens
 uinculum culpae, reconcilians bonum naturae regenerant hominem in uno
 Christo ex uno Adam generatum. regenerans ergo spiritus in maioribus
 offerentibus et paruulo oblato renatoque communis est; ideo per hanc
-societatem unius eiusdemque spiritus prodest offerentium uoluntas par2
+societatem unius eiusdemque spiritus prodest offerentium uoluntas par 2
 Sobre la transmisión del pecado original, Agustín se inclina hacia el traducianismo (el alma de los hijos se deriva del alma de los padres, y así viene ya con el
 pecado original). Como filósofo, Agustín parecía inclinarse hacia el creacianismo (el
 alma es creada limpia por Dios, pero se mancha al unirse con el cuerpo); se retraía,
@@ -29111,7 +28981,7 @@ percipiendum paruulos ferunt, ut gratia spíritali ad uitam regenerentur
 aeternam, sed quod eos putant hoc remedio temporalem retiñere uel
 recípere sanitatem. non enim propterea illi non regenetantur, quia non
 ab istis hac intentione offeruntut. celebrantur enim per eos necessaria
-ministeria et uerba sacramentorum, sine quibus consecrari patf362Juulus
+ministeria et uerba sacramentorum, sine quibus consecrari patf 362Juulus
 non potest. spititus autem ille sanctus, qui habitat in sanctis, ex quibus
 una illa columba deargentata (cf. Ps 67,14) caritatis igne conflatur, agit,
 quod agit, etiam per seruitutem aliquando non solum simpliciter ignorantium uerum etiam damnabiliter indignorum. offeruntur quippe paruulí
@@ -29155,7 +29025,7 @@ ad massae societatem mediante área perducantur!
 tractum aliter non posse dísrumpi, nisi paruuli ad percipiendam Christi
 gratiam a parentibus offerantur; sic enim scribens dicis: «Ut, sicut
 patentes fuerunt auctores ad eorum poenam, per fidem parentum ídentidem iustificentur», cum uideas multos non offerri a parentibus sed
-etiam a quibuslibet extrañéis, sicut a dominis seruuli aliquando of4
+etiam a quibuslibet extrañéis, sicut a dominis seruuli aliquando of 4
 Agustín insiste en la dimensión social de los sacramentos como obra del tolus
 Christus.
 
@@ -29188,9 +29058,7 @@ respondes también: No lo sé. No te atreves a prometer con
 certidumbre nada acerca de sus futuras costumbres ni de su
 presente intención. Pues ¿cómo en el ofrecimiento para el bautismo responden los padres como responsables y prometen
 que los niños harán lo que en esa edad ni siquiera pueden
-pensar, o, si pueden pensarlo, no lo sabemos? ¿Por qué hace-
-
-mos la pregunta a los oferentes y les decimos: Cree en Dios?
+pensar, o, si pueden pensarlo, no lo sabemos? ¿Por qué hacemos la pregunta a los oferentes y les decimos: Cree en Dios?
 Ellos responden en nombre de aquella edad que ni siquiera
 sabe si Dios existe: ¡Cree! Y así van contestando a cada uno
 de los ritos que se practican. Me extraña que los padres en
@@ -29380,7 +29248,7 @@ XCIX
 
 (PL 33,364)
 
-RELIGIOSISSIMAE ATQUE IN CHRISTI MEMBRIS MÉRITO SANCTEQUE
+RELIGIOSISSIMAE ATQUE IN CHRISTI MEMBRIS MÉRITO SAN CTEQUE
 LAUDABILI FAMULAE DEIITALICAE ATJGUSTINUS IN DOMINO SALUTEM
 
 (365) 1. Tres epistulas tuae benignitatis acceperam, cum ista rescripsi: unam, quae adhuc meas litteras exigebat, alteram, quae ad te iam
@@ -29499,7 +29367,7 @@ dubio, cum per uos sincerissimos catholicae matris filios eidem subuenitur, auxi
 (Ps 120,2). quis enim non sentiat in tantis malis non paruam nobis consolationem diuinitus missam, cum tu uir talis et Christi nominis amantissimus proconsularíbus es sublimatus insignibus, ut ab sceleratis et sacrilegis ausibus inimicos ecclesiae bonae tuae uoluntati potestas sociata
 cobiberet, domine eximie meritoque honorabilis insigniterque laudabilis
 fili? denique unum solum est, quod in tua iustitia pertimescimus, ne
-forte, quoniam, quicquid mali contra Christíanam societatem ab homi1
+forte, quoniam, quicquid mali contra Christíanam societatem ab homi 1
 Donato era procónsul del 408 al 410, pues el 25 de junio de este año se enviaba
 ya una ley «a Macrobio, procónsul de África». El emperador era Honorio, y sus
 leyes parecían demasiado severas.
@@ -29575,7 +29443,7 @@ tet, quod causas ecclesiasticas insinuare uobis nemo praeter ecclesiasticos
 curat. proinde si occidendos in his nomines putaueritis, deterrebitis nos,
 ne per operam nostram ad uestrum iudicium aliquid tale perueniat, quo
 comperto ílli in nostram
-perniciem licentiore audacia grassabuntur necessitate nobis impacta0, ut etiam occidi ab eis eligamus, quam eos occidendos uestris iudiciis ingeramus hanc admonitionem, petitionem, obsecrationem meam ne, quaeso, aspernanter accipias. ñeque enim te arbitror
+perniciem licentiore audacia grassabuntur necessitate nobis impacta 0, ut etiam occidi ab eis eligamus, quam eos occidendos uestris iudiciis ingeramus hanc admonitionem, petitionem, obsecrationem meam ne, quaeso, aspernanter accipias. ñeque enim te arbitror
 non recolere magnam me ad te et multo, quam nunc es, altius sublimatum, etiam si episcopus non essem, [538] fiduciam tamen habere potuisse. cito interim per edicta excellentiae tuae nouerint haeretici Donatistae
 manere leges contra errorem suum latas, quas iam nihil ualere arbitrantur
 et iactant, ne uel sic nobis parcere aliquatenus possint. plurimum autem
@@ -29888,7 +29756,7 @@ CII a
 
 (PL 33,370)
 
-SlNCERISSIMO FRATRI ET CONPRESBYTERO DEOGRATIAS AUGUSTINUS
+SlNCERISSIMO FRATRI ET CON PRESBYTERO DEOGRATIAS AUGUSTINUS
 IN DOMINO SALUTEM
 
 1. Quaestiones tibi propositas mihi delegare maluisti non, ut opinor,
@@ -30021,7 +29889,7 @@ infideles nolint credere, quaerant uel animaduertant, si uel hoc possunt,
 quam multorum animalium genera sine parentibus ex térraa procreentur,
 quae tamen coeundo pariant etiam ipsa sui similem prolem nec propter
 diuersitatem natiuitatis intersit aliquid ad naturam eorum, quae procreata
-sunt ex térra, et eorum, quae lilis coeuntibus orta sunt. simif372)liter
+sunt ex térra, et eorum, quae lilis coeuntibus orta sunt. simif 372)liter
 enim uiuunt símilíterque moriuntur, quamuis dissimiliter nata sint. ita
 non est absurdum, ut similiter resurgant [548] corpora, quae dissimiliter
 orta sunt. huius modi autem nomines non ualentes intueri, ad quam rem
@@ -30412,7 +30280,7 @@ quam diu paruus et
 infirmus est intellectus hominis diuinae a cederé ueritati. quid ergo
 mirum, si tam infidelibus plenum orbem terrarum Christus prioribus
 saeculis nouerat, ut eis apparere uel praedicari mérito nollet, quos nec
-uerbis nec miraculis suís credituros esse praesciebat? ñeque enim incre4
+uerbis nec miraculis suís credituros esse praesciebat? ñeque enim incre 4
 Los semipelagianos de Marsella Ansarón de algunas de estas frases. Hilario se
 lo hizo saber a Agustín en la carta 209, y éste replicó en La predestinación de tos
 scwlos 9 (cf. Revisiones II 31).
@@ -30653,7 +30521,7 @@ sometida está a Dios, tanto menos digna se siente de recibir
 un honor que sabe que es exclusivo de Dios mismo. ¿Cuánto
 más pernicioso será sacrificar a los demonios, es decir, a j a
 criatura espiritual inicua, que habita en ese cielo próximo y ca_
-liginoso como en su cárcel aérea, predestinada para el supl¡ci0
+liginoso como en su cárcel aérea, predestinada para el supl¡ci 0
 eterno? Los hombres dicen que sacrifican a las potestades celestes y superiores, que no son demonios. Estiman que es una
 cuestión de meros nombres porque ellos llaman dioses a \os
 que nosotros llamamos ángeles. Pero los que con múltiple
@@ -31437,7 +31305,7 @@ FRATRI AUGUSTINO NECTARIUS IN DOMINO SALUTEM
 templorum caeretnonias destruxisti, audire mihi uisus sum [579] philosophi uocem non illius, quem in Academiae Lycio a memorant tenebrosis
 humo angulis residentem, ex profunda quadam cogitatione demersum,
 reductis ad frontem caput implicitum genibus, ut aliotum praeclara
-inuenta doctrinae egenus quidam calumniator oppugnet adsertaque prae1
+inuenta doctrinae egenus quidam calumniator oppugnet adsertaque prae 1
 Nectario pensaba que la muerte de Estilicón abrogaría las leyes contra los paganos y habrían sobrevenido venganzas más atroces. Al ver que se publicaban nuevas
 y más duras leyes contra el paganismo, se decide a solicitar misericordia, contestando
 por fin a la carta 91 de Agustín.
@@ -31522,7 +31390,7 @@ spoliandos. ego autem, nisi me opinio fallit, sic arbitror grauius esse
 spoliari facultatibus quam occidi, si quidem, quod frequentatum in litteris
 nosti, mors malorum omnium auferat sensum, egestosa uita aeternam
 pariat calamitatem; grauius est enim male uiuere quam mala morte
-finite. hoc etiam opetae uestrae indicat tatio, in quibus pauperes sustinetis, mórbidos curatione releuatis, medicinam afflictis corporibus adhibe2
+finite. hoc etiam opetae uestrae indicat tatio, in quibus pauperes sustinetis, mórbidos curatione releuatis, medicinam afflictis corporibus adhibe 2
 Cicerón recogía la sentencia de Escipión; según el cual, en el cielo hay un lugar
 reservado para los beneméritos de la patria.
 
@@ -31851,7 +31719,7 @@ pvmienda culpa sit tantum habere an propter alias grauissimas culpas,
 ut tantum quis habeat, permitiere, quod tune iam fuit peccatum, nunc
 uolumus sit saltem poena peccati. sed est, quod fieri possit et debeat,
 ut nec usque ad ista progrediatur seueritas nec nimis secura laetetur et
-debacchetur impunitas et imitatíonis exemplum ad grauissimas et occultissimas poenas infelicibus proponatur. saltem concede, ut nimium su1
+debacchetur impunitas et imitatíonis exemplum ad grauissimas et occultissimas poenas infelicibus proponatur. saltem concede, ut nimium su 1
 Rufino, ávido de dinero, había promulgado esa ley contra los paganos para enriquecerse. Agustín expone el concepto jurídico de pena.
 b] illa PL
 
@@ -31971,7 +31839,7 @@ non suecurrendo arsurae ecclesiae uel de sceleratissimis rapinis aliquid
 auferendo, paenitentiae dolorem fructuosum esse credidimus eisque ad
 correctionem sufficere existimauimus, quod inest cordíbus eorum fides,
 qua considerare possent, quid de diuino iudicio formidare deberent.
-quae autem paenifl92,)tentia sanare potest eos, qui fontem ipsum indulgentiae non solum agnoscere neglegunt, uerum etiam inridere ac blasphemare non desinunt? et contra hos tamen inimicitias in corde non
+quae autem paenifl 92,)tentia sanare potest eos, qui fontem ipsum indulgentiae non solum agnoscere neglegunt, uerum etiam inridere ac blasphemare non desinunt? et contra hos tamen inimicitias in corde non
 retinemus, quod illi patet ac nudum est, cuius et in praesenti et in
 futura uita et timemus iudicium et speramus auxilium. sed arbitramur
 
@@ -31988,7 +31856,7 @@ para menoscabar su fortuna, sino para castigar su vanidad. No
 queremos que ese Dios a quien desprecian sea más gravemente
 ofendido si ellos acrecientan su audacia con tan dañosa impunidad; ni queremos que esa misma impunidad sea más ruinosamente propuesta a otros como ejemplo digno de imitación.
 En fin, si tú me ruegas a mí por ésos, yo ruego por los mismos
-a Dios para que los convierta a sí, para que purifique sus cora2ones con la fe y les enseñe a hacer una verdadera y saludable penitencia.
+a Dios para que los convierta a sí, para que purifique sus cora 2 ones con la fe y les enseñe a hacer una verdadera y saludable penitencia.
 10. Mira cuánto más ordenada y útilmente los amo 2 yo
 que tú, dicho sea con tu venia, aunque piensas que estoy irritado contra ellos. Yo rezo en su favor para evitar los mayores
 males y alcanzar los mayores bienes.
@@ -32072,7 +31940,7 @@ pecado alguno en el hombre. Por eso, cortando todas las dilaciones, hemos de rec
 con toda verdad lo que dijo el poeta lisonjero a no sé qué potentado, si bien confiesa que lo tomó del oráculo de la sibila
 de Cumas:
 Bajo tu gobierno, si aún quedan vestigios de nuestra maldad,
-desaparecerán, y la tierra quedará libre del eterno miedo3.
+desaparecerán, y la tierra quedará libre del eterno miedo 3.
 Porque con este divino guía quedan anulados y remitidos
 todos los pecados. Por este camino se va a la celeste patria, en
 cuya morada tanto te has deleitado cuando yo te invité con todas mis fuerzas a amarla.
@@ -32501,7 +32369,7 @@ partido de Donato presume siempre de la mentira. De eso
 alardeáis y eso propaláis, como está escrito: Quien confía en
 falsedades, apacienta vientos. Esa indulgencia es tan verdadera
 como fueron los delitos de Ceciliano y la traición de Félix
-Aptungense, que fue quien ordenó a Ceciliano, y como es ver5. Videtis, quia uos contra pacem Christi uiolenter insurgitis et
+Aptungense, que fue quien ordenó a Ceciliano, y como es ver 5. Videtis, quia uos contra pacem Christi uiolenter insurgitis et
 patimini non pro ipso sed pro iniquitatibus uestris. quae est ista dementia, ut, cum male uiuitís, latronum facta faciatis et, cum iure punimini,
 gloriam martyrum requiratis? si ergo uos priuata uestra audacia tam uiolenter cogitis homines aut iré in errorem aut permanere in errore, quanto
 magis nos debemus per ordinatissimas potestates, quas deus secundum
@@ -32629,7 +32497,7 @@ probaretur.
 9. Tune Constantinus prior contra partem Donati seuerissimam
 legem dedit. hunc imitati filii eius talia praeceperunt. quibus succedens
 Iulianus, desertor Christi et inimicus, supplicantibus uestris Rogatiano
-et Pontio libertatem perditioni8 parti Donati permisit; denique tune
+et Pontio libertatem perditioni 8 parti Donati permisit; denique tune
 reddidit basilicas haereticis, quando templa daemoniis. eo modo putans
 Era natural que Constantino, como militar, se aburriese con las polémicas teológicas. Sus hijos son Constancio y Constante. Los de Teodosio son Honorio y Afcadio.
 a] perditionis PL
@@ -32922,7 +32790,7 @@ sequitur: Et adorabunt in conspectu eius unusquisque de loco suo omnes
 insulae gentium (Soph 2,11). ubi agnouimus Christum in eo, quod
 scriptum est: Deus ab Áfrico ueniet et sanetus de monte umbroso;
 operiet cáelos uirtus eius, ibi agnouimus ecclesiam in eo, quod sequitur:
-Et laudis eius plena est térra (Hab 3,3). ab Áfrico enim posita est Hierusalem, sicut íegitur in libro Iesu Ñaue (cf. los 15,8; 18,4; Le 24,47;
+Et laudis eius plena est térra (Hab 3,3). ab Áfrico enim posita est Hierusalem, sicut íegitur in libro Iesu Ñque (cf. los 15,8; 18,4; Le 24,47;
 Act 1,12), unde nomen Christi diffusum est: et ibi est mons umbrosus,
 mons oliueti, unde ascendit in caelum, ut cooperiret cáelos uirtus eius et
 impleretur ecclesia per omnem terram laudis (403) eius. ubi agnouimus
@@ -33402,7 +33270,7 @@ Son para mí como agua falaz, que no merece confianza. Pero
 se contesta: «Eso se dijo de los hombres fingidos, que nada
 loco alter iam fuerat ordinatus. quos dúos non unus Primianus sed multi
 coepiscopi uestri, cum frequentissima numerositate Tamugadensis Optati
-natalicia celebrarent, post eorum sine dilaf40Sjtione damnationem, post
+natalicia celebrarent, post eorum sine dilaf 40Sjtione damnationem, post
 terminatam, quae ceteris data fuerat, dilationem, post diuulgatam forensi
 etiam strepitu apud tot cónsules accusationem in honoribus integris
 susceperunt et post eos nullum baptizauerunt. si huic assertioni resistitur
@@ -33498,7 +33366,7 @@ assentatione leni atque fallad blandí adulatoris intellegi, quia unguitur
 et crescit eis caput, cum laudantur peccatores in desideriis animae suae
 et, qui iniqua egerint, benedicentur. quod ex priore uersu satis apparet;
 sic enim posita est tota sententia: Emendabit me tustús in misericordia
-et arguet me; oleum autem peccatoris non inpinguabit caput11 meum
+et arguet me; oleum autem peccatoris non inpinguabit caput 11 meum
 (Ps 140,5). malle se dixit ueraci misericordis austeritate compesci quam
 deceptoria laude fallentis extolli. sed quo modo libet hoc intellegatis,
 certe in eis, quos in sacrilegio Maximiani Felicianus et Praetextatus
@@ -33763,7 +33631,7 @@ pater ttibuit, uindicarit, ut se putet aut ad ateam uentilandam et purgandam (cf
 a frumento uniuersa zizania humano iudicio separare, superba est ista
 praesumptio et sacrilega obstinatio, quam sibi furor prauus adsumit, et,
 dum sibi semper aliquid amplius, quam mitis iustitia deposcit, adsumunt,
-de ecclesia pereunt et, dum se insoC4i2jlenter extollunt, ipso suo tumore
+de ecclesia pereunt et, dum se insoC 4i2jlenter extollunt, ipso suo tumore
 caecati ueritatis lumen amittunt».
 12. Quid hac Cypriani adtestatione clarius, quid ueracius? uides,
 quanta euangelica et apostólica luce praefulgeaf. uides eos, qui uelut
@@ -33886,7 +33754,7 @@ nominis inuaserit principatum», nec cum adultero portionem suam
 ponebant (cf. Ps 49,18), qui communicabant ueritatis adultero, nec
 módico fermento tota eorum massa corrumpebatur (cf. 1 Cor 5,6), cum
 
-ei fauerent, cum in eius parte non6 quasi nescientes a uobis ptaecisi
+ei fauerent, cum in eius parte non 6 quasi nescientes a uobis ptaecisi
 remanerent, sed a uobis contra uos praecidendam erigendamque curarent; deinde uos ipsi, quod eos ad redeundum sic inuitastis, ut Maximiano tanta societate coniunctos inpollutus a sacrilegii surculo diceretis,
 quod Praetextatum quoque et Felicianum saluís eorum honoribus suscepistis, quod cum eis pacifice concordatis, quod hodieque Felicianum
 uobiscum considentem uidetis, nulla communione peccatorum alienorum
@@ -34308,7 +34176,7 @@ Severo a Agustín
 
 el arca del diluvio, lleva lo puro y lo inmundo, demuestra más
 bien que él mismo es lo que condena. Esto lo quiso el Señor.
-El pueblo que gobiernas en esta ciudad, por boca de alguien8... CARTA
+El pueblo que gobiernas en esta ciudad, por boca de alguien 8... CARTA
 
 Fecha: Desconocida.
 Lagar: Milevi.
@@ -34503,7 +34371,7 @@ CX
 
 (PL 33,419)
 
-DOMINO BEATISSIMO ATQUE DULCISSIMO VENERABILI NIMIUMQUE DESIDERABILI FRATRI ET CONSACERDOTI SEVERO ET QUI TECUM SUNT FRATRIBUS
+DOMINO BEATISSIMO ATQUE DULCISSIMO VENERABILI NIMIUMQUE DESIDERABILI FRATRI ET CON SACERDOTI SEVERO ET QUI TECUM SUNT FRATRIBUS
 AÜGUSTINUS ET QUI MECUM SUNT FRATRES IN DOMINO SALUTEM
 
 1. Epistula mea, quam peruexit carissimus filius et condiaconus
@@ -34646,7 +34514,7 @@ faciendum; si autem fieri non debet, nec debitor sum.
 loqueris, quasi prolixam epistulam tuam de laudibus meis desiderauerim». absit, ut hoc de te credam; sed epistula tua nolo dicere quam
 ueris uel quam
 non ueris plena tamen laudibus meis hoc de me ut
-rependerem0 etiam te nolente flagitauit. nam si quid aliud uolebas ut
+rependerem 0 etiam te nolente flagitauit. nam si quid aliud uolebas ut
 scriberem, largitorem me desiderabas, non redditorem. porro iustitiae
 ordo sic habet, ut debitum prius reddamus, tum deinde, cui reddimus,
 si hoc placet, aliquid et donemus. quamquam etiam talia, qualia desiderasti ut scriberem, sí dilígentius praecepta dominica cogitemus, reddimus
@@ -34751,7 +34619,7 @@ exprimirse y correr el aceite de los fieles que confiesan y oran.
 33,421)
 
 (422) DOMINO DILECTISSIMO ET DESIDERANTISSIMO FRATRI ET
-CONPRESBYTERO VICTORIANO AUGUSTINUS IN DOMINO SALUTEM
+CON PRESBYTERO VICTORIANO AUGUSTINUS IN DOMINO SALUTEM
 
 1. Litterae tuae impleuerunt grandi dolore cor nostrum, quibus
 petisti, ut prolixo opere aliqua responderem, cum talibus [643] malis
@@ -35344,9 +35212,7 @@ CARTA
 Fecha: Después de la anterior.
 Lugar: Hipona.
 Tema: Respetar la ley en favor de los enjuiciados.
-AGUSTÍN saluda en el Señor a FLORENTINO, señor e hijo ama-
-
-dísimo.
+AGUSTÍN saluda en el Señor a FLORENTINO, señor e hijo amadísimo.
 Tú sabrás con orden de qué autoridad secuestraste a Favencio '. Yo sólo sé que toda autoridad establecida en el Imperio está al servicio de las leyes de su emperador. Por mi
 hermano y copresbítero Celestino te envié la ley, que tú no
 
@@ -35395,7 +35261,7 @@ DOMINO DILECTISSIMO FILIO FLORENTINO AUGUSTINUS IN DOMINO SALUTEM
 
 Cuius potestatis iussione Fauentium rapueris, ipse uideris: hoc autem
 scio, quod omnis potestas sub imperio constituía imperatoris sui legibus
-seruit. quamuis ergo iam per fratrem et conpresbyterum meum Caelesti1
+seruit. quamuis ergo iam per fratrem et conpresbyterum meum Caelesti 1
 Contra las leyes antes citadas fue arrestado Favencio, pero no era claro en qué
 circunstancias. Por eso Agustín pasa del derecho a la intercesión de la misericordia.
 a] annuente PL
@@ -35451,7 +35317,7 @@ Iglesia. Inmediatamente avisé al tribuno encargado de la guarCXV
 
 (PL 33,430)
 
-DOMINO BEATISSIMO ET VENERABII.ITER CARISSIMO FRATRI ET CONSACERDOTI
+DOMINO BEATISSIMO ET VENERABII.ITER CARISSIMO FRATRI ET CON SACERDOTI
 FORTUNATO ET QUI TECUM SUNT FRATRIBUS AUGUSTINUS IN DOMINO
 SALUTEM
 
@@ -35523,9 +35389,7 @@ CARTA
 Fecha: Contemporánea a la anterior.
 Lugar: Hipona.
 Tema: Súplica de intercesión en favor de Favencio.
-AGU STÍN saluda en el Señor a GENEROSO, señor eximio y justa-
-
-mente notable, y hermano digno de honor y cariño.
+AGU STÍN saluda en el Señor a GENEROSO, señor eximio y justamente notable, y hermano digno de honor y cariño.
 Grandes alabanzas se pregonan de tu administración. Intachable es tu fama. Mucho me satisface eso, por el amor que
 debo a tus méritos y benevolencia. Todavía no he podido
 molestar con mi intercesión a tu eminencia solicitando algún
@@ -36241,7 +36105,7 @@ praenoscere aliquas et pertractatas habere sententias, de haereticis potius,
 qui se Christianos uocant, quam de Anaxagora et Demócrito nobis
 cogitandum fuit.
 III 13. Ule autem, quisquís abs te qnaesierit, quae tu a nobis
-quaeris, audiat, quod ea doctius et prudentius nescias. si enim Themisto5
+quaeris, audiat, quod ea doctius et prudentius nescias. si enim Themisto 5
 Agustín sigue a Cicerón al enjuiciar a los filósofos y los catálogos que ya había
 sobre los herejes.
 
@@ -37182,7 +37046,7 @@ quisquam uigilanti ingenio praeditus nullo b modo ad sequendam ueritatem melius 
 ueritate susceptus ineffabiliter atque mirabiliter et ipsius in terris personam gerens recta praecipiendo et diuina faciendo salubriter credi persuaderet, quod nondum prudenter posset intellegi? huius nos gloriae
 seruimus, huic te inmobiliter atque constanter credere hortamur, per
 quem factum est, ut non pauci sed populi etiam, qui non possunt ista
-diiudicare ratione, fide inrideant0, doñee salutaribus praeceptís adminiculad euadant ab his perplexitatibus in auras purissimae atque sincerissimae ueritatis. cuius auctoritati tanto deuotíus obtemWSjperari oportet,
+diiudicare ratione, fide inrideant 0, doñee salutaribus praeceptís adminiculad euadant ab his perplexitatibus in auras purissimae atque sincerissimae ueritatis. cuius auctoritati tanto deuotíus obtemWSjperari oportet,
 quanto uidemus nullum iam errorem se audere exfolíete ad congregandas
 a] illuuiem PI,
 b] uUo PL
@@ -37309,7 +37173,7 @@ CARTA
 Fecha: Año 410.
 Lugar: Desconocido.
 Tema: La trinidad ante la razón.
-CONSENCIO a AGUSTÍN,
+CON SENCIO a AGUSTÍN,
 
 señor santo y beatísimo padre.
 
@@ -37330,7 +37194,7 @@ CXIX
 
 (PL 33,449)
 
-DOMINO SANCTO AC BEATISSIMO PAPAE AUGUSTINO CONSENTIOS
+DOMINO SANCTO AC BEATISSIMO PAPAE AUGUSTINO CON SENTIOS
 
 1. Iam quidem sancto mihique cunctis animi uirtutibus admirando
 fratri tuo Alypio episcopo genus petitionis meae breui sermone suggesseram sperans, precum mearum ut apud te esse adiutor dignaretur. sed
@@ -37602,7 +37466,7 @@ CARTA
 Fecha: Poco después de la anterior.
 Lugar: Hipona.
 Tema: Respuesta a la anterior.
-AGUSTÍN saluda en el Señor a CONSENCIO, hermano amadísimo y digno de honor en las entrañas de Cristo.
+AGUSTÍN saluda en el Señor a CON SENCIO, hermano amadísimo y digno de honor en las entrañas de Cristo.
 11.
 Te he rogado que vinieras aquí, porque me ha complacido el ingenio que muestras en tus libros. Creyendo que
 algunos de mis opúsculos te son necesarios, quiero que los
@@ -37615,7 +37479,7 @@ ualeamus. incolumis ac beatus nostrique in aeternum memor caelestia
 regna possideas, domine sánete ac beatissime papa.
 CXX
 [CSEL 54/2,704] (PL 33,452)
-FEATRI DILECTISSIMO ET IN CHRISTI VISCERIBUS HONORANDO CONSENTIO
+FEATRI DILECTISSIMO ET IN CHRISTI VISCERIBUS HONORANDO CON SENTIO
 AUGUSTINUS IN DOMINO SALUTEM
 
 I 1. Ego propterea, ut ad nos uenires, rogaui, quoniam in libris
@@ -37705,7 +37569,7 @@ etiam rationis luce conspicias.
 3. Absit namque, ut hoc in nobis deus oderit, in quo nos reliquis
 animantibus excellentiores creauit. absit, inquam, ut ideo credamus, ne
 rationem accipiamus siue quaeramus, cum etiam credere non possemus,
-nisi rationales animas haberemus. ut ergo in quibusdam rebus ad doctri1
+nisi rationales animas haberemus. ut ergo in quibusdam rebus ad doctri 1
 Agustín, que exalta la fórmula crede ul intellegas, metódicamente propone también la otra fórmula intellege ut credas, y en esta carta se aclara bien la correlación
 entre ambas fórmulas.
 
@@ -38251,7 +38115,7 @@ leuauit in caelum, non nisi in specie humana membrisque cogitamus,
 non tamen ita putandum est sedere ad dexteram patris (cf. Me 16,19),
 ut ei pater ad sinistram sedere uideatur. in illa quippe beatitudine, quae
 omnem superat humanum intellectum, sola dextera est et eadem dextera
-eiusdem beatitudinis nomen est. proinde nec illud, quod post resurrec4
+eiusdem beatitudinis nomen est. proinde nec illud, quod post resurrec 4
 
 al
 
@@ -38505,7 +38369,7 @@ que creer que es tan incomparablemente más hermosa que la
 mente de los justos, cuanto es incomparablemente más justa.
 Basten esas advertencias que presento a tu dilección, quizá
 algo más prolijas de lo que tú esperabas si nos atenemos a la
-costumbre del estilo epistolar, pero breves si miramos a la importancia de tan alta cuestión. No lo hice para satisfacer tu eru20. Si ergo cauendum est, ne iustitiae nostrae similem putemus
+costumbre del estilo epistolar, pero breves si miramos a la importancia de tan alta cuestión. No lo hice para satisfacer tu eru 20. Si ergo cauendum est, ne iustitiae nostrae similem putemus
 deum, quoniam lumen, quod inlumínat, incomparabiliter excellentius est
 ülo, quod inluminatur, (462) quanto magis caueri oportet, ne aliquid
 inferius et cuodam modo decoloratius eum esse credamus, quam est
@@ -39333,7 +39197,7 @@ CXXTI
 
 (PL 33,470)
 
-DLLECTISSIMIS FRATRIBUS CONCLERICIS ET UNIVERSAE PLEBI AUGUSTINUS
+DLLECTISSIMIS FRATRIBUS CON CLERICIS ET UNIVERSAE PLEBI AUGUSTINUS
 IN DOMINO SALUTEM
 
 1. In primis peto caritatem uestram et per Iesum obsecro, ne uos
@@ -39878,7 +39742,7 @@ Volúmenes ya publicados
 I. ESCRITOS FILOSÓFICOS: Introducción y bibliografía general.—Vida de San Agustín escrita por San Posidio.—Soliloquios.—La vida feliz.—El orden (5.* ed.).
 II.
 
-CONFESIONES (7.' ed.).
+CON FESIONES (7.' ed.).
 
 III. ESCRITOS FILOSÓFICOS: Contra los académicos.—
 El libre albedrío.—La dimensión del alma.—El maestro.—Naturaleza

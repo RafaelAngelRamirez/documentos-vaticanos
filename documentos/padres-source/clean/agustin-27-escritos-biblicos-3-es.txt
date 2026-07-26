@@ -22,7 +22,7 @@ DE
 
 SAN AGUSTÍN
 
-CONFESIONES: T. II.
+CON FESIONES: T. II.
 ESCRITOS APOLOGÉTICOS: T. IV, V, XVI, XVII.
 ESCRITOS BÍBLICOS: T. XV, XVIII, XXVII, XXVIII,
 XXIX.
@@ -229,7 +229,7 @@ mismo San Agustín comenta que todo el que creía tener algún conocimiento de g
 tarea de traductor bíblico.
 ' Tema ampliamente discutido por W. RüTING, Untersuchungen iiber Augustins Quaestiones und Locutiones in Heptateuchum.
 Forschungen zur christlichen
-Literatur- und Dogmengeschichte, tomo XIII, fase.3 y 4 (Paderborn, 1916) p.416. Los primeros argumentos aparecen en los maurinos (París, 1689, tomo III,
+Literaturund Dogmengeschichte, tomo XIII, fase.3 y 4 (Paderborn, 1916) p.416. Los primeros argumentos aparecen en los maurinos (París, 1689, tomo III,
 parte 1.", col.325-326: Hoc opus ad annum circiter 419 referre ideirco visum est,
 quia in Retractationibus locum habet proximum post librum de Nuptiis et concupiscentia, quos eo fere tempore scriptos fuisse liquet.
 Cf. Locut. 64 del Ex; 6 del Lev; 39 de los; 50 y 52 de Iud.
@@ -309,7 +309,7 @@ HOOGTERP, P. W., Le latín du Codex Bobiensis (k) des Évangiles
 MCINTOSH, J. S., A study of Augustine 's Versions of Génesis (Diss.
 Chicago, 1912).
 RÓNSCH, H., ítala und Vulgata (Marburgo, 1875).
-RÜTING, W., Untersuchungen über Augustins Quaestiones. und Locutiones in Heptateuchum. Forschungen zur christlichen Literatur- und Dogmengeschichte, tomo XIII, fase. 3 y 4 (Paderborn,
+RÜTING, W., Untersuchungen über Augustins Quaestiones. und Locutiones in Heptateuchum. Forschungen zur christlichen Literaturund Dogmengeschichte, tomo XIII, fase. 3 y 4 (Paderborn,
 1916).
 Süss, W., Studien zur lateinischen Bibel. I. Augustins Locutiones und
 das Problem der lateinischen Bibelsprache. Acta et comm. Universitatis Tartuensis, B, XXIX, 4) (Tartu, 1932).
@@ -345,7 +345,7 @@ EX LIBRIS
 (PL 32,651)
 
 Septem libros de septem libris diuinarum Scripturarum, id est Moysi
-quinqué et uno Iesu Ñaue et altero Iudicum, feci notatis locutionibus
+quinqué et uno Iesu Ñque et altero Iudicum, feci notatis locutionibus
 singulorum, quae minus usitatae sunt linguae nostrae, quas parum
 aduertendo sensum quaerunt, qui legunt, diuinorum eloquiorum, cum
 sit locutionis genus, et nonnumquam exculpunt aliquid, quod a ueritate
@@ -673,9 +673,7 @@ uestrum (Gen 9,12): quod est «Ínter me et uos».
 La Vulgata (Phil 3,11) ofrece esta otra lectura: si quo modo oceurram ad
 resurrectionem, quae est ex moríais.
 Símmaco, judío-cristiano ebionita; vivió en tiempos de Septímio Severo (193211); su trad. de la Biblia reproduce, generalmente, ía versión de los Setenta.
-La versión siriaca Futía y los mss. de la Vulgata se expresan en este sen-
-
-tido: «y no volvió». Generalmente, se interpreta como: «estuvo yendo y viniendo
+La versión siriaca Futía y los mss. de la Vulgata se expresan en este sentido: «y no volvió». Generalmente, se interpreta como: «estuvo yendo y viniendo
 hasta que...»
 " Cf. R. R.ENDTORFF, «Gen 8,21 und die Urgeschichte des Jahwisten», en
 Kerygma und Dogma (1961) p.67-78.
@@ -993,7 +991,7 @@ de expresarse sería: «Le comunicaron a Abraham la noticia
 de personas que decían...»; o bien: «Se le comunicó la noticia
 por parte de personas que decían...»
 74. Y se levantó Abraham de delante de su muerto
-(Gen 23,3-4). No dice: «de delante de su muerta» 2 \ Y nue67. Et térra quam inhabitasti in ea (Gen 21,23).
+(Gen 23,3-4). No dice: «de delante de su muerta» 2 \ Y nue 67. Et térra quam inhabitasti in ea (Gen 21,23).
 68. Et disposuerunt ambo testamentum (Gen 21,27), uel testad sunt
 ambo; amat Scriptura testamenti nomine pactum appellare.
 69. Accipe filium tuum dilectum (Gen 22,2): illa locutione dictum
@@ -1071,9 +1069,7 @@ caeli.
 80. Et posuit puer manum suam sub femare Abrahae et iurauit ei
 de uerbo hoc (Gen 24,9). Ergo locutio est, qua dixerat Abraham: adiuro
 te, ac si dixisset: iura mihi; non autem solemus sic loqui. Sed obseruandum est, utrum sint in Scripturis aliae símiles locutiones; nam et
-quod dixit Abraham: si noluerit mulier uenire tecum, purus eris a iura-
-
-mentó hoc (Gen 24,8), manifestauit ita se dixisse: adiuro te, tamquam
+quod dixit Abraham: si noluerit mulier uenire tecum, purus eris a iuramentó hoc (Gen 24,8), manifestauit ita se dixisse: adiuro te, tamquam
 diceret: iura mihi.
 81. Quod scriptum est de Rebecca: uirgo autem erat speciosa facie
 ualde; uirgo erat, uir non cognouerat eam (Gen 24,16), ista repetitio
@@ -1223,7 +1219,7 @@ son «las ropas»; o lo mismo que entendemos «soldado» por
 «soldados»; y muchos otros ejemplos.
 100. Sal al campo y cázame una caza (Gen 27,3).
 101. Y vete a las ovejas y tráeme de allá dos cabritos
-97. Et disponemus tecum testamentum (Gen 26,28), amant Scripturae pro pacto poneré testamentum, id est óia9r|>a|V. Quod latini habent:
+97. Et disponemus tecum testamentum (Gen 26,28), amant Scripturae pro pacto poneré testamentum, id est óia 9r|>a|V. Quod latini habent:
 et disponemus
 tecum testamentum.
 Ne facías nobiscum
@@ -2152,7 +2148,7 @@ escrito como hroy\¿Lxai. Sin embargo, parece que lo más
 acertado es decir «se encuentra intranquilo», porque es lo que
 suele decirse de las personas que se ven agitadas por la aflicción del cuerpo cuando se acerca la muerte. De ahí que también al populacho se le denomine óx^og, pues el populacho
 es una multitud desordenada, no como el pueblo —que se
-dice 6íjux)5—, ni como la plebe —que se dice Xaóq—, sino
+dice 6 íjux)5—, ni como la plebe —que se dice Xaóq—, sino
 como el óxX.05, por lo que se denomina así al populacho.
 204. Cuando Jacob bendice a sus nietos, hijos de José,
 dice entre otras cosas: y será invocado en ellos mi nombre y
@@ -2206,7 +2202,7 @@ non est, nisi ubi se mandauerat sepeliri.
 Scripturis.
 209. Et dixit Pharao ad Ioseph: descende et sepelí patrem tuum
 (Gen 50,6). Etiam si per potentes illos, per quos Ioseph mandauerat,
-Pharao dixit, quod perferrent ad Ioseph, non utique dixit nisi ipsi Io60
+Pharao dixit, quod perferrent ad Ioseph, non utique dixit nisi ipsi Io 60
 
 La operación la realizan médicos especializados en embalsamar, TCIOI.X£1)TOL
 Es posible que José dispusiera el embalsamiento de su padre no por las
@@ -2258,7 +2254,7 @@ similia.
 mala mihi ostendit (2 Tim 4,14): ostendimus enim dictum est uel ostendit
 pro eo, quod est «fecimus» uel «fecit».
 212. Accipe iniquitatem seruorum Dei patris tui (Gen 50,17)._Noua
-locutio est accipe iniquitatem pro «ignosce» aut «remitte» aut «obliuis63
+locutio est accipe iniquitatem pro «ignosce» aut «remitte» aut «obliuis 63
 Se trata del acusativo interno o de contenido, del tipo «vivir la vida», «luchar la lucha», «soñar un sueño», etc. Cf. S. A u c, Locut. 27 de los.
 
 Locuciones a los siete libros del
@@ -2548,7 +2544,7 @@ no empañe su sentido, o empuje a buscar otro sentido donde
 no hay que buscarlo.
 26. Lo que presenta el códice latino como: He escuchado
 el lamento de los hijos de Israel y de qué manera os afligen
-los egipcios (Ex 6,5), el códice griego lo ofrece así: xata 6ouX.oi3vxai aÜTOÜc;, que puede interpretarse como «los tienen sometidos a esclavitud». Y es que no puede expresarse
+los egipcios (Ex 6,5), el códice griego lo ofrece así: xata 6ouX.oi 3 vxai aÜTOÜc;, que puede interpretarse como «los tienen sometidos a esclavitud». Y es que no puede expresarse
 en una sola palabra.
 27. Y habló Moisés a los hijos de Israel; y no escucharon
 a Moisés por la angustia de su espíritu y por los duros trabajos
@@ -2556,7 +2552,7 @@ que padecían (Ex 6,9). Dice exaudierunt (escucharon), no audierunt (oyeron) 71.
 28. Pues yo no tengo experiencia oratoria (Ex 6,12), es lo
 ue dice Moisés al Señor. Él griego escribió áXoyog («falto
 e palabra»), no imperitus («inexperto»), como si dijera
-áutt8r|5 («ignorante») o ájtcdSevTOc; («sin instrucción») 72.
+áutt 8r|5 («ignorante») o ájtcdSevTOc; («sin instrucción») 72.
 29. Fueron ellos Aarón y Moisés, a quienes Dios les dijo
 que sacasen a los hijos de Israel de la tierra de Egipto (Ex
 6,26). Así es como se expresa el texto griego.
@@ -2596,7 +2592,7 @@ eos; nam uno uerbo non potest.
 27. Et locutus est Moyses sic ad filios Israhel: et non exaudierunt
 Moysen a defectione animi et ab operibus duris (Ex 6,9): exaudierunt ait,
 non «audierunt».
-28. Ego enim ineloquens sum (Ex 6,12), quod ait Moyses ad Dominum, á^oyog dixit graecus, non «inperitus» quasi a|xa8f]5 uel
+28. Ego enim ineloquens sum (Ex 6,12), quod ait Moyses ad Dominum, á^oyog dixit graecus, non «inperitus» quasi a|xa 8f]5 uel
 cuicúoeiruog.
 29. Hi sunt Aaron et Moyses, quibus dixit eis Deus, ut educant filios
 Israhel de térra Aegypti (Ex 6,26); sic enim habet graecus.
@@ -2650,9 +2646,7 @@ no se encuentra más que cuando la palabra en singular entraña una pluralidad. 
 Que toda la tierra te adoren (Ps 65,4), porque se emplea toda
 la tierra en lugar de «los hombres que hay en la tierra».
 39. He aquí que yo castigaré con ranas todos tus confines
-(Ex 8,2). Así se expresa el griego con una elegantísima locu-
-
-ción, ya que las ranas significan la plaga con que se castiga a
+(Ex 8,2). Así se expresa el griego con una elegantísima locución, ya que las ranas significan la plaga con que se castiga a
 la tierra de Egipto.
 40. Y el río vomitará ranas. Y subiendo, penetrarán en
 tus casas, en los armarios de tus habitaciones y sobre tus lechos; y en las casas de tus esclavos y de tu pueblo; y en tus
@@ -2764,9 +2758,7 @@ una locución, ya que no se dice: para que cesen de producirse 81.
 hijos de vuestros hijos cómo me he divertido con los egipcios
 (Ex 10,2) 82. Nótese de qué manera se dice «me he divertido»,
 que quizá no se emplea en sentido literal, como en: Aquella
-serpiente que labraste para burlarte de él (Ps 103,26); o aque-
-
-dinem inbutis sensibus hominum saepe plus uidetur quod singulariter
+serpiente que labraste para burlarte de él (Ps 103,26); o aquedinem inbutis sensibus hominum saepe plus uidetur quod singulariter
 quam quod pluraliter dicitur; nam plus accipitur cum dicitur uerbi causa: est illic miles quam sunt illic milites, et: est illic piséis quam sunt
 illic pisces.
 42. Et colligebant eas aceruos aceruos (Ex 8,14): haec repetitio multitudinem aceruorum significat et Scripturis est familiaris.
@@ -3820,7 +3812,7 @@ est textilia et consutilia et diuersicoloria texere de coceo et bysso
 (Ex 38,23). Nouo more dicuntur architectonari textilia. Etiam illud a
 parte totum ¡ntellegendum est, quod ait: texere coceo et bysso; ex his
 enim et cetera intellegimus, id est purpuram et hyacinthum.
-159. Et fecerunt filii Israhel, sicut praecepit Dominus Moysi, ita fe119
+159. Et fecerunt filii Israhel, sicut praecepit Dominus Moysi, ita fe 119
 Se trata de las cortinas con que se engalana el Tabernáculo (Ex 36,8-38) y
 con que se lo cubre. En este pasaje se alude sólo a la cortina o cubierta interior.
 El texto hebreo dice hrs, que alude particularmente al artista que trabaja el
@@ -3921,7 +3913,7 @@ también el griego. Pero es una locución griega que alguno de
 nuestros traductores, no queriendo mantenerla, dijeron: Son
 los sancta sanctorum 123.
 
-4. Si autem anima peccauerit et audierit uo(íl6)cem iurationis et
+4. Si autem anima peccauerit et audierit uo(íl 6)cem iurationis et
 ipse testis fuerit aui uiderit aut conscius fuerit, si non nuntiauerit, et
 accipiet peccatum (Lev 5,1). Plus uidetur habere «et»; nam eo dempto
 integre sequitur: accipiet peccatum.
@@ -3937,9 +3929,7 @@ hoc autem cognouerit.
 (Lev 5,15). Non ait «si latuerit eam», quoniam animam pro homine ponit, sicut facit et ¡n alus, ubi animam prius dixit, quae generis feminini
 est, postea masculinum infert genus ad hominem referens. Sed hic multo
 est haec locutío pressior, quoniam continuatim utrumque genus positum
-est, ut diceretur: anima si latuerit eum. [572] Haec locutio terruit inter-
-
-pretes latinos et noluerunt eam transferre, sed ita posuerunt: anima si
+est, ut diceretur: anima si latuerit eum. [572] Haec locutio terruit interpretes latinos et noluerunt eam transferre, sed ita posuerunt: anima si
 qua latuerit et peccauerit non uolens, cum aliud sit utique, si anima lateat, aliud, si animam lateat; hoc autem Scriptura dicit: si lateat eam,
 non, si ipsa lateat. In graeco autem alio muenimus: anima si latuerit ea
 obliuione; sed etiam ipse in consequentibus masculinum intulit dicens:
@@ -4248,7 +4238,7 @@ derramará sobre la mano izquierda del sacerdote (Lev 14,15).
 semel dictum: inmundus uocabitur. ítem paulo post dicit: cum sit inmundus, inmundus [577] erit (Lev 13,46): quod in latinum de graeco
 non sicut positum est exprimí potuit. Ait enim graecus: áxáfkxQxoc, ü)V áxáGaotoc, earcu,; quasi diceret «inmundus existens inmundus
 erit». Sed non hoc est existens, quod graecus dixit u>v. Sed si dici
-posf520Jset «essens» ab eo, quod est esse, non ab eo, quod est existere.
+posf 520Jset «essens» ab eo, quod est esse, non ab eo, quod est existere.
 33. Et uestimento si fuerit in eo tactus leprae (Lev 13,47). Potuit
 usitate ita dicere: et in uestimento si fuerit tactus leprae.
 34. Aut in omni uase pelliceo in quocumque fuerit in eo tactus
@@ -4325,7 +4315,7 @@ locución debe mejor notarse como tal que corregirse.
 47. Quienquiera que tomara a su hermana, hija de su
 padre o de su madre, y descubriera su desnudez y ella descubriera la desnudez de él, es una ignominia: ha descubierto
 la desnudez de su hermana; recibirán su pecado (Lev 20,17).
-Ha empleado «pecado» en lugar de «el castigo de su peca48. Y os separaréis vosotros mismos entre bestias puras y
+Ha empleado «pecado» en lugar de «el castigo de su peca 48. Y os separaréis vosotros mismos entre bestias puras y
 entre bestias impuras, y entre aves puras e impuras (Lev
 20,25). Dice «os separaréis vosotros mismos entre puras e
 impuras», porque las (bestias) puras serán separadas de las
@@ -4907,7 +4897,7 @@ griego se emplea un masculino, aí)T(í), que en latín se ha traducido por ei. 
 involuntaria, se entiende «que pecó involuntariamente», no
 que «no quisiera que se rogara por él». Ello es precisamente
 lo que explicita a continuación, cuando dice: y que pecó sin
-querer. Justamente emplea invita (involuntaria), porque en latín no es posible expresar lo que el griego dice áxouoiao0EÍor)5; pues no puede decirse nolentata o alguna otra cosa
+querer. Justamente emplea invita (involuntaria), porque en latín no es posible expresar lo que el griego dice áxouoiao 0EÍor)5; pues no puede decirse nolentata o alguna otra cosa
 derivada de aquello que se hizo sin querer.
 51. Y la persona que cometiera con mano de soberbia
 (Num 15,30); se sobrentiende «pecado». Nótese también que
@@ -4926,7 +4916,7 @@ ubi habet COITÜ), quod hic positum est «ei». Quod uero hic dictum est:
 pro anima inuita, intellegitur «quae inuita peccauerit, non quod nolit
 pro se offerri». Hoc enim etiam consequenter exposuit, cum ait: et quae
 peccauerit nolenter. Et ideo inuita positum est, quia latine non potuit
-exprimi, quod graece dictum est: tbcoi)aiao6eíc<T)g; non enim potuit dici
+exprimi, quod graece dictum est: tbcoi)aiao 6eíc<T)g; non enim potuit dici
 «nolentata» uel quid aliud ab eo quod nolens fecerit.
 51. Et anima quaecumque fecerit in manu superbiae (Num 15,30).
 
@@ -5104,7 +5094,7 @@ Heptateuco
 «dejar partir» en vez de «morir». Ello aparece también en el
 Evangelio, cuando Simeón dice: ahora dejas partir en paz a
 tu siervo (Le 2,29). En el griego, no obstante, lo que se halla
-es ájtoX.i3ei5, que tiene un sentido más próximo a «dejar libre» que a «enviar». En efecto, no dice áqpieíg, lo que sin
+es ájtoX.i3ei 5, que tiene un sentido más próximo a «dejar libre» que a «enviar». En efecto, no dice áqpieíg, lo que sin
 duda es «dejas partir».
 70. Y toda la casa de Israel lloraron a Aarón durante
 treinta días (Num 20,29). No dice «lloró»; tampoco dice tota
@@ -5351,7 +5341,7 @@ locución.
 todos sus votos (Num 30,5). Hay aquí una «y» de más, pues
 tendría sentido completo así: «si su padre se entera y guarda
 silencio, se mantendrán válidos todos sus votos».
-97. Pero si perteneciera a un hombre (Num 30,7). Se entiende: «si estuviera casada». La Escritura se expresa así98. Y sus votos sobre ella (Num 30,7). Se sobrentiende
+97. Pero si perteneciera a un hombre (Num 30,7). Se entiende: «si estuviera casada». La Escritura se expresa así 98. Y sus votos sobre ella (Num 30,7). Se sobrentiende
 «gravan», lo que algunos traductores han añadido.
 99. Todas las palabras que han salido de sus labios conforme a sus votos o conforme a las promesas que ha formulado contra su alma, no tiene validez para ella (Num 30,13),
 aunque se esperaba el plural, de manera que dijese: «no tienen validez para ella». Y así es como algunos lo han traducido, con la clara intención de evitar el giro visto como un
@@ -5402,7 +5392,7 @@ y llevó aquellas cosas al Tabernáculo de la alianza (Num 31,54). Parece que de
 «y lo llevó al Tabernáculo de la alianza», ya que previamente
 había indicado que lo recibido era «oro». Muchos códices
 latinos ofrecen esta lectura. Pero parece que el empleo del
-plural viene a decir llevó aquellas cosas, porque con anterio102. Et omnes ciuitates eorum quae in habitationibus
+plural viene a decir llevó aquellas cosas, porque con anterio 102. Et omnes ciuitates eorum quae in habitationibus
 eorum
 (Num 31,10). Subauditur «erant».
 103. Et uillas eorum succenderunt in igni (Num 31,10). Quod usitate diceretur: succenderunt igni.
@@ -5497,7 +5487,7 @@ uestris
 erunt in ciuitatibus Galaad; pueri autem tui transibunt omnes armati
 (Num 32,26-27). Non dixerunt: nos autem transibimus omnes armati,
 sed tamquam de alus dicerent.
-117. Et commendauit eis Moyses Eleazar sacerdotem et Iesum filium Ñaue et principes familiarum tribuum Israhel (Num 32,28). Non
+117. Et commendauit eis Moyses Eleazar sacerdotem et Iesum filium Ñque et principes familiarum tribuum Israhel (Num 32,28). Non
 ait: commendauit eos Moyses Eleazar sacerdoti, quod utique ordo locutionis usitate exigebat; per hos enim introducti sunt in terram, quam
 petebant: unde [600] magis illi istis a quibus introducebantur in terram
 postulatam quam isti qui introducebant illis quos introducebant commendati uidentur.
@@ -6115,7 +6105,7 @@ ojos en lugar de «envidiará» a alguien reducido al extremo de
 serle necesario emplear las carnes de sus hijos, que la necesidad obliga a que los padres las consuman como alimento.
 También en los Proverbios, lo que los códices latinos ofrecen
 como no cenarás con hombre envidioso (Prov 23,6), el griego
-presenta ávóoi (3aoxáv(p (con hombre aojador); páoxavog
+presenta ávóoi (3 aoxáv(p (con hombre aojador); páoxavog
 significa «aojador».
 63. Y sucederá que, del mismo modo que el Señor se
 deleitó con vosotros en hacer el bien para vosotros...(Deut
@@ -6266,7 +6256,7 @@ nadie salía de ella, ni entraba (los 6,1). Se entiende, lógica-
 
 LÍBER SEXTVS
 
-Locutiones de Iesu Ñaue
+Locutiones de Iesu Ñque
 (537) 1. Vos autem transibitis expediti priores fratribus uestris, omnis fortis (los 1,14): id est omnis, quicumque in uobis fortis est.
 [614] 2. Vt sciatis uiam quam ibitis eam (los 3,4): plenum esset,
 etiam si non haberet eam.
@@ -6461,7 +6451,7 @@ que vosotros derrotaréis a ellos (los 10,25). La frase no perdería sentido aun
 16. Y envolvió a todos en la guerra, porque por el Señor
 sucedió que endureció sus corazones para que emprendiesen la
 guerra contra Israel a fin de que fueran exterminados (los
-11,19-20). Nótese que confortan cor200 no siempre hay que
+11,19-20). Nótese que confortan cor 200 no siempre hay que
 entenderlo en sentido positivo.
 17. Tú sabes lo que el Señor le dijo a Moisés, varón de
 Dios, respecto a mí ya ti (los 14,6). No dice «varón suyo».
@@ -6647,9 +6637,9 @@ Locutiones de Iudicibus
 filii Israhel in Domino (lud 1,1): non ait «Dominum», quod sermonis
 nostri consuetudo poscebat.
 2. Et bellemus in Chananaeo (lud 1,3). Non dixit: aduersus Chananaeum aut contra Chananaeum aut saltem in Chananaeum.
-3. Et mortuus est Iesus filius Ñaue seruus Domini, filius centum
+3. Et mortuus est Iesus filius Ñque seruus Domini, filius centum
 decem annorum (lud 2,8). Ista repetitio, quod, cum [621] dixisset filius
-Ñaue, repetiuit filius et deinde addidit centum decem annorum, inusitata
+Ñque, repetiuit filius et deinde addidit centum decem annorum, inusitata
 est ut potius filius centum decem annorum diceret quam homo centum
 decem annorum; sed tamen et alibi reperitur.
 4. Et omnis generado adpositi sunt ad patres suos (lud 2,10). Notanda locutio est, quod non ait «adposita est», quia plures erant.
@@ -6808,7 +6798,7 @@ dice «los que te amen», aunque ciertamente quiere aludir al
 Señor.
 26. Y sucedió que cuando el hombre de Israel terminó la
 siembra...(lud 6,3). No indica un solo hombre, sino el pueblo mismo.
-27. Subía el madianita y el amalecita y los hijos de orien20. Et cooperuit eum in pelle sua (lud 4,18): non dixit «pelle» aut
+27. Subía el madianita y el amalecita y los hijos de orien 20. Et cooperuit eum in pelle sua (lud 4,18): non dixit «pelle» aut
 «de pelle»; sic enim habet graecus: év ir) ÓÉQQEI.
 21. Et erit si quis uenerit ad te et dixerit: est hic uir? Et dices: non
 est (lud 4,20). Detracta coniunctione consequentem habet sensum: si
@@ -7007,7 +6997,7 @@ haber sido suficiente con lo dicho: «era estéril».
 49. Y suplicó Manoe al Señor y dijo: A mí, Señor; que
 el hombre de Dios que enviaste venga de nuevo ahora hasta
 nosotros (lud 13,8). Dice a mí, y se sobrentiende «escúchame» 222.
-50. Y golpeólos pierna sobre muslo (lud 15,8). Esta lo43. Et accepit populum et diuisit eum in tria principia (lud 9,34):
+50. Y golpeólos pierna sobre muslo (lud 15,8). Esta lo 43. Et accepit populum et diuisit eum in tria principia (lud 9,34):
 accepit dixit de illo populo, qui cum illo erat; et hic tria principia pro
 tribus partibus posuit.
 44. Et abierunt uir in locum suum (lud 9,55): id est unusquisque.
@@ -7024,7 +7014,7 @@ ei pro «non erat eit» dictum est; praeterita quippe narrantur.
 sufficere quod dictum est: sterilis.
 49. Et precatus est Manoe Dominum et dixit: in me, Domine, homo
 Dei, quem misisti, ueniat nunc iterum ad nos (lud 13,8): in me ita dictum est, ut subaudiatur «intende».
-50. Et percussit eos tibiam super fémur (lud 15,8). Haec locutio in221
+50. Et percussit eos tibiam super fémur (lud 15,8). Haec locutio in 221
 Se refiere a Jefté. El pueblo lo nombra su ró's, su jefe absoluto (cabeza),
 en tiempos de paz (lud 8,22; 9,6). Más tarde, en Galaad (lud 10,17) lo nombra
 su qasin, su jefe supremo para la paz y para la guerra.
@@ -7085,7 +7075,7 @@ ataduras.
 58. Si me ataran por siete ataduras húmedas, aún no secas, y me debilitaré (Iud 16,7). Tendría sentido completo aunque no dijera «y».
 59. Y las acechanzas estaban apostadas en su habitación
 (Iud 16,9). Esto algunos lo tradujeron por «acechaban». Pero
-el códice griego dice éxá8r)TO, es decir, «acechaba». Y es que
+el códice griego dice éxá 8r)TO, es decir, «acechaba». Y es que
 en griego «acechanzas» se dice en singular, lo que no puede
 hacerse en latín: «acechanza». Es locución digna de ser registrada, porque se dice: «las acechanzas acechaban», en lugar
 de aquellos que acechaban: eran ellos quienes acechaban 25.
@@ -7144,7 +7134,7 @@ VM
 
 INTRODUCCIÓN
 
-1. LA OBRA: TITULO, CONTENIDO Y FINALIDAD
+1. LA OBRA: TITULO, CON TENIDO Y FINALIDAD
 Qué significa el título de esta obra, cuál es su finalidad y
 cuál es su contenido, son cuestiones a las que responde en la
 introducción misma el autor del Speculum (digamos, de momento, que San Agustín). Y sus ideas básicas son las siguientes. Las Sagradas Escrituras registran pasajes que son dogmas
@@ -7201,7 +7191,7 @@ entonces se denominaba Parisinus 2977 A 10. Del XII se conservan dos manuscritos
 Finalmente, el más tardío —ya del XIII— es el Codex Regius Parisinus lat. 2473. Existió (aunque no se sabe su datación) un Codex Gemblacensis utilizado por los teólogos de
 Lovaina que, en 1577, prepararon su edición del Speculum.
 Weihrich confiesa que fue incapaz de localizarlo, así como
-Cf. L. DELISLE, «Le plus ancien manuscrit du Miroir de S. Augustin», en
+Cf. L. DEL ISLE, «Le plus ancien manuscrit du Miroir de S. Augustin», en
 Biblioth. de i'École des chañes, 45 (1884) 478-487.
 F. WEIHRICH, en su prefacio, p.XXXIV, a su ed. del Speculum: CSEL 12
 (Viena, 1887).
@@ -7211,11 +7201,11 @@ Cf. HARTEL, Cyp. opera: CSEL 3, Append. p.XXV.
 F. WEIHRICH, Speculum, pref. p.XXXIV: CSEL 12 (Viena, 1887).
 Cf. Catalogue general des mss. des bibliothéques publiques des depanements
 (París, 1849), tomo I, p.467.
-' Cf. L. DELISLE, Les Bibles de Théodulfe (París, 1879).
-Cf. L. DELISLE, Le Cabinet des manuscrits (París, 1868), tomo I, p.387.
-" Cf. L. DELISLE, Mélanges de paléographie et de bibliographie (París, 1880),
+' Cf. L. DEL ISLE, Les Bibles de Théodulfe (París, 1879).
+Cf. L. DEL ISLE, Le Cabinet des manuscrits (París, 1868), tomo I, p.387.
+" Cf. L. DEL ISLE, Mélanges de paléographie et de bibliographie (París, 1880),
 p.366-369.
-Cf. L. DELISLE, lnventaire des mss. (París, 1870), tomo 111, p.71.
+Cf. L. DEL ISLE, lnventaire des mss. (París, 1870), tomo 111, p.71.
 
 tampoco su colega Goldbacher, a quien encargó en 1883
 buscarlo por las bibliotecas belgas y holandesas. Pero por la
@@ -7593,7 +7583,7 @@ De bis igitur quae ka sunt posita in litteris sacris uel iuhendo uel
 uetando uel sinendo, ut etiam nunc, id est tempore noui testamenti, ad
 uitam piam exercendam moresque pertineant, hoc opus, quod in manus
 sumpsi, conponere adgressus [5] sum, ut, quantum me Deus adiuuat, omnia talia de canonicis libris colligam atque, ut facile inspici possint, in
-unum tamquam speculum congeram. Oportuit enim sic ea poni ab auc1
+unum tamquam speculum congeram. Oportuit enim sic ea poni ab auc 1
 
 Deut 5,12.
 Ex 12,15 y 18.
@@ -7790,9 +7780,7 @@ uero lapidibus obruetur. Si quis aperuerit cisternam et foderit et non
 operuerit eam, cecideritque bos aut asinus in eam, dominus cisternae
 reddet pretium iumentorum: quod autem mortuum est, ipsius erit. Si
 bos alienus bouem alterius uulnerauerit et ille mortuus fuerit, uendent
-bouem uiuum et diuident pretium, cadauer autem mortui Ínter se di-
-
-spertient. Sin autem sciebat quod bos cornupeta esset ab heri et nudiustertius et non custodiuit eum dominus suus, reddet bouem pro boue et
+bouem uiuum et diuident pretium, cadauer autem mortui Ínter se dispertient. Sin autem sciebat quod bos cornupeta esset ab heri et nudiustertius et non custodiuit eum dominus suus, reddet bouem pro boue et
 cadauer integrum accipiet (Ex 21,12-36).
 Si quis furatus fuerit bouem aut ouem et occiderit uel uendiderit,
 quinqué boues pro uno boue restituet et quattuor oues pro una oue. Si
@@ -7844,9 +7832,7 @@ y yaciera con ella, le entregará una dote y la tomará por
 esposa. Si el padre de la doncella se negará a entregársela, el
 seductor pagará la cantidad que se acostumbra a pagar por
 las doncellas ". No consentirás que las hechiceras sigan con
-vida. Pénese con la muerte a quienquiera que tuviere ayuntamiento carnal con animales. Quien realice sacrificios en honor de los dioses —salvo sólo el Señor—, mátesele. No en-
-
-tristecerás ni afligirás a ningún extranjero, pues también vosotros fuisteis extranjeros en la tierra de Egipto. No causaréis
+vida. Pénese con la muerte a quienquiera que tuviere ayuntamiento carnal con animales. Quien realice sacrificios en honor de los dioses —salvo sólo el Señor—, mátesele. No entristecerás ni afligirás a ningún extranjero, pues también vosotros fuisteis extranjeros en la tierra de Egipto. No causaréis
 daño a la viuda ni al huérfano: si llegarais a dañarlos, clamarán ante mí y yo escucharé su clamor, se inflamará mi
 cólera y os golpearé con la espada; vuestras mujeres se quedarán viudas, y vuestros hijos, huérfanos. Si le prestaras dinero a uno de mi pueblo, a un pobre que vive junto a ti, no
 se lo reclamarás como un acreedor ni lo exprimirás con usuras. Si a tu prójimo le tomaras en prenda el vestido, devuélveselo antes de la puesta del sol, pues es el único vestido
@@ -7981,7 +7967,7 @@ filii tui uel nepotis ex filia non reuelabis: quia turpitudo tua est. Turpitudin
 tua, non reuelabis. Turpitudinem sororis patris tui non díscooperies:
 quia caro est patris tui. Turpitudinem sororis matris tuae non reuelabis,
 eo quod caro sit matris tuae. Turpitudinem patrui tui non reuelabis, nec
-accedes ad uxorem eius, quae tibi adfinitate coniungitur. [12] Turpitu15
+accedes ad uxorem eius, quae tibi adfinitate coniungitur. [12] Turpitu 15
 
 Cf. S. Auc, Locut. 43 de Lev.
 Cf. S. AUG., Locut. 44 de Lev.
@@ -8134,7 +8120,7 @@ ad magos et ariolos et fornicata fuerit cum eis, ponam faciem meam
 contra eam et interficiam illam de medio populi sui. Sanctificamini et
 estote sancti: quia ego Dominus Deus uester. Custodite praecepta mea
 et facite ea. Ego Dominus qui sanctifico uos. Qui maledixerit patri suo
-aut matri, morte moriatur. Patri matrique maledixit, sanguis eius sit su24
+aut matri, morte moriatur. Patri matrique maledixit, sanguis eius sit su 24
 Lev 19,30-37. Las trad. bíblicas suelen referirse a la éfa (medida de los sólidos: Lev 5,11; 6,13, equivalente a 36 libras), y al hin (medida de los líquidos:
 Ex 29,40; 30,24). La versión latina emplea el modio y el sextario, equivalentes,
 respectivamente a 8,788 y 8,547 litros. Cf. B. N. WAMBACQ, «De ponderibus in
@@ -8396,7 +8382,7 @@ eis coniugia. Filiam mam non dabis filio eius, nec filiam illius accipies
 filio tuo: quia seducet filium tuum, ne sequatur me et ut magis seruiat
 diis alienis: irasceturque furor Domini et delebit te cito. Quin potius
 haec facietis eis: aras eorum subuertite, confringite statuas, lucosque succidite, et sculptilia conburite (Deut 7,2-5).
-Et post aliquantum: Sculptilia eorum igne conbures. Non concupis29
+Et post aliquantum: Sculptilia eorum igne conbures. Non concupis 29
 
 Cf. S. AUG., Locut. 19 de Deut.
 Cf. S. Auc, Locut. 22 y 23 de Deut.
@@ -8737,7 +8723,7 @@ Si puellam uirginem desponderit uir et inuenerit eam aliquis in ciuitate
 et concubuerit cum illa, educes utrumque ad portam ciuitatis illius, et
 lapidibus obruentur: puella, quia non clamauit, cum esset in ciuitate;
 uir, quia humiliauit uxorem proximi sui: et auferes malum de medio tui.
-Sin autem in agro reppererit uir puellam, quae desponsata est, et adpre36
+Sin autem in agro reppererit uir puellam, quae desponsata est, et adpre 36
 
 Cf. nota 7.
 «Desposada», en el sentido hebreo. Mediante la promesa de matrimonio, la
@@ -8775,7 +8761,7 @@ nec fruges, nec quamlibet aliam rem, sed alio (Deut 23,19-20).
 Et post paucos uersus: Cum uoueris uotum Domino Deo tuo, non
 tardabis reddere: quia requiret illud Dominus Deus tuus et, si moratus
 fueris, reputabit tibi in peccatum. Si nolueris polliceri, absque peccato
-eris: quod autem semel est egressum de labiis tuis, obserf907,)uabis et
+eris: quod autem semel est egressum de labiis tuis, obserf 907,)uabis et
 Los traductores hablan de 50 siclos. Cf. nota 7.
 Se trata de la prostitución sagrada practicada en Mesopotamia, Fenicia y
 Canaán. Aunque prohibida en Israel, a menudo se dejó sentir su influjo Cf
@@ -8943,8 +8929,8 @@ al Señor, vuestro Dios, como lo habéis estado haciendo hasta
 el día de hoy» (los 23,7-8).
 
 Huc usque de libris Moysi quae uisa sunt ponenda posuimus. In his
-uero quae secuntur et appellantur Hiesu Ñaue, Iudicum, Regnorum, Paralipomenon, rerum gestarum potius historia legitur quam praecepta
-uiuendi. Haec tamen paucissima de libro Hiesu Ñaue praetereunda in
+uero quae secuntur et appellantur Hiesu Ñque, Iudicum, Regnorum, Paralipomenon, rerum gestarum potius historia legitur quam praecepta
+uiuendi. Haec tamen paucissima de libro Hiesu Ñque praetereunda in
 hoc opere non putaui.
 
 Sin embargo, del Libro de los Salmos deben recogerse numerosos pasajes, aunque a menudo se repitan. Pero en la medida de mis posibilidades pondré atención para que esta obra,
@@ -9000,7 +8986,7 @@ puré, ne forte (903) irascatur, et pereatis de uia. Cum exarserit post
 paululum furor eius, beati omnes qui sperant in eum (Ps 2,10-13).
 In psalmo IV: Filii uiri, usquequo, incliti mei, ignominiose diligitis
 uanitatem quaerentes mendacium? (Ps 4,3).
-Et paulo post: Irascimini et nolite peccare: loquimini in cordibus ues47
+Et paulo post: Irascimini et nolite peccare: loquimini in cordibus ues 47
 Ps 2,10-13. Para el último pasaje seguimos la puntuación del texto bíblico
 que, con más lógica, aparece corregida en la nueva versión latina del Instituto
 Bíblico Pío XII, aprobada para uso litúrgico el 24-111-1945.
@@ -10046,7 +10032,7 @@ prouerbium male intellectum possit prouocare pauperes fortes, ut rapinis
 se existiment deberé ditescere. Quis non autem rideat, si proprie positum
 putauerit quod ibi legitur: non enim nascuntur filii malignis? (Prov
 24,20).
-Omnia ergo talia relinquemus, et ea quibus suadetur aliquid aliquan52
+Omnia ergo talia relinquemus, et ea quibus suadetur aliquid aliquan 52
 
 Cf. Septuaginta, Prov 9,18.
 Prov 24,20. El texto de la Vulgata dice: quoniam non habent futurorum
@@ -10168,7 +10154,7 @@ abicias, nec deficias, cum ab eo corriperis. Quem enim diligit Dominus,
 corripit: et quasi pater in filio conplacet sibi. Beatus homo, [52] qui
 inuenit sapientiam et qui affluit prudentia. Melior est adquisitio eius
 negotiatione argenti et auro primo fructus eius: pretiosior et cunctis
-opibus, et omnia quae desiderantur huic non ualent corvp3.(914)r3.vi
+opibus, et omnia quae desiderantur huic non ualent corvp 3.(914)r3.vi
 (Prov 3,11-15).
 Et post X uersus: Fili mi, ne effluant haec ab oculis tuis: custodi
 legem atque consilium (Prov 3,21). Et post IX uersus: Noli prohibere
@@ -10399,9 +10385,7 @@ perdet ¡líos. Non proderunt diuitiae in die ultionis: ¡ustitia autem liberabi
 corruet impius. Iustitia rectorum liberabit eos, et in insidiis suis capientur iniqui. Mortuo nomine impio nulla erit ultra spes, et expectatio sollicitorum peribit (Prov 11,1-7).
 Et post VII uersus: Qui despicit amicum suum, indigens corde est:
 uir autem prudens tacebit. Qui ambulat fraudulenter, reuelat arcana: qui
-autem fidelis est animi, celat commissum. Vbi non est gubernator, po-
-
-sabe guardar lo que se le confía. Cuando no hay dirigente, el
+autem fidelis est animi, celat commissum. Vbi non est gubernator, posabe guardar lo que se le confía. Cuando no hay dirigente, el
 ueblo se precipita en la ruina; la salvación, en cambio, se
 alia donde los consejos abundan. El que saca la cara por un
 extraño se verá afligido por la desgracia; quien toma precauciones ante las trampas, estará seguro» (Prov 11,12-15).
@@ -10497,9 +10481,7 @@ se demora aflige al alma; el deseo que se ve cumplido es árbol
 de vida. Quien se sustrae a alguna obligación se compromete
 para el futuro; quien respeta lo que se le manda vivirá en
 paz. La ley es fuente de vida para el sabio, para escapar de
-la ruina de la muerte. La buena educación os granjeará sim-
-
-gratiam: qui [57] autem confidit cogitationibus suis, impie agit. Non
+la ruina de la muerte. La buena educación os granjeará simgratiam: qui [57] autem confidit cogitationibus suis, impie agit. Non
 roborabitur homo ex impietate, et radix ¡ustorum non commouebitur
 (Prov 12,1-3).
 Et post XVI uersus: Desiderium impii munimentum est pessimorum:
@@ -11072,9 +11054,7 @@ hambre. Quienes viven al margen de la ley alaban al impío;
 quienes la observan, se enardecen contra él. Los malvados no
 tienen en cuenta la justicia; en cambio, quienes buscan al Señor, todo lo tienen presente. Preferible es un pobre que vive
 honradamente que un rico que sigue caminos tortuosos»
-(Prov 28,3-6). Dos versículos después: «Quien acumula rique-
-
-deas stulto iuxta [68] stultitiam suam, ne efficiaris ei similis. Responde
+(Prov 28,3-6). Dos versículos después: «Quien acumula riquedeas stulto iuxta [68] stultitiam suam, ne efficiaris ei similis. Responde
 stulto iuxta stultitiam suam, ne sibi sapiens esse uideatur (Prov 26,2-5).
 Et post X uersus: Sicut canis, qui reuertitur ad uomitum suum, sic
 inprudens, qui iterat stultitiam suam. Vidisti hominem sapientem sibi
@@ -11462,7 +11442,7 @@ En realidad, diez versículos después.
 
 Del libro de Job
 
-mi siervo67 y mi esclavo cuando litigaron contra mi» (Iob
+mi siervo 67 y mi esclavo cuando litigaron contra mi» (Iob
 31,11-13).
 Seis versículos después: «Si le negué a los pobres lo que
 uerían e hice concebir esperanzas vanas a los ojos de la viua; si comí yo solo mi bocado y el huérfano no participó de
@@ -11865,9 +11845,7 @@ encontrar algún refugio en el día de la ira del Señor» (Soph
 2,1-3).
 Y un poco más adelante: «Y dejaré en medio de ti un
 pueblo pobre y necesitado; y lo que resta de Israel pondrá
-su esperanza en el nombre del Señor: no practicarán la ini-
-
-quidad, ni hablarán mentira; y en su boca no se encontrará
+su esperanza en el nombre del Señor: no practicarán la iniquidad, ni hablarán mentira; y en su boca no se encontrará
 una lengua embustera» (Soph 3,12-13).
 XVII.
 
@@ -11904,7 +11882,7 @@ Et post aliquantum: Et derelinquam in medio tui populum pauperem
 et egenum, et sperabunt in nomine Domini reliquiae Israhel: non facient
 iniquifSy/Jtatem, nec loquentur mendacium, et non inuenietur ¡ n ore
 eorum lingua dolosa (Soph 3,12-13).
-" Se condena una vez más el culto astral. Cf. Deut 4,19; 17,3; Iob 31,26-27etcétera.
+" Se condena una vez más el culto astral. Cf. Deut 4,19; 17,3; Iob 31,26-27 etcétera.
 Dios de los ammonitas a quien se sacrificaban o consagraban víctimas humanas. Cf. nota 18.
 
 Ps 94,7.
@@ -12241,9 +12219,7 @@ carnes et bibere uinum. Comedamus et bibamus: eras enim moriemur.
 Et reuelata sunt in auribus meis Domini exercituum: si dimittetur haec
 iniquitas uobís, doñee moriamini, dicit Dominus Deus exercituum
 (Is 22,12-14).
-ítem post aliquantum: Aperite portas, et ingrediatur gens iusta cus-
-
-todiens ueritatem. Vetus error abiit: seruabis pacem, pacem, quia in te
+ítem post aliquantum: Aperite portas, et ingrediatur gens iusta custodiens ueritatem. Vetus error abiit: seruabis pacem, pacem, quia in te
 sperauimus: sperantes in Domino in saeculis aeternis, in Domino Deo
 forti in perpetuum (Is 26,2-4). Et post VI uersus: In semita iudiciorum
 tuorum, Domine, sustinuimus te: nomen tuum et memoriale tuum in
@@ -12570,9 +12546,7 @@ Et post XXX uersus: Circuite uias Hierusalem et aspicite et considérate et quae
 et quaerentem fidem, et propitius ero eius. Quod si etiam: uiuit Dominus! dixerint, et hoc falso iurabunt. Domine, oculi tui respiciunt fidem. Percussisti eos, et non doluerunt: adtriuisti eos, et rennuerunt accipere disciplinan!: indurauerunt facies suas super petram, noluerunt
 reuerti. Ego autem dixi: forsitan pauperes sunt et stulti, ignorantes uiam
 Domini, iudicium Dei sui. Ibo igitur ad optimates et loquar eis: ipsi
-enim cognouerunt uiam Domini, iudicium Dei sui: et ecce magis hi si-
-
-muí confregerunt iugum, ruperunt uincula (ler 5,1-5). Et post VI uersus:
+enim cognouerunt uiam Domini, iudicium Dei sui: et ecce magis hi simuí confregerunt iugum, ruperunt uincula (ler 5,1-5). Et post VI uersus:
 Filii tui dereliquerunt (938) me et iurant in his qui non sunt dii. Saturaui
 eos, et moechati sunt et in domo meretricis luxuriabantur. Equi amatores et admissarii facti sunt, unusquisque ad uxorem proximi sui hinniebat. Numquid super his non uisitabo, dicit Dominus, et in gente tali
 non ulciscetur manus mea? (ler 5,7-9). Et post XL uersus: Qui [97] posui arenam terminum mari, praeceptum sempiternum, quod non praeteribit: et commouebuntur et non poterunt, et intumescent fluctus eius et
@@ -13252,9 +13226,7 @@ Israel que se apacentaban a sí mismos! ¿No son los rebaños
 lo que apacientan los pastores? Consumíais su leche, os vestíais con su lana y sacrificabais a los animales gordos: no
 apacentabais verdaderamente mi rebaño. No procurasteis que
 la res débil cobrase fuerza, ni curasteis a la que estaba enferma, ni entablillasteis a la que tenía una fractura, ni fuisteis en
-busca de la extraviada, ni rastreasteis a la perdida. Al contrario, las conducíais con rigor y violencia. Mis ovejas se des-
-
-perdigaron porque no había pastor, y se conviertieron en presa fácil para ser devorada por todas las bestias salvajes; y se
+busca de la extraviada, ni rastreasteis a la perdida. Al contrario, las conducíais con rigor y violencia. Mis ovejas se desperdigaron porque no había pastor, y se conviertieron en presa fácil para ser devorada por todas las bestias salvajes; y se
 desperdigaron mis rebaños y anduvieron errantes por todos
 los montes y por todos los altos cerros; por toda la superficie
 de la tierra se vieron desperdigados mis rebaños. Y no había
@@ -13343,7 +13315,7 @@ eorum inuenimus quae huic operi conuenirent. Sed non sunt omittendi
 et hi quos quidem ante Saluatoris aduentum constat esse conscriptos, sed
 eos non receptos a Iudaeis recepit [113] tamen eiusdem Saluatoris Ecclesia. In bis sunt dúo qui Salomonis appellantur a pluribus propter quandam, sicut existimo, eloquii similitudinem. Nam Salomonis non esse nihil
 dubitant quique doctiores. Nec tamen eius qui Sapientiae (947) dicitur
-quisnam sit auctor apparet. Illum uero alterum quem uocamus Ecclesias108
+quisnam sit auctor apparet. Illum uero alterum quem uocamus Ecclesias 108
 La epha venía a equivaler a media fanega; el bato, a un cántaro. Para mejor
 comprensión del texto, cf. Ez 45,11-12; Lev 19,35-36; Provll. l; 16,1; 20,10;
 20,23; Deut 25,13-16.
@@ -13576,7 +13548,7 @@ in illum. Serua timorem illius et in illo ueteresce (Eccli 2,1-6).
 Metuentes Dominum, sustinete misericordiam eius, et non deflectetis
 ab illo, ne cadatis. Qui timetis Dominum, credite illi, et non euacuabitur
 merces uestra. Qui timetis Dominum, [118] sperate in illum, et in oblectatione ueniet uobis misericordia. Qui timetis Deum, diligite illum, et
-inluminabuntur corda uestra. Respicite, filii, nationes hominum, et sci115
+inluminabuntur corda uestra. Respicite, filii, nationes hominum, et sci 115
 
 Eccli 1,38. La Vulgata dice: et adducas animae tuae inhorationem.
 Eccli 2,9. La Vulgata lee: et m oblectationem en vez de in oblectatione.
@@ -13992,13 +13964,13 @@ In tota anima tua time Deum et sacerdotes illius sanctifica. In omni
 uirtute dilige Deum, qui te fecit, et ministros eius non derelinquas. H o nora Deum ex tota anima tua et honorífica sacerdotes (Eccli 7,31-33).
 Et post VI uersus: Et pauperi porrige manum tuam, ut perficiatur benedictio tua. Gratia datus in conspectu omnis uiuentis, et a mortuo non
 prohibeas gratiam. Non desis plorantibus in conrogatione et cum lugentibus ambula. Non te pigeat uisitare infirmum: ex his enim in dilectione
-firmaberis. In ómnibus operibus tuis memorare nouisf955Jsima tua, et
+firmaberis. In ómnibus operibus tuis memorare nouisf 955Jsima tua, et
 in aeternum non peccabis (Eccli 7,36-40).
 Non litiges cum homine potente, ne forte incidas in manus illius.
 Non contendas cum homine locuplete, ne forte contra consistat litem
 tibi. Multos enim perdidit aurum, et usque ad [127] cor regum extendit
 et conuertit. Non litiges cum homine linguoso et non strues in ignem
-illius ligna (Eccli 8,1-4). Et post II uersus: Ne despicias hominem auertentem se a peccato, ñeque inproperes ei: memento quoniam omnes su125
+illius ligna (Eccli 8,1-4). Et post II uersus: Ne despicias hominem auertentem se a peccato, ñeque inproperes ei: memento quoniam omnes su 125
 Traducimos según el texto. La Vulgata (Eccli 7,28-29) puntúa de otra forma: et odibili non credas te. In toto corde honora patrem tuum, es decir, «honra
 a tu padre con todo tu corazón».
 
@@ -14232,7 +14204,7 @@ más adelante: «Dichoso el varón que muera en la sabiduría 133, que medite en
 de Dios: el que observa en su corazón los caminos del Señor
 y trata de penetrar sus secretos» (Eccli 14,22-23).
 Veinticinco versículos más adelante: «Los hombre necios
-no la alcanzarán li4; pero los sensatos se encontrarán con ella.
+no la alcanzarán li 4; pero los sensatos se encontrarán con ella.
 No la verán los necios, pues ella está lejos de la soberbia y
 de la mentira. Los mentirosos no se acordarán de ella; pero
 los hombres veraces se hallarán en ella y tendrán la suerte de
@@ -14256,7 +14228,7 @@ et uiri ueraces inueniuntur in illa et successum habebunt usque aspectionem Dei.
 profecta est sapientia. Sapientiae enim Dei adstabit laus, et in ore fideli
 abundabit, et dominator dabit eam illi (Eccli 15,7-10).
 Non dixeris: per Deum abest: quae odit enim ne feceris. Non dicas:
-ille me inplaf95SJnauit: non enim necessarii sunt illi homines impii.
+ille me inplaf 95SJnauit: non enim necessarii sunt illi homines impii.
 Frente a morietur, la Vulgata (Eccli 14,11) lee morabitur: «dichoso el varón
 que permanezca en la sabiduría».
 Está aludiéndose a la sabiduría. Cf. Eccli 15,1.
@@ -14409,9 +14381,7 @@ mulleres apostatare faciunt sapientes et arguent sensatos (Eccli 19,1-2).
 Et post IV uersus: Qui credit cito leuis corde, minorabitur: et qui delinquit in animam suam, insuper habebitur (Eccli 19,4). Et post II uersus:
 Et qui odit loquacitatem, extinguit malitiam (Eccli 19,5). Et post VIII
 uersus: Audisti uerbum aduersus proximum: commoriatur in te fidens
-quoniam non te disrumpet. A facie uerbi parturit fatuus tamquam gemitus partus infantis. Sagitta infixa femori carnis, sic uerbum in ore stul-
-
-ti. Corripe amicum, ne forte non intellexerit et dicat: non feci, aut si
+quoniam non te disrumpet. A facie uerbi parturit fatuus tamquam gemitus partus infantis. Sagitta infixa femori carnis, sic uerbum in ore stulti. Corripe amicum, ne forte non intellexerit et dicat: non feci, aut si
 fecit, ne iterum addat faceré. Corripe proximum, ne forte non dixerit,
 et si dixerit, ne forte iteret. Corripe amicum: saepe enim fit commissio.
 Et non omni uerbo credas. Est qui labitur in lingua sua, sed non ex
@@ -14453,9 +14423,7 @@ odia la represión sigue las huellas del pecador; quien teme a
 Dios, se arrepiente de todo corazón» (Eccli 21,7). Cinco versículos después: «El camino de los pecadores está sembrado
 de piedras 138, y su final son los infiernos, las tinieblas y los
 castigos. Quien observa la ley, dominará sus pasiones. El
-cumplimiento del temor de Dios es la sabiduría y la inteli-
-
-gencia» (Eccli 21,11-13). «Cuando el sabio escucha alguna palabra prudente, la alabará y la asimilará; la escucha un disoluto, y le desagradará y la echará a sus espaldas. La explicación de un necio es como un fardo cuando se va de viaje;
+cumplimiento del temor de Dios es la sabiduría y la inteligencia» (Eccli 21,11-13). «Cuando el sabio escucha alguna palabra prudente, la alabará y la asimilará; la escucha un disoluto, y le desagradará y la echará a sus espaldas. La explicación de un necio es como un fardo cuando se va de viaje;
 pero en los labios del inteligente resulta grata. En la asamblea
 se solicita la opinión del hombre prudente, y los oyentes sopesarán en sus corazones las palabras que diga» (Eccli 21,1820). Dos versículos después: «Para el estúpido, la sapiencia
 resulta como grilletes en sus pies y como esposas colocadas
@@ -14483,9 +14451,7 @@ tibi remittantur. Quasi a facie colubri fuge peccata, et si accesseris ad
 illa, suscipient te. Dentes leonis dentes eius, interficientes animas hominum: quasi romphaea bis acuta omnis iniquitas: plagae illius non est
 sanitas (Eccli 21,1-4). Et post IV uersus: Qui odit correptionem, uestigium est peccatoris: et [136] qui timet Deum, conuertetur ad cor suum
 (Eccli 21,7). Et post V uersus: Via peccantium conplantata lapidibus, et
-in fine illorum inferi et tenebrae et poenae. Qui custodit iustitiam, con-
-
-tinebit sensum eius. Consummatio timoris Dei sapientia et sensus
+in fine illorum inferi et tenebrae et poenae. Qui custodit iustitiam, continebit sensum eius. Consummatio timoris Dei sapientia et sensus
 (Eccli 21,11-13). Et post VII uersus: Verbum sapiens quodcumque audierit scius, laudabit et ad se adiciet: audiet luxuriosus et audierit scius,
 laudabit et ad se adiciet: audiet luxuriosus et displicebit í 11 i et proiciet
 illud post dorsum suum. Narratio fatui quasi sarcina in uia: nam in
@@ -14613,7 +14579,7 @@ in ore carnis suae non desinet, doñee incendat ignem (Eccli 23,17-23).
 Et post II uersus: Omnis homo, qui transgreditur lectum suum, contemnens in animam suam et dicens: quis me uidet? Tenebrae circumdant
 me et parietes cooperiunt me et nemo circumspicit me: quem uerear?
 Delictorum meorum non memorabitur Altissimus. Et non (962) intellegit, quoniam uidet oculus illius: quoniam expellet a se timorem Dei
-huiusmodi hominis timor et oculí hominum timentes illum. Et non cognouit, quoniam oculi Domini multo plus lucidiores super solem, cir1,1
+huiusmodi hominis timor et oculí hominum timentes illum. Et non cognouit, quoniam oculi Domini multo plus lucidiores super solem, cir 1,1
 La Vulgata (Eccli 23,17) lee: tndisciplinatae locuelae non adsuescat os
 tuum..., «que tu boca no se acostumbre a la torpe grosería...»
 
@@ -14674,9 +14640,7 @@ lo mismo que hace el pecado con quienes practican la iniquidad. Como el sol, ina
 hombre piadoso; el necio cambia como la luna. En medio de
 los insensatos habla según las circunstancias; en medio de la
 gente sensata manten tu forma de pensar. La conversación de
-los pecadores resulta odiosa; su risa se escucha en circunstan-
-
-rata. Omnis autem ponderatio non est digna continentis animae
+los pecadores resulta odiosa; su risa se escucha en circunstanrata. Omnis autem ponderatio non est digna continentis animae
 (Eccli 26,16-20). Et post XII uersus: Et qui transgreditur a iustitia ad
 peccatum, Deus parauit eum ad romphaeam (Eccli 26,27).
 Et post IV uersus: Et qui quaerit locupletari, auertit oculum suum
@@ -14802,7 +14766,7 @@ age cum illo, et in omni tempore ¡nuenies quod tibi necessarium est.
 Multi quasi inuentionem aestimauerunt faenus et praestiterunt molestiam
 his qui se adiuuauerunt (Eccli 29,1-4). Et post XIII uersus: Verumtamen
 super humilem animo fortior esto, et pro elemosyna non trahas illum.
-Propter mandatum adsume pauperem, et propter inopiam illius ne di145
+Propter mandatum adsume pauperem, et propter inopiam illius ne di 145
 La tercera lengua —o lengua triple— es, según el Talmud, así calificada por
 sus efectos perjudiciales sobre tres personas: sobre el calumniador, el calumniado
 y el que cree la calumnia.
@@ -15005,7 +14969,7 @@ Et paulo post: Vana spes et mendacium uiro insensato: et somnia
 extollunt inprudentes. Et quasi qui adprehendit umbram et sequitur uentum, sic et qui adtendit ad uisa mendacia. Hoc secundum hoc uisio
 somniorum, ante faciem hominis similitudo hominis. Ab inmundo quid
 mundabitur? Et a mendace quid uerum dicetur? Diuinatio erroris et auguria mendacia et somnia male facientium uanitas est, et sicut parturientis cor tuum phantasias patitur; nisi ab Altissimo fuerit emissa uisitatio,
-ne dederis in illis cor tuum. Multos enim errare fecerunt somnia et exciderunt sperantes in illis. Sine mendacio consummabitur uerbum et sa1,9
+ne dederis in illis cor tuum. Multos enim errare fecerunt somnia et exciderunt sperantes in illis. Sine mendacio consummabitur uerbum et sa 1,9
 
 Semejantes prácticas estaban prohibidas. Lev 19,26; Deut 18,9-14.
 Aunque en el Antiguo Testamento hay numerosos ejemplos en que Dios
@@ -15123,7 +15087,7 @@ des illi potestatem. Non enim ómnibus omnia expediunt, et non omni
 animae omne genus placet. Noli auidus esse in omni epuladone et non
 te effundas super omnem escam (Eccli 37,30-32).
 Et post IV uersus: Honora medicum propter necessitatem: etenim
-illum creauit Altissimus. A Deo est medella, et a rege accipiet donationem. Disciplina medici exaltabit caput ipsius, et in conspe(968)ctu magnorum conlaudabitur. Altissimus creauit de térra medicinam, et uir pru153
+illum creauit Altissimus. A Deo est medella, et a rege accipiet donationem. Disciplina medici exaltabit caput ipsius, et in conspe(968)ctu magnorum conlaudabitur. Altissimus creauit de térra medicinam, et uir pru 153
 La Vulgata (Eccli 35,18) ofrece otra lectura: Nonne lacrymae viduae ad
 maxillam descendunt et exclamatio eius super deducentem eas?: «¿Acaso las lágrimas de la viuda no descienden por sus mejillas y su lamento se eleva contra quien
 las provocó?»
@@ -15327,7 +15291,7 @@ inuenire uitam aeternam. Qui autem faciunt peccatum et iniquitatem,
 hostes sunt animae suae (Tob 12,6-10).
 Et paulo post: Audite ergo me, filii, patrem uestrum: seruite Domino
 in ueritate et inquirite, ut faciatis quae sunt placita illi, et filiis uestris
-mándate, ut faciant iustitias et elemosynas, ut sint memores Dei, et be158
+mándate, ut faciant iustitias et elemosynas, ut sint memores Dei, et be 158
 La Vulgata (Tob 12,6) no cita expresamente quién habla. Dice sólo: Tune
 dixit eis oceulte.
 
@@ -15446,7 +15410,7 @@ tuum. Esto consentiens aduersario tuo cito, dum es in uia cum eo, ne
 forte tradat te aduersarius iudici et iudex tradat te ministro et in carcerem mittaris. Amen dico tibí, non exies inde, doñee reddas nouissimum
 quadrantem.
 Audistis, quia dictum est antiquis: non moechaberis (cf. Ex 20,14).
-Ego autem dico uobis, quia omnis qui uiderit mulierem ad concupiscen160
+Ego autem dico uobis, quia omnis qui uiderit mulierem ad concupiscen 160
 
 Es decir, «vano», «inútil», «nada».
 
@@ -15776,7 +15740,7 @@ nomen meum. Qui autem perseuerauerit usque in finem, hic saluus erit.
 Cum autem persequentur uos in ciuitate ista, fugite in aliam. Amen dico
 uobis, non consummabitis ciuitates Israhel, doñee ueniat Filius hominis.
 Non est discipulus super magistrum, nec seruus super dominum suum.
-Sufficit discípulo, ut sit sicut magister (975) eius, et seruus, sicut dominus eius. Si patrem familias Beelzebub uocauerunt, quanto magis do162
+Sufficit discípulo, ut sit sicut magister (975) eius, et seruus, sicut dominus eius. Si patrem familias Beelzebub uocauerunt, quanto magis do 162
 Divinidad de Canaán, era una de las formas de Baal. Para los judíos de
 tiempos del Antiguo Testamento era el Dominador del mundo inferior y Señor
 de los espíritus del mal. Los filisteos lo consideraron «Balaal, el Príncipe»; los
@@ -15984,7 +15948,7 @@ pedes habentem mitti in ignem aeternum. Et si oculus tuus scandalizat
 te, erue eum et proice abs te. Bonum tibi est uno oculo in uitam intrare
 quam dúos oculos habentem mitti in gehennam ignis. Videte, ne contemnatis unum ex his pusillis: dico autem uobis, quia angelí eorum in
 caelis semper uident faciem Patris mei, qui in caelis est. Venit enim
-Filius hominis saf977Jluare quod perierat (Mt 18,3-11).
+Filius hominis saf 977Jluare quod perierat (Mt 18,3-11).
 Et paulo post: Si autem peccauerit in te frater tuus, uade et corripe
 eum ínter te et ipsum solum. Si te audierit, lucratus es fratrem tuum: si
 autem non te audierit, adhibe tecum adhuc unum uel dúos, ut in ore
@@ -16032,7 +15996,7 @@ sed abiit et misit eum in carcerem, doñee redderet debitum. Videntes
 autem conserui eius quae fiebant contristati sunt ualde: et uenerunt et
 narrauerunt domino suo omnia quae facta fuerant. Tune uocauit illum
 dominus suus et ait illi: serue nequam, omne debitum dimisi tibi, quoniam rogasti me: [168] nonne ergo oportuit et te misereri conserui tui,
-sicut et ego tui misertus sum? Et iratus dominus eius tradidit eum tor165
+sicut et ego tui misertus sum? Et iratus dominus eius tradidit eum tor 165
 Un denario equivalía a 10 ases; un talento, a 100 ases. Por tanto, el primer
 siervo debia un millón de ases; a él le debían mil ases.
 
@@ -16191,7 +16155,7 @@ Et patrem nolite uocare uobis super terram: unus est enim Pater uester,
 qui in caelis est. Nec uocemini magistri, quia magister uester unus est
 Christus. Qui maior est uestrum, erit minister uester. Qui autem se
 exaltauerit, humiliabitur, et qui se humiliauerit, exaltabitur (Mt 23,1-12).
-Et paulo post: Vae uobis, scribae et Pharisaei hypocritae, quia deci166
+Et paulo post: Vae uobis, scribae et Pharisaei hypocritae, quia deci 166
 Del griego (ptiXaxtripioi) «salvaguarda», «amuleto de carácter apotropaico».
 Los hebreos las llamaban tepillim, «oraciones». Eran una pequeña envoltura de
 cuero con que se envolvían tiras de pergamino conteniendo pasajes de la Escritura; los judíos, en sus rezos, ataban una al brazo izquierdo, y otra a la frente.
@@ -17063,9 +17027,7 @@ y el cuerpo es más importante que el vestido. Fijaos en los
 cuervos, que no siembran, ni cosechan, ni poseen despenseros
 ni hórreos, y sin embargo Dios los alimenta. ¡Cuánto más
 importantes sois vosotros que esas aves! ¿Quién de vosotros,
-por mucho que cavile, es capaz de añadir un simple cen-
-
-tímetro
+por mucho que cavile, es capaz de añadir un simple centímetro
 a su estatura? Y si no sois capaces de hacer algo
 tan sin importancia, ¿para qué os preocupáis de lo demás?
 Fijaos en cómo crecen los lirios: no trabajan ni hilan; y yo
@@ -17106,9 +17068,7 @@ Dixitque ad discípulos suos: ideo dico uobis, nolite solliciti esse animae [189
 est quam esca, et corpus quam uestimentum. Considérate coruos, quia
 non seminant ñeque metunt, quibus non est cellarium ñeque horreum,
 et Deus pascit illos: quanto magis uos pluris estis illis? Quis autem uestrum cogitando potest adicere ad staturam suam cubitum unum? Si ergo
-ñeque quod mínimum et potestis, quid de ceteris solliciti estis? Consi-
-
-derate lilia quomodo crescunt: non laborant, non neunt. Dico autem
+ñeque quod mínimum et potestis, quid de ceteris solliciti estis? Considerate lilia quomodo crescunt: non laborant, non neunt. Dico autem
 uobis: nec Solomon in omni (989) gloria sua uestiebatur sicut unum ex
 istis. Si autem faenum agri quod hodie in agro est et eras in clibanum
 mittitur, Deis sic uestit, quanto magis uos pusillae fidei? Et uos nolite
@@ -17187,7 +17147,7 @@ multum, plus repetent ab eo (Le 12,40-48).
 ítem paulo post: Hypocritae, faciem terrae et caeli nostis probare;
 hoc autem tempus quomodo non probatis? Quid autem et a uobis ipsis
 non iudicatis quod iustum est? (Le 12,56-57). Et aliquanto post: Con'
-tendite intrare per angustam portam: quia multi, dico uobis, quaerun1
+tendite intrare per angustam portam: quia multi, dico uobis, quaerun 1
 intrare et non poterunt (Le 13,24).
 Et alio loco: Dicebat autem ad inuitatos parabolam intendens, quC
 modo primos aecubitus eligerent, dicens ad illos: cum inuitatus fueris a*'
@@ -17567,7 +17527,7 @@ conviene hacerse cargo de los enfermos y tener presentes las
 palabras del Señor Jesús, cuando dijo: Mayor bienaventuranza es dar que recibir» (Act 20,33-35).
 XXIX.
 
-DELIBRO ATVVM APOSTOLORVM
+DEL IBRO ATVVM APOSTOLORVM
 
 Iacobus ergo loquens: Propter quod, inquit, ego iudico non inquietan
 eos qui ex gentibus conuertentur ad dominum, sed scribere ad eos, ut
@@ -17745,9 +17705,7 @@ gloria de los hijos de Dios. Más aún: nos gloriamos también
 en las tribulaciones, conscientes de que la tribulación engendra perseverancia; la perseverancia, a su vez, acrisola; y este
 crisol alienta la esperanza; y la esperanza a nadie frustra, porque el amor de Dios ha sido derramado en nuestros corazones por el Espíritu Santo que nos ha sido dado» (Rom 5,1-5).
 Y en otro pasaje: «Que en vuestro cuerpo mortal no reine
-el pecado hasta el punto de que obedezcáis a sus concupis-
-
-contentione, dolo, malignitate, susurrones, detractores, Deo odibiles,
+el pecado hasta el punto de que obedezcáis a sus concupiscontentione, dolo, malignitate, susurrones, detractores, Deo odibiles,
 contumeliosos, superbos, elatos, inuentores malorum, parentibus non
 oboedientes, insipientes, inconpositos, sine affectione, absque foedere,
 sine misericordia: qui cum iustitiam Dei cognouissent, non intellexerunt
@@ -17763,9 +17721,7 @@ et inpaenitens cor thesaurizas tibi iram in diem irae et reuelationis iusti
 [202] iudicii Dei, qui reddet unicuique secundum opera eius: his quidem
 qui secundum patientiam boni operis gloriam et honorem et incorruptionem quaerentibus uitam aeternam: his autem qui ex contentione et
 qui non adquiescunt ueritati, credunt autem iniquitati, ira et indignatio.
-Tribulatio et angustia in omnem animam hominis operantis malum, Iu-
-
-daei prímum et Graeci, gloria autem et honor et pax omni operanti
+Tribulatio et angustia in omnem animam hominis operantis malum, Iudaei prímum et Graeci, gloria autem et honor et pax omni operanti
 bonum, Iudaeo primum et Graeco (Rom 2,1-10). Et post paululum: Non
 enim auditores legis iusti sunt apud Deum, sed factores legis iustificabuntur (Rom 2,13). ítem paulo post: Qui ergo alium doces, te ipsum
 non doces? Qui praedicas (996) non furandum, furaris? Qui dicis non
@@ -17853,7 +17809,7 @@ Et alio loco: Tu autem fide sta: noli altum sapere, sed time. Si enim
 Deus naturalibus ramis non (997) pepercit, ne forte nec tibí parcat. Vide
 ergo bonitatem et seueritatem Dei: in eos quidem qui ceciderunt seueritatem, in te autem bonitatem, si permanseris in bonitate (Rom 11,2022).
 Et paulo post: Obsecro itaque uos, fratres, per misericordiam Dei, ut
-exhibeatis corpora uestra hostiam uiuam, sanctam, Deo placentem, rationabile obsequium uestrum. Et nolite conforman huic saeculo, sed refor178
+exhibeatis corpora uestra hostiam uiuam, sanctam, Deo placentem, rationabile obsequium uestrum. Et nolite conforman huic saeculo, sed refor 178
 
 Ioel 2,32.
 Para mejor comprensión, véase el contexto en que se inserta este párrafo,
@@ -17881,9 +17837,7 @@ el que enseña, en la enseñanza; o el que exhorta, en la exhortación; o el que
 a otros, concediéndonos mutuamente el primer puesto; no
 siendo perezosos en la solicitud; fervientes en el espíritu; sumisos al Señor; alegres en la esperanza; pacientes en la tribulación; constantes en la oración; compartid en las necesidades
 de los fieles; practicad asiduamente la hospitalidad. Bendecid
-a los que os persiguen: bendecidlos y no los maldigáis. Alegraos con los que se alegran; llorad con quienes lloran. Concebid los mismos sentimientos unos hacia otros. No os en-
-
-soberbezcáis, sino mostraos afines a los humildes. No os consideréis sabios ante vuestra propia opinión. No le devolváis a
+a los que os persiguen: bendecidlos y no los maldigáis. Alegraos con los que se alegran; llorad con quienes lloran. Concebid los mismos sentimientos unos hacia otros. No os ensoberbezcáis, sino mostraos afines a los humildes. No os consideréis sabios ante vuestra propia opinión. No le devolváis a
 nadie mal por mal, procurando el bien no sólo a los ojos de
 Dios, sino también delante de todos los hombres. Si es posible, en cuanto de vosotros dependa, mantened la paz con
 todos los hombres. No os defendáis a vosotros mismos, queridos míos: dad oportunidad a la ira de Dios. Pues escrito
@@ -18984,7 +18938,7 @@ que se realiza en favor de los fieles, me resulta superfluo escribiros. Conozco 
 ufano de vosotros ante los macedonios, pues Acaya está enterada de ello desde el año pasado, y vuestro ejemplo ha estimulado a mucha gente. No obstante, he enviado a los hermanos para que la satisfacción que sentimos por vosotros no
 resulte estéril en esta empresa; para que —como he dicho—
 estéis preparados, no vaya a ser que, cuando los macedonios
-in praesenti tempore uestra abundantia illorum inopiam suppleat, et ¡11orum abundantia uestrae inopiae sit supplementum, ut fiat aequalita. Sicut
+in praesenti tempore uestra abundantia illorum inopiam suppleat, et ¡11 orum abundantia uestrae inopiae sit supplementum, ut fiat aequalita. Sicut
 scriptum est: qui multum, non abundauit, et qui modicum, non minorauit (cf. Ex 16,18). Granas autem Deo, qui dedit eandem sollicitudinem
 pro uobis in corde Titi: quoniam exhortationem quidem suscepit, sed
 cum sollicitior esset, sua uoluntate profectus est ad uos. Misimus autem
@@ -18998,9 +18952,7 @@ post VIXI uersus: Nam de ministerio quod fit in sanctos, ex abundantia
 est mihi scribere uobis. Scio enim promtum animum uestrum, pro quo
 de uobis glorior apud Machedonas, quoniam Achaia parata est aba anno
 praeterito et uestra aemulatio prouocauit plurimos. Misi autem fratres,
-ut ne quod gloriamur de uobis euacuetur in hac parte: ut, quemadmodum dixi, parati skis, ne, cum uenerint mecum Machedones et inuene-
-
-lleguen conmigo, os encuentren sin preparar, y nosotros
+ut ne quod gloriamur de uobis euacuetur in hac parte: ut, quemadmodum dixi, parati skis, ne, cum uenerint mecum Machedones et inuenelleguen conmigo, os encuentren sin preparar, y nosotros
 —por no decir vosotros— tengamos que sonrojarnos en esta
 colecta. Así que consideré oportuno pedirle a los hermanos
 que acudieran a vosotros y procuraran que estuviera dispuesta la aportación que habíais prometido, pero como auténtica
@@ -19050,7 +19002,7 @@ En otro pasaje: «Quien se gloría, gloríese en el Señor.
 Pues a quien se acepta no es al que se alaba a sí mismo, sino
 aquel a quien Dios alaba» (2 Cor 10,17-18) 184.
 Un poco más adelante: «¿Son ministros de Cristo? Pues
-—hablando con menos cordura— yo más. En trabajos, mucho más 185; en cárceles, muchas más veces ls6; en palizas, un
+—hablando con menos cordura— yo más. En trabajos, mucho más 185; en cárceles, muchas más veces ls 6; en palizas, un
 número incalculable; en peligros de muerte, muy a menudo 187. Por parte de los judíos he recibido en cinco ocasiones
 cuarenta azotes menos uno 188. Tres veces fui vapuleado con
 varas 1S9. En una ocasión fue apedreado 190. He sufrido tres
@@ -19124,9 +19076,7 @@ El libro titulado
 
 ue vosotros practiquéis el bien» (2 C o r 13,7). Seis versículos
 
-3espués: «Por lo demás, hermanos, alegraos, buscad la per-
-
-fección, animaos mutuamente, que vuestros sentimientos sean
+3 espués: «Por lo demás, hermanos, alegraos, buscad la perfección, animaos mutuamente, que vuestros sentimientos sean
 los mismos; vivid en paz, y el Dios del amor y de la paz
 estará con vosotros» (2 C o r 13,11).
 
@@ -19244,7 +19194,7 @@ DE EPÍSTOLA AD EPHESIOS
 
 Obsecro itaque uos, fratres, ego uinctus in Domino, ut digne ambuletis uocatione qua uocati estis, cum omni humilitate animi et mansuetudine, cum patientia subportantes inuicem in caritate, sollicite seruare unitatem Spiritus in uinculo pacis (Eph 4,1-3). [231] Et alio loco: Hoc
 itaque dico et testificor in Domino, ut iam non ambuletis sicut gentes
-ambulant in uanitate sensus sui, tenebris obscuratum habentes intellectum, alienati a uita Dei per ignorantiam, quae est in illis propter caecitatem cordis ipsorum: qui desperantes semet ipsos tradiderunt inpudi197
+ambulant in uanitate sensus sui, tenebris obscuratum habentes intellectum, alienati a uita Dei per ignorantiam, quae est in illis propter caecitatem cordis ipsorum: qui desperantes semet ipsos tradiderunt inpudi 197
 
 Iob 4,8; Prov 22,8; Os 8,7.
 Prov 11,18.
@@ -19750,9 +19700,7 @@ vuestro en nombre del Señor y os aconsejan, para que los
 tengáis en el mayor aprecio por la labor que desarrollan. Vivid en paz con ellos. Asimismo, os rogamos, hermanos, que
 amonestéis a los impacientes, consoléis a los desalentados,
 sostengáis a los débiles, mostrándoos pacientes con todos.
-Procurad que ninguno devuelva a nadie mal por mal; al contrario, en todo momento practicad el bien mutuamente y ha-
-
-uerbum Dei, qui operatur in uobis qui credidistis. Vos enim imitatores
+Procurad que ninguno devuelva a nadie mal por mal; al contrario, en todo momento practicad el bien mutuamente y hauerbum Dei, qui operatur in uobis qui credidistis. Vos enim imitatores
 facti estis, fratres, ecclesiarum Dei, quae sunt in Iudaea, in Christo Iesu,
 quia eadem passi estis et uos a contribulibus uestris sicut et ipsi a Iudaeis (1 Thess 2,1-14).
 Et alio loco: De cetero ergo, fratres, rogamus (1018) uos et obsecramus in Domino Iesu, ut quemadmodum accepistis a nobis quomodo uos
@@ -19980,7 +19928,7 @@ XXXIX.
 DE EPISTVLA AD TIMOTHEVM
 
 Finis autem praecepti est caritas de corde puro et conscientia bona
-et fide non ficta. A quibus quidam aberrantes conuersi sunt in uanilo207
+et fide non ficta. A quibus quidam aberrantes conuersi sunt in uanilo 207
 1 Tim 1,3-4. A punto de partir hacia Macedonia, San Pablo rogó a Timoteo
 que se quedara en Efeso para que persuadiese a quienes predicaban extrañas doctrinas y se preocupaban sobre todo de «fábulas y genealogías interminables».
 
@@ -20054,7 +20002,7 @@ qui filiis suis bene praesunt et suis domibus. Qui enim bene ministrauerint, gra
 in [247] Christo Iesu (1 Tim 3,2-13).
 Et post XII uersus: Spiritus autem manifesté dicit quia in nouissimis
 temporibus discedent quidam a fide, adtendentes spiritibus erroris et
-doctrinis daemoniorum, in hypocrisi loquentium mendacium, et caute208
+doctrinis daemoniorum, in hypocrisi loquentium mendacium, et caute 208
 
 Tras ornatum, la Vulgata (1 Tim 3,2) añade pudicum, «modesto».
 
@@ -20300,9 +20248,7 @@ del diablo, que los tenía cautivos, atados a su voluntad»
 (2 Tim 2,19-26).
 «Sabrás que en los días postreros sobrevendrán tiempos
 difíciles y aparecerán hombres pagados de sí mismos, avaros,
-engreídos, soberbios, blasfemos, indóciles a sus padres, ingratos, criminales, sin afecto, sin tranquilidad, facinerosos, di-
-
-num depositum custodi per Spiritum Sanctum, qui habitat in nobis
+engreídos, soberbios, blasfemos, indóciles a sus padres, ingratos, criminales, sin afecto, sin tranquilidad, facinerosos, dinum depositum custodi per Spiritum Sanctum, qui habitat in nobis
 (2 Tim 1,13-14).
 (1024) Et paulo post: Tu ergo, fili mi, confortare in gratiam, quae est
 in Christo Iesu: et quae audisti a me per multos testes haec commenda
@@ -20473,9 +20419,7 @@ prudentes, castas, domus curam habentes, benignas, subditas uiris suis,
 ut non blasphemetur uerbum Dei. Iuuenes similiter hortare, ut sobrii
 sint, in ómnibus te ipsum praebe exemplum bonorum operum, in doctrina integritate, grauitate: uerbum sanum inreprehensibile: ut is qui ex
 aduerso est uereatur nihil habens malum dicere de nobis. Seruos dominis
-suis subditos esse, in ómnibus plácemes, non contradicentes, non fraudantes, sed in ómnibus fidem bonam ostendentes, ut doctrinam salua-
-
-oris nostri Dei ornent in ómnibus. Apparuit enim gratia Dei saluatoris
+suis subditos esse, in ómnibus plácemes, non contradicentes, non fraudantes, sed in ómnibus fidem bonam ostendentes, ut doctrinam saluaoris nostri Dei ornent in ómnibus. Apparuit enim gratia Dei saluatoris
 immbus hominibus, erudiens nos, ut abnegantes inpietatem et saecularia
 lesideria sobrie et iuste et pie uiuamus in hoc saeculo. Expectantes beaam spem et aduentum gloriae magni Dei et saluatoris nostri Iesu Chrisi, qui dedit semet ipsum pro nobis, ut nos redimeret ab omni iniquitate
 t emundaret sibi populum acceptabilem, sectatorem bonorum operum.
@@ -20609,9 +20553,7 @@ Rememoramini autem prístinos dies, in quibus inluminati magnum
 certamen sustinuistis passionum. Et in altero quidem obprobriis et tribulationibus spectaculum facti, in altero autem socii taliter conuersantium effecti. Ñam et uinctis conpassi estis, et rapinam honorum uestro(702#)rum cum gaudio suscepistis, cognoscentes uos habere meliorem
 et manentem substantiam. Nolite itaque amittere confidentiam uestram,
 quae magnam habet remunerationem. Patientia enim nobis necessaria est
-ut uoluntatem Dei facientes reportetis promissionem. Adhuc enim mo-
-
-momentito aún, y el que ha de venir vendrá, y no tardará
+ut uoluntatem Dei facientes reportetis promissionem. Adhuc enim momomentito aún, y el que ha de venir vendrá, y no tardará
 mucho. Mi justo vivirá de la fe; porque si se apartara de mí,
 no agradará a mi alma» 213 (Hebr 10,32-38).
 Un poco después: «Teniendo, pues, sobre nosotros una
@@ -20724,7 +20666,7 @@ corpora cremantur extra castra, propter quod et Iesus, ut sanctificaret
 per suum sanguinem populum, extra portam passus est. Exeamus igitur
 ad eum extra castra, inproperium eius portantes. Non enim habemus hic
 manentem ciuitatem, sed futuram inquirimus. Per ipsum ergo offeramus
-hostiam laudis semper Deo, id est fructum labiorum confitentium nomini eius. Beneficentiae autem et communicationis nolite obliuisci: talibus enim hostiis promeretur Deus. Oboedite praepositis uestris et sub216
+hostiam laudis semper Deo, id est fructum labiorum confitentium nomini eius. Beneficentiae autem et communicationis nolite obliuisci: talibus enim hostiis promeretur Deus. Oboedite praepositis uestris et sub 216
 Alude, una vez más, a los alimentos procedentes de sacrificios en los templos paganos.
 2tf
 Lev 16,27.
@@ -21091,7 +21033,7 @@ vaya a ser que, arrastrados por el yerro de los insensatos,
 decaigáis de vuestra propia firmeza. Al contrario, creced en
 la gracia y el conocimiento de nuestro Señor y Salvador Jesucristo. Para El la gloria, ahora y en el día de la eternidad.
 Amén» (2 Petr 3,17-18).
-DE LA EPÍSTOLA DE SANTIAGO
+DE LA EPÍSTOLA DE SAN TIAGO
 
 «Hermanos míos, consideraos plenamente dichosos cuando os sobrevienen diferentes tentaciones, sabedores de que la
 prueba de vuestra fe desarrolla vuestra perseverancia. Pero esa
@@ -21720,7 +21662,7 @@ se citan en las Quaestiones in Heptateucbum.
 1.° «La tradición paleográfica no es la misma para las
 dos partes, Ay B. A habría existido aparte desde el origen;
 más tarde, aunque tal vez pronto, se habría unido a las Septemdecim quaestiones super Mattheum, que tiene un origen
-parecido: son dos frutos de las discusiones bíblicas de Agus1
+parecido: son dos frutos de las discusiones bíblicas de Agus 1
 G. MORIN, «Un traite inédit attribué á S. Augustin», en Revue
 Bénédictme 28 (1911) p.1-10.
 G. MORIN, «Le De VIH quaestionibus du Pseudo-Augustin», en Revue
@@ -21894,7 +21836,7 @@ perderet
 eos
 (Tract. in Ioh.); más tarde, cuando se hicieron fuertes, murieron, pero no perecieron por completo».
 Una vez establecida por esta vía de comparación la autoría
-de San Agustín, pasa a analizar los otros argumentos esgrimidos porMorin:
+de San Agustín, pasa a analizar los otros argumentos esgrimidos por Morin:
 «Veamos además algunas de las objeciones que se han formulado contra la autenticidad. Se dice que las primeras cuestiones no responden al título, pues no se refieren al Antiguo
 Testamento. Pues a mí me parece que se relacionan con el
 libro de la Sabiduría».
@@ -22026,9 +21968,7 @@ que muera gustosamente. De modo que algunos, que poseen
 ya una fe auténtica, vanamente dicen que no quieren morir
 para así hacer más méritos, cuando en verdad su propio mérito se halla precisamente en que desean morir. Así que, si
 quieren hablar verdad, que no digan: «no quiero morir para
-hacer más méritos», sino «precisamente no quiero morir por-
-
-pocos méritos». Así, pues, para los fieles el no
+hacer más méritos», sino «precisamente no quiero morir porpocos méritos». Así, pues, para los fieles el no
 lueesearhe lahecho
 muerte no es señal de que hacen méritos, sino in-
 
@@ -24139,10 +24079,10 @@ Apocalipsis
 22,14-16: 523
 
 cürávtov: Gen 54
-áxá6aoxog: Lev 32
+áxá 6 aoxog: Lev 32
 áxotioiaoBeícmg: Num 50
 áXoYog: Ex 28
-áua6r|g: Ex 28
+áua 6r|g: Ex 28
 áváoraoig: Gen 19
 ávo^cuo: Deut 70
 ájiaióeuxog: Ex 28
@@ -24156,7 +24096,7 @@ páaxavog: Deut 62
 óeivor\9tv. Gen 14
 óéopig: Iud 20
 ór|u, og: Gen 203
-6ta8r|xr|: Gen 97
+6ta 8r|xr|: Gen 97
 óóu, a: Num 58
 5í>vaiug: Deut 27
 Évavxíov: Gen 30.
@@ -24170,7 +24110,7 @@ r\ [ír\\: Num 48
 em|>cu: Gen 207
 íoioüaa: Gen 52
 xaxaóouXoüvxcu: Ex 26
-xaxaxí6n|n: Iud 59
+xaxaxí 6n|n: Iud 59
 xoéa: Ex 64
 Xaóg: Gen 203
 XaxQtvw: Deut 60
