@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T22:57:47.175Z",
+  "generatedAt": "2026-07-27T00:31:19.270Z",
   "revision": "ocr-abc-v4",
   "description": "Volumes with high residual OCR garbage after mechanical a+b cleanup — candidates for re-OCR / page re-extract (not run in this goal).",
   "count": 131,
@@ -187,48 +187,6 @@
       "suggestedAction": "re-ocr-body-pages"
     },
     {
-      "id": "agustin-30-antimaniqueos-1-es",
-      "kind": "patristic",
-      "residualScore": 330,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 22,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 0,
-      "units": 1997,
-      "reason": "body_noise=22; queue:reocr",
-      "suggestedAction": "re-ocr-body-pages"
-    },
-    {
-      "id": "agustin-16-ciudad-de-dios-1-es",
-      "kind": "patristic",
-      "residualScore": 324,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 20,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 12,
-      "tocLeaderHits": 0,
-      "units": 3344,
-      "reason": "body_noise=20; junk_runs=12; queue:reocr",
-      "suggestedAction": "re-ocr-body-pages"
-    },
-    {
-      "id": "agustin-29-escritos-biblicos-5-es",
-      "kind": "patristic",
-      "residualScore": 312,
-      "garbageUnits": 4,
-      "garbageRatio": 0.0018,
-      "residualBodyNoiseUnits": 18,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 0,
-      "units": 2221,
-      "reason": "garbage_units=4/2221 (0.18%); body_noise=18; queue:reocr",
-      "suggestedAction": "re-ocr-body-pages"
-    },
-    {
       "id": "agustin-19-enarraciones-salmos-1-es",
       "kind": "patristic",
       "residualScore": 302,
@@ -297,6 +255,20 @@
       "units": 6797,
       "reason": "short_spaced=5; spaced_digits=1; garbage_units=5/6797 (0.07%); body_noise=10; junk_runs=4; toc_leaders=5; queue:reocr",
       "suggestedAction": "re-ocr-or-slice-index-pages"
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-es",
+      "kind": "patristic",
+      "residualScore": 218,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 14,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 3,
+      "tocLeaderHits": 1,
+      "units": 2035,
+      "reason": "body_noise=14; junk_runs=3; toc_leaders=1; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
       "id": "agustin-19-enarraciones-salmos-1-en",
@@ -520,6 +492,20 @@
       "tocLeaderHits": 0,
       "units": 3951,
       "reason": "body_noise=10; junk_runs=1; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-es",
+      "kind": "patristic",
+      "residualScore": 152,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 10,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 0,
+      "tocLeaderHits": 1,
+      "units": 1401,
+      "reason": "body_noise=10; toc_leaders=1; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
@@ -898,6 +884,20 @@
       "tocLeaderHits": 1,
       "units": 1559,
       "reason": "spaced_runs=4; short_spaced=2; body_noise=6; toc_leaders=1; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-es",
+      "kind": "patristic",
+      "residualScore": 94,
+      "garbageUnits": 1,
+      "garbageRatio": 0.0007,
+      "residualBodyNoiseUnits": 5,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 4,
+      "tocLeaderHits": 0,
+      "units": 1528,
+      "reason": "garbage_units=1/1528 (0.07%); body_noise=5; junk_runs=4; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {

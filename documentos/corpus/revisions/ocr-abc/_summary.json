@@ -1,6 +1,6 @@
 {
   "revision": "ocr-abc-v4",
-  "appliedAt": "2026-07-26T22:57:47.184Z",
+  "appliedAt": "2026-07-27T00:31:19.281Z",
   "documentCount": 46,
   "thisRunChanged": 1,
   "documents": [
@@ -171,14 +171,14 @@
     },
     {
       "id": "agustin-16-ciudad-de-dios-1-es",
-      "unitsChanged": 351,
-      "unitsExcludedGarbage": 4,
-      "unitsCollapsedSpaced": 347,
-      "spacedBefore": 0,
+      "unitsChanged": 1070,
+      "unitsExcludedGarbage": 7,
+      "unitsCollapsedSpaced": 1036,
+      "spacedBefore": 41,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 2,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9879
+      "letterTokenOverlap": 0.9906
     },
     {
       "id": "agustin-17-ciudad-de-dios-2-es",
@@ -314,25 +314,25 @@
     },
     {
       "id": "agustin-29-escritos-biblicos-5-es",
-      "unitsChanged": 177,
-      "unitsExcludedGarbage": 8,
-      "unitsCollapsedSpaced": 169,
-      "spacedBefore": 0,
+      "unitsChanged": 834,
+      "unitsExcludedGarbage": 25,
+      "unitsCollapsedSpaced": 800,
+      "spacedBefore": 17,
       "spacedAfter": 0,
-      "garbageBefore": 2,
-      "garbageAfter": 0,
-      "letterTokenOverlap": 0.999
+      "garbageBefore": 14,
+      "garbageAfter": 1,
+      "letterTokenOverlap": 0.9915
     },
     {
       "id": "agustin-30-antimaniqueos-1-es",
-      "unitsChanged": 162,
-      "unitsExcludedGarbage": 15,
-      "unitsCollapsedSpaced": 147,
-      "spacedBefore": 0,
+      "unitsChanged": 707,
+      "unitsExcludedGarbage": 24,
+      "unitsCollapsedSpaced": 670,
+      "spacedBefore": 24,
       "spacedAfter": 0,
-      "garbageBefore": 6,
+      "garbageBefore": 12,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9979
+      "letterTokenOverlap": 0.9931
     },
     {
       "id": "agustin-31-antimaniqueos-2-es",

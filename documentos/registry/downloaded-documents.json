@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-26T22:55:06.180Z",
+  "updatedAt": "2026-07-27T00:28:16.918Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1754,15 +1754,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpVEp1RFdhekt4R0k/view"
       ],
       "firstDownloadedAt": "2026-07-12T22:28:52.857Z",
-      "lastDownloadedAt": "2026-07-12T22:28:52.857Z",
-      "unitCount": 3344,
+      "lastDownloadedAt": "2026-07-27T00:24:50.011Z",
+      "unitCount": 2035,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-16-ciudad-de-dios-1-es/content.json",
         "index": "documents/agustin-16-ciudad-de-dios-1-es/index.json",
         "meta": "documents/agustin-16-ciudad-de-dios-1-es/meta.json"
       },
-      "notes": "Tomo BAC n=16: 16 La-ciudad-de-Dios-I.pdf"
+      "notes": "Tomo BAC n=16: 16 La-ciudad-de-Dios-I.pdf (OCR)"
     },
     {
       "id": "agustin-16-ciudad-de-dios-1-hi",
@@ -3054,15 +3054,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpcVR1NmRfZ3QwM1E/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:11:29.986Z",
-      "lastDownloadedAt": "2026-07-13T00:11:29.986Z",
-      "unitCount": 2221,
+      "lastDownloadedAt": "2026-07-27T00:28:16.918Z",
+      "unitCount": 1528,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-29-escritos-biblicos-5-es/content.json",
         "index": "documents/agustin-29-escritos-biblicos-5-es/index.json",
         "meta": "documents/agustin-29-escritos-biblicos-5-es/meta.json"
       },
-      "notes": "Tomo BAC n=29: 29 Escritos Biblicos 5.pdf"
+      "notes": "Tomo BAC n=29: 29 Escritos Biblicos 5.pdf (OCR)"
     },
     {
       "id": "agustin-29-escritos-biblicos-5-hi",
@@ -3147,22 +3147,22 @@
     {
       "id": "agustin-30-antimaniqueos-1-es",
       "sourceId": "agustin-30",
-      "title": "Escritos antimaniqueos 01",
+      "title": "Escritos Antimaniqueos 1",
       "kind": "patristic",
       "locale": "es",
       "sourceUrls": [
         "https://drive.google.com/file/d/0B0jwB_jVsocpNFl5cy1LblR1bE0/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:08:27.215Z",
-      "lastDownloadedAt": "2026-07-13T00:08:27.215Z",
-      "unitCount": 1997,
+      "lastDownloadedAt": "2026-07-27T00:21:08.360Z",
+      "unitCount": 1401,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-30-antimaniqueos-1-es/content.json",
         "index": "documents/agustin-30-antimaniqueos-1-es/index.json",
         "meta": "documents/agustin-30-antimaniqueos-1-es/meta.json"
       },
-      "notes": "Tomo BAC n=30: 30 Escritos-antimaniqueos-01.pdf"
+      "notes": "Tomo BAC n=30: 30 Escritos-antimaniqueos-01.pdf (OCR)"
     },
     {
       "id": "agustin-30-antimaniqueos-1-hi",

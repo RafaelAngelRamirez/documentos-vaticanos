@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T22:57:47.174Z",
+  "generatedAt": "2026-07-27T00:31:19.268Z",
   "revision": "ocr-abc-v4",
   "minSpaced": 1,
   "minGarbage": 1,
@@ -269,66 +269,6 @@
       "reason": "body_noise=23; junk_runs=1; toc_leaders=2; queue:reocr"
     },
     {
-      "id": "agustin-30-antimaniqueos-1-es",
-      "kind": "patristic",
-      "units": 1997,
-      "metrics": {
-        "units": 1997,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 22,
-        "residualScore": 330
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=22; queue:reocr"
-    },
-    {
-      "id": "agustin-16-ciudad-de-dios-1-es",
-      "kind": "patristic",
-      "units": 3344,
-      "metrics": {
-        "units": 3344,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 12,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 20,
-        "residualScore": 324
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=20; junk_runs=12; queue:reocr"
-    },
-    {
-      "id": "agustin-29-escritos-biblicos-5-es",
-      "kind": "patristic",
-      "units": 2221,
-      "metrics": {
-        "units": 2221,
-        "garbageUnits": 4,
-        "garbageRatio": 0.0018,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 18,
-        "residualScore": 312
-      },
-      "targetAbc": true,
-      "queueReocr": true,
-      "reason": "garbage_units=4/2221 (0.18%); body_noise=18; queue:reocr"
-    },
-    {
       "id": "agustin-19-enarraciones-salmos-1-es",
       "kind": "patristic",
       "units": 2714,
@@ -427,6 +367,26 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "short_spaced=5; spaced_digits=1; garbage_units=5/6797 (0.07%); body_noise=10; junk_runs=4; toc_leaders=5; queue:reocr"
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-es",
+      "kind": "patristic",
+      "units": 2035,
+      "metrics": {
+        "units": 2035,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 3,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 14,
+        "residualScore": 218
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=14; junk_runs=3; toc_leaders=1; queue:reocr"
     },
     {
       "id": "agustin-19-enarraciones-salmos-1-en",
@@ -747,6 +707,26 @@
       "targetAbc": false,
       "queueReocr": true,
       "reason": "body_noise=10; junk_runs=1; queue:reocr"
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-es",
+      "kind": "patristic",
+      "units": 1401,
+      "metrics": {
+        "units": 1401,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 10,
+        "residualScore": 152
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=10; toc_leaders=1; queue:reocr"
     },
     {
       "id": "agustin-18-epistolas-indices-es",
@@ -1287,6 +1267,26 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "spaced_runs=4; short_spaced=2; body_noise=6; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-es",
+      "kind": "patristic",
+      "units": 1528,
+      "metrics": {
+        "units": 1528,
+        "garbageUnits": 1,
+        "garbageRatio": 0.0007,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 4,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 5,
+        "residualScore": 94
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "garbage_units=1/1528 (0.07%); body_noise=5; junk_runs=4; queue:reocr"
     },
     {
       "id": "agustin-39-varios-1-es",

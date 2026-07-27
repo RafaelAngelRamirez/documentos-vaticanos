@@ -1,7 +1,7 @@
 {
   "documentId": "agustin-30-antimaniqueos-1-es",
-  "revision": "ocr-abc-v3",
-  "appliedAt": "2026-07-26T19:20:35.534Z",
+  "revision": "ocr-abc-v4",
+  "appliedAt": "2026-07-27T00:23:04.445Z",
   "ruleClasses": [
     "spaced-letter-collapse",
     "short-spaced-word-collapse",
@@ -13,41 +13,43 @@
     "digit-letter-glue",
     "garbage-toc-exclude-placeholder",
     "bac-chrome-running-header-colophon-placeholder",
+    "leader-soup-placeholder",
+    "dual-column-shred-placeholder",
     "index-zone-aggressive-garbage",
     "punct-safe-compose-whitelist-internal"
   ],
-  "unitsTotal": 1997,
-  "unitsChanged": 162,
-  "unitsExcludedGarbage": 15,
-  "unitsCollapsedSpaced": 147,
+  "unitsTotal": 1401,
+  "unitsChanged": 707,
+  "unitsExcludedGarbage": 24,
+  "unitsCollapsedSpaced": 670,
   "before": {
-    "units": 1997,
-    "garbageUnits": 6,
-    "garbageRatio": 0.003,
-    "spacedLetterRuns": 0,
-    "shortSpacedWordHits": 0,
-    "spacedDigitRuns": 0,
-    "junkRunHits": 0,
-    "tocLeaderHits": 0,
-    "residualBodyNoiseUnits": 22,
-    "residualScore": 393
+    "units": 1401,
+    "garbageUnits": 12,
+    "garbageRatio": 0.0086,
+    "spacedLetterRuns": 24,
+    "shortSpacedWordHits": 226,
+    "spacedDigitRuns": 126,
+    "junkRunHits": 52,
+    "tocLeaderHits": 6,
+    "residualBodyNoiseUnits": 10,
+    "residualScore": 771
   },
   "after": {
-    "units": 1997,
+    "units": 1401,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
     "shortSpacedWordHits": 0,
     "spacedDigitRuns": 0,
     "junkRunHits": 0,
-    "tocLeaderHits": 0,
-    "residualBodyNoiseUnits": 22,
-    "residualScore": 330
+    "tocLeaderHits": 1,
+    "residualBodyNoiseUnits": 10,
+    "residualScore": 152
   },
-  "letterTokenOverlap": 0.9979,
+  "letterTokenOverlap": 0.9931,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots."
+  "notes": "ocr-abc-v4 in-place on existing corpus (no re-download). v3 + leader-soup TOC, dual-column shred blank (no demerge), S.Ag headers, front a4 shred dict, wider index-zone; stable unitIndex; dual-write roots."
 }
