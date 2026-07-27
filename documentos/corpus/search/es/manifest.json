@@ -2,11 +2,13 @@
   "version": "0.2.0",
   "schema": 1,
   "locale": "es",
-  "generatedAt": "2026-07-26T21:39:37.929Z",
+  "generatedAt": "2026-07-27T00:14:28.581Z",
   "corpusFingerprint": {
     "algo": "sha256",
-    "value": "c1f4fcf153bd5cdb",
-    "docCount": 135
+    "value": "cd1e3cba589c250f9d91427e83bede169005ef0978fb41f256cb4866f1ac7818",
+    "docCount": 135,
+    "valueShort": "cd1e3cba589c250f",
+    "filesHashed": 270
   },
   "caps": {
     "maxTopics": 250,

@@ -17,7 +17,6 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import * as crypto from 'crypto';
 import {
   ALIAS_TERM_WEIGHT,
   AssignTopic,
@@ -36,6 +35,9 @@ import {
   toPackCitation,
   toTopicRecords,
 } from './src/topics/assign_logic';
+import {
+  fingerprintFromCorpusRoot,
+} from './src/topics/corpus_fingerprint';
 
 const REPO = path.resolve(__dirname, '..');
 const CORPUS_ROOTS = [
@@ -355,15 +357,9 @@ function main() {
     postings,
   };
 
-  const fingerprintDocs = localeDocs
-    .map((d) => `${d.id}|${d.unitCount ?? ''}|${d.bodyPath || ''}`)
-    .sort()
-    .join('\n');
-  const fp = crypto
-    .createHash('sha256')
-    .update(fingerprintDocs)
-    .digest('hex')
-    .slice(0, 16);
+  // Content-aware FP (A.6): invalidates on OCR/text repair even if unitCount stable.
+  const liveFp = fingerprintFromCorpusRoot(primary, locale);
+  const fp = liveFp.value;
 
   const shouldWriteCatalog = catalog.shouldWriteCatalog || writeCatalog;
   const topicRecords = toTopicRecords(topics, stats);
@@ -398,7 +394,9 @@ function main() {
     corpusFingerprint: {
       algo: 'sha256',
       value: fp,
-      docCount: localeDocs.length,
+      docCount: liveFp.docCount,
+      valueShort: liveFp.valueShort,
+      filesHashed: liveFp.filesHashed,
     },
     caps: {
       maxTopics: 250,

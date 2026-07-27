@@ -6,6 +6,8 @@
  *   - each postings list ≤ 200
  *   - total raw size of search/{locale}/*.json ≤ 12_000_000
  *   - every posting documentId non-empty, unitIndex non-negative int
+ *   - **A.6.1 fail-on-stale**: recomputes live content-hash fingerprint of
+ *     documentos/corpus for locale and compares to pack corpusFingerprint
  * Golden (fixture fixtures/topics-golden.es.json):
  *   - Strict by default (CI): each existing golden slug ≥ minPostings (8)
  *   - Soft mode: --soft-golden (warn instead of error when below min, but
@@ -16,6 +18,7 @@
  *   npx ts-node --transpile-only topics_validate.ts --locale es
  *   npm run topics:validate -- --locale es
  *   npm run topics:validate -- --locale es --soft-golden
+ *   npm run topics:validate -- --locale es --skip-fp   # fixtures only; forbidden in CI
  */
 
 import * as fs from 'fs';
@@ -23,6 +26,10 @@ import * as path from 'path';
 import {
   TOPIC_PACK_CAPS_V1,
 } from './models/topic-pack.model';
+import {
+  fingerprintFromCorpusRoot,
+  fingerprintsMatch,
+} from './src/topics/corpus_fingerprint';
 
 const REPO = path.resolve(__dirname, '..');
 const CORPUS_ROOTS = [
@@ -59,22 +66,25 @@ function parseArgs(argv: string[]) {
   let locale = 'es';
   /** Strict golden is default for CI (PR4c). */
   let softGolden = false;
+  /** Skip live content-hash freshness (fixtures only — never product CI). */
+  let skipFp = false;
   let goldenPath = DEFAULT_GOLDEN;
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--locale' && argv[i + 1]) locale = argv[++i];
     else if (a === '--soft-golden') softGolden = true;
     else if (a === '--strict-golden') softGolden = false;
+    else if (a === '--skip-fp') skipFp = true;
     else if (a === '--golden' && argv[i + 1])
       goldenPath = path.resolve(argv[++i]);
     else if (a === '--help') {
       console.log(
-        `Usage: topics_validate.ts [--locale es] [--soft-golden] [--strict-golden] [--golden path]`,
+        `Usage: topics_validate.ts [--locale es] [--soft-golden] [--strict-golden] [--skip-fp] [--golden path]`,
       );
       process.exit(0);
     }
   }
-  return { locale, softGolden, goldenPath };
+  return { locale, softGolden, skipFp, goldenPath };
 }
 
 function loadGolden(goldenPath: string, locale: string): {
@@ -131,7 +141,9 @@ function dirSizeJson(dir: string): { total: number; files: Record<string, number
 }
 
 function main() {
-  const { locale, softGolden, goldenPath } = parseArgs(process.argv.slice(2));
+  const { locale, softGolden, skipFp, goldenPath } = parseArgs(
+    process.argv.slice(2),
+  );
   const strictGolden = !softGolden;
   const golden = loadGolden(goldenPath, locale);
   const errors: string[] = [];
@@ -148,6 +160,86 @@ function main() {
   if (size.total > caps.maxRawBytes) {
     errors.push(
       `raw size ${size.total} > maxRawBytes ${caps.maxRawBytes} in ${primary}`,
+    );
+  }
+
+  // --- A.6.1 fail-on-stale fingerprint (content-hash) ---
+  let fpReport: {
+    skipped: boolean;
+    stored: string | null;
+    live: string | null;
+    liveShort: string | null;
+    docCount: number | null;
+    filesHashed: number | null;
+    match: boolean | null;
+  } = {
+    skipped: skipFp,
+    stored: null,
+    live: null,
+    liveShort: null,
+    docCount: null,
+    filesHashed: null,
+    match: null,
+  };
+
+  const locManPath = path.join(primary, 'manifest.json');
+  let packManifest: {
+    corpusFingerprint?: { algo?: string; value?: string; docCount?: number };
+  } | null = null;
+  if (!fs.existsSync(locManPath)) {
+    errors.push('missing search locale manifest.json');
+  } else {
+    try {
+      packManifest = JSON.parse(fs.readFileSync(locManPath, 'utf8'));
+    } catch (e) {
+      errors.push(`search locale manifest.json parse error: ${e}`);
+    }
+  }
+
+  if (!skipFp) {
+    const corpusRoot = CORPUS_ROOTS[0];
+    if (!fs.existsSync(path.join(corpusRoot, 'manifest.json'))) {
+      errors.push(
+        `corpus root missing for fingerprint: ${corpusRoot}/manifest.json`,
+      );
+    } else {
+      try {
+        const live = fingerprintFromCorpusRoot(corpusRoot, locale);
+        const stored = packManifest?.corpusFingerprint?.value ?? null;
+        fpReport = {
+          skipped: false,
+          stored,
+          live: live.value,
+          liveShort: live.valueShort,
+          docCount: live.docCount,
+          filesHashed: live.filesHashed,
+          match: fingerprintsMatch(stored, live),
+        };
+        if (!stored) {
+          errors.push(
+            `search pack stale: missing corpusFingerprint.value in ${path.relative(REPO, locManPath)}; run: npm run topics:build`,
+          );
+        } else if (!fingerprintsMatch(stored, live)) {
+          errors.push(
+            `search pack stale: corpusFingerprint mismatch (stored=${stored.slice(0, 16)}… live=${live.valueShort}… docCount=${live.docCount}). Re-run: npm run topics:build -- (or topics:build-postings). OCR/text changes invalidate the pack even when unitCount is stable.`,
+          );
+        }
+        if (live.missingFiles.length > 0 && live.missingFiles.length <= 8) {
+          warnings.push(
+            `fingerprint: ${live.missingFiles.length} missing body/index files (sampled): ${live.missingFiles.slice(0, 3).join(', ')}`,
+          );
+        } else if (live.missingFiles.length > 8) {
+          warnings.push(
+            `fingerprint: ${live.missingFiles.length} missing body/index files while hashing`,
+          );
+        }
+      } catch (e) {
+        errors.push(`fingerprint recompute failed: ${e}`);
+      }
+    }
+  } else {
+    warnings.push(
+      'fingerprint check skipped via --skip-fp (forbidden in product CI)',
     );
   }
 
@@ -331,6 +423,7 @@ function main() {
   const summary = {
     ok: errors.length === 0,
     locale,
+    fingerprint: fpReport,
     goldenMode: strictGolden ? 'strict' : 'soft',
     goldenSource: golden.source,
     goldenMinPostings: golden.minPostings,

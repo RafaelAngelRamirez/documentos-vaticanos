@@ -143,6 +143,17 @@ yarn_install() {
 yarn_install .
 yarn_install frontend
 yarn_install backend || true
+# scripts-descarga needs local deps for ts-node topics:validate
+if [[ -f scripts-descarga/package.json ]]; then
+  yarn_install scripts-descarga || true
+fi
+
+# Topic-search pack: caps + golden + fail-on-stale content fingerprint (A.6.1).
+# Do NOT pass --skip-fp here. If this fails after OCR/corpus edits: npm run topics:build
+echo "==> Topic pack validate (fail-on-stale fingerprint)"
+CURRENT_STAGE="Topic pack validate"
+notify_step "$CURRENT_STAGE" || true
+npm run topics:validate -- --locale es
 
 echo "==> [4/${_STAGES}] Web production + corpus"
 CURRENT_STAGE="Web production"
