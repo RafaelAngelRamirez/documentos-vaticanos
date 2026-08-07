@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T19:06:27.033Z",
+  "generatedAt": "2026-08-07T20:30:00.035Z",
   "revision": "ocr-abc-v4",
   "description": "Volumes with high residual OCR garbage after mechanical a+b cleanup — candidates for re-OCR / page re-extract (not run in this goal).",
   "count": 131,
@@ -383,20 +383,6 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
-      "id": "agustin-17-ciudad-de-dios-2-es",
-      "kind": "patristic",
-      "residualScore": 168,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 10,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 9,
-      "tocLeaderHits": 0,
-      "units": 3310,
-      "reason": "body_noise=10; junk_runs=9; queue:reocr",
-      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
-    },
-    {
       "id": "agustin-34-antidonatistas-3-en",
       "kind": "patristic",
       "residualScore": 165,
@@ -439,31 +425,17 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
-      "id": "agustin-08-cartas-1-es",
-      "kind": "patristic",
-      "residualScore": 152,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 10,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 1,
-      "units": 2468,
-      "reason": "body_noise=10; toc_leaders=1; queue:reocr",
-      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
-    },
-    {
       "id": "agustin-31-antimaniqueos-2-es",
       "kind": "patristic",
-      "residualScore": 152,
+      "residualScore": 154,
       "garbageUnits": 0,
       "garbageRatio": 0,
       "residualBodyNoiseUnits": 10,
       "spacedLetterRuns": 0,
-      "junkRunHits": 1,
+      "junkRunHits": 2,
       "tocLeaderHits": 0,
-      "units": 3951,
-      "reason": "body_noise=10; junk_runs=1; queue:reocr",
+      "units": 3950,
+      "reason": "body_noise=10; junk_runs=2; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
@@ -677,6 +649,20 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
+      "id": "agustin-17-ciudad-de-dios-2-es",
+      "kind": "patristic",
+      "residualScore": 128,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 8,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 4,
+      "tocLeaderHits": 0,
+      "units": 1845,
+      "reason": "body_noise=8; junk_runs=4; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
       "id": "clemente-alejandria-pedagogo-zh",
       "kind": "patristic",
       "residualScore": 126,
@@ -813,6 +799,20 @@
       "junkRunHits": 0,
       "tocLeaderHits": 0,
       "units": 1948,
+      "reason": "body_noise=7; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "agustin-08-cartas-1-es",
+      "kind": "patristic",
+      "residualScore": 105,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 7,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 0,
+      "tocLeaderHits": 0,
+      "units": 2027,
       "reason": "body_noise=7; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },

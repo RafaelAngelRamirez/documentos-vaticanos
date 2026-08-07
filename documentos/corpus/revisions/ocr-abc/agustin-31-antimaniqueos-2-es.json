@@ -1,7 +1,7 @@
 {
   "documentId": "agustin-31-antimaniqueos-2-es",
   "revision": "ocr-abc-v4",
-  "appliedAt": "2026-07-26T19:47:17.578Z",
+  "appliedAt": "2026-08-07T20:26:10.414Z",
   "ruleClasses": [
     "spaced-letter-collapse",
     "short-spaced-word-collapse",
@@ -18,35 +18,35 @@
     "index-zone-aggressive-garbage",
     "punct-safe-compose-whitelist-internal"
   ],
-  "unitsTotal": 3951,
-  "unitsChanged": 17,
-  "unitsExcludedGarbage": 16,
-  "unitsCollapsedSpaced": 1,
+  "unitsTotal": 3950,
+  "unitsChanged": 394,
+  "unitsExcludedGarbage": 63,
+  "unitsCollapsedSpaced": 323,
   "before": {
-    "units": 3951,
-    "garbageUnits": 9,
-    "garbageRatio": 0.0023,
+    "units": 3950,
+    "garbageUnits": 36,
+    "garbageRatio": 0.0091,
     "spacedLetterRuns": 0,
-    "shortSpacedWordHits": 0,
-    "spacedDigitRuns": 0,
-    "junkRunHits": 3,
-    "tocLeaderHits": 1,
-    "residualBodyNoiseUnits": 11,
-    "residualScore": 265
+    "shortSpacedWordHits": 253,
+    "spacedDigitRuns": 291,
+    "junkRunHits": 374,
+    "tocLeaderHits": 211,
+    "residualBodyNoiseUnits": 10,
+    "residualScore": 2233
   },
   "after": {
-    "units": 3951,
+    "units": 3950,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
     "shortSpacedWordHits": 0,
     "spacedDigitRuns": 0,
-    "junkRunHits": 1,
+    "junkRunHits": 2,
     "tocLeaderHits": 0,
     "residualBodyNoiseUnits": 10,
-    "residualScore": 152
+    "residualScore": 154
   },
-  "letterTokenOverlap": 1,
+  "letterTokenOverlap": 0.9976,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"

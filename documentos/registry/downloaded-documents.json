@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-07T19:03:15.212Z",
+  "updatedAt": "2026-08-07T20:27:33.202Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -954,15 +954,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpLUI0RERtTWk3Qm8/view"
       ],
       "firstDownloadedAt": "2026-07-12T22:39:29.465Z",
-      "lastDownloadedAt": "2026-07-12T22:39:29.465Z",
-      "unitCount": 2468,
+      "lastDownloadedAt": "2026-08-07T20:27:33.202Z",
+      "unitCount": 2027,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-08-cartas-1-es/content.json",
         "index": "documents/agustin-08-cartas-1-es/index.json",
         "meta": "documents/agustin-08-cartas-1-es/meta.json"
       },
-      "notes": "Tomo BAC n=8: 08 Cartas-1.pdf"
+      "notes": "Tomo BAC n=8: 08 Cartas-1.pdf (OCR)"
     },
     {
       "id": "agustin-08-cartas-1-hi",
@@ -1854,15 +1854,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpLTAwTHU0NHh3czA/view"
       ],
       "firstDownloadedAt": "2026-07-12T22:29:25.927Z",
-      "lastDownloadedAt": "2026-07-12T22:29:25.927Z",
-      "unitCount": 3310,
+      "lastDownloadedAt": "2026-08-07T20:22:07.109Z",
+      "unitCount": 1845,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-17-ciudad-de-dios-2-es/content.json",
         "index": "documents/agustin-17-ciudad-de-dios-2-es/index.json",
         "meta": "documents/agustin-17-ciudad-de-dios-2-es/meta.json"
       },
-      "notes": "Tomo BAC n=17: 17 La-ciudad-de-Dios-II.pdf"
+      "notes": "Tomo BAC n=17: 17 La-ciudad-de-Dios-II.pdf (OCR)"
     },
     {
       "id": "agustin-17-ciudad-de-dios-2-hi",
@@ -3246,7 +3246,7 @@
     },
     {
       "id": "agustin-31-antimaniqueos-2-es",
-      "sourceId": "agustin-31-antimaniqueos-2-es",
+      "sourceId": "agustin-31",
       "title": "Escritos antimaniqueos (2.º) — Contra Fausto",
       "kind": "patristic",
       "locale": "es",
@@ -3254,15 +3254,15 @@
         "https://amadoresdecristo.org/LIBROS/sAgustin/31.pdf"
       ],
       "firstDownloadedAt": "2026-07-13T02:55:53.823Z",
-      "lastDownloadedAt": "2026-07-13T06:22:22.985Z",
-      "unitCount": 3951,
+      "lastDownloadedAt": "2026-08-07T20:24:47.060Z",
+      "unitCount": 3950,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-31-antimaniqueos-2-es/content.json",
         "index": "documents/agustin-31-antimaniqueos-2-es/index.json",
         "meta": "documents/agustin-31-antimaniqueos-2-es/meta.json"
       },
-      "notes": ""
+      "notes": "Tomo BAC n=31: 31 Escritos antimaniqueos 2 - Contra Fausto.pdf (OCR)"
     },
     {
       "id": "agustin-31-antimaniqueos-2-hi",

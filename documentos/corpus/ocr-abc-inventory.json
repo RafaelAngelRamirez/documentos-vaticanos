@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T19:06:27.032Z",
+  "generatedAt": "2026-08-07T20:30:00.033Z",
   "revision": "ocr-abc-v4",
   "minSpaced": 1,
   "minGarbage": 1,
@@ -549,26 +549,6 @@
       "reason": "spaced_runs=20; short_spaced=7; spaced_digits=1; body_noise=9; junk_runs=3; queue:reocr"
     },
     {
-      "id": "agustin-17-ciudad-de-dios-2-es",
-      "kind": "patristic",
-      "units": 3310,
-      "metrics": {
-        "units": 3310,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 9,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 10,
-        "residualScore": 168
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=10; junk_runs=9; queue:reocr"
-    },
-    {
       "id": "agustin-34-antidonatistas-3-en",
       "kind": "patristic",
       "units": 1987,
@@ -629,44 +609,24 @@
       "reason": "spaced_runs=6; spaced_digits=1; garbage_units=2/1691 (0.12%); body_noise=8; junk_runs=6; queue:reocr"
     },
     {
-      "id": "agustin-08-cartas-1-es",
-      "kind": "patristic",
-      "units": 2468,
-      "metrics": {
-        "units": 2468,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 10,
-        "residualScore": 152
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=10; toc_leaders=1; queue:reocr"
-    },
-    {
       "id": "agustin-31-antimaniqueos-2-es",
       "kind": "patristic",
-      "units": 3951,
+      "units": 3950,
       "metrics": {
-        "units": 3951,
+        "units": 3950,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
         "shortSpacedWordHits": 0,
         "spacedDigitRuns": 0,
-        "junkRunHits": 1,
+        "junkRunHits": 2,
         "tocLeaderHits": 0,
         "residualBodyNoiseUnits": 10,
-        "residualScore": 152
+        "residualScore": 154
       },
       "targetAbc": false,
       "queueReocr": true,
-      "reason": "body_noise=10; junk_runs=1; queue:reocr"
+      "reason": "body_noise=10; junk_runs=2; queue:reocr"
     },
     {
       "id": "agustin-30-antimaniqueos-1-es",
@@ -969,6 +929,26 @@
       "reason": "body_noise=8; junk_runs=3; toc_leaders=2; queue:reocr"
     },
     {
+      "id": "agustin-17-ciudad-de-dios-2-es",
+      "kind": "patristic",
+      "units": 1845,
+      "metrics": {
+        "units": 1845,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 4,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 8,
+        "residualScore": 128
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=8; junk_runs=4; queue:reocr"
+    },
+    {
       "id": "clemente-alejandria-pedagogo-zh",
       "kind": "patristic",
       "units": 776,
@@ -1154,6 +1134,26 @@
       "units": 1948,
       "metrics": {
         "units": 1948,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 7,
+        "residualScore": 105
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=7; queue:reocr"
+    },
+    {
+      "id": "agustin-08-cartas-1-es",
+      "kind": "patristic",
+      "units": 2027,
+      "metrics": {
+        "units": 2027,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
