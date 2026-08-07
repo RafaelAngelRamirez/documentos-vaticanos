@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-07T17:57:46.839Z",
+  "generatedAt": "2026-08-07T19:06:27.032Z",
   "revision": "ocr-abc-v4",
   "minSpaced": 1,
   "minGarbage": 1,
   "minResidualQueue": 30,
   "count": 358,
-  "targetAbcCount": 156,
+  "targetAbcCount": 155,
   "queueReocrCount": 131,
   "documents": [
     {
@@ -409,46 +409,6 @@
       "reason": "spaced_runs=17; short_spaced=8; spaced_digits=2; body_noise=11; junk_runs=2; queue:reocr"
     },
     {
-      "id": "agustin-21-enarraciones-salmos-3-es",
-      "kind": "patristic",
-      "units": 3168,
-      "metrics": {
-        "units": 3168,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 13,
-        "residualScore": 195
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=13; queue:reocr"
-    },
-    {
-      "id": "agustin-38-antiarrianos-es",
-      "kind": "patristic",
-      "units": 1691,
-      "metrics": {
-        "units": 1691,
-        "garbageUnits": 6,
-        "garbageRatio": 0.0035,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 3,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 8,
-        "residualScore": 192
-      },
-      "targetAbc": true,
-      "queueReocr": true,
-      "reason": "garbage_units=6/1691 (0.35%); body_noise=8; junk_runs=3; toc_leaders=1; queue:reocr"
-    },
-    {
       "id": "agustin-19-enarraciones-salmos-1-es",
       "kind": "patristic",
       "units": 1853,
@@ -549,24 +509,24 @@
       "reason": "spaced_runs=14; short_spaced=3; spaced_digits=1; garbage_units=1/1559 (0.06%); body_noise=10; toc_leaders=1; queue:reocr"
     },
     {
-      "id": "agustin-06-gracia-1-es",
+      "id": "agustin-21-enarraciones-salmos-3-es",
       "kind": "patristic",
-      "units": 3070,
+      "units": 2043,
       "metrics": {
-        "units": 3070,
+        "units": 2043,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
         "shortSpacedWordHits": 0,
         "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 12,
-        "residualScore": 180
+        "junkRunHits": 3,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 11,
+        "residualScore": 173
       },
       "targetAbc": false,
       "queueReocr": true,
-      "reason": "body_noise=12; queue:reocr"
+      "reason": "body_noise=11; junk_runs=3; toc_leaders=1; queue:reocr"
     },
     {
       "id": "agustin-39-varios-1-ar",
@@ -787,6 +747,26 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "garbage_units=2/1559 (0.13%); body_noise=8; junk_runs=1; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-06-gracia-1-es",
+      "kind": "patristic",
+      "units": 1933,
+      "metrics": {
+        "units": 1933,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 4,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 9,
+        "residualScore": 143
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=9; junk_runs=4; queue:reocr"
     },
     {
       "id": "agustin-38-antiarrianos-ar",
@@ -1267,6 +1247,26 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "spaced_runs=4; short_spaced=2; body_noise=6; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-38-antiarrianos-es",
+      "kind": "patristic",
+      "units": 1816,
+      "metrics": {
+        "units": 1816,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 3,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 6,
+        "residualScore": 98
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=6; junk_runs=3; toc_leaders=1; queue:reocr"
     },
     {
       "id": "agustin-29-escritos-biblicos-5-es",

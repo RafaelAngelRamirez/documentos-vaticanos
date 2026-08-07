@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T17:57:46.841Z",
+  "generatedAt": "2026-08-07T19:06:27.033Z",
   "revision": "ocr-abc-v4",
   "description": "Volumes with high residual OCR garbage after mechanical a+b cleanup — candidates for re-OCR / page re-extract (not run in this goal).",
   "count": 131,
@@ -285,34 +285,6 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
-      "id": "agustin-21-enarraciones-salmos-3-es",
-      "kind": "patristic",
-      "residualScore": 195,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 13,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 0,
-      "units": 3168,
-      "reason": "body_noise=13; queue:reocr",
-      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
-    },
-    {
-      "id": "agustin-38-antiarrianos-es",
-      "kind": "patristic",
-      "residualScore": 192,
-      "garbageUnits": 6,
-      "garbageRatio": 0.0035,
-      "residualBodyNoiseUnits": 8,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 3,
-      "tocLeaderHits": 1,
-      "units": 1691,
-      "reason": "garbage_units=6/1691 (0.35%); body_noise=8; junk_runs=3; toc_leaders=1; queue:reocr",
-      "suggestedAction": "re-ocr-or-slice-index-pages"
-    },
-    {
       "id": "agustin-19-enarraciones-salmos-1-es",
       "kind": "patristic",
       "residualScore": 192,
@@ -383,17 +355,17 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
-      "id": "agustin-06-gracia-1-es",
+      "id": "agustin-21-enarraciones-salmos-3-es",
       "kind": "patristic",
-      "residualScore": 180,
+      "residualScore": 173,
       "garbageUnits": 0,
       "garbageRatio": 0,
-      "residualBodyNoiseUnits": 12,
+      "residualBodyNoiseUnits": 11,
       "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 0,
-      "units": 3070,
-      "reason": "body_noise=12; queue:reocr",
+      "junkRunHits": 3,
+      "tocLeaderHits": 1,
+      "units": 2043,
+      "reason": "body_noise=11; junk_runs=3; toc_leaders=1; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
@@ -548,6 +520,20 @@
       "tocLeaderHits": 1,
       "units": 1559,
       "reason": "garbage_units=2/1559 (0.13%); body_noise=8; junk_runs=1; toc_leaders=1; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "agustin-06-gracia-1-es",
+      "kind": "patristic",
+      "residualScore": 143,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 9,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 4,
+      "tocLeaderHits": 0,
+      "units": 1933,
+      "reason": "body_noise=9; junk_runs=4; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
@@ -884,6 +870,20 @@
       "tocLeaderHits": 1,
       "units": 1559,
       "reason": "spaced_runs=4; short_spaced=2; body_noise=6; toc_leaders=1; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "agustin-38-antiarrianos-es",
+      "kind": "patristic",
+      "residualScore": 98,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 6,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 3,
+      "tocLeaderHits": 1,
+      "units": 1816,
+      "reason": "body_noise=6; junk_runs=3; toc_leaders=1; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {

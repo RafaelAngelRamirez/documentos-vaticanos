@@ -1,8 +1,8 @@
 {
   "revision": "ocr-abc-v4",
-  "appliedAt": "2026-08-07T17:57:46.860Z",
+  "appliedAt": "2026-08-07T19:06:27.046Z",
   "documentCount": 46,
-  "thisRunChanged": 2,
+  "thisRunChanged": 1,
   "documents": [
     {
       "id": "agustin-01-primeros-escritos-es",
@@ -61,14 +61,14 @@
     },
     {
       "id": "agustin-06-gracia-1-es",
-      "unitsChanged": 477,
-      "unitsExcludedGarbage": 6,
-      "unitsCollapsedSpaced": 471,
-      "spacedBefore": 0,
+      "unitsChanged": 1106,
+      "unitsExcludedGarbage": 9,
+      "unitsCollapsedSpaced": 1082,
+      "spacedBefore": 43,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 3,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9904
+      "letterTokenOverlap": 0.9867
     },
     {
       "id": "agustin-07-sermones-1-es",
@@ -226,14 +226,14 @@
     },
     {
       "id": "agustin-21-enarraciones-salmos-3-es",
-      "unitsChanged": 70,
+      "unitsChanged": 1316,
       "unitsExcludedGarbage": 8,
-      "unitsCollapsedSpaced": 62,
-      "spacedBefore": 0,
+      "unitsCollapsedSpaced": 1279,
+      "spacedBefore": 78,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 3,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9992
+      "letterTokenOverlap": 0.9914
     },
     {
       "id": "agustin-22-enarraciones-salmos-4-es",
@@ -413,14 +413,14 @@
     },
     {
       "id": "agustin-38-antiarrianos-es",
-      "unitsChanged": 633,
-      "unitsExcludedGarbage": 7,
-      "unitsCollapsedSpaced": 626,
-      "spacedBefore": 0,
+      "unitsChanged": 835,
+      "unitsExcludedGarbage": 18,
+      "unitsCollapsedSpaced": 786,
+      "spacedBefore": 74,
       "spacedAfter": 0,
-      "garbageBefore": 3,
+      "garbageBefore": 12,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9959
+      "letterTokenOverlap": 0.9957
     },
     {
       "id": "agustin-39-varios-1-es",
