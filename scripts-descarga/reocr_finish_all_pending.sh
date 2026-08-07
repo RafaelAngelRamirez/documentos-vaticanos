@@ -23,7 +23,7 @@ MASTER_SUMMARY="$SCRATCH/reocr-finish-all.summary.txt"
 log() { echo "$(date -Iseconds) [finish-all] $*" | tee -a "$MASTER_LOG"; }
 
 # Campaign-complete volumes (skip re-OCR theater)
-DONE_N="1 3 5 9 15 16 18 29 30"
+DONE_N="1 3 4 5 9 15 16 18 19 29 30"
 
 # Build ordered pending list: residual score desc from queue when available
 mapfile -t PENDING < <(REPO="$REPO" SCRATCH="$SCRATCH" python3 - <<'PY'
@@ -31,7 +31,7 @@ import json, os
 from pathlib import Path
 root = Path(os.environ["REPO"])
 scratch = Path(os.environ["SCRATCH"])
-done = {1, 3, 5, 9, 15, 16, 18, 29, 30}
+done = {1, 3, 4, 5, 9, 15, 16, 18, 19, 29, 30}
 inv = json.loads((root / "documentos/padres-source/inventory/agustin-volumes.json").read_text())
 pdf = root / "documentos/padres-source/pdf"
 qpath = root / "documentos/corpus/ocr-reocr-queue.json"
