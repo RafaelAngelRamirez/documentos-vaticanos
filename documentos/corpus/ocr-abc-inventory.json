@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T20:30:00.033Z",
+  "generatedAt": "2026-08-07T21:25:56.556Z",
   "revision": "ocr-abc-v4",
   "minSpaced": 1,
   "minGarbage": 1,
@@ -207,6 +207,26 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "spaced_runs=6; short_spaced=11; garbage_units=1/1559 (0.06%); body_noise=26; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-40-varios-2-es",
+      "kind": "patristic",
+      "units": 2363,
+      "metrics": {
+        "units": 2363,
+        "garbageUnits": 1,
+        "garbageRatio": 0.0004,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 3,
+        "residualBodyNoiseUnits": 25,
+        "residualScore": 391
+      },
+      "targetAbc": true,
+      "queueReocr": true,
+      "reason": "garbage_units=1/2363 (0.04%); body_noise=25; toc_leaders=3; queue:reocr"
     },
     {
       "id": "agustin-03-obras-filosoficas-es",
@@ -689,26 +709,6 @@
       "reason": "spaced_runs=3; short_spaced=1; garbage_units=1/1691 (0.06%); body_noise=8; junk_runs=5; queue:reocr"
     },
     {
-      "id": "agustin-40-varios-2-es",
-      "kind": "patristic",
-      "units": 1559,
-      "metrics": {
-        "units": 1559,
-        "garbageUnits": 2,
-        "garbageRatio": 0.0013,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 1,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 8,
-        "residualScore": 145
-      },
-      "targetAbc": true,
-      "queueReocr": true,
-      "reason": "garbage_units=2/1559 (0.13%); body_noise=8; junk_runs=1; toc_leaders=1; queue:reocr"
-    },
-    {
       "id": "agustin-06-gracia-1-es",
       "kind": "patristic",
       "units": 1933,
@@ -789,6 +789,26 @@
       "reason": "short_spaced=33; body_noise=7; queue:reocr"
     },
     {
+      "id": "agustin-22-enarraciones-salmos-4-es",
+      "kind": "patristic",
+      "units": 1865,
+      "metrics": {
+        "units": 1865,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 9,
+        "residualScore": 137
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=9; toc_leaders=1; queue:reocr"
+    },
+    {
       "id": "agustin-01-primeros-escritos-zh",
       "kind": "patristic",
       "units": 2181,
@@ -827,46 +847,6 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "spaced_runs=1; body_noise=9; queue:reocr"
-    },
-    {
-      "id": "agustin-20-enarraciones-salmos-2-es",
-      "kind": "patristic",
-      "units": 3050,
-      "metrics": {
-        "units": 3050,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 9,
-        "residualScore": 135
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=9; queue:reocr"
-    },
-    {
-      "id": "agustin-22-enarraciones-salmos-4-es",
-      "kind": "patristic",
-      "units": 3002,
-      "metrics": {
-        "units": 3002,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 9,
-        "residualScore": 135
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=9; queue:reocr"
     },
     {
       "id": "clemente-alejandria-pedagogo-es",
@@ -987,6 +967,26 @@
       "targetAbc": false,
       "queueReocr": true,
       "reason": "body_noise=7; junk_runs=3; queue:reocr"
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-es",
+      "kind": "patristic",
+      "units": 2070,
+      "metrics": {
+        "units": 2070,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 2,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 7,
+        "residualScore": 111
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=7; junk_runs=2; toc_leaders=1; queue:reocr"
     },
     {
       "id": "clemente-alejandria-pedagogo-ar",

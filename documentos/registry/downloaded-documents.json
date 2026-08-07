@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-07T20:27:33.202Z",
+  "updatedAt": "2026-08-07T21:23:30.253Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -2154,15 +2154,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpbjRlR1JJVkJtYlU/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:11:39.445Z",
-      "lastDownloadedAt": "2026-07-13T00:14:40.691Z",
-      "unitCount": 3050,
+      "lastDownloadedAt": "2026-08-07T21:23:30.253Z",
+      "unitCount": 2070,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-20-enarraciones-salmos-2-es/content.json",
         "index": "documents/agustin-20-enarraciones-salmos-2-es/index.json",
         "meta": "documents/agustin-20-enarraciones-salmos-2-es/meta.json"
       },
-      "notes": "Tomo BAC n=20: 20 Narraciones-sobre-los-salmos-2.pdf"
+      "notes": "Tomo BAC n=20: 20 Narraciones-sobre-los-salmos-2.pdf (OCR)"
     },
     {
       "id": "agustin-20-enarraciones-salmos-2-hi",
@@ -2354,15 +2354,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpNFNidE1DMGlwZW8/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:11:54.249Z",
-      "lastDownloadedAt": "2026-07-13T00:14:52.336Z",
-      "unitCount": 3002,
+      "lastDownloadedAt": "2026-08-07T21:20:09.194Z",
+      "unitCount": 1865,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-22-enarraciones-salmos-4-es/content.json",
         "index": "documents/agustin-22-enarraciones-salmos-4-es/index.json",
         "meta": "documents/agustin-22-enarraciones-salmos-4-es/meta.json"
       },
-      "notes": "Tomo BAC n=22: 22 Narraciones-sobre-los-salmos-4.pdf"
+      "notes": "Tomo BAC n=22: 22 Narraciones-sobre-los-salmos-4.pdf (OCR)"
     },
     {
       "id": "agustin-22-enarraciones-salmos-4-hi",
@@ -4146,7 +4146,7 @@
     },
     {
       "id": "agustin-40-varios-2-es",
-      "sourceId": "agustin-40-varios-2-es",
+      "sourceId": "agustin-40",
       "title": "Escritos varios 2",
       "kind": "patristic",
       "locale": "es",
@@ -4154,15 +4154,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpbEktREJoTEs5NWM/view"
       ],
       "firstDownloadedAt": "2026-07-13T01:25:33.594Z",
-      "lastDownloadedAt": "2026-07-13T01:25:35.668Z",
-      "unitCount": 1559,
+      "lastDownloadedAt": "2026-08-07T21:17:12.442Z",
+      "unitCount": 2363,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-40-varios-2-es/content.json",
         "index": "documents/agustin-40-varios-2-es/index.json",
         "meta": "documents/agustin-40-varios-2-es/meta.json"
       },
-      "notes": ""
+      "notes": "Tomo BAC n=40: 40 Escritos varios 2.pdf (OCR)"
     },
     {
       "id": "agustin-40-varios-2-hi",

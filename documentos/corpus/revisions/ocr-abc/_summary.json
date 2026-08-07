@@ -1,6 +1,6 @@
 {
   "revision": "ocr-abc-v4",
-  "appliedAt": "2026-08-07T20:30:00.050Z",
+  "appliedAt": "2026-08-07T21:25:56.572Z",
   "documentCount": 46,
   "thisRunChanged": 1,
   "documents": [
@@ -215,14 +215,14 @@
     },
     {
       "id": "agustin-20-enarraciones-salmos-2-es",
-      "unitsChanged": 76,
-      "unitsExcludedGarbage": 8,
-      "unitsCollapsedSpaced": 68,
-      "spacedBefore": 0,
+      "unitsChanged": 1338,
+      "unitsExcludedGarbage": 12,
+      "unitsCollapsedSpaced": 1305,
+      "spacedBefore": 74,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 1,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9994
+      "letterTokenOverlap": 0.9898
     },
     {
       "id": "agustin-21-enarraciones-salmos-3-es",
@@ -237,14 +237,14 @@
     },
     {
       "id": "agustin-22-enarraciones-salmos-4-es",
-      "unitsChanged": 56,
-      "unitsExcludedGarbage": 8,
-      "unitsCollapsedSpaced": 48,
-      "spacedBefore": 0,
+      "unitsChanged": 1193,
+      "unitsExcludedGarbage": 13,
+      "unitsCollapsedSpaced": 1167,
+      "spacedBefore": 55,
       "spacedAfter": 0,
-      "garbageBefore": 1,
+      "garbageBefore": 6,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9993
+      "letterTokenOverlap": 0.9907
     },
     {
       "id": "agustin-23-sermones-juan-hechos-es",
@@ -435,14 +435,14 @@
     },
     {
       "id": "agustin-40-varios-2-es",
-      "unitsChanged": 459,
-      "unitsExcludedGarbage": 11,
-      "unitsCollapsedSpaced": 448,
-      "spacedBefore": 0,
+      "unitsChanged": 1061,
+      "unitsExcludedGarbage": 36,
+      "unitsCollapsedSpaced": 1000,
+      "spacedBefore": 20,
       "spacedAfter": 0,
-      "garbageBefore": 6,
-      "garbageAfter": 0,
-      "letterTokenOverlap": 0.9956
+      "garbageBefore": 27,
+      "garbageAfter": 1,
+      "letterTokenOverlap": 0.994
     },
     {
       "id": "atanasio-de-incarnatione-es",
