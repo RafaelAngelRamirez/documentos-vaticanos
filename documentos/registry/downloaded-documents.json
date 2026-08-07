@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-27T00:28:16.918Z",
+  "updatedAt": "2026-08-07T17:54:51.131Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -554,15 +554,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpWS1vaU1vM0N1dWc/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:08:50.741Z",
-      "lastDownloadedAt": "2026-07-13T00:08:50.741Z",
-      "unitCount": 2880,
+      "lastDownloadedAt": "2026-08-07T17:54:49.324Z",
+      "unitCount": 1656,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-04-obras-apologeticas-es/content.json",
         "index": "documents/agustin-04-obras-apologeticas-es/index.json",
         "meta": "documents/agustin-04-obras-apologeticas-es/meta.json"
       },
-      "notes": "Tomo BAC n=4: 04 Obras apologeticas.pdf"
+      "notes": "Tomo BAC n=4: 04 Obras apologeticas.pdf (OCR)"
     },
     {
       "id": "agustin-04-obras-apologeticas-hi",
@@ -2054,15 +2054,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpUDJfN0I2MWhZTVk/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:11:33.574Z",
-      "lastDownloadedAt": "2026-07-13T00:14:33.488Z",
-      "unitCount": 2714,
+      "lastDownloadedAt": "2026-08-07T17:54:51.131Z",
+      "unitCount": 1853,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-19-enarraciones-salmos-1-es/content.json",
         "index": "documents/agustin-19-enarraciones-salmos-1-es/index.json",
         "meta": "documents/agustin-19-enarraciones-salmos-1-es/meta.json"
       },
-      "notes": "Tomo BAC n=19: 19 Enarraciones sobre los Salmos 1.pdf"
+      "notes": "Tomo BAC n=19: 19 Enarraciones sobre los Salmos 1.pdf (OCR)"
     },
     {
       "id": "agustin-19-enarraciones-salmos-1-hi",

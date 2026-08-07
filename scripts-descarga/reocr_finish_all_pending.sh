@@ -12,7 +12,7 @@ JOBS="${OCR_JOBS:-4}"
 DPI="${OCR_DPI:-130}"
 DO_IMPORT="${DO_IMPORT:-1}"
 DO_REPAIR="${DO_REPAIR:-1}"
-PUSH="${REOCR_PUSH:-1}"
+PUSH="${REOCR_PUSH:-0}"
 
 mkdir -p "$SCRATCH" /tmp/dv-reocr-logs
 MASTER_LOG="$SCRATCH/reocr-finish-all.log"
@@ -22,7 +22,8 @@ MASTER_SUMMARY="$SCRATCH/reocr-finish-all.summary.txt"
 
 log() { echo "$(date -Iseconds) [finish-all] $*" | tee -a "$MASTER_LOG"; }
 
-DONE_N="1 3 5 9 15 18"
+# Campaign-complete volumes (skip re-OCR theater)
+DONE_N="1 3 5 9 15 16 18 29 30"
 
 # Build ordered pending list: residual score desc from queue when available
 mapfile -t PENDING < <(REPO="$REPO" SCRATCH="$SCRATCH" python3 - <<'PY'
@@ -30,7 +31,7 @@ import json, os
 from pathlib import Path
 root = Path(os.environ["REPO"])
 scratch = Path(os.environ["SCRATCH"])
-done = {1, 3, 5, 9, 15, 18}
+done = {1, 3, 5, 9, 15, 16, 18, 29, 30}
 inv = json.loads((root / "documentos/padres-source/inventory/agustin-volumes.json").read_text())
 pdf = root / "documentos/padres-source/pdf"
 qpath = root / "documentos/corpus/ocr-reocr-queue.json"
@@ -112,6 +113,10 @@ commit_slice() {
 Residual-priority Agustín ES slice from existing padres-source PDFs only.
 OCR spa_fast + dual-write import + ocr-abc repair; unitIndex resegmented."
   if [[ "$PUSH" == "1" ]]; then
+    # remote may advance (CI release commits); rebase then push
+    git pull --rebase origin HEAD 2>/dev/null \
+      || git pull --rebase origin typescript-migration 2>/dev/null \
+      || true
     git push -u origin HEAD || log "WARN push failed $label"
   fi
   log "committed $label"

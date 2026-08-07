@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-27T00:31:19.268Z",
+  "generatedAt": "2026-08-07T17:57:46.839Z",
   "revision": "ocr-abc-v4",
   "minSpaced": 1,
   "minGarbage": 1,
@@ -269,46 +269,6 @@
       "reason": "body_noise=23; junk_runs=1; toc_leaders=2; queue:reocr"
     },
     {
-      "id": "agustin-19-enarraciones-salmos-1-es",
-      "kind": "patristic",
-      "units": 2714,
-      "metrics": {
-        "units": 2714,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 1,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 20,
-        "residualScore": 302
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=20; junk_runs=1; queue:reocr"
-    },
-    {
-      "id": "agustin-04-obras-apologeticas-es",
-      "kind": "patristic",
-      "units": 2880,
-      "metrics": {
-        "units": 2880,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 17,
-        "residualScore": 257
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=17; toc_leaders=1; queue:reocr"
-    },
-    {
       "id": "agustin-30-antimaniqueos-1-ar",
       "kind": "patristic",
       "units": 1997,
@@ -487,6 +447,46 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "garbage_units=6/1691 (0.35%); body_noise=8; junk_runs=3; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-es",
+      "kind": "patristic",
+      "units": 1853,
+      "metrics": {
+        "units": 1853,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 2,
+        "tocLeaderHits": 4,
+        "residualBodyNoiseUnits": 12,
+        "residualScore": 192
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=12; junk_runs=2; toc_leaders=4; queue:reocr"
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-es",
+      "kind": "patristic",
+      "units": 1656,
+      "metrics": {
+        "units": 1656,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 7,
+        "tocLeaderHits": 2,
+        "residualBodyNoiseUnits": 11,
+        "residualScore": 183
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=11; junk_runs=7; toc_leaders=2; queue:reocr"
     },
     {
       "id": "agustin-29-escritos-biblicos-5-zh",

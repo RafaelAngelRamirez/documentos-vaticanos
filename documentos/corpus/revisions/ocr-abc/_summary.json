@@ -1,8 +1,8 @@
 {
   "revision": "ocr-abc-v4",
-  "appliedAt": "2026-07-27T00:31:19.281Z",
+  "appliedAt": "2026-08-07T17:57:46.860Z",
   "documentCount": 46,
-  "thisRunChanged": 1,
+  "thisRunChanged": 2,
   "documents": [
     {
       "id": "agustin-01-primeros-escritos-es",
@@ -39,14 +39,14 @@
     },
     {
       "id": "agustin-04-obras-apologeticas-es",
-      "unitsChanged": 431,
-      "unitsExcludedGarbage": 5,
-      "unitsCollapsedSpaced": 426,
-      "spacedBefore": 0,
+      "unitsChanged": 1047,
+      "unitsExcludedGarbage": 14,
+      "unitsCollapsedSpaced": 1018,
+      "spacedBefore": 28,
       "spacedAfter": 0,
-      "garbageBefore": 1,
+      "garbageBefore": 11,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9939
+      "letterTokenOverlap": 0.9854
     },
     {
       "id": "agustin-05-de-trinitate-es",
@@ -204,14 +204,14 @@
     },
     {
       "id": "agustin-19-enarraciones-salmos-1-es",
-      "unitsChanged": 96,
-      "unitsExcludedGarbage": 6,
-      "unitsCollapsedSpaced": 90,
-      "spacedBefore": 0,
+      "unitsChanged": 1131,
+      "unitsExcludedGarbage": 7,
+      "unitsCollapsedSpaced": 1107,
+      "spacedBefore": 62,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 2,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9988
+      "letterTokenOverlap": 0.9901
     },
     {
       "id": "agustin-20-enarraciones-salmos-2-es",

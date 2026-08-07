@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-27T00:31:19.270Z",
+  "generatedAt": "2026-08-07T17:57:46.841Z",
   "revision": "ocr-abc-v4",
   "description": "Volumes with high residual OCR garbage after mechanical a+b cleanup — candidates for re-OCR / page re-extract (not run in this goal).",
   "count": 131,
@@ -187,34 +187,6 @@
       "suggestedAction": "re-ocr-body-pages"
     },
     {
-      "id": "agustin-19-enarraciones-salmos-1-es",
-      "kind": "patristic",
-      "residualScore": 302,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 20,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 1,
-      "tocLeaderHits": 0,
-      "units": 2714,
-      "reason": "body_noise=20; junk_runs=1; queue:reocr",
-      "suggestedAction": "re-ocr-body-pages"
-    },
-    {
-      "id": "agustin-04-obras-apologeticas-es",
-      "kind": "patristic",
-      "residualScore": 257,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 17,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 1,
-      "units": 2880,
-      "reason": "body_noise=17; toc_leaders=1; queue:reocr",
-      "suggestedAction": "re-ocr-body-pages"
-    },
-    {
       "id": "agustin-30-antimaniqueos-1-ar",
       "kind": "patristic",
       "residualScore": 229,
@@ -339,6 +311,34 @@
       "units": 1691,
       "reason": "garbage_units=6/1691 (0.35%); body_noise=8; junk_runs=3; toc_leaders=1; queue:reocr",
       "suggestedAction": "re-ocr-or-slice-index-pages"
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-es",
+      "kind": "patristic",
+      "residualScore": 192,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 12,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 2,
+      "tocLeaderHits": 4,
+      "units": 1853,
+      "reason": "body_noise=12; junk_runs=2; toc_leaders=4; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-es",
+      "kind": "patristic",
+      "residualScore": 183,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 11,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 7,
+      "tocLeaderHits": 2,
+      "units": 1656,
+      "reason": "body_noise=11; junk_runs=7; toc_leaders=2; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
       "id": "agustin-29-escritos-biblicos-5-zh",
