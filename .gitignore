@@ -76,3 +76,9 @@ documentos/magisterium-source/clean/
 
 # electron-builder / tooling caches
 .cache/
+
+# Agent / local tool dumps
+.playwright-mcp/
+__pycache__/
+*.pyc
+*.pyo
