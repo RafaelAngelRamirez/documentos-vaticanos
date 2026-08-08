@@ -1,7 +1,7 @@
 {
   "documentId": "agustin-23-sermones-juan-hechos-es",
-  "revision": "ocr-abc-v3",
-  "appliedAt": "2026-07-26T19:22:19.275Z",
+  "revision": "ocr-abc-v4",
+  "appliedAt": "2026-08-08T04:34:11.339Z",
   "ruleClasses": [
     "spaced-letter-collapse",
     "short-spaced-word-collapse",
@@ -13,41 +13,43 @@
     "digit-letter-glue",
     "garbage-toc-exclude-placeholder",
     "bac-chrome-running-header-colophon-placeholder",
+    "leader-soup-placeholder",
+    "dual-column-shred-placeholder",
     "index-zone-aggressive-garbage",
     "punct-safe-compose-whitelist-internal"
   ],
-  "unitsTotal": 2277,
-  "unitsChanged": 89,
-  "unitsExcludedGarbage": 4,
-  "unitsCollapsedSpaced": 85,
+  "unitsTotal": 1712,
+  "unitsChanged": 928,
+  "unitsExcludedGarbage": 15,
+  "unitsCollapsedSpaced": 889,
   "before": {
-    "units": 2277,
-    "garbageUnits": 0,
-    "garbageRatio": 0,
-    "spacedLetterRuns": 0,
-    "shortSpacedWordHits": 0,
-    "spacedDigitRuns": 0,
-    "junkRunHits": 0,
-    "tocLeaderHits": 1,
-    "residualBodyNoiseUnits": 2,
-    "residualScore": 32
+    "units": 1712,
+    "garbageUnits": 3,
+    "garbageRatio": 0.0018,
+    "spacedLetterRuns": 29,
+    "shortSpacedWordHits": 266,
+    "spacedDigitRuns": 39,
+    "junkRunHits": 20,
+    "tocLeaderHits": 12,
+    "residualBodyNoiseUnits": 3,
+    "residualScore": 475
   },
   "after": {
-    "units": 2277,
+    "units": 1712,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
     "shortSpacedWordHits": 0,
     "spacedDigitRuns": 0,
-    "junkRunHits": 0,
-    "tocLeaderHits": 1,
+    "junkRunHits": 2,
+    "tocLeaderHits": 2,
     "residualBodyNoiseUnits": 2,
-    "residualScore": 32
+    "residualScore": 38
   },
-  "letterTokenOverlap": 0.9994,
+  "letterTokenOverlap": 0.9933,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots."
+  "notes": "ocr-abc-v4 in-place on existing corpus (no re-download). v3 + leader-soup TOC, dual-column shred blank (no demerge), S.Ag headers, front a4 shred dict, wider index-zone; stable unitIndex; dual-write roots."
 }

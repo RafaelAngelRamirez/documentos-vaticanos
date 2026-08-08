@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-08T03:40:38.576Z",
+  "generatedAt": "2026-08-08T04:41:23.332Z",
   "revision": "ocr-abc-v4",
   "minSpaced": 1,
   "minGarbage": 1,
   "minResidualQueue": 30,
   "count": 358,
-  "targetAbcCount": 154,
+  "targetAbcCount": 153,
   "queueReocrCount": 130,
   "documents": [
     {
@@ -1749,6 +1749,26 @@
       "reason": "body_noise=3; junk_runs=1; toc_leaders=2; queue:reocr"
     },
     {
+      "id": "agustin-33-antidonatistas-2-es",
+      "kind": "patristic",
+      "units": 1550,
+      "metrics": {
+        "units": 1550,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 3,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 51
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=3; junk_runs=3; queue:reocr"
+    },
+    {
       "id": "agustin-05-de-trinitate-hi",
       "kind": "patristic",
       "units": 3030,
@@ -1847,6 +1867,26 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "spaced_digits=1; body_noise=3; junk_runs=1; queue:reocr"
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-es",
+      "kind": "patristic",
+      "units": 1775,
+      "metrics": {
+        "units": 1775,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 47
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=3; junk_runs=1; queue:reocr"
     },
     {
       "id": "agustin-09-gracia-2-en",
@@ -2149,24 +2189,24 @@
       "reason": "spaced_runs=1; spaced_digits=5; body_noise=2; junk_runs=1; queue:reocr"
     },
     {
-      "id": "agustin-33-antidonatistas-2-es",
+      "id": "agustin-23-sermones-juan-hechos-es",
       "kind": "patristic",
-      "units": 884,
+      "units": 1712,
       "metrics": {
-        "units": 884,
-        "garbageUnits": 2,
-        "garbageRatio": 0.0023,
+        "units": 1712,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
         "spacedLetterRuns": 0,
         "shortSpacedWordHits": 0,
         "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 1,
-        "residualScore": 37
+        "junkRunHits": 2,
+        "tocLeaderHits": 2,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 38
       },
-      "targetAbc": true,
+      "targetAbc": false,
       "queueReocr": true,
-      "reason": "garbage_units=2/884 (0.23%); body_noise=1; queue:reocr"
+      "reason": "body_noise=2; junk_runs=2; toc_leaders=2; queue:reocr"
     },
     {
       "id": "agustin-17-ciudad-de-dios-2-hi",
@@ -2409,26 +2449,6 @@
       "reason": "spaced_digits=2; body_noise=2; queue:reocr"
     },
     {
-      "id": "agustin-23-sermones-juan-hechos-es",
-      "kind": "patristic",
-      "units": 2277,
-      "metrics": {
-        "units": 2277,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 2,
-        "residualScore": 32
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=2; toc_leaders=1; queue:reocr"
-    },
-    {
       "id": "agustin-02-confesiones-zh",
       "kind": "patristic",
       "units": 1952,
@@ -2514,26 +2534,6 @@
       "units": 3002,
       "metrics": {
         "units": 3002,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 2,
-        "residualScore": 30
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=2; queue:reocr"
-    },
-    {
-      "id": "agustin-27-escritos-biblicos-3-es",
-      "kind": "patristic",
-      "units": 1625,
-      "metrics": {
-        "units": 1625,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,

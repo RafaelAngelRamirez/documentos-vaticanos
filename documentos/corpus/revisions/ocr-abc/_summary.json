@@ -1,6 +1,6 @@
 {
   "revision": "ocr-abc-v4",
-  "appliedAt": "2026-08-08T03:40:38.598Z",
+  "appliedAt": "2026-08-08T04:41:23.352Z",
   "documentCount": 46,
   "thisRunChanged": 1,
   "documents": [
@@ -248,14 +248,14 @@
     },
     {
       "id": "agustin-23-sermones-juan-hechos-es",
-      "unitsChanged": 89,
-      "unitsExcludedGarbage": 4,
-      "unitsCollapsedSpaced": 85,
-      "spacedBefore": 0,
+      "unitsChanged": 928,
+      "unitsExcludedGarbage": 15,
+      "unitsCollapsedSpaced": 889,
+      "spacedBefore": 29,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 3,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9994
+      "letterTokenOverlap": 0.9933
     },
     {
       "id": "agustin-24-sermones-4-es",
@@ -292,14 +292,14 @@
     },
     {
       "id": "agustin-27-escritos-biblicos-3-es",
-      "unitsChanged": 78,
-      "unitsExcludedGarbage": 5,
-      "unitsCollapsedSpaced": 73,
-      "spacedBefore": 0,
+      "unitsChanged": 713,
+      "unitsExcludedGarbage": 24,
+      "unitsCollapsedSpaced": 672,
+      "spacedBefore": 16,
       "spacedAfter": 0,
-      "garbageBefore": 2,
+      "garbageBefore": 11,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9996
+      "letterTokenOverlap": 0.9906
     },
     {
       "id": "agustin-28-escritos-biblicos-4-es",
@@ -358,14 +358,14 @@
     },
     {
       "id": "agustin-33-antidonatistas-2-es",
-      "unitsChanged": 308,
-      "unitsExcludedGarbage": 4,
-      "unitsCollapsedSpaced": 304,
-      "spacedBefore": 0,
+      "unitsChanged": 934,
+      "unitsExcludedGarbage": 22,
+      "unitsCollapsedSpaced": 897,
+      "spacedBefore": 61,
       "spacedAfter": 0,
-      "garbageBefore": 2,
+      "garbageBefore": 14,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9949
+      "letterTokenOverlap": 0.9883
     },
     {
       "id": "agustin-34-antidonatistas-3-es",

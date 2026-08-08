@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-08T03:35:48.147Z",
+  "updatedAt": "2026-08-08T04:36:34.645Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -2454,15 +2454,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpd3ZHdmZuYWJWRFk/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:08:38.326Z",
-      "lastDownloadedAt": "2026-07-13T00:08:38.326Z",
-      "unitCount": 2277,
+      "lastDownloadedAt": "2026-08-08T04:31:42.469Z",
+      "unitCount": 1712,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-23-sermones-juan-hechos-es/content.json",
         "index": "documents/agustin-23-sermones-juan-hechos-es/index.json",
         "meta": "documents/agustin-23-sermones-juan-hechos-es/meta.json"
       },
-      "notes": "Tomo BAC n=23: 23 Sermones-Juan-Hechos-Cartas.pdf"
+      "notes": "Tomo BAC n=23: 23 Sermones-Juan-Hechos-Cartas.pdf (OCR)"
     },
     {
       "id": "agustin-23-sermones-juan-hechos-hi",
@@ -2854,15 +2854,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpdnczaDRBb0NKaTA/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:10:05.807Z",
-      "lastDownloadedAt": "2026-07-13T00:10:05.807Z",
-      "unitCount": 1625,
+      "lastDownloadedAt": "2026-08-08T04:36:34.645Z",
+      "unitCount": 1775,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-27-escritos-biblicos-3-es/content.json",
         "index": "documents/agustin-27-escritos-biblicos-3-es/index.json",
         "meta": "documents/agustin-27-escritos-biblicos-3-es/meta.json"
       },
-      "notes": "Tomo BAC n=27: 27 Escritos-Biblicos-3.pdf"
+      "notes": "Tomo BAC n=27: 27 Escritos-Biblicos-3.pdf (OCR)"
     },
     {
       "id": "agustin-27-escritos-biblicos-3-hi",
@@ -3446,7 +3446,7 @@
     },
     {
       "id": "agustin-33-antidonatistas-2-es",
-      "sourceId": "agustin-33-antidonatistas-2-es",
+      "sourceId": "agustin-33",
       "title": "Escritos Antidonatistas 2",
       "kind": "patristic",
       "locale": "es",
@@ -3454,15 +3454,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpRTI3SWFiZGlNSGc/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:01:08.735Z",
-      "lastDownloadedAt": "2026-07-13T00:01:08.735Z",
-      "unitCount": 884,
+      "lastDownloadedAt": "2026-08-08T04:26:52.359Z",
+      "unitCount": 1550,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-33-antidonatistas-2-es/content.json",
         "index": "documents/agustin-33-antidonatistas-2-es/index.json",
         "meta": "documents/agustin-33-antidonatistas-2-es/meta.json"
       },
-      "notes": ""
+      "notes": "Tomo BAC n=33: 33 Escritos Antidonatistas 2.pdf (OCR)"
     },
     {
       "id": "agustin-33-antidonatistas-2-hi",
