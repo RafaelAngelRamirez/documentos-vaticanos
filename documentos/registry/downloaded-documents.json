@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-08T04:36:34.645Z",
+  "updatedAt": "2026-08-08T06:36:59.765Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -854,15 +854,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpSVV3aVZVaWkxdXM/view"
       ],
       "firstDownloadedAt": "2026-07-12T22:39:41.541Z",
-      "lastDownloadedAt": "2026-07-12T22:39:41.541Z",
-      "unitCount": 2181,
+      "lastDownloadedAt": "2026-08-08T06:36:59.764Z",
+      "unitCount": 1655,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-07-sermones-1-es/content.json",
         "index": "documents/agustin-07-sermones-1-es/index.json",
         "meta": "documents/agustin-07-sermones-1-es/meta.json"
       },
-      "notes": "Tomo BAC n=7: 07 Sermones-1.pdf"
+      "notes": "Tomo BAC n=7: 07 Sermones-1.pdf (OCR)"
     },
     {
       "id": "agustin-07-sermones-1-hi",
@@ -1154,15 +1154,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpd1E4Y0YteDdhSjA/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:09:51.947Z",
-      "lastDownloadedAt": "2026-07-13T00:09:51.947Z",
-      "unitCount": 2512,
+      "lastDownloadedAt": "2026-08-08T06:32:03.198Z",
+      "unitCount": 1858,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-10-sermones-2-es/content.json",
         "index": "documents/agustin-10-sermones-2-es/index.json",
         "meta": "documents/agustin-10-sermones-2-es/meta.json"
       },
-      "notes": "Tomo BAC n=10: 10 Sermones-2.pdf"
+      "notes": "Tomo BAC n=10: 10 Sermones-2.pdf (OCR)"
     },
     {
       "id": "agustin-10-sermones-2-hi",
@@ -1346,23 +1346,23 @@
     },
     {
       "id": "agustin-12-tratados-morales-es",
-      "sourceId": "agustin-12-tratados-morales-es",
-      "title": "Tratados morales",
+      "sourceId": "agustin-12",
+      "title": "Tratados Morales",
       "kind": "patristic",
       "locale": "es",
       "sourceUrls": [
         "https://drive.google.com/file/d/0B0jwB_jVsocpNGpQaWhOdFdmc2c/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:00:29.053Z",
-      "lastDownloadedAt": "2026-07-13T00:00:58.424Z",
-      "unitCount": 1828,
+      "lastDownloadedAt": "2026-08-08T06:17:21.774Z",
+      "unitCount": 1832,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-12-tratados-morales-es/content.json",
         "index": "documents/agustin-12-tratados-morales-es/index.json",
         "meta": "documents/agustin-12-tratados-morales-es/meta.json"
       },
-      "notes": ""
+      "notes": "Tomo BAC n=12: 12 Tratados Morales.pdf (OCR)"
     },
     {
       "id": "agustin-12-tratados-morales-hi",
@@ -2554,15 +2554,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpQ2IyczZ0UkU3RHM/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:09:00.276Z",
-      "lastDownloadedAt": "2026-07-13T00:09:00.276Z",
-      "unitCount": 2460,
+      "lastDownloadedAt": "2026-08-08T06:27:07.550Z",
+      "unitCount": 2174,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-24-sermones-4-es/content.json",
         "index": "documents/agustin-24-sermones-4-es/index.json",
         "meta": "documents/agustin-24-sermones-4-es/meta.json"
       },
-      "notes": "Tomo BAC n=24: 24 Sermones-4-184-a-272.pdf"
+      "notes": "Tomo BAC n=24: 24 Sermones-4-184-a-272.pdf (OCR)"
     },
     {
       "id": "agustin-24-sermones-4-hi",
@@ -3846,7 +3846,7 @@
     },
     {
       "id": "agustin-37-antipelagianos-5-es",
-      "sourceId": "agustin-37-antipelagianos-5-es",
+      "sourceId": "agustin-37",
       "title": "Escritos Antipelagianos 5",
       "kind": "patristic",
       "locale": "es",
@@ -3854,15 +3854,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpTkhZSEhFZEd0Z0E/view"
       ],
       "firstDownloadedAt": "2026-07-12T23:41:46.929Z",
-      "lastDownloadedAt": "2026-07-12T23:41:46.929Z",
-      "unitCount": 944,
+      "lastDownloadedAt": "2026-08-08T06:22:14.348Z",
+      "unitCount": 1285,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-37-antipelagianos-5-es/content.json",
         "index": "documents/agustin-37-antipelagianos-5-es/index.json",
         "meta": "documents/agustin-37-antipelagianos-5-es/meta.json"
       },
-      "notes": ""
+      "notes": "Tomo BAC n=37: 37 Escritos Antipelagianos 5.pdf (OCR)"
     },
     {
       "id": "agustin-37-antipelagianos-5-hi",

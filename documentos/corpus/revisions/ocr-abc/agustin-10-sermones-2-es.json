@@ -1,7 +1,7 @@
 {
   "documentId": "agustin-10-sermones-2-es",
-  "revision": "ocr-abc-v3",
-  "appliedAt": "2026-07-26T19:22:33.131Z",
+  "revision": "ocr-abc-v4",
+  "appliedAt": "2026-08-08T06:34:35.082Z",
   "ruleClasses": [
     "spaced-letter-collapse",
     "short-spaced-word-collapse",
@@ -13,41 +13,43 @@
     "digit-letter-glue",
     "garbage-toc-exclude-placeholder",
     "bac-chrome-running-header-colophon-placeholder",
+    "leader-soup-placeholder",
+    "dual-column-shred-placeholder",
     "index-zone-aggressive-garbage",
     "punct-safe-compose-whitelist-internal"
   ],
-  "unitsTotal": 2512,
-  "unitsChanged": 109,
-  "unitsExcludedGarbage": 4,
-  "unitsCollapsedSpaced": 105,
+  "unitsTotal": 1858,
+  "unitsChanged": 977,
+  "unitsExcludedGarbage": 6,
+  "unitsCollapsedSpaced": 948,
   "before": {
-    "units": 2512,
-    "garbageUnits": 0,
-    "garbageRatio": 0,
-    "spacedLetterRuns": 0,
-    "shortSpacedWordHits": 0,
-    "spacedDigitRuns": 0,
+    "units": 1858,
+    "garbageUnits": 1,
+    "garbageRatio": 0.0005,
+    "spacedLetterRuns": 37,
+    "shortSpacedWordHits": 294,
+    "spacedDigitRuns": 21,
     "junkRunHits": 0,
-    "tocLeaderHits": 1,
+    "tocLeaderHits": 2,
     "residualBodyNoiseUnits": 1,
-    "residualScore": 17
+    "residualScore": 382
   },
   "after": {
-    "units": 2512,
+    "units": 1858,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
     "shortSpacedWordHits": 0,
     "spacedDigitRuns": 0,
     "junkRunHits": 0,
-    "tocLeaderHits": 1,
+    "tocLeaderHits": 2,
     "residualBodyNoiseUnits": 1,
-    "residualScore": 17
+    "residualScore": 19
   },
-  "letterTokenOverlap": 0.9992,
+  "letterTokenOverlap": 0.9923,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots."
+  "notes": "ocr-abc-v4 in-place on existing corpus (no re-download). v3 + leader-soup TOC, dual-column shred blank (no demerge), S.Ag headers, front a4 shred dict, wider index-zone; stable unitIndex; dual-write roots."
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T04:41:23.332Z",
+  "generatedAt": "2026-08-08T06:41:50.879Z",
   "revision": "ocr-abc-v4",
   "minSpaced": 1,
   "minGarbage": 1,
@@ -1769,6 +1769,26 @@
       "reason": "body_noise=3; junk_runs=3; queue:reocr"
     },
     {
+      "id": "agustin-12-tratados-morales-es",
+      "kind": "patristic",
+      "units": 1832,
+      "metrics": {
+        "units": 1832,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 2,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 51
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=3; junk_runs=2; toc_leaders=1; queue:reocr"
+    },
+    {
       "id": "agustin-05-de-trinitate-hi",
       "kind": "patristic",
       "units": 3030,
@@ -2489,26 +2509,6 @@
       "reason": "spaced_digits=1; body_noise=2; queue:reocr"
     },
     {
-      "id": "agustin-12-tratados-morales-es",
-      "kind": "patristic",
-      "units": 1828,
-      "metrics": {
-        "units": 1828,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 2,
-        "residualScore": 30
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=2; queue:reocr"
-    },
-    {
       "id": "agustin-20-enarraciones-salmos-2-en",
       "kind": "patristic",
       "units": 3050,
@@ -2909,26 +2909,6 @@
       "reason": "body_noise=1; junk_runs=2; below-threshold"
     },
     {
-      "id": "agustin-24-sermones-4-es",
-      "kind": "patristic",
-      "units": 2460,
-      "metrics": {
-        "units": 2460,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 2,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 1,
-        "residualScore": 19
-      },
-      "targetAbc": false,
-      "queueReocr": false,
-      "reason": "body_noise=1; junk_runs=2; below-threshold"
-    },
-    {
       "id": "agustin-36-antipelagianos-4-en",
       "kind": "patristic",
       "units": 1056,
@@ -2969,6 +2949,26 @@
       "reason": "short_spaced=1; spaced_digits=18"
     },
     {
+      "id": "agustin-10-sermones-2-es",
+      "kind": "patristic",
+      "units": 1858,
+      "metrics": {
+        "units": 1858,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 2,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 19
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; toc_leaders=2; below-threshold"
+    },
+    {
       "id": "agustin-04-obras-apologeticas-zh",
       "kind": "patristic",
       "units": 2880,
@@ -3007,46 +3007,6 @@
       "targetAbc": false,
       "queueReocr": false,
       "reason": "body_noise=1; junk_runs=1; below-threshold"
-    },
-    {
-      "id": "agustin-07-sermones-1-es",
-      "kind": "patristic",
-      "units": 2181,
-      "metrics": {
-        "units": 2181,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 1,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 1,
-        "residualScore": 17
-      },
-      "targetAbc": false,
-      "queueReocr": false,
-      "reason": "body_noise=1; junk_runs=1; below-threshold"
-    },
-    {
-      "id": "agustin-10-sermones-2-es",
-      "kind": "patristic",
-      "units": 2512,
-      "metrics": {
-        "units": 2512,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 1,
-        "residualScore": 17
-      },
-      "targetAbc": false,
-      "queueReocr": false,
-      "reason": "body_noise=1; toc_leaders=1; below-threshold"
     },
     {
       "id": "agustin-10-sermones-2-zh",
@@ -3187,6 +3147,46 @@
       "targetAbc": true,
       "queueReocr": false,
       "reason": "spaced_digits=17"
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-es",
+      "kind": "patristic",
+      "units": 1285,
+      "metrics": {
+        "units": 1285,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 17
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; toc_leaders=1; below-threshold"
+    },
+    {
+      "id": "agustin-24-sermones-4-es",
+      "kind": "patristic",
+      "units": 2174,
+      "metrics": {
+        "units": 2174,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 1,
+        "residualScore": 17
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "body_noise=1; junk_runs=1; below-threshold"
     },
     {
       "id": "agustin-15-tratados-escriturarios-en",
@@ -3394,26 +3394,6 @@
       "units": 1948,
       "metrics": {
         "units": 1948,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 1,
-        "residualScore": 15
-      },
-      "targetAbc": false,
-      "queueReocr": false,
-      "reason": "body_noise=1; below-threshold"
-    },
-    {
-      "id": "agustin-37-antipelagianos-5-es",
-      "kind": "patristic",
-      "units": 944,
-      "metrics": {
-        "units": 944,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
@@ -4374,6 +4354,26 @@
       "units": 2100,
       "metrics": {
         "units": 2100,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "toc_leaders=1; below-threshold"
+    },
+    {
+      "id": "agustin-07-sermones-1-es",
+      "kind": "patristic",
+      "units": 1655,
+      "metrics": {
+        "units": 1655,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,

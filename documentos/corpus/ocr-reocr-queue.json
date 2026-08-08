@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T04:41:23.334Z",
+  "generatedAt": "2026-08-08T06:41:50.881Z",
   "revision": "ocr-abc-v4",
   "description": "Volumes with high residual OCR garbage after mechanical a+b cleanup — candidates for re-OCR / page re-extract (not run in this goal).",
   "count": 130,
@@ -1237,6 +1237,20 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
+      "id": "agustin-12-tratados-morales-es",
+      "kind": "patristic",
+      "residualScore": 51,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 3,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 2,
+      "tocLeaderHits": 1,
+      "units": 1832,
+      "reason": "body_noise=3; junk_runs=2; toc_leaders=1; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
       "id": "agustin-05-de-trinitate-hi",
       "kind": "patristic",
       "residualScore": 50,
@@ -1738,20 +1752,6 @@
       "tocLeaderHits": 0,
       "units": 2451,
       "reason": "spaced_digits=1; body_noise=2; queue:reocr",
-      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
-    },
-    {
-      "id": "agustin-12-tratados-morales-es",
-      "kind": "patristic",
-      "residualScore": 30,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 2,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 0,
-      "units": 1828,
-      "reason": "body_noise=2; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {

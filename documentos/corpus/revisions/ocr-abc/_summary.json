@@ -1,6 +1,6 @@
 {
   "revision": "ocr-abc-v4",
-  "appliedAt": "2026-08-08T04:41:23.352Z",
+  "appliedAt": "2026-08-08T06:41:50.901Z",
   "documentCount": 46,
   "thisRunChanged": 1,
   "documents": [
@@ -72,14 +72,14 @@
     },
     {
       "id": "agustin-07-sermones-1-es",
-      "unitsChanged": 106,
-      "unitsExcludedGarbage": 3,
-      "unitsCollapsedSpaced": 103,
-      "spacedBefore": 0,
+      "unitsChanged": 807,
+      "unitsExcludedGarbage": 10,
+      "unitsCollapsedSpaced": 766,
+      "spacedBefore": 26,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 2,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.999
+      "letterTokenOverlap": 0.9945
     },
     {
       "id": "agustin-08-cartas-1-es",
@@ -105,14 +105,14 @@
     },
     {
       "id": "agustin-10-sermones-2-es",
-      "unitsChanged": 109,
-      "unitsExcludedGarbage": 4,
-      "unitsCollapsedSpaced": 105,
-      "spacedBefore": 0,
+      "unitsChanged": 977,
+      "unitsExcludedGarbage": 6,
+      "unitsCollapsedSpaced": 948,
+      "spacedBefore": 37,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 1,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9992
+      "letterTokenOverlap": 0.9923
     },
     {
       "id": "agustin-11-cartas-2-es",
@@ -127,14 +127,14 @@
     },
     {
       "id": "agustin-12-tratados-morales-es",
-      "unitsChanged": 1127,
-      "unitsExcludedGarbage": 7,
-      "unitsCollapsedSpaced": 1120,
-      "spacedBefore": 0,
+      "unitsChanged": 1189,
+      "unitsExcludedGarbage": 15,
+      "unitsCollapsedSpaced": 1163,
+      "spacedBefore": 65,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 9,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9822
+      "letterTokenOverlap": 0.9832
     },
     {
       "id": "agustin-13-evangelio-juan-1-es",
@@ -259,14 +259,14 @@
     },
     {
       "id": "agustin-24-sermones-4-es",
-      "unitsChanged": 91,
-      "unitsExcludedGarbage": 12,
-      "unitsCollapsedSpaced": 79,
-      "spacedBefore": 0,
+      "unitsChanged": 904,
+      "unitsExcludedGarbage": 23,
+      "unitsCollapsedSpaced": 847,
+      "spacedBefore": 40,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 2,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9988
+      "letterTokenOverlap": 0.992
     },
     {
       "id": "agustin-25-sermones-5-es",
@@ -402,14 +402,14 @@
     },
     {
       "id": "agustin-37-antipelagianos-5-es",
-      "unitsChanged": 398,
-      "unitsExcludedGarbage": 9,
-      "unitsCollapsedSpaced": 389,
-      "spacedBefore": 0,
+      "unitsChanged": 728,
+      "unitsExcludedGarbage": 19,
+      "unitsCollapsedSpaced": 699,
+      "spacedBefore": 34,
       "spacedAfter": 0,
-      "garbageBefore": 3,
+      "garbageBefore": 12,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9945
+      "letterTokenOverlap": 0.9909
     },
     {
       "id": "agustin-38-antiarrianos-es",
