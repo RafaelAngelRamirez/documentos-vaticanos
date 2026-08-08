@@ -1,6 +1,6 @@
 {
   "revision": "ocr-abc-v4",
-  "appliedAt": "2026-08-08T00:09:57.726Z",
+  "appliedAt": "2026-08-08T01:29:31.375Z",
   "documentCount": 46,
   "thisRunChanged": 1,
   "documents": [
@@ -149,14 +149,14 @@
     },
     {
       "id": "agustin-14-evangelio-juan-2-es",
-      "unitsChanged": 78,
-      "unitsExcludedGarbage": 6,
-      "unitsCollapsedSpaced": 72,
-      "spacedBefore": 0,
+      "unitsChanged": 872,
+      "unitsExcludedGarbage": 10,
+      "unitsCollapsedSpaced": 846,
+      "spacedBefore": 50,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 3,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.999
+      "letterTokenOverlap": 0.9896
     },
     {
       "id": "agustin-15-tratados-escriturarios-es",
@@ -369,14 +369,14 @@
     },
     {
       "id": "agustin-34-antidonatistas-3-es",
-      "unitsChanged": 4,
-      "unitsExcludedGarbage": 4,
-      "unitsCollapsedSpaced": 0,
-      "spacedBefore": 0,
+      "unitsChanged": 716,
+      "unitsExcludedGarbage": 23,
+      "unitsCollapsedSpaced": 654,
+      "spacedBefore": 16,
       "spacedAfter": 0,
-      "garbageBefore": 3,
+      "garbageBefore": 21,
       "garbageAfter": 0,
-      "letterTokenOverlap": 1
+      "letterTokenOverlap": 0.9967
     },
     {
       "id": "agustin-35-antipelagianos-3-es",
@@ -424,14 +424,14 @@
     },
     {
       "id": "agustin-39-varios-1-es",
-      "unitsChanged": 356,
-      "unitsExcludedGarbage": 6,
-      "unitsCollapsedSpaced": 350,
-      "spacedBefore": 0,
+      "unitsChanged": 829,
+      "unitsExcludedGarbage": 26,
+      "unitsCollapsedSpaced": 770,
+      "spacedBefore": 40,
       "spacedAfter": 0,
-      "garbageBefore": 3,
+      "garbageBefore": 18,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.995
+      "letterTokenOverlap": 0.9929
     },
     {
       "id": "agustin-40-varios-2-es",

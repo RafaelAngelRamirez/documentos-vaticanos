@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T00:09:57.707Z",
+  "generatedAt": "2026-08-08T01:29:31.357Z",
   "revision": "ocr-abc-v4",
   "description": "Volumes with high residual OCR garbage after mechanical a+b cleanup — candidates for re-OCR / page re-extract (not run in this goal).",
   "count": 131,
@@ -383,6 +383,20 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
+      "id": "agustin-14-evangelio-juan-2-es",
+      "kind": "patristic",
+      "residualScore": 170,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 10,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 9,
+      "tocLeaderHits": 1,
+      "units": 1282,
+      "reason": "body_noise=10; junk_runs=9; toc_leaders=1; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
       "id": "agustin-39-varios-1-ar",
       "kind": "patristic",
       "residualScore": 169,
@@ -463,6 +477,20 @@
       "junkRunHits": 0,
       "tocLeaderHits": 1,
       "units": 1401,
+      "reason": "body_noise=10; toc_leaders=1; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "agustin-39-varios-1-es",
+      "kind": "patristic",
+      "residualScore": 152,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 10,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 0,
+      "tocLeaderHits": 1,
+      "units": 2136,
       "reason": "body_noise=10; toc_leaders=1; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
@@ -775,20 +803,6 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
-      "id": "agustin-14-evangelio-juan-2-es",
-      "kind": "patristic",
-      "residualScore": 105,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 7,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 0,
-      "units": 2199,
-      "reason": "body_noise=7; queue:reocr",
-      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
-    },
-    {
       "id": "agustin-21-enarraciones-salmos-3-zh",
       "kind": "patristic",
       "residualScore": 105,
@@ -840,7 +854,7 @@
       "spacedLetterRuns": 0,
       "junkRunHits": 2,
       "tocLeaderHits": 3,
-      "units": 1987,
+      "units": 1986,
       "reason": "body_noise=6; junk_runs=2; toc_leaders=3; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
@@ -898,20 +912,6 @@
       "tocLeaderHits": 0,
       "units": 1528,
       "reason": "garbage_units=1/1528 (0.07%); body_noise=5; junk_runs=4; queue:reocr",
-      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
-    },
-    {
-      "id": "agustin-39-varios-1-es",
-      "kind": "patristic",
-      "residualScore": 90,
-      "garbageUnits": 1,
-      "garbageRatio": 0.0008,
-      "residualBodyNoiseUnits": 5,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 2,
-      "tocLeaderHits": 0,
-      "units": 1230,
-      "reason": "garbage_units=1/1230 (0.08%); body_noise=5; junk_runs=2; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {

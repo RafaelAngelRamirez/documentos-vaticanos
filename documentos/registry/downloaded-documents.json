@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-08T00:00:51.551Z",
+  "updatedAt": "2026-08-08T01:24:38.816Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1554,15 +1554,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpcy1FM1ByY1BxTG8/view"
       ],
       "firstDownloadedAt": "2026-07-13T01:32:38.520Z",
-      "lastDownloadedAt": "2026-07-13T01:32:38.520Z",
-      "unitCount": 2199,
+      "lastDownloadedAt": "2026-08-08T01:11:21.832Z",
+      "unitCount": 1282,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-14-evangelio-juan-2-es/content.json",
         "index": "documents/agustin-14-evangelio-juan-2-es/index.json",
         "meta": "documents/agustin-14-evangelio-juan-2-es/meta.json"
       },
-      "notes": "Tomo BAC n=14: 14 Sobre-el-evangelio-de-San-Juan-36-124_San-Agustin.pdf"
+      "notes": "Tomo BAC n=14: 14 Sobre-el-evangelio-de-San-Juan-36-124_San-Agustin.pdf (OCR)"
     },
     {
       "id": "agustin-14-evangelio-juan-2-hi",
@@ -3546,23 +3546,23 @@
     },
     {
       "id": "agustin-34-antidonatistas-3-es",
-      "sourceId": "agustin-34-antidonatistas-3-es",
-      "title": "34 Escritos Antidonatistas 3",
+      "sourceId": "agustin-34",
+      "title": "Escritos Antidonatistas 3",
       "kind": "patristic",
       "locale": "es",
       "sourceUrls": [
         "https://drive.google.com/file/d/0B0jwB_jVsocpbm5SMFdveXZEVFU/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:34:48.946Z",
-      "lastDownloadedAt": "2026-07-13T00:34:48.946Z",
-      "unitCount": 1987,
+      "lastDownloadedAt": "2026-08-08T01:18:02.819Z",
+      "unitCount": 1986,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-34-antidonatistas-3-es/content.json",
         "index": "documents/agustin-34-antidonatistas-3-es/index.json",
         "meta": "documents/agustin-34-antidonatistas-3-es/meta.json"
       },
-      "notes": ""
+      "notes": "Tomo BAC n=34: 34 Escritos Antidonatistas 3.pdf (OCR)"
     },
     {
       "id": "agustin-34-antidonatistas-3-hi",
@@ -4046,7 +4046,7 @@
     },
     {
       "id": "agustin-39-varios-1-es",
-      "sourceId": "agustin-39-varios-1-es",
+      "sourceId": "agustin-39",
       "title": "Escritos varios 1",
       "kind": "patristic",
       "locale": "es",
@@ -4054,15 +4054,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpdEhRRFhtcGRBWGs/view"
       ],
       "firstDownloadedAt": "2026-07-13T01:14:39.982Z",
-      "lastDownloadedAt": "2026-07-13T01:14:39.982Z",
-      "unitCount": 1230,
+      "lastDownloadedAt": "2026-08-08T01:24:38.816Z",
+      "unitCount": 2136,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-39-varios-1-es/content.json",
         "index": "documents/agustin-39-varios-1-es/index.json",
         "meta": "documents/agustin-39-varios-1-es/meta.json"
       },
-      "notes": ""
+      "notes": "Tomo BAC n=39: 39 Escritos varios 1.pdf (OCR)"
     },
     {
       "id": "agustin-39-varios-1-hi",
