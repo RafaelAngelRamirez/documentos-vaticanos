@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T01:29:31.357Z",
+  "generatedAt": "2026-08-08T02:32:20.888Z",
   "revision": "ocr-abc-v4",
   "description": "Volumes with high residual OCR garbage after mechanical a+b cleanup — candidates for re-OCR / page re-extract (not run in this goal).",
   "count": 131,
@@ -971,48 +971,6 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
-      "id": "agustin-25-sermones-5-es",
-      "kind": "patristic",
-      "residualScore": 79,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 5,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 1,
-      "tocLeaderHits": 1,
-      "units": 2285,
-      "reason": "body_noise=5; junk_runs=1; toc_leaders=1; queue:reocr",
-      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
-    },
-    {
-      "id": "agustin-02-confesiones-es",
-      "kind": "patristic",
-      "residualScore": 77,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 5,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 1,
-      "units": 1952,
-      "reason": "body_noise=5; toc_leaders=1; queue:reocr",
-      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
-    },
-    {
-      "id": "agustin-13-evangelio-juan-1-es",
-      "kind": "patristic",
-      "residualScore": 77,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 5,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 1,
-      "units": 2318,
-      "reason": "body_noise=5; toc_leaders=1; queue:reocr",
-      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
-    },
-    {
       "id": "agustin-29-escritos-biblicos-5-ar",
       "kind": "patristic",
       "residualScore": 77,
@@ -1237,6 +1195,20 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
+      "id": "agustin-13-evangelio-juan-1-es",
+      "kind": "patristic",
+      "residualScore": 51,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 3,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 1,
+      "tocLeaderHits": 2,
+      "units": 1324,
+      "reason": "body_noise=3; junk_runs=1; toc_leaders=2; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
       "id": "agustin-05-de-trinitate-hi",
       "kind": "patristic",
       "residualScore": 50,
@@ -1433,6 +1405,20 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
+      "id": "agustin-25-sermones-5-es",
+      "kind": "patristic",
+      "residualScore": 45,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 3,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 0,
+      "tocLeaderHits": 0,
+      "units": 1753,
+      "reason": "body_noise=3; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
       "id": "agustin-31-antimaniqueos-2-ar",
       "kind": "patristic",
       "residualScore": 43,
@@ -1612,6 +1598,20 @@
       "tocLeaderHits": 0,
       "units": 1997,
       "reason": "short_spaced=4; body_noise=2; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "agustin-02-confesiones-es",
+      "kind": "patristic",
+      "residualScore": 34,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 2,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 2,
+      "tocLeaderHits": 0,
+      "units": 1447,
+      "reason": "body_noise=2; junk_runs=2; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {

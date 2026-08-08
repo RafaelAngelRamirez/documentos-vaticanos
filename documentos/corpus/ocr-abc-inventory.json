@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T01:29:31.355Z",
+  "generatedAt": "2026-08-08T02:32:20.886Z",
   "revision": "ocr-abc-v4",
   "minSpaced": 1,
   "minGarbage": 1,
@@ -1389,66 +1389,6 @@
       "reason": "body_noise=5; junk_runs=2; queue:reocr"
     },
     {
-      "id": "agustin-25-sermones-5-es",
-      "kind": "patristic",
-      "units": 2285,
-      "metrics": {
-        "units": 2285,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 1,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 5,
-        "residualScore": 79
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=5; junk_runs=1; toc_leaders=1; queue:reocr"
-    },
-    {
-      "id": "agustin-02-confesiones-es",
-      "kind": "patristic",
-      "units": 1952,
-      "metrics": {
-        "units": 1952,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 5,
-        "residualScore": 77
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=5; toc_leaders=1; queue:reocr"
-    },
-    {
-      "id": "agustin-13-evangelio-juan-1-es",
-      "kind": "patristic",
-      "units": 2318,
-      "metrics": {
-        "units": 2318,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 5,
-        "residualScore": 77
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=5; toc_leaders=1; queue:reocr"
-    },
-    {
       "id": "agustin-29-escritos-biblicos-5-ar",
       "kind": "patristic",
       "units": 2221,
@@ -1769,6 +1709,26 @@
       "reason": "spaced_digits=1; body_noise=3; junk_runs=3; queue:reocr"
     },
     {
+      "id": "agustin-13-evangelio-juan-1-es",
+      "kind": "patristic",
+      "units": 1324,
+      "metrics": {
+        "units": 1324,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 2,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 51
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=3; junk_runs=1; toc_leaders=2; queue:reocr"
+    },
+    {
       "id": "agustin-05-de-trinitate-hi",
       "kind": "patristic",
       "units": 3030,
@@ -2049,6 +2009,26 @@
       "reason": "body_noise=3; queue:reocr"
     },
     {
+      "id": "agustin-25-sermones-5-es",
+      "kind": "patristic",
+      "units": 1753,
+      "metrics": {
+        "units": 1753,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 3,
+        "residualScore": 45
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=3; queue:reocr"
+    },
+    {
       "id": "agustin-31-antimaniqueos-2-ar",
       "kind": "patristic",
       "units": 3951,
@@ -2307,6 +2287,26 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "short_spaced=4; body_noise=2; queue:reocr"
+    },
+    {
+      "id": "agustin-02-confesiones-es",
+      "kind": "patristic",
+      "units": 1447,
+      "metrics": {
+        "units": 1447,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 2,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 2,
+        "residualScore": 34
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=2; junk_runs=2; queue:reocr"
     },
     {
       "id": "agustin-01-primeros-escritos-en",

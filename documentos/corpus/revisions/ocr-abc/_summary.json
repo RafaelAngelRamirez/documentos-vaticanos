@@ -1,6 +1,6 @@
 {
   "revision": "ocr-abc-v4",
-  "appliedAt": "2026-08-08T01:29:31.375Z",
+  "appliedAt": "2026-08-08T02:32:20.908Z",
   "documentCount": 46,
   "thisRunChanged": 1,
   "documents": [
@@ -17,14 +17,14 @@
     },
     {
       "id": "agustin-02-confesiones-es",
-      "unitsChanged": 425,
-      "unitsExcludedGarbage": 27,
-      "unitsCollapsedSpaced": 398,
-      "spacedBefore": 0,
+      "unitsChanged": 772,
+      "unitsExcludedGarbage": 5,
+      "unitsCollapsedSpaced": 756,
+      "spacedBefore": 26,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 2,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9989
+      "letterTokenOverlap": 0.9925
     },
     {
       "id": "agustin-03-obras-filosoficas-es",
@@ -138,14 +138,14 @@
     },
     {
       "id": "agustin-13-evangelio-juan-1-es",
-      "unitsChanged": 268,
+      "unitsChanged": 928,
       "unitsExcludedGarbage": 4,
-      "unitsCollapsedSpaced": 264,
-      "spacedBefore": 0,
+      "unitsCollapsedSpaced": 909,
+      "spacedBefore": 58,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 1,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9995
+      "letterTokenOverlap": 0.9872
     },
     {
       "id": "agustin-14-evangelio-juan-2-es",
@@ -270,14 +270,14 @@
     },
     {
       "id": "agustin-25-sermones-5-es",
-      "unitsChanged": 60,
-      "unitsExcludedGarbage": 7,
-      "unitsCollapsedSpaced": 53,
-      "spacedBefore": 0,
+      "unitsChanged": 894,
+      "unitsExcludedGarbage": 14,
+      "unitsCollapsedSpaced": 851,
+      "spacedBefore": 41,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 2,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9989
+      "letterTokenOverlap": 0.9919
     },
     {
       "id": "agustin-26-sermones-6-es",

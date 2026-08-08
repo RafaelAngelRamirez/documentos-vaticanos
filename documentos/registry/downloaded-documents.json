@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-08T01:24:38.816Z",
+  "updatedAt": "2026-08-08T02:27:38.025Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -354,15 +354,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpR0xsOUdvQmJXbFk/view"
       ],
       "firstDownloadedAt": "2026-07-12T22:28:24.961Z",
-      "lastDownloadedAt": "2026-07-12T22:28:24.961Z",
-      "unitCount": 1952,
+      "lastDownloadedAt": "2026-08-08T02:27:38.025Z",
+      "unitCount": 1447,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-02-confesiones-es/content.json",
         "index": "documents/agustin-02-confesiones-es/index.json",
         "meta": "documents/agustin-02-confesiones-es/meta.json"
       },
-      "notes": "Tomo BAC n=2: 02 Confesiones.pdf"
+      "notes": "Tomo BAC n=2: 02 Confesiones.pdf (OCR)"
     },
     {
       "id": "agustin-02-confesiones-hi",
@@ -1454,15 +1454,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpQUVzY0hNckNhTWc/view"
       ],
       "firstDownloadedAt": "2026-07-13T01:32:34.878Z",
-      "lastDownloadedAt": "2026-07-13T01:32:34.878Z",
-      "unitCount": 2318,
+      "lastDownloadedAt": "2026-08-08T02:22:51.229Z",
+      "unitCount": 1324,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-13-evangelio-juan-1-es/content.json",
         "index": "documents/agustin-13-evangelio-juan-1-es/index.json",
         "meta": "documents/agustin-13-evangelio-juan-1-es/meta.json"
       },
-      "notes": "Tomo BAC n=13: 13 Tratados-sobre-el-evangelio-de-San-Juan_San-Agustin.pdf"
+      "notes": "Tomo BAC n=13: 13 Tratados-sobre-el-evangelio-de-San-Juan_San-Agustin.pdf (OCR)"
     },
     {
       "id": "agustin-13-evangelio-juan-1-hi",
@@ -2654,15 +2654,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpZzR6czFIMDVYOHM/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:09:23.232Z",
-      "lastDownloadedAt": "2026-07-13T00:09:23.232Z",
-      "unitCount": 2285,
+      "lastDownloadedAt": "2026-08-08T02:18:05.091Z",
+      "unitCount": 1753,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-25-sermones-5-es/content.json",
         "index": "documents/agustin-25-sermones-5-es/index.json",
         "meta": "documents/agustin-25-sermones-5-es/meta.json"
       },
-      "notes": "Tomo BAC n=25: 25 Sermones-5-273-a-338.pdf"
+      "notes": "Tomo BAC n=25: 25 Sermones-5-273-a-338.pdf (OCR)"
     },
     {
       "id": "agustin-25-sermones-5-hi",
