@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T21:25:56.557Z",
+  "generatedAt": "2026-08-08T00:09:57.707Z",
   "revision": "ocr-abc-v4",
   "description": "Volumes with high residual OCR garbage after mechanical a+b cleanup — candidates for re-OCR / page re-extract (not run in this goal).",
   "count": 131,
@@ -623,15 +623,15 @@
     {
       "id": "agustin-32-antidonatistas-1-es",
       "kind": "patristic",
-      "residualScore": 130,
+      "residualScore": 132,
       "garbageUnits": 0,
       "garbageRatio": 0,
       "residualBodyNoiseUnits": 8,
       "spacedLetterRuns": 0,
-      "junkRunHits": 3,
-      "tocLeaderHits": 2,
-      "units": 6797,
-      "reason": "body_noise=8; junk_runs=3; toc_leaders=2; queue:reocr",
+      "junkRunHits": 2,
+      "tocLeaderHits": 4,
+      "units": 6700,
+      "reason": "body_noise=8; junk_runs=2; toc_leaders=4; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
@@ -719,20 +719,6 @@
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
-      "id": "agustin-26-sermones-6-es",
-      "kind": "patristic",
-      "residualScore": 107,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 7,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 1,
-      "units": 3149,
-      "reason": "body_noise=7; toc_leaders=1; queue:reocr",
-      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
-    },
-    {
       "id": "agustin-29-escritos-biblicos-5-hi",
       "kind": "patristic",
       "residualScore": 107,
@@ -744,6 +730,34 @@
       "tocLeaderHits": 0,
       "units": 2221,
       "reason": "spaced_runs=2; body_noise=7; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "agustin-26-sermones-6-es",
+      "kind": "patristic",
+      "residualScore": 107,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 7,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 0,
+      "tocLeaderHits": 1,
+      "units": 2601,
+      "reason": "body_noise=7; toc_leaders=1; queue:reocr",
+      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-es",
+      "kind": "patristic",
+      "residualScore": 107,
+      "garbageUnits": 0,
+      "garbageRatio": 0,
+      "residualBodyNoiseUnits": 7,
+      "spacedLetterRuns": 0,
+      "junkRunHits": 1,
+      "tocLeaderHits": 0,
+      "units": 1947,
+      "reason": "body_noise=7; junk_runs=1; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },
     {
@@ -785,20 +799,6 @@
       "junkRunHits": 0,
       "tocLeaderHits": 0,
       "units": 3168,
-      "reason": "body_noise=7; queue:reocr",
-      "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
-    },
-    {
-      "id": "agustin-35-antipelagianos-3-es",
-      "kind": "patristic",
-      "residualScore": 105,
-      "garbageUnits": 0,
-      "garbageRatio": 0,
-      "residualBodyNoiseUnits": 7,
-      "spacedLetterRuns": 0,
-      "junkRunHits": 0,
-      "tocLeaderHits": 0,
-      "units": 1948,
       "reason": "body_noise=7; queue:reocr",
       "suggestedAction": "spot-check-then-re-ocr-if-body-noise"
     },

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T21:25:56.556Z",
+  "generatedAt": "2026-08-08T00:09:57.705Z",
   "revision": "ocr-abc-v4",
   "minSpaced": 1,
   "minGarbage": 1,
@@ -891,22 +891,22 @@
     {
       "id": "agustin-32-antidonatistas-1-es",
       "kind": "patristic",
-      "units": 6797,
+      "units": 6700,
       "metrics": {
-        "units": 6797,
+        "units": 6700,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,
         "shortSpacedWordHits": 0,
         "spacedDigitRuns": 0,
-        "junkRunHits": 3,
-        "tocLeaderHits": 2,
+        "junkRunHits": 2,
+        "tocLeaderHits": 4,
         "residualBodyNoiseUnits": 8,
-        "residualScore": 130
+        "residualScore": 132
       },
       "targetAbc": false,
       "queueReocr": true,
-      "reason": "body_noise=8; junk_runs=3; toc_leaders=2; queue:reocr"
+      "reason": "body_noise=8; junk_runs=2; toc_leaders=4; queue:reocr"
     },
     {
       "id": "agustin-17-ciudad-de-dios-2-es",
@@ -1029,26 +1029,6 @@
       "reason": "spaced_digits=15; body_noise=6; toc_leaders=1; queue:reocr"
     },
     {
-      "id": "agustin-26-sermones-6-es",
-      "kind": "patristic",
-      "units": 3149,
-      "metrics": {
-        "units": 3149,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 7,
-        "residualScore": 107
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=7; toc_leaders=1; queue:reocr"
-    },
-    {
       "id": "agustin-29-escritos-biblicos-5-hi",
       "kind": "patristic",
       "units": 2221,
@@ -1067,6 +1047,46 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "spaced_runs=2; body_noise=7; queue:reocr"
+    },
+    {
+      "id": "agustin-26-sermones-6-es",
+      "kind": "patristic",
+      "units": 2601,
+      "metrics": {
+        "units": 2601,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 7,
+        "residualScore": 107
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=7; toc_leaders=1; queue:reocr"
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-es",
+      "kind": "patristic",
+      "units": 1947,
+      "metrics": {
+        "units": 1947,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 1,
+        "tocLeaderHits": 0,
+        "residualBodyNoiseUnits": 7,
+        "residualScore": 107
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=7; junk_runs=1; queue:reocr"
     },
     {
       "id": "agustin-21-enarraciones-salmos-3-en",
@@ -1114,26 +1134,6 @@
       "units": 3168,
       "metrics": {
         "units": 3168,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 7,
-        "residualScore": 105
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=7; queue:reocr"
-    },
-    {
-      "id": "agustin-35-antipelagianos-3-es",
-      "kind": "patristic",
-      "units": 1948,
-      "metrics": {
-        "units": 1948,
         "garbageUnits": 0,
         "garbageRatio": 0,
         "spacedLetterRuns": 0,

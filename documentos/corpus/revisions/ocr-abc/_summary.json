@@ -1,6 +1,6 @@
 {
   "revision": "ocr-abc-v4",
-  "appliedAt": "2026-08-07T21:25:56.572Z",
+  "appliedAt": "2026-08-08T00:09:57.726Z",
   "documentCount": 46,
   "thisRunChanged": 1,
   "documents": [
@@ -281,14 +281,14 @@
     },
     {
       "id": "agustin-26-sermones-6-es",
-      "unitsChanged": 120,
-      "unitsExcludedGarbage": 3,
-      "unitsCollapsedSpaced": 117,
-      "spacedBefore": 0,
+      "unitsChanged": 1205,
+      "unitsExcludedGarbage": 20,
+      "unitsCollapsedSpaced": 1154,
+      "spacedBefore": 41,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 7,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9998
+      "letterTokenOverlap": 0.9927
     },
     {
       "id": "agustin-27-escritos-biblicos-3-es",
@@ -347,14 +347,14 @@
     },
     {
       "id": "agustin-32-antidonatistas-1-es",
-      "unitsChanged": 21,
-      "unitsExcludedGarbage": 17,
-      "unitsCollapsedSpaced": 3,
-      "spacedBefore": 0,
+      "unitsChanged": 575,
+      "unitsExcludedGarbage": 58,
+      "unitsCollapsedSpaced": 506,
+      "spacedBefore": 1,
       "spacedAfter": 0,
-      "garbageBefore": 10,
+      "garbageBefore": 24,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9999
+      "letterTokenOverlap": 0.9977
     },
     {
       "id": "agustin-33-antidonatistas-2-es",
@@ -380,14 +380,14 @@
     },
     {
       "id": "agustin-35-antipelagianos-3-es",
-      "unitsChanged": 5,
-      "unitsExcludedGarbage": 5,
-      "unitsCollapsedSpaced": 0,
-      "spacedBefore": 0,
+      "unitsChanged": 1151,
+      "unitsExcludedGarbage": 20,
+      "unitsCollapsedSpaced": 1108,
+      "spacedBefore": 32,
       "spacedAfter": 0,
-      "garbageBefore": 4,
+      "garbageBefore": 17,
       "garbageAfter": 0,
-      "letterTokenOverlap": 1
+      "letterTokenOverlap": 0.9917
     },
     {
       "id": "agustin-36-antipelagianos-4-es",

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-07T21:23:30.253Z",
+  "updatedAt": "2026-08-08T00:00:51.551Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -2754,15 +2754,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpbHpGdml5blVCUkk/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:10:00.609Z",
-      "lastDownloadedAt": "2026-07-13T00:10:00.609Z",
-      "unitCount": 3149,
+      "lastDownloadedAt": "2026-08-07T23:55:58.882Z",
+      "unitCount": 2601,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-26-sermones-6-es/content.json",
         "index": "documents/agustin-26-sermones-6-es/index.json",
         "meta": "documents/agustin-26-sermones-6-es/meta.json"
       },
-      "notes": "Tomo BAC n=26: 26 Sermones-6.pdf"
+      "notes": "Tomo BAC n=26: 26 Sermones-6.pdf (OCR)"
     },
     {
       "id": "agustin-26-sermones-6-hi",
@@ -3346,7 +3346,7 @@
     },
     {
       "id": "agustin-32-antidonatistas-1-es",
-      "sourceId": "agustin-32-antidonatistas-1-es",
+      "sourceId": "agustin-32",
       "title": "Escritos antidonatistas (1.º)",
       "kind": "patristic",
       "locale": "es",
@@ -3354,15 +3354,15 @@
         "https://archive.org/details/obras-de-san-agustin-xxxii-escritos-antidonatistas-1o"
       ],
       "firstDownloadedAt": "2026-07-13T02:55:58.660Z",
-      "lastDownloadedAt": "2026-07-13T06:22:24.498Z",
-      "unitCount": 6797,
+      "lastDownloadedAt": "2026-08-07T23:51:05.368Z",
+      "unitCount": 6700,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-32-antidonatistas-1-es/content.json",
         "index": "documents/agustin-32-antidonatistas-1-es/index.json",
         "meta": "documents/agustin-32-antidonatistas-1-es/meta.json"
       },
-      "notes": ""
+      "notes": "Tomo BAC n=32: 32 Escritos antidonatistas 1.pdf (OCR)"
     },
     {
       "id": "agustin-32-antidonatistas-1-hi",
@@ -3646,7 +3646,7 @@
     },
     {
       "id": "agustin-35-antipelagianos-3-es",
-      "sourceId": "agustin-35-antipelagianos-3-es",
+      "sourceId": "agustin-35",
       "title": "Escritos Antipelagianos 3",
       "kind": "patristic",
       "locale": "es",
@@ -3654,15 +3654,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpcnpQc1RPQXRJODg/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:53:49.685Z",
-      "lastDownloadedAt": "2026-07-13T00:53:49.685Z",
-      "unitCount": 1948,
+      "lastDownloadedAt": "2026-08-08T00:00:51.551Z",
+      "unitCount": 1947,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-35-antipelagianos-3-es/content.json",
         "index": "documents/agustin-35-antipelagianos-3-es/index.json",
         "meta": "documents/agustin-35-antipelagianos-3-es/meta.json"
       },
-      "notes": ""
+      "notes": "Tomo BAC n=35: 35 Escritos Antipelagianos 3.pdf (OCR)"
     },
     {
       "id": "agustin-35-antipelagianos-3-hi",

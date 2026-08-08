@@ -1,7 +1,7 @@
 {
   "documentId": "agustin-26-sermones-6-es",
-  "revision": "ocr-abc-v3",
-  "appliedAt": "2026-07-26T19:21:48.504Z",
+  "revision": "ocr-abc-v4",
+  "appliedAt": "2026-08-07T23:58:28.486Z",
   "ruleClasses": [
     "spaced-letter-collapse",
     "short-spaced-word-collapse",
@@ -13,27 +13,29 @@
     "digit-letter-glue",
     "garbage-toc-exclude-placeholder",
     "bac-chrome-running-header-colophon-placeholder",
+    "leader-soup-placeholder",
+    "dual-column-shred-placeholder",
     "index-zone-aggressive-garbage",
     "punct-safe-compose-whitelist-internal"
   ],
-  "unitsTotal": 3149,
-  "unitsChanged": 120,
-  "unitsExcludedGarbage": 3,
-  "unitsCollapsedSpaced": 117,
+  "unitsTotal": 2601,
+  "unitsChanged": 1205,
+  "unitsExcludedGarbage": 20,
+  "unitsCollapsedSpaced": 1154,
   "before": {
-    "units": 3149,
-    "garbageUnits": 0,
-    "garbageRatio": 0,
-    "spacedLetterRuns": 0,
-    "shortSpacedWordHits": 0,
-    "spacedDigitRuns": 0,
-    "junkRunHits": 0,
-    "tocLeaderHits": 1,
+    "units": 2601,
+    "garbageUnits": 7,
+    "garbageRatio": 0.0027,
+    "spacedLetterRuns": 41,
+    "shortSpacedWordHits": 396,
+    "spacedDigitRuns": 232,
+    "junkRunHits": 41,
+    "tocLeaderHits": 6,
     "residualBodyNoiseUnits": 7,
-    "residualScore": 107
+    "residualScore": 941
   },
   "after": {
-    "units": 3149,
+    "units": 2601,
     "garbageUnits": 0,
     "garbageRatio": 0,
     "spacedLetterRuns": 0,
@@ -44,10 +46,10 @@
     "residualBodyNoiseUnits": 7,
     "residualScore": 107
   },
-  "letterTokenOverlap": 0.9998,
+  "letterTokenOverlap": 0.9927,
   "dualWriteRoots": [
     "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
     "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
   ],
-  "notes": "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots."
+  "notes": "ocr-abc-v4 in-place on existing corpus (no re-download). v3 + leader-soup TOC, dual-column shred blank (no demerge), S.Ag headers, front a4 shred dict, wider index-zone; stable unitIndex; dual-write roots."
 }
