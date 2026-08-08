@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-08T02:32:20.886Z",
+  "generatedAt": "2026-08-08T03:40:38.576Z",
   "revision": "ocr-abc-v4",
   "minSpaced": 1,
   "minGarbage": 1,
   "minResidualQueue": 30,
   "count": 358,
   "targetAbcCount": 154,
-  "queueReocrCount": 131,
+  "queueReocrCount": 130,
   "documents": [
     {
       "id": "agustin-18-epistolas-indices-zh",
@@ -1309,6 +1309,26 @@
       "reason": "garbage_units=1/1528 (0.07%); body_noise=5; junk_runs=4; queue:reocr"
     },
     {
+      "id": "agustin-28-escritos-biblicos-4-es",
+      "kind": "patristic",
+      "units": 1455,
+      "metrics": {
+        "units": 1455,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 2,
+        "residualBodyNoiseUnits": 6,
+        "residualScore": 94
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=6; toc_leaders=2; queue:reocr"
+    },
+    {
       "id": "agustin-35-antipelagianos-3-en",
       "kind": "patristic",
       "units": 1948,
@@ -1347,6 +1367,26 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "short_spaced=14; spaced_digits=60; junk_runs=1; toc_leaders=3; queue:reocr"
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-es",
+      "kind": "patristic",
+      "units": 1556,
+      "metrics": {
+        "units": 1556,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 2,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 5,
+        "residualScore": 81
+      },
+      "targetAbc": false,
+      "queueReocr": true,
+      "reason": "body_noise=5; junk_runs=2; toc_leaders=1; queue:reocr"
     },
     {
       "id": "agustin-05-de-trinitate-en",
@@ -1629,26 +1669,6 @@
       "reason": "body_noise=4; queue:reocr"
     },
     {
-      "id": "agustin-28-escritos-biblicos-4-es",
-      "kind": "patristic",
-      "units": 2414,
-      "metrics": {
-        "units": 2414,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 4,
-        "residualScore": 60
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=4; queue:reocr"
-    },
-    {
       "id": "agustin-16-ciudad-de-dios-1-zh",
       "kind": "patristic",
       "units": 3344,
@@ -1827,46 +1847,6 @@
       "targetAbc": true,
       "queueReocr": true,
       "reason": "spaced_digits=1; body_noise=3; junk_runs=1; queue:reocr"
-    },
-    {
-      "id": "agustin-11-cartas-2-es",
-      "kind": "patristic",
-      "units": 2451,
-      "metrics": {
-        "units": 2451,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 1,
-        "tocLeaderHits": 0,
-        "residualBodyNoiseUnits": 3,
-        "residualScore": 47
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=3; junk_runs=1; queue:reocr"
-    },
-    {
-      "id": "agustin-36-antipelagianos-4-es",
-      "kind": "patristic",
-      "units": 1056,
-      "metrics": {
-        "units": 1056,
-        "garbageUnits": 0,
-        "garbageRatio": 0,
-        "spacedLetterRuns": 0,
-        "shortSpacedWordHits": 0,
-        "spacedDigitRuns": 0,
-        "junkRunHits": 0,
-        "tocLeaderHits": 1,
-        "residualBodyNoiseUnits": 3,
-        "residualScore": 47
-      },
-      "targetAbc": false,
-      "queueReocr": true,
-      "reason": "body_noise=3; toc_leaders=1; queue:reocr"
     },
     {
       "id": "agustin-09-gracia-2-en",
@@ -4387,6 +4367,26 @@
       "targetAbc": true,
       "queueReocr": false,
       "reason": "short_spaced=2"
+    },
+    {
+      "id": "agustin-11-cartas-2-es",
+      "kind": "patristic",
+      "units": 2100,
+      "metrics": {
+        "units": 2100,
+        "garbageUnits": 0,
+        "garbageRatio": 0,
+        "spacedLetterRuns": 0,
+        "shortSpacedWordHits": 0,
+        "spacedDigitRuns": 0,
+        "junkRunHits": 0,
+        "tocLeaderHits": 1,
+        "residualBodyNoiseUnits": 0,
+        "residualScore": 2
+      },
+      "targetAbc": false,
+      "queueReocr": false,
+      "reason": "toc_leaders=1; below-threshold"
     },
     {
       "id": "agustin-07-sermones-1-hi",

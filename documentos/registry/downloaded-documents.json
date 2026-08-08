@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-08T02:27:38.025Z",
+  "updatedAt": "2026-08-08T03:35:48.147Z",
   "documents": [
     {
       "id": "aa-ar",
@@ -1254,15 +1254,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpaUkxamx0aWgteFU/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:10:11.999Z",
-      "lastDownloadedAt": "2026-07-13T00:10:11.999Z",
-      "unitCount": 2451,
+      "lastDownloadedAt": "2026-08-08T03:35:48.146Z",
+      "unitCount": 2100,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-11-cartas-2-es/content.json",
         "index": "documents/agustin-11-cartas-2-es/index.json",
         "meta": "documents/agustin-11-cartas-2-es/meta.json"
       },
-      "notes": "Tomo BAC n=11: 11 Cartas-2.pdf"
+      "notes": "Tomo BAC n=11: 11 Cartas-2.pdf (OCR)"
     },
     {
       "id": "agustin-11-cartas-2-hi",
@@ -2954,15 +2954,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpU3o1ZkgtSXNqaGM/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:11:25.023Z",
-      "lastDownloadedAt": "2026-07-13T00:11:25.023Z",
-      "unitCount": 2414,
+      "lastDownloadedAt": "2026-08-08T03:26:09.075Z",
+      "unitCount": 1455,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-28-escritos-biblicos-4-es/content.json",
         "index": "documents/agustin-28-escritos-biblicos-4-es/index.json",
         "meta": "documents/agustin-28-escritos-biblicos-4-es/meta.json"
       },
-      "notes": "Tomo BAC n=28: 28 Escritos-Biblicos-4.pdf"
+      "notes": "Tomo BAC n=28: 28 Escritos-Biblicos-4.pdf (OCR)"
     },
     {
       "id": "agustin-28-escritos-biblicos-4-hi",
@@ -3746,7 +3746,7 @@
     },
     {
       "id": "agustin-36-antipelagianos-4-es",
-      "sourceId": "agustin-36-antipelagianos-4-es",
+      "sourceId": "agustin-36",
       "title": "Escritos Antipelagianos 4",
       "kind": "patristic",
       "locale": "es",
@@ -3754,15 +3754,15 @@
         "https://drive.google.com/file/d/0B0jwB_jVsocpWEhwQUJfYlBROEk/view"
       ],
       "firstDownloadedAt": "2026-07-13T00:02:48.610Z",
-      "lastDownloadedAt": "2026-07-13T00:04:09.908Z",
-      "unitCount": 1056,
+      "lastDownloadedAt": "2026-08-08T03:30:56.458Z",
+      "unitCount": 1556,
       "status": "active",
       "corpusPaths": {
         "content": "documents/agustin-36-antipelagianos-4-es/content.json",
         "index": "documents/agustin-36-antipelagianos-4-es/index.json",
         "meta": "documents/agustin-36-antipelagianos-4-es/meta.json"
       },
-      "notes": ""
+      "notes": "Tomo BAC n=36: 36 Escritos Antipelagianos 4.pdf (OCR)"
     },
     {
       "id": "agustin-36-antipelagianos-4-hi",

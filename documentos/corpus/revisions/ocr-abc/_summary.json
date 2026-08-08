@@ -1,6 +1,6 @@
 {
   "revision": "ocr-abc-v4",
-  "appliedAt": "2026-08-08T02:32:20.908Z",
+  "appliedAt": "2026-08-08T03:40:38.598Z",
   "documentCount": 46,
   "thisRunChanged": 1,
   "documents": [
@@ -116,14 +116,14 @@
     },
     {
       "id": "agustin-11-cartas-2-es",
-      "unitsChanged": 354,
-      "unitsExcludedGarbage": 6,
-      "unitsCollapsedSpaced": 348,
-      "spacedBefore": 0,
+      "unitsChanged": 1365,
+      "unitsExcludedGarbage": 11,
+      "unitsCollapsedSpaced": 1335,
+      "spacedBefore": 63,
       "spacedAfter": 0,
-      "garbageBefore": 0,
+      "garbageBefore": 2,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9996
+      "letterTokenOverlap": 0.9853
     },
     {
       "id": "agustin-12-tratados-morales-es",
@@ -303,14 +303,14 @@
     },
     {
       "id": "agustin-28-escritos-biblicos-4-es",
-      "unitsChanged": 208,
-      "unitsExcludedGarbage": 5,
-      "unitsCollapsedSpaced": 203,
-      "spacedBefore": 0,
+      "unitsChanged": 962,
+      "unitsExcludedGarbage": 12,
+      "unitsCollapsedSpaced": 928,
+      "spacedBefore": 55,
       "spacedAfter": 0,
       "garbageBefore": 2,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9991
+      "letterTokenOverlap": 0.9874
     },
     {
       "id": "agustin-29-escritos-biblicos-5-es",
@@ -391,14 +391,14 @@
     },
     {
       "id": "agustin-36-antipelagianos-4-es",
-      "unitsChanged": 317,
-      "unitsExcludedGarbage": 8,
-      "unitsCollapsedSpaced": 309,
-      "spacedBefore": 0,
+      "unitsChanged": 757,
+      "unitsExcludedGarbage": 18,
+      "unitsCollapsedSpaced": 727,
+      "spacedBefore": 30,
       "spacedAfter": 0,
-      "garbageBefore": 2,
+      "garbageBefore": 4,
       "garbageAfter": 0,
-      "letterTokenOverlap": 0.9966
+      "letterTokenOverlap": 0.9922
     },
     {
       "id": "agustin-37-antipelagianos-5-es",
