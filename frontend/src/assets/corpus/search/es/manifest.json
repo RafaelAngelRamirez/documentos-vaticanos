@@ -2,12 +2,12 @@
   "version": "0.2.0",
   "schema": 1,
   "locale": "es",
-  "generatedAt": "2026-07-27T00:14:28.581Z",
+  "generatedAt": "2026-08-09T19:01:41.634Z",
   "corpusFingerprint": {
     "algo": "sha256",
-    "value": "cd1e3cba589c250f9d91427e83bede169005ef0978fb41f256cb4866f1ac7818",
+    "value": "ecc2c23af4593d7cf48e4009164d15d48e503e03a40b116ed60ea07827963ae4",
     "docCount": 135,
-    "valueShort": "cd1e3cba589c250f",
+    "valueShort": "ecc2c23af4593d7c",
     "filesHashed": 270
   },
   "caps": {
