@@ -56,7 +56,7 @@ function main() {
     'loads corpus for misal packs',
   );
   assert.ok(
-    /ROUTE\.leyendo|leyendo/.test(ts),
+    /openReading|ROUTE\.leyendo|leyendo/.test(ts),
     'listen opens immersive lector',
   );
   assert.ok(

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Unreleased
+
+### Features
+
+* **reader:** unificar Escuchar al handoff `openReading` + `dv.autoNarr` (inicio, estudio, fichas)
+
+### UX
+
+* **mobile:** un solo fbar/CTA por viewport en portada y fichas; fav muerto quitado en padre/doctor
+* **ficha:** Padre/Doctor con CTA de lectura hacia la primera obra del corpus
+* **cover:** pintar portada 2A desde el manifest sin esperar el cuerpo del pack
+
 ### 0.0.22 (2026-07-27)
 
 

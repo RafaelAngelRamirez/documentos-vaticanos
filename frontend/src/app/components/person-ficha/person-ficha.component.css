@@ -5,12 +5,40 @@
 }
 
 .fbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 22px;
+  padding: calc(12px + var(--safe-area-inset-top, 0px)) 22px 12px;
   max-width: 640px;
   margin: 0 auto;
+  min-height: 48px;
+}
+
+.fbar .back,
+.fbar .iconb {
+  min-height: 48px;
+  min-width: 48px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ficha-desk-back {
+  padding: 20px 40px 0;
+  font-size: 13px;
+}
+
+.back-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.back-link:hover {
+  color: var(--acc);
 }
 
 .hair {

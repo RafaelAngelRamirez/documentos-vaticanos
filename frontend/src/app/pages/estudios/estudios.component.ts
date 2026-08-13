@@ -11,7 +11,7 @@ import {
   LastRead,
   ReadingProgressService,
 } from 'src/app/services/reading-progress.service';
-import { ROUTE } from 'src/app/services/navigation.service';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   standalone: true,
@@ -38,7 +38,8 @@ export class EstudiosComponent implements OnInit {
     public auth: AuthService,
     private studies: StudiesService,
     private router: Router,
-    private progress: ReadingProgressService
+    private progress: ReadingProgressService,
+    private navigation: NavigationService,
   ) {}
 
   ngOnInit(): void {
@@ -99,21 +100,17 @@ export class EstudiosComponent implements OnInit {
 
   continueReading(): void {
     if (!this.lastRead) return;
-    this.router.navigate([
-      ROUTE.leyendo,
-      this.lastRead.documentId,
-      ROUTE.punto,
-      this.lastRead.unitIndex,
-    ]);
+    this.navigation.openReading(this.lastRead.documentId, {
+      unitIndex: this.lastRead.unitIndex,
+    });
   }
 
   continueWithNarrator(): void {
-    try {
-      sessionStorage.setItem('dv.autoNarr', '1');
-    } catch {
-      // ignore
-    }
-    this.continueReading();
+    if (!this.lastRead) return;
+    this.navigation.openReading(this.lastRead.documentId, {
+      unitIndex: this.lastRead.unitIndex,
+      autoNarr: true,
+    });
   }
 
   goLibrary(): void {

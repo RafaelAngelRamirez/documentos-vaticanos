@@ -27,9 +27,12 @@ export interface PersonWorkLink {
     <div class="app web-shell">
       <app-wbar [active]="wbarActive"></app-wbar>
 
-      <div class="fbar hair">
+      <div class="fbar hair only-mobile">
         <a class="fs14 back" [routerLink]="backLink">{{ backLabel }}</a>
         <ng-content select="[ficha-fbar-end]"></ng-content>
+      </div>
+      <div class="ficha-desk-back only-desktop">
+        <a class="back-link" [routerLink]="backLink">{{ backLabel }}</a>
       </div>
 
       <app-cover-header

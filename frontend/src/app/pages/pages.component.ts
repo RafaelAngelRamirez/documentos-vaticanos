@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription, filter } from 'rxjs';
 import { ReaderPreferencesService } from '../services/reader-preferences.service';
-import { ROUTE } from '../services/navigation.service';
+import { isImmersivePath } from './immersive-route.logic';
 
 @Component({
   selector: 'app-pages',
@@ -36,15 +36,7 @@ export class PagesComponent implements OnInit, OnDestroy {
   }
 
   private syncRoute(url: string): void {
-    const path = (url || '').split('?')[0].split('#')[0];
-    const isReader =
-      path === `/${ROUTE.leyendo}` ||
-      path.startsWith(`/${ROUTE.leyendo}/`);
-    const isHome = path === `/${ROUTE.inicio}` || path === '/' || path === '';
-    const isLib =
-      path.includes('documentos/listar') || path.startsWith('/biblioteca');
-    const isSearch = path.startsWith('/buscar');
-    this.isImmersiveRoute = isReader || isHome || isLib || isSearch;
+    this.isImmersiveRoute = isImmersivePath(url);
     document.body.classList.toggle('reader-mode', this.isImmersiveRoute);
   }
 }

@@ -11,7 +11,17 @@
   [works]="works"
   [themes]="d.themes"
 >
-  <span ficha-fbar-end class="iconb" title="Favorito">♡</span>
+  <div ficha-after-quote>
+    <app-reading-ctas
+      *ngIf="primaryWorkId"
+      layout="stack"
+      [canContinue]="false"
+      [showRestart]="false"
+      startLabel="Comenzar la lectura"
+      (start)="openPrimaryWork(false)"
+      (listen)="openPrimaryWork(true)"
+    ></app-reading-ctas>
+  </div>
   <div ficha-after-works *ngIf="d.proclamationSourceUrl">
     <div class="sect">Proclamación</div>
     <a

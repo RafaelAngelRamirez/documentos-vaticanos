@@ -12,6 +12,16 @@
   background: color-mix(in srgb, var(--bg) 96%, transparent);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
+  padding-top: calc(16px + var(--safe-area-inset-top, 0px));
+  min-height: 48px;
+}
+
+.fbar .back {
+  min-height: 48px;
+  min-width: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .fspacer {

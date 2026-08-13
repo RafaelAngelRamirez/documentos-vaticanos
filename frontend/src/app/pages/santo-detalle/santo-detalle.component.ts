@@ -26,6 +26,7 @@ import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { HistoricalContextService } from 'src/app/core/context/historical-context.service';
 import { ResolvedHistoricalContext } from 'src/app/core/context/historical-context.models';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { resolveCoverReadingIndex } from 'src/app/services/open-reading.logic';
 import {
   LastRead,
   ReadingProgressService,
@@ -182,8 +183,9 @@ export class SantoDetalleComponent implements OnInit {
   }
 
   comenzar(): void {
-    const idx = this.puedeContinuar ? this.lastRead!.unitIndex : 0;
-    this.irALector(idx);
+    this.irALector(
+      resolveCoverReadingIndex(this.puedeContinuar, this.lastRead?.unitIndex),
+    );
   }
 
   reiniciar(): void {
@@ -197,8 +199,10 @@ export class SantoDetalleComponent implements OnInit {
 
   /** Same as 2A/5C document cover: auto-start narrator in lector. */
   comenzarNarrador(): void {
-    const idx = this.puedeContinuar ? this.lastRead!.unitIndex : 0;
-    this.irALector(idx, { autoNarr: true });
+    this.irALector(
+      resolveCoverReadingIndex(this.puedeContinuar, this.lastRead?.unitIndex),
+      { autoNarr: true },
+    );
   }
 
   openTheme(theme: string): void {

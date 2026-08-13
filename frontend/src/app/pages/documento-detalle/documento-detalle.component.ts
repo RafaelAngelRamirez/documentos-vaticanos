@@ -14,6 +14,7 @@ import {
   localeLabel,
 } from 'src/app/core/corpus/document-locale.logic';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { resolveCoverReadingIndex } from 'src/app/services/open-reading.logic';
 import {
   LastRead,
   ReadingProgressService,
@@ -187,8 +188,9 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
   }
 
   comenzar(): void {
-    const idx = this.puedeContinuar ? this.lastRead!.unitIndex : 0;
-    this.irALector(idx);
+    this.irALector(
+      resolveCoverReadingIndex(this.puedeContinuar, this.lastRead?.unitIndex),
+    );
   }
 
   /** Jump from Índice row → reader at that unit (offline, no API). */
@@ -199,8 +201,10 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
 
   /** 2A/5C: misma entrada al lector; el narrador se activa en 5D. */
   comenzarNarrador(): void {
-    const idx = this.puedeContinuar ? this.lastRead!.unitIndex : 0;
-    this.irALector(idx, { autoNarr: true });
+    this.irALector(
+      resolveCoverReadingIndex(this.puedeContinuar, this.lastRead?.unitIndex),
+      { autoNarr: true },
+    );
   }
 
   reiniciar(): void {
@@ -255,7 +259,8 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
           this.fav = this.leerFavs().includes(this.meta.id);
           this.cargarReferenciasSantoral();
           this.cargarContextoHistorico();
-          // Load body offline and build structural / bible / curated TOC.
+          // Cover from manifest; body/TOC load in the background (this pack only).
+          this.loading = false;
           this.sub.add(
             this.corpus.ensureLoaded(this.meta.id).subscribe({
               next: (loaded) => {
@@ -267,13 +272,11 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
                   this.meta!,
                   loaded.documento || [],
                 );
-                this.loading = false;
               },
               error: () => {
                 // Manifest ok but body failed — still show cover; empty index.
                 this.chapters = [];
                 this.relatedSeed = relatedSeedForDocument(this.meta!, []);
-                this.loading = false;
               },
             })
           );

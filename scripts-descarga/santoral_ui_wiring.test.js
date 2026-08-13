@@ -67,11 +67,14 @@ function main() {
   assert.ok(/feastDays/.test(calLogic));
 
   const detail = read('pages/santo-detalle/santo-detalle.component.html');
+  const ficha = read('components/person-ficha/person-ficha.component.ts');
+  const detailSurface = detail + ficha;
   assert.ok(
-    /routerLink.*documento/.test(detail) || /\['\/documento'/.test(detail),
+    /routerLink.*documento/.test(detailSurface) ||
+      /\['\/documento'/.test(detailSurface),
     'saint detail must link to /documento/:id',
   );
-  assert.ok(/Obras en la biblioteca/.test(detail));
+  assert.ok(/Obras en la biblioteca/.test(detailSurface));
 
   // Reading structure (parity with 2A): CTA + narrador, not flat-only bio
   assert.ok(
@@ -82,7 +85,7 @@ function main() {
     /Escuchar con narrador|comenzarNarrador/.test(detail),
     'saint cover must expose narrator entry',
   );
-  assert.ok(/Temas/.test(detail), 'Temas section present');
+  assert.ok(/Temas/.test(detailSurface), 'Temas section present');
   assert.ok(
     /openTheme|theme-chip|buscar/.test(detail) ||
       /openTheme/.test(read('pages/santo-detalle/santo-detalle.component.ts')),

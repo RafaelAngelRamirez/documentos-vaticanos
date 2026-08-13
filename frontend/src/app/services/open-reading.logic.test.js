@@ -35,6 +35,7 @@ async function main() {
     AUTO_NARR_KEY,
     resolveOpenReadingIndex,
     applyAutoNarrFlag,
+    resolveCoverReadingIndex,
   } = mod;
 
   assert.strictEqual(AUTO_NARR_KEY, 'dv.autoNarr');
@@ -69,6 +70,13 @@ async function main() {
       throw new Error('quota');
     },
   });
+
+  assert.strictEqual(resolveCoverReadingIndex(false, 12), 0);
+  assert.strictEqual(resolveCoverReadingIndex(true, 12), 12);
+  assert.strictEqual(resolveCoverReadingIndex(true, 0), 0);
+  assert.strictEqual(resolveCoverReadingIndex(true, undefined), 0);
+  assert.strictEqual(resolveCoverReadingIndex(true, -3), 0);
+  assert.strictEqual(resolveCoverReadingIndex(true, 3.9), 3);
 
   console.log('open-reading.logic.test.js: ok');
 }

@@ -47,3 +47,22 @@ export function applyAutoNarrFlag(
     // private mode / quota — lector simply won't auto-start
   }
 }
+
+/**
+ * Unit index for cover / home / ficha CTAs: continue only when progress
+ * exists for this pack; otherwise start at 0.
+ */
+export function resolveCoverReadingIndex(
+  canContinue: boolean,
+  lastUnitIndex?: number | null,
+): number {
+  if (
+    canContinue &&
+    typeof lastUnitIndex === 'number' &&
+    Number.isFinite(lastUnitIndex) &&
+    lastUnitIndex > 0
+  ) {
+    return Math.floor(lastUnitIndex);
+  }
+  return 0;
+}

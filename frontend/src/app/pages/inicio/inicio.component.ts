@@ -37,7 +37,8 @@ import {
 } from 'src/app/core/misal/misal-liturgia.logic';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
-import { NavigationService, ROUTE } from 'src/app/services/navigation.service';
+import { NavigationService } from 'src/app/services/navigation.service';
+import { resolveCoverReadingIndex } from 'src/app/services/open-reading.logic';
 import { ReadingProgressService } from 'src/app/services/reading-progress.service';
 import { environment } from 'src/environments/environment';
 
@@ -305,29 +306,19 @@ export class InicioComponent implements OnInit, OnDestroy {
     event?.stopPropagation();
     if (!meta?.id || this.misalListening) return;
     this.misalListening = true;
-    try {
-      sessionStorage.setItem('dv.autoNarr', '1');
-    } catch {
-      /* private mode */
-    }
     const last = this.progress.getLastRead();
-    const idx =
-      last && last.documentId === meta.id ? last.unitIndex : 0;
+    const idx = resolveCoverReadingIndex(
+      !!(last && last.documentId === meta.id),
+      last?.unitIndex,
+    );
     this.sub.add(
       this.corpus.ensureLoaded(meta.id).subscribe({
         next: () => {
-          this.navigation.document_selected = undefined;
-          this.navigation.document_id = meta.id;
-          this.navigation.actual_index = idx;
-          this.navigation.article_selected = undefined;
-          this.navigation.save_actual_index();
           this.misalListening = false;
-          this.router.navigate([
-            ROUTE.leyendo,
-            meta.id,
-            ROUTE.punto,
-            idx,
-          ]);
+          this.navigation.openReading(meta.id, {
+            unitIndex: idx,
+            autoNarr: true,
+          });
         },
         error: () => {
           this.misalListening = false;
@@ -351,32 +342,19 @@ export class InicioComponent implements OnInit, OnDestroy {
     if (this.listeningSaintId) return;
     this.listeningSaintId = s.id;
 
-    try {
-      sessionStorage.setItem('dv.autoNarr', '1');
-    } catch {
-      /* private mode */
-    }
-
     const readingDocId = saintDocumentId(s.id);
     const last = this.progress.getLastRead();
     const canContinue = canContinueSaintReading(last, readingDocId);
-    const idx = canContinue && last ? last.unitIndex : 0;
+    const idx = resolveCoverReadingIndex(canContinue, last?.unitIndex);
 
     this.sub.add(
       this.santoral.loadReadingDocumentForSaint(s).subscribe({
         next: () => {
-          this.navigation.document_selected = undefined;
-          this.navigation.document_id = readingDocId;
-          this.navigation.actual_index = idx;
-          this.navigation.article_selected = undefined;
-          this.navigation.save_actual_index();
           this.listeningSaintId = null;
-          this.router.navigate([
-            ROUTE.leyendo,
-            readingDocId,
-            ROUTE.punto,
-            idx,
-          ]);
+          this.navigation.openReading(readingDocId, {
+            unitIndex: idx,
+            autoNarr: true,
+          });
         },
         error: () => {
           this.listeningSaintId = null;

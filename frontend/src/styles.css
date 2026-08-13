@@ -206,6 +206,7 @@ a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
 .frame{width:100%;max-width:480px;min-height:auto;margin:0 auto;background:var(--bg);border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.10);display:flex;flex-direction:column}
 .fbody{padding:28px 24px 32px;flex:1;display:flex;flex-direction:column}
 .fbar{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--line)}
+.fbar .back,.fbar .iconb{min-height:48px;min-width:48px;display:inline-flex;align-items:center}
 .ftitle{font-family:'EB Garamond',serif;font-size:19px;font-weight:600}
 .dot{width:34px;height:34px;border-radius:50%;background:var(--btn);border:1px solid var(--btnb);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--muted)}
 .mark{width:56px;height:56px;border-radius:16px;background:var(--acc);color:var(--accink);font-family:'EB Garamond',serif;font-size:26px;font-weight:600;display:flex;align-items:center;justify-content:center;margin:26px auto 18px}

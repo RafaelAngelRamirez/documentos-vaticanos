@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { HistoricalContextBlockComponent } from 'src/app/components/historical-context-block/historical-context-block.component';
+import { ReadingCtasComponent } from 'src/app/components/reading-cover';
 import {
   PersonFichaComponent,
   PersonWorkLink,
@@ -9,6 +10,8 @@ import {
 import { Padre, padreById } from 'src/app/data/padres';
 import { HistoricalContextService } from 'src/app/core/context/historical-context.service';
 import { ResolvedHistoricalContext } from 'src/app/core/context/historical-context.models';
+import { primaryWorkDocumentId } from 'src/app/core/person/person-reading.logic';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 /** Diseño 2D · Detalle de un Padre */
 @Component({
@@ -19,6 +22,7 @@ import { ResolvedHistoricalContext } from 'src/app/core/context/historical-conte
     RouterModule,
     PersonFichaComponent,
     HistoricalContextBlockComponent,
+    ReadingCtasComponent,
   ],
   templateUrl: './padre-detalle.component.html',
   styleUrls: ['./padre-detalle.component.css'],
@@ -32,6 +36,7 @@ export class PadreDetalleComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private historical: HistoricalContextService,
+    private navigation: NavigationService,
   ) {}
 
   ngOnInit(): void {
@@ -59,5 +64,15 @@ export class PadreDetalleComponent implements OnInit {
   get kindLine(): string {
     if (!this.padre) return '';
     return [this.padre.eraLabel, this.padre.years].filter(Boolean).join(' · ');
+  }
+
+  get primaryWorkId(): string | null {
+    return primaryWorkDocumentId(this.works);
+  }
+
+  openPrimaryWork(autoNarr = false): void {
+    const id = this.primaryWorkId;
+    if (!id) return;
+    this.navigation.openReading(id, { unitIndex: 0, autoNarr });
   }
 }
