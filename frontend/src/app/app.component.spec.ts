@@ -1,35 +1,23 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { SafeAreaService } from './core/shell/safe-area.service';
+import { ReaderPreferencesService } from './services/reader-preferences.service';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
+  beforeEach(() =>
+    TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
+      declarations: [AppComponent],
+      providers: [
+        { provide: SafeAreaService, useValue: { init() {} } },
+        { provide: ReaderPreferencesService, useValue: { applyToDom() {} } },
       ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  });
+    })
+  );
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'documentos-vaticanos'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('documentos-vaticanos');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('documentos-vaticanos app is running!');
+    expect(fixture.componentInstance).toBeTruthy();
   });
 });

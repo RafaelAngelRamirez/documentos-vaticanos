@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [Unreleased]
+
+### Features
+
+* Portada `/documento/:id` con CTAs Comenzar / Escuchar y `sourceNote`
+* Narrador Web Speech: pausa real, voces por locale del pack, Grok opt-in
+* Biblioteca por `kind` (Concilios, Magisterio, Catecismo, Escritura…); Encíclicas viven en Magisterio
+* Tokens de handoff, temas mono/sepia/claro/oscuro y chrome wbar/fbar/bnav
+
+### Bug Fixes
+
+* Dock de lectura `fixed` (2B móvil / 5D desktop) + `--safe-area-inset-*`; play 48px en táctil
+* El puente Android no publica `0,0,0,0` ni pisa `env()`; tablet APK no anula insets a 1024px
+* Reanudar narración desde `narrIndex` (no el párrafo visible)
+* `speech-prep` cuenta `\p{L}` para no saltar zh/hi/ar
+* Títulos de listados usan `title` completo; cards abren la portada, no el lector
+
 ### [0.0.13](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.12...v0.0.13) (2023-11-05)
 
 

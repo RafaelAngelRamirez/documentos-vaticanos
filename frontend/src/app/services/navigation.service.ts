@@ -9,6 +9,7 @@ export enum ROUTE {
   'punto' = 'punto',
   'inicio' = 'inicio',
   'list_documents' = 'documentos/listar',
+  documento = 'documento',
   about = 'about',
 }
 
@@ -17,6 +18,8 @@ export const LOCALSTORAGE_KEYS = [
   'article_selected',
   'actual_index',
 ];
+
+export const AUTO_NARR_KEY = 'dv.autoNarr';
 
 @Injectable({
   providedIn: 'root',
@@ -33,14 +36,11 @@ export class NavigationService {
   routes = ROUTE;
 
   go_to_read_article(article: ArticleInfo, result: ResultadoDeBusqueda) {
-    console.log({ article, result });
     this.document_selected = result.doc;
     this.article_selected = article;
     this.actual_index = article.article.index_array;
     const documento = result.doc.nombre;
-
     this.save_actual_index();
-
     this.router.navigate([
       ROUTE.leyendo,
       documento,
@@ -50,35 +50,59 @@ export class NavigationService {
   }
 
   /**
-   *If exist, restore all data to continue with
-   * the read
-   *
-   * @memberof NavigationService
+   * Cover / CTA entry to the immersive reader.
+   * When autoNarr, set sessionStorage so LectorComponent starts the narrator.
    */
+  openReading(
+    doc: IndiceDocumentos,
+    opts?: { unitIndex?: number; autoNarr?: boolean }
+  ): void {
+    this.document_selected = doc;
+    this.actual_index = opts?.unitIndex ?? 0;
+    this.article_selected = undefined;
+    this.save_actual_index();
+    try {
+      if (opts?.autoNarr) sessionStorage.setItem(AUTO_NARR_KEY, '1');
+      else sessionStorage.removeItem(AUTO_NARR_KEY);
+    } catch {
+      /* ignore */
+    }
+    this.router.navigate([
+      ROUTE.leyendo,
+      doc.nombre,
+      ROUTE.punto,
+      this.actual_index,
+    ]);
+  }
+
+  goToCover(nombre: string): void {
+    this.router.navigate(['/', ROUTE.documento, nombre]);
+  }
+
   load_actual_index() {
     type ObjectKey = keyof typeof this;
     LOCALSTORAGE_KEYS.forEach((key) => {
       const value = localStorage.getItem(key);
-      if (value) {
+      if (!value || value === 'undefined') {
+        return;
+      }
+      try {
         this[key as ObjectKey] = JSON.parse(value);
+      } catch {
+        localStorage.removeItem(key);
       }
     });
   }
 
-  /**
-   *Save actual data in local storage to comeback if the page it is
-   * reloaded.
-   *
-   * @memberof NavigationService
-   */
   save_actual_index() {
     type ObjectKey = keyof typeof this;
-
     LOCALSTORAGE_KEYS.forEach((key) => {
-      localStorage.removeItem(key);
-      const string_value_to_save = JSON.stringify(this[key as ObjectKey]);
-      console.log(string_value_to_save);
-      localStorage.setItem(key, string_value_to_save);
+      const raw = this[key as ObjectKey];
+      if (raw === undefined) {
+        localStorage.removeItem(key);
+        return;
+      }
+      localStorage.setItem(key, JSON.stringify(raw));
     });
   }
 
@@ -92,7 +116,6 @@ export class NavigationService {
   }
 
   go_to_about() {
-    const route = ['/', ROUTE.about];
-    this.router.navigate(route);
+    this.router.navigate(['/', ROUTE.about]);
   }
 }

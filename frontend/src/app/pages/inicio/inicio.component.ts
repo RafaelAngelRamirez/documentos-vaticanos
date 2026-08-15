@@ -1,53 +1,81 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Subscription, debounceTime } from 'rxjs';
 import { BuscadorComponent } from 'src/app/components/buscador/buscador.component';
 import { BuscadorService } from 'src/app/components/buscador/buscador.service';
-import { PuntoModule } from 'src/app/components/punto/punto.module';
+import {
+  displayTitle,
+  kindFromName,
+  kindLabel,
+} from 'src/app/core/corpus/catalog.display';
+import { t } from 'src/app/core/i18n/ui-strings';
 import {
   CargarDocumentosJsonService,
-  Article,
+  IndiceDocumentos,
 } from 'src/app/services/cargar-documentos-json.service';
+import { NarratorService } from 'src/app/services/narrator.service';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   standalone: true,
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css'],
-  imports: [CommonModule, PuntoModule, BuscadorComponent],
+  imports: [CommonModule, BuscadorComponent, ReactiveFormsModule],
 })
-export class InicioComponent implements OnInit {
+export class InicioComponent implements OnInit, OnDestroy {
+  t = t;
+  search = new FormControl('');
+  private sub = new Subscription();
+
   constructor(
     public buscadorService: BuscadorService,
-    public docService: CargarDocumentosJsonService
+    public docService: CargarDocumentosJsonService,
+    private nav: NavigationService,
+    private narrator: NarratorService
   ) {}
 
-  keys = Object.keys;
-  catecismo: Article[] = [];
+  ngOnInit(): void {
+    this.buscadorService.global_control_search_input = this.search;
+    this.sub.add(
+      this.search.valueChanges.pipe(debounceTime(400)).subscribe((v) => {
+        this.buscadorService.buscar(v);
+      })
+    );
+  }
 
-  ngOnInit(): void {}
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 
-  first_view(): any {
+  first_view(): boolean {
     return !(
       this.buscadorService.terminos.puntos ||
       this.buscadorService.terminos.terminos
     );
   }
 
-  help_many_terms() {
-    this.buscadorService.global_control_search_input.setValue(
-      'muerte, resurección'
-    );
+  get featured() {
+    return this.docService.documentos_disponibles.map((doc) => ({
+      doc,
+      title: displayTitle({ title: doc.title, nombre: doc.nombre }),
+      kindLine: kindLabel(kindFromName(doc.nombre, doc.kind)),
+      sourceNote: doc.sourceNote,
+    }));
   }
 
-  help_many_dots() {
-    this.buscadorService.global_control_search_input.setValue(
-      '.100-105, .299-300'
-    );
+  goLibrary(): void {
+    this.nav.go_to_documents();
   }
 
-  help_mixed_terms() {
-    this.buscadorService.global_control_search_input.setValue(
-      'jesucristo, .100-105, .299-300'
-    );
+  openCover(doc: IndiceDocumentos): void {
+    this.nav.document_selected = doc;
+    this.nav.goToCover(doc.nombre);
+  }
+
+  listen(doc: IndiceDocumentos): void {
+    void this.narrator.cancel();
+    this.nav.openReading(doc, { autoNarr: true });
   }
 }

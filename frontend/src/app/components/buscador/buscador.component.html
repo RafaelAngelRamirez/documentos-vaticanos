@@ -1,46 +1,28 @@
 <ng-container *ngFor="let doc_resultado of docs_resultados">
-  <h2>{{doc_resultado.doc.nombre}}</h2>
-  <span class="text-small text-muted">
-    {{doc_resultado.puntos.length}} resultados encontrados.
+  <h2 class="st">{{ doc_resultado.doc.title || doc_resultado.doc.nombre }}</h2>
+  <span class="fs12 muted">
+    {{ doc_resultado.puntos.length }} resultados encontrados.
   </span>
 
-
   <ng-container *ngFor="let punto of doc_resultado.puntos_paginados">
-
-
     <app-punto [infoPunto]="punto"></app-punto>
-
-    <div class="row">
-      <div class="col-12 ">
-        <button
-          class="btn btn-small btn-info btn-rounded"
-          (click)="navigate_to_read(punto, doc_resultado)"
-        >
-
-          <i
-            class="fa fa-eye"
-            aria-hidden="true"
-          ></i>
-
-        </button>
-      </div>
-    </div>
-
-
+    <button
+      type="button"
+      class="gbtn"
+      style="width: auto; margin: 8px 0 16px"
+      (click)="navigate_to_read(punto, doc_resultado)"
+    >
+      Abrir en el lector
+    </button>
   </ng-container>
 
-  <ng-container *ngTemplateOutlet="paginator"></ng-container>
-  <ng-template #paginator>
-
-    <mat-paginator
-      *ngIf="doc_resultado.puntos.length"
-      [length]="doc_resultado.puntos.length"
-      [pageSize]="page_size"
-      [pageSizeOptions]="page_size_options"
-      (page)="handlePageEvent($event, doc_resultado)"
-      aria-label="Select page"
-    >
-    </mat-paginator>
-  </ng-template>
-
+  <mat-paginator
+    *ngIf="doc_resultado.puntos.length"
+    [length]="doc_resultado.puntos.length"
+    [pageSize]="page_size"
+    [pageSizeOptions]="page_size_options"
+    (page)="handlePageEvent($event, doc_resultado)"
+    aria-label="Select page"
+  >
+  </mat-paginator>
 </ng-container>

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { BuscadorComponent } from './buscador.component';
+import { CargarDocumentosJsonService } from 'src/app/services/cargar-documentos-json.service';
 
 describe('BuscadorComponent', () => {
   let component: BuscadorComponent;
@@ -8,7 +9,13 @@ describe('BuscadorComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BuscadorComponent]
+      imports: [BuscadorComponent, RouterTestingModule],
+      providers: [
+        {
+          provide: CargarDocumentosJsonService,
+          useValue: { documentos_disponibles: [] },
+        },
+      ],
     });
     fixture = TestBed.createComponent(BuscadorComponent);
     component = fixture.componentInstance;

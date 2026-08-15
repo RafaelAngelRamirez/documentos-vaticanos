@@ -1,0 +1,40 @@
+<div class="app web-shell" *ngIf="loading">
+  <div class="empty" role="status">{{ t('common.loading') }}</div>
+</div>
+
+<div class="app web-shell" *ngIf="!loading && error">
+  <div class="fbar hair only-mobile">
+    <button type="button" class="back" (click)="back()">← {{ t('nav.library') }}</button>
+  </div>
+  <div class="empty error" role="alert">{{ error }}</div>
+</div>
+
+<div class="app web-shell" *ngIf="!loading && doc">
+  <div class="fbar hair only-mobile">
+    <button type="button" class="back" (click)="back()">← {{ t('nav.library') }}</button>
+  </div>
+  <div class="dcover">
+    <div class="dkind">{{ kindLine }}</div>
+    <h1 class="dtitle">{{ title }}</h1>
+    <div class="dsub" *ngIf="badge">{{ badge }} · {{ localeLine }}</div>
+  </div>
+  <div class="fbody">
+    <div class="fs13 muted">{{ unitCount | number }} numerales · {{ localeLine }}</div>
+    <div class="fs13 muted" *ngIf="sourceNote" style="margin-top: 10px">{{ sourceNote }}</div>
+    <a
+      *ngIf="sourceUrl"
+      class="app-lang-link fs13"
+      [href]="sourceUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+      >{{ localeLine }} · fuente</a
+    >
+
+    <button type="button" class="primary" style="margin-top: 20px" (click)="start()">
+      {{ t('library.read') }}
+    </button>
+    <button type="button" class="gbtn listen" (click)="listen()">
+      {{ t('library.listen') }}
+    </button>
+  </div>
+</div>

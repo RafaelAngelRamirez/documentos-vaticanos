@@ -1,27 +1,66 @@
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<div class="fbody">
+  <div class="dkind">{{ t('about.title') }}</div>
+  <h1 class="dtitle" style="font-size: 28px">{{ t('app.name') }}</h1>
+  <p class="fs14 muted" style="line-height: 1.7">{{ t('about.lede') }}</p>
 
-
-  <main class="px-3">
-    <h1>Acerca de </h1>
-
-
-    <p class="lead">Documentos vaticanos es un proyecto que busca facilitar el
-      acceso a los documentos originales del vaticano. </p>
-    <p>Nuestra única fuente es la bibliotéca <a
+  <div class="card" style="margin-top: 20px">
+    <div class="sect" style="margin-top: 0">Fuente</div>
+    <p class="fs14">
+      Biblioteca electrónica de
+      <a
+        class="app-lang-link"
         href="https://www.vatican.va/archive/index_sp.htm"
-      >electrónica del vaticano </a>
-    <p>Somos fieles al Papa y los obispos.</p>
-
-    <hr>
-
-
-    <h1>Recursos interesantes. </h1>
-
-    <p class="lead">Preguntas sobre la fe católica.
+        target="_blank"
+        rel="noopener noreferrer"
+        >vatican.va</a
+      >.
     </p>
-    <a href="mailto:preguntas.ewtn@gmail.com">Frank Morera.</a>
+  </div>
 
-  </main>
+  <div class="card" style="margin-top: 16px">
+    <div class="sect" style="margin-top: 0">{{ t('settings.narrator') }}</div>
+    <div class="setrow">
+      <span class="fs13">{{ t('settings.citation_prefix') }}</span>
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        [class.on]="narrPrefs.snapshot.readCitationPrefix"
+        [attr.aria-checked]="narrPrefs.snapshot.readCitationPrefix"
+        (click)="togglePrefix()"
+      ></button>
+    </div>
+    <div class="setrow">
+      <span class="fs13">Voces Grok (clave en este dispositivo)</span>
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        [class.on]="narrPrefs.snapshot.grokEnabled"
+        [attr.aria-checked]="narrPrefs.snapshot.grokEnabled"
+        (click)="narrPrefs.toggleGrokEnabled()"
+      ></button>
+    </div>
+    <label class="fs12 muted" for="xai-key">API key xAI</label>
+    <input
+      id="xai-key"
+      class="field"
+      type="password"
+      autocomplete="off"
+      [value]="keyDraft"
+      (input)="onKey($event)"
+      placeholder="xai-…"
+    />
+    <div class="stepbtn" style="margin-top: 10px">
+      <button type="button" class="szbtn on" (click)="saveKey()">Guardar</button>
+      <button type="button" class="szbtn" (click)="clearKey()">Borrar</button>
+    </div>
+    <p class="fs12 muted" *ngIf="narrPrefs.xaiApiKey">Clave guardada en este dispositivo.</p>
+  </div>
 
-
+  <div class="card" style="margin-top: 16px">
+    <div class="sect" style="margin-top: 0">Recursos</div>
+    <p class="fs14">Preguntas sobre la fe católica:</p>
+    <a class="app-lang-link" href="mailto:preguntas.ewtn@gmail.com">Frank Morera</a>
+  </div>
 </div>

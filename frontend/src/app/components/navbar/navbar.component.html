@@ -1,72 +1,25 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a
-      class="navbar-brand"
-      href="#"
-    >Documentos Vaticanos</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div
-      class="collapse navbar-collapse"
-      id="navbarSupportedContent"
-    >
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            aria-current="page"
-            href="javascript:void(0)"
-          >v{{version}}</a>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link active"
-            aria-current="page"
-            href="javascript:void(0)"
-            (click)="navigate_to_beginning()"
-          >Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="javascript:void(0)"
-            (click)="navigate_to_documents()"
-          >Listar documentos</a>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            href="javascript:void(0)"
-            (click)="navigate_to_about()"
-          >Acerca de</a>
-        </li>
+<header class="wbar desktop-wbar" role="banner">
+  <span class="wmark">DV</span>
+  <span class="wname">{{ t('app.name') }}</span>
+  <button type="button" class="wlink" [class.on]="active === 'inicio'" (click)="navigate_to_beginning()">
+    {{ t('nav.home') }}
+  </button>
+  <button type="button" class="wlink" [class.on]="active === 'biblioteca'" (click)="navigate_to_documents()">
+    {{ t('nav.library') }}
+  </button>
+  <button type="button" class="wlink" [class.on]="active === 'about'" (click)="navigate_to_about()">
+    {{ t('nav.about') }}
+  </button>
+  <input
+    class="wsearch"
+    type="search"
+    [formControl]="control_buscador"
+    [attr.placeholder]="t('inicio.search_hint')"
+    [attr.aria-label]="t('inicio.search_hint')"
+  />
+</header>
 
-      </ul>
-      <form
-        [formGroup]="form"
-        class="d-flex"
-      >
-        <input
-          formControlName="buscador"
-          class="form-control me-2"
-          type="search"
-          placeholder="Ingresa terminos separados por coma"
-          aria-label="Search"
-        />
-        <button
-          class="btn btn-outline-success"
-          type="submit"
-        >Buscar</button>
-      </form>
-    </div>
-  </div>
-</nav>
+<div class="fbar hair only-mobile">
+  <span class="ftitle">{{ title }}</span>
+  <span class="fs12 muted">v{{ version }}</span>
+</div>

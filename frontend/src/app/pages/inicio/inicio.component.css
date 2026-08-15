@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--bg);
+}
+
+.welcome {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wbody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 28px 24px calc(32px + var(--safe-area-inset-bottom));
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.wtitle {
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 16px 0 0;
+}
+
+.wlede {
+  line-height: 1.7;
+  max-width: 36ch;
+  margin: 16px auto 0;
+}
+
+.wbtn { margin-top: 16px; }
+
+.search-hint {
+  margin: 8px 0 0;
+  line-height: 1.45;
+}
+
+.home-docs {
+  text-align: left;
+  margin-top: 28px;
+}
+
+.field { margin-top: 22px; }

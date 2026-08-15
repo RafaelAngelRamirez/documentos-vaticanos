@@ -1,54 +1,157 @@
-<div class="row mt-5 text-center">
-  <div class="col-12">
-    <a
-      (click)="load_before()"
-      href="javascript:void(0)"
-      class="btn btn-sm btn-primary"
-    >Cargar {{quantity_to_load}} anteriores <i
-        class="fa fa-arrow-circle-up"
-        aria-hidden="true"
-      ></i></a>
-  </div>
-</div>
-
-<ng-container *ngIf="false;else divisor"></ng-container>
-
-
-<div class="row">
-  <div class="col-12">
-    <app-punto
-      *ngFor="let article of actual_articles"
-      [infoPunto]="article"
-    ></app-punto>
-
+<div class="app rpaper web-shell">
+  <div class="fbar hair only-mobile" [class.bars-hidden]="barsHidden">
+    <button type="button" class="back" (click)="goBack()" [attr.aria-label]="t('common.back')">
+      ←
+    </button>
+    <div class="ttl fs13 muted" [attr.title]="documentTitle">{{ headerTitle }}</div>
+    <button
+      type="button"
+      class="iconb serif"
+      (click)="togglePrefs()"
+      [attr.aria-expanded]="prefsOpen"
+      [attr.aria-label]="t('reader.prefs_aria')"
+    >
+      Aa
+    </button>
   </div>
 
-</div>
-
-<ng-container *ngIf="false;else divisor"></ng-container>
-
-
-<div class="row mb-5 text-center">
-  <div class="col-12">
-    <a
-      (click)="load_next()"
-      href="javascript:void(0)"
-      class="btn btn-sm btn-primary"
-    >Cargar {{quantity_to_load}} siguientes <i
-        class="fa fa-arrow-circle-down"
-        aria-hidden="true"
-      ></i></a>
+  <div class="wbar only-desktop">
+    <span class="wmark">DV</span>
+    <span class="fs13 muted" [attr.title]="documentTitle">{{ headerTitle }}</span>
+    <button type="button" class="wlink" style="margin-left: auto" (click)="goBack()">
+      Índice
+    </button>
+    <button
+      type="button"
+      class="iconb serif"
+      (click)="togglePrefs()"
+      [attr.aria-label]="t('reader.prefs_aria')"
+    >
+      Aa
+    </button>
   </div>
-  <div class="col-12 mt-5"></div>
-</div>
 
+  <div class="reader">
+    <div class="rcolw">
+      <div *ngIf="loading" class="rstart" role="status">{{ t('reader.loading_document') }}</div>
+      <div *ngIf="load_error" class="rstart empty error" role="alert">{{ load_error }}</div>
 
+      <ng-container *ngIf="!loading && document">
+        <div class="rhead" *ngIf="document.sourceNote">{{ document.sourceNote }}</div>
+        <div class="rstart" *ngIf="canLoadBefore">
+          <a href="javascript:void(0)" class="muted" (click)="load_before()">{{
+            t('reader.load_before', { n: quantity_to_load })
+          }}</a>
+        </div>
+        <div class="rstart" *ngIf="!canLoadBefore">{{ t('reader.doc_start') }}</div>
 
-<ng-template #divisor>
-  <div class="row">
-    <div class="col-12">
-      <br>
+        <div
+          class="rtxt"
+          [class.sans]="prefs.font === 'sans'"
+          [style.font-size.px]="prefs.fontSizePx"
+        >
+          <app-punto
+            *ngFor="let article of actual_articles; let i = index"
+            [infoPunto]="article"
+            [attr.data-idx]="actual_inferior_limit + i"
+            [class.narrando]="narrPlaying && actual_inferior_limit + i === narrIndex"
+          ></app-punto>
+        </div>
 
+        <div class="rend" *ngIf="canLoadNext">
+          <a href="javascript:void(0)" class="muted" (click)="load_next()">{{
+            t('reader.continues')
+          }}</a>
+        </div>
+        <div class="rend" *ngIf="!canLoadNext">· · ·</div>
+      </ng-container>
     </div>
   </div>
-</ng-template>
+
+  <div
+    class="reader-dock"
+    *ngIf="!loading && document"
+    [class.bars-hidden]="barsHidden && !narrPlaying && !prefsOpen"
+  >
+    <div
+      class="narr"
+      *ngIf="narrSupported"
+      role="region"
+      [attr.aria-label]="t('reader.narrator_aria')"
+    >
+      <button
+        type="button"
+        class="play"
+        (click)="toggleNarrator()"
+        [attr.aria-label]="narrPlaying ? t('reader.pause') : t('reader.play')"
+      >
+        {{ narrPlaying ? '❚❚' : '▶' }}
+      </button>
+      <div>
+        <div class="fs13 fw5">{{ t('reader.narrator') }}</div>
+        <div class="nlabel">{{ narrLabel }}</div>
+      </div>
+      <div class="nline" aria-hidden="true">
+        <div class="nfill" [style.width.%]="narrProgressPct"></div>
+      </div>
+      <button type="button" class="npill" (click)="cycleRate()">{{ narrRateLabel }}</button>
+      <button
+        type="button"
+        class="npill only-desktop"
+        *ngIf="narrVoices.length > 1"
+        (click)="cycleVoice()"
+      >
+        {{ narrVoiceLabel }}
+      </button>
+    </div>
+    <div class="rfoot only-mobile">
+      <span>{{ posLabel }}</span>
+      <span>{{ percent }} %</span>
+    </div>
+  </div>
+
+  <div class="sheet-backdrop" *ngIf="prefsOpen" (click)="togglePrefs()"></div>
+  <div class="sheet" *ngIf="prefsOpen" role="dialog" [attr.aria-label]="t('reader.prefs_title')">
+    <div class="fs12 muted shead">{{ t('reader.prefs_title') }}</div>
+    <div class="flabel">{{ t('reader.font_size') }}</div>
+    <div class="stepbtn">
+      <button type="button" class="szbtn" (click)="decreaseFont()">A−</button>
+      <span class="szbtn on">{{ prefs.fontSizePx }}</span>
+      <button type="button" class="szbtn" (click)="increaseFont()">A+</button>
+    </div>
+    <div class="flabel">{{ t('reader.theme') }}</div>
+    <div class="stepbtn">
+      <button
+        *ngFor="let opt of themeOptions"
+        type="button"
+        class="szbtn"
+        [class.on]="prefs.theme === opt.value"
+        (click)="setTheme(opt.value)"
+      >
+        {{ opt.label }}
+      </button>
+    </div>
+    <div class="flabel">{{ t('reader.font') }}</div>
+    <div class="stepbtn">
+      <button type="button" class="szbtn serif" [class.on]="prefs.font === 'serif'" (click)="setFont('serif')">
+        Serif
+      </button>
+      <button type="button" class="szbtn" [class.on]="prefs.font === 'sans'" (click)="setFont('sans')">
+        Sans
+      </button>
+    </div>
+    <div class="setrow">
+      <span class="fs13">{{ t('settings.citation_prefix') }}</span>
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        [class.on]="narrPrefs.snapshot.readCitationPrefix"
+        [attr.aria-checked]="narrPrefs.snapshot.readCitationPrefix"
+        (click)="toggleCitationPrefix()"
+      ></button>
+    </div>
+  </div>
+
+  <div class="dv-toast" *ngIf="toast" role="status">{{ toast }}</div>
+</div>
