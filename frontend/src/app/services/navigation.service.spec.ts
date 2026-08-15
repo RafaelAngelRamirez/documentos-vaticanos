@@ -49,4 +49,10 @@ describe('NavigationService', () => {
     service.goToCover('Catecismo');
     expect(router.navigate).toHaveBeenCalledWith(['/', ROUTE.documento, 'Catecismo']);
   });
+
+  it('ignores a stale undefined localStorage payload', () => {
+    localStorage.setItem('document_selected', 'undefined');
+    const again = new NavigationService(router);
+    expect(again.document_selected).toBeUndefined();
+  });
 });

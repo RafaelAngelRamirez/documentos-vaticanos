@@ -83,8 +83,13 @@ export class NavigationService {
     type ObjectKey = keyof typeof this;
     LOCALSTORAGE_KEYS.forEach((key) => {
       const value = localStorage.getItem(key);
-      if (value) {
+      if (!value || value === 'undefined') {
+        return;
+      }
+      try {
         this[key as ObjectKey] = JSON.parse(value);
+      } catch {
+        localStorage.removeItem(key);
       }
     });
   }
@@ -92,9 +97,12 @@ export class NavigationService {
   save_actual_index() {
     type ObjectKey = keyof typeof this;
     LOCALSTORAGE_KEYS.forEach((key) => {
-      localStorage.removeItem(key);
-      const string_value_to_save = JSON.stringify(this[key as ObjectKey]);
-      localStorage.setItem(key, string_value_to_save);
+      const raw = this[key as ObjectKey];
+      if (raw === undefined) {
+        localStorage.removeItem(key);
+        return;
+      }
+      localStorage.setItem(key, JSON.stringify(raw));
     });
   }
 
