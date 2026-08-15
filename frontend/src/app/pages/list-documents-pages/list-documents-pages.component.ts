@@ -1,12 +1,28 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { BuscadorService } from 'src/app/components/buscador/buscador.service';
+import {
+  CatalogKind,
+  CatalogTab,
+  displayTitle,
+  filterByTab,
+  kindFromName,
+  kindLabel,
+  liveTabs,
+  provenanceBadge,
+} from 'src/app/core/corpus/catalog.display';
+import { t } from 'src/app/core/i18n/ui-strings';
 import {
   CargarDocumentosJsonService,
-  Article,
   IndiceDocumentos,
 } from 'src/app/services/cargar-documentos-json.service';
-import { NavigationService, ROUTE } from 'src/app/services/navigation.service';
+import { NavigationService } from 'src/app/services/navigation.service';
+
+interface CatalogRow {
+  doc: IndiceDocumentos;
+  kind: CatalogKind;
+  title: string;
+  badge: string | null;
+  kindLine: string;
+}
 
 @Component({
   selector: 'app-list-documents-pages',
@@ -14,23 +30,62 @@ import { NavigationService, ROUTE } from 'src/app/services/navigation.service';
   styleUrls: ['./list-documents-pages.component.css'],
 })
 export class ListDocumentsPagesComponent {
+  t = t;
+  activeTab: CatalogTab = 'Todos';
+
   constructor(
-    public buscadorService: BuscadorService,
     public docService: CargarDocumentosJsonService,
-    public navigationService: NavigationService,
-    private router: Router
+    public navigationService: NavigationService
   ) {}
 
-  keys = Object.keys;
-  catecismo: Article[] = [];
+  get rows(): CatalogRow[] {
+    return this.docService.documentos_disponibles.map((doc) => {
+      const kind = kindFromName(doc.nombre, doc.kind);
+      return {
+        doc,
+        kind,
+        title: displayTitle({ title: doc.title, nombre: doc.nombre }),
+        badge: provenanceBadge({
+          locale: doc.locale,
+          translationProvenance: doc.translationProvenance,
+        }),
+        kindLine: kindLabel(kind),
+      };
+    });
+  }
 
-  ngOnInit(): void {}
+  get tabs(): CatalogTab[] {
+    return liveTabs(this.rows);
+  }
 
-  read(item: IndiceDocumentos) {
-    this.navigationService.document_selected = item;
-    this.navigationService.actual_index = 0;
-    this.navigationService.article_selected = undefined;
+  get filtered(): CatalogRow[] {
+    return filterByTab(this.rows, this.activeTab);
+  }
 
-    this.router.navigate([ROUTE.leyendo, item.nombre, ROUTE.punto, 0]);
+  get emptyCatalog(): boolean {
+    return this.docService.documentos_disponibles.length === 0;
+  }
+
+  setTab(tab: CatalogTab): void {
+    this.activeTab = tab;
+  }
+
+  openCover(row: CatalogRow): void {
+    this.navigationService.document_selected = row.doc;
+    this.navigationService.goToCover(row.doc.nombre);
+  }
+
+  continueLast(): void {
+    const doc = this.navigationService.document_selected;
+    if (!doc) return;
+    this.navigationService.openReading(doc, {
+      unitIndex: this.navigationService.actual_index,
+    });
+  }
+
+  get lastReadLabel(): string | null {
+    const doc = this.navigationService.document_selected;
+    if (!doc) return null;
+    return displayTitle({ title: doc.title, nombre: doc.nombre });
   }
 }

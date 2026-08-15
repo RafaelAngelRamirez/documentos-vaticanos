@@ -5,7 +5,6 @@ import { ROUTE } from '../services/navigation.service';
 import { InicioComponent } from './inicio/inicio.component';
 import { ListDocumentsPagesComponent } from './list-documents-pages/list-documents-pages.component';
 import { AboutComponent } from './about/about.component';
-LectorComponent;
 
 const routes: Routes = [
   {
@@ -19,6 +18,13 @@ const routes: Routes = [
   {
     path: ROUTE.list_documents,
     component: ListDocumentsPagesComponent,
+  },
+  {
+    path: `${ROUTE.documento}/:id`,
+    loadComponent: () =>
+      import('./documento-detalle/documento-detalle.component').then(
+        (m) => m.DocumentoDetalleComponent
+      ),
   },
   {
     path: `${ROUTE.leyendo}/:documento`,

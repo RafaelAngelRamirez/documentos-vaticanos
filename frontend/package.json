@@ -7,7 +7,10 @@
     "serve": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng serve",
     "build": "ng build --configuration production",
     "build-dev": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test --watch=false --browsers=ChromeHeadlessCI",
+    "test:safe-area": "node scripts/check-safe-area-css.mjs",
+    "test:open-reading": "ng test --watch=false --browsers=ChromeHeadlessCI --include=src/app/services/navigation.service.spec.ts"
   },
   "private": true,
   "dependencies": {

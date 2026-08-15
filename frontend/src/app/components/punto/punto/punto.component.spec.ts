@@ -1,5 +1,5 @@
+import { CommonModule } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PuntoComponent } from './punto.component';
 
 describe('PuntoComponent', () => {
@@ -8,14 +8,20 @@ describe('PuntoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PuntoComponent ]
-    })
-    .compileComponents();
-  });
+      declarations: [PuntoComponent],
+      imports: [CommonModule],
+    }).compileComponents();
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(PuntoComponent);
     component = fixture.componentInstance;
+    component.infoPunto = {
+      article: {
+        index_array: 0,
+        consecutivo: '1',
+        contenido: 'El Verbo se hizo carne.',
+      },
+      terms_pure: [],
+    };
     fixture.detectChanges();
   });
 

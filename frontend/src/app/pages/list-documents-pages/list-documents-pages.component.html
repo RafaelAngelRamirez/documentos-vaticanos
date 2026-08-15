@@ -1,21 +1,50 @@
-<div class="row">
-  <div class="col-12 mt-3">
-    <div
-      *ngFor="let item of docService.documentos_disponibles"
-      class="card shadow"
+<div class="lib">
+  <div class="only-desktop fx ac jb" style="margin-bottom: 18px">
+    <h2 class="dtitle" style="font-size: 28px">{{ t('library.title') }}</h2>
+    <span class="fs13 muted">{{ rows.length }} offline</span>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button
+      type="button"
+      class="tab"
+      *ngFor="let tab of tabs"
+      [class.on]="activeTab === tab"
+      (click)="setTab(tab)"
     >
-      <div class="card-body">
-        <h1 class="card-title"><i class="fas fa-book-open"></i>
-          {{item.nombre}}</h1>
-        <p class="card-text">
-          Palabras indexadas: {{keys(item.indice.indice).length | number}}
-        </p>
-        <a
-          (click)="read(item)"
-          href="javascript:void(0)"
-          class="btn btn-sm btn-secondary"
-        >Leer desde el inicio </a>
-      </div>
-    </div>
+      {{ tab }}
+    </button>
+  </div>
+
+  <div class="empty" *ngIf="emptyCatalog">{{ t('library.empty') }}</div>
+
+  <button
+    type="button"
+    class="srow"
+    *ngIf="lastReadLabel"
+    (click)="continueLast()"
+  >
+    <span class="st">{{ t('library.continue') }}</span>
+    <span class="sx">{{ lastReadLabel }}</span>
+  </button>
+
+  <div class="cardgrid" *ngIf="!emptyCatalog">
+    <button
+      type="button"
+      class="bookcard"
+      *ngFor="let row of filtered"
+      (click)="openCover(row)"
+    >
+      <span class="bkind">{{ row.kindLine }}</span>
+      <span class="bt">{{ row.title }}</span>
+      <span class="bm">
+        {{ row.doc.documento.length | number }} numerales
+        <span *ngIf="row.badge"> · {{ row.badge }}</span>
+      </span>
+    </button>
+  </div>
+
+  <div class="empty" *ngIf="!emptyCatalog && !filtered.length">
+    Ningún documento en esta pestaña.
   </div>
 </div>

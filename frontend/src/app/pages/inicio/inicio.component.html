@@ -1,85 +1,42 @@
-<div class="row">
-  <div class="col-12">
+<div class="app welcome">
+  <div class="wbody" *ngIf="first_view()">
+    <div class="mark">DV</div>
+    <h1 class="wtitle serif">{{ t('inicio.title') }}</h1>
+    <p class="fs14 muted wlede">{{ t('inicio.lede') }}</p>
 
-    <ng-container *ngIf="first_view()">
-      <h1>Bienvenido</h1>
-      <p>
-        Documentos vaticanos en un proyecto que busca facilitar el acceso a los
-        documentos de la Iglesia Católica.
-      </p>
+    <input
+      class="field"
+      type="search"
+      [formControl]="search"
+      [attr.placeholder]="t('inicio.search_hint')"
+      [attr.aria-label]="t('inicio.search_hint')"
+    />
+    <p class="fs12 muted search-hint">{{ t('inicio.search_hint') }}</p>
 
-      <h3>Ejemplo de búsquedas</h3>
+    <button type="button" class="primary wbtn" (click)="goLibrary()">
+      {{ t('inicio.start') }}
+    </button>
 
-      <a
-        (click)="help_many_terms()"
-        class="btn btn-primary"
-        href="javascript:void(0)"
-        role="button"
-      >
-        <i
-          class="fa fa-search"
-          aria-hidden="true"
-        ></i>
-        Buscar varios términos</a>
-      <br>Términos: muerte, resurrección.
-      <br>
-      <br>
-      <a
-        (click)="help_many_dots()"
-        class="btn btn-primary"
-        href="javascript:void(0)"
-        role="button"
-      >
-        <i
-          class="fa fa-search"
-          aria-hidden="true"
-        ></i>
-        Buscar varios puntos</a>
-      <br> Puntos: .100-105, .299-303
-      <br>
-      <br>
-      <a
-        (click)="help_mixed_terms()"
-        class="btn btn-primary"
-        href="javascript:void(0)"
-        role="button"
-      >
-        <i
-          class="fa fa-search"
-          aria-hidden="true"
-        ></i>
-        Buscar terminos mezclados</a>
-      <br> Puntos: jesucristo, .100-105, .299-303
-      <br>
-
-
-    </ng-container>
-
-
-
-  </div>
-</div>
-
-<div
-  *ngIf="!first_view()"
-  class="row"
->
-  <div class="col-12">
-
-    <div class="card shadow">
-      <div class="card-body">
-        <h4 class="card-title"><i class="fas fa-code"></i>
-          Expansión de los términos
-        </h4>
-        <div class="card-text">
-          <pre>
-{{buscadorService.terminos | json}}
-          </pre>
+    <div class="home-docs" *ngIf="featured.length">
+      <div class="sect">Leer u oír</div>
+      <div class="bookcard" *ngFor="let row of featured">
+        <span class="bkind">{{ row.kindLine }}</span>
+        <span class="bt">{{ row.title }}</span>
+        <span class="bm" *ngIf="row.sourceNote">{{ row.sourceNote }}</span>
+        <div class="fx gap8" style="margin-top: 12px">
+          <button type="button" class="primary" style="margin: 0" (click)="openCover(row.doc)">
+            {{ t('library.read') }}
+          </button>
         </div>
-
+        <button type="button" class="gbtn listen" (click)="listen(row.doc)">
+          {{ t('library.listen') }}
+        </button>
       </div>
     </div>
   </div>
-</div>
 
-<app-buscador></app-buscador>
+  <div class="fbody" *ngIf="!first_view()">
+    <div class="sect">Resultados</div>
+    <app-buscador></app-buscador>
+  </div>
+</div>

@@ -23,13 +23,27 @@ export class CargarDocumentosJsonService {
 
   loadDocumentsInMemory() {
     this.documentos_disponibles.push({
+      id: 'catecismo-es',
       nombre: 'Catecismo',
+      title: 'Catecismo de la Iglesia Católica',
+      shortTitle: 'Catecismo',
+      kind: 'catechism',
+      locale: 'es',
+      sourceUrl: 'https://www.vatican.va/archive/catechism_sp/index_sp.html',
+      sourceNote: 'Texto oficial en español publicado por la Santa Sede.',
       documento: this.catecismo,
       indice: this.catecismo_index,
     });
 
     this.documentos_disponibles.push({
+      id: 'biblia-es',
       nombre: 'Biblia',
+      title: 'Sagrada Biblia (Pueblo de Dios)',
+      shortTitle: 'Biblia',
+      kind: 'bible',
+      locale: 'es',
+      sourceUrl: 'https://www.vatican.va/archive/ESL0506/_INDEX.HTM',
+      sourceNote: 'Edición del Pueblo de Dios publicada en vatican.va.',
       documento: this.biblia,
       indice: this.biblia_index,
     });
@@ -44,7 +58,15 @@ export class CargarDocumentosJsonService {
 }
 
 export interface IndiceDocumentos {
+  id?: string;
   nombre: string;
+  title?: string;
+  shortTitle?: string;
+  kind?: string;
+  locale?: string;
+  translationProvenance?: 'ai' | 'human' | 'source';
+  sourceNote?: string;
+  sourceUrl?: string;
   documento: Article[];
   indice: Indice;
 }

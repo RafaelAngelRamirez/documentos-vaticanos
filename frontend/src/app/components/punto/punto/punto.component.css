@@ -1,9 +1,29 @@
 p {
   text-align: justify;
   text-justify: inter-word;
+  margin: 0 0 1em;
+  color: var(--reader-fg, var(--ink));
+}
+
+h5.card-title {
+  font-family: var(--app-font-serif, Georgia, serif);
+  font-size: 0.95em;
+  color: var(--acc);
+  margin: 1.2em 0 0.35em;
 }
 
 .resaltar {
-  background-color: yellow;
-  font-weight: 800;
+  background: var(--reader-highlight);
+  font-weight: 700;
+}
+
+.ref-link {
+  color: var(--reader-link, var(--acc));
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ref-unresolved {
+  color: var(--reader-muted, var(--muted));
+  text-decoration: underline dashed;
 }
