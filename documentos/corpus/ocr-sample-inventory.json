@@ -1,0 +1,7432 @@
+{
+  "generatedAt": "2026-08-19T04:39:29.810Z",
+  "scanned": 741,
+  "packsAtLeast95Ok": 732,
+  "campaignCoverage": 0.9879,
+  "target90": true,
+  "reocrQueue": [],
+  "fullReviewQueue": [],
+  "remainingWorstFirst": [
+    "na-es",
+    "mysterium-ecclesiae-es",
+    "lateran-i-ar",
+    "agustin-26-sermones-6-zh",
+    "cic-es",
+    "cic-hi",
+    "agustin-18-epistolas-indices-zh",
+    "agustin-18-epistolas-indices-es",
+    "missale-romanum-apc-de"
+  ],
+  "entries": [
+    {
+      "id": "na-es",
+      "units": 5,
+      "sampleSize": 5,
+      "damagedRate": 0.2,
+      "ocrIllegibleRate": 0.2,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.8,
+      "meets95": false
+    },
+    {
+      "id": "mysterium-ecclesiae-es",
+      "units": 6,
+      "sampleSize": 6,
+      "damagedRate": 0.1667,
+      "ocrIllegibleRate": 0.1667,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.8333,
+      "meets95": false
+    },
+    {
+      "id": "lateran-i-ar",
+      "units": 14,
+      "sampleSize": 8,
+      "damagedRate": 0.125,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.8571,
+      "meets95": false
+    },
+    {
+      "id": "agustin-26-sermones-6-zh",
+      "units": 3149,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.8923,
+      "meets95": false
+    },
+    {
+      "id": "cic-es",
+      "units": 5092,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9326,
+      "meets95": false
+    },
+    {
+      "id": "cic-hi",
+      "units": 5092,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.934,
+      "meets95": false
+    },
+    {
+      "id": "agustin-18-epistolas-indices-zh",
+      "units": 1916,
+      "sampleSize": 32,
+      "damagedRate": 0.0938,
+      "ocrIllegibleRate": 0.0938,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9368,
+      "meets95": false
+    },
+    {
+      "id": "agustin-18-epistolas-indices-es",
+      "units": 1104,
+      "sampleSize": 32,
+      "damagedRate": 0.125,
+      "ocrIllegibleRate": 0.125,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9384,
+      "meets95": false
+    },
+    {
+      "id": "missale-romanum-apc-de",
+      "units": 18,
+      "sampleSize": 8,
+      "damagedRate": 0.125,
+      "ocrIllegibleRate": 0.125,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9444,
+      "meets95": false
+    },
+    {
+      "id": "ot-es",
+      "units": 22,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9545,
+      "meets95": true
+    },
+    {
+      "id": "mc-ar",
+      "units": 102,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9608,
+      "meets95": true
+    },
+    {
+      "id": "md-es",
+      "units": 31,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9677,
+      "meets95": true
+    },
+    {
+      "id": "atanasio-de-incarnatione-es",
+      "units": 95,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9684,
+      "meets95": true
+    },
+    {
+      "id": "agustin-18-epistolas-indices-ar",
+      "units": 1916,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9687,
+      "meets95": true
+    },
+    {
+      "id": "agustin-01-primeros-escritos-es",
+      "units": 2035,
+      "sampleSize": 32,
+      "damagedRate": 0.1875,
+      "ocrIllegibleRate": 0.125,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9695,
+      "meets95": true
+    },
+    {
+      "id": "agustin-05-de-trinitate-es",
+      "units": 2839,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9711,
+      "meets95": true
+    },
+    {
+      "id": "calcedonia-ar",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9714,
+      "meets95": true
+    },
+    {
+      "id": "calcedonia-es",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9714,
+      "meets95": true
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-zh",
+      "units": 1987,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9718,
+      "meets95": true
+    },
+    {
+      "id": "agustin-40-varios-2-es",
+      "units": 2363,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9733,
+      "meets95": true
+    },
+    {
+      "id": "ca-ar",
+      "units": 114,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9737,
+      "meets95": true
+    },
+    {
+      "id": "ca-es",
+      "units": 114,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9737,
+      "meets95": true
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-es",
+      "units": 1401,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9757,
+      "meets95": true
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-es",
+      "units": 1528,
+      "sampleSize": 32,
+      "damagedRate": 0.0938,
+      "ocrIllegibleRate": 0.0938,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9797,
+      "meets95": true
+    },
+    {
+      "id": "agustin-40-varios-2-zh",
+      "units": 1559,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9814,
+      "meets95": true
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-es",
+      "units": 3950,
+      "sampleSize": 32,
+      "damagedRate": 0.0938,
+      "ocrIllegibleRate": 0.0938,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9815,
+      "meets95": true
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-zh",
+      "units": 1997,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.982,
+      "meets95": true
+    },
+    {
+      "id": "vc-es",
+      "units": 112,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9821,
+      "meets95": true
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-ar",
+      "units": 1987,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9829,
+      "meets95": true
+    },
+    {
+      "id": "agustin-39-varios-1-es",
+      "units": 2136,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9831,
+      "meets95": true
+    },
+    {
+      "id": "agustin-09-gracia-2-es",
+      "units": 1867,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9834,
+      "meets95": true
+    },
+    {
+      "id": "catecismo-romano-la",
+      "units": 1162,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9836,
+      "meets95": true
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-es",
+      "units": 1550,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9839,
+      "meets95": true
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-es",
+      "units": 2521,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9841,
+      "meets95": true
+    },
+    {
+      "id": "cl-es",
+      "units": 64,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9844,
+      "meets95": true
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-es",
+      "units": 1282,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9844,
+      "meets95": true
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-es",
+      "units": 1285,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9844,
+      "meets95": true
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-es",
+      "units": 1775,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9848,
+      "meets95": true
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-es",
+      "units": 1656,
+      "sampleSize": 32,
+      "damagedRate": 0.0938,
+      "ocrIllegibleRate": 0.0938,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9849,
+      "meets95": true
+    },
+    {
+      "id": "dev-es",
+      "units": 67,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9851,
+      "meets95": true
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-es",
+      "units": 1556,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9852,
+      "meets95": true
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-es",
+      "units": 1986,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9854,
+      "meets95": true
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-es",
+      "units": 776,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9858,
+      "meets95": true
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-es",
+      "units": 1947,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9861,
+      "meets95": true
+    },
+    {
+      "id": "agustin-26-sermones-6-en",
+      "units": 3149,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9863,
+      "meets95": true
+    },
+    {
+      "id": "agustin-38-antiarrianos-es",
+      "units": 1816,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9868,
+      "meets95": true
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-es",
+      "units": 1455,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9876,
+      "meets95": true
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-es",
+      "units": 2207,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9878,
+      "meets95": true
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-es",
+      "units": 1865,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9882,
+      "meets95": true
+    },
+    {
+      "id": "pp-es",
+      "units": 87,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9885,
+      "meets95": true
+    },
+    {
+      "id": "agustin-24-sermones-4-es",
+      "units": 2174,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.989,
+      "meets95": true
+    },
+    {
+      "id": "rm-es",
+      "units": 92,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9891,
+      "meets95": true
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-es",
+      "units": 6700,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9891,
+      "meets95": true
+    },
+    {
+      "id": "agustin-26-sermones-6-es",
+      "units": 2601,
+      "sampleSize": 32,
+      "damagedRate": 0.125,
+      "ocrIllegibleRate": 0.125,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9892,
+      "meets95": true
+    },
+    {
+      "id": "ds-es",
+      "units": 1140,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9895,
+      "meets95": true
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-es",
+      "units": 2035,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9897,
+      "meets95": true
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-es",
+      "units": 1853,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9897,
+      "meets95": true
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-es",
+      "units": 1712,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9901,
+      "meets95": true
+    },
+    {
+      "id": "agustin-39-varios-1-zh",
+      "units": 1230,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9902,
+      "meets95": true
+    },
+    {
+      "id": "agustin-12-tratados-morales-es",
+      "units": 1832,
+      "sampleSize": 32,
+      "damagedRate": 0.125,
+      "ocrIllegibleRate": 0.125,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9902,
+      "meets95": true
+    },
+    {
+      "id": "agustin-25-sermones-5-es",
+      "units": 1753,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9903,
+      "meets95": true
+    },
+    {
+      "id": "agustin-08-cartas-1-es",
+      "units": 2027,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9906,
+      "meets95": true
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-es",
+      "units": 2043,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9907,
+      "meets95": true
+    },
+    {
+      "id": "agustin-06-gracia-1-es",
+      "units": 1933,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9907,
+      "meets95": true
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-es",
+      "units": 2070,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9908,
+      "meets95": true
+    },
+    {
+      "id": "agustin-38-antiarrianos-zh",
+      "units": 1691,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9911,
+      "meets95": true
+    },
+    {
+      "id": "ca-zh",
+      "units": 114,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9912,
+      "meets95": true
+    },
+    {
+      "id": "cds-es",
+      "units": 583,
+      "sampleSize": 30,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9914,
+      "meets95": true
+    },
+    {
+      "id": "agustin-38-antiarrianos-ar",
+      "units": 1691,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9917,
+      "meets95": true
+    },
+    {
+      "id": "agustin-40-varios-2-ar",
+      "units": 1559,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9917,
+      "meets95": true
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-zh",
+      "units": 2221,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9919,
+      "meets95": true
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-zh",
+      "units": 6797,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9919,
+      "meets95": true
+    },
+    {
+      "id": "agustin-39-varios-1-ar",
+      "units": 1230,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9919,
+      "meets95": true
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-es",
+      "units": 250,
+      "sampleSize": 13,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.992,
+      "meets95": true
+    },
+    {
+      "id": "agustin-26-sermones-6-ar",
+      "units": 3149,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9921,
+      "meets95": true
+    },
+    {
+      "id": "agustin-38-antiarrianos-en",
+      "units": 1691,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9923,
+      "meets95": true
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-es",
+      "units": 1845,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9924,
+      "meets95": true
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-ar",
+      "units": 1997,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9925,
+      "meets95": true
+    },
+    {
+      "id": "catecismo-romano-es",
+      "units": 1162,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9931,
+      "meets95": true
+    },
+    {
+      "id": "agustin-02-confesiones-es",
+      "units": 1447,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9931,
+      "meets95": true
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-zh",
+      "units": 1948,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9933,
+      "meets95": true
+    },
+    {
+      "id": "agustin-01-primeros-escritos-zh",
+      "units": 2181,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9936,
+      "meets95": true
+    },
+    {
+      "id": "agustin-40-varios-2-en",
+      "units": 1559,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9936,
+      "meets95": true
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-ar",
+      "units": 776,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9936,
+      "meets95": true
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-hi",
+      "units": 3002,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9937,
+      "meets95": true
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-zh",
+      "units": 3002,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9937,
+      "meets95": true
+    },
+    {
+      "id": "agustin-07-sermones-1-es",
+      "units": 1655,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.994,
+      "meets95": true
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-ar",
+      "units": 2221,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9941,
+      "meets95": true
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-en",
+      "units": 6797,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9944,
+      "meets95": true
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-en",
+      "units": 2714,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9945,
+      "meets95": true
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-en",
+      "units": 1987,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9945,
+      "meets95": true
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-en",
+      "units": 2221,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9946,
+      "meets95": true
+    },
+    {
+      "id": "vs-ar",
+      "units": 184,
+      "sampleSize": 10,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9946,
+      "meets95": true
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-en",
+      "units": 3951,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9947,
+      "meets95": true
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-en",
+      "units": 944,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9947,
+      "meets95": true
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-es",
+      "units": 1324,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9947,
+      "meets95": true
+    },
+    {
+      "id": "agustin-11-cartas-2-es",
+      "units": 2100,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9948,
+      "meets95": true
+    },
+    {
+      "id": "agustin-01-primeros-escritos-ar",
+      "units": 2181,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.995,
+      "meets95": true
+    },
+    {
+      "id": "agustin-24-sermones-4-en",
+      "units": 2460,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9955,
+      "meets95": true
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-hi",
+      "units": 2221,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9955,
+      "meets95": true
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-ar",
+      "units": 884,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9955,
+      "meets95": true
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-en",
+      "units": 884,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9955,
+      "meets95": true
+    },
+    {
+      "id": "agustin-25-sermones-5-en",
+      "units": 2285,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9956,
+      "meets95": true
+    },
+    {
+      "id": "ds-zh",
+      "units": 1140,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9956,
+      "meets95": true
+    },
+    {
+      "id": "catecismo-romano-zh",
+      "units": 1162,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9957,
+      "meets95": true
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-ar",
+      "units": 6797,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9959,
+      "meets95": true
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-ar",
+      "units": 1948,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9959,
+      "meets95": true
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-en",
+      "units": 250,
+      "sampleSize": 13,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.996,
+      "meets95": true
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-zh",
+      "units": 250,
+      "sampleSize": 13,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.996,
+      "meets95": true
+    },
+    {
+      "id": "agustin-25-sermones-5-zh",
+      "units": 2285,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9961,
+      "meets95": true
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-es",
+      "units": 1015,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9961,
+      "meets95": true
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-zh",
+      "units": 776,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9961,
+      "meets95": true
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-ar",
+      "units": 1056,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9962,
+      "meets95": true
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-en",
+      "units": 1056,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9962,
+      "meets95": true
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-zh",
+      "units": 1056,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9962,
+      "meets95": true
+    },
+    {
+      "id": "agustin-10-sermones-2-es",
+      "units": 1858,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9962,
+      "meets95": true
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-en",
+      "units": 1948,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9964,
+      "meets95": true
+    },
+    {
+      "id": "gdc-ar",
+      "units": 291,
+      "sampleSize": 15,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9966,
+      "meets95": true
+    },
+    {
+      "id": "gdc-zh",
+      "units": 291,
+      "sampleSize": 15,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9966,
+      "meets95": true
+    },
+    {
+      "id": "agustin-12-tratados-morales-ar",
+      "units": 1828,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9967,
+      "meets95": true
+    },
+    {
+      "id": "agustin-39-varios-1-en",
+      "units": 1230,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9967,
+      "meets95": true
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-zh",
+      "units": 944,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9968,
+      "meets95": true
+    },
+    {
+      "id": "agustin-05-de-trinitate-en",
+      "units": 3030,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.997,
+      "meets95": true
+    },
+    {
+      "id": "agustin-05-de-trinitate-zh",
+      "units": 3030,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.997,
+      "meets95": true
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-en",
+      "units": 3168,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9972,
+      "meets95": true
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-zh",
+      "units": 3168,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9972,
+      "meets95": true
+    },
+    {
+      "id": "agustin-12-tratados-morales-en",
+      "units": 1828,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9973,
+      "meets95": true
+    },
+    {
+      "id": "agustin-02-confesiones-en",
+      "units": 1952,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9974,
+      "meets95": true
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-ar",
+      "units": 2714,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9974,
+      "meets95": true
+    },
+    {
+      "id": "cceo-es",
+      "units": 1514,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9974,
+      "meets95": true
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-en",
+      "units": 776,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9974,
+      "meets95": true
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-hi",
+      "units": 1625,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9975,
+      "meets95": true
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-zh",
+      "units": 1625,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9975,
+      "meets95": true
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-zh",
+      "units": 2414,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9975,
+      "meets95": true
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-zh",
+      "units": 3951,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9975,
+      "meets95": true
+    },
+    {
+      "id": "igmr-es",
+      "units": 398,
+      "sampleSize": 20,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9975,
+      "meets95": true
+    },
+    {
+      "id": "agustin-39-varios-1-hi",
+      "units": 1230,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9976,
+      "meets95": true
+    },
+    {
+      "id": "cipriano-cartas-es",
+      "units": 829,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9976,
+      "meets95": true
+    },
+    {
+      "id": "ev-en",
+      "units": 415,
+      "sampleSize": 21,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9976,
+      "meets95": true
+    },
+    {
+      "id": "agustin-01-primeros-escritos-en",
+      "units": 2181,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9977,
+      "meets95": true
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-ar",
+      "units": 3002,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9977,
+      "meets95": true
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-en",
+      "units": 3002,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9977,
+      "meets95": true
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-ar",
+      "units": 3951,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9977,
+      "meets95": true
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-hi",
+      "units": 884,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9977,
+      "meets95": true
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-zh",
+      "units": 884,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9977,
+      "meets95": true
+    },
+    {
+      "id": "cdc-es",
+      "units": 1744,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9977,
+      "meets95": true
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-zh",
+      "units": 2714,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9978,
+      "meets95": true
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-ar",
+      "units": 3168,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9978,
+      "meets95": true
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-en",
+      "units": 2277,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9978,
+      "meets95": true
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-ar",
+      "units": 3310,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9979,
+      "meets95": true
+    },
+    {
+      "id": "agustin-18-epistolas-indices-en",
+      "units": 1916,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9979,
+      "meets95": true
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-ar",
+      "units": 944,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9979,
+      "meets95": true
+    },
+    {
+      "id": "agustin-02-confesiones-ar",
+      "units": 1952,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.998,
+      "meets95": true
+    },
+    {
+      "id": "agustin-06-gracia-1-ar",
+      "units": 3070,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.998,
+      "meets95": true
+    },
+    {
+      "id": "agustin-06-gracia-1-hi",
+      "units": 3070,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.998,
+      "meets95": true
+    },
+    {
+      "id": "agustin-10-sermones-2-en",
+      "units": 2512,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.998,
+      "meets95": true
+    },
+    {
+      "id": "agustin-10-sermones-2-zh",
+      "units": 2512,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.998,
+      "meets95": true
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-ar",
+      "units": 3050,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.998,
+      "meets95": true
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-zh",
+      "units": 3050,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.998,
+      "meets95": true
+    },
+    {
+      "id": "agustin-24-sermones-4-zh",
+      "units": 2460,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.998,
+      "meets95": true
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-en",
+      "units": 1997,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.998,
+      "meets95": true
+    },
+    {
+      "id": "cceo-la",
+      "units": 1514,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.998,
+      "meets95": true
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-ar",
+      "units": 1015,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.998,
+      "meets95": true
+    },
+    {
+      "id": "agustin-09-gracia-2-en",
+      "units": 2673,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9981,
+      "meets95": true
+    },
+    {
+      "id": "agustin-40-varios-2-hi",
+      "units": 1559,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9981,
+      "meets95": true
+    },
+    {
+      "id": "agustin-07-sermones-1-zh",
+      "units": 2181,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9982,
+      "meets95": true
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-zh",
+      "units": 2277,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9982,
+      "meets95": true
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-en",
+      "units": 1625,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9982,
+      "meets95": true
+    },
+    {
+      "id": "ds-ar",
+      "units": 1140,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9982,
+      "meets95": true
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-zh",
+      "units": 2878,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9983,
+      "meets95": true
+    },
+    {
+      "id": "agustin-05-de-trinitate-hi",
+      "units": 3030,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9983,
+      "meets95": true
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-zh",
+      "units": 2318,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9983,
+      "meets95": true
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-en",
+      "units": 2414,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9983,
+      "meets95": true
+    },
+    {
+      "id": "agustin-08-cartas-1-en",
+      "units": 2468,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9984,
+      "meets95": true
+    },
+    {
+      "id": "agustin-11-cartas-2-ar",
+      "units": 2451,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9984,
+      "meets95": true
+    },
+    {
+      "id": "agustin-11-cartas-2-en",
+      "units": 2451,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9984,
+      "meets95": true
+    },
+    {
+      "id": "agustin-11-cartas-2-zh",
+      "units": 2451,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9984,
+      "meets95": true
+    },
+    {
+      "id": "agustin-18-epistolas-indices-hi",
+      "units": 1916,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9984,
+      "meets95": true
+    },
+    {
+      "id": "agustin-02-confesiones-zh",
+      "units": 1952,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9985,
+      "meets95": true
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-zh",
+      "units": 3310,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9985,
+      "meets95": true
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-hi",
+      "units": 3951,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9985,
+      "meets95": true
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-en",
+      "units": 2878,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9986,
+      "meets95": true
+    },
+    {
+      "id": "agustin-05-de-trinitate-ar",
+      "units": 3030,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9987,
+      "meets95": true
+    },
+    {
+      "id": "agustin-06-gracia-1-zh",
+      "units": 3070,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9987,
+      "meets95": true
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-en",
+      "units": 3050,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9987,
+      "meets95": true
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-hi",
+      "units": 3050,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9987,
+      "meets95": true
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-hi",
+      "units": 3168,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9987,
+      "meets95": true
+    },
+    {
+      "id": "agustin-25-sermones-5-ar",
+      "units": 2285,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9987,
+      "meets95": true
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-hi",
+      "units": 776,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9987,
+      "meets95": true
+    },
+    {
+      "id": "agustin-08-cartas-1-ar",
+      "units": 2468,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9988,
+      "meets95": true
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-ar",
+      "units": 3344,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9988,
+      "meets95": true
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-en",
+      "units": 3344,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9988,
+      "meets95": true
+    },
+    {
+      "id": "agustin-24-sermones-4-ar",
+      "units": 2460,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9988,
+      "meets95": true
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-hi",
+      "units": 2414,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9988,
+      "meets95": true
+    },
+    {
+      "id": "cipriano-cartas-en",
+      "units": 829,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9988,
+      "meets95": true
+    },
+    {
+      "id": "cipriano-cartas-zh",
+      "units": 829,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9988,
+      "meets95": true
+    },
+    {
+      "id": "agustin-12-tratados-morales-hi",
+      "units": 1828,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9989,
+      "meets95": true
+    },
+    {
+      "id": "agustin-12-tratados-morales-zh",
+      "units": 1828,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9989,
+      "meets95": true
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-hi",
+      "units": 2714,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9989,
+      "meets95": true
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-ar",
+      "units": 2878,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.999,
+      "meets95": true
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-zh",
+      "units": 2880,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.999,
+      "meets95": true
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-en",
+      "units": 4847,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.999,
+      "meets95": true
+    },
+    {
+      "id": "agustin-26-sermones-6-hi",
+      "units": 3149,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.999,
+      "meets95": true
+    },
+    {
+      "id": "agustin-07-sermones-1-ar",
+      "units": 2181,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "agustin-07-sermones-1-en",
+      "units": 2181,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "agustin-07-sermones-1-hi",
+      "units": 2181,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-ar",
+      "units": 2318,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-ar",
+      "units": 2199,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-en",
+      "units": 2199,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-zh",
+      "units": 2199,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-hi",
+      "units": 3344,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-zh",
+      "units": 3344,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-en",
+      "units": 3310,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-ar",
+      "units": 2277,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-hi",
+      "units": 2277,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-hi",
+      "units": 1056,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "catecismo-romano-ar",
+      "units": 1162,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "cdc-en",
+      "units": 1102,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "ds-hi",
+      "units": 1140,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9991,
+      "meets95": true
+    },
+    {
+      "id": "agustin-08-cartas-1-zh",
+      "units": 2468,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9992,
+      "meets95": true
+    },
+    {
+      "id": "agustin-10-sermones-2-hi",
+      "units": 2512,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9992,
+      "meets95": true
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-hi",
+      "units": 4847,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9992,
+      "meets95": true
+    },
+    {
+      "id": "agustin-06-gracia-1-en",
+      "units": 3070,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9993,
+      "meets95": true
+    },
+    {
+      "id": "agustin-09-gracia-2-zh",
+      "units": 2673,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9993,
+      "meets95": true
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-hi",
+      "units": 3310,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9994,
+      "meets95": true
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-ar",
+      "units": 1625,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9994,
+      "meets95": true
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-hi",
+      "units": 6797,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9994,
+      "meets95": true
+    },
+    {
+      "id": "agustin-38-antiarrianos-hi",
+      "units": 1691,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9994,
+      "meets95": true
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-hi",
+      "units": 2199,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9995,
+      "meets95": true
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-hi",
+      "units": 1987,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9995,
+      "meets95": true
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-hi",
+      "units": 1948,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9995,
+      "meets95": true
+    },
+    {
+      "id": "agustin-09-gracia-2-ar",
+      "units": 2673,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9996,
+      "meets95": true
+    },
+    {
+      "id": "agustin-09-gracia-2-hi",
+      "units": 2673,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9996,
+      "meets95": true
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-en",
+      "units": 2318,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9996,
+      "meets95": true
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-hi",
+      "units": 2318,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9996,
+      "meets95": true
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-ar",
+      "units": 4847,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9996,
+      "meets95": true
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-zh",
+      "units": 4847,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9996,
+      "meets95": true
+    },
+    {
+      "id": "agustin-24-sermones-4-hi",
+      "units": 2460,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9996,
+      "meets95": true
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-ar",
+      "units": 2414,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9996,
+      "meets95": true
+    },
+    {
+      "id": "cic-zh",
+      "units": 2727,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9996,
+      "meets95": true
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-hi",
+      "units": 2878,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9997,
+      "meets95": true
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-ar",
+      "units": 2880,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9997,
+      "meets95": true
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-hi",
+      "units": 2880,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9997,
+      "meets95": true
+    },
+    {
+      "id": "bible-pueblo-de-dios-es",
+      "units": 35652,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9997,
+      "meets95": true
+    },
+    {
+      "id": "bible-pueblo-de-dios-ar",
+      "units": 35652,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9998,
+      "meets95": true
+    },
+    {
+      "id": "bible-pueblo-de-dios-en",
+      "units": 35652,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9998,
+      "meets95": true
+    },
+    {
+      "id": "bible-pueblo-de-dios-hi",
+      "units": 35652,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9998,
+      "meets95": true
+    },
+    {
+      "id": "bible-pueblo-de-dios-zh",
+      "units": 35652,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9998,
+      "meets95": true
+    },
+    {
+      "id": "aa-ar",
+      "units": 33,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "aa-en",
+      "units": 33,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "aa-es",
+      "units": 33,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "aa-hi",
+      "units": 33,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "aa-zh",
+      "units": 33,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ag-ar",
+      "units": 42,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ag-en",
+      "units": 42,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ag-es",
+      "units": 42,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ag-hi",
+      "units": 42,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ag-zh",
+      "units": 42,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-01-primeros-escritos-hi",
+      "units": 2181,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-02-confesiones-hi",
+      "units": 1952,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-en",
+      "units": 2880,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-08-cartas-1-hi",
+      "units": 2468,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-10-sermones-2-ar",
+      "units": 2512,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-11-cartas-2-hi",
+      "units": 2451,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-25-sermones-5-hi",
+      "units": 2285,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-hi",
+      "units": 1997,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-hi",
+      "units": 944,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "atanasio-de-incarnatione-ar",
+      "units": 95,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "atanasio-de-incarnatione-en",
+      "units": 95,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "atanasio-de-incarnatione-hi",
+      "units": 95,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "atanasio-de-incarnatione-zh",
+      "units": 95,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ca-en",
+      "units": 203,
+      "sampleSize": 11,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ca-en-ai",
+      "units": 114,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ca-hi",
+      "units": 114,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "calcedonia-en",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "calcedonia-hi",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "calcedonia-la",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "calcedonia-zh",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "carta-diogneto-ar",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "carta-diogneto-en",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "carta-diogneto-es",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "carta-diogneto-hi",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "carta-diogneto-zh",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "catecismo-romano-en",
+      "units": 1162,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "catecismo-romano-hi",
+      "units": 1162,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cceo-ar",
+      "units": 1514,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cceo-en-ai",
+      "units": 1514,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cceo-hi",
+      "units": 1514,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cceo-zh",
+      "units": 1514,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cd-ar",
+      "units": 43,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cd-en",
+      "units": 44,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cd-es",
+      "units": 43,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cd-hi",
+      "units": 43,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cd-zh",
+      "units": 43,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cdc-ar",
+      "units": 1744,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cdc-en-ai",
+      "units": 1744,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cdc-hi",
+      "units": 1744,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cdc-zh",
+      "units": 1744,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cds-ar",
+      "units": 583,
+      "sampleSize": 30,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cds-en",
+      "units": 583,
+      "sampleSize": 30,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cds-hi",
+      "units": 583,
+      "sampleSize": 30,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cds-zh",
+      "units": 583,
+      "sampleSize": 30,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cic-ar",
+      "units": 2856,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cic-en",
+      "units": 4021,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cipriano-cartas-ar",
+      "units": 829,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cipriano-cartas-hi",
+      "units": 829,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-en",
+      "units": 1015,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-hi",
+      "units": 1015,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-zh",
+      "units": 1015,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cl-ar",
+      "units": 64,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cl-en",
+      "units": 535,
+      "sampleSize": 27,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cl-en-ai",
+      "units": 64,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cl-hi",
+      "units": 64,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cl-zh",
+      "units": 64,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-i-ar",
+      "units": 11,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-i-en",
+      "units": 11,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-i-es",
+      "units": 11,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-i-hi",
+      "units": 11,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-i-la",
+      "units": 11,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-i-zh",
+      "units": 11,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-ii-ar",
+      "units": 16,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-ii-en",
+      "units": 16,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-ii-es",
+      "units": 16,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-ii-hi",
+      "units": 16,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-ii-la",
+      "units": 16,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-ii-zh",
+      "units": 16,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-iii-ar",
+      "units": 13,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-iii-en",
+      "units": 13,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-iii-es",
+      "units": 13,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-iii-hi",
+      "units": 13,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-iii-la",
+      "units": 13,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-iii-zh",
+      "units": 13,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-iv-ar",
+      "units": 26,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-iv-en",
+      "units": 26,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-iv-es",
+      "units": 26,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-iv-hi",
+      "units": 26,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-iv-la",
+      "units": 26,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constantinopla-iv-zh",
+      "units": 26,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constanza-ar",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constanza-en",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constanza-es",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constanza-hi",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constanza-la",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "constanza-zh",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cpd-ar",
+      "units": 30,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cpd-en",
+      "units": 39,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cpd-en-ai",
+      "units": 30,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cpd-es",
+      "units": 30,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cpd-hi",
+      "units": 30,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cpd-zh",
+      "units": 30,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ct-ar",
+      "units": 73,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ct-en",
+      "units": 255,
+      "sampleSize": 13,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ct-en-ai",
+      "units": 73,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ct-es",
+      "units": 73,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ct-hi",
+      "units": 73,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ct-zh",
+      "units": 73,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dcg-ar",
+      "units": 128,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dcg-en",
+      "units": 128,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dcg-es",
+      "units": 128,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dcg-hi",
+      "units": 128,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dcg-zh",
+      "units": 128,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dev-ar",
+      "units": 67,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dev-en",
+      "units": 215,
+      "sampleSize": 11,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dev-en-ai",
+      "units": 67,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dev-hi",
+      "units": 67,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dev-zh",
+      "units": 67,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dh-ar",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dh-en",
+      "units": 38,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dh-es",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dh-hi",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dh-zh",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "diuturnum-ar",
+      "units": 21,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "diuturnum-en",
+      "units": 42,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "diuturnum-en-ai",
+      "units": 21,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "diuturnum-es",
+      "units": 21,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "diuturnum-hi",
+      "units": 21,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "diuturnum-zh",
+      "units": 21,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dm-ar",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dm-en",
+      "units": 117,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dm-en-ai",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dm-es",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dm-hi",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dm-zh",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "donum-veritatis-ar",
+      "units": 42,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "donum-veritatis-en",
+      "units": 42,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "donum-veritatis-es",
+      "units": 42,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "donum-veritatis-hi",
+      "units": 42,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "donum-veritatis-zh",
+      "units": 42,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "donum-vitae-ar",
+      "units": 8,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "donum-vitae-en",
+      "units": 8,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "donum-vitae-es",
+      "units": 8,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "donum-vitae-hi",
+      "units": 8,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "donum-vitae-zh",
+      "units": 8,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ds-en",
+      "units": 1140,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dv-ar",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dv-en",
+      "units": 26,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dv-es",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dv-hi",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "dv-zh",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ee-ar",
+      "units": 62,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ee-en",
+      "units": 214,
+      "sampleSize": 11,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ee-en-ai",
+      "units": 62,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ee-es",
+      "units": 62,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ee-hi",
+      "units": 62,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ee-zh",
+      "units": 62,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "efeso-ar",
+      "units": 11,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "efeso-en",
+      "units": 11,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "efeso-es",
+      "units": 11,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "efeso-hi",
+      "units": 11,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "efeso-la",
+      "units": 11,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "efeso-zh",
+      "units": 11,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "en-ar",
+      "units": 82,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "en-en",
+      "units": 268,
+      "sampleSize": 14,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "en-en-ai",
+      "units": 82,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "en-es",
+      "units": 82,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "en-hi",
+      "units": 82,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "en-zh",
+      "units": 82,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ev-ar",
+      "units": 142,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ev-en-ai",
+      "units": 142,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ev-es",
+      "units": 142,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ev-hi",
+      "units": 142,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ev-zh",
+      "units": 142,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "fc-ar",
+      "units": 86,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "fc-en",
+      "units": 549,
+      "sampleSize": 28,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "fc-en-ai",
+      "units": 86,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "fc-es",
+      "units": 86,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "fc-hi",
+      "units": 86,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "fc-zh",
+      "units": 86,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "florencia-ar",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "florencia-en",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "florencia-es",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "florencia-hi",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "florencia-la",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "florencia-zh",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "gdc-en",
+      "units": 291,
+      "sampleSize": 15,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "gdc-es",
+      "units": 291,
+      "sampleSize": 15,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "gdc-hi",
+      "units": 291,
+      "sampleSize": 15,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ge-ar",
+      "units": 12,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ge-en",
+      "units": 36,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ge-es",
+      "units": 12,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ge-hi",
+      "units": 12,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ge-zh",
+      "units": 12,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-ar",
+      "units": 250,
+      "sampleSize": 13,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-hi",
+      "units": 250,
+      "sampleSize": 13,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "gs-ar",
+      "units": 92,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "gs-en",
+      "units": 93,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "gs-es",
+      "units": 92,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "gs-hi",
+      "units": 92,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "gs-zh",
+      "units": 92,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "hv-ar",
+      "units": 30,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "hv-en",
+      "units": 99,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "hv-en-ai",
+      "units": 30,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "hv-es",
+      "units": 30,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "hv-hi",
+      "units": 30,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "hv-zh",
+      "units": 30,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "igmr-ar",
+      "units": 398,
+      "sampleSize": 20,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "igmr-en",
+      "units": 399,
+      "sampleSize": 20,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "igmr-fr",
+      "units": 399,
+      "sampleSize": 20,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "igmr-hi",
+      "units": 398,
+      "sampleSize": 20,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "igmr-it",
+      "units": 397,
+      "sampleSize": 20,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "igmr-zh",
+      "units": 398,
+      "sampleSize": 20,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "im-ar",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "im-en",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "im-es",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "im-hi",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "im-zh",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "immortale-dei-ar",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "immortale-dei-en",
+      "units": 58,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "immortale-dei-en-ai",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "immortale-dei-es",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "immortale-dei-hi",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "immortale-dei-zh",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "indulgentiarum-doctrina-ar",
+      "units": 12,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "indulgentiarum-doctrina-en",
+      "units": 114,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "indulgentiarum-doctrina-en-ai",
+      "units": 12,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "indulgentiarum-doctrina-es",
+      "units": 12,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "indulgentiarum-doctrina-hi",
+      "units": 12,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "indulgentiarum-doctrina-zh",
+      "units": 12,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "iura-et-bona-ar",
+      "units": 3,
+      "sampleSize": 3,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "iura-et-bona-en",
+      "units": 3,
+      "sampleSize": 3,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "iura-et-bona-es",
+      "units": 3,
+      "sampleSize": 3,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "iura-et-bona-hi",
+      "units": 3,
+      "sampleSize": 3,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "iura-et-bona-zh",
+      "units": 3,
+      "sampleSize": 3,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "jerusalen-ar",
+      "units": 41,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "jerusalen-en",
+      "units": 41,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "jerusalen-es",
+      "units": 41,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "jerusalen-hi",
+      "units": 41,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "jerusalen-la",
+      "units": 41,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "jerusalen-zh",
+      "units": 41,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-i-en",
+      "units": 14,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-i-es",
+      "units": 14,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-i-hi",
+      "units": 14,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-i-la",
+      "units": 14,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-i-zh",
+      "units": 14,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-ii-ar",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-ii-en",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-ii-es",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-ii-hi",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-ii-la",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-ii-zh",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-iii-ar",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-iii-en",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-iii-es",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-iii-hi",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-iii-la",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-iii-zh",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-iv-ar",
+      "units": 18,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-iv-en",
+      "units": 18,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-iv-es",
+      "units": 18,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-iv-hi",
+      "units": 18,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-iv-la",
+      "units": 18,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-iv-zh",
+      "units": 18,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-v-ar",
+      "units": 23,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-v-en",
+      "units": 23,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-v-es",
+      "units": 23,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-v-hi",
+      "units": 23,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-v-la",
+      "units": 23,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lateran-v-zh",
+      "units": 23,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "le-ar",
+      "units": 87,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "le-en",
+      "units": 147,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "le-en-ai",
+      "units": 87,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "le-es",
+      "units": 87,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "le-hi",
+      "units": 87,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "le-zh",
+      "units": 87,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lg-ar",
+      "units": 69,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lg-en",
+      "units": 69,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lg-es",
+      "units": 69,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lg-hi",
+      "units": 69,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lg-zh",
+      "units": 69,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "libertas-ar",
+      "units": 34,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "libertas-en",
+      "units": 55,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "libertas-en-ai",
+      "units": 34,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "libertas-es",
+      "units": 34,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "libertas-hi",
+      "units": 34,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "libertas-zh",
+      "units": 34,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "libertatis-conscientia-ar",
+      "units": 100,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "libertatis-conscientia-en",
+      "units": 100,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "libertatis-conscientia-es",
+      "units": 100,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "libertatis-conscientia-hi",
+      "units": 100,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "libertatis-conscientia-zh",
+      "units": 100,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lyon-i-ar",
+      "units": 14,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lyon-i-en",
+      "units": 14,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lyon-i-es",
+      "units": 14,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lyon-i-hi",
+      "units": 14,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lyon-i-la",
+      "units": 14,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lyon-i-zh",
+      "units": 14,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lyon-ii-ar",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lyon-ii-en",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lyon-ii-es",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lyon-ii-hi",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lyon-ii-la",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "lyon-ii-zh",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mc-en",
+      "units": 209,
+      "sampleSize": 11,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mc-en-ai",
+      "units": 102,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mc-es",
+      "units": 102,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mc-hi",
+      "units": 102,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mc-zh",
+      "units": 102,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "md-ar",
+      "units": 31,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "md-en",
+      "units": 169,
+      "sampleSize": 9,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "md-en-ai",
+      "units": 31,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "md-hi",
+      "units": 31,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "md-zh",
+      "units": 31,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mf-ar",
+      "units": 8,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mf-en",
+      "units": 140,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mf-en-ai",
+      "units": 8,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mf-es",
+      "units": 8,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mf-hi",
+      "units": 8,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mf-zh",
+      "units": 8,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "missale-romanum-apc-ar",
+      "units": 18,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "missale-romanum-apc-en",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "missale-romanum-apc-es",
+      "units": 18,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "missale-romanum-apc-hi",
+      "units": 18,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "missale-romanum-apc-it",
+      "units": 18,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "missale-romanum-apc-la",
+      "units": 18,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "missale-romanum-apc-pt",
+      "units": 16,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "missale-romanum-apc-zh",
+      "units": 18,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mm-ar",
+      "units": 251,
+      "sampleSize": 13,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mm-en",
+      "units": 314,
+      "sampleSize": 16,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mm-en-ai",
+      "units": 251,
+      "sampleSize": 13,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mm-es",
+      "units": 251,
+      "sampleSize": 13,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mm-hi",
+      "units": 251,
+      "sampleSize": 13,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mm-zh",
+      "units": 251,
+      "sampleSize": 13,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mysterium-ecclesiae-ar",
+      "units": 6,
+      "sampleSize": 6,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mysterium-ecclesiae-en",
+      "units": 6,
+      "sampleSize": 6,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mysterium-ecclesiae-hi",
+      "units": 6,
+      "sampleSize": 6,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "mysterium-ecclesiae-zh",
+      "units": 6,
+      "sampleSize": 6,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "na-ar",
+      "units": 5,
+      "sampleSize": 5,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "na-en",
+      "units": 15,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "na-hi",
+      "units": 5,
+      "sampleSize": 5,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "na-zh",
+      "units": 5,
+      "sampleSize": 5,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nicea-i-ar",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nicea-i-en",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nicea-i-es",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nicea-i-hi",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nicea-i-la",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nicea-i-zh",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nicea-ii-ar",
+      "units": 27,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nicea-ii-en",
+      "units": 27,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nicea-ii-es",
+      "units": 27,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nicea-ii-hi",
+      "units": 27,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nicea-ii-la",
+      "units": 27,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nicea-ii-zh",
+      "units": 27,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nmi-ar",
+      "units": 59,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nmi-en",
+      "units": 182,
+      "sampleSize": 10,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nmi-en-ai",
+      "units": 59,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nmi-es",
+      "units": 59,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nmi-hi",
+      "units": 59,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "nmi-zh",
+      "units": 59,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ot-ar",
+      "units": 22,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ot-en",
+      "units": 21,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ot-hi",
+      "units": 22,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ot-zh",
+      "units": 22,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pastoralis-actio-ar",
+      "units": 34,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pastoralis-actio-en",
+      "units": 34,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pastoralis-actio-es",
+      "units": 34,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pastoralis-actio-hi",
+      "units": 34,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pastoralis-actio-zh",
+      "units": 34,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pc-ar",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pc-en",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pc-es",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pc-hi",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pc-zh",
+      "units": 25,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pdv-ar",
+      "units": 82,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pdv-en",
+      "units": 544,
+      "sampleSize": 28,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pdv-en-ai",
+      "units": 82,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pdv-es",
+      "units": 82,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pdv-hi",
+      "units": 82,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pdv-zh",
+      "units": 82,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "persona-humana-ar",
+      "units": 13,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "persona-humana-en",
+      "units": 13,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "persona-humana-es",
+      "units": 13,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "persona-humana-hi",
+      "units": 13,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "persona-humana-zh",
+      "units": 13,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pg-ar",
+      "units": 74,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pg-en",
+      "units": 580,
+      "sampleSize": 29,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pg-en-ai",
+      "units": 74,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pg-es",
+      "units": 74,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pg-hi",
+      "units": 74,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pg-zh",
+      "units": 74,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "po-ar",
+      "units": 22,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "po-en",
+      "units": 68,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "po-es",
+      "units": 22,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "po-hi",
+      "units": 22,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "po-zh",
+      "units": 22,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pp-ar",
+      "units": 87,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pp-en",
+      "units": 202,
+      "sampleSize": 11,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pp-en-ai",
+      "units": 87,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pp-hi",
+      "units": 87,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pp-zh",
+      "units": 87,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pt-ar",
+      "units": 169,
+      "sampleSize": 9,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pt-en",
+      "units": 274,
+      "sampleSize": 14,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pt-en-ai",
+      "units": 169,
+      "sampleSize": 9,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pt-es",
+      "units": 169,
+      "sampleSize": 9,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pt-hi",
+      "units": 169,
+      "sampleSize": 9,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "pt-zh",
+      "units": 169,
+      "sampleSize": 9,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "quanta-cura-ar",
+      "units": 96,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "quanta-cura-en",
+      "units": 201,
+      "sampleSize": 11,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "quanta-cura-en-ai",
+      "units": 96,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "quanta-cura-es",
+      "units": 96,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "quanta-cura-hi",
+      "units": 96,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "quanta-cura-la",
+      "units": 96,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "quanta-cura-zh",
+      "units": 96,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "quas-primas-ar",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "quas-primas-en",
+      "units": 38,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "quas-primas-en-ai",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "quas-primas-es",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "quas-primas-hi",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "quas-primas-zh",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rh-ar",
+      "units": 136,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rh-en",
+      "units": 114,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rh-en-ai",
+      "units": 136,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rh-es",
+      "units": 136,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rh-hi",
+      "units": 136,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rh-zh",
+      "units": 136,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rm-ar",
+      "units": 92,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rm-en",
+      "units": 326,
+      "sampleSize": 17,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rm-en-ai",
+      "units": 92,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rm-hi",
+      "units": 92,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rm-zh",
+      "units": 92,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rp-ar",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rp-en",
+      "units": 352,
+      "sampleSize": 18,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rp-en-ai",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rp-es",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rp-hi",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "rp-zh",
+      "units": 35,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "sa-ar",
+      "units": 31,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "sa-en",
+      "units": 145,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "sa-en-ai",
+      "units": 31,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "sa-es",
+      "units": 31,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "sa-hi",
+      "units": 31,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "sa-zh",
+      "units": 31,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "sc-ar",
+      "units": 129,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "sc-en",
+      "units": 129,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "sc-es",
+      "units": 129,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "sc-hi",
+      "units": 129,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "sc-zh",
+      "units": 129,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "srs-ar",
+      "units": 49,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "srs-en",
+      "units": 252,
+      "sampleSize": 13,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "srs-en-ai",
+      "units": 49,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "srs-es",
+      "units": 49,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "srs-hi",
+      "units": 49,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "srs-zh",
+      "units": 49,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "tma-ar",
+      "units": 59,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "tma-en",
+      "units": 131,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "tma-en-ai",
+      "units": 59,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "tma-es",
+      "units": 59,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "tma-hi",
+      "units": 59,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "tma-zh",
+      "units": 59,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "trento-ar",
+      "units": 48,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "trento-en",
+      "units": 48,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "trento-es",
+      "units": 48,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "trento-hi",
+      "units": 48,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "trento-la",
+      "units": 48,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "trento-zh",
+      "units": 48,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ur-ar",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ur-en",
+      "units": 42,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ur-es",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ur-hi",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "ur-zh",
+      "units": 24,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vat-i-ar",
+      "units": 23,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vat-i-en",
+      "units": 23,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vat-i-es",
+      "units": 23,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vat-i-hi",
+      "units": 23,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vat-i-la",
+      "units": 23,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vat-i-zh",
+      "units": 23,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vc-ar",
+      "units": 112,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vc-en",
+      "units": 252,
+      "sampleSize": 13,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vc-en-ai",
+      "units": 112,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vc-hi",
+      "units": 112,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vc-zh",
+      "units": 112,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vienne-ar",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vienne-en",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vienne-es",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vienne-hi",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vienne-la",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vienne-zh",
+      "units": 17,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vs-en",
+      "units": 315,
+      "sampleSize": 16,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vs-en-ai",
+      "units": 184,
+      "sampleSize": 10,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vs-es",
+      "units": 184,
+      "sampleSize": 10,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vs-hi",
+      "units": 184,
+      "sampleSize": 10,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "vs-zh",
+      "units": 184,
+      "sampleSize": 10,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    }
+  ]
+}
