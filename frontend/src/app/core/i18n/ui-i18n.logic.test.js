@@ -212,6 +212,8 @@ async function main() {
     ],
     lector: [
       'reader.loading_document',
+      'reader.hydrate_wait',
+      'reader.hydrate_pray',
       'reader.doc_start',
       'reader.narrator',
       'reader.prefs_title',

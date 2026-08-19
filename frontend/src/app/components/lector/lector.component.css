@@ -41,6 +41,26 @@
   }
 }
 
+.hydrate {
+  text-align: center;
+  padding: 28px 12px 12px;
+}
+
+.hydrate-pray {
+  margin-top: 18px;
+  max-width: 36ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--app-font-serif, Georgia, serif);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.hydrate-pray p {
+  margin: 0 0 10px;
+}
+
 .ttl {
   flex: 1;
   min-width: 0;

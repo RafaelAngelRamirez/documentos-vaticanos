@@ -180,6 +180,30 @@ export class CorpusService {
     return this.engine.getLoaded(documentId) as LoadedDocument | undefined;
   }
 
+  /**
+   * Reader path: body window, no index.json. Durable persist is background.
+   */
+  ensureWindow(
+    documentId: string,
+    focusIndex: number,
+    radius: number
+  ): Observable<LoadedDocument> {
+    return from(
+      this.engine.ensureWindow(documentId, focusIndex, radius) as Promise<LoadedDocument>
+    );
+  }
+
+  /** Fill more units of a windowed document (scroll / narrator). */
+  ensureUnits(
+    documentId: string,
+    from: number,
+    to: number
+  ): Observable<LoadedDocument> {
+    return from(
+      this.engine.ensureUnits(documentId, from, to) as Promise<LoadedDocument>
+    );
+  }
+
   toIndiceDocumentos(loaded: LoadedDocument): IndiceDocumentos {
     return {
       id: loaded.meta.id,
@@ -191,6 +215,7 @@ export class CorpusService {
       sourceUrl: loaded.meta.sourceUrl,
       documento: loaded.documento,
       indice: loaded.indice,
+      partial: loaded.partial,
     };
   }
 

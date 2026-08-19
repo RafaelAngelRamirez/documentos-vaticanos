@@ -99,10 +99,13 @@ export interface IndiceDocumentos {
   sourceUrl?: string;
   documento: Article[];
   indice: Indice;
+  /** True when the body array may have holes (windowed load). */
+  partial?: boolean;
 }
 
 export interface LoadedDocument {
   meta: DocumentMeta;
   documento: Article[];
   indice: Indice;
+  partial?: boolean;
 }

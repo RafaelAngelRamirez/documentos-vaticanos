@@ -46,6 +46,11 @@ export interface LoadedDocument {
   meta: DocumentMeta;
   documento: Article[];
   indice: Indice;
+  /**
+   * True when `documento` may have holes (windowed / chunked load).
+   * Reader may render; search / full-body callers should `ensureLoaded`.
+   */
+  partial?: boolean;
 }
 
 /**
@@ -121,6 +126,53 @@ export function toStoredManifest(manifest: {
   };
 }
 
+export const BODY_CHUNK_SIZE = 40;
+
+export function chunkIndexForUnit(
+  unitIndex: number,
+  size: number = BODY_CHUNK_SIZE
+): number {
+  if (!Number.isFinite(unitIndex) || unitIndex < 0) return 0;
+  return Math.floor(unitIndex / size);
+}
+
+export function chunkRangeForWindow(
+  from: number,
+  to: number,
+  size: number = BODY_CHUNK_SIZE
+): { fromChunk: number; toChunk: number } {
+  const a = Math.max(0, Math.min(from, to));
+  const b = Math.max(0, Math.max(from, to));
+  return {
+    fromChunk: chunkIndexForUnit(a, size),
+    toChunk: chunkIndexForUnit(b, size),
+  };
+}
+
+export function windowIsFilled(
+  documento: Article[] | undefined,
+  from: number,
+  to: number
+): boolean {
+  if (!documento || !documento.length) return false;
+  const start = Math.max(0, from);
+  const end = Math.min(documento.length, Math.max(from, to));
+  for (let i = start; i < end; i++) {
+    if (!documento[i]) return false;
+  }
+  return start < end || from >= end;
+}
+
+export interface StoredDocumentHead {
+  documentId: string;
+  fingerprint: string;
+  meta: DocumentMeta;
+  unitCount: number;
+  chunkCount: number;
+  savedAt: number;
+  hasIndex?: boolean;
+}
+
 export interface CorpusDurableStore {
   getManifest(): Promise<StoredManifest | null>;
   setManifest(manifest: StoredManifest): Promise<void>;
@@ -128,6 +180,19 @@ export interface CorpusDurableStore {
   setDocument(doc: StoredDocument): Promise<void>;
   deleteDocument(documentId: string): Promise<void>;
   clear(): Promise<void>;
+  /** Optional: read only a range of units (chunked stores). */
+  getUnits?(
+    documentId: string,
+    from: number,
+    to: number
+  ): Promise<Article[] | null>;
+  /** Optional: fingerprint + counts without cloning the body. */
+  peekDocument?(
+    documentId: string
+  ): Promise<Pick<
+    StoredDocument,
+    'documentId' | 'fingerprint' | 'meta' | 'savedAt'
+  > | null>;
 }
 
 /** In-memory durable store for tests (shared across engine restarts). */
@@ -169,6 +234,34 @@ export class MemoryCorpusStore implements CorpusDurableStore {
 
   async deleteDocument(documentId: string): Promise<void> {
     this.docs.delete(documentId);
+  }
+
+  async peekDocument(
+    documentId: string
+  ): Promise<Pick<
+    StoredDocument,
+    'documentId' | 'fingerprint' | 'meta' | 'savedAt'
+  > | null> {
+    const d = this.docs.get(documentId);
+    if (!d) return null;
+    return {
+      documentId: d.documentId,
+      fingerprint: d.fingerprint,
+      meta: { ...d.meta },
+      savedAt: d.savedAt,
+    };
+  }
+
+  async getUnits(
+    documentId: string,
+    from: number,
+    to: number
+  ): Promise<Article[] | null> {
+    const d = this.docs.get(documentId);
+    if (!d || !Array.isArray(d.documento)) return null;
+    const start = Math.max(0, from);
+    const end = Math.min(d.documento.length, Math.max(from, to));
+    return d.documento.slice(start, end).map((a) => ({ ...a }));
   }
 
   async clear(): Promise<void> {
@@ -388,7 +481,7 @@ export class CorpusLoadEngine {
 
   async ensureLoaded(documentId: string): Promise<LoadedDocument> {
     const cached = this.cache.get(documentId);
-    if (cached) {
+    if (cached && !cached.partial) {
       return cached;
     }
 
@@ -453,16 +546,199 @@ export class CorpusLoadEngine {
       meta,
       documento,
       indice,
+      partial: false,
     };
     this.remember(loaded);
     this.indexCache.set(meta.id, indice);
+    await this.persistLoaded(loaded);
+    return loaded;
+  }
 
-    const storedDoc: StoredDocument = {
-      documentId: meta.id,
-      fingerprint: documentFingerprint(meta),
+  /**
+   * Reader path: body only (no index.json), optional unit window from durable
+   * chunks. Persists in the background so first paint is not blocked by IDB.
+   */
+  async ensureWindow(
+    documentId: string,
+    focusIndex: number,
+    radius: number
+  ): Promise<LoadedDocument> {
+    const cached = this.cache.get(documentId);
+    const from = Math.max(0, (focusIndex || 0) - Math.max(0, radius));
+    const to = (focusIndex || 0) + Math.max(0, radius) + 1;
+    if (cached && !cached.partial && cached.documento.length) {
+      return cached;
+    }
+    if (cached && windowIsFilled(cached.documento, from, to)) {
+      return cached;
+    }
+
+    const pendingFull = this.inflight.get(documentId);
+    if (pendingFull) {
+      return pendingFull;
+    }
+
+    return this.loadWindow(documentId, from, to);
+  }
+
+  /**
+   * Fill more units of a partial in-memory document (scroll / narrator).
+   */
+  async ensureUnits(
+    documentId: string,
+    from: number,
+    to: number
+  ): Promise<LoadedDocument> {
+    const cached = this.cache.get(documentId);
+    if (cached && !cached.partial) {
+      return cached;
+    }
+    if (cached && windowIsFilled(cached.documento, from, to)) {
+      return cached;
+    }
+    const pendingFull = this.inflight.get(documentId);
+    if (pendingFull) {
+      return pendingFull;
+    }
+    return this.loadWindow(documentId, from, to);
+  }
+
+  private async loadWindow(
+    documentId: string,
+    from: number,
+    to: number
+  ): Promise<LoadedDocument> {
+    const metas = await this.loadManifest();
+    const meta = metas.find((m) => this.matchesMeta(m, documentId));
+    if (!meta) {
+      throw new Error(`Document not found in manifest: ${documentId}`);
+    }
+
+    const byId = this.cache.get(meta.id);
+    if (byId && !byId.partial) {
+      return byId;
+    }
+    if (byId && windowIsFilled(byId.documento, from, to)) {
+      return byId;
+    }
+
+    try {
+      if (typeof this.store.getUnits === 'function') {
+        const peek =
+          typeof this.store.peekDocument === 'function'
+            ? await this.store.peekDocument(meta.id)
+            : await this.store.getDocument(meta.id);
+        if (
+          peek &&
+          peek.documentId === meta.id &&
+          peek.fingerprint === documentFingerprint(meta)
+        ) {
+          const units = await this.store.getUnits(meta.id, from, to);
+          if (units && units.length) {
+            const unitCount = meta.unitCount || byId?.documento.length || 0;
+            const stub: StoredDocument = {
+              documentId: meta.id,
+              fingerprint: peek.fingerprint,
+              meta,
+              documento: new Array(unitCount || to),
+              indice: { indice: {}, indice_por_punto: {} },
+              savedAt: peek.savedAt,
+            };
+            const merged = this.mergeUnits(byId, meta, stub, units, from, to);
+            this.remember(merged);
+            return merged;
+          }
+        }
+      }
+
+      const storedFull = await this.store.getDocument(meta.id);
+      if (isStoredDocumentValid(storedFull, meta) && storedFull) {
+        const loaded: LoadedDocument = {
+          meta,
+          documento: this.stampIndexArray(
+            Array.isArray(storedFull.documento)
+              ? ([...storedFull.documento] as Article[])
+              : []
+          ),
+          indice: this.normalizeIndex(storedFull.indice),
+          partial: false,
+        };
+        this.remember(loaded);
+        return loaded;
+      }
+    } catch {
+      /* fall through to HTTP body */
+    }
+
+    const bodyUrl = this.resolveAssetPath(meta.bodyPath);
+    const body = await this.getJson<Article[]>(bodyUrl);
+    const documento = this.stampIndexArray(
+      Array.isArray(body) ? ([...body] as Article[]) : []
+    );
+    const indice = this.indexCache.get(meta.id) || {
+      indice: {},
+      indice_por_punto: {},
+    };
+    const loaded: LoadedDocument = {
       meta,
       documento,
       indice,
+      partial: false,
+    };
+    this.remember(loaded);
+    void this.persistLoaded(loaded);
+    return loaded;
+  }
+
+  private mergeUnits(
+    existing: LoadedDocument | undefined,
+    meta: DocumentMeta,
+    stored: StoredDocument,
+    units: Article[],
+    from: number,
+    to: number
+  ): LoadedDocument {
+    const unitCount =
+      stored.documento?.length ||
+      meta.unitCount ||
+      Math.max(to, from + units.length);
+    const documento = existing?.documento?.length
+      ? existing.documento
+      : new Array(unitCount);
+    if (documento.length < unitCount) {
+      documento.length = unitCount;
+    }
+    for (const article of units) {
+      const i =
+        typeof article.index_array === 'number'
+          ? article.index_array
+          : documento.indexOf(article);
+      if (i >= 0) {
+        documento[i] = article;
+        article.index_array = i;
+      }
+    }
+    // Stamp any unstamped slice we just copied.
+    for (let i = Math.max(0, from); i < Math.min(documento.length, to); i++) {
+      if (documento[i]) documento[i].index_array = i;
+    }
+    const filled = windowIsFilled(documento, 0, documento.length);
+    return {
+      meta,
+      documento,
+      indice: existing?.indice || this.normalizeIndex(stored.indice),
+      partial: !filled,
+    };
+  }
+
+  private async persistLoaded(loaded: LoadedDocument): Promise<void> {
+    if (loaded.partial) return;
+    const storedDoc: StoredDocument = {
+      documentId: loaded.meta.id,
+      fingerprint: documentFingerprint(loaded.meta),
+      meta: loaded.meta,
+      documento: loaded.documento,
+      indice: loaded.indice,
       savedAt: Date.now(),
     };
     try {
@@ -470,8 +746,6 @@ export class CorpusLoadEngine {
     } catch {
       /* quota — keep memory only */
     }
-
-    return loaded;
   }
 
   async ensureAllLoaded(): Promise<LoadedDocument[]> {

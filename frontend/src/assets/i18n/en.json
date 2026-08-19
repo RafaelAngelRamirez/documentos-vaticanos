@@ -50,6 +50,8 @@
   "settings.account": "Account",
   "reader.loading": "Loading reading…",
   "reader.loading_document": "Loading document…",
+  "reader.hydrate_wait": "The first load can take a while on a slow connection. Please wait with us.",
+  "reader.hydrate_pray": "In the meantime, you might pray an Our Father and a Hail Mary for the intentions of the Pope.",
   "reader.start": "Start",
   "reader.language": "Language",
   "reader.language_aria": "Text language",
@@ -107,5 +109,6 @@
   "inicio.start": "Get started",
   "inicio.have_account": "I already have an account",
   "inicio.saints_today": "Saints of the day",
+  "inicio.readings_today": "Readings of the day",
   "badge.ai": "AI translation"
 }

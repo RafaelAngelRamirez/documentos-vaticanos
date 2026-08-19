@@ -44,6 +44,10 @@ import { nextSpeakableIndex } from 'src/app/services/speech-prep.logic';
 import { coverNavCommandsForDocumentId } from 'src/app/core/santoral/santoral-units.logic';
 
 const CONTEXT_SIZE = 5;
+/** Max units kept in the DOM (sliding window). */
+const MAX_RENDERED = 28;
+/** Show the hydration / prayer copy if the body is still loading. */
+const SLOW_LOAD_MS = 800;
 
 interface ThemeOption {
   value: ReaderTheme;
@@ -70,6 +74,8 @@ export class LectorComponent implements OnInit, OnDestroy {
   actual_superior_limit = 0;
 
   loading = false;
+  /** True after SLOW_LOAD_MS while still waiting on first body bytes. */
+  slowLoad = false;
   load_error: string | null = null;
 
   prefsOpen = false;
@@ -118,6 +124,7 @@ export class LectorComponent implements OnInit, OnDestroy {
   private io?: IntersectionObserver;
   private scrollPending = false;
   private persistTimer: ReturnType<typeof setTimeout> | null = null;
+  private slowLoadTimer: ReturnType<typeof setTimeout> | null = null;
   private selDebounce: ReturnType<typeof setTimeout> | null = null;
   private feedbackTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -255,6 +262,10 @@ export class LectorComponent implements OnInit, OnDestroy {
     if (this.persistTimer) {
       clearTimeout(this.persistTimer);
       this.persistProgress(this.visibleIndex);
+    }
+    if (this.slowLoadTimer) {
+      clearTimeout(this.slowLoadTimer);
+      this.slowLoadTimer = null;
     }
   }
 
@@ -790,10 +801,17 @@ export class LectorComponent implements OnInit, OnDestroy {
     }
 
     this.loading = true;
+    this.slowLoad = false;
     this.load_error = null;
+    this.armSlowLoad();
+    const focus = Number.isFinite(this.actual_index) ? this.actual_index : 0;
+    const radius = CONTEXT_SIZE + this.quantity_to_load;
     this.sub.add(
-      this.cargarDocumentosJsonService.ensureLoaded(effectiveKey).subscribe({
+      this.cargarDocumentosJsonService
+        .ensureWindow(effectiveKey, focus, radius)
+        .subscribe({
         next: (doc) => {
+          this.clearSlowLoad();
           this.loading = false;
           this.document = doc;
           this.navigationService.document_selected = doc;
@@ -802,6 +820,7 @@ export class LectorComponent implements OnInit, OnDestroy {
           this.generate_context_for_article();
         },
         error: (err) => {
+          this.clearSlowLoad();
           this.loading = false;
           this.load_error =
             err?.message ?? `No se pudo cargar el documento: ${effectiveKey}`;
@@ -809,6 +828,22 @@ export class LectorComponent implements OnInit, OnDestroy {
         },
       })
     );
+  }
+
+  private armSlowLoad(): void {
+    if (this.slowLoadTimer) clearTimeout(this.slowLoadTimer);
+    this.slowLoadTimer = setTimeout(() => {
+      this.slowLoadTimer = null;
+      this.slowLoad = true;
+    }, SLOW_LOAD_MS);
+  }
+
+  private clearSlowLoad(): void {
+    if (this.slowLoadTimer) {
+      clearTimeout(this.slowLoadTimer);
+      this.slowLoadTimer = null;
+    }
+    this.slowLoad = false;
   }
 
   private applyRoutePunto(routePunto: string | null) {
@@ -882,11 +917,14 @@ export class LectorComponent implements OnInit, OnDestroy {
 
     this.actual_inferior_limit = inferior_limit;
     this.actual_superior_limit = superior_limit;
-
+    this.trimRenderedWindow(this.actual_index);
     this.actual_articles = this._get_articles(
       this.actual_inferior_limit,
       this.actual_superior_limit
     );
+    if (this.windowHasHoles(this.actual_inferior_limit, this.actual_superior_limit)) {
+      void this.fillWindowIfNeeded();
+    }
 
     const actual_article_in_list = this.actual_articles.find(
       (article) => article.article.index_array === this.actual_index
@@ -925,11 +963,8 @@ export class LectorComponent implements OnInit, OnDestroy {
     let new_inferior_limit = this.actual_inferior_limit - this.quantity_to_load;
     if (new_inferior_limit < 0) new_inferior_limit = 0;
     this.actual_inferior_limit = new_inferior_limit;
-
-    this.actual_articles = this._get_articles(
-      this.actual_inferior_limit,
-      this.actual_superior_limit
-    );
+    this.trimRenderedWindow(this.visibleIndex);
+    void this.fillWindowIfNeeded();
   }
 
   load_next() {
@@ -939,11 +974,65 @@ export class LectorComponent implements OnInit, OnDestroy {
 
     if (new_superior_limit > document_size) new_superior_limit = document_size;
     this.actual_superior_limit = new_superior_limit;
+    this.trimRenderedWindow(this.visibleIndex);
+    void this.fillWindowIfNeeded();
+  }
 
-    this.actual_articles = this._get_articles(
-      this.actual_inferior_limit,
-      this.actual_superior_limit
+  /** Keep only ~MAX_RENDERED units around the current visible index. */
+  private trimRenderedWindow(anchorIndex: number): void {
+    const total = this.document?.documento.length ?? 0;
+    let lo = this.actual_inferior_limit;
+    let hi = this.actual_superior_limit;
+    if (hi - lo <= MAX_RENDERED) return;
+    const half = Math.floor(MAX_RENDERED / 2);
+    lo = Math.max(0, anchorIndex - half);
+    hi = Math.min(total, lo + MAX_RENDERED);
+    this.actual_inferior_limit = lo;
+    this.actual_superior_limit = hi;
+  }
+
+  private fillWindowIfNeeded(): void {
+    const doc = this.document;
+    if (!doc?.id) {
+      this.actual_articles = this._get_articles(
+        this.actual_inferior_limit,
+        this.actual_superior_limit
+      );
+      return;
+    }
+    const from = this.actual_inferior_limit;
+    const to = this.actual_superior_limit;
+    const holes = this.windowHasHoles(from, to);
+    if (!holes && !doc.partial) {
+      this.actual_articles = this._get_articles(from, to);
+      return;
+    }
+    this.sub.add(
+      this.cargarDocumentosJsonService.ensureUnits(doc.id, from, to).subscribe({
+        next: (fresh) => {
+          this.document = fresh;
+          this.navigationService.document_selected = fresh;
+          this.actual_articles = this._get_articles(
+            this.actual_inferior_limit,
+            this.actual_superior_limit
+          );
+        },
+        error: (err) => console.error(err),
+      })
     );
+  }
+
+  private windowHasHoles(from: number, to: number): boolean {
+    const arr = this.document?.documento;
+    if (!arr) return true;
+    for (let i = from; i < to && i < arr.length; i++) {
+      if (!arr[i]) return true;
+    }
+    return false;
+  }
+
+  trackByArticle(_i: number, info: ArticleInfo): number | string {
+    return info?.article?.index_array ?? _i;
   }
 
   /** Etiqueta de unidad para un índice global del documento. */
@@ -1029,11 +1118,13 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   private _get_articles(inferior_limit = 0, superior_limit = 0) {
-    let articles =
+    const slice =
       this.document?.documento.slice(inferior_limit, superior_limit) ?? [];
 
-    return articles.map((article) => {
-      return { article, terms_pure: [] } as ArticleInfo;
-    });
+    return slice
+      .filter((article): article is NonNullable<typeof article> => !!article)
+      .map((article) => {
+        return { article, terms_pure: [] } as ArticleInfo;
+      });
   }
 }

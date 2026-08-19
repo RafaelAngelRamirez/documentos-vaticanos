@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Unreleased
+
+* **reader:** open a unit window without waiting on index.json or IndexedDB write; persist body as chunks; cap rendered units; slow-load hydration copy (Padre Nuestro / Ave María)
+* **inicio:** hide account chrome; replace IGMR with lecturas del día; one date; no download icons on Android
+
 ### 0.0.23 (2026-08-13)
 
 

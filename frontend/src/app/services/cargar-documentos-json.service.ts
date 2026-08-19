@@ -84,6 +84,37 @@ export class CargarDocumentosJsonService {
   }
 
   /**
+   * Lector: hydrate a window around `focusIndex` without waiting on index.json.
+   */
+  ensureWindow(
+    documentId: string,
+    focusIndex: number,
+    radius: number
+  ): Observable<IndiceDocumentos> {
+    if (this.santoral.isReadingDocumentId(documentId)) {
+      return this.ensureLoaded(documentId);
+    }
+    return this.corpus.ensureWindow(documentId, focusIndex, radius).pipe(
+      map((loaded) => this.corpus.toIndiceDocumentos(loaded)),
+      tap((doc) => this.upsertDisponible(doc))
+    );
+  }
+
+  ensureUnits(
+    documentId: string,
+    from: number,
+    to: number
+  ): Observable<IndiceDocumentos> {
+    if (this.santoral.isReadingDocumentId(documentId)) {
+      return this.ensureLoaded(documentId);
+    }
+    return this.corpus.ensureUnits(documentId, from, to).pipe(
+      map((loaded) => this.corpus.toIndiceDocumentos(loaded)),
+      tap((doc) => this.upsertDisponible(doc))
+    );
+  }
+
+  /**
    * Index-only load (PR2b). Saints fall back to full ensureLoaded (no separate index).
    */
   ensureIndex(documentId: string): Observable<IndiceDocumentos> {

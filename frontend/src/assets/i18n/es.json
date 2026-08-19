@@ -50,6 +50,8 @@
   "settings.account": "Cuenta",
   "reader.loading": "Cargando lectura…",
   "reader.loading_document": "Cargando documento…",
+  "reader.hydrate_wait": "La primera carga puede tardar si la conexión es lenta. Espérenos, por favor.",
+  "reader.hydrate_pray": "Mientras tanto, puede rezar un Padre Nuestro y un Ave María por las intenciones del Papa.",
   "reader.start": "Empezar",
   "reader.language": "Idioma",
   "reader.language_aria": "Idioma del texto",
@@ -107,5 +109,6 @@
   "inicio.start": "Empezar",
   "inicio.have_account": "Ya tengo cuenta",
   "inicio.saints_today": "Santos del día",
+  "inicio.readings_today": "Lecturas del día",
   "badge.ai": "Traducción por IA"
 }

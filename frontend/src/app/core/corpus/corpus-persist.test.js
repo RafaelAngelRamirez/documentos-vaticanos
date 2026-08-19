@@ -119,8 +119,31 @@ async function main() {
   const idbSrc = fs.readFileSync(IDB_TS, 'utf8');
   assert.ok(idbSrc.includes('indexedDB'), 'IDB store uses indexedDB API');
   assert.ok(idbSrc.includes('dv-corpus-v1'), 'stable IDB database name');
+  assert.ok(idbSrc.includes('docChunks'), 'IDB stores body as unit chunks');
 
   const facadeSrc = fs.readFileSync(FACADE_TS, 'utf8');
+  assert.ok(
+    facadeSrc.includes('ensureWindow'),
+    'facade exposes ensureWindow for the reader'
+  );
+  const lectorSrc = fs.readFileSync(
+    path.join(FRONTEND, 'src/app/components/lector/lector.component.ts'),
+    'utf8'
+  );
+  assert.ok(
+    lectorSrc.includes('ensureWindow'),
+    'lector opens a document via ensureWindow, not a full body+index wait'
+  );
+  assert.ok(
+    lectorSrc.includes('hydrate_pray') ||
+      fs
+        .readFileSync(
+          path.join(FRONTEND, 'src/app/components/lector/lector.component.html'),
+          'utf8'
+        )
+        .includes('hydrate_pray'),
+    'lector shows hydration/prayer copy on slow first load'
+  );
   assert.ok(
     facadeSrc.includes('ensureLoaded') && facadeSrc.includes('ensureAllLoaded'),
     'facade still exposes ensureLoaded / ensureAllLoaded'
@@ -412,6 +435,50 @@ async function main() {
       'index not re-fetched when indexCache warm',
     );
     console.log('  ensureIndex → ensureLoaded reuse OK');
+  }
+
+  section('(f) ensureWindow skips index.json and still persists body');
+  {
+    const storeW = new MemoryCorpusStore();
+    const httpW = createHttpLayer({
+      [MANIFEST_URL]: fixturePack([meta('doc-a', { unitCount: 2 })], 'win'),
+      [`${CORPUS_ROOT}/documents/doc-a/content.json`]: [
+        article('1', 'alpha one'),
+        article('2', 'alpha two'),
+      ],
+      [`${CORPUS_ROOT}/documents/doc-a/index.json`]: {
+        indice: { alpha: [0] },
+        indice_por_punto: {},
+      },
+    });
+    const engW = new CorpusLoadEngine({
+      httpGet: httpW.httpGet,
+      store: storeW,
+    });
+    const win = await engW.ensureWindow('doc-a', 0, 5);
+    assert.strictEqual(win.documento[0].contenido, 'alpha one');
+    assert.strictEqual(
+      httpW.urls.filter((u) => u.endsWith('/doc-a/index.json')).length,
+      0,
+      'reader window must not fetch index.json'
+    );
+    assert.ok(
+      httpW.urls.some((u) => u.endsWith('/doc-a/content.json')),
+      'window load fetches content.json'
+    );
+    await new Promise((r) => setTimeout(r, 20));
+    const storedW = await storeW.getDocument('doc-a');
+    assert.ok(storedW, 'body persisted in background after window load');
+    httpW.resetLog();
+    engW.clearMemory();
+    const win2 = await engW.ensureWindow('doc-a', 0, 5);
+    assert.strictEqual(win2.documento[0].contenido, 'alpha one');
+    assert.strictEqual(
+      httpW.urls.filter((u) => u.endsWith('/doc-a/content.json')).length,
+      0,
+      'second window load hits durable store'
+    );
+    console.log('  ensureWindow skip-index + durable reuse OK');
   }
 
   section('summary');

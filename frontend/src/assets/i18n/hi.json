@@ -50,6 +50,8 @@
   "settings.account": "खाता",
   "reader.loading": "पठन लोड हो रहा है…",
   "reader.loading_document": "दस्तावेज़ लोड हो रहा है…",
+  "reader.hydrate_wait": "धीमे इंटरनेट पर पहली लोडिंग में समय लग सकता है। कृपया प्रतीक्षा करें।",
+  "reader.hydrate_pray": "इस बीच आप परमधर्मपीठ की नीयतों के लिए एक हमारे पिता और एक हे मरियम प्रार्थना कर सकते हैं।",
   "reader.start": "शुरू करें",
   "reader.language": "भाषा",
   "reader.language_aria": "पाठ की भाषा",
@@ -107,5 +109,6 @@
   "inicio.start": "शुरू करें",
   "inicio.have_account": "मेरे पास पहले से खाता है",
   "inicio.saints_today": "आज के संत",
+  "inicio.readings_today": "आज के पाठ",
   "badge.ai": "एआई अनुवाद"
 }

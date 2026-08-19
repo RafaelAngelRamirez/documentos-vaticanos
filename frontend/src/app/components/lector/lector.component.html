@@ -28,7 +28,13 @@
 
   <div class="reader">
     <div class="rcolw">
-    <div *ngIf="loading" class="rstart" role="status">{{ t('reader.loading_document') }}</div>
+    <div *ngIf="loading" class="rstart hydrate" role="status">
+      <div>{{ t('reader.loading_document') }}</div>
+      <div class="hydrate-pray" *ngIf="slowLoad">
+        <p>{{ t('reader.hydrate_wait') }}</p>
+        <p class="app-muted">{{ t('reader.hydrate_pray') }}</p>
+      </div>
+    </div>
     <div *ngIf="load_error" class="rstart error" role="alert">
       {{ load_error }}
     </div>
@@ -51,7 +57,7 @@
         [style.max-width]="prefs.maxWidthCh + 'ch'"
       >
         <app-punto
-          *ngFor="let article of actual_articles; let i = index"
+          *ngFor="let article of actual_articles; let i = index; trackBy: trackByArticle"
           [infoPunto]="article"
           [documentId]="document.id || navigationService.document_id || undefined"
           [attr.data-idx]="actual_inferior_limit + i"

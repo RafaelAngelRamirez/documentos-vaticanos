@@ -50,6 +50,8 @@
   "settings.account": "الحساب",
   "reader.loading": "جارٍ تحميل القراءة…",
   "reader.loading_document": "جارٍ تحميل الوثيقة…",
+  "reader.hydrate_wait": "قد تستغرق التحميلة الأولى وقتًا إذا كان الاتصال بطيئًا. نرجو الانتظار معنا.",
+  "reader.hydrate_pray": "في هذه الأثناء يمكنكم تلاوة صلاة الأبانا والسلام الملائكي على نيّات البابا.",
   "reader.start": "ابدأ",
   "reader.language": "اللغة",
   "reader.language_aria": "لغة النص",
@@ -107,5 +109,6 @@
   "inicio.start": "ابدأ",
   "inicio.have_account": "لدي حساب بالفعل",
   "inicio.saints_today": "قديسو اليوم",
+  "inicio.readings_today": "قراءات اليوم",
   "badge.ai": "ترجمة بالذكاء الاصطناعي"
 }

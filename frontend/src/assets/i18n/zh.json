@@ -50,6 +50,8 @@
   "settings.account": "账户",
   "reader.loading": "正在加载阅读…",
   "reader.loading_document": "正在加载文献…",
+  "reader.hydrate_wait": "首次加载在网络较慢时可能需要一些时间。请稍候。",
+  "reader.hydrate_pray": "这段时间，您可以为教宗的意向诵念一遍天主经和一遍圣母经。",
   "reader.start": "开始",
   "reader.language": "语言",
   "reader.language_aria": "文本语言",
@@ -107,5 +109,6 @@
   "inicio.start": "开始使用",
   "inicio.have_account": "已有账户",
   "inicio.saints_today": "今日圣人",
+  "inicio.readings_today": "本日读经",
   "badge.ai": "AI 翻译"
 }
