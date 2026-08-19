@@ -71,6 +71,8 @@
     "ocr:abc-inventory": "npx ts-node --transpile-only repair_ocr_noise_corpus.ts --inventory",
     "ocr:abc-apply": "npx ts-node --transpile-only repair_ocr_noise_corpus.ts --apply",
     "ocr:reocr-queue": "npx ts-node --transpile-only repair_ocr_noise_corpus.ts --queue-only",
+    "test:ocr-sample": "npx ts-node --transpile-only sample_corpus_review.test.ts",
+    "ocr:sample-inventory": "npx ts-node --transpile-only sample_corpus_review.ts --inventory",
     "santoral": "npx ts-node --transpile-only import_santoral.ts",
     "santoral:offline": "npx ts-node --transpile-only import_santoral.ts --offline",
     "santoral:scrape": "npx ts-node --transpile-only import_santoral.ts --scrape --max 80",
