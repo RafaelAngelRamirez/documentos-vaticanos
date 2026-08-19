@@ -1,21 +1,22 @@
 {
-  "generatedAt": "2026-08-19T04:39:29.810Z",
+  "generatedAt": "2026-08-19T04:51:00.213Z",
   "scanned": 741,
-  "packsAtLeast95Ok": 732,
-  "campaignCoverage": 0.9879,
+  "packsAtLeast95Ok": 731,
+  "campaignCoverage": 0.9865,
   "target90": true,
   "reocrQueue": [],
   "fullReviewQueue": [],
   "remainingWorstFirst": [
     "na-es",
     "mysterium-ecclesiae-es",
-    "lateran-i-ar",
+    "ev-zh",
     "agustin-26-sermones-6-zh",
     "cic-es",
     "cic-hi",
-    "agustin-18-epistolas-indices-zh",
     "agustin-18-epistolas-indices-es",
-    "missale-romanum-apc-de"
+    "agustin-18-epistolas-indices-zh",
+    "missale-romanum-apc-de",
+    "vs-zh"
   ],
   "entries": [
     {
@@ -39,13 +40,13 @@
       "meets95": false
     },
     {
-      "id": "lateran-i-ar",
-      "units": 14,
+      "id": "ev-zh",
+      "units": 142,
       "sampleSize": 8,
       "damagedRate": 0.125,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.8571,
+      "heuristicOkRate": 0.9155,
       "meets95": false
     },
     {
@@ -53,9 +54,9 @@
       "units": 3149,
       "sampleSize": 32,
       "damagedRate": 0.0625,
-      "ocrIllegibleRate": 0,
+      "ocrIllegibleRate": 0.0313,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.8923,
+      "heuristicOkRate": 0.926,
       "meets95": false
     },
     {
@@ -79,16 +80,6 @@
       "meets95": false
     },
     {
-      "id": "agustin-18-epistolas-indices-zh",
-      "units": 1916,
-      "sampleSize": 32,
-      "damagedRate": 0.0938,
-      "ocrIllegibleRate": 0.0938,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9368,
-      "meets95": false
-    },
-    {
       "id": "agustin-18-epistolas-indices-es",
       "units": 1104,
       "sampleSize": 32,
@@ -96,6 +87,16 @@
       "ocrIllegibleRate": 0.125,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9384,
+      "meets95": false
+    },
+    {
+      "id": "agustin-18-epistolas-indices-zh",
+      "units": 1916,
+      "sampleSize": 32,
+      "damagedRate": 0.0938,
+      "ocrIllegibleRate": 0.0938,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9389,
       "meets95": false
     },
     {
@@ -109,6 +110,16 @@
       "meets95": false
     },
     {
+      "id": "vs-zh",
+      "units": 184,
+      "sampleSize": 10,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9457,
+      "meets95": false
+    },
+    {
       "id": "ot-es",
       "units": 22,
       "sampleSize": 8,
@@ -119,13 +130,83 @@
       "meets95": true
     },
     {
-      "id": "mc-ar",
-      "units": 102,
+      "id": "clemente-alejandria-pedagogo-zh",
+      "units": 776,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9601,
+      "meets95": true
+    },
+    {
+      "id": "agustin-26-sermones-6-en",
+      "units": 3149,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9638,
+      "meets95": true
+    },
+    {
+      "id": "ca-zh",
+      "units": 114,
       "sampleSize": 8,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9608,
+      "heuristicOkRate": 0.9649,
+      "meets95": true
+    },
+    {
+      "id": "le-zh",
+      "units": 87,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9655,
+      "meets95": true
+    },
+    {
+      "id": "agustin-26-sermones-6-ar",
+      "units": 3149,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.966,
+      "meets95": true
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-zh",
+      "units": 1987,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9663,
+      "meets95": true
+    },
+    {
+      "id": "agustin-26-sermones-6-hi",
+      "units": 3149,
+      "sampleSize": 32,
+      "damagedRate": 0.0938,
+      "ocrIllegibleRate": 0.0938,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9673,
+      "meets95": true
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-zh",
+      "units": 2221,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9676,
       "meets95": true
     },
     {
@@ -149,23 +230,43 @@
       "meets95": true
     },
     {
-      "id": "agustin-18-epistolas-indices-ar",
-      "units": 1916,
+      "id": "agustin-27-escritos-biblicos-3-zh",
+      "units": 1625,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9687,
+      "heuristicOkRate": 0.9686,
+      "meets95": true
+    },
+    {
+      "id": "cipriano-cartas-zh",
+      "units": 829,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9698,
       "meets95": true
     },
     {
       "id": "agustin-01-primeros-escritos-es",
       "units": 2035,
       "sampleSize": 32,
-      "damagedRate": 0.1875,
+      "damagedRate": 0.125,
       "ocrIllegibleRate": 0.125,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9695,
+      "heuristicOkRate": 0.9705,
+      "meets95": true
+    },
+    {
+      "id": "rh-zh",
+      "units": 136,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9706,
       "meets95": true
     },
     {
@@ -179,16 +280,6 @@
       "meets95": true
     },
     {
-      "id": "calcedonia-ar",
-      "units": 35,
-      "sampleSize": 8,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9714,
-      "meets95": true
-    },
-    {
       "id": "calcedonia-es",
       "units": 35,
       "sampleSize": 8,
@@ -199,33 +290,13 @@
       "meets95": true
     },
     {
-      "id": "agustin-34-antidonatistas-3-zh",
-      "units": 1987,
+      "id": "agustin-18-epistolas-indices-ar",
+      "units": 1916,
       "sampleSize": 32,
-      "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0.0313,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9718,
-      "meets95": true
-    },
-    {
-      "id": "agustin-40-varios-2-es",
-      "units": 2363,
-      "sampleSize": 32,
-      "damagedRate": 0.0625,
-      "ocrIllegibleRate": 0.0625,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9733,
-      "meets95": true
-    },
-    {
-      "id": "ca-ar",
-      "units": 114,
-      "sampleSize": 8,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9737,
+      "heuristicOkRate": 0.9718,
       "meets95": true
     },
     {
@@ -239,6 +310,26 @@
       "meets95": true
     },
     {
+      "id": "agustin-40-varios-2-es",
+      "units": 2363,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9738,
+      "meets95": true
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-zh",
+      "units": 1997,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.975,
+      "meets95": true
+    },
+    {
       "id": "agustin-30-antimaniqueos-1-es",
       "units": 1401,
       "sampleSize": 32,
@@ -246,6 +337,16 @@
       "ocrIllegibleRate": 0.0313,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9757,
+      "meets95": true
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-zh",
+      "units": 6797,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.979,
       "meets95": true
     },
     {
@@ -259,13 +360,33 @@
       "meets95": true
     },
     {
-      "id": "agustin-40-varios-2-zh",
-      "units": 1559,
+      "id": "agustin-06-gracia-1-zh",
+      "units": 3070,
       "sampleSize": 32,
       "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0.0313,
+      "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9814,
+      "heuristicOkRate": 0.9801,
+      "meets95": true
+    },
+    {
+      "id": "mc-zh",
+      "units": 102,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9804,
+      "meets95": true
+    },
+    {
+      "id": "agustin-11-cartas-2-zh",
+      "units": 2451,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9812,
       "meets95": true
     },
     {
@@ -279,8 +400,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-30-antimaniqueos-1-zh",
-      "units": 1997,
+      "id": "agustin-40-varios-2-zh",
+      "units": 1559,
       "sampleSize": 32,
       "damagedRate": 0.0313,
       "ocrIllegibleRate": 0.0313,
@@ -299,16 +420,6 @@
       "meets95": true
     },
     {
-      "id": "agustin-34-antidonatistas-3-ar",
-      "units": 1987,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9829,
-      "meets95": true
-    },
-    {
       "id": "agustin-39-varios-1-es",
       "units": 2136,
       "sampleSize": 32,
@@ -316,6 +427,16 @@
       "ocrIllegibleRate": 0.0313,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9831,
+      "meets95": true
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-ar",
+      "units": 1987,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9834,
       "meets95": true
     },
     {
@@ -356,6 +477,16 @@
       "ocrIllegibleRate": 0.0625,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9841,
+      "meets95": true
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-en",
+      "units": 2221,
+      "sampleSize": 32,
+      "damagedRate": 0.0625,
+      "ocrIllegibleRate": 0.0625,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9842,
       "meets95": true
     },
     {
@@ -449,6 +580,16 @@
       "meets95": true
     },
     {
+      "id": "agustin-29-escritos-biblicos-5-hi",
+      "units": 2221,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.986,
+      "meets95": true
+    },
+    {
       "id": "agustin-35-antipelagianos-3-es",
       "units": 1947,
       "sampleSize": 32,
@@ -459,13 +600,13 @@
       "meets95": true
     },
     {
-      "id": "agustin-26-sermones-6-en",
-      "units": 3149,
+      "id": "agustin-29-escritos-biblicos-5-ar",
+      "units": 2221,
       "sampleSize": 32,
-      "damagedRate": 0.0313,
+      "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9863,
+      "heuristicOkRate": 0.9865,
       "meets95": true
     },
     {
@@ -479,6 +620,16 @@
       "meets95": true
     },
     {
+      "id": "agustin-01-primeros-escritos-zh",
+      "units": 2181,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9872,
+      "meets95": true
+    },
+    {
       "id": "agustin-28-escritos-biblicos-4-es",
       "units": 1455,
       "sampleSize": 32,
@@ -489,6 +640,26 @@
       "meets95": true
     },
     {
+      "id": "agustin-09-gracia-2-zh",
+      "units": 2673,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9877,
+      "meets95": true
+    },
+    {
+      "id": "agustin-05-de-trinitate-zh",
+      "units": 3030,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9878,
+      "meets95": true
+    },
+    {
       "id": "agustin-15-tratados-escriturarios-es",
       "units": 2207,
       "sampleSize": 32,
@@ -496,6 +667,16 @@
       "ocrIllegibleRate": 0.0625,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9878,
+      "meets95": true
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-zh",
+      "units": 2414,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.988,
       "meets95": true
     },
     {
@@ -539,16 +720,6 @@
       "meets95": true
     },
     {
-      "id": "agustin-32-antidonatistas-1-es",
-      "units": 6700,
-      "sampleSize": 32,
-      "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0.0313,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9891,
-      "meets95": true
-    },
-    {
       "id": "agustin-26-sermones-6-es",
       "units": 2601,
       "sampleSize": 32,
@@ -569,6 +740,66 @@
       "meets95": true
     },
     {
+      "id": "quanta-cura-ar",
+      "units": 96,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9896,
+      "meets95": true
+    },
+    {
+      "id": "quanta-cura-en-ai",
+      "units": 96,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9896,
+      "meets95": true
+    },
+    {
+      "id": "quanta-cura-es",
+      "units": 96,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9896,
+      "meets95": true
+    },
+    {
+      "id": "quanta-cura-hi",
+      "units": 96,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9896,
+      "meets95": true
+    },
+    {
+      "id": "quanta-cura-la",
+      "units": 96,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9896,
+      "meets95": true
+    },
+    {
+      "id": "quanta-cura-zh",
+      "units": 96,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9896,
+      "meets95": true
+    },
+    {
       "id": "agustin-16-ciudad-de-dios-1-es",
       "units": 2035,
       "sampleSize": 32,
@@ -586,6 +817,16 @@
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9897,
+      "meets95": true
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-es",
+      "units": 6700,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9901,
       "meets95": true
     },
     {
@@ -629,6 +870,16 @@
       "meets95": true
     },
     {
+      "id": "agustin-19-enarraciones-salmos-1-zh",
+      "units": 2714,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9904,
+      "meets95": true
+    },
+    {
       "id": "agustin-08-cartas-1-es",
       "units": 2027,
       "sampleSize": 32,
@@ -669,26 +920,6 @@
       "meets95": true
     },
     {
-      "id": "agustin-38-antiarrianos-zh",
-      "units": 1691,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9911,
-      "meets95": true
-    },
-    {
-      "id": "ca-zh",
-      "units": 114,
-      "sampleSize": 8,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9912,
-      "meets95": true
-    },
-    {
       "id": "cds-es",
       "units": 583,
       "sampleSize": 30,
@@ -699,53 +930,13 @@
       "meets95": true
     },
     {
-      "id": "agustin-38-antiarrianos-ar",
-      "units": 1691,
+      "id": "agustin-30-antimaniqueos-1-ar",
+      "units": 1997,
       "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9917,
-      "meets95": true
-    },
-    {
-      "id": "agustin-40-varios-2-ar",
-      "units": 1559,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9917,
-      "meets95": true
-    },
-    {
-      "id": "agustin-29-escritos-biblicos-5-zh",
-      "units": 2221,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9919,
-      "meets95": true
-    },
-    {
-      "id": "agustin-32-antidonatistas-1-zh",
-      "units": 6797,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9919,
-      "meets95": true
-    },
-    {
-      "id": "agustin-39-varios-1-ar",
-      "units": 1230,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9919,
+      "heuristicOkRate": 0.9915,
       "meets95": true
     },
     {
@@ -759,13 +950,13 @@
       "meets95": true
     },
     {
-      "id": "agustin-26-sermones-6-ar",
-      "units": 3149,
+      "id": "agustin-31-antimaniqueos-2-zh",
+      "units": 3951,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9921,
+      "heuristicOkRate": 0.9922,
       "meets95": true
     },
     {
@@ -774,6 +965,16 @@
       "sampleSize": 32,
       "damagedRate": 0.0313,
       "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9923,
+      "meets95": true
+    },
+    {
+      "id": "agustin-40-varios-2-ar",
+      "units": 1559,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9923,
       "meets95": true
@@ -789,13 +990,13 @@
       "meets95": true
     },
     {
-      "id": "agustin-30-antimaniqueos-1-ar",
-      "units": 1997,
+      "id": "agustin-39-varios-1-ar",
+      "units": 1230,
       "sampleSize": 32,
-      "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0.0313,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9925,
+      "heuristicOkRate": 0.9927,
       "meets95": true
     },
     {
@@ -809,33 +1010,13 @@
       "meets95": true
     },
     {
-      "id": "agustin-02-confesiones-es",
-      "units": 1447,
-      "sampleSize": 32,
-      "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0.0313,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9931,
-      "meets95": true
-    },
-    {
-      "id": "agustin-35-antipelagianos-3-zh",
-      "units": 1948,
+      "id": "agustin-15-tratados-escriturarios-zh",
+      "units": 4847,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9933,
-      "meets95": true
-    },
-    {
-      "id": "agustin-01-primeros-escritos-zh",
-      "units": 2181,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9936,
+      "heuristicOkRate": 0.9932,
       "meets95": true
     },
     {
@@ -849,36 +1030,6 @@
       "meets95": true
     },
     {
-      "id": "clemente-alejandria-pedagogo-ar",
-      "units": 776,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9936,
-      "meets95": true
-    },
-    {
-      "id": "agustin-22-enarraciones-salmos-4-hi",
-      "units": 3002,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9937,
-      "meets95": true
-    },
-    {
-      "id": "agustin-22-enarraciones-salmos-4-zh",
-      "units": 3002,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9937,
-      "meets95": true
-    },
-    {
       "id": "agustin-07-sermones-1-es",
       "units": 1655,
       "sampleSize": 32,
@@ -889,8 +1040,18 @@
       "meets95": true
     },
     {
-      "id": "agustin-29-escritos-biblicos-5-ar",
-      "units": 2221,
+      "id": "agustin-04-obras-apologeticas-zh",
+      "units": 2880,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9941,
+      "meets95": true
+    },
+    {
+      "id": "agustin-38-antiarrianos-zh",
+      "units": 1691,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -904,6 +1065,16 @@
       "sampleSize": 32,
       "damagedRate": 0.0313,
       "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9944,
+      "meets95": true
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-zh",
+      "units": 1948,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9944,
       "meets95": true
@@ -929,21 +1100,21 @@
       "meets95": true
     },
     {
-      "id": "agustin-29-escritos-biblicos-5-en",
-      "units": 2221,
+      "id": "agustin-02-confesiones-es",
+      "units": 1447,
       "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9946,
+      "heuristicOkRate": 0.9945,
       "meets95": true
     },
     {
-      "id": "vs-ar",
-      "units": 184,
-      "sampleSize": 10,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
+      "id": "agustin-17-ciudad-de-dios-2-zh",
+      "units": 3310,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9946,
       "meets95": true
@@ -969,6 +1140,16 @@
       "meets95": true
     },
     {
+      "id": "agustin-38-antiarrianos-ar",
+      "units": 1691,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9947,
+      "meets95": true
+    },
+    {
       "id": "agustin-13-evangelio-juan-1-es",
       "units": 1324,
       "sampleSize": 32,
@@ -989,33 +1170,13 @@
       "meets95": true
     },
     {
-      "id": "agustin-01-primeros-escritos-ar",
-      "units": 2181,
-      "sampleSize": 32,
-      "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0.0313,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.995,
-      "meets95": true
-    },
-    {
-      "id": "agustin-24-sermones-4-en",
-      "units": 2460,
-      "sampleSize": 32,
-      "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0.0313,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9955,
-      "meets95": true
-    },
-    {
-      "id": "agustin-29-escritos-biblicos-5-hi",
-      "units": 2221,
-      "sampleSize": 32,
+      "id": "quanta-cura-en",
+      "units": 201,
+      "sampleSize": 11,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9955,
+      "heuristicOkRate": 0.995,
       "meets95": true
     },
     {
@@ -1039,48 +1200,18 @@
       "meets95": true
     },
     {
-      "id": "agustin-25-sermones-5-en",
-      "units": 2285,
+      "id": "agustin-03-obras-filosoficas-zh",
+      "units": 2878,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9956,
+      "heuristicOkRate": 0.9958,
       "meets95": true
     },
     {
-      "id": "ds-zh",
-      "units": 1140,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9956,
-      "meets95": true
-    },
-    {
-      "id": "catecismo-romano-zh",
-      "units": 1162,
-      "sampleSize": 32,
-      "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9957,
-      "meets95": true
-    },
-    {
-      "id": "agustin-32-antidonatistas-1-ar",
-      "units": 6797,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9959,
-      "meets95": true
-    },
-    {
-      "id": "agustin-35-antipelagianos-3-ar",
-      "units": 1948,
+      "id": "agustin-24-sermones-4-en",
+      "units": 2460,
       "sampleSize": 32,
       "damagedRate": 0.0313,
       "ocrIllegibleRate": 0.0313,
@@ -1109,8 +1240,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-25-sermones-5-zh",
-      "units": 2285,
+      "id": "agustin-13-evangelio-juan-1-zh",
+      "units": 2318,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1129,41 +1260,11 @@
       "meets95": true
     },
     {
-      "id": "clemente-alejandria-pedagogo-zh",
-      "units": 776,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9961,
-      "meets95": true
-    },
-    {
-      "id": "agustin-36-antipelagianos-4-ar",
-      "units": 1056,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9962,
-      "meets95": true
-    },
-    {
       "id": "agustin-36-antipelagianos-4-en",
       "units": 1056,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9962,
-      "meets95": true
-    },
-    {
-      "id": "agustin-36-antipelagianos-4-zh",
-      "units": 1056,
-      "sampleSize": 32,
-      "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0.0313,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9962,
       "meets95": true
@@ -1179,6 +1280,36 @@
       "meets95": true
     },
     {
+      "id": "agustin-28-escritos-biblicos-4-ar",
+      "units": 2414,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9963,
+      "meets95": true
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-en",
+      "units": 2414,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9963,
+      "meets95": true
+    },
+    {
+      "id": "agustin-02-confesiones-zh",
+      "units": 1952,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9964,
+      "meets95": true
+    },
+    {
       "id": "agustin-35-antipelagianos-3-en",
       "units": 1948,
       "sampleSize": 32,
@@ -1189,33 +1320,33 @@
       "meets95": true
     },
     {
-      "id": "gdc-ar",
-      "units": 291,
-      "sampleSize": 15,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9966,
-      "meets95": true
-    },
-    {
-      "id": "gdc-zh",
-      "units": 291,
-      "sampleSize": 15,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9966,
-      "meets95": true
-    },
-    {
-      "id": "agustin-12-tratados-morales-ar",
-      "units": 1828,
+      "id": "agustin-21-enarraciones-salmos-3-en",
+      "units": 3168,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9967,
+      "heuristicOkRate": 0.9965,
+      "meets95": true
+    },
+    {
+      "id": "agustin-25-sermones-5-zh",
+      "units": 2285,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9965,
+      "meets95": true
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-en",
+      "units": 1997,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9965,
       "meets95": true
     },
     {
@@ -1229,6 +1360,26 @@
       "meets95": true
     },
     {
+      "id": "agustin-01-primeros-escritos-ar",
+      "units": 2181,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9968,
+      "meets95": true
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-zh",
+      "units": 3168,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9968,
+      "meets95": true
+    },
+    {
       "id": "agustin-37-antipelagianos-5-zh",
       "units": 944,
       "sampleSize": 32,
@@ -1236,6 +1387,26 @@
       "ocrIllegibleRate": 0.0313,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9968,
+      "meets95": true
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-en",
+      "units": 1625,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9969,
+      "meets95": true
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-ar",
+      "units": 1948,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9969,
       "meets95": true
     },
     {
@@ -1249,18 +1420,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-05-de-trinitate-zh",
-      "units": 3030,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.997,
-      "meets95": true
-    },
-    {
-      "id": "agustin-21-enarraciones-salmos-3-en",
-      "units": 3168,
+      "id": "agustin-01-primeros-escritos-en",
+      "units": 2181,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1269,11 +1430,31 @@
       "meets95": true
     },
     {
-      "id": "agustin-21-enarraciones-salmos-3-zh",
-      "units": 3168,
+      "id": "agustin-32-antidonatistas-1-ar",
+      "units": 6797,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9972,
+      "meets95": true
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-ar",
+      "units": 1056,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9972,
+      "meets95": true
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-zh",
+      "units": 1056,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9972,
       "meets95": true
@@ -1299,10 +1480,10 @@
       "meets95": true
     },
     {
-      "id": "agustin-19-enarraciones-salmos-1-ar",
-      "units": 2714,
+      "id": "agustin-25-sermones-5-en",
+      "units": 2285,
       "sampleSize": 32,
-      "damagedRate": 0.0313,
+      "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9974,
@@ -1329,38 +1510,28 @@
       "meets95": true
     },
     {
+      "id": "agustin-21-enarraciones-salmos-3-ar",
+      "units": 3168,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9975,
+      "meets95": true
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-ar",
+      "units": 1625,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9975,
+      "meets95": true
+    },
+    {
       "id": "agustin-27-escritos-biblicos-3-hi",
       "units": 1625,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9975,
-      "meets95": true
-    },
-    {
-      "id": "agustin-27-escritos-biblicos-3-zh",
-      "units": 1625,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9975,
-      "meets95": true
-    },
-    {
-      "id": "agustin-28-escritos-biblicos-4-zh",
-      "units": 2414,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9975,
-      "meets95": true
-    },
-    {
-      "id": "agustin-31-antimaniqueos-2-zh",
-      "units": 3951,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1409,18 +1580,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-01-primeros-escritos-en",
-      "units": 2181,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9977,
-      "meets95": true
-    },
-    {
-      "id": "agustin-22-enarraciones-salmos-4-ar",
-      "units": 3002,
+      "id": "agustin-20-enarraciones-salmos-2-zh",
+      "units": 3050,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1434,16 +1595,6 @@
       "sampleSize": 32,
       "damagedRate": 0.0313,
       "ocrIllegibleRate": 0.0313,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9977,
-      "meets95": true
-    },
-    {
-      "id": "agustin-31-antimaniqueos-2-ar",
-      "units": 3951,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9977,
       "meets95": true
@@ -1479,41 +1630,21 @@
       "meets95": true
     },
     {
-      "id": "agustin-19-enarraciones-salmos-1-zh",
-      "units": 2714,
+      "id": "agustin-03-obras-filosoficas-ar",
+      "units": 2878,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9978,
+      "heuristicOkRate": 0.9979,
       "meets95": true
     },
     {
-      "id": "agustin-21-enarraciones-salmos-3-ar",
-      "units": 3168,
+      "id": "agustin-03-obras-filosoficas-en",
+      "units": 2878,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9978,
-      "meets95": true
-    },
-    {
-      "id": "agustin-23-sermones-juan-hechos-en",
-      "units": 2277,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9978,
-      "meets95": true
-    },
-    {
-      "id": "agustin-17-ciudad-de-dios-2-ar",
-      "units": 3310,
-      "sampleSize": 32,
-      "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0.0313,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9979,
       "meets95": true
@@ -1521,6 +1652,16 @@
     {
       "id": "agustin-18-epistolas-indices-en",
       "units": 1916,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9979,
+      "meets95": true
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-hi",
+      "units": 2414,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1539,48 +1680,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-02-confesiones-ar",
-      "units": 1952,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.998,
-      "meets95": true
-    },
-    {
-      "id": "agustin-06-gracia-1-ar",
-      "units": 3070,
-      "sampleSize": 32,
-      "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.998,
-      "meets95": true
-    },
-    {
-      "id": "agustin-06-gracia-1-hi",
-      "units": 3070,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.998,
-      "meets95": true
-    },
-    {
-      "id": "agustin-10-sermones-2-en",
-      "units": 2512,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.998,
-      "meets95": true
-    },
-    {
-      "id": "agustin-10-sermones-2-zh",
-      "units": 2512,
+      "id": "agustin-08-cartas-1-en",
+      "units": 2468,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1590,16 +1691,6 @@
     },
     {
       "id": "agustin-20-enarraciones-salmos-2-ar",
-      "units": 3050,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.998,
-      "meets95": true
-    },
-    {
-      "id": "agustin-20-enarraciones-salmos-2-zh",
       "units": 3050,
       "sampleSize": 32,
       "damagedRate": 0,
@@ -1619,16 +1710,6 @@
       "meets95": true
     },
     {
-      "id": "agustin-30-antimaniqueos-1-en",
-      "units": 1997,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.998,
-      "meets95": true
-    },
-    {
       "id": "cceo-la",
       "units": 1514,
       "sampleSize": 32,
@@ -1639,38 +1720,8 @@
       "meets95": true
     },
     {
-      "id": "cirilo-jerusalen-catequesis-ar",
-      "units": 1015,
-      "sampleSize": 32,
-      "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.998,
-      "meets95": true
-    },
-    {
-      "id": "agustin-09-gracia-2-en",
-      "units": 2673,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9981,
-      "meets95": true
-    },
-    {
-      "id": "agustin-40-varios-2-hi",
-      "units": 1559,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9981,
-      "meets95": true
-    },
-    {
-      "id": "agustin-07-sermones-1-zh",
-      "units": 2181,
+      "id": "agustin-19-enarraciones-salmos-1-ar",
+      "units": 2714,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1679,58 +1730,18 @@
       "meets95": true
     },
     {
-      "id": "agustin-23-sermones-juan-hechos-zh",
-      "units": 2277,
-      "sampleSize": 32,
-      "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9982,
-      "meets95": true
-    },
-    {
-      "id": "agustin-27-escritos-biblicos-3-en",
-      "units": 1625,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9982,
-      "meets95": true
-    },
-    {
-      "id": "ds-ar",
-      "units": 1140,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9982,
-      "meets95": true
-    },
-    {
-      "id": "agustin-03-obras-filosoficas-zh",
-      "units": 2878,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9983,
-      "meets95": true
-    },
-    {
-      "id": "agustin-05-de-trinitate-hi",
+      "id": "agustin-05-de-trinitate-ar",
       "units": 3030,
       "sampleSize": 32,
-      "damagedRate": 0.0313,
-      "ocrIllegibleRate": 0.0313,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9983,
       "meets95": true
     },
     {
-      "id": "agustin-13-evangelio-juan-1-zh",
-      "units": 2318,
+      "id": "agustin-22-enarraciones-salmos-4-zh",
+      "units": 3002,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1739,8 +1750,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-28-escritos-biblicos-4-en",
-      "units": 2414,
+      "id": "catecismo-romano-zh",
+      "units": 1162,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1749,7 +1760,7 @@
       "meets95": true
     },
     {
-      "id": "agustin-08-cartas-1-en",
+      "id": "agustin-08-cartas-1-ar",
       "units": 2468,
       "sampleSize": 32,
       "damagedRate": 0,
@@ -1759,8 +1770,18 @@
       "meets95": true
     },
     {
-      "id": "agustin-11-cartas-2-ar",
-      "units": 2451,
+      "id": "agustin-08-cartas-1-zh",
+      "units": 2468,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9984,
+      "meets95": true
+    },
+    {
+      "id": "agustin-10-sermones-2-zh",
+      "units": 2512,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1779,8 +1800,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-11-cartas-2-zh",
-      "units": 2451,
+      "id": "agustin-24-sermones-4-ar",
+      "units": 2460,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1789,17 +1810,7 @@
       "meets95": true
     },
     {
-      "id": "agustin-18-epistolas-indices-hi",
-      "units": 1916,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9984,
-      "meets95": true
-    },
-    {
-      "id": "agustin-02-confesiones-zh",
+      "id": "agustin-02-confesiones-ar",
       "units": 1952,
       "sampleSize": 32,
       "damagedRate": 0,
@@ -1809,51 +1820,41 @@
       "meets95": true
     },
     {
-      "id": "agustin-17-ciudad-de-dios-2-zh",
-      "units": 3310,
+      "id": "agustin-09-gracia-2-en",
+      "units": 2673,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9985,
+      "meets95": true
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-zh",
+      "units": 3344,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9985,
+      "meets95": true
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-hi",
+      "units": 1997,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9985,
+      "meets95": true
+    },
+    {
+      "id": "agustin-05-de-trinitate-hi",
+      "units": 3030,
       "sampleSize": 32,
       "damagedRate": 0.0313,
       "ocrIllegibleRate": 0.0313,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9985,
-      "meets95": true
-    },
-    {
-      "id": "agustin-31-antimaniqueos-2-hi",
-      "units": 3951,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9985,
-      "meets95": true
-    },
-    {
-      "id": "agustin-03-obras-filosoficas-en",
-      "units": 2878,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9986,
-      "meets95": true
-    },
-    {
-      "id": "agustin-05-de-trinitate-ar",
-      "units": 3030,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9987,
-      "meets95": true
-    },
-    {
-      "id": "agustin-06-gracia-1-zh",
-      "units": 3070,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9987,
       "meets95": true
@@ -1869,8 +1870,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-20-enarraciones-salmos-2-hi",
-      "units": 3050,
+      "id": "agustin-23-sermones-juan-hechos-en",
+      "units": 2277,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1879,8 +1880,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-21-enarraciones-salmos-3-hi",
-      "units": 3168,
+      "id": "agustin-23-sermones-juan-hechos-zh",
+      "units": 2277,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1899,7 +1900,17 @@
       "meets95": true
     },
     {
-      "id": "clemente-alejandria-pedagogo-hi",
+      "id": "agustin-31-antimaniqueos-2-hi",
+      "units": 3951,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9987,
+      "meets95": true
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-ar",
       "units": 776,
       "sampleSize": 32,
       "damagedRate": 0,
@@ -1909,48 +1920,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-08-cartas-1-ar",
-      "units": 2468,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9988,
-      "meets95": true
-    },
-    {
-      "id": "agustin-16-ciudad-de-dios-1-ar",
-      "units": 3344,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9988,
-      "meets95": true
-    },
-    {
       "id": "agustin-16-ciudad-de-dios-1-en",
       "units": 3344,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9988,
-      "meets95": true
-    },
-    {
-      "id": "agustin-24-sermones-4-ar",
-      "units": 2460,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9988,
-      "meets95": true
-    },
-    {
-      "id": "agustin-28-escritos-biblicos-4-hi",
-      "units": 2414,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -1969,17 +1940,7 @@
       "meets95": true
     },
     {
-      "id": "cipriano-cartas-zh",
-      "units": 829,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9988,
-      "meets95": true
-    },
-    {
-      "id": "agustin-12-tratados-morales-hi",
+      "id": "agustin-12-tratados-morales-ar",
       "units": 1828,
       "sampleSize": 32,
       "damagedRate": 0,
@@ -1999,36 +1960,6 @@
       "meets95": true
     },
     {
-      "id": "agustin-19-enarraciones-salmos-1-hi",
-      "units": 2714,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9989,
-      "meets95": true
-    },
-    {
-      "id": "agustin-03-obras-filosoficas-ar",
-      "units": 2878,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.999,
-      "meets95": true
-    },
-    {
-      "id": "agustin-04-obras-apologeticas-zh",
-      "units": 2880,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.999,
-      "meets95": true
-    },
-    {
       "id": "agustin-15-tratados-escriturarios-en",
       "units": 4847,
       "sampleSize": 32,
@@ -2039,8 +1970,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-26-sermones-6-hi",
-      "units": 3149,
+      "id": "agustin-22-enarraciones-salmos-4-ar",
+      "units": 3002,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -2069,18 +2000,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-07-sermones-1-hi",
+      "id": "agustin-07-sermones-1-zh",
       "units": 2181,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9991,
-      "meets95": true
-    },
-    {
-      "id": "agustin-13-evangelio-juan-1-ar",
-      "units": 2318,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -2109,36 +2030,6 @@
       "meets95": true
     },
     {
-      "id": "agustin-14-evangelio-juan-2-zh",
-      "units": 2199,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9991,
-      "meets95": true
-    },
-    {
-      "id": "agustin-16-ciudad-de-dios-1-hi",
-      "units": 3344,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9991,
-      "meets95": true
-    },
-    {
-      "id": "agustin-16-ciudad-de-dios-1-zh",
-      "units": 3344,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9991,
-      "meets95": true
-    },
-    {
       "id": "agustin-17-ciudad-de-dios-2-en",
       "units": 3310,
       "sampleSize": 32,
@@ -2159,28 +2050,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-23-sermones-juan-hechos-hi",
-      "units": 2277,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9991,
-      "meets95": true
-    },
-    {
       "id": "agustin-36-antipelagianos-4-hi",
       "units": 1056,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9991,
-      "meets95": true
-    },
-    {
-      "id": "catecismo-romano-ar",
-      "units": 1162,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -2209,17 +2080,17 @@
       "meets95": true
     },
     {
-      "id": "agustin-08-cartas-1-zh",
-      "units": 2468,
+      "id": "ds-zh",
+      "units": 1140,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9992,
+      "heuristicOkRate": 0.9991,
       "meets95": true
     },
     {
-      "id": "agustin-10-sermones-2-hi",
+      "id": "agustin-10-sermones-2-en",
       "units": 2512,
       "sampleSize": 32,
       "damagedRate": 0,
@@ -2229,13 +2100,33 @@
       "meets95": true
     },
     {
-      "id": "agustin-15-tratados-escriturarios-hi",
-      "units": 4847,
+      "id": "agustin-31-antimaniqueos-2-ar",
+      "units": 3951,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9992,
+      "meets95": true
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-hi",
+      "units": 2878,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9993,
+      "meets95": true
+    },
+    {
+      "id": "agustin-06-gracia-1-ar",
+      "units": 3070,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9993,
       "meets95": true
     },
     {
@@ -2249,13 +2140,23 @@
       "meets95": true
     },
     {
-      "id": "agustin-09-gracia-2-zh",
-      "units": 2673,
+      "id": "agustin-16-ciudad-de-dios-1-ar",
+      "units": 3344,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
-      "heuristicOkRate": 0.9993,
+      "heuristicOkRate": 0.9994,
+      "meets95": true
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-hi",
+      "units": 3344,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9994,
       "meets95": true
     },
     {
@@ -2269,18 +2170,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-27-escritos-biblicos-3-ar",
-      "units": 1625,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9994,
-      "meets95": true
-    },
-    {
-      "id": "agustin-32-antidonatistas-1-hi",
-      "units": 6797,
+      "id": "agustin-21-enarraciones-salmos-3-hi",
+      "units": 3168,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -2299,7 +2190,17 @@
       "meets95": true
     },
     {
-      "id": "agustin-14-evangelio-juan-2-hi",
+      "id": "agustin-01-primeros-escritos-hi",
+      "units": 2181,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9995,
+      "meets95": true
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-zh",
       "units": 2199,
       "sampleSize": 32,
       "damagedRate": 0,
@@ -2309,8 +2210,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-34-antidonatistas-3-hi",
-      "units": 1987,
+      "id": "agustin-18-epistolas-indices-hi",
+      "units": 1916,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -2329,6 +2230,26 @@
       "meets95": true
     },
     {
+      "id": "bible-pueblo-de-dios-es",
+      "units": 35652,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9995,
+      "meets95": true
+    },
+    {
+      "id": "agustin-08-cartas-1-hi",
+      "units": 2468,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9996,
+      "meets95": true
+    },
+    {
       "id": "agustin-09-gracia-2-ar",
       "units": 2673,
       "sampleSize": 32,
@@ -2339,8 +2260,28 @@
       "meets95": true
     },
     {
-      "id": "agustin-09-gracia-2-hi",
-      "units": 2673,
+      "id": "agustin-10-sermones-2-hi",
+      "units": 2512,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9996,
+      "meets95": true
+    },
+    {
+      "id": "agustin-11-cartas-2-ar",
+      "units": 2451,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9996,
+      "meets95": true
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-ar",
+      "units": 2318,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -2359,28 +2300,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-13-evangelio-juan-1-hi",
-      "units": 2318,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9996,
-      "meets95": true
-    },
-    {
-      "id": "agustin-15-tratados-escriturarios-ar",
-      "units": 4847,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9996,
-      "meets95": true
-    },
-    {
-      "id": "agustin-15-tratados-escriturarios-zh",
-      "units": 4847,
+      "id": "agustin-23-sermones-juan-hechos-hi",
+      "units": 2277,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -2396,36 +2317,6 @@
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9996,
-      "meets95": true
-    },
-    {
-      "id": "agustin-28-escritos-biblicos-4-ar",
-      "units": 2414,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9996,
-      "meets95": true
-    },
-    {
-      "id": "cic-zh",
-      "units": 2727,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9996,
-      "meets95": true
-    },
-    {
-      "id": "agustin-03-obras-filosoficas-hi",
-      "units": 2878,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 0.9997,
       "meets95": true
     },
     {
@@ -2449,13 +2340,33 @@
       "meets95": true
     },
     {
-      "id": "bible-pueblo-de-dios-es",
-      "units": 35652,
+      "id": "agustin-17-ciudad-de-dios-2-ar",
+      "units": 3310,
+      "sampleSize": 32,
+      "damagedRate": 0.0313,
+      "ocrIllegibleRate": 0.0313,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9997,
+      "meets95": true
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-hi",
+      "units": 3050,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9997,
+      "meets95": true
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-ar",
+      "units": 4847,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9998,
       "meets95": true
     },
     {
@@ -2496,6 +2407,16 @@
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
       "heuristicOkRate": 0.9998,
+      "meets95": true
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-hi",
+      "units": 6797,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 0.9999,
       "meets95": true
     },
     {
@@ -2599,16 +2520,6 @@
       "meets95": true
     },
     {
-      "id": "agustin-01-primeros-escritos-hi",
-      "units": 2181,
-      "sampleSize": 32,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 1,
-      "meets95": true
-    },
-    {
       "id": "agustin-02-confesiones-hi",
       "units": 1952,
       "sampleSize": 32,
@@ -2629,8 +2540,28 @@
       "meets95": true
     },
     {
-      "id": "agustin-08-cartas-1-hi",
-      "units": 2468,
+      "id": "agustin-06-gracia-1-hi",
+      "units": 3070,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-07-sermones-1-hi",
+      "units": 2181,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-09-gracia-2-hi",
+      "units": 2673,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -2659,6 +2590,66 @@
       "meets95": true
     },
     {
+      "id": "agustin-12-tratados-morales-hi",
+      "units": 1828,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-hi",
+      "units": 2318,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-hi",
+      "units": 2199,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-hi",
+      "units": 4847,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-hi",
+      "units": 2714,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-hi",
+      "units": 3002,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
       "id": "agustin-25-sermones-5-hi",
       "units": 2285,
       "sampleSize": 32,
@@ -2669,8 +2660,8 @@
       "meets95": true
     },
     {
-      "id": "agustin-30-antimaniqueos-1-hi",
-      "units": 1997,
+      "id": "agustin-34-antidonatistas-3-hi",
+      "units": 1987,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -2681,6 +2672,16 @@
     {
       "id": "agustin-37-antipelagianos-5-hi",
       "units": 944,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "agustin-40-varios-2-hi",
+      "units": 1559,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -2729,6 +2730,16 @@
       "meets95": true
     },
     {
+      "id": "ca-ar",
+      "units": 114,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
       "id": "ca-en",
       "units": 203,
       "sampleSize": 11,
@@ -2751,6 +2762,16 @@
     {
       "id": "ca-hi",
       "units": 114,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "calcedonia-ar",
+      "units": 35,
       "sampleSize": 8,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -2842,6 +2863,16 @@
       "id": "carta-diogneto-zh",
       "units": 17,
       "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "catecismo-romano-ar",
+      "units": 1162,
+      "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
@@ -3059,6 +3090,16 @@
       "meets95": true
     },
     {
+      "id": "cic-zh",
+      "units": 2727,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
       "id": "cipriano-cartas-ar",
       "units": 829,
       "sampleSize": 32,
@@ -3071,6 +3112,16 @@
     {
       "id": "cipriano-cartas-hi",
       "units": 829,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-ar",
+      "units": 1015,
       "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
@@ -3152,6 +3203,16 @@
       "id": "cl-zh",
       "units": 64,
       "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-hi",
+      "units": 776,
+      "sampleSize": 32,
       "damagedRate": 0,
       "ocrIllegibleRate": 0,
       "decision": "sample-pass",
@@ -3949,6 +4010,16 @@
       "meets95": true
     },
     {
+      "id": "ds-ar",
+      "units": 1140,
+      "sampleSize": 32,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
       "id": "ds-en",
       "units": 1140,
       "sampleSize": 32,
@@ -4229,16 +4300,6 @@
       "meets95": true
     },
     {
-      "id": "ev-zh",
-      "units": 142,
-      "sampleSize": 8,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 1,
-      "meets95": true
-    },
-    {
       "id": "fc-ar",
       "units": 86,
       "sampleSize": 8,
@@ -4359,6 +4420,16 @@
       "meets95": true
     },
     {
+      "id": "gdc-ar",
+      "units": 291,
+      "sampleSize": 15,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
       "id": "gdc-en",
       "units": 291,
       "sampleSize": 15,
@@ -4380,6 +4451,16 @@
     },
     {
       "id": "gdc-hi",
+      "units": 291,
+      "sampleSize": 15,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
+      "id": "gdc-zh",
       "units": 291,
       "sampleSize": 15,
       "damagedRate": 0,
@@ -4909,6 +4990,16 @@
       "meets95": true
     },
     {
+      "id": "lateran-i-ar",
+      "units": 14,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
       "id": "lateran-i-en",
       "units": 14,
       "sampleSize": 8,
@@ -5249,16 +5340,6 @@
       "meets95": true
     },
     {
-      "id": "le-zh",
-      "units": 87,
-      "sampleSize": 8,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 1,
-      "meets95": true
-    },
-    {
       "id": "lg-ar",
       "units": 69,
       "sampleSize": 8,
@@ -5539,6 +5620,16 @@
       "meets95": true
     },
     {
+      "id": "mc-ar",
+      "units": 102,
+      "sampleSize": 8,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
       "id": "mc-en",
       "units": 209,
       "sampleSize": 11,
@@ -5570,16 +5661,6 @@
     },
     {
       "id": "mc-hi",
-      "units": 102,
-      "sampleSize": 8,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 1,
-      "meets95": true
-    },
-    {
-      "id": "mc-zh",
       "units": 102,
       "sampleSize": 8,
       "damagedRate": 0,
@@ -6569,76 +6650,6 @@
       "meets95": true
     },
     {
-      "id": "quanta-cura-ar",
-      "units": 96,
-      "sampleSize": 8,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 1,
-      "meets95": true
-    },
-    {
-      "id": "quanta-cura-en",
-      "units": 201,
-      "sampleSize": 11,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 1,
-      "meets95": true
-    },
-    {
-      "id": "quanta-cura-en-ai",
-      "units": 96,
-      "sampleSize": 8,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 1,
-      "meets95": true
-    },
-    {
-      "id": "quanta-cura-es",
-      "units": 96,
-      "sampleSize": 8,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 1,
-      "meets95": true
-    },
-    {
-      "id": "quanta-cura-hi",
-      "units": 96,
-      "sampleSize": 8,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 1,
-      "meets95": true
-    },
-    {
-      "id": "quanta-cura-la",
-      "units": 96,
-      "sampleSize": 8,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 1,
-      "meets95": true
-    },
-    {
-      "id": "quanta-cura-zh",
-      "units": 96,
-      "sampleSize": 8,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 1,
-      "meets95": true
-    },
-    {
       "id": "quas-primas-ar",
       "units": 35,
       "sampleSize": 8,
@@ -6740,16 +6751,6 @@
     },
     {
       "id": "rh-hi",
-      "units": 136,
-      "sampleSize": 8,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 1,
-      "meets95": true
-    },
-    {
-      "id": "rh-zh",
       "units": 136,
       "sampleSize": 8,
       "damagedRate": 0,
@@ -7379,6 +7380,16 @@
       "meets95": true
     },
     {
+      "id": "vs-ar",
+      "units": 184,
+      "sampleSize": 10,
+      "damagedRate": 0,
+      "ocrIllegibleRate": 0,
+      "decision": "sample-pass",
+      "heuristicOkRate": 1,
+      "meets95": true
+    },
+    {
       "id": "vs-en",
       "units": 315,
       "sampleSize": 16,
@@ -7410,16 +7421,6 @@
     },
     {
       "id": "vs-hi",
-      "units": 184,
-      "sampleSize": 10,
-      "damagedRate": 0,
-      "ocrIllegibleRate": 0,
-      "decision": "sample-pass",
-      "heuristicOkRate": 1,
-      "meets95": true
-    },
-    {
-      "id": "vs-zh",
       "units": 184,
       "sampleSize": 10,
       "damagedRate": 0,
