@@ -75,6 +75,86 @@ assert(
 );
 assert(classifyUnitText(ocrJunk()) === "ocr_illegible", "TOC junk is ocr_illegible");
 
+function cleanZh(): string {
+  return (
+    "天主是伟大的，应当受到赞美。寻找他的人若不以心门关闭真理，" +
+    "便能在内心深处听见那已经回响的声音。"
+  );
+}
+function cleanAr(): string {
+  return (
+    "عظيم هو الرب ومستحق كل تسبيح. من يطلبه يجده إن لم يغلق قلبه " +
+    "عن الحق الذي يتردد في داخله."
+  );
+}
+function cleanHi(): string {
+  return (
+    "प्रभु महान हैं और स्तुति के योग्य हैं। जो उन्हें खोजता है वह उन्हें पाता है " +
+    "यदि वह सत्य के लिए अपना हृदय बंद न करे।"
+  );
+}
+// Long single-token shreds (no Latin letters) — must not sample-pass as OK.
+const zhRepeatShred = "的的的的的的的的的的的的的的的的的的的的的的的的的的的的的的的的的的的的";
+const arShred = "سسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسسس";
+const hiShred = "कककककककककककककककककककककककककककककककककककककककककककककककककक";
+const zhPunctSoup =
+  "··············，，，。。。！！！！··············？？？？········";
+
+assert(classifyUnitText(cleanZh()) === "ok", "clean Chinese prose is ok");
+assert(classifyUnitText(cleanAr()) === "ok", "clean Arabic prose is ok");
+assert(classifyUnitText(cleanHi()) === "ok", "clean Hindi prose is ok");
+assert(
+  classifyUnitText(zhRepeatShred) === "damaged_editorial",
+  `CJK repeat shred is damaged got ${classifyUnitText(zhRepeatShred)}`,
+);
+assert(
+  classifyUnitText(arShred) === "damaged_editorial",
+  `Arabic shred is damaged got ${classifyUnitText(arShred)}`,
+);
+assert(
+  classifyUnitText(hiShred) === "damaged_editorial",
+  `Hindi shred is damaged got ${classifyUnitText(hiShred)}`,
+);
+assert(
+  classifyUnitText(zhPunctSoup) !== "ok",
+  `CJK punct soup is not ok got ${classifyUnitText(zhPunctSoup)}`,
+);
+
+{
+  const eight = [
+    zhRepeatShred,
+    zhRepeatShred,
+    zhRepeatShred,
+    cleanZh(),
+    cleanZh(),
+    cleanZh(),
+    cleanZh(),
+    cleanZh(),
+  ];
+  const j = judgeSample("fixture-zh", eight);
+  assert(j.damagedCount === 3, `zh: 3 damaged got ${j.damagedCount}`);
+  assert(j.needsFullReview, "zh: CJK shreds trigger full-review");
+  assert(!j.needsReocr, "zh: editorial shreds do not request re-OCR");
+  assert(j.decision === "full-review", `zh: full-review got ${j.decision}`);
+}
+
+{
+  const eight = [
+    arShred,
+    arShred,
+    arShred,
+    cleanAr(),
+    cleanAr(),
+    cleanAr(),
+    cleanAr(),
+    cleanAr(),
+  ];
+  const j = judgeSample("fixture-ar", eight);
+  assert(j.damagedCount === 3, `ar: 3 damaged got ${j.damagedCount}`);
+  assert(j.decision === "full-review", `ar: full-review got ${j.decision}`);
+  assert(!j.needsReocr, "ar: no reocr under 60% OCR");
+}
+
 // (a) ≤25% damaged → sample-pass, no full-review
 {
   const units = Array.from({ length: 40 }, () => cleanProse());

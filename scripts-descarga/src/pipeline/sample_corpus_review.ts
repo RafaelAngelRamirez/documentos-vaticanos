@@ -112,19 +112,45 @@ export function planSample(documentId: string, unitCount: number): SamplePlan {
   };
 }
 
+const UNICODE_LETTER = /\p{L}/gu;
+const UNICODE_WORD = /\p{L}+/gu;
+const CJK_LETTER =
+  /\p{Script=Han}|\p{Script=Hiragana}|\p{Script=Katakana}|\p{Script=Hangul}/gu;
+
+function matchCount(re: RegExp, text: string): number {
+  const m = text.match(re);
+  return m ? m.length : 0;
+}
+
 export function classifyUnitText(text: string): UnitVerdictKind {
   const t = (text || "").trim();
   if (!t || t === OCR_GARBAGE_PLACEHOLDER) return "ocr_illegible";
   if (isGarbageUnit(t) || isDualColumnShredUnit(t) || isResidualBodyNoise(t)) {
     return "ocr_illegible";
   }
-  // Editorial-but-not-OCR: extremely short shreds that are not punctuation-only
-  // chrome (single letters / broken words) after mechanical filters missed them.
-  const letters = (t.match(/[A-Za-zÁÉÍÓÚÜÑáéíóúüñÀ-ÿ]/g) || []).length;
-  const words = t.match(/[A-Za-zÁÉÍÓÚÜÑáéíóúüñÀ-ÿ]{2,}/g) || [];
+  if (t.includes("\uFFFD") && t.length > 20) return "ocr_illegible";
+
+  const letters = matchCount(UNICODE_LETTER, t);
+  const words = t.match(UNICODE_WORD) || [];
+  const cjk = matchCount(CJK_LETTER, t);
+  const nonSpace = t.replace(/\s/g, "").length || 1;
+  const letterRatio = letters / nonSpace;
+
+  // CJK-dominant lines do not use spaces as word boundaries; "few words"
+  // would false-positive every Chinese paragraph. Use density + diversity.
+  if (letters > 0 && cjk >= letters * 0.4) {
+    if (t.length > 40 && letterRatio < 0.35) return "damaged_editorial";
+    const uniqueCjk = new Set(t.match(CJK_LETTER) || []);
+    if (cjk > 30 && uniqueCjk.size <= 2) return "damaged_editorial";
+    return "ok";
+  }
+
+  // Spaced scripts (Latin, Arabic, Devanagari, …): long run with almost
+  // no word breaks is a shred, not prose.
   if (t.length > 40 && letters > 20 && words.length <= 2) {
     return "damaged_editorial";
   }
+  if (t.length > 40 && letters === 0) return "ocr_illegible";
   return "ok";
 }
 
