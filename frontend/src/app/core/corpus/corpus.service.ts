@@ -196,11 +196,11 @@ export class CorpusService {
   /** Fill more units of a windowed document (scroll / narrator). */
   ensureUnits(
     documentId: string,
-    from: number,
-    to: number
+    fromIndex: number,
+    toIndex: number
   ): Observable<LoadedDocument> {
     return from(
-      this.engine.ensureUnits(documentId, from, to) as Promise<LoadedDocument>
+      this.engine.ensureUnits(documentId, fromIndex, toIndex) as Promise<LoadedDocument>
     );
   }
 
