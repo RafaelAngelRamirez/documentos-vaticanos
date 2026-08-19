@@ -12,73 +12,59 @@
     <button type="button" class="primary wbtn" (click)="goDocuments()">
       {{ t('inicio.start') }}
     </button>
-    <div class="fs13 wlink">
-      <a href="javascript:void(0)" (click)="goCuenta()">{{ t('inicio.have_account') }}</a>
-    </div>
 
-    <!-- Misal / liturgia (IGMR + APC · vatican.va free HTML) next to saints -->
+    <p class="wday muted" *ngIf="feastLabelEs" data-testid="inicio-date">
+      {{ feastLabelEs }}
+    </p>
+
+    <!-- Lecturas del día (misal ferial · biblia empaquetada) -->
     <section
-      class="wmisal"
-      data-testid="inicio-misal"
-      aria-labelledby="inicio-misal-heading"
-      *ngIf="!misalLoading && misalPrimary"
+      class="wsaints wlect"
+      data-testid="inicio-lecturas"
+      aria-labelledby="inicio-lecturas-heading"
     >
-      <h2 id="inicio-misal-heading" class="wmisal-title">{{ misalTitle }}</h2>
-      <p class="wmisal-lede muted">{{ misalLede }}</p>
+      <h2 id="inicio-lecturas-heading" class="wsaints-title">
+        {{ t('inicio.readings_today') }}
+      </h2>
+      <p class="wsaints-lit muted" *ngIf="liturgicalLabel">
+        {{ liturgicalLabel }}
+      </p>
 
-      <div class="wmisal-card" [attr.data-doc-id]="misalPrimary.id">
-        <div class="wmisal-name">{{ misalPrimary.title }}</div>
-        <div class="wmisal-meta muted" *ngIf="misalPrimary.shortTitle || misalPrimary.locale">
-          <span *ngIf="misalPrimary.shortTitle">{{ misalPrimary.shortTitle }}</span>
-          <span *ngIf="misalPrimary.locale"> · {{ misalPrimary.locale }}</span>
-          <span *ngIf="misalPrimary.unitCount"> · {{ misalPrimary.unitCount }} puntos</span>
-        </div>
-        <div class="wmisal-actions">
-          <button
-            type="button"
-            class="wmisal-read"
-            data-testid="inicio-misal-read"
-            (click)="openMisalDoc(misalPrimary)"
-          >
-            {{ misalReadLabel(misalPrimary) }}
-          </button>
-          <button
-            type="button"
-            class="wmisal-listen"
-            data-testid="inicio-misal-listen"
-            [disabled]="misalListening"
-            (click)="listenMisal(misalPrimary, $event)"
-          >
-            {{ misalListening ? 'Abriendo…' : misalListenLabel() }}
-          </button>
-        </div>
-      </div>
+      <ul class="wsaints-list" *ngIf="lecturasToday.length">
+        <li class="wsaints-item" *ngFor="let r of lecturasToday" [attr.data-lectura-id]="r.id">
+          <div class="wsaints-row">
+            <span class="wsaints-name">{{ r.label }}</span>
+            <span class="wsaints-intro muted">{{ r.cite }}</span>
+          </div>
+          <div class="wsaints-actions">
+            <button
+              type="button"
+              class="wsaints-listen"
+              [disabled]="listeningLecturaId === r.id"
+              data-testid="inicio-lectura-listen"
+              (click)="listenLectura(r, $event)"
+            >
+              {{ listeningLecturaId === r.id ? 'Abriendo…' : '▶ Escuchar' }}
+            </button>
+            <button
+              type="button"
+              class="wsaints-cta wsaints-cta-btn"
+              data-testid="inicio-lectura-read"
+              (click)="openLectura(r)"
+            >
+              Leer ›
+            </button>
+          </div>
+        </li>
+      </ul>
 
       <div
-        class="wmisal-card wmisal-card-secondary"
-        *ngIf="misalSecondary as sec"
-        [attr.data-doc-id]="sec.id"
+        class="wsaints-empty muted"
+        *ngIf="!lecturasToday.length"
+        data-testid="inicio-lecturas-empty"
       >
-        <div class="wmisal-name">{{ sec.title }}</div>
-        <div class="wmisal-actions">
-          <a
-            class="wmisal-cta"
-            [routerLink]="['/documento', sec.id]"
-            data-testid="inicio-misal-secondary"
-          >
-            {{ misalReadLabel(sec) }} ›
-          </a>
-        </div>
+        <p>Hoy no hay lecturas feriales en el pack (fuera del Tiempo Ordinario).</p>
       </div>
-
-      <a
-        class="wmisal-more"
-        routerLink="/santoral"
-        [queryParams]="{ vista: 'calendario' }"
-        data-testid="inicio-misal-calendar"
-      >
-        También en el calendario
-      </a>
     </section>
 
     <!-- Santos del día (pack offline · feastDays MM-DD local) -->
@@ -88,9 +74,6 @@
       aria-labelledby="inicio-saints-heading"
     >
       <h2 id="inicio-saints-heading" class="wsaints-title">{{ t('inicio.saints_today') }}</h2>
-      <p class="wsaints-date muted" *ngIf="feastLabelEs">
-        {{ feastLabelEs }}
-      </p>
 
       <div class="wsaints-loading muted" *ngIf="saintsTodayLoading" role="status">
         Cargando santoral…
@@ -140,23 +123,7 @@
         <p *ngIf="saintsTodayError">
           No se pudo cargar el santoral local.
         </p>
-        <a
-          class="wsaints-more"
-          routerLink="/santoral"
-          [queryParams]="{ vista: 'calendario' }"
-        >
-          Abrir calendario del santoral
-        </a>
       </div>
-
-      <a
-        class="wsaints-more"
-        *ngIf="!saintsTodayLoading && saintsToday.length"
-        routerLink="/santoral"
-        [queryParams]="{ vista: 'calendario' }"
-      >
-        Más en el calendario
-      </a>
     </section>
 
     <p class="wver muted" *ngIf="versionLabel" data-testid="inicio-version">

@@ -29,10 +29,12 @@ const EXPECTED_BUILD_LABEL = resolveAppVersionLabel(environment.version);
 
 describe('isWebDownloadShell', () => {
   it('is true only for pure web (not native, not electron)', () => {
-    expect(isWebDownloadShell(false, false)).toBe(true);
-    expect(isWebDownloadShell(true, false)).toBe(false);
-    expect(isWebDownloadShell(false, true)).toBe(false);
-    expect(isWebDownloadShell(true, true)).toBe(false);
+    expect(isWebDownloadShell(false, false, 'web')).toBe(true);
+    expect(isWebDownloadShell(true, false, 'web')).toBe(false);
+    expect(isWebDownloadShell(false, true, 'web')).toBe(false);
+    expect(isWebDownloadShell(true, true, 'web')).toBe(false);
+    expect(isWebDownloadShell(false, false, 'android')).toBe(false);
+    expect(isWebDownloadShell(false, false, 'ios')).toBe(false);
   });
 });
 

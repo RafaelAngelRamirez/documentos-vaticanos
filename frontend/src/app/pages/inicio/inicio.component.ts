@@ -26,15 +26,19 @@ import {
   saintDocumentId,
 } from 'src/app/core/santoral/santoral-units.logic';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
-import { DocumentMeta } from 'src/app/core/corpus/corpus.models';
+import { Article } from 'src/app/core/corpus/corpus.models';
 import {
-  misalBlockLede,
-  misalBlockTitle,
-  misalListenCtaLabel,
-  misalReadCtaLabel,
-  pickPrimaryMisalEntry,
-  pickSecondaryMisalEntry,
-} from 'src/app/core/misal/misal-liturgia.logic';
+  liturgicalDateOf,
+  liturgicalLabelEs,
+} from 'src/app/core/liturgia/liturgical-date.logic';
+import {
+  LecturaItem,
+  lecturasForLiturgicalDate,
+} from 'src/app/core/liturgia/lecturas-del-dia.logic';
+import {
+  findBibleUnitIndex,
+  parseLectionaryCite,
+} from 'src/app/core/liturgia/bible-cite.logic';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import { NavigationService } from 'src/app/services/navigation.service';
@@ -51,8 +55,12 @@ export { detectElectronShell };
  */
 export function isWebDownloadShell(
   isNativePlatform: boolean = Capacitor.isNativePlatform(),
-  isElectron: boolean = detectElectronShell()
+  isElectron: boolean = detectElectronShell(),
+  platform: string = Capacitor.getPlatform()
 ): boolean {
+  if (platform === 'android' || platform === 'ios') {
+    return false;
+  }
   return isWebDownloadShellCore(isNativePlatform, isElectron);
 }
 
@@ -121,13 +129,11 @@ export class InicioComponent implements OnInit, OnDestroy {
   /** While preloading a saint into the lector for voice. */
   listeningSaintId: string | null = null;
 
-  /** Misal / liturgia pack next to saints (IGMR + APC from vatican.va). */
-  misalPrimary: DocumentMeta | null = null;
-  misalSecondary: DocumentMeta | null = null;
-  misalLoading = true;
-  misalListening = false;
-  readonly misalTitle = misalBlockTitle();
-  readonly misalLede = misalBlockLede();
+  /** Daily Mass readings (OT ferial + Sunday) resolved to the bible pack. */
+  lecturasToday: LecturaItem[] = [];
+  liturgicalLabel = '';
+  listeningLecturaId: string | null = null;
+  private bibleDocId = 'bible-pueblo-de-dios-es';
 
   private sub = new Subscription();
   /** Tick so template labels re-resolve when UI locale changes. */
@@ -186,6 +192,9 @@ export class InicioComponent implements OnInit, OnDestroy {
     const now = new Date();
     this.feastKeyToday = localFeastKey(now);
     this.feastLabelEs = localFeastLabelEs(now);
+    const lit = liturgicalDateOf(now);
+    this.liturgicalLabel = liturgicalLabelEs(lit);
+    this.lecturasToday = lecturasForLiturgicalDate(lit);
     this.sub.add(
       this.santoral.loadManifest().subscribe({
         next: (m) => {
@@ -205,22 +214,18 @@ export class InicioComponent implements OnInit, OnDestroy {
       this.corpus.loadManifest().subscribe({
         next: () => {
           const preferred = this.readerPrefs.resolveContentLocale();
-          const docs = this.corpus.listDocuments();
-          this.misalPrimary = pickPrimaryMisalEntry(
-            docs,
-            preferred,
-          ) as DocumentMeta | null;
-          this.misalSecondary = pickSecondaryMisalEntry(
-            docs,
-            preferred,
-            this.misalPrimary,
-          ) as DocumentMeta | null;
-          this.misalLoading = false;
-        },
-        error: () => {
-          this.misalPrimary = null;
-          this.misalSecondary = null;
-          this.misalLoading = false;
+          const bible =
+            this.corpus
+              .listDocuments()
+              .find(
+                (d) =>
+                  d.kind === 'bible' &&
+                  (d.locale || '').toLowerCase() === preferred,
+              ) ||
+            this.corpus
+              .listDocuments()
+              .find((d) => d.id.startsWith('bible-pueblo-de-dios-'));
+          if (bible?.id) this.bibleDocId = bible.id;
         },
       }),
     );
@@ -253,10 +258,6 @@ export class InicioComponent implements OnInit, OnDestroy {
     this.navigation.go_to_documents();
   }
 
-  goCuenta(): void {
-    this.router.navigate(['/cuenta']);
-  }
-
   goSantoral(): void {
     this.router.navigate(['/santoral']);
   }
@@ -285,44 +286,38 @@ export class InicioComponent implements OnInit, OnDestroy {
     return !!(s?.bio && s.bio.trim().length > 40);
   }
 
-  misalReadLabel(meta: DocumentMeta | null): string {
-    return misalReadCtaLabel(meta);
+  openLectura(r: LecturaItem): void {
+    this.openLecturaAt(r, false);
   }
 
-  misalListenLabel(): string {
-    return misalListenCtaLabel();
-  }
-
-  openMisalDoc(meta: DocumentMeta | null): void {
-    if (!meta?.id) return;
-    this.router.navigate(['/documento', meta.id]);
-  }
-
-  /**
-   * One-tap listen for Misal packs: same lector + autoNarr path as ficha 2A.
-   */
-  listenMisal(meta: DocumentMeta | null, event?: Event): void {
+  listenLectura(r: LecturaItem, event?: Event): void {
     event?.preventDefault();
     event?.stopPropagation();
-    if (!meta?.id || this.misalListening) return;
-    this.misalListening = true;
-    const last = this.progress.getLastRead();
-    const idx = resolveCoverReadingIndex(
-      !!(last && last.documentId === meta.id),
-      last?.unitIndex,
-    );
+    this.openLecturaAt(r, true);
+  }
+
+  private openLecturaAt(r: LecturaItem, autoNarr: boolean): void {
+    const parsed = parseLectionaryCite(r.cite);
+    if (!parsed || this.listeningLecturaId) return;
+    this.listeningLecturaId = r.id;
     this.sub.add(
-      this.corpus.ensureLoaded(meta.id).subscribe({
-        next: () => {
-          this.misalListening = false;
-          this.navigation.openReading(meta.id, {
+      this.corpus.ensureLoaded(this.bibleDocId).subscribe({
+        next: (doc) => {
+          this.listeningLecturaId = null;
+          const units = (doc.documento || []) as Article[];
+          const idx = findBibleUnitIndex(units, parsed);
+          if (idx == null) {
+            this.router.navigate(['/documento', this.bibleDocId]);
+            return;
+          }
+          this.navigation.openReading(this.bibleDocId, {
             unitIndex: idx,
-            autoNarr: true,
+            autoNarr,
           });
         },
         error: () => {
-          this.misalListening = false;
-          this.openMisalDoc(meta);
+          this.listeningLecturaId = null;
+          this.router.navigate(['/documento', this.bibleDocId]);
         },
       }),
     );

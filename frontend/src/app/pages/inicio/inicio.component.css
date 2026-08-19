@@ -16,9 +16,9 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
-  padding: 28px 24px 32px;
+  padding: 20px 24px 28px;
   max-width: 480px;
   width: 100%;
   margin: 0 auto;
@@ -45,6 +45,12 @@
   margin-top: 8px;
 }
 
+.wday {
+  margin: 14px 0 0;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
 .wlink {
   margin-top: 16px;
 }
@@ -60,7 +66,7 @@
 
 /* —— Santos del día (offline pack) —— */
 .wsaints {
-  margin: 28px auto 0;
+  margin: 18px auto 0;
   max-width: 36ch;
   width: 100%;
   text-align: left;
@@ -77,9 +83,10 @@
   text-align: center;
 }
 
-.wsaints-date {
-  margin: 4px 0 12px;
-  font-size: 13px;
+.wsaints-date,
+.wsaints-lit {
+  margin: 4px 0 10px;
+  font-size: 12px;
   text-align: center;
 }
 
@@ -188,6 +195,14 @@
 
 .wsaints-cta:hover {
   text-decoration: underline;
+}
+
+.wsaints-cta-btn {
+  appearance: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .wsaints-empty {
