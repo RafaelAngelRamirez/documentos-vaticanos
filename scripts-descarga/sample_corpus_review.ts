@@ -14,10 +14,15 @@ import type { TrasnportData } from "./models/transport_data.model";
 import type { CorpusManifest } from "./models/corpus.model";
 import { buildIndex } from "./src/pipeline/build_index";
 import { CORPUS_ROOTS } from "./src/pipeline/write_corpus";
-import { repairOcrNoiseUnit } from "./src/pipeline/repair_ocr_noise";
 import {
+  OCR_GARBAGE_PLACEHOLDER,
+  repairOcrNoiseUnit,
+} from "./src/pipeline/repair_ocr_noise";
+import {
+  classifyUnitText,
   heuristicOkRate,
   judgeSample,
+  repairBrokenFootnoteTokens,
   type SampleJudgement,
 } from "./src/pipeline/sample_corpus_review";
 
@@ -101,6 +106,38 @@ function applyMechanical(units: TrasnportData[]): {
   return { next, changed };
 }
 
+/** Sense pass: footnote tokens + mechanical blank of leftover OCR soup. */
+function applyEditorial(
+  _docId: string,
+  units: TrasnportData[],
+): { next: TrasnportData[]; changed: number } {
+  let changed = 0;
+  const next = units.map((u) => {
+    let text = u.contenido || "";
+    const before = text;
+    if (/\[\+\[\d+\]\+\]/.test(text) || /\(\s*\)/.test(text)) {
+      text = repairBrokenFootnoteTokens(
+        text,
+        u.referencias as Array<{ descripcion?: string }> | undefined,
+      );
+    }
+    if (classifyUnitText(text) === "ocr_illegible") {
+      text = repairOcrNoiseUnit(text).contenido;
+    }
+    const after = classifyUnitText(text);
+    if (after !== "ok") {
+      const digits = (text.match(/\d/g) || []).length;
+      const nonSpace = text.replace(/\s/g, "").length || 1;
+      if (after === "ocr_illegible" || digits / nonSpace > 0.2) {
+        text = OCR_GARBAGE_PLACEHOLDER;
+      }
+    }
+    if (text !== before) changed += 1;
+    return { ...u, contenido: text };
+  });
+  return { next, changed };
+}
+
 function main(): void {
   const manifest = readJson<CorpusManifest>(
     path.join(primaryCorpusRoot(), "manifest.json"),
@@ -112,6 +149,7 @@ function main(): void {
     .filter(Boolean);
   const limit = Number(argValue("--limit") || "0") || 0;
   const apply = hasFlag("--apply-sample-fixes");
+  const applyEd = hasFlag("--apply-editorial");
 
   const entries: CampaignEntry[] = [];
   const reocr: string[] = [];
@@ -149,8 +187,10 @@ function main(): void {
     if (j.decision === "reocr") reocr.push(meta.id);
     if (j.decision === "full-review") fullReview.push(meta.id);
 
-    if (apply && j.decision !== "reocr") {
-      const { next, changed } = applyMechanical(units);
+    if ((apply || applyEd) && j.decision !== "reocr") {
+      const { next, changed } = applyEd
+        ? applyEditorial(meta.id, units)
+        : applyMechanical(units);
       if (changed > 0) {
         dualWrite(meta.id, next);
         console.log(`applied ${meta.id}: ${changed} units changed`);

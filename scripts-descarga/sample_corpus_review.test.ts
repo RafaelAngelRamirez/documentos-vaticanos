@@ -8,6 +8,7 @@ import {
   classifyUnitText,
   judgeSample,
   planSample,
+  repairBrokenFootnoteTokens,
   sampleSizeFor,
   seededRng,
 } from "./src/pipeline/sample_corpus_review";
@@ -20,6 +21,18 @@ function assert(cond: unknown, msg: string): void {
   if (!cond) {
     failed += 1;
     console.error(`FAIL: ${msg}`);
+    return;
+  }
+  passed += 1;
+  console.log(`ok  ${msg}`);
+}
+
+function assertEq(actual: string, expected: string, msg: string): void {
+  if (actual !== expected) {
+    failed += 1;
+    console.error(
+      `FAIL: ${msg}\n  expected: ${JSON.stringify(expected)}\n  actual:   ${JSON.stringify(actual)}`,
+    );
     return;
   }
   passed += 1;
@@ -70,8 +83,42 @@ assert(rngA() === rngB(), "seededRng stable");
 
 assert(classifyUnitText(cleanProse()) === "ok", "clean prose is ok");
 assert(
-  classifyUnitText(OCR_GARBAGE_PLACEHOLDER) === "ocr_illegible",
-  "placeholder is ocr_illegible",
+  classifyUnitText(OCR_GARBAGE_PLACEHOLDER) === "ok",
+  "reviewed TOC placeholder is ok",
+);
+assert(classifyUnitText("") === "ok", "empty slot is ok (not invented prose)");
+assert(classifyUnitText("   ") === "ok", "whitespace slot is ok");
+assert(
+  classifyUnitText(
+    "Ya desde la antigüedad se encuentra en los diversos pueblos una cierta percepción de aquella fuerza misteriosa y el conocimiento de la Suma Divinidad.",
+  ) === "ok",
+  "Spanish with 'conocimiento' is not residual-flagged",
+);
+assert(
+  classifyUnitText("106. 参见。真理辉煌 ([+[0]+]), 116: AAS 85 ([+[1]+]), 1224。") ===
+    "damaged_editorial",
+  "broken footnote interpolation is damaged",
+);
+assertEq(
+  repairBrokenFootnoteTokens("106. 参见。真理辉煌 ([+[0]+]), 116: AAS 85 ([+[1]+]), 1224。"),
+  "106. 参见。真理辉煌, 116: AAS 85, 1224。",
+  "repair strips [+[n]+] tokens and empty parens",
+);
+assertEq(
+  repairBrokenFootnoteTokens(
+    'el que no ama, no ha conocido a Dios" ( [+[0]+] ).',
+    [{ descripcion: "1 Jn 4,8" }],
+  ),
+  'el que no ama, no ha conocido a Dios" (1 Jn 4,8).',
+  "repair fills token from referencias.descripcion",
+);
+assert(
+  classifyUnitText(
+    repairBrokenFootnoteTokens(
+      "106. 参见。字母编码。真理辉煌 ([+[0]+]), 116: AAS 85 ([+[1]+]), 1224。",
+    ),
+  ) === "ok",
+  "repaired footnote unit is ok",
 );
 assert(classifyUnitText(ocrJunk()) === "ocr_illegible", "TOC junk is ocr_illegible");
 

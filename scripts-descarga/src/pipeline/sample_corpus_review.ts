@@ -8,7 +8,6 @@
 
 import {
   isGarbageUnit,
-  isResidualBodyNoise,
   isDualColumnShredUnit,
   OCR_GARBAGE_PLACEHOLDER,
 } from "./repair_ocr_noise";
@@ -122,13 +121,36 @@ function matchCount(re: RegExp, text: string): number {
   return m ? m.length : 0;
 }
 
+/** Broken interpolation left in translated footnotes, e.g. `[+[0]+]`. */
+const BROKEN_FOOTNOTE_TOKEN = /\[\+\[\d+\]\+\]/g;
+
+export function repairBrokenFootnoteTokens(
+  text: string,
+  refs?: Array<{ descripcion?: string }>,
+): string {
+  const next = text.replace(/\[\+\[(\d+)\]\+\]/g, (_m, n: string) => {
+    const d = refs?.[Number(n)]?.descripcion?.trim();
+    return d || "";
+  });
+  return next
+    .replace(/\(\s*\)/g, "")
+    .replace(/\(\s+/g, "(")
+    .replace(/\s+\)/g, ")")
+    .replace(/ +([,.;:])/g, "$1")
+    .replace(/[ \t]{2,}/g, " ");
+}
+
 export function classifyUnitText(text: string): UnitVerdictKind {
   const t = (text || "").trim();
-  if (!t || t === OCR_GARBAGE_PLACEHOLDER) return "ocr_illegible";
-  if (isGarbageUnit(t) || isDualColumnShredUnit(t) || isResidualBodyNoise(t)) {
+  // Empty slots and reviewed TOC placeholders are not presented as prose.
+  if (!t || t === OCR_GARBAGE_PLACEHOLDER) return "ok";
+  if (isGarbageUnit(t) || isDualColumnShredUnit(t)) {
     return "ocr_illegible";
   }
+  // Residual-body heuristic matches Spanish "conocimiento" ([oncrim]{8,});
+  // do not treat it as a sense verdict.
   if (t.includes("\uFFFD") && t.length > 20) return "ocr_illegible";
+  if (/\[\+\[\d+\]\+\]/.test(t)) return "damaged_editorial";
 
   const letters = matchCount(UNICODE_LETTER, t);
   const words = t.match(UNICODE_WORD) || [];
