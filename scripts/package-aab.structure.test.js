@@ -41,6 +41,8 @@ function main() {
   assert.match(aabSh, /DV_KEYSTORE_PASSWORD/);
   assert.match(aabSh, /bundleRelease/);
   assert.match(aabSh, /dvStorePassword/);
+  assert.match(aabSh, /ensure_frontend_deps/);
+  assert.match(aabSh, /node_modules\/\.bin\/ng/);
   assert.ok(!/docvat-local-dev-only/.test(aabSh), 'no local keystore password in script');
 
   section('play-upload-closed uses real helpers + closed→alpha');
@@ -73,6 +75,15 @@ function main() {
   assert.match(wf, /DV_PLAY_UPLOAD/);
   assert.match(wf, /PLAY_SERVICE_ACCOUNT_JSON/);
   assert.match(wf, /DV_KEYSTORE_PATH/);
+
+  section('PLAY-publish idle job mounts Docvat secrets (not Imperium fallback)');
+  const playWf = fs.readFileSync(path.join(ROOT, 'deploy/PLAY-publish-v1.json'), 'utf8');
+  assert.match(playWf, /DOCVAT_SECRETS_MOUNT/);
+  assert.match(playWf, /\/home\/deploy\/secrets\/docvat/);
+  assert.ok(
+    !playWf.includes('SECRETS_MOUNT%%'),
+    'must not test -d ${SECRETS_MOUNT%%:*} inside n8n (host paths are invisible there)',
+  );
 
   section('ops docs: package id, track, secrets names, import');
   const docs = fs.readFileSync(path.join(ROOT, 'deploy/PLAY-CLOSED-TESTING.md'), 'utf8');
