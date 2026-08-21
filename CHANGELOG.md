@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## Unreleased
 
+* **ci:** Play idle job mounts Docvat secrets (not Imperium) and installs frontend deps before AAB (`ng: not found`)
 * **reader:** open a unit window without waiting on index.json or IndexedDB write; persist body as chunks; cap rendered units; slow-load hydration copy (Padre Nuestro / Ave María)
 * **inicio:** hide account chrome; replace IGMR with lecturas del día; one date; no download icons on Android
 

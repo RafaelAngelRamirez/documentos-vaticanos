@@ -87,6 +87,10 @@ Without `PLAY_SERVICE_ACCOUNT_JSON`, `play-upload-closed.js` exits **2** with an
 
 **Root cause (2026-07):** builds with `DV_PLAY_UPLOAD=1` finished web/APK/docker then failed at Play with `ERROR: googleapis package not installed`, so n8n marked the whole job error and no new versionCode appeared after `0.0.20` on the Alpha track.
 
+**Root cause (2026-08-19):** the idle job `PLAY-publish v1` (`PLAYPublishV1sc`) packaged Docvat AAB against **IMPERIUM** secrets. n8n env `PLAY_SECRETS_MOUNT` points at `/home/deploy/secrets/imperium`, and the node also did `test -d` of that host path **inside** the n8n container (where `/home/deploy/secrets` is not mounted), so it always fell back to Imperium. Log: `ERROR: release keystore not found at /secrets/docvat-upload.jks`. Telegram still said “Play listo” because the node has `continueOnFail` (mutex must release). Fix: mount `DOCVAT_SECRETS_MOUNT` (`/home/deploy/secrets/docvat`) when `app_id=docvat`; never `test -d` host secret paths from n8n. Snapshot: `deploy/PLAY-publish-v1.json`. Git push does **not** update the live n8n graph — re-import that file.
+
+**Root cause (2026-08-21):** after the secrets mount was fixed, Play packaged AAB from a **clean clone** (no `frontend/node_modules`). `package-aab.sh` ran `npm run build` → `sh: 1: ng: not found` (exit 127). Fix: `package-aab.sh` installs frontend deps when `frontend/node_modules/.bin/ng` is missing.
+
 ## n8n (DOCVAT-build)
 
 Workflow: `deploy/DOCVAT-build-v1-sidecar.json` · id `DOCVATBuildV1sc`.
@@ -112,7 +116,7 @@ Ordering inside `.ci-build.sh` (do not reorder): release → deps → web → AP
 
 Host checklist when testers do not see updates:
 
-1. Last n8n execution `success` and log contains `::DOCVAT_PLAY_UPLOAD_OK::` (not `googleapis package not installed` / `play-upload-closed failed`).
+1. Last **PLAY-publish** execution log contains `::PLAY_PUBLISH_DONE::com.docvat` (or `::DOCVAT_PLAY_UPLOAD_OK::`). Sidecar web (`DOCVAT-build`) is expected to skip Play (`DV_PLAY_UPLOAD=0`) and enqueue this idle job. Failures: `release keystore not found at /secrets/docvat-upload.jks` (wrong secrets mount) or `googleapis package not installed`.
 2. `PLAY_STATUS=completed` on the n8n container (not stuck on `draft` after the app left Borrador).
 3. New `versionCode` / `versionName` higher than the active Alpha release (Console → Versiones y paquetes).
 4. Closed track **Alpha** (API `alpha`); custom track `closed` is optional and currently unused by CI.
@@ -136,6 +140,20 @@ ssh codice-progressio '
   docker exec n8n n8n update:workflow --id=DOCVATBuildV1sc --active=true
   cd /root/codice-progressio && sudo docker compose restart n8n
 '
+```
+
+Play idle job (AAB + upload; does not wipe the shared volume):
+
+```bash
+scp deploy/PLAY-publish-v1.json codice-progressio:/tmp/
+ssh codice-progressio '
+  docker cp /tmp/PLAY-publish-v1.json n8n:/tmp/ &&
+  docker exec n8n n8n import:workflow --input=/tmp/PLAY-publish-v1.json &&
+  docker exec n8n n8n update:workflow --id=PLAYPublishV1sc --active=true
+'
+# trigger Docvat closed track
+ssh codice-progressio 'docker exec n8n wget -qO- --post-data="{\"app_id\":\"docvat\"}" \
+  --header="Content-Type: application/json" http://127.0.0.1:5678/webhook/play-publish'
 ```
 
 Git push alone does **not** update the live n8n graph.

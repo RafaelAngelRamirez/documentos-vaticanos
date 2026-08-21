@@ -41,6 +41,29 @@ if [[ -z "$KEYSTORE_PASSWORD" ]]; then
   exit 1
 fi
 
+# Play idle job clones the repo without the full CI yarn install. npm run build
+# shells out to `ng`; without frontend/node_modules that is `ng: not found` (127).
+ensure_frontend_deps() {
+  if [[ -x "$FRONTEND/node_modules/.bin/ng" ]]; then
+    echo "==> frontend deps present ($FRONTEND/node_modules/.bin/ng)"
+    return 0
+  fi
+  echo "==> installing frontend deps (ng missing — Play idle / clean checkout)"
+  (
+    cd "$FRONTEND"
+    if command -v yarn >/dev/null 2>&1; then
+      yarn install --production=false --prefer-offline || yarn install --production=false
+    else
+      npm install
+    fi
+  )
+  if [[ ! -x "$FRONTEND/node_modules/.bin/ng" ]]; then
+    echo "ERROR: @angular/cli still missing after install ($FRONTEND/node_modules/.bin/ng)" >&2
+    exit 1
+  fi
+}
+ensure_frontend_deps
+
 cd "$FRONTEND"
 echo "==> Production build + Capacitor sync (shared path with package-apk)"
 if [[ ! -f dist/documentos-vaticanos/index.html ]]; then

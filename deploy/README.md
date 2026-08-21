@@ -17,6 +17,7 @@ UI links live under **Acerca de** (`/about`).
 ## n8n workflow
 
 - Export: `DOCVAT-build-v1-sidecar.json` (also in `codice-progressio-odoo-server/n8n-workflows/`)
+- Play Store idle job: `PLAY-publish-v1.json` · id `PLAYPublishV1sc` · webhook `POST /webhook/play-publish` `{ "app_id": "docvat" }`
 - Workflow id: `DOCVATBuildV1sc`
 - Name: `DOCVAT-build v1 (sidecar)`
 - Triggers:
