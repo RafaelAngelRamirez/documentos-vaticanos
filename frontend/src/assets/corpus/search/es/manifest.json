@@ -2,12 +2,12 @@
   "version": "0.2.0",
   "schema": 1,
   "locale": "es",
-  "generatedAt": "2026-08-09T19:03:17.167Z",
+  "generatedAt": "2026-08-21T04:27:00.279Z",
   "corpusFingerprint": {
     "algo": "sha256",
-    "value": "ecc2c23af4593d7cf48e4009164d15d48e503e03a40b116ed60ea07827963ae4",
+    "value": "cad6872678342aab5a8c180bb64394249354bef94b18eb584413a09167fa7adc",
     "docCount": 135,
-    "valueShort": "ecc2c23af4593d7c",
+    "valueShort": "cad6872678342aab",
     "filesHashed": 270
   },
   "caps": {
@@ -23,5 +23,5 @@
     "termTopics": "term-topics.json",
     "graph": "unit-graph.json"
   },
-  "sourceNote": "Hub topic postings for locale es. catalog=seed scripts-descarga/config/topics-seed.es.json; expand=true; hubs=88; assignments=48538; postings=19912."
+  "sourceNote": "Hub topic postings for locale es. catalog=seed scripts-descarga/config/topics-seed.es.json; expand=true; hubs=88; assignments=48648; postings=19930."
 }
