@@ -32,6 +32,8 @@ export interface DocumentMeta {
    */
   indexPath: string;
   unitCount?: number;
+  /** Short sha256 of content.json; invalidates durable cache on OCR/text repair. */
+  contentHash?: string;
 }
 
 export interface CorpusManifest {

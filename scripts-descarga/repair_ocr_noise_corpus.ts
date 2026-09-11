@@ -16,7 +16,7 @@ import path from "path";
 import type { TrasnportData } from "./models/transport_data.model";
 import type { CorpusManifest, DocumentMeta } from "./models/corpus.model";
 import { buildIndex } from "./src/pipeline/build_index";
-import { CORPUS_ROOTS } from "./src/pipeline/write_corpus";
+import { CORPUS_ROOTS, hashContentBytes } from "./src/pipeline/write_corpus";
 import {
   letterTokenOverlap,
   repairOcrNoiseUnit,
@@ -297,11 +297,19 @@ function applyToDocument(docId: string): RevisionRecord | null {
     writeJson(path.join(docDir, "content.json"), repaired, false);
     writeJson(path.join(docDir, "index.json"), index, false);
     dualRoots.push(root);
+    const bodyHash = hashContentBytes(
+      fs.readFileSync(path.join(docDir, "content.json")),
+    );
     const manifestPath = path.join(root, "manifest.json");
     if (fs.existsSync(manifestPath)) {
       try {
         const manifest = readJson<CorpusManifest>(manifestPath);
         manifest.generatedAt = new Date().toISOString();
+        const entry = (manifest.documents || []).find((d) => d.id === docId);
+        if (entry) {
+          entry.contentHash = bodyHash;
+          entry.unitCount = repaired.length;
+        }
         writeJson(manifestPath, manifest, false);
       } catch {
         /* ignore */

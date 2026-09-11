@@ -72,6 +72,36 @@ function main() {
     /versionCodes/
   );
 
+  section('monorepo semver maps above currently shipped 0.0.23 / code 23');
+  const fs = require('fs');
+  const path = require('path');
+  const rootPkg = JSON.parse(
+    fs.readFileSync(path.join(__dirname, '..', 'package.json'), 'utf8')
+  );
+  const shipped = versionFromSemver(rootPkg.version);
+  assert.notStrictEqual(shipped.versionName, '1.0');
+  assert.ok(
+    shipped.versionCode > 23,
+    `versionCode ${shipped.versionCode} must be > 23 (APK replace)`
+  );
+  assert.strictEqual(shipped.versionName, rootPkg.version.replace(/^v/i, ''));
+
+  section('package-apk.sh injects -PdvVersionCode / -PdvVersionName from helper');
+  const apkSh = fs.readFileSync(
+    path.join(__dirname, 'package-apk.sh'),
+    'utf8'
+  );
+  assert.ok(apkSh.includes('android-version.js'), 'uses version helper');
+  assert.ok(apkSh.includes('-PdvVersionCode=${VERSION_CODE}'));
+  assert.ok(apkSh.includes('-PdvVersionName=${VERSION_NAME}'));
+  assert.ok(apkSh.includes('assembleDebug'));
+  assert.ok(
+    !/assembleDebug --no-daemon\s*$/m.test(
+      apkSh.replace(/\\/g, '')
+    ) || apkSh.includes('-PdvVersionCode'),
+    'assembleDebug is not the bare Gradle fallback'
+  );
+
   console.log('\nAll android-version tests passed.');
 }
 

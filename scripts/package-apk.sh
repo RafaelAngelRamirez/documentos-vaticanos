@@ -6,6 +6,13 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 FRONTEND="$ROOT/frontend"
 ANDROID="$FRONTEND/android"
 OUT_APK="$ROOT/dist/documentos-vaticanos-debug.apk"
+VERSION_JS="$ROOT/scripts/android-version.js"
+
+# --- version from monorepo package.json (same helper as package-aab.sh) ---
+VERSION_JSON=$(node "$VERSION_JS" "$(node -p "require('$ROOT/package.json').version")")
+VERSION_NAME=$(node -p "JSON.parse(process.argv[1]).versionName" "$VERSION_JSON")
+VERSION_CODE=$(node -p "JSON.parse(process.argv[1]).versionCode" "$VERSION_JSON")
+echo "==> Android versionName=$VERSION_NAME versionCode=$VERSION_CODE"
 
 run() {
   if [[ -n "${DV_PACKAGE_LOG:-}" ]]; then
@@ -181,7 +188,9 @@ fi
 
 echo "==> Gradle assembleDebug"
 cd "$ANDROID"
-run ./gradlew assembleDebug --no-daemon
+run ./gradlew assembleDebug --no-daemon \
+  "-PdvVersionCode=${VERSION_CODE}" \
+  "-PdvVersionName=${VERSION_NAME}"
 
 APK_SRC="$ANDROID/app/build/outputs/apk/debug/app-debug.apk"
 if [[ ! -f "$APK_SRC" ]]; then

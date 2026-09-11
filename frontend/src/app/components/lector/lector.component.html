@@ -1,4 +1,8 @@
-<div class="app rpaper web-shell">
+<div
+  class="app rpaper web-shell"
+  [class.has-rfoot]="showReaderFoot"
+  [class.has-narr]="showReaderNarr"
+>
   <!-- 5D desktop chrome -->
   <app-wbar
     mode="reader"
@@ -101,14 +105,14 @@
     >
       {{ narrPlaying ? '❚❚' : '▶' }}
     </button>
-    <div>
+    <div class="narr-meta only-desktop">
       <div class="fs13 fw5" style="white-space: nowrap">{{ t('reader.narrator') }}</div>
       <div class="nlabel">{{ narrLabel }}</div>
     </div>
     <div class="nline" aria-hidden="true">
       <div class="nfill" [style.width.%]="narrProgressPct"></div>
     </div>
-    <span class="nlabel">{{ percent }} %</span>
+    <span class="nlabel only-desktop">{{ percent }} %</span>
     <button type="button" class="npill" (click)="cycleRate()">
       {{ narrRateLabel }}
     </button>

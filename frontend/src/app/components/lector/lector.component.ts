@@ -281,6 +281,16 @@ export class LectorComponent implements OnInit, OnDestroy {
     return this.narrator.supported;
   }
 
+  /** Mobile position bar — same *ngIf as `.rfoot`. */
+  get showReaderFoot(): boolean {
+    return !this.loading && !!this.document;
+  }
+
+  /** Narrator chrome — same *ngIf as `.narr`. */
+  get showReaderNarr(): boolean {
+    return !this.loading && !!this.document && this.narrSupported;
+  }
+
   get narrLabel(): string {
     const total = this.document?.documento.length ?? 0;
     if (!total) return 'Narrador';

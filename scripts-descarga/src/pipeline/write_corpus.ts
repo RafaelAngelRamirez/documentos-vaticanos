@@ -4,6 +4,7 @@
  */
 import fs from "fs";
 import path from "path";
+import crypto from "crypto";
 import type { TrasnportData } from "../../models/transport_data.model";
 import type {
   CorpusIndex,
@@ -21,6 +22,17 @@ export const CORPUS_ROOTS = [
   path.join(REPO, "documentos", "corpus"),
   path.join(REPO, "frontend", "src", "assets", "corpus"),
 ];
+
+/** First 12 hex chars of sha256 — stamped on DocumentMeta.contentHash. */
+export const CONTENT_HASH_LEN = 12;
+
+export function hashContentBytes(buf: Buffer | string): string {
+  return crypto
+    .createHash("sha256")
+    .update(buf)
+    .digest("hex")
+    .slice(0, CONTENT_HASH_LEN);
+}
 
 const DOC_CODES_PATH = path.join(
   SCRIPTS,
@@ -71,6 +83,7 @@ export function writeCorpusDocument(
   const relIndex = `documents/${config.corpusDocId}/index.json`;
   const relMeta = `documents/${config.corpusDocId}/meta.json`;
 
+  const contentHash = hashContentBytes(JSON.stringify(units));
   const meta: DocumentMeta = {
     id: config.corpusDocId,
     title: config.title,
@@ -81,6 +94,7 @@ export function writeCorpusDocument(
     bodyPath: relBody,
     indexPath: relIndex,
     unitCount,
+    contentHash,
   };
   if (config.author) meta.author = config.author;
   if (config.compiler) meta.compiler = config.compiler;

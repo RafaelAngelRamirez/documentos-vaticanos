@@ -41,6 +41,8 @@ export interface DocumentMeta {
   indexPath: string;
   /** Number of units in content.json when known. */
   unitCount?: number;
+  /** Short sha256 of content.json; invalidates the reader durable cache on repair. */
+  contentHash?: string;
 }
 
 /**

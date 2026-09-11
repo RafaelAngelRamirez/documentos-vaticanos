@@ -176,7 +176,13 @@ async function main() {
   const fp1 = documentFingerprint(m1);
   assert.strictEqual(
     fp1,
-    'dv-es|documents/dv-es/content.json|documents/dv-es/index.json|25'
+    'dv-es|documents/dv-es/content.json|documents/dv-es/index.json|25|'
+  );
+  const m1Hash = meta('dv-es', { unitCount: 25, contentHash: 'abc123def456' });
+  assert.notStrictEqual(
+    documentFingerprint(m1Hash),
+    fp1,
+    'contentHash change must invalidate fingerprint (OCR repair, stable unitCount)'
   );
   const m1b = meta('dv-es', { unitCount: 26 });
   assert.notStrictEqual(documentFingerprint(m1b), fp1);
@@ -437,9 +443,20 @@ async function main() {
     console.log('  ensureIndex → ensureLoaded reuse OK');
   }
 
-  section('(f) ensureWindow skips index.json and still persists body');
+  section('(f) ensureWindow skips index.json and does not await durable write');
   {
     const storeW = new MemoryCorpusStore();
+    let persistReleased = false;
+    let releasePersist;
+    const persistGate = new Promise((r) => {
+      releasePersist = r;
+    });
+    const origSet = storeW.setDocument.bind(storeW);
+    storeW.setDocument = async (doc) => {
+      await persistGate;
+      persistReleased = true;
+      return origSet(doc);
+    };
     const httpW = createHttpLayer({
       [MANIFEST_URL]: fixturePack([meta('doc-a', { unitCount: 2 })], 'win'),
       [`${CORPUS_ROOT}/documents/doc-a/content.json`]: [
@@ -456,6 +473,7 @@ async function main() {
       store: storeW,
     });
     const win = await engW.ensureWindow('doc-a', 0, 5);
+    assert.ok(win.documento && win.documento.length, 'non-empty unit window');
     assert.strictEqual(win.documento[0].contenido, 'alpha one');
     assert.strictEqual(
       httpW.urls.filter((u) => u.endsWith('/doc-a/index.json')).length,
@@ -466,7 +484,14 @@ async function main() {
       httpW.urls.some((u) => u.endsWith('/doc-a/content.json')),
       'window load fetches content.json'
     );
+    assert.strictEqual(
+      persistReleased,
+      false,
+      'first paint must not wait on a full-body durable write'
+    );
+    releasePersist();
     await new Promise((r) => setTimeout(r, 20));
+    assert.strictEqual(persistReleased, true, 'background persist still runs');
     const storedW = await storeW.getDocument('doc-a');
     assert.ok(storedW, 'body persisted in background after window load');
     httpW.resetLog();
@@ -478,7 +503,106 @@ async function main() {
       0,
       'second window load hits durable store'
     );
-    console.log('  ensureWindow skip-index + durable reuse OK');
+    console.log('  ensureWindow skip-index + no-await persist + durable reuse OK');
+  }
+
+  section('(g) ensureWindow cold window then fingerprint change forces HTTP');
+  {
+    const storeG = new MemoryCorpusStore();
+    const docV1 = meta('doc-a', { unitCount: 2, contentHash: 'hash-v1' });
+    const httpG = createHttpLayer({
+      [MANIFEST_URL]: fixturePack([docV1], 'g1'),
+      [`${CORPUS_ROOT}/documents/doc-a/content.json`]: [
+        article('1', 'alpha one'),
+        article('2', 'alpha two'),
+      ],
+      [`${CORPUS_ROOT}/documents/doc-a/index.json`]: {
+        indice: { alpha: [0] },
+        indice_por_punto: {},
+      },
+    });
+    let engG = new CorpusLoadEngine({
+      httpGet: httpG.httpGet,
+      store: storeG,
+    });
+    const cold = await engG.ensureWindow('doc-a', 0, 5);
+    assert.ok(cold.documento.length >= 1, 'cold window non-empty');
+    assert.strictEqual(cold.documento[0].contenido, 'alpha one');
+    assert.strictEqual(
+      httpG.urls.filter((u) => u.endsWith('/doc-a/index.json')).length,
+      0,
+      'cold ensureWindow must not GET index.json'
+    );
+    await new Promise((r) => setTimeout(r, 20));
+    assert.ok(await storeG.getDocument('doc-a'), 'durable body after cold window');
+
+    const docV2 = meta('doc-a', { unitCount: 2, contentHash: 'hash-v2' });
+    httpG.set(MANIFEST_URL, fixturePack([docV2], 'g2'));
+    httpG.set(`${CORPUS_ROOT}/documents/doc-a/content.json`, [
+      article('1', 'alpha NEW'),
+      article('2', 'alpha two'),
+    ]);
+    httpG.resetLog();
+    engG.clearMemory();
+    engG = new CorpusLoadEngine({
+      httpGet: httpG.httpGet,
+      store: storeG,
+    });
+    const afterHash = await engG.ensureWindow('doc-a', 0, 5);
+    assert.strictEqual(
+      afterHash.documento[0].contenido,
+      'alpha NEW',
+      'stale IDB rejected when contentHash changes'
+    );
+    assert.ok(
+      httpG.urls.some((u) => u.endsWith('/doc-a/content.json')),
+      'fingerprint change of same id forces HTTP again'
+    );
+    assert.strictEqual(
+      httpG.urls.filter((u) => u.endsWith('/doc-a/index.json')).length,
+      0,
+      'refetch window still skips index.json'
+    );
+    console.log('  ensureWindow fingerprint invalidate OK');
+  }
+
+  section('(h) ensureWindow does not wait on ensureLoaded inflight (index.json)');
+  {
+    const storeH = new MemoryCorpusStore();
+    let releaseIndex;
+    const indexGate = new Promise((r) => {
+      releaseIndex = r;
+    });
+    const httpH = createHttpLayer({
+      [MANIFEST_URL]: fixturePack([meta('doc-a', { unitCount: 2 })], 'h'),
+      [`${CORPUS_ROOT}/documents/doc-a/content.json`]: [
+        article('1', 'alpha one'),
+        article('2', 'alpha two'),
+      ],
+      [`${CORPUS_ROOT}/documents/doc-a/index.json`]: {
+        indice: { alpha: [0] },
+        indice_por_punto: {},
+      },
+    });
+    const origGet = httpH.httpGet;
+    httpH.httpGet = async (url) => {
+      if (String(url).endsWith('/doc-a/index.json')) {
+        await indexGate;
+      }
+      return origGet(url);
+    };
+    const engH = new CorpusLoadEngine({
+      httpGet: httpH.httpGet,
+      store: storeH,
+    });
+    const fullP = engH.ensureLoaded('doc-a');
+    const win = await engH.ensureWindow('doc-a', 0, 5);
+    assert.ok(win.documento && win.documento.length, 'window returned while index blocked');
+    assert.strictEqual(win.documento[0].contenido, 'alpha one');
+    releaseIndex();
+    const full = await fullP;
+    assert.ok(full.indice && full.indice.indice && full.indice.indice.alpha);
+    console.log('  ensureWindow vs ensureLoaded inflight OK');
   }
 
   section('summary');

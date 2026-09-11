@@ -21,6 +21,11 @@ export interface DocumentMeta {
   bodyPath: string;
   indexPath: string;
   unitCount?: number;
+  /**
+   * Short hex digest of content.json (first 12 of sha256). When present,
+   * OCR/text repairs invalidate IndexedDB even if unitCount is unchanged.
+   */
+  contentHash?: string;
 }
 
 export interface CorpusManifest {
@@ -94,6 +99,7 @@ export function documentFingerprint(meta: DocumentMeta): string {
     meta.bodyPath || '',
     meta.indexPath || '',
     meta.unitCount == null ? '' : String(meta.unitCount),
+    meta.contentHash || '',
   ].join('|');
 }
 
@@ -505,21 +511,56 @@ export class CorpusLoadEngine {
     }
 
     const byId = this.cache.get(meta.id);
-    if (byId) {
+    if (byId && !byId.partial && this.hasSearchIndex(byId.indice)) {
       return byId;
+    }
+    if (byId && byId.documento && byId.documento.length) {
+      let indice = this.indexCache.get(meta.id);
+      if (!indice || !this.hasSearchIndex(indice)) {
+        const indexUrl = this.resolveAssetPath(meta.indexPath);
+        const rawIndex = await this.getJson<unknown>(indexUrl);
+        indice = this.normalizeIndex(rawIndex);
+      }
+      const loaded: LoadedDocument = {
+        meta,
+        documento: byId.documento,
+        indice,
+        partial: false,
+      };
+      this.remember(loaded);
+      this.indexCache.set(meta.id, indice);
+      await this.persistLoaded(loaded);
+      return loaded;
     }
 
     try {
       const stored = await this.store.getDocument(meta.id);
       if (isStoredDocumentValid(stored, meta) && stored) {
+        const documento = this.stampIndexArray(
+          Array.isArray(stored.documento)
+            ? ([...stored.documento] as Article[])
+            : []
+        );
+        let indice = this.normalizeIndex(stored.indice);
+        if (!this.hasSearchIndex(indice)) {
+          const indexUrl = this.resolveAssetPath(meta.indexPath);
+          const rawIndex = await this.getJson<unknown>(indexUrl);
+          indice = this.normalizeIndex(rawIndex);
+          const filled: LoadedDocument = {
+            meta,
+            documento,
+            indice,
+            partial: false,
+          };
+          this.remember(filled);
+          this.indexCache.set(meta.id, indice);
+          await this.persistLoaded(filled);
+          return filled;
+        }
         const loaded: LoadedDocument = {
           meta,
-          documento: this.stampIndexArray(
-            Array.isArray(stored.documento)
-              ? ([...stored.documento] as Article[])
-              : []
-          ),
-          indice: this.normalizeIndex(stored.indice),
+          documento,
+          indice,
         };
         this.remember(loaded);
         return loaded;
@@ -573,11 +614,7 @@ export class CorpusLoadEngine {
       return cached;
     }
 
-    const pendingFull = this.inflight.get(documentId);
-    if (pendingFull) {
-      return pendingFull;
-    }
-
+    // Do not join ensureLoaded inflight: that path waits on index.json + IDB.
     return this.loadWindow(documentId, from, to);
   }
 
@@ -746,6 +783,11 @@ export class CorpusLoadEngine {
     } catch {
       /* quota — keep memory only */
     }
+  }
+
+  private hasSearchIndex(indice: Indice | undefined): boolean {
+    if (!indice) return false;
+    return Object.keys(indice.indice || {}).length > 0;
   }
 
   async ensureAllLoaded(): Promise<LoadedDocument[]> {

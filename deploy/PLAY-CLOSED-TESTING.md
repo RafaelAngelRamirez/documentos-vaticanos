@@ -158,11 +158,29 @@ ssh codice-progressio 'docker exec n8n wget -qO- --post-data="{\"app_id\":\"docv
 
 Git push alone does **not** update the live n8n graph.
 
+## Android developer verification (deadline 2026-09-30)
+
+Play Console → **Verificación de desarrolladores de Android**:
+`https://play.google.com/console/u/0/developers/4804831450172281943/android-developer-verification`
+
+Identity (RAMIREZ ESTRADA RAFAEL ANGEL) is already verified. Play packages already **Registrada**:
+
+| Package | Notes |
+|---------|--------|
+| `com.docvat` | Documentos Vaticanos (Play App Signing) |
+| `com.codiceprogressio.imperiumsic` | IMPERIUMsic |
+| `mx.parroquia.gestion` | Gestión Parroquial |
+
+Off-Play sideload / Capacitor id **`digital.documentosvaticanos.app`** was submitted 2026-09-11 with the host `androiddebugkey` SHA-256 (`4F:09:11:3D:…:E9:43`). Console status after APK proof upload: **En revisión** (Google may take up to 48h).
+
+Proof APK must contain `assets/adi-registration.properties` with the Console snippet and be signed with the same private key as the registered fingerprint. The debug APK on the phone uses this package + debug cert, not `com.docvat`.
+
 ## Manual Console URLs
 
 - App list: `https://play.google.com/console/u/0/developers/4804831450172281943/app-list`
 - Closed testing: `…/app/4972348861079915632/closed-testing`
 - Track `closed`: `…/app/4972348861079915632/tracks/4699966716943845821`
+- Developer verification: `…/android-developer-verification`
 
 ## Out of scope
 

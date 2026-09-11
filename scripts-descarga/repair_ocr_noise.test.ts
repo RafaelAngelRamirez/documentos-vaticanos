@@ -479,5 +479,37 @@ assert(
   assert(r.excludedGarbage === true, "catalog shred chrome blanked");
 }
 
+{
+  const fs = require("fs") as typeof import("fs");
+  const path = require("path") as typeof import("path");
+  const repo = path.resolve(__dirname, "..");
+  const rel = "documents/agustin-33-antidonatistas-2-es/content.json";
+  const a = path.join(repo, "documentos", "corpus", rel);
+  const b = path.join(repo, "frontend", "src", "assets", "corpus", rel);
+  if (fs.existsSync(a) && fs.existsSync(b)) {
+    const ua = JSON.parse(fs.readFileSync(a, "utf8"));
+    const ub = JSON.parse(fs.readFileSync(b, "utf8"));
+    assert(Array.isArray(ua) && ua.length === ub.length, "golden dual-write length");
+    assertEq(
+      (ua[0].contenido || "").trim(),
+      OCR_GARBAGE_PLACEHOLDER,
+      "shipped unit 0 is placeholder (repaired TOC)",
+    );
+    assertEq(
+      (ub[0].contenido || "").trim(),
+      OCR_GARBAGE_PLACEHOLDER,
+      "assets unit 0 is placeholder",
+    );
+    const r = repairOcrNoiseUnit(ua[0].contenido);
+    assert(r.changed === false, "placeholder unit is idempotent under repairOcrNoiseUnit");
+    const spaced = repairOcrNoiseUnit("DE LA H I S T O R I A");
+    assertEq(spaced.contenido, "DE LA HISTORIA", "pipeline still collapses HISTORIA");
+    assert(
+      !(JSON.stringify(ua) as string).includes("H I S T O R I A"),
+      "shipped golden has no spaced HISTORIA",
+    );
+  }
+}
+
 console.log(`\n${passed} passed, ${failed} failed`);
 if (failed > 0) process.exit(1);

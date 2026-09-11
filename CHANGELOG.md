@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## Unreleased
+
+* **android:** stack reader `.narr` above `.rfoot` (no shared `bottom: 0`); inject `versionCode`/`versionName` into debug APK packaging from monorepo semver
+* **corpus:** `contentHash` in document fingerprint so OCR/text repairs invalidate IndexedDB when `unitCount` is unchanged
+* **play:** register off-Play package `digital.documentosvaticanos.app` for Android developer verification (debug SHA-256; Console status En revisión)
+
 ### 0.0.24 (2026-08-21)
 
 

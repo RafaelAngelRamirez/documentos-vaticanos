@@ -190,6 +190,51 @@ async function main() {
       ` ratio=${ratio.toFixed(3)}`,
   );
 
+  section('OCR-repaired unit is shipped on both roots (not pre-repair garbage)');
+  const GOLDEN_ID = 'agustin-33-antidonatistas-2-es';
+  const GOLDEN_PLACEHOLDER = '[OCR: índice o tabla ilegible omitido]';
+  const goldenMeta = manCanon.documents.find((d) => d.id === GOLDEN_ID);
+  assert.ok(goldenMeta, `golden ${GOLDEN_ID} in canonical manifest`);
+  const goldenBodyA = path.join(CANONICAL, goldenMeta.bodyPath);
+  const goldenBodyB = path.join(ASSETS, goldenMeta.bodyPath);
+  assert.strictEqual(md5File(goldenBodyA), md5File(goldenBodyB), 'golden body dual-write');
+  const goldenUnits = JSON.parse(fs.readFileSync(goldenBodyA, 'utf8'));
+  assert.ok(Array.isArray(goldenUnits) && goldenUnits.length > 0);
+  assert.strictEqual(
+    (goldenUnits[0].contenido || '').trim(),
+    GOLDEN_PLACEHOLDER,
+    'unit 0 is the OCR garbage placeholder (repaired TOC), not leader soup',
+  );
+  const goldenRaw = fs.readFileSync(goldenBodyA, 'utf8');
+  assert.ok(
+    !/H I S T O R I A/.test(goldenRaw),
+    'spaced-letter HISTORIA must not remain in golden pack',
+  );
+  assert.ok(
+    !/U N I V E R S I D A D/.test(goldenRaw),
+    'spaced-letter UNIVERSIDAD must not remain in golden pack',
+  );
+  console.log(`  ${GOLDEN_ID} unit0 placeholder + dual-write MD5 OK`);
+
+  section('contentHash on sample docs matches sha256[:12] of content.json');
+  function sha12(filePath) {
+    return crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex').slice(0, 12);
+  }
+  for (const id of SAMPLE_IDS.concat([GOLDEN_ID])) {
+    const meta = manCanon.documents.find((d) => d.id === id);
+    assert.ok(meta, id);
+    const bodyA = path.join(CANONICAL, meta.bodyPath);
+    const expectHash = sha12(bodyA);
+    assert.ok(
+      meta.contentHash,
+      `${id} canonical manifest must stamp contentHash (IndexedDB invalidate)`,
+    );
+    assert.strictEqual(meta.contentHash, expectHash, `${id} contentHash matches body`);
+    const metaB = manAssets.documents.find((d) => d.id === id);
+    assert.ok(metaB && metaB.contentHash === expectHash, `${id} assets contentHash`);
+    console.log(`  ${id} contentHash=${expectHash}`);
+  }
+
   section('gitignore excludes heavy intermediates');
   const gitignore = fs.readFileSync(path.join(REPO, '.gitignore'), 'utf8');
   for (const line of [

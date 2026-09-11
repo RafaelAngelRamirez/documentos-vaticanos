@@ -55,6 +55,11 @@ body {
   --safe-area-inset-left: env(safe-area-inset-left, 0px);
   /* Fixed app bottom nav content clearance (bar chrome, not system inset). */
   --bnav-height: 96px;
+  /* Reader chrome bands (must match READER_CHROME in reader-chrome.logic.ts). */
+  --reader-topbar-height: 72px;
+  --reader-rfoot-height: 44px;
+  --reader-narr-height: 72px;
+  --reader-chrome-breathing: 16px;
   --reader-highlight: #ffe566;
   --reader-chrome-bg: color-mix(in srgb, var(--bg) 96%, transparent);
   --reader-chrome-border: var(--line);
@@ -383,7 +388,7 @@ a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
 .bt{font-family:'EB Garamond',serif;font-size:20px;font-weight:600;line-height:1.2}
 .bm{font-size:12px;color:var(--muted)}
 .narr{display:flex;align-items:center;gap:14px;border-top:1px solid var(--line);background:var(--card);padding:12px 22px;flex-shrink:0}
-.play{width:40px;height:40px;border-radius:50%;background:var(--acc);color:var(--accink);border:none;font-size:14px;cursor:pointer;flex-shrink:0}
+.play{width:48px;height:48px;border-radius:50%;background:var(--acc);color:var(--accink);border:none;font-size:14px;cursor:pointer;flex-shrink:0}
 .nline{flex:1;height:4px;border-radius:2px;background:var(--btn);position:relative}
 .nfill{position:absolute;top:0;bottom:0;left:0;width:26%;background:var(--acc);border-radius:2px}
 .npill{font-size:12px;color:var(--muted);border:1px solid var(--btnb);border-radius:999px;padding:5px 11px;white-space:nowrap;cursor:pointer}
