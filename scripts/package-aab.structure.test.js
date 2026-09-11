@@ -75,6 +75,12 @@ function main() {
   assert.match(wf, /DV_PLAY_UPLOAD/);
   assert.match(wf, /PLAY_SERVICE_ACCOUNT_JSON/);
   assert.match(wf, /DV_KEYSTORE_PATH/);
+  assert.match(wf, /scripts\/package-apk\.sh/);
+  assert.match(wf, /\.ci-build\.sh/);
+  assert.match(wf, /DV_PACKAGE_NAME:-com\.docvat/);
+  assert.match(wf, /DV_PLAY_UPLOAD:-0/, 'sidecar web build defers Play to idle job');
+  assert.match(wf, /PLAY_STATUS:-completed/);
+  assert.match(wf, /DOCVAT_SECRETS_MOUNT/);
 
   section('PLAY-publish idle job mounts Docvat secrets (not Imperium fallback)');
   const playWf = fs.readFileSync(path.join(ROOT, 'deploy/PLAY-publish-v1.json'), 'utf8');
@@ -84,6 +90,15 @@ function main() {
     !playWf.includes('SECRETS_MOUNT%%'),
     'must not test -d ${SECRETS_MOUNT%%:*} inside n8n (host paths are invisible there)',
   );
+  assert.match(playWf, /appId === 'docvat' \? 'com\.docvat'/);
+  assert.match(playWf, /appId === 'docvat' \? 'completed'/);
+  assert.match(playWf, /bash scripts\/package-aab\.sh/);
+  assert.match(playWf, /play-upload-closed\.js/);
+  assert.ok(!/test -d \/home\/deploy\/secrets/.test(playWf));
+  assert.ok(!/IM_SECRETS_MOUNT/.test(wf), 'sidecar JSON must not use IM_SECRETS_MOUNT');
+
+  section('n8n sidecar + PLAY-publish JSON contracts (sibling)');
+  require('./n8n-play.structure.test.js').main();
 
   section('ops docs: package id, track, secrets names, import');
   const docs = fs.readFileSync(path.join(ROOT, 'deploy/PLAY-CLOSED-TESTING.md'), 'utf8');
