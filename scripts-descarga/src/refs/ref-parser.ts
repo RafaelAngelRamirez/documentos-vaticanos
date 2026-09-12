@@ -84,6 +84,7 @@ export const DOCUMENT_BLOCKLIST = new Set(
     "CDS", "CDC", "CICL", "CDSI",
     "DS", "RH", "PP", "DCG", "DeV", "ChL", "TMA", "NMI", "EE", "SA", "PDV",
     "RMi", "CT", "CAN",
+    "LS", "FT", "DCE", "LF", "EG", "AL", "SPS", "CIV", "SCA", "VD",
   ].map((s) => s.toUpperCase()),
 );
 
@@ -240,13 +241,17 @@ function isEcclesialTokenForm(token: string): boolean {
   // Explicit long codes even if mixed (CIC, CCEO, CCEO)
   const upper = letters.toUpperCase();
   if (upper === "CIC" || upper === "CCEO" || upper === "DS") return true;
-  // Mixed-case magisterial tokens already in doc-codes (DeV, DonV, RMi, ChL).
+  // Mixed-case magisterial tokens already in doc-codes (DeV, DonV, RMi, ChL,
+  // SpS, CiV, SCa). Never list DN here: mixed "Dn" is biblical Daniel.
   if (
     upper === "DEV" ||
     upper === "DONV" ||
     upper === "DONVER" ||
     upper === "RMI" ||
-    upper === "CHL"
+    upper === "CHL" ||
+    upper === "SPS" ||
+    upper === "CIV" ||
+    upper === "SCA"
   ) {
     return true;
   }

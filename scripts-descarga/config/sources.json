@@ -1436,6 +1436,176 @@
       "expectedUnitCount": 18,
       "translationProvenance": "official",
       "sourceNote": "Constitutio apostolica Pauli VI de Missali Romano instaurato. Textus latinus."
+    },
+    {
+      "id": "dce",
+      "title": "Deus caritas est",
+      "shortTitle": "DCE",
+      "author": "Benedicto XVI",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "deus-caritas-est-es",
+      "docCode": "DCE",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/benedict-xvi/es/encyclicals/documents/hf_ben-xvi_enc_20051225_deus-caritas-est.html"
+      ],
+      "fixturePath": "fixtures/dce-es/source.html",
+      "expectedUnitCount": 42,
+      "notes": "Benedict XVI encyclical (2005). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "sps",
+      "title": "Spe salvi",
+      "shortTitle": "SpS",
+      "author": "Benedicto XVI",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "spe-salvi-es",
+      "docCode": "SpS",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/benedict-xvi/es/encyclicals/documents/hf_ben-xvi_enc_20071130_spe-salvi.html"
+      ],
+      "fixturePath": "fixtures/sps-es/source.html",
+      "expectedUnitCount": 50,
+      "notes": "Benedict XVI encyclical (2007). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "lf",
+      "title": "Lumen fidei",
+      "shortTitle": "LF",
+      "author": "Francisco",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "lumen-fidei-es",
+      "docCode": "LF",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/francesco/es/encyclicals/documents/papa-francesco_20130629_enciclica-lumen-fidei.html"
+      ],
+      "fixturePath": "fixtures/lf-es/source.html",
+      "expectedUnitCount": 60,
+      "notes": "Francis encyclical (2013). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "ls",
+      "title": "Laudato si'",
+      "shortTitle": "LS",
+      "author": "Francisco",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "laudato-si-es",
+      "docCode": "LS",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/francesco/es/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html"
+      ],
+      "fixturePath": "fixtures/ls-es/source.html",
+      "expectedUnitCount": 246,
+      "notes": "Francis encyclical (2015). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "ft",
+      "title": "Fratelli tutti",
+      "shortTitle": "FT",
+      "author": "Francisco",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "fratelli-tutti-es",
+      "docCode": "FT",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/francesco/es/encyclicals/documents/papa-francesco_20201003_enciclica-fratelli-tutti.html"
+      ],
+      "fixturePath": "fixtures/ft-es/source.html",
+      "expectedUnitCount": 287,
+      "notes": "Francis encyclical (2020). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "eg",
+      "title": "Evangelii gaudium",
+      "shortTitle": "EG",
+      "author": "Francisco",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "esortazione-ap-20131124-evangelii-gaudium-es",
+      "docCode": "EG",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/francesco/es/apost_exhortations/documents/papa-francesco_esortazione-ap_20131124_evangelii-gaudium.html"
+      ],
+      "fixturePath": "fixtures/eg-es/source.html",
+      "expectedUnitCount": 288,
+      "notes": "Francis apostolic exhortation (2013). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "al",
+      "title": "Amoris laetitia",
+      "shortTitle": "AL",
+      "author": "Francisco",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "esortazione-ap-20160319-amoris-laetitia-es",
+      "docCode": "AL",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/francesco/es/apost_exhortations/documents/papa-francesco_esortazione-ap_20160319_amoris-laetitia.html"
+      ],
+      "fixturePath": "fixtures/al-es/source.html",
+      "expectedUnitCount": 325,
+      "notes": "Francis post-synodal apostolic exhortation (2016). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "civ",
+      "title": "Caritas in veritate",
+      "shortTitle": "CiV",
+      "author": "Benedicto XVI",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "caritas-in-veritate-es",
+      "docCode": "CiV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/benedict-xvi/es/encyclicals/documents/hf_ben-xvi_enc_20090629_caritas-in-veritate.html"
+      ],
+      "fixturePath": "fixtures/civ-es/source.html",
+      "expectedUnitCount": 79,
+      "notes": "Benedict XVI encyclical (2009). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "sca",
+      "title": "Sacramentum caritatis",
+      "shortTitle": "SCa",
+      "author": "Benedicto XVI",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "sacramentum-caritatis-es",
+      "docCode": "SCa",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/benedict-xvi/es/apost_exhortations/documents/hf_ben-xvi_exh_20070222_sacramentum-caritatis.html"
+      ],
+      "fixturePath": "fixtures/sca-es/source.html",
+      "expectedUnitCount": 96,
+      "notes": "Benedict XVI post-synodal apostolic exhortation (2007). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "dn",
+      "title": "Dilexit nos",
+      "shortTitle": "DN",
+      "author": "Francisco",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "dilexit-nos-es",
+      "docCode": "DN",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/francesco/es/encyclicals/documents/20241024-enciclica-dilexit-nos.html"
+      ],
+      "fixturePath": "fixtures/dn-es/source.html",
+      "expectedUnitCount": 220,
+      "notes": "Official ES. URL pattern papa-francesco_20241024_enciclica-dilexit-nos.html is 404; use the 20241024-enciclica-dilexit-nos.html form."
     }
   ]
 }

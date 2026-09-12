@@ -899,6 +899,120 @@
       ],
       "title": "Instrucción general del Misal Romano",
       "corpusDocId": "igmr-es"
+    },
+    {
+      "code": "LS",
+      "aliases": [
+        "LS",
+        "Laudato si'",
+        "Laudato si"
+      ],
+      "title": "Laudato si'",
+      "corpusDocId": "laudato-si-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "FT",
+      "aliases": [
+        "FT",
+        "Fratelli tutti"
+      ],
+      "title": "Fratelli tutti",
+      "corpusDocId": "fratelli-tutti-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "DCE",
+      "aliases": [
+        "DCE",
+        "Deus caritas est"
+      ],
+      "title": "Deus caritas est",
+      "corpusDocId": "deus-caritas-est-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "SpS",
+      "aliases": [
+        "SpS",
+        "SPS",
+        "Spe salvi"
+      ],
+      "title": "Spe salvi",
+      "corpusDocId": "spe-salvi-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "LF",
+      "aliases": [
+        "LF",
+        "Lumen fidei"
+      ],
+      "title": "Lumen fidei",
+      "corpusDocId": "lumen-fidei-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "EG",
+      "aliases": [
+        "EG",
+        "Evangelii gaudium"
+      ],
+      "title": "Evangelii gaudium",
+      "corpusDocId": "esortazione-ap-20131124-evangelii-gaudium-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "AL",
+      "aliases": [
+        "AL",
+        "Amoris laetitia"
+      ],
+      "title": "Amoris laetitia",
+      "corpusDocId": "esortazione-ap-20160319-amoris-laetitia-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "CiV",
+      "aliases": [
+        "CiV",
+        "CIV",
+        "Caritas in veritate"
+      ],
+      "title": "Caritas in veritate",
+      "corpusDocId": "caritas-in-veritate-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "SCa",
+      "aliases": [
+        "SCa",
+        "SCA",
+        "Sacramentum caritatis"
+      ],
+      "title": "Sacramentum caritatis",
+      "corpusDocId": "sacramentum-caritatis-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
+      "code": "DN",
+      "aliases": [
+        "DN",
+        "Dilexit nos"
+      ],
+      "title": "Dilexit nos",
+      "corpusDocId": "dilexit-nos-es",
+      "locatorType": "number",
+      "kind": "magisterium"
     }
   ]
 }

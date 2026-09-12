@@ -218,3 +218,48 @@ console.log("ref_parser.test.ts: extended asserts passed");
   );
 }
 console.log("ref_parser.test.ts: multi-doc asserts passed");
+
+{
+  const opts = { bookIndex: index, docIndex };
+  const eccCases: Array<[string, string, string]> = [
+    ["LS 48", "laudato-si-es", "48"],
+    ["FT 8", "fratelli-tutti-es", "8"],
+    ["DCE 16", "deus-caritas-est-es", "16"],
+    ["LF 4", "lumen-fidei-es", "4"],
+    ["EG 1", "esortazione-ap-20131124-evangelii-gaudium-es", "1"],
+    ["AL 52", "esortazione-ap-20160319-amoris-laetitia-es", "52"],
+    ["DN 16", "dilexit-nos-es", "16"],
+    ["SpS 17", "spe-salvi-es", "17"],
+    ["CiV 2", "caritas-in-veritate-es", "2"],
+    ["SCa 6", "sacramentum-caritatis-es", "6"],
+  ];
+  for (const [raw, corpusDocId, locator] of eccCases) {
+    const atoms = parseRefGroup(raw, opts);
+    assert(atoms[0]?.kind === "ecclesial", `${raw} ecclesial`);
+    if (atoms[0]?.kind === "ecclesial") {
+      assert(
+        atoms[0].citation.corpusDocId === corpusDocId,
+        `${raw} → ${corpusDocId}`,
+      );
+      assert(atoms[0].citation.locator === locator, `${raw} locator ${locator}`);
+    }
+  }
+
+  const dnBible = parseRefGroup("Dn 7,13", opts);
+  assert(dnBible[0]?.kind === "bible", "Dn 7,13 is bible");
+  if (dnBible[0]?.kind === "bible") {
+    assert(dnBible[0].citation.bookSlug === "daniel", "Dn → Daniel");
+    assert(
+      dnBible[0].citation.chapter === 7 && dnBible[0].citation.verseStart === 13,
+      "Dn 7,13 coords",
+    );
+  }
+
+  const dnEcc = parseRefGroup("DN 16", opts);
+  assert(dnEcc[0]?.kind === "ecclesial", "DN 16 ecclesial not Daniel");
+  if (dnEcc[0]?.kind === "ecclesial") {
+    assert(dnEcc[0].citation.corpusDocId === "dilexit-nos-es", "DN 16 → dilexit-nos-es");
+    assert(dnEcc[0].citation.locator === "16", "DN 16 locator");
+  }
+}
+console.log("ref_parser.test.ts: new magisterial abbr asserts passed");

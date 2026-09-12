@@ -12,6 +12,7 @@ import {
   type ParsedAtom,
 } from "./ref-parser";
 
+/** Hub kinds whose content.json may gain referencias[]. Patristic uses the capped sidecar harvest. */
 export const HARVEST_KINDS = new Set([
   "magisterium",
   "catechism",
@@ -62,7 +63,7 @@ export function extractCiteCandidateStrings(text: string): string[] {
   while ((m = reCf.exec(plain))) push(m[0]);
 
   const reEcc =
-    /\b(?:CIC|CEC|LG|GS|DV|SC|AA|AG|CD|OT|PC|PO|UR|NA|DH|GE|IM|CCEO|CDC|CDS|DS|HV|EN|FC|CA|VS|EV|EE|RM|NMI|PDV)\s+\d{1,4}[a-z]?\b/g;
+    /\b(?:CIC|CEC|LG|GS|DV|SC|AA|AG|CD|OT|PC|PO|UR|NA|DH|GE|IM|CCEO|CDC|CDS|DS|HV|EN|FC|CA|VS|EV|EE|RM|NMI|PDV|LS|FT|DCE|LF|EG|AL|DN|VD|SPS|CIV|SCA|SpS|CiV|SCa)\s+\d{1,4}[a-z]?\b/g;
   while ((m = reEcc.exec(plain))) push(m[0]);
 
   return out;

@@ -9,6 +9,13 @@ import type {
   SourceAdapter,
   SourceConfig,
 } from "./types";
+import {
+  collectFootnoteMap,
+  collectFootnoteRefIds,
+  mergeReferences,
+  refsFromNoteIds,
+  stripAllFootnoteAnchors,
+} from "./footnote_harvest";
 
 const { parseHTML } = require("linkedom");
 
@@ -36,16 +43,10 @@ const DEFAULT_OPTS: Required<NumberedParseOptions> = {
   uniqueConsecutivo: true,
 };
 
-function stripFootnoteAnchors(el: Element): void {
-  const anchors = el.querySelectorAll(
-    'a[href*="_ftn"], a[name*="_ftn"], a[href*="#_ftn"]',
-  );
-  anchors.forEach((a) => a.remove());
-}
-
 function cleanText(raw: string): string {
   return raw
     .replace(/\[\s*\]/g, "")
+    .replace(/\(\s*\)/g, "")
     .replace(/\u00a0/g, " ")
     .replace(/[ \t]+\n/g, "\n")
     .replace(/\n{3,}/g, "\n\n")
@@ -95,15 +96,22 @@ export function parseNumberedParagraphs(
   const units: TrasnportData[] = [];
   const headings: string[] = [];
   const seen = new Set<string>();
+  const harvest = opts.stripFootnotes
+    ? collectFootnoteMap(root as Element)
+    : { map: new Map<string, string>(), skipParagraphs: new Set<Element>() };
 
   for (const p of paragraphs) {
+    const el = p as Element;
+    if (harvest.skipParagraphs.has(el)) continue;
+
+    const noteIds = opts.stripFootnotes ? collectFootnoteRefIds(el) : [];
     if (opts.stripFootnotes) {
-      stripFootnoteAnchors(p as Element);
+      stripAllFootnoteAnchors(el);
     }
-    const text = cleanText((p as Element).textContent || "");
+    const text = cleanText(el.textContent || "");
     if (!text) continue;
 
-    const align = (p as Element).getAttribute?.("align");
+    const align = el.getAttribute?.("align");
     if (align === "center" || /^(CAPÍTULO|CAPITULO)\b/i.test(text)) {
       headings.push(text.replace(/\s+/g, " ").trim());
       continue;
@@ -118,10 +126,11 @@ export function parseNumberedParagraphs(
     if (opts.uniqueConsecutivo && seen.has(consecutivo)) continue;
     seen.add(consecutivo);
 
+    const footnoteRefs = refsFromNoteIds(noteIds, harvest.map);
     let unit: TrasnportData = {
       consecutivo,
       contenido: `${consecutivo}. ${body}`,
-      referencias: [],
+      referencias: footnoteRefs,
     };
 
     if (opts.extractParentheticalRefs) {
@@ -129,7 +138,7 @@ export function parseNumberedParagraphs(
       unit = {
         ...unit,
         contenido: extracted.contenido,
-        referencias: extracted.referencias,
+        referencias: mergeReferences(footnoteRefs, extracted.referencias),
       };
     }
 

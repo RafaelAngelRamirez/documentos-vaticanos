@@ -62,4 +62,24 @@ const docIndex = buildDocIndex(
   assert(added.length === 0, "years/sections not harvested");
 }
 
+{
+  const cands = extractCiteCandidateStrings(
+    "Cuidar la casa común LS 48 y también DN 16; cf. SpS 17.",
+  );
+  assert(cands.some((c) => /LS 48/.test(c)), "inline LS 48");
+  assert(cands.some((c) => /DN 16/.test(c)), "inline DN 16");
+  assert(cands.some((c) => /SpS 17/.test(c)), "inline SpS 17");
+}
+
+{
+  const added = harvestNewDescriptions(
+    "Como enseña LS 48 y FT 8.",
+    [],
+    bookIndex,
+    docIndex,
+  );
+  assert(added.some((c) => /LS 48/.test(c)), "harvest LS 48");
+  assert(added.some((c) => /FT 8/.test(c)), "harvest FT 8");
+}
+
 console.log("harvest_inline_refs.test.ts: ok");
