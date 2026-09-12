@@ -1,6 +1,6 @@
 {
   "name": "documentos-vaticanos",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "private": true,
   "builders": "tools/builders.json",
   "description": "Documentos Vaticanos — lector offline (web, Android, Electron)",
