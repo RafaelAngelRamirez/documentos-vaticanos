@@ -28,6 +28,9 @@ type OlmCites = {
 
 type Abc = 'A' | 'B' | 'C';
 
+/** Packed OLM Sundays may omit a cycle (harvest gaps). cycleRow falls back to A. */
+type SundayCycles = Partial<Record<Abc, OlmCites>>;
+
 const PACK = pack as {
   adventWeekday: OlmCites[][];
   lentWeekday: OlmCites[][];
@@ -36,11 +39,11 @@ const PACK = pack as {
   dec17: Record<string, OlmCites>;
   christmasDays: Record<string, OlmCites>;
   afterEpiphany: OlmCites[];
-  adventSunday: Record<string, Record<Abc, OlmCites>>;
-  lentSunday: Record<string, Record<Abc, OlmCites>>;
-  easterSunday: Record<string, Record<Abc, OlmCites>>;
-  otSunday: Record<string, Record<Abc, OlmCites>>;
-  feasts: Record<string, OlmCites | Record<Abc, OlmCites>>;
+  adventSunday: Record<string, SundayCycles>;
+  lentSunday: Record<string, SundayCycles>;
+  easterSunday: Record<string, SundayCycles>;
+  otSunday: Record<string, SundayCycles>;
+  feasts: Record<string, OlmCites | SundayCycles>;
 };
 
 /** Fixed solemnities not in the seasonal weekday tables. */
@@ -114,7 +117,7 @@ function toItems(row: OlmCites | null | undefined): LecturaItem[] {
 }
 
 function cycleRow(
-  map: Record<string, Record<Abc, OlmCites>> | undefined,
+  map: Record<string, SundayCycles> | undefined,
   week: number,
   cycle: Abc,
 ): OlmCites | null {

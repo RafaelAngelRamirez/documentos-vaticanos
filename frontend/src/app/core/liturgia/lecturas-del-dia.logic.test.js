@@ -53,6 +53,22 @@ async function main() {
   assert.match(g(2026, 1, 6), /Mt 2,1-12/);
   assert.match(g(2026, 12, 8), /Lc 1,26-38/);
 
+  // Packed OLM omits OT Sunday 8 cycle B; cycleRow falls back to A (Mt 6,24-34).
+  const ot8b = lecturasForLiturgicalDate({
+    season: 'ordinary',
+    week: 8,
+    weekday: 0,
+    sundayCycle: 'B',
+    weekdayYear: 'II',
+    month: 5,
+    day: 27,
+  });
+  assert.match(
+    gospelOf(ot8b),
+    /Mt 6,24-34/,
+    'OT Sunday 8 B missing in pack → A fallback',
+  );
+
   const ash = liturgicalDateOf(new Date(2026, 1, 18));
   assert.strictEqual(ash.season, 'lent');
   assert.strictEqual(ash.week, 0);
