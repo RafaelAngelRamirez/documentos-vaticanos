@@ -22,6 +22,20 @@ const explIdx = routing.indexOf("path: 'explorar'");
 const relIdx = routing.indexOf("path: 'explorar/relaciones'");
 assert.ok(relIdx >= 0 && relIdx < explIdx, 'specific route first');
 
+const angularJson = read(path.join(ROOT, 'frontend/angular.json'));
+assert.ok(
+  angularJson.includes('.:spa-dev-server'),
+  'ng serve uses spa-dev-server (not extra-webpack / proxy.conf)',
+);
+assert.ok(
+  angularJson.includes('@angular-devkit/build-angular:browser'),
+  'production build stays on official browser builder',
+);
+assert.ok(!/proxy\.conf/.test(angularJson), 'no proxy.conf for SPA fallback');
+
+const spaFallback = read(path.join(ROOT, 'frontend/tools/spa-fallback.js'));
+assert.ok(spaFallback.includes("'*/*'"), 'htmlAcceptHeaders includes */*');
+
 const explHtml = read(path.join(FE, 'pages/explorar/explorar.component.html'));
 assert.ok(explHtml.includes('Relaciones'), 'tab label');
 assert.ok(explHtml.includes('app-citegraph'), 'svg component');

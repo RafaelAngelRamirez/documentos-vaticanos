@@ -83,7 +83,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": ".:spa-dev-server",
           "configurations": {
             "production": {
               "browserTarget": "documentos-vaticanos:build:production"

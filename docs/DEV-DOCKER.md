@@ -42,6 +42,8 @@ El entrypoint es `scripts/dev.sh` (detach por defecto; espera health de la API).
 API health: http://localhost:3000/api/v1/health  
 Web: http://localhost:4200  
 
+Deep links del router (`/explorar/relaciones`, `/documento/:id`, …) deben devolver el `index.html` de Angular. El `ng serve` de Angular 16 solo reescribe si `Accept` incluye `text/html` (navegador); curl usa `*/*` y sin el builder `.:spa-dev-server` responde `Cannot GET …`. Producción (nginx `try_files`) no usa ese builder. No uses `proxy.conf.json` para esto.
+
 Login local sin Google:
 
 ```bash
