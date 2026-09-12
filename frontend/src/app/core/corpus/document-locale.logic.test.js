@@ -165,6 +165,23 @@ async function main() {
     ),
     true,
   );
+  // «traducción de referencia» is a human edition note, not an IA disclaimer
+  // (`traducci[oó]n.*IA` with /i would match the "ia" in "referencia").
+  assert.strictEqual(
+    L.isAiEdition(
+      meta('carta-diogneto-es', 'es', {
+        sourceNote:
+          'Edición/traducción de referencia: Iglesia Viva / Ruiz Bueno (BAC 1950, adaptada).',
+      }),
+    ),
+    false,
+  );
+  assert.strictEqual(
+    L.looksLikeAiDisclaimer(
+      'Compilación digital del P. A. Cedano. Edición/traducción de referencia: Biblioteca Clásica Gredos.',
+    ),
+    false,
+  );
   assert.strictEqual(L.isAiEdition(meta('lg-en', 'en')), false);
   assert.strictEqual(
     L.isAiEdition(meta('cic-es', 'es', { translationProvenance: 'official' })),
@@ -301,6 +318,32 @@ async function main() {
     const catalogSavedEs = L.listPreferredEditions(metas, savedEs);
     const caSaved = catalogSavedEs.find((d) => L.familyKey(d.id, d.locale) === 'ca');
     assert.strictEqual(caSaved.id, 'ca-es');
+
+    // Human compilations (Cedano / «traducción de referencia») are not IA.
+    const cedanoIds = [
+      'carta-diogneto-es',
+      'cipriano-cartas-es',
+      'cirilo-jerusalen-catequesis-es',
+      'clemente-alejandria-pedagogo-es',
+    ];
+    for (const id of cedanoIds) {
+      const d = metas.find((m) => m.id === id);
+      assert.ok(d, `manifest must list ${id}`);
+      assert.ok(
+        /traducci[oó]n de referencia/i.test(d.sourceNote || ''),
+        `${id} sourceNote must contain «traducción de referencia» (regression bait)`,
+      );
+      assert.strictEqual(
+        L.isAiEdition(d),
+        false,
+        `${id} must not be classified as IA (got sourceNote=${d.sourceNote})`,
+      );
+      assert.notStrictEqual(
+        L.localeProvenanceBadge(d.locale, L.isAiEdition(d)),
+        'ES(IA)',
+        `${id} badge must not be ES(IA)`,
+      );
+    }
 
     const searchEnReal = L.listSearchUniverse(metas, 'en', false);
     assert.ok(searchEnReal.some((d) => d.id === 'ca-en'));
