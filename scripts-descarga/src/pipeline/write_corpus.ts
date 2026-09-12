@@ -14,6 +14,7 @@ import type {
 import type { SourceConfig } from "../adapters/types";
 import { buildIndex } from "./build_index";
 import { upsertDownload } from "./document_registry";
+import { looksLikeAiDisclaimer } from "./locale_provenance";
 
 const REPO = path.resolve(__dirname, "../../..");
 const SCRIPTS = path.resolve(__dirname, "../..");
@@ -102,6 +103,13 @@ export function writeCorpusDocument(
   else if (config.notes) meta.sourceNote = config.notes;
   if (config.translationProvenance) {
     meta.translationProvenance = config.translationProvenance;
+  }
+  // Never stamp official on a pack whose note is an AI-translation disclaimer.
+  if (
+    meta.translationProvenance === "official" &&
+    looksLikeAiDisclaimer(meta.sourceNote)
+  ) {
+    meta.translationProvenance = "ai";
   }
 
   for (const root of CORPUS_ROOTS) {

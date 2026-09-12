@@ -8,6 +8,25 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 const { pathToFileURL } = require('url');
+const { register } = require('node:module');
+
+register(
+  'data:text/javascript,' +
+    encodeURIComponent(`
+      export async function resolve(specifier, context, nextResolve) {
+        if (
+          (specifier.startsWith('./') || specifier.startsWith('../')) &&
+          !/\\.(ts|js|mjs|cjs|json|node)$/i.test(specifier)
+        ) {
+          try {
+            return await nextResolve(specifier + '.ts', context);
+          } catch {}
+        }
+        return nextResolve(specifier, context);
+      }
+    `),
+  pathToFileURL(__filename),
+);
 
 const HERE = __dirname;
 const BUSCADOR_TS = path.resolve(
@@ -46,14 +65,42 @@ async function main() {
     { id: 'lg-es', locale: 'es', kind: 'magisterium', unitCount: 100 },
     { id: 'agustin-02-confesiones-es', locale: 'es', kind: 'patristic', unitCount: 9000 },
     { id: 'nicea-i-la', locale: 'la', kind: 'council', unitCount: 20 },
+    {
+      id: 'ca-en',
+      locale: 'en',
+      kind: 'magisterium',
+      unitCount: 50,
+      translationProvenance: 'official',
+    },
+    {
+      id: 'ca-en-ai',
+      locale: 'en',
+      kind: 'magisterium',
+      unitCount: 50,
+      translationProvenance: 'ai',
+    },
   ];
 
   const esOnly = L.metasForSearchLocale(metas, 'es', false);
   assert.strictEqual(esOnly.length, 3, 'es locale filters 3 packs');
   assert.ok(esOnly.every((m) => m.locale === 'es'));
 
+  const enOnly = L.metasForSearchLocale(metas, 'en', false);
+  assert.ok(enOnly.some((m) => m.id === 'cic-en'));
+  assert.ok(enOnly.some((m) => m.id === 'ca-en'), 'en search prefers official ca-en');
+  assert.ok(
+    !enOnly.some((m) => m.id === 'ca-en-ai'),
+    'en search drops AI sibling of official pack',
+  );
+
   const all = L.metasForSearchLocale(metas, 'es', true);
-  assert.strictEqual(all.length, 5, 'allLocales returns full list');
+  assert.ok(all.some((m) => m.id === 'nicea-i-la'));
+  assert.ok(all.some((m) => m.id === 'ca-en'));
+  assert.ok(
+    !all.some((m) => m.id === 'ca-en-ai'),
+    'allLocales still drops AI sibling when official exists',
+  );
+  assert.strictEqual(all.length, 6, 'allLocales is 6 after collapsing ca-en-ai');
 
   const hubs = L.pickRelatedHubMetas(metas, 'es', 40, false);
   assert.ok(

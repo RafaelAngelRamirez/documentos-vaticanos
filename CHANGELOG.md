@@ -4,11 +4,14 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## Unreleased
 
+* **corpus:** harvest de notas vatican.va (`#fn` / `_ftn` / `_edn`) hacia `referencias[]` sin crear unidades; packs de lectura ES de Francisco y Benedicto XVI (`laudato-si-es`, `fratelli-tutti-es`, `deus-caritas-est-es`, `spe-salvi-es`, `lumen-fidei-es`, `evangelii-gaudium-es`, `amoris-laetitia-es`, `caritas-in-veritate-es`, `sacramentum-caritatis-es`, `dilexit-nos-es`); gemelos `en/hi/zh/ar` pendientes (oficial ES primero)
+* **search:** códigos `LS`/`FT`/`DCE`/`SpS`/`LF`/`EG`/`AL`/`CiV`/`SCa`/`DN` (`Dn` sigue siendo Daniel); grafo documento↔documento reconstruido; sidecar patrístico acotado (`patristic-verse-hits.json`, sin aristas en el grafo)
+* **i18n:** idioma de interfaz y de textos independientes — primer arranque desde el dispositivo (`system` + `navigator.language`); Ajustes expone ambos selectores; catálogo y búsqueda eligen una edición por obra (oficial sobre IA)
+* **corpus:** `iura-et-bona-en` marcado como traducción IA (no scrape oficial); inventario de pares oficial/IA con cuerpos distintos
 * **dev:** `ng serve` reescribe deep links (`/explorar/relaciones`) a `index.html` también con `Accept: */*` (curl); el build de producción no cambia
 * **android:** `targetSdk` / `compileSdk` 36 (Play exige API 36 desde 2026-08-31) con AGP 8.9.1 y Gradle 8.11.1
 * **ci:** el job Play escribe `::PLAY_ERROR::` en stderr y Telegram lee `error.message` (ya no se queda en «ver log n8n»)
 * **search:** mapa visual de citas documento↔documento (`doc-graph.json`, Explorar → Relaciones, chips en ficha 2A); chips clicables en el lector para `referencias.local`; harvest de citas en prosa de magisterio/catecismo; parser `Mc.,` / `CIC can.` / `DS` embebido; intención de búsqueda (`quiero leer sobre…`)
-* **search:** harvest capado de citas bíblicas patrísticas (`search/{locale}/patristic-verse-hits.json`; no escribe `content.json` ni `unit-graph`)
 
 ### 0.0.25 (2026-09-11)
 

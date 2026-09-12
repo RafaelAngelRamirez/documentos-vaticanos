@@ -170,6 +170,16 @@ async function main() {
     L.isAiEdition(meta('cic-es', 'es', { translationProvenance: 'official' })),
     false,
   );
+  // AI disclaimer wins over a leftover official flag (mixed marks → IA).
+  assert.strictEqual(
+    L.isAiEdition(
+      meta('foo-en', 'en', {
+        translationProvenance: 'official',
+        sourceNote: 'AI-generated translation from Spanish.',
+      }),
+    ),
+    true,
+  );
 
   // localeProvenanceBadge
   assert.strictEqual(L.localeProvenanceBadge('es', false), 'ES');
@@ -223,6 +233,26 @@ async function main() {
   assert.ok(L.KNOWN_LOCALE_SUFFIXES.includes('hi'));
   assert.ok(L.KNOWN_LOCALE_SUFFIXES.includes('ar'));
 
+  // listSearchUniverse — official over AI; locale-scoped
+  const searchPack = [
+    meta('ca-es', 'es'),
+    meta('ca-en', 'en', { translationProvenance: 'official' }),
+    meta('ca-en-ai', 'en', { translationProvenance: 'ai' }),
+    meta('lg-es', 'es'),
+    meta('lg-en', 'en', { translationProvenance: 'official' }),
+  ];
+  const searchEn = L.listSearchUniverse(searchPack, 'en', false);
+  assert.ok(searchEn.some((d) => d.id === 'ca-en'), 'search en picks official ca-en');
+  assert.ok(!searchEn.some((d) => d.id === 'ca-en-ai'), 'search en drops ca-en-ai');
+  assert.ok(!searchEn.some((d) => d.id === 'ca-es'), 'search en does not fall back to es');
+  assert.ok(searchEn.some((d) => d.id === 'lg-en'));
+  const searchEs = L.listSearchUniverse(searchPack, 'es', false);
+  assert.ok(searchEs.every((d) => d.locale === 'es'));
+  const searchAll = L.listSearchUniverse(searchPack, 'en', true);
+  assert.ok(searchAll.some((d) => d.id === 'ca-es'));
+  assert.ok(searchAll.some((d) => d.id === 'ca-en'));
+  assert.ok(!searchAll.some((d) => d.id === 'ca-en-ai'));
+
   // Real manifest collapse smoke
   if (fs.existsSync(MANIFEST)) {
     const man = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
@@ -243,6 +273,43 @@ async function main() {
         );
       }
     }
+
+    // Real official vs AI siblings (same family + locale)
+    const caFam = L.editionsForDocument(metas, 'ca-en');
+    const caEn = caFam.filter((e) => (e.locale || '') === 'en' || /-en(-ai)?$/.test(e.id));
+    assert.ok(
+      caEn.some((e) => e.id === 'ca-en') && caEn.some((e) => e.id === 'ca-en-ai'),
+      'ca has official EN and AI twin',
+    );
+    assert.strictEqual(L.pickPreferredEdition(caEn, 'en').id, 'ca-en');
+    const catalogEn = L.listPreferredEditions(metas, 'en');
+    assert.ok(catalogEn.some((d) => d.id === 'ca-en'), 'catalog en prefers official ca-en');
+    assert.ok(!catalogEn.some((d) => d.id === 'ca-en-ai'), 'catalog en hides ca-en-ai');
+    const catalogEs = L.listPreferredEditions(metas, 'es');
+    const caEs = catalogEs.find((d) => L.familyKey(d.id, d.locale) === 'ca');
+    assert.ok(caEs && caEs.id === 'ca-es', `catalog es prefers ES pack, got ${caEs && caEs.id}`);
+
+    // system resolved to en uses EN official, not ES
+    const resolvedEn = L.resolveContentLocale('system', 'en-US', 'es');
+    assert.strictEqual(resolvedEn, 'en');
+    const catalogSysEn = L.listPreferredEditions(metas, resolvedEn);
+    const caSys = catalogSysEn.find((d) => L.familyKey(d.id, d.locale) === 'ca');
+    assert.strictEqual(caSys.id, 'ca-en', 'system→en catalog picks ca-en not ca-es');
+
+    const savedEs = L.resolveContentLocale('es', 'en-US', 'es');
+    assert.strictEqual(savedEs, 'es', 'saved content locale wins over device');
+    const catalogSavedEs = L.listPreferredEditions(metas, savedEs);
+    const caSaved = catalogSavedEs.find((d) => L.familyKey(d.id, d.locale) === 'ca');
+    assert.strictEqual(caSaved.id, 'ca-es');
+
+    const searchEnReal = L.listSearchUniverse(metas, 'en', false);
+    assert.ok(searchEnReal.some((d) => d.id === 'ca-en'));
+    assert.ok(!searchEnReal.some((d) => d.id === 'ca-en-ai'));
+    assert.ok(
+      !searchEnReal.some((d) => d.id === 'ca-es'),
+      'en search universe does not include ca-es',
+    );
+
     console.log(`OK: manifest collapse ${all} → ${collapsed.length} (pref=es)`);
   }
 

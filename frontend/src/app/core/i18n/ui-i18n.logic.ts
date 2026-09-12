@@ -35,6 +35,23 @@ export function resolveUiLocale(
   return isUiLocale(fallback) ? fallback : DEFAULT_UI_LOCALE;
 }
 
+/**
+ * UI locale from the device (`navigator.language`) for first launch / reset.
+ * Works on web and Capacitor Android WebView (same JS navigator).
+ * Unsupported device languages fall back to Spanish.
+ */
+export function defaultUiLocaleFromDevice(
+  navigatorLanguage?: string | null,
+): UiLocale {
+  const nav =
+    navigatorLanguage !== undefined
+      ? navigatorLanguage
+      : typeof navigator !== 'undefined'
+        ? navigator.language
+        : undefined;
+  return resolveUiLocale(nav);
+}
+
 /** Arabic is RTL; all other UI locales are LTR. */
 export function isRtl(locale: string | null | undefined): boolean {
   return resolveUiLocale(locale) === 'ar';
@@ -115,4 +132,59 @@ export function uiLocaleLabel(locale: string | null | undefined): string {
     ar: 'العربية',
   };
   return map[loc];
+}
+
+/** Pref value: concrete corpus locale or follow the device. */
+export type ContentLocalePref = 'system' | string;
+
+export interface StoredLocalePrefs {
+  contentLocale: ContentLocalePref;
+  uiLocale: UiLocale;
+}
+
+function clampContentLocale(raw: unknown): ContentLocalePref {
+  const rawLoc = (raw ?? 'system').toString().trim();
+  if (!rawLoc || rawLoc === 'system') return 'system';
+  return rawLoc.toLowerCase().split(/[-_]/)[0] || 'system';
+}
+
+/**
+ * Locale fields for `reader.prefs.v1`.
+ *
+ * - No JSON / empty: first launch — UI from device, content `system`.
+ * - Saved JSON: stored values win (independent UI vs content).
+ * - Old blobs missing `uiLocale`: keep Spanish (do not surprise existing installs).
+ * - Invalid JSON: same as first launch.
+ */
+export function localePrefsFromStorage(
+  raw: string | null | undefined,
+  navigatorLanguage?: string | null,
+): StoredLocalePrefs {
+  if (raw == null || raw === '') {
+    return {
+      contentLocale: 'system',
+      uiLocale: defaultUiLocaleFromDevice(navigatorLanguage),
+    };
+  }
+  try {
+    const parsed = JSON.parse(raw) as {
+      contentLocale?: unknown;
+      uiLocale?: unknown;
+    };
+    const hasUi =
+      parsed != null &&
+      parsed.uiLocale != null &&
+      String(parsed.uiLocale).trim() !== '';
+    return {
+      contentLocale: clampContentLocale(parsed?.contentLocale),
+      uiLocale: hasUi
+        ? resolveUiLocale(String(parsed.uiLocale))
+        : DEFAULT_UI_LOCALE,
+    };
+  } catch {
+    return {
+      contentLocale: 'system',
+      uiLocale: defaultUiLocaleFromDevice(navigatorLanguage),
+    };
+  }
 }

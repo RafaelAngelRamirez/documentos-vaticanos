@@ -3,7 +3,10 @@ import { BehaviorSubject } from 'rxjs';
 import { Capacitor } from '@capacitor/core';
 import { StatusBar, Style } from '@capacitor/status-bar';
 import { resolveContentLocale } from '../core/corpus/document-locale.logic';
-import { resolveUiLocale } from '../core/i18n/ui-i18n.logic';
+import {
+  defaultUiLocaleFromDevice,
+  localePrefsFromStorage,
+} from '../core/i18n/ui-i18n.logic';
 
 /** Temas: Mono (monocromo oscuro, default) · Sepia · Claro · Oscuro · Sistema. */
 export type ReaderTheme = 'mono' | 'claro' | 'sepia' | 'oscuro' | 'system';
@@ -42,21 +45,7 @@ export interface ReaderPreferences {
 
 export const READER_PREFS_STORAGE_KEY = 'reader.prefs.v1';
 
-/**
- * UI locale from device (`navigator.language`) for first launch / reset.
- * Works on web and Capacitor Android WebView (same JS navigator).
- */
-export function defaultUiLocaleFromDevice(
-  navigatorLanguage?: string | null,
-): UiLocalePref {
-  const nav =
-    navigatorLanguage !== undefined
-      ? navigatorLanguage
-      : typeof navigator !== 'undefined'
-        ? navigator.language
-        : undefined;
-  return resolveUiLocale(nav) as UiLocalePref;
-}
+export { defaultUiLocaleFromDevice };
 
 export const DEFAULT_READER_PREFERENCES: ReaderPreferences = {
   theme: 'mono',
@@ -294,26 +283,28 @@ export class ReaderPreferencesService {
   }
 
   private load(): ReaderPreferences {
+    const nav =
+      typeof navigator !== 'undefined' ? navigator.language : undefined;
     try {
       const raw = localStorage.getItem(READER_PREFS_STORAGE_KEY);
+      const locales = localePrefsFromStorage(raw, nav);
       if (!raw) {
         // First launch: content follows device via `system`; UI matches device.
         return {
           ...DEFAULT_READER_PREFERENCES,
-          uiLocale: defaultUiLocaleFromDevice(),
+          ...locales,
         };
       }
       const parsed = JSON.parse(raw) as Partial<ReaderPreferences>;
-      // Saved prefs win; only omit uiLocale → keep default es for old blobs
-      // that never stored it (clamp handles missing).
       return this.clamp({
         ...DEFAULT_READER_PREFERENCES,
         ...parsed,
+        ...locales,
       });
     } catch {
       return {
         ...DEFAULT_READER_PREFERENCES,
-        uiLocale: defaultUiLocaleFromDevice(),
+        ...localePrefsFromStorage(null, nav),
       };
     }
   }

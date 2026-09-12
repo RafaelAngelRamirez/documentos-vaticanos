@@ -3,12 +3,16 @@
  * No Angular DI — safe for node tests.
  */
 
+import { listSearchUniverse, type LocaleMeta } from '../corpus/document-locale.logic';
+
 /** Minimal meta shape for locale / hub filtering. */
 export interface SearchMetaLike {
   id: string;
   locale?: string;
   kind?: string;
   unitCount?: number;
+  translationProvenance?: 'official' | 'ai' | string;
+  sourceNote?: string;
 }
 
 /** Hub kinds for related / early topic postings (design KD17). */
@@ -31,24 +35,20 @@ export function normalizeLocale(code?: string | null): string {
 
 /**
  * Metas in the default query universe for search.
- * When allLocales is true, returns all metas (opt-in “todos los idiomas”).
+ * Resolved content locale: one edition per family, official over AI.
+ * When allLocales is true, every language is included but AI siblings of an
+ * official same-locale pack are still dropped.
  */
 export function metasForSearchLocale(
   metas: readonly SearchMetaLike[],
   contentLocale: string,
   allLocales = false,
 ): SearchMetaLike[] {
-  if (!metas?.length) return [];
-  if (allLocales) return [...metas];
-  const loc = normalizeLocale(contentLocale);
-  if (!loc) return [...metas];
-  return metas.filter((m) => {
-    const ml = normalizeLocale(m.locale);
-    if (ml && ml === loc) return true;
-    // Fallback: id suffix when locale field missing
-    if (!ml && m.id.toLowerCase().endsWith(`-${loc}`)) return true;
-    return false;
-  });
+  return listSearchUniverse(
+    metas as LocaleMeta[],
+    contentLocale,
+    allLocales,
+  );
 }
 
 /**

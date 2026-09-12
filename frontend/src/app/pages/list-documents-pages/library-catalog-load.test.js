@@ -46,6 +46,10 @@ async function main() {
     'Biblioteca must list via listCatalogDocuments (preferred editions)',
   );
   assert.ok(
+    /\bresolveContentLocale\b/.test(listSrc),
+    'Biblioteca catalog locale comes from resolved contentLocale (device/Ajustes)',
+  );
+  assert.ok(
     !/\bCargarDocumentosJsonService\b/.test(listSrc),
     'Biblioteca catalog no longer depends on body facade for listing',
   );
@@ -82,6 +86,23 @@ async function main() {
     assert.ok(m.id, 'catalog row has id');
     assert.ok(m.title || m.shortTitle, 'catalog row has title');
   }
+
+  const catalogEn = L.listPreferredEditions(metas, 'en');
+  const caEn = catalogEn.find((d) => L.familyKey(d.id, d.locale) === 'ca');
+  const caEs = catalog.find((d) => L.familyKey(d.id, d.locale) === 'ca');
+  assert.ok(caEn && caEn.id === 'ca-en', `en catalog prefers official EN, got ${caEn && caEn.id}`);
+  assert.ok(
+    !catalogEn.some((d) => d.id === 'ca-en-ai'),
+    'en catalog drops AI sibling when official exists',
+  );
+  assert.ok(caEs && caEs.id === 'ca-es', `es catalog prefers ES, got ${caEs && caEs.id}`);
+  const resolvedEn = L.resolveContentLocale('system', 'en-GB', 'es');
+  assert.strictEqual(resolvedEn, 'en');
+  const catalogSys = L.listPreferredEditions(metas, resolvedEn);
+  assert.strictEqual(
+    catalogSys.find((d) => L.familyKey(d.id, d.locale) === 'ca').id,
+    'ca-en',
+  );
 
   console.log(
     `OK: library-catalog-load (manifest ${metas.length} → catalog ${catalog.length}; lector switcher absent)`,

@@ -32,10 +32,6 @@ async function main() {
   const L = await loadLogic();
   const catalogs = loadCatalogs();
 
-  const Prefs = await import(
-    pathToFileURL(path.join(HERE, 'locale-prefs.logic.ts')).href + `?t=${Date.now()}`
-  );
-
   // resolveUiLocale — device BCP-47 → app UI locale
   assert.strictEqual(L.resolveUiLocale(undefined), 'es');
   assert.strictEqual(L.resolveUiLocale(null), 'es');
@@ -63,41 +59,41 @@ async function main() {
   assert.strictEqual(L.defaultUiLocaleFromDevice(''), 'es');
 
   // localePrefsFromStorage — device vs persisted override (independent fields)
-  const firstEn = Prefs.localePrefsFromStorage(null, 'en-GB');
+  const firstEn = L.localePrefsFromStorage(null, 'en-GB');
   assert.strictEqual(firstEn.uiLocale, 'en');
   assert.strictEqual(firstEn.contentLocale, 'system');
-  const firstZh = Prefs.localePrefsFromStorage('', 'zh-CN');
+  const firstZh = L.localePrefsFromStorage('', 'zh-CN');
   assert.strictEqual(firstZh.uiLocale, 'zh');
   assert.strictEqual(firstZh.contentLocale, 'system');
-  const saved = Prefs.localePrefsFromStorage(
+  const saved = L.localePrefsFromStorage(
     JSON.stringify({ uiLocale: 'ar', contentLocale: 'en', theme: 'mono' }),
     'zh-CN',
   );
   assert.strictEqual(saved.uiLocale, 'ar', 'saved UI wins over device');
   assert.strictEqual(saved.contentLocale, 'en', 'saved content wins over device');
-  const mixed = Prefs.localePrefsFromStorage(
+  const mixed = L.localePrefsFromStorage(
     JSON.stringify({ uiLocale: 'en', contentLocale: 'system' }),
     'hi-IN',
   );
   assert.strictEqual(mixed.uiLocale, 'en');
   assert.strictEqual(mixed.contentLocale, 'system');
-  const oldBlob = Prefs.localePrefsFromStorage(
+  const oldBlob = L.localePrefsFromStorage(
     JSON.stringify({ theme: 'claro', fontSizePx: 18 }),
     'ar-EG',
   );
   assert.strictEqual(oldBlob.uiLocale, 'es', 'legacy blob without uiLocale stays es');
   assert.strictEqual(oldBlob.contentLocale, 'system');
-  const bad = Prefs.localePrefsFromStorage('{not json', 'en-US');
+  const bad = L.localePrefsFromStorage('{not json', 'en-US');
   assert.strictEqual(bad.uiLocale, 'en');
   assert.strictEqual(bad.contentLocale, 'system');
   // UI and content stay independent when only one is set
-  const onlyUi = Prefs.localePrefsFromStorage(
+  const onlyUi = L.localePrefsFromStorage(
     JSON.stringify({ uiLocale: 'hi' }),
     'en-US',
   );
   assert.strictEqual(onlyUi.uiLocale, 'hi');
   assert.strictEqual(onlyUi.contentLocale, 'system');
-  const onlyContent = Prefs.localePrefsFromStorage(
+  const onlyContent = L.localePrefsFromStorage(
     JSON.stringify({ contentLocale: 'la', uiLocale: 'zh' }),
     'en-US',
   );

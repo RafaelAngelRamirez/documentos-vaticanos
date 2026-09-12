@@ -137,14 +137,15 @@ export function isCorrectionTwinId(id: string): boolean {
  * Official packs without AI notes → false.
  */
 export function isAiEdition(meta: LocaleDocMeta): boolean {
+  if (isCorrectionTwinId(meta.id)) return true;
   const prov = String(meta.translationProvenance || "")
     .toLowerCase()
     .trim();
   if (prov === "ai") return true;
-  if (prov === "official") return false;
-  if (isCorrectionTwinId(meta.id)) return true;
   const note = meta.sourceNote || "";
-  return looksLikeAiDisclaimer(note);
+  if (looksLikeAiDisclaimer(note)) return true;
+  if (prov === "official") return false;
+  return false;
 }
 
 /** True when sourceNote carries an AI-translation disclaimer. */
@@ -476,6 +477,74 @@ export function aiPacksMissingDisclaimer(
     // Explicit ai without note is still a miss
     return true;
   });
+}
+
+/**
+ * Packs tagged official that also carry AI marks (id `-ai` or disclaimer).
+ * Empty on a healthy corpus — official scrapes must not look like IA twins.
+ */
+export function contradictoryOfficialMarks(
+  documents: LocaleDocMeta[],
+): LocaleDocMeta[] {
+  return documents.filter((d) => {
+    const prov = String(d.translationProvenance || "")
+      .toLowerCase()
+      .trim();
+    if (prov !== "official") return false;
+    return isCorrectionTwinId(d.id) || looksLikeAiDisclaimer(d.sourceNote);
+  });
+}
+
+/**
+ * If a pack is tagged official but carries AI marks, coerce provenance to ai.
+ */
+export function reconcileProvenance<T extends LocaleDocMeta>(meta: T): T {
+  if (
+    String(meta.translationProvenance || "").toLowerCase() === "official" &&
+    (isCorrectionTwinId(meta.id) || looksLikeAiDisclaimer(meta.sourceNote))
+  ) {
+    return { ...meta, translationProvenance: "ai" };
+  }
+  return meta;
+}
+
+export interface OfficialAiPair {
+  family: string;
+  locale: string;
+  official: LocaleDocMeta;
+  ai: LocaleDocMeta;
+}
+
+/**
+ * Family+locale groups that have both an official scrape and an IA twin.
+ */
+export function officialAiPairs(
+  documents: LocaleDocMeta[],
+): OfficialAiPair[] {
+  const map = new Map<string, LocaleDocMeta[]>();
+  for (const d of documents) {
+    const family = familyKey(d.id, d.locale);
+    const loc = localeOf(d) || packLocaleFromId(d.id) || "?";
+    const key = `${family}::${loc}`;
+    const list = map.get(key);
+    if (list) list.push(d);
+    else map.set(key, [d]);
+  }
+  const pairs: OfficialAiPair[] = [];
+  for (const [key, eds] of map) {
+    const official = eds.filter((e) => !isAiEdition(e));
+    const ai = eds.filter((e) => isAiEdition(e));
+    if (!official.length || !ai.length) continue;
+    const sep = key.indexOf("::");
+    const family = key.slice(0, sep);
+    const locale = key.slice(sep + 2);
+    for (const off of official) {
+      for (const twin of ai) {
+        pairs.push({ family, locale, official: off, ai: twin });
+      }
+    }
+  }
+  return pairs;
 }
 
 export { SUFFIX_RE };

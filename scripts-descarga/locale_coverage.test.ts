@@ -15,6 +15,7 @@ import {
   aiDisclaimer,
   aiPacksMissingDisclaimer,
   buildLocaleInventory,
+  contradictoryOfficialMarks,
   coverageGaps,
   familyKey,
   formatInventoryMatrix,
@@ -24,7 +25,9 @@ import {
   localeLabel,
   looksLikeAiDisclaimer,
   mapOfficialLocaleUrl,
+  officialAiPairs,
   presenceForLocale,
+  reconcileProvenance,
   provenanceBadge,
   resolveAiTwinId,
   resolveAiTwinIdWithMeta,
@@ -170,6 +173,41 @@ function testProvenanceHelpers(): void {
   const miss = aiPacksMissingDisclaimer([ai, bad]);
   assert(miss.some((d) => d.id === "foo-en"), "detects missing disclaimer");
   assert(!miss.some((d) => d.id === "lg-en"), "good AI pack ok");
+
+  section("official vs AI pairs / contradictory marks");
+  const pairOfficial: LocaleDocMeta = {
+    id: "ca-en",
+    locale: "en",
+    translationProvenance: "official",
+  };
+  const pairAi: LocaleDocMeta = {
+    id: "ca-en-ai",
+    locale: "en",
+    translationProvenance: "ai",
+    sourceNote: aiDisclaimer("en", "Centesimus annus", "ca-es", "es"),
+  };
+  const pairs = officialAiPairs([official, ai, pairOfficial, pairAi]);
+  assert(
+    pairs.some((p) => p.official.id === "ca-en" && p.ai.id === "ca-en-ai"),
+    "detects ca-en / ca-en-ai pair",
+  );
+  const mixed: LocaleDocMeta = {
+    id: "iura-et-bona-en",
+    locale: "en",
+    translationProvenance: "official",
+    sourceNote: aiDisclaimer("en", "Iura et bona", "iura-et-bona-es", "es"),
+  };
+  const contra = contradictoryOfficialMarks([pairOfficial, mixed]);
+  assert(
+    contra.some((d) => d.id === "iura-et-bona-en"),
+    "flags official + AI disclaimer",
+  );
+  assert(
+    !contra.some((d) => d.id === "ca-en"),
+    "clean official not contradictory",
+  );
+  const fixed = reconcileProvenance(mixed);
+  assert(fixed.translationProvenance === "ai", "reconcile official+note → ai");
 }
 
 /**
@@ -211,6 +249,15 @@ export function runCoverageGate(manifestPath?: string): {
   };
 }
 
+function unitContents(documentId: string): string[] {
+  const p = path.join(CORPUS, "documents", documentId, "content.json");
+  if (!fs.existsSync(p)) return [];
+  const raw = JSON.parse(fs.readFileSync(p, "utf-8")) as Array<{
+    contenido?: string;
+  }>;
+  return raw.map((u) => String(u.contenido || "").trim());
+}
+
 function testInventoryAgainstManifest(): void {
   section("inventory against real manifest");
   const p = path.join(CORPUS, "manifest.json");
@@ -234,13 +281,71 @@ function testInventoryAgainstManifest(): void {
     miss.length === 0,
     `existing AI packs have disclaimer (bad: ${miss.map((d) => d.id).join(",")})`,
   );
+
+  // (a) every AI pack is marked (provenance=ai, -ai id, or disclaimer)
+  for (const d of aiDocs) {
+    const marked =
+      d.translationProvenance === "ai" ||
+      isCorrectionTwinId(d.id) ||
+      looksLikeAiDisclaimer(d.sourceNote);
+    assert(!!marked, `AI pack ${d.id} missing provenance/disclaimer/-ai`);
+  }
+
+  // (b) official provenance / unmarked scrapes are not classified as IA
+  const unmarked = docs.filter(
+    (d) =>
+      d.translationProvenance !== "ai" &&
+      !isCorrectionTwinId(d.id) &&
+      !looksLikeAiDisclaimer(d.sourceNote),
+  );
+  for (const d of unmarked) {
+    assert(
+      !isAiEdition(d),
+      `unmarked scrape ${d.id} classified as IA`,
+    );
+  }
+  const contra = contradictoryOfficialMarks(docs);
+  for (const d of contra) {
+    const fixed = reconcileProvenance(d);
+    assert(
+      fixed.translationProvenance === "ai",
+      `reconcileProvenance(${d.id}) should coerce leftover official+AI to ai`,
+    );
+    assert(isAiEdition(d), `${d.id} AI note must classify as IA despite official flag`);
+  }
+
+  // (c) official + IA same family+locale: distinct ids, picker official, bodies differ
+  const pairs = officialAiPairs(docs);
+  assert(pairs.length > 0, "corpus has at least one official+IA pair");
+  for (const pair of pairs) {
+    assert(
+      pair.official.id !== pair.ai.id,
+      `pair ${pair.family}/${pair.locale} must use distinct ids`,
+    );
+    assert(!isAiEdition(pair.official), `${pair.official.id} should be official`);
+    assert(isAiEdition(pair.ai), `${pair.ai.id} should be AI`);
+    const offUnits = unitContents(pair.official.id);
+    const aiUnits = unitContents(pair.ai.id);
+    assert(offUnits.length > 0, `content.json for official ${pair.official.id}`);
+    assert(aiUnits.length > 0, `content.json for AI ${pair.ai.id}`);
+    const n = Math.min(offUnits.length, aiUnits.length);
+    let differs = offUnits.length !== aiUnits.length;
+    for (let i = 0; i < n && !differs; i++) {
+      if (offUnits[i] !== aiUnits[i]) differs = true;
+    }
+    assert(
+      differs,
+      `official ${pair.official.id} and AI ${pair.ai.id} have identical unit text`,
+    );
+  }
+
   // Snapshot: no document deleted from dual-tree check for known packs
   for (const id of ["cic-es", "lg-es", "cceo-la", "cceo-es"]) {
     const hit = docs.find((d) => d.id === id);
     assert(!!hit, `pre-existing pack still listed: ${id}`);
   }
   console.log(
-    `  families=${rows.length} docs=${docs.length} aiPacks=${aiDocs.length}`,
+    `  families=${rows.length} docs=${docs.length} aiPacks=${aiDocs.length} officialAiPairs=${pairs.length}`,
   );
 }
 
