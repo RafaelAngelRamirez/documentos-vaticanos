@@ -28,6 +28,16 @@
         >{{ seg.label }}</span
       >
     </ng-container>
+    <span class="punto-local-refs" *ngIf="localRefs.length">
+      <a
+        *ngFor="let r of localRefs"
+        href="javascript:void(0)"
+        class="ref-link"
+        [attr.title]="r.descripcion"
+        (click)="openLocalRef(r, $event)"
+        >{{ r.descripcion }}</a
+      >
+    </span>
     <button
       *ngIf="canSave"
       type="button"

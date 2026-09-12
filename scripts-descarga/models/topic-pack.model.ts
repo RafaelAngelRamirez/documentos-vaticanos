@@ -34,6 +34,7 @@ export interface TopicPackManifest {
     postings: string;
     termTopics: string;
     graph?: string;
+    docGraph?: string;
     unitTopics?: string;
   };
   sourceNote?: string;

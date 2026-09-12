@@ -74,6 +74,19 @@ function main() {
   );
   console.log('  ok');
 
+  section('relaciones tab + route');
+  assert.ok(html.includes('Relaciones'), 'Relaciones tab in template');
+  assert.ok(
+    /relaciones/.test(src),
+    'tab relaciones in component',
+  );
+  assert.ok(
+    src.includes('CitegraphComponent') || src.includes('app-citegraph'),
+    'citegraph wired',
+  );
+  assert.ok(!/\bensureAllLoaded\b/.test(src), 'no ensureAllLoaded on relations');
+  console.log('  ok');
+
   section('UI copy + personal themes link');
   assert.ok(
     html.includes('Temas del corpus') || html.includes('índice offline'),

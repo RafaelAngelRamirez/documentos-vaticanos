@@ -140,6 +140,36 @@ console.log("ref_parser.test.ts: all asserts passed");
 
 console.log("ref_parser.test.ts: extended asserts passed");
 
+{
+  const c = parseBibleCitation("Mc., 16, 16", index);
+  assert(c?.bookSlug?.includes("marcos"), "Mc., 16, 16 → Marcos");
+  assert(c?.chapter === 16 && c?.verseStart === 16, "Mc., coords");
+}
+{
+  const c = parseBibleCitation("1 Jn., 1,2-3", index);
+  assert(c?.bookSlug?.includes("juan"), "1 Jn., → juan");
+  assert(c?.chapter === 1 && c?.verseStart === 2, "1 Jn., coords");
+}
+{
+  const c = parseBibleCitation("1 Cor, 15,28", index);
+  assert(c?.bookSlug?.includes("corintios"), "1 Cor, 15,28");
+  assert(c?.chapter === 15 && c?.verseStart === 28, "1 Cor, coords");
+}
+{
+  const c = parseEcclesialCitation("CIC can. 1247", docIndex);
+  assert(c?.code === "CDC" && c?.locator === "1247", "CIC can. → CDC");
+  assert(c?.corpusDocId === "cdc-es", "CIC can. target cdc-es");
+}
+{
+  const atoms = parseRefGroup("Concilio de Trento: DS 1740", index, docIndex);
+  assert(atoms[0]?.kind === "ecclesial", "embedded DS not noise");
+  if (atoms[0]?.kind === "ecclesial") {
+    assert(atoms[0].citation.code === "DS", "DS code");
+    assert(atoms[0].citation.locator === "1740", "DS 1740 locator");
+    assert(atoms[0].citation.corpusDocId === "ds-es", "DS → ds-es");
+  }
+}
+
 // --- multi-document / ecclesial ---
 {
   const c = parseEcclesialCitation("LG 16", docIndex);

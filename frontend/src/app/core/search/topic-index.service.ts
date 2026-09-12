@@ -14,6 +14,7 @@ import {
   TermTopicsFile,
   UnitGraphFile,
   UnitTopicsFile,
+  DocGraphFile,
   emptyTopicPack,
 } from './topic-pack.models';
 
@@ -165,6 +166,11 @@ export class TopicIndexService {
           catchError(() => of(null as UnitTopicsFile | null)),
         )
       : of(null as UnitTopicsFile | null);
+    const docGraph$ = f.docGraph
+      ? this.http.get<DocGraphFile>(`${base}/${f.docGraph}`).pipe(
+          catchError(() => of(null as DocGraphFile | null)),
+        )
+      : of(null as DocGraphFile | null);
 
     return forkJoin({
       topics: topics$,
@@ -172,6 +178,7 @@ export class TopicIndexService {
       termTopics: termTopics$,
       graph: graph$,
       unitTopics: unitTopics$,
+      docGraph: docGraph$,
     }).pipe(
       map((parts) => ({
         manifest,
@@ -179,6 +186,7 @@ export class TopicIndexService {
         postings: parts.postings,
         termTopics: parts.termTopics,
         graph: parts.graph,
+        docGraph: parts.docGraph,
         unitTopics: parts.unitTopics,
       })),
     );

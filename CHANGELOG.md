@@ -2,8 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### 0.0.25 (2026-09-11)
+## Unreleased
 
+* **search:** mapa visual de citas documento↔documento (`doc-graph.json`, Explorar → Relaciones, chips en ficha 2A); chips clicables en el lector para `referencias.local`; harvest de citas en prosa de magisterio/catecismo; parser `Mc.,` / `CIC can.` / `DS` embebido; intención de búsqueda (`quiero leer sobre…`)
+
+### 0.0.25 (2026-09-11)
 
 ### Bug Fixes
 
@@ -304,6 +307,7 @@ All notable changes to this project will be documented in this file. See [standa
 * **corpus:** editorial sense pass for vs-es ([31482fa](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/31482fa11877630cac4cb723accf306158f23f3e))
 * **corpus:** editorial sense pass for vs-hi ([bcbf314](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/bcbf31470bfda400e99ed128e0c01e05d80dba07))
 * **topics:** rebuild es pack fingerprint to match live corpus ([061d73b](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/061d73bb3509f2f924d154d0b20114480c34b1ef))
+
 
 ### 0.0.24 (2026-08-21)
 

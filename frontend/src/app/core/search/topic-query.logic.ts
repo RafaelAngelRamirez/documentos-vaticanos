@@ -153,10 +153,12 @@ export function topicIdsFromContentTerms(
   }
 
   const scoreById = new Map<string, number>();
-  for (const raw of contentTerms) {
-    const key = foldTopicTerm(raw);
-    if (!key) continue;
-    const entries = terms[key] || terms[raw] || [];
+  const keys = contentTerms.map((t) => foldTopicTerm(t)).filter(Boolean);
+  if (keys.length >= 2) {
+    keys.push(keys.join(' '));
+  }
+  for (const key of keys) {
+    const entries = terms[key] || [];
     for (const e of entries) {
       if (!e?.topicId || !(e.w >= minW)) continue;
       scoreById.set(e.topicId, Math.max(scoreById.get(e.topicId) ?? 0, e.w));

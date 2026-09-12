@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { of, Subscription } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { DocumentMeta } from 'src/app/core/corpus/corpus.models';
 import {
@@ -26,12 +27,18 @@ import {
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import { HistoricalContextBlockComponent } from 'src/app/components/historical-context-block/historical-context-block.component';
 import { RelatedUnitsPanelComponent } from 'src/app/components/related-units/related-units-panel.component';
+import { TopicIndexService } from 'src/app/core/search/topic-index.service';
+import { neighborsForDoc } from 'src/app/core/search/doc-graph.logic';
+import { DocGraphEdge, DocGraphNode } from 'src/app/core/search/topic-pack.models';
+import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import {
   MetaGridCell,
   ReadingCoverComponent,
 } from 'src/app/components/reading-cover';
 import { SaintRecord } from 'src/app/core/santoral/santoral-resolve.logic';
 import { SantoralService } from 'src/app/core/santoral/santoral.service';
+import { PapacyService } from 'src/app/core/papacy/papacy.service';
+import { PopeRecord } from 'src/app/core/papacy/papacy.models';
 import { HistoricalContextService } from 'src/app/core/context/historical-context.service';
 import { ResolvedHistoricalContext } from 'src/app/core/context/historical-context.models';
 import { relatedSeedForDocument } from 'src/app/core/search/semantic-search.logic';
@@ -68,14 +75,20 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
   chapters: TocEntry[] = [];
   /** Santo / autor relacionado (santoral offline). */
   relatedSaint: SaintRecord | null = null;
+  /** Pontífice emisor (pack papacy). */
+  relatedPope: PopeRecord | null = null;
   /** Otras obras del mismo santo (sin el doc actual). */
   siblingWorks: { documentId: string; title: string }[] = [];
+  /** Otras obras del mismo papa en el corpus. */
+  popeSiblingWorks: { documentId: string; title: string }[] = [];
   /** Contexto histórico offline (general + obra). */
   historicalContext: ResolvedHistoricalContext | null = null;
   /** Ediciones de la misma obra en otros idiomas (incluye la actual). */
   languageEditions: DocumentMeta[] = [];
   /** Quality-gated seed for cross-pack related units (empty → panel hidden). */
   relatedSeed = '';
+  /** Outgoing citation neighbors (doc-graph). */
+  citeNeighbors: Array<{ node: DocGraphNode; edge: DocGraphEdge }> = [];
 
   private sub = new Subscription();
 
@@ -86,7 +99,10 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     private navigationService: NavigationService,
     private progress: ReadingProgressService,
     private santoral: SantoralService,
+    private papacy: PapacyService,
     private historical: HistoricalContextService,
+    private topicIndex: TopicIndexService,
+    private readerPrefs: ReaderPreferencesService,
   ) {}
 
   ngOnInit(): void {
@@ -234,10 +250,13 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     this.error = null;
     this.chapters = [];
     this.relatedSaint = null;
+    this.relatedPope = null;
     this.siblingWorks = [];
+    this.popeSiblingWorks = [];
     this.historicalContext = null;
     this.languageEditions = [];
     this.relatedSeed = '';
+    this.citeNeighbors = [];
     this.sub.add(
       this.corpus.loadManifest().subscribe({
         next: () => {
@@ -258,7 +277,9 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
             last && last.documentId === this.meta.id ? last : null;
           this.fav = this.leerFavs().includes(this.meta.id);
           this.cargarReferenciasSantoral();
+          this.cargarReferenciasPapa();
           this.cargarContextoHistorico();
+          this.cargarCiteNeighbors();
           // Cover from manifest; body/TOC load in the background (this pack only).
           this.loading = false;
           this.sub.add(
@@ -287,6 +308,43 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
         },
       })
     );
+  }
+
+  private cargarCiteNeighbors(): void {
+    if (!this.meta) return;
+    const locale =
+      (this.readerPrefs.resolveContentLocale() || this.meta.locale || 'es')
+        .trim()
+        .toLowerCase()
+        .split(/[-_]/)[0] || 'es';
+    this.sub.add(
+      this.topicIndex.loadPack(locale).pipe(catchError(() => of(null))).subscribe((pack) => {
+        const g = pack?.docGraph;
+        if (!g || !this.meta) {
+          this.citeNeighbors = [];
+          return;
+        }
+        const byId = new Map(g.nodes.map((n) => [n.id, n]));
+        this.citeNeighbors = neighborsForDoc(g, this.meta.id)
+          .map((edge) => {
+            const node = byId.get(edge.documentId);
+            return node ? { node, edge } : null;
+          })
+          .filter((x): x is { node: DocGraphNode; edge: DocGraphEdge } => !!x)
+          .slice(0, 8);
+      }),
+    );
+  }
+
+  openCiteNeighbor(id: string): void {
+    this.router.navigate(['/documento', id]);
+  }
+
+  openCiteMap(): void {
+    if (!this.meta) return;
+    this.router.navigate(['/explorar/relaciones'], {
+      queryParams: { focus: this.meta.id },
+    });
   }
 
   /** Contexto histórico offline (no bloquea el lector si falla). */
@@ -329,6 +387,30 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
   saintLabel(): string {
     if (!this.relatedSaint) return '';
     return this.relatedSaint.displayName || this.relatedSaint.name;
+  }
+
+  private cargarReferenciasPapa(): void {
+    if (!this.meta) return;
+    const meta = this.meta;
+    this.sub.add(
+      this.papacy.loadManifest().subscribe({
+        next: () => {
+          this.relatedPope = this.papacy.popeForDoc(meta.id) || null;
+          this.popeSiblingWorks = this.relatedPope
+            ? this.papacy.siblingsForDoc(meta.id).slice(0, 12)
+            : [];
+        },
+        error: () => {
+          this.relatedPope = null;
+          this.popeSiblingWorks = [];
+        },
+      }),
+    );
+  }
+
+  popeLabel(): string {
+    if (!this.relatedPope) return '';
+    return this.relatedPope.displayName || this.relatedPope.name;
   }
 
   private irALector(idx: number, opts?: { autoNarr?: boolean }): void {

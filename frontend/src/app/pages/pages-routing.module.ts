@@ -27,6 +27,8 @@ import { DoctoresComponent } from './doctores/doctores.component';
 import { DoctorDetalleComponent } from './doctor-detalle/doctor-detalle.component';
 import { SantoralComponent } from './santoral/santoral.component';
 import { SantoDetalleComponent } from './santo-detalle/santo-detalle.component';
+import { PapasComponent } from './papas/papas.component';
+import { PapaDetalleComponent } from './papa-detalle/papa-detalle.component';
 
 const routes: Routes = [
   { path: ROUTE.inicio, component: InicioComponent },
@@ -50,6 +52,7 @@ const routes: Routes = [
   { path: 'aprendizaje', component: AprendizajeComponent },
   /** PR6 · tema del corpus (índice temático offline); more specific before explorar */
   { path: 'explorar/topicos/:slug', component: TopicoDetalleComponent },
+  { path: 'explorar/relaciones', component: ExplorarComponent },
   { path: 'explorar', component: ExplorarComponent },
   { path: 'ajustes', component: AjustesComponent },
   { path: 'documento/:id', component: DocumentoDetalleComponent },
@@ -65,6 +68,9 @@ const routes: Routes = [
   /** Santoral offline (vatican.va + Padres/autores del corpus) */
   { path: 'santoral', component: SantoralComponent },
   { path: 'santoral/:id', component: SantoDetalleComponent },
+  /** Pontífices (lista vatican.va · ficha 2C/2D) */
+  { path: 'papas', component: PapasComponent },
+  { path: 'papas/:id', component: PapaDetalleComponent },
   {
     path: `${ROUTE.leyendo}/:documento`,
     component: LectorComponent,

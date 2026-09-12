@@ -105,6 +105,11 @@ async function main() {
   const single = parseSearchInput('Cristo');
   assert.deepStrictEqual(single.contentTerms, ['cristo']);
 
+  const intentQ = parseSearchInput('quiero leer sobre el perdón');
+  assert.ok(intentQ.contentTerms.includes('perdon'), 'intent keeps perdón');
+  assert.ok(!intentQ.contentTerms.includes('quiero'), 'intent drops quiero');
+  assert.ok(!intentQ.contentTerms.includes('leer'), 'intent drops leer');
+
   section('fixture ranking');
   const units = [
     {

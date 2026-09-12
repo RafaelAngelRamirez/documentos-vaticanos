@@ -65,11 +65,23 @@
       [ctx]="historicalContext"
     ></app-historical-context-block>
 
-    <!-- Referencias santoral: autor + obras hermanas -->
-    <div cover-refs *ngIf="relatedSaint">
+    <!-- Referencias santoral / papa: autor + obras hermanas -->
+    <div cover-refs *ngIf="relatedSaint || relatedPope">
       <div class="sect">Referencias</div>
       <div class="ref-block">
-        <a class="toc obra-link" [routerLink]="['/santoral', relatedSaint.id]">
+        <a
+          *ngIf="relatedPope"
+          class="toc obra-link"
+          [routerLink]="['/papas', relatedPope.id]"
+        >
+          <span class="tnum">§</span>
+          <span>Papa: {{ popeLabel() }}</span>
+        </a>
+        <a
+          *ngIf="relatedSaint"
+          class="toc obra-link"
+          [routerLink]="['/santoral', relatedSaint.id]"
+        >
           <span class="tnum">†</span>
           <span>Santo / autor: {{ saintLabel() }}</span>
         </a>
@@ -79,21 +91,59 @@
             <span>{{ w.title }}</span>
           </a>
         </ng-container>
+        <ng-container *ngFor="let w of popeSiblingWorks; let i = index">
+          <a
+            *ngIf="!relatedSaint"
+            class="toc obra-link"
+            [routerLink]="['/documento', w.documentId]"
+          >
+            <span class="tnum">{{ i + 1 }}</span>
+            <span>{{ w.title }}</span>
+          </a>
+        </ng-container>
         <div class="fs12 muted" *ngIf="siblingWorks.length > 0" style="margin-top: 6px">
           Otras obras del mismo autor en el corpus
+        </div>
+        <div
+          class="fs12 muted"
+          *ngIf="!relatedSaint && popeSiblingWorks.length > 0"
+          style="margin-top: 6px"
+        >
+          Otros documentos del mismo papa en el corpus
         </div>
       </div>
     </div>
 
-    <app-related-units-panel
-      cover-related
-      *ngIf="relatedSeed && meta"
-      [seedText]="relatedSeed"
-      [limit]="6"
-      variant="document"
-      [hideWhenEmpty]="true"
-      [excludeDocumentId]="meta.id"
-      heading="Relacionados"
-    ></app-related-units-panel>
+    <ng-container cover-related>
+      <div *ngIf="citeNeighbors.length" class="cite-neighbors">
+        <div class="sect">Citas cruzadas</div>
+        <div class="chips">
+          <span
+            class="chip"
+            *ngFor="let n of citeNeighbors"
+            (click)="openCiteNeighbor(n.node.id)"
+            role="button"
+            tabindex="0"
+            (keydown.enter)="openCiteNeighbor(n.node.id)"
+            >{{ n.node.shortTitle }} · {{ n.edge.count }}</span
+          >
+        </div>
+        <a
+          class="app-lang-link"
+          (click)="openCiteMap(); $event.preventDefault()"
+          href="/explorar/relaciones"
+          >Ver mapa de citas →</a
+        >
+      </div>
+      <app-related-units-panel
+        *ngIf="relatedSeed && meta"
+        [seedText]="relatedSeed"
+        [limit]="6"
+        variant="document"
+        [hideWhenEmpty]="true"
+        [excludeDocumentId]="meta.id"
+        heading="Relacionados"
+      ></app-related-units-panel>
+    </ng-container>
   </app-reading-cover>
 </div>

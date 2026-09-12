@@ -368,6 +368,27 @@ export class PuntoComponent implements OnInit, OnDestroy {
    * Emits citationPreview so parent can show a preview sheet.
    * Still navigates for backward compatibility.
    */
+  get localRefs(): Referencia[] {
+    const refs = this._infoPunto?.article?.referencias ?? [];
+    return refs.filter(
+      (r) => r?.local?.idDocumento && r?.local?.idPunto,
+    );
+  }
+
+  openLocalRef(ref: Referencia, event?: Event): void {
+    event?.preventDefault();
+    event?.stopPropagation();
+    const idDocumento = ref.local?.idDocumento;
+    const idPunto = ref.local?.idPunto;
+    if (!idDocumento || idPunto == null) return;
+    const asIndex = Number(idPunto);
+    if (!Number.isFinite(asIndex) || asIndex < 0) return;
+    this.navigationService.navigateToUnit(idDocumento, asIndex, {
+      fromRef: true,
+      label: ref.descripcion,
+    });
+  }
+
   openRef(seg: ContentSegment, event?: Event): void {
     event?.preventDefault();
     event?.stopPropagation();

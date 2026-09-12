@@ -167,6 +167,17 @@ export const SPANISH_STOPWORDS: ReadonlySet<string> = new Set([
   'y',
   'ya',
   'yo',
+  'quiero',
+  'quisiera',
+  'leer',
+  'lectura',
+  'buscar',
+  'tema',
+  'acerca',
+  'hablame',
+  'dime',
+  'pasaje',
+  'pasajes',
 ]);
 
 /**
@@ -192,6 +203,10 @@ export const RELATED_TERMS: Readonly<Record<string, readonly string[]>> = {
   iglesia: ['iglesia', 'ecclesia'],
   salvacion: ['redencion', 'salvar'],
   misericordia: ['compasion', 'piedad'],
+  perdon: ['perdonar', 'remision', 'absolucion', 'reconciliacion'],
+  perdonar: ['perdon', 'absolucion'],
+  eucaristia: ['comunion', 'misa', 'hostia', 'eucaristico'],
+  comunion: ['eucaristia', 'misa'],
 };
 
 export interface SearchUnit {

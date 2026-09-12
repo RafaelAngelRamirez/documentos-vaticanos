@@ -149,3 +149,10 @@ p.punto-contenido.punto-heading .punto-num {
   color: var(--reader-muted, var(--bs-secondary-color, #6c757d));
   cursor: help;
 }
+
+.punto-local-refs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-left: 8px;
+}

@@ -116,6 +116,13 @@ function main() {
     terms: { gracia: [{ topicId: 'topic:es:gracia', w: 1 }] },
   });
   assert.deepStrictEqual(idsFold, ['topic:es:gracia']);
+  const phraseIds = Q.topicIdsFromContentTerms(['amor', 'dios'], {
+    terms: {
+      amor: [{ topicId: 'topic:es:amor', w: 0.5 }],
+      'amor dios': [{ topicId: 'topic:es:amor', w: 0.9 }],
+    },
+  });
+  assert.ok(phraseIds[0] === 'topic:es:amor', 'phrase key ranks');
   console.log('  term→topic OK');
 
   section('applyTopicBoostIfAny soft-empty');

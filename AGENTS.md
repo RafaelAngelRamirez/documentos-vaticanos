@@ -203,6 +203,16 @@ Reglas de empaquetado e IDs:
 
 Al implementar scrapers/adapters: dual-write en `documentos/corpus/` y `frontend/src/assets/corpus/` **por cada locale** que se publique.
 
+### 2.6 Papas (pack `papacy/`, no es corpus de lectura)
+
+- Lista oficial: vatican.va `/content/vatican/es/holy-father.html` (267 pontífices, Pedro → León XIV).
+- Pack dual-write: `documentos/corpus/papacy/` y `frontend/src/assets/corpus/papacy/`.
+- UI: `/papas` (2C era-list) · `/papas/:id` (2D person-ficha + CTA lectura §2.4). Bio lectora: `papacy:{popeId}`.
+- Si el papa está en el santoral → `saintId` y enlace a `/santoral/:id`. No duplicar la bio como pack magisterial.
+- Documentos del corpus se ligan por `sourceUrl` (`/content/{hub}/…`). **Citas = `documentId` + `unitIndex`**, nunca el `popeId`.
+- Importar cartas apostólicas nuevas: ver `docs/PAPACY-INDEXING.md`. No reescribir `documents/*/content.json` desde el pipeline de papas (otros agentes indexan).
+- Comandos: `npm run papacy:offline` · `npm run papacy:scrape-indexes`.
+
 ---
 
 ## 3. Backend (Fase 2)
@@ -358,6 +368,8 @@ Todo componente nuevo debe verse bien en **mono, claro, sepia y oscuro** (y syst
 - Handoff: preferir clases de §4.2–4.3 cuando la pantalla sea del prototipo
 
 Si necesitas un patrón nuevo: **añádelo a `styles.css` y documenta aquí**.
+
+Grafo de citas (Explorar → Relaciones / ficha 2A): `.citegraph` `.citegraph-mini` `.citegraph-node` `.citegraph-edge` `.citegraph-label` `.citegraph-hit`. Datos: `assets/corpus/search/{locale}/doc-graph.json` (rollup de `unit-graph.json`).
 
 ### 5.4 Reglas al crear un componente / página
 

@@ -1,0 +1,49 @@
+<svg
+  class="citegraph"
+  [class.citegraph-mini]="compact"
+  viewBox="0 0 1000 640"
+  role="img"
+  aria-label="Mapa de citas entre documentos"
+>
+  <title>Citas cruzadas del corpus</title>
+  <g class="citegraph-edges">
+    <line
+      *ngFor="let e of view.links"
+      class="citegraph-edge"
+      [class.on]="isEdgeOn(e.from, e.to)"
+      [attr.x1]="x(nodePos(e.from))"
+      [attr.y1]="y(nodePos(e.from))"
+      [attr.x2]="x(nodePos(e.to))"
+      [attr.y2]="y(nodePos(e.to))"
+      [attr.stroke-width]="strokeW(e.w)"
+      (click)="onEdge(e.from, e.to, $event)"
+    />
+  </g>
+  <g class="citegraph-nodes">
+    <g *ngFor="let n of view.nodes">
+      <circle
+        class="citegraph-hit"
+        [attr.cx]="x(n)"
+        [attr.cy]="y(n)"
+        r="24"
+        (click)="onNode(n.id, $event)"
+      />
+      <circle
+        class="citegraph-node"
+        [class.on]="isNodeOn(n.id)"
+        [attr.cx]="x(n)"
+        [attr.cy]="y(n)"
+        r="16"
+        (click)="onNode(n.id, $event)"
+      />
+      <text
+        class="citegraph-label"
+        [attr.x]="x(n)"
+        [attr.y]="y(n) + 32"
+        text-anchor="middle"
+      >
+        {{ n.shortTitle }}
+      </text>
+    </g>
+  </g>
+</svg>

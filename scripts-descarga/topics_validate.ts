@@ -419,6 +419,17 @@ function main() {
       errors.push('unit-graph.json present but invalid JSON');
     }
   }
+  const docGraphPath = path.join(primary, 'doc-graph.json');
+  if (fs.existsSync(docGraphPath)) {
+    try {
+      const dg = JSON.parse(fs.readFileSync(docGraphPath, 'utf8'));
+      if (!Array.isArray(dg?.nodes) || typeof dg?.edges !== 'object') {
+        errors.push('doc-graph.json missing nodes[] or edges');
+      }
+    } catch {
+      errors.push('doc-graph.json present but invalid JSON');
+    }
+  }
 
   const summary = {
     ok: errors.length === 0,

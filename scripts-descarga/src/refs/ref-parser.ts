@@ -240,6 +240,16 @@ function isEcclesialTokenForm(token: string): boolean {
   // Explicit long codes even if mixed (CIC, CCEO, CCEO)
   const upper = letters.toUpperCase();
   if (upper === "CIC" || upper === "CCEO" || upper === "DS") return true;
+  // Mixed-case magisterial tokens already in doc-codes (DeV, DonV, RMi, ChL).
+  if (
+    upper === "DEV" ||
+    upper === "DONV" ||
+    upper === "DONVER" ||
+    upper === "RMI" ||
+    upper === "CHL"
+  ) {
+    return true;
+  }
   return false;
 }
 
@@ -263,6 +273,48 @@ export function parseEcclesialCitation(
   raw = raw.replace(/^también\s+/i, "").trim();
   raw = stripTrailingProse(raw);
   if (!raw) return null;
+
+  // "CIC can. 1247" / "CCEO can. 747" — Code of Canon Law, not Catechism §N.
+  const canMatch = raw.match(
+    /^(?<code>CIC|CDC|CICL|CCEO)\s+cans?\.?\s*(?<loc>\d{1,4})(?:\s*[-–—,]\s*(?<locEnd>\d{1,4}))?/i,
+  );
+  if (canMatch?.groups) {
+    const wantCceo = canMatch.groups.code.toUpperCase() === "CCEO";
+    const entry =
+      docIndex.get(wantCceo ? "CCEO" : "CDC") ??
+      docIndex.get(wantCceo ? "cceo" : "cdc") ??
+      null;
+    if (entry) {
+      return {
+        raw: atom.trim(),
+        code: entry.code,
+        locator: canMatch.groups.loc,
+        locatorEnd: canMatch.groups.locEnd,
+        cf,
+        title: entry.title,
+        corpusDocId: entry.corpusDocId,
+        locatorType: entry.locatorType,
+      };
+    }
+  }
+
+  // "Concilio de Trento: DS 1740" / "Nicea II: DS 601"
+  const dsEmb = raw.match(/\bDS\s+(?<loc>\d{1,5})(?:\s*[-–—]\s*(?<locEnd>\d{1,5}))?/i);
+  if (dsEmb?.groups && !/^DS\s+\d/i.test(raw)) {
+    const entry = docIndex.get("DS") ?? docIndex.get("ds");
+    if (entry) {
+      return {
+        raw: atom.trim(),
+        code: entry.code,
+        locator: dsEmb.groups.loc,
+        locatorEnd: dsEmb.groups.locEnd,
+        cf,
+        title: entry.title,
+        corpusDocId: entry.corpusDocId,
+        locatorType: entry.locatorType,
+      };
+    }
+  }
 
   // "LG 16" / "CIC 1992" / "DS 3004" / "CT 20-22" / "LG 8/11" (take first)
   const m = raw.match(
@@ -327,6 +379,12 @@ export function atomizeRefGroup(raw: string): string[] {
 export function isNoise(atom: string): boolean {
   const t = atom.trim();
   if (!t) return true;
+
+  // Embedded locators that look like prose prefixes (Concilio de Trento: DS 1740)
+  // must not be discarded before ecclesial parse.
+  if (/\bDS\s+\d{1,5}\b/i.test(t)) return false;
+  if (/\b(?:CIC|CDC|CICL|CCEO)\s+cans?\./i.test(t)) return false;
+  if (/\b(?:LG|GS|DV|SC|CIC|CDC)\s+\d{1,4}\b/.test(t)) return false;
 
   // Pure year (optionally with trailing punctuation)
   if (/^\d{3,4}\.?$/.test(t)) return true;
@@ -440,6 +498,16 @@ export function parseBibleCitation(
 
   raw = stripTrailingProse(raw);
   if (!raw) return null;
+
+  // Vatican.va ES: "Mc., 16, 16" / "1 Jn., 1,2-3" / "Jn. 15,4" / "1 Cor, 15,28"
+  raw = raw.replace(
+    /^(\d{0,1}\s*[A-Za-zÁÉÍÓÚáéíóúÜüñÑ]+)\.(?:,)?(\s+)/u,
+    "$1$2",
+  );
+  raw = raw.replace(
+    /^(\d{0,1}\s*[A-Za-zÁÉÍÓÚáéíóúÜüñÑ]+),(\s+\d)/u,
+    "$1$2",
+  );
 
   // Pattern A: Book + chapter[, verses]
   // Book: optional 1-3, optional spaces, letters (with accents/dots)

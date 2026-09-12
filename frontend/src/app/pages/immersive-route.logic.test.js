@@ -36,6 +36,7 @@ async function main() {
     '/estudios',
     '/explorar',
     '/explorar/topicos/gracia',
+    '/explorar/relaciones',
     '/cuenta',
     '/ajustes',
     '/padres',

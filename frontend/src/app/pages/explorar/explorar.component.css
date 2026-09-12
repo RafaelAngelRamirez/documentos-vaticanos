@@ -45,3 +45,20 @@
 .field {
   margin-bottom: 4px;
 }
+
+.chip.on {
+  border-color: var(--acc);
+  color: var(--acc);
+  font-weight: 500;
+}
+
+.citegraph-card {
+  margin: 12px 0 16px;
+  padding: 8px;
+}
+
+@media (min-width: 1024px) {
+  :host .fbody {
+    max-width: 960px;
+  }
+}

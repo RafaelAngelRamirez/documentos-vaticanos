@@ -42,6 +42,7 @@ interface DocumentMeta {
   title: string;
   shortTitle?: string;
   kind: string;
+  locale?: string;
   bodyPath: string;
   indexPath: string;
   unitCount?: number;
@@ -146,7 +147,9 @@ function buildNumberMap(units: TransportUnit[]): Map<string, number> {
   for (let i = 0; i < units.length; i++) {
     const c = units[i]?.consecutivo;
     if (!c || c === "no-encontrado") continue;
-    if (!map.has(c)) map.set(c, i);
+    const key = String(c).trim();
+    if (!key) continue;
+    if (!map.has(key)) map.set(key, i);
   }
   return map;
 }
@@ -159,9 +162,27 @@ function resolveCorpusPath(bodyPath: string, root: string): string {
   return path.join(root, cleaned);
 }
 
+function parseCliArgs(argv: string[]) {
+  let locale = "";
+  for (let i = 0; i < argv.length; i++) {
+    if (argv[i] === "--locale" && argv[i + 1]) locale = argv[++i];
+  }
+  return { locale };
+}
+
+function docMatchesLocale(doc: DocumentMeta, locale: string): boolean {
+  if (!locale) return true;
+  const loc = (doc.locale || "").toLowerCase();
+  if (loc === locale) return true;
+  if (String(doc.id).toLowerCase().endsWith(`-${locale}`)) return true;
+  if (doc.kind === "bible") return true;
+  return false;
+}
+
 function loadCorpusIndexes(
   manifest: CorpusManifest,
   books: BookCodeEntry[],
+  locale = "",
 ): CorpusIndexes {
   const meta = new Map<string, DocumentMeta>();
   const units = new Map<string, TransportUnit[]>();
@@ -170,6 +191,7 @@ function loadCorpusIndexes(
   const codeSlugs = slugsByCode(books);
 
   for (const doc of manifest.documents) {
+    if (!docMatchesLocale(doc, locale)) continue;
     meta.set(doc.id, doc);
     const contentPath = resolveCorpusPath(doc.bodyPath, CORPUS_ROOT);
     if (!fs.existsSync(contentPath)) {
@@ -180,7 +202,9 @@ function loadCorpusIndexes(
     units.set(doc.id, list);
     byNumber.set(doc.id, buildNumberMap(list));
 
-    if (doc.id === BIBLE_ID || doc.kind === "bible") {
+    // Only the canonical Spanish Pueblo de Dios pack feeds verse lookup.
+    // Other bible locales must not overwrite / empty the map.
+    if (doc.id === BIBLE_ID) {
       verseMap = buildVerseMap(list);
     }
   }
@@ -428,6 +452,7 @@ function writeDocumentBoth(docId: string, bodyPath: string, units: TransportUnit
 }
 
 function main() {
+  const { locale } = parseCliArgs(process.argv.slice(2));
   const books = bookCodes as BookCodeEntry[];
   const docEntries = (docCodesFile as { documents: DocCodeEntry[] }).documents;
   const bookIndex = buildBookIndex(books);
@@ -449,7 +474,10 @@ function main() {
     `Book codes: ${books.length}, ecclesial codes: ${docEntries.length}`,
   );
 
-  const indexes = loadCorpusIndexes(manifest, books);
+  const indexes = loadCorpusIndexes(manifest, books, locale);
+  if (locale) {
+    console.log(`Locale filter: ${locale} (${indexes.meta.size} docs loaded)`);
+  }
   console.log(
     `Bible verse keys: ${indexes.verseMap.size}; numbered maps: ${[
       ...indexes.byNumber.entries(),
@@ -463,6 +491,7 @@ function main() {
   let totalRefs = 0;
 
   for (const doc of manifest.documents) {
+    if (!docMatchesLocale(doc, locale)) continue;
     const units = indexes.units.get(doc.id);
     if (!units) continue;
 

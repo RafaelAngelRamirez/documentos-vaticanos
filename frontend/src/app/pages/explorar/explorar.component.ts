@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { of, Subscription } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { BnavComponent } from 'src/app/components/bnav/bnav.component';
+import { CitegraphComponent, CitegraphSelect } from 'src/app/components/citegraph/citegraph.component';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import { StudiesService, Study } from 'src/app/core/account/studies.service';
 import {
@@ -12,12 +13,24 @@ import {
   CatalogDisplay,
 } from 'src/app/core/corpus/catalog.display';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
+import {
+  edgeSamples,
+  kindLabel,
+  neighborsForDoc,
+  nodeById,
+} from 'src/app/core/search/doc-graph.logic';
 import { TopicIndexService } from 'src/app/core/search/topic-index.service';
-import { TopicRecord } from 'src/app/core/search/topic-pack.models';
+import {
+  DocGraphEdge,
+  DocGraphFile,
+  DocGraphNode,
+  TopicRecord,
+} from 'src/app/core/search/topic-pack.models';
+import { NavigationService } from 'src/app/services/navigation.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import { environment } from 'src/environments/environment';
 
-type Tab = 'maestros' | 'temas' | 'epocas';
+type Tab = 'maestros' | 'temas' | 'epocas' | 'relaciones';
 
 interface TeacherRow {
   id: string;
@@ -54,6 +67,7 @@ const FEATURED_ROOT_LIMIT = 12;
     AppFbarComponent,
     WbarComponent,
     BnavComponent,
+    CitegraphComponent,
   ],
   templateUrl: './explorar.component.html',
   styleUrls: ['./explorar.component.css'],
@@ -74,6 +88,15 @@ export class ExplorarComponent implements OnInit, OnDestroy {
   topicsLoaded = false;
   packEmpty = true;
 
+  /** Document citation map (offline). */
+  docGraph: DocGraphFile | null = null;
+  graphFilter = '';
+  graphKind: string | null = null;
+  graphFocusId: string | null = null;
+  graphKinds: { id: string; label: string }[] = [];
+  graphWorks: DocGraphNode[] = [];
+  selectedEdge: { from: string; to: string; edge: DocGraphEdge } | null = null;
+
   private topicsLocale: string | null = null;
   private topicsSub: Subscription | null = null;
 
@@ -81,11 +104,14 @@ export class ExplorarComponent implements OnInit, OnDestroy {
     private studies: StudiesService,
     private corpus: CorpusService,
     private router: Router,
+    private route: ActivatedRoute,
     private topicIndex: TopicIndexService,
     private readerPrefs: ReaderPreferencesService,
+    private nav: NavigationService,
   ) {}
 
   ngOnInit(): void {
+    this.syncTabFromUrl();
     this.buildEpochsFromCatalog();
     this.ensureTopicsPack();
     if (!environment.apiBaseUrl) {
@@ -119,7 +145,23 @@ export class ExplorarComponent implements OnInit, OnDestroy {
 
   setTab(t: Tab): void {
     this.tab = t;
-    if (t === 'temas') this.ensureTopicsPack();
+    if (t === 'temas' || t === 'relaciones') this.ensureTopicsPack();
+    const path = t === 'relaciones' ? '/explorar/relaciones' : '/explorar';
+    const q = t === 'relaciones' && this.graphFocusId
+      ? { focus: this.graphFocusId }
+      : {};
+    this.router.navigate([path], {
+      queryParams: t === 'relaciones' ? q : {},
+      replaceUrl: true,
+    });
+  }
+
+  private syncTabFromUrl(): void {
+    const path = (this.router.url || '').split('?')[0];
+    if (path.startsWith('/explorar/relaciones')) this.tab = 'relaciones';
+    const focus = this.route.snapshot.queryParamMap.get('focus');
+    if (focus) this.graphFocusId = focus;
+    if (this.tab === 'relaciones') this.ensureTopicsPack();
   }
 
   /**
@@ -173,7 +215,87 @@ export class ExplorarComponent implements OnInit, OnDestroy {
           roots.length ? roots : seeds
         ).slice(0, FEATURED_ROOT_LIMIT);
         this.packEmpty = seeds.length === 0;
+        this.docGraph = pack?.docGraph ?? null;
+        this.refreshGraphWorks();
       });
+  }
+
+  private refreshGraphWorks(): void {
+    const g = this.docGraph;
+    if (!g?.nodes?.length) {
+      this.graphWorks = [];
+      this.graphKinds = [];
+      return;
+    }
+    const kinds = new Set(g.nodes.map((n) => n.kind).filter(Boolean));
+    this.graphKinds = [...kinds]
+      .sort()
+      .map((id) => ({ id, label: kindLabel(id) }));
+    const q = (this.graphFilter || '').trim().toLowerCase();
+    this.graphWorks = g.nodes
+      .filter((n) => {
+        if (this.graphKind && n.kind !== this.graphKind) return false;
+        if (!q) return true;
+        return (
+          n.title.toLowerCase().includes(q) ||
+          n.shortTitle.toLowerCase().includes(q) ||
+          n.id.toLowerCase().includes(q)
+        );
+      })
+      .sort(
+        (a, b) =>
+          b.inDegree + b.outDegree - (a.inDegree + a.outDegree) ||
+          a.title.localeCompare(b.title, 'es'),
+      );
+  }
+
+  onGraphFilterInput(ev: Event): void {
+    const el = ev.target as HTMLInputElement | null;
+    this.graphFilter = el?.value ?? '';
+    this.refreshGraphWorks();
+  }
+
+  setGraphKind(kind: string | null): void {
+    this.graphKind = this.graphKind === kind ? null : kind;
+    this.refreshGraphWorks();
+  }
+
+  onCiteSelect(ev: CitegraphSelect): void {
+    if (ev.kind === 'node' && ev.documentId) {
+      this.graphFocusId = ev.documentId;
+      this.selectedEdge = null;
+      this.router.navigate(['/documento', ev.documentId]);
+      return;
+    }
+    if (ev.kind === 'edge' && ev.fromId && ev.toId) {
+      const edge = edgeSamples(this.docGraph, ev.fromId, ev.toId);
+      if (edge) this.selectedEdge = { from: ev.fromId, to: ev.toId, edge };
+    }
+  }
+
+  openGraphWork(n: DocGraphNode): void {
+    this.router.navigate(['/documento', n.id]);
+  }
+
+  graphNodeTitle(id: string): string {
+    return nodeById(this.docGraph, id)?.title || id;
+  }
+
+  graphNodeShort(id: string): string {
+    return nodeById(this.docGraph, id)?.shortTitle || id;
+  }
+
+  openEdgeSample(fromId: string, unitIndex: number): void {
+    this.nav.openReading(fromId, { unitIndex });
+  }
+
+  neighborCount(id: string): number {
+    return neighborsForDoc(this.docGraph, id).length;
+  }
+
+  workMeta(n: DocGraphNode): string {
+    const cites = n.outDegree + n.inDegree;
+    return `${kindLabel(n.kind)} · ${cites} cita${cites === 1 ? '' : 's'}`;
   }
 
   get filteredFeatured(): TopicRecord[] {

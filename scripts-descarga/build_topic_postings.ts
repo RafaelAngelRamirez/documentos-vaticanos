@@ -386,6 +386,9 @@ function main() {
   const hasGraph =
     !!prevFiles.graph ||
     fs.existsSync(path.join(primaryLocDir, 'unit-graph.json'));
+  const hasDocGraph =
+    !!prevFiles.docGraph ||
+    fs.existsSync(path.join(primaryLocDir, 'doc-graph.json'));
   const locMan = {
     version: prevVersion,
     schema: 1,
@@ -410,6 +413,9 @@ function main() {
       postings: 'topic-postings.json',
       termTopics: prevFiles.termTopics || 'term-topics.json',
       ...(hasGraph ? { graph: prevFiles.graph || 'unit-graph.json' } : {}),
+      ...(hasDocGraph
+        ? { docGraph: prevFiles.docGraph || 'doc-graph.json' }
+        : {}),
     },
     sourceNote: `Hub topic postings for locale ${locale}. catalog=${catalog.source}; expand=${expand}; hubs=${docsScanned}; assignments=${assignments}; postings=${postingsTotal}.`,
   };

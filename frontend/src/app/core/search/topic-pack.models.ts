@@ -43,6 +43,7 @@ export interface TopicPackManifest {
     postings: string;
     termTopics: string;
     graph?: string;
+    docGraph?: string;
     unitTopics?: string;
   };
   sourceNote?: string;
@@ -93,6 +94,43 @@ export interface UnitGraphFile {
   edges: Record<string, UnitGraphEdge[]>;
 }
 
+/** Compact document↔document citation map (build-time rollup of unit-graph). */
+export interface DocGraphSample {
+  fromUnit: number;
+  toUnit: number;
+}
+
+export interface DocGraphEdge {
+  documentId: string;
+  count: number;
+  back?: number;
+  w: number;
+  samples: DocGraphSample[];
+}
+
+export interface DocGraphNode {
+  id: string;
+  title: string;
+  shortTitle: string;
+  kind: string;
+  inDegree: number;
+  outDegree: number;
+  x: number;
+  y: number;
+}
+
+export interface DocGraphFile {
+  version: number;
+  locale: string;
+  generatedFrom?: string;
+  nodes: DocGraphNode[];
+  edges: Record<string, DocGraphEdge[]>;
+}
+
+export function emptyDocGraph(locale: string): DocGraphFile {
+  return { version: 1, locale, nodes: [], edges: {} };
+}
+
 export interface UnitTopicsFile {
   version: number;
   locale: string;
@@ -109,6 +147,7 @@ export interface TopicPack {
   postings: TopicPostingsFile;
   termTopics: TermTopicsFile;
   graph: UnitGraphFile | null;
+  docGraph: DocGraphFile | null;
   unitTopics: UnitTopicsFile | null;
 }
 
@@ -138,6 +177,7 @@ export function emptyTopicPack(locale: string): TopicPack {
     postings: { version: 1, locale, postings: {} },
     termTopics: { version: 1, locale, terms: {} },
     graph: null,
+    docGraph: null,
     unitTopics: null,
   };
 }

@@ -2,12 +2,12 @@
   "version": "0.2.0",
   "schema": 1,
   "locale": "es",
-  "generatedAt": "2026-08-21T04:27:00.279Z",
+  "generatedAt": "2026-09-12T00:17:23.679Z",
   "corpusFingerprint": {
     "algo": "sha256",
-    "value": "cad6872678342aab5a8c180bb64394249354bef94b18eb584413a09167fa7adc",
+    "value": "0ddd17f9a157f8e1966c80ef6ddcf46ad5c8290306ef84a99bdc5c401881994c",
     "docCount": 135,
-    "valueShort": "cad6872678342aab",
+    "valueShort": "0ddd17f9a157f8e1",
     "filesHashed": 270
   },
   "caps": {
@@ -16,12 +16,13 @@
     "maxRawBytes": 12000000
   },
   "topicCount": 171,
-  "edgeCount": 9932,
+  "edgeCount": 11258,
   "files": {
     "topics": "topics.json",
     "postings": "topic-postings.json",
     "termTopics": "term-topics.json",
-    "graph": "unit-graph.json"
+    "graph": "unit-graph.json",
+    "docGraph": "doc-graph.json"
   },
   "sourceNote": "Hub topic postings for locale es. catalog=seed scripts-descarga/config/topics-seed.es.json; expand=true; hubs=88; assignments=48648; postings=19930."
 }

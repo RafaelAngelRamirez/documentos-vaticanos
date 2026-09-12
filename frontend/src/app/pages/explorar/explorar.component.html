@@ -29,6 +29,14 @@
       >
         Épocas
       </button>
+      <button
+        type="button"
+        class="tab"
+        [class.on]="tab === 'relaciones'"
+        (click)="setTab('relaciones')"
+      >
+        Relaciones
+      </button>
     </div>
 
     <div *ngIf="loading && tab === 'maestros'" class="fs13 muted">
@@ -122,6 +130,111 @@
             (keydown.enter)="chip(c)"
             >{{ c }}</span
           >
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="tab === 'relaciones'">
+      <div class="sect">Citas cruzadas</div>
+      <p class="fs13 muted temas-note">
+        Enlaces del corpus (referencias resueltas entre obras), no sugerencias
+        léxicas.
+      </p>
+
+      <div *ngIf="topicsLoading" class="fs13 muted">Cargando mapa…</div>
+
+      <ng-container *ngIf="!topicsLoading && !docGraph?.nodes?.length">
+        <p class="fs13 muted empty-topics">
+          El mapa de citas no está disponible todavía. Puedes explorar temas o
+          buscar en el texto.
+        </p>
+        <div class="chips">
+          <span class="chip" (click)="setTab('temas')" role="button" tabindex="0"
+            >Ver temas</span
+          >
+          <span
+            class="chip"
+            (click)="chip('gracia')"
+            role="button"
+            tabindex="0"
+            >Buscar en el texto</span
+          >
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="!topicsLoading && docGraph?.nodes?.length">
+        <label class="flabel" for="graph-filter">Filtrar obras</label>
+        <input
+          id="graph-filter"
+          class="field"
+          type="search"
+          autocomplete="off"
+          placeholder="Título o abreviatura…"
+          [value]="graphFilter"
+          (input)="onGraphFilterInput($event)"
+        />
+        <div class="chips" *ngIf="graphKinds.length">
+          <span
+            class="chip"
+            *ngFor="let k of graphKinds"
+            [class.on]="graphKind === k.id"
+            (click)="setGraphKind(k.id)"
+            role="button"
+            tabindex="0"
+            >{{ k.label }}</span
+          >
+        </div>
+
+        <div class="card citegraph-card">
+          <app-citegraph
+            [graph]="docGraph"
+            [focusId]="graphFocusId"
+            [kindFilter]="graphKind"
+            [query]="graphFilter"
+            (select)="onCiteSelect($event)"
+          ></app-citegraph>
+        </div>
+
+        <ng-container *ngIf="selectedEdge as se">
+          <div class="sect">
+            Citas · {{ graphNodeShort(se.from) }} →
+            {{ graphNodeShort(se.to) }}
+          </div>
+          <p class="fs13 muted">
+            {{ se.edge.count }} enlace{{ se.edge.count === 1 ? '' : 's' }}
+          </p>
+          <div
+            class="srow"
+            *ngFor="let s of se.edge.samples"
+            role="link"
+            tabindex="0"
+            (click)="openEdgeSample(se.from, s.fromUnit)"
+            (keyup.enter)="openEdgeSample(se.from, s.fromUnit)"
+          >
+            <span class="st">{{ graphNodeTitle(se.from) }} · unidad {{ s.fromUnit }}</span>
+            <span class="sx">{{ graphNodeShort(se.to) }} · unidad {{ s.toUnit }}</span>
+          </div>
+        </ng-container>
+
+        <div class="sect">Obras</div>
+        <div
+          class="mrow"
+          *ngFor="let n of graphWorks"
+          style="cursor: pointer"
+          (click)="openGraphWork(n)"
+          role="button"
+          tabindex="0"
+          (keydown.enter)="openGraphWork(n)"
+        >
+          <span class="avatar">{{ n.shortTitle.slice(0, 2) }}</span>
+          <div>
+            <div class="mname">{{ n.title }}</div>
+            <div class="mmeta">{{ workMeta(n) }}</div>
+          </div>
+          <span class="chev">›</span>
+        </div>
+        <div *ngIf="!graphWorks.length" class="fs13 muted">
+          Ninguna obra coincide con el filtro.
         </div>
       </ng-container>
     </ng-container>

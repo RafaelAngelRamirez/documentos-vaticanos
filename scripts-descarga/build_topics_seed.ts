@@ -284,6 +284,9 @@ function updateLocaleManifest(
           postings: prevFiles.postings || 'topic-postings.json',
           // keep graph path if present
           ...(prevFiles.graph ? { graph: prevFiles.graph } : { graph: 'unit-graph.json' }),
+          ...(prevFiles.docGraph
+            ? { docGraph: prevFiles.docGraph }
+            : { docGraph: 'doc-graph.json' }),
         },
         sourceNote,
         // preserve fingerprint + edgeCount from graph build
@@ -304,7 +307,7 @@ function ensureCompanions(locDir: string, locale: string): void {
   if (!fs.existsSync(postingsPath)) {
     writeJson(postingsPath, { version: 1, locale, postings: {} });
   }
-  // never delete unit-graph.json
+  // never delete unit-graph.json / doc-graph.json
 }
 
 function updateRootSearchManifest(searchRoot: string, locale: string): void {
@@ -365,7 +368,9 @@ function main() {
     fs.mkdirSync(locDir, { recursive: true });
 
     const graphPath = path.join(locDir, 'unit-graph.json');
+    const docGraphPath = path.join(locDir, 'doc-graph.json');
     const hadGraph = fs.existsSync(graphPath);
+    const hadDocGraph = fs.existsSync(docGraphPath);
 
     writeJson(path.join(locDir, 'topics.json'), topicsFile);
     writeJson(path.join(locDir, 'term-topics.json'), termTopicsFile);
@@ -375,6 +380,9 @@ function main() {
 
     if (hadGraph && !fs.existsSync(graphPath)) {
       throw new Error(`unit-graph.json was removed under ${locDir}`);
+    }
+    if (hadDocGraph && !fs.existsSync(docGraphPath)) {
+      throw new Error(`doc-graph.json was removed under ${locDir}`);
     }
     if (hadGraph) {
       // touch-check only; do not rewrite
