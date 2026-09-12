@@ -1013,6 +1013,7 @@ const MAGISTERIUM: MagDoc[] = [
   { id: 'tma-es', profile: 'issuer-jp2', years: '1994', summary: 'Tertio millennio adveniente: preparación del Jubileo.', chrono: 'Camino al año 2000.', refs: [R.jpii] },
   { id: 'ee-es', profile: 'issuer-jp2', years: '2003', summary: 'Ecclesia de Eucharistia.', chrono: 'Final del pontificado; Año de la Eucaristía en el horizonte.', refs: [R.jpii] },
   { id: 'vc-es', profile: 'issuer-jp2', years: '1996', summary: 'Vita consecrata.', chrono: 'Sínodo sobre vida consagrada.', refs: [R.jpii] },
+  { id: 'vd-es', profile: 'issuer-b16', years: '2010', summary: 'Verbum Domini: Palabra de Dios en la vida y la misión de la Iglesia; lectio divina (nn. 86–87).', chrono: 'Sínodo sobre la Palabra de Dios (2008); Benedicto XVI.', refs: [R.vat2, R.holySeeArchive] },
   { id: 'mm-es', profile: 'issuer-jp2', years: '1961', summary: 'Mater et Magistra — nota: Juan XXIII; si el pack lo lista bajo otro, se mantiene año histórico.', chrono: 'Juan XXIII; doctrina social preconciliar inmediata.', refs: [R.johnxxiii] },
   { id: 'libertas-es', profile: 'issuer-leo-xiii', years: '1888', summary: 'Libertas praestantissimum: libertad humana y ley.', chrono: 'León XIII; Europa liberal del XIX.', refs: [R.leoxiii] },
   { id: 'immortale-dei-es', profile: 'issuer-leo-xiii', years: '1885', summary: 'Immortale Dei: constitución cristiana de los Estados.', chrono: 'León XIII; cuestión romana y Estados modernos.', refs: [R.leoxiii] },

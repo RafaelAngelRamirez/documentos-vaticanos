@@ -67,6 +67,27 @@
       </div>
     </section>
 
+    <section
+      class="wsaints"
+      data-testid="inicio-lectio"
+      aria-labelledby="inicio-lectio-heading"
+    >
+      <h2 id="inicio-lectio-heading" class="wsaints-title">
+        {{ t('inicio.lectio_today') }}
+      </h2>
+      <p class="wsaints-intro muted">{{ t('inicio.lectio_lede') }}</p>
+      <div class="wsaints-actions">
+        <button
+          type="button"
+          class="wsaints-cta wsaints-cta-btn"
+          data-testid="inicio-lectio-open"
+          (click)="goLectio()"
+        >
+          {{ t('inicio.lectio_open') }} ›
+        </button>
+      </div>
+    </section>
+
     <!-- Santos del día (pack offline · feastDays MM-DD local) -->
     <section
       class="wsaints"

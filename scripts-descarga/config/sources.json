@@ -791,6 +791,23 @@
       "notes": "JPII post-synodal exhortation on consecrated life (1996)."
     },
     {
+      "id": "vd",
+      "title": "Verbum Domini",
+      "shortTitle": "VD",
+      "author": "Benedicto XVI",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "vd-es",
+      "docCode": "VD",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/benedict-xvi/es/apost_exhortations/documents/hf_ben-xvi_exh_20100930_verbum-domini.html"
+      ],
+      "fixturePath": "fixtures/vd-es/source.html",
+      "expectedUnitCount": 124,
+      "notes": "Benedict XVI post-synodal exhortation on the Word of God (2010). Lectio divina in nn. 86–87. Distinct from dv-es (Dei Verbum)."
+    },
+    {
       "id": "dm",
       "title": "Dives in Misericordia",
       "shortTitle": "DM",

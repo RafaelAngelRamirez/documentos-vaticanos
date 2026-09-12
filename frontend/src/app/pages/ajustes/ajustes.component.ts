@@ -35,6 +35,11 @@ import {
   resolvePreferredVoice,
 } from 'src/app/services/narrator-preferences.service';
 import { environment } from 'src/environments/environment';
+import {
+  DailyNotificationPrefs,
+  NotificationPrefsService,
+} from 'src/app/core/notifications/notification-prefs.service';
+import { DailyNotificationsService } from 'src/app/core/notifications/daily-notifications.service';
 
 interface ThemeOption {
   value: ReaderTheme;
@@ -127,7 +132,14 @@ export class AjustesComponent implements OnInit, OnDestroy {
     private narrator: NarratorService,
     private narratorPrefs: NarratorPreferencesService,
     public i18n: UiI18nService,
+    private notifSvc: NotificationPrefsService,
+    private dailyNotif: DailyNotificationsService,
   ) {}
+
+  get notifPrefs(): DailyNotificationPrefs {
+    void this.localeTick;
+    return this.notifSvc.snapshot;
+  }
 
   /** Shortcut used by the template. */
   t(key: string, params?: Record<string, string | number>): string {
@@ -223,6 +235,38 @@ export class AjustesComponent implements OnInit, OnDestroy {
 
   setUiLocale(locale: UiLocalePref): void {
     this.i18n.setLocale(locale);
+  }
+
+  toggleNotifEnabled(): void {
+    const next = !this.notifPrefs.enabled;
+    if (next) {
+      const any =
+        this.notifPrefs.saint ||
+        this.notifPrefs.reading ||
+        this.notifPrefs.reflection;
+      this.notifSvc.update({
+        enabled: true,
+        saint: any ? this.notifPrefs.saint : true,
+        reading: any ? this.notifPrefs.reading : true,
+        reflection: any ? this.notifPrefs.reflection : true,
+      });
+      void this.dailyNotif.requestPermission();
+    } else {
+      this.notifSvc.update({ enabled: false });
+    }
+  }
+
+  toggleNotifChannel(channel: 'saint' | 'reading' | 'reflection'): void {
+    const cur = this.notifPrefs[channel];
+    const patch: Partial<DailyNotificationPrefs> = { [channel]: !cur };
+    if (!cur) patch.enabled = true;
+    this.notifSvc.update(patch);
+    if (!cur) void this.dailyNotif.requestPermission();
+  }
+
+  onNotifTime(ev: Event): void {
+    const el = ev.target as HTMLInputElement;
+    this.notifSvc.update({ time: el?.value || this.notifPrefs.time });
   }
 
   toggleKeepAwake(): void {
@@ -351,6 +395,9 @@ export class AjustesComponent implements OnInit, OnDestroy {
       );
       if (resumen.narrador) {
         partes.push('preferencias del narrador');
+      }
+      if (resumen.notificaciones) {
+        partes.push('notificaciones');
       }
       this.setDataMsg(
         `Datos importados (${partes.join(', ')}). La página se recargará…`

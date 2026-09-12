@@ -592,6 +592,17 @@
       "kind": "magisterium"
     },
     {
+      "code": "VD",
+      "aliases": [
+        "VD",
+        "Verbum Domini"
+      ],
+      "title": "Verbum Domini",
+      "corpusDocId": "vd-es",
+      "locatorType": "number",
+      "kind": "magisterium"
+    },
+    {
       "code": "DM",
       "aliases": [
         "DM",

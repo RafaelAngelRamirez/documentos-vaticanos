@@ -29,6 +29,7 @@ import { SantoralComponent } from './santoral/santoral.component';
 import { SantoDetalleComponent } from './santo-detalle/santo-detalle.component';
 import { PapasComponent } from './papas/papas.component';
 import { PapaDetalleComponent } from './papa-detalle/papa-detalle.component';
+import { LectioComponent } from './lectio/lectio.component';
 
 const routes: Routes = [
   { path: ROUTE.inicio, component: InicioComponent },
@@ -71,6 +72,7 @@ const routes: Routes = [
   /** Pontífices (lista vatican.va · ficha 2C/2D) */
   { path: 'papas', component: PapasComponent },
   { path: 'papas/:id', component: PapaDetalleComponent },
+  { path: 'lectio', component: LectioComponent },
   {
     path: `${ROUTE.leyendo}/:documento`,
     component: LectorComponent,

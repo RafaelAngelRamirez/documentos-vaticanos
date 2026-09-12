@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { DailyNotificationsService } from './core/notifications/daily-notifications.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +32,14 @@ import { detectElectronShell } from './core/shell/shell.util';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    {
+      provide: APP_INITIALIZER,
+      multi: true,
+      deps: [DailyNotificationsService],
+      useFactory: (daily: DailyNotificationsService) => () => {
+        daily.init();
+      },
+    },
   ],
   bootstrap: [AppComponent],
 })

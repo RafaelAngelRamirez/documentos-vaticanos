@@ -15,9 +15,10 @@ const ANOTACIONES_STORAGE_KEY = 'dv_anotaciones_v1'; // anotaciones.service.ts
 const TEMAS_STORAGE_KEY = 'themes.user'; // core/account/themes.service.ts (F8b)
 const PREFERENCIAS_STORAGE_KEY = READER_PREFS_STORAGE_KEY; // 'reader.prefs.v1'
 const NARRADOR_STORAGE_KEY = NARRATOR_PREFS_STORAGE_KEY; // 'dv.narr.prefs.v1'
+const NOTIF_STORAGE_KEY = 'dv.notif.prefs.v1';
 
 const BACKUP_APP = 'documentos-vaticanos';
-const BACKUP_VERSION = 2;
+const BACKUP_VERSION = 3;
 
 export interface BackupData {
   /** Anotaciones (notas y subrayados) de `dv_anotaciones_v1`. */
@@ -28,6 +29,8 @@ export interface BackupData {
   preferencias: Record<string, unknown> | null;
   /** Preferencias del narrador por dispositivo (`dv.narr.prefs.v1`). */
   narrador?: Record<string, unknown> | null;
+  /** Recordatorios diarios (`dv.notif.prefs.v1`). */
+  notificaciones?: Record<string, unknown> | null;
 }
 
 export interface BackupFile {
@@ -46,6 +49,8 @@ export interface ResumenImport {
   preferencias: boolean;
   /** Si se restauraron las preferencias del narrador (por dispositivo). */
   narrador: boolean;
+  /** Si se restauraron las preferencias de notificaciones. */
+  notificaciones: boolean;
 }
 
 /**
@@ -59,6 +64,13 @@ const MIGRACIONES: Record<number, (data: BackupData) => BackupData> = {
     narrador:
       data.narrador && typeof data.narrador === 'object'
         ? data.narrador
+        : null,
+  }),
+  2: (data) => ({
+    ...data,
+    notificaciones:
+      data.notificaciones && typeof data.notificaciones === 'object'
+        ? data.notificaciones
         : null,
   }),
 };
@@ -84,6 +96,7 @@ export class BackupService {
         narrador: narratorPrefsForBackup(
           this.leerJson<Record<string, unknown>>(NARRADOR_STORAGE_KEY)
         ),
+        notificaciones: this.leerJson<Record<string, unknown>>(NOTIF_STORAGE_KEY),
       },
     };
     const blob = new Blob([JSON.stringify(backup, null, 2)], {
@@ -156,6 +169,7 @@ export class BackupService {
       temas: 0,
       preferencias: false,
       narrador: false,
+      notificaciones: false,
     };
     if (Array.isArray(data.anotaciones)) {
       localStorage.setItem(
@@ -197,6 +211,17 @@ export class BackupService {
       }
       localStorage.setItem(NARRADOR_STORAGE_KEY, JSON.stringify(safe));
       resumen.narrador = true;
+    }
+    if (
+      data.notificaciones &&
+      typeof data.notificaciones === 'object' &&
+      !Array.isArray(data.notificaciones)
+    ) {
+      localStorage.setItem(
+        NOTIF_STORAGE_KEY,
+        JSON.stringify(data.notificaciones),
+      );
+      resumen.notificaciones = true;
     }
 
     setTimeout(() => window.location.reload(), 1500);

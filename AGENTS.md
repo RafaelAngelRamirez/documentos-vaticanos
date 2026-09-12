@@ -95,6 +95,8 @@ Detalle de dominio: `docs/FASE-2-PLAN.md` + `backend/prisma/schema.prisma`.
 |-------|-----------|
 | `reader.prefs.v1` | Tema, fuente, tamaño, line-height, max-width, keepAwake, **contentLocale** (`system`\|`es`\|`en`\|`zh`\|`hi`\|`ar`\|`la`… — idioma preferido del corpus), **uiLocale** (`es`\|`en`\|`zh`\|`hi`\|`ar` — i18n del chrome; ES principal por defecto) |
 | `dv.narr.prefs.v1` | Narrador por dispositivo: `grokEnabled`, `voiceId`, `xaiApiKey` (solo local; no nube) |
+| `dv.notif.prefs.v1` | Recordatorios diarios: `enabled`, `time`, `saint`, `reading`, `reflection` (solo local) |
+| `dv.lectio.cache.v1` | Caché de Vatican News Palabra del día (enriquecimiento; no bloquea lectio) |
 | `document_id` / `article_selected` / `actual_index` | Posición de lectura |
 | `nav_stack` | Pila «volver a la cita» |
 | `dv_anotaciones_v1` | Subrayados / notas / marcadores |

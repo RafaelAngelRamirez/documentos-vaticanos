@@ -3,7 +3,7 @@
  * Citations only — body comes from the bible pack.
  */
 
-import { LiturgicalDate } from './liturgical-date.logic';
+import type { LiturgicalDate } from './liturgical-date.logic';
 import { OT_WEEKDAY_GOSPEL, OT_WEEKDAY_YEAR } from './ot-weekday-lectionary';
 import { OT_SUNDAY } from './ot-sunday-lectionary';
 

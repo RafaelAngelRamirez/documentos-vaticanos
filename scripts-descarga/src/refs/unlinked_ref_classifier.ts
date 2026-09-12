@@ -443,6 +443,12 @@ const EXTRA_MAGISTERIAL_CODES: Array<{
     title: "Vita consecrata",
     corpusDocId: "vc-es",
   },
+  {
+    code: "VD",
+    re: /\bVD\b|verbum\s+domini/i,
+    title: "Verbum Domini",
+    corpusDocId: "vd-es",
+  },
 ];
 
 function normalizeLoose(s: string): string {

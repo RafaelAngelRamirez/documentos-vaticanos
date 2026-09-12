@@ -258,6 +258,10 @@ export class InicioComponent implements OnInit, OnDestroy {
     this.navigation.go_to_documents();
   }
 
+  goLectio(): void {
+    this.router.navigate(['/lectio']);
+  }
+
   goSantoral(): void {
     this.router.navigate(['/santoral']);
   }

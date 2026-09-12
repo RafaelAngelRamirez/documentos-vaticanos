@@ -32,6 +32,10 @@ async function main() {
   const L = await loadLogic();
   const catalogs = loadCatalogs();
 
+  const Prefs = await import(
+    pathToFileURL(path.join(HERE, 'locale-prefs.logic.ts')).href + `?t=${Date.now()}`
+  );
+
   // resolveUiLocale — device BCP-47 → app UI locale
   assert.strictEqual(L.resolveUiLocale(undefined), 'es');
   assert.strictEqual(L.resolveUiLocale(null), 'es');
@@ -47,6 +51,58 @@ async function main() {
   assert.strictEqual(L.resolveUiLocale('xx', 'en'), 'en');
   assert.strictEqual(L.isUiLocale('es'), true);
   assert.strictEqual(L.isUiLocale('pt'), false);
+
+  // defaultUiLocaleFromDevice — first launch / reset
+  assert.strictEqual(L.defaultUiLocaleFromDevice('en-US'), 'en');
+  assert.strictEqual(L.defaultUiLocaleFromDevice('es-MX'), 'es');
+  assert.strictEqual(L.defaultUiLocaleFromDevice('zh-CN'), 'zh');
+  assert.strictEqual(L.defaultUiLocaleFromDevice('hi-IN'), 'hi');
+  assert.strictEqual(L.defaultUiLocaleFromDevice('ar-SA'), 'ar');
+  assert.strictEqual(L.defaultUiLocaleFromDevice('pt-BR'), 'es'); // unsupported
+  assert.strictEqual(L.defaultUiLocaleFromDevice(null), 'es');
+  assert.strictEqual(L.defaultUiLocaleFromDevice(''), 'es');
+
+  // localePrefsFromStorage — device vs persisted override (independent fields)
+  const firstEn = Prefs.localePrefsFromStorage(null, 'en-GB');
+  assert.strictEqual(firstEn.uiLocale, 'en');
+  assert.strictEqual(firstEn.contentLocale, 'system');
+  const firstZh = Prefs.localePrefsFromStorage('', 'zh-CN');
+  assert.strictEqual(firstZh.uiLocale, 'zh');
+  assert.strictEqual(firstZh.contentLocale, 'system');
+  const saved = Prefs.localePrefsFromStorage(
+    JSON.stringify({ uiLocale: 'ar', contentLocale: 'en', theme: 'mono' }),
+    'zh-CN',
+  );
+  assert.strictEqual(saved.uiLocale, 'ar', 'saved UI wins over device');
+  assert.strictEqual(saved.contentLocale, 'en', 'saved content wins over device');
+  const mixed = Prefs.localePrefsFromStorage(
+    JSON.stringify({ uiLocale: 'en', contentLocale: 'system' }),
+    'hi-IN',
+  );
+  assert.strictEqual(mixed.uiLocale, 'en');
+  assert.strictEqual(mixed.contentLocale, 'system');
+  const oldBlob = Prefs.localePrefsFromStorage(
+    JSON.stringify({ theme: 'claro', fontSizePx: 18 }),
+    'ar-EG',
+  );
+  assert.strictEqual(oldBlob.uiLocale, 'es', 'legacy blob without uiLocale stays es');
+  assert.strictEqual(oldBlob.contentLocale, 'system');
+  const bad = Prefs.localePrefsFromStorage('{not json', 'en-US');
+  assert.strictEqual(bad.uiLocale, 'en');
+  assert.strictEqual(bad.contentLocale, 'system');
+  // UI and content stay independent when only one is set
+  const onlyUi = Prefs.localePrefsFromStorage(
+    JSON.stringify({ uiLocale: 'hi' }),
+    'en-US',
+  );
+  assert.strictEqual(onlyUi.uiLocale, 'hi');
+  assert.strictEqual(onlyUi.contentLocale, 'system');
+  const onlyContent = Prefs.localePrefsFromStorage(
+    JSON.stringify({ contentLocale: 'la', uiLocale: 'zh' }),
+    'en-US',
+  );
+  assert.strictEqual(onlyContent.uiLocale, 'zh');
+  assert.strictEqual(onlyContent.contentLocale, 'la');
 
   // rtl
   assert.strictEqual(L.isRtl('ar'), true);
@@ -144,6 +200,10 @@ async function main() {
     'settings.theme_oscuro',
     'settings.theme_system',
     'settings.narrator',
+    'settings.notifications',
+    'inicio.lectio_today',
+    'lectio.title',
+    'lectio.step.lectio_q',
     'reader.loading',
     'reader.start',
     'reader.language',
@@ -201,8 +261,8 @@ async function main() {
       'inicio.title_html',
       'inicio.lede',
       'inicio.start',
-      'inicio.have_account',
       'inicio.saints_today',
+      'inicio.lectio_today',
     ],
     cuenta: [
       'account.title',

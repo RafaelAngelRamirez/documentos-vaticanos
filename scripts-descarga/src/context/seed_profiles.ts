@@ -489,6 +489,33 @@ export const AUTHOR_PROFILES: AuthorContextProfile[] = [
     sourceNote: NOTE,
   },
   {
+    id: 'issuer-b16',
+    name: 'Benedicto XVI (magisterio)',
+    kind: 'issuer',
+    years: '2005–2013',
+    summary:
+      'Joseph Ratzinger, papa Benedicto XVI: hermenéutica de la Escritura, liturgia, Verbum Domini y el sínodo sobre la Palabra de Dios (2008).',
+    axes: axes({
+      lugar: 'Roma; universidades pontificias; Baviera y la tradición teológica alemana.',
+      personajes:
+        'Benedicto XVI; Padres del Sínodo 2008; exegetas y pastores de la recepción de Dei Verbum.',
+      gobierno: 'Santa Sede en los años 2000; diálogo fe–razón en Europa secularizada.',
+      cultura: 'Crisis de la Palabra en la cultura mediática; renovación bíblica postconciliar.',
+      religion: 'Lectura orante de la Escritura; liturgia como lugar privilegiado de la Palabra.',
+      antropologia: 'El hombre como oyente de la Palabra; conversión de mente y vida (lectio divina).',
+      creenciasMundanas: 'Hermenéutica secularizada de la Biblia; relativismo.',
+      creenciaCristiana:
+        'Cristología de la Palabra; Tradición y Escritura; lectio divina (Verbum Domini 86–87).',
+    }),
+    timeline: [
+      { years: '2005', label: 'Elección de Benedicto XVI' },
+      { years: '2008', label: 'Sínodo sobre la Palabra de Dios' },
+      { years: '2010', label: 'Verbum Domini' },
+    ],
+    references: [R.vat2, R.holySeeArchive],
+    sourceNote: NOTE,
+  },
+  {
     id: 'issuer-paul-vi',
     name: 'Pablo VI (magisterio)',
     kind: 'issuer',

@@ -135,6 +135,7 @@
       class="stepbtn themerow"
       role="group"
       [attr.aria-label]="t('settings.content_language')"
+      data-testid="ajustes-content-locale"
     >
       <button
         *ngFor="let loc of contentLocales"
@@ -158,6 +159,99 @@
         aria-label="Mantener pantalla encendida"
       ></button>
     </div>
+
+    <div class="sect">{{ t('settings.notifications') }}</div>
+    <div class="setrow nb">
+      <span class="setk"
+        >{{ t('settings.notifications')
+        }}<span class="seth">{{ t('settings.notifications_hint') }}</span></span
+      >
+    </div>
+    <div class="setrow">
+      <span class="setk"
+        >{{ t('settings.notifications_enable')
+        }}<span class="seth">{{ t('settings.notifications_enable_hint') }}</span></span
+      >
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        data-testid="ajustes-notif-enable"
+        [class.on]="notifPrefs.enabled"
+        [attr.aria-checked]="notifPrefs.enabled"
+        (click)="toggleNotifEnabled()"
+        [attr.aria-label]="t('settings.notifications_enable')"
+      ></button>
+    </div>
+    <div class="setrow">
+      <span class="setk"
+        >{{ t('settings.notifications_time')
+        }}<span class="seth">{{ t('settings.notifications_time_hint') }}</span></span
+      >
+      <input
+        type="time"
+        class="field notif-time"
+        data-testid="ajustes-notif-time"
+        [value]="notifPrefs.time"
+        [disabled]="!notifPrefs.enabled"
+        (change)="onNotifTime($event)"
+        [attr.aria-label]="t('settings.notifications_time')"
+      />
+    </div>
+    <div class="setrow">
+      <span class="setk"
+        >{{ t('settings.notifications_saint')
+        }}<span class="seth">{{ t('settings.notifications_saint_hint') }}</span></span
+      >
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        data-testid="ajustes-notif-saint"
+        [class.on]="notifPrefs.saint"
+        [attr.aria-checked]="notifPrefs.saint"
+        (click)="toggleNotifChannel('saint')"
+        [attr.aria-label]="t('settings.notifications_saint')"
+      ></button>
+    </div>
+    <div class="setrow">
+      <span class="setk"
+        >{{ t('settings.notifications_reading')
+        }}<span class="seth">{{ t('settings.notifications_reading_hint') }}</span></span
+      >
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        data-testid="ajustes-notif-reading"
+        [class.on]="notifPrefs.reading"
+        [attr.aria-checked]="notifPrefs.reading"
+        (click)="toggleNotifChannel('reading')"
+        [attr.aria-label]="t('settings.notifications_reading')"
+      ></button>
+    </div>
+    <div class="setrow">
+      <span class="setk"
+        >{{ t('settings.notifications_reflection')
+        }}<span class="seth">{{ t('settings.notifications_reflection_hint') }}</span></span
+      >
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        data-testid="ajustes-notif-reflection"
+        [class.on]="notifPrefs.reflection"
+        [attr.aria-checked]="notifPrefs.reflection"
+        (click)="toggleNotifChannel('reflection')"
+        [attr.aria-label]="t('settings.notifications_reflection')"
+      ></button>
+    </div>
+    <p class="fs13 muted notif-lectio-hint">
+      {{ t('settings.notifications_lectio_hint') }}
+    </p>
+    <p class="fs13 muted notif-lectio-hint">
+      {{ t('settings.notifications_web_note') }}
+    </p>
 
     <!-- Narrador · API key y voz solo en este dispositivo (no nube) -->
     <div class="sect">{{ t('settings.narrator') }}</div>

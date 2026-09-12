@@ -2,6 +2,7 @@
   "name": "documentos-vaticanos",
   "version": "0.0.25",
   "private": true,
+  "builders": "tools/builders.json",
   "description": "Documentos Vaticanos — lector offline (web, Android, Electron)",
   "author": "Documentos Vaticanos",
   "main": "electron/main.js",
@@ -37,7 +38,11 @@
     "test:document-toc": "bash ../scripts/node-strip-types.sh src/app/services/document-toc.logic.test.js",
     "test:open-reading": "bash ../scripts/node-strip-types.sh src/app/services/open-reading.logic.test.js && bash ../scripts/node-strip-types.sh src/app/services/open-reading.handoff.test.js && bash ../scripts/node-strip-types.sh src/app/pages/immersive-route.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/person/person-reading.logic.test.js",
     "test:santoral": "bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-resolve.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-units.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-progress.logic.test.js",
-    "test:papacy": "bash ../scripts/node-strip-types.sh src/app/core/papacy/papacy-resolve.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/papacy/papacy-units.logic.test.js"
+    "test:papacy": "bash ../scripts/node-strip-types.sh src/app/core/papacy/papacy-resolve.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/papacy/papacy-units.logic.test.js",
+    "test:lectio": "bash ../scripts/node-strip-types.sh src/app/core/lectio/palabra-del-dia.parse.test.js && bash ../scripts/node-strip-types.sh src/app/core/lectio/lectio-day.logic.test.js && node src/app/pages/lectio/lectio_ui.test.js",
+    "test:notifications": "bash ../scripts/node-strip-types.sh src/app/core/notifications/notification-prefs.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/notifications/notification-copy.logic.test.js && node src/app/pages/ajustes/ajustes_notif_ui.test.js",
+    "test:ajustes-locale": "node src/app/pages/ajustes/ajustes_locale_ui.test.js",
+    "test:spa-fallback": "node tools/spa-fallback.test.js"
   },
   "dependencies": {
     "@angular/animations": "^16.0.1",
@@ -55,6 +60,7 @@
     "@capacitor/android": "^5.7.8",
     "@capacitor/app": "^5.0.8",
     "@capacitor/core": "^5.7.8",
+    "@capacitor/local-notifications": "^5.0.8",
     "@capacitor/preferences": "^5.0.8",
     "@capacitor/status-bar": "^5.0.8",
     "@capawesome-team/capacitor-android-foreground-service": "^5.0.0",
