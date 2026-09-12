@@ -100,17 +100,88 @@ export function collectFootnoteRefIds(el: Element): string[] {
   return ids;
 }
 
-function paragraphOf(a: Element): Element | null {
+/** Vatican notes are short; a wrapping body <p>/<div> can be 100k+ chars. */
+export const MAX_NOTE_CHARS = 900;
+
+function closestParagraph(a: Element): Element | null {
   let el: Element | null = a;
   while (el) {
     if (el.tagName === "P") return el;
     el = el.parentElement;
   }
-  return a.parentElement;
+  return null;
+}
+
+function isFootnoteTargetAnchor(el: Element): boolean {
+  const name = el.getAttribute("name") || el.getAttribute("id") || "";
+  if (REF_NAME_RE.test(name)) return false;
+  return footnoteTargetNumber(name) != null;
+}
+
+function countFootnoteTargets(el: Element): number {
+  let n = 0;
+  el.querySelectorAll("a").forEach((a) => {
+    if (isFootnoteTargetAnchor(a)) n += 1;
+  });
+  return n;
+}
+
+function isCompactNoteParagraph(p: Element): boolean {
+  if (p.tagName !== "P") return false;
+  const text = (p.textContent || "").replace(/\s+/g, " ").trim();
+  if (text.length > 2500) return false;
+  if (countFootnoteTargets(p) > 2) return false;
+  return true;
+}
+
+function truncateNote(text: string): string {
+  const t = text.trim();
+  if (t.length <= MAX_NOTE_CHARS) return t;
+  const cut = t.slice(0, MAX_NOTE_CHARS);
+  const sp = cut.lastIndexOf(" ");
+  return (sp > 400 ? cut.slice(0, sp) : cut).trim();
 }
 
 /**
- * Map apparatus targets → text and mark those <p> as skip-unit.
+ * Notes often sit as bare `<a name="_ftnN">` siblings (VD), not inside a
+ * dedicated `<p>`. Walking up to body/div would swallow the whole document.
+ */
+function textAfterAnchorUntilNextNote(a: Element): string {
+  let buf = "";
+  let node: ChildNode | null = a.nextSibling;
+  while (node && buf.length < MAX_NOTE_CHARS + 80) {
+    if (node.nodeType === 1) {
+      const el = node as Element;
+      if (el.tagName === "A" && isFootnoteTargetAnchor(el)) break;
+      if (el.tagName === "HR") break;
+      if (el.querySelector) {
+        const inner = Array.from(el.querySelectorAll("a")).find((x) =>
+          isFootnoteTargetAnchor(x),
+        );
+        if (inner && inner !== a) break;
+      }
+      buf += el.textContent || "";
+    } else if (node.nodeType === 3) {
+      buf += node.textContent || "";
+    }
+    node = node.nextSibling;
+  }
+  return buf;
+}
+
+function noteTextFromAnchor(a: Element): string {
+  const p = closestParagraph(a);
+  let raw = "";
+  if (p && isCompactNoteParagraph(p)) {
+    raw = p.textContent || "";
+  } else {
+    raw = textAfterAnchorUntilNextNote(a);
+  }
+  return truncateNote(cleanNoteText(raw));
+}
+
+/**
+ * Map apparatus targets → text and mark compact note <p> as skip-unit.
  */
 export function collectFootnoteMap(root: Element | Document): FootnoteHarvest {
   const map = new Map<string, string>();
@@ -128,12 +199,11 @@ export function collectFootnoteMap(root: Element | Document): FootnoteHarvest {
     if (!n) continue;
     if (REF_NAME_RE.test(name)) continue;
 
-    const p = paragraphOf(a);
-    if (p) skipParagraphs.add(p);
+    const p = closestParagraph(a);
+    if (p && isCompactNoteParagraph(p)) skipParagraphs.add(p);
 
     if (map.has(n)) continue;
-    const raw = p ? p.textContent || "" : a.parentElement?.textContent || "";
-    const text = cleanNoteText(raw);
+    const text = noteTextFromAnchor(a);
     if (!text || isFootnoteNotesHeading(text)) continue;
     map.set(n, text);
   }

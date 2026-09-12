@@ -96,6 +96,30 @@ const FN_HTML = `
   assert(ids[0] === "1", `body ref id 1, got ${ids.join(",")}`);
 }
 
+const BARE_FTN_HTML = `
+<html><body>
+<p>1. La Palabra de Dios <a name="_ftnref1" href="#_ftn1">[1]</a> en la Iglesia.</p>
+<p>2. Segundo párrafo del cuerpo, largo a propósito ${"x".repeat(400)}.</p>
+<hr />
+<p><b>Notas</b></p>
+<a name="_ftn1" href="#_ftnref1">[1]</a> Cf. <i>Propositio</i> 1.
+<p> <a name="_ftn2" href="#_ftnref2">[2]</a> Instrumentum laboris, 27.</p>
+</body></html>`;
+
+{
+  const parsed = parseNumberedParagraphs(BARE_FTN_HTML);
+  assert(parsed.units.length === 2, `bare ftn unitCount 2, got ${parsed.units.length}`);
+  const refs = parsed.units[0].referencias || [];
+  assert(
+    refs.some((r) => /Propositio/.test(r.descripcion) && r.descripcion.length < 200),
+    `bare _ftn1 is short Propositio, got ${JSON.stringify(refs)}`,
+  );
+  assert(
+    !refs.some((r) => /Instrumentum/.test(r.descripcion) || /xxxxx/.test(r.descripcion)),
+    "bare _ftn1 must not swallow the rest of the document",
+  );
+}
+
 const eePath = path.join(__dirname, "fixtures/ee-es/source.html");
 if (fs.existsSync(eePath)) {
   const html = fs.readFileSync(eePath, "utf8");
