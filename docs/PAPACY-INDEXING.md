@@ -43,6 +43,14 @@ documentId  +  unitIndex
 
 Hoy hay **226 packs** ya en corpus ligados (sobre todo JPII, Pablo VI, León XIII, Juan XXIII). Francisco y Benedicto XVI **aún no tienen packs** de encíclicas/cartas en el corpus.
 
+## Import masivo (ya corrido)
+
+```bash
+npx ts-node --transpile-only import_papal_catalog.ts --locales es,en,ar,zh --concurrency 8
+```
+
+No toca `sources.json` ni `doc-codes.json`. IDs `{slug}-{locale}`. Unidades = párrafos numerados o prosa vatican.va. Informe: `documentos/papacy-source/inventory/import-report.json`.
+
 ## Al importar cartas apostólicas nuevas
 
 1. **IDs estables:** `{slug}-{locale}` (p. ej. `desiderio-desideravi-es`), gemelos `en` `hi` `zh` `ar` con el mismo slug y sufijo de locale. No reutilizar el `unitIndex` de otro idioma.
