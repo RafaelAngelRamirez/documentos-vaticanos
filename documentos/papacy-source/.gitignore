@@ -1,0 +1,3 @@
+# Re-scrapeable HTML; inventory JSON is the source of truth for the catalog.
+raw/indexes-cache/
+raw/indexes/

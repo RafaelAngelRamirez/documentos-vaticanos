@@ -17,6 +17,12 @@ const ASSETS_CONTEXT_ROOT = 'assets/corpus/context';
 const AUTHOR_ID_ALIASES: Record<string, string[]> = {
   'anonimo-diogneto': ['diogneto-anonimo'],
   'diogneto-anonimo': ['anonimo-diogneto'],
+  'juan-pablo-ii': ['issuer-jp2'],
+  'pablo-vi': ['issuer-paul-vi'],
+  'juan-xxiii': ['issuer-john-xxiii'],
+  'leon-xiii': ['issuer-leo-xiii'],
+  'pio-xi': ['issuer-pius-xi'],
+  'pio-ix': ['issuer-pius-ix'],
 };
 
 function authorIdCandidates(id: string): string[] {

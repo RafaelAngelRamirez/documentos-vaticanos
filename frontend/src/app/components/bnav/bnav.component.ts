@@ -108,6 +108,7 @@ export class BnavComponent implements OnDestroy {
       p.includes('documentos/listar') ||
       p.startsWith('/buscar') ||
       p.startsWith('/padres') ||
+      p.startsWith('/papas') ||
       p.startsWith('/doctores') ||
       p.startsWith('/santoral') ||
       p.startsWith('/explorar') ||

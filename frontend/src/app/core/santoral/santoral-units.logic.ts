@@ -262,6 +262,16 @@ export function coverPathForDocumentId(
   if (!raw) return '/biblioteca';
   const saintId = parseSaintDocumentId(raw);
   if (saintId) return `/santoral/${saintId}`;
+  let decoded = raw;
+  try {
+    if (raw.includes('%')) decoded = decodeURIComponent(raw);
+  } catch {
+    decoded = raw;
+  }
+  if (decoded.startsWith('papacy:')) {
+    const popeId = decoded.slice('papacy:'.length).trim();
+    if (popeId) return `/papas/${popeId}`;
+  }
   return `/documento/${raw}`;
 }
 
@@ -273,6 +283,16 @@ export function coverNavCommandsForDocumentId(
   if (!raw) return ['/biblioteca'];
   const saintId = parseSaintDocumentId(raw);
   if (saintId) return ['/santoral', saintId];
+  let decoded = raw;
+  try {
+    if (raw.includes('%')) decoded = decodeURIComponent(raw);
+  } catch {
+    decoded = raw;
+  }
+  if (decoded.startsWith('papacy:')) {
+    const popeId = decoded.slice('papacy:'.length).trim();
+    if (popeId) return ['/papas', popeId];
+  }
   return ['/documento', raw];
 }
 
@@ -298,6 +318,9 @@ export function parentPathForAppUrl(url: string): string | null {
   }
   if (a === 'santoral' && b) {
     return '/santoral';
+  }
+  if (a === 'papas' && b) {
+    return '/papas';
   }
   if (a === 'estudios' && c === 'editar') {
     return `/estudios/${b}`;

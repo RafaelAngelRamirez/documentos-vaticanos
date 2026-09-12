@@ -11,6 +11,7 @@ export type WbarSection =
   | 'biblioteca'
   | 'estudio'
   | 'padres'
+  | 'papas'
   | 'doctores'
   | 'santoral'
   | 'temas'
@@ -98,6 +99,9 @@ export type WbarMode = 'nav' | 'auth' | 'reader';
       }}</a>
       <a routerLink="/padres" class="wlink" [class.on]="section === 'padres'">{{
         t('nav.parents')
+      }}</a>
+      <a routerLink="/papas" class="wlink" [class.on]="section === 'papas'">{{
+        t('nav.popes')
       }}</a>
       <a routerLink="/doctores" class="wlink" [class.on]="section === 'doctores'">{{
         t('nav.doctors')
@@ -214,6 +218,7 @@ export class WbarComponent implements OnDestroy {
     if (this.active) return this.active;
     const p = (this.router.url || '').split('?')[0];
     if (p.startsWith('/padres')) return 'padres';
+    if (p.startsWith('/papas')) return 'papas';
     if (p.startsWith('/doctores')) return 'doctores';
     if (p.startsWith('/santoral')) return 'santoral';
     if (p.startsWith('/biblioteca') || p.startsWith('/list') || p.startsWith('/documento')) {

@@ -28,6 +28,8 @@ documentos-vaticanos/
 ├── backend/                  # Express + Prisma + PostgreSQL (Fase 2, opcional)
 │   └── src/routes/           # /api/v1/*
 ├── documentos/corpus/        # fuente del pack (scrapers escriben aquí y en assets)
+│   └── papacy/               # pack pontífices (lista vatican.va; no es corpus de lectura)
+├── documentos/papacy-source/ # HTML índices + inventario de cartas apostólicas
 ├── scripts-descarga/         # scrapers, adapters, write_corpus, refs
 ├── e2e/                      # Playwright + smoke API
 └── docs/
@@ -268,6 +270,7 @@ Copiar **nombres de clase y medidas** del HTML canónico. No inventar `dv-*` / `
 | `/cuenta/temas` | 6A Mis temas (`p-ok` / `p-rev` / `p-no`) |
 | `/cuenta/temas/:id` | 3I·4C Tema · 6B cambios · 4D publicar |
 | `/padres` · `/padres/:id` | 2C·2D Padres de la Iglesia |
+| `/papas` · `/papas/:id` | 2C·2D Pontífices (lista vatican.va + ficha; santoral si es santo) |
 | `/admin/revision` · `/admin/revision/:id` | 6C·6D Cola de revisión |
 | `/ajustes` | Preferencias de app/lectura |
 | `/documentos/listar` · `/biblioteca` | 3D Biblioteca |
@@ -307,8 +310,8 @@ Reglas:
 | `app-lector` / `app-punto` | Lectura por unidades (único lector inmersivo) |
 | `app-cover-header` · `app-meta-grid` · `app-doc-toc` · `app-reading-ctas` | Átomos de portada 2A/5C (`components/reading-cover/`) |
 | `app-reading-cover` | Portada documento unificada 2A+5C (slots lang/source/context/refs/related) |
-| `app-person-ficha` | Ficha de persona 2D (Padre / Doctor / Santo) |
-| `app-era-list` | Listado por eras 2C (Padres / Doctores / Santoral lista) |
+| `app-person-ficha` | Ficha de persona 2D (Padre / Doctor / Santo / Papa) |
+| `app-era-list` | Listado por eras 2C (Padres / Doctores / Santoral / Papas lista) |
 | `NavigationService.openReading` | Entrada única al lector (`documentId` + `unitIndex` + `autoNarr`) |
 
 **Prohibido:** Bootstrap, Font Awesome, themes Material de color (pink/indigo). `@angular/material` no debe usarse para chrome visual; el look sale de `styles.css` + handoff.

@@ -1,0 +1,47 @@
+<div class="app has-bnav web-shell">
+  <app-wbar active="papas"></app-wbar>
+  <div class="only-mobile">
+    <app-fbar title="Papas"></app-fbar>
+  </div>
+
+  <div class="fbody papas-body">
+    <h2 class="h2 only-desktop">Papas</h2>
+    <div class="fs14 muted" style="line-height: 1.6; max-width: 70ch">
+      Los 267 pontífices romanos según la lista oficial de vatican.va, de Pedro
+      a León XIV. Si el papa está en el
+      <a routerLink="/santoral" class="app-lang-link">Santoral</a>, la ficha
+      enlaza su vida. Los documentos del corpus (cartas apostólicas, encíclicas…)
+      quedan ligados a quien los emitió.
+    </div>
+
+    <div class="fs13 muted" style="margin-top: 12px" *ngIf="!loading">
+      {{ total }} pontífices
+      <span *ngIf="saintCount"> · {{ saintCount }} en el santoral</span>
+      <span *ngIf="corpusCount"> · {{ corpusCount }} con obras en el corpus</span>
+    </div>
+
+    <label class="flabel" for="papa-filter" style="margin-top: 16px">Buscar</label>
+    <input
+      id="papa-filter"
+      class="field"
+      type="search"
+      autocomplete="off"
+      placeholder="Nombre, ordinal o siglo…"
+      [value]="filter"
+      (input)="onFilter($event)"
+    />
+
+    <div class="fs13 muted" *ngIf="loading" style="margin-top: 16px">
+      Cargando…
+    </div>
+    <div class="app-status app-status-error" *ngIf="error">{{ error }}</div>
+
+    <app-era-list
+      *ngIf="!loading && !error"
+      [groups]="groups"
+      (open)="open($event)"
+    ></app-era-list>
+  </div>
+
+  <app-bnav></app-bnav>
+</div>

@@ -36,7 +36,8 @@
     "test:related-suggestion": "bash ../scripts/node-strip-types.sh src/app/core/search/related-suggestion.logic.test.js",
     "test:document-toc": "bash ../scripts/node-strip-types.sh src/app/services/document-toc.logic.test.js",
     "test:open-reading": "bash ../scripts/node-strip-types.sh src/app/services/open-reading.logic.test.js && bash ../scripts/node-strip-types.sh src/app/services/open-reading.handoff.test.js && bash ../scripts/node-strip-types.sh src/app/pages/immersive-route.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/person/person-reading.logic.test.js",
-    "test:santoral": "bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-resolve.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-units.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-progress.logic.test.js"
+    "test:santoral": "bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-resolve.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-units.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-progress.logic.test.js",
+    "test:papacy": "bash ../scripts/node-strip-types.sh src/app/core/papacy/papacy-resolve.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/papacy/papacy-units.logic.test.js"
   },
   "dependencies": {
     "@angular/animations": "^16.0.1",

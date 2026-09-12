@@ -3,6 +3,7 @@ import { Observable, from, of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { CorpusService } from '../core/corpus/corpus.service';
 import { SantoralService } from '../core/santoral/santoral.service';
+import { PapacyService } from '../core/papacy/papacy.service';
 import {
   Article,
   DocumentMeta,
@@ -45,7 +46,7 @@ export interface EnsureLoadedManyOptions {
 /**
  * Thin facade over {@link CorpusService} to minimize consumer churn.
  * Documents are no longer statically imported; they load via HTTP on demand.
- * Also serves synthetic saint biographies (`santoral:{id}`) for the lector.
+ * Also serves synthetic saint (`santoral:{id}`) and pope (`papacy:{id}`) bios.
  */
 @Injectable({
   providedIn: 'root',
@@ -60,6 +61,7 @@ export class CargarDocumentosJsonService {
   constructor(
     private readonly corpus: CorpusService,
     private readonly santoral: SantoralService,
+    private readonly papacy: PapacyService,
   ) {}
 
   loadManifest(): Observable<DocumentMeta[]> {
@@ -71,6 +73,11 @@ export class CargarDocumentosJsonService {
   }
 
   ensureLoaded(documentId: string): Observable<IndiceDocumentos> {
+    if (this.papacy.isReadingDocumentId(documentId)) {
+      return this.papacy.ensurePopeAsIndice(documentId).pipe(
+        tap((doc) => this.upsertDisponible(doc)),
+      );
+    }
     // Saint biographies use the same lector path with namespaced documentId.
     if (this.santoral.isReadingDocumentId(documentId)) {
       return this.santoral.ensureSaintAsIndice(documentId).pipe(
@@ -91,7 +98,10 @@ export class CargarDocumentosJsonService {
     focusIndex: number,
     radius: number
   ): Observable<IndiceDocumentos> {
-    if (this.santoral.isReadingDocumentId(documentId)) {
+    if (
+      this.papacy.isReadingDocumentId(documentId) ||
+      this.santoral.isReadingDocumentId(documentId)
+    ) {
       return this.ensureLoaded(documentId);
     }
     return this.corpus.ensureWindow(documentId, focusIndex, radius).pipe(
@@ -105,7 +115,10 @@ export class CargarDocumentosJsonService {
     from: number,
     to: number
   ): Observable<IndiceDocumentos> {
-    if (this.santoral.isReadingDocumentId(documentId)) {
+    if (
+      this.papacy.isReadingDocumentId(documentId) ||
+      this.santoral.isReadingDocumentId(documentId)
+    ) {
       return this.ensureLoaded(documentId);
     }
     return this.corpus.ensureUnits(documentId, from, to).pipe(
@@ -118,7 +131,10 @@ export class CargarDocumentosJsonService {
    * Index-only load (PR2b). Saints fall back to full ensureLoaded (no separate index).
    */
   ensureIndex(documentId: string): Observable<IndiceDocumentos> {
-    if (this.santoral.isReadingDocumentId(documentId)) {
+    if (
+      this.papacy.isReadingDocumentId(documentId) ||
+      this.santoral.isReadingDocumentId(documentId)
+    ) {
       return this.ensureLoaded(documentId);
     }
     return this.corpus.ensureIndex(documentId).pipe(
