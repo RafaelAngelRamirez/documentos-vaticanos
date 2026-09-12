@@ -11,9 +11,31 @@ export type LiturgicalSeason =
   | 'easter'
   | 'triduum';
 
+export type LiturgicalFeast =
+  | 'ash-wednesday'
+  | 'palm-sunday'
+  | 'holy-thursday'
+  | 'good-friday'
+  | 'easter-vigil'
+  | 'easter'
+  | 'ascension'
+  | 'pentecost'
+  | 'trinity'
+  | 'corpus-christi'
+  | 'sacred-heart'
+  | 'christ-the-king'
+  | 'baptism'
+  | 'epiphany'
+  | 'christmas'
+  | 'mary-mother'
+  | 'holy-family'
+  | 'immaculate-conception'
+  | 'assumption'
+  | 'all-saints';
+
 export interface LiturgicalDate {
   season: LiturgicalSeason;
-  /** 1–34 in Ordinary Time; Advent 1–4; Lent 1–5; Easter 1–7. */
+  /** 1–34 in Ordinary Time; Advent 1–4; Lent 0 (Ash week) then 1–6; Easter 1–7. */
   week: number;
   /** 0 = Sunday … 6 = Saturday (local date). */
   weekday: number;
@@ -21,6 +43,12 @@ export interface LiturgicalDate {
   sundayCycle: 'A' | 'B' | 'C';
   /** Weekday lectionary year I (odd civil) / II (even civil). */
   weekdayYear: 'I' | 'II';
+  /** Civil month 1–12. */
+  month: number;
+  /** Civil day 1–31. */
+  day: number;
+  /** Ranked temporal/sanctoral solemnity when it replaces the feria. */
+  feast?: LiturgicalFeast;
 }
 
 function utcDate(y: number, m: number, d: number): Date {
@@ -108,6 +136,24 @@ export function weekdayYearForDate(d: Date): 'I' | 'II' {
   return y % 2 === 0 ? 'II' : 'I';
 }
 
+/** Sunday in the octave of Christmas, or 30 Dec if Christmas is Sunday. */
+export function holyFamilyDate(christmasYear: number): Date {
+  const xmas = utcDate(christmasYear, 12, 25);
+  if (xmas.getUTCDay() === 0) return utcDate(christmasYear, 12, 30);
+  let d = utcDate(christmasYear, 12, 26);
+  while (d.getUTCDay() !== 0) d = addDays(d, 1);
+  return d;
+}
+
+/** Baptism of the Lord (Sunday after 6 Jan, or the next Sunday if 6 Jan is Sunday). */
+export function baptismDate(christmasEndYear: number): Date {
+  const jan6 = utcDate(christmasEndYear, 1, 6);
+  let baptism = jan6;
+  while (baptism.getUTCDay() !== 0) baptism = addDays(baptism, 1);
+  if (baptism.getUTCDate() === 6) baptism = addDays(baptism, 7);
+  return baptism;
+}
+
 /**
  * Classify a civil local date into season + OT week number.
  */
@@ -124,58 +170,111 @@ export function liturgicalDateOf(d: Date): LiturgicalDate {
   const weekday = u.getUTCDay();
   const sundayCycle = sundayCycleForDate(d);
   const weekdayYear = weekdayYearForDate(d);
+  const month = u.getUTCMonth() + 1;
+  const day = u.getUTCDate();
+  const stamp = (
+    partial: Omit<
+      LiturgicalDate,
+      'sundayCycle' | 'weekdayYear' | 'month' | 'day' | 'feast'
+    > & { feast?: LiturgicalFeast },
+  ): LiturgicalDate => ({
+    ...partial,
+    sundayCycle,
+    weekdayYear,
+    month,
+    day,
+  });
 
   const holyThu = addDays(easter, -3);
-  if (cmp(u, holyThu) >= 0 && cmp(u, addDays(easter, -1)) <= 0) {
-    return { season: 'triduum', week: 0, weekday, sundayCycle, weekdayYear };
+  const goodFri = addDays(easter, -2);
+  const holySat = addDays(easter, -1);
+  if (cmp(u, holyThu) >= 0 && cmp(u, holySat) <= 0) {
+    const feast: LiturgicalFeast =
+      cmp(u, holyThu) === 0
+        ? 'holy-thursday'
+        : cmp(u, goodFri) === 0
+          ? 'good-friday'
+          : 'easter-vigil';
+    return stamp({ season: 'triduum', week: 0, weekday, feast });
   }
   if (cmp(u, ash) >= 0 && cmp(u, holyThu) < 0) {
     const sun = sundayOnOrBefore(u);
     const lent1 = sundayOnOrBefore(addDays(ash, 6));
+    if (cmp(u, lent1) < 0) {
+      return stamp({
+        season: 'lent',
+        week: 0,
+        weekday,
+        feast: weekday === 3 ? 'ash-wednesday' : undefined,
+      });
+    }
     const week = Math.max(1, Math.round((cmp(sun, lent1) / 86400000) / 7) + 1);
-    return { season: 'lent', week, weekday, sundayCycle, weekdayYear };
+    return stamp({
+      season: 'lent',
+      week,
+      weekday,
+      feast: weekday === 0 && week >= 6 ? 'palm-sunday' : undefined,
+    });
   }
   if (cmp(u, easter) >= 0 && cmp(u, pentecost) <= 0) {
     const sun = sundayOnOrBefore(u);
     const week = Math.round((cmp(sun, easter) / 86400000) / 7) + 1;
-    return { season: 'easter', week, weekday, sundayCycle, weekdayYear };
+    let feast: LiturgicalFeast | undefined;
+    if (cmp(u, easter) === 0) feast = 'easter';
+    else if (cmp(u, addDays(easter, 39)) === 0) feast = 'ascension';
+    else if (cmp(u, pentecost) === 0) feast = 'pentecost';
+    return stamp({ season: 'easter', week, weekday, feast });
   }
   if (cmp(u, adv1) >= 0 && cmp(u, xmas) < 0) {
     const sun = sundayOnOrBefore(u);
     const week = Math.round((cmp(sun, adv1) / 86400000) / 7) + 1;
-    return { season: 'advent', week, weekday, sundayCycle, weekdayYear };
+    const feast: LiturgicalFeast | undefined =
+      month === 12 && day === 8 && weekday !== 0
+        ? 'immaculate-conception'
+        : undefined;
+    return stamp({ season: 'advent', week, weekday, feast });
   }
   const christmasStart =
     cmp(u, xmas) >= 0 ? xmas : prevXmas;
   const christmasEndYear = cmp(u, xmas) >= 0 ? y + 1 : y;
-  // Baptism of the Lord: Sunday after 6 Jan (or Mon 8/9 if Epiphany is Sun 7/8).
-  const jan6 = utcDate(christmasEndYear, 1, 6);
-  let baptism = jan6;
-  while (baptism.getUTCDay() !== 0) baptism = addDays(baptism, 1);
-  if (baptism.getUTCDate() === 6) {
-    baptism = addDays(baptism, 7);
-  }
+  const baptism = baptismDate(christmasEndYear);
   if (cmp(u, christmasStart) >= 0 && cmp(u, baptism) <= 0) {
-    return { season: 'christmas', week: 1, weekday, sundayCycle, weekdayYear };
+    const xmasYear = cmp(u, xmas) >= 0 ? y : y - 1;
+    let feast: LiturgicalFeast | undefined;
+    if (month === 12 && day === 25) feast = 'christmas';
+    else if (month === 1 && day === 1) feast = 'mary-mother';
+    else if (month === 1 && day === 6) feast = 'epiphany';
+    else if (cmp(u, baptism) === 0) feast = 'baptism';
+    else if (cmp(u, holyFamilyDate(xmasYear)) === 0) feast = 'holy-family';
+    return stamp({ season: 'christmas', week: 1, weekday, feast });
   }
 
-  // Ordinary Time week via Christ the King (post-Pentecost) or count from week 1.
   const ctk = christTheKing(y);
   const sun = sundayOnOrBefore(u);
+  const trinity = addDays(pentecost, 7);
+  const corpus = addDays(pentecost, 14);
+  const sacredHeart = addDays(pentecost, 19);
+
+  let feast: LiturgicalFeast | undefined;
+  if (cmp(u, trinity) === 0) feast = 'trinity';
+  else if (cmp(u, corpus) === 0) feast = 'corpus-christi';
+  else if (cmp(u, sacredHeart) === 0) feast = 'sacred-heart';
+  else if (month === 8 && day === 15) feast = 'assumption';
+  else if (month === 11 && day === 1) feast = 'all-saints';
+
   if (cmp(u, pentecost) > 0 && cmp(u, adv1) < 0) {
     const weeksBefore = Math.round((cmp(ctk, sun) / 86400000) / 7);
     const week = Math.min(34, Math.max(1, 34 - weeksBefore));
-    return { season: 'ordinary', week, weekday, sundayCycle, weekdayYear };
+    if (weekday === 0 && week === 34) feast = 'christ-the-king';
+    return stamp({ season: 'ordinary', week, weekday, feast });
   }
 
-  // Pre-Lent OT: weekdays after Baptism.
   const otStart = addDays(baptism, 1);
   const sun0 = sundayOnOrBefore(addDays(otStart, 6));
-  // First OT Sunday is typically week 2 when Baptism is a Sunday.
   let week = Math.round((cmp(sun, sun0) / 86400000) / 7) + 2;
   if (weekday !== 0 && cmp(u, sun0) < 0) week = 1;
   week = Math.min(34, Math.max(1, week));
-  return { season: 'ordinary', week, weekday, sundayCycle, weekdayYear };
+  return stamp({ season: 'ordinary', week, weekday, feast });
 }
 
 export function liturgicalLabelEs(info: LiturgicalDate): string {

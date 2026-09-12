@@ -48,6 +48,7 @@
     "test:document-toc": "npm --prefix frontend run test:document-toc",
     "test:santoral": "npm --prefix frontend run test:santoral && npm --prefix scripts-descarga run test:santoral",
     "test:papacy": "npm --prefix frontend run test:papacy && npm --prefix scripts-descarga run test:papacy",
+    "test:lectio": "npm --prefix frontend run test:lectio && npm --prefix scripts-descarga run test:lectionary",
     "papacy:offline": "npm --prefix scripts-descarga run papacy:offline",
     "papacy:scrape-indexes": "npm --prefix scripts-descarga run papacy:scrape-indexes",
     "santoral:offline": "npm --prefix scripts-descarga run santoral:offline",

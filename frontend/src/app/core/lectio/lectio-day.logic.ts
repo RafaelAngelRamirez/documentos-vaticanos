@@ -10,7 +10,11 @@ import {
   liturgicalLabelEs,
 } from '../liturgia/liturgical-date.logic';
 import type { PalabraDelDia } from './palabra-del-dia.parse';
-import { LECTIO_INTRO_DOC, LECTIO_METHOD_DOC } from './lectio-steps';
+import {
+  LECTIO_INTRO_DOC,
+  LECTIO_METHOD_DOC,
+  LECTIO_OFFLINE_REFLECTION,
+} from './lectio-steps';
 
 export interface LectioSaintBrief {
   id: string;
@@ -70,14 +74,16 @@ export function buildLectioDay(args: {
   const readings = lecturasForLiturgicalDate(lit);
   const gospel = readings.find((r) => r.role === 'gospel') || null;
   const word = args.palabra || null;
+  const overlay = word?.reflection?.text ? word.reflection : null;
   return {
     dateIso,
     liturgicalLabel: liturgicalLabelEs(lit),
     readings,
     gospel,
     saints: args.saints || [],
-    reflectionText: word?.reflection?.text || null,
-    reflectionAttribution: word?.reflection?.attribution || null,
+    reflectionText: overlay?.text || LECTIO_OFFLINE_REFLECTION.text,
+    reflectionAttribution:
+      overlay?.attribution || LECTIO_OFFLINE_REFLECTION.attribution,
     reflectionSourceUrl: word?.sourceUrl || null,
     methodDoc: LECTIO_METHOD_DOC,
     introDoc: LECTIO_INTRO_DOC,

@@ -52,7 +52,12 @@ async function main() {
   assert.strictEqual(day.methodDoc.consecutivo, '87');
   assert.strictEqual(day.saints[0].id, 'bruno');
   assert.strictEqual(day.reflectionText, 'Palabras del Papa.');
-  assert.ok(day.gospel === null || day.gospel.role === 'gospel');
+  assert.ok(day.gospel && day.gospel.role === 'gospel', 'OT Friday has packed gospel');
+  assert.match(day.gospel.cite, /Lc 6/);
+
+  const offline = buildLectioDay({ now: d });
+  assert.ok(offline.reflectionText && offline.reflectionText.length > 80);
+  assert.match(offline.reflectionAttribution || '', /Verbum Domini/);
   console.log('ok lectio-day.logic');
 }
 

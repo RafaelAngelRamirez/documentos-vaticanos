@@ -13,6 +13,18 @@ export const LECTIO_INTRO_DOC = {
   consecutivo: '86',
 } as const;
 
+/**
+ * Packed excerpt of Verbum Domini n. 87 (Benedict XVI). Always available
+ * offline; Vatican News «Palabra del día» may overlay when cached.
+ */
+export const LECTIO_OFFLINE_REFLECTION = {
+  text:
+    'Se ha prestado una mayor atención a la lectio divina, que es verdaderamente capaz de abrir al fiel no sólo el tesoro de la Palabra de Dios sino también de crear el encuentro con Cristo, Palabra divina y viviente. Se comienza con la lectura del texto: ¿Qué dice el texto bíblico en sí mismo? Sigue la meditación: ¿Qué nos dice el texto bíblico a nosotros? Luego la oración: ¿Qué decimos nosotros al Señor como respuesta a su Palabra? Y la contemplación: ¿Qué conversión de la mente, del corazón y de la vida nos pide el Señor?',
+  attribution: 'Benedicto XVI, Verbum Domini n. 87',
+  documentId: 'vd-es',
+  consecutivo: '87',
+} as const;
+
 export type LectioStepId =
   | 'lectio'
   | 'meditatio'

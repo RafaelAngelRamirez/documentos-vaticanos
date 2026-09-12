@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file. See [standa
 * **corpus:** packs de lectura ES de Francisco y Benedicto XVI (*Laudato si'*, *Fratelli tutti*, *Deus caritas est*, *Spe salvi*, *Lumen fidei*, *Evangelii gaudium*, *Amoris laetitia*, *Caritas in veritate*, *Sacramentum caritatis*, *Dilexit nos*)
 * **search:** códigos `LS`/`FT`/`DCE`/`SpS`/`LF`/`EG`/`AL`/`CiV`/`SCa`/`DN` (`Dn` sigue siendo Daniel); grafo documento↔documento; sidecar patrístico acotado
 * **lectio:** Lectio divina diaria (`/lectio`) con recordatorios locales
+* **lectio:** leccionario OLM empaquetado (Adviento–Pascua y solemnidades; citas de Felix Just / *Ordo Lectionum Missae*) y reflexión offline de *Verbum Domini* 87; Vatican News queda como overlay opcional
 * **papacy:** catálogo de pontífices y documentos vatican.va
 * **i18n:** idioma de interfaz y de textos independientes; catálogo prefiere edición oficial sobre IA
 * **dev:** `ng serve` reescribe deep links (`/explorar/relaciones`) también con `Accept: */*`
