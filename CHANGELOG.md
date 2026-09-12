@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## Unreleased
 
+* **android:** `targetSdk` / `compileSdk` 36 (Play exige API 36 desde 2026-08-31) con AGP 8.9.1 y Gradle 8.11.1
+* **ci:** el job Play escribe `::PLAY_ERROR::` en stderr y Telegram lee `error.message` (ya no se queda en «ver log n8n»)
 * **search:** mapa visual de citas documento↔documento (`doc-graph.json`, Explorar → Relaciones, chips en ficha 2A); chips clicables en el lector para `referencias.local`; harvest de citas en prosa de magisterio/catecismo; parser `Mc.,` / `CIC can.` / `DS` embebido; intención de búsqueda (`quiero leer sobre…`)
 
 ### 0.0.25 (2026-09-11)

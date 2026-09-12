@@ -26,6 +26,30 @@ function main() {
     assert.ok(fs.existsSync(path.join(ROOT, rel)), rel);
   }
 
+  section('Play target API 36 (required from 2026-08-31) + AGP/Gradle floor');
+  const variables = fs.readFileSync(
+    path.join(ROOT, 'frontend/android/variables.gradle'),
+    'utf8',
+  );
+  assert.match(variables, /compileSdkVersion = 36/);
+  assert.match(variables, /targetSdkVersion = 36/);
+  const rootGradle = fs.readFileSync(
+    path.join(ROOT, 'frontend/android/build.gradle'),
+    'utf8',
+  );
+  assert.match(rootGradle, /com\.android\.tools\.build:gradle:8\.9\./);
+  const wrapper = fs.readFileSync(
+    path.join(ROOT, 'frontend/android/gradle/wrapper/gradle-wrapper.properties'),
+    'utf8',
+  );
+  assert.match(wrapper, /gradle-8\.11/);
+
+  section('play-upload-closed prints compact ::PLAY_ERROR:: on stderr');
+  const upSrc = fs.readFileSync(path.join(ROOT, 'scripts/play-upload-closed.js'), 'utf8');
+  assert.match(upSrc, /::PLAY_ERROR::/);
+  assert.match(upSrc, /formatPlayError/);
+  assert.match(upSrc, /already_used/);
+
   section('build.gradle accepts -Pdv signing + version props');
   const gradle = fs.readFileSync(path.join(ROOT, 'frontend/android/app/build.gradle'), 'utf8');
   assert.match(gradle, /dvVersionCode/);

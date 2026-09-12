@@ -37,6 +37,27 @@ function fail(code, msg) {
   process.exit(code);
 }
 
+function compactJson(value, max) {
+  let s;
+  try {
+    s = typeof value === 'string' ? value : JSON.stringify(value);
+  } catch {
+    s = String(value);
+  }
+  const limit = max || 800;
+  if (s.length > limit) return s.slice(0, limit) + '…';
+  return s;
+}
+
+function formatPlayError(where, err) {
+  const statusCode = err?.code || err?.response?.status;
+  const data = err?.response?.data || err?.errors || err?.message || String(err);
+  return (
+    `ERROR play-upload-closed ${where} status=${statusCode} ` +
+    `::PLAY_ERROR::${compactJson(data)}`
+  );
+}
+
 function readMeta() {
   const metaPath = path.join(ROOT, 'dist/aab.meta.txt');
   if (!fs.existsSync(metaPath)) return {};
@@ -170,8 +191,37 @@ async function main() {
   log('==> edits.insert');
   const editRes = await androidpublisher.edits.insert({ packageName });
   const editId = editRes.data.id;
-  if (!editId) fail(3, 'ERROR: edits.insert returned no edit id');
+  if (!editId) fail(3, 'ERROR: edits.insert returned no edit id ::PLAY_ERROR::no_edit_id');
   log(`==> editId=${editId}`);
+
+  try {
+    const trackRes = await androidpublisher.edits.tracks.get({
+      packageName,
+      editId,
+      track,
+    });
+    const existing = [];
+    for (const rel of trackRes.data.releases || []) {
+      for (const vc of rel.versionCodes || []) existing.push(Number(vc));
+    }
+    const maxExisting = existing.reduce((a, b) => Math.max(a, b), 0);
+    log(
+      `==> existing ${track} versionCodes=${JSON.stringify(existing)} max=${maxExisting}`
+    );
+    if (maxExisting > 0 && versionCode <= maxExisting) {
+      try {
+        await androidpublisher.edits.delete({ packageName, editId });
+      } catch {
+        /* ignore */
+      }
+      fail(
+        3,
+        `ERROR play-upload-closed versionCode ${versionCode} is not greater than Play ${track} max ${maxExisting} ::PLAY_ERROR::already_used`
+      );
+    }
+  } catch (err) {
+    log(`WARN tracks.get ${track}: ${err?.message || err}`);
+  }
 
   log('==> bundles.upload');
   const media = {
@@ -186,10 +236,9 @@ async function main() {
       media,
     });
   } catch (err) {
-    const statusCode = err?.code || err?.response?.status;
-    const data = err?.response?.data || err?.message;
-    log(`ERROR bundles.upload status=${statusCode} body=${JSON.stringify(data)}`);
-    // best-effort delete edit
+    const compact = formatPlayError('bundles.upload', err);
+    process.stderr.write(compact + '\n');
+    log(compact);
     try {
       await androidpublisher.edits.delete({ packageName, editId });
     } catch {
@@ -230,10 +279,7 @@ async function main() {
 }
 
 main().catch((err) => {
-  const statusCode = err?.code || err?.response?.status;
-  const data = err?.response?.data || err?.message || String(err);
-  process.stderr.write(
-    `ERROR play-upload-closed: status=${statusCode} ${JSON.stringify(data)}\n`
-  );
+  const compact = formatPlayError('uncaught', err);
+  process.stderr.write(compact + '\n');
   process.exit(3);
 });

@@ -1,8 +1,8 @@
 ext {
     minSdkVersion = 22
-    // 34/35 match platforms available on imperium-build-runner android SDK volume
-    compileSdkVersion = 35
-    targetSdkVersion = 35
+    // Play requires target API 36 from 2026-08-31 (android-36 is on the runner SDK volume).
+    compileSdkVersion = 36
+    targetSdkVersion = 36
     androidxActivityVersion = '1.7.0'
     androidxAppCompatVersion = '1.6.1'
     androidxCoordinatorLayoutVersion = '1.2.0'

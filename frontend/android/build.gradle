@@ -7,8 +7,9 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        // AGP 8.5+ works with Temurin 21 (imperium-build-runner); 8.0.0 fails jlink transforms
-        classpath 'com.android.tools.build:gradle:8.5.2'
+        // AGP 8.9.1 is the minimum that supports compileSdk 36 (Play target from 2026-08-31).
+        // Temurin 21 on imperium-build-runner; 8.0.0 failed jlink transforms.
+        classpath 'com.android.tools.build:gradle:8.9.1'
         classpath 'com.google.gms:google-services:4.4.2'
 
         // NOTE: Do not place your application dependencies here; they belong

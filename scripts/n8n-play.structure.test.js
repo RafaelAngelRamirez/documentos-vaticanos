@@ -109,6 +109,12 @@ function main() {
     'idle job must not call Gradle bundleRelease itself',
   );
 
+  section('Play Telegram surfaces error.message + ::PLAY_ERROR:: (not only stdout)');
+  const tgDone = String(nodeById(play, 'play-tg-done').parameters.text || '');
+  assert.match(tgDone, /errObj\.message/);
+  assert.match(tgDone, /PLAY_ERROR/);
+  assert.match(tgDone, /targetSdk|API level/);
+
   section('package-apk.sh version injection (sidecar only runs this script)');
   const apkSh = fs.readFileSync(path.join(ROOT, 'scripts/package-apk.sh'), 'utf8');
   assert.ok(apkSh.includes('android-version.js'));

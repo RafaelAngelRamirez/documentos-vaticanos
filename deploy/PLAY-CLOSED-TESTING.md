@@ -121,6 +121,14 @@ Host checklist when testers do not see updates:
 3. New `versionCode` / `versionName` higher than the active Alpha release (Console → Versiones y paquetes).
 4. Closed track **Alpha** (API `alpha`); custom track `closed` is optional and currently unused by CI.
 5. Target API level / policy notifications in Console must not block the release.
+   From **2026-08-31** Play rejects updates that target API **35 or lower**. The app
+   must ship `compileSdkVersion` / `targetSdkVersion` **36** (AGP ≥ 8.9.1, Gradle ≥ 8.11.1).
+   The runner SDK volume already has `android-36`.
+6. Telegram «ver log n8n» means the upload node failed with `continueOnFail` and the
+   template only saw empty `stdout`. Look for `::PLAY_ERROR::` (stderr) or n8n
+   `error.message`. Root causes already seen: wrong secrets mount (keystore), missing
+   `googleapis`, `ng: not found`, and (2026-09-11) truncated API `rc=3` while Alpha
+   was still on **0.0.24** / versionCode 24.
 
 Optional sibling: after a successful build, n8n can run only:
 
