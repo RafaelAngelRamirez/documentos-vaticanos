@@ -1,1 +1,28 @@
-{"version":"0.2.0","schema":1,"locale":"es","generatedAt":"2026-09-12T01:35:01.513Z","corpusFingerprint":{"algo":"sha256","value":"24498c81dc7dd9f5","docCount":427},"caps":{"maxTopics":250,"maxPostingsPerTopic":200,"maxRawBytes":12000000},"topicCount":0,"edgeCount":17796,"files":{"topics":"topics.json","postings":"topic-postings.json","termTopics":"term-topics.json","graph":"unit-graph.json","docGraph":"doc-graph.json"},"sourceNote":"Ref-only unit graph for locale es. nodes=8250 edges=17796.","docGraphNodeCount":198,"docGraphEdgeCount":218}
+{
+  "version": "0.2.0",
+  "schema": 1,
+  "locale": "es",
+  "generatedAt": "2026-09-12T02:27:55.488Z",
+  "corpusFingerprint": {
+    "algo": "sha256",
+    "value": "6a6692cac17a5682e9af1da4c85faf9c0c30ce770bcf48e25674082dc9965a75",
+    "docCount": 427,
+    "valueShort": "6a6692cac17a5682",
+    "filesHashed": 854
+  },
+  "caps": {
+    "maxTopics": 250,
+    "maxPostingsPerTopic": 200,
+    "maxRawBytes": 12000000
+  },
+  "topicCount": 171,
+  "edgeCount": 17796,
+  "files": {
+    "topics": "topics.json",
+    "postings": "topic-postings.json",
+    "termTopics": "term-topics.json",
+    "graph": "unit-graph.json",
+    "docGraph": "doc-graph.json"
+  },
+  "sourceNote": "Hub topic postings for locale es. catalog=seed scripts-descarga/config/topics-seed.es.json; expand=true; hubs=380; assignments=89275; postings=24019."
+}
