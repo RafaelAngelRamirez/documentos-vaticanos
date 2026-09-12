@@ -67,7 +67,33 @@ function main() {
   assert.match(aabSh, /dvStorePassword/);
   assert.match(aabSh, /ensure_frontend_deps/);
   assert.match(aabSh, /node_modules\/\.bin\/ng/);
+  assert.match(aabSh, /--stacktrace/);
+  assert.match(aabSh, /GRADLE_OPTS=.*-Xmx4096m/);
   assert.ok(!/docvat-local-dev-only/.test(aabSh), 'no local keystore password in script');
+
+  section('Play applicationId com.docvat uses FQCN MainActivity (not relative .MainActivity)');
+  const manifest = fs.readFileSync(
+    path.join(ROOT, 'frontend/android/app/src/main/AndroidManifest.xml'),
+    'utf8',
+  );
+  assert.match(manifest, /digital\.documentosvaticanos\.app\.MainActivity/);
+  assert.ok(
+    !/android:name="\.MainActivity"/.test(manifest),
+    'relative .MainActivity breaks lint Instantiatable when applicationId is com.docvat',
+  );
+  assert.match(gradle, /disable 'Instantiatable'/);
+
+  section('Gradle heap is large enough to sign the corpus AAB');
+  const gradleProps = fs.readFileSync(
+    path.join(ROOT, 'frontend/android/gradle.properties'),
+    'utf8',
+  );
+  const heap = gradleProps.match(/org\.gradle\.jvmargs=.*-Xmx(\d+)m/);
+  assert.ok(heap, 'org.gradle.jvmargs -XmxNm in gradle.properties');
+  assert.ok(
+    Number(heap[1]) >= 4096,
+    `Gradle -Xmx must be >= 4096m (signReleaseBundle OOM at 1536m); got ${heap[1]}m`,
+  );
 
   section('play-upload-closed uses real helpers + closed→alpha');
   const up = fs.readFileSync(path.join(ROOT, 'scripts/play-upload-closed.js'), 'utf8');
@@ -132,6 +158,19 @@ function main() {
   assert.match(docs, /n8n import:workflow/);
   assert.match(docs, /Playwright/);
   assert.ok(!/BEGIN PRIVATE KEY|docvat-local-dev-only/.test(docs), 'no secrets in docs');
+
+  section('ops docs: Console closed-testing prerequisites (listing / testers / completed)');
+  assert.match(docs, /Console status \(closed testing gate\)/);
+  assert.match(docs, /11 declarations completed/);
+  assert.match(docs, /docvat-closed-testers/);
+  assert.match(docs, /apps\/testing\/com\.docvat/);
+  assert.match(docs, /PLAY_STATUS=completed/);
+  assert.match(docs, /not Borrador/);
+  assert.match(docs, /Crear una versión nueva/);
+  assert.match(docs, /webhook_entity/);
+  assert.match(docs, /::PLAY_PUBLISH_DONE::com\.docvat/);
+  assert.match(docs, /500 MB/);
+  assert.match(docs, /status=completed/);
 
   console.log('\nAll package-aab structure tests passed.');
 }

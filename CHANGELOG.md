@@ -303,6 +303,15 @@ All notable changes to this project will be documented in this file. See [standa
 * **topics:** rebuild es pack fingerprint to match live corpus ([061d73b](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/061d73bb3509f2f924d154d0b20114480c34b1ef))
 * **topics:** rebuild es search pack fingerprint to match live corpus ([d52dac4](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/d52dac497988daad7a0c7d25754e775c2cd29f34))
 
+### Docs
+
+* **play:** closed-testing Console gate (ficha / App content / testers Alpha + n8n `PLAY_STATUS=completed`)
+* **play:** AAB packaging notes (`-Xmx4096m`, FQCN MainActivity, Play 500 MB base-module cap)
+
+### Bug Fixes
+
+* **android:** Play `com.docvat` AAB — Gradle heap 4g, FQCN `MainActivity`, disable lint `Instantiatable`
+
 ### 0.0.26 (2026-09-12)
 
 ### Features

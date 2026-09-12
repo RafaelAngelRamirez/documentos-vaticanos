@@ -21,6 +21,25 @@ One-time Console setup was done with **Playwright against the logged-in Chrome s
 
 Playwright was used **only for initial Console setup**. Do not drive every release through the browser.
 
+## Console status (closed testing gate)
+
+Inventoried **2026-09-12** on Play Console (account `rafa.yael@gmail.com`). Dashboard does **not** list empty store-listing / App content / pricing tasks that disable closed rollout. «Crear una versión nueva» on default closed track **Alpha** is enabled. The app is **not Borrador**.
+
+| Surface | Status |
+|---------|--------|
+| Store listing (ficha) | **En directo**. Required fields filled: name, short + full description, icon 512, feature graphic, ≥2 phone screenshots. |
+| App content | **11 declarations completed**, 0 requiring attention (privacy policy, Data safety, content rating, target audience, ads, advertising ID, health, finance, government, access details, foreground-service permissions). |
+| Privacy policy URL | Set (public HTML). Hosted copy: `https://docvat.codice-progressio.online/privacy-es.html`. |
+| Pricing | **Free** (`paid-app`: cannot convert to paid). |
+| Closed track Alpha | **Active**. Latest tester release **0.0.24** (20 Aug 2026), 177 countries. API track `alpha`. |
+| Testers | Email list **`docvat-closed-testers`** (20 addresses). Opt-in `https://play.google.com/apps/testing/com.docvat` (visible; app not Draft). |
+| Feedback channel | `rafa.yael@gmail.com` (saved on Alpha testers; sent to Play review as a testers-only change, **not** production). |
+| Create new release | Enabled on Alpha. |
+| Policy on **updates** | Play rejects updates targeting API **35 or lower** (enforced 30 Aug 2026). Repo already ships `compileSdkVersion` / `targetSdkVersion` **36**. Last Console bundle 0.0.24 predates that floor — the next `PLAY-publish` AAB must be API 36 (already true in source). |
+| n8n live graph | `PLAYPublishV1sc` **active**: `app_id=docvat` → `com.docvat`, `PLAY_STATUS=completed` (not `draft`). Git push does not update this graph. |
+
+Out of scope here: production access (needs 12 opted-in testers × 14 days; Console currently shows 7 opted in).
+
 ## Local / CI secrets (names only — never commit values)
 
 | Env var | Purpose |
@@ -124,6 +143,18 @@ Host checklist when testers do not see updates:
    From **2026-08-31** Play rejects updates that target API **35 or lower**. The app
    must ship `compileSdkVersion` / `targetSdkVersion` **36** (AGP ≥ 8.9.1, Gradle ≥ 8.11.1).
    The runner SDK volume already has `android-36`.
+   `frontend/android/gradle.properties` must use **`-Xmx4096m`** (or more):
+   `signReleaseBundle` / BundleTool OOM'd at `-Xmx1536m` on a ~1.8G intermediary AAB
+   (2026-09-12 n8n exec 27816, `Play publish failed rc=1`).
+   Manifest activity must be the FQCN `digital.documentosvaticanos.app.MainActivity`
+   when `applicationId` is `com.docvat` (relative `.MainActivity` fails lint
+   `Instantiatable` on `lintVitalRelease`).
+   Play **rejects** an AAB whose **base** module compressed download exceeds
+   **500 MB** (`bundles.upload` 403 `PERMISSION_DENIED`, not a listing/App content
+   gap). A 2026-09-12 upload of versionCode 27 (`0.0.27`, ~879 MB AAB) failed with
+   that size error; Alpha stayed on **0.0.24** `status=completed` (`tracks.get`).
+   Shrinking the offline corpus / using Play Asset Delivery is a separate packaging
+   job — Console testers + `PLAY_STATUS=completed` are already wired.
 6. Telegram «ver log n8n» means the upload node failed with `continueOnFail` and the
    template only saw empty `stdout`. Look for `::PLAY_ERROR::` (stderr) or n8n
    `error.message`. Root causes already seen: wrong secrets mount (keystore), missing
@@ -159,12 +190,21 @@ ssh codice-progressio '
   docker exec n8n n8n import:workflow --input=/tmp/PLAY-publish-v1.json &&
   docker exec n8n n8n update:workflow --id=PLAYPublishV1sc --active=true
 '
-# trigger Docvat closed track
+# n8n v1.x: import/activate while the process is up does NOT register the webhook.
+# Restart, then toggle active so webhook_entity gets path play-publish.
+ssh codice-progressio 'sudo docker restart n8n'
+ssh codice-progressio '
+  docker exec n8n n8n update:workflow --id=PLAYPublishV1sc --active=false
+  docker exec n8n n8n update:workflow --id=PLAYPublishV1sc --active=true
+'
+# trigger Docvat closed track (must be 200 JSON, not "unknown webhook")
 ssh codice-progressio 'docker exec n8n wget -qO- --post-data="{\"app_id\":\"docvat\"}" \
   --header="Content-Type: application/json" http://127.0.0.1:5678/webhook/play-publish'
 ```
 
-Git push alone does **not** update the live n8n graph.
+Git push alone does **not** update the live n8n graph. If wget returns `unknown webhook: POST play-publish`, the workflow is active in SQLite but `webhook_entity` never got the path — restart + deactivate/activate, do not assume `active=1` is enough.
+
+**2026-09-12:** live graph was re-imported from this snapshot, n8n restarted, webhook toggled, then `POST {"app_id":"docvat"}` returned `{"message":"Workflow was started"}` (execution 27816). Do not treat Telegram «Play listo» as success: require `::PLAY_PUBLISH_DONE::com.docvat` (or `::PLAY_ERROR::` / `Play publish failed rc=`).
 
 ## Android developer verification (deadline 2026-09-30)
 

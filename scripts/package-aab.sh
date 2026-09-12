@@ -198,10 +198,14 @@ fi
 
 echo "==> Gradle bundleRelease (signed)"
 cd "$ANDROID"
+# Worker/bundletool for a ~GB corpus AAB needs more than the historic 1536m daemon heap.
+export GRADLE_OPTS="${GRADLE_OPTS:-} -Xmx4096m"
 # Pass signing + version via project properties (not written into VCS build.gradle secrets)
+# --stacktrace: BundleToolRunnable otherwise hides the Caused-by (OOM on large corpus AAB).
 GRADLE_ARGS=(
   bundleRelease
   --no-daemon
+  --stacktrace
   "-PdvVersionCode=${VERSION_CODE}"
   "-PdvVersionName=${VERSION_NAME}"
   "-PdvStoreFile=${KEYSTORE_PATH}"
