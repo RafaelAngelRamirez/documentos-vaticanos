@@ -16,6 +16,7 @@
     "import:roman-catechism": "npx ts-node --transpile-only import_roman_catechism.ts",
     "test:roman-catechism": "npx ts-node --transpile-only roman_catechism_units.test.ts",
     "test:corpus-structure": "node corpus_structure_contract.test.js",
+    "test:sources-fixtures": "node sources_fixtures.test.js",
     "scrape": "npx ts-node --transpile-only scrape_source.ts",
     "scrape:lg": "npx ts-node --transpile-only scrape_source.ts --source lg",
     "scrape:gs": "npx ts-node --transpile-only scrape_source.ts --source gs",

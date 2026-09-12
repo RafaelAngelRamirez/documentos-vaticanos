@@ -30,6 +30,11 @@ import {
   fingerprintFromCorpusRoot,
   fingerprintsMatch,
 } from './src/topics/corpus_fingerprint';
+import {
+  PATRISTIC_VERSE_HITS_FILE,
+  summarizePatristicVerseHitsFile,
+  validatePatristicVerseHitsFile,
+} from './src/refs/patristic_verse_hits';
 
 const REPO = path.resolve(__dirname, '..');
 const CORPUS_ROOTS = [
@@ -431,6 +436,39 @@ function main() {
     }
   }
 
+  // Optional sidecar: patristic bible-cite hits (not loaded by TopicIndexService).
+  const patristicHitsPath = path.join(primary, PATRISTIC_VERSE_HITS_FILE);
+  let patristicVerseHits: {
+    present: boolean;
+    verses: number | null;
+    rows: number | null;
+  } = { present: false, verses: null, rows: null };
+  if (!fs.existsSync(patristicHitsPath)) {
+    warnings.push(
+      `optional ${PATRISTIC_VERSE_HITS_FILE} missing (sidecar; not required)`,
+    );
+  } else {
+    try {
+      const rawHits = JSON.parse(fs.readFileSync(patristicHitsPath, 'utf8'));
+      const hitErrs = validatePatristicVerseHitsFile(rawHits, locale);
+      for (const e of hitErrs) errors.push(e);
+      const summaryHits = summarizePatristicVerseHitsFile(rawHits);
+      patristicVerseHits = {
+        present: true,
+        verses: summaryHits.verses,
+        rows: summaryHits.rows,
+      };
+    } catch (e) {
+      errors.push(`${PATRISTIC_VERSE_HITS_FILE} present but invalid JSON: ${e}`);
+    }
+    const assetsHits = path.join(assetsDir, PATRISTIC_VERSE_HITS_FILE);
+    if (!fs.existsSync(assetsHits)) {
+      warnings.push(
+        `assets missing dual-write ${PATRISTIC_VERSE_HITS_FILE}`,
+      );
+    }
+  }
+
   const summary = {
     ok: errors.length === 0,
     locale,
@@ -442,6 +480,7 @@ function main() {
     topicCount: topics.length,
     postingTopics: Object.keys(postings).length,
     postingRows,
+    patristicVerseHits,
     rawBytes: size.total,
     maxRawBytes: caps.maxRawBytes,
     files: size.files,

@@ -2,6 +2,8 @@
  * Capped patristic bible-cite harvest (tiny in-memory fixture; no corpus).
  * Run: npx ts-node --transpile-only patristic_verse_hits.test.ts
  */
+import * as fs from "fs";
+import * as path from "path";
 import bookCodes from "./models/data/book-codes.json";
 import {
   BookCodeEntry,
@@ -10,6 +12,7 @@ import {
 } from "./src/refs/ref-parser";
 import {
   PATRISTIC_VERSE_HITS_CAPS,
+  PATRISTIC_VERSE_HITS_FILE,
   buildPatristicVerseHitsFile,
   capPatristicHits,
   collectPatristicVerseHits,
@@ -232,5 +235,25 @@ const bookIndex = buildBookIndex(bookCodes as BookCodeEntry[]);
 }
 
 void PATRISTIC_VERSE_HITS_CAPS;
+
+{
+  const corpusHits = path.join(
+    __dirname,
+    "..",
+    "documentos",
+    "corpus",
+    "search",
+    "es",
+    PATRISTIC_VERSE_HITS_FILE,
+  );
+  if (fs.existsSync(corpusHits)) {
+    const raw = JSON.parse(fs.readFileSync(corpusHits, "utf8"));
+    const sidecarErrs = validatePatristicVerseHitsFile(raw, "es");
+    assert(
+      sidecarErrs.length === 0,
+      `shipped sidecar invalid: ${sidecarErrs.join("; ")}`,
+    );
+  }
+}
 
 console.log("patristic_verse_hits.test.ts: ok");
