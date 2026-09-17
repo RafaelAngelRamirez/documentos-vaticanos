@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { Observable, firstValueFrom, from, of } from 'rxjs';
-import { shareReplay } from 'rxjs/operators';
+import { map, shareReplay, switchMap } from 'rxjs/operators';
 import {
   Article,
   DocumentMeta,
@@ -23,6 +23,30 @@ import {
   multiLocaleSubtitle,
   pickPreferredEdition,
 } from './document-locale.logic';
+import {
+  DEFAULT_BODY_LOAD_CONCURRENCY,
+  DEFAULT_INDEX_LOAD_CONCURRENCY,
+  DEFAULT_RELATED_HUB_CAP,
+  mapPool,
+  metasForSearchLocale,
+  pickRelatedHubMetas,
+} from '../search/search-load.logic';
+import { PapacyService } from '../papacy/papacy.service';
+import { isPopeDocumentId } from '../papacy/papacy-units.logic';
+import { SantoralService } from '../santoral/santoral.service';
+import { isSaintDocumentId } from '../santoral/santoral-units.logic';
+
+export interface EnsureLoadedManyOptions {
+  /** Max concurrent ensureLoaded calls (default 6). */
+  concurrency?: number;
+  /** When true, abort scheduling further loads (stale query gen). */
+  isCancelled?: () => boolean;
+  /**
+   * When true (default), failed individual docs are skipped instead of
+   * failing the whole batch.
+   */
+  softFail?: boolean;
+}
 
 @Injectable({
   providedIn: 'root',
@@ -40,12 +64,21 @@ export class CorpusService {
 
   constructor(
     private readonly http: HttpClient,
-    durableStore: IndexedDbCorpusStore
+    durableStore: IndexedDbCorpusStore,
+    private readonly injector: Injector
   ) {
     this.engine = new CorpusLoadEngine({
       httpGet: <T>(url: string) => firstValueFrom(this.http.get<T>(url)),
       store: durableStore,
     });
+  }
+
+  private saintPack(): SantoralService {
+    return this.injector.get(SantoralService);
+  }
+
+  private popePack(): PapacyService {
+    return this.injector.get(PapacyService);
   }
 
   /** Drop in-memory only (durable kept). Used by tests simulating reload. */
@@ -114,7 +147,17 @@ export class CorpusService {
   }
 
   getMeta(documentId: string): DocumentMeta | undefined {
-    return this.engine.getMeta(documentId) as DocumentMeta | undefined;
+    const fromEngine = this.engine.getMeta(documentId) as
+      | DocumentMeta
+      | undefined;
+    if (fromEngine) return fromEngine;
+    if (isSaintDocumentId(documentId)) {
+      return this.saintPack().getSaintMeta(documentId);
+    }
+    if (isPopeDocumentId(documentId)) {
+      return this.popePack().getPopeMeta(documentId);
+    }
+    return undefined;
   }
 
   /**
@@ -125,6 +168,13 @@ export class CorpusService {
   }
 
   ensureLoaded(documentId: string): Observable<LoadedDocument> {
+    if (isPopeDocumentId(documentId)) {
+      return this.popePack().ensurePopeLoaded(documentId);
+    }
+    if (isSaintDocumentId(documentId)) {
+      return this.saintPack().ensureSaintLoaded(documentId);
+    }
+
     const cached = this.engine.getLoaded(documentId);
     if (cached) {
       return of(cached as LoadedDocument);
@@ -153,6 +203,17 @@ export class CorpusService {
    * Share in-flight requests per documentId.
    */
   ensureIndex(documentId: string): Observable<IndexedDocument> {
+    if (isPopeDocumentId(documentId) || isSaintDocumentId(documentId)) {
+      return this.ensureLoaded(documentId).pipe(
+        map((full) => ({
+          meta: full.meta,
+          indice: full.indice,
+          bodyLoaded: true,
+          documento: full.documento,
+        })),
+      );
+    }
+
     const full = this.engine.getLoaded(documentId);
     if (full) {
       return of({
@@ -177,7 +238,17 @@ export class CorpusService {
   }
 
   getLoaded(documentId: string): LoadedDocument | undefined {
-    return this.engine.getLoaded(documentId) as LoadedDocument | undefined;
+    const fromEngine = this.engine.getLoaded(documentId) as
+      | LoadedDocument
+      | undefined;
+    if (fromEngine) return fromEngine;
+    if (isSaintDocumentId(documentId)) {
+      return this.saintPack().getLoaded(documentId);
+    }
+    if (isPopeDocumentId(documentId)) {
+      return this.popePack().getLoaded(documentId);
+    }
+    return undefined;
   }
 
   /**
@@ -188,6 +259,9 @@ export class CorpusService {
     focusIndex: number,
     radius: number
   ): Observable<LoadedDocument> {
+    if (isPopeDocumentId(documentId) || isSaintDocumentId(documentId)) {
+      return this.ensureLoaded(documentId);
+    }
     return from(
       this.engine.ensureWindow(documentId, focusIndex, radius) as Promise<LoadedDocument>
     );
@@ -199,8 +273,144 @@ export class CorpusService {
     fromIndex: number,
     toIndex: number
   ): Observable<LoadedDocument> {
+    if (isPopeDocumentId(documentId) || isSaintDocumentId(documentId)) {
+      return this.ensureLoaded(documentId);
+    }
     return from(
       this.engine.ensureUnits(documentId, fromIndex, toIndex) as Promise<LoadedDocument>
+    );
+  }
+
+  /**
+   * Load many inverted indexes with concurrency pool (PR2b ranking path).
+   */
+  ensureIndexMany(
+    documentIds: string[],
+    options: EnsureLoadedManyOptions = {},
+  ): Observable<IndiceDocumentos[]> {
+    return this.loadMany(
+      documentIds,
+      options,
+      DEFAULT_INDEX_LOAD_CONCURRENCY,
+      (id) =>
+        this.ensureIndex(id).pipe(map((indexed) => this.toIndiceFromIndex(indexed))),
+      'ensureIndexMany',
+    );
+  }
+
+  /**
+   * Locale-scoped index-only load for general search ranking (PR2b).
+   * Does not fetch content.json; use ensureLoadedMany for snippet docs.
+   */
+  ensureIndexForLocale(
+    contentLocale: string,
+    opts: EnsureLoadedManyOptions & { allLocales?: boolean } = {},
+  ): Observable<IndiceDocumentos[]> {
+    return this.loadManifest().pipe(
+      switchMap((metas) => {
+        const scoped = metasForSearchLocale(
+          metas,
+          contentLocale,
+          opts.allLocales === true,
+        );
+        return this.ensureIndexMany(
+          scoped.map((m) => m.id),
+          {
+            ...opts,
+            concurrency:
+              opts.concurrency ?? DEFAULT_INDEX_LOAD_CONCURRENCY,
+          },
+        );
+      }),
+    );
+  }
+
+  /**
+   * Load many document ids with a concurrency pool (PR2a progressive search).
+   * Prefer this over {@link ensureAllLoaded}. Soft-fails per doc by default.
+   */
+  ensureLoadedMany(
+    documentIds: string[],
+    options: EnsureLoadedManyOptions = {},
+  ): Observable<IndiceDocumentos[]> {
+    return this.loadMany(
+      documentIds,
+      options,
+      DEFAULT_BODY_LOAD_CONCURRENCY,
+      (id) =>
+        this.ensureLoaded(id).pipe(map((loaded) => this.toIndiceDocumentos(loaded))),
+      'ensureLoadedMany',
+    );
+  }
+
+  /**
+   * Locale-scoped full body load (legacy PR2a debt path).
+   * Prefer {@link ensureIndexForLocale} + ensureLoadedMany(top-N) for search.
+   * Does **not** load the full multi-locale pack.
+   */
+  ensureLoadedForLocale(
+    contentLocale: string,
+    opts: EnsureLoadedManyOptions & { allLocales?: boolean } = {},
+  ): Observable<IndiceDocumentos[]> {
+    return this.loadManifest().pipe(
+      switchMap((metas) => {
+        const scoped = metasForSearchLocale(
+          metas,
+          contentLocale,
+          opts.allLocales === true,
+        );
+        return this.ensureLoadedMany(
+          scoped.map((m) => m.id),
+          opts,
+        );
+      }),
+    );
+  }
+
+  /**
+   * Bounded hub pool for related citations (PR2a/C.3) — not full locale.
+   */
+  ensureLoadedRelatedPool(
+    contentLocale: string,
+    opts: EnsureLoadedManyOptions & {
+      allLocales?: boolean;
+      hubCap?: number;
+      extraIds?: string[];
+    } = {},
+  ): Observable<IndiceDocumentos[]> {
+    return this.loadManifest().pipe(
+      switchMap((metas) => {
+        const hubs = pickRelatedHubMetas(
+          metas,
+          contentLocale,
+          opts.hubCap ?? DEFAULT_RELATED_HUB_CAP,
+          opts.allLocales === true,
+        );
+        const ids = [
+          ...new Set([
+            ...hubs.map((m) => m.id),
+            ...(opts.extraIds || []).filter(Boolean),
+          ]),
+        ];
+        return this.ensureLoadedMany(ids, opts);
+      }),
+    );
+  }
+
+  /**
+   * @deprecated Prefer {@link ensureLoadedForLocale} / {@link ensureLoadedMany}.
+   * Loads **every** manifest document (multi-locale OOM risk on device).
+   * Kept only for emergency / tests; search UI must not call this.
+   */
+  ensureAllLoaded(): Observable<IndiceDocumentos[]> {
+    return this.loadManifest().pipe(
+      switchMap((metas) => {
+        if (!metas.length) return of([]);
+        return this.ensureLoadedMany(
+          metas.map((m) => m.id),
+          { concurrency: DEFAULT_BODY_LOAD_CONCURRENCY },
+        );
+      }),
     );
   }
 
@@ -246,7 +456,7 @@ export class CorpusService {
     documentId: string,
     indexOrConsecutivo: number | string
   ): Article | undefined {
-    const loaded = this.engine.getLoaded(documentId);
+    const loaded = this.getLoaded(documentId);
     if (!loaded) {
       return undefined;
     }
@@ -281,5 +491,39 @@ export class CorpusService {
    */
   resolveAssetPath(path: string): string {
     return this.engine.resolveAssetPath(path);
+  }
+
+  private loadMany<T>(
+    documentIds: string[],
+    options: EnsureLoadedManyOptions,
+    defaultConcurrency: number,
+    load: (id: string) => Observable<T>,
+    softFailLabel: string,
+  ): Observable<T[]> {
+    const ids = [...new Set(documentIds.filter(Boolean))];
+    if (!ids.length) return of([]);
+    const concurrency = options.concurrency ?? defaultConcurrency;
+    const soft = options.softFail !== false;
+    const isCancelled = options.isCancelled;
+
+    return from(
+      mapPool(
+        ids,
+        concurrency,
+        async (id) => {
+          if (isCancelled?.()) return null;
+          try {
+            return await firstValueFrom(load(id));
+          } catch (err) {
+            if (soft) {
+              console.warn(`${softFailLabel} soft-fail ${id}`, err);
+              return null;
+            }
+            throw err;
+          }
+        },
+        isCancelled,
+      ),
+    ).pipe(map((rows) => rows.filter((d): d is T => d != null)));
   }
 }

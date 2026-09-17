@@ -16,7 +16,6 @@ import {
 import { TopicIndexService } from 'src/app/core/search/topic-index.service';
 import { findTopicInPack } from 'src/app/core/search/topic-query.logic';
 import { DEFAULT_BODY_LOAD_CONCURRENCY } from 'src/app/core/search/search-load.logic';
-import { CargarDocumentosJsonService } from 'src/app/services/cargar-documentos-json.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 
@@ -91,7 +90,6 @@ export class TopicoDetalleComponent implements OnInit, OnDestroy {
     private readerPrefs: ReaderPreferencesService,
     private nav: NavigationService,
     private corpus: CorpusService,
-    private docs: CargarDocumentosJsonService,
   ) {}
 
   ngOnInit(): void {
@@ -270,7 +268,7 @@ export class TopicoDetalleComponent implements OnInit, OnDestroy {
     this.snippetsLoading = true;
 
     this.sub.add(
-      this.docs
+      this.corpus
         .ensureLoadedMany(ids, {
           concurrency: DEFAULT_BODY_LOAD_CONCURRENCY,
           isCancelled: () => myGen !== this.snippetGen,

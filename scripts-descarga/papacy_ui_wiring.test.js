@@ -49,9 +49,10 @@ function main() {
   const bnav = read('components/bnav/bnav.component.ts');
   assert.ok(/\/papas/.test(bnav));
 
-  const cargar = read('services/cargar-documentos-json.service.ts');
-  assert.ok(/PapacyService/.test(cargar));
-  assert.ok(/isReadingDocumentId/.test(cargar));
+  const corpus = read('core/corpus/corpus.service.ts');
+  assert.ok(/PapacyService/.test(corpus));
+  assert.ok(/isPopeDocumentId/.test(corpus));
+  assert.ok(/ensurePopeLoaded/.test(corpus));
 
   const units = read('core/santoral/santoral-units.logic.ts');
   assert.ok(/papacy:/.test(units));

@@ -146,10 +146,10 @@ function main() {
     'SantoralService exposes saint document load for lector',
   );
 
-  const cargar = read('services/cargar-documentos-json.service.ts');
+  const corpus = read('core/corpus/corpus.service.ts');
   assert.ok(
-    /isReadingDocumentId|ensureSaintAsIndice|santoral/.test(cargar),
-    'CargarDocumentosJsonService routes santoral:* to saint pack',
+    /isSaintDocumentId/.test(corpus) && /ensureSaintLoaded/.test(corpus),
+    'CorpusService routes santoral:* to saint pack',
   );
 
   const lector = read('components/lector/lector.component.ts');

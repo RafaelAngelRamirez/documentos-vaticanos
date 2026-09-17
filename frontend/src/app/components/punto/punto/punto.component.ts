@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 import {
   Article,
   Referencia,
-} from 'src/app/services/cargar-documentos-json.service';
+} from 'src/app/core/corpus/corpus.models';
 import { TermsProcessed } from '../../buscador/buscador.service';
 import { UtilidadesService } from 'src/app/services/utilidades.service';
 import { NavigationService } from 'src/app/services/navigation.service';

@@ -37,10 +37,7 @@ const RELATED_TS = path.resolve(
   HERE,
   '../../components/related-units/related-units-panel.component.ts',
 );
-const CARGAR_TS = path.resolve(
-  HERE,
-  '../../../app/services/cargar-documentos-json.service.ts',
-);
+const CORPUS_TS = path.resolve(HERE, '../corpus/corpus.service.ts');
 const SEARCH_MANIFEST = path.resolve(
   HERE,
   '../../../assets/corpus/search/search-manifest.json',
@@ -160,7 +157,7 @@ async function main() {
   section('PR2a: buscar/related must not call ensureAllLoaded');
   const buscadorSrc = fs.readFileSync(BUSCADOR_TS, 'utf8');
   const relatedSrc = fs.readFileSync(RELATED_TS, 'utf8');
-  const cargarSrc = fs.readFileSync(CARGAR_TS, 'utf8');
+  const corpusSrc = fs.readFileSync(CORPUS_TS, 'utf8');
   assert.ok(
     !/\bensureAllLoaded\b/.test(buscadorSrc),
     'buscador must not call ensureAllLoaded',
@@ -182,11 +179,11 @@ async function main() {
     'related-units must use ensureLoadedRelatedPool',
   );
   assert.ok(
-    /\bensureLoadedForLocale\b/.test(cargarSrc),
-    'facade exposes ensureLoadedForLocale',
+    /\bensureLoadedForLocale\b/.test(corpusSrc),
+    'CorpusService exposes ensureLoadedForLocale',
   );
   assert.ok(
-    /@deprecated/.test(cargarSrc) && /\bensureAllLoaded\b/.test(cargarSrc),
+    /@deprecated/.test(corpusSrc) && /\bensureAllLoaded\b/.test(corpusSrc),
     'ensureAllLoaded remains but marked deprecated',
   );
 

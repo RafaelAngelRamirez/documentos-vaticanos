@@ -25,7 +25,6 @@ import {
   Article,
   DocumentMeta,
   Indice,
-  IndiceDocumentos,
   LoadedDocument,
 } from '../corpus/corpus.models';
 
@@ -187,20 +186,8 @@ export class SantoralService {
     );
   }
 
-  /** Facade shape used by CargarDocumentosJsonService / lector. */
-  ensureSaintAsIndice(documentId: string): Observable<IndiceDocumentos> {
-    return this.ensureSaintLoaded(documentId).pipe(
-      map((loaded) => ({
-        id: loaded.meta.id,
-        nombre: loaded.meta.title || loaded.meta.id,
-        title: loaded.meta.title,
-        shortTitle: loaded.meta.shortTitle,
-        locale: loaded.meta.locale,
-        sourceUrl: loaded.meta.sourceUrl,
-        documento: loaded.documento as Article[],
-        indice: loaded.indice as Indice,
-      })),
-    );
+  getLoaded(documentId: string): LoadedDocument | undefined {
+    return this.saintDocs.get(documentId);
   }
 
   /** Meta for a materialized saint doc (for chrome that calls getMeta). */

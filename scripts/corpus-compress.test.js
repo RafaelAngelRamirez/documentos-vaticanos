@@ -17,6 +17,10 @@ const { execFileSync } = require('child_process');
 const ROOT = path.resolve(__dirname, '..');
 const COMPRESS_JS = path.join(ROOT, 'scripts', 'corpus-compress.js');
 const ASSETS = path.join(ROOT, 'frontend', 'src', 'assets', 'corpus');
+const CANONICAL = path.join(ROOT, 'documentos', 'corpus');
+const SAMPLE_ROOT = fs.existsSync(path.join(ASSETS, 'documents'))
+  ? ASSETS
+  : CANONICAL;
 const PACKAGE_WEB = path.join(ROOT, 'scripts', 'package-web.sh');
 const PACKAGE_APK = path.join(ROOT, 'scripts', 'package-apk.sh');
 const PACKAGE_ELECTRON = path.join(ROOT, 'scripts', 'package-electron.sh');
@@ -31,6 +35,7 @@ const {
   isAiProvenance,
   dropAiDocuments,
   dropUnusedSidecars,
+  SHIP_BODY_CHUNK_SIZE,
 } = require('./corpus-compress.js');
 
 function section(name) {
@@ -140,18 +145,18 @@ function main() {
 
   section('real sample docs: size + reading parity (shipped transform)');
   const sampleIds = ['lg-es', 'aa-es', 'cic-es'].filter((id) =>
-    fs.existsSync(path.join(ASSETS, 'documents', id, 'content.json')),
+    fs.existsSync(path.join(SAMPLE_ROOT, 'documents', id, 'content.json')),
   );
   assert.ok(
     sampleIds.length >= 1,
-    `need at least one sample under ${ASSETS}/documents`,
+    `need at least one sample under ${SAMPLE_ROOT}/documents`,
   );
 
   const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'corpus-compress-test-'));
   try {
     // Mini pack: manifest + sample docs only
     const man = JSON.parse(
-      fs.readFileSync(path.join(ASSETS, 'manifest.json'), 'utf8'),
+      fs.readFileSync(path.join(SAMPLE_ROOT, 'manifest.json'), 'utf8'),
     );
     const docs = man.documents.filter((d) => sampleIds.includes(d.id));
     assert.ok(docs.length >= 1, 'manifest must list sample ids');
@@ -161,7 +166,7 @@ function main() {
       JSON.stringify(mini, null, 2), // pretty so compact step has work
     );
     for (const id of sampleIds) {
-      const src = path.join(ASSETS, 'documents', id);
+      const src = path.join(SAMPLE_ROOT, 'documents', id);
       const dest = path.join(tmpRoot, 'documents', id);
       copyTree(src, dest);
     }
@@ -181,11 +186,13 @@ function main() {
     const stats = compressCorpusTree(tmpRoot, { keepMeta: false });
     const after = dirBytes(tmpRoot);
 
-    assert.ok(
-      after < before,
-      `expected tree shrink: after=${after} before=${before}`,
-    );
-    assert.ok(stats.bytesAfter < stats.bytesBefore, 'stats must report shrink');
+    if (!stats.chunkFiles) {
+      assert.ok(
+        after < before,
+        `expected tree shrink: after=${after} before=${before}`,
+      );
+      assert.ok(stats.bytesAfter < stats.bytesBefore, 'stats must report shrink');
+    }
     assert.ok(
       fs.existsSync(path.join(tmpRoot, 'manifest.json')),
       'manifest must remain',
@@ -196,11 +203,27 @@ function main() {
     );
 
     for (const id of sampleIds) {
-      const bodyPath = path.join(tmpRoot, 'documents', id, 'content.json');
-      const indexPath = path.join(tmpRoot, 'documents', id, 'index.json');
-      assert.ok(fs.existsSync(bodyPath), `${id} content.json`);
+      const docDir = path.join(tmpRoot, 'documents', id);
+      const bodyPath = path.join(docDir, 'content.json');
+      const specPath = path.join(docDir, 'chunks.json');
+      const indexPath = path.join(docDir, 'index.json');
       assert.ok(fs.existsSync(indexPath), `${id} index.json`);
-      const body = JSON.parse(fs.readFileSync(bodyPath, 'utf8'));
+      let body;
+      if (fs.existsSync(specPath)) {
+        const spec = JSON.parse(fs.readFileSync(specPath, 'utf8'));
+        body = [];
+        const n = Math.ceil(spec.unitCount / spec.chunkSize);
+        for (let c = 0; c < n; c++) {
+          const part = JSON.parse(
+            fs.readFileSync(path.join(docDir, 'c', `${c}.json`), 'utf8'),
+          );
+          body.push(...part);
+        }
+        assert.ok(!fs.existsSync(bodyPath), `${id} content.json removed after split`);
+      } else {
+        assert.ok(fs.existsSync(bodyPath), `${id} content.json`);
+        body = JSON.parse(fs.readFileSync(bodyPath, 'utf8'));
+      }
       const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
       const snap = readingSnapshot(body);
       assert.strictEqual(snap.unitCount, beforeSnaps[id].unitCount, `${id} unitCount`);
@@ -321,6 +344,56 @@ function main() {
       console.log('  search/ pack preserved OK');
     } finally {
       fs.rmSync(tmpSearch, { recursive: true, force: true });
+    }
+  }
+
+  section('large content.json becomes chunks.json + c/N.json');
+  {
+    const tmpChunk = fs.mkdtempSync(
+      path.join(os.tmpdir(), 'corpus-compress-chunk-'),
+    );
+    try {
+      const n = SHIP_BODY_CHUNK_SIZE + 20;
+      const units = [];
+      for (let i = 0; i < n; i++) {
+        units.push({
+          consecutivo: String(i + 1),
+          contenido: `Unit body ${i} with enough text to stay.`,
+          referencias: [],
+          index_array: i,
+        });
+      }
+      const dir = path.join(tmpChunk, 'documents', 'big-es');
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, 'content.json'), JSON.stringify(units));
+      fs.writeFileSync(
+        path.join(dir, 'index.json'),
+        JSON.stringify({ indice: { unit: [0] } }),
+      );
+      fs.writeFileSync(
+        path.join(tmpChunk, 'manifest.json'),
+        JSON.stringify({ version: '1', documents: [{ id: 'big-es' }] }),
+      );
+      compressCorpusTree(tmpChunk);
+      assert.ok(
+        !fs.existsSync(path.join(dir, 'content.json')),
+        'content.json removed after split',
+      );
+      const spec = JSON.parse(
+        fs.readFileSync(path.join(dir, 'chunks.json'), 'utf8'),
+      );
+      assert.strictEqual(spec.unitCount, n);
+      assert.strictEqual(spec.chunkSize, SHIP_BODY_CHUNK_SIZE);
+      assert.ok(fs.existsSync(path.join(dir, 'c', '0.json')));
+      assert.ok(fs.existsSync(path.join(dir, 'c', '1.json')));
+      const c0 = JSON.parse(
+        fs.readFileSync(path.join(dir, 'c', '0.json'), 'utf8'),
+      );
+      assert.strictEqual(c0.length, SHIP_BODY_CHUNK_SIZE);
+      assert.strictEqual(c0[0].contenido, units[0].contenido);
+      console.log('  ship chunks split OK');
+    } finally {
+      fs.rmSync(tmpChunk, { recursive: true, force: true });
     }
   }
 

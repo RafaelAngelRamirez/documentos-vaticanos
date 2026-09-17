@@ -18,6 +18,7 @@
     "dev:docker": "bash scripts/dev.sh --build",
     "dev:docker:down": "bash scripts/dev.sh --down",
     "test:e2e": "docker compose -f docker-compose.dev.yml -p documentos-vaticanos --profile e2e run --rm e2e",
+    "test:e2e-reader": "bash e2e/run-dist-smoke.sh",
     "test:scrape": "node e2e/scrape-e2e.mjs",
     "test:scrape:unit": "npm --prefix scripts-descarga run test:scrape",
     "test:api": "node e2e/api-e2e.mjs",

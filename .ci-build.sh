@@ -169,6 +169,14 @@ CURRENT_STAGE="Web production"
 notify_step "$CURRENT_STAGE" || true
 bash scripts/package-web.sh
 
+echo "==> Playwright reader smoke (dist/web)"
+CURRENT_STAGE="Playwright reader smoke"
+notify_step "$CURRENT_STAGE" || true
+bash e2e/run-dist-smoke.sh || {
+  echo "ERROR: dist Playwright smoke failed" >&2
+  exit 1
+}
+
 # Mobile-first: APK is the product priority (before Electron / desktop).
 echo "==> [5/${_STAGES}] APK instalable (mobile-first)"
 CURRENT_STAGE="APK instalable"

@@ -137,6 +137,23 @@ export function toStoredManifest(manifest: {
 
 export const BODY_CHUNK_SIZE = 40;
 
+/** Ship file grouping (corpus-compress.js). Keep in sync with scripts/corpus-compress.js. */
+export const SHIP_BODY_CHUNK_SIZE = 500;
+
+export interface BodyChunksSpec {
+  v: number;
+  chunkSize: number;
+  unitCount: number;
+}
+
+export function chunksSpecPathFromBody(bodyPath: string): string {
+  return String(bodyPath || '').replace(/content\.json$/i, 'chunks.json');
+}
+
+export function shipChunkPathFromBody(bodyPath: string, chunk: number): string {
+  return String(bodyPath || '').replace(/content\.json$/i, `c/${chunk}.json`);
+}
+
 export function chunkIndexForUnit(
   unitIndex: number,
   size: number = BODY_CHUNK_SIZE
@@ -517,7 +534,12 @@ export class CorpusLoadEngine {
     if (byId && !byId.partial && this.hasSearchIndex(byId.indice)) {
       return byId;
     }
-    if (byId && byId.documento && byId.documento.length) {
+    if (
+      byId &&
+      !byId.partial &&
+      byId.documento &&
+      byId.documento.length
+    ) {
       let indice = this.indexCache.get(meta.id);
       if (!indice || !this.hasSearchIndex(indice)) {
         const indexUrl = this.resolveAssetPath(meta.indexPath);
@@ -544,6 +566,12 @@ export class CorpusLoadEngine {
             ? ([...stored.documento] as Article[])
             : []
         );
+        if (
+          !documento.length ||
+          !windowIsFilled(documento, 0, documento.length)
+        ) {
+          throw new Error('stored body incomplete');
+        }
         let indice = this.normalizeIndex(stored.indice);
         if (!this.hasSearchIndex(indice)) {
           const indexUrl = this.resolveAssetPath(meta.indexPath);
@@ -572,10 +600,7 @@ export class CorpusLoadEngine {
       /* fall through to HTTP */
     }
 
-    const bodyUrl = this.resolveAssetPath(meta.bodyPath);
-    const body = await this.getJson<Article[]>(bodyUrl);
-
-    // Reuse index-only cache when present (PR2b: avoid double index fetch).
+    const packed = await this.loadPackedBody(meta);
     let indice = this.indexCache.get(meta.id);
     if (!indice) {
       const indexUrl = this.resolveAssetPath(meta.indexPath);
@@ -583,14 +608,11 @@ export class CorpusLoadEngine {
       indice = this.normalizeIndex(rawIndex);
     }
 
-    const documento = this.stampIndexArray(
-      Array.isArray(body) ? ([...body] as Article[]) : []
-    );
     const loaded: LoadedDocument = {
       meta,
-      documento,
+      documento: packed.documento,
       indice,
-      partial: false,
+      partial: packed.partial,
     };
     this.remember(loaded);
     this.indexCache.set(meta.id, indice);
@@ -710,20 +732,16 @@ export class CorpusLoadEngine {
       /* fall through to HTTP body */
     }
 
-    const bodyUrl = this.resolveAssetPath(meta.bodyPath);
-    const body = await this.getJson<Article[]>(bodyUrl);
-    const documento = this.stampIndexArray(
-      Array.isArray(body) ? ([...body] as Article[]) : []
-    );
+    const packed = await this.loadPackedBody(meta, from, to);
     const indice = this.indexCache.get(meta.id) || {
       indice: {},
       indice_por_punto: {},
     };
     const loaded: LoadedDocument = {
       meta,
-      documento,
+      documento: packed.documento,
       indice,
-      partial: false,
+      partial: packed.partial,
     };
     this.remember(loaded);
     void this.persistLoaded(loaded);
@@ -842,6 +860,80 @@ export class CorpusLoadEngine {
       this.onHttpGet(url);
     }
     return this.httpGet<T>(url);
+  }
+
+  private async tryGetJson<T>(url: string): Promise<T | null> {
+    try {
+      return await this.getJson<T>(url);
+    } catch {
+      return null;
+    }
+  }
+
+  /**
+   * Prefer ship chunks (chunks.json + c/N.json) so the reader does not
+   * JSON.parse a 10–20 MB array. Fall back to content.json (dev / small packs).
+   * `from`/`to` are half-open unit indexes; omit both to load every chunk.
+   */
+  private async loadPackedBody(
+    meta: DocumentMeta,
+    from?: number,
+    to?: number
+  ): Promise<{ documento: Article[]; partial: boolean }> {
+    const specUrl = this.resolveAssetPath(
+      chunksSpecPathFromBody(meta.bodyPath),
+    );
+    const spec = await this.tryGetJson<BodyChunksSpec>(specUrl);
+    if (spec && spec.unitCount > 0) {
+      const size =
+        spec.chunkSize > 0 ? spec.chunkSize : SHIP_BODY_CHUNK_SIZE;
+      const unitCount = spec.unitCount;
+      const start = from == null ? 0 : Math.max(0, from);
+      const end =
+        to == null ? unitCount : Math.min(unitCount, Math.max(start, to));
+      const last = Math.max(start, end - 1);
+      const fromChunk = chunkIndexForUnit(start, size);
+      const toChunk = chunkIndexForUnit(last, size);
+      const documento: Article[] = new Array(unitCount);
+      for (let c = fromChunk; c <= toChunk; c++) {
+        const chunkUrl = this.resolveAssetPath(
+          shipChunkPathFromBody(meta.bodyPath, c),
+        );
+        const raw = await this.getJson<Article[]>(chunkUrl);
+        const slice = Array.isArray(raw) ? raw : [];
+        for (let i = 0; i < slice.length; i++) {
+          const article = slice[i];
+          const idx =
+            typeof article?.index_array === 'number'
+              ? article.index_array
+              : c * size + i;
+          if (idx >= 0 && idx < unitCount) {
+            documento[idx] = article;
+            article.index_array = idx;
+          }
+        }
+      }
+      const filled = windowIsFilled(documento, 0, unitCount);
+      return { documento, partial: !filled };
+    }
+
+    const bodyUrl = this.resolveAssetPath(meta.bodyPath);
+    const body = await this.getJson<Article[]>(bodyUrl);
+    const documento = this.stampIndexArray(
+      Array.isArray(body) ? ([...body] as Article[]) : [],
+    );
+    if (from == null || to == null) {
+      return { documento, partial: false };
+    }
+    const unitCount = Math.max(
+      documento.length,
+      meta.unitCount || 0,
+      to,
+    );
+    if (documento.length >= unitCount && from <= 0 && to >= unitCount) {
+      return { documento, partial: false };
+    }
+    return { documento, partial: false };
   }
 
   private matchesMeta(meta: DocumentMeta, idOrTitle: string): boolean {

@@ -46,8 +46,12 @@ function main() {
 
   section('snippet hydrate uses ensureLoadedMany (not full corpus)');
   assert.ok(
-    src.includes('CargarDocumentosJsonService'),
-    'injects CargarDocumentosJsonService',
+    src.includes('CorpusService'),
+    'injects CorpusService',
+  );
+  assert.ok(
+    !src.includes('CargarDocumentosJsonService'),
+    'does not inject body facade',
   );
   assert.ok(
     /\bensureLoadedMany\b/.test(src),

@@ -18,10 +18,6 @@ const FRONTEND = path.resolve(HERE, '../../../..');
 const LOGIC_TS = path.join(HERE, 'corpus-load.logic.ts');
 const SERVICE_TS = path.join(HERE, 'corpus.service.ts');
 const IDB_TS = path.join(HERE, 'corpus-durable-idb.store.ts');
-const FACADE_TS = path.join(
-  FRONTEND,
-  'src/app/services/cargar-documentos-json.service.ts'
-);
 
 function section(name) {
   console.log(`\n== ${name} ==`);
@@ -100,7 +96,6 @@ async function main() {
   assert.ok(fs.existsSync(LOGIC_TS), 'corpus-load.logic.ts');
   assert.ok(fs.existsSync(SERVICE_TS), 'corpus.service.ts');
   assert.ok(fs.existsSync(IDB_TS), 'corpus-durable-idb.store.ts');
-  assert.ok(fs.existsSync(FACADE_TS), 'cargar-documentos-json.service.ts');
 
   const serviceSrc = fs.readFileSync(SERVICE_TS, 'utf8');
   assert.ok(
@@ -121,10 +116,9 @@ async function main() {
   assert.ok(idbSrc.includes('dv-corpus-v1'), 'stable IDB database name');
   assert.ok(idbSrc.includes('docChunks'), 'IDB stores body as unit chunks');
 
-  const facadeSrc = fs.readFileSync(FACADE_TS, 'utf8');
   assert.ok(
-    facadeSrc.includes('ensureWindow'),
-    'facade exposes ensureWindow for the reader'
+    serviceSrc.includes('ensureWindow'),
+    'CorpusService exposes ensureWindow for the reader'
   );
   const lectorSrc = fs.readFileSync(
     path.join(FRONTEND, 'src/app/components/lector/lector.component.ts'),
@@ -145,16 +139,16 @@ async function main() {
     'lector shows hydration/prayer copy on slow first load'
   );
   assert.ok(
-    facadeSrc.includes('ensureLoaded') && facadeSrc.includes('ensureAllLoaded'),
-    'facade still exposes ensureLoaded / ensureAllLoaded'
+    serviceSrc.includes('ensureLoaded') && serviceSrc.includes('ensureAllLoaded'),
+    'CorpusService still exposes ensureLoaded / ensureAllLoaded'
   );
   assert.ok(
-    facadeSrc.includes('ensureIndex') && facadeSrc.includes('ensureIndexForLocale'),
-    'facade exposes ensureIndex progressive APIs (PR2b)'
+    serviceSrc.includes('ensureIndex') && serviceSrc.includes('ensureIndexForLocale'),
+    'CorpusService exposes ensureIndex progressive APIs (PR2b)'
   );
   assert.ok(
-    facadeSrc.includes('this.corpus.ensureLoaded'),
-    'ensureAllLoaded path goes through corpus.ensureLoaded (durable hit path)'
+    /@deprecated/.test(serviceSrc) && /\bensureAllLoaded\b/.test(serviceSrc),
+    'ensureAllLoaded remains but marked deprecated'
   );
   assert.ok(
     serviceSrc.includes('ensureIndex'),
@@ -169,6 +163,7 @@ async function main() {
     CorpusLoadEngine,
     MANIFEST_URL,
     CORPUS_ROOT,
+    SHIP_BODY_CHUNK_SIZE,
   } = await loadLogic();
 
   section('fingerprint / validity helpers (shipped)');
@@ -603,6 +598,69 @@ async function main() {
     const full = await fullP;
     assert.ok(full.indice && full.indice.indice && full.indice.indice.alpha);
     console.log('  ensureWindow vs ensureLoaded inflight OK');
+  }
+
+  section('(i) ensureWindow uses ship chunks, not full content.json');
+  {
+    const storeI = new MemoryCorpusStore();
+    const n = SHIP_BODY_CHUNK_SIZE + 30;
+    const units = [];
+    for (let i = 0; i < n; i++) {
+      units.push(article(String(i + 1), `body-${i}`));
+    }
+    const chunk0 = units.slice(0, SHIP_BODY_CHUNK_SIZE);
+    const chunk1 = units.slice(SHIP_BODY_CHUNK_SIZE);
+    const httpI = createHttpLayer({
+      [MANIFEST_URL]: fixturePack(
+        [meta('big-a', { unitCount: n })],
+        'chunks',
+      ),
+      [`${CORPUS_ROOT}/documents/big-a/chunks.json`]: {
+        v: 1,
+        chunkSize: SHIP_BODY_CHUNK_SIZE,
+        unitCount: n,
+      },
+      [`${CORPUS_ROOT}/documents/big-a/c/0.json`]: chunk0,
+      [`${CORPUS_ROOT}/documents/big-a/c/1.json`]: chunk1,
+    });
+    const engI = new CorpusLoadEngine({
+      httpGet: httpI.httpGet,
+      store: storeI,
+    });
+    const win = await engI.ensureWindow('big-a', 0, 10);
+    assert.strictEqual(win.documento[0].contenido, 'body-0');
+    assert.ok(win.partial, 'windowed ship load is partial');
+    assert.ok(!win.documento[SHIP_BODY_CHUNK_SIZE], 'chunk 1 not fetched');
+    assert.ok(
+      httpI.urls.some((u) => u.endsWith('/big-a/chunks.json')),
+      'fetches chunks.json',
+    );
+    assert.ok(
+      httpI.urls.some((u) => u.endsWith('/big-a/c/0.json')),
+      'fetches first ship chunk',
+    );
+    assert.strictEqual(
+      httpI.urls.filter((u) => u.endsWith('/big-a/c/1.json')).length,
+      0,
+      'must not fetch later ship chunks for a front window',
+    );
+    assert.strictEqual(
+      httpI.urls.filter((u) => u.endsWith('/big-a/content.json')).length,
+      0,
+      'must not JSON.parse full content.json when chunks exist',
+    );
+    httpI.resetLog();
+    const full = await engI.ensureLoaded('big-a');
+    assert.ok(!full.partial, 'ensureLoaded fills remaining chunks');
+    assert.strictEqual(
+      full.documento[SHIP_BODY_CHUNK_SIZE].contenido,
+      `body-${SHIP_BODY_CHUNK_SIZE}`,
+    );
+    assert.ok(
+      httpI.urls.some((u) => u.endsWith('/big-a/c/1.json')),
+      'ensureLoaded fetches remaining chunks',
+    );
+    console.log('  ship-chunk window + full fill OK');
   }
 
   section('summary');

@@ -10,10 +10,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, combineLatest } from 'rxjs';
-import {
-  CargarDocumentosJsonService,
-  IndiceDocumentos,
-} from 'src/app/services/cargar-documentos-json.service';
+import { IndiceDocumentos } from 'src/app/core/corpus/corpus.models';
 import { BackService } from 'src/app/services/back.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import {
@@ -188,7 +185,6 @@ export class LectorComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     public navigationService: NavigationService,
-    private cargarDocumentosJsonService: CargarDocumentosJsonService,
     private readerPrefs: ReaderPreferencesService,
     private corpus: CorpusService,
     private progress: ReadingProgressService,
@@ -831,10 +827,11 @@ export class LectorComponent implements OnInit, OnDestroy {
     const focus = Number.isFinite(this.actual_index) ? this.actual_index : 0;
     const radius = CONTEXT_SIZE + this.quantity_to_load;
     this.sub.add(
-      this.cargarDocumentosJsonService
+      this.corpus
         .ensureWindow(effectiveKey, focus, radius)
         .subscribe({
-        next: (doc) => {
+        next: (loaded) => {
+          const doc = this.corpus.toIndiceDocumentos(loaded);
           this.clearSlowLoad();
           this.loading = false;
           this.document = doc;
@@ -1032,10 +1029,11 @@ export class LectorComponent implements OnInit, OnDestroy {
       return;
     }
     this.sub.add(
-      this.cargarDocumentosJsonService.ensureUnits(doc.id, from, to).subscribe({
+      this.corpus.ensureUnits(doc.id, from, to).subscribe({
         next: (fresh) => {
-          this.document = fresh;
-          this.navigationService.document_selected = fresh;
+          const mapped = this.corpus.toIndiceDocumentos(fresh);
+          this.document = mapped;
+          this.navigationService.document_selected = mapped;
           this.actual_articles = this._get_articles(
             this.actual_inferior_limit,
             this.actual_superior_limit

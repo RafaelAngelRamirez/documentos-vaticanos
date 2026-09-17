@@ -9,8 +9,10 @@
  *   - omit empty `referencias: []` (loader treats missing as empty)
  *   - omit ship-only `meta.json` (catalog is manifest.json; UI never fetches meta)
  *
- * Does NOT reindex units, rename document ids, drop content.json / index.json,
- * or change consecutivo / contenido / non-empty referencias.
+ * Does NOT reindex units, rename document ids, or change consecutivo /
+ * contenido / non-empty referencias. Packs with more than SHIP_BODY_CHUNK_SIZE
+ * units replace content.json with chunks.json + c/N.json so the reader can
+ * JSON.parse a window instead of the whole book.
  * Does NOT delete sibling packs under papacy/ santoral/ context/ search/
  * (except --drop-unused-sidecars, which removes every patristic-verse-hits.json).
  *
@@ -144,6 +146,9 @@ function readingSnapshot(data) {
 
 const UNUSED_SIDECAR_NAME = 'patristic-verse-hits.json';
 
+/** Keep in sync with frontend/.../corpus-load.logic.ts SHIP_BODY_CHUNK_SIZE. */
+const SHIP_BODY_CHUNK_SIZE = 500;
+
 /**
  * Strict AI provenance. Missing / official / other strings stay.
  * @param {unknown} doc
@@ -240,11 +245,45 @@ function dropAiDocuments(rootDir, opts = {}) {
 }
 
 /**
- * Delete every patristic-verse-hits.json under root (ship sidecar, unused in UI).
- * @param {string} rootDir
- * @param {{ dryRun?: boolean }} [opts]
- * @returns {{ removed: number, paths: string[] }}
+ * Split a content.json unit array into chunks.json + c/N.json and drop the
+ * original body file. Caller has already compacted the units.
+ * @param {string} docDir documents/<id>
+ * @param {unknown[]} units
+ * @param {{ dryRun?: boolean, chunkSize?: number }} [opts]
+ * @returns {{ files: number, bytes: number, chunks: number }}
  */
+function writeShipChunks(docDir, units, opts = {}) {
+  const dryRun = Boolean(opts.dryRun);
+  const chunkSize =
+    opts.chunkSize > 0 ? opts.chunkSize : SHIP_BODY_CHUNK_SIZE;
+  const unitCount = units.length;
+  const chunkCount = Math.ceil(unitCount / chunkSize) || 0;
+  const spec = { v: 1, chunkSize, unitCount };
+  let bytes = 0;
+  let files = 0;
+
+  function writeFile(full, data) {
+    const buf = serializeCompact(data);
+    bytes += buf.length;
+    files += 1;
+    if (!dryRun) {
+      fs.mkdirSync(path.dirname(full), { recursive: true });
+      const tmp = full + '.tmp-chunk';
+      fs.writeFileSync(tmp, buf);
+      fs.renameSync(tmp, full);
+    }
+  }
+
+  writeFile(path.join(docDir, 'chunks.json'), spec);
+  for (let c = 0; c < chunkCount; c++) {
+    writeFile(
+      path.join(docDir, 'c', `${c}.json`),
+      units.slice(c * chunkSize, (c + 1) * chunkSize),
+    );
+  }
+  return { files, bytes, chunks: chunkCount };
+}
+
 function dropUnusedSidecars(rootDir, opts = {}) {
   const dryRun = Boolean(opts.dryRun);
   /** @type {string[]} */
@@ -347,6 +386,7 @@ function compressCorpusTree(rootDir, opts = {}) {
     metaRemoved: 0,
     aiDropped: 0,
     sidecarsRemoved: 0,
+    chunkFiles: 0,
     bytesBefore: 0,
     bytesAfter: 0,
     skipped: 0,
@@ -439,15 +479,17 @@ function compressCorpusTree(rootDir, opts = {}) {
         continue;
       }
 
-      let output;
+      let packed;
       try {
-        output = compressJsonBuffer(raw, ent.name).output;
+        packed = compressJsonBuffer(raw, ent.name);
       } catch (err) {
         stats.errors.push(`${full}: parse/transform ${/** @type {Error} */ (err).message}`);
         stats.bytesAfter += before;
         stats.skipped += 1;
         continue;
       }
+      const output = packed.output;
+      const parsed = packed.parsed;
 
       stats.bytesAfter += output.length;
 
@@ -471,6 +513,37 @@ function compressCorpusTree(rootDir, opts = {}) {
         stats.filesWritten += 1;
       } else {
         stats.skipped += 1;
+      }
+
+      const splitBody =
+        ent.name === 'content.json' &&
+        !underSiblingPack &&
+        Array.isArray(parsed) &&
+        parsed.length > SHIP_BODY_CHUNK_SIZE;
+      if (splitBody) {
+        try {
+          const chunked = writeShipChunks(path.dirname(full), parsed, {
+            dryRun,
+            chunkSize: SHIP_BODY_CHUNK_SIZE,
+          });
+          stats.chunkFiles += chunked.files;
+          stats.filesWritten += chunked.files;
+          if (!dryRun) {
+            try {
+              fs.unlinkSync(full);
+            } catch (err) {
+              stats.errors.push(
+                `${full}: unlink after chunk ${/** @type {Error} */ (err).message}`,
+              );
+            }
+            stats.bytesAfter -= output.length;
+            stats.bytesAfter += chunked.bytes;
+          }
+        } catch (err) {
+          stats.errors.push(
+            `${full}: chunk ${/** @type {Error} */ (err).message}`,
+          );
+        }
       }
     }
   }
@@ -569,6 +642,7 @@ function main(argv) {
         metaRemoved: stats.metaRemoved,
         aiDropped: stats.aiDropped,
         sidecarsRemoved: stats.sidecarsRemoved,
+        chunkFiles: stats.chunkFiles,
         skipped: stats.skipped,
         bytesBefore: stats.bytesBefore,
         bytesAfter: stats.bytesAfter,
@@ -594,7 +668,7 @@ function main(argv) {
     process.exit(1);
   }
 
-  if (saved < 0) {
+  if (saved < 0 && !stats.chunkFiles) {
     console.error('ERROR: compression grew the tree');
     process.exit(1);
   }
@@ -605,6 +679,8 @@ module.exports = {
   compressJsonValue,
   compressJsonBuffer,
   compressCorpusTree,
+  writeShipChunks,
+  SHIP_BODY_CHUNK_SIZE,
   readingSnapshot,
   serializeCompact,
   isArticleLike,

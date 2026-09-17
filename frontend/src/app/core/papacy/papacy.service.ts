@@ -4,10 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, map, shareReplay, tap } from 'rxjs/operators';
 import { CorpusService } from '../corpus/corpus.service';
 import {
-  Article,
   DocumentMeta,
-  Indice,
-  IndiceDocumentos,
   LoadedDocument,
 } from '../corpus/corpus.models';
 import {
@@ -151,19 +148,8 @@ export class PapacyService {
     );
   }
 
-  ensurePopeAsIndice(documentId: string): Observable<IndiceDocumentos> {
-    return this.ensurePopeLoaded(documentId).pipe(
-      map((loaded) => ({
-        id: loaded.meta.id,
-        nombre: loaded.meta.title || loaded.meta.id,
-        title: loaded.meta.title,
-        shortTitle: loaded.meta.shortTitle,
-        locale: loaded.meta.locale,
-        sourceUrl: loaded.meta.sourceUrl,
-        documento: loaded.documento as Article[],
-        indice: loaded.indice as Indice,
-      })),
-    );
+  getLoaded(documentId: string): LoadedDocument | undefined {
+    return this.popeDocs.get(documentId);
   }
 
   getPopeMeta(documentId: string): DocumentMeta | undefined {

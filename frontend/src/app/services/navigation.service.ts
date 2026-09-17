@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ResultadoDeBusqueda } from '../components/buscador/buscador.component';
 import { ArticleInfo } from '../components/punto/punto/punto.component';
-import { IndiceDocumentos } from './cargar-documentos-json.service';
+import { IndiceDocumentos } from '../core/corpus/corpus.models';
 import {
   applyAutoNarrFlag,
   resolveOpenReadingIndex,

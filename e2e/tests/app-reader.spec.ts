@@ -15,16 +15,10 @@ test.describe('App lector offline', () => {
   });
 
   test('document list loads corpus from manifest', async ({ page }) => {
-    await page.goto('/');
-    // Navigate via UI if possible
-    const listLink = page.getByRole('link', { name: /documentos|listar/i });
-    if (await listLink.count()) {
-      await listLink.first().click();
-    } else {
-      await page.goto('/documentos/listar');
-    }
-    await page.waitForTimeout(500);
-    // After async load, expect at least Catecismo / Biblia / LG text somewhere
+    await page.goto('/biblioteca');
+    await expect(page.getByText(/Biblioteca/i).first()).toBeVisible({
+      timeout: 30_000,
+    });
     const body = page.locator('body');
     await expect(body).toContainText(/Catecismo|Biblia|Lumen|document/i, {
       timeout: 60_000,
@@ -43,12 +37,11 @@ test.describe('App lector offline', () => {
   });
 
   test('reader can open a document id route', async ({ page }) => {
-    // Deep link style used by the app
     await page.goto('/leyendo/cic-es/punto/2');
-    await expect(page.locator('body')).toBeVisible();
-    // Either loading finishes or content appears; avoid hard fail on empty if offline miss
-    await page.waitForTimeout(2000);
-    const reader = page.locator('.reader-surface, app-lector, app-punto');
-    await expect(reader.first()).toBeVisible({ timeout: 60_000 });
+    await expect(page.locator('app-lector')).toBeVisible({ timeout: 60_000 });
+    await expect(page.locator('.rpaper, .rtxt, app-punto').first()).toBeVisible({
+      timeout: 60_000,
+    });
+    await expect(page.locator('.bnav')).toHaveCount(0);
   });
 });

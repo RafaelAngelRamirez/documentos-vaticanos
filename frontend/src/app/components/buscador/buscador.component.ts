@@ -2,10 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, of } from 'rxjs';
 import { catchError, map, switchMap, take } from 'rxjs/operators';
 import { BuscadorService, TermsProcessed } from './buscador.service';
-import {
-  CargarDocumentosJsonService,
-  IndiceDocumentos as DocumentoDatos,
-} from 'src/app/services/cargar-documentos-json.service';
+import { IndiceDocumentos as DocumentoDatos } from 'src/app/core/corpus/corpus.models';
 import { CommonModule } from '@angular/common';
 import { ArticleInfo } from '../punto/punto/punto.component';
 import { UtilidadesService } from 'src/app/services/utilidades.service';
@@ -75,7 +72,6 @@ export class BuscadorComponent implements OnInit, OnDestroy {
 
   constructor(
     public busadorService: BuscadorService,
-    private documentosService: CargarDocumentosJsonService,
     private utilidadesService: UtilidadesService,
     private navigationService: NavigationService,
     private corpus: CorpusService,
@@ -87,7 +83,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     // Manifest only on open — progressive locale load on query (PR2a).
     this.loading_docs = true;
     this.sub.add(
-      this.documentosService.loadManifest().subscribe({
+      this.corpus.loadManifest().subscribe({
         next: () => {
           this.loading_docs = false;
           this.load_error = null;
@@ -244,7 +240,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
       pack$
         .pipe(
           switchMap((pack) =>
-            this.documentosService
+            this.corpus
               .ensureIndexForLocale(locale, {
                 allLocales: this.allLocales,
                 concurrency: DEFAULT_INDEX_LOAD_CONCURRENCY,
@@ -463,7 +459,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     }
 
     this.sub.add(
-      this.documentosService
+      this.corpus
         .ensureLoadedMany(hydrateIds, {
           concurrency: DEFAULT_BODY_LOAD_CONCURRENCY,
           isCancelled: () => myGen !== this.searchGen,

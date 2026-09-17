@@ -25,7 +25,7 @@ import {
   neighborsFromGraph,
   rowsFromGraphNeighbors,
 } from 'src/app/core/search/topic-search.logic';
-import { CargarDocumentosJsonService } from 'src/app/services/cargar-documentos-json.service';
+import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 
@@ -77,7 +77,7 @@ export class RelatedUnitsPanelComponent implements OnChanges {
   private gen = 0;
 
   constructor(
-    private docs: CargarDocumentosJsonService,
+    private docs: CorpusService,
     private nav: NavigationService,
     private readerPrefs: ReaderPreferencesService,
     private topics: TopicIndexService,
