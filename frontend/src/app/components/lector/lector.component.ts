@@ -41,6 +41,7 @@ import {
 } from 'src/app/services/narrator-preferences.service';
 import { NarracionFgService } from 'src/app/services/narracion-fg.service';
 import { nextSpeakableIndex } from 'src/app/services/speech-prep.logic';
+import { speechLangForDocumentLocale } from 'src/app/services/speech-lang.logic';
 import { coverNavCommandsForDocumentId } from 'src/app/core/santoral/santoral-units.logic';
 
 const CONTEXT_SIZE = 5;
@@ -455,12 +456,19 @@ export class LectorComponent implements OnInit, OnDestroy {
     // Angular, así encadenar numerales con la pantalla apagada no dispara
     // ningún ciclo de change detection. Con la app visible re-entramos en
     // la zona para que la pastilla («Nº x de y», %) se refresque.
+    const lang = this.speechLang();
+    const prefix = lang.split(/[-_]/)[0].toLowerCase();
+    const voice =
+      this.narrVoice &&
+      (this.narrVoice.lang || '').toLowerCase().startsWith(prefix)
+        ? this.narrVoice
+        : null;
     this.zone.runOutsideAngular(() => {
       void this.narrator
         .speak(speakText, {
-          lang: 'es-ES',
+          lang,
           rate,
-          voice: this.narrVoice,
+          voice,
         })
         .then((finished) => {
           if (!finished || !this.narrPlaying) return;
@@ -538,6 +546,12 @@ export class LectorComponent implements OnInit, OnDestroy {
   get meta() {
     const id = this.document?.id || this.navigationService.document_id;
     return id ? this.corpus.getMeta(id) : undefined;
+  }
+
+  private speechLang(): string {
+    return speechLangForDocumentLocale(
+      this.meta?.locale ?? this.document?.locale,
+    );
   }
 
   get canLoadBefore(): boolean {
@@ -1063,7 +1077,7 @@ export class LectorComponent implements OnInit, OnDestroy {
       art.biblia?.consecutivo_versiculo ||
       (art.consecutivo && art.consecutivo !== 'no-encontrado'
         ? art.consecutivo
-        : String(art.index_array + 1))
+        : String((art.index_array ?? 0) + 1))
     );
   }
 

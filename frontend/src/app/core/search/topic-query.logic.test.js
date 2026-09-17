@@ -219,6 +219,11 @@ function main() {
   assert.ok(fs.existsSync(BUSCADOR_TS), 'buscador.component.ts');
   const busSrc = fs.readFileSync(BUSCADOR_TS, 'utf8');
   assert.ok(busSrc.includes('TopicIndexService'), 'Buscador injects TopicIndexService');
+  assert.ok(busSrc.includes('loadPack'), 'Buscador warms core pack');
+  assert.ok(
+    !busSrc.includes('loadGraphs'),
+    'Buscador must not fetch unit/doc graphs',
+  );
   assert.ok(
     busSrc.includes('applyTopicBoostIfAny') || busSrc.includes('topic-query.logic'),
     'Buscador uses topic-query helpers',

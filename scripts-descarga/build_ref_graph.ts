@@ -2,7 +2,7 @@
  * Build offline unit citation graph (ref-only edges) for the topic-search pack.
  *
  * Scans content.json for referencias.local → edges documentId:unitIndex → targets.
- * Dual-writes under documentos/corpus/search/{locale}/ and frontend assets.
+ * Writes under documentos/corpus/search/{locale}/ then copies search/ to assets.
  *
  * Usage:
  *   npx ts-node --transpile-only scripts-descarga/build_ref_graph.ts --locale es
@@ -12,12 +12,12 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import * as crypto from 'crypto';
+import {
+  CANONICAL_CORPUS_ROOT,
+  syncCorpusPathToAssets,
+} from './src/pipeline/write_corpus';
 
 const REPO = path.resolve(__dirname, '..');
-const CORPUS_ROOTS = [
-  path.join(REPO, 'documentos', 'corpus'),
-  path.join(REPO, 'frontend', 'src', 'assets', 'corpus'),
-];
 
 interface ManifestDoc {
   id: string;
@@ -90,7 +90,7 @@ function resolveBodyPath(root: string, meta: ManifestDoc): string {
 
 function main() {
   const { locale, reciprocal, maxDegree } = parseArgs(process.argv.slice(2));
-  const primary = CORPUS_ROOTS[0];
+  const primary = CANONICAL_CORPUS_ROOT;
   if (!fs.existsSync(path.join(primary, 'manifest.json'))) {
     console.error(`Missing manifest under ${primary}`);
     process.exit(1);
@@ -245,8 +245,8 @@ function main() {
     .join('\n');
   const fp = crypto.createHash('sha256').update(fingerprintDocs).digest('hex').slice(0, 16);
 
-  for (const root of CORPUS_ROOTS) {
-    const searchRoot = path.join(root, 'search');
+  {
+    const searchRoot = path.join(primary, 'search');
     const locDir = path.join(searchRoot, locale);
     fs.mkdirSync(locDir, { recursive: true });
 
@@ -345,6 +345,7 @@ function main() {
     console.log(
       `wrote ${path.relative(REPO, graphPath)} (${(bytes / 1024).toFixed(1)} KiB)`,
     );
+    syncCorpusPathToAssets('search');
   }
 
   console.log(

@@ -19,6 +19,7 @@ import {
   misalReadCtaLabel,
   pickPrimaryMisalEntry,
 } from 'src/app/core/misal/misal-liturgia.logic';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import {
   calendarSaintLabel,
@@ -77,9 +78,12 @@ export class SantoralComponent implements OnInit, OnDestroy {
   misalPrimary: DocumentMeta | null = null;
   readonly misalBlockTitle = misalBlockTitle();
 
+  localeTick = 0;
   private routeSub?: Subscription;
+  private i18nSub?: Subscription;
 
   constructor(
+    public i18n: UiI18nService,
     private santoral: SantoralService,
     private corpus: CorpusService,
     private readerPrefs: ReaderPreferencesService,
@@ -87,7 +91,14 @@ export class SantoralComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
   ) {}
 
+  t(key: string, params?: Record<string, string | number>): string {
+    return this.i18n.t(key, params);
+  }
+
   ngOnInit(): void {
+    this.i18nSub = this.i18n.locale$.subscribe(() => {
+      this.localeTick++;
+    });
     this.routeSub = this.route.queryParamMap.subscribe((q) => {
       const vista = (q.get('vista') || q.get('mode') || 'lista').toLowerCase();
       this.mode =
@@ -137,6 +148,7 @@ export class SantoralComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.routeSub?.unsubscribe();
+    this.i18nSub?.unsubscribe();
   }
 
   private syncCalendarLevel(): void {
@@ -268,7 +280,7 @@ export class SantoralComponent implements OnInit, OnDestroy {
   }
 
   fbarTitle(): string {
-    if (this.mode !== 'calendario') return 'Santoral';
+    if (this.mode !== 'calendario') return this.t('saints.title');
     if (this.calLevel === 'dia' && this.calMonth != null && this.calDay != null) {
       return `${this.calDay} de ${monthLabel(this.calMonth)}`;
     }

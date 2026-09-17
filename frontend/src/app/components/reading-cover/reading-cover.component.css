@@ -66,11 +66,11 @@
 }
 
 .empty.error {
-  color: var(--app-danger, var(--danger, #b0563a));
+  color: var(--app-danger);
 }
 
 .rc-body {
-  max-width: 640px;
+  max-width: var(--app-measure);
   margin: 0 auto;
   padding: 20px 24px 60px;
 }

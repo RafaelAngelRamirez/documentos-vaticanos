@@ -1,7 +1,7 @@
-<div class="app-product web-shell has-bnav">
+<div class="app-product web-shell has-bnav" [attr.data-tick]="localeTick">
   <app-wbar></app-wbar>
   <div class="only-mobile">
-    <app-fbar title="Explorar"></app-fbar>
+    <app-fbar [title]="t('explore.title')"></app-fbar>
   </div>
   <div class="fbody">
     <div class="tabs">
@@ -11,7 +11,7 @@
         [class.on]="tab === 'maestros'"
         (click)="setTab('maestros')"
       >
-        Maestros
+        {{ t('explore.masters') }}
       </button>
       <button
         type="button"
@@ -19,7 +19,7 @@
         [class.on]="tab === 'temas'"
         (click)="setTab('temas')"
       >
-        Temas
+        {{ t('explore.topics') }}
       </button>
       <button
         type="button"
@@ -27,7 +27,7 @@
         [class.on]="tab === 'epocas'"
         (click)="setTab('epocas')"
       >
-        Épocas
+        {{ t('explore.epochs') }}
       </button>
       <button
         type="button"
@@ -35,7 +35,7 @@
         [class.on]="tab === 'relaciones'"
         (click)="setTab('relaciones')"
       >
-        Relaciones
+        {{ t('explore.relations') }}
       </button>
     </div>
 

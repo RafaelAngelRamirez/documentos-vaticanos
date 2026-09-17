@@ -73,7 +73,8 @@ fi
 CORPUS_DIST="$FRONTEND/dist/documentos-vaticanos/assets/corpus"
 if [[ -f "$CORPUS_DIST/manifest.json" ]]; then
   echo "==> Corpus compress → $CORPUS_DIST"
-  run node "$ROOT/scripts/corpus-compress.js" --root "$CORPUS_DIST"
+  run node "$ROOT/scripts/corpus-compress.js" --root "$CORPUS_DIST" \
+    --drop-ai --drop-unused-sidecars
 fi
 
 run npx cap sync android

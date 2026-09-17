@@ -1,12 +1,12 @@
 /**
- * Corpus structure contract — drives SHIPPED load constants + dual-write roots
+ * Corpus structure contract — drives SHIPPED load constants + canonical pack
  * and asserts the real offline pack layout on disk (no re-implementation).
  *
  * Proves analysis claims in docs/CORPUS-STRUCTURE-ANALYSIS.md stay true:
  * - CORPUS_ROOT / MANIFEST_URL offline contract
- * - dual CORPUS_ROOTS still live
+ * - canonical pack is documentos/corpus; assets is a generated copy
  * - per-doc content.json + index.json exist for every manifest entry
- * - dual roots byte-identical for sample docs
+ * - sample docs are byte-identical after the copy step
  *
  * Run from repo root:
  *   node scripts-descarga/corpus_structure_contract.test.js
@@ -86,23 +86,33 @@ async function main() {
   );
   console.log('  CORPUS_ROOT, MANIFEST_URL, resolveAssetPath OK');
 
-  section('dual-write CORPUS_ROOTS (shipped writer)');
+  section('canonical write + assets copy (shipped writer)');
   assert.ok(fs.existsSync(WRITE_CORPUS_TS), `missing ${WRITE_CORPUS_TS}`);
   const writeSrc = fs.readFileSync(WRITE_CORPUS_TS, 'utf8');
   assert.ok(
+    writeSrc.includes('CANONICAL_CORPUS_ROOT'),
+    'write_corpus must export CANONICAL_CORPUS_ROOT',
+  );
+  assert.ok(
+    writeSrc.includes('function syncCorpusPathToAssets'),
+    'write_corpus must export syncCorpusPathToAssets',
+  );
+  assert.ok(
+    writeSrc.includes('function syncDocToAssets'),
+    'write_corpus must export syncDocToAssets',
+  );
+  assert.ok(
+    writeSrc.includes('function syncManifestToAssets'),
+    'write_corpus must export syncManifestToAssets',
+  );
+  assert.ok(
+    writeSrc.includes('syncDocToAssets(') && writeSrc.includes('syncManifestToAssets('),
+    'writeCorpusDocument must copy the document and manifest to assets',
+  );
+  assert.ok(
     writeSrc.includes('CORPUS_ROOTS'),
-    'write_corpus must export CORPUS_ROOTS',
+    'write_corpus still exports CORPUS_ROOTS as [canonical, assets]',
   );
-  assert.ok(
-    writeSrc.includes('documentos') && writeSrc.includes('corpus'),
-    'CORPUS_ROOTS must include documentos/corpus',
-  );
-  assert.ok(
-    writeSrc.includes('assets') && writeSrc.includes('corpus'),
-    'CORPUS_ROOTS must include frontend/src/assets/corpus',
-  );
-  // Parse the two roots the same way the module defines them (no strip-types
-  // dependency on write_corpus ts path resolution from node).
   const expectedRoots = [
     path.join(REPO, 'documentos', 'corpus'),
     path.join(REPO, 'frontend', 'src', 'assets', 'corpus'),
@@ -114,7 +124,7 @@ async function main() {
       `manifest missing under ${root}`,
     );
   }
-  console.log('  dual roots present on disk:', expectedRoots.join(' | '));
+  console.log('  canonical + assets copy present on disk:', expectedRoots.join(' | '));
 
   section('manifest + per-doc pack layout');
   const manCanon = JSON.parse(
@@ -125,6 +135,29 @@ async function main() {
   );
   assert.ok(Array.isArray(manCanon.documents), 'canonical manifest.documents');
   assert.ok(Array.isArray(manAssets.documents), 'assets manifest.documents');
+  const firstDoc = manCanon.documents[0];
+  assert.ok(firstDoc, 'canonical manifest documents[0]');
+  for (const key of ['id', 'title', 'locale', 'bodyPath']) {
+    assert.ok(firstDoc[key], `manifest documents[0] must have ${key}`);
+  }
+  console.log(
+    `  documents[0] keys id/title/locale/bodyPath ok (${firstDoc.id})`,
+  );
+
+  section('wire unit type rename');
+  const transportSrc = fs.readFileSync(
+    path.join(HERE, 'models/transport_data.model.ts'),
+    'utf8',
+  );
+  assert.ok(
+    /export interface CorpusUnit\b/.test(transportSrc),
+    'content unit type is CorpusUnit',
+  );
+  assert.ok(
+    /export type TrasnportData = CorpusUnit/.test(transportSrc),
+    'deprecated TrasnportData alias kept for one release',
+  );
+  console.log('  CorpusUnit + TrasnportData alias present');
   assert.strictEqual(
     manCanon.documents.length,
     manAssets.documents.length,
@@ -154,7 +187,7 @@ async function main() {
     `  ${manCanon.documents.length} docs; all bodyPath/indexPath present on both roots`,
   );
 
-  section('dual-root sample byte identity');
+  section('assets copy sample byte identity');
   for (const id of SAMPLE_IDS) {
     const meta = manCanon.documents.find((d) => d.id === id);
     assert.ok(meta, `sample doc ${id} in manifest`);
@@ -166,7 +199,7 @@ async function main() {
       assert.strictEqual(
         md5File(a),
         md5File(b),
-        `dual-root mismatch ${rel}`,
+        `canonical vs assets mismatch ${rel}`,
       );
     }
     console.log(`  ${id}: content/index/meta MD5 equal`);
@@ -197,7 +230,7 @@ async function main() {
   assert.ok(goldenMeta, `golden ${GOLDEN_ID} in canonical manifest`);
   const goldenBodyA = path.join(CANONICAL, goldenMeta.bodyPath);
   const goldenBodyB = path.join(ASSETS, goldenMeta.bodyPath);
-  assert.strictEqual(md5File(goldenBodyA), md5File(goldenBodyB), 'golden body dual-write');
+  assert.strictEqual(md5File(goldenBodyA), md5File(goldenBodyB), 'golden body assets copy');
   const goldenUnits = JSON.parse(fs.readFileSync(goldenBodyA, 'utf8'));
   assert.ok(Array.isArray(goldenUnits) && goldenUnits.length > 0);
   assert.strictEqual(
@@ -214,7 +247,7 @@ async function main() {
     !/U N I V E R S I D A D/.test(goldenRaw),
     'spaced-letter UNIVERSIDAD must not remain in golden pack',
   );
-  console.log(`  ${GOLDEN_ID} unit0 placeholder + dual-write MD5 OK`);
+  console.log(`  ${GOLDEN_ID} unit0 placeholder + assets copy MD5 OK`);
 
   section('contentHash on sample docs matches sha256[:12] of content.json');
   function sha12(filePath) {
@@ -244,6 +277,7 @@ async function main() {
     'documentos/padres-source/raw/',
     'documentos/concilios-source/pdf/',
     'documentos/concilios-source/raw/',
+    'frontend/src/assets/corpus/documents/',
   ]) {
     assert.ok(
       gitignore.includes(line),

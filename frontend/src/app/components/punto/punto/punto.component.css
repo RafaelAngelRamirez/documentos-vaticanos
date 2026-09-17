@@ -105,22 +105,22 @@ p.punto-contenido.punto-heading .punto-num {
 
 .punto-save-msg {
   font-size: 0.7rem;
-  color: #2e7d32;
-  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--ok);
+  font-family: var(--app-font-sans);
   margin-left: 0.3em;
 }
 
 .punto-save-err {
   font-size: 0.7rem;
-  color: #c62828;
+  color: var(--app-danger);
   max-width: 10rem;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--app-font-sans);
   margin-left: 0.3em;
 }
 
 /* Fallback when CSS vars are not applied (non-reader pages) */
 .resaltar {
-  background: var(--reader-highlight, yellow);
+  background: var(--reader-highlight);
   font-weight: 700;
 }
 
@@ -134,19 +134,19 @@ p.punto-contenido.punto-heading .punto-num {
 .ref-link {
   text-decoration: underline;
   cursor: pointer;
-  color: var(--reader-link, var(--bs-link-color, #0d6efd));
+  color: var(--reader-link, var(--acc));
   font-weight: 500;
 }
 
 .ref-link:hover {
-  color: var(--reader-link, var(--bs-link-hover-color, #0a58ca));
+  color: var(--reader-link, var(--acc));
   filter: brightness(1.05);
 }
 
 .ref-unresolved {
   text-decoration: underline dashed;
   text-underline-offset: 2px;
-  color: var(--reader-muted, var(--bs-secondary-color, #6c757d));
+  color: var(--reader-muted, var(--muted));
   cursor: help;
 }
 

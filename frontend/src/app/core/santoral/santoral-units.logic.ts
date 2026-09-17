@@ -559,16 +559,16 @@ export function relatedSeedForSaint(saint: SaintBioSource): string {
 
 /** Simple TOC rows from units (first line of each paragraph as title). */
 export function tocFromSaintUnits(
-  units: SaintReadingUnit[],
+  units: Array<{ consecutivo: string; contenido: string; index_array?: number }>,
   maxEntries = 24,
 ): { num: string; title: string; unitIndex: number }[] {
   const cap = Math.max(1, maxEntries);
-  // Prefer landmarks: first unit + every Nth for long bios
+  const idx = (u: { index_array?: number }) => u.index_array ?? 0;
   if (units.length <= cap) {
     return units.map((u) => ({
-      num: u.consecutivo.replace(/^§/, '') || String(u.index_array + 1),
+      num: u.consecutivo.replace(/^§/, '') || String(idx(u) + 1),
       title: tocTitleFromContent(u.contenido),
-      unitIndex: u.index_array,
+      unitIndex: idx(u),
     }));
   }
   const step = Math.ceil(units.length / cap);
@@ -576,18 +576,17 @@ export function tocFromSaintUnits(
   for (let i = 0; i < units.length && out.length < cap; i += step) {
     const u = units[i];
     out.push({
-      num: u.consecutivo.replace(/^§/, '') || String(u.index_array + 1),
+      num: u.consecutivo.replace(/^§/, '') || String(idx(u) + 1),
       title: tocTitleFromContent(u.contenido),
-      unitIndex: u.index_array,
+      unitIndex: idx(u),
     });
   }
-  // Always include last
   const last = units[units.length - 1];
-  if (out[out.length - 1]?.unitIndex !== last.index_array) {
+  if (out[out.length - 1]?.unitIndex !== idx(last)) {
     out.push({
-      num: last.consecutivo.replace(/^§/, '') || String(last.index_array + 1),
+      num: last.consecutivo.replace(/^§/, '') || String(idx(last) + 1),
       title: tocTitleFromContent(last.contenido),
-      unitIndex: last.index_array,
+      unitIndex: idx(last),
     });
   }
   return out;

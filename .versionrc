@@ -24,10 +24,7 @@
       "filename": "frontend/src/environments/environment.ts",
       "updater": "standard-version-updater.js"
     },
-    {
-      "filename": "easy_version",
-      "updater": "standard-version-updater.js"
-    },
+
     {
       "filename": "frontend/src/assets/downloads/manifest.json",
       "type": "json"

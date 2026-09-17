@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { Study, StudiesService } from 'src/app/core/account/studies.service';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { environment } from 'src/environments/environment';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { BnavComponent } from 'src/app/components/bnav/bnav.component';
@@ -26,15 +28,18 @@ import { NavigationService } from 'src/app/services/navigation.service';
   templateUrl: './estudios.component.html',
   styleUrls: ['./estudios.component.css'],
 })
-export class EstudiosComponent implements OnInit {
+export class EstudiosComponent implements OnInit, OnDestroy {
   plans: Study[] = [];
   loading = false;
   error: string | null = null;
   apiEnabled = Boolean(environment.apiBaseUrl);
   lastRead: LastRead | null = null;
   topicChips = ['Fe', 'Liturgia', 'Oración', 'Moral', 'Doctrina social'];
+  localeTick = 0;
+  private sub = new Subscription();
 
   constructor(
+    public i18n: UiI18nService,
     public auth: AuthService,
     private studies: StudiesService,
     private router: Router,
@@ -42,13 +47,26 @@ export class EstudiosComponent implements OnInit {
     private navigation: NavigationService,
   ) {}
 
+  t(key: string, params?: Record<string, string | number>): string {
+    return this.i18n.t(key, params);
+  }
+
   ngOnInit(): void {
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
     this.lastRead = this.progress.getLastRead();
     if (!this.apiEnabled) {
       this.error = null;
       return;
     }
     this.reload();
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   get greeting(): string {

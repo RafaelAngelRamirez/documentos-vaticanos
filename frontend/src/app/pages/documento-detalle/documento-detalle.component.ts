@@ -318,7 +318,7 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
         .toLowerCase()
         .split(/[-_]/)[0] || 'es';
     this.sub.add(
-      this.topicIndex.loadPack(locale).pipe(catchError(() => of(null))).subscribe((pack) => {
+      this.topicIndex.loadGraphs(locale).pipe(catchError(() => of(null))).subscribe((pack) => {
         const g = pack?.docGraph;
         if (!g || !this.meta) {
           this.citeNeighbors = [];

@@ -23,6 +23,12 @@ function main() {
 
   assert.ok(/path:\s*'lectio'/.test(routing), 'route /lectio');
   assert.ok(/data-testid=["']lectio-gospel-read["']/.test(html));
+  assert.ok(/data-testid=["']lectio-gospel-listen["']/.test(html));
+  assert.ok(/data-testid=["']lectio-reflection-listen["']/.test(html));
+  assert.ok(/listenReflection/.test(ts));
+  assert.ok(/lectio\.listen_reflection/.test(html));
+  assert.ok(/NarratorService/.test(ts));
+  assert.ok(/speechLangForDocumentLocale/.test(ts));
   assert.ok(/data-testid=["']lectio-open-vd["']/.test(html));
   assert.ok(/LECTIO_STEPS/.test(ts));
   assert.ok(/vd-es/.test(ts) || /methodDoc/.test(ts));

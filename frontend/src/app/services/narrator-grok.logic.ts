@@ -39,7 +39,7 @@ export type GrokVoicesResponse = {
 
 export const GROK_VOICE_ID_PREFIX = 'grok:';
 
-/** True si la voz se sintetiza vía proxy Grok (no Web Speech). */
+/** True si la voz se sintetiza vía xAI TTS (no Web Speech). */
 export function isGrokVoice(v: NarratorVoice | null | undefined): boolean {
   if (!v) return false;
   if (v.provider === 'grok') return true;
@@ -57,7 +57,7 @@ export function grokVoiceIdOf(v: NarratorVoice | null | undefined): string | nul
 }
 
 /**
- * Mapea voces del proxy GET /tts/voices a NarratorVoice.
+ * Mapea voces de GET api.x.ai/v1/tts/voices a NarratorVoice.
  * `lang` por defecto es-ES (unidades del corpus en español).
  */
 export function mapGrokApiVoices(
@@ -84,19 +84,15 @@ export function mapGrokApiVoices(
 }
 
 /**
- * Interpreta respuesta de voces:
- * - xAI directo: `{ voices: [...] }`
- * - proxy legado: `{ available: true, voices: [...] }`
+ * Interpreta respuesta de voces de api.x.ai: `{ voices: [...] }`.
+ * Si `available === false`, no hay voces (respuesta vacía o error).
  */
 export function parseGrokVoicesResponse(
   data: GrokVoicesResponse | null | undefined,
   lang = 'es-ES'
 ): NarratorVoice[] {
   if (!data) return [];
-  // Proxy: solo si available === true
   if (data.available === false) return [];
-  if (data.available === true) return mapGrokApiVoices(data.voices, lang);
-  // xAI directo (sin campo available)
   if (Array.isArray(data.voices)) return mapGrokApiVoices(data.voices, lang);
   return [];
 }
@@ -128,18 +124,6 @@ export function mergeNarratorVoices(
   return [...sys, ...gk];
 }
 
-/** URL del listado de voces Grok en el backend. */
-export function grokVoicesUrl(apiBaseUrl: string): string {
-  const base = String(apiBaseUrl || '').replace(/\/$/, '');
-  return `${base}/tts/voices`;
-}
-
-/** URL de síntesis Grok en el backend. */
-export function grokSpeakUrl(apiBaseUrl: string): string {
-  const base = String(apiBaseUrl || '').replace(/\/$/, '');
-  return `${base}/tts/speak`;
-}
-
 /**
  * Plan de velocidad Grok: el rate del narrador se envía solo a la API
  * (`speed`). El elemento `<audio>` debe quedar en playbackRate=1 para no
@@ -155,7 +139,7 @@ export function planGrokRate(rate?: number): {
   return { apiSpeed: undefined, playbackRate: 1 };
 }
 
-/** Cuerpo JSON del POST /tts/speak del proxy (cliente). */
+/** Cuerpo JSON del POST api.x.ai/v1/tts (cliente). */
 export function buildGrokSpeakBody(opts: {
   text: string;
   voice: NarratorVoice | null | undefined;

@@ -2,7 +2,7 @@
  * Build seed topic catalog + term→topic map for offline topic search (PR4a).
  *
  * Reads: scripts-descarga/config/topics-seed.{locale}.json
- * Writes (dual): documentos/corpus/search/{locale}/ + frontend assets
+ * Writes documentos/corpus/search/{locale}/ then copies search/ to assets.
  *   - topics.json
  *   - term-topics.json
  * Updates locale manifest: topicCount, files.topics/termTopics, generatedAt
@@ -16,11 +16,12 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
+import {
+  CANONICAL_CORPUS_ROOT,
+  syncCorpusPathToAssets,
+} from './src/pipeline/write_corpus';
+
 const REPO = path.resolve(__dirname, '..');
-const CORPUS_ROOTS = [
-  path.join(REPO, 'documentos', 'corpus'),
-  path.join(REPO, 'frontend', 'src', 'assets', 'corpus'),
-];
 
 const MAX_TOPICS = 250;
 const TERM_W = 1;
@@ -362,41 +363,39 @@ function main() {
     terms,
   };
 
-  for (const root of CORPUS_ROOTS) {
-    const searchRoot = path.join(root, 'search');
-    const locDir = path.join(searchRoot, locale);
-    fs.mkdirSync(locDir, { recursive: true });
+  const searchRoot = path.join(CANONICAL_CORPUS_ROOT, 'search');
+  const locDir = path.join(searchRoot, locale);
+  fs.mkdirSync(locDir, { recursive: true });
 
-    const graphPath = path.join(locDir, 'unit-graph.json');
-    const docGraphPath = path.join(locDir, 'doc-graph.json');
-    const hadGraph = fs.existsSync(graphPath);
-    const hadDocGraph = fs.existsSync(docGraphPath);
+  const graphPath = path.join(locDir, 'unit-graph.json');
+  const docGraphPath = path.join(locDir, 'doc-graph.json');
+  const hadGraph = fs.existsSync(graphPath);
+  const hadDocGraph = fs.existsSync(docGraphPath);
 
-    writeJson(path.join(locDir, 'topics.json'), topicsFile);
-    writeJson(path.join(locDir, 'term-topics.json'), termTopicsFile);
-    ensureCompanions(locDir, locale);
-    updateLocaleManifest(locDir, locale, topics.length, sourceNote);
-    updateRootSearchManifest(searchRoot, locale);
+  writeJson(path.join(locDir, 'topics.json'), topicsFile);
+  writeJson(path.join(locDir, 'term-topics.json'), termTopicsFile);
+  ensureCompanions(locDir, locale);
+  updateLocaleManifest(locDir, locale, topics.length, sourceNote);
+  updateRootSearchManifest(searchRoot, locale);
 
-    if (hadGraph && !fs.existsSync(graphPath)) {
-      throw new Error(`unit-graph.json was removed under ${locDir}`);
-    }
-    if (hadDocGraph && !fs.existsSync(docGraphPath)) {
-      throw new Error(`doc-graph.json was removed under ${locDir}`);
-    }
-    if (hadGraph) {
-      // touch-check only; do not rewrite
-      const st = fs.statSync(graphPath);
-      if (st.size < 10) {
-        console.warn(`warning: unit-graph.json looks empty at ${graphPath}`);
-      }
-    }
-
-    console.log(
-      `wrote ${path.relative(REPO, locDir)} topics=${topics.length} terms=${termCount}` +
-        (hadGraph ? ' (graph preserved)' : ' (no graph yet)'),
-    );
+  if (hadGraph && !fs.existsSync(graphPath)) {
+    throw new Error(`unit-graph.json was removed under ${locDir}`);
   }
+  if (hadDocGraph && !fs.existsSync(docGraphPath)) {
+    throw new Error(`doc-graph.json was removed under ${locDir}`);
+  }
+  if (hadGraph) {
+    const st = fs.statSync(graphPath);
+    if (st.size < 10) {
+      console.warn(`warning: unit-graph.json looks empty at ${graphPath}`);
+    }
+  }
+
+  syncCorpusPathToAssets('search');
+  console.log(
+    `wrote ${path.relative(REPO, locDir)} topics=${topics.length} terms=${termCount}` +
+      (hadGraph ? ' (graph preserved)' : ' (no graph yet)'),
+  );
 }
 
 main();

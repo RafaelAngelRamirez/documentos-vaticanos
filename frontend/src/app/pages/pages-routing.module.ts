@@ -34,8 +34,7 @@ import { LectioComponent } from './lectio/lectio.component';
 const routes: Routes = [
   { path: ROUTE.inicio, component: InicioComponent },
   { path: ROUTE.about, component: AboutComponent },
-  { path: ROUTE.list_documents, component: ListDocumentsPagesComponent },
-  /** Design alias */
+  { path: ROUTE.list_documents, redirectTo: '/biblioteca', pathMatch: 'full' },
   { path: 'biblioteca', component: ListDocumentsPagesComponent },
   { path: 'buscar', component: BuscarComponent },
   { path: 'cuenta', component: CuentaComponent },

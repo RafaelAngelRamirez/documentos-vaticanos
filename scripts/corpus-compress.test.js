@@ -28,6 +28,9 @@ const {
   compressJsonBuffer,
   compressCorpusTree,
   readingSnapshot,
+  isAiProvenance,
+  dropAiDocuments,
+  dropUnusedSidecars,
 } = require('./corpus-compress.js');
 
 function section(name) {
@@ -64,6 +67,13 @@ function main() {
   assert.ok(typeof compressJsonBuffer === 'function');
   assert.ok(typeof compressCorpusTree === 'function');
   assert.ok(typeof readingSnapshot === 'function');
+  assert.ok(typeof isAiProvenance === 'function');
+  assert.ok(typeof dropAiDocuments === 'function');
+  assert.ok(typeof dropUnusedSidecars === 'function');
+  assert.strictEqual(isAiProvenance({ translationProvenance: 'ai' }), true);
+  assert.strictEqual(isAiProvenance({ translationProvenance: 'official' }), false);
+  assert.strictEqual(isAiProvenance({}), false);
+  assert.strictEqual(isAiProvenance({ translationProvenance: 'AI' }), false);
   console.log('  exports OK');
 
   section('compressUnit strips empty refs + index_array, keeps body');
@@ -314,10 +324,169 @@ function main() {
     }
   }
 
+  section('drop-ai + unused sidecars (CLI; flags default off)');
+  {
+    const tmpDrop = fs.mkdtempSync(
+      path.join(os.tmpdir(), 'corpus-compress-drop-'),
+    );
+    try {
+      const unit = [
+        {
+          consecutivo: '1',
+          contenido: 'Keep this unit body for compact.',
+          referencias: [],
+          index_array: 0,
+        },
+      ];
+      const writeDoc = (id) => {
+        const dir = path.join(tmpDrop, 'documents', id);
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(
+          path.join(dir, 'content.json'),
+          JSON.stringify(unit, null, 2),
+        );
+        fs.writeFileSync(
+          path.join(dir, 'index.json'),
+          JSON.stringify({ indice: {} }),
+        );
+      };
+      writeDoc('keep-official');
+      writeDoc('drop-ai');
+      writeDoc('keep-unset');
+      fs.writeFileSync(
+        path.join(tmpDrop, 'manifest.json'),
+        JSON.stringify({
+          version: '1',
+          documents: [
+            {
+              id: 'keep-official',
+              title: 'Official',
+              translationProvenance: 'official',
+            },
+            {
+              id: 'drop-ai',
+              title: 'AI twin',
+              translationProvenance: 'ai',
+            },
+            {
+              id: 'keep-unset',
+              title: 'ES base',
+            },
+          ],
+        }),
+      );
+      const searchDir = path.join(tmpDrop, 'search', 'es');
+      fs.mkdirSync(searchDir, { recursive: true });
+      fs.writeFileSync(
+        path.join(searchDir, 'patristic-verse-hits.json'),
+        JSON.stringify({ version: 1, hits: [] }),
+      );
+      fs.writeFileSync(
+        path.join(searchDir, 'topics.json'),
+        JSON.stringify({ topics: [] }),
+      );
+      fs.mkdirSync(path.join(tmpDrop, 'papacy'), { recursive: true });
+      fs.writeFileSync(
+        path.join(tmpDrop, 'papacy', 'popes.json'),
+        JSON.stringify({ keep: true }),
+      );
+      fs.mkdirSync(path.join(tmpDrop, 'santoral'), { recursive: true });
+      fs.writeFileSync(
+        path.join(tmpDrop, 'santoral', 'saints.json'),
+        JSON.stringify({ keep: true }),
+      );
+      fs.mkdirSync(path.join(tmpDrop, 'context'), { recursive: true });
+      fs.writeFileSync(
+        path.join(tmpDrop, 'context', 'note.json'),
+        JSON.stringify({ keep: true }),
+      );
+
+      compressCorpusTree(tmpDrop, { keepMeta: false });
+      const afterDefault = JSON.parse(
+        fs.readFileSync(path.join(tmpDrop, 'manifest.json'), 'utf8'),
+      );
+      assert.deepStrictEqual(
+        afterDefault.documents.map((d) => d.id).sort(),
+        ['drop-ai', 'keep-official', 'keep-unset'],
+        'default compress must not drop AI docs',
+      );
+      assert.ok(
+        fs.existsSync(path.join(tmpDrop, 'documents', 'drop-ai', 'content.json')),
+        'AI dir stays without --drop-ai',
+      );
+      assert.ok(
+        fs.existsSync(path.join(searchDir, 'patristic-verse-hits.json')),
+        'verse-hits stay without --drop-unused-sidecars',
+      );
+
+      execFileSync(
+        process.execPath,
+        [
+          COMPRESS_JS,
+          '--root',
+          tmpDrop,
+          '--drop-ai',
+          '--drop-unused-sidecars',
+        ],
+        { encoding: 'utf8' },
+      );
+
+      const afterFlags = JSON.parse(
+        fs.readFileSync(path.join(tmpDrop, 'manifest.json'), 'utf8'),
+      );
+      assert.deepStrictEqual(
+        afterFlags.documents.map((d) => d.id).sort(),
+        ['keep-official', 'keep-unset'],
+        'after --drop-ai only official+unset remain',
+      );
+      assert.ok(
+        !fs.existsSync(path.join(tmpDrop, 'documents', 'drop-ai')),
+        'AI document dir deleted',
+      );
+      assert.ok(
+        fs.existsSync(
+          path.join(tmpDrop, 'documents', 'keep-official', 'content.json'),
+        ),
+        'official dir stays',
+      );
+      assert.ok(
+        fs.existsSync(
+          path.join(tmpDrop, 'documents', 'keep-unset', 'content.json'),
+        ),
+        'unset provenance dir stays',
+      );
+      assert.ok(
+        !fs.existsSync(path.join(searchDir, 'patristic-verse-hits.json')),
+        'verse-hits deleted with --drop-unused-sidecars',
+      );
+      assert.ok(
+        fs.existsSync(path.join(searchDir, 'topics.json')),
+        'search pack files other than verse-hits stay',
+      );
+      assert.ok(
+        fs.existsSync(path.join(tmpDrop, 'papacy', 'popes.json')),
+        'papacy/ stays',
+      );
+      assert.ok(
+        fs.existsSync(path.join(tmpDrop, 'santoral', 'saints.json')),
+        'santoral/ stays',
+      );
+      assert.ok(
+        fs.existsSync(path.join(tmpDrop, 'context', 'note.json')),
+        'context/ stays',
+      );
+      console.log('  drop-ai + sidecars CLI OK');
+    } finally {
+      fs.rmSync(tmpDrop, { recursive: true, force: true });
+    }
+  }
+
   section('package scripts hook the prescript before freezing deliverables');
+  const PACKAGE_AAB = path.join(ROOT, 'scripts', 'package-aab.sh');
   for (const [label, file] of [
     ['package-web.sh', PACKAGE_WEB],
     ['package-apk.sh', PACKAGE_APK],
+    ['package-aab.sh', PACKAGE_AAB],
     ['package-electron.sh', PACKAGE_ELECTRON],
   ]) {
     const body = fs.readFileSync(file, 'utf8');
@@ -330,6 +499,27 @@ function main() {
       `${label} must target ship corpus path`,
     );
     console.log(`  ${label} hooks corpus-compress`);
+  }
+  const webBody = fs.readFileSync(PACKAGE_WEB, 'utf8');
+  assert.ok(
+    webBody.includes('--drop-unused-sidecars'),
+    'package-web.sh drops unused sidecars',
+  );
+  assert.ok(
+    !webBody.includes('--drop-ai'),
+    'package-web.sh must not drop-ai (PWA keeps locales)',
+  );
+  for (const [label, file] of [
+    ['package-apk.sh', PACKAGE_APK],
+    ['package-aab.sh', PACKAGE_AAB],
+    ['package-electron.sh', PACKAGE_ELECTRON],
+  ]) {
+    const body = fs.readFileSync(file, 'utf8');
+    assert.ok(body.includes('--drop-ai'), `${label} must pass --drop-ai`);
+    assert.ok(
+      body.includes('--drop-unused-sidecars'),
+      `${label} must pass --drop-unused-sidecars`,
+    );
   }
   // package-all delegates to package-web (which compresses)
   const allBody = fs.readFileSync(PACKAGE_ALL, 'utf8');

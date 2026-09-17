@@ -29,6 +29,8 @@ import { SaintRecord } from 'src/app/core/santoral/santoral-resolve.logic';
 import { SantoralService } from 'src/app/core/santoral/santoral.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { NarratorService } from 'src/app/services/narrator.service';
+import { speechLangForDocumentLocale } from 'src/app/services/speech-lang.logic';
 
 @Component({
   standalone: true,
@@ -59,6 +61,7 @@ export class LectioComponent implements OnInit, OnDestroy {
     private readonly palabra: PalabraDelDiaService,
     private readonly readerPrefs: ReaderPreferencesService,
     private readonly navigation: NavigationService,
+    private readonly narrator: NarratorService,
     private readonly router: Router,
   ) {}
 
@@ -108,6 +111,7 @@ export class LectioComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+    void this.narrator.cancel();
   }
 
   t(key: string): string {
@@ -171,6 +175,19 @@ export class LectioComponent implements OnInit, OnDestroy {
         },
       }),
     );
+  }
+
+  async listenReflection(): Promise<void> {
+    const text = (this.day.reflectionText || '').trim();
+    if (!text) return;
+    await this.narrator.cancel();
+    const locale =
+      this.corpus.getMeta(this.bibleDocId)?.locale ||
+      this.readerPrefs.resolveContentLocale();
+    await this.narrator.speak(text, {
+      lang: speechLangForDocumentLocale(locale),
+      rate: 1,
+    });
   }
 
   openMethod(): void {

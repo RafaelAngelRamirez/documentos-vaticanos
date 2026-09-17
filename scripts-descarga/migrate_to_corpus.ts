@@ -12,6 +12,12 @@ import type {
   CorpusManifest,
   DocumentMeta,
 } from "./models/corpus.model";
+import {
+  CANONICAL_CORPUS_ROOT,
+  CORPUS_ROOTS,
+  syncDocToAssets,
+  syncManifestToAssets,
+} from "./src/pipeline/write_corpus";
 
 const CORPUS_VERSION = "1.0.0";
 
@@ -44,12 +50,7 @@ const SOURCES: SourceDoc[] = [
   },
 ];
 
-const repoRoot = path.resolve(__dirname, "..");
 const sourceDir = path.join(__dirname, "documentos");
-const corpusRoots = [
-  path.join(repoRoot, "documentos", "corpus"),
-  path.join(repoRoot, "frontend", "src", "assets", "corpus"),
-];
 
 function ensureDir(dir: string): void {
   fs.mkdirSync(dir, { recursive: true });
@@ -113,7 +114,6 @@ function normalizeIndex(raw: unknown, label: string): CorpusIndex {
 
 function migrateOne(
   source: SourceDoc,
-  roots: string[],
 ): { meta: DocumentMeta; termCount: number; puntoCount: number } {
   const bodySrc = path.join(sourceDir, `${source.sourceBase}.json`);
   const indexSrc = path.join(sourceDir, `${source.sourceBase}.index.json`);
@@ -146,19 +146,14 @@ function migrateOne(
     unitCount,
   };
 
-  for (const root of roots) {
-    const docDir = path.join(root, "documents", source.id);
-    ensureDir(docDir);
-
-    // Prefer copy for large body files (preserves exact bytes)
-    copyFile(bodySrc, path.join(root, relBody));
-    writeJson(path.join(root, relIndex), index);
-    writeJson(path.join(root, relMeta), meta);
-
-    console.log(
-      `[✓] ${source.id}: wrote content/index/meta → ${docDir}`,
-    );
-  }
+  const root = CANONICAL_CORPUS_ROOT;
+  const docDir = path.join(root, "documents", source.id);
+  ensureDir(docDir);
+  copyFile(bodySrc, path.join(root, relBody));
+  writeJson(path.join(root, relIndex), index);
+  writeJson(path.join(root, relMeta), meta);
+  syncDocToAssets(source.id);
+  console.log(`[✓] ${source.id}: wrote content/index/meta → ${docDir}`);
 
   console.log(
     `[✓] ${source.id}: units=${unitCount}, términos=${termCount}, puntos_mapeados=${puntoCount}`,
@@ -170,10 +165,8 @@ function migrateOne(
 function main(): void {
   console.log("[+] migrate_to_corpus: offline, no network");
   console.log(`[+] source: ${sourceDir}`);
-  for (const root of corpusRoots) {
-    console.log(`[+] target corpus root: ${root}`);
-    ensureDir(path.join(root, "documents"));
-  }
+  console.log(`[+] canonical: ${CANONICAL_CORPUS_ROOT}`);
+  ensureDir(path.join(CANONICAL_CORPUS_ROOT, "documents"));
 
   const documents: DocumentMeta[] = [];
   const stats: {
@@ -184,7 +177,7 @@ function main(): void {
   }[] = [];
 
   for (const source of SOURCES) {
-    const { meta, termCount, puntoCount } = migrateOne(source, corpusRoots);
+    const { meta, termCount, puntoCount } = migrateOne(source);
     documents.push(meta);
     stats.push({
       id: meta.id,
@@ -200,11 +193,11 @@ function main(): void {
     documents,
   };
 
-  for (const root of corpusRoots) {
-    const manifestPath = path.join(root, "manifest.json");
-    writeJson(manifestPath, manifest);
-    console.log(`[✓] manifest → ${manifestPath}`);
-  }
+  const manifestPath = path.join(CANONICAL_CORPUS_ROOT, "manifest.json");
+  writeJson(manifestPath, manifest);
+  syncManifestToAssets();
+  console.log(`[✓] manifest → ${manifestPath}`);
+  console.log(`[✓] assets copy → ${CORPUS_ROOTS[1]}`);
 
   console.log("");
   console.log("=== Corpus migration stats ===");

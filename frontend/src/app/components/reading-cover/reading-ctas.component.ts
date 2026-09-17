@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 
 /**
  * CTAs de lectura de portada 2A/5C (§2.4): Comenzar/Continuar, Escuchar, Reiniciar.
@@ -14,7 +16,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       {{ positionLabel }}
     </div>
 
-    <div [class.ctas-stack]="layout === 'stack'" [class.ctas-inline]="layout === 'inline'">
+    <div
+      [class.ctas-stack]="layout === 'stack'"
+      [class.ctas-inline]="layout === 'inline'"
+      [attr.data-tick]="localeTick"
+    >
       <button
         type="button"
         class="primary"
@@ -30,7 +36,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
         *ngIf="showListen"
         (click)="listen.emit()"
       >
-        ▶ Escuchar con narrador
+        ▶ {{ t('reader.listen') }}
       </button>
       <ng-content select="[cta-extra]"></ng-content>
       <button
@@ -112,7 +118,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     `,
   ],
 })
-export class ReadingCtasComponent {
+export class ReadingCtasComponent implements OnDestroy {
   @Input() canContinue = false;
   @Input() showRestart = true;
   @Input() showListen = true;
@@ -126,8 +132,27 @@ export class ReadingCtasComponent {
   @Output() listen = new EventEmitter<void>();
   @Output() restart = new EventEmitter<void>();
 
+  localeTick = 0;
+  private sub = new Subscription();
+
+  constructor(public i18n: UiI18nService) {
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+
+  t(key: string, params?: Record<string, string | number>): string {
+    return this.i18n.t(key, params);
+  }
+
   get startLabelResolved(): string {
     if (this.startLabel) return this.startLabel;
-    return this.canContinue ? 'Continuar la lectura' : 'Comenzar la lectura';
+    return this.canContinue ? this.t('common.continue') : this.t('reader.start');
   }
 }

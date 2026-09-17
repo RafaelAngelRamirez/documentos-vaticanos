@@ -1,6 +1,6 @@
-<div class="app-product web-shell has-bnav">
+<div class="app-product web-shell has-bnav" [attr.data-tick]="localeTick">
   <app-wbar active="estudio"></app-wbar>
-  <app-fbar title="Estudio" class="hide-desktop"></app-fbar>
+  <app-fbar [title]="t('study.title')" class="hide-desktop"></app-fbar>
 
   <!-- 1C móvil (contenido estrecho) + 5E desktop (wcols) -->
   <div class="fbody estudio-body">
@@ -8,17 +8,17 @@
       {{ greeting }}, {{ auth.user.name }}
     </div>
     <div class="greet estudio-greet">
-      {{ auth.isLoggedIn ? 'Continúe donde lo dejó' : 'Estudio' }}
+      {{ auth.isLoggedIn ? t('study.continue_where') : t('study.title') }}
     </div>
 
-    <div *ngIf="error" class="empty" style="color: #8b3a3a">{{ error }}</div>
+    <div *ngIf="error" class="empty" style="color: var(--app-danger)">{{ error }}</div>
 
     <div class="estudio-cols">
       <div class="estudio-main">
         <div class="card" *ngIf="lastRead as lr">
           <div class="fx ac jb">
             <div class="fs12 upper muted" style="letter-spacing: 0.14em">
-              Lectura en curso
+              {{ t('study.in_progress') }}
             </div>
             <span class="fs12" style="color: var(--ok)" *ngIf="progressPct"
               >{{ progressPct }} %</span
@@ -28,7 +28,7 @@
             {{ lr.title }}
           </div>
           <div class="fs13 muted" style="margin-top: 4px">
-            Unidad {{ lr.unitIndex }} · {{ progressPct }} % leído
+            {{ t('study.unit_n', { n: lr.unitIndex }) }} · {{ progressPct }} % leído
           </div>
           <div class="prog">
             <div class="progfill" [style.width.%]="progressPct"></div>

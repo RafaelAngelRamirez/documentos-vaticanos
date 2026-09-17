@@ -1,9 +1,9 @@
-<div class="app-product web-shell">
+<div class="app-product web-shell" [attr.data-tick]="localeTick">
   <app-wbar active="estudio"></app-wbar>
 
   <!-- 3G móvil -->
   <div class="only-mobile">
-    <app-fbar title="Mis notas"></app-fbar>
+    <app-fbar [title]="t('notes.title')"></app-fbar>
     <div class="fbody">
       <div class="tabs">
         <button
@@ -62,7 +62,7 @@
     </aside>
     <div class="wbody">
       <div class="fx ac jb" style="margin-bottom: 16px">
-        <h2 class="h2">Mis notas</h2>
+        <h2 class="h2">{{ t('notes.title') }}</h2>
         <div class="fx gap8">
           <button
             type="button"

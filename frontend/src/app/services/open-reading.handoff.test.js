@@ -106,6 +106,39 @@ async function main() {
   const pagesTs = read('pages/pages.component.ts');
   assert.ok(/isImmersivePath/.test(pagesTs), 'PagesComponent uses isImmersivePath');
 
+  const openReadingOnly = [
+    'pages/explorar/explorar.component.ts',
+    'pages/notas/notas.component.ts',
+    'pages/aprendizaje/aprendizaje.component.ts',
+    'pages/list-documents-pages/list-documents-pages.component.ts',
+  ];
+  const rawLeyendo = /navigate\(\s*\[[^\]]*(leyendo|ROUTE\.leyendo)/;
+  for (const rel of openReadingOnly) {
+    const src = read(rel);
+    assert.ok(!rawLeyendo.test(src), `${rel} must not raw-navigate to /leyendo`);
+    assert.ok(/openReading\(/.test(src), `${rel} must use openReading`);
+  }
+
+  const routing = read('pages/pages-routing.module.ts');
+  assert.ok(
+    /list_documents[\s\S]*redirectTo:\s*['"]\/biblioteca['"]/.test(routing),
+    'legacy /documentos/listar redirects to /biblioteca',
+  );
+  const cuentaHtml = read('pages/cuenta/cuenta.component.html');
+  assert.ok(
+    /routerLink=["']\/biblioteca["']/.test(cuentaHtml),
+    'cuenta continue_offline links to /biblioteca',
+  );
+  assert.ok(
+    !/routerLink=["']\/documentos\/listar["']/.test(cuentaHtml),
+    'cuenta does not link to /documentos/listar',
+  );
+  const navTs = read('services/navigation.service.ts');
+  assert.ok(
+    /go_to_search\(\)\s*\{[\s\S]*navigate\(\s*\[[^\]]*buscar/.test(navTs),
+    'go_to_search navigates to /buscar',
+  );
+
   const speechFiles = walkTsHtml(APP).filter((f) => {
     const src = fs.readFileSync(f, 'utf8');
     return /speechSynthesis/.test(src);

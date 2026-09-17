@@ -1,4 +1,4 @@
-<div class="app welcome">
+<div class="app welcome" [attr.data-tick]="localeTick">
   <div class="wbody">
     <div class="mark">DV</div>
     <div class="wtitle serif" [innerHTML]="t('inicio.title_html')"></div>
@@ -44,7 +44,7 @@
               data-testid="inicio-lectura-listen"
               (click)="listenLectura(r, $event)"
             >
-              {{ listeningLecturaId === r.id ? 'Abriendo…' : '▶ Escuchar' }}
+              {{ listeningLecturaId === r.id ? 'Abriendo…' : t('inicio.listen') }}
             </button>
             <button
               type="button"
@@ -52,7 +52,7 @@
               data-testid="inicio-lectura-read"
               (click)="openLectura(r)"
             >
-              Leer ›
+              {{ t('inicio.read') }}
             </button>
           </div>
         </li>
@@ -120,7 +120,7 @@
               data-testid="inicio-saint-listen"
               (click)="listenSaint(s, $event)"
             >
-              {{ listeningSaintId === s.id ? 'Abriendo…' : '▶ Escuchar' }}
+              {{ listeningSaintId === s.id ? 'Abriendo…' : t('inicio.listen') }}
             </button>
             <a
               class="wsaints-cta"

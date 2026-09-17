@@ -135,7 +135,7 @@ export class RelatedUnitsPanelComponent implements OnChanges {
 
     // Load topic pack (graph) + seed doc first, then hubs + graph neighbor docs.
     this.topics
-      .loadPack(locale)
+      .loadGraphs(locale)
       .pipe(
         catchError(() => of(null)),
         switchMap((pack) => {

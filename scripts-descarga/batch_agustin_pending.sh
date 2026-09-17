@@ -107,7 +107,8 @@ print(v['driveFileId'], v.get('resourceKey') or '', v['corpusDocId'], title.repl
       continue
     fi
     log "OCR n=$n jobs=$OCR_JOBS"
-    bash "$SCRIPTS/ocr_padres_volume.sh" \
+    bash "$SCRIPTS/ocr_volume.sh" \
+      --source-root padres-source \
       --pdf "$pdf" --doc-id "$docid" --jobs "$OCR_JOBS" --dpi 130 --lang spa_fast \
       || { log "OCR FAIL n=$n"; continue; }
     clean="$REPO/documentos/padres-source/clean/${docid}.txt"

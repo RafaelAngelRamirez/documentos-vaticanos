@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import {
   Anotacion,
   AnotacionesService,
@@ -12,7 +13,7 @@ import {
   ReferencesService,
 } from 'src/app/core/account/references.service';
 import { AuthService } from 'src/app/core/auth/auth.service';
-import { ROUTE } from 'src/app/services/navigation.service';
+import { NavigationService } from 'src/app/services/navigation.service';
 import { environment } from 'src/environments/environment';
 import { RouterModule } from '@angular/router';
 
@@ -26,22 +27,38 @@ type Tab = 'subrayados' | 'marcadores' | 'notas';
   templateUrl: './notas.component.html',
   styleUrls: ['./notas.component.css'],
 })
-export class NotasComponent implements OnInit {
+export class NotasComponent implements OnInit, OnDestroy {
   tab: Tab = 'subrayados';
   refs: PersonalReference[] = [];
   refsLoading = false;
   refsError: string | null = null;
   apiEnabled = Boolean(environment.apiBaseUrl);
+  localeTick = 0;
+  private sub = new Subscription();
 
   constructor(
+    public i18n: UiI18nService,
     public auth: AuthService,
     private anotaciones: AnotacionesService,
     private references: ReferencesService,
-    private router: Router
+    private navigation: NavigationService,
   ) {}
 
+  t(key: string, params?: Record<string, string | number>): string {
+    return this.i18n.t(key, params);
+  }
+
   ngOnInit(): void {
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
     this.loadRefs();
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   get subrayados(): Anotacion[] {
@@ -109,7 +126,7 @@ export class NotasComponent implements OnInit {
   }
 
   open(x: { documentId: string; unitIndex: number }): void {
-    this.router.navigate([ROUTE.leyendo, x.documentId, ROUTE.punto, x.unitIndex]);
+    this.navigation.openReading(x.documentId, { unitIndex: x.unitIndex });
   }
 
   removeAnotacion(ev: Event, id: string): void {

@@ -4,7 +4,14 @@
  */
 
 /** Known document kinds; open string allows future packs. */
-export type DocumentKind = "catechism" | "bible" | string;
+export type DocumentKind =
+  | "magisterium"
+  | "patristic"
+  | "council"
+  | "canon-law"
+  | "catechism"
+  | "bible"
+  | string;
 
 /**
  * Per-document metadata. Paths are relative to the corpus root

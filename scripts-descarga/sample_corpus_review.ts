@@ -5,15 +5,19 @@
  *   npx ts-node --transpile-only sample_corpus_review.ts --inventory --limit 20
  *   npx ts-node --transpile-only sample_corpus_review.ts --ids agustin-02-confesiones-es --apply-sample-fixes
  *
- * Does not re-OCR. Dual-write content only when --apply-sample-fixes and
- * decision is sample-pass or full-review (mechanical a+b). Re-OCR ids are listed.
+ * Does not re-OCR. Writes canonical content only when --apply-sample-fixes and
+ * decision is sample-pass or full-review (mechanical a+b), then copies to assets.
+ * Re-OCR ids are listed.
  */
 import fs from "fs";
 import path from "path";
 import type { TrasnportData } from "./models/transport_data.model";
 import type { CorpusManifest } from "./models/corpus.model";
 import { buildIndex } from "./src/pipeline/build_index";
-import { CORPUS_ROOTS } from "./src/pipeline/write_corpus";
+import {
+  CANONICAL_CORPUS_ROOT,
+  syncDocToAssets,
+} from "./src/pipeline/write_corpus";
 import {
   OCR_GARBAGE_PLACEHOLDER,
   repairOcrNoiseUnit,
@@ -69,7 +73,7 @@ function hasFlag(name: string): boolean {
 }
 
 function primaryCorpusRoot(): string {
-  return path.join(REPO, "documentos", "corpus");
+  return CANONICAL_CORPUS_ROOT;
 }
 
 function loadUnits(docId: string): TrasnportData[] {
@@ -85,12 +89,11 @@ function loadUnits(docId: string): TrasnportData[] {
 
 function dualWrite(docId: string, units: TrasnportData[]): void {
   const index = buildIndex(units);
-  for (const root of CORPUS_ROOTS) {
-    const docDir = path.join(root, "documents", docId);
-    if (!fs.existsSync(docDir)) continue;
-    writeJson(path.join(docDir, "content.json"), units, false);
-    writeJson(path.join(docDir, "index.json"), index, false);
-  }
+  const docDir = path.join(CANONICAL_CORPUS_ROOT, "documents", docId);
+  if (!fs.existsSync(docDir)) return;
+  writeJson(path.join(docDir, "content.json"), units, false);
+  writeJson(path.join(docDir, "index.json"), index, false);
+  syncDocToAssets(docId);
 }
 
 function applyMechanical(units: TrasnportData[]): {

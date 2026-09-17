@@ -1,4 +1,4 @@
-<div class="app has-bnav">
+<div class="app has-bnav" [attr.data-tick]="localeTick">
   <!-- 3H.html:5-7 · fbar sin avatar -->
   <app-fbar [title]="t('settings.title')" [avatar]="false"></app-fbar>
 
@@ -26,7 +26,7 @@
       <div class="profrow">
         <span class="avatar av54">DV</span>
         <div>
-          <div class="profname">Sin sesión</div>
+          <div class="profname">{{ t('settings.no_session') }}</div>
           <div class="fs13 muted profmail">La lectura funciona sin cuenta</div>
         </div>
       </div>
@@ -83,7 +83,7 @@
       >
     </div>
     <div class="setrow">
-      <span class="setk">Tamaño del texto</span>
+      <span class="setk">{{ t('settings.font_size') }}</span>
       <span class="stepbtn mini">
         <button
           type="button"
@@ -105,7 +105,7 @@
       </span>
     </div>
     <div class="setrow">
-      <span class="setk">Fuente</span>
+      <span class="setk">{{ t('settings.font') }}</span>
       <span class="stepbtn mini">
         <button
           type="button"
@@ -148,7 +148,7 @@
       </button>
     </div>
     <div class="setrow">
-      <span>Mantener pantalla encendida</span>
+      <span>{{ t('settings.keep_awake') }}</span>
       <button
         type="button"
         class="sw2"
@@ -156,7 +156,7 @@
         [class.on]="prefs.keepAwake"
         [attr.aria-checked]="prefs.keepAwake"
         (click)="toggleKeepAwake()"
-        aria-label="Mantener pantalla encendida"
+        [attr.aria-label]="t('settings.keep_awake')"
       ></button>
     </div>
 

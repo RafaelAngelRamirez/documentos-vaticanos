@@ -63,8 +63,7 @@ El narrador 5D ofrece voces **Grok** (xAI TTS) con una **API key por dispositivo
 3. Activa «Usar voces Grok» y elige voz preferida.
 
 - La clave vive solo en `localStorage` (`dv.narr.prefs.v1`); **no** se sube a la cuenta ni entra en el backup exportado.
-- El cliente llama a `https://api.x.ai/v1/tts` con esa clave; sin clave o sin red → solo Web Speech / Capacitor.
-- Opcional en servidor: `XAI_API_KEY` + proxy `/api/v1/tts/*` siguen existiendo para pruebas de backend, pero el camino de producto es la key del dispositivo.
+- El cliente llama a `https://api.x.ai/v1/tts` con esa clave; sin clave o sin red → solo Web Speech / Capacitor. La clave del dispositivo es el camino de producto. No hay proxy TTS en el backend.
 
 ## Tests
 
@@ -75,8 +74,7 @@ yarn test:scrape
 # API (con stack api+postgres arriba)
 yarn test:api
 
-# Proxy TTS Grok + lógica del narrador (sin clave real; stubs de red)
-yarn test:tts
+# Lógica del narrador Grok (cliente → api.x.ai; sin clave real)
 yarn test:narrator-grok
 
 # Playwright vía compose

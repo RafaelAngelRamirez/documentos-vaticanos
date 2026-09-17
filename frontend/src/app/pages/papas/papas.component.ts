@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { BnavComponent } from 'src/app/components/bnav/bnav.component';
 import {
@@ -9,6 +10,7 @@ import {
   EraListItem,
 } from 'src/app/components/era-list/era-list.component';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { PapacyService } from 'src/app/core/papacy/papacy.service';
 import {
   filterPopes,
@@ -32,7 +34,7 @@ import { PopeRecord } from 'src/app/core/papacy/papacy.models';
   templateUrl: './papas.component.html',
   styleUrls: ['./papas.component.css'],
 })
-export class PapasComponent implements OnInit {
+export class PapasComponent implements OnInit, OnDestroy {
   all: PopeRecord[] = [];
   groups: EraListGroup[] = [];
   loading = true;
@@ -41,13 +43,25 @@ export class PapasComponent implements OnInit {
   filter = '';
   saintCount = 0;
   corpusCount = 0;
+  localeTick = 0;
+  private sub = new Subscription();
 
   constructor(
+    public i18n: UiI18nService,
     private papacy: PapacyService,
     private router: Router,
   ) {}
 
+  t(key: string, params?: Record<string, string | number>): string {
+    return this.i18n.t(key, params);
+  }
+
   ngOnInit(): void {
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
     this.papacy.loadManifest().subscribe({
       next: () => {
         this.all = this.papacy.listPopes();
@@ -64,6 +78,10 @@ export class PapasComponent implements OnInit {
         this.loading = false;
       },
     });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   onFilter(ev: Event): void {

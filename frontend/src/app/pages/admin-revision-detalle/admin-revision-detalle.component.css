@@ -5,7 +5,7 @@
   color: var(--ink);
   /* Tono de "estado rechazado" del DS (.p-no de _styles.css); mismo valor
      expuesto como var local, sin hex nuevos en las reglas. */
-  --p-no-ink: #b0563a;
+  --p-no-ink: var(--app-danger);
 }
 
 /* Acción "Rechazar" = estado rechazado → tono .p-no del DS */
@@ -39,7 +39,7 @@
 
 .col-main {
   flex: 1;
-  max-width: 640px;
+  max-width: var(--app-measure);
   min-width: 0;
 }
 

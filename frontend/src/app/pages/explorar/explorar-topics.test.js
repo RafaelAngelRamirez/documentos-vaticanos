@@ -37,6 +37,10 @@ function main() {
     'calls loadPack for topic pack',
   );
   assert.ok(
+    src.includes('loadGraphs'),
+    'relaciones loads graphs via loadGraphs',
+  );
+  assert.ok(
     !/\bensureAllLoaded\b/.test(src),
     'no ensureAllLoaded (corpus-wide preload forbidden here)',
   );
@@ -75,7 +79,10 @@ function main() {
   console.log('  ok');
 
   section('relaciones tab + route');
-  assert.ok(html.includes('Relaciones'), 'Relaciones tab in template');
+  assert.ok(
+    html.includes("explore.relations"),
+    'Relaciones tab in template',
+  );
   assert.ok(
     /relaciones/.test(src),
     'tab relaciones in component',

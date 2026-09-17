@@ -63,6 +63,16 @@
         <blockquote class="quote" data-testid="lectio-reflection">
           {{ day.reflectionText }}
         </blockquote>
+        <div class="lectio-actions">
+          <button
+            type="button"
+            class="gbtn"
+            data-testid="lectio-reflection-listen"
+            (click)="listenReflection()"
+          >
+            {{ t('lectio.listen_reflection') }}
+          </button>
+        </div>
         <p class="app-muted lectio-attr" *ngIf="day.reflectionAttribution">
           {{ day.reflectionAttribution }}
         </p>

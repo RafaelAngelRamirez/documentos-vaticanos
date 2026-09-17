@@ -15,10 +15,6 @@ const HERE = __dirname;
 const LOGIC_TS = path.join(HERE, 'narrator-grok.logic.ts');
 const SERVICE_TS = path.join(HERE, 'narrator.service.ts');
 const LECTOR_TS = path.resolve(HERE, '../components/lector/lector.component.ts');
-const BACKEND_TTS = path.resolve(
-  HERE,
-  '../../../../backend/src/routes/tts.ts',
-);
 
 function section(name) {
   console.log(`\n== ${name} ==`);
@@ -39,8 +35,6 @@ async function main() {
   assert.ok(svc.includes('xaiAuthHeaders') || svc.includes('xaiApiKey'), 'device API key auth');
   const lector = fs.readFileSync(LECTOR_TS, 'utf8');
   assert.ok(lector.includes('narrVoicePillLabel'), 'lector uses pill label helper');
-  // Backend proxy optional/legacy; client key is primary.
-  assert.ok(fs.existsSync(BACKEND_TTS) || true);
 
   const {
     isGrokVoice,

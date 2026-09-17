@@ -1,6 +1,6 @@
-<div class="app-product web-shell">
+<div class="app-product web-shell" [attr.data-tick]="localeTick">
   <app-wbar active="temas"></app-wbar>
-  <app-fbar title="Mis temas" class="hide-desktop"></app-fbar>
+  <app-fbar [title]="t('themes.title')" class="hide-desktop"></app-fbar>
 
   <div class="fbody">
     <div class="fs13 muted" style="line-height: 1.6; margin-bottom: 8px">

@@ -41,7 +41,7 @@ documentId  +  unitIndex
 | `leo-xiii` | `leon-xiii` |
 | `pius-ix` … `pius-xii` | `pio-ix` … `pio-xii` |
 
-Hoy hay **226 packs** ya en corpus ligados (sobre todo JPII, Pablo VI, León XIII, Juan XXIII). Francisco y Benedicto XVI **aún no tienen packs** de encíclicas/cartas en el corpus.
+Hoy hay **226 packs** ya en corpus ligados (sobre todo JPII, Pablo VI, León XIII, Juan XXIII). Francisco y Benedicto XVI también tienen packs de encíclicas y cartas en el corpus de lectura (`laudato-si-es`, `fratelli-tutti-es`, `deus-caritas-est-es`, `caritas-in-veritate-es`, y otros). El pack `papacy/` no es corpus de lectura. Las citas siguen siendo `documentId` + `unitIndex`.
 
 ## Import masivo (ya corrido)
 
@@ -67,7 +67,7 @@ El catálogo vive en `documentos/papacy-source/inventory/apostolic-letters.json`
 
 Prioridad sugerida para el scraper (ES oficial, luego twins):
 
-1. Cartas apostólicas / encíclicas de **Francisco** y **Benedicto XVI** (hueco actual del corpus).
+1. Cartas apostólicas / encíclicas de **Francisco** y **Benedicto XVI** que aún no estén en el corpus de lectura (varios packs ya existen; el pack `papacy/` no los sustituye).
 2. Cartas apostólicas de **Juan Pablo II** que aún no están (`md`, `nmi`, `tma`, `sa` ya están).
 3. León XIV (archivo nuevo en vatican.va).
 4. No importar homilías/audiencias/viajes en esta oleada (no son “cartas apostólicas”).

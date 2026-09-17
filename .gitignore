@@ -68,8 +68,11 @@ documentos/concilios-source/pdf/
 documentos/concilios-source/raw/
 
 
-# Scrape work copies (canonical corpus is documentos/corpus + frontend assets)
+# Scrape work copies (canonical pack is documentos/corpus)
 scripts-descarga/documentos/
+
+# Ship copy of the canonical pack (regenerate with npm run corpus:sync-assets)
+frontend/src/assets/corpus/documents/
 
 # AI locale-twin MT checkpoints / intermediate clean dumps (resume-local only)
 documentos/magisterium-source/clean/

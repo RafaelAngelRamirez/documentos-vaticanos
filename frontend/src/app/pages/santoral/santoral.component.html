@@ -1,4 +1,4 @@
-<div class="app has-bnav web-shell">
+<div class="app has-bnav web-shell" [attr.data-tick]="localeTick">
   <app-wbar active="santoral"></app-wbar>
   <div class="only-mobile">
     <app-fbar
@@ -10,7 +10,7 @@
   </div>
 
   <div class="fbody santoral-body">
-    <h2 class="h2 only-desktop">Santoral</h2>
+    <h2 class="h2 only-desktop">{{ t('saints.title') }}</h2>
     <div class="fs14 muted" style="line-height: 1.6; max-width: 70ch">
       Vidas de santos y beatos (Santa Sede y Padres) con las obras del corpus
       disponibles sin conexión. Los pontífices están también en

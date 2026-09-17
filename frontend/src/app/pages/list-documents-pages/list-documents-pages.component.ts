@@ -15,7 +15,7 @@ import {
   LastRead,
   ReadingProgressService,
 } from 'src/app/services/reading-progress.service';
-import { ROUTE } from 'src/app/services/navigation.service';
+import { NavigationService } from 'src/app/services/navigation.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 
@@ -36,6 +36,16 @@ const TAB_BY_TIPO: Record<string, string> = {
   Catecismo: 'Catecismo',
   'Sagrada Escritura': 'Escritura',
   'Padres de la Iglesia': 'Padres',
+};
+
+const TAB_LABEL_KEY: Record<string, string> = {
+  Todos: 'library.all',
+  Concilios: 'library.tab_councils',
+  Encíclicas: 'library.tab_encyclicals',
+  Catecismo: 'library.tab_catechism',
+  Escritura: 'library.tab_scripture',
+  Padres: 'library.tab_fathers',
+  Otros: 'library.tab_other',
 };
 
 /** Pantalla 3D · Biblioteca + 5B web. Catálogo = manifest only (no body preload). */
@@ -71,6 +81,7 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
     private progress: ReadingProgressService,
     private readerPrefs: ReaderPreferencesService,
     public i18n: UiI18nService,
+    private navigation: NavigationService,
   ) {
     this.sub.add(
       this.i18n.locale$.subscribe(() => {
@@ -82,6 +93,10 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
   t(key: string, params?: Record<string, string | number>): string {
     void this.localeTick;
     return this.i18n.t(key, params);
+  }
+
+  tabLabel(tab: string): string {
+    return this.t(TAB_LABEL_KEY[tab] || tab);
   }
 
   ngOnInit(): void {
@@ -228,12 +243,9 @@ export class ListDocumentsPagesComponent implements OnInit, OnDestroy {
     if (!this.lastRead) {
       return;
     }
-    this.router.navigate([
-      ROUTE.leyendo,
-      this.lastRead.documentId,
-      ROUTE.punto,
-      this.lastRead.unitIndex,
-    ]);
+    this.navigation.openReading(this.lastRead.documentId, {
+      unitIndex: this.lastRead.unitIndex,
+    });
   }
 
   /** Flujo del diseño: Biblioteca → Detalle (2A/5C), no directo al lector. */

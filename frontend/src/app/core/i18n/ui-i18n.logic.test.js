@@ -199,6 +199,7 @@ async function main() {
     'settings.notifications',
     'inicio.lectio_today',
     'lectio.title',
+    'lectio.listen_reflection',
     'lectio.step.lectio_q',
     'reader.loading',
     'reader.start',
@@ -215,6 +216,41 @@ async function main() {
     'inicio.start',
     'inicio.have_account',
     'inicio.saints_today',
+    'explore.title',
+    'explore.masters',
+    'explore.topics',
+    'explore.epochs',
+    'explore.relations',
+    'study.title',
+    'study.continue_where',
+    'study.in_progress',
+    'study.unit_n',
+    'parents.title',
+    'parents.lede',
+    'doctors.title',
+    'popes.title',
+    'saints.title',
+    'notes.title',
+    'themes.title',
+    'learning.title',
+    'about.title',
+    'lectio.listen_reflection',
+    'common.listen',
+    'library.tab_councils',
+    'library.tab_encyclicals',
+    'library.tab_catechism',
+    'library.tab_scripture',
+    'library.tab_fathers',
+    'library.tab_other',
+    'library.continue',
+    'settings.font_size',
+    'settings.font',
+    'settings.keep_awake',
+    'settings.no_session',
+    'reader.listen',
+    'reader.read',
+    'inicio.listen',
+    'inicio.read',
   ];
   for (const loc of LOCALES) {
     for (const key of required) {
@@ -227,6 +263,55 @@ async function main() {
       assert.notStrictEqual(val, key, `${loc}: value is key leftover for ${key}`);
     }
   }
+
+  const newChromeKeys = [
+    'explore.title',
+    'explore.masters',
+    'explore.topics',
+    'explore.epochs',
+    'explore.relations',
+    'study.title',
+    'study.continue_where',
+    'study.in_progress',
+    'study.unit_n',
+    'parents.title',
+    'parents.lede',
+    'doctors.title',
+    'popes.title',
+    'saints.title',
+    'notes.title',
+    'themes.title',
+    'learning.title',
+    'about.title',
+    'lectio.listen_reflection',
+    'common.listen',
+    'library.tab_councils',
+    'library.tab_encyclicals',
+    'library.tab_catechism',
+    'library.tab_scripture',
+    'library.tab_fathers',
+    'library.tab_other',
+    'library.continue',
+    'settings.font_size',
+    'settings.font',
+    'settings.keep_awake',
+    'settings.no_session',
+    'reader.listen',
+    'reader.read',
+    'inicio.listen',
+    'inicio.read',
+  ];
+  for (const loc of LOCALES.filter((l) => l !== 'es')) {
+    for (const key of newChromeKeys) {
+      assert.notStrictEqual(
+        catalogs[loc][key],
+        catalogs.es[key],
+        `${loc}: leftover Spanish for ${key}`,
+      );
+    }
+  }
+  assert.strictEqual(L.t(catalogs, 'es', 'study.unit_n', { n: 3 }), 'Unidad 3');
+  assert.strictEqual(L.t(catalogs, 'en', 'study.unit_n', { n: 3 }), 'Unit 3');
 
   // Chrome surfaces: keys used by shipped component templates
   const chromeKeysBySurface = {
@@ -259,7 +344,43 @@ async function main() {
       'inicio.start',
       'inicio.saints_today',
       'inicio.lectio_today',
+      'inicio.listen',
+      'inicio.read',
     ],
+    explorar: [
+      'explore.title',
+      'explore.masters',
+      'explore.topics',
+      'explore.epochs',
+      'explore.relations',
+    ],
+    estudios: [
+      'study.title',
+      'study.continue_where',
+      'study.in_progress',
+      'study.unit_n',
+    ],
+    padres: ['parents.title', 'parents.lede'],
+    doctores: ['doctors.title'],
+    papas: ['popes.title'],
+    santoral: ['saints.title'],
+    notas: ['notes.title'],
+    temas: ['themes.title'],
+    aprendizaje: ['learning.title'],
+    about: ['about.title'],
+    library: [
+      'library.title',
+      'library.all',
+      'library.tab_councils',
+      'library.continue',
+    ],
+    ajustes: [
+      'settings.font_size',
+      'settings.font',
+      'settings.keep_awake',
+      'settings.no_session',
+    ],
+    cover: ['reader.listen'],
     cuenta: [
       'account.title',
       'account.logout',
@@ -298,6 +419,118 @@ async function main() {
         path.join(root, 'app/pages/inicio/inicio.component.html'),
         'utf8',
       ),
+    explorar:
+      fs.readFileSync(
+        path.join(root, 'app/pages/explorar/explorar.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/explorar/explorar.component.html'),
+        'utf8',
+      ),
+    estudios:
+      fs.readFileSync(
+        path.join(root, 'app/pages/estudios/estudios.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/estudios/estudios.component.html'),
+        'utf8',
+      ),
+    padres:
+      fs.readFileSync(
+        path.join(root, 'app/pages/padres/padres.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/padres/padres.component.html'),
+        'utf8',
+      ),
+    doctores:
+      fs.readFileSync(
+        path.join(root, 'app/pages/doctores/doctores.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/doctores/doctores.component.html'),
+        'utf8',
+      ),
+    papas:
+      fs.readFileSync(
+        path.join(root, 'app/pages/papas/papas.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/papas/papas.component.html'),
+        'utf8',
+      ),
+    santoral:
+      fs.readFileSync(
+        path.join(root, 'app/pages/santoral/santoral.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/santoral/santoral.component.html'),
+        'utf8',
+      ),
+    notas:
+      fs.readFileSync(
+        path.join(root, 'app/pages/notas/notas.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/notas/notas.component.html'),
+        'utf8',
+      ),
+    temas:
+      fs.readFileSync(
+        path.join(root, 'app/pages/mis-temas/mis-temas.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/mis-temas/mis-temas.component.html'),
+        'utf8',
+      ),
+    aprendizaje:
+      fs.readFileSync(
+        path.join(root, 'app/pages/aprendizaje/aprendizaje.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/aprendizaje/aprendizaje.component.html'),
+        'utf8',
+      ),
+    about:
+      fs.readFileSync(
+        path.join(root, 'app/pages/about/about.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/about/about.component.html'),
+        'utf8',
+      ),
+    library:
+      fs.readFileSync(
+        path.join(root, 'app/pages/list-documents-pages/list-documents-pages.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/list-documents-pages/list-documents-pages.component.html'),
+        'utf8',
+      ),
+    ajustes:
+      fs.readFileSync(
+        path.join(root, 'app/pages/ajustes/ajustes.component.ts'),
+        'utf8',
+      ) +
+      fs.readFileSync(
+        path.join(root, 'app/pages/ajustes/ajustes.component.html'),
+        'utf8',
+      ),
+    cover: fs.readFileSync(
+      path.join(root, 'app/components/reading-cover/reading-ctas.component.ts'),
+      'utf8',
+    ),
     cuenta:
       fs.readFileSync(
         path.join(root, 'app/pages/cuenta/cuenta.component.ts'),
@@ -334,6 +567,40 @@ async function main() {
       assert.ok(!src.includes('>Cargando documento…<'), 'lector: hardcoded loading');
       assert.ok(!src.includes('>Narrador<'), 'lector: hardcoded Narrador');
       assert.ok(!src.includes('>Inicio del documento<'), 'lector: hardcoded doc start');
+    }
+    if (surface === 'explorar') {
+      assert.ok(!src.includes('title="Explorar"'), 'explorar: hardcoded Explorar title');
+    }
+    if (surface === 'estudios') {
+      assert.ok(!src.includes('title="Estudio"'), 'estudios: hardcoded Estudio title');
+    }
+    if (surface === 'padres') {
+      assert.ok(!src.includes('title="Padres de la Iglesia"'), 'padres: hardcoded title');
+    }
+    if (surface === 'doctores') {
+      assert.ok(!src.includes('title="Doctores de la Iglesia"'), 'doctores: hardcoded title');
+    }
+    if (surface === 'papas') {
+      assert.ok(!src.includes('title="Papas"'), 'papas: hardcoded title');
+    }
+    if (surface === 'notas') {
+      assert.ok(!src.includes('title="Mis notas"'), 'notas: hardcoded title');
+    }
+    if (surface === 'temas') {
+      assert.ok(!src.includes('title="Mis temas"'), 'temas: hardcoded title');
+    }
+    if (surface === 'aprendizaje') {
+      assert.ok(!src.includes('title="Aprendizaje"'), 'aprendizaje: hardcoded title');
+    }
+    if (surface === 'about') {
+      assert.ok(!src.includes('>Acerca de<'), 'about: hardcoded title');
+    }
+    if (surface === 'inicio') {
+      assert.ok(!src.includes('▶ Escuchar'), 'inicio: hardcoded listen');
+      assert.ok(!src.includes('>Leer ›<'), 'inicio: hardcoded read');
+    }
+    if (surface === 'cover') {
+      assert.ok(!src.includes('Escuchar con narrador'), 'cover: hardcoded listen CTA');
     }
     for (const key of keys) {
       assert.ok(

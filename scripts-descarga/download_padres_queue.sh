@@ -13,7 +13,7 @@
 #
 # Does NOT run OCR or write corpus. Pair with:
 #   batch_agustin_pending.sh --skip-download --ns …
-#   ocr_padres_volume.sh / ocr_fast_pool.sh
+#   ocr_volume.sh --source-root padres-source
 set -euo pipefail
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"

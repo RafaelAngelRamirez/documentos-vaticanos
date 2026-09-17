@@ -1,4 +1,11 @@
-export type DocumentKind = 'catechism' | 'bible' | string;
+export type DocumentKind =
+  | 'magisterium'
+  | 'patristic'
+  | 'council'
+  | 'canon-law'
+  | 'catechism'
+  | 'bible'
+  | string;
 
 export interface DocumentMeta {
   id: string;
@@ -50,14 +57,15 @@ export interface Referencia {
     /** Array index preferred (stringified number), or consecutivo. */
     idPunto: string;
   };
+  /** Parser output; pack JSON may omit this. */
+  resolvedAtoms?: unknown;
 }
 
 export interface Article {
   /**
-   * Index position inside the articles array.
-   * Stamped on first load to ease navigation between components.
+   * Index in the articles array. Pack JSON omits it; stamped after load.
    */
-  index_array: number;
+  index_array?: number;
   consecutivo: string;
   contenido: string;
   referencias?: Referencia[];

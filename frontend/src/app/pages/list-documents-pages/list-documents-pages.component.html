@@ -1,4 +1,4 @@
-<div class="app has-bnav web-shell">
+<div class="app has-bnav web-shell" [attr.data-tick]="localeTick">
   <app-wbar active="biblioteca"></app-wbar>
 
   <!-- 3D móvil -->
@@ -18,12 +18,12 @@
           type="button"
           class="tab"
           role="tab"
-          *ngFor="let t of tabs"
-          [class.on]="activeTab === t"
-          [attr.aria-selected]="activeTab === t"
-          (click)="setTab(t)"
+          *ngFor="let tab of tabs"
+          [class.on]="activeTab === tab"
+          [attr.aria-selected]="activeTab === tab"
+          (click)="setTab(tab)"
         >
-          {{ t }}
+          {{ tabLabel(tab) }}
         </button>
       </div>
       <div *ngIf="loading" class="empty" role="status">{{ t('library.loading') }}</div>
@@ -47,15 +47,15 @@
       <button
         type="button"
         class="sitem"
-        *ngFor="let t of sideTabs"
-        [class.on]="activeTab === t"
-        (click)="setTab(t)"
+        *ngFor="let tab of sideTabs"
+        [class.on]="activeTab === tab"
+        (click)="setTab(tab)"
       >
-        {{ t }}
+        {{ tabLabel(tab) }}
       </button>
-      <div class="sect" style="margin: 22px 12px 8px">Mi lectura</div>
+      <div class="sect" style="margin: 22px 12px 8px">{{ t('library.my_reading') }}</div>
       <button type="button" class="sitem" (click)="goContinue()">
-        Continuar
+        {{ t('library.continue') }}
         <ng-container *ngIf="lastReadLabel"> · {{ lastReadLabel }}</ng-container>
       </button>
       <a routerLink="/notas" class="sitem">Marcadores</a>
@@ -67,7 +67,7 @@
         <span class="fs13 muted">{{ t('library.doc_count_offline', { n: docCount }) }}</span>
       </div>
       <div *ngIf="loading" class="fs13 muted">{{ t('common.loading') }}</div>
-      <div *ngIf="load_error" class="fs13" style="color: #b0563a">{{ load_error }}</div>
+      <div *ngIf="load_error" class="fs13" style="color: var(--app-danger)">{{ load_error }}</div>
       <div class="cardgrid" *ngIf="!loading && !load_error">
         <button
           type="button"

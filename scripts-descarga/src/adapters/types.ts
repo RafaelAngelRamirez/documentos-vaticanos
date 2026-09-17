@@ -1,9 +1,9 @@
 /**
  * Multi-source scraper adapter contracts.
- * Content units stay Article / TransportData-compatible for the Angular UI.
+ * Content units stay Article / CorpusUnit-compatible for the Angular UI.
  */
 
-import type { TrasnportData } from "../../models/transport_data.model";
+import type { CorpusUnit } from "../../models/transport_data.model";
 
 /** One entry from config/sources.json */
 export interface SourceConfig {
@@ -46,7 +46,7 @@ export interface SourcesFile {
 /** Result of parsing one HTML page into corpus units. */
 export interface ParsedPage {
   /** Article-like body units (consecutivo + contenido + optional refs). */
-  units: TrasnportData[];
+  units: CorpusUnit[];
   /** Extra URLs discovered on the page (for multi-page sources). */
   discoveredUrls?: string[];
   /** Optional structural headings (chapters, etc.). */
@@ -86,8 +86,8 @@ export interface SourceAdapter {
     ctx?: AdapterContext,
   ): ParsedPage | Promise<ParsedPage>;
   finalize?(
-    units: TrasnportData[],
+    units: CorpusUnit[],
     config: SourceConfig,
     ctx?: AdapterContext,
-  ): TrasnportData[] | Promise<TrasnportData[]>;
+  ): CorpusUnit[] | Promise<CorpusUnit[]>;
 }

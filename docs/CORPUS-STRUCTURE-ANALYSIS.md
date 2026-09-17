@@ -1,4 +1,6 @@
-# Corpus structure & compression analysis
+# 2026-07-18 snapshot. Corpus structure & compression analysis
+
+Pack sizes and document counts in this file are a 2026-07-18 snapshot. The live count is the length of `documents` in `manifest.json` (1446 as of 2026-09-12).
 
 **Date:** 2026-07-18  
 **Branch context:** `typescript-migration`  
@@ -130,18 +132,9 @@ Dropping `index.json` saves ~**71 MiB per pack root** but **breaks offline searc
 | Manifest docs | 125 both; field-identical; only `generatedAt` timestamps differ by ~50 ms |
 | Git tracked bytes (both trees) | ~**366 MiB** working tree; history blobs larger |
 
-Writer still dual-writes:
+Canonical pack is `documentos/corpus/`. `writeCorpusDocument` writes that root, then `syncDocToAssets` / `syncManifestToAssets` copies the ship subset into `frontend/src/assets/corpus/`. Bulk copy: `npm run corpus:sync-assets` (also `package-web`, `package-apk`, `scripts/dev.sh`). `CORPUS_ROOTS` remains `[canonical, assets]` as a derived list. OCR inventories, `revisions/`, `pending-documents.json`, and `unlinked-refs-worksheet.json` stay canonical-only.
 
-```text
-CORPUS_ROOTS = [
-  documentos/corpus,
-  frontend/src/assets/corpus,
-]
-```
-
-in `scripts-descarga/src/pipeline/write_corpus.ts`. Also dual-write: `resolve_refs.ts`, `repair_ocr_noise_corpus.ts`, `repair_ocr_punctuation_corpus.ts`, `fix_bible_labels.ts`.
-
-**Single-root is not free:** Angular build only ships `src/assets`. Removing `documentos/corpus` requires either (a) treating assets as sole canonical root, or (b) build-time copy from one root → assets. Today both are tracked in git, so every pack change costs **2×** checkout/history size.
+**Single-root in git is the remaining win:** Angular build only ships `src/assets`. `.gitignore` already excludes `frontend/src/assets/corpus/documents/`. Parent may `git rm --cached` that tree later. Do not delete `documentos/corpus` without the copy step. The app still loads `assets/corpus` at runtime.
 
 ### 3.2 Work copies (`scripts-descarga/documentos/`)
 
@@ -280,7 +273,7 @@ Scoring: **bytes saved** (order of magnitude) · **offline UX risk** · **citas 
 - **Do not** merge all documents into one archive as the only ship format — breaks lazy load and legibility.  
 - **Do not** reindex units or rename ids as a size tactic.  
 - **Do not** put the full corpus only on the Fase 2 API — violates offline-first (AGENTS.md).  
-- **Do not** treat “delete `documentos/corpus`” as free without a build-time copy — dual-write is still live in `CORPUS_ROOTS`.  
+- **Do not** treat “delete `documentos/corpus`” as free without a build-time copy. That tree is the canonical pack. `npm run corpus:sync-assets` fills `frontend/src/assets/corpus`.  
 - **Do not** invent a chatbot/IA packing layer for the corpus (out of v2.0 scope).
 
 ### Maximum safe target (summary)
@@ -303,7 +296,7 @@ Scoring: **bytes saved** (order of magnitude) · **offline UX risk** · **citas 
 - [ ] Load uses `meta.bodyPath` / `meta.indexPath` via `resolveAssetPath`
 - [ ] IDB fingerprint = `id|bodyPath|indexPath|unitCount`
 - [ ] `unitIndex` = array index after `stampIndexArray`
-- [ ] Dual-write still lists both roots until single-root migration ships
+- [ ] Canonical write + assets copy (`syncDocToAssets` / `npm run corpus:sync-assets`) keeps the ship tree byte-identical
 
 ## Appendix B — Sample dual-root hash pairs (2026-07-18)
 
@@ -321,8 +314,9 @@ Full inventory and command output: goal scratch `corpus-structure-audit.txt`.
 
 | Module | Behavior |
 |--------|----------|
-| `scripts-descarga/src/pipeline/write_corpus.ts` | `CORPUS_ROOTS` dual-write + work copy + registry |
-| `scripts-descarga/resolve_refs.ts` | Dual roots explicit |
-| `scripts-descarga/repair_ocr_*_corpus.ts` | Dual via `CORPUS_ROOTS` |
-| `scripts-descarga/fix_bible_labels.ts` | Hardcoded both content paths |
+| `scripts-descarga/src/pipeline/write_corpus.ts` | Canonical write + `syncDocToAssets` / `syncManifestToAssets` + work copy + registry |
+| `scripts-descarga/resolve_refs.ts` | Canonical write + `syncDocToAssets` |
+| `scripts-descarga/repair_ocr_*_corpus.ts` | Canonical write + doc/manifest copy |
+| `scripts-descarga/fix_bible_labels.ts` | Canonical bible content + `syncDocToAssets` |
+| `scripts/corpus-sync-assets.sh` | Bulk ship-subset rsync/cp |
 | Import entrypoints (`import_council*.ts`, `import_agustin_volume.ts`, …) | Call `writeCorpusDocument` |

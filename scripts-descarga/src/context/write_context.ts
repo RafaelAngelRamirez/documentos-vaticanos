@@ -1,5 +1,5 @@
 /**
- * Dual-write offline historical-context pack next to corpus roots.
+ * Write the offline historical-context pack to documentos/corpus/context, then copy to assets.
  */
 import fs from 'fs';
 import path from 'path';
@@ -8,12 +8,15 @@ import type {
   DocumentContextOverlay,
   HistoricalContextManifest,
 } from '../../models/historical-context.model';
-
-const REPO = path.resolve(__dirname, '../../..');
+import {
+  ASSETS_CORPUS_ROOT,
+  CANONICAL_CORPUS_ROOT,
+  syncCorpusPathToAssets,
+} from '../pipeline/write_corpus';
 
 export const CONTEXT_ROOTS = [
-  path.join(REPO, 'documentos', 'corpus', 'context'),
-  path.join(REPO, 'frontend', 'src', 'assets', 'corpus', 'context'),
+  path.join(CANONICAL_CORPUS_ROOT, 'context'),
+  path.join(ASSETS_CORPUS_ROOT, 'context'),
 ];
 
 function ensureDir(dir: string): void {
@@ -26,7 +29,7 @@ function writeJson(file: string, data: unknown): void {
 }
 
 /**
- * Write authors/, documents/, and manifest.json to every context root.
+ * Write authors/, documents/, and manifest.json to the canonical context pack.
  */
 export function writeHistoricalContextPack(opts: {
   authors: AuthorContextProfile[];
@@ -62,18 +65,17 @@ export function writeHistoricalContextPack(opts: {
     })),
   };
 
-  for (const root of CONTEXT_ROOTS) {
-    ensureDir(path.join(root, 'authors'));
-    ensureDir(path.join(root, 'documents'));
-    // clean stale document overlays not in this build? keep simple: overwrite known files
-    for (const a of authorsSorted) {
-      writeJson(path.join(root, 'authors', `${a.id}.json`), a);
-    }
-    for (const d of docsSorted) {
-      writeJson(path.join(root, 'documents', `${d.documentId}.json`), d);
-    }
-    writeJson(path.join(root, 'manifest.json'), manifest);
+  const root = CONTEXT_ROOTS[0];
+  ensureDir(path.join(root, 'authors'));
+  ensureDir(path.join(root, 'documents'));
+  for (const a of authorsSorted) {
+    writeJson(path.join(root, 'authors', `${a.id}.json`), a);
   }
+  for (const d of docsSorted) {
+    writeJson(path.join(root, 'documents', `${d.documentId}.json`), d);
+  }
+  writeJson(path.join(root, 'manifest.json'), manifest);
+  syncCorpusPathToAssets('context');
 
   return {
     roots: CONTEXT_ROOTS,

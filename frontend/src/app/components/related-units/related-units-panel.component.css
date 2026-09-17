@@ -36,5 +36,5 @@
 
 .related-reason[data-reason='ref'] {
   color: var(--app-acc-ink, var(--app-ink, var(--ink)));
-  background: color-mix(in srgb, var(--app-acc, #c4a35a) 28%, transparent);
+  background: color-mix(in srgb, var(--app-acc) 28%, transparent);
 }

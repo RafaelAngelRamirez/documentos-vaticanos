@@ -1,4 +1,4 @@
-import { TrasnportData } from "./transport_data.model";
+import { CorpusUnit } from "./transport_data.model";
 
 export interface Biblia {
   // Testamento
@@ -7,7 +7,7 @@ export interface Biblia {
     [key: string]: {
       // Capitulo
       [key: string]: {
-        versiculos: Versiculo[] | TrasnportData[];
+        versiculos: Versiculo[] | CorpusUnit[];
       };
     };
   };

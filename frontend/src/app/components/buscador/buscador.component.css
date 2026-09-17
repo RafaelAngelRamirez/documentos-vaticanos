@@ -7,7 +7,7 @@
 }
 
 .error {
-  color: var(--app-danger, #b3261e);
+  color: var(--app-danger);
 }
 
 .empty {

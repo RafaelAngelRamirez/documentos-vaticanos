@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: space-between;
   padding: calc(12px + var(--safe-area-inset-top, 0px)) 22px 12px;
-  max-width: 640px;
+  max-width: var(--app-measure);
   margin: 0 auto;
   min-height: 48px;
 }
@@ -63,7 +63,7 @@
 
 @media (min-width: 1024px) {
   .fbody {
-    max-width: 640px;
+    max-width: var(--app-measure);
     padding: 32px 40px 56px;
   }
 }

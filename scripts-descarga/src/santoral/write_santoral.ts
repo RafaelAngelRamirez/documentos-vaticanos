@@ -1,15 +1,18 @@
 /**
- * Dual-write offline santoral pack next to corpus roots.
+ * Write the offline santoral pack to documentos/corpus/santoral, then copy to assets.
  */
 import fs from 'fs';
 import path from 'path';
 import type { SantoralManifest, SaintRecord } from '../../models/santoral.model';
-
-const REPO = path.resolve(__dirname, '../../..');
+import {
+  ASSETS_CORPUS_ROOT,
+  CANONICAL_CORPUS_ROOT,
+  syncCorpusPathToAssets,
+} from '../pipeline/write_corpus';
 
 export const SANTORAL_ROOTS = [
-  path.join(REPO, 'documentos', 'corpus', 'santoral'),
-  path.join(REPO, 'frontend', 'src', 'assets', 'corpus', 'santoral'),
+  path.join(CANONICAL_CORPUS_ROOT, 'santoral'),
+  path.join(ASSETS_CORPUS_ROOT, 'santoral'),
 ];
 
 function ensureDir(dir: string): void {
@@ -17,7 +20,7 @@ function ensureDir(dir: string): void {
 }
 
 /**
- * Write manifest.json to every santoral root (pretty JSON for pack readability).
+ * Write manifest.json to the canonical santoral pack (pretty JSON).
  */
 export function writeSantoralPack(manifest: SantoralManifest): {
   roots: string[];
@@ -31,10 +34,10 @@ export function writeSantoralPack(manifest: SantoralManifest): {
     ),
   };
   const text = JSON.stringify(payload, null, 2) + '\n';
-  for (const root of SANTORAL_ROOTS) {
-    ensureDir(root);
-    fs.writeFileSync(path.join(root, 'manifest.json'), text, 'utf-8');
-  }
+  const root = SANTORAL_ROOTS[0];
+  ensureDir(root);
+  fs.writeFileSync(path.join(root, 'manifest.json'), text, 'utf-8');
+  syncCorpusPathToAssets('santoral');
   return { roots: SANTORAL_ROOTS, saintCount: payload.saints.length };
 }
 

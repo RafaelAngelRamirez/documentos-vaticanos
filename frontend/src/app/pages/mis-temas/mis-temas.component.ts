@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import {
   FormControl,
   FormGroup,
@@ -13,6 +14,7 @@ import {
   ThemesService,
 } from 'src/app/core/account/themes.service';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 
@@ -30,11 +32,13 @@ import { WbarComponent } from 'src/app/components/wbar/wbar.component';
   templateUrl: './mis-temas.component.html',
   styleUrls: ['./mis-temas.component.css'],
 })
-export class MisTemasComponent implements OnInit {
+export class MisTemasComponent implements OnInit, OnDestroy {
   items: Theme[] = [];
   loading = false;
   error: string | null = null;
   showCreate = false;
+  localeTick = 0;
+  private i18nSub = new Subscription();
 
   form = new FormGroup({
     title: new FormControl('', {
@@ -45,14 +49,28 @@ export class MisTemasComponent implements OnInit {
   });
 
   constructor(
+    public i18n: UiI18nService,
     public auth: AuthService,
     private themes: ThemesService,
     private router: Router
   ) {}
 
+  t(key: string, params?: Record<string, string | number>): string {
+    return this.i18n.t(key, params);
+  }
+
   ngOnInit(): void {
+    this.i18nSub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
     // F8b: los temas funcionan sin sesión (persistencia local).
     this.reload();
+  }
+
+  ngOnDestroy(): void {
+    this.i18nSub.unsubscribe();
   }
 
   get publicThemes(): Theme[] {

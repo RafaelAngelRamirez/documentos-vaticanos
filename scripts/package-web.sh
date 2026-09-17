@@ -15,6 +15,11 @@ run() {
   fi
 }
 
+if [[ -d "$ROOT/documentos/corpus" ]]; then
+  echo "==> Sync corpus ship copy → frontend/src/assets/corpus"
+  run bash "$ROOT/scripts/corpus-sync-assets.sh"
+fi
+
 cd "$FRONTEND"
 echo "==> Angular production build"
 run npm run build
@@ -30,9 +35,10 @@ if [[ ! -f "$SRC/assets/corpus/manifest.json" ]]; then
 fi
 
 # Ship hygiene: compact JSON, strip empty refs / load-stamped index_array, drop unused meta.json.
-# Runs on the frozen build tree (not source assets) so dual-write / git pack stay intact.
+# Runs on the frozen build tree (not source assets) so the canonical pack stays intact.
 echo "==> Corpus compress (ship hygiene)"
-run node "$ROOT/scripts/corpus-compress.js" --root "$SRC/assets/corpus"
+run node "$ROOT/scripts/corpus-compress.js" --root "$SRC/assets/corpus" \
+  --drop-unused-sidecars
 if [[ ! -f "$SRC/assets/corpus/manifest.json" ]]; then
   echo "ERROR: corpus compress removed or broke manifest.json" >&2
   exit 1

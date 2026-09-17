@@ -64,7 +64,7 @@ npm run concilios:list
   --doc-id trento-la --source-root concilios-source --lang lat+eng --import
 ```
 
-`ocr_padres_volume.sh` es un wrapper de compatibilidad hacia `ocr_volume.sh`.
+El OCR de Padres usa el mismo `ocr_volume.sh --source-root padres-source`.
 
 ## Kind
 

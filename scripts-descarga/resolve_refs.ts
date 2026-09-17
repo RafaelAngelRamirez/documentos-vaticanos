@@ -28,11 +28,14 @@ import {
   SINGLE_CHAPTER_SLUGS,
 } from "./src/refs/ref-parser";
 import { markResolvedMany } from "./src/pipeline/document_registry";
+import {
+  CANONICAL_CORPUS_ROOT,
+  syncDocToAssets,
+} from "./src/pipeline/write_corpus";
 
 const ROOT = path.resolve(__dirname);
 const REPO = path.resolve(ROOT, "..");
-const CORPUS_ROOT = path.join(REPO, "documentos/corpus");
-const ASSETS_ROOT = path.join(REPO, "frontend/src/assets/corpus");
+const CORPUS_ROOT = CANONICAL_CORPUS_ROOT;
 
 const BIBLE_ID = "bible-pueblo-de-dios-es";
 const CIC_ID = "cic-es";
@@ -441,14 +444,10 @@ function resolveDocument(
 function writeDocumentBoth(docId: string, bodyPath: string, units: TransportUnit[]) {
   const payload = JSON.stringify(units);
   const corpusPath = resolveCorpusPath(bodyPath, CORPUS_ROOT);
-  const assetsPath = resolveCorpusPath(bodyPath, ASSETS_ROOT);
-  for (const out of [corpusPath, assetsPath]) {
-    fs.mkdirSync(path.dirname(out), { recursive: true });
-    fs.writeFileSync(out, payload, "utf8");
-    console.log(`  wrote ${out}`);
-  }
-  // Keep id stable
-  void docId;
+  fs.mkdirSync(path.dirname(corpusPath), { recursive: true });
+  fs.writeFileSync(corpusPath, payload, "utf8");
+  console.log(`  wrote ${corpusPath}`);
+  syncDocToAssets(docId);
 }
 
 function main() {

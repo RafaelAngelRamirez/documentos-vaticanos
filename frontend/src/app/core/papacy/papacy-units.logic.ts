@@ -68,10 +68,11 @@ function buildIndice(units: Article[]): Indice {
   const indice: { [key: string]: number[] } = {};
   const indice_por_punto: { [key: number]: number | null } = {};
   for (const u of units) {
-    const key = u.consecutivo || String(u.index_array);
+    const i = u.index_array ?? 0;
+    const key = u.consecutivo || String(i);
     if (!indice[key]) indice[key] = [];
-    indice[key].push(u.index_array);
-    indice_por_punto[u.index_array] = u.index_array + 1;
+    indice[key].push(i);
+    indice_por_punto[i] = i + 1;
   }
   return { indice, indice_por_punto };
 }

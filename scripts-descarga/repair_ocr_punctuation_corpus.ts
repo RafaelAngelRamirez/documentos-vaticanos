@@ -7,7 +7,7 @@
  *   npx ts-node --transpile-only repair_ocr_punctuation_corpus.ts --apply --ids agustin-02-confesiones-es,cipriano-cartas-es
  *   npx ts-node --transpile-only repair_ocr_punctuation_corpus.ts --apply --min-defect 5
  *
- * Dual-writes documentos/corpus + frontend/src/assets/corpus.
+ * Writes documentos/corpus then copies the document and manifest to assets.
  * Writes one revision JSON per changed document id.
  */
 import fs from "fs";
@@ -15,7 +15,13 @@ import path from "path";
 import type { TrasnportData } from "./models/transport_data.model";
 import type { CorpusManifest, DocumentMeta } from "./models/corpus.model";
 import { buildIndex } from "./src/pipeline/build_index";
-import { CORPUS_ROOTS, hashContentBytes } from "./src/pipeline/write_corpus";
+import {
+  CANONICAL_CORPUS_ROOT,
+  CORPUS_ROOTS,
+  hashContentBytes,
+  syncDocToAssets,
+  syncManifestToAssets,
+} from "./src/pipeline/write_corpus";
 import {
   letterTokenOverlap,
   repairOcrPunctuation,
@@ -215,35 +221,33 @@ function applyToDocument(docId: string): RevisionRecord | null {
   const overlap = letterTokenOverlap(beforeText, afterText);
   const index = buildIndex(repaired);
 
-  // Dual-write content + index (keep meta as-is; update unitCount if needed)
-  const dualRoots: string[] = [];
-  for (const root of CORPUS_ROOTS) {
-    const docDir = path.join(root, "documents", docId);
-    if (!fs.existsSync(docDir)) {
-      fs.mkdirSync(docDir, { recursive: true });
-    }
-    writeJson(path.join(docDir, "content.json"), repaired, false);
-    writeJson(path.join(docDir, "index.json"), index, false);
-    dualRoots.push(root);
+  const dualRoots: string[] = [...CORPUS_ROOTS];
+  const docDir = path.join(CANONICAL_CORPUS_ROOT, "documents", docId);
+  if (!fs.existsSync(docDir)) {
+    fs.mkdirSync(docDir, { recursive: true });
+  }
+  writeJson(path.join(docDir, "content.json"), repaired, false);
+  writeJson(path.join(docDir, "index.json"), index, false);
 
-    const bodyHash = hashContentBytes(
-      fs.readFileSync(path.join(docDir, "content.json")),
-    );
-    const manifestPath = path.join(root, "manifest.json");
-    if (fs.existsSync(manifestPath)) {
-      try {
-        const manifest = readJson<CorpusManifest>(manifestPath);
-        manifest.generatedAt = new Date().toISOString();
-        const entry = (manifest.documents || []).find((d) => d.id === docId);
-        if (entry) {
-          entry.contentHash = bodyHash;
-        }
-        writeJson(manifestPath, manifest, false);
-      } catch {
-        /* ignore */
+  const bodyHash = hashContentBytes(
+    fs.readFileSync(path.join(docDir, "content.json")),
+  );
+  const manifestPath = path.join(CANONICAL_CORPUS_ROOT, "manifest.json");
+  if (fs.existsSync(manifestPath)) {
+    try {
+      const manifest = readJson<CorpusManifest>(manifestPath);
+      manifest.generatedAt = new Date().toISOString();
+      const entry = (manifest.documents || []).find((d) => d.id === docId);
+      if (entry) {
+        entry.contentHash = bodyHash;
       }
+      writeJson(manifestPath, manifest, false);
+    } catch {
+      /* ignore */
     }
   }
+  syncDocToAssets(docId);
+  if (fs.existsSync(manifestPath)) syncManifestToAssets();
 
   // Also dual-write clean text if padres/concilios clean file exists
   for (const cleanRoot of [

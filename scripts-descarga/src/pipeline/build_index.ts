@@ -1,7 +1,7 @@
 /**
  * Offline search index builder — same shape as reindex_offline / GeneralDownload.
  */
-import type { TrasnportData } from "../../models/transport_data.model";
+import type { CorpusUnit } from "../../models/transport_data.model";
 import type { CorpusIndex } from "../../models/corpus.model";
 
 function eliminar_diacriticos(texto: string): string {
@@ -32,7 +32,7 @@ function eliminar_consecutivo_de_punto(
   return texto.replace(consecutivo + " ", "");
 }
 
-export function buildIndex(documento: TrasnportData[]): CorpusIndex {
+export function buildIndex(documento: CorpusUnit[]): CorpusIndex {
   if (!documento) throw new Error("No se recibio ningún documento");
 
   const indice: Record<string, Set<number> | number[]> = {};

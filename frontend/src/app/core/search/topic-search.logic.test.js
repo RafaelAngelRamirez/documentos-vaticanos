@@ -117,6 +117,7 @@ function main() {
   const src = fs.readFileSync(RELATED_TS, 'utf8');
   assert.ok(src.includes('mergeRelatedByEvidence'));
   assert.ok(src.includes('TopicIndexService'));
+  assert.ok(src.includes('loadGraphs'));
   assert.ok(src.includes('neighborsFromGraph'));
   assert.ok(!/\bensureAllLoaded\b/.test(src));
   console.log('  panel wiring OK');

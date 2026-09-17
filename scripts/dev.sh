@@ -89,6 +89,11 @@ EOF
   esac
 done
 
+if [[ -d "$ROOT/documentos/corpus" ]]; then
+  echo "[dev] syncing corpus ship copy → frontend/src/assets/corpus"
+  bash "$ROOT/scripts/corpus-sync-assets.sh"
+fi
+
 echo "[dev] compose: $COMPOSE_FILE (project=$PROJECT_NAME)"
 echo "[dev] servicios: ${SERVICES[*]}"
 echo "[dev] web → http://localhost:4200"

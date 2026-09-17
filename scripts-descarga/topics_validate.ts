@@ -12,7 +12,7 @@
  *   - Strict by default (CI): each existing golden slug ≥ minPostings (8)
  *   - Soft mode: --soft-golden (warn instead of error when below min, but
  *     still error if golden exists with 0 postings)
- * Dual-write roots: optional size parity warn
+ * Canonical vs assets copy: optional size parity warn
  *
  * Usage:
  *   npx ts-node --transpile-only topics_validate.ts --locale es
@@ -36,11 +36,9 @@ import {
   validatePatristicVerseHitsFile,
 } from './src/refs/patristic_verse_hits';
 
+import { CORPUS_ROOTS } from './src/pipeline/write_corpus';
+
 const REPO = path.resolve(__dirname, '..');
-const CORPUS_ROOTS = [
-  path.join(REPO, 'documentos', 'corpus'),
-  path.join(REPO, 'frontend', 'src', 'assets', 'corpus'),
-];
 
 const DEFAULT_GOLDEN = path.join(
   __dirname,

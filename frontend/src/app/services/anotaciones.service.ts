@@ -83,6 +83,11 @@ export class AnotacionesService {
     this.persist(this.subject.value.filter((a) => a.id !== id));
   }
 
+  /** Re-read localStorage after an external writer (sync merge). */
+  reloadFromStorage(): void {
+    this.subject.next(this.load());
+  }
+
   private persist(list: Anotacion[]): void {
     this.subject.next(list);
     try {

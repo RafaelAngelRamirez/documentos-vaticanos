@@ -1,5 +1,5 @@
 .inner {
-  max-width: 640px;
+  max-width: var(--app-measure);
   margin: 0 auto;
   padding: 18px 24px 32px;
 }
@@ -67,7 +67,7 @@
   gap: 10px;
   padding: 12px 0;
   font-size: 13px;
-  color: var(--ok, #2e7d32);
+  color: var(--ok);
 }
 
 .offok .offtx {
@@ -121,7 +121,7 @@ button.sw2 {
   padding: 8px 0 0;
   font-size: 13px;
   line-height: 1.5;
-  color: var(--ok, #2e7d32);
+  color: var(--ok);
 }
 
 .datamsg.err {

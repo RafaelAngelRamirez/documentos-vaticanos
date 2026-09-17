@@ -1,6 +1,6 @@
 /**
  * Offline santoral pack schema (dual-written next to corpus).
- * Keep aligned with frontend/src/app/core/santoral/santoral.models.ts.
+ * Keep aligned with frontend/src/app/core/santoral/santoral-resolve.logic.ts.
  */
 
 export interface SaintRecord {

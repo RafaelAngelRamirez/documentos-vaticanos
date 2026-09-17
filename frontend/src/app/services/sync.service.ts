@@ -2,18 +2,18 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { AnotacionesService } from './anotaciones.service';
 
 /**
  * F9 · Registro = respaldo en nube; merge local→nube al iniciar sesión.
  *
- * Lee las anotaciones locales (clave `dv_anotaciones_v1`, ver
- * anotaciones.service.ts — se accede por clave, sin tocar ese servicio),
- * las envía a POST /api/v1/sync/merge (last-write-wins por `updatedAt`)
- * y escribe el estado consolidado de vuelta en localStorage.
+ * Lee las anotaciones locales (clave `dv_anotaciones_v1`), las envía a
+ * POST /api/v1/sync/merge (last-write-wins por `updatedAt`) y escribe el
+ * estado consolidado de vuelta en localStorage. Tras escribir, llama
+ * AnotacionesService.reloadFromStorage() para el subject en memoria.
  *
- * Los temas locales (F8b, clave `themes.user` de core/account/
- * themes.service.ts) se envían igualmente y el estado consolidado que
- * devuelve el servidor se escribe de vuelta en esa clave.
+ * Los temas locales (F8b, clave `themes.user`) se envían igual.
+ * ThemesService.list() relee disco; no hay cache en memoria que recargar.
  */
 
 /** = STORAGE_KEY de src/app/services/anotaciones.service.ts */
@@ -73,7 +73,10 @@ interface MergeResponse {
 
 @Injectable({ providedIn: 'root' })
 export class SyncService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private anotaciones: AnotacionesService,
+  ) {}
 
   /**
    * Merge local→nube tras login/registro. Best-effort: nunca lanza; los
@@ -111,6 +114,7 @@ export class SyncService {
       );
 
       this.escribirAnotacionesLocales(res.anotaciones ?? []);
+      this.anotaciones.reloadFromStorage();
       this.escribirTemasLocales(res.temas);
 
       const subidos =
@@ -199,29 +203,11 @@ export class SyncService {
     try {
       if (typeof document === 'undefined') return;
       const el = document.createElement('div');
-      el.textContent = mensaje;
+      el.className = 'dv-toast';
       el.setAttribute('role', 'status');
-      el.style.cssText = [
-        'position:fixed',
-        'left:50%',
-        'bottom:24px',
-        'transform:translateX(-50%)',
-        'background:#1f2937',
-        'color:#fff',
-        'padding:10px 16px',
-        'border-radius:8px',
-        'font-size:14px',
-        'z-index:9999',
-        'box-shadow:0 4px 12px rgba(0,0,0,.25)',
-        'opacity:0',
-        'transition:opacity .3s ease',
-      ].join(';');
+      el.textContent = mensaje;
       document.body.appendChild(el);
-      requestAnimationFrame(() => (el.style.opacity = '1'));
-      setTimeout(() => {
-        el.style.opacity = '0';
-        setTimeout(() => el.remove(), 400);
-      }, 4000);
+      setTimeout(() => el.remove(), 4000);
     } catch {
       console.info(`[sync] ${mensaje}`);
     }

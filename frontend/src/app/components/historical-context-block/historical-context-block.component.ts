@@ -24,6 +24,7 @@ import {
   NarratorPreferencesService,
   resolvePreferredVoice,
 } from 'src/app/services/narrator-preferences.service';
+import { speechLangForDocumentLocale } from 'src/app/services/speech-lang.logic';
 
 /**
  * Bloque reutilizable de contexto histórico (ficha 2A / santoral).
@@ -40,6 +41,8 @@ export class HistoricalContextBlockComponent implements OnChanges, OnDestroy {
   @Input() ctx: ResolvedHistoricalContext | null = null;
   @Input() sectionTitle = 'Contexto histórico';
   @Input() compact = false;
+  /** Pack / overlay locale (`es`, `en`, …). Speech falls back to es-ES. */
+  @Input() locale?: string | null;
 
   axisRows: AxisRowForUi[] = [];
   refOrder: string[] = [];
@@ -131,6 +134,10 @@ export class HistoricalContextBlockComponent implements OnChanges, OnDestroy {
     return this.narrator.supported && this.speakChunks.length > 0;
   }
 
+  private speechLang(): string {
+    return speechLangForDocumentLocale(this.locale);
+  }
+
   get listenLabel(): string {
     return this.speaking ? '⏹ Detener' : '▶ Escuchar contexto';
   }
@@ -152,13 +159,20 @@ export class HistoricalContextBlockComponent implements OnChanges, OnDestroy {
     this.expanded = true;
     const gen = ++this.speakGen;
     this.speaking = true;
-    const voices = await this.narrator.listVoices('es');
-    const voice = resolvePreferredVoice(voices, this.narrPrefs.voiceId);
+    const lang = this.speechLang();
+    const prefix = lang.split(/[-_]/)[0].toLowerCase();
+    const voices = await this.narrator.listVoices(prefix);
+    const preferred = resolvePreferredVoice(voices, this.narrPrefs.voiceId);
+    const voice =
+      preferred &&
+      (preferred.lang || '').toLowerCase().startsWith(prefix)
+        ? preferred
+        : null;
     try {
       for (const chunk of this.speakChunks) {
         if (gen !== this.speakGen) return;
         const ok = await this.narrator.speak(chunk, {
-          lang: 'es-ES',
+          lang,
           rate: 1,
           voice,
         });

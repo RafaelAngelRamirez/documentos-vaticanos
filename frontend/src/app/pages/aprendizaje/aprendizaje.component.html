@@ -1,7 +1,7 @@
-<div class="app-product web-shell has-bnav">
+<div class="app-product web-shell has-bnav" [attr.data-tick]="localeTick">
   <app-wbar></app-wbar>
   <div class="only-mobile">
-    <app-fbar title="Aprendizaje"></app-fbar>
+    <app-fbar [title]="t('learning.title')"></app-fbar>
   </div>
   <div class="fbody">
     <ng-container *ngIf="!auth.isLoggedIn">
@@ -13,7 +13,7 @@
 
     <ng-container *ngIf="auth.isLoggedIn">
       <div *ngIf="loading" class="fs13 muted">Cargando…</div>
-      <div *ngIf="error" class="empty" style="color: #8b3a3a">{{ error }}</div>
+      <div *ngIf="error" class="empty" style="color: var(--app-danger)">{{ error }}</div>
 
       <ng-container *ngIf="!loading && study as s">
         <div class="card">

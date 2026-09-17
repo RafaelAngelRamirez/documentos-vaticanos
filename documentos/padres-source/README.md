@@ -43,8 +43,8 @@ npm run padres:download:daemon          # re-escanea inventory cada 90s
 # Text PDF: pdftotext → corpus
 # Image PDF: OCR → corpus
 bash batch_agustin_pending.sh --skip-download --ns 34,35,38
-# o pool OCR global:
-npm run padres:ocr-fast
+# OCR genérico:
+npm run padres:ocr
 
 # Agustín por tomo (descarga+import si hace falta)
 npm run padres:agustin -- --n 15

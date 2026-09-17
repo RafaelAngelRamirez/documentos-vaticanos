@@ -26,6 +26,7 @@ import {
   DocGraphNode,
   TopicRecord,
 } from 'src/app/core/search/topic-pack.models';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { NavigationService } from 'src/app/services/navigation.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import { environment } from 'src/environments/environment';
@@ -97,10 +98,17 @@ export class ExplorarComponent implements OnInit, OnDestroy {
   graphWorks: DocGraphNode[] = [];
   selectedEdge: { from: string; to: string; edge: DocGraphEdge } | null = null;
 
+  localeTick = 0;
   private topicsLocale: string | null = null;
   private topicsSub: Subscription | null = null;
+  private graphsLocale: string | null = null;
+  private graphsSub: Subscription | null = null;
+  private graphsReady = false;
+  private graphsLoading = false;
+  private i18nSub: Subscription | null = null;
 
   constructor(
+    public i18n: UiI18nService,
     private studies: StudiesService,
     private corpus: CorpusService,
     private router: Router,
@@ -110,7 +118,14 @@ export class ExplorarComponent implements OnInit, OnDestroy {
     private nav: NavigationService,
   ) {}
 
+  t(key: string, params?: Record<string, string | number>): string {
+    return this.i18n.t(key, params);
+  }
+
   ngOnInit(): void {
+    this.i18nSub = this.i18n.locale$.subscribe(() => {
+      this.localeTick++;
+    });
     this.syncTabFromUrl();
     this.buildEpochsFromCatalog();
     this.ensureTopicsPack();
@@ -134,6 +149,8 @@ export class ExplorarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.topicsSub?.unsubscribe();
+    this.graphsSub?.unsubscribe();
+    this.i18nSub?.unsubscribe();
   }
 
   /** El catálogo se carga async: espera al manifiesto antes de agrupar autores. */
@@ -145,7 +162,8 @@ export class ExplorarComponent implements OnInit, OnDestroy {
 
   setTab(t: Tab): void {
     this.tab = t;
-    if (t === 'temas' || t === 'relaciones') this.ensureTopicsPack();
+    if (t === 'temas') this.ensureTopicsPack();
+    if (t === 'relaciones') this.ensureGraphs();
     const path = t === 'relaciones' ? '/explorar/relaciones' : '/explorar';
     const q = t === 'relaciones' && this.graphFocusId
       ? { focus: this.graphFocusId }
@@ -161,7 +179,7 @@ export class ExplorarComponent implements OnInit, OnDestroy {
     if (path.startsWith('/explorar/relaciones')) this.tab = 'relaciones';
     const focus = this.route.snapshot.queryParamMap.get('focus');
     if (focus) this.graphFocusId = focus;
-    if (this.tab === 'relaciones') this.ensureTopicsPack();
+    if (this.tab === 'relaciones') this.ensureGraphs();
   }
 
   /**
@@ -215,6 +233,38 @@ export class ExplorarComponent implements OnInit, OnDestroy {
           roots.length ? roots : seeds
         ).slice(0, FEATURED_ROOT_LIMIT);
         this.packEmpty = seeds.length === 0;
+      });
+  }
+
+  private ensureGraphs(): void {
+    const locale =
+      (this.readerPrefs.resolveContentLocale() || 'es')
+        .trim()
+        .toLowerCase()
+        .split(/[-_]/)[0] || 'es';
+
+    if (
+      this.graphsLocale === locale &&
+      (this.graphsReady || this.graphsLoading)
+    ) {
+      return;
+    }
+
+    this.graphsLocale = locale;
+    this.graphsSub?.unsubscribe();
+    this.graphsLoading = true;
+    this.graphsReady = false;
+
+    this.graphsSub = this.topicIndex
+      .loadGraphs(locale)
+      .pipe(
+        catchError(() => of(null)),
+        finalize(() => {
+          this.graphsLoading = false;
+          this.graphsReady = true;
+        }),
+      )
+      .subscribe((pack) => {
         this.docGraph = pack?.docGraph ?? null;
         this.refreshGraphWorks();
       });
@@ -440,7 +490,7 @@ export class ExplorarComponent implements OnInit, OnDestroy {
 
   openEpoch(e: EpochRow): void {
     if (e.docIds[0]) {
-      this.router.navigate(['/leyendo', e.docIds[0], 'punto', 0]);
+      this.nav.openReading(e.docIds[0], { unitIndex: 0 });
     }
   }
 

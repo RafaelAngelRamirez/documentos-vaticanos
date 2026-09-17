@@ -23,11 +23,11 @@ documentos-vaticanos/
 │   │   ├── core/             # auth, corpus, account (API clients)
 │   │   ├── pages/            # pantallas enrutadas
 │   │   └── services/         # nav, preferencias, anotaciones, sync, back…
-│   ├── src/assets/corpus/    # pack offline empaquetado (manifest + documents)
+│   ├── src/assets/corpus/    # copia de ship de documentos/corpus (npm run corpus:sync-assets)
 │   └── src/styles.css        # tokens + clases canónicas del handoff
 ├── backend/                  # Express + Prisma + PostgreSQL (Fase 2, opcional)
 │   └── src/routes/           # /api/v1/*
-├── documentos/corpus/        # fuente del pack (scrapers escriben aquí y en assets)
+├── documentos/corpus/        # pack canónico (el pipeline escribe aquí)
 │   └── papacy/               # pack pontífices (lista vatican.va; no es corpus de lectura)
 ├── documentos/papacy-source/ # HTML índices + inventario de cartas apostólicas
 ├── scripts-descarga/         # scrapers, adapters, write_corpus, refs
@@ -137,7 +137,7 @@ Rutas inmersivas (sin chrome de producto exterior): inicio, biblioteca, buscar, 
 
 ### 2.1 Pack offline
 
-- Fuente de verdad escrita por pipeline: `documentos/corpus/` **y** copia en `frontend/src/assets/corpus/`.
+- El pipeline escribe `documentos/corpus/`. `npm run corpus:sync-assets` (también `package-web`, `package-apk` y `scripts/dev.sh`) copia el subset de ship a `frontend/src/assets/corpus/`. No copiar inventarios OCR a assets.
 - Entrada: `manifest.json` → lista de `DocumentMeta` (`id`, `title`, `shortTitle`, `kind`, `locale`, `sourceUrl`, `bodyPath`, `indexPath`, `unitCount`, …).
 - Por documento: `content.json` (unidades/artículos) + `index.json` (índice de búsqueda / `indice_por_punto`).
 - Esquema: `scripts-descarga/models/corpus.model.ts` y `frontend/src/app/core/corpus/corpus.models.ts` (mantener alineados).
@@ -205,12 +205,12 @@ Reglas de empaquetado e IDs:
 8. **RTL:** con locale `ar`, layouts de lectura y fichas no deben romper (dir/RTL, no asumir solo LTR en CSS nuevo).
 9. **Contexto histórico / santoral:** el pack de contexto y las bios deben seguir la misma política multi-idioma (perfil o overlay por locale, o campos por locale), no solo español.
 
-Al implementar scrapers/adapters: dual-write en `documentos/corpus/` y `frontend/src/assets/corpus/` **por cada locale** que se publique.
+Al implementar scrapers/adapters: escribe cada locale en `documentos/corpus/`. `writeCorpusDocument` (o `npm run corpus:sync-assets`) copia el subset de ship a `frontend/src/assets/corpus/`.
 
 ### 2.6 Papas (pack `papacy/`, no es corpus de lectura)
 
 - Lista oficial: vatican.va `/content/vatican/es/holy-father.html` (267 pontífices, Pedro → León XIV).
-- Pack dual-write: `documentos/corpus/papacy/` y `frontend/src/assets/corpus/papacy/`.
+- Pack: el pipeline escribe `documentos/corpus/papacy/` y `syncCorpusPathToAssets('papacy')` (o `npm run corpus:sync-assets`) copia a `frontend/src/assets/corpus/papacy/`.
 - UI: `/papas` (2C era-list) · `/papas/:id` (2D person-ficha + CTA lectura §2.4). Bio lectora: `papacy:{popeId}`.
 - Si el papa está en el santoral → `saintId` y enlace a `/santoral/:id`. No duplicar la bio como pack magisterial.
 - Documentos del corpus se ligan por `sourceUrl` (`/content/{hub}/…`). **Citas = `documentId` + `unitIndex`**, nunca el `popeId`.
@@ -455,7 +455,7 @@ cd android && ./gradlew assembleDebug
 - [ ] ¿Títulos de documentos **completos** (`meta.title`)?
 - [ ] ¿Enlace idioma/fuente si hay `sourceUrl`?
 - [ ] ¿Citas con `documentId` + `unitIndex`?
-- [ ] ¿Corpus escrito en `documentos/corpus` **y** assets (si aplica scrape)?
+- [ ] ¿Corpus escrito en `documentos/corpus` y copiado a assets (`writeCorpusDocument` / `npm run corpus:sync-assets`)?
 - [ ] ¿**Opción de lectura** en ficha (CTA comenzar/continuar y/o escuchar), aunque no se abra solo el modo inmersivo? (§2.4)
 - [ ] ¿**Locales del producto** contemplados: `es`, `en`, `hi`, `zh`, `ar` (packs o plan explícito de paridad; `sourceNote` si es traducción)? (§2.5)
 - [ ] ¿`locale` del `DocumentMeta` correcto y IDs con sufijo de idioma cuando hay gemelos?
@@ -508,7 +508,7 @@ Entrypoint CI de referencia: `.ci-build.sh`. Artefactos de descarga pública y d
 | Docker dev | `docs/DEV-DOCKER.md` |
 | Scrapers | `scripts-descarga/README.md` |
 | Schema DB | `backend/prisma/schema.prisma` |
-| Changelog reciente | `CHANGELOG.md` (sección Unreleased) |
+| Changelog reciente | `CHANGELOG.md` (0.0.27) |
 | CI / build remoto | `.ci-build.sh`, §9 (push obligatorio) |
 | Lectura siempre / narrador en ficha | §2.4; patrón santo `santoral:{id}` + 2A |
 | Cinco idiomas de producto | §2.5 (`es` `en` `hi` `zh` `ar`) |

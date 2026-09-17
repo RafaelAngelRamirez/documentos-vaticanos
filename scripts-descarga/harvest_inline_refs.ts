@@ -1,6 +1,6 @@
 /**
  * Harvest citation windows from unit prose into referencias[] (hub kinds only).
- * Dual-writes corpus + assets. Does not rewrite contenido.
+ * Writes documentos/corpus then copies the document to assets. Does not rewrite contenido.
  *
  * Usage:
  *   npx ts-node --transpile-only harvest_inline_refs.ts --locale es
@@ -20,12 +20,10 @@ import {
   HARVEST_KINDS,
   harvestNewDescriptions,
 } from "./src/refs/harvest_inline";
-
-const REPO = path.resolve(__dirname, "..");
-const CORPUS_ROOTS = [
-  path.join(REPO, "documentos", "corpus"),
-  path.join(REPO, "frontend", "src", "assets", "corpus"),
-];
+import {
+  CANONICAL_CORPUS_ROOT,
+  syncDocToAssets,
+} from "./src/pipeline/write_corpus";
 
 interface ManifestDoc {
   id: string;
@@ -58,7 +56,7 @@ function resolveBody(root: string, meta: ManifestDoc): string {
 
 function main() {
   const { locale, dry } = parseArgs(process.argv.slice(2));
-  const primary = CORPUS_ROOTS[0];
+  const primary = CANONICAL_CORPUS_ROOT;
   const man = JSON.parse(
     fs.readFileSync(path.join(primary, "manifest.json"), "utf8"),
   );
@@ -116,11 +114,10 @@ function main() {
     docsTouched += 1;
     if (dry) continue;
     const payload = JSON.stringify(units);
-    for (const root of CORPUS_ROOTS) {
-      const out = resolveBody(root, meta);
-      fs.mkdirSync(path.dirname(out), { recursive: true });
-      fs.writeFileSync(out, payload, "utf8");
-    }
+    const out = resolveBody(primary, meta);
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    fs.writeFileSync(out, payload, "utf8");
+    syncDocToAssets(meta.id);
     console.log(`harvest ${meta.id}: +refs on ${units.filter((u) => u.referencias?.length).length} units`);
   }
 

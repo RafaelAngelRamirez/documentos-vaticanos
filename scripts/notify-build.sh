@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Notificaciones de progreso de build a Telegram (y Discord) vía un webhook de n8n.
 #
-# Sourceable desde los scripts de build (docker-compilar.sh, build.sh,
+# Sourceable desde los scripts de build (.ci-build.sh, package-*.sh,
 # generate-release.sh). En lugar de mandar un mensaje por etapa, EDITA un único
 # mensaje de Telegram (y otro de Discord) simulando una barra de progreso con el
 # avance de cada etapa (✅ hecho / ⏳ actual / ❌ falló).

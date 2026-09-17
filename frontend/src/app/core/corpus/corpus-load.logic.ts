@@ -6,7 +6,9 @@
  * Production wiring: CorpusService → CorpusLoadEngine + IndexedDbCorpusStore.
  */
 
-// --- Minimal corpus shapes (kept aligned with corpus.models.ts) ---
+// --- Minimal corpus shapes ---
+// Subset of corpus.models.ts. Strip-types tests load this file alone, so
+// do not import corpus.models.ts from here.
 
 export interface DocumentMeta {
   id: string;
@@ -18,6 +20,7 @@ export interface DocumentMeta {
   author?: string;
   compiler?: string;
   sourceNote?: string;
+  translationProvenance?: 'official' | 'ai';
   bodyPath: string;
   indexPath: string;
   unitCount?: number;

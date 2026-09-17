@@ -7,7 +7,7 @@
  *   npx ts-node --transpile-only repair_ocr_noise_corpus.ts --apply --ids agustin-18-epistolas-indices-es
  *   npx ts-node --transpile-only repair_ocr_noise_corpus.ts --queue-only
  *
- * Dual-writes documentos/corpus + frontend/src/assets/corpus.
+ * Writes documentos/corpus then copies the document and manifest to assets.
  * Per-doc revisions: documentos/corpus/revisions/ocr-abc/<id>.json
  * Re-OCR queue: documentos/corpus/ocr-reocr-queue.json
  */
@@ -16,7 +16,13 @@ import path from "path";
 import type { TrasnportData } from "./models/transport_data.model";
 import type { CorpusManifest, DocumentMeta } from "./models/corpus.model";
 import { buildIndex } from "./src/pipeline/build_index";
-import { CORPUS_ROOTS, hashContentBytes } from "./src/pipeline/write_corpus";
+import {
+  CANONICAL_CORPUS_ROOT,
+  CORPUS_ROOTS,
+  hashContentBytes,
+  syncDocToAssets,
+  syncManifestToAssets,
+} from "./src/pipeline/write_corpus";
 import {
   letterTokenOverlap,
   repairOcrNoiseUnit,
@@ -290,32 +296,31 @@ function applyToDocument(docId: string): RevisionRecord | null {
   const after = scoreDocumentGarbage(unitTexts(repaired));
   const index = buildIndex(repaired);
 
-  const dualRoots: string[] = [];
-  for (const root of CORPUS_ROOTS) {
-    const docDir = path.join(root, "documents", docId);
-    fs.mkdirSync(docDir, { recursive: true });
-    writeJson(path.join(docDir, "content.json"), repaired, false);
-    writeJson(path.join(docDir, "index.json"), index, false);
-    dualRoots.push(root);
-    const bodyHash = hashContentBytes(
-      fs.readFileSync(path.join(docDir, "content.json")),
-    );
-    const manifestPath = path.join(root, "manifest.json");
-    if (fs.existsSync(manifestPath)) {
-      try {
-        const manifest = readJson<CorpusManifest>(manifestPath);
-        manifest.generatedAt = new Date().toISOString();
-        const entry = (manifest.documents || []).find((d) => d.id === docId);
-        if (entry) {
-          entry.contentHash = bodyHash;
-          entry.unitCount = repaired.length;
-        }
-        writeJson(manifestPath, manifest, false);
-      } catch {
-        /* ignore */
+  const dualRoots: string[] = [...CORPUS_ROOTS];
+  const docDir = path.join(CANONICAL_CORPUS_ROOT, "documents", docId);
+  fs.mkdirSync(docDir, { recursive: true });
+  writeJson(path.join(docDir, "content.json"), repaired, false);
+  writeJson(path.join(docDir, "index.json"), index, false);
+  const bodyHash = hashContentBytes(
+    fs.readFileSync(path.join(docDir, "content.json")),
+  );
+  const manifestPath = path.join(CANONICAL_CORPUS_ROOT, "manifest.json");
+  if (fs.existsSync(manifestPath)) {
+    try {
+      const manifest = readJson<CorpusManifest>(manifestPath);
+      manifest.generatedAt = new Date().toISOString();
+      const entry = (manifest.documents || []).find((d) => d.id === docId);
+      if (entry) {
+        entry.contentHash = bodyHash;
+        entry.unitCount = repaired.length;
       }
+      writeJson(manifestPath, manifest, false);
+    } catch {
+      /* ignore */
     }
   }
+  syncDocToAssets(docId);
+  if (fs.existsSync(manifestPath)) syncManifestToAssets();
 
   // Clean text dual update when present
   for (const cleanRoot of [

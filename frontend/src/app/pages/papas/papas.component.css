@@ -7,7 +7,7 @@
 .fbody,
 .papas-body {
   padding: 28px 24px 40px;
-  max-width: 640px;
+  max-width: var(--app-measure);
   margin: 0 auto;
 }
 

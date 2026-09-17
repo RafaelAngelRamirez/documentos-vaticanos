@@ -1,4 +1,7 @@
-export interface TrasnportData {
+/**
+ * One content.json unit. Pack JSON omits index_array; the reader stamps it on load.
+ */
+export interface CorpusUnit {
   consecutivo: string;
   contenido: string;
   referencias?: Reference[];
@@ -11,6 +14,9 @@ export interface TrasnportData {
     index_general: string;
   };
 }
+
+/** @deprecated Misspelled name. Use CorpusUnit. Kept for one release. */
+export type TrasnportData = CorpusUnit;
 
 export interface Reference {
   descripcion: string;
@@ -36,4 +42,3 @@ export interface BibleBook {
     document:Document
 
 }
-

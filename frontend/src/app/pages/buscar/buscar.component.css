@@ -30,7 +30,7 @@
 }
 
 .fbody {
-  max-width: 640px;
+  max-width: var(--app-measure);
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;

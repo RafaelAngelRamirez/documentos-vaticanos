@@ -1,5 +1,7 @@
 # Fase 2 — Estudios compartidos, roles y cuenta de usuario
 
+> **Histórico.** La API está implementada en `backend/` (Express + Prisma) y en los clientes Angular. En producción `apiBaseUrl` está vacío. El lector no necesita la API. Nest, Redis y `unitRef` en este texto no son el stack ni el contrato de citas. Las citas son `documentId` + `unitIndex`.
+
 ## 0. Estado de implementación (web)
 
 | Área | Estado |
@@ -30,7 +32,7 @@ La **Fase 2** añade capa social y de estudio **opcionalmente online**:
 |-----------|---------|
 | Offline-first | Sin login se lee el corpus completo (comportamiento actual). |
 | Online enriquece | Login desbloquea favoritos en la nube, temas propios, estudios, alumnos. |
-| Contrato estable | Toda cita de usuario/maestro apunta a `documentId` + `unitRef` del corpus empaquetado. |
+| Contrato estable | Toda cita de usuario/maestro apunta a `documentId` + `unitIndex` del corpus empaquetado. El plan decía `unitRef`. Eso no se implementó. |
 | Sin chatbot en esta fase | IA conversacional fuera de alcance; el valor es estructura de estudio + comunidad. |
 | Fotos controladas | Solo en temas/notas del usuario; optimizadas al subir (multer + sharp). |
 

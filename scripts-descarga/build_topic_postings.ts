@@ -1,5 +1,5 @@
 /**
- * Hub multi-label topic assignment → topic-postings.json (dual-write).
+ * Hub multi-label topic assignment → topic-postings.json (canonical then assets copy).
  *
  * Flags:
  *   --locale es
@@ -39,11 +39,12 @@ import {
   fingerprintFromCorpusRoot,
 } from './src/topics/corpus_fingerprint';
 
+import {
+  CANONICAL_CORPUS_ROOT,
+  syncCorpusPathToAssets,
+} from './src/pipeline/write_corpus';
+
 const REPO = path.resolve(__dirname, '..');
-const CORPUS_ROOTS = [
-  path.join(REPO, 'documentos', 'corpus'),
-  path.join(REPO, 'frontend', 'src', 'assets', 'corpus'),
-];
 const DEFAULT_SEED = path.join(
   __dirname,
   'config',
@@ -216,7 +217,7 @@ function main() {
     threshold,
     writeCatalog,
   } = parseArgs(process.argv.slice(2));
-  const primary = CORPUS_ROOTS[0];
+  const primary = CANONICAL_CORPUS_ROOT;
   if (!fs.existsSync(path.join(primary, 'manifest.json'))) {
     console.error(`Missing manifest under ${primary}`);
     process.exit(1);
@@ -467,53 +468,50 @@ function main() {
     ? JSON.stringify({ version: 1, locale, terms: termTopics }, null, 2) + '\n'
     : null;
 
-  for (const root of CORPUS_ROOTS) {
-    const searchRoot = path.join(root, 'search');
-    const outDir = path.join(searchRoot, locale);
-    fs.mkdirSync(outDir, { recursive: true });
+  const searchRoot = path.join(primary, 'search');
+  const outDir = path.join(searchRoot, locale);
+  fs.mkdirSync(outDir, { recursive: true });
 
-    // Do not touch unit-graph.json
-    const postingsPath = path.join(outDir, 'topic-postings.json');
-    fs.writeFileSync(postingsPath, postingsJson);
+  const postingsPath = path.join(outDir, 'topic-postings.json');
+  fs.writeFileSync(postingsPath, postingsJson);
 
-    if (topicsJsonOut) {
-      fs.writeFileSync(path.join(outDir, 'topics.json'), topicsJsonOut);
-    }
-    if (termTopicsJson) {
-      fs.writeFileSync(path.join(outDir, 'term-topics.json'), termTopicsJson);
-    }
-
-    fs.writeFileSync(path.join(outDir, 'manifest.json'), locManJson);
-
-    // root search-manifest
-    const rootManPath = path.join(searchRoot, 'search-manifest.json');
-    let rootMan: {
-      version: string;
-      schema: number;
-      locales: Record<string, string>;
-      sourceNote?: string;
-    } = {
-      version: '0.2.0',
-      schema: 1,
-      locales: { [locale]: locale },
-      sourceNote: 'Topic-search pack (hub postings PR4c).',
-    };
-    if (fs.existsSync(rootManPath)) {
-      try {
-        rootMan = { ...rootMan, ...JSON.parse(fs.readFileSync(rootManPath, 'utf8')) };
-        rootMan.locales = { ...(rootMan.locales || {}), [locale]: locale };
-      } catch {
-        /* */
-      }
-    }
-    rootMan.sourceNote = 'Topic-search pack (hub postings PR4c).';
-    fs.writeFileSync(rootManPath, JSON.stringify(rootMan, null, 2) + '\n');
-
-    const bytes = fs.statSync(postingsPath).size;
-    console.log(
-      `wrote ${path.relative(REPO, postingsPath)} (${(bytes / 1024).toFixed(1)} KiB)`,
-    );
+  if (topicsJsonOut) {
+    fs.writeFileSync(path.join(outDir, 'topics.json'), topicsJsonOut);
   }
+  if (termTopicsJson) {
+    fs.writeFileSync(path.join(outDir, 'term-topics.json'), termTopicsJson);
+  }
+
+  fs.writeFileSync(path.join(outDir, 'manifest.json'), locManJson);
+
+  const rootManPath = path.join(searchRoot, 'search-manifest.json');
+  let rootMan: {
+    version: string;
+    schema: number;
+    locales: Record<string, string>;
+    sourceNote?: string;
+  } = {
+    version: '0.2.0',
+    schema: 1,
+    locales: { [locale]: locale },
+    sourceNote: 'Topic-search pack (hub postings PR4c).',
+  };
+  if (fs.existsSync(rootManPath)) {
+    try {
+      rootMan = { ...rootMan, ...JSON.parse(fs.readFileSync(rootManPath, 'utf8')) };
+      rootMan.locales = { ...(rootMan.locales || {}), [locale]: locale };
+    } catch {
+      /* */
+    }
+  }
+  rootMan.sourceNote = 'Topic-search pack (hub postings PR4c).';
+  fs.writeFileSync(rootManPath, JSON.stringify(rootMan, null, 2) + '\n');
+  syncCorpusPathToAssets('search');
+
+  const bytes = fs.statSync(postingsPath).size;
+  console.log(
+    `wrote ${path.relative(REPO, postingsPath)} (${(bytes / 1024).toFixed(1)} KiB)`,
+  );
 
   // ensure unit-graph still present on primary
   const graphPath = path.join(primary, 'search', locale, 'unit-graph.json');

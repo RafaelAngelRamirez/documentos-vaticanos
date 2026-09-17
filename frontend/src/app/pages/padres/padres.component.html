@@ -1,13 +1,13 @@
-<div class="app has-bnav web-shell">
+<div class="app has-bnav web-shell" [attr.data-tick]="localeTick">
   <app-wbar active="padres"></app-wbar>
   <div class="only-mobile">
-    <app-fbar title="Padres de la Iglesia"></app-fbar>
+    <app-fbar [title]="t('parents.title')"></app-fbar>
   </div>
 
   <div class="fbody padres-body">
-    <h2 class="h2 only-desktop">Padres de la Iglesia</h2>
+    <h2 class="h2 only-desktop">{{ t('parents.title') }}</h2>
     <div class="fs14 muted" style="line-height: 1.6; max-width: 70ch">
-      Los primeros maestros de la fe: sus vidas y sus obras esenciales.
+      {{ t('parents.lede') }}
       También en
       <a routerLink="/papas" class="app-lang-link">Papas</a>,
       <a routerLink="/doctores" class="app-lang-link">Doctores</a>

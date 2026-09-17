@@ -8,19 +8,19 @@ import fs from "fs";
 import path from "path";
 import bookCodes from "./models/data/book-codes.json";
 import type { BookCodeEntry } from "./src/refs/ref-parser";
+import {
+  CANONICAL_CORPUS_ROOT,
+  syncDocToAssets,
+} from "./src/pipeline/write_corpus";
 
-const REPO = path.resolve(__dirname, "..");
-const PATHS = [
-  path.join(
-    REPO,
-    "documentos/corpus/documents/bible-pueblo-de-dios-es/content.json",
-  ),
-  path.join(
-    REPO,
-    "frontend/src/assets/corpus/documents/bible-pueblo-de-dios-es/content.json",
-  ),
-  path.join(__dirname, "documentos/biblia_pueblo_de_Dios.json"),
-];
+const BIBLE_ID = "bible-pueblo-de-dios-es";
+const CANONICAL_BIBLE = path.join(
+  CANONICAL_CORPUS_ROOT,
+  "documents",
+  BIBLE_ID,
+  "content.json",
+);
+const WORK_COPY = path.join(__dirname, "documentos/biblia_pueblo_de_Dios.json");
 
 interface Unit {
   consecutivo: string;
@@ -40,13 +40,9 @@ function main() {
   const books = bookCodes as BookCodeEntry[];
   const codeBySlug = new Map(books.map((b) => [b.bookSlug, b.bookCode]));
 
-  let primary: Unit[] | null = null;
-  for (const p of PATHS) {
-    if (!fs.existsSync(p)) continue;
-    primary = JSON.parse(fs.readFileSync(p, "utf8")) as Unit[];
-    break;
-  }
-  if (!primary) throw new Error("No bible content found");
+  const readPath = fs.existsSync(CANONICAL_BIBLE) ? CANONICAL_BIBLE : WORK_COPY;
+  if (!fs.existsSync(readPath)) throw new Error("No bible content found");
+  const primary = JSON.parse(fs.readFileSync(readPath, "utf8")) as Unit[];
 
   let fixed = 0;
   let unknown = 0;
@@ -71,10 +67,13 @@ function main() {
   }
 
   const payload = JSON.stringify(primary);
-  for (const p of PATHS) {
-    if (!fs.existsSync(path.dirname(p))) continue;
-    fs.writeFileSync(p, payload, "utf8");
-    console.log(`[✓] ${p}`);
+  fs.mkdirSync(path.dirname(CANONICAL_BIBLE), { recursive: true });
+  fs.writeFileSync(CANONICAL_BIBLE, payload, "utf8");
+  console.log(`[✓] ${CANONICAL_BIBLE}`);
+  syncDocToAssets(BIBLE_ID);
+  if (fs.existsSync(path.dirname(WORK_COPY))) {
+    fs.writeFileSync(WORK_COPY, payload, "utf8");
+    console.log(`[✓] ${WORK_COPY}`);
   }
 
   console.log(

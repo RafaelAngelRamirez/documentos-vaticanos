@@ -5,7 +5,7 @@
 }
 
 .santoral-body {
-  padding: 20px 20px 96px;
+  padding: 20px 20px var(--bnav-height);
   max-width: 720px;
   margin: 0 auto;
 }
@@ -44,7 +44,7 @@
   background: none;
   border: none;
   padding: 4px 2px;
-  color: var(--app-acc, var(--acc, #c4a574));
+  color: var(--app-acc);
   cursor: pointer;
   font: inherit;
   min-height: 48px;
@@ -139,8 +139,8 @@
 }
 
 .cal-day-cell.has-saints {
-  border-color: color-mix(in srgb, var(--app-acc, #c4a574) 45%, var(--line));
-  background: color-mix(in srgb, var(--app-acc, #c4a574) 12%, var(--card));
+  border-color: color-mix(in srgb, var(--app-acc) 45%, var(--line));
+  background: color-mix(in srgb, var(--app-acc) 12%, var(--card));
 }
 
 .cal-day-num {
@@ -152,7 +152,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--app-acc, #c4a574);
+  background: var(--app-acc);
 }
 
 .cal-day-count {

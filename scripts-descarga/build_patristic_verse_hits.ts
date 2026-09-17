@@ -2,9 +2,8 @@
  * Harvest strict bible cites from patristic prose into a capped sidecar.
  * Does NOT rewrite content.json or unit-graph.json / doc-graph.json.
  *
- * Dual-writes:
- *   documentos/corpus/search/{locale}/patristic-verse-hits.json
- *   frontend/src/assets/corpus/search/{locale}/patristic-verse-hits.json
+ * Writes documentos/corpus/search/{locale}/patristic-verse-hits.json
+ * then copies that file to frontend/src/assets/corpus/.
  *
  * Usage:
  *   npx ts-node --transpile-only build_patristic_verse_hits.ts --locale es
@@ -36,11 +35,12 @@ import {
   type PatristicHarvestUnit,
 } from "./src/refs/patristic_verse_hits";
 
+import {
+  CANONICAL_CORPUS_ROOT,
+  syncCorpusPathToAssets,
+} from "./src/pipeline/write_corpus";
+
 const REPO = path.resolve(__dirname, "..");
-const CORPUS_ROOTS = [
-  path.join(REPO, "documentos", "corpus"),
-  path.join(REPO, "frontend", "src", "assets", "corpus"),
-];
 
 interface ManifestDoc {
   id: string;
@@ -169,7 +169,7 @@ function rankAndSelect(
 
 function main() {
   const { locale, dry, maxDocs, onlyIds } = parseArgs(process.argv.slice(2));
-  const primary = CORPUS_ROOTS[0];
+  const primary = CANONICAL_CORPUS_ROOT;
   const manPath = path.join(primary, "manifest.json");
   if (!fs.existsSync(manPath)) {
     console.error(`Missing manifest ${manPath}`);
@@ -208,13 +208,13 @@ function main() {
 
   const written: string[] = [];
   if (!dry) {
-    for (const root of CORPUS_ROOTS) {
-      const out = hitsOutPath(root, locale);
-      fs.mkdirSync(path.dirname(out), { recursive: true });
-      fs.writeFileSync(out, json, "utf8");
-      written.push(path.relative(REPO, out));
-      console.log(`wrote ${path.relative(REPO, out)} (${json.length} bytes)`);
-    }
+    const out = hitsOutPath(primary, locale);
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    fs.writeFileSync(out, json, "utf8");
+    const relHits = path.join("search", locale, PATRISTIC_VERSE_HITS_FILE);
+    syncCorpusPathToAssets(relHits);
+    written.push(path.relative(REPO, out));
+    console.log(`wrote ${path.relative(REPO, out)} (${json.length} bytes)`);
   }
 
   console.log(

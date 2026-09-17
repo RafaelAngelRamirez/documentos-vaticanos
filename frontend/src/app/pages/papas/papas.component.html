@@ -1,11 +1,11 @@
-<div class="app has-bnav web-shell">
+<div class="app has-bnav web-shell" [attr.data-tick]="localeTick">
   <app-wbar active="papas"></app-wbar>
   <div class="only-mobile">
-    <app-fbar title="Papas"></app-fbar>
+    <app-fbar [title]="t('popes.title')"></app-fbar>
   </div>
 
   <div class="fbody papas-body">
-    <h2 class="h2 only-desktop">Papas</h2>
+    <h2 class="h2 only-desktop">{{ t('popes.title') }}</h2>
     <div class="fs14 muted" style="line-height: 1.6; max-width: 70ch">
       Los 267 pontífices romanos según la lista oficial de vatican.va, de Pedro
       a León XIV. Si el papa está en el

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { DownloadsService } from '../../core/downloads/downloads.service';
+import { UiI18nService } from '../../core/i18n/ui-i18n.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -7,7 +9,9 @@ import { environment } from 'src/environments/environment';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, OnDestroy {
+  localeTick = 0;
+  private sub = new Subscription();
   links: {
     apk: string;
     linux: string;
@@ -29,14 +33,30 @@ export class AboutComponent implements OnInit {
     return 'documentos-vaticanos-windows.exe';
   }
 
-  constructor(private readonly downloads: DownloadsService) {}
+  constructor(
+    public i18n: UiI18nService,
+    private readonly downloads: DownloadsService,
+  ) {}
+
+  t(key: string, params?: Record<string, string | number>): string {
+    return this.i18n.t(key, params);
+  }
 
   ngOnInit(): void {
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
     this.downloads.getLinks().subscribe((links) => {
       this.links = {
         ...links,
         version: environment.version || links.version || '',
       };
     });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }

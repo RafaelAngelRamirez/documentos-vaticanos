@@ -155,6 +155,15 @@ CURRENT_STAGE="Topic pack validate"
 notify_step "$CURRENT_STAGE" || true
 npm run topics:validate -- --locale es
 
+echo "==> Cheap tests (open-reading, speech-prep, corpus structure)"
+CURRENT_STAGE="Cheap tests"
+notify_step "$CURRENT_STAGE" || true
+npm --prefix frontend run test:open-reading
+npm --prefix frontend run test:speech-prep
+npm --prefix frontend run test:speech-lang
+node scripts-descarga/corpus_structure_contract.test.js
+node scripts/corpus-sync-assets.test.js
+
 echo "==> [4/${_STAGES}] Web production + corpus"
 CURRENT_STAGE="Web production"
 notify_step "$CURRENT_STAGE" || true

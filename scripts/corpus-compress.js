@@ -11,10 +11,17 @@
  *
  * Does NOT reindex units, rename document ids, drop content.json / index.json,
  * or change consecutivo / contenido / non-empty referencias.
- * Does NOT delete sibling packs under search/ or context/ (topic-search, history).
+ * Does NOT delete sibling packs under papacy/ santoral/ context/ search/
+ * (except --drop-unused-sidecars, which removes every patristic-verse-hits.json).
+ *
+ * Optional ship-size flags default OFF (web dist can keep AI locales):
+ *   --drop-unused-sidecars  delete every patristic-verse-hits.json under root
+ *   --drop-ai               drop manifest entries with translationProvenance==="ai"
+ *                           and their documents/<id>/ dirs (official + unset stay)
  *
  * Usage:
  *   node scripts/corpus-compress.js --root <corpusDir> [--dry-run] [--keep-meta]
+ *       [--drop-ai] [--drop-unused-sidecars]
  *
  * Pure helpers are exported for tests (require without side effects when not main).
  */
@@ -135,14 +142,189 @@ function readingSnapshot(data) {
   };
 }
 
+const UNUSED_SIDECAR_NAME = 'patristic-verse-hits.json';
+
+/**
+ * Strict AI provenance. Missing / official / other strings stay.
+ * @param {unknown} doc
+ * @returns {boolean}
+ */
+function isAiProvenance(doc) {
+  if (doc == null || typeof doc !== 'object' || Array.isArray(doc)) {
+    return false;
+  }
+  return (
+    /** @type {{ translationProvenance?: unknown }} */ (doc)
+      .translationProvenance === 'ai'
+  );
+}
+
+/**
+ * Resolve documents/<id> under root. Rejects path traversal.
+ * @param {string} rootDir
+ * @param {unknown} id
+ * @returns {string|null}
+ */
+function safeDocumentDir(rootDir, id) {
+  if (typeof id !== 'string' || !id.trim()) return null;
+  if (id !== path.basename(id)) return null;
+  const documentsRoot = path.resolve(rootDir, 'documents');
+  const dir = path.resolve(documentsRoot, id);
+  if (dir === documentsRoot) return null;
+  const prefix = documentsRoot.endsWith(path.sep)
+    ? documentsRoot
+    : documentsRoot + path.sep;
+  if (!dir.startsWith(prefix)) return null;
+  return dir;
+}
+
+/**
+ * Drop manifest documents with translationProvenance === 'ai' and their dirs.
+ * Does not touch papacy/, santoral/, context/, search/.
+ * @param {string} rootDir
+ * @param {{ dryRun?: boolean }} [opts]
+ * @returns {{ droppedIds: string[], keptCount: number, bytesFreed: number }}
+ */
+function dropAiDocuments(rootDir, opts = {}) {
+  const dryRun = Boolean(opts.dryRun);
+  const manPath = path.join(rootDir, 'manifest.json');
+  if (!fs.existsSync(manPath)) {
+    throw new Error(`drop-ai: missing manifest.json under ${rootDir}`);
+  }
+  const raw = fs.readFileSync(manPath, 'utf8');
+  const man = JSON.parse(raw);
+  const docs = Array.isArray(man.documents) ? man.documents : [];
+  /** @type {string[]} */
+  const droppedIds = [];
+  /** @type {unknown[]} */
+  const kept = [];
+  for (const doc of docs) {
+    if (isAiProvenance(doc)) {
+      const id =
+        doc && typeof doc === 'object' && typeof doc.id === 'string'
+          ? doc.id
+          : '';
+      droppedIds.push(id);
+    } else {
+      kept.push(doc);
+    }
+  }
+
+  let bytesFreed = 0;
+  for (const id of droppedIds) {
+    const dir = safeDocumentDir(rootDir, id);
+    if (!dir || !fs.existsSync(dir)) continue;
+    bytesFreed += treeBytes(dir);
+    if (!dryRun) {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }
+
+  if (!dryRun && droppedIds.length > 0) {
+    const next = { ...man, documents: kept };
+    const tmp = manPath + '.tmp-drop-ai';
+    try {
+      fs.writeFileSync(tmp, serializeCompact(next));
+      fs.renameSync(tmp, manPath);
+    } catch (err) {
+      try {
+        if (fs.existsSync(tmp)) fs.unlinkSync(tmp);
+      } catch {
+        /* ignore */
+      }
+      throw err;
+    }
+  }
+
+  return { droppedIds, keptCount: kept.length, bytesFreed };
+}
+
+/**
+ * Delete every patristic-verse-hits.json under root (ship sidecar, unused in UI).
+ * @param {string} rootDir
+ * @param {{ dryRun?: boolean }} [opts]
+ * @returns {{ removed: number, paths: string[] }}
+ */
+function dropUnusedSidecars(rootDir, opts = {}) {
+  const dryRun = Boolean(opts.dryRun);
+  /** @type {string[]} */
+  const paths = [];
+
+  /**
+   * @param {string} dir
+   */
+  function walk(dir) {
+    let entries;
+    try {
+      entries = fs.readdirSync(dir, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const ent of entries) {
+      const full = path.join(dir, ent.name);
+      if (ent.isDirectory()) {
+        walk(full);
+        continue;
+      }
+      if (ent.isFile() && ent.name === UNUSED_SIDECAR_NAME) {
+        paths.push(full);
+        if (!dryRun) {
+          try {
+            fs.unlinkSync(full);
+          } catch {
+            /* keep going */
+          }
+        }
+      }
+    }
+  }
+
+  walk(rootDir);
+  return { removed: paths.length, paths };
+}
+
+/**
+ * @param {string} dir
+ * @returns {number}
+ */
+function treeBytes(dir) {
+  let total = 0;
+  let entries;
+  try {
+    entries = fs.readdirSync(dir, { withFileTypes: true });
+  } catch {
+    return 0;
+  }
+  for (const ent of entries) {
+    const full = path.join(dir, ent.name);
+    if (ent.isDirectory()) {
+      total += treeBytes(full);
+    } else if (ent.isFile()) {
+      try {
+        total += fs.statSync(full).size;
+      } catch {
+        /* skip */
+      }
+    }
+  }
+  return total;
+}
+
 /**
  * Walk a corpus root and apply compression in place.
  * @param {string} rootDir
- * @param {{ dryRun?: boolean, keepMeta?: boolean }} [opts]
+ * @param {{
+ *   dryRun?: boolean,
+ *   keepMeta?: boolean,
+ *   dropAi?: boolean,
+ *   dropUnusedSidecars?: boolean,
+ * }} [opts]
  * @returns {{
  *   filesSeen: number,
  *   filesWritten: number,
  *   metaRemoved: number,
+ *   aiDropped: number,
+ *   sidecarsRemoved: number,
  *   bytesBefore: number,
  *   bytesAfter: number,
  *   skipped: number,
@@ -152,6 +334,8 @@ function readingSnapshot(data) {
 function compressCorpusTree(rootDir, opts = {}) {
   const dryRun = Boolean(opts.dryRun);
   const keepMeta = Boolean(opts.keepMeta);
+  const dropAi = Boolean(opts.dropAi);
+  const dropSidecars = Boolean(opts.dropUnusedSidecars);
 
   if (!fs.existsSync(rootDir) || !fs.statSync(rootDir).isDirectory()) {
     throw new Error(`corpus root not found or not a directory: ${rootDir}`);
@@ -161,12 +345,34 @@ function compressCorpusTree(rootDir, opts = {}) {
     filesSeen: 0,
     filesWritten: 0,
     metaRemoved: 0,
+    aiDropped: 0,
+    sidecarsRemoved: 0,
     bytesBefore: 0,
     bytesAfter: 0,
     skipped: 0,
     /** @type {string[]} */
     errors: [],
   };
+
+  if (dropAi) {
+    try {
+      const ai = dropAiDocuments(rootDir, { dryRun });
+      stats.aiDropped = ai.droppedIds.length;
+    } catch (err) {
+      stats.errors.push(`drop-ai: ${/** @type {Error} */ (err).message}`);
+    }
+  }
+
+  if (dropSidecars) {
+    try {
+      const sc = dropUnusedSidecars(rootDir, { dryRun });
+      stats.sidecarsRemoved = sc.removed;
+    } catch (err) {
+      stats.errors.push(
+        `drop-unused-sidecars: ${/** @type {Error} */ (err).message}`,
+      );
+    }
+  }
 
   /**
    * @param {string} dir
@@ -280,8 +486,22 @@ function formatBytes(n) {
 }
 
 function parseArgs(argv) {
-  /** @type {{ root: string|null, dryRun: boolean, keepMeta: boolean, help: boolean }} */
-  const out = { root: null, dryRun: false, keepMeta: false, help: false };
+  /** @type {{
+   *   root: string|null,
+   *   dryRun: boolean,
+   *   keepMeta: boolean,
+   *   dropAi: boolean,
+   *   dropUnusedSidecars: boolean,
+   *   help: boolean,
+   * }} */
+  const out = {
+    root: null,
+    dryRun: false,
+    keepMeta: false,
+    dropAi: false,
+    dropUnusedSidecars: false,
+    help: false,
+  };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--root' || a === '-r') {
@@ -290,6 +510,10 @@ function parseArgs(argv) {
       out.dryRun = true;
     } else if (a === '--keep-meta') {
       out.keepMeta = true;
+    } else if (a === '--drop-ai') {
+      out.dropAi = true;
+    } else if (a === '--drop-unused-sidecars') {
+      out.dropUnusedSidecars = true;
     } else if (a === '--help' || a === '-h') {
       out.help = true;
     }
@@ -301,11 +525,14 @@ function printHelp() {
   console.log(`Usage: node scripts/corpus-compress.js --root <corpusDir> [options]
 
 Options:
-  --root, -r     Path to ship corpus root (must contain manifest.json)
-  --dry-run      Report savings without writing
-  --keep-meta    Do not delete meta.json files
-  --help         Show this help
+  --root, -r                 Path to ship corpus root (must contain manifest.json)
+  --dry-run                  Report savings without writing
+  --keep-meta                Do not delete meta.json files
+  --drop-ai                  Remove translationProvenance=ai docs from ship tree
+  --drop-unused-sidecars     Delete every patristic-verse-hits.json under root
+  --help                     Show this help
 
+Flags default off. Compact JSON / empty refs / drop meta.json always run.
 Safe transforms only (reading contract preserved).`);
 }
 
@@ -329,6 +556,8 @@ function main(argv) {
   const stats = compressCorpusTree(root, {
     dryRun: args.dryRun,
     keepMeta: args.keepMeta,
+    dropAi: args.dropAi,
+    dropUnusedSidecars: args.dropUnusedSidecars,
   });
 
   const saved = stats.bytesBefore - stats.bytesAfter;
@@ -338,6 +567,8 @@ function main(argv) {
         filesSeen: stats.filesSeen,
         filesWritten: stats.filesWritten,
         metaRemoved: stats.metaRemoved,
+        aiDropped: stats.aiDropped,
+        sidecarsRemoved: stats.sidecarsRemoved,
         skipped: stats.skipped,
         bytesBefore: stats.bytesBefore,
         bytesAfter: stats.bytesAfter,
@@ -377,6 +608,10 @@ module.exports = {
   readingSnapshot,
   serializeCompact,
   isArticleLike,
+  isAiProvenance,
+  dropAiDocuments,
+  dropUnusedSidecars,
+  parseArgs,
 };
 
 if (require.main === module) {

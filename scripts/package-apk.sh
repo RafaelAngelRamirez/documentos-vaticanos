@@ -23,6 +23,11 @@ run() {
   fi
 }
 
+if [[ -d "$ROOT/documentos/corpus" ]]; then
+  echo "==> Sync corpus ship copy → frontend/src/assets/corpus"
+  run bash "$ROOT/scripts/corpus-sync-assets.sh"
+fi
+
 cd "$FRONTEND"
 echo "==> Production build + Capacitor sync"
 # Prefer explicit steps so we can recover missing cap-generated files on CI volumes
@@ -34,7 +39,8 @@ fi
 CORPUS_DIST="$FRONTEND/dist/documentos-vaticanos/assets/corpus"
 if [[ -f "$CORPUS_DIST/manifest.json" ]]; then
   echo "==> Corpus compress (ship hygiene) → $CORPUS_DIST"
-  run node "$ROOT/scripts/corpus-compress.js" --root "$CORPUS_DIST"
+  run node "$ROOT/scripts/corpus-compress.js" --root "$CORPUS_DIST" \
+    --drop-ai --drop-unused-sidecars
 else
   echo "WARN: no dist corpus at $CORPUS_DIST — skipping compress" >&2
 fi

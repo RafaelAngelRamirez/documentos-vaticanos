@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { BnavComponent } from 'src/app/components/bnav/bnav.component';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import {
   Enrollment,
   Study,
@@ -12,7 +14,7 @@ import {
   StudiesService,
 } from 'src/app/core/account/studies.service';
 import { environment } from 'src/environments/environment';
-import { ROUTE } from 'src/app/services/navigation.service';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 const LESSON_KEY = (id: string) => `dv.lesson.${id}`;
 
@@ -29,19 +31,32 @@ const LESSON_KEY = (id: string) => `dv.lesson.${id}`;
   templateUrl: './aprendizaje.component.html',
   styleUrls: ['./aprendizaje.component.css'],
 })
-export class AprendizajeComponent implements OnInit {
+export class AprendizajeComponent implements OnInit, OnDestroy {
   loading = false;
   error: string | null = null;
   study: Study | null = null;
   done = new Set<number>();
+  localeTick = 0;
+  private sub = new Subscription();
 
   constructor(
+    public i18n: UiI18nService,
     public auth: AuthService,
     private studies: StudiesService,
-    private router: Router
+    private router: Router,
+    private navigation: NavigationService,
   ) {}
 
+  t(key: string, params?: Record<string, string | number>): string {
+    return this.i18n.t(key, params);
+  }
+
   ngOnInit(): void {
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
     if (!this.auth.isLoggedIn || !environment.apiBaseUrl) {
       return;
     }
@@ -58,6 +73,10 @@ export class AprendizajeComponent implements OnInit {
         this.error = err?.error?.error || err?.message || 'Error';
       },
     });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
   get steps(): StudyStep[] {
@@ -113,12 +132,7 @@ export class AprendizajeComponent implements OnInit {
     if (!s) return;
     this.done.add(i);
     this.saveDone();
-    this.router.navigate([
-      ROUTE.leyendo,
-      s.documentId,
-      ROUTE.punto,
-      s.unitIndex,
-    ]);
+    this.navigation.openReading(s.documentId, { unitIndex: s.unitIndex });
   }
 
   continueNext(): void {

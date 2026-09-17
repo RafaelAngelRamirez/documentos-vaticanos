@@ -30,6 +30,8 @@ export class TopicIndexService {
   private rootInflight$: Observable<TopicSearchRootManifest> | null = null;
   private readonly packCache = new Map<string, TopicPack>();
   private readonly packInflight$ = new Map<string, Observable<TopicPack>>();
+  private readonly graphsLoaded = new Set<string>();
+  private readonly graphsInflight$ = new Map<string, Observable<TopicPack>>();
 
   constructor(private readonly http: HttpClient) {}
 
@@ -102,13 +104,12 @@ export class TopicIndexService {
 
     const request$ = this.loadRootManifest().pipe(
       switchMap((root) => {
-        const rel = root.locales?.[loc];
-        if (!rel) {
+        const base = packBase(root, loc);
+        if (!base) {
           return of(emptyTopicPack(loc));
         }
-        const base = `${TOPIC_SEARCH_ROOT}/${rel}`.replace(/\/+/g, '/');
         return this.http.get<TopicPackManifest>(`${base}/manifest.json`).pipe(
-          switchMap((manifest) => this.loadPackFiles(base, manifest, loc)),
+          switchMap((manifest) => this.loadCoreFiles(base, manifest, loc)),
           catchError((err) => {
             console.warn(`Topic pack load failed for ${loc}`, err);
             return of(emptyTopicPack(loc));
@@ -126,7 +127,56 @@ export class TopicIndexService {
     return request$;
   }
 
-  private loadPackFiles(
+  /**
+   * Load unit-graph + doc-graph (and unitTopics) after the core pack.
+   * Search / temas stay on loadPack; relaciones and related-units call this.
+   */
+  loadGraphs(locale: string): Observable<TopicPack> {
+    const loc = normalizeLoc(locale) || 'es';
+    if (!this.featureEnabled) {
+      return of(emptyTopicPack(loc));
+    }
+    if (this.graphsLoaded.has(loc)) {
+      const cached = this.packCache.get(loc);
+      if (cached) return of(cached);
+    }
+    const pending = this.graphsInflight$.get(loc);
+    if (pending) return pending;
+
+    const request$ = this.loadPack(loc).pipe(
+      switchMap((pack) => {
+        if (this.graphsLoaded.has(loc)) {
+          return of(this.packCache.get(loc) ?? pack);
+        }
+        const base = this.rootManifest
+          ? packBase(this.rootManifest, loc)
+          : null;
+        if (!base) {
+          this.graphsLoaded.add(loc);
+          return of(pack);
+        }
+        return this.loadGraphFiles(base, pack.manifest).pipe(
+          map((g) => {
+            pack.graph = g.graph;
+            pack.docGraph = g.docGraph;
+            pack.unitTopics = g.unitTopics;
+            this.packCache.set(loc, pack);
+            this.graphsLoaded.add(loc);
+            return pack;
+          }),
+        );
+      }),
+      shareReplay(1),
+      tap({
+        complete: () => this.graphsInflight$.delete(loc),
+        error: () => this.graphsInflight$.delete(loc),
+      }),
+    );
+    this.graphsInflight$.set(loc, request$);
+    return request$;
+  }
+
+  private loadCoreFiles(
     base: string,
     manifest: TopicPackManifest,
     locale: string,
@@ -156,41 +206,61 @@ export class TopicIndexService {
           of({ version: 1, locale, terms: {} } as TermTopicsFile),
         ),
       );
-    const graph$ = f.graph
-      ? this.http.get<UnitGraphFile>(`${base}/${f.graph}`).pipe(
-          catchError(() => of(null as UnitGraphFile | null)),
-        )
-      : of(null as UnitGraphFile | null);
-    const unitTopics$ = f.unitTopics
-      ? this.http.get<UnitTopicsFile>(`${base}/${f.unitTopics}`).pipe(
-          catchError(() => of(null as UnitTopicsFile | null)),
-        )
-      : of(null as UnitTopicsFile | null);
-    const docGraph$ = f.docGraph
-      ? this.http.get<DocGraphFile>(`${base}/${f.docGraph}`).pipe(
-          catchError(() => of(null as DocGraphFile | null)),
-        )
-      : of(null as DocGraphFile | null);
 
     return forkJoin({
       topics: topics$,
       postings: postings$,
       termTopics: termTopics$,
-      graph: graph$,
-      unitTopics: unitTopics$,
-      docGraph: docGraph$,
     }).pipe(
       map((parts) => ({
         manifest,
         topics: parts.topics,
         postings: parts.postings,
         termTopics: parts.termTopics,
-        graph: parts.graph,
-        docGraph: parts.docGraph,
-        unitTopics: parts.unitTopics,
+        graph: null,
+        docGraph: null,
+        unitTopics: null,
       })),
     );
   }
+
+  private loadGraphFiles(
+    base: string,
+    manifest: TopicPackManifest,
+  ): Observable<{
+    graph: UnitGraphFile | null;
+    docGraph: DocGraphFile | null;
+    unitTopics: UnitTopicsFile | null;
+  }> {
+    const f = manifest.files;
+    const graph$ = f?.graph
+      ? this.http.get<UnitGraphFile>(`${base}/${f.graph}`).pipe(
+          catchError(() => of(null as UnitGraphFile | null)),
+        )
+      : of(null as UnitGraphFile | null);
+    const unitTopics$ = f?.unitTopics
+      ? this.http.get<UnitTopicsFile>(`${base}/${f.unitTopics}`).pipe(
+          catchError(() => of(null as UnitTopicsFile | null)),
+        )
+      : of(null as UnitTopicsFile | null);
+    const docGraph$ = f?.docGraph
+      ? this.http.get<DocGraphFile>(`${base}/${f.docGraph}`).pipe(
+          catchError(() => of(null as DocGraphFile | null)),
+        )
+      : of(null as DocGraphFile | null);
+
+    return forkJoin({
+      graph: graph$,
+      unitTopics: unitTopics$,
+      docGraph: docGraph$,
+    });
+  }
+}
+
+function packBase(root: TopicSearchRootManifest, loc: string): string | null {
+  const rel = root.locales?.[loc];
+  if (!rel) return null;
+  return `${TOPIC_SEARCH_ROOT}/${rel}`.replace(/\/+/g, '/');
 }
 
 function normalizeLoc(locale: string): string {

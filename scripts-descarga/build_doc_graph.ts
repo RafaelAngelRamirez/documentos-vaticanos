@@ -1,6 +1,6 @@
 /**
  * Build compact document-level citation graph from unit-graph.json.
- * Dual-writes search/{locale}/doc-graph.json and updates locale manifest files.docGraph.
+ * Writes search/{locale}/doc-graph.json on the canonical pack, then copies to assets.
  *
  * Usage:
  *   npx ts-node --transpile-only build_doc_graph.ts --locale es
@@ -9,12 +9,10 @@
 import * as fs from "fs";
 import * as path from "path";
 import { aggregateDocGraph, type DocMetaLite } from "./src/topics/doc_graph";
-
-const REPO = path.resolve(__dirname, "..");
-const CORPUS_ROOTS = [
-  path.join(REPO, "documentos", "corpus"),
-  path.join(REPO, "frontend", "src", "assets", "corpus"),
-];
+import {
+  CANONICAL_CORPUS_ROOT,
+  syncCorpusPathToAssets,
+} from "./src/pipeline/write_corpus";
 
 function parseArgs(argv: string[]) {
   let locale = "es";
@@ -31,7 +29,7 @@ function writeJson(filePath: string, data: unknown): void {
 
 function main() {
   const { locale } = parseArgs(process.argv.slice(2));
-  const primary = CORPUS_ROOTS[0];
+  const primary = CANONICAL_CORPUS_ROOT;
   const graphPath = path.join(primary, "search", locale, "unit-graph.json");
   if (!fs.existsSync(graphPath)) {
     console.error(`missing ${graphPath} — run topics:build-graph first`);
@@ -52,35 +50,34 @@ function main() {
     0,
   );
 
-  for (const root of CORPUS_ROOTS) {
-    const locDir = path.join(root, "search", locale);
-    fs.mkdirSync(locDir, { recursive: true });
-    writeJson(path.join(locDir, "doc-graph.json"), docGraph);
+  const locDir = path.join(primary, "search", locale);
+  fs.mkdirSync(locDir, { recursive: true });
+  writeJson(path.join(locDir, "doc-graph.json"), docGraph);
 
-    const locManPath = path.join(locDir, "manifest.json");
-    let locMan: Record<string, unknown> = {
-      version: "0.3.0",
-      schema: 1,
-      locale,
-      files: {},
-    };
-    if (fs.existsSync(locManPath)) {
-      try {
-        locMan = JSON.parse(fs.readFileSync(locManPath, "utf8"));
-      } catch {
-        /* default */
-      }
+  const locManPath = path.join(locDir, "manifest.json");
+  let locMan: Record<string, unknown> = {
+    version: "0.3.0",
+    schema: 1,
+    locale,
+    files: {},
+  };
+  if (fs.existsSync(locManPath)) {
+    try {
+      locMan = JSON.parse(fs.readFileSync(locManPath, "utf8"));
+    } catch {
+      /* default */
     }
-    const files = {
-      ...((locMan.files as Record<string, string>) || {}),
-      graph: "unit-graph.json",
-      docGraph: "doc-graph.json",
-    };
-    locMan.files = files;
-    locMan.docGraphNodeCount = docGraph.nodes.length;
-    locMan.docGraphEdgeCount = edgePairs;
-    writeJson(locManPath, locMan);
   }
+  const files = {
+    ...((locMan.files as Record<string, string>) || {}),
+    graph: "unit-graph.json",
+    docGraph: "doc-graph.json",
+  };
+  locMan.files = files;
+  locMan.docGraphNodeCount = docGraph.nodes.length;
+  locMan.docGraphEdgeCount = edgePairs;
+  writeJson(locManPath, locMan);
+  syncCorpusPathToAssets(path.join("search", locale));
 
   console.log(
     JSON.stringify(

@@ -1,15 +1,18 @@
 /**
- * Dual-write offline papacy pack next to corpus roots (same pattern as santoral).
+ * Write the offline papacy pack to documentos/corpus/papacy, then copy to assets.
  */
 import fs from 'fs';
 import path from 'path';
 import type { PapacyManifest, PopeRecord } from '../../models/papacy.model';
-
-const REPO = path.resolve(__dirname, '../../..');
+import {
+  ASSETS_CORPUS_ROOT,
+  CANONICAL_CORPUS_ROOT,
+  syncCorpusPathToAssets,
+} from '../pipeline/write_corpus';
 
 export const PAPACY_ROOTS = [
-  path.join(REPO, 'documentos', 'corpus', 'papacy'),
-  path.join(REPO, 'frontend', 'src', 'assets', 'corpus', 'papacy'),
+  path.join(CANONICAL_CORPUS_ROOT, 'papacy'),
+  path.join(ASSETS_CORPUS_ROOT, 'papacy'),
 ];
 
 function ensureDir(dir: string): void {
@@ -29,10 +32,10 @@ export function writePapacyPack(manifest: PapacyManifest): {
     popes,
   };
   const text = JSON.stringify(payload, null, 2) + '\n';
-  for (const root of PAPACY_ROOTS) {
-    ensureDir(root);
-    fs.writeFileSync(path.join(root, 'manifest.json'), text, 'utf-8');
-  }
+  const root = PAPACY_ROOTS[0];
+  ensureDir(root);
+  fs.writeFileSync(path.join(root, 'manifest.json'), text, 'utf-8');
+  syncCorpusPathToAssets('papacy');
   return { roots: PAPACY_ROOTS, popeCount: payload.popes.length };
 }
 
@@ -41,14 +44,12 @@ export function writePapacyDocumentsCatalog(
   filename = 'documents.json',
 ): string[] {
   const text = JSON.stringify(documents, null, 2) + '\n';
-  const written: string[] = [];
-  for (const root of PAPACY_ROOTS) {
-    ensureDir(root);
-    const dest = path.join(root, filename);
-    fs.writeFileSync(dest, text, 'utf-8');
-    written.push(dest);
-  }
-  return written;
+  const root = PAPACY_ROOTS[0];
+  ensureDir(root);
+  const dest = path.join(root, filename);
+  fs.writeFileSync(dest, text, 'utf-8');
+  syncCorpusPathToAssets(path.join('papacy', filename));
+  return [dest, path.join(PAPACY_ROOTS[1], filename)];
 }
 
 export function readPapacyPack(root?: string): PapacyManifest | null {

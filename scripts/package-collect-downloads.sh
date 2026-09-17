@@ -10,7 +10,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 DIST="$ROOT/dist"
 WEB_OUT="$DIST/web/downloads"
-# Also land under frontend production dist so docker-compilar / Dockerfile pick them up
+# Also land under frontend production dist so frontend/Dockerfile pick them up
 FE_OUT="$ROOT/frontend/dist/documentos-vaticanos/downloads"
 # Source-tree placeholder so Angular asset pipeline can ship an empty folder + manifest
 ASSETS_OUT="$ROOT/frontend/src/assets/downloads"

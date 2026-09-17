@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 22px;
-  max-width: 640px;
+  max-width: var(--app-measure);
   margin: 0 auto;
 }
 

@@ -81,7 +81,7 @@ export class NavigationService {
       terms_pure: article.terms_pure ?? [],
       termns: article.termns,
     };
-    this.actual_index = article.article.index_array;
+    this.actual_index = article.article.index_array ?? 0;
     const documento = this.document_id;
 
     this.save_actual_index();
@@ -365,7 +365,7 @@ export class NavigationService {
   }
 
   go_to_search() {
-    this.router.navigate(['/', ROUTE.inicio]);
+    this.router.navigate(['/buscar']);
   }
 
   go_to_documents() {
