@@ -5,8 +5,8 @@
  * Proves analysis claims in docs/CORPUS-STRUCTURE-ANALYSIS.md stay true:
  * - CORPUS_ROOT / MANIFEST_URL offline contract
  * - canonical pack is documentos/corpus; assets is a generated copy
- * - per-doc content.json + index.json exist for every manifest entry
- * - sample docs are byte-identical after the copy step
+ * - per-doc content.json + index.json exist under the canonical pack
+ * - if the gitignored assets/documents copy exists, samples match byte-for-byte
  *
  * Run from repo root:
  *   node scripts-descarga/corpus_structure_contract.test.js
@@ -176,33 +176,41 @@ async function main() {
     assert.ok(doc.indexPath, `${doc.id} indexPath`);
     const bodyA = path.join(CANONICAL, doc.bodyPath);
     const indexA = path.join(CANONICAL, doc.indexPath);
-    const bodyB = path.join(ASSETS, doc.bodyPath);
-    const indexB = path.join(ASSETS, doc.indexPath);
-    if (!fs.existsSync(bodyA) || !fs.existsSync(bodyB)) missingBody++;
-    if (!fs.existsSync(indexA) || !fs.existsSync(indexB)) missingIndex++;
+    if (!fs.existsSync(bodyA)) missingBody++;
+    if (!fs.existsSync(indexA)) missingIndex++;
   }
-  assert.strictEqual(missingBody, 0, 'every bodyPath must exist on both roots');
-  assert.strictEqual(missingIndex, 0, 'every indexPath must exist on both roots');
+  assert.strictEqual(missingBody, 0, 'every bodyPath must exist on the canonical pack');
+  assert.strictEqual(missingIndex, 0, 'every indexPath must exist on the canonical pack');
   console.log(
-    `  ${manCanon.documents.length} docs; all bodyPath/indexPath present on both roots`,
+    `  ${manCanon.documents.length} docs; all bodyPath/indexPath present under documentos/corpus`,
+  );
+
+  const assetsDocsPresent = fs.existsSync(
+    path.join(ASSETS, 'documents', SAMPLE_IDS[0], 'content.json'),
   );
 
   section('assets copy sample byte identity');
-  for (const id of SAMPLE_IDS) {
-    const meta = manCanon.documents.find((d) => d.id === id);
-    assert.ok(meta, `sample doc ${id} in manifest`);
-    for (const rel of [meta.bodyPath, meta.indexPath, `documents/${id}/meta.json`]) {
-      const a = path.join(CANONICAL, rel);
-      const b = path.join(ASSETS, rel);
-      assert.ok(fs.existsSync(a), `missing ${a}`);
-      assert.ok(fs.existsSync(b), `missing ${b}`);
-      assert.strictEqual(
-        md5File(a),
-        md5File(b),
-        `canonical vs assets mismatch ${rel}`,
-      );
+  if (!assetsDocsPresent) {
+    console.log(
+      '  skip: frontend/src/assets/corpus/documents is gitignored; regenerate with npm run corpus:sync-assets',
+    );
+  } else {
+    for (const id of SAMPLE_IDS) {
+      const meta = manCanon.documents.find((d) => d.id === id);
+      assert.ok(meta, `sample doc ${id} in manifest`);
+      for (const rel of [meta.bodyPath, meta.indexPath, `documents/${id}/meta.json`]) {
+        const a = path.join(CANONICAL, rel);
+        const b = path.join(ASSETS, rel);
+        assert.ok(fs.existsSync(a), `missing ${a}`);
+        assert.ok(fs.existsSync(b), `missing ${b}`);
+        assert.strictEqual(
+          md5File(a),
+          md5File(b),
+          `canonical vs assets mismatch ${rel}`,
+        );
+      }
+      console.log(`  ${id}: content/index/meta MD5 equal`);
     }
-    console.log(`  ${id}: content/index/meta MD5 equal`);
   }
 
   section('index/content size ratio sanity (analysis bound)');
@@ -229,8 +237,14 @@ async function main() {
   const goldenMeta = manCanon.documents.find((d) => d.id === GOLDEN_ID);
   assert.ok(goldenMeta, `golden ${GOLDEN_ID} in canonical manifest`);
   const goldenBodyA = path.join(CANONICAL, goldenMeta.bodyPath);
-  const goldenBodyB = path.join(ASSETS, goldenMeta.bodyPath);
-  assert.strictEqual(md5File(goldenBodyA), md5File(goldenBodyB), 'golden body assets copy');
+  if (assetsDocsPresent) {
+    const goldenBodyB = path.join(ASSETS, goldenMeta.bodyPath);
+    assert.strictEqual(
+      md5File(goldenBodyA),
+      md5File(goldenBodyB),
+      'golden body assets copy',
+    );
+  }
   const goldenUnits = JSON.parse(fs.readFileSync(goldenBodyA, 'utf8'));
   assert.ok(Array.isArray(goldenUnits) && goldenUnits.length > 0);
   assert.strictEqual(
@@ -247,7 +261,10 @@ async function main() {
     !/U N I V E R S I D A D/.test(goldenRaw),
     'spaced-letter UNIVERSIDAD must not remain in golden pack',
   );
-  console.log(`  ${GOLDEN_ID} unit0 placeholder + assets copy MD5 OK`);
+  console.log(
+    `  ${GOLDEN_ID} unit0 placeholder` +
+      (assetsDocsPresent ? ' + assets copy MD5 OK' : ' (canonical only)'),
+  );
 
   section('contentHash on sample docs matches sha256[:12] of content.json');
   function sha12(filePath) {
