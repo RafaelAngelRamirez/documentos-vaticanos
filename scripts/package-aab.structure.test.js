@@ -69,6 +69,8 @@ function main() {
   assert.match(aabSh, /node_modules\/\.bin\/ng/);
   assert.match(aabSh, /--stacktrace/);
   assert.match(aabSh, /GRADLE_OPTS=.*-Xmx4096m/);
+  assert.match(aabSh, /corpus-sync-assets\.sh/);
+  assert.match(aabSh, /assets\/corpus\/documents/);
   assert.ok(!/docvat-local-dev-only/.test(aabSh), 'no local keystore password in script');
 
   section('Play applicationId com.docvat uses FQCN MainActivity (not relative .MainActivity)');

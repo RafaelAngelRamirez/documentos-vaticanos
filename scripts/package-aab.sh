@@ -64,17 +64,37 @@ ensure_frontend_deps() {
 }
 ensure_frontend_deps
 
+if [[ -d "$ROOT/documentos/corpus/documents" ]]; then
+  echo "==> Sync corpus ship copy → frontend/src/assets/corpus"
+  run bash "$ROOT/scripts/corpus-sync-assets.sh"
+fi
+if [[ ! -d "$FRONTEND/src/assets/corpus/documents" ]]; then
+  echo "ERROR: missing $FRONTEND/src/assets/corpus/documents after sync (gitignored; need documentos/corpus)" >&2
+  exit 2
+fi
+
 cd "$FRONTEND"
 echo "==> Production build + Capacitor sync (shared path with package-apk)"
-if [[ ! -f dist/documentos-vaticanos/index.html ]]; then
+DIST_WEB="$FRONTEND/dist/documentos-vaticanos"
+DIST_DOCS="$DIST_WEB/assets/corpus/documents"
+if [[ -f "$DIST_WEB/index.html" && ! -d "$DIST_DOCS" ]]; then
+  echo "==> stale web dist without reading packs — rebuilding"
+  rm -rf "$DIST_WEB"
+fi
+if [[ ! -f "$DIST_WEB/index.html" ]]; then
   run npm run build
 fi
 
-CORPUS_DIST="$FRONTEND/dist/documentos-vaticanos/assets/corpus"
+CORPUS_DIST="$DIST_WEB/assets/corpus"
 if [[ -f "$CORPUS_DIST/manifest.json" ]]; then
   echo "==> Corpus compress → $CORPUS_DIST"
   run node "$ROOT/scripts/corpus-compress.js" --root "$CORPUS_DIST" \
     --drop-ai --drop-unused-sidecars
+fi
+if ! ls "$CORPUS_DIST/documents"/*/content.json >/dev/null 2>&1 \
+  && ! ls "$CORPUS_DIST/documents"/*/chunks.json >/dev/null 2>&1; then
+  echo "ERROR: dist corpus has no reading packs (content.json or chunks.json)" >&2
+  exit 2
 fi
 
 run npx cap sync android
