@@ -8,10 +8,9 @@ test.describe('App lector offline', () => {
   test('home loads and shows search shell', async ({ page }) => {
     await page.goto('/');
     await expect(page.locator('body')).toBeVisible();
-    // Navbar brand or search input
-    const brand = page.getByText(/Documentos Vaticanos/i);
-    const search = page.locator('input[type="search"], input[formcontrolname="buscador"]');
-    await expect(brand.or(search).first()).toBeVisible({ timeout: 30_000 });
+    const mark = page.locator('.mark');
+    const start = page.getByRole('button', { name: /empezar|start|comenzar/i });
+    await expect(mark.or(start).first()).toBeVisible({ timeout: 30_000 });
   });
 
   test('document list loads corpus from manifest', async ({ page }) => {
