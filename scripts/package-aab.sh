@@ -75,15 +75,9 @@ fi
 
 cd "$FRONTEND"
 echo "==> Production build + Capacitor sync (shared path with package-apk)"
-DIST_WEB="$FRONTEND/dist/documentos-vaticanos"
-DIST_DOCS="$DIST_WEB/assets/corpus/documents"
-if [[ -f "$DIST_WEB/index.html" && ! -d "$DIST_DOCS" ]]; then
-  echo "==> stale web dist without reading packs — rebuilding"
-  rm -rf "$DIST_WEB"
-fi
-if [[ ! -f "$DIST_WEB/index.html" ]]; then
-  run npm run build
-fi
+# shellcheck source=ensure-android-web-dist.sh
+source "$ROOT/scripts/ensure-android-web-dist.sh"
+ensure_android_web_dist
 
 CORPUS_DIST="$DIST_WEB/assets/corpus"
 if [[ -f "$CORPUS_DIST/manifest.json" ]]; then

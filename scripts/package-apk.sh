@@ -23,26 +23,35 @@ run() {
   fi
 }
 
-if [[ -d "$ROOT/documentos/corpus" ]]; then
+if [[ -d "$ROOT/documentos/corpus/documents" ]]; then
   echo "==> Sync corpus ship copy → frontend/src/assets/corpus"
   run bash "$ROOT/scripts/corpus-sync-assets.sh"
+fi
+if [[ ! -d "$FRONTEND/src/assets/corpus/documents" ]]; then
+  echo "ERROR: missing $FRONTEND/src/assets/corpus/documents after sync (gitignored; need documentos/corpus)" >&2
+  exit 2
 fi
 
 cd "$FRONTEND"
 echo "==> Production build + Capacitor sync"
-# Prefer explicit steps so we can recover missing cap-generated files on CI volumes
-if [[ ! -f dist/documentos-vaticanos/index.html ]]; then
-  run npm run build
-fi
+# shellcheck source=ensure-android-web-dist.sh
+source "$ROOT/scripts/ensure-android-web-dist.sh"
+ensure_android_web_dist
 
 # Ship hygiene on frozen web dist before Cap copies assets into Android public/
-CORPUS_DIST="$FRONTEND/dist/documentos-vaticanos/assets/corpus"
+CORPUS_DIST="$DIST_WEB/assets/corpus"
 if [[ -f "$CORPUS_DIST/manifest.json" ]]; then
   echo "==> Corpus compress (ship hygiene) → $CORPUS_DIST"
   run node "$ROOT/scripts/corpus-compress.js" --root "$CORPUS_DIST" \
     --drop-ai --drop-unused-sidecars
 else
-  echo "WARN: no dist corpus at $CORPUS_DIST — skipping compress" >&2
+  echo "ERROR: no dist corpus at $CORPUS_DIST" >&2
+  exit 2
+fi
+if ! ls "$CORPUS_DIST/documents"/*/content.json >/dev/null 2>&1 \
+  && ! ls "$CORPUS_DIST/documents"/*/chunks.json >/dev/null 2>&1; then
+  echo "ERROR: dist corpus has no reading packs (content.json or chunks.json)" >&2
+  exit 2
 fi
 
 run npx cap sync android
@@ -90,7 +99,13 @@ if [[ ! -f "$PUBLIC_DIR/index.html" ]]; then
   exit 1
 fi
 if [[ ! -f "$PUBLIC_DIR/assets/corpus/manifest.json" ]]; then
-  echo "WARN: corpus not under public assets (check Cap webDir copy)" >&2
+  echo "ERROR: corpus not under public assets ($PUBLIC_DIR/assets/corpus/manifest.json)" >&2
+  exit 1
+fi
+if ! ls "$PUBLIC_DIR/assets/corpus/documents"/*/content.json >/dev/null 2>&1 \
+  && ! ls "$PUBLIC_DIR/assets/corpus/documents"/*/chunks.json >/dev/null 2>&1; then
+  echo "ERROR: Android public assets have no reading packs" >&2
+  exit 1
 fi
 
 if [[ ! -x "$ANDROID/gradlew" ]]; then
@@ -225,11 +240,39 @@ if [[ "$SIZE" -lt 1000000 ]]; then
   exit 1
 fi
 
+verify_packaged_apk_version() {
+  local apk="$1"
+  local aapt=""
+  if [[ -n "${ANDROID_HOME:-}" && -d "${ANDROID_HOME}/build-tools" ]]; then
+    aapt=$(find "${ANDROID_HOME}/build-tools" -type f -name aapt | sort | tail -n 1 || true)
+  fi
+  if [[ -z "$aapt" ]]; then
+    echo "WARN: aapt not on ANDROID_HOME; APK versionName not verified inside the binary" >&2
+    return 0
+  fi
+  local badging
+  badging=$("$aapt" dump badging "$apk" | head -n 1)
+  echo "==> $badging"
+  if [[ "$badging" != *"versionName='${VERSION_NAME}'"* ]]; then
+    echo "ERROR: APK versionName is not ${VERSION_NAME}" >&2
+    echo "$badging" >&2
+    exit 1
+  fi
+  if [[ "$badging" != *"versionCode='${VERSION_CODE}'"* ]]; then
+    echo "ERROR: APK versionCode is not ${VERSION_CODE}" >&2
+    echo "$badging" >&2
+    exit 1
+  fi
+}
+verify_packaged_apk_version "$OUT_APK"
+
 {
   echo "artifact=apk"
   echo "builtAt=$(date -Iseconds)"
   echo "source=$APK_SRC"
   echo "bytes=$SIZE"
+  echo "versionName=$VERSION_NAME"
+  echo "versionCode=$VERSION_CODE"
 } >"$ROOT/dist/apk.meta.txt"
 
-echo "OK apk: $OUT_APK ($SIZE bytes)"
+echo "OK apk: $OUT_APK ($SIZE bytes) versionCode=$VERSION_CODE versionName=$VERSION_NAME"

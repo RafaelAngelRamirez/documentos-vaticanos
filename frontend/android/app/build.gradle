@@ -1,11 +1,10 @@
 apply plugin: 'com.android.application'
 
-// CI / package-aab injects version + signing via -Pdv* properties (secrets never in VCS).
-def dvVersionCode = project.hasProperty('dvVersionCode') ? dvVersionCode.toInteger() : 1
-def dvVersionName = project.hasProperty('dvVersionName') ? dvVersionName.toString() : "1.0"
-def dvApplicationId = project.hasProperty('dvApplicationId')
-        ? dvApplicationId.toString()
-        : "digital.documentosvaticanos.app"
+// CI / package-apk / package-aab inject version + signing via -Pdv* (secrets never in VCS).
+// findProperty: `def dvVersionName = dvVersionName` shadows the -P value and ships versionName 1.0.
+def dvVersionCode = (project.findProperty('dvVersionCode') ?: 1).toString().toInteger()
+def dvVersionName = (project.findProperty('dvVersionName') ?: '1.0').toString()
+def dvApplicationId = (project.findProperty('dvApplicationId') ?: 'digital.documentosvaticanos.app').toString()
 def hasReleaseSigning = project.hasProperty('dvStoreFile') &&
         project.hasProperty('dvStorePassword') &&
         project.hasProperty('dvKeyAlias') &&

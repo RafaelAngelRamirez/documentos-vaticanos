@@ -52,8 +52,9 @@ function main() {
 
   section('build.gradle accepts -Pdv signing + version props');
   const gradle = fs.readFileSync(path.join(ROOT, 'frontend/android/app/build.gradle'), 'utf8');
-  assert.match(gradle, /dvVersionCode/);
-  assert.match(gradle, /dvVersionName/);
+  assert.match(gradle, /findProperty\('dvVersionCode'\)/);
+  assert.match(gradle, /findProperty\('dvVersionName'\)/);
+  assert.match(gradle, /findProperty\('dvApplicationId'\)/);
   assert.match(gradle, /dvApplicationId/);
   assert.match(gradle, /signingConfigs/);
   assert.match(gradle, /dvStoreFile/);
@@ -71,6 +72,7 @@ function main() {
   assert.match(aabSh, /GRADLE_OPTS=.*-Xmx4096m/);
   assert.match(aabSh, /corpus-sync-assets\.sh/);
   assert.match(aabSh, /assets\/corpus\/documents/);
+  assert.match(aabSh, /ensure-android-web-dist\.sh/);
   assert.ok(!/docvat-local-dev-only/.test(aabSh), 'no local keystore password in script');
 
   section('Play applicationId com.docvat uses FQCN MainActivity (not relative .MainActivity)');

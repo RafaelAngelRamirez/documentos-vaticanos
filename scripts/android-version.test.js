@@ -94,6 +94,25 @@ function main() {
   assert.ok(apkSh.includes('android-version.js'), 'uses version helper');
   assert.ok(apkSh.includes('-PdvVersionCode=${VERSION_CODE}'));
   assert.ok(apkSh.includes('-PdvVersionName=${VERSION_NAME}'));
+  assert.ok(apkSh.includes('ensure-android-web-dist.sh'), 'rebuilds stale web dist');
+  assert.ok(apkSh.includes('versionName=$VERSION_NAME'), 'apk.meta records versionName');
+  assert.ok(apkSh.includes('versionCode=$VERSION_CODE'), 'apk.meta records versionCode');
+  assert.ok(
+    apkSh.includes('verify_packaged_apk_version'),
+    'aapt checks versionName inside the APK'
+  );
+  const gradle = fs.readFileSync(
+    path.join(__dirname, '..', 'frontend/android/app/build.gradle'),
+    'utf8'
+  );
+  assert.ok(
+    gradle.includes("findProperty('dvVersionCode')"),
+    'versionCode must read -P via findProperty (local def shadows -P and ships 1.0)'
+  );
+  assert.ok(
+    gradle.includes("findProperty('dvVersionName')"),
+    'versionName must read -P via findProperty'
+  );
   assert.ok(apkSh.includes('assembleDebug'));
   assert.ok(
     !/assembleDebug --no-daemon\s*$/m.test(

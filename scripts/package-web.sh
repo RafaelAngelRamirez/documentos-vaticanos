@@ -29,6 +29,21 @@ if [[ ! -f "$SRC/index.html" ]]; then
   echo "ERROR: missing $SRC/index.html" >&2
   exit 1
 fi
+WEB_VERSION=$(node -p "require('$ROOT/package.json').version")
+web_js_has_version=0
+for f in "$SRC"/*.js; do
+  [[ -f "$f" ]] || continue
+  if grep -F -q -- "$WEB_VERSION" "$f"; then
+    web_js_has_version=1
+    break
+  fi
+done
+if [[ "$web_js_has_version" != "1" ]]; then
+  echo "ERROR: production bundles do not contain version $WEB_VERSION" >&2
+  exit 1
+fi
+printf '%s\n' "$WEB_VERSION" >"$SRC/dv-build-version.txt"
+echo "==> stamped web dist version $WEB_VERSION"
 if [[ ! -f "$SRC/assets/corpus/manifest.json" ]]; then
   echo "ERROR: offline corpus missing at $SRC/assets/corpus/manifest.json" >&2
   exit 1

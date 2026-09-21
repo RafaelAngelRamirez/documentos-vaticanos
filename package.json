@@ -76,6 +76,7 @@
     "package:aab": "bash scripts/package-aab.sh",
     "play:upload-closed": "node scripts/play-upload-closed.js",
     "test:android-version": "node scripts/android-version.test.js",
+    "test:android-web-dist": "bash scripts/ensure-android-web-dist.test.sh",
     "test:package-aab": "node scripts/package-aab.structure.test.js"
   },
   "packageManager": "yarn@1.22.22"
