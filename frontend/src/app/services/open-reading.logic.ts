@@ -1,20 +1,24 @@
 /**
  * Pure helpers for opening the immersive reader from cover / CTA surfaces.
- * NavigationService.openReading / navigateToUnit own the Angular side.
+ * NavigationService.openReading owns the Angular side.
  */
 
 /** sessionStorage flag read by LectorComponent on load (auto-start narrator). */
 export const AUTO_NARR_KEY = 'dv.autoNarr';
 
 export interface OpenReadingOptions {
-  /** Unit index in content.json (default 0). */
+  /** Unit index in content.json (default 0). A non-integer does not open. */
   unitIndex?: number;
   /** When true, set AUTO_NARR_KEY so the lector starts the narrator. */
   autoNarr?: boolean;
+  /** `push` saves the current cite; `clear` drops the citation stack. */
+  stack?: 'keep' | 'push' | 'clear';
+  /** Search terms kept in memory for this cite. Not written to storage. */
+  highlight?: readonly string[];
 }
 
 /**
- * Normalize a requested unit index for openReading / navigateToUnit.
+ * Legacy helper. openReading uses parseUnitIndex and does not floor.
  * @returns floor(index) or null if invalid.
  */
 export function resolveOpenReadingIndex(unitIndex?: number): number | null {

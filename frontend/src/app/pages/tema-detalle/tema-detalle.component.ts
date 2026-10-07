@@ -393,16 +393,14 @@ export class TemaDetalleComponent implements OnInit {
     });
   }
 
-  openStep(documentId: string, unitIndex: number, label?: string | null): void {
-    this.nav.navigateToUnit(documentId, unitIndex, {
-      label: label ?? undefined,
-    });
+  openStep(documentId: string, unitIndex: number): void {
+    this.nav.openReading(documentId, { unitIndex });
   }
 
   startPlan(): void {
     const first = this.steps[0];
     if (!first) return;
-    this.openStep(first.documentId, first.unitIndex, first.unitLabel);
+    this.openStep(first.documentId, first.unitIndex);
   }
 
   coverUrl(): string | null {

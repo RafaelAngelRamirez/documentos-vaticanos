@@ -120,14 +120,20 @@ function main() {
   );
   console.log('  ok');
 
-  section('openCitation still navigateToUnit');
+  section('openCitation uses openReading');
+  const openCitationFn = src.match(/openCitation\([\s\S]*?\n  \}/);
+  assert.ok(openCitationFn, 'openCitation exists');
   assert.ok(
-    /navigateToUnit/.test(src),
-    'openCitation uses navigateToUnit',
+    /openReading\(/.test(openCitationFn[0]),
+    'openCitation uses openReading',
   );
   assert.ok(
-    /consecutivo/.test(src),
-    'passes consecutivo',
+    !/navigateToUnit/.test(openCitationFn[0]),
+    'openCitation does not navigate by label',
+  );
+  assert.ok(
+    !/consecutivo/.test(openCitationFn[0]),
+    'openCitation does not pass a consecutive label',
   );
   console.log('  ok');
 

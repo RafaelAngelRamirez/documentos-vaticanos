@@ -249,10 +249,7 @@ export class RelatedUnitsPanelComponent implements OnChanges {
 
   open(row: RelatedCitationRow): void {
     this.openCitation.emit(row);
-    this.nav.navigateToUnit(row.documentId, row.unitIndex, {
-      consecutivo: row.consecutivo,
-      label: row.title,
-    });
+    this.nav.openReading(row.documentId, { unitIndex: row.unitIndex });
   }
 
   add(ev: Event, row: RelatedCitationRow): void {

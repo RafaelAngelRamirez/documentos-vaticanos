@@ -99,10 +99,8 @@ export class AdminRevisionDetalleComponent implements OnInit {
     });
   }
 
-  openStep(documentId: string, unitIndex: number, label?: string | null): void {
-    this.nav.navigateToUnit(documentId, unitIndex, {
-      label: label ?? undefined,
-    });
+  openStep(documentId: string, unitIndex: number): void {
+    this.nav.openReading(documentId, { unitIndex });
   }
 
   decide(decision: 'approved' | 'changes' | 'rejected'): void {

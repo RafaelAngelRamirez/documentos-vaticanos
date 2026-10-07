@@ -15,6 +15,11 @@ import {
 import { TermsProcessed } from '../../buscador/buscador.service';
 import { UtilidadesService } from 'src/app/services/utilidades.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import {
+  documentIdKey,
+  parseDocumentId,
+  parseUnitIndex,
+} from 'src/app/core/reading/cite';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { ReferencesService } from 'src/app/core/account/references.service';
@@ -381,11 +386,12 @@ export class PuntoComponent implements OnInit, OnDestroy {
     const idDocumento = ref.local?.idDocumento;
     const idPunto = ref.local?.idPunto;
     if (!idDocumento || idPunto == null) return;
-    const asIndex = Number(idPunto);
-    if (!Number.isFinite(asIndex) || asIndex < 0) return;
-    this.navigationService.navigateToUnit(idDocumento, asIndex, {
-      fromRef: true,
-      label: ref.descripcion,
+    const id = parseDocumentId(idDocumento);
+    const unitIndex = parseUnitIndex(idPunto);
+    if (!id || unitIndex == null) return;
+    this.navigationService.openReading(documentIdKey(id), {
+      unitIndex,
+      stack: 'push',
     });
   }
 
@@ -398,18 +404,14 @@ export class PuntoComponent implements OnInit, OnDestroy {
     }
 
     const { idDocumento, idPunto } = seg.local;
-    const asIndex = Number(idPunto);
-    if (!Number.isFinite(asIndex)) {
-      return;
-    }
+    const id = parseDocumentId(idDocumento);
+    const unitIndex = parseUnitIndex(idPunto);
+    if (!id || unitIndex == null) return;
 
-    // Emit for preview sheet (Lector will handle dv-sheet)
     this.citationPreview.emit({ seg, documentId: this.documentId });
-
-    // Keep current navigation behavior (with fromRef stack)
-    this.navigationService.navigateToUnit(idDocumento, asIndex, {
-      fromRef: true,
-      label: seg.label,
+    this.navigationService.openReading(documentIdKey(id), {
+      unitIndex,
+      stack: 'push',
     });
   }
 

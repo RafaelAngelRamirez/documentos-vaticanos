@@ -4,7 +4,6 @@
  */
 
 export const LAST_READ_KEY = 'dv.lastRead';
-export const NAV_KEY = 'dv.nav';
 export const SETTINGS_KEY = 'dv.settings';
 
 export interface LastRead {
@@ -54,14 +53,6 @@ export function setLastReadInStore(
 ): LastRead {
   const full = buildLastRead(entry, now);
   store.setItem(LAST_READ_KEY, serializeLastRead(full));
-  try {
-    store.setItem(
-      NAV_KEY,
-      JSON.stringify({ view: 'lector', docId: entry.documentId }),
-    );
-  } catch {
-    /* ignore nav side-effect failures */
-  }
   return full;
 }
 

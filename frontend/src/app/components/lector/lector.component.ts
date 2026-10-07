@@ -23,8 +23,16 @@ import { ArticleInfo } from '../punto/punto/punto.component';
 import { PuntoModule } from '../punto/punto.module';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
-import { ReadingProgressService } from 'src/app/services/reading-progress.service';
 import { AnotacionesService } from 'src/app/services/anotaciones.service';
+import {
+  cite,
+  documentIdKey,
+  parseArrival,
+  parseDocumentId,
+  parseUnitIndex,
+  sameCite,
+  type Cite,
+} from 'src/app/core/reading/cite';
 import { DvSheetComponent } from '../dv-sheet/dv-sheet.component';
 import { WbarComponent } from '../wbar/wbar.component';
 import {
@@ -64,8 +72,7 @@ export class LectorComponent implements OnInit, OnDestroy {
   document: IndiceDocumentos | undefined = undefined;
 
   actual_articles: ArticleInfo[] = [];
-  actual_index = 0;
-  focus_article: ArticleInfo | undefined = undefined;
+  focusIndex = 0;
   quantity_to_load = 10;
 
   actual_inferior_limit = 0;
@@ -118,6 +125,9 @@ export class LectorComponent implements OnInit, OnDestroy {
   ];
 
   private sub = new Subscription();
+  private loadSub: Subscription | null = null;
+  /** Generation captured when this window was painted. */
+  private paintGeneration = 0;
   private unregisterBack: (() => void) | null = null;
   private io?: IntersectionObserver;
   private scrollPending = false;
@@ -187,7 +197,6 @@ export class LectorComponent implements OnInit, OnDestroy {
     public navigationService: NavigationService,
     private readerPrefs: ReaderPreferencesService,
     private corpus: CorpusService,
-    private progress: ReadingProgressService,
     private anotaciones: AnotacionesService,
     private back: BackService,
     private narrator: NarratorService,
@@ -245,6 +254,8 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.unregisterBack?.();
     this.unregisterBack = null;
     this.stopNarrator();
+    this.loadSub?.unsubscribe();
+    this.loadSub = null;
     this.sub.unsubscribe();
     this.io?.disconnect();
     if (typeof window !== 'undefined') {
@@ -540,7 +551,7 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   get meta() {
-    const id = this.document?.id || this.navigationService.document_id;
+    const id = this.document?.id;
     return id ? this.corpus.getMeta(id) : undefined;
   }
 
@@ -598,7 +609,7 @@ export class LectorComponent implements OnInit, OnDestroy {
       this.navigationService.goBack();
       return;
     }
-    const id = this.document?.id || this.navigationService.document_id;
+    const id = this.document?.id;
     if (id) {
       // Corpus → /documento/:id; saint bio → /santoral/:saintId (not broken 2A).
       this.router.navigate(coverNavCommandsForDocumentId(id));
@@ -740,10 +751,7 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   private saveAnnotation(kind: 'subrayado' | 'nota', nota?: string): boolean {
-    const id =
-      this.document?.id ??
-      this.document?.nombre ??
-      this.navigationService.document_id;
+    const id = this.document?.id;
     if (!id || this.selUnitIndex == null || !this.selExcerpt) return false;
     this.anotaciones.add({
       documentId: id,
@@ -779,22 +787,20 @@ export class LectorComponent implements OnInit, OnDestroy {
   // ------------------------------------------------------------------
 
   load_data() {
-    this.actual_index = this.navigationService.actual_index;
-    this.focus_article = this.navigationService.article_selected;
+    const arrival = parseArrival({
+      documentId:
+        this.route.snapshot.paramMap.get('documento') ??
+        this.route.snapshot.paramMap.get('id'),
+      unit: this.route.snapshot.paramMap.get('unit'),
+      legacyUser: this.route.snapshot.paramMap.get('user'),
+      resume: this.navigationService.resume(),
+    });
 
-    const routeDoc =
-      this.route.snapshot.paramMap.get('documento') ??
-      this.route.snapshot.paramMap.get('id');
-    const routePunto = this.route.snapshot.paramMap.get('user');
-
-    const documentKey =
-      this.navigationService.document_selected?.id ??
-      this.navigationService.document_selected?.nombre ??
-      this.navigationService.document_id ??
-      routeDoc ??
-      undefined;
-
-    if (!documentKey) {
+    if (arrival.kind === 'invalid') {
+      this.loadSub?.unsubscribe();
+      this.loadSub = null;
+      this.clearSlowLoad();
+      this.loading = false;
       this.load_error =
         'No hay documento seleccionado. Vuelve al listado o a la búsqueda.';
       this.document = undefined;
@@ -802,53 +808,67 @@ export class LectorComponent implements OnInit, OnDestroy {
       return;
     }
 
-    // Prefer the route document when it differs from the in-memory selection
-    // (e.g. following a cross-document reference).
-    const effectiveKey = routeDoc ?? documentKey;
-
-    // If we already have the full document in memory, use it.
-    if (
-      this.navigationService.document_selected &&
-      (this.navigationService.document_selected.id === effectiveKey ||
-        this.navigationService.document_selected.nombre === effectiveKey)
-    ) {
-      this.document = this.navigationService.document_selected;
-      this.navigationService.document_id =
-        this.document.id ?? this.document.nombre;
-      this.applyRoutePunto(routePunto);
-      this.generate_context_for_article();
+    if (arrival.kind === 'redirect') {
+      this.navigationService.replaceWith(arrival.cite);
       return;
     }
 
+    const place = arrival.cite;
+    const generation = this.navigationService.seenRoute(place);
+    const key = documentIdKey(place.documentId);
+    if (this.document?.id === key) {
+      this.focusUnit(place, generation);
+      return;
+    }
+
+    this.loadSub?.unsubscribe();
     this.loading = true;
     this.slowLoad = false;
     this.load_error = null;
     this.armSlowLoad();
-    const focus = Number.isFinite(this.actual_index) ? this.actual_index : 0;
     const radius = CONTEXT_SIZE + this.quantity_to_load;
-    this.sub.add(
-      this.corpus
-        .ensureWindow(effectiveKey, focus, radius)
-        .subscribe({
+    this.loadSub = this.corpus
+      .ensureWindow(key, place.unitIndex, radius)
+      .subscribe({
         next: (loaded) => {
+          if (this.navigationService.generation !== generation) return;
+          if (!sameCite(this.navigationService.routeCite, place)) return;
           const doc = this.corpus.toIndiceDocumentos(loaded);
           this.clearSlowLoad();
           this.loading = false;
           this.document = doc;
-          this.navigationService.document_selected = doc;
-          this.navigationService.document_id = doc.id ?? doc.nombre;
-          this.applyRoutePunto(routePunto);
-          this.generate_context_for_article();
+          this.focusUnit(place, generation);
         },
         error: (err) => {
+          if (this.navigationService.generation !== generation) return;
+          if (!sameCite(this.navigationService.routeCite, place)) return;
           this.clearSlowLoad();
           this.loading = false;
           this.load_error =
-            err?.message ?? `No se pudo cargar el documento: ${effectiveKey}`;
+            err?.message ?? `No se pudo cargar el documento: ${key}`;
           console.error(err);
         },
-      })
+      });
+  }
+
+  /** Move the window to this unit. Does not subscribe when the book is loaded. */
+  private focusUnit(place: Cite, generation: number): void {
+    this.paintGeneration = generation;
+    this.focusIndex = place.unitIndex;
+    const rendered = this.actual_articles.some(
+      (article) => article.article.index_array === place.unitIndex,
     );
+    if (!rendered) this.rebuildWindow();
+    const terms = this.navigationService.highlightFor(place);
+    const focus = this.actual_articles.find(
+      (article) => article.article.index_array === place.unitIndex,
+    );
+    if (focus && terms?.length) {
+      focus.terms_pure = [...terms];
+    }
+    this.visibleIndex = place.unitIndex;
+    this.reportVisible(place);
+    this.maybeAutoNarr();
   }
 
   private armSlowLoad(): void {
@@ -867,105 +887,29 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.slowLoad = false;
   }
 
-  private applyRoutePunto(routePunto: string | null) {
-    if (!this.document || routePunto == null || routePunto === '') {
-      return;
-    }
-
-    // Prefer navigationService.actual_index when it already points at an article
-    // consistent with the route (set by navigateToUnit / go_to_read_article).
-    const navIdx = this.navigationService.actual_index;
-    const atNav = this.document.documento[navIdx];
-    if (atNav) {
-      const matchesRoute =
-        String(navIdx) === String(routePunto) ||
-        atNav.consecutivo === routePunto ||
-        String(atNav.index_array) === String(routePunto);
-      if (matchesRoute) {
-        this.actual_index = navIdx;
-        // Keep focus_article only when it still refers to this unit.
-        if (
-          this.focus_article &&
-          this.focus_article.article?.index_array !== atNav.index_array
-        ) {
-          this.focus_article = undefined;
-        }
-        return;
-      }
-    }
-
-    // Prefer navigation index when focus_article already matches a loaded article.
-    if (
-      this.focus_article &&
-      this.document.documento[this.actual_index]?.index_array ===
-        this.focus_article.article?.index_array
-    ) {
-      return;
-    }
-
-    const asNumber = Number(routePunto);
-    if (!Number.isNaN(asNumber) && String(asNumber) === String(routePunto)) {
-      if (this.document.documento[asNumber]) {
-        this.actual_index = asNumber;
-        this.navigationService.actual_index = asNumber;
-        this.focus_article = undefined;
-        return;
-      }
-    }
-
-    const foundIdx = this.document.documento.findIndex(
-      (a) => a.consecutivo === routePunto
-    );
-    if (foundIdx >= 0) {
-      this.actual_index = foundIdx;
-      this.navigationService.actual_index = foundIdx;
-      this.focus_article = undefined;
-    }
-  }
-
   /**
    * The context for the article is the n articles before and after
    * the focused index in the document.
    */
-  generate_context_for_article() {
-    let inferior_limit = this.actual_index - CONTEXT_SIZE;
+  private rebuildWindow(): void {
+    let inferior_limit = this.focusIndex - CONTEXT_SIZE;
     inferior_limit = inferior_limit < 1 ? 0 : inferior_limit;
 
     const document_length = this.document?.documento.length ?? 0;
-    let superior_limit = this.actual_index + CONTEXT_SIZE;
+    let superior_limit = this.focusIndex + CONTEXT_SIZE;
     superior_limit =
       superior_limit <= document_length ? superior_limit : document_length;
 
     this.actual_inferior_limit = inferior_limit;
     this.actual_superior_limit = superior_limit;
-    this.trimRenderedWindow(this.actual_index);
+    this.trimRenderedWindow(this.focusIndex);
     this.actual_articles = this._get_articles(
       this.actual_inferior_limit,
-      this.actual_superior_limit
+      this.actual_superior_limit,
     );
     if (this.windowHasHoles(this.actual_inferior_limit, this.actual_superior_limit)) {
       void this.fillWindowIfNeeded();
     }
-
-    const actual_article_in_list = this.actual_articles.find(
-      (article) => article.article.index_array === this.actual_index
-    );
-
-    if (actual_article_in_list) {
-      actual_article_in_list.termns = this.focus_article?.termns;
-      actual_article_in_list.terms_pure = this.focus_article?.terms_pure ?? [];
-    }
-
-    // Keep navigation service in sync for subsequent ref pushes.
-    this.navigationService.actual_index = this.actual_index;
-    if (this.document) {
-      this.navigationService.document_id =
-        this.document.id ?? this.document.nombre;
-    }
-    this.navigationService.save_actual_index();
-    this.visibleIndex = this.actual_index;
-    this.persistProgress(this.visibleIndex);
-    this.maybeAutoNarr();
   }
 
   /** 5C → 5D: si se pidió «Escuchar con narrador», arrancar al cargar. */
@@ -1028,16 +972,20 @@ export class LectorComponent implements OnInit, OnDestroy {
       this.actual_articles = this._get_articles(from, to);
       return;
     }
+    const key = doc.id;
     this.sub.add(
       this.corpus.ensureUnits(doc.id, from, to).subscribe({
         next: (fresh) => {
+          if (this.document?.id !== key) return;
           const mapped = this.corpus.toIndiceDocumentos(fresh);
           this.document = mapped;
-          this.navigationService.document_selected = mapped;
           this.actual_articles = this._get_articles(
             this.actual_inferior_limit,
-            this.actual_superior_limit
+            this.actual_superior_limit,
           );
+          const id = parseDocumentId(mapped.id);
+          const unit = parseUnitIndex(this.focusIndex);
+          if (id && unit != null) this.reportVisible(cite(id, unit));
         },
         error: (err) => console.error(err),
       })
@@ -1099,20 +1047,19 @@ export class LectorComponent implements OnInit, OnDestroy {
 
   /** Scroll-spy barato: unidad cuyo inicio queda sobre el 35 % del viewport. */
   private updateVisibleUnit(): void {
-    if (!this.document) return;
+    if (!this.document?.id) return;
     const nodes =
       this.host.nativeElement.querySelectorAll<HTMLElement>('app-punto');
     if (!nodes.length) return;
     const anchor = window.innerHeight * 0.35;
-    let idx = 0;
-    nodes.forEach((node, i) => {
-      if (node.getBoundingClientRect().top <= anchor) idx = i;
+    let chosen: HTMLElement | null = nodes[0] ?? null;
+    nodes.forEach((node) => {
+      if (node.getBoundingClientRect().top <= anchor) chosen = node;
     });
-    const globalIdx = this.actual_inferior_limit + idx;
-    if (globalIdx !== this.visibleIndex) {
-      this.visibleIndex = globalIdx;
-      this.schedulePersist();
-    }
+    const unit = parseUnitIndex(chosen?.getAttribute('data-unit'));
+    if (unit == null || unit === this.visibleIndex) return;
+    this.visibleIndex = unit;
+    this.schedulePersist();
   }
 
   private schedulePersist(): void {
@@ -1124,18 +1071,29 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   private persistProgress(unitIndex: number): void {
-    if (!this.document) return;
-    const id = this.document.id ?? this.document.nombre;
-    if (!id) return;
-    this.progress.setLastRead({
-      documentId: id,
-      title: this.documentTitle,
-      unitIndex,
-      unitCount: this.document.documento?.length ?? 0,
-    });
-    this.progress.saveScroll(
-      id,
-      typeof window !== 'undefined' ? window.scrollY : 0
+    const id = this.document?.id ? parseDocumentId(this.document.id) : null;
+    const unit = parseUnitIndex(unitIndex);
+    if (!id || unit == null) return;
+    this.reportVisible(cite(id, unit));
+  }
+
+  /** Write the resume card only when this unit is the one in the loaded book. */
+  private reportVisible(place: Cite): void {
+    const article = this.document?.documento?.[place.unitIndex];
+    if (!article || article.index_array !== place.unitIndex) return;
+    const rawLabel = article.consecutivo;
+    const label =
+      rawLabel && rawLabel !== 'no-encontrado' ? rawLabel : undefined;
+    const count = this.meta?.unitCount;
+    const unitCount =
+      typeof count === 'number' && Number.isInteger(count) && count > 0
+        ? count
+        : 0;
+    const title = this.meta?.title || this.documentTitle;
+    this.navigationService.noteVisible(
+      place,
+      label ? { title, unitCount, label } : { title, unitCount },
+      this.paintGeneration,
     );
   }
 

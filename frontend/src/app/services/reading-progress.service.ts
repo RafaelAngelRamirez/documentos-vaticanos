@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import {
-  LAST_READ_KEY,
-  NAV_KEY,
   SETTINGS_KEY,
   LastRead,
   LastReadInput,
@@ -31,23 +29,6 @@ export class ReadingProgressService {
   saveSettings(partial: Partial<DvSettings>): void {
     const next = { ...this.getSettings(), ...partial };
     localStorage.setItem(SETTINGS_KEY, JSON.stringify(next));
-  }
-
-  saveNav(view: string, docId?: string | null): void {
-    localStorage.setItem(NAV_KEY, JSON.stringify({ view, docId: docId ?? null }));
-  }
-
-  scrollKey(docId: string): string {
-    return `dv.pos.${docId}`;
-  }
-
-  saveScroll(docId: string, y: number): void {
-    if (!docId) return;
-    localStorage.setItem(this.scrollKey(docId), String(Math.max(0, Math.round(y))));
-  }
-
-  getScroll(docId: string): number {
-    return parseFloat(localStorage.getItem(this.scrollKey(docId)) || '0') || 0;
   }
 
   setLastRead(entry: LastReadInput): void {

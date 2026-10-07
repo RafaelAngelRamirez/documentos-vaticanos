@@ -9,6 +9,11 @@ import {
 import { Doctor, doctorById } from 'src/app/data/doctores';
 import { primaryWorkDocumentId } from 'src/app/core/person/person-reading.logic';
 import { NavigationService } from 'src/app/services/navigation.service';
+import {
+  documentIdKey,
+  parseDocumentId,
+  resumeUnitFor,
+} from 'src/app/core/reading/cite';
 
 /** Ficha de un Doctor de la Iglesia (patrón 2D como Padres). */
 @Component({
@@ -57,8 +62,11 @@ export class DoctorDetalleComponent implements OnInit {
   }
 
   openPrimaryWork(autoNarr = false): void {
-    const id = this.primaryWorkId;
+    const id = parseDocumentId(this.primaryWorkId);
     if (!id) return;
-    this.navigation.openReading(id, { unitIndex: 0, autoNarr });
+    this.navigation.openReading(documentIdKey(id), {
+      unitIndex: resumeUnitFor(this.navigation.resume(), id),
+      autoNarr,
+    });
   }
 }

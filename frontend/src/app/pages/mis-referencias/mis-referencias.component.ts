@@ -52,9 +52,7 @@ export class MisReferenciasComponent implements OnInit {
   }
 
   open(item: PersonalReference): void {
-    this.nav.navigateToUnit(item.documentId, item.unitIndex, {
-      label: item.unitLabel ?? undefined,
-    });
+    this.nav.openReading(item.documentId, { unitIndex: item.unitIndex });
   }
 
   remove(item: PersonalReference): void {

@@ -63,7 +63,8 @@
         <app-punto
           *ngFor="let article of actual_articles; let i = index; trackBy: trackByArticle"
           [infoPunto]="article"
-          [documentId]="document.id || navigationService.document_id || undefined"
+          [documentId]="document.id || undefined"
+          [attr.data-unit]="article.article.index_array"
           [attr.data-idx]="actual_inferior_limit + i"
           [class.narrando]="narrPlaying && actual_inferior_limit + i === narrIndex"
           (citationPreview)="onCitationPreview($event)"

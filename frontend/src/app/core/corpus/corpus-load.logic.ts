@@ -1,7 +1,8 @@
 /**
  * Pure corpus load + durable-store seam (no Angular, no relative TS imports).
- * Self-contained so node tests can load via --experimental-strip-types
- * (same pattern as app-update.logic.ts).
+ * Node tests load this file via --experimental-strip-types. An import of
+ * cite.ts does not resolve there (extensionless specifier, moduleResolution
+ * node). Pack matching stays `meta.id === id`, the same rule as matchesPackId.
  *
  * Production wiring: CorpusService → CorpusLoadEngine + IndexedDbCorpusStore.
  */
@@ -936,20 +937,12 @@ export class CorpusLoadEngine {
     return { documento, partial: false };
   }
 
-  private matchesMeta(meta: DocumentMeta, idOrTitle: string): boolean {
-    return (
-      meta.id === idOrTitle ||
-      meta.title === idOrTitle ||
-      meta.shortTitle === idOrTitle
-    );
+  private matchesMeta(meta: DocumentMeta, id: string): boolean {
+    return meta.id === id;
   }
 
   private remember(loaded: LoadedDocument): void {
     this.cache.set(loaded.meta.id, loaded);
-    this.cache.set(loaded.meta.title, loaded);
-    if (loaded.meta.shortTitle) {
-      this.cache.set(loaded.meta.shortTitle, loaded);
-    }
     this.indexCache.set(loaded.meta.id, loaded.indice);
   }
 

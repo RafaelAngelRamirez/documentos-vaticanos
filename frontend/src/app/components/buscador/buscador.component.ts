@@ -7,6 +7,11 @@ import { CommonModule } from '@angular/common';
 import { ArticleInfo } from '../punto/punto/punto.component';
 import { UtilidadesService } from 'src/app/services/utilidades.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import {
+  documentIdKey,
+  parseDocumentId,
+  parseUnitIndex,
+} from 'src/app/core/reading/cite';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import {
@@ -154,7 +159,14 @@ export class BuscadorComponent implements OnInit, OnDestroy {
   }
 
   openRow(row: SearchRow): void {
-    this.navigationService.go_to_read_article(row.punto, row.resultado);
+    const id = parseDocumentId(row.resultado.doc.id);
+    const unitIndex = parseUnitIndex(row.punto.article.index_array);
+    if (!id || unitIndex == null) return;
+    this.navigationService.openReading(documentIdKey(id), {
+      unitIndex,
+      stack: 'clear',
+      highlight: row.punto.terms_pure ?? [],
+    });
   }
 
   displayTitle(r: ResultadoDeBusqueda): string {

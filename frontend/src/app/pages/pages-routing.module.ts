@@ -73,11 +73,15 @@ const routes: Routes = [
   { path: 'papas/:id', component: PapaDetalleComponent },
   { path: 'lectio', component: LectioComponent },
   {
-    path: `${ROUTE.leyendo}/:documento`,
+    path: `${ROUTE.leyendo}/:id/u/:unit`,
     component: LectorComponent,
   },
   {
     path: `${ROUTE.leyendo}/:id/${ROUTE.punto}/:user`,
+    component: LectorComponent,
+  },
+  {
+    path: `${ROUTE.leyendo}/:documento`,
     component: LectorComponent,
   },
   { path: '**', redirectTo: `/${ROUTE.inicio}`, pathMatch: 'full' },

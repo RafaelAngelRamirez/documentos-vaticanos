@@ -44,7 +44,7 @@
             <div
               class="refcard"
               *ngFor="let s of steps"
-              (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)"
+              (click)="openStep(s.documentId, s.unitIndex)"
             >
               <span class="refn">{{ s.unitLabel || s.documentId + ' #' + s.unitIndex }}</span>
               <span class="f1">

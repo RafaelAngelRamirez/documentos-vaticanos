@@ -51,7 +51,7 @@ async function main() {
     ['pages/inicio/inicio.component.ts', /openReading\(/],
     ['pages/documento-detalle/documento-detalle.component.ts', /openReading\(/],
     ['pages/santo-detalle/santo-detalle.component.ts', /openReading\(/],
-    ['pages/topico-detalle/topico-detalle.component.ts', /navigateToUnit\(/],
+    ['pages/topico-detalle/topico-detalle.component.ts', /openReading\(/],
     ['pages/estudios/estudios.component.ts', /openReading\(/],
     ['pages/padre-detalle/padre-detalle.component.ts', /openReading\(/],
     ['pages/doctor-detalle/doctor-detalle.component.ts', /openReading\(/],

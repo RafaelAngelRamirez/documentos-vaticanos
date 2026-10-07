@@ -307,17 +307,14 @@ export class TopicoDetalleComponent implements OnInit, OnDestroy {
   openFirst(autoNarr = false): void {
     const first = this.firstPosting;
     if (!first) return;
-    this.nav.navigateToUnit(first.documentId, first.unitIndex, {
-      consecutivo: first.consecutivo,
+    this.nav.openReading(first.documentId, {
+      unitIndex: first.unitIndex,
       autoNarr,
     });
   }
 
   openCitation(row: TopicCitationRow): void {
-    this.nav.navigateToUnit(row.documentId, row.unitIndex, {
-      consecutivo: row.consecutivo,
-      label: row.title,
-    });
+    this.nav.openReading(row.documentId, { unitIndex: row.unitIndex });
   }
 
   goSearch(): void {

@@ -127,7 +127,7 @@
                   <div
                     class="refcard"
                     *ngFor="let it of sec.items"
-                    (click)="openStep(it.s.documentId, it.s.unitIndex, it.s.unitLabel)"
+                    (click)="openStep(it.s.documentId, it.s.unitIndex)"
                   >
                     <span class="refn">{{ it.s.unitLabel || '#' + it.s.unitIndex }}</span>
                     <span class="f1">
@@ -276,7 +276,7 @@
               <div
                 class="refcard"
                 *ngFor="let it of sec.items"
-                (click)="openStep(it.s.documentId, it.s.unitIndex, it.s.unitLabel)"
+                (click)="openStep(it.s.documentId, it.s.unitIndex)"
               >
                 <span class="refn">{{ it.s.unitLabel || '#' + it.s.unitIndex }}</span>
                 <span class="f1">
@@ -305,7 +305,7 @@
             <div
               class="srow"
               *ngFor="let s of steps; let i = index"
-              (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)"
+              (click)="openStep(s.documentId, s.unitIndex)"
             >
               <span class="fx ac jb">
                 <span class="st">{{ s.unitLabel || '#' + s.unitIndex }}</span>

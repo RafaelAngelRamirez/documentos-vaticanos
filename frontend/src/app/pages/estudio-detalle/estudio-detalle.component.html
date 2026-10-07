@@ -46,7 +46,7 @@
     <li
       *ngFor="let s of study.steps"
       class="app-step"
-      (click)="openStep(s.documentId, s.unitIndex, s.unitLabel)"
+      (click)="openStep(s.documentId, s.unitIndex)"
     >
       <span class="app-step-num"></span>
       <div class="app-step-body">

@@ -12,6 +12,11 @@ import { HistoricalContextService } from 'src/app/core/context/historical-contex
 import { ResolvedHistoricalContext } from 'src/app/core/context/historical-context.models';
 import { primaryWorkDocumentId } from 'src/app/core/person/person-reading.logic';
 import { NavigationService } from 'src/app/services/navigation.service';
+import {
+  documentIdKey,
+  parseDocumentId,
+  resumeUnitFor,
+} from 'src/app/core/reading/cite';
 
 /** Diseño 2D · Detalle de un Padre */
 @Component({
@@ -71,8 +76,11 @@ export class PadreDetalleComponent implements OnInit {
   }
 
   openPrimaryWork(autoNarr = false): void {
-    const id = this.primaryWorkId;
+    const id = parseDocumentId(this.primaryWorkId);
     if (!id) return;
-    this.navigation.openReading(id, { unitIndex: 0, autoNarr });
+    this.navigation.openReading(documentIdKey(id), {
+      unitIndex: resumeUnitFor(this.navigation.resume(), id),
+      autoNarr,
+    });
   }
 }
