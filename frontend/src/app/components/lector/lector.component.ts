@@ -39,7 +39,8 @@ import {
   parseDocumentId,
   parseUnitIndex,
   sameCite,
-  unitToSaveOnLeave,
+  unitToReportAfterFill,
+  unitToSave,
   type Cite,
   type UnitIndex,
 } from 'src/app/core/reading/cite';
@@ -1054,8 +1055,13 @@ export class LectorComponent implements OnInit, OnDestroy {
             this.actual_superior_limit,
           );
           const id = parseDocumentId(mapped.id);
-          const unit = parseUnitIndex(this.focusIndex);
-          if (id && unit != null) this.reportVisible(cite(id, unit));
+          const visible = parseUnitIndex(this.visibleIndex);
+          const focus = parseUnitIndex(this.focusIndex);
+          if (id && visible != null && focus != null && !this.closing) {
+            this.reportVisible(
+              cite(id, unitToReportAfterFill(visible, focus)),
+            );
+          }
         },
         error: (err) => console.error(err),
       })
@@ -1144,19 +1150,19 @@ export class LectorComponent implements OnInit, OnDestroy {
   private schedulePersist(): void {
     if (this.closing) return;
     if (this.persistTimer) clearTimeout(this.persistTimer);
+    const adopted = parseUnitIndex(this.visibleIndex);
+    if (adopted == null) return;
     this.persistTimer = setTimeout(() => {
       this.persistTimer = null;
-      const spied = parseUnitIndex(this.visibleIndex);
-      if (spied == null) return;
+      // A new open re-pins. This timer belongs to the unit that left the screen.
+      if (this.closing || this.pinnedUnit != null) return;
       const route = this.navigationService.routeCite;
       const key = this.document?.id;
       const routeUnit =
         route && key && documentIdKey(route.documentId) === key
           ? route.unitIndex
           : null;
-      // A neighbor at the spy line is not the address. The route unit stays
-      // on the card until a new open replaces it.
-      this.persistProgress(unitToSaveOnLeave(routeUnit, spied));
+      this.persistProgress(unitToSave(routeUnit, adopted, false));
     }, 600);
   }
 
@@ -1166,12 +1172,12 @@ export class LectorComponent implements OnInit, OnDestroy {
     if (!parsed || spied == null) return;
     const route = this.navigationService.routeCite;
     const routeUnit =
-      this.closing &&
-      route &&
-      documentIdKey(route.documentId) === documentIdKey(parsed)
+      route && documentIdKey(route.documentId) === documentIdKey(parsed)
         ? route.unitIndex
         : null;
-    const unit = this.closing ? unitToSaveOnLeave(routeUnit, spied) : spied;
+    const unit = this.closing
+      ? unitToSave(routeUnit, spied, this.pinnedUnit != null)
+      : spied;
     this.reportVisible(cite(parsed, unit), !this.closing);
   }
 

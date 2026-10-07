@@ -136,15 +136,29 @@ export function readingCommands(place: Cite): string[] {
 export type PinView = 'pending' | 'visible' | 'hidden';
 
 /**
- * Leaving the reader saves the unit already in the route.
- * A scroll spy may be looking at a neighbor (the window starts above the
- * focus); that guess must not replace the card until it has become the route.
+ * While the opened unit is still pinned, the route unit stays the address.
+ * After that unit has left the screen, the spy unit is the address:
+ * the URL and the resume card both follow it.
  */
-export function unitToSaveOnLeave(
+export function unitToSave(
   routeUnit: UnitIndex | null,
   spiedUnit: UnitIndex,
+  pinHeld: boolean,
 ): UnitIndex {
-  return routeUnit == null ? spiedUnit : routeUnit;
+  if (pinHeld && routeUnit != null) return routeUnit;
+  return spiedUnit;
+}
+
+/**
+ * A window refill reports the unit on screen now.
+ * The index that opened the book must not replace the route afterwards.
+ */
+export function unitToReportAfterFill(
+  visibleUnit: UnitIndex,
+  focusUnit: UnitIndex,
+): UnitIndex {
+  void focusUnit;
+  return visibleUnit;
 }
 
 /**
