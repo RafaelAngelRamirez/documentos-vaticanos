@@ -39,6 +39,7 @@ import {
   parseDocumentId,
   parseUnitIndex,
   sameCite,
+  unitToSaveOnLeave,
   type Cite,
   type UnitIndex,
 } from 'src/app/core/reading/cite';
@@ -297,8 +298,8 @@ export class LectorComponent implements OnInit, OnDestroy {
     if (this.persistTimer) {
       clearTimeout(this.persistTimer);
       this.persistTimer = null;
-      this.persistProgress(this.visibleIndex);
     }
+    this.persistProgress(this.visibleIndex);
     if (this.slowLoadTimer) {
       clearTimeout(this.slowLoadTimer);
       this.slowLoadTimer = null;
@@ -1145,15 +1146,33 @@ export class LectorComponent implements OnInit, OnDestroy {
     if (this.persistTimer) clearTimeout(this.persistTimer);
     this.persistTimer = setTimeout(() => {
       this.persistTimer = null;
-      this.persistProgress(this.visibleIndex);
+      const spied = parseUnitIndex(this.visibleIndex);
+      if (spied == null) return;
+      const route = this.navigationService.routeCite;
+      const key = this.document?.id;
+      const routeUnit =
+        route && key && documentIdKey(route.documentId) === key
+          ? route.unitIndex
+          : null;
+      // A neighbor at the spy line is not the address. The route unit stays
+      // on the card until a new open replaces it.
+      this.persistProgress(unitToSaveOnLeave(routeUnit, spied));
     }, 600);
   }
 
   private persistProgress(unitIndex: number): void {
-    const id = this.document?.id ? parseDocumentId(this.document.id) : null;
-    const unit = parseUnitIndex(unitIndex);
-    if (!id || unit == null) return;
-    this.reportVisible(cite(id, unit), !this.closing);
+    const parsed = this.document?.id ? parseDocumentId(this.document.id) : null;
+    const spied = parseUnitIndex(unitIndex);
+    if (!parsed || spied == null) return;
+    const route = this.navigationService.routeCite;
+    const routeUnit =
+      this.closing &&
+      route &&
+      documentIdKey(route.documentId) === documentIdKey(parsed)
+        ? route.unitIndex
+        : null;
+    const unit = this.closing ? unitToSaveOnLeave(routeUnit, spied) : spied;
+    this.reportVisible(cite(parsed, unit), !this.closing);
   }
 
   /** Write the resume card only when this unit is the one in the loaded book. */

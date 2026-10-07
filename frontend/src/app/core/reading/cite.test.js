@@ -22,6 +22,7 @@ async function main() {
     cite,
     adoptSpiedUnit,
     isReaderUrl,
+    unitToSaveOnLeave,
   } = mod;
 
   assert.strictEqual(parseUnitIndex('2'), 2);
@@ -133,6 +134,13 @@ async function main() {
   assert.strictEqual(adoptSpiedUnit(pin, later, 'hidden'), 5);
   assert.strictEqual(adoptSpiedUnit(null, earlier, 'hidden'), 0);
   assert.strictEqual(adoptSpiedUnit(null, later, 'pending'), 5);
+
+  const six = parseUnitIndex(6);
+  const seven = parseUnitIndex(7);
+  assert.ok(six != null && seven != null);
+  assert.strictEqual(unitToSaveOnLeave(pin, six), 2);
+  assert.strictEqual(unitToSaveOnLeave(pin, seven), 2);
+  assert.strictEqual(unitToSaveOnLeave(null, seven), 7);
 
   assert.strictEqual(isReaderUrl('/leyendo/cic-es/u/2'), true);
   assert.strictEqual(isReaderUrl('/leyendo/cic-es/punto/2'), true);

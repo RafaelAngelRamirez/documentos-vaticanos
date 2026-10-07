@@ -136,6 +136,18 @@ export function readingCommands(place: Cite): string[] {
 export type PinView = 'pending' | 'visible' | 'hidden';
 
 /**
+ * Leaving the reader saves the unit already in the route.
+ * A scroll spy may be looking at a neighbor (the window starts above the
+ * focus); that guess must not replace the card until it has become the route.
+ */
+export function unitToSaveOnLeave(
+  routeUnit: UnitIndex | null,
+  spiedUnit: UnitIndex,
+): UnitIndex {
+  return routeUnit == null ? spiedUnit : routeUnit;
+}
+
+/**
  * While the opened unit is pending or still on screen, a scroll spy must
  * not move the address to an earlier or a later unit. Once that unit has
  * left the viewport, the spy wins and the pin is dropped by the caller.
