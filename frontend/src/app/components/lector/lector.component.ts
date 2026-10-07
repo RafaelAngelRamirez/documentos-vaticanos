@@ -8,7 +8,13 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationCancel,
+  NavigationError,
+  NavigationStart,
+  Router,
+} from '@angular/router';
 import { Subscription, combineLatest } from 'rxjs';
 import { IndiceDocumentos } from 'src/app/core/corpus/corpus.models';
 import { BackService } from 'src/app/services/back.service';
@@ -25,13 +31,16 @@ import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { AnotacionesService } from 'src/app/services/anotaciones.service';
 import {
+  adoptSpiedUnit,
   cite,
   documentIdKey,
+  isReaderUrl,
   parseArrival,
   parseDocumentId,
   parseUnitIndex,
   sameCite,
   type Cite,
+  type UnitIndex,
 } from 'src/app/core/reading/cite';
 import { DvSheetComponent } from '../dv-sheet/dv-sheet.component';
 import { WbarComponent } from '../wbar/wbar.component';
@@ -132,6 +141,12 @@ export class LectorComponent implements OnInit, OnDestroy {
   private io?: IntersectionObserver;
   private scrollPending = false;
   private persistTimer: ReturnType<typeof setTimeout> | null = null;
+  /** Unit the route asked for, until that unit leaves the viewport. */
+  private pinnedUnit: UnitIndex | null = null;
+  /** False until scrollIntoView has run for `pinnedUnit`. */
+  private pinScrolled = false;
+  /** True once a navigation has left the reader, or this view is tearing down. */
+  private closing = false;
   private slowLoadTimer: ReturnType<typeof setTimeout> | null = null;
   private selDebounce: ReturnType<typeof setTimeout> | null = null;
   private feedbackTimer: ReturnType<typeof setTimeout> | null = null;
@@ -238,6 +253,17 @@ export class LectorComponent implements OnInit, OnDestroy {
         this.prefs = p;
       })
     );
+    this.sub.add(
+      this.router.events.subscribe((ev) => {
+        if (ev instanceof NavigationStart) {
+          if (!isReaderUrl(ev.url)) this.closing = true;
+          return;
+        }
+        if (ev instanceof NavigationCancel || ev instanceof NavigationError) {
+          this.closing = false;
+        }
+      }),
+    );
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', this.onScroll, { passive: true });
     }
@@ -251,6 +277,7 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.closing = true;
     this.unregisterBack?.();
     this.unregisterBack = null;
     this.stopNarrator();
@@ -269,6 +296,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     if (this.feedbackTimer) clearTimeout(this.feedbackTimer);
     if (this.persistTimer) {
       clearTimeout(this.persistTimer);
+      this.persistTimer = null;
       this.persistProgress(this.visibleIndex);
     }
     if (this.slowLoadTimer) {
@@ -867,8 +895,49 @@ export class LectorComponent implements OnInit, OnDestroy {
       focus.terms_pure = [...terms];
     }
     this.visibleIndex = place.unitIndex;
+    this.pinnedUnit = place.unitIndex;
+    this.pinScrolled = false;
     this.reportVisible(place);
+    this.scrollPinnedUnitIntoView(place.unitIndex);
     this.maybeAutoNarr();
+  }
+
+  /**
+   * Put the route unit on screen. Instant, so the spy does not walk
+   * through the units that were painted above it.
+   */
+  private scrollPinnedUnitIntoView(unit: UnitIndex, attempt = 0): void {
+    const wait = attempt === 0 ? 0 : 50;
+    setTimeout(() => {
+      if (this.closing || this.pinnedUnit !== unit) return;
+      const el = this.host.nativeElement.querySelector(
+        `app-punto[data-unit="${unit}"]`,
+      );
+      if (!el) {
+        if (attempt < 5) this.scrollPinnedUnitIntoView(unit, attempt + 1);
+        return;
+      }
+      this.pinScrolled = true;
+      el.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' });
+    }, wait);
+  }
+
+  /**
+   * `pending` until the pin has been scrolled into place.
+   * `visible` while any pixel of that unit is on screen.
+   * `hidden` only after it has left, so an earlier spy cannot steal the URL.
+   */
+  private pinView(): 'pending' | 'visible' | 'hidden' {
+    const pinned = this.pinnedUnit;
+    if (pinned == null || !this.pinScrolled) return 'pending';
+    const el = this.host.nativeElement.querySelector(
+      `app-punto[data-unit="${pinned}"]`,
+    );
+    if (!el || typeof window === 'undefined') return 'pending';
+    const rect = el.getBoundingClientRect();
+    const height = window.innerHeight || 0;
+    if (rect.bottom > 0 && rect.top < height) return 'visible';
+    return 'hidden';
   }
 
   private armSlowLoad(): void {
@@ -1047,7 +1116,7 @@ export class LectorComponent implements OnInit, OnDestroy {
 
   /** Scroll-spy barato: unidad cuyo inicio queda sobre el 35 % del viewport. */
   private updateVisibleUnit(): void {
-    if (!this.document?.id) return;
+    if (this.closing || !this.document?.id) return;
     const nodes =
       this.host.nativeElement.querySelectorAll<HTMLElement>('app-punto');
     if (!nodes.length) return;
@@ -1056,13 +1125,23 @@ export class LectorComponent implements OnInit, OnDestroy {
     nodes.forEach((node) => {
       if (node.getBoundingClientRect().top <= anchor) chosen = node;
     });
-    const unit = parseUnitIndex(chosen?.getAttribute('data-unit'));
-    if (unit == null || unit === this.visibleIndex) return;
-    this.visibleIndex = unit;
+    const spied = parseUnitIndex(chosen?.getAttribute('data-unit'));
+    if (spied == null) return;
+    const adopted = adoptSpiedUnit(
+      this.pinnedUnit,
+      spied,
+      this.pinnedUnit == null ? 'hidden' : this.pinView(),
+    );
+    if (adopted == null) return;
+    this.pinnedUnit = null;
+    this.pinScrolled = false;
+    if (adopted === this.visibleIndex) return;
+    this.visibleIndex = adopted;
     this.schedulePersist();
   }
 
   private schedulePersist(): void {
+    if (this.closing) return;
     if (this.persistTimer) clearTimeout(this.persistTimer);
     this.persistTimer = setTimeout(() => {
       this.persistTimer = null;
@@ -1074,11 +1153,11 @@ export class LectorComponent implements OnInit, OnDestroy {
     const id = this.document?.id ? parseDocumentId(this.document.id) : null;
     const unit = parseUnitIndex(unitIndex);
     if (!id || unit == null) return;
-    this.reportVisible(cite(id, unit));
+    this.reportVisible(cite(id, unit), !this.closing);
   }
 
   /** Write the resume card only when this unit is the one in the loaded book. */
-  private reportVisible(place: Cite): void {
+  private reportVisible(place: Cite, replaceRoute = true): void {
     const article = this.document?.documento?.[place.unitIndex];
     if (!article || article.index_array !== place.unitIndex) return;
     const rawLabel = article.consecutivo;
@@ -1094,6 +1173,7 @@ export class LectorComponent implements OnInit, OnDestroy {
       place,
       label ? { title, unitCount, label } : { title, unitCount },
       this.paintGeneration,
+      replaceRoute && !this.closing,
     );
   }
 

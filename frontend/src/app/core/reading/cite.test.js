@@ -20,6 +20,8 @@ async function main() {
     parseArrival,
     documentIdKey,
     cite,
+    adoptSpiedUnit,
+    isReaderUrl,
   } = mod;
 
   assert.strictEqual(parseUnitIndex('2'), 2);
@@ -119,6 +121,25 @@ async function main() {
   assert.ok(saint);
   assert.strictEqual(saint.kind, 'santoral');
   assert.strictEqual(documentIdKey(saint), 'santoral:alejandrina');
+
+  const pin = parseUnitIndex(2);
+  const earlier = parseUnitIndex(0);
+  const later = parseUnitIndex(5);
+  assert.ok(pin != null && earlier != null && later != null);
+  assert.strictEqual(adoptSpiedUnit(pin, earlier, 'pending'), null);
+  assert.strictEqual(adoptSpiedUnit(pin, earlier, 'visible'), null);
+  assert.strictEqual(adoptSpiedUnit(pin, later, 'visible'), null);
+  assert.strictEqual(adoptSpiedUnit(pin, earlier, 'hidden'), 0);
+  assert.strictEqual(adoptSpiedUnit(pin, later, 'hidden'), 5);
+  assert.strictEqual(adoptSpiedUnit(null, earlier, 'hidden'), 0);
+  assert.strictEqual(adoptSpiedUnit(null, later, 'pending'), 5);
+
+  assert.strictEqual(isReaderUrl('/leyendo/cic-es/u/2'), true);
+  assert.strictEqual(isReaderUrl('/leyendo/cic-es/punto/2'), true);
+  assert.strictEqual(isReaderUrl('/leyendo/cic-es/u/2?q=1'), true);
+  assert.strictEqual(isReaderUrl('/leyendo/santoral:alejandrina/u/0'), true);
+  assert.strictEqual(isReaderUrl('/documento/cic-es'), false);
+  assert.strictEqual(isReaderUrl('/inicio'), false);
 
   console.log('cite ok');
 }

@@ -127,6 +127,41 @@ export function readingCommands(place: Cite): string[] {
   return ['leyendo', documentIdKey(place.documentId), 'u', String(place.unitIndex)];
 }
 
+/**
+ * Where the opened unit is, relative to the viewport.
+ * `pending` — not scrolled into place yet, or not in the DOM.
+ * `visible` — at least one pixel is on screen.
+ * `hidden` — painted, then scrolled fully out of view.
+ */
+export type PinView = 'pending' | 'visible' | 'hidden';
+
+/**
+ * While the opened unit is pending or still on screen, a scroll spy must
+ * not move the address to an earlier or a later unit. Once that unit has
+ * left the viewport, the spy wins and the pin is dropped by the caller.
+ * No pin: the spied unit is the address.
+ */
+export function adoptSpiedUnit(
+  pinned: UnitIndex | null,
+  spied: UnitIndex,
+  pinView: PinView,
+): UnitIndex | null {
+  if (pinned != null && pinView !== 'hidden') return null;
+  return spied;
+}
+
+/** True when `url` is any reader route, including a legacy point segment. */
+export function isReaderUrl(url: string): boolean {
+  const path = url.split(/[?#]/)[0];
+  let decoded = path;
+  try {
+    decoded = decodeURIComponent(path);
+  } catch {
+    // keep the raw path
+  }
+  return decoded === '/leyendo' || decoded.startsWith('/leyendo/');
+}
+
 export function resumeUnitFor(
   card: ResumeCard | null,
   documentId: DocumentId,

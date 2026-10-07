@@ -190,13 +190,23 @@ export class NavigationService {
   /**
    * The lector reports a unit that is actually on screen.
    * A stale generation or another document does not write and does not navigate.
+   * `replaceRoute` is false while the reader is leaving: the card is saved
+   * and the in-flight navigation to a cover is left alone.
    */
-  noteVisible(place: Cite, display: ResumeDisplay, generation: number): void {
+  noteVisible(
+    place: Cite,
+    display: ResumeDisplay,
+    generation: number,
+    replaceRoute = true,
+  ): void {
     if (generation !== this.generation) return;
     if (!this.routeCite || !sameDocument(this.routeCite.documentId, place.documentId)) {
       return;
     }
-    if (this.routeCite.unitIndex !== place.unitIndex) {
+    if (
+      replaceRoute &&
+      this.routeCite.unitIndex !== place.unitIndex
+    ) {
       this.routeCite = place;
       void this.router.navigate(readingCommands(place), { replaceUrl: true });
     }
