@@ -62,7 +62,7 @@ find_first() {
   for p in "$@"; do
     # shellcheck disable=SC2086
     local hits
-    hits=$(ls -1 $p 2>/dev/null | head -1 || true)
+    hits=$(ls -1 $p 2>/dev/null | awk 'NR==1' || true)
     if [[ -n "$hits" && -f "$hits" ]]; then
       echo "$hits"
       return 0

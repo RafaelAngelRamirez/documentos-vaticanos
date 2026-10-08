@@ -149,13 +149,13 @@ if [[ -z "$JAVA_RESOLVED" || ! -x "$JAVA_RESOLVED/bin/java" ]]; then
 fi
 export JAVA_HOME="$JAVA_RESOLVED"
 export PATH="$JAVA_HOME/bin:$PATH"
-echo "==> JAVA_HOME=$JAVA_HOME ($("$JAVA_HOME/bin/java" -version 2>&1 | head -1))"
+echo "==> JAVA_HOME=$JAVA_HOME ($("$JAVA_HOME/bin/java" -version 2>&1 | awk 'NR==1'))"
 
 # Strip or rewrite invalid org.gradle.java.home in gradle.properties
 GP="$ANDROID/gradle.properties"
 if [[ -f "$GP" ]]; then
   if grep -qE '^[[:space:]]*org\.gradle\.java\.home=' "$GP"; then
-    PINNED=$(grep -E '^[[:space:]]*org\.gradle\.java\.home=' "$GP" | head -1 | sed 's/.*=//')
+    PINNED=$(grep -E '^[[:space:]]*org\.gradle\.java\.home=' "$GP" | awk 'NR==1' | sed 's/.*=//')
     if [[ ! -x "${PINNED}/bin/java" ]]; then
       echo "==> Rewriting invalid org.gradle.java.home=$PINNED → $JAVA_HOME"
       # Remove pin lines; rely on JAVA_HOME env (more portable across hosts)
@@ -251,7 +251,7 @@ verify_packaged_apk_version() {
     return 0
   fi
   local badging
-  badging=$("$aapt" dump badging "$apk" | head -n 1)
+  badging=$("$aapt" dump badging "$apk" | awk 'NR==1')
   echo "==> $badging"
   if [[ "$badging" != *"versionName='${VERSION_NAME}'"* ]]; then
     echo "ERROR: APK versionName is not ${VERSION_NAME}" >&2
