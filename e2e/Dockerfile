@@ -1,5 +1,6 @@
 # Playwright e2e runner for web (Chromium). Local / CI.
-FROM mcr.microsoft.com/playwright:v1.48.0-jammy
+# Image tag must equal the pinned @playwright/test version in package.json.
+FROM mcr.microsoft.com/playwright:v1.64.0-jammy
 
 WORKDIR /e2e
 COPY package.json package-lock.json* ./

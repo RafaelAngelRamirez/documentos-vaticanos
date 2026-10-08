@@ -11,8 +11,18 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 DIST="${1:-"$ROOT/dist/web"}"
 E2E="$ROOT/e2e"
 PORT="${E2E_PORT:-4173}"
-IMAGE="${PLAYWRIGHT_IMAGE:-mcr.microsoft.com/playwright:v1.49.1-jammy}"
 VOLUME="${DV_BUILD_VOLUME:-codice-progressio_n8n_build}"
+
+# Browsers live in the image; the tag must match the library exactly.
+if ! PW_VERSION="$(node -e 'const pkg = require(process.argv[1]); const v = pkg.devDependencies && pkg.devDependencies["@playwright/test"]; process.stdout.write(v == null ? "" : String(v));' "$E2E/package.json")"; then
+  echo "ERROR: could not read @playwright/test from $E2E/package.json" >&2
+  exit 1
+fi
+if [[ ! "$PW_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+  echo "ERROR: @playwright/test in $E2E/package.json must be pinned to an exact x.y.z (no caret or tilde); got '${PW_VERSION}'" >&2
+  exit 1
+fi
+IMAGE="${PLAYWRIGHT_IMAGE:-mcr.microsoft.com/playwright:v${PW_VERSION}-jammy}"
 
 if [[ ! -f "$DIST/index.html" ]]; then
   echo "ERROR: missing $DIST/index.html (run package-web first)" >&2

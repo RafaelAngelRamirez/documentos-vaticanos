@@ -69,7 +69,7 @@ services:
 
   e2e:
     profiles: ["e2e"]
-    image: mcr.microsoft.com/playwright:v1.49.1-jammy
+    image: mcr.microsoft.com/playwright:v1.64.0-jammy # tag must equal the pinned @playwright/test version in e2e/package.json
     container_name: documentos-e2e
     working_dir: /e2e
     depends_on:
