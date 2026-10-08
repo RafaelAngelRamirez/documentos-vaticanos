@@ -167,11 +167,11 @@ if [[ -z "$JAVA_RESOLVED" || ! -x "$JAVA_RESOLVED/bin/java" ]]; then
 fi
 export JAVA_HOME="$JAVA_RESOLVED"
 export PATH="$JAVA_HOME/bin:$PATH"
-echo "==> JAVA_HOME=$JAVA_HOME ($("$JAVA_HOME/bin/java" -version 2>&1 | head -1))"
+echo "==> JAVA_HOME=$JAVA_HOME ($("$JAVA_HOME/bin/java" -version 2>&1 | awk 'NR==1'))"
 
 GP="$ANDROID/gradle.properties"
 if [[ -f "$GP" ]] && grep -qE '^[[:space:]]*org\.gradle\.java\.home=' "$GP"; then
-  PINNED=$(grep -E '^[[:space:]]*org\.gradle\.java\.home=' "$GP" | head -1 | sed 's/.*=//')
+  PINNED=$(grep -E '^[[:space:]]*org\.gradle\.java\.home=' "$GP" | awk 'NR==1' | sed 's/.*=//')
   if [[ ! -x "${PINNED}/bin/java" ]]; then
     echo "==> Rewriting invalid org.gradle.java.home=$PINNED → $JAVA_HOME"
     sed -i '/^[[:space:]]*org\.gradle\.java\.home=/d' "$GP"
@@ -236,7 +236,7 @@ run ./gradlew "${GRADLE_ARGS[@]}"
 AAB_SRC="$ANDROID/app/build/outputs/bundle/release/app-release.aab"
 if [[ ! -f "$AAB_SRC" ]]; then
   # some AGP layouts
-  AAB_SRC=$(find "$ANDROID/app/build/outputs/bundle" -name '*.aab' 2>/dev/null | head -1 || true)
+  AAB_SRC=$(find "$ANDROID/app/build/outputs/bundle" -name '*.aab' 2>/dev/null | awk 'NR==1' || true)
 fi
 if [[ -z "${AAB_SRC:-}" || ! -f "$AAB_SRC" ]]; then
   echo "ERROR: AAB not produced under app/build/outputs/bundle" >&2
@@ -262,7 +262,7 @@ fi
 
 PACKAGE_NAME="${DV_PACKAGE_NAME:-}"
 if [[ -z "$PACKAGE_NAME" ]]; then
-  PACKAGE_NAME=$(grep -E 'applicationId\s+"' "$ANDROID/app/build.gradle" | head -1 | sed -E 's/.*applicationId[[:space:]]+"([^"]+)".*/\1/' || echo unknown)
+  PACKAGE_NAME=$(grep -E 'applicationId\s+"' "$ANDROID/app/build.gradle" | awk 'NR==1' | sed -E 's/.*applicationId[[:space:]]+"([^"]+)".*/\1/' || echo unknown)
 fi
 
 {
