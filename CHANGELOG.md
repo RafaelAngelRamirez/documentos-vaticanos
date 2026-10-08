@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.32](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.31...v0.0.32) (2026-10-08)
+
+
+### Bug Fixes
+
+* **ci:** notify-build fallback reads all grep output ([#4](https://github.com/RafaelAngelRamirez/documentos-vaticanos/issues/4)) ([535a69d](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/535a69d4938f6e1040456283a7d966d9635faa54)), closes [#3](https://github.com/RafaelAngelRamirez/documentos-vaticanos/issues/3)
+
 ### 0.0.31 (2026-10-08)
 
 
