@@ -28,6 +28,8 @@ E2E_START_WEB=1 npx playwright test
 
 ## Docker Compose profile
 
+The Playwright image tag must equal the pinned `@playwright/test` version in `e2e/package.json` (exact `x.y.z`, no caret or tilde). `e2e/Dockerfile` is `mcr.microsoft.com/playwright:v1.64.0-jammy` for pin `1.64.0`. `run-dist-smoke.sh` reads that pin for its default image (`PLAYWRIGHT_IMAGE` still overrides).
+
 ```bash
 docker compose -f docker-compose.dev.yml --profile e2e up --build --abort-on-container-exit e2e
 ```
