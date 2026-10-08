@@ -124,7 +124,7 @@ except Exception:
     print(m.group(1) if m else "")
 '
     else
-        printf '%s' "$resp" | grep -oE "\"${field}\"[: ]*\"?[0-9A-Za-z_-]+" | grep -oE '[0-9A-Za-z_-]+$' | head -1
+        printf '%s' "$resp" | grep -oE "\"${field}\"[: ]*\"?[0-9A-Za-z_-]+" | grep -oE '[0-9A-Za-z_-]+$' | awk 'NR==1'
     fi
 }
 
