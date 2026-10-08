@@ -14,6 +14,8 @@ export default defineConfig({
   reporter: [["list"], ["html", { open: "never", outputFolder: "playwright-report" }]],
   use: {
     baseURL,
+    // Dist smoke asserts Spanish UI text; the app follows the browser language.
+    locale: "es-MX",
     trace: "on-first-retry",
     screenshot: "only-on-failure",
   },
