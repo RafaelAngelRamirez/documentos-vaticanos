@@ -30,8 +30,7 @@ if [[ ! -f "$DIST/index.html" ]]; then
 fi
 
 if ! command -v docker >/dev/null 2>&1; then
-  echo "WARN: docker not found — skipping dist Playwright smoke" >&2
-  exit 0
+  exec node "$ROOT/scripts/ci-skip.js" --need docker
 fi
 
 INNER_WEB="/web"

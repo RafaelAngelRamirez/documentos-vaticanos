@@ -191,8 +191,8 @@ async function main() {
 
   section('assets copy sample byte identity');
   if (!assetsDocsPresent) {
-    console.log(
-      '  skip: frontend/src/assets/corpus/documents is gitignored; regenerate with npm run corpus:sync-assets',
+    console.warn(
+      'warn: ship-copy absent (frontend/src/assets/corpus/documents is gitignored); continuing',
     );
   } else {
     for (const id of SAMPLE_IDS) {

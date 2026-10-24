@@ -24,6 +24,12 @@ function section(name) {
   console.log(`\n== ${name} ==`);
 }
 
+function warnMissingShip(name) {
+  console.warn(
+    `warn: ${name} content.json absent (gitignored ship copy); continuing`,
+  );
+}
+
 async function main() {
   section('artifacts');
   assert.ok(fs.existsSync(LOGIC), 'speech-prep.logic.ts exists');
@@ -214,7 +220,7 @@ async function main() {
     assert.ok(prep.text.length > 20, 'lg speak text non-empty');
     console.log('  lg-es sample:', prep.text.slice(0, 80) + '…');
   } else {
-    console.log('  (lg-es pack missing — skip pack sample)');
+    warnMissingShip('lg-es');
   }
   if (fs.existsSync(CORPUS_OCR)) {
     const pack = JSON.parse(fs.readFileSync(CORPUS_OCR, 'utf8'));
@@ -556,7 +562,7 @@ async function main() {
       );
     }
   } else {
-    console.log('  (cic-es pack missing — skip)');
+    warnMissingShip('cic-es');
   }
 
   console.log('\nAll speech-prep tests passed.');
