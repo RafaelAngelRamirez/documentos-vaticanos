@@ -65,14 +65,30 @@ function assertCorpusRelPath(relPath: string): string {
 /**
  * Copy a file or directory from documentos/corpus into the Angular ship tree.
  */
-export function syncCorpusPathToAssets(relPath: string): void {
+export function syncCorpusPathToAssets(
+  relPath: string,
+  roots: { canonicalRoot: string; assetsRoot: string } = {
+    canonicalRoot: CANONICAL_CORPUS_ROOT,
+    assetsRoot: ASSETS_CORPUS_ROOT,
+  },
+): void {
   const rel = assertCorpusRelPath(relPath);
-  const src = path.join(CANONICAL_CORPUS_ROOT, rel);
-  const dest = path.join(ASSETS_CORPUS_ROOT, rel);
+  const src = path.join(roots.canonicalRoot, rel);
+  const dest = path.join(roots.assetsRoot, rel);
+  const destRoot = path.resolve(roots.assetsRoot);
+  const canon = path.resolve(CANONICAL_CORPUS_ROOT);
+  if (destRoot === canon || destRoot.startsWith(`${canon}${path.sep}`)) {
+    throw new Error(
+      `syncCorpusPathToAssets: refusing to replace canonical corpus at ${destRoot}`,
+    );
+  }
   if (!fs.existsSync(src)) {
     throw new Error(`syncCorpusPathToAssets: missing ${src}`);
   }
   fs.mkdirSync(path.dirname(dest), { recursive: true });
+  if (fs.existsSync(dest) && fs.statSync(dest).isDirectory()) {
+    fs.rmSync(dest, { recursive: true, force: true });
+  }
   fs.cpSync(src, dest, { recursive: true, force: true });
 }
 
@@ -120,6 +136,10 @@ function writeJson(filePath: string, data: unknown, pretty = false): void {
 
 function readJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, "utf-8")) as T;
+}
+
+export function readExistingManifest(manifestPath: string): CorpusManifest {
+  return readJson<CorpusManifest>(manifestPath);
 }
 
 export interface WriteCorpusResult {
@@ -188,11 +208,7 @@ export function writeCorpusDocument(
     documents: [],
   };
   if (fs.existsSync(manifestPath)) {
-    try {
-      manifest = readJson<CorpusManifest>(manifestPath);
-    } catch {
-      /* fresh */
-    }
+    manifest = readExistingManifest(manifestPath);
   }
   const others = (manifest.documents ?? []).filter(
     (d) => d.id !== config.corpusDocId,
