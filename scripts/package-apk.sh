@@ -247,8 +247,8 @@ verify_packaged_apk_version() {
     aapt=$(find "${ANDROID_HOME}/build-tools" -type f -name aapt | sort | tail -n 1 || true)
   fi
   if [[ -z "$aapt" ]]; then
-    echo "WARN: aapt not on ANDROID_HOME; APK versionName not verified inside the binary" >&2
-    return 0
+    node "$ROOT/scripts/ci-skip.js" --need aapt || exit $?
+    return
   fi
   local badging
   badging=$("$aapt" dump badging "$apk" | awk 'NR==1')

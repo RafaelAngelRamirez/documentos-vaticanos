@@ -155,12 +155,14 @@ CURRENT_STAGE="Topic pack validate"
 notify_step "$CURRENT_STAGE" || true
 npm run topics:validate -- --locale es
 
-echo "==> Cheap tests (open-reading, speech-prep, corpus structure)"
+echo "==> Cheap tests (open-reading, speech-prep, ui-i18n, corpus structure)"
 CURRENT_STAGE="Cheap tests"
 notify_step "$CURRENT_STAGE" || true
+export DV_CI=1
 npm --prefix frontend run test:open-reading
 npm --prefix frontend run test:speech-prep
 npm --prefix frontend run test:speech-lang
+npm --prefix frontend run test:ui-i18n
 node scripts-descarga/corpus_structure_contract.test.js
 node scripts/corpus-sync-assets.test.js
 
