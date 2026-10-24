@@ -113,13 +113,16 @@ function run() {
   const canon = fs.mkdtempSync(path.join(os.tmpdir(), 'dv-sync-canon-'));
   const assets = fs.mkdtempSync(path.join(os.tmpdir(), 'dv-sync-assets-'));
   const brokenDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dv-manifest-'));
-  const realCanon = path.resolve(__dirname, '../documentos/corpus');
+  const linkDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dv-sync-link-'));
+  const realCanon = path.resolve(writer.CANONICAL_CORPUS_ROOT);
   const realAssets = path.resolve(__dirname, '../frontend/src/assets/corpus');
+  const corpusLink = path.join(linkDir, 'corpus-link');
   try {
     if (
       path.resolve(canon).startsWith(realCanon) ||
       path.resolve(assets).startsWith(realAssets) ||
-      path.resolve(brokenDir).startsWith(realCanon)
+      path.resolve(brokenDir).startsWith(realCanon) ||
+      path.resolve(linkDir).startsWith(realCanon)
     ) {
       fail('temp dirs landed on the real corpus');
     }
@@ -240,12 +243,56 @@ function run() {
       fail(`manifest merge ${JSON.stringify(ids)}`);
     }
 
+    const manifestPath = path.join(realCanon, 'manifest.json');
+    const manifestBefore = fs.statSync(manifestPath);
+    const corpusParent = path.dirname(realCanon);
+    let parentThrew = false;
+    try {
+      writer.assertSyncDestinationOutsideCanonical(
+        path.join(corpusParent, 'corpus'),
+        corpusParent,
+      );
+    } catch (err) {
+      parentThrew = String(err && err.message).includes(
+        'refusing to replace canonical corpus',
+      );
+    }
+    if (!parentThrew) fail('parent plus corpus did not throw');
+
+    fs.symlinkSync(realCanon, corpusLink);
+    let linkThrew = false;
+    try {
+      writer.assertSyncDestinationOutsideCanonical(
+        path.join(corpusLink, 'documents', 'not-a-real-sync'),
+        corpusLink,
+      );
+    } catch (err) {
+      linkThrew = String(err && err.message).includes(
+        'refusing to replace canonical corpus',
+      );
+    }
+    if (!linkThrew) fail('canonical symlink did not throw');
+    const manifestAfter = fs.statSync(manifestPath);
+    if (
+      manifestBefore.ino !== manifestAfter.ino ||
+      manifestBefore.size !== manifestAfter.size ||
+      manifestBefore.mtimeMs !== manifestAfter.mtimeMs
+    ) {
+      fail('canonical manifest changed');
+    }
+
     console.log('extras=0');
     console.log('manifest-kept');
   } finally {
+    try {
+      if (fs.lstatSync(corpusLink).isSymbolicLink()) fs.unlinkSync(corpusLink);
+    } catch (err) {
+      if (err.code !== 'ENOENT') throw err;
+    }
     fs.rmSync(canon, { recursive: true, force: true });
     fs.rmSync(assets, { recursive: true, force: true });
     fs.rmSync(brokenDir, { recursive: true, force: true });
+    fs.rmSync(linkDir, { recursive: true, force: true });
   }
 }
 

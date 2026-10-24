@@ -62,6 +62,44 @@ function assertCorpusRelPath(relPath: string): string {
   return normalized;
 }
 
+function isSameOrInside(candidate: string, root: string): boolean {
+  return candidate === root || candidate.startsWith(`${root}${path.sep}`);
+}
+
+/**
+ * Refuse a ship copy whose destination is the canonical corpus.
+ * path.resolve does not follow symlinks; realpath does, and only if the path exists.
+ * This function does not create, remove, or copy anything.
+ */
+export function assertSyncDestinationOutsideCanonical(
+  dest: string,
+  assetsRoot: string,
+): void {
+  const canon = path.resolve(CANONICAL_CORPUS_ROOT);
+  const resolvedDest = path.resolve(dest);
+  const resolvedAssets = path.resolve(assetsRoot);
+  if (
+    isSameOrInside(resolvedDest, canon) ||
+    isSameOrInside(resolvedAssets, canon)
+  ) {
+    const hit = isSameOrInside(resolvedDest, canon) ? resolvedDest : resolvedAssets;
+    throw new Error(
+      `syncCorpusPathToAssets: refusing to replace canonical corpus at ${hit}`,
+    );
+  }
+  if (!fs.existsSync(CANONICAL_CORPUS_ROOT)) return;
+  const canonReal = fs.realpathSync(CANONICAL_CORPUS_ROOT);
+  for (const candidate of [assetsRoot, dest]) {
+    if (!fs.existsSync(candidate)) continue;
+    const real = fs.realpathSync(candidate);
+    if (isSameOrInside(real, canonReal)) {
+      throw new Error(
+        `syncCorpusPathToAssets: refusing to replace canonical corpus at ${real}`,
+      );
+    }
+  }
+}
+
 export function syncCorpusPathToAssets(
   relPath: string,
   roots: { canonicalRoot: string; assetsRoot: string } = {
@@ -72,13 +110,7 @@ export function syncCorpusPathToAssets(
   const rel = assertCorpusRelPath(relPath);
   const src = path.join(roots.canonicalRoot, rel);
   const dest = path.join(roots.assetsRoot, rel);
-  const destRoot = path.resolve(roots.assetsRoot);
-  const canon = path.resolve(CANONICAL_CORPUS_ROOT);
-  if (destRoot === canon || destRoot.startsWith(`${canon}${path.sep}`)) {
-    throw new Error(
-      `syncCorpusPathToAssets: refusing to replace canonical corpus at ${destRoot}`,
-    );
-  }
+  assertSyncDestinationOutsideCanonical(dest, roots.assetsRoot);
   if (!fs.existsSync(src)) {
     throw new Error(`syncCorpusPathToAssets: missing ${src}`);
   }
