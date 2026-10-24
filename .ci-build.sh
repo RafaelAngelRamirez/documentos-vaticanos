@@ -165,6 +165,9 @@ npm --prefix frontend run test:speech-lang
 npm --prefix frontend run test:ui-i18n
 node scripts-descarga/corpus_structure_contract.test.js
 node scripts/corpus-sync-assets.test.js
+node scripts/dead-style-copies.test.js
+node scripts-descarga/write_corpus_copy.test.js
+node scripts/agent-structure.test.js
 
 echo "==> [4/${_STAGES}] Web production + corpus"
 CURRENT_STAGE="Web production"

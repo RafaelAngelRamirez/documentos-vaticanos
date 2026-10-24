@@ -473,6 +473,16 @@ cd android && ./gradlew assembleDebug
 ### Entrega / CI
 - [ ] ¿Commit + **push** a la rama de trabajo para disparar el build remoto?
 
+## What enforces the rule
+
+| Mistake class | Command that fails |
+|---|---|
+| Unread design CSS copies come back | `node scripts/dead-style-copies.test.js` |
+| Asset sync leaves a stale chunk file | `node scripts-descarga/write_corpus_copy.test.js` |
+| CI continues when docker is missing | `node scripts/ci-skip.js --need docker` |
+| Product chrome strings drift | `npm --prefix frontend run test:ui-i18n` |
+| DocumentMeta names or raw chrome divs drift | `node scripts/agent-structure.test.js` |
+
 ---
 
 ## 9. Flujo de agente: push para disparar el build
