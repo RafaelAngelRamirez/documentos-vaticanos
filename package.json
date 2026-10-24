@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "bash scripts/dev.sh",
+    "dev:android": "bash scripts/dev-android-emu.sh",
     "dev:build": "bash scripts/dev.sh --build",
     "dev:down": "bash scripts/dev.sh --down",
     "dev:logs": "bash scripts/dev.sh --logs",
