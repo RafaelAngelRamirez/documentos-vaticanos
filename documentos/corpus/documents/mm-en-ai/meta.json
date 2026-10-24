@@ -1,0 +1,13 @@
+{
+  "id": "mm-en-ai",
+  "title": "Mater et Magistra",
+  "shortTitle": "MM",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/john-xxiii/en/encyclicals/documents/hf_j-xxiii_enc_15051961_mater.html",
+  "bodyPath": "documents/mm-en-ai/content.json",
+  "indexPath": "documents/mm-en-ai/index.json",
+  "unitCount": 251,
+  "sourceNote": "AI-generated English translation from the Español text of the pack «Mater et Magistra» (mm-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+  "translationProvenance": "ai"
+}

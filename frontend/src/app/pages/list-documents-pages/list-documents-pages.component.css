@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.lib {
+  padding: 8px 24px 24px;
+  max-width: var(--app-measure);
+  margin: 0 auto;
+}
+
+.tabs {
+  margin-top: 16px;
+}
+
+button.srow {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.fx {
+  display: flex;
+}
+.ac {
+  align-items: center;
+}
+.jb {
+  justify-content: space-between;
+}
+
+@media (min-width: 1024px) {
+  .cardgrid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}

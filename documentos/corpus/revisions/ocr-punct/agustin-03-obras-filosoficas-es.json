@@ -1,0 +1,33 @@
+{
+  "documentId": "agustin-03-obras-filosoficas-es",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:10.061Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 2878,
+  "unitsChanged": 1001,
+  "before": {
+    "spaceBeforePunct": 10838,
+    "gluedClausePunct": 30,
+    "missingSentenceSpace": 3,
+    "internalWordPeriod": 18,
+    "defectScore": 10901
+  },
+  "after": {
+    "spaceBeforePunct": 0,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 34,
+    "defectScore": 0
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

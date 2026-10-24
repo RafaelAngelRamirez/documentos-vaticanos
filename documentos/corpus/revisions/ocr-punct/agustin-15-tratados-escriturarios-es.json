@@ -1,0 +1,33 @@
+{
+  "documentId": "agustin-15-tratados-escriturarios-es",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:21.674Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 4847,
+  "unitsChanged": 776,
+  "before": {
+    "spaceBeforePunct": 1144,
+    "gluedClausePunct": 241,
+    "missingSentenceSpace": 6,
+    "internalWordPeriod": 334,
+    "defectScore": 1632
+  },
+  "after": {
+    "spaceBeforePunct": 2,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 372,
+    "defectScore": 2
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

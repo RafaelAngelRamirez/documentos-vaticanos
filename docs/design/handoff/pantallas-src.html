@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#201c15">
+<svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+<rect x="36" y="16" width="48" height="48" rx="12" fill="#d0a45f"></rect>
+<text x="60" y="48" text-anchor="middle" font-family="Georgia,serif" font-size="22" font-weight="600" fill="#201c15">DV</text>
+</svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="design_doc_mode" content="canvas">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+body{margin:0}
+.canvas{min-height:100vh;font-family:'IBM Plex Sans',sans-serif;background:var(--desk);color:var(--ink);padding:32px 40px 80px;transition:background .25s,color .25s}
+.t-claro{--desk:#f2f0ea;--bg:#fdfdfb;--ink:#2c2a26;--muted:#8b877e;--line:#e5e2da;--card:#ffffff;--btn:#f4f2ec;--btnb:#d6d2c8;--acc:#8a5a2b;--accink:#fdfdfb;--paper:#f8f1de;--ok:#5a7a4a}
+.t-oscuro{--desk:#17140e;--bg:#201c15;--ink:#e2d8c4;--muted:#9a8f7a;--line:#3a3428;--card:#282318;--btn:#302a1d;--btnb:#4d4433;--acc:#d0a45f;--accink:#201c15;--paper:#2e2818;--ok:#8fae7a}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+.serif{font-family:'EB Garamond',serif}
+.muted{color:var(--muted)}
+.chead{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1900px;margin:0 auto 30px;flex-wrap:wrap}
+.seg{display:flex;background:var(--btn);border:1px solid var(--btnb);border-radius:10px;padding:3px;gap:2px}
+.segbtn{font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:var(--muted);background:none;border:none;border-radius:7px;padding:7px 16px;cursor:pointer}
+.segbtn.on{background:var(--bg);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.row{display:flex;gap:36px;flex-wrap:wrap;align-items:flex-start;max-width:1900px;margin:0 auto}
+.opt{display:flex;flex-direction:column;gap:10px}
+.badge{align-self:flex-start;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--muted);border:1px solid var(--btnb);border-radius:6px;padding:3px 8px}
+.olabel{font-size:13px;color:var(--muted)}
+.frame{width:390px;min-height:700px;background:var(--bg);border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.10);display:flex;flex-direction:column}
+.fbody{padding:28px 24px 32px;flex:1;display:flex;flex-direction:column}
+.fbar{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--line)}
+.ftitle{font-family:'EB Garamond',serif;font-size:19px;font-weight:600}
+.dot{width:34px;height:34px;border-radius:50%;background:var(--btn);border:1px solid var(--btnb);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--muted)}
+.mark{width:56px;height:56px;border-radius:16px;background:var(--acc);color:var(--accink);font-family:'EB Garamond',serif;font-size:26px;font-weight:600;display:flex;align-items:center;justify-content:center;margin:26px auto 18px}
+.field{width:100%;box-sizing:border-box;font-family:'IBM Plex Sans',sans-serif;font-size:15px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 16px;outline:none}
+.field:focus{border-color:var(--acc)}
+.field::placeholder{color:var(--muted)}
+.flabel{font-size:13px;color:var(--muted);margin:16px 0 6px}
+.primary{width:100%;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:500;color:var(--accink);background:var(--acc);border:none;border-radius:10px;padding:14px;cursor:pointer;margin-top:20px;min-height:48px}
+.gbtn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:500;color:var(--ink);background:var(--card);border:1px solid var(--btnb);border-radius:10px;padding:13px;cursor:pointer;min-height:48px}
+.gbtn:hover{border-color:var(--acc)}
+.divider{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:12px;margin:22px 0}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.prog{height:5px;border-radius:3px;background:var(--btn);overflow:hidden;margin-top:12px}
+.progfill{height:100%;background:var(--acc);border-radius:3px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;color:var(--ink);background:var(--btn);border:1px solid var(--btnb);border-radius:999px;padding:8px 14px;cursor:pointer}
+.chip:hover{border-color:var(--acc)}
+.mrow{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.avatar{width:44px;height:44px;border-radius:50%;background:var(--paper);border:1px solid var(--btnb);color:var(--acc);font-family:'EB Garamond',serif;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mname{font-size:15px;font-weight:500}
+.mmeta{font-size:12px;color:var(--muted);margin-top:3px}
+.chev{color:var(--muted);margin-left:auto}
+.tabs{display:flex;gap:22px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.tab{font-size:14px;color:var(--muted);padding:10px 2px;border-bottom:2px solid transparent}
+.tab.on{color:var(--ink);border-bottom-color:var(--acc);font-weight:500}
+.sect{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:26px 0 12px}
+.lrow{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.lnum{width:26px;height:26px;border-radius:50%;background:var(--btn);border:1px solid var(--btnb);color:var(--muted);font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lnum.done{background:var(--acc);border-color:var(--acc);color:var(--accink)}
+.pal{width:520px;background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 12px 40px rgba(0,0,0,.10)}
+.swgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.sw{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.swc{height:64px}
+.swl{padding:10px 12px;font-size:12px}
+.swn{font-weight:600}
+.swv{color:var(--muted);margin-top:2px;font-family:monospace;font-size:11px}
+.h2{font-family:'EB Garamond',serif;font-size:24px;font-weight:600;margin:0}
+.greet{font-family:'EB Garamond',serif;font-size:26px;font-weight:500;line-height:1.2;margin:4px 0 20px}
+</style>
+</helmet>
+<div class="canvas {{themeClass}}">
+<div class="chead">
+<div><div class="fs12 upper muted" style="letter-spacing:.2em">Documentos Vaticanos</div><h1 class="serif fw6" style="font-size:30px;margin:6px 0 0">Pantallas y estilo base</h1></div>
+<div class="fx ac gap12"><span class="fs13 muted">Tema</span>
+<div class="seg">
+<button class="segbtn {{onClaro}}" onClick="{{setClaro}}">Claro</button>
+<button class="segbtn {{onOscuro}}" onClick="{{setOscuro}}">Oscuro</button>
+<button class="segbtn {{onSistema}}" onClick="{{setSistema}}">Sistema</button>
+</div></div>
+</div>
+<section class="row">
+<div class="opt" id="1a">
+<span class="badge">1A · COLORES BASE</span>
+<div class="pal">
+<h2 class="h2">Paleta — tema {{temaActivo}}</h2>
+<p class="fs13 muted" style="margin:8px 0 0">Los mismos roles de color existen en claro y oscuro; cambie el tema arriba para verlos.</p>
+<div class="swgrid">
+<div class="sw"><div class="swc" style="background:var(--bg)"></div><div class="swl"><div class="swn">Fondo</div><div class="swv">--bg</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--card)"></div><div class="swl"><div class="swn">Superficie</div><div class="swv">--card</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--ink)"></div><div class="swl"><div class="swn">Tinta</div><div class="swv">--ink</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--muted)"></div><div class="swl"><div class="swn">Atenuado</div><div class="swv">--muted</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--acc)"></div><div class="swl"><div class="swn">Acento</div><div class="swv">--acc</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--paper)"></div><div class="swl"><div class="swn">Papel (lectura sepia)</div><div class="swv">--paper</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--line)"></div><div class="swl"><div class="swn">Línea</div><div class="swv">--line</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--btn)"></div><div class="swl"><div class="swn">Control</div><div class="swv">--btn</div></div></div>
+</div>
+<div class="sect">Tipografía</div>
+<div class="serif" style="font-size:26px">EB Garamond — títulos y lectura</div>
+<div class="fs15" style="margin-top:8px">IBM Plex Sans — interfaz, etiquetas y controles</div>
+<div class="sect">Controles</div>
+<div class="fx ac gap12 wrap"><button class="primary" style="width:auto;margin:0;padding:12px 24px">Primario</button><button class="gbtn" style="width:auto;padding:12px 24px">Secundario</button><span class="chip">Chip / tema</span></div>
+</div>
+</div>
+<div class="opt" id="1b">
+<span class="badge">1B · ACCESO</span>
+<div class="frame"><div class="fbody">
+<div class="mark">DV</div>
+<div class="tc serif fw6" style="font-size:24px">Documentos Vaticanos</div>
+<div class="tc fs14 muted" style="margin:8px 0 26px">Su biblioteca de lectura y estudio</div>
+<button class="gbtn"><svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"></path><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18z"></path><path fill="#FBBC05" d="M3.97 10.72a5.4 5.4 0 0 1 0-3.44V4.95H.96a9 9 0 0 0 0 8.1l3.01-2.33z"></path><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.59A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z"></path></svg>Continuar con Google</button>
+<div class="divider">o con su correo</div>
+<div class="flabel" style="margin-top:0">Correo electrónico</div>
+<input class="field" type="email" placeholder="nombre@ejemplo.com">
+<div class="flabel">Contraseña</div>
+<input class="field" type="password" placeholder="••••••••">
+<button class="primary">Entrar</button>
+<div class="tc fs13" style="margin-top:18px"><a href="#1b">¿Olvidó su contraseña?</a></div>
+<div class="tc fs13 muted" style="margin-top:auto;padding-top:24px">¿Aún no tiene cuenta? <a href="#1b">Crear cuenta</a></div>
+</div></div>
+</div>
+<div class="opt" id="1c">
+<span class="badge">1C · ESTUDIO</span>
+<div class="frame">
+<div class="fbar"><span class="ftitle">Estudio</span><span class="dot">MA</span></div>
+<div class="fbody">
+<div class="fs13 muted">Buenos días, María</div>
+<div class="greet">Continúe donde lo dejó</div>
+<div class="card">
+<div class="fs12 upper muted" style="letter-spacing:.14em">Catecismo</div>
+<div class="serif fw6" style="font-size:20px;margin-top:6px">Laetamur Magnopere</div>
+<div class="fs13 muted" style="margin-top:4px">Parte I · Sección 2 · 42 % leído</div>
+<div class="prog"><div class="progfill" style="width:42%"></div></div>
+<button class="primary" style="margin-top:16px;padding:12px">Continuar la lectura</button>
+</div>
+<div class="sect">Planes de estudio</div>
+<div class="mrow"><span class="avatar">8</span><div><div class="mname">Concilio Vaticano II</div><div class="mmeta">8 semanas · 4 constituciones</div></div><span class="chev">›</span></div>
+<div class="mrow"><span class="avatar">4</span><div><div class="mname">Encíclicas sociales</div><div class="mmeta">4 semanas · De Rerum Novarum a Laudato Si'</div></div><span class="chev">›</span></div>
+<div class="sect">Temas frecuentes</div>
+<div class="chips"><span class="chip">Fe</span><span class="chip">Liturgia</span><span class="chip">Oración</span><span class="chip">Moral</span><span class="chip">Doctrina social</span></div>
+</div></div>
+</div>
+<div class="opt" id="1d">
+<span class="badge">1D · APRENDIZAJE</span>
+<div class="frame">
+<div class="fbar"><span class="ftitle">Aprendizaje</span><span class="dot">MA</span></div>
+<div class="fbody">
+<div class="card">
+<div class="fx ac jb"><div class="fs12 upper muted" style="letter-spacing:.14em">Curso activo</div><span class="fs12" style="color:var(--ok)">3 de 12</span></div>
+<div class="serif fw6" style="font-size:20px;margin-top:6px">Introducción al Catecismo</div>
+<div class="prog"><div class="progfill" style="width:25%"></div></div>
+</div>
+<div class="sect">Lecciones</div>
+<div class="lrow"><span class="lnum done">✓</span><span>Qué es el Catecismo</span><span class="chev fs12">Hecho</span></div>
+<div class="lrow"><span class="lnum done">✓</span><span>Historia y ediciones</span><span class="chev fs12">Hecho</span></div>
+<div class="lrow"><span class="lnum done">✓</span><span>Estructura en cuatro partes</span><span class="chev fs12">Hecho</span></div>
+<div class="lrow"><span class="lnum">4</span><span class="fw5">La profesión de la fe</span><span class="chev fs12" style="color:var(--acc)">Siguiente</span></div>
+<div class="lrow"><span class="lnum">5</span><span class="muted">La celebración del misterio</span></div>
+<div class="lrow"><span class="lnum">6</span><span class="muted">La vida en Cristo</span></div>
+<button class="primary" style="margin-top:26px">Continuar la lección 4</button>
+</div></div>
+</div>
+<div class="opt" id="1e">
+<span class="badge">1E · MAESTROS Y TEMAS</span>
+<div class="frame">
+<div class="fbar"><span class="ftitle">Explorar</span><span class="dot">MA</span></div>
+<div class="fbody">
+<div class="tabs"><span class="tab on">Maestros</span><span class="tab">Temas</span><span class="tab">Épocas</span></div>
+<div class="mrow"><span class="avatar">F</span><div><div class="mname">Francisco</div><div class="mmeta">2013–2025 · 6 documentos</div></div><span class="chev">›</span></div>
+<div class="mrow"><span class="avatar">B</span><div><div class="mname">Benedicto XVI</div><div class="mmeta">2005–2013 · 4 documentos</div></div><span class="chev">›</span></div>
+<div class="mrow"><span class="avatar">JP</span><div><div class="mname">Juan Pablo II</div><div class="mmeta">1978–2005 · 9 documentos</div></div><span class="chev">›</span></div>
+<div class="mrow"><span class="avatar">P</span><div><div class="mname">Pablo VI</div><div class="mmeta">1963–1978 · 5 documentos</div></div><span class="chev">›</span></div>
+<div class="sect">Temas</div>
+<div class="chips"><span class="chip">Fe y razón</span><span class="chip">Familia</span><span class="chip">Eucaristía</span><span class="chip">Esperanza</span><span class="chip">Caridad</span><span class="chip">Creación</span></div>
+</div></div>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;tema&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;claro&quot;,&quot;oscuro&quot;,&quot;sistema&quot;],&quot;default&quot;:&quot;oscuro&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Tema&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tema: localStorage.getItem('dv.tema') || this.props.tema || 'sistema', sysDark: false };
+  }
+  componentDidMount() {
+    this.mq = window.matchMedia('(prefers-color-scheme: dark)');
+    this._onMq = () => this.setState({ sysDark: this.mq.matches });
+    this.mq.addEventListener('change', this._onMq);
+    this.setState({ sysDark: this.mq.matches });
+  }
+  componentWillUnmount() { if (this.mq) this.mq.removeEventListener('change', this._onMq); }
+  set(tema) { localStorage.setItem('dv.tema', tema); this.setState({ tema }); }
+  renderVals() {
+    const t = this.state.tema;
+    const dark = t === 'oscuro' || (t === 'sistema' && this.state.sysDark);
+    return {
+      themeClass: dark ? 't-oscuro' : 't-claro',
+      temaActivo: dark ? 'oscuro' : 'claro',
+      onClaro: t === 'claro' ? 'on' : '',
+      onOscuro: t === 'oscuro' ? 'on' : '',
+      onSistema: t === 'sistema' ? 'on' : '',
+      setClaro: () => this.set('claro'),
+      setOscuro: () => this.set('oscuro'),
+      setSistema: () => this.set('sistema')
+    };
+  }
+}
+</script>
+</body>
+</html>

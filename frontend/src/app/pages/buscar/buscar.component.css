@@ -1,0 +1,44 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.fbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding-top: calc(16px + var(--safe-area-inset-top, 0px));
+  min-height: 48px;
+}
+
+.fbar .back {
+  min-height: 48px;
+  min-width: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fspacer {
+  width: 34px;
+  flex-shrink: 0;
+}
+
+.fbody {
+  max-width: var(--app-measure);
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-bottom: 80px;
+}
+
+.search-hint {
+  margin: 8px 2px 14px;
+  line-height: 1.45;
+}
+

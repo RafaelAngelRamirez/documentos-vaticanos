@@ -1,0 +1,33 @@
+{
+  "documentId": "agustin-36-antipelagianos-4-es",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:32.496Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 1056,
+  "unitsChanged": 221,
+  "before": {
+    "spaceBeforePunct": 273,
+    "gluedClausePunct": 50,
+    "missingSentenceSpace": 4,
+    "internalWordPeriod": 4,
+    "defectScore": 377
+  },
+  "after": {
+    "spaceBeforePunct": 6,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 8,
+    "defectScore": 6
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

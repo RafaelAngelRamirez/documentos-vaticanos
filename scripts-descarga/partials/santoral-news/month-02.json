@@ -1,0 +1,882 @@
+{
+  "month": 2,
+  "generatedAt": "2026-07-18T21:54:02.543Z",
+  "saintCount": 44,
+  "saints": [
+    {
+      "id": "ludovica-albertoni",
+      "name": "Ludovica Albertoni",
+      "displayName": "Beato Ludovica Albertoni",
+      "role": "viuda romana",
+      "bio": "De noble familia romana, Ludovica Albertoni sufrió un matrimonio forzado y, solo al enviudar pudo realizar su vocación de servicio a los pobres como Terciaria Franciscana, trabajando por la educación de mujeres jóvenes en peligro. Roma la recuerda por la espléndida escultura que Bernini le dedicó.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/01/b--ludovica-albertoni--viuda-romana.html",
+      "locale": "es",
+      "feastDays": [
+        "02-01"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-01 · vaticannews.va",
+      "authorAliases": [
+        "Beato Ludovica Albertoni",
+        "Ludovica Albertoni"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "brigida",
+      "name": "Brígida",
+      "displayName": "San Brígida",
+      "role": "abadesa en Irlanda",
+      "bio": "Fiel proseguidora de la obra evangelizadora de San Patricio, fue la fundadora de uno de los primeros monasterios de Irlanda en Kildare, cerca de Dublín, donde fue abadesa de las ramas masculina y femenina. En la Edad Media los peregrinos la invocaban: \"Santa Brígida, protégenos en nuestro viaje\".",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/01/s--brigida--abadesa-en-irlanda.html",
+      "locale": "es",
+      "feastDays": [
+        "02-01"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-01 · vaticannews.va",
+      "authorAliases": [
+        "San Brígida",
+        "Brígida"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "catalina-de-ricci",
+      "name": "Catalina de Ricci",
+      "displayName": "San Catalina de Ricci",
+      "role": "virgen dominica de Prato",
+      "bio": "A los 14 años entró en el monasterio de San Vincenzo en Prato. Allí contempló la vida de Jesús con fuertes signos corporales y éxtasis, que inicialmente suscitaron el temor de fenómenos patológicos. En realidad, en el centro de su mente y de su corazón estaba la verdadera contemplación de Cristo.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/02/s--catalina-de-ricci--virgen-dominica-de-prato.html",
+      "locale": "es",
+      "feastDays": [
+        "02-02"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-02 · vaticannews.va",
+      "authorAliases": [
+        "San Catalina de Ricci",
+        "Catalina de Ricci"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "nicolas-saggio-de-longobardi",
+      "name": "Nicolás Saggio de Longobardi",
+      "displayName": "San Nicolás Saggio de Longobardi",
+      "role": "laico mínimo",
+      "bio": "De origen campesino, tuvo que entrar en la Orden de los Mínimos para estudiar. Pasó por muchos conventos realizando los deberes más humildes. En Roma se ocupó material y espiritualmene de los pobres, y practicó el ayuno y la penitencia por amor a Cristo. Fue canonizado por el Papa Francisco en 2014.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/02/s--nicolas-saggio-de-longobardi--laico-minimo.html",
+      "locale": "es",
+      "feastDays": [
+        "02-02"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-02 · vaticannews.va",
+      "authorAliases": [
+        "San Nicolás Saggio de Longobardi",
+        "Nicolás Saggio de Longobardi"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "biagio",
+      "name": "Biagio",
+      "displayName": "San Biagio",
+      "role": "obispo de Sebastes y mártir",
+      "bio": "Médico en Armenia, más tarde obispo, según antiguos relatos realizó numerosos milagros, entre los cuales la curación de un muchacho de una espina de pez clavada en la tráquea. Por no haber renegado la fe, fue despellejado vivo en el 316. Es invocado por el dolor de garganta.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/03/s--biagio--obispo-de-sebastes-y-martir.html",
+      "locale": "es",
+      "feastDays": [
+        "02-03"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-03 · vaticannews.va",
+      "authorAliases": [
+        "San Biagio",
+        "Biagio"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "ansgario-oscar",
+      "name": "Ansgario (Oscar)",
+      "displayName": "San Ansgario (Oscar)",
+      "role": "obispo de Hamburgo y Brema, apóstol de la Escandinavia",
+      "bio": "Originario de Corbie, Francia, Ansgario - u Oscar - toda su vida persiguió el sueño de evangelizar las tierras del Norte; por esta razón todavía hoy en día es venerado como el apóstol de Escandinavia. Un predicador incansable, fue obispo de Hamburgo y Bremen. Murió en el año 865.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/03/s--ansgario--oscar---obispo-de-hamburgo-y-brema--apostol-de-la-e.html",
+      "locale": "es",
+      "feastDays": [
+        "02-03"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-03 · vaticannews.va",
+      "authorAliases": [
+        "San Ansgario (Oscar)",
+        "Ansgario (Oscar)"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "jose-de-leonessa",
+      "name": "José de Leonessa",
+      "displayName": "San José de Leonessa",
+      "role": "sacerdote capuchino",
+      "bio": "Nacido en 1556, se dirige a Constantinopla en donde ayuda a los cristianos prisioneros de los turcos. Quiere anunciar el Evangelio al sultán: es arrestado, torturado y desterrado. En Italia, predica la Buena Noticia a los pobres, enfermos, encarcelados, viajando a pie. Muere en Amatrice en 1612.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/04/s--jose-de-leonessa--sacerdote-capuchino.html",
+      "locale": "es",
+      "feastDays": [
+        "02-04"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-04 · vaticannews.va",
+      "authorAliases": [
+        "San José de Leonessa",
+        "José de Leonessa"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "agata",
+      "name": "Ágata",
+      "displayName": "San Ágata",
+      "role": "virgen y mártir de Catania",
+      "bio": "La historia de Santa Águeda constituye uno de los más hermosos testimonios de fe del siglo III. La Iglesia celebra su Memoria el 5 de febrero, día en el que murió mártir en Catania (Italia). La impávida joven siciliana, sometida a horribles torturas, demostró una valiente fidelidad a Cristo.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/05/s--agata--virgen-y-martir-de-catania.html",
+      "locale": "es",
+      "feastDays": [
+        "02-05"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-05 · vaticannews.va",
+      "authorAliases": [
+        "San Ágata",
+        "Ágata"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "adelaida",
+      "name": "Adelaida",
+      "displayName": "San Adelaida",
+      "role": "abadesa",
+      "bio": "Su familia le construyó un monasterio en Vilich, Alemania. Adoptó la Regla Benedictina de las monjas de Santa María en el Capitolio, donde también su hermana era abadesa. Cuando murió su hermana, se convirtió en abadesa de los dos monasterios. Es venerada en Francia con el nombre de Alicia.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/05/s--adelaida--abadesa.html",
+      "locale": "es",
+      "feastDays": [
+        "02-05"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-05 · vaticannews.va",
+      "authorAliases": [
+        "San Adelaida",
+        "Adelaida"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "isabel-canori-mora",
+      "name": "Isabel Canori Mora",
+      "displayName": "Beato Isabel Canori Mora",
+      "role": "madre de familia",
+      "bio": "Esposa del prometedor abogado Cristóbal, Elizabeth por muchos años sufrirá su infidelidad conyugal; conducta que llevará su familia a la pobreza. Como Terciaria Trinitaria confiará en Jesús y rezará por su marido. Fue beatificada en 1994 por Juan Pablo II, quien la llamó \"una mujer de amor heroico\".",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/05/b--isabel-canori-mora--madre-de-familia.html",
+      "locale": "es",
+      "feastDays": [
+        "02-05"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-05 · vaticannews.va",
+      "authorAliases": [
+        "Beato Isabel Canori Mora",
+        "Isabel Canori Mora"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "pablo-miki",
+      "name": "Pablo Miki",
+      "displayName": "Santos Pablo Miki",
+      "role": "sacerdote, y Compañeros, mártires japoneses",
+      "bio": "Jesuita (1556-1597), primer religioso católico japonés, anuncia con coraje el Evangelio. Fue arrestado y crucificado en Nagasaki con otros 25 compañeros. Antes de morir, reitera que sólo en Jesús hay salvación, invitando a todos a seguir con alegría a Cristo y a perdonar a los enemigos.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/06/ss--pablo-miki--sacerdote--y-companeros--martires-japoneses.html",
+      "locale": "es",
+      "feastDays": [
+        "02-06"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-06 · vaticannews.va",
+      "authorAliases": [
+        "Santos Pablo Miki",
+        "Pablo Miki"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "dorotea",
+      "name": "Dorotea",
+      "displayName": "San Dorotea",
+      "role": "virgen y mártir",
+      "bio": "Esta joven originaria de Cesarea, Capadocia, prefirió morir como mártir antes que abjurar de su fe en Jesús, el único Señor, Mesìas y Salvador que nos da la verdadera redención. Su gran poder de intercesión convirtió a personas muy escépticas como se narra en el milagro de las rosas y las manzanas.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/06/s--dorotea--virgen-y-martir.html",
+      "locale": "es",
+      "feastDays": [
+        "02-06"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-06 · vaticannews.va",
+      "authorAliases": [
+        "San Dorotea",
+        "Dorotea"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "ricardo",
+      "name": "Ricardo",
+      "displayName": "San Ricardo",
+      "bio": "Noble inglés, que vivió en el siglo VIII, padre de tres santos: Villibaldo, Vunibaldo y Valburga, evangelizadores en Alemania. Era un hombre de oración, que tenía una gran veneración por la Sagrada Familia. Peregrino en Roma, muere en su camino de regreso a Lucca.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/07/s--ricardo.html",
+      "locale": "es",
+      "feastDays": [
+        "02-07"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-07 · vaticannews.va",
+      "authorAliases": [
+        "San Ricardo",
+        "Ricardo"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "pio-ix",
+      "name": "Pio IX",
+      "displayName": "Beato Pio IX",
+      "role": "papa",
+      "bio": "Juan Maria Mastai Ferretti tomó el nombre de Pío IX y fue Papa de 1846 a 1878. Su pontificado fue el más largo de la historia de la Iglesia. Tuvo que afrontar las cuestiones políticas del poder temporal de la Iglesia respecto del Reino de Italia. Brilló por su gran sabiduría y santidad.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/07/b--pio-ix--papa.html",
+      "locale": "es",
+      "feastDays": [
+        "02-07"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-07 · vaticannews.va",
+      "authorAliases": [
+        "Beato Pio IX",
+        "Pio IX"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "jeronimo-emiliani",
+      "name": "Jerónimo Emiliani",
+      "displayName": "San Jerónimo Emiliani",
+      "role": "fundador de los Somascos, patrón de los huérfanos y de la juventud abandonada",
+      "bio": "Nació en Venecia en 1486 donde comenzó la carrera militar. Cayó prisionero, hizo un voto a María y fue liberado. Entonces su vida cambió radicalmente y se ocupó especialmente de los huérfanos. Fundó en Somasca la Compañía de los Servidores de los Pobres, los Clérigos Regulares llamados Somascos.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/08/s--jeronimo-emiliani--fundador-de-los-somascos--patron-de-los-hu.html",
+      "locale": "es",
+      "feastDays": [
+        "02-08"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-08 · vaticannews.va",
+      "authorAliases": [
+        "San Jerónimo Emiliani",
+        "Jerónimo Emiliani"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "josefina-bakhita",
+      "name": "Josefina Bakhita",
+      "displayName": "San Josefina Bakhita",
+      "role": "virgen",
+      "bio": "La suya, es una de las historias más extraordinarias de opresión y redención dentro de la Iglesia. Santa Josefina Bakhita, la esclava sudanesa que se convirtió en religiosa de las Hermanas Canossianas. Nació en 1869 en Darfur, Sudán del Sur, al servicio del Evangelio entre las religiosas canossianas",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/08/s--josefina-bakhita--virgen.html",
+      "locale": "es",
+      "feastDays": [
+        "02-08"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-08 · vaticannews.va",
+      "authorAliases": [
+        "San Josefina Bakhita",
+        "Josefina Bakhita"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "apolonia",
+      "name": "Apolonia",
+      "displayName": "San Apolonia",
+      "role": "virgen y mártir de Alejandría en Egipto",
+      "bio": "Dedicada totalmente al apostolado, muy estimada por su valor e integridad, es capturada en el 249, ya siendo anciana, durante las feroces persecuciones del siglo III en Egipto. Negándose a rechazar la fe, es torturada: le arrancan los dientes con una pinza. Muere entre llamas.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/09/s--apolonia--virgen-y-martir-de-alejandria-en-egipto.html",
+      "locale": "es",
+      "feastDays": [
+        "02-09"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-09 · vaticannews.va",
+      "authorAliases": [
+        "San Apolonia",
+        "Apolonia"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "sotera",
+      "name": "Sotera",
+      "displayName": "San Sotera",
+      "role": "virgen y mártir en la via Appia",
+      "bio": "Joven, de familia noble pero de espíritu humilde, dedicada a obras de caridad, es arrestada en el 304 durante las persecuciones desencadenadas por Diocleciano. Abofeteada por los torturadores, muestra con valentía el rostro que es golpeado ferozmente. Negándose a rechazar la fe, es decapitada.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/11/s--sotera--virgen-y-martir--sobre-la-via-appia.html",
+      "locale": "es",
+      "feastDays": [
+        "02-11"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-11 · vaticannews.va",
+      "authorAliases": [
+        "San Sotera",
+        "Sotera"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "gregorio-ii",
+      "name": "Gregorio II",
+      "displayName": "San Gregorio II",
+      "role": "papa",
+      "bio": "Papa de 715 a 731, San Gregorio II es recordado sobre todo por la evangelización de los pueblos nórdicos: logró que los pueblos germánicos volvieran a estar en comunión con Roma en lugar de estar sometidos al Imperio Oriental. Defensor del culto de las imágenes y de las artes sagradas.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/11/s--gregorio-ii--papa.html",
+      "locale": "es",
+      "feastDays": [
+        "02-11"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-11 · vaticannews.va",
+      "authorAliases": [
+        "San Gregorio II",
+        "Gregorio II"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "pascual-i",
+      "name": "Pascual I",
+      "displayName": "San Pascual I",
+      "role": "papa",
+      "bio": "Abad de la Basílica de San Esteban, Pascual I fue el primer Papa en promover las misiones en los países escandinavos de 817 a 824. Fue defensor de innovadoras actividades sociales. Para facilitar la veneración popular de los mártires, trasladó sus reliquias de las catacumbas a las iglesias de Roma.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/11/s--pascual-i--papa.html",
+      "locale": "es",
+      "feastDays": [
+        "02-11"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-11 · vaticannews.va",
+      "authorAliases": [
+        "San Pascual I",
+        "Pascual I"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "saturnino-y-companeros",
+      "name": "Saturnino y Compañeros",
+      "displayName": "Santos Saturnino y Compañeros",
+      "role": "mártires de Abitene en Africa",
+      "bio": "Fueron 49 cristianos arrestados en el 304 por haber participado a la misa del domingo. Torturados, no renegaron su fe. Uno de ellos, interrogado sobre el por qué habían desobedecido, respondió: \"Sine dominico non possumus\", \"No podemos vivir sin celebrar el día del Señor\".",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/12/ss--saturnino-y-companeros--martires-de-abitene-en-africa.html",
+      "locale": "es",
+      "feastDays": [
+        "02-12"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-12 · vaticannews.va",
+      "authorAliases": [
+        "Santos Saturnino y Compañeros",
+        "Saturnino y Compañeros"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "jordan-de-saxonia",
+      "name": "Jordán de Saxonia",
+      "displayName": "Beato Jordán de Saxonia",
+      "role": "sacerdote dominico",
+      "bio": "Joven fraile dotado de palabra elocuente, corazón tierno y gran pasión por Jesús, fue el digno sucesor de santo Domingo al frente de la recién nacida Orden de Predicadores. Misionero en toda Europa, murió al regreso de una peregrinación a Tierra Santa en 1237. Fue beatificado por León XII.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/13/b--jordan-de-saxonia--sacerdote-dominico.html",
+      "locale": "es",
+      "feastDays": [
+        "02-13"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-13 · vaticannews.va",
+      "authorAliases": [
+        "Beato Jordán de Saxonia",
+        "Jordán de Saxonia"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "cirillo-monje-y-metodio-obispo-patrones-de-europa-informaciones-sobre-el-santo-d",
+      "name": "Cirillo, monje y Metodio, obispo, patrones de Europa - Informaciones sobre el Santo del día",
+      "displayName": "Santos Cirillo, monje y Metodio, obispo, patrones de Europa - Informaciones sobre el Santo del día",
+      "bio": "Desde hace casi 40 años protegen a la Europa que contribuyeron a evangelizar hace más de mil años. A los Santos, y hermanos, Cirilo y Metodio se debe la difusión del mensaje cristiano de modo especial en el este europeo, lo que indujo a Juan Pablo II a proclamarlos “compatronos” del continente.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/14/ss--cirillo--monje-y-metodio--obispo---patrones-de-europa.html",
+      "locale": "es",
+      "feastDays": [
+        "02-14"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-14 · vaticannews.va",
+      "authorAliases": [
+        "Santos Cirillo, monje y Metodio, obispo, patrones de Europa - Informaciones sobre el Santo del día",
+        "Cirillo, monje y Metodio, obispo, patrones de Europa - Informaciones sobre el Santo del día"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "valentin",
+      "name": "Valentin",
+      "displayName": "San Valentin",
+      "role": "mártir en la via Flaminia",
+      "bio": "Considerado el Santo protector de los enamorados, San Valentín se encuentra entre los santos más populares. Patrono de Terni, su fiesta se celebra el 14 de febrero.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/14/s--valentino--martir--sobre-la-via-flaminia.html",
+      "locale": "es",
+      "feastDays": [
+        "02-14"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-14 · vaticannews.va",
+      "authorAliases": [
+        "San Valentin",
+        "Valentin"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "zenon",
+      "name": "Zenón",
+      "displayName": "San Zenón",
+      "role": "mártir en la via Appia",
+      "bio": "Indicado como presbítero por el Papa Pascual I, que trasladó sus reliquias al Oratorio que le fue dedicado dentro de la Basílica de Santa Práxedes en Roma, el santo ya era venerado en el siglo VII en un edificio del cementerio Pretestato, sobre la Vía Appia, que luego fue restaurado por Adriano I.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/14/s--zenon--martir--sobre-la-via-appia.html",
+      "locale": "es",
+      "feastDays": [
+        "02-14"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-14 · vaticannews.va",
+      "authorAliases": [
+        "San Zenón",
+        "Zenón"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "onesimo",
+      "name": "Onésimo",
+      "displayName": "San Onésimo",
+      "role": "discípulo de s. Pablo",
+      "bio": "Esclavo en Colosas, después de haber robado a su patrón Filemón, discípulo de San Pablo, huyó a Roma. Allí conoció a Pablo, prisionero, que lo convirtió y lo envió de vuelta a Filemón, pidiéndole que lo acogiera no ya como un esclavo sino como un hermano. (cf. Fil 1,16). Onésimo evangelizó el Asia.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/15/s--onesimo--discipulo-de-s--pablo.html",
+      "locale": "es",
+      "feastDays": [
+        "02-15"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-15 · vaticannews.va",
+      "authorAliases": [
+        "San Onésimo",
+        "Onésimo"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "faustino-y-jovita",
+      "name": "Faustino y Jovita",
+      "displayName": "Santos Faustino y Jovita",
+      "role": "mártires",
+      "bio": "Caballeros descendientes de una familia pagana de Brescia, se convirtieron al cristianismo gracias al obispo Apolonio, que nombró presbítero a Faustino y diácono a Jovita. Decapitados durante la persecución de Adriano entre el 120 y el 134, se les representa con la espada y la palma del martirio.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/15/ss--faustino-y-jovita--martires.html",
+      "locale": "es",
+      "feastDays": [
+        "02-15"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-15 · vaticannews.va",
+      "authorAliases": [
+        "Santos Faustino y Jovita",
+        "Faustino y Jovita"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "juliana",
+      "name": "Juliana",
+      "displayName": "San Juliana",
+      "role": "virgen y mártir de Nicomedia, en Campania",
+      "bio": "Joven cristiana, su padre pagano la prometió en matrimonio al Prefecto Eleusio, también un pagano. Ella aceptó con la condición de la conversión de Eleusio. Fue luego denunciada como cristiana, arrestada, torturada y decapitada alrededor del 305, en la época del emperador romano Maximiano.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/16/s--juliana--virgen-y-martir-de-nicomedia--en-campania.html",
+      "locale": "es",
+      "feastDays": [
+        "02-16"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-16 · vaticannews.va",
+      "authorAliases": [
+        "San Juliana",
+        "Juliana"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "siete-fundadores-de-la-orden-de-los-siervos-de-maria",
+      "name": "Siete Fundadores de la Orden de los Siervos de María",
+      "displayName": "Santos Siete Fundadores de la Orden de los Siervos de María",
+      "role": "entre los cuales s. Alesio Falconieri",
+      "bio": "Llamados también septem viri o septem fratres, fueron los padres fundadores de la Orden de los Siervos de María: todos florentinos, vivieron en el siglo XIII. Ricos mercaderes, se retiraron a la vida contemplativa. Se conmemoran juntos el 17 de febrero, fecha de la muerte del más longevo de ellos.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/17/ss--siete-fundadores-de-la-orden-de-los-siervos-de-maria--entre-.html",
+      "locale": "es",
+      "feastDays": [
+        "02-17"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-17 · vaticannews.va",
+      "authorAliases": [
+        "Santos Siete Fundadores de la Orden de los Siervos de María",
+        "Siete Fundadores de la Orden de los Siervos de María"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "juan-da-fiesole-b-angelico",
+      "name": "Juan da Fiesole (b. Angélico)",
+      "displayName": "Beato Juan da Fiesole (b. Angélico)",
+      "role": "sacerdote dominico",
+      "bio": "Proclamado Patrono universal de los artistas por Juan Pablo II, su memoria se celebra el 18 de febrero, es considerado entre los máximos pintores de todos los tiempos. Se dice que ejercitaba el arte de predicar con el pincel, expresando en sus representaciones lo que contemplaba en su interior.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/18/b--juan-da-fiesole--b--angelico---sacerdote-dominico.html",
+      "locale": "es",
+      "feastDays": [
+        "02-18"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-18 · vaticannews.va",
+      "authorAliases": [
+        "Beato Juan da Fiesole (b. Angélico)",
+        "Juan da Fiesole (b. Angélico)"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "corrado-confalonieri",
+      "name": "Corrado Confalonieri",
+      "displayName": "San Corrado Confalonieri",
+      "role": "eremita franciscano",
+      "bio": "Nació en 1290 en una familia noble de Piacenza, amante de la vida de corte, se convirtió en terciario franciscano después de una jornada de caza que causó un grave incendio. Él y su esposa donaron todos sus bienes a los pobres. Vivió como un ermitaño y asistió a los enfermos. Murió en Noto en 1351.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/19/s--corrado-confalonieri--eremita-franciscano.html",
+      "locale": "es",
+      "feastDays": [
+        "02-19"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-19 · vaticannews.va",
+      "authorAliases": [
+        "San Corrado Confalonieri",
+        "Corrado Confalonieri"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "leon-de-catania",
+      "name": "León de Catania",
+      "displayName": "San León de Catania",
+      "role": "obispo",
+      "bio": "Nació en Ravena en 720, se hizo monje benedictino. Nombrado obispo de Catania, se opuso a las leyes iconoclastas del Imperio Bizantino, que imponían la destrucción de las imágenes sagradas. Obligado a vivir como ermitaño en las montañas, después de muchos años regresó a Catania donde murió en 789.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/20/s--leon-de-catania--obispo.html",
+      "locale": "es",
+      "feastDays": [
+        "02-20"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-20 · vaticannews.va",
+      "authorAliases": [
+        "San León de Catania",
+        "León de Catania"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "pier-damiani",
+      "name": "Pier Damiani",
+      "displayName": "San Pier Damiani",
+      "role": "obispo de Ostia y cardenal, doctor de la Iglesia, camaldolense",
+      "bio": "San Pedro Damián está entre los santos que encontramos en el Paraíso dantesco. Santo reformador y doctor de la Iglesia, combatió la simonía y la corrupción en clero de su tiempo. Su fiesta se celebra el día 21 de febrero",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/21/s--pier-damiani--obispo-de-ostia-y-cardenal--doctor-de-la-iglesi.html",
+      "locale": "es",
+      "feastDays": [
+        "02-21"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-21 · vaticannews.va",
+      "authorAliases": [
+        "San Pier Damiani",
+        "Pier Damiani"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "maximiano-de-ravenna",
+      "name": "Maximiano de Ravenna",
+      "displayName": "San Maximiano de Ravenna",
+      "role": "obispo",
+      "bio": "Istriano de nacimiento, Maximiano fue nombrado primer arzobispo de Ravena por el emperador Justiniano, y durante diez años también sirvió como primado de Italia cuando el Papa estuvo ausente. A él se le deben las obras maestras de las iglesias de San Miguel y San Vital y la derrota del arrianismo.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/22/s--maximiano-de-ravenna--obispo.html",
+      "locale": "es",
+      "feastDays": [
+        "02-22"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-22 · vaticannews.va",
+      "authorAliases": [
+        "San Maximiano de Ravenna",
+        "Maximiano de Ravenna"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "margarita-de-cortona",
+      "name": "Margarita de Cortona",
+      "displayName": "San Margarita de Cortona",
+      "bio": "Pobre campesina, nació en 1247. Como amante de un noble de Montepulciano, tuvo un hijo. A la muerte del noble se quedó desprovista de todo. Atraída por la vida franciscana, cambió su vida y se dedicó a los enfermos, creando el primer hospital para los pobres de Cortona, donde murió en 1297.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/22/s--margarita-de-cortona.html",
+      "locale": "es",
+      "feastDays": [
+        "02-22"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-22 · vaticannews.va",
+      "authorAliases": [
+        "San Margarita de Cortona",
+        "Margarita de Cortona"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "policarpo",
+      "name": "Policarpo",
+      "displayName": "San Policarpo",
+      "role": "obispo de Esmirna y mártir",
+      "bio": "Nace en el año 69-70 de padres cristianos. Aprende las enseñanzas de Cristo de los Apóstoles, se convierte en discípulo de Juan. Lo narran Ireneo y Eusebio de Cesarea: \"Policarpo no sólo fue educado por los Apóstoles, sino también fue establecido por los Apóstoles como obispo en Esmirna\".",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/23/s--policarpo--obispo-de-esmirna-y-martir.html",
+      "locale": "es",
+      "feastDays": [
+        "02-23"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-23 · vaticannews.va",
+      "authorAliases": [
+        "San Policarpo",
+        "Policarpo"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "josefina-vannini",
+      "name": "Josefina Vannini",
+      "displayName": "San Josefina Vannini",
+      "role": "virgen",
+      "bio": "Fundadora de las Hijas de san Camilo, la Beata Josefina Vannini tardó en realizar su vocación, pero lo hizo de manera extraordinaria: de hecho, en sólo 19 años la familia femenina dedicada al cuidado de los enfermos se consolidará en el mundo. Fue beatificada por Juan Pablo II en 1994.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/23/b--josefina-vannini--virgen.html",
+      "locale": "es",
+      "feastDays": [
+        "02-23"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-23 · vaticannews.va",
+      "authorAliases": [
+        "San Josefina Vannini",
+        "Josefina Vannini"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "evezio-y-pedro",
+      "name": "Evezio y Pedro",
+      "displayName": "Santos Evezio y Pedro",
+      "role": "mártires",
+      "bio": "Ilustre cristiano de Nicomedia, rompió públicamente el Edicto en el que Diocleciano ordenaba la destrucción de iglesias y libros cristianos. Arrestado y torturado, fue quemado vivo en el 303 junto con miles de mártires cristianos. Entre ellos también estaba Pedro, un miembro del palacio imperial.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/24/ss--evezio-y-pedro--martires.html",
+      "locale": "es",
+      "feastDays": [
+        "02-24"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-24 · vaticannews.va",
+      "authorAliases": [
+        "Santos Evezio y Pedro",
+        "Evezio y Pedro"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "nestor",
+      "name": "Néstor",
+      "displayName": "San Néstor",
+      "role": "obispo de Magydos y mártir",
+      "bio": "Durante las persecuciones del emperador Decio, defendió y ocultó a las comunidades cristianas de Panfilia, la actual Turquía. Se negó a sacrificar a los ídolos y se dejó descubrir en casa mientras rezaba. Fue arrestado, torturado y crucificado, mientras muchos fieles lo confortaban con la oración.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/25/s--nestor--obispo-de-magydos-y-martir.html",
+      "locale": "es",
+      "feastDays": [
+        "02-25"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-25 · vaticannews.va",
+      "authorAliases": [
+        "San Néstor",
+        "Néstor"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "faustiniano",
+      "name": "Faustiniano",
+      "displayName": "San Faustiniano",
+      "role": "obispo de Bologna",
+      "bio": "La tradición lo quiere como el segundo obispo de Bolonia. Con su valiente predicación fortaleció e hizo crecer las comunidades cristianas, a pesar de las persecuciones del emperador Diocleciano a principios del siglo IV. Exhortó a los creyentes a vivir y profesar su fe, a costa de pagar con la vida.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/26/s--faustiniano--obispo-de-bologna.html",
+      "locale": "es",
+      "feastDays": [
+        "02-26"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-26 · vaticannews.va",
+      "authorAliases": [
+        "San Faustiniano",
+        "Faustiniano"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "gabriel-de-la-dolorosa-clerigo-pasionista",
+      "name": "Gabriel de la Dolorosa clérigo pasionista",
+      "displayName": "San Gabriel de la Dolorosa clérigo pasionista",
+      "bio": "El santo de los jóvenes, a San Gabriel de la Dolorosa se dirigen centenares de estudiantes antes de los exámenes de graduación, en el santuario de Isola del Gran Sasso. Amante de la vida mundana, elige pues consagrarse a Dios entre los Pasionistas. Muere el 27 de febrero de 1862 a sólo 24 años.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/27/s--gabriel-de-la-dolorosa-clerigo-pasionista.html",
+      "locale": "es",
+      "feastDays": [
+        "02-27"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-27 · vaticannews.va",
+      "authorAliases": [
+        "San Gabriel de la Dolorosa clérigo pasionista",
+        "Gabriel de la Dolorosa clérigo pasionista"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "gregorio-de-narek",
+      "name": "Gregorio de Narek",
+      "displayName": "San Gregorio de Narek",
+      "bio": "Para el San Juan de la Cruz armenio, religión y poesía eran inseparables. Monje, literato, filósofo y místico, toda su obra es una conversación libre y directa con el Dios de la luz. El Papa Francisco lo proclamó doctor de la Iglesia en 2015.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/27/s--gregorio-de-narek.html",
+      "locale": "es",
+      "feastDays": [
+        "02-27"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-27 · vaticannews.va",
+      "authorAliases": [
+        "San Gregorio de Narek",
+        "Gregorio de Narek"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "romano",
+      "name": "Romano",
+      "displayName": "San Romano",
+      "role": "abad",
+      "bio": "Ermitaño del siglo V, viajó al macizo del Jura en Francia con su Biblia y herramientas en su espalda. Alcanzado por su hermano Lupicino, dio vida en Condat a su primera comunidad monástica. Dócil y tolerante, la tradición lo recuerda por el abrazo y la milagrosa sanación de dos pobres leprosos.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/28/s--romano--abad.html",
+      "locale": "es",
+      "feastDays": [
+        "02-28"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-28 · vaticannews.va",
+      "authorAliases": [
+        "San Romano",
+        "Romano"
+      ],
+      "documentIds": []
+    },
+    {
+      "id": "augusto-chapdelaine",
+      "name": "Augusto Chapdelaine",
+      "displayName": "San Augusto Chapdelaine",
+      "role": "mártir",
+      "bio": "Sacerdote francés de la Sociedad de las Misiones Extranjeras de París, partió como misionero a China en 1852. En Xilinxian, provincia de Guangxi, obtuvo muchas conversiones pero su presencia fue denunciada al mandarín Hien, enemigo de los cristianos, que lo encarceló y lo hizo decapitar.",
+      "sourceUrl": "https://www.vaticannews.va/es/santos/02/29/s--augusto-chapdelaine--martir.html",
+      "locale": "es",
+      "feastDays": [
+        "02-29"
+      ],
+      "era": "Santoral · Santa Sede",
+      "eraLabel": "Santo del día (Vatican News)",
+      "meta": "02-29 · vaticannews.va",
+      "authorAliases": [
+        "San Augusto Chapdelaine",
+        "Augusto Chapdelaine"
+      ],
+      "documentIds": []
+    }
+  ]
+}

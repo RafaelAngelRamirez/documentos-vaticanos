@@ -1,0 +1,85 @@
+<app-person-ficha
+  *ngIf="pope as p"
+  wbarActive="papas"
+  backLink="/papas"
+  backLabel="← Papas"
+  [kindLine]="kindLine"
+  [title]="title"
+  [subtitle]="subtitle"
+  [works]="works"
+  worksHeading="Documentos en la biblioteca"
+  worksEmptyLabel="Aún no hay documentos de este papa en el corpus offline."
+>
+  <div ficha-after-quote>
+    <app-meta-grid *ngIf="hasBio" [cells]="metaCells"></app-meta-grid>
+
+    <app-reading-ctas
+      *ngIf="hasBio"
+      layout="stack"
+      [canContinue]="puedeContinuar"
+      [positionLabel]="posicionLabel"
+      (start)="comenzar()"
+      (listen)="comenzarNarrador()"
+      (restart)="reiniciar()"
+    ></app-reading-ctas>
+
+    <app-doc-toc
+      [entries]="chapters"
+      [minEntries]="2"
+      (select)="openChapter($event)"
+    ></app-doc-toc>
+
+    <div class="sect" *ngIf="p.saintId">Santoral</div>
+    <a
+      *ngIf="p.saintId"
+      class="toc obra-link"
+      [routerLink]="['/santoral', p.saintId]"
+    >
+      <span class="tnum">†</span>
+      <span>Ver ficha en el santoral</span>
+    </a>
+
+    <app-historical-context-block
+      *ngIf="historicalContext"
+      [ctx]="historicalContext"
+      sectionTitle="Contexto histórico"
+    ></app-historical-context-block>
+
+    <div class="fs13 muted fuente-block" *ngIf="p.sourceUrl" style="margin-top: 12px">
+      <a
+        class="app-lang-link"
+        [href]="p.sourceUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Español · fuente (vatican.va)</a
+      >
+    </div>
+  </div>
+
+  <div ficha-after-works>
+    <ng-container *ngFor="let g of groupedCatalog()">
+      <div class="sect">{{ g.genre }} en vatican.va</div>
+      <div
+        class="toc obra-pending"
+        *ngFor="let w of g.items; let i = index"
+      >
+        <span class="tnum">{{ i + 1 }}</span>
+        <span>{{ w.title }}</span>
+        <span class="fs12 muted" *ngIf="w.date"> · {{ w.date }}</span>
+        <a
+          *ngIf="w.sourceUrl"
+          class="app-lang-link fs12"
+          [href]="w.sourceUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+          (click)="$event.stopPropagation()"
+        >
+          · fuente
+        </a>
+      </div>
+      <div class="fs12 muted" *ngIf="g.extra" style="margin-top: 6px">
+        + {{ g.extra }} más en el índice de vatican.va
+      </div>
+    </ng-container>
+  </div>
+</app-person-ficha>

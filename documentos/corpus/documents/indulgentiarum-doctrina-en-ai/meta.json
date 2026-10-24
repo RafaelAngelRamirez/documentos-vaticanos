@@ -1,0 +1,13 @@
+{
+  "id": "indulgentiarum-doctrina-en-ai",
+  "title": "Indulgentiarum doctrina",
+  "shortTitle": "ID",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/paul-vi/en/apost_constitutions/documents/hf_p-vi_apc_01011967_indulgentiarum-doctrina.html",
+  "bodyPath": "documents/indulgentiarum-doctrina-en-ai/content.json",
+  "indexPath": "documents/indulgentiarum-doctrina-en-ai/index.json",
+  "unitCount": 12,
+  "sourceNote": "AI-generated English translation from the Español text of the pack «Indulgentiarum doctrina» (indulgentiarum-doctrina-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+  "translationProvenance": "ai"
+}

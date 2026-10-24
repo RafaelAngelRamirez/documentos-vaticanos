@@ -1,0 +1,13 @@
+{
+  "id": "quanta-cura-en-ai",
+  "title": "Quanta cura",
+  "shortTitle": "QC",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/pius-ix/en/documents/encyclica-quanta-cura-8-decembris-1864.html",
+  "bodyPath": "documents/quanta-cura-en-ai/content.json",
+  "indexPath": "documents/quanta-cura-en-ai/index.json",
+  "unitCount": 96,
+  "sourceNote": "AI-generated English translation from the Español text of the pack «Quanta cura» (quanta-cura-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+  "translationProvenance": "ai"
+}

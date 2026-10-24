@@ -1,0 +1,55 @@
+{
+  "documentId": "agustin-19-enarraciones-salmos-1-es",
+  "revision": "ocr-abc-v4",
+  "appliedAt": "2026-08-07T17:56:16.292Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "residual-shred-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
+    "midline-hyphen-rejoin",
+    "glued-token-map",
+    "digit-letter-glue",
+    "garbage-toc-exclude-placeholder",
+    "bac-chrome-running-header-colophon-placeholder",
+    "leader-soup-placeholder",
+    "dual-column-shred-placeholder",
+    "index-zone-aggressive-garbage",
+    "punct-safe-compose-whitelist-internal"
+  ],
+  "unitsTotal": 1853,
+  "unitsChanged": 1131,
+  "unitsExcludedGarbage": 7,
+  "unitsCollapsedSpaced": 1107,
+  "before": {
+    "units": 1853,
+    "garbageUnits": 2,
+    "garbageRatio": 0.0011,
+    "spacedLetterRuns": 62,
+    "shortSpacedWordHits": 283,
+    "spacedDigitRuns": 38,
+    "junkRunHits": 12,
+    "tocLeaderHits": 6,
+    "residualBodyNoiseUnits": 12,
+    "residualScore": 620
+  },
+  "after": {
+    "units": 1853,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
+    "junkRunHits": 2,
+    "tocLeaderHits": 4,
+    "residualBodyNoiseUnits": 12,
+    "residualScore": 192
+  },
+  "letterTokenOverlap": 0.9901,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "ocr-abc-v4 in-place on existing corpus (no re-download). v3 + leader-soup TOC, dual-column shred blank (no demerge), S.Ag headers, front a4 shred dict, wider index-zone; stable unitIndex; dual-write roots."
+}

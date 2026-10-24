@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/architect/src/builders-schema.json",
+  "builders": {
+    "spa-dev-server": {
+      "implementation": "./spa-dev-server.js",
+      "schema": "../node_modules/@angular-devkit/build-angular/src/builders/dev-server/schema.json",
+      "description": "ng serve with SPA historyApiFallback for default curl Accept (deep links)"
+    }
+  }
+}

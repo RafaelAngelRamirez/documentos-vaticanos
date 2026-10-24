@@ -1,0 +1,516 @@
+<div class="app has-bnav" [attr.data-tick]="localeTick">
+  <!-- 3H.html:5-7 · fbar sin avatar -->
+  <app-fbar [title]="t('settings.title')" [avatar]="false"></app-fbar>
+
+  <div class="inner">
+    <!-- Perfil (3H) -->
+    <div class="profrow" *ngIf="auth.user as user; else anonTpl">
+      <img
+        *ngIf="user.pictureUrl"
+        [src]="user.pictureUrl"
+        alt=""
+        class="avatar av54"
+      />
+      <span *ngIf="!user.pictureUrl" class="avatar av54">{{
+        initials(user.name)
+      }}</span>
+      <div>
+        <div class="profname">{{ user.name }}</div>
+        <div class="fs13 muted profmail">
+          {{ user.email
+          }}<ng-container *ngIf="user.role === 'teacher'"> · Maestro</ng-container>
+        </div>
+      </div>
+    </div>
+    <ng-template #anonTpl>
+      <div class="profrow">
+        <span class="avatar av54">DV</span>
+        <div>
+          <div class="profname">{{ t('settings.no_session') }}</div>
+          <div class="fs13 muted profmail">La lectura funciona sin cuenta</div>
+        </div>
+      </div>
+    </ng-template>
+
+    <div class="sect">{{ t('settings.appearance') }}</div>
+    <div class="setrow nb">
+      <span class="setk"
+        >{{ t('settings.theme_app')
+        }}<span class="seth">{{ t('settings.theme_app_hint') }}</span></span
+      >
+    </div>
+    <div class="stepbtn themerow">
+      <button
+        *ngFor="let th of themes"
+        type="button"
+        class="szbtn"
+        [class.on]="prefs.theme === th.value"
+        (click)="setTheme(th.value)"
+      >
+        {{ t(th.labelKey) }}
+      </button>
+    </div>
+
+    <div class="sect">{{ t('settings.ui_language') }}</div>
+    <div class="setrow nb">
+      <span class="setk"
+        >{{ t('settings.ui_language')
+        }}<span class="seth">{{ t('settings.ui_language_hint') }}</span></span
+      >
+    </div>
+    <div
+      class="stepbtn themerow"
+      role="group"
+      [attr.aria-label]="t('settings.ui_language')"
+      data-testid="ajustes-ui-locale"
+    >
+      <button
+        *ngFor="let loc of uiLocales"
+        type="button"
+        class="szbtn"
+        [class.on]="prefs.uiLocale === loc.value"
+        (click)="setUiLocale(loc.value)"
+      >
+        {{ loc.label }}
+      </button>
+    </div>
+
+    <div class="sect">{{ t('settings.reading') }}</div>
+    <div class="offok hair">
+      ✓<span class="offtx"
+        >Todos los documentos vienen incluidos en la app — no requiere
+        conexión</span
+      >
+    </div>
+    <div class="setrow">
+      <span class="setk">{{ t('settings.font_size') }}</span>
+      <span class="stepbtn mini">
+        <button
+          type="button"
+          class="szbtn"
+          (click)="bumpFont(-1)"
+          aria-label="Reducir tamaño del texto"
+        >
+          A−
+        </button>
+        <span class="szbtn on" aria-live="polite">{{ prefs.fontSizePx }}</span>
+        <button
+          type="button"
+          class="szbtn"
+          (click)="bumpFont(1)"
+          aria-label="Aumentar tamaño del texto"
+        >
+          A+
+        </button>
+      </span>
+    </div>
+    <div class="setrow">
+      <span class="setk">{{ t('settings.font') }}</span>
+      <span class="stepbtn mini">
+        <button
+          type="button"
+          class="szbtn serif"
+          [class.on]="prefs.font === 'serif'"
+          (click)="setFont('serif')"
+        >
+          Serif
+        </button>
+        <button
+          type="button"
+          class="szbtn"
+          [class.on]="prefs.font === 'sans'"
+          (click)="setFont('sans')"
+        >
+          Sans
+        </button>
+      </span>
+    </div>
+    <div class="setrow nb">
+      <span class="setk"
+        >{{ t('settings.content_language')
+        }}<span class="seth">{{ t('settings.content_language_hint') }}</span></span
+      >
+    </div>
+    <div
+      class="stepbtn themerow"
+      role="group"
+      [attr.aria-label]="t('settings.content_language')"
+      data-testid="ajustes-content-locale"
+    >
+      <button
+        *ngFor="let loc of contentLocales"
+        type="button"
+        class="szbtn"
+        [class.on]="prefs.contentLocale === loc.value"
+        (click)="setContentLocale(loc.value)"
+      >
+        {{ loc.label }}
+      </button>
+    </div>
+    <div class="setrow">
+      <span>{{ t('settings.keep_awake') }}</span>
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        [class.on]="prefs.keepAwake"
+        [attr.aria-checked]="prefs.keepAwake"
+        (click)="toggleKeepAwake()"
+        [attr.aria-label]="t('settings.keep_awake')"
+      ></button>
+    </div>
+
+    <div class="sect">{{ t('settings.notifications') }}</div>
+    <div class="setrow nb">
+      <span class="setk"
+        >{{ t('settings.notifications')
+        }}<span class="seth">{{ t('settings.notifications_hint') }}</span></span
+      >
+    </div>
+    <div class="setrow">
+      <span class="setk"
+        >{{ t('settings.notifications_enable')
+        }}<span class="seth">{{ t('settings.notifications_enable_hint') }}</span></span
+      >
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        data-testid="ajustes-notif-enable"
+        [class.on]="notifPrefs.enabled"
+        [attr.aria-checked]="notifPrefs.enabled"
+        (click)="toggleNotifEnabled()"
+        [attr.aria-label]="t('settings.notifications_enable')"
+      ></button>
+    </div>
+    <div class="setrow">
+      <span class="setk"
+        >{{ t('settings.notifications_time')
+        }}<span class="seth">{{ t('settings.notifications_time_hint') }}</span></span
+      >
+      <input
+        type="time"
+        class="field notif-time"
+        data-testid="ajustes-notif-time"
+        [value]="notifPrefs.time"
+        [disabled]="!notifPrefs.enabled"
+        (change)="onNotifTime($event)"
+        [attr.aria-label]="t('settings.notifications_time')"
+      />
+    </div>
+    <div class="setrow">
+      <span class="setk"
+        >{{ t('settings.notifications_saint')
+        }}<span class="seth">{{ t('settings.notifications_saint_hint') }}</span></span
+      >
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        data-testid="ajustes-notif-saint"
+        [class.on]="notifPrefs.saint"
+        [attr.aria-checked]="notifPrefs.saint"
+        (click)="toggleNotifChannel('saint')"
+        [attr.aria-label]="t('settings.notifications_saint')"
+      ></button>
+    </div>
+    <div class="setrow">
+      <span class="setk"
+        >{{ t('settings.notifications_reading')
+        }}<span class="seth">{{ t('settings.notifications_reading_hint') }}</span></span
+      >
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        data-testid="ajustes-notif-reading"
+        [class.on]="notifPrefs.reading"
+        [attr.aria-checked]="notifPrefs.reading"
+        (click)="toggleNotifChannel('reading')"
+        [attr.aria-label]="t('settings.notifications_reading')"
+      ></button>
+    </div>
+    <div class="setrow">
+      <span class="setk"
+        >{{ t('settings.notifications_reflection')
+        }}<span class="seth">{{ t('settings.notifications_reflection_hint') }}</span></span
+      >
+      <button
+        type="button"
+        class="sw2"
+        role="switch"
+        data-testid="ajustes-notif-reflection"
+        [class.on]="notifPrefs.reflection"
+        [attr.aria-checked]="notifPrefs.reflection"
+        (click)="toggleNotifChannel('reflection')"
+        [attr.aria-label]="t('settings.notifications_reflection')"
+      ></button>
+    </div>
+    <p class="fs13 muted notif-lectio-hint">
+      {{ t('settings.notifications_lectio_hint') }}
+    </p>
+    <p class="fs13 muted notif-lectio-hint">
+      {{ t('settings.notifications_web_note') }}
+    </p>
+
+    <!-- Narrador · API key y voz solo en este dispositivo (no nube) -->
+    <div class="sect">{{ t('settings.narrator') }}</div>
+    <div class="setrow nb" *ngIf="!narrSupported">
+      <span class="setk"
+        >Narración no disponible<span class="seth"
+          >Este navegador o dispositivo no expone síntesis de voz</span
+        ></span
+      >
+    </div>
+    <ng-container *ngIf="narrSupported">
+      <div class="setrow nb">
+        <span class="setk"
+          >API key de xAI (este dispositivo)<span class="seth"
+            >Cada equipo usa su propia clave de
+            <a
+              class="app-lang-link"
+              href="https://console.x.ai/team/default/api-keys"
+              target="_blank"
+              rel="noopener noreferrer"
+              >console.x.ai</a
+            >
+            (no SuperGrok). Se guarda solo en este dispositivo; no se sube a la
+            cuenta ni a la nube.</span
+          ></span
+        >
+      </div>
+      <div class="narr-key-block">
+        <p class="fs13 muted" *ngIf="hasXaiKey" data-testid="ajustes-xai-masked">
+          Clave guardada: <code>{{ xaiKeyMasked }}</code>
+        </p>
+        <p class="fs13 muted" *ngIf="!hasXaiKey">
+          Aún no hay clave en este dispositivo.
+        </p>
+        <label class="flabel" for="xai-api-key">Nueva API key</label>
+        <input
+          id="xai-api-key"
+          class="field"
+          type="password"
+          autocomplete="off"
+          spellcheck="false"
+          data-testid="ajustes-xai-key"
+          [value]="xaiKeyDraft"
+          (input)="onXaiKeyInput($event)"
+          placeholder="xai-…"
+          (keyup.enter)="saveXaiApiKey()"
+        />
+        <div class="stepbtn databtns" style="margin-top: 10px">
+          <button
+            type="button"
+            class="szbtn on"
+            data-testid="ajustes-xai-save"
+            (click)="saveXaiApiKey()"
+          >
+            Guardar en este dispositivo
+          </button>
+          <button
+            type="button"
+            class="szbtn"
+            data-testid="ajustes-xai-clear"
+            (click)="clearXaiApiKey()"
+            [disabled]="!hasXaiKey"
+          >
+            Borrar clave
+          </button>
+        </div>
+        <div
+          class="datamsg"
+          *ngIf="xaiKeyMsg"
+          [class.err]="xaiKeyMsgError"
+          role="status"
+        >
+          {{ xaiKeyMsg }}
+        </div>
+      </div>
+      <div class="setrow">
+        <span class="setk"
+          >Usar voces Grok<span class="seth"
+            >Con clave y red, llama a api.x.ai desde este dispositivo. Sin
+            clave o sin red: solo voces del sistema.</span
+          ></span
+        >
+        <button
+          type="button"
+          class="sw2"
+          role="switch"
+          data-testid="ajustes-grok-toggle"
+          [class.on]="narrPrefs.grokEnabled"
+          [attr.aria-checked]="narrPrefs.grokEnabled"
+          (click)="toggleGrokEnabled()"
+          aria-label="Activar voces Grok en este dispositivo"
+        ></button>
+      </div>
+      <div class="setrow nb">
+        <span class="setk"
+          >Estado Grok<span class="seth"
+            >{{ grokStatusText
+            }}<ng-container *ngIf="grokStatus === 'available' && grokVoiceCount">
+              · {{ grokVoiceCount }} voces</ng-container
+            ></span
+          ></span
+        >
+      </div>
+      <div class="setrow" *ngIf="narrVoices.length">
+        <span class="setk"
+          >Voz preferida<span class="seth">{{ narrVoiceName }}</span></span
+        >
+        <button
+          type="button"
+          class="szbtn"
+          data-testid="ajustes-narr-voice"
+          (click)="cycleNarrVoice()"
+          [attr.aria-label]="'Cambiar voz: ' + narrVoiceName"
+          [attr.title]="narrVoiceName"
+        >
+          {{ narrVoiceShort }}
+        </button>
+      </div>
+    </ng-container>
+
+    <div
+      class="sect"
+      *ngIf="appUpdate"
+      data-testid="ajustes-update-sect"
+    >
+      Aplicación
+    </div>
+    <div
+      class="update-card"
+      *ngIf="appUpdate as u"
+      data-testid="ajustes-update-card"
+      role="status"
+    >
+      <div class="update-title">Actualización disponible</div>
+      <p class="update-lede muted">
+        Hay una versión nueva (v{{ u.version }}) con documentos y mejoras.
+        Estás en v{{ u.localVersion || localVersion }}. Descarga el instalador
+        de {{ platformLabel(u.platform) }} e instálalo manualmente; la lectura
+        offline sigue funcionando mientras tanto.
+      </p>
+      <div class="stepbtn databtns">
+        <button
+          type="button"
+          class="szbtn on"
+          data-testid="ajustes-update-download"
+          (click)="downloadUpdate()"
+        >
+          Descargar instalador
+        </button>
+        <button
+          type="button"
+          class="szbtn"
+          data-testid="ajustes-update-dismiss"
+          (click)="dismissUpdate()"
+        >
+          Ahora no
+        </button>
+      </div>
+    </div>
+
+    <div class="sect">Datos</div>
+    <div class="setrow nb">
+      <span class="setk"
+        >Copia de seguridad local<span class="seth"
+          >El archivo incluye tus notas y subrayados, tus temas y las
+          preferencias de lectura. Todo se guarda en este dispositivo; no se
+          requiere cuenta.</span
+        ></span
+      >
+    </div>
+    <div class="stepbtn databtns">
+      <button
+        type="button"
+        class="szbtn"
+        (click)="exportarDatos()"
+        [disabled]="importando"
+      >
+        Exportar datos
+      </button>
+      <button
+        type="button"
+        class="szbtn"
+        (click)="importInput.click()"
+        [disabled]="importando"
+      >
+        Importar datos
+      </button>
+      <input
+        #importInput
+        type="file"
+        accept="application/json,.json"
+        class="filehidden"
+        (change)="onImportarArchivo($event)"
+      />
+    </div>
+    <div
+      class="datamsg"
+      *ngIf="dataMsg"
+      [class.err]="dataMsgError"
+      role="status"
+      aria-live="polite"
+    >
+      {{ dataMsg }}
+    </div>
+
+    <div class="sect">{{ t('settings.account') }}</div>
+    <ng-container *ngIf="auth.user; else anonAcct">
+      <div
+        class="setrow linkrow"
+        role="link"
+        tabindex="0"
+        (click)="goRefs()"
+        (keyup.enter)="goRefs()"
+      >
+        <span>Mis referencias</span><span class="fs13 muted">›</span>
+      </div>
+      <div
+        class="setrow linkrow"
+        role="link"
+        tabindex="0"
+        (click)="goThemes()"
+        (keyup.enter)="goThemes()"
+      >
+        <span>Mis temas</span><span class="fs13 muted">›</span>
+      </div>
+      <div
+        class="setrow last linkrow"
+        role="button"
+        tabindex="0"
+        (click)="logout()"
+        (keyup.enter)="logout()"
+      >
+        <span class="danger">{{ t('account.logout') }}</span><span></span>
+      </div>
+    </ng-container>
+    <ng-template #anonAcct>
+      <div
+        class="setrow last linkrow"
+        role="link"
+        tabindex="0"
+        (click)="goCuenta()"
+        (keyup.enter)="goCuenta()"
+      >
+        <span>{{ t('account.login') }}</span><span class="fs13 muted">›</span>
+      </div>
+    </ng-template>
+
+    <div
+      class="rtxt preview"
+      [style.fontFamily]="previewFontFamily"
+      [style.fontSize.px]="prefs.fontSizePx"
+    >
+      <p>
+        La lectura atenta de los documentos requiere serenidad, tiempo y una
+        tipografía cómoda. Este es un texto de muestra para previsualizar los
+        ajustes elegidos.
+      </p>
+    </div>
+  </div>
+
+  <app-bnav current="ajustes"></app-bnav>
+</div>

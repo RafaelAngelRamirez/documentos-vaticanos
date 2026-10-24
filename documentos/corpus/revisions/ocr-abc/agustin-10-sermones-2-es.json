@@ -1,0 +1,55 @@
+{
+  "documentId": "agustin-10-sermones-2-es",
+  "revision": "ocr-abc-v4",
+  "appliedAt": "2026-08-08T06:34:35.082Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "residual-shred-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
+    "midline-hyphen-rejoin",
+    "glued-token-map",
+    "digit-letter-glue",
+    "garbage-toc-exclude-placeholder",
+    "bac-chrome-running-header-colophon-placeholder",
+    "leader-soup-placeholder",
+    "dual-column-shred-placeholder",
+    "index-zone-aggressive-garbage",
+    "punct-safe-compose-whitelist-internal"
+  ],
+  "unitsTotal": 1858,
+  "unitsChanged": 977,
+  "unitsExcludedGarbage": 6,
+  "unitsCollapsedSpaced": 948,
+  "before": {
+    "units": 1858,
+    "garbageUnits": 1,
+    "garbageRatio": 0.0005,
+    "spacedLetterRuns": 37,
+    "shortSpacedWordHits": 294,
+    "spacedDigitRuns": 21,
+    "junkRunHits": 0,
+    "tocLeaderHits": 2,
+    "residualBodyNoiseUnits": 1,
+    "residualScore": 382
+  },
+  "after": {
+    "units": 1858,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
+    "junkRunHits": 0,
+    "tocLeaderHits": 2,
+    "residualBodyNoiseUnits": 1,
+    "residualScore": 19
+  },
+  "letterTokenOverlap": 0.9923,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "ocr-abc-v4 in-place on existing corpus (no re-download). v3 + leader-soup TOC, dual-column shred blank (no demerge), S.Ag headers, front a4 shred dict, wider index-zone; stable unitIndex; dual-write roots."
+}

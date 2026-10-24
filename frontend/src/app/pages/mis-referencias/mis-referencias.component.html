@@ -1,0 +1,44 @@
+<div class="app-product">
+  <app-fbar
+    title="Mis referencias"
+    back="← Cuenta"
+    backLink="/cuenta"
+    [avatar]="false"
+  ></app-fbar>
+
+  <div class="fbody">
+    <div *ngIf="loading" class="fs13 muted">Cargando…</div>
+    <div *ngIf="error" class="fs13 errline">{{ error }}</div>
+
+    <div
+      *ngIf="!loading && !items.length"
+      class="fs13 muted"
+      style="line-height: 1.6"
+    >
+      Aún no tienes referencias. Abre un documento y usa ★ Guardar.
+    </div>
+
+    <ng-container *ngIf="items.length">
+      <div class="sect" style="margin-top: 4px">Referencias guardadas</div>
+      <div class="notecard" *ngFor="let item of items" (click)="open(item)">
+        <div class="fs14 lh16 serif fw5">
+          ★ {{ item.unitLabel || item.documentId + ' #' + item.unitIndex }}
+        </div>
+        <div class="fs13 muted" *ngIf="item.note" style="margin-top: 4px">
+          {{ item.note }}
+        </div>
+        <div class="nsrc fx ac jb">
+          <span>{{ item.documentId }} · Nº {{ item.unitIndex }}</span>
+          <button
+            type="button"
+            class="qdel"
+            title="Quitar"
+            (click)="$event.stopPropagation(); remove(item)"
+          >
+            Quitar
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

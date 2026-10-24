@@ -1,0 +1,114 @@
+<!-- Mobile fbar: back + fav -->
+<div class="fbar hair only-mobile">
+  <button type="button" class="back" (click)="back.emit()">
+    {{ backLabel }}
+  </button>
+  <button
+    *ngIf="showFav"
+    type="button"
+    class="iconb"
+    [class.fav-on]="fav"
+    [attr.aria-pressed]="fav"
+    (click)="favToggle.emit()"
+    aria-label="Marcar como favorito"
+  >
+    {{ fav ? '♥' : '♡' }}
+  </button>
+</div>
+
+<div class="rc-surface">
+  <div class="rc-desk-back only-desktop">
+    <a href="javascript:void(0)" class="back-link" (click)="back.emit()">{{
+      backLabel
+    }}</a>
+  </div>
+
+  <div *ngIf="loading" class="empty" role="status">{{ loadingLabel }}</div>
+  <div *ngIf="error" class="empty error" role="alert">{{ error }}</div>
+
+  <div class="rc-layout" *ngIf="hasBody">
+    <div class="rc-main">
+      <!-- Title: paper cover on mobile, large web title on desktop -->
+      <app-cover-header
+        class="only-mobile"
+        variant="cover"
+        [wrapInner]="true"
+        [kindLine]="kindLine"
+        [title]="title"
+        [subtitle]="subtitle"
+      ></app-cover-header>
+      <app-cover-header
+        class="only-desktop"
+        variant="web"
+        [kindLine]="kindLine"
+        [title]="title"
+        [subtitle]="subtitle"
+      ></app-cover-header>
+
+      <!-- 5C: CTAs under title -->
+      <div class="rc-ctas-desk only-desktop">
+        <app-reading-ctas
+          layout="inline"
+          [canContinue]="canContinue"
+          [showRestart]="false"
+          [showListen]="showListen"
+          (start)="start.emit()"
+          (listen)="listen.emit()"
+        >
+          <button
+            *ngIf="showFav"
+            cta-extra
+            type="button"
+            class="iconb fav-box"
+            [class.fav-on]="fav"
+            (click)="favToggle.emit()"
+            aria-label="Marcar como favorito"
+          >
+            {{ fav ? '♥' : '♡' }}
+          </button>
+        </app-reading-ctas>
+      </div>
+
+      <div class="rc-body">
+        <app-meta-grid [cells]="metaCells"></app-meta-grid>
+
+        <ng-content select="[cover-lang]"></ng-content>
+        <ng-content select="[cover-source]"></ng-content>
+        <ng-content select="[cover-context]"></ng-content>
+        <ng-content select="[cover-refs]"></ng-content>
+        <ng-content select="[cover-related]"></ng-content>
+        <ng-content></ng-content>
+
+        <!-- 2A: índice in flow before CTAs -->
+        <div class="rc-toc-mobile only-mobile">
+          <app-doc-toc
+            [entries]="chapters"
+            (select)="onSelectToc($event)"
+          ></app-doc-toc>
+        </div>
+
+        <div class="rc-ctas-mobile only-mobile">
+          <app-reading-ctas
+            layout="stack"
+            [canContinue]="canContinue"
+            [positionLabel]="positionLabel"
+            [showListen]="showListen"
+            (start)="start.emit()"
+            (listen)="listen.emit()"
+            (restart)="restart.emit()"
+          ></app-reading-ctas>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5C: índice lateral -->
+    <aside class="rc-side only-desktop" aria-label="Índice">
+      <app-doc-toc
+        [entries]="chapters"
+        [emptyHint]="tocEmptyHint"
+        headingMarginTop="4px"
+        (select)="onSelectToc($event)"
+      ></app-doc-toc>
+    </aside>
+  </div>
+</div>

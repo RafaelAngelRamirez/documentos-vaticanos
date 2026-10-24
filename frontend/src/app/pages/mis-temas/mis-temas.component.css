@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbody {
+  padding: 28px 24px 40px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.errline {
+  color: var(--app-danger);
+}
+
+@media (min-width: 1024px) {
+  .fbody {
+    max-width: 720px;
+    padding-top: 36px;
+  }
+}

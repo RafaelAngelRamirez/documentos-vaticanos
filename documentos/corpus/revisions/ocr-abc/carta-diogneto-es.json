@@ -1,0 +1,53 @@
+{
+  "documentId": "carta-diogneto-es",
+  "revision": "ocr-abc-v3",
+  "appliedAt": "2026-07-26T19:22:33.170Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "residual-shred-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
+    "midline-hyphen-rejoin",
+    "glued-token-map",
+    "digit-letter-glue",
+    "garbage-toc-exclude-placeholder",
+    "bac-chrome-running-header-colophon-placeholder",
+    "index-zone-aggressive-garbage",
+    "punct-safe-compose-whitelist-internal"
+  ],
+  "unitsTotal": 17,
+  "unitsChanged": 3,
+  "unitsExcludedGarbage": 0,
+  "unitsCollapsedSpaced": 3,
+  "before": {
+    "units": 17,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 3,
+    "spacedDigitRuns": 0,
+    "junkRunHits": 0,
+    "tocLeaderHits": 0,
+    "residualBodyNoiseUnits": 0,
+    "residualScore": 3
+  },
+  "after": {
+    "units": 17,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
+    "junkRunHits": 0,
+    "tocLeaderHits": 0,
+    "residualBodyNoiseUnits": 0,
+    "residualScore": 0
+  },
+  "letterTokenOverlap": 0.9992,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots."
+}

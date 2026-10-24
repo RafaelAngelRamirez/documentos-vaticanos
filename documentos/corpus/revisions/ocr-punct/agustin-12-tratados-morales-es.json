@@ -1,0 +1,33 @@
+{
+  "documentId": "agustin-12-tratados-morales-es",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:25.465Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 1828,
+  "unitsChanged": 575,
+  "before": {
+    "spaceBeforePunct": 1132,
+    "gluedClausePunct": 49,
+    "missingSentenceSpace": 2,
+    "internalWordPeriod": 17,
+    "defectScore": 1232
+  },
+  "after": {
+    "spaceBeforePunct": 27,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 27,
+    "defectScore": 27
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

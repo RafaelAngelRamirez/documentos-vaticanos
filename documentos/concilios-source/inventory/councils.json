@@ -1,0 +1,440 @@
+{
+  "schemaVersion": 1,
+  "description": "Inventario de concilios ecuménicos. Latín primero. Objetivo: texto → corpus → app.",
+  "kind": "council",
+  "locale": "la",
+  "sources": [
+    {
+      "id": "jerusalen",
+      "order": 1,
+      "corpusDocId": "jerusalen-la",
+      "title": "Concilium Hierosolymitanum",
+      "shortTitle": "Jerusalén",
+      "years": "~50",
+      "era": "ancient",
+      "granularity": "council-pack",
+      "mansiVol": null,
+      "splitMode": "numbered-sections",
+      "seedUrls": [
+        "https://www.vatican.va/archive/bible/index_sp.htm"
+      ],
+      "cleanLocal": "clean/jerusalen-la.txt",
+      "rawLocal": "raw/jerusalen-la.raw.txt",
+      "status": "imported",
+      "notes": "Hechos 15 (Vulgata). Pack del relato apostólico.",
+      "sourceNote": "Vulgata latina, Actus Apostolorum 15. Concilio apostólico de Jerusalén (~50 d.C.)."
+    },
+    {
+      "id": "nicea-i",
+      "order": 2,
+      "corpusDocId": "nicea-i-la",
+      "title": "Concilium Nicaenum I",
+      "shortTitle": "Nicea I",
+      "years": "325",
+      "era": "ancient",
+      "granularity": "council-pack",
+      "mansiVol": "2",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/01_10_0325-0325-_Concilium_Nicaenum_I.html"
+      ],
+      "cleanLocal": "clean/nicea-i-la.txt",
+      "rawLocal": "raw/nicea-i-la.raw.txt",
+      "status": "imported",
+      "docCode": "Nicaea",
+      "notes": "Símbolo + 20 cánones. Mansi Vol. 2.",
+      "sourceNote": "Concilium Nicaenum I (325). Symbolum + Canones XX. Latín tradicional (cf. Mansi 2; Documenta Catholica Omnia)."
+    },
+    {
+      "id": "constantinopla-i",
+      "order": 3,
+      "corpusDocId": "constantinopla-i-la",
+      "title": "Concilium Constantinopolitanum I",
+      "shortTitle": "Constantinopla I",
+      "years": "381",
+      "era": "ancient",
+      "granularity": "council-pack",
+      "mansiVol": "2-3",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/constantinopla-i-la.txt",
+      "status": "imported",
+      "docCode": "ConstI",
+      "sourceNote": "Concilium Constantinopolitanum I (381). Mansi 2–3."
+    },
+    {
+      "id": "efeso",
+      "order": 4,
+      "corpusDocId": "efeso-la",
+      "title": "Concilium Ephesinum",
+      "shortTitle": "Éfeso",
+      "years": "431",
+      "era": "ancient",
+      "granularity": "council-pack",
+      "mansiVol": "4",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/efeso-la.txt",
+      "status": "imported",
+      "docCode": "Ephes",
+      "sourceNote": "Concilium Ephesinum (431). Mansi 4."
+    },
+    {
+      "id": "calcedonia",
+      "order": 5,
+      "corpusDocId": "calcedonia-la",
+      "title": "Concilium Chalcedonense",
+      "shortTitle": "Calcedonia",
+      "years": "451",
+      "era": "ancient",
+      "granularity": "council-pack",
+      "mansiVol": "6-7",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/calcedonia-la.txt",
+      "status": "imported",
+      "docCode": "Chalc",
+      "sourceNote": "Concilium Chalcedonense (451). Mansi 6–7."
+    },
+    {
+      "id": "constantinopla-ii",
+      "order": 6,
+      "corpusDocId": "constantinopla-ii-la",
+      "title": "Concilium Constantinopolitanum II",
+      "shortTitle": "Constantinopla II",
+      "years": "553",
+      "era": "ancient",
+      "granularity": "council-pack",
+      "mansiVol": "9",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/constantinopla-ii-la.txt",
+      "status": "imported",
+      "docCode": "ConstII",
+      "sourceNote": "Concilium Constantinopolitanum II (553). Mansi 9."
+    },
+    {
+      "id": "constantinopla-iii",
+      "order": 7,
+      "corpusDocId": "constantinopla-iii-la",
+      "title": "Concilium Constantinopolitanum III",
+      "shortTitle": "Constantinopla III",
+      "years": "680-681",
+      "era": "ancient",
+      "granularity": "council-pack",
+      "mansiVol": "11",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/constantinopla-iii-la.txt",
+      "status": "imported",
+      "docCode": "ConstIII",
+      "sourceNote": "Concilium Constantinopolitanum III (680–681). Mansi 11."
+    },
+    {
+      "id": "nicea-ii",
+      "order": 8,
+      "corpusDocId": "nicea-ii-la",
+      "title": "Concilium Nicaenum II",
+      "shortTitle": "Nicea II",
+      "years": "787",
+      "era": "ancient",
+      "granularity": "council-pack",
+      "mansiVol": "12-13",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/nicea-ii-la.txt",
+      "status": "imported",
+      "docCode": "NicaeaII",
+      "sourceNote": "Concilium Nicaenum II (787). Mansi 12–13."
+    },
+    {
+      "id": "constantinopla-iv",
+      "order": 9,
+      "corpusDocId": "constantinopla-iv-la",
+      "title": "Concilium Constantinopolitanum IV",
+      "shortTitle": "Constantinopla IV",
+      "years": "869-870",
+      "era": "ancient",
+      "granularity": "council-pack",
+      "mansiVol": "15-16",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/constantinopla-iv-la.txt",
+      "status": "imported",
+      "docCode": "ConstIV",
+      "sourceNote": "Concilium Constantinopolitanum IV (869–870). Mansi 15–16."
+    },
+    {
+      "id": "lateran-i",
+      "order": 10,
+      "corpusDocId": "lateran-i-la",
+      "title": "Concilium Lateranense I",
+      "shortTitle": "Letrán I",
+      "years": "1123",
+      "era": "medieval",
+      "granularity": "council-pack",
+      "mansiVol": "21",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/lateran-i-la.txt",
+      "status": "imported",
+      "sourceNote": "Concilium Lateranense I (1123). Mansi 21."
+    },
+    {
+      "id": "lateran-ii",
+      "order": 11,
+      "corpusDocId": "lateran-ii-la",
+      "title": "Concilium Lateranense II",
+      "shortTitle": "Letrán II",
+      "years": "1139",
+      "era": "medieval",
+      "granularity": "council-pack",
+      "mansiVol": "21",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/lateran-ii-la.txt",
+      "status": "imported",
+      "sourceNote": "Concilium Lateranense II (1139). Mansi 21."
+    },
+    {
+      "id": "lateran-iii",
+      "order": 12,
+      "corpusDocId": "lateran-iii-la",
+      "title": "Concilium Lateranense III",
+      "shortTitle": "Letrán III",
+      "years": "1179",
+      "era": "medieval",
+      "granularity": "council-pack",
+      "mansiVol": "22",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/lateran-iii-la.txt",
+      "status": "imported",
+      "sourceNote": "Concilium Lateranense III (1179). Mansi 22."
+    },
+    {
+      "id": "lateran-iv",
+      "order": 13,
+      "corpusDocId": "lateran-iv-la",
+      "title": "Concilium Lateranense IV",
+      "shortTitle": "Letrán IV",
+      "years": "1215",
+      "era": "medieval",
+      "granularity": "council-pack",
+      "mansiVol": "22",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/lateran-iv-la.txt",
+      "status": "imported",
+      "docCode": "LatIV",
+      "sourceNote": "Concilium Lateranense IV (1215). Mansi 22."
+    },
+    {
+      "id": "lyon-i",
+      "order": 14,
+      "corpusDocId": "lyon-i-la",
+      "title": "Concilium Lugdunense I",
+      "shortTitle": "Lyon I",
+      "years": "1245",
+      "era": "medieval",
+      "granularity": "council-pack",
+      "mansiVol": "23",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/lyon-i-la.txt",
+      "status": "imported",
+      "sourceNote": "Concilium Lugdunense I (1245). Mansi 23."
+    },
+    {
+      "id": "lyon-ii",
+      "order": 15,
+      "corpusDocId": "lyon-ii-la",
+      "title": "Concilium Lugdunense II",
+      "shortTitle": "Lyon II",
+      "years": "1274",
+      "era": "medieval",
+      "granularity": "council-pack",
+      "mansiVol": "24",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/lyon-ii-la.txt",
+      "status": "imported",
+      "sourceNote": "Concilium Lugdunense II (1274). Mansi 24."
+    },
+    {
+      "id": "vienne",
+      "order": 16,
+      "corpusDocId": "vienne-la",
+      "title": "Concilium Viennense",
+      "shortTitle": "Vienne",
+      "years": "1311-1312",
+      "era": "medieval",
+      "granularity": "council-pack",
+      "mansiVol": "25",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/vienne-la.txt",
+      "status": "imported",
+      "sourceNote": "Concilium Viennense (1311–1312). Mansi 25."
+    },
+    {
+      "id": "constanza",
+      "order": 17,
+      "corpusDocId": "constanza-la",
+      "title": "Concilium Constantiense",
+      "shortTitle": "Constanza",
+      "years": "1414-1418",
+      "era": "medieval",
+      "granularity": "council-pack",
+      "mansiVol": "27-28",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/constanza-la.txt",
+      "status": "imported",
+      "sourceNote": "Concilium Constantiense (1414–1418). Mansi 27–28."
+    },
+    {
+      "id": "florencia",
+      "order": 18,
+      "corpusDocId": "florencia-la",
+      "title": "Concilium Basileense-Ferrariense-Florentinum",
+      "shortTitle": "Florencia",
+      "years": "1431-1445",
+      "era": "medieval",
+      "granularity": "council-pack",
+      "mansiVol": "29-31",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/florencia-la.txt",
+      "status": "imported",
+      "sourceNote": "Concilium Basileense-Ferrariense-Florentinum (1431–1445). Mansi 29–31."
+    },
+    {
+      "id": "lateran-v",
+      "order": 19,
+      "corpusDocId": "lateran-v-la",
+      "title": "Concilium Lateranense V",
+      "shortTitle": "Letrán V",
+      "years": "1512-1517",
+      "era": "medieval",
+      "granularity": "council-pack",
+      "mansiVol": "32",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/lateran-v-la.txt",
+      "status": "imported",
+      "sourceNote": "Concilium Lateranense V (1512–1517). Mansi 32."
+    },
+    {
+      "id": "trento",
+      "order": 20,
+      "corpusDocId": "trento-la",
+      "title": "Concilium Tridentinum",
+      "shortTitle": "Trento",
+      "years": "1545-1563",
+      "era": "tridentine",
+      "granularity": "session-docs",
+      "mansiVol": "33+",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.documentacatholicaomnia.eu/",
+        "https://archive.org/details/Mansi33"
+      ],
+      "cleanLocal": "clean/trento-la.txt",
+      "status": "imported",
+      "docCode": "Trent",
+      "notes": "Preferir decretos/cánones; subdividir por sesión si hace falta.",
+      "sourceNote": "Concilium Tridentinum (1545–1563). Mansi / documentacatholicaomnia."
+    },
+    {
+      "id": "vat-i",
+      "order": 21,
+      "corpusDocId": "vat-i-la",
+      "title": "Concilium Vaticanum I",
+      "shortTitle": "Vaticano I",
+      "years": "1869-1870",
+      "era": "modern",
+      "granularity": "document-level",
+      "mansiVol": "51+",
+      "splitMode": "canons",
+      "seedUrls": [
+        "https://www.vatican.va/",
+        "https://www.documentacatholicaomnia.eu/"
+      ],
+      "cleanLocal": "clean/vat-i-la.txt",
+      "status": "imported",
+      "docCode": "VatI",
+      "notes": "Preferir Dei Filius + Pastor Aeternus como docs sueltos.",
+      "sourceNote": "Concilium Vaticanum I (1869–1870). vatican.va / ediciones oficiales."
+    },
+    {
+      "id": "vat-ii",
+      "order": 22,
+      "corpusDocId": null,
+      "title": "Concilium Vaticanum II",
+      "shortTitle": "Vaticano II",
+      "years": "1962-1965",
+      "era": "modern",
+      "granularity": "document-level",
+      "mansiVol": null,
+      "splitMode": null,
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index.htm"
+      ],
+      "status": "skipped-existing",
+      "notes": "Ya en corpus ES (lg-es, gs-es, …). No reimportar.",
+      "sourceNote": "Concilium Vaticanum II (1962–1965). Corpus actual: documentos en español.",
+      "existingCorpusDocIds": [
+        "lg-es",
+        "gs-es",
+        "dv-es",
+        "sc-es",
+        "aa-es",
+        "ag-es",
+        "cd-es",
+        "ot-es",
+        "pc-es",
+        "po-es",
+        "ur-es",
+        "na-es",
+        "dh-es",
+        "ge-es",
+        "im-es"
+      ]
+    }
+  ]
+}

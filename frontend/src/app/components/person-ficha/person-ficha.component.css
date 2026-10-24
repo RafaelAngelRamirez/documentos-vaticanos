@@ -1,0 +1,101 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(12px + var(--safe-area-inset-top, 0px)) 22px 12px;
+  max-width: var(--app-measure);
+  margin: 0 auto;
+  min-height: 48px;
+}
+
+.fbar .back,
+.fbar .iconb {
+  min-height: 48px;
+  min-width: 48px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ficha-desk-back {
+  padding: 20px 40px 0;
+  font-size: 13px;
+}
+
+.back-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.back-link:hover {
+  color: var(--acc);
+}
+
+.hair {
+  border-bottom: 1px solid var(--line);
+}
+
+.back {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.back:hover {
+  color: var(--acc);
+}
+
+.fbody {
+  padding: 28px 24px 48px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .fbody {
+    max-width: var(--app-measure);
+    padding: 32px 40px 56px;
+  }
+}
+
+.obra-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.obra-link:hover {
+  color: var(--acc);
+}
+
+.obra-pending {
+  opacity: 0.75;
+}
+
+.theme-chip {
+  cursor: default;
+  font: inherit;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: inherit;
+}
+
+.theme-chip:not(.static) {
+  cursor: pointer;
+}
+
+.theme-chip:not(.static):hover,
+.theme-chip:not(.static):active {
+  border-color: var(--acc);
+  color: var(--acc);
+}

@@ -1,0 +1,161 @@
+{
+  "id": "issuer-john-xxiii",
+  "name": "Juan XXIII (magisterium)",
+  "kind": "issuer",
+  "years": "1958–1963",
+  "summary": "Angelo Roncalli convoca el Vaticano II y publica Pacem in terris en plena Guerra Fría, abriendo un estilo pastoral de diálogo con el orden internacional de derechos humanos.",
+  "axes": {
+    "lugar": "Roma; escenario nuclear y bipolar global.",
+    "personajes": "Juan XXIII; Kennedy/Jruschov como horizonte; obispos preconciliarmente movilizados.",
+    "gobierno": "ONU; crisis de los misiles; bienestar europeo de posguerra.",
+    "cultura": "Años 50–60; radio y TV; movimiento litúrgico.",
+    "religion": "Catolicismo preconciliar en vísperas de reforma; ecumenismo inicial.",
+    "antropologia": "Derechos de la persona y de los pueblos en Pacem in terris.",
+    "creenciasMundanas": "Ideologías de la Guerra Fría; tecnocracia nuclear.",
+    "creenciaCristiana": "Fe católica tradicional con acento pastoral y de paz; preparación del Vaticano II."
+  },
+  "timeline": [
+    {
+      "years": "1963",
+      "label": "Pacem in terris; apertura del Vaticano II (1962)",
+      "refIds": [
+        "john-xxiii",
+        "vat2-docs"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "papalencyclicals",
+      "title": "Papal Encyclicals Online",
+      "url": "https://www.papalencyclicals.net/",
+      "citation": "Papal Encyclicals Online — English archive of papal documents.",
+      "note": "Textos magisteriales en inglés; contrastar con vatican.va cuando exista original."
+    },
+    {
+      "id": "vat2-docs",
+      "title": "Concilio Vaticano II — documentos (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index_sp.htm",
+      "citation": "Concilium Vaticanum II. Acta / vatican.va (ES).",
+      "note": "Textos oficiales de constituciones, decretos y declaraciones."
+    },
+    {
+      "id": "britannica-vat2",
+      "title": "Encyclopaedia Britannica: Second Vatican Council",
+      "url": "https://www.britannica.com/event/Second-Vatican-Council",
+      "citation": "Encyclopaedia Britannica, s.v. “Second Vatican Council”.",
+      "note": "Síntesis histórica del Vaticano II."
+    },
+    {
+      "id": "denzinger-dh",
+      "title": "Denzinger-Hünermann, Enchiridion symbolorum",
+      "citation": "Denzinger, Heinrich / Hünermann, Peter. Enchiridion symbolorum definitionum et declarationum de rebus fidei et morum. Freiburg: Herder (eds. actualizadas).",
+      "note": "Compilación numerada de definiciones magisteriales (impresión de referencia)."
+    },
+    {
+      "id": "john-xxiii",
+      "title": "Juan XXIII, Pacem in terris (vatican.va)",
+      "url": "https://www.vatican.va/content/john-xxiii/es/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html",
+      "citation": "Ioannes XXIII. Encyclica Pacem in terris (11 apr. 1963). vatican.va.",
+      "note": "Texto oficial; marco de derechos y paz en la Guerra Fría."
+    },
+    {
+      "id": "vatican-archive",
+      "title": "Santa Sede — Archivo documental (vatican.va)",
+      "url": "https://www.vatican.va/archive/index_sp.htm",
+      "citation": "vatican.va — Archive (Catechism, CIC, councils, etc.).",
+      "note": "Índice oficial de recursos documentales de la Santa Sede."
+    },
+    {
+      "id": "aas",
+      "title": "Acta Apostolicae Sedis (referencia de promulgación)",
+      "citation": "Acta Apostolicae Sedis: Commentarium Officiale. Typis Polyglottis Vaticanis (serie oficial).",
+      "url": "https://www.vatican.va/archive/aas/index_sp.htm",
+      "note": "Boletín oficial de la Santa Sede para actos promulgados."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
+    },
+    {
+      "id": "britannica-papacy",
+      "title": "Encyclopaedia Britannica: Papacy",
+      "url": "https://www.britannica.com/topic/papacy",
+      "citation": "Encyclopaedia Britannica, s.v. “papacy”.",
+      "note": "Institución papal e historia del primado."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "john-xxiii",
+    "vat2-docs",
+    "vatican-archive",
+    "aas",
+    "britannica-vat2"
+  ],
+  "axisSources": {
+    "lugar": [
+      "john-xxiii",
+      "vat2-docs",
+      "vatican-archive",
+      "aas",
+      "britannica-vat2"
+    ],
+    "personajes": [
+      "john-xxiii",
+      "vat2-docs",
+      "odcc",
+      "papalencyclicals"
+    ],
+    "gobierno": [
+      "john-xxiii",
+      "aas",
+      "vat2-docs",
+      "britannica-papacy"
+    ],
+    "cultura": [
+      "john-xxiii",
+      "odcc",
+      "pelikan-ct",
+      "britannica-christianity"
+    ],
+    "religion": [
+      "john-xxiii",
+      "vat2-docs",
+      "odcc",
+      "vatican-archive"
+    ],
+    "antropologia": [
+      "john-xxiii",
+      "odcc",
+      "pelikan-ct",
+      "vat2-docs"
+    ],
+    "creenciasMundanas": [
+      "john-xxiii",
+      "vat2-docs",
+      "britannica-christianity"
+    ],
+    "creenciaCristiana": [
+      "john-xxiii",
+      "vat2-docs",
+      "pelikan-ct",
+      "denzinger-dh"
+    ]
+  }
+}

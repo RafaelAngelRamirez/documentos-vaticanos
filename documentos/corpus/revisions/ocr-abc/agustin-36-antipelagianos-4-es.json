@@ -1,0 +1,55 @@
+{
+  "documentId": "agustin-36-antipelagianos-4-es",
+  "revision": "ocr-abc-v4",
+  "appliedAt": "2026-08-08T03:33:22.758Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "residual-shred-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
+    "midline-hyphen-rejoin",
+    "glued-token-map",
+    "digit-letter-glue",
+    "garbage-toc-exclude-placeholder",
+    "bac-chrome-running-header-colophon-placeholder",
+    "leader-soup-placeholder",
+    "dual-column-shred-placeholder",
+    "index-zone-aggressive-garbage",
+    "punct-safe-compose-whitelist-internal"
+  ],
+  "unitsTotal": 1556,
+  "unitsChanged": 757,
+  "unitsExcludedGarbage": 18,
+  "unitsCollapsedSpaced": 727,
+  "before": {
+    "units": 1556,
+    "garbageUnits": 4,
+    "garbageRatio": 0.0026,
+    "spacedLetterRuns": 30,
+    "shortSpacedWordHits": 175,
+    "spacedDigitRuns": 25,
+    "junkRunHits": 4,
+    "tocLeaderHits": 9,
+    "residualBodyNoiseUnits": 5,
+    "residualScore": 374
+  },
+  "after": {
+    "units": 1556,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
+    "junkRunHits": 2,
+    "tocLeaderHits": 1,
+    "residualBodyNoiseUnits": 5,
+    "residualScore": 81
+  },
+  "letterTokenOverlap": 0.9922,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "ocr-abc-v4 in-place on existing corpus (no re-download). v3 + leader-soup TOC, dual-column shred blank (no demerge), S.Ag headers, front a4 shred dict, wider index-zone; stable unitIndex; dual-write roots."
+}

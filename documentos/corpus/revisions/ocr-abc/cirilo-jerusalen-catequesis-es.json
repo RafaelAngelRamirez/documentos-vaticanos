@@ -1,0 +1,53 @@
+{
+  "documentId": "cirilo-jerusalen-catequesis-es",
+  "revision": "ocr-abc-v3",
+  "appliedAt": "2026-07-26T19:21:17.907Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "residual-shred-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
+    "midline-hyphen-rejoin",
+    "glued-token-map",
+    "digit-letter-glue",
+    "garbage-toc-exclude-placeholder",
+    "bac-chrome-running-header-colophon-placeholder",
+    "index-zone-aggressive-garbage",
+    "punct-safe-compose-whitelist-internal"
+  ],
+  "unitsTotal": 1015,
+  "unitsChanged": 362,
+  "unitsExcludedGarbage": 0,
+  "unitsCollapsedSpaced": 362,
+  "before": {
+    "units": 1015,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 120,
+    "spacedDigitRuns": 10,
+    "junkRunHits": 0,
+    "tocLeaderHits": 2,
+    "residualBodyNoiseUnits": 4,
+    "residualScore": 194
+  },
+  "after": {
+    "units": 1015,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
+    "junkRunHits": 0,
+    "tocLeaderHits": 2,
+    "residualBodyNoiseUnits": 4,
+    "residualScore": 64
+  },
+  "letterTokenOverlap": 0.9985,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "ocr-abc-v3 in-place on existing corpus (no re-download). a+a2+a2b+a3+a4+a5 glue/hyphen/digit; b) TOC+BAC chrome+headers+colophon+index-zone placeholders; stable unitIndex; dual-write roots."
+}

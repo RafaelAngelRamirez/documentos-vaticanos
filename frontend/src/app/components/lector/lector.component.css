@@ -1,0 +1,298 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.app.rpaper {
+  min-height: 100vh;
+}
+
+.fbar {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  background: color-mix(in srgb, var(--paper) 96%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  box-sizing: border-box;
+  min-height: calc(var(--reader-topbar-height) + var(--safe-area-inset-top));
+  padding: calc(12px + var(--safe-area-inset-top)) 22px 12px;
+  transition: transform 0.2s ease;
+}
+
+.fbar > .back,
+.fbar > .iconb {
+  flex-shrink: 0;
+}
+
+/* F4 — auto-ocultado al desplazar hacia abajo. */
+.fbar.bars-hidden {
+  transform: translateY(-100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fbar {
+    transition: none;
+  }
+}
+
+.hydrate {
+  text-align: center;
+  padding: 28px 12px 12px;
+}
+
+.hydrate-pray {
+  margin-top: 18px;
+  max-width: 36ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: var(--app-font-serif, Georgia, serif);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.hydrate-pray p {
+  margin: 0 0 10px;
+}
+
+.ttl {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 8px;
+}
+
+.reader {
+  padding: 26px 24px
+    calc(var(--reader-chrome-breathing) + var(--safe-area-inset-bottom));
+}
+
+.has-narr .reader {
+  padding-bottom: calc(
+    var(--reader-narr-height) + var(--reader-chrome-breathing) +
+      var(--safe-area-inset-bottom)
+  );
+}
+
+.has-rfoot .reader {
+  padding-bottom: calc(
+    var(--reader-rfoot-height) + var(--reader-chrome-breathing) +
+      var(--safe-area-inset-bottom)
+  );
+}
+
+.has-narr.has-rfoot .reader {
+  padding-bottom: calc(
+    var(--reader-narr-height) + var(--reader-rfoot-height) +
+      var(--reader-chrome-breathing) + var(--safe-area-inset-bottom)
+  );
+}
+
+.narr {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 13;
+  box-sizing: border-box;
+  min-height: var(--reader-narr-height);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.narr .nline {
+  min-width: 48px;
+}
+
+.narr .npill {
+  font-family: inherit;
+  background: transparent;
+  min-height: 36px;
+}
+
+@media (max-width: 1023px) {
+  .has-narr.has-rfoot .narr {
+    bottom: calc(var(--reader-rfoot-height) + var(--safe-area-inset-bottom));
+  }
+
+  .has-narr:not(.has-rfoot) .narr {
+    padding-bottom: calc(12px + var(--safe-area-inset-bottom));
+    min-height: calc(var(--reader-narr-height) + var(--safe-area-inset-bottom));
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Encapsulated .fbar/.rfoot { display:flex } would otherwise beat global .only-mobile. */
+  .fbar.only-mobile,
+  .rfoot.only-mobile {
+    display: none !important;
+  }
+
+  .reader {
+    flex: 1;
+    padding: 44px 36px
+      calc(var(--reader-chrome-breathing) + var(--safe-area-inset-bottom));
+  }
+
+  .has-narr .reader {
+    padding-bottom: calc(
+      var(--reader-narr-height) + var(--reader-chrome-breathing) +
+        var(--safe-area-inset-bottom)
+    );
+  }
+
+  .has-rfoot .reader,
+  .has-narr.has-rfoot .reader {
+    padding-bottom: calc(
+      var(--reader-narr-height) + var(--reader-chrome-breathing) +
+        var(--safe-area-inset-bottom)
+    );
+  }
+
+  .narr {
+    padding-bottom: calc(12px + var(--safe-area-inset-bottom));
+    min-height: calc(var(--reader-narr-height) + var(--safe-area-inset-bottom));
+  }
+
+  .rcolw {
+    max-width: 62ch;
+    margin: 0 auto;
+  }
+}
+
+.rtxt {
+  margin: 0 auto;
+}
+
+.rtxt.sans {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* Numeral que el narrador está leyendo */
+.rtxt app-punto {
+  display: block;
+  border-radius: 6px;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+.rtxt app-punto.narrando {
+  background: color-mix(in srgb, var(--reader-highlight, #ffe566) 16%, transparent);
+  box-shadow: inset 3px 0 0 var(--reader-highlight, #ffe566);
+}
+
+.rtxt a.muted,
+.rstart a.muted,
+.rend a.muted {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--muted);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+}
+
+.rtxt a.muted:hover,
+.rstart a.muted:hover,
+.rend a.muted:hover {
+  color: var(--acc);
+  border-bottom-color: var(--acc);
+}
+
+.error {
+  color: var(--app-danger);
+}
+
+.sentinel {
+  height: 1px;
+}
+
+/* rfoot fijo (diseño 2B): posición + porcentaje siempre visibles.
+   Occupies the bottom band (height + inset). .narr stacks above it on mobile. */
+.rfoot {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 12;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  box-sizing: border-box;
+  min-height: calc(var(--reader-rfoot-height) + var(--safe-area-inset-bottom));
+  background: var(--paper);
+  padding: 12px 22px calc(12px + var(--safe-area-inset-bottom));
+  margin-top: 0;
+}
+
+/* 4A · popover de selección: coordenadas fijas sobre la selección. */
+.selpop {
+  position: fixed;
+  transform: translate(-50%, -100%);
+  z-index: 40;
+}
+
+.selfeedback {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(
+    var(--reader-narr-height) + var(--reader-rfoot-height) + 12px +
+      var(--safe-area-inset-bottom)
+  );
+  z-index: 40;
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: 9px;
+  padding: 8px 14px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* 4B · crear nota */
+.notearea {
+  width: 100%;
+  min-height: 96px;
+  margin-top: 14px;
+  background: var(--card, var(--paper));
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.notearea:focus {
+  outline: none;
+  border-color: var(--acc);
+}
+
+/* Contenido del sheet de ajustes (clases visuales globales del handoff). */
+.shead {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.flabel.first {
+  margin-top: 12px;
+}
+
+.srowx {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 16px;
+}

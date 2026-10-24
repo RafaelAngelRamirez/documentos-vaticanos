@@ -1,0 +1,205 @@
+{
+  "id": "sagrada-escritura",
+  "name": "Sagrada Escritura (canon judeocristiano)",
+  "kind": "era",
+  "years": "II milenio a.C. – s. I d.C.",
+  "summary": "La Biblia reúne tradiciones de Israel y del cristianismo apostólico: Torá, Profetas y Escritos en hebreo/arameo (y formas griegas de la LXX), y el Nuevo Testamento griego. El pack «Pueblo de Dios» es una traducción española de esa herencia canónica para la lectura eclesial.",
+  "axes": {
+    "lugar": "Antiguo Oriente Próximo (Egipto, Canaán/Israel, Mesopotamia, Persia); mundo helenístico (Alejandría); Palestina romana y diáspora mediterránea del siglo I.",
+    "personajes": "Patriarcas y reyes de Israel/Judá; profetas; figuras del Segundo Templo; Jesús de Nazaret; apóstoles (Pedro, Pablo, Juan…); emperadores romanos del siglo I como trasfondo (Augusto, Tiberio, Nerón…).",
+    "gobierno": "Jefaturas tribales, monarquía unida y dividida, imperios asirio, babilónico, persa, helenístico y romano; prefectura de Judea y reinos clientes herodianos en época neotestamentaria.",
+    "cultura": "Hebreo, arameo y griego; géneros narrativos, legales, sapienciales, proféticos y epistolares; templo, sinagoga y casa-iglesia; memoria oral y escritura.",
+    "religion": "Monoteísmo yahvista en desarrollo; cultos cananeos y del entorno; judaísmos del Segundo Templo; culto imperial romano; misterios helenísticos como contraste cultural.",
+    "antropologia": "Clan y alianza; pureza ritual; honor/vergüenza mediterráneos; esclavitud y patronazgo; mesianismo popular y élites sacerdotales.",
+    "creenciasMundanas": "Politeísmos vecinos; astrología mesopotámica y helenística; destinos y héroes; filosofía popular grecorromana en el ambiente del NT.",
+    "creenciaCristiana": "Para la lectura cristiana: un canon que prepara y testimonia a Cristo; Antiguo Testamento como promesa y el Nuevo como cumplimiento en la Iglesia apostólica."
+  },
+  "timeline": [
+    {
+      "years": "c. XIII–IV a.C.",
+      "label": "Formación de tradiciones del AT (esquema amplio)",
+      "refIds": [
+        "bible-canon",
+        "bible-es-vat"
+      ]
+    },
+    {
+      "years": "s. III–I a.C.",
+      "label": "Septuaginta y judaísmo helenístico",
+      "refIds": [
+        "bible-canon",
+        "bible-es-vat"
+      ]
+    },
+    {
+      "years": "s. I d.C.",
+      "label": "Ministerio de Jesús y escritos del NT",
+      "refIds": [
+        "bible-canon",
+        "bible-es-vat"
+      ]
+    },
+    {
+      "years": "s. II–IV",
+      "label": "Fijación progresiva del canon cristiano",
+      "refIds": [
+        "bible-canon",
+        "bible-es-vat"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "britannica-late-ant",
+      "title": "Encyclopaedia Britannica: Late antiquity / ancient Rome topics",
+      "url": "https://www.britannica.com/topic/ancient-Rome",
+      "citation": "Encyclopaedia Britannica, s.v. “ancient Rome” (y artículos afines).",
+      "note": "Contexto político-cultural del Mediterráneo romano."
+    },
+    {
+      "id": "chadwick-ec",
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed.",
+      "note": "Manual académico clásico de historia de la Iglesia antigua (impresión)."
+    },
+    {
+      "id": "kelly-ecd",
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum / HarperCollins.",
+      "note": "Manual de dogmática histórica (Trinidad, cristología, gracia)."
+    },
+    {
+      "id": "frend-rise",
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress Press, 1984.",
+      "note": "Historia social; persecuciones y África cristiana."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "fordham-ehs",
+      "title": "Fordham University — Internet History Sourcebooks: Ancient / Medieval / Church",
+      "url": "https://sourcebooks.fordham.edu/",
+      "citation": "Halsall, Paul, ed. Internet History Sourcebooks Project. Fordham University.",
+      "note": "Colección académica de fuentes primarias con introducción (Fordham.edu)."
+    },
+    {
+      "id": "fordham-ancient",
+      "title": "Fordham — Internet Ancient History Sourcebook: Christian Origins",
+      "url": "https://sourcebooks.fordham.edu/ancient/asbook11.asp",
+      "citation": "Internet Ancient History Sourcebook: Christian Origins (Fordham University).",
+      "note": "Fuentes de orígenes cristianos y Imperio romano."
+    },
+    {
+      "id": "ecw-index",
+      "title": "Early Christian Writings (Peter Kirby) — index of texts",
+      "url": "https://www.earlychristianwritings.com/",
+      "citation": "Kirby, Peter. Early Christian Writings. https://www.earlychristianwritings.com/",
+      "note": "Índice de textos y dataciones; útil para primarios, no magisterio oficial."
+    },
+    {
+      "id": "bible-canon",
+      "title": "Sagrada Escritura — Nova Vulgata / vatican.va",
+      "citation": "Bibliorum Sacrorum nova vulgata editio; traducciones eclesiales (p. ej. Pueblo de Dios).",
+      "url": "https://www.vatican.va/archive/bible/nova_vulgata/documents/nova-vulgata_index_lt.html",
+      "note": "Texto bíblico de referencia en el sitio de la Santa Sede (Nova Vulgata)."
+    },
+    {
+      "id": "bible-es-vat",
+      "title": "Biblia — recursos en español (vatican.va)",
+      "url": "https://www.vatican.va/archive/ESL0506/_INDEX.HTM",
+      "citation": "Santa Sede — textos bíblicos / liturgia en español (archivo).",
+      "note": "Punto de acceso hispano en vatican.va."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
+    },
+    {
+      "id": "livius-rome",
+      "title": "Livius.org — Articles on ancient history (Rome)",
+      "url": "https://www.livius.org/category/roman/",
+      "citation": "Lendering, Jona, et al. Livius.org — Articles on ancient history.",
+      "note": "Divulgación histórica seria sobre Roma; no sustituye monografía, sí marco geográfico."
+    },
+    {
+      "id": "met-late-antique",
+      "title": "Metropolitan Museum of Art — Heilbrunn Timeline: Late Antique",
+      "url": "https://www.metmuseum.org/toah/hd/laat/hd_laat.htm",
+      "citation": "The Metropolitan Museum of Art. Heilbrunn Timeline of Art History: “Late Antique Art” / related essays.",
+      "note": "Cultura material y arte tardoantiguo (museo de referencia)."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "bible-canon",
+    "bible-es-vat",
+    "odcc",
+    "pelikan-ct",
+    "fordham-ancient"
+  ],
+  "axisSources": {
+    "lugar": [
+      "bible-canon",
+      "bible-es-vat",
+      "odcc",
+      "fordham-ancient",
+      "britannica-christianity"
+    ],
+    "personajes": [
+      "bible-canon",
+      "odcc",
+      "pelikan-ct",
+      "ecw-index"
+    ],
+    "gobierno": [
+      "bible-canon",
+      "odcc",
+      "frend-rise",
+      "livius-rome"
+    ],
+    "cultura": [
+      "bible-canon",
+      "odcc",
+      "pelikan-ct",
+      "met-late-antique"
+    ],
+    "religion": [
+      "bible-canon",
+      "bible-es-vat",
+      "chadwick-ec",
+      "odcc"
+    ],
+    "antropologia": [
+      "bible-canon",
+      "odcc",
+      "frend-rise",
+      "fordham-ehs"
+    ],
+    "creenciasMundanas": [
+      "bible-canon",
+      "odcc",
+      "chadwick-ec",
+      "britannica-late-ant"
+    ],
+    "creenciaCristiana": [
+      "bible-canon",
+      "pelikan-ct",
+      "kelly-ecd",
+      "britannica-christianity"
+    ]
+  }
+}

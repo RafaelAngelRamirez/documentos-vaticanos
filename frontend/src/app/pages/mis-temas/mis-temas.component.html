@@ -1,0 +1,110 @@
+<div class="app-product web-shell" [attr.data-tick]="localeTick">
+  <app-wbar active="temas"></app-wbar>
+  <app-fbar [title]="t('themes.title')" class="hide-desktop"></app-fbar>
+
+  <div class="fbody">
+    <div class="fs13 muted" style="line-height: 1.6; margin-bottom: 8px">
+      Solo los temas marcados como públicos pasan por revisión. Los privados son
+      suyos al instante.
+    </div>
+
+    <div *ngIf="error" class="fs13 errline" style="margin-bottom: 12px">
+      {{ error }}
+    </div>
+    <div *ngIf="loading" class="fs13 muted">Cargando…</div>
+
+    <!-- 6A · Públicos (con estados) -->
+    <ng-container *ngIf="!loading">
+      <div class="sect" *ngIf="publicThemes.length">Públicos</div>
+      <div
+        class="qrow"
+        *ngFor="let t of publicThemes"
+        (click)="open(t)"
+        role="button"
+        tabindex="0"
+        (keydown.enter)="open(t)"
+      >
+        <div class="f1">
+          <div class="st">{{ t.title }}</div>
+          <div class="sx" style="margin-top: 4px">{{ metaLine(t) }}</div>
+        </div>
+        <span *ngIf="pillLabel(t)" [class]="pillClass(t)">{{ pillLabel(t) }}</span>
+        <span class="chev" *ngIf="!pillLabel(t)">›</span>
+      </div>
+
+      <!-- 6A · Privados -->
+      <div class="sect">Privados</div>
+      <div
+        class="qrow"
+        *ngFor="let t of privateThemes"
+        (click)="open(t)"
+        role="button"
+        tabindex="0"
+        (keydown.enter)="open(t)"
+      >
+        <div class="f1">
+          <div class="st">{{ t.title }}</div>
+          <div class="sx" style="margin-top: 4px">{{ metaLine(t) }}</div>
+        </div>
+        <span class="chev">›</span>
+      </div>
+      <div class="fs13 muted" *ngIf="!privateThemes.length && !publicThemes.length">
+        Cree un tema y añada pasajes desde el editor.
+      </div>
+    </ng-container>
+
+    <!-- Crear (4D entry) -->
+    <button
+      type="button"
+      class="gbtn"
+      style="margin-top: 18px"
+      *ngIf="!showCreate"
+      (click)="showCreate = true"
+    >
+      + Nuevo tema
+    </button>
+
+    <form
+      *ngIf="showCreate"
+      [formGroup]="form"
+      (ngSubmit)="create()"
+      class="card"
+      style="margin-top: 18px"
+    >
+      <div class="flabel" style="margin-top: 0">Título del tema</div>
+      <input class="field" formControlName="title" placeholder="Título del tema" />
+      <div class="flabel">Introducción</div>
+      <textarea
+        class="notearea"
+        formControlName="description"
+        rows="3"
+        placeholder="Presente el tema…"
+      ></textarea>
+      <button
+        class="primary"
+        type="submit"
+        [disabled]="form.invalid"
+        style="margin-top: 8px"
+      >
+        Crear tema
+      </button>
+      <button
+        type="button"
+        class="gbtn"
+        style="margin-top: 10px"
+        (click)="showCreate = false"
+      >
+        Cancelar
+      </button>
+    </form>
+
+    <a
+      *ngIf="auth.isAdmin"
+      routerLink="/admin/revision"
+      class="gbtn"
+      style="margin-top: 14px; text-decoration: none; display: block; text-align: center"
+    >
+      Cola de revisión (admin)
+    </a>
+  </div>
+</div>

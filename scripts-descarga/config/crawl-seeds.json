@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "description": "BFS crawl seeds for vatican.va discovery (separate from reading corpus).",
+  "defaults": {
+    "maxDepth": 8,
+    "concurrency": 4,
+    "preferLocales": ["es"],
+    "allowHosts": ["www.vatican.va", "vatican.va"],
+    "catalogExternal": true,
+    "expandExternal": false
+  },
+  "seeds": [
+    {
+      "id": "romancuria-es",
+      "title": "La Curia Romana",
+      "url": "https://www.vatican.va/content/romancuria/es.html",
+      "locale": "es",
+      "kind": "roman-curia-hub",
+      "notes": "Praedicate Evangelium organ hub. Depth-limited BFS; ES preferred; externals catalog-only."
+    }
+  ]
+}

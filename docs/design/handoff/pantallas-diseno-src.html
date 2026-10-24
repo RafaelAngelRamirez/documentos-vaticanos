@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="design_doc_mode" content="canvas">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+body{margin:0}
+.canvas{min-height:100vh;font-family:'IBM Plex Sans',sans-serif;background:var(--desk);color:var(--ink);padding:32px 40px 80px;transition:background .25s,color .25s}
+.t-claro{--desk:#f2f0ea;--bg:#fdfdfb;--ink:#2c2a26;--muted:#8b877e;--line:#e5e2da;--card:#ffffff;--btn:#f4f2ec;--btnb:#d6d2c8;--acc:#8a5a2b;--accink:#fdfdfb;--paper:#f8f1de;--ok:#5a7a4a}
+.t-oscuro{--desk:#17140e;--bg:#201c15;--ink:#e2d8c4;--muted:#9a8f7a;--line:#3a3428;--card:#282318;--btn:#302a1d;--btnb:#4d4433;--acc:#d0a45f;--accink:#201c15;--paper:#2e2818;--ok:#8fae7a}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+.serif{font-family:'EB Garamond',serif}
+.muted{color:var(--muted)}
+.chead{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1900px;margin:0 auto 30px;flex-wrap:wrap}
+.seg{display:flex;background:var(--btn);border:1px solid var(--btnb);border-radius:10px;padding:3px;gap:2px}
+.segbtn{font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:var(--muted);background:none;border:none;border-radius:7px;padding:7px 16px;cursor:pointer}
+.segbtn.on{background:var(--bg);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.row{display:flex;gap:36px;flex-wrap:wrap;align-items:flex-start;max-width:1900px;margin:0 auto}
+.opt{display:flex;flex-direction:column;gap:10px}
+.badge{align-self:flex-start;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--muted);border:1px solid var(--btnb);border-radius:6px;padding:3px 8px}
+.olabel{font-size:13px;color:var(--muted)}
+.frame{width:390px;min-height:700px;background:var(--bg);border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.10);display:flex;flex-direction:column}
+.fbody{padding:28px 24px 32px;flex:1;display:flex;flex-direction:column}
+.fbar{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--line)}
+.ftitle{font-family:'EB Garamond',serif;font-size:19px;font-weight:600}
+.dot{width:34px;height:34px;border-radius:50%;background:var(--btn);border:1px solid var(--btnb);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--muted)}
+.mark{width:56px;height:56px;border-radius:16px;background:var(--acc);color:var(--accink);font-family:'EB Garamond',serif;font-size:26px;font-weight:600;display:flex;align-items:center;justify-content:center;margin:26px auto 18px}
+.field{width:100%;box-sizing:border-box;font-family:'IBM Plex Sans',sans-serif;font-size:15px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 16px;outline:none}
+.field:focus{border-color:var(--acc)}
+.field::placeholder{color:var(--muted)}
+.flabel{font-size:13px;color:var(--muted);margin:16px 0 6px}
+.primary{width:100%;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:500;color:var(--accink);background:var(--acc);border:none;border-radius:10px;padding:14px;cursor:pointer;margin-top:20px;min-height:48px}
+.gbtn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'IBM Plex Sans',sans-serif;font-size:15px;font-weight:500;color:var(--ink);background:var(--card);border:1px solid var(--btnb);border-radius:10px;padding:13px;cursor:pointer;min-height:48px}
+.gbtn:hover{border-color:var(--acc)}
+.divider{display:flex;align-items:center;gap:14px;color:var(--muted);font-size:12px;margin:22px 0}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.prog{height:5px;border-radius:3px;background:var(--btn);overflow:hidden;margin-top:12px}
+.progfill{height:100%;background:var(--acc);border-radius:3px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;color:var(--ink);background:var(--btn);border:1px solid var(--btnb);border-radius:999px;padding:8px 14px;cursor:pointer}
+.chip:hover{border-color:var(--acc)}
+.mrow{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.avatar{width:44px;height:44px;border-radius:50%;background:var(--paper);border:1px solid var(--btnb);color:var(--acc);font-family:'EB Garamond',serif;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mname{font-size:15px;font-weight:500}
+.mmeta{font-size:12px;color:var(--muted);margin-top:3px}
+.chev{color:var(--muted);margin-left:auto}
+.tabs{display:flex;gap:22px;border-bottom:1px solid var(--line);margin-bottom:6px}
+.tab{font-size:14px;color:var(--muted);padding:10px 2px;border-bottom:2px solid transparent}
+.tab.on{color:var(--ink);border-bottom-color:var(--acc);font-weight:500}
+.sect{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:26px 0 12px}
+.lrow{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}
+.lnum{width:26px;height:26px;border-radius:50%;background:var(--btn);border:1px solid var(--btnb);color:var(--muted);font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.lnum.done{background:var(--acc);border-color:var(--acc);color:var(--accink)}
+.pal{width:520px;background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 12px 40px rgba(0,0,0,.10)}
+.swgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.sw{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.swc{height:64px}
+.swl{padding:10px 12px;font-size:12px}
+.swn{font-weight:600}
+.swv{color:var(--muted);margin-top:2px;font-family:monospace;font-size:11px}
+.h2{font-family:'EB Garamond',serif;font-size:24px;font-weight:600;margin:0}
+.greet{font-family:'EB Garamond',serif;font-size:26px;font-weight:500;line-height:1.2;margin:4px 0 20px}
+.turn{margin-bottom:56px}
+.rpaper{background:var(--paper)}
+.rtxt{font-family:'EB Garamond',serif;font-size:18px;line-height:1.7;text-align:justify;hyphens:auto}
+.rtxt p{margin:0 0 1.2em}
+.rhead{font-family:'IBM Plex Sans',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:22px}
+.rfoot{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);margin-top:auto}
+.iconb{width:38px;height:38px;border-radius:10px;background:var(--btn);border:1px solid var(--btnb);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px}
+.iconb:hover{border-color:var(--acc)}
+.dcover{background:var(--paper);border-bottom:1px solid var(--line);padding:34px 24px;text-align:center}
+.dkind{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)}
+.dtitle{font-family:'EB Garamond',serif;font-size:30px;font-weight:600;line-height:1.15;margin:12px 0 8px}
+.dsub{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:var(--muted)}
+.meta2{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:20px}
+.mcell{background:var(--card);padding:12px 14px}
+.mk{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.mv{font-size:14px;font-weight:500;margin-top:4px}
+.toc{display:flex;align-items:baseline;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14px;cursor:pointer}
+.toc:hover{color:var(--acc)}
+.tnum{font-family:'EB Garamond',serif;font-size:13px;color:var(--muted);width:22px;flex-shrink:0}
+.quote{font-family:'EB Garamond',serif;font-style:italic;font-size:17px;line-height:1.55;border-left:2px solid var(--acc);padding-left:14px;margin:14px 0 0;color:var(--ink)}
+.era{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);margin:24px 0 4px}
+.bnav{display:flex;border-top:1px solid var(--line);background:var(--bg);margin-top:auto}
+.bitem{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 0 14px;font-size:11px;color:var(--muted);cursor:pointer}
+.bitem.on{color:var(--acc);font-weight:500}
+.bico{font-size:18px;line-height:1}
+.dots{display:flex;gap:8px;justify-content:center;margin:26px 0}
+.dotp{width:7px;height:7px;border-radius:50%;background:var(--btnb)}
+.dotp.on{background:var(--acc)}
+.srow{display:flex;flex-direction:column;gap:4px;padding:14px 2px;border-bottom:1px solid var(--line);cursor:pointer}
+.srow:hover .st{color:var(--acc)}
+.st{font-family:'EB Garamond',serif;font-size:18px;font-weight:500}
+.sx{font-size:13px;color:var(--muted);line-height:1.5}
+.sx b{color:var(--ink);font-weight:600}
+.hl{background:color-mix(in oklab,var(--acc) 22%,transparent);border-radius:3px;padding:0 2px}
+.setrow{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);font-size:14px}
+.setk{display:flex;flex-direction:column;gap:3px}
+.seth{font-size:12px;color:var(--muted)}
+.sw2{width:44px;height:26px;border-radius:13px;background:var(--btnb);position:relative;flex-shrink:0;cursor:pointer}
+.sw2::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:var(--bg)}
+.sw2.on{background:var(--acc)}
+.sw2.on::after{left:auto;right:3px}
+.stepbtn{display:flex;gap:8px}
+.szbtn{flex:1;font-family:'IBM Plex Sans',sans-serif;font-size:14px;color:var(--ink);background:var(--btn);border:1px solid var(--btnb);border-radius:9px;padding:10px 0;cursor:pointer;text-align:center}
+.szbtn.on{border-color:var(--acc);color:var(--acc);font-weight:600}
+.notecard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.nsrc{font-size:12px;color:var(--muted);margin-top:8px}
+.selx{background:color-mix(in oklab,var(--acc) 30%,transparent);border-radius:3px;padding:0 2px}
+.pop{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:2px;background:var(--ink);border-radius:11px;padding:5px;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.popb{font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:var(--bg);background:none;border:none;border-radius:8px;padding:8px 12px;cursor:pointer;white-space:nowrap}
+.popb:hover{background:rgba(255,255,255,.14)}
+.sheet{background:var(--bg);border-top:1px solid var(--line);border-radius:18px 18px 0 0;padding:10px 24px 26px;margin-top:auto;box-shadow:0 -10px 30px rgba(0,0,0,.12)}
+.grab{width:38px;height:4px;border-radius:2px;background:var(--btnb);margin:0 auto 16px}
+.notearea{width:100%;box-sizing:border-box;font-family:'IBM Plex Sans',sans-serif;font-size:15px;line-height:1.6;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 16px;outline:none;min-height:96px;resize:none}
+.notearea:focus{border-color:var(--acc)}
+.refcard{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-size:13px;cursor:pointer;margin-top:10px}
+.refcard:hover{border-color:var(--acc)}
+.refn{font-family:'EB Garamond',serif;font-weight:600;color:var(--acc);flex-shrink:0}
+.tsec{font-family:'EB Garamond',serif;font-size:20px;font-weight:600;margin:26px 0 8px}
+.tbody{font-size:14px;line-height:1.7}
+.dlbar{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-top:18px}
+.web{width:1180px;min-height:700px;background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.10);display:flex;flex-direction:column}
+.web.rpaper{background:var(--paper)}
+.wbar{display:flex;align-items:center;gap:24px;padding:0 28px;height:58px;border-bottom:1px solid var(--line);flex-shrink:0}
+.wmark{width:30px;height:30px;border-radius:8px;background:var(--acc);color:var(--accink);font-family:'EB Garamond',serif;font-size:14px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.wname{font-family:'EB Garamond',serif;font-size:17px;font-weight:600;white-space:nowrap}
+.wlink{font-size:14px;color:var(--muted);cursor:pointer;white-space:nowrap}
+.wlink.on{color:var(--ink);font-weight:500}
+.wlink:hover{color:var(--acc)}
+.wsearch{margin-left:auto;width:230px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;color:var(--ink);background:var(--btn);border:1px solid var(--btnb);border-radius:8px;padding:8px 12px;outline:none}
+.wmain{flex:1;display:flex;min-height:0}
+.wside{width:220px;border-right:1px solid var(--line);padding:20px 14px;display:flex;flex-direction:column;gap:2px;flex-shrink:0}
+.sitem{font-size:14px;color:var(--muted);padding:9px 12px;border-radius:8px;cursor:pointer}
+.sitem.on{background:var(--btn);color:var(--ink);font-weight:500}
+.sitem:hover{color:var(--acc)}
+.wbody{flex:1;padding:28px 36px 36px;min-width:0}
+.cardgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.bookcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;cursor:pointer;display:flex;flex-direction:column;gap:6px}
+.bookcard:hover{border-color:var(--acc)}
+.bkind{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc)}
+.bt{font-family:'EB Garamond',serif;font-size:20px;font-weight:600;line-height:1.2}
+.bm{font-size:12px;color:var(--muted)}
+.narr{display:flex;align-items:center;gap:14px;border-top:1px solid var(--line);background:var(--card);padding:12px 22px;flex-shrink:0}
+.play{width:40px;height:40px;border-radius:50%;background:var(--acc);color:var(--accink);border:none;font-size:14px;cursor:pointer;flex-shrink:0}
+.nline{flex:1;height:4px;border-radius:2px;background:var(--btn);position:relative}
+.nfill{position:absolute;top:0;bottom:0;left:0;width:26%;background:var(--acc);border-radius:2px}
+.npill{font-size:12px;color:var(--muted);border:1px solid var(--btnb);border-radius:999px;padding:5px 11px;white-space:nowrap;cursor:pointer}
+.npill:hover{border-color:var(--acc);color:var(--acc)}
+.nlabel{font-size:12px;color:var(--muted);white-space:nowrap}
+.wcols{display:flex;gap:40px}
+.rcolw{max-width:62ch;margin:0 auto}
+.offok{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ok);padding:14px 0}
+.pill{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:4px 10px;white-space:nowrap}
+.p-rev{color:#9a7328;background:color-mix(in oklab,#d9a83f 18%,transparent)}
+.p-ok{color:var(--ok);background:color-mix(in oklab,var(--ok) 15%,transparent)}
+.p-no{color:#b0563a;background:color-mix(in oklab,#b0563a 14%,transparent)}
+.qrow{display:flex;align-items:center;gap:16px;padding:15px 2px;border-bottom:1px solid var(--line);cursor:pointer}
+.qrow:hover .st{color:var(--acc)}
+.revnote{background:var(--card);border:1px solid var(--line);border-left:3px solid #9a7328;border-radius:10px;padding:13px 16px;font-size:13px;line-height:1.6}
+</style>
+</helmet>
+<div class="canvas {{themeClass}}">
+<div class="chead">
+<div><div class="fs12 upper muted" style="letter-spacing:.2em">Documentos Vaticanos</div><h1 class="serif fw6" style="font-size:30px;margin:6px 0 0">Pantallas y estilo base</h1></div>
+<div class="fx ac gap12"><span class="fs13 muted">Tema</span>
+<div class="seg">
+<button class="segbtn {{onClaro}}" onClick="{{setClaro}}">Claro</button>
+<button class="segbtn {{onOscuro}}" onClick="{{setOscuro}}">Oscuro</button>
+<button class="segbtn {{onSistema}}" onClick="{{setSistema}}">Sistema</button>
+</div></div>
+</div>
+<section class="row turn">
+<div class="opt" id="6a">
+<span class="badge">6A · MIS TEMAS · ESTADOS</span>
+<div class="frame">
+<div class="fbar"><span class="ftitle">Mis temas</span><span class="dot">RO</span></div>
+<div class="fbody">
+<div class="fs13 muted" style="line-height:1.6">Solo los temas marcados como públicos pasan por revisión. Los privados son suyos al instante.</div>
+<div class="sect">Públicos</div>
+<div class="qrow"><div class="f1"><div class="st">Ecología integral</div><div class="sx" style="margin-top:4px">Enviado hace 2 días</div></div><span class="pill p-rev">En revisión</span></div>
+<div class="qrow"><div class="f1"><div class="st">La esperanza cristiana</div><div class="sx" style="margin-top:4px">Publicado · 218 descargas</div></div><span class="pill p-ok">Aprobado</span></div>
+<div class="qrow"><div class="f1"><div class="st">Lectura rápida del Concilio</div><div class="sx" style="margin-top:4px">Requiere citas completas en §2</div></div><span class="pill p-no">Cambios</span></div>
+<div class="sect">Privados</div>
+<div class="qrow" style="border-bottom:none"><div class="f1"><div class="st">Apuntes de catequesis</div><div class="sx" style="margin-top:4px">Solo en este dispositivo</div></div><span class="chev">›</span></div>
+</div></div>
+</div>
+<div class="opt" id="6b">
+<span class="badge">6B · CAMBIOS SOLICITADOS</span>
+<div class="frame">
+<div class="fbar"><span class="fs14" style="cursor:pointer">← Mis temas</span><span class="pill p-no">Cambios</span></div>
+<div class="dcover" style="padding:26px 24px">
+<div class="dkind">Tema público</div>
+<div class="dtitle" style="font-size:26px">Lectura rápida del Concilio</div>
+<div class="dsub">Enviado el 8 · VII · 2026</div>
+</div>
+<div class="fbody">
+<div class="sect" style="margin-top:2px">Observaciones del revisor</div>
+<div class="revnote"><b>§2 — El Evangelio de la creación:</b> las citas de Dei Verbum deben incluir el numeral completo (DV 11, no «cap. 11»). Corrija y vuelva a enviar.</div>
+<div class="revnote" style="margin-top:10px"><b>Título:</b> evitar «rápida»; sugerimos «Guía breve del Concilio».</div>
+<div class="fs12 muted" style="margin-top:12px">Revisado por Admin · Diócesis · hace 1 día</div>
+<button class="primary" style="margin-top:auto">Editar y reenviar</button>
+<button class="gbtn" style="margin-top:10px">Mantener como privado</button>
+</div></div>
+</div>
+<div class="opt" id="6c">
+<span class="badge">6C · WEB · COLA DE REVISIÓN (ADMIN)</span>
+<div class="web" style="min-height:620px">
+<div class="wbar"><span class="wmark">DV</span><span class="wname">Documentos Vaticanos</span><span class="pill p-rev" style="margin-left:4px">Admin</span><span class="wlink">Temas publicados</span><span class="wlink on">Revisión</span><span class="wlink">Reportes</span><input class="wsearch" type="search" placeholder="Buscar tema o autor…"><span class="dot">AD</span></div>
+<div class="wmain">
+<div class="wside"><span class="sitem on">Pendientes · 3</span><span class="sitem">Con cambios · 1</span><span class="sitem">Aprobados</span><span class="sitem">Rechazados</span></div>
+<div class="wbody">
+<div class="fx ac jb" style="margin-bottom:8px"><h2 class="h2">Cola de revisión</h2><span class="fs13 muted">Solo temas marcados como públicos</span></div>
+<div class="qrow"><div class="f1"><div class="st">Ecología integral</div><div class="sx" style="margin-top:4px">P. Ramón Ortega · 12 págs · referencias: LS, GS, Catecismo</div></div><span class="fs12 muted">hace 2 días</span><span class="pill p-rev">Pendiente</span><span class="chev">›</span></div>
+<div class="qrow"><div class="f1"><div class="st">María en los concilios</div><div class="sx" style="margin-top:4px">Hna. Lucía Táboas · 8 págs · referencias: LG, CIC</div></div><span class="fs12 muted">hace 3 días</span><span class="pill p-rev">Pendiente</span><span class="chev">›</span></div>
+<div class="qrow"><div class="f1"><div class="st">Doctrina social en 7 claves</div><div class="sx" style="margin-top:4px">Diác. Andrés Peña · 15 págs · referencias: RN, LS, EG</div></div><span class="fs12 muted">hace 5 días</span><span class="pill p-rev">Pendiente</span><span class="chev">›</span></div>
+<div class="qrow" style="border-bottom:none"><div class="f1"><div class="st">Lectura rápida del Concilio</div><div class="sx" style="margin-top:4px">P. Ramón Ortega · devuelto con observaciones</div></div><span class="fs12 muted">hace 1 día</span><span class="pill p-no">Cambios</span><span class="chev">›</span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="opt" id="6d">
+<span class="badge">6D · WEB · REVISAR TEMA (ADMIN)</span>
+<div class="web">
+<div class="wbar"><span class="wmark">DV</span><span class="wname">Documentos Vaticanos</span><span class="pill p-rev" style="margin-left:4px">Admin</span><span class="wlink">Temas publicados</span><span class="wlink on">Revisión</span><span class="wlink">Reportes</span><input class="wsearch" type="search" placeholder="Buscar…"><span class="dot">AD</span></div>
+<div class="wmain"><div class="wbody">
+<div class="fs13" style="margin-bottom:16px"><a href="#6d">← Cola de revisión</a></div>
+<div class="wcols">
+<div style="flex:1;max-width:640px">
+<div class="fx ac gap12"><span class="pill p-rev">Pendiente</span><span class="fs12 muted">Enviado hace 2 días · 1ª revisión</span></div>
+<div class="serif fw6" style="font-size:32px;line-height:1.15;margin:12px 0 6px">Ecología integral</div>
+<div class="fs14 muted">P. Ramón Ortega · Parroquia S. José · 12 págs · 4 documentos citados</div>
+<div class="tsec">1 · Todo está conectado</div>
+<div class="tbody muted">El punto de partida es la unidad de lo creado: no hay dos crisis separadas, sino una sola crisis socioambiental…</div>
+<div class="refcard"><span class="refn">LS 91</span><span class="f1">«Todo está conectado. Por eso se requiere una preocupación…»</span><span class="fs12" style="color:var(--ok)">✓ cita verificada</span></div>
+<div class="refcard"><span class="refn">GS 1</span><span class="f1">«Los gozos y las esperanzas de los hombres de nuestro tiempo…»</span><span class="fs12" style="color:var(--ok)">✓ cita verificada</span></div>
+<div class="tsec">2 · El Evangelio de la creación</div>
+<div class="refcard"><span class="refn">LS 67</span><span class="f1">«No somos Dios. La tierra nos precede y nos ha sido dada…»</span><span class="fs12" style="color:var(--ok)">✓ cita verificada</span></div>
+</div>
+<div style="width:330px;flex-shrink:0">
+<div class="card">
+<div class="fs12 upper muted" style="letter-spacing:.14em">Decisión</div>
+<button class="primary" style="padding:12px">Aprobar y publicar</button>
+<button class="gbtn" style="margin-top:10px;padding:12px">Solicitar cambios</button>
+<button class="gbtn" style="margin-top:10px;padding:12px;color:#b0563a">Rechazar</button>
+</div>
+<div class="sect">Observaciones al autor</div>
+<textarea class="notearea" placeholder="Visible para el autor si solicita cambios o rechaza…"></textarea>
+<div class="sect">Verificaciones</div>
+<div class="fs13" style="line-height:2;color:var(--ok)">✓ 4/4 citas coinciden con los documentos<br>✓ Sin contenido externo enlazado</div>
+<div class="fs12 muted" style="margin-top:10px">La decisión se notifica al autor. Los temas privados nunca pasan por aquí.</div>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+</section>
+<section class="row turn">
+<div class="opt" id="5a">
+<span class="badge">5A · WEB · ACCESO</span>
+<div class="web" style="min-height:620px">
+<div class="wbar"><span class="wmark">DV</span><span class="wname">Documentos Vaticanos</span><span class="wlink" style="margin-left:auto">¿Aún no tiene cuenta? <a href="#5a">Crear cuenta</a></span></div>
+<div class="wmain" style="align-items:center;justify-content:center">
+<div style="width:360px;padding:40px 0">
+<div class="tc serif fw6" style="font-size:26px">Bienvenido de nuevo</div>
+<div class="tc fs14 muted" style="margin:8px 0 24px">Su biblioteca, su progreso y sus notas</div>
+<button class="gbtn"><svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"></path><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18z"></path><path fill="#FBBC05" d="M3.97 10.72a5.4 5.4 0 0 1 0-3.44V4.95H.96a9 9 0 0 0 0 8.1l3.01-2.33z"></path><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.59A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z"></path></svg>Continuar con Google</button>
+<div class="divider">o con su correo</div>
+<input class="field" type="email" placeholder="Correo electrónico">
+<div style="height:10px"></div>
+<input class="field" type="password" placeholder="Contraseña">
+<button class="primary">Entrar</button>
+<div class="tc fs13" style="margin-top:16px"><a href="#5a">¿Olvidó su contraseña?</a></div>
+</div>
+</div>
+</div>
+</div>
+<div class="opt" id="5b">
+<span class="badge">5B · WEB · BIBLIOTECA</span>
+<div class="web">
+<div class="wbar"><span class="wmark">DV</span><span class="wname">Documentos Vaticanos</span><span class="wlink">Inicio</span><span class="wlink on">Biblioteca</span><span class="wlink">Estudio</span><span class="wlink">Padres</span><span class="wlink">Temas</span><input class="wsearch" type="search" placeholder="Buscar…"><span class="dot">MA</span></div>
+<div class="wmain">
+<div class="wside">
+<span class="sitem on">Todos</span><span class="sitem">Concilio Vaticano II</span><span class="sitem">Encíclicas</span><span class="sitem">Exhortaciones</span><span class="sitem">Catecismo</span><span class="sitem">Padres de la Iglesia</span>
+<div class="sect" style="margin:22px 12px 8px">Mi lectura</div>
+<span class="sitem">Continuar · LS 17</span><span class="sitem">Marcadores</span><span class="sitem">Mis notas</span>
+</div>
+<div class="wbody">
+<div class="fx ac jb" style="margin-bottom:18px"><h2 class="h2">Biblioteca</h2><span class="fs13 muted">21 documentos · todos disponibles sin conexión</span></div>
+<div class="cardgrid">
+<div class="bookcard"><span class="bkind">Catecismo</span><span class="bt">Catecismo de la Iglesia Católica</span><span class="bm">Juan Pablo II · 1997</span><div class="prog"><div class="progfill" style="width:42%"></div></div></div>
+<div class="bookcard"><span class="bkind">Concilio</span><span class="bt">Dei Verbum</span><span class="bm">1965 · 26 numerales</span></div>
+<div class="bookcard"><span class="bkind">Concilio</span><span class="bt">Lumen Gentium</span><span class="bm">1964 · 69 numerales</span></div>
+<div class="bookcard"><span class="bkind">Concilio</span><span class="bt">Gaudium et Spes</span><span class="bm">1965 · 93 numerales</span></div>
+<div class="bookcard"><span class="bkind">Exhortación</span><span class="bt">Evangelii Gaudium</span><span class="bm">Francisco · 2013</span></div>
+<div class="bookcard"><span class="bkind">Encíclica</span><span class="bt">Laudato Si'</span><span class="bm">Francisco · 2015</span><div class="prog"><div class="progfill" style="width:7%"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="opt" id="5c">
+<span class="badge">5C · WEB · DETALLE</span>
+<div class="web">
+<div class="wbar"><span class="wmark">DV</span><span class="wname">Documentos Vaticanos</span><span class="wlink">Inicio</span><span class="wlink on">Biblioteca</span><span class="wlink">Estudio</span><span class="wlink">Padres</span><span class="wlink">Temas</span><input class="wsearch" type="search" placeholder="Buscar…"><span class="dot">MA</span></div>
+<div class="wmain"><div class="wbody">
+<div class="fs13" style="margin-bottom:20px"><a href="#5c">← Biblioteca</a></div>
+<div class="wcols">
+<div style="flex:1;max-width:620px">
+<div class="dkind">Encíclica · 2015</div>
+<div class="serif fw6" style="font-size:40px;line-height:1.1;margin:12px 0 8px">Laudato Si'</div>
+<div class="dsub" style="font-size:19px">Sobre el cuidado de la casa común</div>
+<div class="fx gap8" style="margin-top:24px"><button class="primary" style="margin:0;width:auto;padding:13px 26px">Comenzar la lectura</button><button class="gbtn" style="width:auto;padding:13px 20px">▶ Escuchar con narrador</button><span class="iconb" style="width:46px;height:46px;border-radius:10px">♡</span></div>
+<div class="meta2" style="max-width:480px">
+<div class="mcell"><div class="mk">Autor</div><div class="mv">Francisco</div></div>
+<div class="mcell"><div class="mk">Fecha</div><div class="mv">24 · V · 2015</div></div>
+<div class="mcell"><div class="mk">Capítulos</div><div class="mv">6 · 246 numerales</div></div>
+<div class="mcell"><div class="mk">Audio</div><div class="mv">≈ 5 h narradas</div></div>
+</div>
+</div>
+<div style="width:340px;flex-shrink:0">
+<div class="sect" style="margin-top:4px">Índice</div>
+<div class="toc"><span class="tnum">—</span><span>Introducción</span></div>
+<div class="toc"><span class="tnum">I</span><span>Lo que le está pasando a nuestra casa</span></div>
+<div class="toc"><span class="tnum">II</span><span>El Evangelio de la creación</span></div>
+<div class="toc"><span class="tnum">III</span><span>Raíz humana de la crisis ecológica</span></div>
+<div class="toc"><span class="tnum">IV</span><span>Una ecología integral</span></div>
+<div class="toc"><span class="tnum">V</span><span>Líneas de orientación y acción</span></div>
+<div class="toc"><span class="tnum">VI</span><span>Educación y espiritualidad ecológica</span></div>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="opt" id="5d">
+<span class="badge">5D · WEB · LECTURA + NARRADOR</span>
+<div class="web rpaper">
+<div class="wbar" style="background:var(--bg)"><span class="wmark">DV</span><span class="fs13 muted">Laudato Si' · Capítulo I</span><span class="wlink" style="margin-left:auto">Índice</span><span class="wlink">Marcadores</span><span class="iconb serif" style="width:34px;height:34px">Aa</span></div>
+<div class="wmain"><div class="wbody" style="padding:44px 36px">
+<div class="rcolw">
+<div class="rhead">Capítulo primero · Nº 17–19</div>
+<div class="rtxt">
+<p><b>17.</b> Las reflexiones teológicas o filosóficas sobre la situación de la humanidad y del mundo pueden sonar a mensaje repetido y abstracto si no se presentan nuevamente a partir de una confrontación con el contexto actual, en lo que tiene de inédito para la historia de la humanidad.</p>
+<p><span class="selx"><b>18.</b> A la continua aceleración de los cambios de la humanidad y del planeta se une hoy la intensificación de ritmos de vida y de trabajo, en eso que algunos llaman «rapidación».</span></p>
+<p><b>19.</b> Después de un tiempo de confianza irracional en el progreso y en la capacidad humana, una parte de la sociedad está entrando en una etapa de mayor conciencia.</p>
+</div>
+<div class="fs12 muted tc" style="margin-top:20px">· scroll infinito — el capítulo continúa al desplazar · el narrador resalta el numeral en curso ·</div>
+</div>
+</div></div>
+<div class="narr"><button class="play">▶</button><div><div class="fs13 fw5" style="white-space:nowrap">Narrador</div><div class="nlabel">Nº 18 de 246 · voz Diego</div></div><div class="nline"><div class="nfill" style="width:8%"></div></div><span class="nlabel">22:41 / 5:04:10</span><span class="npill">1.0×</span><span class="npill">Voz</span><span class="npill">Dormir</span></div>
+</div>
+</div>
+<div class="opt" id="5e">
+<span class="badge">5E · WEB · ESTUDIO</span>
+<div class="web">
+<div class="wbar"><span class="wmark">DV</span><span class="wname">Documentos Vaticanos</span><span class="wlink">Inicio</span><span class="wlink">Biblioteca</span><span class="wlink on">Estudio</span><span class="wlink">Padres</span><span class="wlink">Temas</span><input class="wsearch" type="search" placeholder="Buscar…"><span class="dot">MA</span></div>
+<div class="wmain"><div class="wbody">
+<div class="fs13 muted">Buenos días, María</div>
+<div class="greet" style="font-size:30px">Continúe donde lo dejó</div>
+<div class="wcols">
+<div style="flex:1.4">
+<div class="card">
+<div class="fx ac jb"><div class="fs12 upper muted" style="letter-spacing:.14em">Lectura en curso</div><span class="fs12" style="color:var(--ok)">42 %</span></div>
+<div class="serif fw6" style="font-size:22px;margin-top:6px">Catecismo · Laetamur Magnopere</div>
+<div class="prog"><div class="progfill" style="width:42%"></div></div>
+<div class="fx gap8" style="margin-top:16px"><button class="primary" style="margin:0;width:auto;padding:11px 20px;font-size:14px">Continuar</button><button class="gbtn" style="width:auto;padding:11px 16px;font-size:14px">▶ Narrador</button></div>
+</div>
+<div class="sect">Curso activo · 3 de 12</div>
+<div class="lrow"><span class="lnum done">✓</span><span>Estructura en cuatro partes</span><span class="chev fs12">Hecho</span></div>
+<div class="lrow"><span class="lnum">4</span><span class="fw5">La profesión de la fe</span><span class="chev fs12" style="color:var(--acc)">Siguiente</span></div>
+<div class="lrow"><span class="lnum">5</span><span class="muted">La celebración del misterio</span></div>
+</div>
+<div style="flex:1">
+<div class="sect" style="margin-top:0">Planes de estudio</div>
+<div class="mrow"><span class="avatar">8</span><div><div class="mname">Concilio Vaticano II</div><div class="mmeta">8 semanas · 4 constituciones</div></div><span class="chev">›</span></div>
+<div class="mrow"><span class="avatar">5</span><div><div class="mname">La esperanza cristiana</div><div class="mmeta">5 días · Spe Salvi + Catecismo</div></div><span class="chev">›</span></div>
+<div class="sect">Temas frecuentes</div>
+<div class="chips"><span class="chip">Fe</span><span class="chip">Liturgia</span><span class="chip">Oración</span><span class="chip">Moral</span><span class="chip">Doctrina social</span><span class="chip">Esperanza</span></div>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="opt" id="5f">
+<span class="badge">5F · WEB · PADRES</span>
+<div class="web">
+<div class="wbar"><span class="wmark">DV</span><span class="wname">Documentos Vaticanos</span><span class="wlink">Inicio</span><span class="wlink">Biblioteca</span><span class="wlink">Estudio</span><span class="wlink on">Padres</span><span class="wlink">Temas</span><input class="wsearch" type="search" placeholder="Buscar…"><span class="dot">MA</span></div>
+<div class="wmain"><div class="wbody">
+<h2 class="h2">Padres de la Iglesia</h2>
+<div class="fs14 muted" style="margin:8px 0 6px;max-width:70ch">Los primeros maestros de la fe: sus vidas y sus obras esenciales, incluidas en la biblioteca.</div>
+<div class="era">Padres apostólicos · s. I–II</div>
+<div class="cardgrid">
+<div class="bookcard"><span class="bt">Ignacio de Antioquía</span><span class="bm">† 107 · 7 cartas</span></div>
+<div class="bookcard"><span class="bt">Policarpo de Esmirna</span><span class="bm">† 155 · Carta a los Filipenses</span></div>
+<div class="bookcard"><span class="bt">Clemente de Roma</span><span class="bm">† 99 · Carta a los Corintios</span></div>
+</div>
+<div class="era">Padres latinos · s. IV–V</div>
+<div class="cardgrid">
+<div class="bookcard"><span class="bt">Agustín de Hipona</span><span class="bm">† 430 · Confesiones · La ciudad de Dios</span></div>
+<div class="bookcard"><span class="bt">Jerónimo</span><span class="bm">† 420 · La Vulgata</span></div>
+<div class="bookcard"><span class="bt">Ambrosio de Milán</span><span class="bm">† 397 · Sobre los sacramentos</span></div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="opt" id="5g">
+<span class="badge">5G · WEB · TEMA DE MAESTRO</span>
+<div class="web">
+<div class="wbar"><span class="wmark">DV</span><span class="wname">Documentos Vaticanos</span><span class="wlink">Inicio</span><span class="wlink">Biblioteca</span><span class="wlink">Estudio</span><span class="wlink">Padres</span><span class="wlink on">Temas</span><input class="wsearch" type="search" placeholder="Buscar…"><span class="dot">MA</span></div>
+<div class="wmain"><div class="wbody">
+<div class="fs13" style="margin-bottom:18px"><a href="#5g">← Temas de la comunidad</a></div>
+<div class="wcols">
+<div style="flex:1;max-width:660px">
+<div class="dkind">Tema compartido</div>
+<div class="serif fw6" style="font-size:34px;line-height:1.15;margin:10px 0 6px">Ecología integral</div>
+<div class="fs14 muted">por P. Ramón Ortega · 12 págs · 4 documentos citados · 218 descargas</div>
+<div class="tsec">1 · Todo está conectado</div>
+<div class="tbody muted">El punto de partida es la unidad de lo creado: no hay dos crisis separadas, sino una sola crisis socioambiental. La respuesta exige una aproximación integral…</div>
+<div class="refcard"><span class="refn">LS 91</span><span class="f1">«Todo está conectado. Por eso se requiere una preocupación…»</span><span class="chev">›</span></div>
+<div class="refcard"><span class="refn">GS 1</span><span class="f1">«Los gozos y las esperanzas de los hombres de nuestro tiempo…»</span><span class="chev">›</span></div>
+<div class="tsec">2 · El Evangelio de la creación</div>
+<div class="tbody muted">La mirada bíblica sobre el mundo creado como don, no como propiedad…</div>
+<div class="refcard"><span class="refn">LS 67</span><span class="f1">«No somos Dios. La tierra nos precede y nos ha sido dada…»</span><span class="chev">›</span></div>
+</div>
+<div style="width:320px;flex-shrink:0">
+<div class="card">
+<div class="fs13" style="line-height:1.6">Disponible para toda la comunidad. Al descargarlo queda en su dispositivo con sus referencias.</div>
+<button class="primary" style="padding:12px">Descargar tema</button>
+<button class="gbtn" style="margin-top:10px;padding:12px">▶ Escuchar con narrador</button>
+</div>
+<div class="sect">Referencias</div>
+<div class="fs13 muted" style="line-height:2">Laudato Si' — Nº 67, 91<br>Gaudium et Spes — Nº 1<br>Catecismo — Nº 2415</div>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="opt" id="5h">
+<span class="badge">5H · WEB · NOTAS</span>
+<div class="web" style="min-height:620px">
+<div class="wbar"><span class="wmark">DV</span><span class="wname">Documentos Vaticanos</span><span class="wlink">Inicio</span><span class="wlink">Biblioteca</span><span class="wlink on">Estudio</span><span class="wlink">Padres</span><span class="wlink">Temas</span><input class="wsearch" type="search" placeholder="Buscar…"><span class="dot">MA</span></div>
+<div class="wmain">
+<div class="wside"><span class="sitem">Continuar lectura</span><span class="sitem on">Mis notas</span><span class="sitem">Marcadores</span><span class="sitem">Mis temas publicados</span></div>
+<div class="wbody">
+<div class="fx ac jb" style="margin-bottom:16px"><h2 class="h2">Mis notas</h2><div class="fx gap8"><button class="gbtn" style="width:auto;padding:10px 16px;font-size:13px">Exportar</button><button class="primary" style="margin:0;width:auto;padding:10px 16px;font-size:13px">Publicar como tema</button></div></div>
+<div class="fs12 muted" style="margin-bottom:14px">Guardadas en este dispositivo · solo usted las ve hasta publicarlas</div>
+<div class="notecard"><div class="fs14" style="line-height:1.6"><span class="hl">«Todo está conectado»</span> — Relación directa con GS 1: no hay ecología sin fraternidad.</div><div class="nsrc">Laudato Si' · Nº 91 · hace 3 días</div></div>
+<div class="notecard"><div class="fs14" style="line-height:1.6"><span class="hl">«La esperanza es la virtud teologal por la que aspiramos al Reino»</span></div><div class="nsrc">Catecismo · Nº 1817 · ayer</div></div>
+<div class="notecard"><div class="fs14" style="line-height:1.6"><span class="hl">«Nuestro corazón está inquieto hasta que descanse en ti»</span></div><div class="nsrc">Confesiones · I, 1 · hace 1 semana</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="row turn">
+<div class="opt" id="4a">
+<span class="badge">4A · SELECCIÓN DE TEXTO</span>
+<div class="frame rpaper">
+<div class="fbar"><span class="fs14" style="cursor:pointer">←</span><span class="fs13 muted">Laudato Si' · Cap. II</span><span class="iconb serif">Aa</span></div>
+<div class="fbody">
+<div class="rhead">Nº 91</div>
+<div class="rtxt posrel">
+<p><b>91.</b> No puede ser real un sentimiento de íntima unión con los demás seres de la naturaleza si al mismo tiempo en el corazón no hay ternura, compasión y preocupación por los seres humanos. <span class="selx">Todo está conectado. Por eso se requiere una preocupación por el ambiente unida al amor sincero hacia los seres humanos</span> y a un constante compromiso ante los problemas de la sociedad.</p>
+<div class="pop" style="top:-8px"><button class="popb">Subrayar</button><button class="popb">Nota</button><button class="popb">Copiar</button><button class="popb">Compartir</button></div>
+</div>
+<div class="fs12 muted tc" style="margin-top:auto">Mantener pulsado para seleccionar</div>
+</div></div>
+</div>
+<div class="opt" id="4b">
+<span class="badge">4B · CREAR NOTA</span>
+<div class="frame rpaper">
+<div class="fbar"><span class="fs14" style="cursor:pointer">←</span><span class="fs13 muted">Laudato Si' · Cap. II</span><span class="iconb serif">Aa</span></div>
+<div class="fbody" style="padding:28px 24px 0">
+<div class="rtxt" style="opacity:.45"><p><b>91.</b> No puede ser real un sentimiento de íntima unión con los demás seres de la naturaleza…</p></div>
+</div>
+<div class="sheet">
+<div class="grab"></div>
+<div class="fs12 upper muted" style="letter-spacing:.14em">Nueva nota · privada</div>
+<div class="quote" style="font-size:15px;margin-top:10px">«Todo está conectado…»</div>
+<div class="fs12 muted" style="margin-top:6px">Laudato Si' · Nº 91</div>
+<textarea class="notearea" style="margin-top:14px" placeholder="Escriba su reflexión…">Relación directa con GS 1: no hay ecología sin fraternidad.</textarea>
+<div class="fx gap8" style="margin-top:14px"><button class="gbtn" style="width:auto;flex:1;padding:12px">Solo subrayar</button><button class="primary" style="margin:0;flex:1;padding:12px">Guardar nota</button></div>
+<div class="fs12 muted tc" style="margin-top:12px">Las notas se guardan en este dispositivo</div>
+</div></div>
+</div>
+<div class="opt" id="4c">
+<span class="badge">4C · TEMA DE MAESTRO</span>
+<div class="frame">
+<div class="fbar"><span class="fs14" style="cursor:pointer">← Temas</span><span class="iconb">⇪</span></div>
+<div class="dcover">
+<div class="dkind">Tema compartido</div>
+<div class="dtitle">Ecología integral</div>
+<div class="dsub">por P. Ramón Ortega · 12 págs · 4 documentos citados</div>
+</div>
+<div class="fbody">
+<div class="dlbar"><span class="fs13 f1" style="line-height:1.5">Disponible para toda la comunidad</span><button class="primary" style="margin:0;width:auto;padding:10px 18px;font-size:14px">Descargar</button></div>
+<div class="tsec">1 · Todo está conectado</div>
+<div class="tbody muted">El punto de partida es la unidad de lo creado: no hay dos crisis separadas, sino una sola crisis socioambiental…</div>
+<div class="refcard"><span class="refn">LS 91</span><span class="f1">«Todo está conectado. Por eso se requiere una preocupación…»</span><span class="chev">›</span></div>
+<div class="refcard"><span class="refn">GS 1</span><span class="f1">«Los gozos y las esperanzas de los hombres de nuestro tiempo…»</span><span class="chev">›</span></div>
+<div class="tsec">2 · El Evangelio de la creación</div>
+<div class="tbody muted">La mirada bíblica sobre el mundo creado como don, no como propiedad…</div>
+<div class="refcard"><span class="refn">LS 67</span><span class="f1">«No somos Dios. La tierra nos precede y nos ha sido dada…»</span><span class="chev">›</span></div>
+</div></div>
+</div>
+<div class="opt" id="4d">
+<span class="badge">4D · PUBLICAR TEMA (MAESTRO)</span>
+<div class="frame">
+<div class="fbar"><span class="fs14" style="cursor:pointer">← Mis notas</span><span class="ftitle" style="font-size:16px">Nuevo tema</span><span style="width:34px"></span></div>
+<div class="fbody">
+<div class="flabel" style="margin-top:0">Título del tema</div>
+<input class="field" type="text" value="Ecología integral">
+<div class="flabel">Introducción</div>
+<textarea class="notearea" placeholder="Presente el tema…">Recorrido en dos pasos por Laudato Si' para grupos parroquiales.</textarea>
+<div class="sect">Secciones · desde sus notas</div>
+<div class="notecard"><div class="fw5 fs14">1 · Todo está conectado</div><div class="nsrc">2 notas · referencias LS 91, GS 1</div></div>
+<div class="notecard"><div class="fw5 fs14">2 · El Evangelio de la creación</div><div class="nsrc">1 nota · referencia LS 67</div></div>
+<button class="gbtn" style="margin-top:2px">+ Añadir sección desde notas</button>
+<div class="setrow" style="margin-top:10px"><span class="setk">Visible para la comunidad<span class="seth">Se enviará a revisión antes de publicarse</span></span><span class="sw2 on"></span></div>
+<button class="primary">Enviar a revisión</button>
+</div></div>
+</div>
+</section>
+<section class="row turn">
+<div class="opt" id="3a">
+<span class="badge">3A · BIENVENIDA</span>
+<div class="frame"><div class="fbody" style="justify-content:center;text-align:center">
+<div class="mark" style="margin-top:0">DV</div>
+<div class="serif fw6" style="font-size:28px;line-height:1.2">Los grandes textos,<br>para leer con calma</div>
+<p class="fs14 muted" style="line-height:1.7;max-width:30ch;margin:16px auto 0">Concilios, encíclicas, el Catecismo y los Padres de la Iglesia. Sin distracciones, también sin conexión.</p>
+<div class="dots"><span class="dotp on"></span><span class="dotp"></span><span class="dotp"></span></div>
+<button class="primary" style="margin-top:8px">Empezar</button>
+<div class="fs13" style="margin-top:16px"><a href="#3a">Ya tengo cuenta</a></div>
+</div></div>
+</div>
+<div class="opt" id="3b">
+<span class="badge">3B · CREAR CUENTA</span>
+<div class="frame"><div class="fbody">
+<div class="fs14" style="cursor:pointer;margin-bottom:18px">← Volver</div>
+<div class="serif fw6" style="font-size:26px">Crear cuenta</div>
+<div class="fs14 muted" style="margin:8px 0 20px">Para guardar su progreso y sus notas en todos sus dispositivos.</div>
+<button class="gbtn"><svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"></path><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18z"></path><path fill="#FBBC05" d="M3.97 10.72a5.4 5.4 0 0 1 0-3.44V4.95H.96a9 9 0 0 0 0 8.1l3.01-2.33z"></path><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.59A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z"></path></svg>Registrarse con Google</button>
+<div class="divider">o con su correo</div>
+<div class="flabel" style="margin-top:0">Nombre</div>
+<input class="field" type="text" placeholder="María Aguilar">
+<div class="flabel">Correo electrónico</div>
+<input class="field" type="email" placeholder="nombre@ejemplo.com">
+<div class="flabel">Contraseña</div>
+<input class="field" type="password" placeholder="Mínimo 8 caracteres">
+<button class="primary">Crear cuenta</button>
+<div class="tc fs12 muted" style="margin-top:16px;line-height:1.6">Al continuar acepta los <a href="#3b">términos</a> y la <a href="#3b">política de privacidad</a>.</div>
+</div></div>
+</div>
+<div class="opt" id="3c">
+<span class="badge">3C · RECUPERAR CONTRASEÑA</span>
+<div class="frame"><div class="fbody">
+<div class="fs14" style="cursor:pointer;margin-bottom:18px">← Volver</div>
+<div class="serif fw6" style="font-size:26px">Recuperar contraseña</div>
+<div class="fs14 muted" style="margin:8px 0 20px;line-height:1.6">Le enviaremos un enlace para restablecerla.</div>
+<div class="flabel" style="margin-top:0">Correo electrónico</div>
+<input class="field" type="email" placeholder="nombre@ejemplo.com">
+<button class="primary">Enviar enlace</button>
+<div class="card" style="margin-top:22px;border-color:var(--acc)">
+<div class="fs13" style="line-height:1.6"><b>Enlace enviado.</b> Revise su bandeja de entrada; el enlace caduca en 30 minutos.</div>
+</div>
+</div></div>
+</div>
+<div class="opt" id="3d">
+<span class="badge">3D · BIBLIOTECA</span>
+<div class="frame">
+<div class="fbar"><span class="ftitle">Biblioteca</span><span class="dot">MA</span></div>
+<div class="fbody" style="padding-bottom:0">
+<input class="field" type="search" placeholder="Buscar por título, autor o tema…">
+<div class="tabs" style="margin-top:18px"><span class="tab on">Todos</span><span class="tab">Concilios</span><span class="tab">Encíclicas</span><span class="tab">Padres</span></div>
+<div class="srow"><span class="st">Catecismo de la Iglesia Católica</span><span class="sx">Catecismo · Juan Pablo II · 1997</span></div>
+<div class="srow"><span class="st">Dei Verbum</span><span class="sx">Concilio Vaticano II · 1965</span></div>
+<div class="srow"><span class="st">Lumen Gentium</span><span class="sx">Concilio Vaticano II · 1964</span></div>
+<div class="srow"><span class="st">Evangelii Gaudium</span><span class="sx">Exhortación · Francisco · 2013</span></div>
+<div class="srow" style="border-bottom:none"><span class="st">Laudato Si'</span><span class="sx">Encíclica · Francisco · 2015</span></div>
+</div>
+<div class="bnav"><span class="bitem"><span class="bico">⌂</span>Inicio</span><span class="bitem on"><span class="bico">▤</span>Biblioteca</span><span class="bitem"><span class="bico">✎</span>Estudio</span><span class="bitem"><span class="bico">☰</span>Ajustes</span></div>
+</div>
+</div>
+<div class="opt" id="3e">
+<span class="badge">3E · BÚSQUEDA</span>
+<div class="frame">
+<div class="fbar"><span class="fs14" style="cursor:pointer">←</span><span class="ftitle">Buscar</span><span style="width:34px"></span></div>
+<div class="fbody">
+<input class="field" type="search" value="esperanza">
+<div class="fs12 muted" style="margin:14px 0 4px">14 resultados en 5 documentos</div>
+<div class="srow"><span class="st">Spe Salvi · Nº 2</span><span class="sx">…la <b class="hl">esperanza</b> cristiana no es individualista, abraza a todos…</span></div>
+<div class="srow"><span class="st">Catecismo · Nº 1817</span><span class="sx">…la <b class="hl">esperanza</b> es la virtud teologal por la que aspiramos…</span></div>
+<div class="srow"><span class="st">Evangelii Gaudium · Nº 86</span><span class="sx">…sembradores de <b class="hl">esperanza</b> aun en medio de la aridez…</span></div>
+<div class="srow" style="border-bottom:none"><span class="st">Gaudium et Spes · Nº 1</span><span class="sx">…los gozos y las <b class="hl">esperanzas</b> de los hombres de nuestro tiempo…</span></div>
+</div></div>
+</div>
+<div class="opt" id="3f">
+<span class="badge">3F · AJUSTES DE LECTURA</span>
+<div class="frame rpaper">
+<div class="fbar"><span class="fs14" style="cursor:pointer">←</span><span class="fs13 muted">Laudato Si' · Cap. I</span><span class="iconb serif" style="border-color:var(--acc);color:var(--acc)">Aa</span></div>
+<div style="background:var(--bg);border-bottom:1px solid var(--line);padding:18px 24px">
+<div class="flabel" style="margin-top:0">Tamaño del texto</div>
+<div class="stepbtn"><span class="szbtn">A−</span><span class="szbtn on">18</span><span class="szbtn">A+</span></div>
+<div class="flabel">Tema</div>
+<div class="stepbtn"><span class="szbtn on">Sepia</span><span class="szbtn">Claro</span><span class="szbtn">Oscuro</span><span class="szbtn">Sistema</span></div>
+<div class="flabel">Fuente</div>
+<div class="stepbtn"><span class="szbtn on serif">Serif</span><span class="szbtn">Sans</span></div>
+<div class="setrow" style="border-bottom:none;padding-bottom:2px"><span>Mantener pantalla encendida</span><span class="sw2 on"></span></div>
+</div>
+<div class="fbody">
+<div class="rtxt" style="font-size:15px;opacity:.55"><p><b>17.</b> Las reflexiones teológicas o filosóficas sobre la situación de la humanidad y del mundo pueden sonar a mensaje repetido y abstracto…</p></div>
+</div></div>
+</div>
+<div class="opt" id="3g">
+<span class="badge">3G · NOTAS Y MARCADORES</span>
+<div class="frame">
+<div class="fbar"><span class="ftitle">Mis notas</span><span class="dot">MA</span></div>
+<div class="fbody">
+<div class="tabs"><span class="tab on">Subrayados</span><span class="tab">Marcadores</span><span class="tab">Notas</span></div>
+<div style="margin-top:16px">
+<div class="notecard"><div class="fs14" style="line-height:1.6"><span class="hl">«La esperanza es la virtud teologal por la que aspiramos al Reino de los cielos»</span></div><div class="nsrc">Catecismo · Nº 1817 · ayer</div></div>
+<div class="notecard"><div class="fs14" style="line-height:1.6"><span class="hl">«Todo está conectado»</span></div><div class="nsrc">Laudato Si' · Nº 91 · hace 3 días</div></div>
+<div class="notecard"><div class="fs14" style="line-height:1.6"><span class="hl">«Nuestro corazón está inquieto hasta que descanse en ti»</span></div><div class="nsrc">Confesiones · I, 1 · hace 1 semana</div></div>
+</div>
+<div class="fs13 tc" style="margin-top:8px"><a href="#3g">Exportar todas las notas</a></div>
+</div></div>
+</div>
+<div class="opt" id="3h">
+<span class="badge">3H · PERFIL Y AJUSTES</span>
+<div class="frame">
+<div class="fbar"><span class="ftitle">Ajustes</span><span style="width:34px"></span></div>
+<div class="fbody" style="padding-bottom:0">
+<div class="fx ac gap16" style="padding:6px 0 18px">
+<span class="avatar" style="width:54px;height:54px;font-size:19px">MA</span>
+<div><div class="fw5 fs15">María Aguilar</div><div class="fs13 muted" style="margin-top:3px">maria@ejemplo.com · Google</div></div>
+</div>
+<div class="sect" style="margin-top:6px">Apariencia</div>
+<div class="setrow"><span class="setk">Tema de la aplicación<span class="seth">Claro, oscuro o según el sistema</span></span><span class="fs13" style="color:var(--acc)">Sistema ›</span></div>
+<div class="sect">Lectura</div>
+<div class="offok hair">✓<span style="color:var(--ink)">Todos los documentos vienen incluidos en la app — no requiere conexión</span></div>
+<div class="setrow"><span class="setk">Continuar donde lo dejé</span><span class="sw2 on"></span></div>
+<div class="sect">Cuenta</div>
+<div class="setrow"><span>Sincronización</span><span class="fs13 muted">Hace 5 min ›</span></div>
+<div class="setrow" style="border-bottom:none"><span style="color:#b0563a">Cerrar sesión</span><span></span></div>
+</div>
+<div class="bnav"><span class="bitem"><span class="bico">⌂</span>Inicio</span><span class="bitem"><span class="bico">▤</span>Biblioteca</span><span class="bitem"><span class="bico">✎</span>Estudio</span><span class="bitem on"><span class="bico">☰</span>Ajustes</span></div>
+</div>
+</div>
+<div class="opt" id="3i">
+<span class="badge">3I · TEMA: DOCUMENTOS</span>
+<div class="frame">
+<div class="fbar"><span class="fs14" style="cursor:pointer">← Temas</span><span class="iconb">♡</span></div>
+<div class="dcover">
+<div class="dkind">Tema</div>
+<div class="dtitle">Esperanza</div>
+<div class="dsub">14 pasajes · 5 documentos</div>
+</div>
+<div class="fbody">
+<div class="sect" style="margin-top:4px">Documentos sobre este tema</div>
+<div class="srow"><span class="st">Spe Salvi</span><span class="sx">Encíclica · Benedicto XVI · 2007 — dedicada íntegramente a la esperanza</span></div>
+<div class="srow"><span class="st">Catecismo · Parte III</span><span class="sx">Las virtudes teologales · Nº 1817–1821</span></div>
+<div class="srow"><span class="st">Gaudium et Spes</span><span class="sx">Introducción · Nº 1</span></div>
+<div class="sect">Lectura sugerida</div>
+<div class="card"><div class="fs12 upper muted" style="letter-spacing:.14em">Plan de 5 días</div><div class="serif fw6" style="font-size:19px;margin-top:6px">La esperanza cristiana</div><div class="fs13 muted" style="margin-top:4px">15 min al día · Spe Salvi + Catecismo</div><button class="primary" style="margin-top:14px;padding:12px">Empezar el plan</button></div>
+</div></div>
+</div>
+</section>
+<section class="row turn">
+<div class="opt" id="2a">
+<span class="badge">2A · DETALLE DEL DOCUMENTO</span>
+<div class="frame">
+<div class="fbar"><span class="fs14" style="cursor:pointer">← Biblioteca</span><span class="iconb">♡</span></div>
+<div class="dcover">
+<div class="dkind">Encíclica · 2015</div>
+<div class="dtitle">Laudato Si'</div>
+<div class="dsub">Sobre el cuidado de la casa común</div>
+</div>
+<div class="fbody">
+<div class="meta2">
+<div class="mcell"><div class="mk">Autor</div><div class="mv">Francisco</div></div>
+<div class="mcell"><div class="mk">Fecha</div><div class="mv">24 · V · 2015</div></div>
+<div class="mcell"><div class="mk">Capítulos</div><div class="mv">6 · 246 numerales</div></div>
+<div class="mcell"><div class="mk">Lectura</div><div class="mv">≈ 4 h 30 min</div></div>
+</div>
+<div class="sect">Índice</div>
+<div class="toc"><span class="tnum">—</span><span>Introducción</span></div>
+<div class="toc"><span class="tnum">I</span><span>Lo que le está pasando a nuestra casa</span></div>
+<div class="toc"><span class="tnum">II</span><span>El Evangelio de la creación</span></div>
+<div class="toc"><span class="tnum">III</span><span>Raíz humana de la crisis ecológica</span></div>
+<div class="toc"><span class="tnum">IV</span><span>Una ecología integral</span></div>
+<button class="primary">Comenzar la lectura</button>
+</div></div>
+</div>
+<div class="opt" id="2b">
+<span class="badge">2B · LECTURA</span>
+<div class="frame rpaper">
+<div class="fbar"><span class="fs14" style="cursor:pointer">←</span><span class="fs13 muted">Laudato Si' · Cap. I</span><span class="iconb serif">Aa</span></div>
+<div class="fbody">
+<div class="rhead">Capítulo primero · Nº 17–19</div>
+<div class="rtxt">
+<p><b>17.</b> Las reflexiones teológicas o filosóficas sobre la situación de la humanidad y del mundo pueden sonar a mensaje repetido y abstracto si no se presentan nuevamente a partir de una confrontación con el contexto actual, en lo que tiene de inédito para la historia de la humanidad.</p>
+<p><b>18.</b> A la continua aceleración de los cambios de la humanidad y del planeta se une hoy la intensificación de ritmos de vida y de trabajo, en eso que algunos llaman «rapidación».</p>
+<p><b>19.</b> Después de un tiempo de confianza irracional en el progreso y en la capacidad humana, una parte de la sociedad está entrando en una etapa de mayor conciencia.</p>
+</div>
+<div class="fs12 muted tc" style="margin-top:18px">· el texto continúa al desplazar — carga por tramos (scroll infinito) ·</div>
+<div class="narr" style="margin:auto -24px 0;border-radius:0"><button class="play">▶</button><div><div class="fs13 fw5" style="white-space:nowrap">Narrador</div><div class="nlabel">Nº 17 · voz Diego</div></div><div class="nline"><div class="nfill" style="width:7%"></div></div><span class="npill">1.0×</span></div>
+<div class="rfoot" style="margin:0 -24px -32px"><span>Nº 17 de 246</span><span>7 %</span></div>
+</div></div>
+</div>
+<div class="opt" id="2c">
+<span class="badge">2C · PADRES DE LA IGLESIA</span>
+<div class="frame">
+<div class="fbar"><span class="ftitle">Padres de la Iglesia</span><span class="dot">MA</span></div>
+<div class="fbody">
+<div class="fs14 muted" style="line-height:1.6">Los primeros maestros de la fe: sus vidas y sus obras esenciales.</div>
+<div class="era">Padres apostólicos · s. I–II</div>
+<div class="mrow"><span class="avatar">I</span><div><div class="mname">Ignacio de Antioquía</div><div class="mmeta">† 107 · 7 cartas</div></div><span class="chev">›</span></div>
+<div class="mrow"><span class="avatar">P</span><div><div class="mname">Policarpo de Esmirna</div><div class="mmeta">† 155 · Carta a los Filipenses</div></div><span class="chev">›</span></div>
+<div class="era">Padres griegos · s. IV</div>
+<div class="mrow"><span class="avatar">A</span><div><div class="mname">Atanasio de Alejandría</div><div class="mmeta">† 373 · Contra los arrianos</div></div><span class="chev">›</span></div>
+<div class="mrow"><span class="avatar">JC</span><div><div class="mname">Juan Crisóstomo</div><div class="mmeta">† 407 · Homilías</div></div><span class="chev">›</span></div>
+<div class="era">Padres latinos · s. IV–V</div>
+<div class="mrow"><span class="avatar">A</span><div><div class="mname">Agustín de Hipona</div><div class="mmeta">† 430 · Confesiones · La ciudad de Dios</div></div><span class="chev">›</span></div>
+<div class="mrow"><span class="avatar">J</span><div><div class="mname">Jerónimo</div><div class="mmeta">† 420 · La Vulgata</div></div><span class="chev">›</span></div>
+</div></div>
+</div>
+<div class="opt" id="2d">
+<span class="badge">2D · DETALLE DE UN PADRE</span>
+<div class="frame">
+<div class="fbar"><span class="fs14" style="cursor:pointer">← Padres</span><span class="iconb">♡</span></div>
+<div class="dcover">
+<div class="dkind">Padre latino · 354–430</div>
+<div class="dtitle">Agustín de Hipona</div>
+<div class="dsub">Obispo, doctor de la gracia</div>
+</div>
+<div class="fbody">
+<div class="quote">«Nos hiciste, Señor, para ti, y nuestro corazón está inquieto hasta que descanse en ti.»</div>
+<div class="fs12 muted" style="margin-top:8px">Confesiones, I, 1</div>
+<div class="sect">Obras en la biblioteca</div>
+<div class="toc"><span class="tnum">1</span><span>Confesiones</span></div>
+<div class="toc"><span class="tnum">2</span><span>La ciudad de Dios</span></div>
+<div class="toc"><span class="tnum">3</span><span>De la doctrina cristiana</span></div>
+<div class="sect">Temas</div>
+<div class="chips"><span class="chip">Gracia</span><span class="chip">Interioridad</span><span class="chip">Tiempo</span><span class="chip">Trinidad</span></div>
+</div></div>
+</div>
+</section>
+<section class="row">
+<div class="opt" id="1a">
+<span class="badge">1A · COLORES BASE</span>
+<div class="pal">
+<h2 class="h2">Paleta — tema {{temaActivo}}</h2>
+<p class="fs13 muted" style="margin:8px 0 0">Los mismos roles de color existen en claro y oscuro; cambie el tema arriba para verlos.</p>
+<div class="swgrid">
+<div class="sw"><div class="swc" style="background:var(--bg)"></div><div class="swl"><div class="swn">Fondo</div><div class="swv">--bg</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--card)"></div><div class="swl"><div class="swn">Superficie</div><div class="swv">--card</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--ink)"></div><div class="swl"><div class="swn">Tinta</div><div class="swv">--ink</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--muted)"></div><div class="swl"><div class="swn">Atenuado</div><div class="swv">--muted</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--acc)"></div><div class="swl"><div class="swn">Acento</div><div class="swv">--acc</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--paper)"></div><div class="swl"><div class="swn">Papel (lectura sepia)</div><div class="swv">--paper</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--line)"></div><div class="swl"><div class="swn">Línea</div><div class="swv">--line</div></div></div>
+<div class="sw"><div class="swc" style="background:var(--btn)"></div><div class="swl"><div class="swn">Control</div><div class="swv">--btn</div></div></div>
+</div>
+<div class="sect">Tipografía</div>
+<div class="serif" style="font-size:26px">EB Garamond — títulos y lectura</div>
+<div class="fs15" style="margin-top:8px">IBM Plex Sans — interfaz, etiquetas y controles</div>
+<div class="sect">Controles</div>
+<div class="fx ac gap12 wrap"><button class="primary" style="width:auto;margin:0;padding:12px 24px">Primario</button><button class="gbtn" style="width:auto;padding:12px 24px">Secundario</button><span class="chip">Chip / tema</span></div>
+</div>
+</div>
+<div class="opt" id="1b">
+<span class="badge">1B · ACCESO</span>
+<div class="frame"><div class="fbody">
+<div class="mark">DV</div>
+<div class="tc serif fw6" style="font-size:24px">Documentos Vaticanos</div>
+<div class="tc fs14 muted" style="margin:8px 0 26px">Su biblioteca de lectura y estudio</div>
+<button class="gbtn"><svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"></path><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18z"></path><path fill="#FBBC05" d="M3.97 10.72a5.4 5.4 0 0 1 0-3.44V4.95H.96a9 9 0 0 0 0 8.1l3.01-2.33z"></path><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.59A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z"></path></svg>Continuar con Google</button>
+<div class="divider">o con su correo</div>
+<div class="flabel" style="margin-top:0">Correo electrónico</div>
+<input class="field" type="email" placeholder="nombre@ejemplo.com">
+<div class="flabel">Contraseña</div>
+<input class="field" type="password" placeholder="••••••••">
+<button class="primary">Entrar</button>
+<div class="tc fs13" style="margin-top:18px"><a href="#1b">¿Olvidó su contraseña?</a></div>
+<div class="tc fs13 muted" style="margin-top:auto;padding-top:24px">¿Aún no tiene cuenta? <a href="#1b">Crear cuenta</a></div>
+</div></div>
+</div>
+<div class="opt" id="1c">
+<span class="badge">1C · ESTUDIO</span>
+<div class="frame">
+<div class="fbar"><span class="ftitle">Estudio</span><span class="dot">MA</span></div>
+<div class="fbody">
+<div class="fs13 muted">Buenos días, María</div>
+<div class="greet">Continúe donde lo dejó</div>
+<div class="card">
+<div class="fs12 upper muted" style="letter-spacing:.14em">Catecismo</div>
+<div class="serif fw6" style="font-size:20px;margin-top:6px">Laetamur Magnopere</div>
+<div class="fs13 muted" style="margin-top:4px">Parte I · Sección 2 · 42 % leído</div>
+<div class="prog"><div class="progfill" style="width:42%"></div></div>
+<button class="primary" style="margin-top:16px;padding:12px">Continuar la lectura</button>
+</div>
+<div class="sect">Planes de estudio</div>
+<div class="mrow"><span class="avatar">8</span><div><div class="mname">Concilio Vaticano II</div><div class="mmeta">8 semanas · 4 constituciones</div></div><span class="chev">›</span></div>
+<div class="mrow"><span class="avatar">4</span><div><div class="mname">Encíclicas sociales</div><div class="mmeta">4 semanas · De Rerum Novarum a Laudato Si'</div></div><span class="chev">›</span></div>
+<div class="sect">Temas frecuentes</div>
+<div class="chips"><span class="chip">Fe</span><span class="chip">Liturgia</span><span class="chip">Oración</span><span class="chip">Moral</span><span class="chip">Doctrina social</span></div>
+</div></div>
+</div>
+<div class="opt" id="1d">
+<span class="badge">1D · APRENDIZAJE</span>
+<div class="frame">
+<div class="fbar"><span class="ftitle">Aprendizaje</span><span class="dot">MA</span></div>
+<div class="fbody">
+<div class="card">
+<div class="fx ac jb"><div class="fs12 upper muted" style="letter-spacing:.14em">Curso activo</div><span class="fs12" style="color:var(--ok)">3 de 12</span></div>
+<div class="serif fw6" style="font-size:20px;margin-top:6px">Introducción al Catecismo</div>
+<div class="prog"><div class="progfill" style="width:25%"></div></div>
+</div>
+<div class="sect">Lecciones</div>
+<div class="lrow"><span class="lnum done">✓</span><span>Qué es el Catecismo</span><span class="chev fs12">Hecho</span></div>
+<div class="lrow"><span class="lnum done">✓</span><span>Historia y ediciones</span><span class="chev fs12">Hecho</span></div>
+<div class="lrow"><span class="lnum done">✓</span><span>Estructura en cuatro partes</span><span class="chev fs12">Hecho</span></div>
+<div class="lrow"><span class="lnum">4</span><span class="fw5">La profesión de la fe</span><span class="chev fs12" style="color:var(--acc)">Siguiente</span></div>
+<div class="lrow"><span class="lnum">5</span><span class="muted">La celebración del misterio</span></div>
+<div class="lrow"><span class="lnum">6</span><span class="muted">La vida en Cristo</span></div>
+<button class="primary" style="margin-top:26px">Continuar la lección 4</button>
+</div></div>
+</div>
+<div class="opt" id="1e">
+<span class="badge">1E · MAESTROS Y TEMAS</span>
+<div class="frame">
+<div class="fbar"><span class="ftitle">Explorar</span><span class="dot">MA</span></div>
+<div class="fbody">
+<div class="tabs"><span class="tab on">Maestros</span><span class="tab">Temas</span><span class="tab">Épocas</span></div>
+<div class="mrow"><span class="avatar">F</span><div><div class="mname">Francisco</div><div class="mmeta">2013–2025 · 6 documentos</div></div><span class="chev">›</span></div>
+<div class="mrow"><span class="avatar">B</span><div><div class="mname">Benedicto XVI</div><div class="mmeta">2005–2013 · 4 documentos</div></div><span class="chev">›</span></div>
+<div class="mrow"><span class="avatar">JP</span><div><div class="mname">Juan Pablo II</div><div class="mmeta">1978–2005 · 9 documentos</div></div><span class="chev">›</span></div>
+<div class="mrow"><span class="avatar">P</span><div><div class="mname">Pablo VI</div><div class="mmeta">1963–1978 · 5 documentos</div></div><span class="chev">›</span></div>
+<div class="sect">Temas</div>
+<div class="chips"><span class="chip">Fe y razón</span><span class="chip">Familia</span><span class="chip">Eucaristía</span><span class="chip">Esperanza</span><span class="chip">Caridad</span><span class="chip">Creación</span></div>
+</div></div>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;tema&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;claro&quot;,&quot;oscuro&quot;,&quot;sistema&quot;],&quot;default&quot;:&quot;oscuro&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Tema&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tema: localStorage.getItem('dv.tema') || this.props.tema || 'sistema', sysDark: false };
+  }
+  componentDidMount() {
+    this.mq = window.matchMedia('(prefers-color-scheme: dark)');
+    this._onMq = () => this.setState({ sysDark: this.mq.matches });
+    this.mq.addEventListener('change', this._onMq);
+    this.setState({ sysDark: this.mq.matches });
+  }
+  componentWillUnmount() { if (this.mq) this.mq.removeEventListener('change', this._onMq); }
+  set(tema) { localStorage.setItem('dv.tema', tema); this.setState({ tema }); }
+  renderVals() {
+    const t = this.state.tema;
+    const dark = t === 'oscuro' || (t === 'sistema' && this.state.sysDark);
+    return {
+      themeClass: dark ? 't-oscuro' : 't-claro',
+      temaActivo: dark ? 'oscuro' : 'claro',
+      onClaro: t === 'claro' ? 'on' : '',
+      onOscuro: t === 'oscuro' ? 'on' : '',
+      onSistema: t === 'sistema' ? 'on' : '',
+      setClaro: () => this.set('claro'),
+      setOscuro: () => this.set('oscuro'),
+      setSistema: () => this.set('sistema')
+    };
+  }
+}
+</script>
+</body>
+</html>

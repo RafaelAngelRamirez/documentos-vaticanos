@@ -1,0 +1,33 @@
+{
+  "documentId": "agustin-26-sermones-6-es",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:11.229Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 3149,
+  "unitsChanged": 981,
+  "before": {
+    "spaceBeforePunct": 3474,
+    "gluedClausePunct": 1562,
+    "missingSentenceSpace": 3,
+    "internalWordPeriod": 5,
+    "defectScore": 6601
+  },
+  "after": {
+    "spaceBeforePunct": 1,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 6,
+    "defectScore": 1
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

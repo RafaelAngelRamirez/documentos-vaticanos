@@ -1,0 +1,131 @@
+{
+  "documentId": "ag-es",
+  "authorProfileId": "era-vat2",
+  "compositionYears": "1965",
+  "compositionPlace": "Ciudad del Vaticano (aula conciliar)",
+  "workSummary": "Ad gentes: Decreto sobre la actividad misionera, promulgado en el Concilio Vaticano II (1965).",
+  "chronologyNote": "Documento del periodo conciliar 1962–1965; promulgación en 1965 bajo Pablo VI (SC e IM bajo el arco Juan XXIII/Pablo VI).",
+  "timelineSlice": [
+    {
+      "years": "1962–1965",
+      "label": "Concilio Vaticano II",
+      "refIds": [
+        "vat2-docs",
+        "britannica-vat2"
+      ]
+    },
+    {
+      "years": "1965",
+      "label": "Promulgación de Ad gentes",
+      "refIds": [
+        "vat2-docs",
+        "britannica-vat2"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "vat2-docs",
+      "title": "Concilio Vaticano II — documentos (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index_sp.htm",
+      "citation": "Concilium Vaticanum II. Acta / vatican.va (ES).",
+      "note": "Textos oficiales de constituciones, decretos y declaraciones."
+    },
+    {
+      "id": "britannica-vat2",
+      "title": "Encyclopaedia Britannica: Second Vatican Council",
+      "url": "https://www.britannica.com/event/Second-Vatican-Council",
+      "citation": "Encyclopaedia Britannica, s.v. “Second Vatican Council”.",
+      "note": "Síntesis histórica del Vaticano II."
+    },
+    {
+      "id": "tanner-dec",
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC / London: Georgetown University Press / Sheed & Ward, 1990.",
+      "note": "Edición crítica de referencia de decretos (latín/griego + inglés)."
+    },
+    {
+      "id": "vatican-councils-hub",
+      "title": "Santa Sede — Archivo de concilios (vatican.va)",
+      "url": "https://www.vatican.va/archive/hist_councils/index_sp.htm",
+      "citation": "Libreria Editrice Vaticana / vatican.va — historical councils archive.",
+      "note": "Punto de entrada oficial a textos conciliares en el sitio de la Santa Sede."
+    },
+    {
+      "id": "vatican-archive",
+      "title": "Santa Sede — Archivo documental (vatican.va)",
+      "url": "https://www.vatican.va/archive/index_sp.htm",
+      "citation": "vatican.va — Archive (Catechism, CIC, councils, etc.).",
+      "note": "Índice oficial de recursos documentales de la Santa Sede."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "cic-1997",
+      "title": "Catecismo de la Iglesia Católica (vatican.va)",
+      "url": "https://www.vatican.va/archive/catechism_sp/index_sp.html",
+      "citation": "Catechismus Catholicae Ecclesiae. Libreria Editrice Vaticana; edición típica 1997.",
+      "note": "Texto típico oficial del Catecismo (ES)."
+    },
+    {
+      "id": "john-xxiii",
+      "title": "Juan XXIII, Pacem in terris (vatican.va)",
+      "url": "https://www.vatican.va/content/john-xxiii/es/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html",
+      "citation": "Ioannes XXIII. Encyclica Pacem in terris (11 apr. 1963). vatican.va.",
+      "note": "Texto oficial; marco de derechos y paz en la Guerra Fría."
+    },
+    {
+      "id": "paul-vi",
+      "title": "Pablo VI — documentos (vatican.va)",
+      "url": "https://www.vatican.va/content/paul-vi/es.html",
+      "citation": "Paulus VI. Opera / vatican.va (ES).",
+      "note": "Humanae vitae, Evangelii nuntiandi, cierre del Vaticano II."
+    },
+    {
+      "id": "aas",
+      "title": "Acta Apostolicae Sedis (referencia de promulgación)",
+      "citation": "Acta Apostolicae Sedis: Commentarium Officiale. Typis Polyglottis Vaticanis (serie oficial).",
+      "url": "https://www.vatican.va/archive/aas/index_sp.htm",
+      "note": "Boletín oficial de la Santa Sede para actos promulgados."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
+    },
+    {
+      "id": "britannica-papacy",
+      "title": "Encyclopaedia Britannica: Papacy",
+      "url": "https://www.britannica.com/topic/papacy",
+      "citation": "Encyclopaedia Britannica, s.v. “papacy”.",
+      "note": "Institución papal e historia del primado."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
+  "workSummaryRefIds": [
+    "vat2-docs",
+    "britannica-vat2",
+    "tanner-dec",
+    "vatican-councils-hub",
+    "vatican-archive"
+  ],
+  "chronologyRefIds": [
+    "vat2-docs",
+    "britannica-vat2",
+    "tanner-dec",
+    "vatican-councils-hub",
+    "vatican-archive"
+  ]
+}

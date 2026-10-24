@@ -1,0 +1,36 @@
+<app-person-ficha
+  *ngIf="doctor as d"
+  wbarActive="doctores"
+  backLink="/doctores"
+  backLabel="← Doctores"
+  [kindLine]="kindLine"
+  [title]="d.name"
+  [subtitle]="d.role"
+  [quote]="d.quote"
+  [quoteSource]="d.quoteSource"
+  [works]="works"
+  [themes]="d.themes"
+>
+  <div ficha-after-quote>
+    <app-reading-ctas
+      *ngIf="primaryWorkId"
+      layout="stack"
+      [canContinue]="false"
+      [showRestart]="false"
+      startLabel="Comenzar la lectura"
+      (start)="openPrimaryWork(false)"
+      (listen)="openPrimaryWork(true)"
+    ></app-reading-ctas>
+  </div>
+  <div ficha-after-works *ngIf="d.proclamationSourceUrl">
+    <div class="sect">Proclamación</div>
+    <a
+      class="app-lang-link"
+      [href]="d.proclamationSourceUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Documento en vatican.va
+    </a>
+  </div>
+</app-person-ficha>

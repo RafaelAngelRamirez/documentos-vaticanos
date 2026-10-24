@@ -1,0 +1,47 @@
+{
+  "generatedFrom": "live vatican.va HTTP 200 probes 2026-07-18",
+  "igmr": {
+    "index": "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_missale-romanum_index_en.html",
+    "html": {
+      "en": "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_en.html",
+      "es": "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_sp.html",
+      "it": "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_it.html",
+      "fr": "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_fr.html"
+    },
+    "pdfOnly": {
+      "sw": "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_sw.pdf"
+    },
+    "notOnVaticanHtml": [
+      "hi",
+      "zh",
+      "ar",
+      "la",
+      "pt",
+      "de"
+    ]
+  },
+  "missaleRomanum1969Apc": {
+    "withBody": {
+      "en": "https://www.vatican.va/content/paul-vi/en/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html",
+      "it": "https://www.vatican.va/content/paul-vi/it/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html",
+      "pt": "https://www.vatican.va/content/paul-vi/pt/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html",
+      "de": "https://www.vatican.va/content/paul-vi/de/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html",
+      "la": "https://www.vatican.va/content/paul-vi/la/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+    },
+    "shellEmptyNoBody": {
+      "es": "https://www.vatican.va/content/paul-vi/es/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html",
+      "fr": "https://www.vatican.va/content/paul-vi/fr/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+    },
+    "notOnVatican": [
+      "hi",
+      "zh",
+      "ar",
+      "pl"
+    ]
+  },
+  "notes": [
+    "Full altar Missale Romanum (propers) is not free HTML on vatican.va",
+    "IDs use igmr-* and missale-romanum-apc-* to avoid collision with rm-es (Redemptoris Missio)",
+    "Product locales hi/zh/ar have no official Missal HTML on vatican.va — not faked"
+  ]
+}

@@ -1,0 +1,95 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbody {
+  padding: 28px 24px 32px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.gap12 {
+  gap: 12px;
+}
+
+a.gbtn {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.errtx {
+  color: var(--app-danger);
+}
+
+/* 3B / 3C */
+.backlink {
+  cursor: pointer;
+  margin-bottom: 18px;
+}
+
+.backlink:hover {
+  color: var(--acc);
+}
+
+.vtitle {
+  font-size: 26px;
+}
+
+.vsub {
+  margin: 8px 0 20px;
+  line-height: 1.6;
+}
+
+.terms {
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+.sentcard {
+  margin-top: 22px;
+  border-color: var(--acc);
+}
+
+.demonote {
+  margin-top: 10px;
+}
+
+.login-title {
+  font-size: 24px;
+}
+
+@media (min-width: 1024px) {
+  .auth-stage {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 58px);
+  }
+
+  .auth-card {
+    width: 360px;
+    max-width: 100%;
+    padding: 40px 0 48px;
+    margin: 0;
+  }
+
+  .login-title {
+    font-size: 26px;
+  }
+
+  /* Perfil en desktop centrado bajo wbar */
+  .fbody {
+    max-width: 480px;
+    padding-top: 36px;
+  }
+}

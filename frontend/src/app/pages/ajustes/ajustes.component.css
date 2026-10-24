@@ -1,0 +1,156 @@
+.inner {
+  max-width: var(--app-measure);
+  margin: 0 auto;
+  padding: 18px 24px 32px;
+}
+
+/* Perfil (3H) */
+.profrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 0 18px;
+}
+
+.avatar.av54 {
+  width: 54px;
+  height: 54px;
+  font-size: 19px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profname {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.profmail {
+  margin-top: 3px;
+}
+
+/* Filas de ajustes */
+.setrow.nb {
+  border-bottom: none;
+  padding-bottom: 4px;
+}
+
+.setk {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.seth {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.themerow {
+  margin: 4px 0 6px;
+}
+
+.stepbtn.mini {
+  margin: 0;
+  display: inline-flex;
+  gap: 6px;
+}
+
+.offok {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 0;
+  font-size: 13px;
+  color: var(--ok);
+}
+
+.offok .offtx {
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.linkrow {
+  cursor: pointer;
+}
+
+.linkrow:hover span:first-child {
+  color: var(--acc);
+}
+
+.danger {
+  color: var(--app-danger);
+}
+
+.setrow.last {
+  border-bottom: none;
+}
+
+button.sw2 {
+  border: none;
+  padding: 0;
+}
+
+.notif-time {
+  width: auto;
+  min-width: 7.5rem;
+  max-width: 9rem;
+  padding: 8px 10px;
+}
+
+.notif-lectio-hint {
+  margin: 0 0 10px;
+  line-height: 1.45;
+}
+
+/* Datos (F8c): exportar / importar */
+.databtns {
+  margin: 4px 0 6px;
+}
+
+.filehidden {
+  display: none;
+}
+
+.datamsg {
+  padding: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ok);
+}
+
+.datamsg.err {
+  color: var(--app-danger);
+}
+
+.preview {
+  opacity: 0.55;
+  margin-top: 26px;
+}
+
+/* Actualización de instalador (APK / Electron) */
+.update-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--acc);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 4px 0 12px;
+}
+
+.update-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.update-lede {
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 8px 0 12px;
+}

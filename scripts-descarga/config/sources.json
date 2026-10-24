@@ -1,0 +1,1611 @@
+{
+  "schemaVersion": 1,
+  "description": "Multi-source scrape registry. Each entry maps a logical source to seed URLs, corpus docId, and adapter id. Bible/catechism keep legacy npm scripts; new docs use scrape_source.ts.",
+  "sources": [
+    {
+      "id": "bible",
+      "title": "Biblia (Pueblo de Dios)",
+      "shortTitle": "Biblia",
+      "kind": "bible",
+      "locale": "es",
+      "corpusDocId": "bible-pueblo-de-dios-es",
+      "docCode": "BIBLIA",
+      "adapter": "bible",
+      "seedUrls": [
+        "https://www.vatican.va/archive/ESL0506/__P1.HTM"
+      ],
+      "legacyScript": "biblia",
+      "notes": "Full scrape still via `npm run biblia`. Adapter is a registry stub until a future rewrite."
+    },
+    {
+      "id": "catechism",
+      "title": "Catecismo de la Iglesia Católica",
+      "shortTitle": "Catecismo",
+      "kind": "catechism",
+      "locale": "es",
+      "corpusDocId": "cic-es",
+      "docCode": "CIC",
+      "adapter": "catechism",
+      "seedUrls": [
+        "https://www.vatican.va/archive/catechism_sp/index_sp.html"
+      ],
+      "legacyScript": "catecismo",
+      "notes": "Full scrape still via `npm run catecismo`. Adapter is a registry stub until a future rewrite."
+    },
+    {
+      "id": "lg",
+      "title": "Lumen gentium",
+      "shortTitle": "LG",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "lg-es",
+      "docCode": "LG",
+      "adapter": "lg",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_sp.html"
+      ],
+      "fixturePath": "fixtures/lg-es/source.html",
+      "expectedUnitCount": 69,
+      "notes": "Single-page Vatican II dogmatic constitution. Numbered §§1–69."
+    },
+    {
+      "id": "gs",
+      "title": "Gaudium et spes",
+      "shortTitle": "GS",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "gs-es",
+      "docCode": "GS",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_sp.html"
+      ],
+      "fixturePath": "fixtures/gs-es/source.html",
+      "expectedUnitCount": 93,
+      "notes": "Pastoral constitution. Numbered §§1–93 (approx)."
+    },
+    {
+      "id": "dv",
+      "title": "Dei verbum",
+      "shortTitle": "DV",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "dv-es",
+      "docCode": "DV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_sp.html"
+      ],
+      "fixturePath": "fixtures/dv-es/source.html",
+      "expectedUnitCount": 26,
+      "notes": "Dogmatic constitution on divine revelation. Numbered §§1–26."
+    },
+    {
+      "id": "sc",
+      "title": "Sacrosanctum Concilium",
+      "shortTitle": "SC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "sc-es",
+      "docCode": "SC",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19631204_sacrosanctum-concilium_sp.html"
+      ],
+      "fixturePath": "fixtures/sc-es/source.html",
+      "expectedUnitCount": 130,
+      "notes": "Constitution on the Sacred Liturgy. Numbered §§1–130."
+    },
+    {
+      "id": "ur",
+      "title": "Unitatis redintegratio",
+      "shortTitle": "UR",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ur-es",
+      "docCode": "UR",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_sp.html"
+      ],
+      "fixturePath": "fixtures/ur-es/source.html",
+      "expectedUnitCount": 24,
+      "notes": "Decree on Ecumenism (Vat. II). Numbered §§1–24. Official path uses decree_ (not const_)."
+    },
+    {
+      "id": "aa",
+      "title": "Apostolicam actuositatem",
+      "shortTitle": "AA",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "aa-es",
+      "docCode": "AA",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651118_apostolicam-actuositatem_sp.html"
+      ],
+      "fixturePath": "fixtures/aa-es/source.html",
+      "expectedUnitCount": 33,
+      "notes": "Decree on the Apostolate of the Laity (Vat. II). Numbered §§1–33. Official path uses decree_ (not const_)."
+    },
+    {
+      "id": "cds",
+      "title": "Compendio de la Doctrina Social de la Iglesia",
+      "shortTitle": "CDS",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "cds-es",
+      "docCode": "CDS",
+      "adapter": "cds",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sp.html"
+      ],
+      "fixturePath": "fixtures/cds-es/source.html",
+      "expectedUnitCount": 583,
+      "notes": "Single-page Compendium of the Social Doctrine of the Church. Numbered §§1–583. Dual markup (named anchors + bare bold numbers)."
+    },
+    {
+      "id": "cdc",
+      "title": "Código de Derecho Canónico",
+      "shortTitle": "CDC",
+      "kind": "canon-law",
+      "locale": "es",
+      "corpusDocId": "cdc-es",
+      "docCode": "CDC",
+      "adapter": "cdc",
+      "seedUrls": [
+        "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html"
+      ],
+      "fixturePath": "fixtures/cdc-es",
+      "expectedUnitCount": 1744,
+      "notes": "1983 Code of Canon Law (Latin Church). Multi-page (~251). docCode CDC (not CIC — CIC is the Catechism in this repo). ~1744 canons (some numbers reserved/abrogated in source HTML). Markup: <b>N</b>, <b>N.</b>, <b>Can. N -</b>, bare leading numbers."
+    },
+    {
+      "id": "ag",
+      "title": "Ad gentes",
+      "shortTitle": "AG",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ag-es",
+      "docCode": "AG",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_ad-gentes_sp.html"
+      ],
+      "expectedUnitCount": 42,
+      "notes": "Vat. II decree on missionary activity. §§1–42."
+    },
+    {
+      "id": "cd",
+      "title": "Christus Dominus",
+      "shortTitle": "CD",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "cd-es",
+      "docCode": "CD",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_christus-dominus_sp.html"
+      ],
+      "expectedUnitCount": 44,
+      "notes": "Vat. II decree on pastoral office of bishops."
+    },
+    {
+      "id": "ot",
+      "title": "Optatam totius",
+      "shortTitle": "OT",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ot-es",
+      "docCode": "OT",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_optatam-totius_sp.html"
+      ],
+      "expectedUnitCount": 22,
+      "notes": "Vat. II decree on priestly training."
+    },
+    {
+      "id": "pc",
+      "title": "Perfectae caritatis",
+      "shortTitle": "PC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "pc-es",
+      "docCode": "PC",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_perfectae-caritatis_sp.html"
+      ],
+      "expectedUnitCount": 25,
+      "notes": "Vat. II decree on renewal of religious life."
+    },
+    {
+      "id": "po",
+      "title": "Presbyterorum ordinis",
+      "shortTitle": "PO",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "po-es",
+      "docCode": "PO",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_presbyterorum-ordinis_sp.html"
+      ],
+      "expectedUnitCount": 22,
+      "notes": "Vat. II decree on ministry of priests."
+    },
+    {
+      "id": "na",
+      "title": "Nostra aetate",
+      "shortTitle": "NA",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "na-es",
+      "docCode": "NA",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_sp.html"
+      ],
+      "expectedUnitCount": 5,
+      "notes": "Vat. II declaration on non-Christian religions."
+    },
+    {
+      "id": "dh",
+      "title": "Dignitatis humanae",
+      "shortTitle": "DH",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "dh-es",
+      "docCode": "DH",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651207_dignitatis-humanae_sp.html"
+      ],
+      "expectedUnitCount": 15,
+      "notes": "Vat. II declaration on religious freedom."
+    },
+    {
+      "id": "ge",
+      "title": "Gravissimum educationis",
+      "shortTitle": "GE",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ge-es",
+      "docCode": "GE",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_gravissimum-educationis_sp.html"
+      ],
+      "expectedUnitCount": 12,
+      "notes": "Vat. II declaration on Christian education."
+    },
+    {
+      "id": "im",
+      "title": "Inter mirifica",
+      "shortTitle": "IM",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "im-es",
+      "docCode": "IM",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19631204_inter-mirifica_sp.html"
+      ],
+      "expectedUnitCount": 24,
+      "notes": "Vat. II decree on social communication."
+    },
+    {
+      "id": "hv",
+      "title": "Humanae vitae",
+      "shortTitle": "HV",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "hv-es",
+      "docCode": "HV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/encyclicals/documents/hf_p-vi_enc_25071968_humanae-vitae.html"
+      ],
+      "expectedUnitCount": 31,
+      "notes": "Paul VI encyclical on regulation of birth."
+    },
+    {
+      "id": "en",
+      "title": "Evangelii nuntiandi",
+      "shortTitle": "EN",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "en-es",
+      "docCode": "EN",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/apost_exhortations/documents/hf_p-vi_exh_19751208_evangelii-nuntiandi.html"
+      ],
+      "expectedUnitCount": 82,
+      "notes": "Paul VI apostolic exhortation on evangelization."
+    },
+    {
+      "id": "pp",
+      "title": "Populorum progressio",
+      "shortTitle": "PP",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "pp-es",
+      "docCode": "PP",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/encyclicals/documents/hf_p-vi_enc_26031967_populorum.html"
+      ],
+      "expectedUnitCount": 87,
+      "notes": "Paul VI encyclical on development of peoples."
+    },
+    {
+      "id": "mc",
+      "title": "Marialis cultus",
+      "shortTitle": "MC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "mc-es",
+      "docCode": "MC",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/apost_exhortations/documents/hf_p-vi_exh_19740202_marialis-cultus.html"
+      ],
+      "expectedUnitCount": 58,
+      "notes": "Paul VI apostolic exhortation on Marian devotion. Numbered sections vary."
+    },
+    {
+      "id": "ct",
+      "title": "Catechesi tradendae",
+      "shortTitle": "CT",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ct-es",
+      "docCode": "CT",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_16101979_catechesi-tradendae.html"
+      ],
+      "expectedUnitCount": 73,
+      "notes": "JPII apostolic exhortation on catechesis."
+    },
+    {
+      "id": "fc",
+      "title": "Familiaris consortio",
+      "shortTitle": "FC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "fc-es",
+      "docCode": "FC",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_19811122_familiaris-consortio.html"
+      ],
+      "expectedUnitCount": 86,
+      "notes": "JPII apostolic exhortation on the family."
+    },
+    {
+      "id": "cl",
+      "title": "Christifideles laici",
+      "shortTitle": "CL",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "cl-es",
+      "docCode": "CL",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_30121988_christifideles-laici.html"
+      ],
+      "expectedUnitCount": 64,
+      "notes": "JPII apostolic exhortation on the laity."
+    },
+    {
+      "id": "rm",
+      "title": "Redemptoris missio",
+      "shortTitle": "RM",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "rm-es",
+      "docCode": "RM",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_07121990_redemptoris-missio.html"
+      ],
+      "expectedUnitCount": 92,
+      "notes": "JPII encyclical on permanent validity of missionary mandate."
+    },
+    {
+      "id": "vs",
+      "title": "Veritatis splendor",
+      "shortTitle": "VS",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "vs-es",
+      "docCode": "VS",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_06081993_veritatis-splendor.html"
+      ],
+      "expectedUnitCount": 120,
+      "notes": "JPII encyclical on fundamental questions of moral teaching."
+    },
+    {
+      "id": "ev",
+      "title": "Evangelium vitae",
+      "shortTitle": "EV",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ev-es",
+      "docCode": "EV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_25031995_evangelium-vitae.html"
+      ],
+      "expectedUnitCount": 105,
+      "notes": "JPII encyclical on the value and inviolability of human life."
+    },
+    {
+      "id": "md",
+      "title": "Mulieris dignitatem",
+      "shortTitle": "MD",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "md-es",
+      "docCode": "MD",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_letters/1988/documents/hf_jp-ii_apl_15081988_mulieris-dignitatem.html"
+      ],
+      "expectedUnitCount": 31,
+      "notes": "JPII apostolic letter on the dignity of women."
+    },
+    {
+      "id": "ca",
+      "title": "Centesimus annus",
+      "shortTitle": "CA",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ca-es",
+      "docCode": "CA",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_01051991_centesimus-annus.html"
+      ],
+      "expectedUnitCount": 62,
+      "notes": "JPII encyclical on the 100th anniversary of Rerum novarum."
+    },
+    {
+      "id": "le",
+      "title": "Laborem exercens",
+      "shortTitle": "LE",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "le-es",
+      "docCode": "LE",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_14091981_laborem-exercens.html"
+      ],
+      "expectedUnitCount": 27,
+      "notes": "JPII encyclical on human work."
+    },
+    {
+      "id": "srs",
+      "title": "Sollicitudo rei socialis",
+      "shortTitle": "SRS",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "srs-es",
+      "docCode": "SRS",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_30121987_sollicitudo-rei-socialis.html"
+      ],
+      "expectedUnitCount": 49,
+      "notes": "JPII encyclical on social concern."
+    },
+    {
+      "id": "rh",
+      "title": "Redemptor hominis",
+      "shortTitle": "RH",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "rh-es",
+      "docCode": "RH",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_04031979_redemptor-hominis.html"
+      ],
+      "expectedUnitCount": 22,
+      "notes": "JPII first encyclical on the Redeemer of man."
+    },
+    {
+      "id": "pdv",
+      "title": "Pastores dabo vobis",
+      "shortTitle": "PDV",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "pdv-es",
+      "docCode": "PDV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_25031992_pastores-dabo-vobis.html"
+      ],
+      "expectedUnitCount": 82,
+      "notes": "JPII apostolic exhortation on formation of priests."
+    },
+    {
+      "id": "nmi",
+      "title": "Novo millennio ineunte",
+      "shortTitle": "NMI",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "nmi-es",
+      "docCode": "NMI",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_letters/2001/documents/hf_jp-ii_apl_20010106_novo-millennio-ineunte.html"
+      ],
+      "expectedUnitCount": 59,
+      "notes": "JPII apostolic letter at the close of the Great Jubilee 2000."
+    },
+    {
+      "id": "pg",
+      "title": "Pastores gregis",
+      "shortTitle": "PG",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "pg-es",
+      "docCode": "PG",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_20031016_pastores-gregis.html"
+      ],
+      "fixturePath": "fixtures/pg-es/source.html",
+      "expectedUnitCount": 74,
+      "notes": "JPII post-synodal exhortation on the bishop (2003). Top unlinked-ref download candidate."
+    },
+    {
+      "id": "rp",
+      "title": "Reconciliatio et paenitentia",
+      "shortTitle": "RP",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "rp-es",
+      "docCode": "RP",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_02121984_reconciliatio-et-paenitentia.html"
+      ],
+      "fixturePath": "fixtures/rp-es/source.html",
+      "expectedUnitCount": 35,
+      "notes": "JPII post-synodal exhortation on reconciliation and penance (1984)."
+    },
+    {
+      "id": "dev",
+      "title": "Dominum et Vivificantem",
+      "shortTitle": "DeV",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "dev-es",
+      "docCode": "DeV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_18051986_dominum-et-vivificantem.html"
+      ],
+      "fixturePath": "fixtures/dev-es/source.html",
+      "expectedUnitCount": 67,
+      "notes": "JPII encyclical on the Holy Spirit (1986)."
+    },
+    {
+      "id": "mf",
+      "title": "Mysterium Fidei",
+      "shortTitle": "MF",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "mf-es",
+      "docCode": "MF",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/encyclicals/documents/hf_p-vi_enc_03091965_mysterium.html"
+      ],
+      "fixturePath": "fixtures/mf-es/source.html",
+      "expectedUnitCount": 8,
+      "notes": "Paul VI encyclical on the Eucharist (1965). Long continuous §§; few top-level numbers."
+    },
+    {
+      "id": "pt",
+      "title": "Pacem in terris",
+      "shortTitle": "PT",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "pt-es",
+      "docCode": "PT",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-xxiii/es/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html"
+      ],
+      "fixturePath": "fixtures/pt-es/source.html",
+      "expectedUnitCount": 168,
+      "notes": "John XXIII encyclical on peace (1963)."
+    },
+    {
+      "id": "cpd",
+      "title": "Credo del Pueblo de Dios",
+      "shortTitle": "CPD",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "cpd-es",
+      "docCode": "CPD",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/motu_proprio/documents/hf_p-vi_motu-proprio_19680630_credo.html"
+      ],
+      "fixturePath": "fixtures/cpd-es/source.html",
+      "expectedUnitCount": 30,
+      "notes": "Paul VI Solemni hac liturgia — Credo of the People of God (1968)."
+    },
+    {
+      "id": "donum-vitae",
+      "title": "Donum vitae",
+      "shortTitle": "DonV",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "donum-vitae-es",
+      "docCode": "DonV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19870222_respect-for-human-life_sp.html"
+      ],
+      "fixturePath": "fixtures/donum-vitae-es/source.html",
+      "expectedUnitCount": 5,
+      "notes": "CDF Instruction Donum vitae (1987). Hierarchical section numbers restart; uniqueConsecutivo keeps first series only — use --force if unitCount low."
+    },
+    {
+      "id": "persona-humana",
+      "title": "Persona humana",
+      "shortTitle": "PH",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "persona-humana-es",
+      "docCode": "PH",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19751229_persona-humana_sp.html"
+      ],
+      "fixturePath": "fixtures/persona-humana-es/source.html",
+      "expectedUnitCount": 13,
+      "notes": "CDF Declaration Persona humana (1975)."
+    },
+    {
+      "id": "indulgentiarum",
+      "title": "Indulgentiarum doctrina",
+      "shortTitle": "ID",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "indulgentiarum-doctrina-es",
+      "docCode": "ID",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/es/apost_constitutions/documents/hf_p-vi_apc_01011967_indulgentiarum-doctrina.html"
+      ],
+      "fixturePath": "fixtures/indulgentiarum-doctrina-es/source.html",
+      "expectedUnitCount": 12,
+      "notes": "Paul VI apostolic constitution on indulgences (1967)."
+    },
+    {
+      "id": "gdc",
+      "title": "Directorio General para la Catequesis",
+      "shortTitle": "GDC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "gdc-es",
+      "docCode": "GDC",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cclergy/documents/rc_con_ccatheduc_doc_17041998_directory-for-catechesis_sp.html"
+      ],
+      "fixturePath": "fixtures/gdc-es/source.html",
+      "expectedUnitCount": 291,
+      "notes": "1997 General Directory for Catechesis (ES on vatican.va). Not the 1971 DCG; CCC may still cite DCG 1971."
+    },
+    {
+      "id": "mm",
+      "title": "Mater et Magistra",
+      "shortTitle": "MM",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "mm-es",
+      "docCode": "MM",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-xxiii/es/encyclicals/documents/hf_j-xxiii_enc_15051961_mater.html"
+      ],
+      "fixturePath": "fixtures/mm-es/source.html",
+      "expectedUnitCount": 264,
+      "notes": "John XXIII encyclical on Christianity and social progress (1961)."
+    },
+    {
+      "id": "tma",
+      "title": "Tertio millennio adveniente",
+      "shortTitle": "TMA",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "tma-es",
+      "docCode": "TMA",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_letters/1994/documents/hf_jp-ii_apl_19941110_tertio-millennio-adveniente.html"
+      ],
+      "fixturePath": "fixtures/tma-es/source.html",
+      "expectedUnitCount": 59,
+      "notes": "JPII apostolic letter on preparation for the Jubilee 2000."
+    },
+    {
+      "id": "ee",
+      "title": "Ecclesia de Eucharistia",
+      "shortTitle": "EE",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ee-es",
+      "docCode": "EE",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_20030417_eccl-de-euch.html"
+      ],
+      "fixturePath": "fixtures/ee-es/source.html",
+      "expectedUnitCount": 62,
+      "notes": "JPII encyclical on the Eucharist (2003)."
+    },
+    {
+      "id": "sa",
+      "title": "Salvifici doloris",
+      "shortTitle": "SA",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "sa-es",
+      "docCode": "SA",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_letters/1984/documents/hf_jp-ii_apl_11021984_salvifici-doloris.html"
+      ],
+      "fixturePath": "fixtures/sa-es/source.html",
+      "expectedUnitCount": 31,
+      "notes": "JPII apostolic letter on the Christian meaning of human suffering (1984)."
+    },
+    {
+      "id": "vc",
+      "title": "Vita consecrata",
+      "shortTitle": "VC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "vc-es",
+      "docCode": "VC",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/apost_exhortations/documents/hf_jp-ii_exh_25031996_vita-consecrata.html"
+      ],
+      "fixturePath": "fixtures/vc-es/source.html",
+      "expectedUnitCount": 112,
+      "notes": "JPII post-synodal exhortation on consecrated life (1996)."
+    },
+    {
+      "id": "vd",
+      "title": "Verbum Domini",
+      "shortTitle": "VD",
+      "author": "Benedicto XVI",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "vd-es",
+      "docCode": "VD",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/benedict-xvi/es/apost_exhortations/documents/hf_ben-xvi_exh_20100930_verbum-domini.html"
+      ],
+      "fixturePath": "fixtures/vd-es/source.html",
+      "expectedUnitCount": 124,
+      "notes": "Benedict XVI post-synodal exhortation on the Word of God (2010). Lectio divina in nn. 86–87. Distinct from dv-es (Dei Verbum)."
+    },
+    {
+      "id": "dm",
+      "title": "Dives in Misericordia",
+      "shortTitle": "DM",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "dm-es",
+      "docCode": "DM",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/es/encyclicals/documents/hf_jp-ii_enc_30111980_dives-in-misericordia.html"
+      ],
+      "fixturePath": "fixtures/dm-es/source.html",
+      "expectedUnitCount": 15,
+      "notes": "JPII encyclical on Divine Mercy (1980)."
+    },
+    {
+      "id": "libertas",
+      "title": "Libertas praestantissimum",
+      "shortTitle": "Lib",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "libertas-es",
+      "docCode": "Lib",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/leo-xiii/es/encyclicals/documents/hf_l-xiii_enc_20061888_libertas.html"
+      ],
+      "fixturePath": "fixtures/libertas-es/source.html",
+      "expectedUnitCount": 48,
+      "notes": "Leo XIII encyclical on human liberty (1888)."
+    },
+    {
+      "id": "immortale-dei",
+      "title": "Immortale Dei",
+      "shortTitle": "IDei",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "immortale-dei-es",
+      "docCode": "IDei",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/leo-xiii/es/encyclicals/documents/hf_l-xiii_enc_01111885_immortale-dei.html"
+      ],
+      "fixturePath": "fixtures/immortale-dei-es/source.html",
+      "expectedUnitCount": 24,
+      "notes": "Leo XIII encyclical on the Christian constitution of states (1885). Code IDei (not ID=Indulgentiarum)."
+    },
+    {
+      "id": "diuturnum",
+      "title": "Diuturnum illud",
+      "shortTitle": "Diut",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "diuturnum-es",
+      "docCode": "Diut",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/leo-xiii/es/encyclicals/documents/hf_l-xiii_enc_29061881_diuturnum.html"
+      ],
+      "fixturePath": "fixtures/diuturnum-es/source.html",
+      "expectedUnitCount": 20,
+      "notes": "Leo XIII encyclical on the origin of civil power (1881)."
+    },
+    {
+      "id": "quas-primas",
+      "title": "Quas primas",
+      "shortTitle": "QP",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "quas-primas-es",
+      "docCode": "QP",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/pius-xi/es/encyclicals/documents/hf_p-xi_enc_11121925_quas-primas.html"
+      ],
+      "fixturePath": "fixtures/quas-primas-es/source.html",
+      "expectedUnitCount": 30,
+      "notes": "Pius XI encyclical on the Kingship of Christ (1925)."
+    },
+    {
+      "id": "dcg",
+      "title": "Directorio Catequético General",
+      "shortTitle": "DCG",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "dcg-es",
+      "docCode": "DCG",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cclergy/documents/rc_con_cclergy_dir_19710411_sp.html"
+      ],
+      "fixturePath": "fixtures/dcg-es/source.html",
+      "expectedUnitCount": 100,
+      "notes": "1971 General Catechetical Directory (ES legacy HTML). Distinct from GDC 1997."
+    },
+    {
+      "id": "mysterium-ecclesiae",
+      "title": "Mysterium Ecclesiae",
+      "shortTitle": "ME",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "mysterium-ecclesiae-es",
+      "docCode": "ME",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19730705_mysterium-ecclesiae_sp.html"
+      ],
+      "fixturePath": "fixtures/mysterium-ecclesiae-es/source.html",
+      "expectedUnitCount": 6,
+      "notes": "CDF Declaration Mysterium Ecclesiae (1973). Section-level numbering."
+    },
+    {
+      "id": "donum-veritatis",
+      "title": "Donum veritatis",
+      "shortTitle": "DonVer",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "donum-veritatis-es",
+      "docCode": "DonVer",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19900524_theologian-vocation_sp.html"
+      ],
+      "fixturePath": "fixtures/donum-veritatis-es/source.html",
+      "expectedUnitCount": 42,
+      "notes": "CDF Instruction Donum veritatis on the ecclesial vocation of the theologian (1990)."
+    },
+    {
+      "id": "pastoralis-actio",
+      "title": "Pastoralis actio",
+      "shortTitle": "PastA",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "pastoralis-actio-es",
+      "docCode": "PastA",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19801020_pastoralis_actio_sp.html"
+      ],
+      "fixturePath": "fixtures/pastoralis-actio-es/source.html",
+      "expectedUnitCount": 34,
+      "notes": "CDF Instruction on infant baptism (1980)."
+    },
+    {
+      "id": "libertatis-conscientia",
+      "title": "Libertatis conscientia",
+      "shortTitle": "LC",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "libertatis-conscientia-es",
+      "docCode": "LCon",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19860322_freedom-liberation_sp.html"
+      ],
+      "fixturePath": "fixtures/libertatis-conscientia-es/source.html",
+      "expectedUnitCount": 100,
+      "notes": "CDF Instruction Libertatis conscientia on Christian freedom and liberation (1986). Code LCon (not LC ambiguity)."
+    },
+    {
+      "id": "iura-et-bona",
+      "title": "Iura et bona",
+      "shortTitle": "Iura",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "iura-et-bona-es",
+      "docCode": "Iura",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/cfaith/documents/rc_con_cfaith_doc_19800505_euthanasia_sp.html"
+      ],
+      "fixturePath": "fixtures/iura-et-bona-es/source.html",
+      "expectedUnitCount": 10,
+      "notes": "CDF Declaration on euthanasia Iura et bona (1980). ES path uses euthanasia slug."
+    },
+    {
+      "id": "cr-la",
+      "title": "Catechismus Romanus (ad parochos)",
+      "shortTitle": "CR",
+      "kind": "catechism",
+      "locale": "la",
+      "corpusDocId": "catecismo-romano-la",
+      "docCode": "CR",
+      "adapter": "plain_text",
+      "seedUrls": [
+        "https://archive.org/details/cathechismus_romanus_ad_parochos_ex_decreto_sacr_concilii_tridentini_1830"
+      ],
+      "fixturePath": "fixtures/catecismo-romano-la/source.txt",
+      "expectedUnitCount": 1162,
+      "notes": "Latin Roman Catechism via Archive.org DjVuTXT OCR + import_roman_catechism.ts"
+    },
+    {
+      "id": "qc-la",
+      "title": "Quanta cura",
+      "shortTitle": "QC",
+      "kind": "magisterium",
+      "locale": "la",
+      "corpusDocId": "quanta-cura-la",
+      "docCode": "QC",
+      "adapter": "plain_text",
+      "seedUrls": [
+        "https://www.vatican.va/content/pius-ix/la/documents/encyclica-quanta-cura-8-decembris-1864.html"
+      ],
+      "fixturePath": "fixtures/quanta-cura-la/source.html",
+      "expectedUnitCount": 96,
+      "notes": "Pius IX encyclical Latin from vatican.va; ES twin AI-translated."
+    },
+    {
+      "id": "cceo",
+      "title": "Código de los Cánones de las Iglesias Orientales",
+      "shortTitle": "CCEO",
+      "kind": "canon-law",
+      "locale": "la",
+      "corpusDocId": "cceo-la",
+      "docCode": "CCEO",
+      "adapter": "cceo",
+      "seedUrls": [
+        "https://www.vatican.va/content/john-paul-ii/la/apost_constitutions/documents/hf_jp-ii_apc_19901018_index-codex-can-eccl-orient.html"
+      ],
+      "fixturePath": "fixtures/cceo-la",
+      "expectedUnitCount": 1514,
+      "notes": "CCEO (1990). Full official Latin text on vatican.va (3 pages). Spanish full HTML not published on vatican.va (index stubs only). ~1546 canons (some reserved/missing in HTML). ES twin: translate_cceo_es.py + import_cceo_es.ts → cceo-es (AI, not official; doc-codes stay on cceo-la)."
+    },
+    {
+      "id": "ds",
+      "title": "Enchiridion symbolorum (Denzinger-Schönmetzer)",
+      "shortTitle": "DS",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "ds-es",
+      "docCode": "DS",
+      "adapter": "plain_text",
+      "seedUrls": [
+        "https://archive.org/details/denzinger-schonmetzer"
+      ],
+      "fixturePath": "fixtures/ds-es/source.txt",
+      "expectedUnitCount": 1140,
+      "notes": "Spanish Denzinger-Schönmetzer from Internet Archive (Public Domain Mark 1.0). Import via import_denzinger.ts (not HTML scrape)."
+    },
+    {
+      "id": "lg-en",
+      "title": "Lumen gentium",
+      "shortTitle": "LG",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "lg-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_en.html"
+      ],
+      "expectedUnitCount": 69,
+      "fixturePath": "fixtures/lg-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of lg-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "gs-en",
+      "title": "Gaudium et spes",
+      "shortTitle": "GS",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "gs-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651207_gaudium-et-spes_en.html"
+      ],
+      "expectedUnitCount": 93,
+      "fixturePath": "fixtures/gs-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of gs-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "dv-en",
+      "title": "Dei verbum",
+      "shortTitle": "DV",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "dv-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html"
+      ],
+      "expectedUnitCount": 26,
+      "fixturePath": "fixtures/dv-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of dv-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "sc-en",
+      "title": "Sacrosanctum Concilium",
+      "shortTitle": "SC",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "sc-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19631204_sacrosanctum-concilium_en.html"
+      ],
+      "expectedUnitCount": 130,
+      "fixturePath": "fixtures/sc-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of sc-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "ur-en",
+      "title": "Unitatis redintegratio",
+      "shortTitle": "UR",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "ur-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_en.html"
+      ],
+      "expectedUnitCount": 24,
+      "fixturePath": "fixtures/ur-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of ur-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "aa-en",
+      "title": "Apostolicam actuositatem",
+      "shortTitle": "AA",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "aa-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651118_apostolicam-actuositatem_en.html"
+      ],
+      "expectedUnitCount": 33,
+      "fixturePath": "fixtures/aa-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of aa-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "ag-en",
+      "title": "Ad gentes",
+      "shortTitle": "AG",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "ag-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_ad-gentes_en.html"
+      ],
+      "expectedUnitCount": 42,
+      "fixturePath": "fixtures/ag-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of ag-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "cd-en",
+      "title": "Christus Dominus",
+      "shortTitle": "CD",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "cd-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_christus-dominus_en.html"
+      ],
+      "expectedUnitCount": 44,
+      "fixturePath": "fixtures/cd-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of cd-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "ot-en",
+      "title": "Optatam totius",
+      "shortTitle": "OT",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "ot-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_optatam-totius_en.html"
+      ],
+      "expectedUnitCount": 22,
+      "fixturePath": "fixtures/ot-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of ot-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "pc-en",
+      "title": "Perfectae caritatis",
+      "shortTitle": "PC",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "pc-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651028_perfectae-caritatis_en.html"
+      ],
+      "expectedUnitCount": 25,
+      "fixturePath": "fixtures/pc-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of pc-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "po-en",
+      "title": "Presbyterorum ordinis",
+      "shortTitle": "PO",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "po-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19651207_presbyterorum-ordinis_en.html"
+      ],
+      "expectedUnitCount": 22,
+      "fixturePath": "fixtures/po-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of po-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "na-en",
+      "title": "Nostra aetate",
+      "shortTitle": "NA",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "na-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_nostra-aetate_en.html"
+      ],
+      "expectedUnitCount": 5,
+      "fixturePath": "fixtures/na-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of na-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "dh-en",
+      "title": "Dignitatis humanae",
+      "shortTitle": "DH",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "dh-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651207_dignitatis-humanae_en.html"
+      ],
+      "expectedUnitCount": 15,
+      "fixturePath": "fixtures/dh-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of dh-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "ge-en",
+      "title": "Gravissimum educationis",
+      "shortTitle": "GE",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "ge-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decl_19651028_gravissimum-educationis_en.html"
+      ],
+      "expectedUnitCount": 12,
+      "fixturePath": "fixtures/ge-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of ge-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "im-en",
+      "title": "Inter mirifica",
+      "shortTitle": "IM",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "im-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19631204_inter-mirifica_en.html"
+      ],
+      "expectedUnitCount": 24,
+      "fixturePath": "fixtures/im-en/source.html",
+      "translationProvenance": "official",
+      "notes": "Official EN from vatican.va (sibling of im-es). No docCode — citations stay on ES/official."
+    },
+    {
+      "id": "igmr-es",
+      "title": "Instrucción general del Misal Romano",
+      "shortTitle": "IGMR",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "igmr-es",
+      "docCode": "IGMR",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_sp.html"
+      ],
+      "fixturePath": "fixtures/igmr-es/source.html",
+      "expectedUnitCount": 398,
+      "translationProvenance": "official",
+      "sourceNote": "Institutio Generalis Missalis Romani (editio typica tertia) — CDWDS. No es el Misal de altar completo (propios); texto normativo de la IGMR en vatican.va.",
+      "notes": "IGMR ES HTML from vatican.va CDW. IDs igmr-* avoid collision with rm-es (Redemptoris Missio)."
+    },
+    {
+      "id": "igmr-en",
+      "title": "General Instruction of the Roman Missal",
+      "shortTitle": "GIRM",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "igmr-en",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_en.html"
+      ],
+      "fixturePath": "fixtures/igmr-en/source.html",
+      "expectedUnitCount": 399,
+      "translationProvenance": "official",
+      "sourceNote": "GIRM / IGMR third typical edition — CDWDS on vatican.va (US adaptations note on page). Not the full altar Missal propers.",
+      "notes": "Official EN HTML. No docCode — citations prefer IGMR ES when both exist."
+    },
+    {
+      "id": "igmr-it",
+      "title": "Ordinamento Generale del Messale Romano",
+      "shortTitle": "OGMR",
+      "kind": "magisterium",
+      "locale": "it",
+      "corpusDocId": "igmr-it",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_it.html"
+      ],
+      "fixturePath": "fixtures/igmr-it/source.html",
+      "expectedUnitCount": 397,
+      "translationProvenance": "official",
+      "sourceNote": "OGMR / IGMR — CDWDS vatican.va. Non è il Messale d'altare completo.",
+      "notes": "Official IT HTML from vatican.va."
+    },
+    {
+      "id": "igmr-fr",
+      "title": "Présentation générale du Missel Romain",
+      "shortTitle": "PGMR",
+      "kind": "magisterium",
+      "locale": "fr",
+      "corpusDocId": "igmr-fr",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_fr.html"
+      ],
+      "fixturePath": "fixtures/igmr-fr/source.html",
+      "expectedUnitCount": 399,
+      "translationProvenance": "official",
+      "sourceNote": "PGMR / IGMR — CDWDS vatican.va. Ce n'est pas le Missel d'autel complet.",
+      "notes": "Official FR HTML from vatican.va."
+    },
+    {
+      "id": "missale-romanum-apc-en",
+      "title": "Missale Romanum (Apostolic Constitution, 3 April 1969)",
+      "shortTitle": "MR 1969",
+      "kind": "magisterium",
+      "locale": "en",
+      "corpusDocId": "missale-romanum-apc-en",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/en/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "fixturePath": "fixtures/mr-apc-en/source.html",
+      "expectedUnitCount": 17,
+      "translationProvenance": "official",
+      "sourceNote": "Paul VI apostolic constitution promulgating the renewed Roman Missal. Short text; not the Order of Mass propers.",
+      "notes": "ES shell on vatican.va has no body — not shipped. IDs missale-romanum-apc-* ≠ rm-es."
+    },
+    {
+      "id": "missale-romanum-apc-it",
+      "title": "Missale Romanum (Costituzione apostolica, 3 aprile 1969)",
+      "shortTitle": "MR 1969",
+      "kind": "magisterium",
+      "locale": "it",
+      "corpusDocId": "missale-romanum-apc-it",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/it/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "fixturePath": "fixtures/mr-apc-it/source.html",
+      "expectedUnitCount": 18,
+      "translationProvenance": "official",
+      "sourceNote": "Costituzione apostolica di Paolo VI sul Messale Romano rinnovato. Testo breve; non i propers del Messale."
+    },
+    {
+      "id": "missale-romanum-apc-pt",
+      "title": "Missale Romanum (Constituição apostólica, 3 de abril de 1969)",
+      "shortTitle": "MR 1969",
+      "kind": "magisterium",
+      "locale": "pt",
+      "corpusDocId": "missale-romanum-apc-pt",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/pt/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "fixturePath": "fixtures/mr-apc-pt/source.html",
+      "expectedUnitCount": 16,
+      "translationProvenance": "official",
+      "sourceNote": "Constituição apostólica de Paulo VI sobre o Missal Romano renovado."
+    },
+    {
+      "id": "missale-romanum-apc-de",
+      "title": "Missale Romanum (Apostolische Konstitution, 3. April 1969)",
+      "shortTitle": "MR 1969",
+      "kind": "magisterium",
+      "locale": "de",
+      "corpusDocId": "missale-romanum-apc-de",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/de/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "fixturePath": "fixtures/mr-apc-de/source.html",
+      "expectedUnitCount": 18,
+      "translationProvenance": "official",
+      "sourceNote": "Apostolische Konstitution Pauls VI. zum erneuerten Römischen Messbuch."
+    },
+    {
+      "id": "missale-romanum-apc-la",
+      "title": "Missale Romanum (Constitutio apostolica, die III mensis Aprilis anno MCMLXIX)",
+      "shortTitle": "MR 1969",
+      "kind": "magisterium",
+      "locale": "la",
+      "corpusDocId": "missale-romanum-apc-la",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/paul-vi/la/apost_constitutions/documents/hf_p-vi_apc_19690403_missale-romanum.html"
+      ],
+      "fixturePath": "fixtures/mr-apc-la/source.html",
+      "expectedUnitCount": 18,
+      "translationProvenance": "official",
+      "sourceNote": "Constitutio apostolica Pauli VI de Missali Romano instaurato. Textus latinus."
+    },
+    {
+      "id": "dce",
+      "title": "Deus caritas est",
+      "shortTitle": "DCE",
+      "author": "Benedicto XVI",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "deus-caritas-est-es",
+      "docCode": "DCE",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/benedict-xvi/es/encyclicals/documents/hf_ben-xvi_enc_20051225_deus-caritas-est.html"
+      ],
+      "fixturePath": "fixtures/dce-es/source.html",
+      "expectedUnitCount": 42,
+      "notes": "Benedict XVI encyclical (2005). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "sps",
+      "title": "Spe salvi",
+      "shortTitle": "SpS",
+      "author": "Benedicto XVI",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "spe-salvi-es",
+      "docCode": "SpS",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/benedict-xvi/es/encyclicals/documents/hf_ben-xvi_enc_20071130_spe-salvi.html"
+      ],
+      "fixturePath": "fixtures/sps-es/source.html",
+      "expectedUnitCount": 50,
+      "notes": "Benedict XVI encyclical (2007). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "lf",
+      "title": "Lumen fidei",
+      "shortTitle": "LF",
+      "author": "Francisco",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "lumen-fidei-es",
+      "docCode": "LF",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/francesco/es/encyclicals/documents/papa-francesco_20130629_enciclica-lumen-fidei.html"
+      ],
+      "fixturePath": "fixtures/lf-es/source.html",
+      "expectedUnitCount": 60,
+      "notes": "Francis encyclical (2013). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "ls",
+      "title": "Laudato si'",
+      "shortTitle": "LS",
+      "author": "Francisco",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "laudato-si-es",
+      "docCode": "LS",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/francesco/es/encyclicals/documents/papa-francesco_20150524_enciclica-laudato-si.html"
+      ],
+      "fixturePath": "fixtures/ls-es/source.html",
+      "expectedUnitCount": 246,
+      "notes": "Francis encyclical (2015). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "ft",
+      "title": "Fratelli tutti",
+      "shortTitle": "FT",
+      "author": "Francisco",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "fratelli-tutti-es",
+      "docCode": "FT",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/francesco/es/encyclicals/documents/papa-francesco_20201003_enciclica-fratelli-tutti.html"
+      ],
+      "fixturePath": "fixtures/ft-es/source.html",
+      "expectedUnitCount": 287,
+      "notes": "Francis encyclical (2020). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "eg",
+      "title": "Evangelii gaudium",
+      "shortTitle": "EG",
+      "author": "Francisco",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "esortazione-ap-20131124-evangelii-gaudium-es",
+      "docCode": "EG",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/francesco/es/apost_exhortations/documents/papa-francesco_esortazione-ap_20131124_evangelii-gaudium.html"
+      ],
+      "fixturePath": "fixtures/eg-es/source.html",
+      "expectedUnitCount": 288,
+      "notes": "Francis apostolic exhortation (2013). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "al",
+      "title": "Amoris laetitia",
+      "shortTitle": "AL",
+      "author": "Francisco",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "esortazione-ap-20160319-amoris-laetitia-es",
+      "docCode": "AL",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/francesco/es/apost_exhortations/documents/papa-francesco_esortazione-ap_20160319_amoris-laetitia.html"
+      ],
+      "fixturePath": "fixtures/al-es/source.html",
+      "expectedUnitCount": 325,
+      "notes": "Francis post-synodal apostolic exhortation (2016). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "civ",
+      "title": "Caritas in veritate",
+      "shortTitle": "CiV",
+      "author": "Benedicto XVI",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "caritas-in-veritate-es",
+      "docCode": "CiV",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/benedict-xvi/es/encyclicals/documents/hf_ben-xvi_enc_20090629_caritas-in-veritate.html"
+      ],
+      "fixturePath": "fixtures/civ-es/source.html",
+      "expectedUnitCount": 79,
+      "notes": "Benedict XVI encyclical (2009). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "sca",
+      "title": "Sacramentum caritatis",
+      "shortTitle": "SCa",
+      "author": "Benedicto XVI",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "sacramentum-caritatis-es",
+      "docCode": "SCa",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/benedict-xvi/es/apost_exhortations/documents/hf_ben-xvi_exh_20070222_sacramentum-caritatis.html"
+      ],
+      "fixturePath": "fixtures/sca-es/source.html",
+      "expectedUnitCount": 96,
+      "notes": "Benedict XVI post-synodal apostolic exhortation (2007). Official ES. Locale twins en/hi/zh/ar not in this wave."
+    },
+    {
+      "id": "dn",
+      "title": "Dilexit nos",
+      "shortTitle": "DN",
+      "author": "Francisco",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "dilexit-nos-es",
+      "docCode": "DN",
+      "adapter": "generic_numbered",
+      "seedUrls": [
+        "https://www.vatican.va/content/francesco/es/encyclicals/documents/20241024-enciclica-dilexit-nos.html"
+      ],
+      "fixturePath": "fixtures/dn-es/source.html",
+      "expectedUnitCount": 220,
+      "notes": "Official ES. URL pattern papa-francesco_20241024_enciclica-dilexit-nos.html is 404; use the 20241024-enciclica-dilexit-nos.html form."
+    }
+  ]
+}

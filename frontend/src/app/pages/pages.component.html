@@ -1,5 +1,7 @@
-<app-navbar></app-navbar>
-
-<div class="container">
+<!--
+  Lectura (inicio / biblioteca / lector / buscar): sin chrome global.
+  Producto (estudio, aprendizaje, explorar, cuenta…): cada pantalla trae su fbar.
+-->
+<div [class.reader-page]="isImmersiveRoute">
   <router-outlet></router-outlet>
 </div>

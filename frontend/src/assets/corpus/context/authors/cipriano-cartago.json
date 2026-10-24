@@ -1,0 +1,212 @@
+{
+  "id": "cipriano-cartago",
+  "name": "Cipriano de Cartago",
+  "kind": "author",
+  "years": "c. 200–258",
+  "saintId": "cipriano-cartago",
+  "summary": "Cecilio Cipriano, obispo de Cartago y mártir (258), es la gran voz latina de la unidad de la Iglesia en el siglo III. Sus cartas documentan persecuciones (Decio, Valeriano), el problema de los lapsi y la controversia bautismal con Roma.",
+  "axes": {
+    "lugar": "Cartago y África proconsular; red de obispos norteafricanos; relaciones con Roma (Cornelio, Esteban).",
+    "personajes": "Tertuliano (influencia literaria); Cornelio y Esteban de Roma; Novaciano; emperadores Decio y Valeriano; confesores y lapsi de la persecución.",
+    "gobierno": "Crisis del siglo III: emperadores militares, edicto de Decio (sacrificios públicos), confiscaciones y ejecuciones bajo Valeriano; administración provincial aún romana.",
+    "cultura": "Latín cristiano africano; retórica forense de Cipriano (formación jurídica); epistolario como gobierno eclesial; memorias de mártires.",
+    "religion": "Cristianismo latino pre-niceno; culto imperial como prueba de lealtad; residuales cultos púnicos/romanos; debate sobre pureza de la Iglesia y rebautismo.",
+    "antropologia": "Honor y apostasía bajo coacción; redes de caridad episcopal; viudas y pobres; martirio como modelo de identidad.",
+    "creenciasMundanas": "Religión cívica romana; magia y oráculos; miedo al fatum en crisis imperial.",
+    "creenciaCristiana": "Una Iglesia, un episcopado (De ecclesiae catholicae unitate); validez ministerial ligada a la comunión católica; bautismo y penitencia de los lapsi; martirio como testimonio supremo."
+  },
+  "timeline": [
+    {
+      "years": "248/249",
+      "label": "Episcopado en Cartago",
+      "refIds": [
+        "cyprian-ep",
+        "cyprian-ccel"
+      ]
+    },
+    {
+      "years": "250–251",
+      "label": "Persecución de Decio; cuestión de los lapsi",
+      "refIds": [
+        "cyprian-ep",
+        "cyprian-ccel"
+      ]
+    },
+    {
+      "years": "255–256",
+      "label": "Controversia bautismal con Esteban de Roma",
+      "refIds": [
+        "cyprian-ep",
+        "cyprian-ccel"
+      ]
+    },
+    {
+      "years": "258",
+      "label": "Martirio bajo Valeriano",
+      "refIds": [
+        "cyprian-ep",
+        "cyprian-ccel"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "britannica-rome",
+      "title": "Encyclopaedia Britannica: Roman Empire",
+      "url": "https://www.britannica.com/place/Roman-Empire",
+      "citation": "Encyclopaedia Britannica, s.v. “Roman Empire”.",
+      "note": "Marco imperial y tardoantigüedad (consulta general fiable)."
+    },
+    {
+      "id": "britannica-late-ant",
+      "title": "Encyclopaedia Britannica: Late antiquity / ancient Rome topics",
+      "url": "https://www.britannica.com/topic/ancient-Rome",
+      "citation": "Encyclopaedia Britannica, s.v. “ancient Rome” (y artículos afines).",
+      "note": "Contexto político-cultural del Mediterráneo romano."
+    },
+    {
+      "id": "chadwick-ec",
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed.",
+      "note": "Manual académico clásico de historia de la Iglesia antigua (impresión)."
+    },
+    {
+      "id": "kelly-ecd",
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum / HarperCollins.",
+      "note": "Manual de dogmática histórica (Trinidad, cristología, gracia)."
+    },
+    {
+      "id": "frend-rise",
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress Press, 1984.",
+      "note": "Historia social; persecuciones y África cristiana."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "fordham-ehs",
+      "title": "Fordham University — Internet History Sourcebooks: Ancient / Medieval / Church",
+      "url": "https://sourcebooks.fordham.edu/",
+      "citation": "Halsall, Paul, ed. Internet History Sourcebooks Project. Fordham University.",
+      "note": "Colección académica de fuentes primarias con introducción (Fordham.edu)."
+    },
+    {
+      "id": "fordham-ancient",
+      "title": "Fordham — Internet Ancient History Sourcebook: Christian Origins",
+      "url": "https://sourcebooks.fordham.edu/ancient/asbook11.asp",
+      "citation": "Internet Ancient History Sourcebook: Christian Origins (Fordham University).",
+      "note": "Fuentes de orígenes cristianos y Imperio romano."
+    },
+    {
+      "id": "ccel-schaff-hist",
+      "title": "CCEL: Philip Schaff, History of the Christian Church",
+      "url": "https://www.ccel.org/ccel/schaff/hcc1",
+      "citation": "Schaff, Philip. History of the Christian Church. 8 vols. Christian Classics Ethereal Library.",
+      "note": "Historia clásica (s. XIX); contexto general, no estado del arte historiográfico actual."
+    },
+    {
+      "id": "ccel-ecf",
+      "title": "CCEL: Early Church Fathers (ANF / NPNF)",
+      "url": "https://www.ccel.org/fathers.html",
+      "citation": "Roberts, Alexander / Donaldson, James / Schaff, Philip, eds. Ante-Nicene and Nicene Fathers. CCEL.",
+      "note": "Corpus de traducciones de Padres de dominio público (referencia de consulta)."
+    },
+    {
+      "id": "cyprian-ep",
+      "title": "Cyprian of Carthage, Epistles (New Advent)",
+      "url": "https://www.newadvent.org/fathers/0506.htm",
+      "citation": "Cyprian of Carthage. Epistles. ANF / New Advent; CSEL / BAC.",
+      "note": "Texto primario; persecución y unidad eclesial."
+    },
+    {
+      "id": "cyprian-ccel",
+      "title": "CCEL / ANF: Cyprian of Carthage",
+      "url": "https://www.ccel.org/ccel/schaff/anf05",
+      "citation": "Ante-Nicene Fathers, vol. 5 — Hippolytus, Cyprian… (CCEL).",
+      "note": "Traducciones ANF de Cipriano."
+    },
+    {
+      "id": "ce-fathers-index",
+      "title": "New Advent: Fathers of the Church (index)",
+      "url": "https://www.newadvent.org/fathers/",
+      "citation": "New Advent — English translations of the Church Fathers (ANF/NPNF based).",
+      "note": "Índice de Padres en inglés; textos de dominio público."
+    },
+    {
+      "id": "livius-rome",
+      "title": "Livius.org — Articles on ancient history (Rome)",
+      "url": "https://www.livius.org/category/roman/",
+      "citation": "Lendering, Jona, et al. Livius.org — Articles on ancient history.",
+      "note": "Divulgación histórica seria sobre Roma; no sustituye monografía, sí marco geográfico."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "cyprian-ep",
+    "cyprian-ccel",
+    "frend-rise",
+    "chadwick-ec",
+    "fordham-ancient"
+  ],
+  "axisSources": {
+    "lugar": [
+      "cyprian-ep",
+      "cyprian-ccel",
+      "frend-rise",
+      "livius-rome",
+      "britannica-rome"
+    ],
+    "personajes": [
+      "cyprian-ep",
+      "frend-rise",
+      "chadwick-ec",
+      "ccel-ecf"
+    ],
+    "gobierno": [
+      "frend-rise",
+      "cyprian-ep",
+      "britannica-rome",
+      "fordham-ancient"
+    ],
+    "cultura": [
+      "cyprian-ep",
+      "chadwick-ec",
+      "odcc",
+      "ccel-schaff-hist"
+    ],
+    "religion": [
+      "cyprian-ep",
+      "cyprian-ccel",
+      "frend-rise",
+      "kelly-ecd"
+    ],
+    "antropologia": [
+      "cyprian-ep",
+      "frend-rise",
+      "chadwick-ec",
+      "fordham-ehs"
+    ],
+    "creenciasMundanas": [
+      "frend-rise",
+      "chadwick-ec",
+      "britannica-late-ant"
+    ],
+    "creenciaCristiana": [
+      "cyprian-ep",
+      "kelly-ecd",
+      "pelikan-ct",
+      "ce-fathers-index"
+    ]
+  }
+}

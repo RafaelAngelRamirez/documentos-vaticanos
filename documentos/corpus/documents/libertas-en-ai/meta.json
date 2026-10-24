@@ -1,0 +1,13 @@
+{
+  "id": "libertas-en-ai",
+  "title": "Libertas praestantissimum",
+  "shortTitle": "Lib",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_20061888_libertas.html",
+  "bodyPath": "documents/libertas-en-ai/content.json",
+  "indexPath": "documents/libertas-en-ai/index.json",
+  "unitCount": 34,
+  "sourceNote": "AI-generated English translation from the Español text of the pack «Libertas praestantissimum» (libertas-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+  "translationProvenance": "ai"
+}

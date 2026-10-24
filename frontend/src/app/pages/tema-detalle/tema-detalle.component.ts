@@ -1,0 +1,473 @@
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import {
+  Theme,
+  ThemeReviewStatus,
+  ThemesService,
+} from 'src/app/core/account/themes.service';
+import { AuthService } from 'src/app/core/auth/auth.service';
+import { NavigationService } from 'src/app/services/navigation.service';
+import { StudiesService } from 'src/app/core/account/studies.service';
+import { environment } from 'src/environments/environment';
+import { WbarComponent } from 'src/app/components/wbar/wbar.component';
+import { RelatedUnitsPanelComponent } from 'src/app/components/related-units/related-units-panel.component';
+import {
+  pickSeedStep,
+  type RelatedCitationRow,
+  type ThemeStepSeed,
+} from 'src/app/core/search/semantic-search.logic';
+
+/**
+ * Diseño 3I · Tema (lector)
+ * 4C · Tema de maestro (compartido + descarga)
+ * 4D · Publicar tema
+ * 5G · Web tema maestro
+ * 6B · Cambios solicitados
+ */
+type ThemeStep = NonNullable<Theme['steps']>[number];
+
+interface ThemeSection {
+  title: string;
+  items: { s: ThemeStep; i: number }[];
+}
+
+@Component({
+  standalone: true,
+  selector: 'app-tema-detalle',
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    WbarComponent,
+    RelatedUnitsPanelComponent,
+  ],
+  templateUrl: './tema-detalle.component.html',
+  styleUrls: ['./tema-detalle.component.css'],
+})
+export class TemaDetalleComponent implements OnInit {
+  theme: Theme | null = null;
+  loading = false;
+  error: string | null = null;
+  message: string | null = null;
+  uploading = false;
+  busy = false;
+  /** UI mode: read | publish (4D form) */
+  mode: 'read' | 'publish' = 'read';
+  publicToggle = false;
+
+  stepForm = new FormGroup({
+    documentId: new FormControl('cic-es', {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
+    unitIndex: new FormControl(0, {
+      nonNullable: true,
+      validators: [Validators.required, Validators.min(0)],
+    }),
+    unitLabel: new FormControl('', { nonNullable: true }),
+    userComment: new FormControl('', { nonNullable: true }),
+  });
+
+  publishForm = new FormGroup({
+    title: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.minLength(2)],
+    }),
+    description: new FormControl('', { nonNullable: true }),
+  });
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    public auth: AuthService,
+    private themes: ThemesService,
+    private nav: NavigationService,
+    private studies: StudiesService
+  ) {}
+
+  ngOnInit(): void {
+    // F8b: los temas funcionan sin sesión (persistencia local).
+    const id = this.route.snapshot.paramMap.get('id');
+    if (!id) {
+      this.router.navigate(['/cuenta/temas']);
+      return;
+    }
+    this.load(id);
+  }
+
+  get steps(): NonNullable<Theme['steps']> {
+    return this.theme?.steps || [];
+  }
+
+  get docCount(): number {
+    return new Set(this.steps.map((s) => s.documentId)).size;
+  }
+
+  /**
+   * Last pasaje drives offline related suggestions (documentId + unitIndex).
+   */
+  get relatedSeedStep(): ThemeStepSeed | null {
+    return pickSeedStep(this.steps);
+  }
+
+  /**
+   * 4C · secciones numeradas ("1 · Título").
+   * TODO: el modelo Theme no tiene secciones propias ni texto introductorio
+   * (.tbody de 4C.html:19); se agrupan pasajes consecutivos por documento
+   * hasta que el modelo las incorpore.
+   */
+  get sections(): ThemeSection[] {
+    const secs: ThemeSection[] = [];
+    this.steps.forEach((s, i) => {
+      const last = secs[secs.length - 1];
+      if (!last || last.items[0].s.documentId !== s.documentId) {
+        secs.push({ title: s.documentId, items: [{ s, i }] });
+      } else {
+        last.items.push({ s, i });
+      }
+    });
+    return secs;
+  }
+
+  get status(): ThemeReviewStatus | string {
+    return this.theme?.reviewStatus || 'none';
+  }
+
+  get needsChanges(): boolean {
+    return this.status === 'changes' || this.status === 'rejected';
+  }
+
+  get isApproved(): boolean {
+    return this.status === 'approved';
+  }
+
+  get isPending(): boolean {
+    return this.status === 'pending';
+  }
+
+  get isOwnerTeacher(): boolean {
+    return this.auth.isTeacher || this.auth.isAdmin;
+  }
+
+  pillClass(): string {
+    switch (this.status) {
+      case 'pending':
+        return 'pill p-rev';
+      case 'approved':
+        return 'pill p-ok';
+      case 'changes':
+      case 'rejected':
+        return 'pill p-no';
+      default:
+        return '';
+    }
+  }
+
+  pillLabel(): string {
+    switch (this.status) {
+      case 'pending':
+        return 'En revisión';
+      case 'approved':
+        return 'Aprobado';
+      case 'changes':
+        return 'Cambios';
+      case 'rejected':
+        return 'Rechazado';
+      default:
+        return '';
+    }
+  }
+
+  kindLabel(): string {
+    if (this.isApproved) return 'Tema compartido';
+    if (this.theme?.visibility === 'public') return 'Tema público';
+    return 'Tema';
+  }
+
+  load(id: string): void {
+    this.loading = true;
+    this.themes.get(id).subscribe({
+      next: (t) => {
+        this.theme = t;
+        this.publicToggle = t.visibility === 'public';
+        this.publishForm.patchValue({
+          title: t.title,
+          description: t.description || '',
+        });
+        this.loading = false;
+        // Open 6B view when there are reviewer notes
+        if (this.needsChanges) {
+          this.mode = 'read';
+        }
+      },
+      error: (err) => {
+        this.loading = false;
+        this.error = err?.error?.error || err?.message || 'Error';
+      },
+    });
+  }
+
+  openPublish(): void {
+    if (!this.theme) return;
+    this.publishForm.patchValue({
+      title: this.theme.title,
+      description: this.theme.description || '',
+    });
+    this.publicToggle = true;
+    this.mode = 'publish';
+    this.error = null;
+    this.message = null;
+  }
+
+  cancelPublish(): void {
+    this.mode = 'read';
+  }
+
+  /**
+   * 4D.html:24 · "+ Añadir sección desde notas".
+   * Placeholder: todavía no existe flujo de secciones desde notas; se vuelve a
+   * la vista del tema, donde está el formulario "Añadir pasaje" actual.
+   */
+  addSectionFromNotes(): void {
+    this.mode = 'read';
+  }
+
+  togglePublic(): void {
+    this.publicToggle = !this.publicToggle;
+  }
+
+  submitForReview(): void {
+    if (!this.theme || !this.publishForm.valid) return;
+    this.busy = true;
+    this.error = null;
+    const v = this.publishForm.getRawValue();
+    this.themes
+      .update(this.theme.id, {
+        title: v.title.trim(),
+        description: v.description,
+      })
+      .subscribe({
+        next: () => {
+          if (!this.publicToggle) {
+            this.themes.makePrivate(this.theme!.id).subscribe({
+              next: (t) => {
+                this.theme = t;
+                this.busy = false;
+                this.mode = 'read';
+                this.message = 'Tema guardado como privado';
+              },
+              error: (err) => {
+                this.busy = false;
+                this.error = err?.error?.error || err?.message || 'Error';
+              },
+            });
+            return;
+          }
+          this.themes.submit(this.theme!.id).subscribe({
+            next: (t) => {
+              this.theme = t;
+              this.busy = false;
+              this.mode = 'read';
+              this.message = 'Enviado a revisión';
+            },
+            error: (err) => {
+              this.busy = false;
+              this.error = err?.error?.error || err?.message || 'Error al enviar';
+            },
+          });
+        },
+        error: (err) => {
+          this.busy = false;
+          this.error = err?.error?.error || err?.message || 'Error al guardar';
+        },
+      });
+  }
+
+  makePrivate(): void {
+    if (!this.theme) return;
+    this.busy = true;
+    this.themes.makePrivate(this.theme.id).subscribe({
+      next: (t) => {
+        this.theme = t;
+        this.busy = false;
+        this.message = 'Tema marcado como privado';
+      },
+      error: (err) => {
+        this.busy = false;
+        this.error = err?.error?.error || err?.message || 'Error';
+      },
+    });
+  }
+
+  resubmit(): void {
+    this.openPublish();
+  }
+
+  download(): void {
+    if (!this.theme) return;
+    this.themes.download(this.theme.id).subscribe({
+      next: (t) => {
+        this.theme = t;
+        this.message = 'Tema descargado a su biblioteca';
+      },
+      error: (err) => {
+        this.error = err?.error?.error || err?.message || 'Error';
+      },
+    });
+  }
+
+  addStep(): void {
+    if (!this.theme || !this.stepForm.valid) return;
+    const v = this.stepForm.getRawValue();
+    const steps = [
+      ...(this.theme.steps || []).map((s) => ({
+        documentId: s.documentId,
+        unitIndex: s.unitIndex,
+        unitLabel: s.unitLabel ?? undefined,
+        userComment: s.userComment ?? undefined,
+      })),
+      {
+        documentId: v.documentId.trim(),
+        unitIndex: Number(v.unitIndex),
+        unitLabel: v.unitLabel || undefined,
+        userComment: v.userComment || undefined,
+      },
+    ];
+    this.themes.setSteps(this.theme.id, steps).subscribe({
+      next: (t) => {
+        this.theme = t;
+        this.message = 'Pasaje añadido';
+        this.stepForm.patchValue({ unitLabel: '', userComment: '' });
+      },
+      error: (err) => {
+        this.error =
+          err?.error?.error || err?.message || 'Error al guardar pasajes';
+      },
+    });
+  }
+
+  /** Append a related corpus hit as a theme step (stable citation). */
+  addRelatedCitation(row: RelatedCitationRow): void {
+    if (!this.theme || this.isPending) return;
+    const exists = (this.theme.steps || []).some(
+      (s) =>
+        s.documentId === row.documentId && s.unitIndex === row.unitIndex,
+    );
+    if (exists) {
+      this.message = 'Ese pasaje ya está en el tema';
+      return;
+    }
+    const steps = [
+      ...(this.theme.steps || []).map((s) => ({
+        documentId: s.documentId,
+        unitIndex: s.unitIndex,
+        unitLabel: s.unitLabel ?? undefined,
+        userComment: s.userComment ?? undefined,
+      })),
+      {
+        documentId: row.documentId,
+        unitIndex: row.unitIndex,
+        unitLabel:
+          row.consecutivo && row.consecutivo !== 'no-encontrado'
+            ? row.consecutivo
+            : row.title,
+        userComment: undefined,
+      },
+    ];
+    this.themes.setSteps(this.theme.id, steps).subscribe({
+      next: (t) => {
+        this.theme = t;
+        this.message = 'Pasaje relacionado añadido';
+      },
+      error: (err) => {
+        this.error =
+          err?.error?.error || err?.message || 'Error al guardar pasajes';
+      },
+    });
+  }
+
+  openStep(documentId: string, unitIndex: number): void {
+    this.nav.openReading(documentId, { unitIndex });
+  }
+
+  startPlan(): void {
+    const first = this.steps[0];
+    if (!first) return;
+    this.openStep(first.documentId, first.unitIndex);
+  }
+
+  coverUrl(): string | null {
+    if (!this.theme?.coverImageKey) return null;
+    const origin = environment.apiBaseUrl.replace(/\/api\/v1\/?$/, '');
+    return `${origin}/uploads/${this.theme.coverImageKey}`;
+  }
+
+  onCover(ev: Event): void {
+    const input = ev.target as HTMLInputElement;
+    const file = input.files?.[0];
+    if (!file || !this.theme) return;
+    this.uploading = true;
+    this.studies.uploadImage(file).subscribe({
+      next: (up) => {
+        this.themes
+          .update(this.theme!.id, { coverImageKey: up.key })
+          .subscribe({
+            next: (t) => {
+              this.theme = t;
+              this.uploading = false;
+              this.message = `Portada optimizada (${Math.round(up.bytes / 1024)} KB)`;
+            },
+            error: (err) => {
+              this.uploading = false;
+              this.error = err?.error?.error || err?.message || 'Error';
+            },
+          });
+      },
+      error: (err) => {
+        this.uploading = false;
+        this.error = err?.error?.error || err?.message || 'Error al subir';
+      },
+    });
+  }
+
+  onRemove(ev: Event, index: number): void {
+    ev.stopPropagation();
+    this.removeStep(index);
+  }
+
+  removeStep(index: number): void {
+    if (!this.theme) return;
+    const steps = (this.theme.steps || [])
+      .filter((_, i) => i !== index)
+      .map((s) => ({
+        documentId: s.documentId,
+        unitIndex: s.unitIndex,
+        unitLabel: s.unitLabel ?? undefined,
+        userComment: s.userComment ?? undefined,
+      }));
+    this.themes.setSteps(this.theme.id, steps).subscribe({
+      next: (t) => (this.theme = t),
+      error: (err) => {
+        this.error = err?.error?.error || err?.message || 'Error';
+      },
+    });
+  }
+
+  submittedLabel(): string {
+    if (!this.theme?.submittedAt) return '';
+    const d = new Date(this.theme.submittedAt);
+    if (Number.isNaN(d.getTime())) return '';
+    return `Enviado el ${d.toLocaleDateString('es', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    })}`;
+  }
+}

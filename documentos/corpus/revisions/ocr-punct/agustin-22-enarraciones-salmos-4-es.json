@@ -1,0 +1,33 @@
+{
+  "documentId": "agustin-22-enarraciones-salmos-4-es",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:24.766Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 3002,
+  "unitsChanged": 366,
+  "before": {
+    "spaceBeforePunct": 1243,
+    "gluedClausePunct": 25,
+    "missingSentenceSpace": 2,
+    "internalWordPeriod": 6,
+    "defectScore": 1295
+  },
+  "after": {
+    "spaceBeforePunct": 0,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 13,
+    "defectScore": 0
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

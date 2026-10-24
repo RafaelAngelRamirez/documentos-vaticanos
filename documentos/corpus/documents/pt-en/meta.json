@@ -1,0 +1,13 @@
+{
+  "id": "pt-en",
+  "title": "Pacem in terris",
+  "shortTitle": "PT",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/john-xxiii/en/encyclicals/documents/hf_j-xxiii_enc_11041963_pacem.html",
+  "bodyPath": "documents/pt-en/content.json",
+  "indexPath": "documents/pt-en/index.json",
+  "unitCount": 274,
+  "translationProvenance": "official",
+  "sourceNote": "Official English text from vatican.va"
+}

@@ -1,0 +1,33 @@
+{
+  "documentId": "agustin-39-varios-1-es",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:29.502Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 1230,
+  "unitsChanged": 314,
+  "before": {
+    "spaceBeforePunct": 457,
+    "gluedClausePunct": 38,
+    "missingSentenceSpace": 7,
+    "internalWordPeriod": 7,
+    "defectScore": 540
+  },
+  "after": {
+    "spaceBeforePunct": 18,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 8,
+    "defectScore": 18
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

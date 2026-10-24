@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbody {
+  padding: 28px 24px 32px;
+  max-width: 480px;
+  margin: 0 auto;
+}

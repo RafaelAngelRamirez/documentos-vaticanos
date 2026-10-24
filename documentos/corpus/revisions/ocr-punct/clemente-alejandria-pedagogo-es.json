@@ -1,0 +1,33 @@
+{
+  "documentId": "clemente-alejandria-pedagogo-es",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:28.382Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 776,
+  "unitsChanged": 321,
+  "before": {
+    "spaceBeforePunct": 445,
+    "gluedClausePunct": 198,
+    "missingSentenceSpace": 1,
+    "internalWordPeriod": 2,
+    "defectScore": 842
+  },
+  "after": {
+    "spaceBeforePunct": 0,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 4,
+    "defectScore": 0
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

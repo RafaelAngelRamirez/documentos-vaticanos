@@ -1,0 +1,13 @@
+{
+  "id": "sa-en-ai",
+  "title": "Salvifici doloris",
+  "shortTitle": "SA",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_letters/1984/documents/hf_jp-ii_apl_11021984_salvifici-doloris.html",
+  "bodyPath": "documents/sa-en-ai/content.json",
+  "indexPath": "documents/sa-en-ai/index.json",
+  "unitCount": 31,
+  "sourceNote": "AI-generated English translation from the Español text of the pack «Salvifici doloris» (sa-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+  "translationProvenance": "ai"
+}

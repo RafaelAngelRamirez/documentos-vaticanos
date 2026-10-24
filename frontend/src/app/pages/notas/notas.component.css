@@ -1,0 +1,72 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbody {
+  padding: 28px 24px 32px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.nlist {
+  margin-top: 16px;
+}
+
+.lh16 {
+  line-height: 1.6;
+}
+
+.notecard {
+  cursor: pointer;
+}
+
+.xdel {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0 2px;
+}
+
+.xdel:hover {
+  color: var(--app-danger);
+}
+
+.errline {
+  color: var(--app-danger);
+}
+
+.tcenter {
+  text-align: center;
+}
+
+.exp {
+  margin-top: 8px;
+}
+
+.exp a {
+  color: var(--acc);
+}
+
+.fx {
+  display: flex;
+}
+.ac {
+  align-items: center;
+}
+.jb {
+  justify-content: space-between;
+}
+.gap8 {
+  gap: 8px;
+}
+
+@media (min-width: 1024px) {
+  .nlist {
+    max-width: 720px;
+  }
+}

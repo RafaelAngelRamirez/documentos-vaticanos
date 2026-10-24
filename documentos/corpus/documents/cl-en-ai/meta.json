@@ -1,0 +1,13 @@
+{
+  "id": "cl-en-ai",
+  "title": "Christifideles laici",
+  "shortTitle": "CL",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/apost_exhortations/documents/hf_jp-ii_exh_30121988_christifideles-laici.html",
+  "bodyPath": "documents/cl-en-ai/content.json",
+  "indexPath": "documents/cl-en-ai/index.json",
+  "unitCount": 64,
+  "sourceNote": "AI-generated English translation from the Español text of the pack «Christifideles laici» (cl-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+  "translationProvenance": "ai"
+}

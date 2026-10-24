@@ -1,0 +1,4 @@
+/* Layout lives in app-person-ficha; page-specific overrides only if needed. */
+:host {
+  display: block;
+}

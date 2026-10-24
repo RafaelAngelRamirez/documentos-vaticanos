@@ -1,0 +1,33 @@
+{
+  "documentId": "gregorio-nisa-gran-catequesis-es",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:36.622Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 250,
+  "unitsChanged": 74,
+  "before": {
+    "spaceBeforePunct": 206,
+    "gluedClausePunct": 17,
+    "missingSentenceSpace": 1,
+    "internalWordPeriod": 3,
+    "defectScore": 241
+  },
+  "after": {
+    "spaceBeforePunct": 1,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 3,
+    "defectScore": 1
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

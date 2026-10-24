@@ -1,0 +1,64 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.obra-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.obra-link:hover {
+  color: var(--acc);
+}
+
+.ref-block {
+  margin-bottom: 12px;
+}
+
+.fuente-block {
+  margin-top: 16px;
+  line-height: 1.45;
+}
+
+.fuente-block .fuente-nota {
+  margin-top: 4px;
+}
+
+.fuente-block .app-lang-link {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.lang-seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 8px 0 12px;
+  padding: 3px;
+  background: var(
+    --app-btn,
+    var(--btn, color-mix(in srgb, var(--ink) 8%, transparent))
+  );
+  border-radius: 10px;
+}
+
+.lang-seg .segbtn {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 8px 14px;
+}
+
+/* Desktop: a little top spacing on idioma when after meta */
+@media (min-width: 1024px) {
+  [cover-lang] .sect:first-child,
+  .sect:first-child {
+    margin-top: 12px;
+  }
+
+  [cover-refs] .sect {
+    margin-top: 20px;
+  }
+}

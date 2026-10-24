@@ -1,0 +1,180 @@
+{
+  "id": "diogneto-anonimo",
+  "name": "Anónimo (Carta a Diogneto)",
+  "kind": "author",
+  "years": "s. II",
+  "summary": "La Carta a Diogneto es una apología cristiana anónima del siglo II dirigida a un interlocutor pagano culto. Describe a los cristianos como «alma del mundo»: viven en las ciudades como todos, pero con otra ciudadanía moral.",
+  "axes": {
+    "lugar": "Mediterráneo oriental helenístico-romano (Alejandría, Asia Menor o entorno similar según hipótesis; no hay certeza de sede).",
+    "personajes": "«Diogneto» (destinatario, posiblemente ficticio o tipo del aristócrata pagano); emperadores antoninos como marco; intelectuales apologetas contemporáneos (Justino, etc.).",
+    "gobierno": "Principado romano de los Antoninos/Severos tempranos; cristianismo aún ilícito o precario; ausencia de alianza Imperio-Iglesia.",
+    "cultura": "Prosa griega de arte; diálogo con paideia; crítica del idolatrismo y del formalismo ritual judío desde categoría filosófico-moral.",
+    "religion": "Politeísmo cívico; judaísmo del Segundo Templo tardío / rabínico temprano; cristianismo minoritario misionero.",
+    "antropologia": "Familia y ciudad grecorromanas; hospitalidad; rechazo del abandono de recién nacidos y de ciertos espectáculos (temas afines a apologética coetánea).",
+    "creenciasMundanas": "Culto a los dioses de la ciudad; destinos y oráculos; orgullo étnico griego/romano.",
+    "creenciaCristiana": "Monoteísmo cristiano; revelación del Hijo; ética del amor y la paciencia bajo hostilidad; eclesiología implícita del pueblo nuevo sin territorio propio."
+  },
+  "timeline": [
+    {
+      "years": "s. II",
+      "label": "Composición probable de la Epístola a Diogneto",
+      "refIds": [
+        "diognetus",
+        "diognetus-ccel"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "britannica-rome",
+      "title": "Encyclopaedia Britannica: Roman Empire",
+      "url": "https://www.britannica.com/place/Roman-Empire",
+      "citation": "Encyclopaedia Britannica, s.v. “Roman Empire”.",
+      "note": "Marco imperial y tardoantigüedad (consulta general fiable)."
+    },
+    {
+      "id": "britannica-late-ant",
+      "title": "Encyclopaedia Britannica: Late antiquity / ancient Rome topics",
+      "url": "https://www.britannica.com/topic/ancient-Rome",
+      "citation": "Encyclopaedia Britannica, s.v. “ancient Rome” (y artículos afines).",
+      "note": "Contexto político-cultural del Mediterráneo romano."
+    },
+    {
+      "id": "chadwick-ec",
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed.",
+      "note": "Manual académico clásico de historia de la Iglesia antigua (impresión)."
+    },
+    {
+      "id": "kelly-ecd",
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum / HarperCollins.",
+      "note": "Manual de dogmática histórica (Trinidad, cristología, gracia)."
+    },
+    {
+      "id": "frend-rise",
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress Press, 1984.",
+      "note": "Historia social; persecuciones y África cristiana."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "fordham-ehs",
+      "title": "Fordham University — Internet History Sourcebooks: Ancient / Medieval / Church",
+      "url": "https://sourcebooks.fordham.edu/",
+      "citation": "Halsall, Paul, ed. Internet History Sourcebooks Project. Fordham University.",
+      "note": "Colección académica de fuentes primarias con introducción (Fordham.edu)."
+    },
+    {
+      "id": "fordham-ancient",
+      "title": "Fordham — Internet Ancient History Sourcebook: Christian Origins",
+      "url": "https://sourcebooks.fordham.edu/ancient/asbook11.asp",
+      "citation": "Internet Ancient History Sourcebook: Christian Origins (Fordham University).",
+      "note": "Fuentes de orígenes cristianos y Imperio romano."
+    },
+    {
+      "id": "ccel-ecf",
+      "title": "CCEL: Early Church Fathers (ANF / NPNF)",
+      "url": "https://www.ccel.org/fathers.html",
+      "citation": "Roberts, Alexander / Donaldson, James / Schaff, Philip, eds. Ante-Nicene and Nicene Fathers. CCEL.",
+      "note": "Corpus de traducciones de Padres de dominio público (referencia de consulta)."
+    },
+    {
+      "id": "ecw-index",
+      "title": "Early Christian Writings (Peter Kirby) — index of texts",
+      "url": "https://www.earlychristianwritings.com/",
+      "citation": "Kirby, Peter. Early Christian Writings. https://www.earlychristianwritings.com/",
+      "note": "Índice de textos y dataciones; útil para primarios, no magisterio oficial."
+    },
+    {
+      "id": "diognetus",
+      "title": "Epistle to Diognetus (Early Christian Writings)",
+      "url": "https://www.earlychristianwritings.com/text/diognetus-lightfoot.html",
+      "citation": "Epistle to Diognetus; English after Lightfoot / Lake; cf. Ruiz Bueno (ES).",
+      "note": "Texto primario apologético (s. II)."
+    },
+    {
+      "id": "diognetus-ccel",
+      "title": "CCEL / ANF: Epistle to Diognetus",
+      "url": "https://www.ccel.org/ccel/schaff/anf01.iii.ii.html",
+      "citation": "Ante-Nicene Fathers, vol. 1 — Epistle to Diognetus (CCEL).",
+      "note": "Traducción ANF de dominio público."
+    },
+    {
+      "id": "ce-fathers-index",
+      "title": "New Advent: Fathers of the Church (index)",
+      "url": "https://www.newadvent.org/fathers/",
+      "citation": "New Advent — English translations of the Church Fathers (ANF/NPNF based).",
+      "note": "Índice de Padres en inglés; textos de dominio público."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "diognetus",
+    "diognetus-ccel",
+    "ecw-index",
+    "chadwick-ec",
+    "frend-rise"
+  ],
+  "axisSources": {
+    "lugar": [
+      "diognetus",
+      "diognetus-ccel",
+      "chadwick-ec",
+      "frend-rise",
+      "ecw-index"
+    ],
+    "personajes": [
+      "diognetus",
+      "chadwick-ec",
+      "odcc",
+      "ccel-ecf"
+    ],
+    "gobierno": [
+      "frend-rise",
+      "chadwick-ec",
+      "britannica-rome",
+      "fordham-ancient"
+    ],
+    "cultura": [
+      "diognetus",
+      "chadwick-ec",
+      "ecw-index",
+      "odcc"
+    ],
+    "religion": [
+      "diognetus",
+      "diognetus-ccel",
+      "chadwick-ec",
+      "frend-rise"
+    ],
+    "antropologia": [
+      "diognetus",
+      "frend-rise",
+      "chadwick-ec",
+      "fordham-ehs"
+    ],
+    "creenciasMundanas": [
+      "diognetus",
+      "chadwick-ec",
+      "britannica-late-ant"
+    ],
+    "creenciaCristiana": [
+      "diognetus",
+      "kelly-ecd",
+      "pelikan-ct",
+      "ce-fathers-index"
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "id": "issuer-denzinger",
+  "name": "Enchiridion symbolorum (Denzinger)",
+  "kind": "issuer",
+  "years": "1854–",
+  "summary": "El Enchiridion de Heinrich Denzinger (y revisiones DS/DH) compila símbolos, definiciones y declaraciones de fe y moral del magisterio, herramienta de teología dogmática moderna.",
+  "axes": {
+    "lugar": "Tradición romana y conciliar compilada en manual de seminario europeo (s. XIX–XXI).",
+    "personajes": "Heinrich Denzinger; editores posteriores (Schönmetzer, Hünermann); concilios y papas citados.",
+    "gobierno": "N/A como acto de gobierno; refleja actos del magisterio extraordinario y ordinario.",
+    "cultura": "Teología positiva y neoescolástica; manualística latina.",
+    "religion": "Catolicismo dogmático moderno.",
+    "antropologia": "Uso en formación clerical y laical especializada.",
+    "creenciasMundanas": "Contrapunto a historicismo y relativismo doctrinal modernos.",
+    "creenciaCristiana": "Continuidad de la fe definida; jerarquía de documentos según autoridad."
+  },
+  "timeline": [
+    {
+      "years": "1854",
+      "label": "Primera edición Denzinger",
+      "refIds": [
+        "denzinger-dh",
+        "dco"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "dco",
+      "title": "Documenta Catholica Omnia (Cooperatorum Veritatis Societas)",
+      "url": "http://www.documentacatholicaomnia.eu/",
+      "citation": "Documenta Catholica Omnia — archive of conciliar, patristic and magisterial texts (CVS).",
+      "note": "Archivo amplio de textos latinos/griegos de la tradición católica (consulta de primarios)."
+    },
+    {
+      "id": "tanner-dec",
+      "title": "Norman P. Tanner (ed.), Decrees of the Ecumenical Councils",
+      "citation": "Tanner, Norman P., ed. Decrees of the Ecumenical Councils. 2 vols. Washington, DC / London: Georgetown University Press / Sheed & Ward, 1990.",
+      "note": "Edición crítica de referencia de decretos (latín/griego + inglés)."
+    },
+    {
+      "id": "denzinger-dh",
+      "title": "Denzinger-Hünermann, Enchiridion symbolorum",
+      "citation": "Denzinger, Heinrich / Hünermann, Peter. Enchiridion symbolorum definitionum et declarationum de rebus fidei et morum. Freiburg: Herder (eds. actualizadas).",
+      "note": "Compilación numerada de definiciones magisteriales (impresión de referencia)."
+    },
+    {
+      "id": "cic-1997",
+      "title": "Catecismo de la Iglesia Católica (vatican.va)",
+      "url": "https://www.vatican.va/archive/catechism_sp/index_sp.html",
+      "citation": "Catechismus Catholicae Ecclesiae. Libreria Editrice Vaticana; edición típica 1997.",
+      "note": "Texto típico oficial del Catecismo (ES)."
+    },
+    {
+      "id": "vatican-archive",
+      "title": "Santa Sede — Archivo documental (vatican.va)",
+      "url": "https://www.vatican.va/archive/index_sp.htm",
+      "citation": "vatican.va — Archive (Catechism, CIC, councils, etc.).",
+      "note": "Índice oficial de recursos documentales de la Santa Sede."
+    },
+    {
+      "id": "aas",
+      "title": "Acta Apostolicae Sedis (referencia de promulgación)",
+      "citation": "Acta Apostolicae Sedis: Commentarium Officiale. Typis Polyglottis Vaticanis (serie oficial).",
+      "url": "https://www.vatican.va/archive/aas/index_sp.htm",
+      "note": "Boletín oficial de la Santa Sede para actos promulgados."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
+    },
+    {
+      "id": "britannica-papacy",
+      "title": "Encyclopaedia Britannica: Papacy",
+      "url": "https://www.britannica.com/topic/papacy",
+      "citation": "Encyclopaedia Britannica, s.v. “papacy”.",
+      "note": "Institución papal e historia del primado."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "denzinger-dh",
+    "dco",
+    "vatican-archive",
+    "tanner-dec",
+    "odcc"
+  ],
+  "axisSources": {
+    "lugar": [
+      "denzinger-dh",
+      "vatican-archive",
+      "dco",
+      "odcc"
+    ],
+    "personajes": [
+      "denzinger-dh",
+      "odcc",
+      "pelikan-ct",
+      "tanner-dec"
+    ],
+    "gobierno": [
+      "denzinger-dh",
+      "tanner-dec",
+      "aas",
+      "britannica-papacy"
+    ],
+    "cultura": [
+      "denzinger-dh",
+      "odcc",
+      "pelikan-ct",
+      "dco"
+    ],
+    "religion": [
+      "denzinger-dh",
+      "odcc",
+      "pelikan-ct",
+      "vatican-archive"
+    ],
+    "antropologia": [
+      "denzinger-dh",
+      "odcc",
+      "pelikan-ct",
+      "britannica-christianity"
+    ],
+    "creenciasMundanas": [
+      "denzinger-dh",
+      "odcc",
+      "pelikan-ct",
+      "britannica-christianity"
+    ],
+    "creenciaCristiana": [
+      "denzinger-dh",
+      "tanner-dec",
+      "pelikan-ct",
+      "dco",
+      "cic-1997"
+    ]
+  }
+}

@@ -1,18 +1,54 @@
-<ng-container *ngIf="infoPunto.article">
-
-  <h5 class="card-title">{{ obtener_consecutivo(infoPunto.article.consecutivo) }}
-  </h5>
-
+<ng-container *ngIf="infoPunto?.article">
   <p
-    (click)="ver_raw = !ver_raw"
-    [innerHTML]="ocultar_consecutivo(infoPunto.article)"
+    class="punto-contenido"
+    [class.punto-heading]="isHeading"
+    [class.tsec]="isHeading"
+    [class.punto-heading--1]="headingLevel === 1"
+    [class.punto-heading--2]="headingLevel === 2"
+    [class.punto-heading--3]="headingLevel === 3"
+    [attr.data-unit]="infoPunto.article.index_array"
+    [attr.data-heading]="isHeading ? '1' : null"
+    [attr.data-heading-level]="headingLevel || null"
   >
+    <b class="punto-num" *ngIf="numLabel">{{ numLabel }}.</b>
+    <ng-container *ngFor="let seg of segments">
+      <span *ngIf="seg.type === 'text'" [innerHTML]="seg.html"></span>
+      <a
+        *ngIf="seg.type === 'ref' && seg.local"
+        href="javascript:void(0)"
+        class="ref-link"
+        [attr.title]="seg.label"
+        (click)="openRef(seg, $event)"
+        >{{ seg.label }}</a
+      >
+      <span
+        *ngIf="seg.type === 'ref' && !seg.local"
+        class="ref-unresolved"
+        title="Sin destino offline"
+        >{{ seg.label }}</span
+      >
+    </ng-container>
+    <span class="punto-local-refs" *ngIf="localRefs.length">
+      <a
+        *ngFor="let r of localRefs"
+        href="javascript:void(0)"
+        class="ref-link"
+        [attr.title]="r.descripcion"
+        (click)="openLocalRef(r, $event)"
+        >{{ r.descripcion }}</a
+      >
+    </span>
+    <button
+      *ngIf="canSave"
+      type="button"
+      class="punto-save-btn"
+      (click)="saveReference($event)"
+      title="Guardar referencia personal"
+      aria-label="Guardar referencia personal"
+    >
+      ★
+    </button>
+    <span *ngIf="saveMsg" class="punto-save-msg">{{ saveMsg }}</span>
+    <span *ngIf="saveError" class="punto-save-err">{{ saveError }}</span>
   </p>
-  <pre *ngIf="ver_raw">{{ infoPunto | json }}</pre>
-  <!-- Posiblemente aquí pongamos algo -->
-  <!-- <ul class="list-group list-group-flush">
-    <li *ngFor="let referencia of punto?.referencias" class="list-group-item">
-    {{ referencia?.descripcion }}
-    </li>
-  </ul> -->
 </ng-container>

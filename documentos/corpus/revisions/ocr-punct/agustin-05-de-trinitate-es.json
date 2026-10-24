@@ -1,0 +1,33 @@
+{
+  "documentId": "agustin-05-de-trinitate-es",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:13.204Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 3030,
+  "unitsChanged": 1186,
+  "before": {
+    "spaceBeforePunct": 3776,
+    "gluedClausePunct": 87,
+    "missingSentenceSpace": 6,
+    "internalWordPeriod": 79,
+    "defectScore": 3956
+  },
+  "after": {
+    "spaceBeforePunct": 8,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 109,
+    "defectScore": 8
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

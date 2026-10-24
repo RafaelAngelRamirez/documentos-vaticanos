@@ -1,0 +1,13 @@
+{
+  "id": "hv-en-ai",
+  "title": "Humanae vitae",
+  "shortTitle": "HV",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_25071968_humanae-vitae.html",
+  "bodyPath": "documents/hv-en-ai/content.json",
+  "indexPath": "documents/hv-en-ai/index.json",
+  "unitCount": 30,
+  "sourceNote": "AI-generated English translation from the Español text of the pack «Humanae vitae» (hv-es). Not an official translation of the Holy See nor a critical edition. Intended for study and orientative reading; in case of doubt, the source text prevails.",
+  "translationProvenance": "ai"
+}

@@ -1,20 +1,90 @@
-<div class="row">
-  <div class="col-12 mt-3">
-    <div
-      *ngFor="let item of docService.documentos_disponibles"
-      class="card shadow"
-    >
-      <div class="card-body">
-        <h1 class="card-title"><i class="fas fa-book-open"></i>
-          {{item.nombre}}</h1>
-        <p class="card-text">
-          Palabras indexadas: {{keys(item.indice.indice).length | number}}
-        </p>
-        <a
-          (click)="read(item)"
-          href="javascript:void(0)"
-          class="btn btn-sm btn-secondary"
-        >Leer desde el inicio </a>
+<div class="app has-bnav web-shell" [attr.data-tick]="localeTick">
+  <app-wbar active="biblioteca"></app-wbar>
+
+  <!-- 3D móvil -->
+  <div class="only-mobile">
+    <app-fbar [title]="t('library.title')"></app-fbar>
+    <div class="lib">
+      <input
+        class="field"
+        type="search"
+        [attr.placeholder]="t('library.search_placeholder')"
+        [value]="query"
+        (input)="onQuery($event)"
+        [attr.aria-label]="t('library.search_placeholder')"
+      />
+      <div class="tabs" role="tablist" aria-label="Filtrar por tipo">
+        <button
+          type="button"
+          class="tab"
+          role="tab"
+          *ngFor="let tab of tabs"
+          [class.on]="activeTab === tab"
+          [attr.aria-selected]="activeTab === tab"
+          (click)="setTab(tab)"
+        >
+          {{ tabLabel(tab) }}
+        </button>
+      </div>
+      <div *ngIf="loading" class="empty" role="status">{{ t('library.loading') }}</div>
+      <div *ngIf="load_error" class="empty" role="alert">{{ load_error }}</div>
+      <ng-container *ngIf="!loading && !load_error">
+        <button type="button" class="srow" *ngFor="let item of filtered" (click)="open(item)">
+          <span class="st">{{ displayTitle(item) }}</span>
+          <span class="sx">{{ metaLine(item) }}</span>
+        </button>
+        <div *ngIf="sinResultados" class="empty">
+          Ningún documento coincide con la búsqueda.
+        </div>
+      </ng-container>
+    </div>
+    <app-bnav current="biblioteca"></app-bnav>
+  </div>
+
+  <!-- 5B web -->
+  <div class="wmain only-desktop">
+    <aside class="wside" aria-label="Filtros de biblioteca">
+      <button
+        type="button"
+        class="sitem"
+        *ngFor="let tab of sideTabs"
+        [class.on]="activeTab === tab"
+        (click)="setTab(tab)"
+      >
+        {{ tabLabel(tab) }}
+      </button>
+      <div class="sect" style="margin: 22px 12px 8px">{{ t('library.my_reading') }}</div>
+      <button type="button" class="sitem" (click)="goContinue()">
+        {{ t('library.continue') }}
+        <ng-container *ngIf="lastReadLabel"> · {{ lastReadLabel }}</ng-container>
+      </button>
+      <a routerLink="/notas" class="sitem">Marcadores</a>
+      <a routerLink="/notas" class="sitem">Mis notas</a>
+    </aside>
+    <div class="wbody">
+      <div class="fx ac jb" style="margin-bottom: 18px">
+        <h2 class="h2">{{ t('library.title') }}</h2>
+        <span class="fs13 muted">{{ t('library.doc_count_offline', { n: docCount }) }}</span>
+      </div>
+      <div *ngIf="loading" class="fs13 muted">{{ t('common.loading') }}</div>
+      <div *ngIf="load_error" class="fs13" style="color: var(--app-danger)">{{ load_error }}</div>
+      <div class="cardgrid" *ngIf="!loading && !load_error">
+        <button
+          type="button"
+          class="bookcard"
+          *ngFor="let item of filtered"
+          (click)="open(item)"
+        >
+          <span class="bkind">{{ kindOf(item) }}</span>
+          <span class="bt">{{ displayTitle(item) }}</span>
+          <span class="bm">{{ metaLine(item) }}</span>
+          <div class="prog" *ngIf="progressOf(item) as pct">
+            <div class="progfill" [style.width.%]="pct"></div>
+          </div>
+        </button>
+      </div>
+      <div *ngIf="sinResultados" class="fs13 muted" style="margin-top: 16px">
+        Ningún documento coincide con el filtro.
       </div>
     </div>
   </div>

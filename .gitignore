@@ -45,3 +45,43 @@ testem.log
 .DS_Store
 Thumbs.db
 .vscode
+# Built installers / package artifacts (serve from CI image, not git)
+*.apk
+*.AppImage
+*.exe
+*.nsis.7z
+frontend/android/local.properties
+frontend/dist/
+# monorepo package:all output
+/dist/
+
+
+# Crawl HTML cache (large)
+documentos/crawl/**/cache/
+
+# Padres: keep inventory + clean text + corpus JSON; skip heavy PDFs and raw extracts
+documentos/padres-source/pdf/
+documentos/padres-source/raw/
+
+# Concilios: same policy (Mansi OCR dumps / PDFs are large)
+documentos/concilios-source/pdf/
+documentos/concilios-source/raw/
+
+
+# Scrape work copies (canonical pack is documentos/corpus)
+scripts-descarga/documentos/
+
+# Ship copy of the canonical pack (regenerate with npm run corpus:sync-assets)
+frontend/src/assets/corpus/documents/
+
+# AI locale-twin MT checkpoints / intermediate clean dumps (resume-local only)
+documentos/magisterium-source/clean/
+
+# electron-builder / tooling caches
+.cache/
+
+# Agent / local tool dumps
+.playwright-mcp/
+__pycache__/
+*.pyc
+*.pyo

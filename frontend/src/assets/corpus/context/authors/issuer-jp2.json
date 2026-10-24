@@ -1,0 +1,186 @@
+{
+  "id": "issuer-jp2",
+  "name": "Juan Pablo II (magisterio)",
+  "kind": "issuer",
+  "years": "1978–2005",
+  "summary": "Karol Wojtyła, papa Juan Pablo II, marca el final del siglo XX católico: personalismo, doctrina social post-1989, moral (Veritatis splendor, Evangelium vitae), laicado, misiones y el Catecismo de 1992/97.",
+  "axes": {
+    "lugar": "Roma y viajes apostólicos globales; Polonia y Europa del Este; Naciones Unidas y foros internacionales.",
+    "personajes": "Juan Pablo II; colaboradores curiales; líderes de Solidarnošč y de la Guerra Fría; teólogos moralistas en debate.",
+    "gobierno": "Caída del bloque soviético; globalización; Santa Sede en diplomacia de derechos humanos.",
+    "cultura": "Medios de masas; JMJ; diálogo fe-razón; personalismo filosófico polaco y tomista.",
+    "religion": "Catolicismo global; ecumenismo; Jornada de Asís; tensiones con teologías de la liberación y moral liberal.",
+    "antropologia": "Teología del cuerpo; dignidad del no nacido y del moribundo; trabajo humano (Laborem exercens).",
+    "creenciasMundanas": "Materialismo dialéctico; consumismo; relativismo moral; tecnocracia.",
+    "creenciaCristiana": "Cristocentrismo (Redemptor hominis); fe del Catecismo; moral objetiva y ley natural; eclesiología de comunión postconciliar."
+  },
+  "timeline": [
+    {
+      "years": "1978",
+      "label": "Elección de Juan Pablo II",
+      "refIds": [
+        "jp2",
+        "cic-1997"
+      ]
+    },
+    {
+      "years": "1983",
+      "label": "Código de Derecho Canónico",
+      "refIds": [
+        "jp2",
+        "cic-1997"
+      ]
+    },
+    {
+      "years": "1992–1997",
+      "label": "Catecismo de la Iglesia Católica",
+      "refIds": [
+        "jp2",
+        "cic-1997"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "papalencyclicals",
+      "title": "Papal Encyclicals Online",
+      "url": "https://www.papalencyclicals.net/",
+      "citation": "Papal Encyclicals Online — English archive of papal documents.",
+      "note": "Textos magisteriales en inglés; contrastar con vatican.va cuando exista original."
+    },
+    {
+      "id": "denzinger-dh",
+      "title": "Denzinger-Hünermann, Enchiridion symbolorum",
+      "citation": "Denzinger, Heinrich / Hünermann, Peter. Enchiridion symbolorum definitionum et declarationum de rebus fidei et morum. Freiburg: Herder (eds. actualizadas).",
+      "note": "Compilación numerada de definiciones magisteriales (impresión de referencia)."
+    },
+    {
+      "id": "cic-1997",
+      "title": "Catecismo de la Iglesia Católica (vatican.va)",
+      "url": "https://www.vatican.va/archive/catechism_sp/index_sp.html",
+      "citation": "Catechismus Catholicae Ecclesiae. Libreria Editrice Vaticana; edición típica 1997.",
+      "note": "Texto típico oficial del Catecismo (ES)."
+    },
+    {
+      "id": "cic-1983",
+      "title": "Código de Derecho Canónico (1983) — vatican.va",
+      "url": "https://www.vatican.va/archive/cod-iuris-canonici/cic_index_sp.html",
+      "citation": "Codex Iuris Canonici (1983). Ioannes Paulus II. vatican.va.",
+      "note": "Texto oficial del CIC latino."
+    },
+    {
+      "id": "cds-2004",
+      "title": "Compendio de la Doctrina Social de la Iglesia (vatican.va)",
+      "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sp.html",
+      "citation": "Pontificio Consejo Justicia y Paz. Compendio de la Doctrina Social de la Iglesia (2004).",
+      "note": "Síntesis oficial de doctrina social."
+    },
+    {
+      "id": "jp2",
+      "title": "Juan Pablo II — documentos (vatican.va)",
+      "url": "https://www.vatican.va/content/john-paul-ii/es.html",
+      "citation": "Ioannes Paulus II. Opera / vatican.va (ES).",
+      "note": "Encíclicas y exhortaciones 1978–2005 (texto oficial)."
+    },
+    {
+      "id": "vatican-archive",
+      "title": "Santa Sede — Archivo documental (vatican.va)",
+      "url": "https://www.vatican.va/archive/index_sp.htm",
+      "citation": "vatican.va — Archive (Catechism, CIC, councils, etc.).",
+      "note": "Índice oficial de recursos documentales de la Santa Sede."
+    },
+    {
+      "id": "aas",
+      "title": "Acta Apostolicae Sedis (referencia de promulgación)",
+      "citation": "Acta Apostolicae Sedis: Commentarium Officiale. Typis Polyglottis Vaticanis (serie oficial).",
+      "url": "https://www.vatican.va/archive/aas/index_sp.htm",
+      "note": "Boletín oficial de la Santa Sede para actos promulgados."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
+    },
+    {
+      "id": "britannica-papacy",
+      "title": "Encyclopaedia Britannica: Papacy",
+      "url": "https://www.britannica.com/topic/papacy",
+      "citation": "Encyclopaedia Britannica, s.v. “papacy”.",
+      "note": "Institución papal e historia del primado."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "jp2",
+    "cic-1997",
+    "vatican-archive",
+    "aas",
+    "odcc"
+  ],
+  "axisSources": {
+    "lugar": [
+      "jp2",
+      "cic-1997",
+      "vatican-archive",
+      "aas",
+      "britannica-papacy"
+    ],
+    "personajes": [
+      "jp2",
+      "cic-1997",
+      "odcc",
+      "papalencyclicals"
+    ],
+    "gobierno": [
+      "jp2",
+      "cic-1983",
+      "aas",
+      "vatican-archive"
+    ],
+    "cultura": [
+      "jp2",
+      "cic-1997",
+      "pelikan-ct",
+      "britannica-christianity"
+    ],
+    "religion": [
+      "jp2",
+      "cic-1997",
+      "cds-2004",
+      "vatican-archive"
+    ],
+    "antropologia": [
+      "jp2",
+      "cic-1997",
+      "cds-2004",
+      "odcc"
+    ],
+    "creenciasMundanas": [
+      "jp2",
+      "cds-2004",
+      "britannica-christianity",
+      "odcc"
+    ],
+    "creenciaCristiana": [
+      "jp2",
+      "cic-1997",
+      "pelikan-ct",
+      "denzinger-dh",
+      "aas"
+    ]
+  }
+}

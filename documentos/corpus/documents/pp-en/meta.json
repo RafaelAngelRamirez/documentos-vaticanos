@@ -1,0 +1,13 @@
+{
+  "id": "pp-en",
+  "title": "Populorum progressio",
+  "shortTitle": "PP",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/paul-vi/en/encyclicals/documents/hf_p-vi_enc_26031967_populorum.html",
+  "bodyPath": "documents/pp-en/content.json",
+  "indexPath": "documents/pp-en/index.json",
+  "unitCount": 202,
+  "translationProvenance": "official",
+  "sourceNote": "Official English text from vatican.va"
+}

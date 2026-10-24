@@ -1,0 +1,330 @@
+{
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:36.909Z",
+  "documentCount": 46,
+  "documents": [
+    {
+      "id": "agustin-01-primeros-escritos-es",
+      "unitsChanged": 801,
+      "defectBefore": 3093,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-02-confesiones-es",
+      "unitsChanged": 523,
+      "defectBefore": 1041,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-03-obras-filosoficas-es",
+      "unitsChanged": 1001,
+      "defectBefore": 10901,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-04-obras-apologeticas-es",
+      "unitsChanged": 696,
+      "defectBefore": 1444,
+      "defectAfter": 8,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-05-de-trinitate-es",
+      "unitsChanged": 1186,
+      "defectBefore": 3956,
+      "defectAfter": 8,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-06-gracia-1-es",
+      "unitsChanged": 954,
+      "defectBefore": 2927,
+      "defectAfter": 5,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-07-sermones-1-es",
+      "unitsChanged": 269,
+      "defectBefore": 423,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-08-cartas-1-es",
+      "unitsChanged": 195,
+      "defectBefore": 242,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-09-gracia-2-es",
+      "unitsChanged": 854,
+      "defectBefore": 2418,
+      "defectAfter": 3,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-10-sermones-2-es",
+      "unitsChanged": 312,
+      "defectBefore": 505,
+      "defectAfter": 8,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-11-cartas-2-es",
+      "unitsChanged": 870,
+      "defectBefore": 2569,
+      "defectAfter": 2,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-12-tratados-morales-es",
+      "unitsChanged": 575,
+      "defectBefore": 1232,
+      "defectAfter": 27,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-13-evangelio-juan-1-es",
+      "unitsChanged": 826,
+      "defectBefore": 2996,
+      "defectAfter": 1,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-14-evangelio-juan-2-es",
+      "unitsChanged": 500,
+      "defectBefore": 2040,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-15-tratados-escriturarios-es",
+      "unitsChanged": 776,
+      "defectBefore": 1632,
+      "defectAfter": 2,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-16-ciudad-de-dios-1-es",
+      "unitsChanged": 1331,
+      "defectBefore": 13052,
+      "defectAfter": 1,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-17-ciudad-de-dios-2-es",
+      "unitsChanged": 1417,
+      "defectBefore": 11889,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-18-epistolas-indices-es",
+      "unitsChanged": 1042,
+      "defectBefore": 16139,
+      "defectAfter": 6,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-19-enarraciones-salmos-1-es",
+      "unitsChanged": 891,
+      "defectBefore": 4766,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-20-enarraciones-salmos-2-es",
+      "unitsChanged": 658,
+      "defectBefore": 3046,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-21-enarraciones-salmos-3-es",
+      "unitsChanged": 648,
+      "defectBefore": 2586,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-22-enarraciones-salmos-4-es",
+      "unitsChanged": 366,
+      "defectBefore": 1295,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-23-sermones-juan-hechos-es",
+      "unitsChanged": 227,
+      "defectBefore": 341,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-24-sermones-4-es",
+      "unitsChanged": 240,
+      "defectBefore": 358,
+      "defectAfter": 6,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-25-sermones-5-es",
+      "unitsChanged": 177,
+      "defectBefore": 248,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-26-sermones-6-es",
+      "unitsChanged": 981,
+      "defectBefore": 6601,
+      "defectAfter": 1,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-27-escritos-biblicos-3-es",
+      "unitsChanged": 214,
+      "defectBefore": 301,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-28-escritos-biblicos-4-es",
+      "unitsChanged": 464,
+      "defectBefore": 1364,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-29-escritos-biblicos-5-es",
+      "unitsChanged": 515,
+      "defectBefore": 2979,
+      "defectAfter": 5,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-30-antimaniqueos-1-es",
+      "unitsChanged": 320,
+      "defectBefore": 455,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-31-antimaniqueos-2-es",
+      "unitsChanged": 257,
+      "defectBefore": 575,
+      "defectAfter": 68,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-32-antidonatistas-1-es",
+      "unitsChanged": 519,
+      "defectBefore": 1502,
+      "defectAfter": 12,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-33-antidonatistas-2-es",
+      "unitsChanged": 203,
+      "defectBefore": 370,
+      "defectAfter": 8,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-34-antidonatistas-3-es",
+      "unitsChanged": 563,
+      "defectBefore": 1119,
+      "defectAfter": 21,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-35-antipelagianos-3-es",
+      "unitsChanged": 579,
+      "defectBefore": 1161,
+      "defectAfter": 20,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-36-antipelagianos-4-es",
+      "unitsChanged": 221,
+      "defectBefore": 377,
+      "defectAfter": 6,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-37-antipelagianos-5-es",
+      "unitsChanged": 207,
+      "defectBefore": 339,
+      "defectAfter": 4,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-38-antiarrianos-es",
+      "unitsChanged": 365,
+      "defectBefore": 901,
+      "defectAfter": 16,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-39-varios-1-es",
+      "unitsChanged": 314,
+      "defectBefore": 540,
+      "defectAfter": 18,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "agustin-40-varios-2-es",
+      "unitsChanged": 245,
+      "defectBefore": 441,
+      "defectAfter": 2,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "carta-diogneto-es",
+      "unitsChanged": 7,
+      "defectBefore": 26,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "cipriano-cartas-es",
+      "unitsChanged": 203,
+      "defectBefore": 497,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "cirilo-jerusalen-catequesis-es",
+      "unitsChanged": 79,
+      "defectBefore": 81,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "clemente-alejandria-pedagogo-es",
+      "unitsChanged": 321,
+      "defectBefore": 842,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "gregorio-nisa-gran-catequesis-es",
+      "unitsChanged": 74,
+      "defectBefore": 241,
+      "defectAfter": 1,
+      "letterTokenOverlap": 1
+    },
+    {
+      "id": "jerusalen-es",
+      "unitsChanged": 1,
+      "defectBefore": 1,
+      "defectAfter": 0,
+      "letterTokenOverlap": 1
+    }
+  ],
+  "notes": "v2: no internal-period joins; preserve Spanish ¿¡ spacing. Restored from c626e4c^ then re-applied."
+}

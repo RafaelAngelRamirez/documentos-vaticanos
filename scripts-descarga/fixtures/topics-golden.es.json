@@ -1,0 +1,15 @@
+{
+  "locale": "es",
+  "minPostings": 8,
+  "slugs": [
+    "gracia",
+    "trinidad",
+    "eucaristia",
+    "matrimonio",
+    "bautismo",
+    "fe",
+    "iglesia",
+    "pecado"
+  ],
+  "sourceNote": "PR4c strict golden hubs for CI. Each slug that exists in topics.json must have ≥ minPostings; 0 postings is always an error."
+}

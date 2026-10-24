@@ -1,0 +1,33 @@
+{
+  "documentId": "agustin-23-sermones-juan-hechos-es",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:34.296Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 2277,
+  "unitsChanged": 227,
+  "before": {
+    "spaceBeforePunct": 272,
+    "gluedClausePunct": 17,
+    "missingSentenceSpace": 35,
+    "internalWordPeriod": 3,
+    "defectScore": 341
+  },
+  "after": {
+    "spaceBeforePunct": 0,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 5,
+    "defectScore": 0
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}

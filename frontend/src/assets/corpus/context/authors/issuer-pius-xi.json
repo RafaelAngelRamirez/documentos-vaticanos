@@ -1,0 +1,160 @@
+{
+  "id": "issuer-pius-xi",
+  "name": "Pío XI",
+  "kind": "issuer",
+  "years": "1922–1939",
+  "summary": "Achille Ratti, Pío XI, reina en entreguerras: Acción Católica, Quas primas (Cristo Rey), concordatos y condenas de totalitarismos.",
+  "axes": {
+    "lugar": "Roma (Pactos de Letrán 1929); Europa de fascismos y comunismo.",
+    "personajes": "Pío XI; Mussolini (concordato); jerarquías de Acción Católica.",
+    "gobierno": "Estados totalitarios emergentes; Ciudad del Vaticano soberana (1929).",
+    "cultura": "Radiodifusión; cine; modernismo residual ya condenado.",
+    "religion": "Catolicismo confesional vs. laicismos y paganismos políticos.",
+    "antropologia": "Educación cristiana; matrimonio; juventudes católicas.",
+    "creenciasMundanas": "Nacionalismos sacralizados; materialismo marxista.",
+    "creenciaCristiana": "Realeza social de Cristo; doctrina social (Quadragesimo anno en el entorno)."
+  },
+  "timeline": [
+    {
+      "years": "1925",
+      "label": "Quas primas",
+      "refIds": [
+        "pius-xi",
+        "vatican-archive"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "dco",
+      "title": "Documenta Catholica Omnia (Cooperatorum Veritatis Societas)",
+      "url": "http://www.documentacatholicaomnia.eu/",
+      "citation": "Documenta Catholica Omnia — archive of conciliar, patristic and magisterial texts (CVS).",
+      "note": "Archivo amplio de textos latinos/griegos de la tradición católica (consulta de primarios)."
+    },
+    {
+      "id": "papalencyclicals",
+      "title": "Papal Encyclicals Online",
+      "url": "https://www.papalencyclicals.net/",
+      "citation": "Papal Encyclicals Online — English archive of papal documents.",
+      "note": "Textos magisteriales en inglés; contrastar con vatican.va cuando exista original."
+    },
+    {
+      "id": "denzinger-dh",
+      "title": "Denzinger-Hünermann, Enchiridion symbolorum",
+      "citation": "Denzinger, Heinrich / Hünermann, Peter. Enchiridion symbolorum definitionum et declarationum de rebus fidei et morum. Freiburg: Herder (eds. actualizadas).",
+      "note": "Compilación numerada de definiciones magisteriales (impresión de referencia)."
+    },
+    {
+      "id": "cds-2004",
+      "title": "Compendio de la Doctrina Social de la Iglesia (vatican.va)",
+      "url": "https://www.vatican.va/roman_curia/pontifical_councils/justpeace/documents/rc_pc_justpeace_doc_20060526_compendio-dott-soc_sp.html",
+      "citation": "Pontificio Consejo Justicia y Paz. Compendio de la Doctrina Social de la Iglesia (2004).",
+      "note": "Síntesis oficial de doctrina social."
+    },
+    {
+      "id": "pius-xi",
+      "title": "Pío XI — documentos (vatican.va)",
+      "url": "https://www.vatican.va/content/pius-xi/es.html",
+      "citation": "Pius XI. Opera / vatican.va (ES).",
+      "note": "Incluye Quas primas y doctrina social de entreguerras."
+    },
+    {
+      "id": "vatican-archive",
+      "title": "Santa Sede — Archivo documental (vatican.va)",
+      "url": "https://www.vatican.va/archive/index_sp.htm",
+      "citation": "vatican.va — Archive (Catechism, CIC, councils, etc.).",
+      "note": "Índice oficial de recursos documentales de la Santa Sede."
+    },
+    {
+      "id": "aas",
+      "title": "Acta Apostolicae Sedis (referencia de promulgación)",
+      "citation": "Acta Apostolicae Sedis: Commentarium Officiale. Typis Polyglottis Vaticanis (serie oficial).",
+      "url": "https://www.vatican.va/archive/aas/index_sp.htm",
+      "note": "Boletín oficial de la Santa Sede para actos promulgados."
+    },
+    {
+      "id": "britannica-christianity",
+      "title": "Encyclopaedia Britannica: Christianity",
+      "url": "https://www.britannica.com/topic/Christianity",
+      "citation": "Encyclopaedia Britannica, s.v. “Christianity”.",
+      "note": "Panorama histórico-doctrinal general (enciclopedia revisada)."
+    },
+    {
+      "id": "britannica-papacy",
+      "title": "Encyclopaedia Britannica: Papacy",
+      "url": "https://www.britannica.com/topic/papacy",
+      "citation": "Encyclopaedia Britannica, s.v. “papacy”.",
+      "note": "Institución papal e historia del primado."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline Documentos Vaticanos; verificar con las referencias citadas. No sustituye monografía experta.",
+  "summaryRefIds": [
+    "pius-xi",
+    "vatican-archive",
+    "aas",
+    "papalencyclicals",
+    "odcc"
+  ],
+  "axisSources": {
+    "lugar": [
+      "pius-xi",
+      "vatican-archive",
+      "aas",
+      "britannica-papacy"
+    ],
+    "personajes": [
+      "pius-xi",
+      "odcc",
+      "papalencyclicals",
+      "britannica-papacy"
+    ],
+    "gobierno": [
+      "pius-xi",
+      "aas",
+      "britannica-papacy",
+      "odcc"
+    ],
+    "cultura": [
+      "pius-xi",
+      "odcc",
+      "pelikan-ct",
+      "britannica-christianity"
+    ],
+    "religion": [
+      "pius-xi",
+      "odcc",
+      "pelikan-ct",
+      "vatican-archive"
+    ],
+    "antropologia": [
+      "pius-xi",
+      "odcc",
+      "pelikan-ct",
+      "cds-2004"
+    ],
+    "creenciasMundanas": [
+      "pius-xi",
+      "odcc",
+      "britannica-christianity"
+    ],
+    "creenciaCristiana": [
+      "pius-xi",
+      "pelikan-ct",
+      "denzinger-dh",
+      "dco"
+    ]
+  }
+}

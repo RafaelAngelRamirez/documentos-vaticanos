@@ -1,0 +1,178 @@
+import { CommonModule } from '@angular/common';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
+import { WbarComponent } from 'src/app/components/wbar/wbar.component';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
+import {
+  Anotacion,
+  AnotacionesService,
+} from 'src/app/services/anotaciones.service';
+import {
+  PersonalReference,
+  ReferencesService,
+} from 'src/app/core/account/references.service';
+import { AuthService } from 'src/app/core/auth/auth.service';
+import { NavigationService } from 'src/app/services/navigation.service';
+import { environment } from 'src/environments/environment';
+import { RouterModule } from '@angular/router';
+
+type Tab = 'subrayados' | 'marcadores' | 'notas';
+
+/** Diseño 3G · Notas y marcadores + 5H web. */
+@Component({
+  standalone: true,
+  selector: 'app-notas',
+  imports: [CommonModule, RouterModule, AppFbarComponent, WbarComponent],
+  templateUrl: './notas.component.html',
+  styleUrls: ['./notas.component.css'],
+})
+export class NotasComponent implements OnInit, OnDestroy {
+  tab: Tab = 'subrayados';
+  refs: PersonalReference[] = [];
+  refsLoading = false;
+  refsError: string | null = null;
+  apiEnabled = Boolean(environment.apiBaseUrl);
+  localeTick = 0;
+  private sub = new Subscription();
+
+  constructor(
+    public i18n: UiI18nService,
+    public auth: AuthService,
+    private anotaciones: AnotacionesService,
+    private references: ReferencesService,
+    private navigation: NavigationService,
+  ) {}
+
+  t(key: string, params?: Record<string, string | number>): string {
+    return this.i18n.t(key, params);
+  }
+
+  ngOnInit(): void {
+    this.sub.add(
+      this.i18n.locale$.subscribe(() => {
+        this.localeTick++;
+      }),
+    );
+    this.loadRefs();
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+
+  get subrayados(): Anotacion[] {
+    return this.anotaciones.snapshot.filter((a) => a.kind === 'subrayado');
+  }
+
+  get notas(): Anotacion[] {
+    return this.anotaciones.snapshot.filter((a) => a.kind === 'nota');
+  }
+
+  /** Marcadores locales (offline-first); los de nube (refs) son adicionales. */
+  get marcadores(): Anotacion[] {
+    return this.anotaciones.snapshot.filter((a) => a.kind === 'marcador');
+  }
+
+  get hasAny(): boolean {
+    return (
+      this.subrayados.length > 0 ||
+      this.notas.length > 0 ||
+      this.marcadores.length > 0 ||
+      this.refs.length > 0
+    );
+  }
+
+  setTab(t: Tab): void {
+    this.tab = t;
+  }
+
+  private loadRefs(): void {
+    if (!this.apiEnabled || !this.auth.isLoggedIn) return;
+    this.refsLoading = true;
+    this.references.list().subscribe({
+      next: (items) => {
+        this.refs = items;
+        this.refsLoading = false;
+      },
+      error: (err) => {
+        this.refsLoading = false;
+        this.refsError =
+          err?.error?.error || err?.message || 'Error al cargar marcadores';
+      },
+    });
+  }
+
+  /** «hoy · ayer · hace N días…» para .nsrc. */
+  when(ts: number | string): string {
+    const t = typeof ts === 'string' ? Date.parse(ts) : ts;
+    if (!Number.isFinite(t)) return '';
+    const days = Math.floor((Date.now() - t) / 86_400_000);
+    if (days <= 0) return 'hoy';
+    if (days === 1) return 'ayer';
+    if (days < 7) return `hace ${days} días`;
+    if (days < 30) {
+      const w = Math.floor(days / 7);
+      return w === 1 ? 'hace 1 semana' : `hace ${w} semanas`;
+    }
+    return new Date(t).toLocaleDateString();
+  }
+
+  src(
+    x: { unitLabel?: string | null; documentId: string; unitIndex: number },
+    ts: number | string
+  ): string {
+    return `${x.unitLabel || x.documentId} · Nº ${x.unitIndex} · ${this.when(ts)}`;
+  }
+
+  open(x: { documentId: string; unitIndex: number }): void {
+    this.navigation.openReading(x.documentId, { unitIndex: x.unitIndex });
+  }
+
+  removeAnotacion(ev: Event, id: string): void {
+    ev.stopPropagation();
+    this.anotaciones.remove(id);
+  }
+
+  removeRef(ev: Event, id: string): void {
+    ev.stopPropagation();
+    this.references.remove(id).subscribe({
+      next: () => (this.refs = this.refs.filter((r) => r.id !== id)),
+      error: (err) => {
+        this.refsError = err?.error?.error || err?.message || 'Error';
+      },
+    });
+  }
+
+  /** Exporta el contenido propio como texto plano (archivo local). */
+  exportAll(): void {
+    const lines: string[] = [];
+    for (const a of this.anotaciones.snapshot) {
+      if (a.kind === 'marcador') {
+        lines.push(`★ ${a.unitLabel || a.documentId} · Nº ${a.unitIndex}`);
+        continue;
+      }
+      lines.push(
+        `«${a.excerpt}»${a.nota ? `\n  ${a.nota}` : ''}\n  — ${
+          a.unitLabel || a.documentId
+        } · Nº ${a.unitIndex}`
+      );
+    }
+    for (const r of this.refs) {
+      lines.push(
+        `★ ${r.unitLabel || r.documentId} · Nº ${r.unitIndex}${
+          r.note ? ` — ${r.note}` : ''
+        }`
+      );
+    }
+    const blob = new Blob([lines.join('\n\n') + '\n'], {
+      type: 'text/plain;charset=utf-8',
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'mis-notas.txt';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+}

@@ -1,30 +1,70 @@
 {
   "name": "documentos-vaticanos",
-  "version": "0.0.13",
+  "version": "0.0.33",
+  "private": true,
+  "builders": "tools/builders.json",
+  "description": "Documentos Vaticanos — lector offline (web, Android, Electron)",
+  "author": "Documentos Vaticanos",
+  "main": "electron/main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "serve": "node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng serve",
     "build": "ng build --configuration production",
     "build-dev": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "build:cap": "ng build --configuration production && npx cap sync",
+    "cap:sync": "npx cap sync",
+    "cap:android": "npx cap open android",
+    "serve:emu": "ng serve --host 0.0.0.0 --port 4200 --disable-host-check",
+    "cap:sync:live": "CAP_LIVE_RELOAD=1 npx cap sync android",
+    "android:install": "bash ../scripts/package-apk.sh && adb install -r ../dist/documentos-vaticanos-debug.apk",
+    "build:apk": "bash ../scripts/package-apk.sh",
+    "electron": "electron .",
+    "electron:smoke": "DV_ELECTRON_SMOKE_MS=4000 DV_ELECTRON_NO_SANDBOX=1 electron . --no-sandbox",
+    "electron:pack": "electron-builder --linux dir",
+    "test:electron-paths": "node electron/paths.test.js",
+    "test:downloads": "node src/app/core/downloads/downloads.paths.test.js",
+    "test:app-update": "bash ../scripts/node-strip-types.sh src/app/core/downloads/app-update.logic.test.js",
+    "test:corpus-persist": "bash ../scripts/node-strip-types.sh src/app/core/corpus/corpus-persist.test.js",
+    "test:document-locale": "bash ../scripts/node-strip-types.sh src/app/core/corpus/document-locale.logic.test.js",
+    "test:library-catalog": "bash ../scripts/node-strip-types.sh src/app/pages/list-documents-pages/library-catalog-load.test.js",
+    "test:ui-i18n": "bash ../scripts/node-strip-types.sh src/app/core/i18n/ui-i18n.logic.test.js",
+    "test:safe-area": "bash ../scripts/node-strip-types.sh src/app/core/shell/safe-area.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/shell/reader-chrome.logic.test.js",
+    "test:narrator-grok": "bash ../scripts/node-strip-types.sh src/app/services/narrator-grok.logic.test.js && bash ../scripts/node-strip-types.sh src/app/services/narrator-prefs.logic.test.js",
+    "test:speech-prep": "bash ../scripts/node-strip-types.sh src/app/services/speech-prep.logic.test.js",
+    "test:speech-lang": "bash ../scripts/node-strip-types.sh src/app/services/speech-lang.logic.test.js",
+    "test:semantic-search": "bash ../scripts/node-strip-types.sh src/app/core/search/semantic-search.logic.test.js",
+    "test:related-suggestion": "bash ../scripts/node-strip-types.sh src/app/core/search/related-suggestion.logic.test.js",
+    "test:document-toc": "bash ../scripts/node-strip-types.sh src/app/services/document-toc.logic.test.js",
+    "test:open-reading": "bash ../scripts/node-strip-types.sh src/app/services/open-reading.logic.test.js && bash ../scripts/node-strip-types.sh src/app/services/open-reading.handoff.test.js && bash ../scripts/node-strip-types.sh src/app/pages/immersive-route.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/person/person-reading.logic.test.js",
+    "test:santoral": "bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-resolve.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-units.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-progress.logic.test.js",
+    "test:papacy": "bash ../scripts/node-strip-types.sh src/app/core/papacy/papacy-resolve.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/papacy/papacy-units.logic.test.js",
+    "test:lectio": "bash ../scripts/node-strip-types.sh src/app/core/lectio/palabra-del-dia.parse.test.js && bash ../scripts/node-strip-types.sh src/app/core/lectio/lectio-day.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/liturgia/lecturas-del-dia.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/liturgia/liturgical-date.logic.test.js && node src/app/pages/lectio/lectio_ui.test.js",
+    "test:notifications": "bash ../scripts/node-strip-types.sh src/app/core/notifications/notification-prefs.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/notifications/notification-copy.logic.test.js && node src/app/pages/ajustes/ajustes_notif_ui.test.js",
+    "test:ajustes-locale": "node src/app/pages/ajustes/ajustes_locale_ui.test.js",
+    "test:spa-fallback": "node tools/spa-fallback.test.js"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^16.0.1",
-    "@angular/cdk": "^16.2.1",
     "@angular/common": "^16.0.1",
     "@angular/compiler": "^16.0.1",
     "@angular/core": "^16.0.1",
     "@angular/forms": "^16.0.1",
-    "@angular/material": "^16.2.1",
     "@angular/platform-browser": "^16.0.1",
     "@angular/platform-browser-dynamic": "^16.0.1",
     "@angular/router": "^16.0.1",
     "@angular/service-worker": "^16.0.1",
-    "@fortawesome/fontawesome-free": "^5.15.4",
-    "bootstrap": "^5.3.2",
-    "darkreader": "^4.9.43",
+    "@capacitor-community/text-to-speech": "^3.0.1",
+    "@capacitor/android": "^5.7.8",
+    "@capacitor/app": "^5.0.8",
+    "@capacitor/core": "^5.7.8",
+    "@capacitor/local-notifications": "^5.0.8",
+    "@capacitor/preferences": "^5.0.8",
+    "@capacitor/status-bar": "^5.0.8",
+    "@capawesome-team/capacitor-android-foreground-service": "^5.0.0",
+    "@fontsource/eb-garamond": "^5.2.7",
+    "@fontsource/ibm-plex-sans": "^5.2.8",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
@@ -33,10 +73,13 @@
     "@angular-devkit/build-angular": "^16.0.1",
     "@angular/cli": "^16.0.1",
     "@angular/compiler-cli": "^16.0.1",
+    "@capacitor/cli": "^5.7.8",
     "@commitlint/cli": "^16.1.0",
     "@commitlint/config-conventional": "^16.0.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8",
     "husky": "^7.0.4",
     "jasmine-core": "~3.10.0",
     "karma": "~6.3.0",
@@ -45,5 +88,45 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~5.0.4"
+  },
+  "build": {
+    "appId": "digital.documentosvaticanos.app",
+    "productName": "Documentos Vaticanos",
+    "copyright": "Copyright © Documentos Vaticanos",
+    "directories": {
+      "output": "../dist/electron",
+      "buildResources": "electron/build-resources"
+    },
+    "files": [
+      "electron/**/*",
+      "dist/documentos-vaticanos/**/*",
+      "package.json",
+      "!**/*.map",
+      "!**/node_modules/**/*"
+    ],
+    "asar": true,
+    "linux": {
+      "target": [
+        "dir",
+        "AppImage"
+      ],
+      "category": "Education",
+      "artifactName": "documentos-vaticanos-${version}-${arch}.${ext}"
+    },
+    "win": {
+      "target": [
+        "portable",
+        "nsis"
+      ],
+      "signAndEditExecutable": false,
+      "artifactName": "documentos-vaticanos-${version}-${arch}.${ext}"
+    },
+    "mac": {
+      "target": [
+        "dir",
+        "dmg"
+      ],
+      "artifactName": "documentos-vaticanos-${version}-${arch}.${ext}"
+    }
   }
 }

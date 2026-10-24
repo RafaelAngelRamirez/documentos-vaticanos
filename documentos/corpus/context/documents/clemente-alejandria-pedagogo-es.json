@@ -1,0 +1,126 @@
+{
+  "documentId": "clemente-alejandria-pedagogo-es",
+  "authorProfileId": "clemente-alejandria",
+  "compositionYears": "c. 190–200",
+  "compositionPlace": "Alejandría",
+  "workSummary": "El Pedagogo: Cristo educador de la conducta cristiana en la metrópoli helenística.",
+  "chronologyNote": "Finales del s. II, escuela catequética alejandrina previa a la gran obra de Orígenes.",
+  "timelineSlice": [
+    {
+      "years": "c. 190–200",
+      "label": "Paedagogus",
+      "refIds": [
+        "clement-paed",
+        "clement-ccel"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "id": "clement-paed",
+      "title": "Clement of Alexandria, The Paedagogus (New Advent)",
+      "url": "https://www.newadvent.org/fathers/0209.htm",
+      "citation": "Clement of Alexandria. The Instructor (Paedagogus). ANF / New Advent; PG 8.",
+      "note": "Texto primario; ética y paideia cristiana."
+    },
+    {
+      "id": "clement-ccel",
+      "title": "CCEL / ANF: Clement of Alexandria",
+      "url": "https://www.ccel.org/ccel/schaff/anf02",
+      "citation": "Ante-Nicene Fathers, vol. 2 — Fathers of the Second Century (CCEL).",
+      "note": "Incluye Protréptico, Pedagogo y Stromata (trad. ANF)."
+    },
+    {
+      "id": "chadwick-ec",
+      "title": "Henry Chadwick, The Early Church",
+      "citation": "Chadwick, Henry. The Early Church. London: Penguin, rev. ed.",
+      "note": "Manual académico clásico de historia de la Iglesia antigua (impresión)."
+    },
+    {
+      "id": "ccel-ecf",
+      "title": "CCEL: Early Church Fathers (ANF / NPNF)",
+      "url": "https://www.ccel.org/fathers.html",
+      "citation": "Roberts, Alexander / Donaldson, James / Schaff, Philip, eds. Ante-Nicene and Nicene Fathers. CCEL.",
+      "note": "Corpus de traducciones de Padres de dominio público (referencia de consulta)."
+    },
+    {
+      "id": "britannica-rome",
+      "title": "Encyclopaedia Britannica: Roman Empire",
+      "url": "https://www.britannica.com/place/Roman-Empire",
+      "citation": "Encyclopaedia Britannica, s.v. “Roman Empire”.",
+      "note": "Marco imperial y tardoantigüedad (consulta general fiable)."
+    },
+    {
+      "id": "kelly-ecd",
+      "title": "J.N.D. Kelly, Early Christian Doctrines",
+      "citation": "Kelly, J.N.D. Early Christian Doctrines. London: Continuum / HarperCollins.",
+      "note": "Manual de dogmática histórica (Trinidad, cristología, gracia)."
+    },
+    {
+      "id": "frend-rise",
+      "title": "W.H.C. Frend, The Rise of Christianity",
+      "citation": "Frend, W.H.C. The Rise of Christianity. Philadelphia: Fortress Press, 1984.",
+      "note": "Historia social; persecuciones y África cristiana."
+    },
+    {
+      "id": "pelikan-ct",
+      "title": "Jaroslav Pelikan, The Christian Tradition",
+      "citation": "Pelikan, Jaroslav. The Christian Tradition: A History of the Development of Doctrine. 5 vols. Chicago: University of Chicago Press.",
+      "note": "Historia de la doctrina por épocas (impresión de referencia)."
+    },
+    {
+      "id": "odcc",
+      "title": "Oxford Dictionary of the Christian Church",
+      "citation": "Cross, F.L. / Livingstone, E.A., eds. The Oxford Dictionary of the Christian Church. Oxford University Press.",
+      "note": "Diccionario de referencia (impresión / Oxford Reference)."
+    },
+    {
+      "id": "fordham-ancient",
+      "title": "Fordham — Internet Ancient History Sourcebook: Christian Origins",
+      "url": "https://sourcebooks.fordham.edu/ancient/asbook11.asp",
+      "citation": "Internet Ancient History Sourcebook: Christian Origins (Fordham University).",
+      "note": "Fuentes de orígenes cristianos y Imperio romano."
+    },
+    {
+      "id": "ce-fathers-index",
+      "title": "New Advent: Fathers of the Church (index)",
+      "url": "https://www.newadvent.org/fathers/",
+      "citation": "New Advent — English translations of the Church Fathers (ANF/NPNF based).",
+      "note": "Índice de Padres en inglés; textos de dominio público."
+    },
+    {
+      "id": "sep-plotinus",
+      "title": "Stanford Encyclopedia of Philosophy: Plotinus",
+      "url": "https://plato.stanford.edu/entries/plotinus/",
+      "citation": "Gerson, Lloyd. “Plotinus.” Stanford Encyclopedia of Philosophy.",
+      "note": "Neoplatonismo de fondo cultural de Agustín y padres griegos (SEP)."
+    },
+    {
+      "id": "livius-rome",
+      "title": "Livius.org — Articles on ancient history (Rome)",
+      "url": "https://www.livius.org/category/roman/",
+      "citation": "Lendering, Jona, et al. Livius.org — Articles on ancient history.",
+      "note": "Divulgación histórica seria sobre Roma; no sustituye monografía, sí marco geográfico."
+    },
+    {
+      "id": "bm-rome",
+      "title": "British Museum — Roman Empire collection overview",
+      "url": "https://www.britishmuseum.org/collection/roman-empire",
+      "citation": "The British Museum. Collection / Roman Empire (public pages).",
+      "note": "Cultura material del Imperio; apoyo a ejes de cultura/antropología."
+    }
+  ],
+  "sourceNote": "Síntesis histórica compilada para el pack offline; ver referencias.",
+  "workSummaryRefIds": [
+    "clement-paed",
+    "clement-ccel",
+    "chadwick-ec",
+    "ccel-ecf"
+  ],
+  "chronologyRefIds": [
+    "clement-paed",
+    "clement-ccel",
+    "chadwick-ec",
+    "ccel-ecf"
+  ]
+}

@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+
+.count {
+  margin: 14px 0 4px;
+}
+
+.error {
+  color: var(--app-danger);
+}
+
+.empty {
+  margin-top: 18px;
+}
+
+.more {
+  padding: 14px 2px;
+}
+
+.more a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--muted);
+  font-size: 13px;
+}
+
+.more a:hover {
+  color: var(--acc);
+  border-bottom-color: var(--acc);
+}
+
+/* La última fila del diseño no lleva separador. */
+.srow:last-of-type {
+  border-bottom: none;
+}

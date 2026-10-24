@@ -1,0 +1,13 @@
+{
+  "id": "rm-en",
+  "title": "Redemptoris missio",
+  "shortTitle": "RM",
+  "kind": "magisterium",
+  "locale": "en",
+  "sourceUrl": "https://www.vatican.va/content/john-paul-ii/en/encyclicals/documents/hf_jp-ii_enc_07121990_redemptoris-missio.html",
+  "bodyPath": "documents/rm-en/content.json",
+  "indexPath": "documents/rm-en/index.json",
+  "unitCount": 326,
+  "translationProvenance": "official",
+  "sourceNote": "Official English text from vatican.va"
+}

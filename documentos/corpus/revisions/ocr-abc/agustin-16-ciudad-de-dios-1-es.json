@@ -1,0 +1,55 @@
+{
+  "documentId": "agustin-16-ciudad-de-dios-1-es",
+  "revision": "ocr-abc-v4",
+  "appliedAt": "2026-07-27T00:26:44.830Z",
+  "ruleClasses": [
+    "spaced-letter-collapse",
+    "short-spaced-word-collapse",
+    "residual-shred-collapse",
+    "spaced-digit-collapse",
+    "high-confidence-ocr-confusions",
+    "midline-hyphen-rejoin",
+    "glued-token-map",
+    "digit-letter-glue",
+    "garbage-toc-exclude-placeholder",
+    "bac-chrome-running-header-colophon-placeholder",
+    "leader-soup-placeholder",
+    "dual-column-shred-placeholder",
+    "index-zone-aggressive-garbage",
+    "punct-safe-compose-whitelist-internal"
+  ],
+  "unitsTotal": 2035,
+  "unitsChanged": 1070,
+  "unitsExcludedGarbage": 7,
+  "unitsCollapsedSpaced": 1036,
+  "before": {
+    "units": 2035,
+    "garbageUnits": 2,
+    "garbageRatio": 0.001,
+    "spacedLetterRuns": 41,
+    "shortSpacedWordHits": 407,
+    "spacedDigitRuns": 97,
+    "junkRunHits": 11,
+    "tocLeaderHits": 1,
+    "residualBodyNoiseUnits": 14,
+    "residualScore": 800
+  },
+  "after": {
+    "units": 2035,
+    "garbageUnits": 0,
+    "garbageRatio": 0,
+    "spacedLetterRuns": 0,
+    "shortSpacedWordHits": 0,
+    "spacedDigitRuns": 0,
+    "junkRunHits": 3,
+    "tocLeaderHits": 1,
+    "residualBodyNoiseUnits": 14,
+    "residualScore": 218
+  },
+  "letterTokenOverlap": 0.9906,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "ocr-abc-v4 in-place on existing corpus (no re-download). v3 + leader-soup TOC, dual-column shred blank (no demerge), S.Ag headers, front a4 shred dict, wider index-zone; stable unitIndex; dual-write roots."
+}

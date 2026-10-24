@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+# Production web build → monorepo dist/web (static tree, no further compile).
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+FRONTEND="$ROOT/frontend"
+OUT="$ROOT/dist/web"
+
+run() {
+  if [[ -n "${DV_PACKAGE_LOG:-}" ]]; then
+    "$@" 2>&1 | tee -a "$DV_PACKAGE_LOG"
+    return "${PIPESTATUS[0]}"
+  else
+    "$@"
+  fi
+}
+
+if [[ -d "$ROOT/documentos/corpus" ]]; then
+  echo "==> Sync corpus ship copy → frontend/src/assets/corpus"
+  run bash "$ROOT/scripts/corpus-sync-assets.sh"
+fi
+
+cd "$FRONTEND"
+echo "==> Angular production build"
+run npm run build
+
+SRC="$FRONTEND/dist/documentos-vaticanos"
+if [[ ! -f "$SRC/index.html" ]]; then
+  echo "ERROR: missing $SRC/index.html" >&2
+  exit 1
+fi
+WEB_VERSION=$(node -p "require('$ROOT/package.json').version")
+web_js_has_version=0
+for f in "$SRC"/*.js; do
+  [[ -f "$f" ]] || continue
+  if grep -F -q -- "$WEB_VERSION" "$f"; then
+    web_js_has_version=1
+    break
+  fi
+done
+if [[ "$web_js_has_version" != "1" ]]; then
+  echo "ERROR: production bundles do not contain version $WEB_VERSION" >&2
+  exit 1
+fi
+printf '%s\n' "$WEB_VERSION" >"$SRC/dv-build-version.txt"
+echo "==> stamped web dist version $WEB_VERSION"
+if [[ ! -f "$SRC/assets/corpus/manifest.json" ]]; then
+  echo "ERROR: offline corpus missing at $SRC/assets/corpus/manifest.json" >&2
+  exit 1
+fi
+
+# Ship hygiene: compact JSON, strip empty refs / load-stamped index_array, drop unused meta.json.
+# Runs on the frozen build tree (not source assets) so the canonical pack stays intact.
+echo "==> Corpus compress (ship hygiene)"
+run node "$ROOT/scripts/corpus-compress.js" --root "$SRC/assets/corpus" \
+  --drop-unused-sidecars
+if [[ ! -f "$SRC/assets/corpus/manifest.json" ]]; then
+  echo "ERROR: corpus compress removed or broke manifest.json" >&2
+  exit 1
+fi
+
+echo "==> Collect web artifact → $OUT"
+rm -rf "$OUT"
+mkdir -p "$OUT"
+# Prefer rsync if available; fall back to cp
+if command -v rsync >/dev/null 2>&1; then
+  rsync -a --delete "$SRC/" "$OUT/"
+else
+  cp -a "$SRC/." "$OUT/"
+fi
+
+# Stable stamp
+{
+  echo "artifact=web"
+  echo "builtAt=$(date -Iseconds)"
+  echo "source=frontend/dist/documentos-vaticanos"
+} >"$ROOT/dist/web.meta.txt"
+
+echo "OK web: $OUT/index.html"
+ls -la "$OUT/index.html" "$OUT/assets/corpus/manifest.json"

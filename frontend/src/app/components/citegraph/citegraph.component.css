@@ -1,0 +1,61 @@
+:host {
+  display: block;
+}
+
+.citegraph {
+  width: 100%;
+  height: 280px;
+  display: block;
+}
+
+.citegraph-mini {
+  height: 160px;
+}
+
+.citegraph-node {
+  fill: var(--paper);
+  stroke: var(--btnb);
+  cursor: pointer;
+}
+
+.citegraph-node:focus,
+.citegraph-node.on {
+  fill: color-mix(in srgb, var(--acc) 18%, var(--card));
+  stroke: var(--acc);
+}
+
+.citegraph-hit {
+  fill: transparent;
+  cursor: pointer;
+}
+
+.citegraph-edge {
+  stroke: var(--line);
+  fill: none;
+  cursor: pointer;
+}
+
+.citegraph-edge.on,
+.citegraph-edge:hover {
+  stroke: var(--acc);
+}
+
+.citegraph-label {
+  font-family: var(--app-font-sans, 'IBM Plex Sans', sans-serif);
+  font-size: 11px;
+  fill: var(--muted);
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .citegraph:not(.citegraph-mini) {
+    height: 420px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .citegraph-node,
+  .citegraph-edge {
+    transition: none;
+  }
+}

@@ -1,0 +1,73 @@
+<app-person-ficha
+  *ngIf="saint as s"
+  wbarActive="santoral"
+  backLink="/santoral"
+  backLabel="← Santoral"
+  [kindLine]="kindLine"
+  [title]="title"
+  [subtitle]="s.role"
+  [quote]="s.quote"
+  [quoteSource]="s.quoteSource"
+  [works]="works"
+  [themes]="s.themes || []"
+  [themesClickable]="true"
+  (themeClick)="openTheme($event)"
+  worksEmptyLabel="No hay obras de este autor en el corpus offline todavía."
+>
+  <!-- Reading block (2A CTAs + TOC) between quote and works -->
+  <div ficha-after-quote>
+    <app-meta-grid *ngIf="hasBio" [cells]="metaCells"></app-meta-grid>
+
+    <app-reading-ctas
+      *ngIf="hasBio"
+      layout="stack"
+      [canContinue]="puedeContinuar"
+      [positionLabel]="posicionLabel"
+      (start)="comenzar()"
+      (listen)="comenzarNarrador()"
+      (restart)="reiniciar()"
+    ></app-reading-ctas>
+    <div class="fs13 muted" *ngIf="!hasBio" style="margin-top: 12px">
+      No hay biografía en el pack offline todavía.
+    </div>
+
+    <app-doc-toc
+      [entries]="chapters"
+      [minEntries]="2"
+      (select)="openChapter($event)"
+    ></app-doc-toc>
+
+    <app-historical-context-block
+      *ngIf="historicalContext"
+      [ctx]="historicalContext"
+      sectionTitle="Contexto histórico"
+    ></app-historical-context-block>
+
+    <div class="fs13 muted fuente-block" *ngIf="s.sourceUrl" style="margin-top: 12px">
+      <a
+        class="app-lang-link"
+        [href]="s.sourceUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        >{{ s.locale === 'es' || !s.locale ? 'Español' : s.locale }} · fuente</a
+      >
+    </div>
+  </div>
+
+  <div ficha-extra>
+    <app-related-units-panel
+      *ngIf="relatedSeed"
+      [seedText]="relatedSeed"
+      [limit]="8"
+      variant="saint"
+      [hideWhenEmpty]="true"
+      [preferDocumentIds]="relatedPreferDocIds"
+      heading="Relacionados"
+    ></app-related-units-panel>
+
+    <div class="sect" *ngIf="s.feastDays?.length">Fiesta</div>
+    <div class="fs13 muted" *ngIf="s.feastDays?.length">
+      {{ s.feastDays!.join(' · ') }}
+    </div>
+  </div>
+</app-person-ficha>

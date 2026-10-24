@@ -1,0 +1,160 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  reader
+  teacher
+  admin
+}
+
+model User {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  name         String
+  pictureUrl   String?
+  googleSub    String    @unique
+  role         Role      @default(reader)
+  teacherSince DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  references    PersonalReference[]
+  themes        Theme[]
+  studies       Study[]             @relation("TeacherStudies")
+  enrollments   Enrollment[]
+  refreshTokens RefreshToken[]
+  anotaciones   Anotacion[]
+}
+
+/// F9 · Respaldo en nube de subrayados/notas locales (dv_anotaciones_v1).
+/// `id` es el id generado por el cliente; la PK compuesta lo aisla por usuario.
+/// `updatedAt` se escribe explícitamente desde el cliente (last-write-wins),
+/// por eso NO lleva @updatedAt.
+model Anotacion {
+  id         String
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  documentId String
+  unitIndex  Int
+  unitLabel  String?
+  excerpt    String
+  nota       String?
+  kind       String   // subrayado | nota
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime
+
+  @@id([userId, id])
+  @@index([userId, documentId])
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([tokenHash])
+}
+
+model PersonalReference {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  documentId String
+  unitIndex  Int
+  unitLabel  String?
+  note       String?
+  tags       String[] @default([])
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, documentId, unitIndex])
+  @@index([userId])
+}
+
+model Theme {
+  id            String      @id @default(uuid())
+  ownerId       String
+  owner         User        @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  title         String
+  description   String?
+  coverImageKey String?
+  visibility    String      @default("private") // private | unlisted | public
+  /** Diseño 6A–6D: none | pending | approved | changes | rejected */
+  reviewStatus  String      @default("none")
+  reviewNote    String?
+  submittedAt   DateTime?
+  reviewedAt    DateTime?
+  downloads     Int         @default(0)
+  steps         ThemeStep[]
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@index([ownerId])
+  @@index([reviewStatus])
+}
+
+model ThemeStep {
+  id          String  @id @default(uuid())
+  themeId     String
+  theme       Theme   @relation(fields: [themeId], references: [id], onDelete: Cascade)
+  order       Int
+  documentId  String
+  unitIndex   Int
+  unitLabel   String?
+  userComment String?
+
+  @@index([themeId])
+}
+
+model Study {
+  id            String       @id @default(uuid())
+  teacherId     String
+  teacher       User         @relation("TeacherStudies", fields: [teacherId], references: [id], onDelete: Cascade)
+  title         String
+  description   String?
+  coverImageKey String?
+  status        String       @default("draft") // draft | published | archived
+  steps         StudyStep[]
+  enrollments   Enrollment[]
+  publishedAt   DateTime?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@index([teacherId])
+  @@index([status])
+}
+
+model StudyStep {
+  id          String  @id @default(uuid())
+  studyId     String
+  study       Study   @relation(fields: [studyId], references: [id], onDelete: Cascade)
+  order       Int
+  documentId  String
+  unitIndex   Int
+  unitLabel   String?
+  teacherNote String?
+
+  @@index([studyId])
+}
+
+model Enrollment {
+  id        String   @id @default(uuid())
+  studyId   String
+  study     Study    @relation(fields: [studyId], references: [id], onDelete: Cascade)
+  studentId String
+  student   User     @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  status    String   @default("active") // active | left | removed
+  createdAt DateTime @default(now())
+
+  @@unique([studyId, studentId])
+  @@index([studentId])
+}

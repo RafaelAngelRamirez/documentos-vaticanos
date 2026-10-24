@@ -1,0 +1,150 @@
+<div class="app web-shell">
+  <app-wbar active="biblioteca"></app-wbar>
+
+  <app-reading-cover
+    backLabel="← Biblioteca"
+    [loading]="loading"
+    [error]="error"
+    [kindLine]="kindLine"
+    [title]="meta?.title || ''"
+    [subtitle]="display.subtitulo"
+    [metaCells]="metaCells"
+    [chapters]="chapters"
+    [tocEmptyHint]="tocEmptyHint"
+    [canContinue]="puedeContinuar"
+    [positionLabel]="posicionLabel"
+    [fav]="fav"
+    [showFav]="true"
+    (back)="volver()"
+    (favToggle)="toggleFav()"
+    (start)="comenzar()"
+    (listen)="comenzarNarrador()"
+    (restart)="reiniciar()"
+    (selectToc)="openChapter($event)"
+  >
+    <!-- Idioma (multi-edición) -->
+    <div cover-lang *ngIf="meta && showLanguageSwitcher">
+      <div class="sect">Idioma</div>
+      <div class="seg lang-seg" role="group" aria-label="Idioma del texto">
+        <button
+          type="button"
+          class="segbtn"
+          *ngFor="let ed of languageEditions"
+          [class.on]="isCurrentLang(ed)"
+          [attr.aria-pressed]="isCurrentLang(ed)"
+          (click)="selectLanguage(ed)"
+        >
+          {{ langLabel(ed) }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Fuente / compilador -->
+    <div
+      cover-source
+      class="fs13 muted fuente-block"
+      *ngIf="meta && (display.compilador || meta.sourceUrl || display.fuenteNota)"
+    >
+      <div *ngIf="display.compilador">
+        Compilación: <strong>{{ display.compilador }}</strong>
+      </div>
+      <div *ngIf="display.fuenteNota" class="fuente-nota">{{ display.fuenteNota }}</div>
+      <a
+        *ngIf="meta.sourceUrl"
+        class="app-lang-link"
+        [href]="meta.sourceUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        >{{ fuenteLangLabel }} · fuente</a
+      >
+    </div>
+
+    <app-historical-context-block
+      cover-context
+      *ngIf="historicalContext"
+      [ctx]="historicalContext"
+      [locale]="meta?.locale"
+    ></app-historical-context-block>
+
+    <!-- Referencias santoral / papa: autor + obras hermanas -->
+    <div cover-refs *ngIf="relatedSaint || relatedPope">
+      <div class="sect">Referencias</div>
+      <div class="ref-block">
+        <a
+          *ngIf="relatedPope"
+          class="toc obra-link"
+          [routerLink]="['/papas', relatedPope.id]"
+        >
+          <span class="tnum">§</span>
+          <span>Papa: {{ popeLabel() }}</span>
+        </a>
+        <a
+          *ngIf="relatedSaint"
+          class="toc obra-link"
+          [routerLink]="['/santoral', relatedSaint.id]"
+        >
+          <span class="tnum">†</span>
+          <span>Santo / autor: {{ saintLabel() }}</span>
+        </a>
+        <ng-container *ngFor="let w of siblingWorks; let i = index">
+          <a class="toc obra-link" [routerLink]="['/documento', w.documentId]">
+            <span class="tnum">{{ i + 1 }}</span>
+            <span>{{ w.title }}</span>
+          </a>
+        </ng-container>
+        <ng-container *ngFor="let w of popeSiblingWorks; let i = index">
+          <a
+            *ngIf="!relatedSaint"
+            class="toc obra-link"
+            [routerLink]="['/documento', w.documentId]"
+          >
+            <span class="tnum">{{ i + 1 }}</span>
+            <span>{{ w.title }}</span>
+          </a>
+        </ng-container>
+        <div class="fs12 muted" *ngIf="siblingWorks.length > 0" style="margin-top: 6px">
+          Otras obras del mismo autor en el corpus
+        </div>
+        <div
+          class="fs12 muted"
+          *ngIf="!relatedSaint && popeSiblingWorks.length > 0"
+          style="margin-top: 6px"
+        >
+          Otros documentos del mismo papa en el corpus
+        </div>
+      </div>
+    </div>
+
+    <ng-container cover-related>
+      <div *ngIf="citeNeighbors.length" class="cite-neighbors">
+        <div class="sect">Citas cruzadas</div>
+        <div class="chips">
+          <span
+            class="chip"
+            *ngFor="let n of citeNeighbors"
+            (click)="openCiteNeighbor(n.node.id)"
+            role="button"
+            tabindex="0"
+            (keydown.enter)="openCiteNeighbor(n.node.id)"
+            >{{ n.node.shortTitle }} · {{ n.edge.count }}</span
+          >
+        </div>
+        <a
+          class="app-lang-link"
+          (click)="openCiteMap(); $event.preventDefault()"
+          href="/explorar/relaciones"
+          >Ver mapa de citas →</a
+        >
+      </div>
+      <app-related-units-panel
+        *ngIf="relatedSeed && meta"
+        [seedText]="relatedSeed"
+        [limit]="6"
+        variant="document"
+        [hideWhenEmpty]="true"
+        [excludeDocumentId]="meta.id"
+        heading="Relacionados"
+      ></app-related-units-panel>
+    </ng-container>
+  </app-reading-cover>
+</div>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Documentos Vaticanos</string>
+    <string name="title_activity_main">Documentos Vaticanos</string>
+    <string name="package_name">digital.documentosvaticanos.app</string>
+    <string name="custom_url_scheme">digital.documentosvaticanos.app</string>
+</resources>

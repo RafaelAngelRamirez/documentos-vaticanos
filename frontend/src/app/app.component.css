@@ -1,0 +1,6 @@
+/* F6 · Contenedor de transiciones de ruta: las vistas :enter/:leave se
+   superponen en absoluto durante el fade-through. */
+.route-shell {
+  position: relative;
+  min-height: 100dvh;
+}

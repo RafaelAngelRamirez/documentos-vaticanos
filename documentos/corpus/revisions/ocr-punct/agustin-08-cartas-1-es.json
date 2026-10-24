@@ -1,0 +1,33 @@
+{
+  "documentId": "agustin-08-cartas-1-es",
+  "revision": "ocr-punct-v2",
+  "appliedAt": "2026-07-16T00:11:36.555Z",
+  "ruleClasses": [
+    "space-before-punct",
+    "glued-clause-punct",
+    "ellipsis-leaders",
+    "missing-sentence-space"
+  ],
+  "unitsTotal": 2468,
+  "unitsChanged": 195,
+  "before": {
+    "spaceBeforePunct": 205,
+    "gluedClausePunct": 13,
+    "missingSentenceSpace": 11,
+    "internalWordPeriod": 4,
+    "defectScore": 242
+  },
+  "after": {
+    "spaceBeforePunct": 0,
+    "gluedClausePunct": 0,
+    "missingSentenceSpace": 0,
+    "internalWordPeriod": 6,
+    "defectScore": 0
+  },
+  "letterTokenOverlap": 1,
+  "dualWriteRoots": [
+    "/home/angel/proyectos/personal/documentos-vaticanos/documentos/corpus",
+    "/home/angel/proyectos/personal/documentos-vaticanos/frontend/src/assets/corpus"
+  ],
+  "notes": "Mechanical OCR punctuation spacing repair only; unitIndex stable; no re-segmentation."
+}
