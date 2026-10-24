@@ -3,9 +3,15 @@
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const { stripTypeScriptTypes } = require('node:module');
 
-process.on('warning', () => {});
+const emitWarning = process.emitWarning;
+process.emitWarning = function (warning, type, code, ctor) {
+  const name = typeof warning === 'string' ? type : warning && warning.name;
+  if (name === 'ExperimentalWarning' || type === 'ExperimentalWarning') return;
+  return emitWarning.call(process, warning, type, code, ctor);
+};
+
+const { stripTypeScriptTypes } = require('node:module');
 
 function resolveSpec(spec, fromFile) {
   if (!spec.startsWith('.')) return spec;

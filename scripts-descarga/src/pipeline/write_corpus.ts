@@ -62,9 +62,6 @@ function assertCorpusRelPath(relPath: string): string {
   return normalized;
 }
 
-/**
- * Copy a file or directory from documentos/corpus into the Angular ship tree.
- */
 export function syncCorpusPathToAssets(
   relPath: string,
   roots: { canonicalRoot: string; assetsRoot: string } = {
