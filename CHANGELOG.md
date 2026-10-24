@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.34](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.33...v0.0.34) (2026-10-24)
+
+
+### Bug Fixes
+
+* fail CI when a required input is missing ([#6](https://github.com/RafaelAngelRamirez/documentos-vaticanos/issues/6)) ([2dc68ca](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/2dc68ca1d7b0beb9615234e2c9a361a4a9d566a6))
+* replace the asset directory on corpus sync ([#7](https://github.com/RafaelAngelRamirez/documentos-vaticanos/issues/7)) ([92a49ec](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/92a49ec8c77d374ac1c017b61b8d05e12cc3c859))
+
 ### [0.0.33](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.32...v0.0.33) (2026-10-24)
 
 
