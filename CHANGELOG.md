@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.33](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.32...v0.0.33) (2026-10-24)
+
+
+### Features
+
+* launch the Android emulator and ng serve together ([17e0cc4](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/17e0cc418604fe7aa826fed5c9687f926dae10ae))
+
 ### [0.0.32](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.31...v0.0.32) (2026-10-08)
 
 
