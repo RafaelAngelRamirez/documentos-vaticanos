@@ -139,6 +139,33 @@ export function readExistingManifest(manifestPath: string): CorpusManifest {
   return readJson<CorpusManifest>(manifestPath);
 }
 
+/**
+ * Load the catalog, keep every other document, and append this one.
+ * When the file exists and JSON.parse fails, this throws and does not write.
+ */
+export function mergeDocumentIntoManifest(
+  manifestPath: string,
+  document: DocumentMeta,
+  options?: { corpusVersion?: string },
+): CorpusManifest {
+  let manifest: CorpusManifest;
+  if (fs.existsSync(manifestPath)) {
+    manifest = readExistingManifest(manifestPath);
+  } else {
+    manifest = {
+      version: options?.corpusVersion ?? "1.0.0",
+      generatedAt: new Date().toISOString(),
+      documents: [],
+    };
+  }
+  const others = (manifest.documents ?? []).filter((d) => d.id !== document.id);
+  manifest.documents = [...others, document];
+  manifest.generatedAt = new Date().toISOString();
+  if (!manifest.version) manifest.version = options?.corpusVersion ?? "1.0.0";
+  writeJson(manifestPath, manifest);
+  return manifest;
+}
+
 export interface WriteCorpusResult {
   meta: DocumentMeta;
   index: CorpusIndex;
@@ -199,21 +226,7 @@ export function writeCorpusDocument(
   writeJson(path.join(root, relMeta), meta);
 
   const manifestPath = path.join(root, "manifest.json");
-  let manifest: CorpusManifest = {
-    version: options?.corpusVersion ?? "1.0.0",
-    generatedAt: new Date().toISOString(),
-    documents: [],
-  };
-  if (fs.existsSync(manifestPath)) {
-    manifest = readExistingManifest(manifestPath);
-  }
-  const others = (manifest.documents ?? []).filter(
-    (d) => d.id !== config.corpusDocId,
-  );
-  manifest.documents = [...others, meta];
-  manifest.generatedAt = new Date().toISOString();
-  if (!manifest.version) manifest.version = options?.corpusVersion ?? "1.0.0";
-  writeJson(manifestPath, manifest);
+  mergeDocumentIntoManifest(manifestPath, meta, options);
   console.log(`[✓] corpus → ${path.join(root, "documents", config.corpusDocId)}`);
   console.log(`[✓] manifest → ${manifestPath}`);
 

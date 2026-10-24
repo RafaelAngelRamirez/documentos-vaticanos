@@ -192,17 +192,52 @@ function run() {
       fail('missing source deleted the destination');
     }
 
+    const added = {
+      id: 'added-es',
+      title: 'Added',
+      shortTitle: 'A',
+      kind: 'magisterium',
+      locale: 'es',
+    };
     const broken = path.join(brokenDir, 'manifest.json');
     fs.writeFileSync(broken, '{');
     let threw = false;
     try {
-      writer.readExistingManifest(broken);
+      writer.mergeDocumentIntoManifest(broken, added);
     } catch {
       threw = true;
     }
     const kept = fs.readFileSync(broken);
     if (!threw || kept.toString() !== '{') {
       fail(`manifest not kept threw=${threw} bytes=${kept.toString()}`);
+    }
+
+    const valid = path.join(brokenDir, 'valid.json');
+    const keptDoc = {
+      id: 'kept-es',
+      title: 'Kept',
+      shortTitle: 'K',
+      kind: 'magisterium',
+      locale: 'es',
+    };
+    fs.writeFileSync(
+      valid,
+      JSON.stringify({
+        version: '1.0.0',
+        generatedAt: '2026-09-12T01:34:13.541Z',
+        documents: [keptDoc],
+      }),
+    );
+    writer.mergeDocumentIntoManifest(valid, added);
+    const catalog = JSON.parse(fs.readFileSync(valid, 'utf8'));
+    const ids = (catalog.documents || []).map((doc) => doc.id);
+    if (
+      !Array.isArray(catalog.documents) ||
+      catalog.documents.length !== 2 ||
+      ids.indexOf('kept-es') < 0 ||
+      ids.indexOf('added-es') < 0
+    ) {
+      fail(`manifest merge ${JSON.stringify(ids)}`);
     }
 
     console.log('extras=0');
