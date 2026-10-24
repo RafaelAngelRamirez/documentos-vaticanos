@@ -62,17 +62,62 @@ function assertCorpusRelPath(relPath: string): string {
   return normalized;
 }
 
+function isSameOrInside(candidate: string, root: string): boolean {
+  return candidate === root || candidate.startsWith(`${root}${path.sep}`);
+}
+
 /**
- * Copy a file or directory from documentos/corpus into the Angular ship tree.
+ * Refuse a ship copy whose destination is the canonical corpus.
+ * path.resolve does not follow symlinks; realpath does, and only if the path exists.
+ * This function does not create, remove, or copy anything.
  */
-export function syncCorpusPathToAssets(relPath: string): void {
+export function assertSyncDestinationOutsideCanonical(
+  dest: string,
+  assetsRoot: string,
+): void {
+  const canon = path.resolve(CANONICAL_CORPUS_ROOT);
+  const resolvedDest = path.resolve(dest);
+  const resolvedAssets = path.resolve(assetsRoot);
+  if (
+    isSameOrInside(resolvedDest, canon) ||
+    isSameOrInside(resolvedAssets, canon)
+  ) {
+    const hit = isSameOrInside(resolvedDest, canon) ? resolvedDest : resolvedAssets;
+    throw new Error(
+      `syncCorpusPathToAssets: refusing to replace canonical corpus at ${hit}`,
+    );
+  }
+  if (!fs.existsSync(CANONICAL_CORPUS_ROOT)) return;
+  const canonReal = fs.realpathSync(CANONICAL_CORPUS_ROOT);
+  for (const candidate of [assetsRoot, dest]) {
+    if (!fs.existsSync(candidate)) continue;
+    const real = fs.realpathSync(candidate);
+    if (isSameOrInside(real, canonReal)) {
+      throw new Error(
+        `syncCorpusPathToAssets: refusing to replace canonical corpus at ${real}`,
+      );
+    }
+  }
+}
+
+export function syncCorpusPathToAssets(
+  relPath: string,
+  roots: { canonicalRoot: string; assetsRoot: string } = {
+    canonicalRoot: CANONICAL_CORPUS_ROOT,
+    assetsRoot: ASSETS_CORPUS_ROOT,
+  },
+): void {
   const rel = assertCorpusRelPath(relPath);
-  const src = path.join(CANONICAL_CORPUS_ROOT, rel);
-  const dest = path.join(ASSETS_CORPUS_ROOT, rel);
+  const src = path.join(roots.canonicalRoot, rel);
+  const dest = path.join(roots.assetsRoot, rel);
+  assertSyncDestinationOutsideCanonical(dest, roots.assetsRoot);
   if (!fs.existsSync(src)) {
     throw new Error(`syncCorpusPathToAssets: missing ${src}`);
   }
   fs.mkdirSync(path.dirname(dest), { recursive: true });
+  if (fs.existsSync(dest) && fs.statSync(dest).isDirectory()) {
+    fs.rmSync(dest, { recursive: true, force: true });
+  }
   fs.cpSync(src, dest, { recursive: true, force: true });
 }
 
@@ -120,6 +165,37 @@ function writeJson(filePath: string, data: unknown, pretty = false): void {
 
 function readJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, "utf-8")) as T;
+}
+
+export function readExistingManifest(manifestPath: string): CorpusManifest {
+  return readJson<CorpusManifest>(manifestPath);
+}
+
+/**
+ * Load the catalog, keep every other document, and append this one.
+ * When the file exists and JSON.parse fails, this throws and does not write.
+ */
+export function mergeDocumentIntoManifest(
+  manifestPath: string,
+  document: DocumentMeta,
+  options?: { corpusVersion?: string },
+): CorpusManifest {
+  let manifest: CorpusManifest;
+  if (fs.existsSync(manifestPath)) {
+    manifest = readExistingManifest(manifestPath);
+  } else {
+    manifest = {
+      version: options?.corpusVersion ?? "1.0.0",
+      generatedAt: new Date().toISOString(),
+      documents: [],
+    };
+  }
+  const others = (manifest.documents ?? []).filter((d) => d.id !== document.id);
+  manifest.documents = [...others, document];
+  manifest.generatedAt = new Date().toISOString();
+  if (!manifest.version) manifest.version = options?.corpusVersion ?? "1.0.0";
+  writeJson(manifestPath, manifest);
+  return manifest;
 }
 
 export interface WriteCorpusResult {
@@ -182,25 +258,7 @@ export function writeCorpusDocument(
   writeJson(path.join(root, relMeta), meta);
 
   const manifestPath = path.join(root, "manifest.json");
-  let manifest: CorpusManifest = {
-    version: options?.corpusVersion ?? "1.0.0",
-    generatedAt: new Date().toISOString(),
-    documents: [],
-  };
-  if (fs.existsSync(manifestPath)) {
-    try {
-      manifest = readJson<CorpusManifest>(manifestPath);
-    } catch {
-      /* fresh */
-    }
-  }
-  const others = (manifest.documents ?? []).filter(
-    (d) => d.id !== config.corpusDocId,
-  );
-  manifest.documents = [...others, meta];
-  manifest.generatedAt = new Date().toISOString();
-  if (!manifest.version) manifest.version = options?.corpusVersion ?? "1.0.0";
-  writeJson(manifestPath, manifest);
+  mergeDocumentIntoManifest(manifestPath, meta, options);
   console.log(`[✓] corpus → ${path.join(root, "documents", config.corpusDocId)}`);
   console.log(`[✓] manifest → ${manifestPath}`);
 
