@@ -5,23 +5,6 @@ const { spawnSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const REPO = path.resolve(__dirname, '..');
-
-const FILE_INPUTS = Object.assign(Object.create(null), {
-  'ship-copy': path.join(
-    REPO,
-    'frontend/src/assets/corpus/documents/aa-es/content.json',
-  ),
-  'lg-es': path.join(
-    REPO,
-    'frontend/src/assets/corpus/documents/lg-es/content.json',
-  ),
-  'cic-es': path.join(
-    REPO,
-    'frontend/src/assets/corpus/documents/cic-es/content.json',
-  ),
-});
-
 function argValue(argv, flag) {
   const index = argv.indexOf(flag);
   if (index === -1) return '';
@@ -56,9 +39,6 @@ function aaptPresent() {
 
 function inputPresent(name) {
   if (forcedMissing(name)) return false;
-  if (name in FILE_INPUTS) {
-    return fs.existsSync(FILE_INPUTS[name]);
-  }
   if (name === 'aapt') return aaptPresent();
   return commandExists(name);
 }

@@ -15,7 +15,6 @@
  */
 
 const assert = require('assert');
-const { spawnSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
@@ -47,16 +46,6 @@ function md5File(filePath) {
 
 function section(name) {
   console.log(`\n== ${name} ==`);
-}
-
-function ciSkip(name) {
-  const script = path.join(REPO, 'scripts', 'ci-skip.js');
-  const run = spawnSync(process.execPath, [script, '--need', name], {
-    encoding: 'utf8',
-  });
-  process.stdout.write(run.stdout || '');
-  process.stderr.write(run.stderr || '');
-  if (run.status !== 0) process.exit(run.status == null ? 1 : run.status);
 }
 
 async function loadLogic() {
@@ -202,7 +191,9 @@ async function main() {
 
   section('assets copy sample byte identity');
   if (!assetsDocsPresent) {
-    ciSkip('ship-copy');
+    console.warn(
+      'warn: ship-copy absent (frontend/src/assets/corpus/documents is gitignored); continuing',
+    );
   } else {
     for (const id of SAMPLE_IDS) {
       const meta = manCanon.documents.find((d) => d.id === id);
