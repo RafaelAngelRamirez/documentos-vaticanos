@@ -40,6 +40,7 @@
     "corpus:compress": "node scripts/corpus-compress.js --root frontend/src/assets/corpus",
     "test:corpus-compress": "node scripts/corpus-compress.test.js",
     "test:downloads": "node frontend/src/app/core/downloads/downloads.paths.test.js",
+    "test:mobile-flows": "npm --prefix frontend run test:mobile-flows",
     "test:version-display": "bash scripts/node-strip-types.sh frontend/src/app/core/downloads/version-display.logic.test.js",
     "test:app-update": "bash scripts/node-strip-types.sh frontend/src/app/core/downloads/app-update.logic.test.js",
     "test:apk-javahome": "node scripts/package-apk.javahome.test.js",
