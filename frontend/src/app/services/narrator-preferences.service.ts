@@ -6,6 +6,7 @@ import {
   NARRATOR_VOICE_LEGACY_KEY,
   NarratorDevicePrefs,
   hasXaiApiKey,
+  normalizeNarratorRate,
   normalizeXaiApiKey,
   parseNarratorDevicePrefs,
   serializeNarratorDevicePrefs,
@@ -21,6 +22,7 @@ export {
   grokStatusLabel,
   maskXaiApiKey,
   hasXaiApiKey,
+  normalizeNarratorRate,
   normalizeXaiApiKey,
   narratorPrefsForBackup,
 } from './narrator-prefs.logic';
@@ -53,6 +55,11 @@ export class NarratorPreferencesService {
     return this.subject.value.voiceId;
   }
 
+  /** Velocidad guardada en este dispositivo (0.75–1.5). */
+  get rate(): number {
+    return normalizeNarratorRate(this.subject.value.rate);
+  }
+
   /** API key local (o null). */
   get xaiApiKey(): string | null {
     return normalizeXaiApiKey(this.subject.value.xaiApiKey);
@@ -76,6 +83,9 @@ export class NarratorPreferencesService {
     if (partial.xaiApiKey !== undefined) {
       next.xaiApiKey = normalizeXaiApiKey(partial.xaiApiKey);
     }
+    if (partial.rate !== undefined) {
+      next.rate = normalizeNarratorRate(partial.rate);
+    }
     this.subject.next(next);
     this.persist(next);
   }
@@ -86,6 +96,10 @@ export class NarratorPreferencesService {
 
   setVoiceId(voiceId: string | null): void {
     this.update({ voiceId });
+  }
+
+  setRate(rate: number): void {
+    this.update({ rate: normalizeNarratorRate(rate) });
   }
 
   /** Guarda o borra la API key solo en este dispositivo. */

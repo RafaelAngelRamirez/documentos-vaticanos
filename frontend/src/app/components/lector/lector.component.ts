@@ -54,13 +54,26 @@ import {
   NarratorVoice,
   narrVoicePillLabel,
 } from 'src/app/services/narrator.service';
-import {
-  NarratorPreferencesService,
-  resolvePreferredVoice,
-} from 'src/app/services/narrator-preferences.service';
+import { NarratorPreferencesService } from 'src/app/services/narrator-preferences.service';
 import { NarracionFgService } from 'src/app/services/narracion-fg.service';
 import { nextSpeakableIndex } from 'src/app/services/speech-prep.logic';
 import { speechLangForDocumentLocale } from 'src/app/services/speech-lang.logic';
+import { Capacitor } from '@capacitor/core';
+import {
+  READ_ALOUD_CHECKPOINT_KEY,
+  afterUtterance,
+  changeReadAloudRate,
+  cycleDeviceVoice,
+  deviceVoices,
+  langPrefixOf,
+  paragraphToFollowOnShow,
+  parseReadAloudCheckpoint,
+  pickDeviceVoice,
+  planSpeak,
+  serializeReadAloudCheckpoint,
+  toggleReadAloud,
+  type ReadAloudPhase,
+} from 'src/app/services/read-aloud.logic';
 import { coverNavCommandsForDocumentId } from 'src/app/core/santoral/santoral-units.logic';
 
 const CONTEXT_SIZE = 5;
@@ -118,16 +131,24 @@ export class LectorComponent implements OnInit, OnDestroy {
   private lastScrollY = 0;
   private scrollAccum = 0;
 
-  /** 5D · Narrador (Web Speech API). */
+  /** 5D · Narrador (TTS del dispositivo). `narrPlaying` alimenta la pastilla. */
   narrPlaying = false;
   narrRate = 1;
   narrIndex = 0;
+  /** idle: play desde el párrafo visible. paused: retomar `narrIndex`. */
+  private narrPhase: ReadAloudPhase = 'idle';
 
-  /** 5D · Voces es-* disponibles y voz elegida (prefs por dispositivo). */
+  /** Voces del TTS del dispositivo para el idioma del documento. */
   narrVoices: NarratorVoice[] = [];
   narrVoice: NarratorVoice | null = null;
   /** Promise of the latest voice load (autoNarr / play wait on this). */
   private narrVoicesLoad: Promise<void> | null = null;
+  private narrVoicePrefix = '';
+  private narrVoiceGen = 0;
+  /** Invalida un arranque que aún espera el catálogo de voces. */
+  private narrStartGen = 0;
+  /** Documento cuyo checkpoint ya se aplicó en esta instancia. */
+  private checkpointAppliedFor: string | null = null;
 
   /** Orden del diseño 3F + Mono (monocromo oscuro, default). */
   readonly themeOptions: ThemeOption[] = [
@@ -276,6 +297,7 @@ export class LectorComponent implements OnInit, OnDestroy {
       document.addEventListener('selectionchange', this.onSelectionChange);
       document.addEventListener('visibilitychange', this.onVisibility);
     }
+    this.narrRate = this.narrPrefs.rate;
     if (this.narrSupported) {
       void this.loadNarrVoices();
     }
@@ -349,59 +371,73 @@ export class LectorComponent implements OnInit, OnDestroy {
       this.flashFeedback('Narración no disponible en este navegador');
       return;
     }
-    if (this.narrPlaying) {
+    const decision = toggleReadAloud({
+      phase: this.narrPhase,
+      unitIndex: this.narrIndex,
+      visibleIndex: this.visibleIndex,
+    });
+    if (decision.action === 'pause') {
       this.pauseNarrator();
       return;
     }
-    this.startNarrator();
+    this.narrPhase = 'playing';
+    void this.startNarratorFrom(decision.fromIndex);
   }
 
   cycleRate(): void {
-    const rates = [0.75, 1, 1.25, 1.5];
-    const i = rates.indexOf(this.narrRate);
-    this.narrRate = rates[(i + 1) % rates.length];
-    if (this.narrPlaying) {
-      this.pauseNarrator();
-      this.startNarrator();
-    }
+    const next = changeReadAloudRate({
+      phase: this.narrPhase,
+      rate: this.narrRate,
+      unitIndex: this.narrIndex,
+    });
+    this.narrRate = next.rate;
+    this.narrPrefs.setRate(next.rate);
+    if (next.restartFrom == null) return;
+    const from = next.restartFrom;
+    this.narrPlaying = false;
+    void this.narrator.cancel();
+    this.narrPhase = 'playing';
+    void this.startNarratorFrom(from);
   }
 
-  /** 5D · Carga las voces es-* y restaura la elegida (prefs del dispositivo). */
+  /** Voces del TTS del dispositivo para el idioma del documento. */
   private loadNarrVoices(): Promise<void> {
     this.narrVoicesLoad = this.loadNarrVoicesInner();
     return this.narrVoicesLoad;
   }
 
   private async loadNarrVoicesInner(): Promise<void> {
-    this.narrVoices = await this.narrator.listVoices('es');
-    // Resolve from global prefs only; never invent / overwrite when missing.
-    this.narrVoice = resolvePreferredVoice(
-      this.narrVoices,
-      this.narrPrefs.voiceId
-    );
+    const prefix = this.speechLangPrefix();
+    const gen = ++this.narrVoiceGen;
+    const all = await this.narrator.listVoices(prefix);
+    if (gen !== this.narrVoiceGen) return;
+    this.narrVoicePrefix = prefix;
+    this.narrVoices = deviceVoices(all, prefix);
+    this.applyGlobalVoice();
   }
 
-  /** Apply global voiceId to current catalog (no side effects on prefs). */
+  /** Voz de dispositivo guardada. No pisa `voiceId` si falta o es Grok. */
   private applyGlobalVoice(): void {
-    this.narrVoice = resolvePreferredVoice(
+    this.narrVoice = pickDeviceVoice(
       this.narrVoices,
-      this.narrPrefs.voiceId
+      this.narrPrefs.voiceId,
+      this.speechLangPrefix(),
     );
   }
 
-  /** 5D · Avanza a la siguiente voz; si narra, reanuda el párrafo actual. */
+  /** 5D · Siguiente voz del dispositivo; si narra, reanuda el párrafo actual. */
   cycleVoice(): void {
-    if (this.narrVoices.length < 2) return;
-    const i = this.narrVoice
-      ? this.narrVoices.findIndex((v) => v.id === this.narrVoice!.id)
-      : -1;
-    this.narrVoice = this.narrVoices[(i + 1) % this.narrVoices.length];
+    const next = cycleDeviceVoice(this.narrVoices, this.narrVoice?.id ?? null);
+    if (!next) return;
+    this.narrVoice = next;
     this.narrPrefs.setVoiceId(this.narrVoice.id);
     this.flashFeedback(`Voz: ${this.narrVoiceName}`);
-    if (this.narrPlaying) {
-      this.pauseNarrator();
-      void this.startNarratorFrom(this.narrIndex);
-    }
+    if (this.narrPhase !== 'playing') return;
+    const from = this.narrIndex;
+    this.narrPlaying = false;
+    void this.narrator.cancel();
+    this.narrPhase = 'playing';
+    void this.startNarratorFrom(from);
   }
 
   get narrVoiceName(): string {
@@ -413,15 +449,14 @@ export class LectorComponent implements OnInit, OnDestroy {
     return narrVoicePillLabel(this.narrVoice, this.narrVoices);
   }
 
-  /** Ahorro: al volver a primer plano, re-sincroniza la vista con la narración. */
+  /** Al encender la pantalla, el párrafo narrado vuelve a la vista. */
   private readonly onVisibility = (): void => {
-    if (
-      typeof document !== 'undefined' &&
-      !document.hidden &&
-      this.narrPlaying
-    ) {
-      this.ensureNarrVisible(this.narrIndex);
-    }
+    const index = paragraphToFollowOnShow({
+      phase: this.narrPhase,
+      unitIndex: this.narrIndex,
+      hidden: this.screenOff(),
+    });
+    if (index != null) this.ensureNarrVisible(index);
   };
 
   private startNarrator(): void {
@@ -434,31 +469,42 @@ export class LectorComponent implements OnInit, OnDestroy {
    */
   private async startNarratorFrom(index: number): Promise<void> {
     if (!this.narrSupported || !this.document) return;
-    if (!this.narrVoices.length) {
-      await (this.narrVoicesLoad ?? this.loadNarrVoices());
+    const generation = ++this.narrStartGen;
+    this.narrPhase = 'playing';
+    const prefix = this.speechLangPrefix();
+    if (!this.narrVoices.length || this.narrVoicePrefix !== prefix) {
+      await this.loadNarrVoices();
     } else {
       this.applyGlobalVoice();
     }
+    if (generation !== this.narrStartGen || this.narrPhase !== 'playing') return;
     this.narrIndex = index;
     this.speakFrom(this.narrIndex);
   }
 
   private speakFrom(index: number): void {
     const doc = this.document?.documento;
-    if (!doc || index < 0) {
+    const screenOff = this.screenOff();
+    const hit =
+      doc && index >= 0
+        ? nextSpeakableIndex(doc as unknown[], index)
+        : null;
+    const step = planSpeak({
+      speakableIndex: hit?.index ?? null,
+      userRate: this.narrRate,
+      kind: hit?.prep.kind,
+      rateScale: hit?.prep.rateScale,
+      screenOff,
+      platform: this.narrPlatform(),
+    });
+    if (!doc || step.action === 'stop') {
+      this.narrPhase = 'idle';
       this.narrPlaying = false;
+      if (doc) this.clearReadAloudCheckpoint();
       void this.narracionFg.stop();
       return;
     }
-    // Speech-prep: skip OCR placeholders / empty / TOC junk without
-    // deep recursion (nextSpeakableIndex walks forward once).
-    const hit = nextSpeakableIndex(doc as unknown[], index);
-    if (!hit) {
-      this.narrPlaying = false;
-      void this.narracionFg.stop();
-      return;
-    }
-    const { index: speakIndex, prep } = hit;
+    const { index: speakIndex, prep } = hit!;
     // Prefijo de cita según preferencia (goal)
     let speakText = prep.text;
     if (this.narrPrefs.snapshot.readCitationPrefix) {
@@ -474,57 +520,46 @@ export class LectorComponent implements OnInit, OnDestroy {
         }
       }
     }
-    // Re-resolve global voice each utterance (prefs may change; catalog may grow).
+    // Re-resolve device voice each utterance (prefs may change; catalog may grow).
     this.applyGlobalVoice();
-    // Headings: calmer rate (prep.rateScale) so titles breathe before body.
-    const rateScale =
-      prep.kind === 'heading' && prep.rateScale != null && prep.rateScale > 0
-        ? prep.rateScale
-        : 1;
-    const rate = Math.max(0.5, Math.min(2, this.narrRate * rateScale));
+    this.narrPhase = 'playing';
     this.narrPlaying = true;
-    this.narrIndex = speakIndex;
-    // 5E · Servicio en primer plano: evita que Android congele el proceso
-    // con la pantalla apagada. Idempotente; cubre también cycleVoice().
-    void this.narracionFg.start(this.documentTitle);
-    // Batería: con la app oculta no hay nada que renderizar ni desplazar;
-    // onVisibility re-sincroniza la vista al volver a primer plano.
-    if (typeof document === 'undefined' || !document.hidden) {
-      this.ensureNarrVisible(speakIndex);
+    this.narrIndex = step.index;
+    this.rememberReadAloudCheckpoint('playing', step.index);
+    if (step.foreground) {
+      void this.narracionFg.start(this.documentTitle);
+    } else {
+      void this.narracionFg.stop();
     }
-    // Batería (#11): la promesa de speak() se resuelve fuera de la zona de
-    // Angular, así encadenar numerales con la pantalla apagada no dispara
-    // ningún ciclo de change detection. Con la app visible re-entramos en
-    // la zona para que la pastilla («Nº x de y», %) se refresque.
+    if (step.follow) this.ensureNarrVisible(step.index);
+    if (screenOff) this.persistProgress(step.index);
+    // La promesa de speak() se resuelve fuera de la zona de Angular, así
+    // encadenar párrafos con la pantalla apagada no dispara change detection.
+    // Con la app visible se re-entra en la zona para refrescar la pastilla.
     const lang = this.speechLang();
-    const prefix = lang.split(/[-_]/)[0].toLowerCase();
-    const voice =
-      this.narrVoice &&
-      (this.narrVoice.lang || '').toLowerCase().startsWith(prefix)
-        ? this.narrVoice
-        : null;
+    const voice = this.narrVoice;
     this.zone.runOutsideAngular(() => {
       void this.narrator
         .speak(speakText, {
           lang,
-          rate,
+          rate: step.rate,
           voice,
         })
         .then((finished) => {
-          if (!finished || !this.narrPlaying) return;
-          const next = speakIndex + 1;
-          if (typeof document !== 'undefined' && document.hidden) {
-            this.narrIndex = next;
-            // Guarda el avance en background para poder reanudar aunque
-            // Android mate el proceso (escritura local, ~1 vez por numeral).
-            this.persistProgress(next);
-            this.speakFrom(next);
-          } else {
-            this.zone.run(() => {
-              this.narrIndex = next;
-              this.speakFrom(next);
-            });
-          }
+          const next = afterUtterance({
+            phase: this.narrPhase,
+            unitIndex: speakIndex,
+            finished,
+            screenOff: this.screenOff(),
+          });
+          if (!next.advance) return;
+          const go = () => {
+            this.narrIndex = next.unitIndex;
+            if (next.persist) this.persistProgress(next.unitIndex);
+            this.speakFrom(next.unitIndex);
+          };
+          if (next.follow) this.zone.run(go);
+          else go();
         });
     });
   }
@@ -548,13 +583,104 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   private pauseNarrator(): void {
+    this.narrStartGen++;
+    this.narrPhase = 'paused';
     this.narrPlaying = false;
+    this.rememberReadAloudCheckpoint('paused', this.narrIndex);
     void this.narrator.cancel();
     void this.narracionFg.stop();
   }
 
+  /** Corta el audio. Si estaba sonando, el checkpoint queda en pausa para retomar. */
   private stopNarrator(): void {
-    this.pauseNarrator();
+    this.narrStartGen++;
+    if (this.narrPhase === 'playing') {
+      this.narrPhase = 'paused';
+      this.narrPlaying = false;
+      this.rememberReadAloudCheckpoint('paused', this.narrIndex);
+    }
+    void this.narrator.cancel();
+    void this.narracionFg.stop();
+  }
+
+  private screenOff(): boolean {
+    return typeof document !== 'undefined' && document.hidden;
+  }
+
+  private narrPlatform(): string {
+    try {
+      return Capacitor.getPlatform();
+    } catch {
+      return 'web';
+    }
+  }
+
+  private speechLangPrefix(): string {
+    return langPrefixOf(this.speechLang());
+  }
+
+  private rememberReadAloudCheckpoint(
+    phase: 'playing' | 'paused',
+    unitIndex: number,
+  ): void {
+    const documentId = this.document?.id;
+    if (!documentId) return;
+    this.writeReadAloudCheckpoint(
+      serializeReadAloudCheckpoint({ documentId, unitIndex, phase }),
+    );
+  }
+
+  private clearReadAloudCheckpoint(): void {
+    this.writeReadAloudCheckpoint(null);
+  }
+
+  private readReadAloudCheckpoint(): string | null {
+    try {
+      return localStorage.getItem(READ_ALOUD_CHECKPOINT_KEY);
+    } catch {
+      return null;
+    }
+  }
+
+  private writeReadAloudCheckpoint(raw: string | null): void {
+    try {
+      if (raw == null) localStorage.removeItem(READ_ALOUD_CHECKPOINT_KEY);
+      else localStorage.setItem(READ_ALOUD_CHECKPOINT_KEY, raw);
+    } catch {
+      /* storage no disponible */
+    }
+  }
+
+  /**
+   * Al abrir el documento, el play retoma el párrafo guardado.
+   * No arranca solo: la pastilla sigue en pausa hasta que la persona pulsa.
+   */
+  private restoreReadAloudIfNeeded(): void {
+    const documentId = this.document?.id;
+    if (!documentId || this.checkpointAppliedFor === documentId) return;
+    const previous = this.checkpointAppliedFor;
+    this.checkpointAppliedFor = documentId;
+    if (previous && this.narrPhase === 'playing') {
+      this.narrStartGen++;
+      this.narrPlaying = false;
+      void this.narrator.cancel();
+      void this.narracionFg.stop();
+    }
+    if (this.narrSupported) void this.loadNarrVoices();
+    const checkpoint = parseReadAloudCheckpoint(
+      this.readReadAloudCheckpoint(),
+      documentId,
+    );
+    if (!checkpoint) {
+      this.narrPhase = 'idle';
+      this.narrPlaying = false;
+      this.narrIndex = 0;
+      return;
+    }
+    this.narrIndex = checkpoint.unitIndex;
+    this.narrRate = this.narrPrefs.rate;
+    this.narrPhase = 'paused';
+    this.narrPlaying = false;
   }
 
   get narrRateLabel(): string {
@@ -904,6 +1030,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.pinScrolled = false;
     this.reportVisible(place);
     this.scrollPinnedUnitIntoView(place.unitIndex);
+    this.restoreReadAloudIfNeeded();
     this.maybeAutoNarr();
   }
 

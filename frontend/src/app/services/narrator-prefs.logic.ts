@@ -30,6 +30,11 @@ export interface NarratorDevicePrefs {
    * Cumple con el requisito de narración de referencias cruzadas.
    */
   readCitationPrefix: boolean;
+  /**
+   * Velocidad de la lectura con el TTS del dispositivo.
+   * Solo 0.75, 1, 1.25 o 1.5 (misma lista que `READ_ALOUD_RATES`).
+   */
+  rate: number;
 }
 
 export const DEFAULT_NARRATOR_DEVICE_PREFS: NarratorDevicePrefs = {
@@ -37,7 +42,14 @@ export const DEFAULT_NARRATOR_DEVICE_PREFS: NarratorDevicePrefs = {
   voiceId: null,
   xaiApiKey: null,
   readCitationPrefix: true,
+  rate: 1,
 };
+
+/** Peldaños de velocidad. Tiene que coincidir con `READ_ALOUD_RATES`. */
+export function normalizeNarratorRate(rate: unknown): number {
+  if (rate === 0.75 || rate === 1 || rate === 1.25 || rate === 1.5) return rate;
+  return 1;
+}
 
 /** Normaliza una API key pegada (quita Bearer / espacios). */
 export function normalizeXaiApiKey(
@@ -84,6 +96,7 @@ export function parseNarratorDevicePrefs(
       if (typeof parsed.readCitationPrefix === 'boolean') {
         base.readCitationPrefix = parsed.readCitationPrefix;
       }
+      base.rate = normalizeNarratorRate(parsed.rate);
     } catch {
       /* corrupt → defaults */
     }
@@ -110,6 +123,7 @@ export function serializeNarratorDevicePrefs(
         : String(prefs.voiceId),
     xaiApiKey: normalizeXaiApiKey(prefs.xaiApiKey),
     readCitationPrefix: Boolean(prefs.readCitationPrefix),
+    rate: normalizeNarratorRate(prefs.rate),
   });
 }
 
@@ -127,6 +141,7 @@ export function narratorPrefsForBackup(
     voiceId:
       p.voiceId == null || p.voiceId === '' ? null : String(p.voiceId),
     readCitationPrefix: Boolean(p.readCitationPrefix),
+    rate: normalizeNarratorRate(p.rate),
     // xaiApiKey omitido a propósito
   };
 }
