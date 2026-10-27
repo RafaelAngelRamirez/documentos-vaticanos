@@ -164,10 +164,7 @@ export function shipChunkPathFromBody(bodyPath: string, chunk: number): string {
 export function unpackShipIndex(raw: unknown): Indice | null {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
   const obj = raw as { v?: unknown; t?: unknown; p?: unknown };
-  if (obj.v !== 2) return null;
-  if (typeof obj.t !== 'string') {
-    return { indice: {}, indice_por_punto: {} };
-  }
+  if (obj.v !== 2 || typeof obj.t !== 'string') return null;
 
   const indice: Indice['indice'] = {};
   if (obj.t.length) {
@@ -188,7 +185,7 @@ export function unpackShipIndex(raw: unknown): Indice | null {
       let prev = 0;
       for (let i = 0; i < parts.length; i++) {
         const d = Number(parts[i]);
-        if (!Number.isFinite(d)) return { indice: {}, indice_por_punto: {} };
+        if (!Number.isFinite(d)) return null;
         prev += d;
         arr[i] = prev;
       }
@@ -202,11 +199,9 @@ export function unpackShipIndex(raw: unknown): Indice | null {
       if (obj.p.charAt(0) === '{') {
         try {
           const parsed = JSON.parse(obj.p) as unknown;
-          if (!copyShipPoints(parsed, indice_por_punto)) {
-            return { indice: {}, indice_por_punto: {} };
-          }
+          if (!copyShipPoints(parsed, indice_por_punto)) return null;
         } catch {
-          return { indice: {}, indice_por_punto: {} };
+          return null;
         }
       } else {
         const parts = obj.p.split(',');
@@ -214,18 +209,16 @@ export function unpackShipIndex(raw: unknown): Indice | null {
           if (parts[i] === '') indice_por_punto[i] = null;
           else {
             const n = Number(parts[i]);
-            if (!Number.isFinite(n)) return { indice: {}, indice_por_punto: {} };
+            if (!Number.isFinite(n)) return null;
             indice_por_punto[i] = n;
           }
         }
       }
     }
   } else if (obj.p && typeof obj.p === 'object' && !Array.isArray(obj.p)) {
-    if (!copyShipPoints(obj.p, indice_por_punto)) {
-      return { indice: {}, indice_por_punto: {} };
-    }
+    if (!copyShipPoints(obj.p, indice_por_punto)) return null;
   } else if (obj.p != null) {
-    return { indice: {}, indice_por_punto: {} };
+    return null;
   }
 
   return { indice, indice_por_punto };
