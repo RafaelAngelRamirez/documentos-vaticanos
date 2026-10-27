@@ -1,0 +1,1 @@
+2026-10-27: ejecución 95530 cortó v0.0.37 (tag e529f420, commit bbcfc761, padre 4937c3e9, 07:26:59 UTC); la 95531 (6550ee05, merge del #40, 01:39 CDMX) es la misma carrera; arreglo = merge normal de bbcfc761 a master.
