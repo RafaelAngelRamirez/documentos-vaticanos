@@ -106,18 +106,25 @@
   z-index: 13;
   box-sizing: border-box;
   min-height: var(--reader-narr-height);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
 }
 
 .narr .nline {
-  min-width: 48px;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .narr .npill {
   font-family: inherit;
   background: transparent;
-  min-height: 36px;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  min-width: 48px;
+  min-height: 48px;
+  max-width: 9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media (max-width: 1023px) {
