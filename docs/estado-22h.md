@@ -1,0 +1,1 @@
+2026-10-27: ejecución 95530 cortó v0.0.37 (tag e529f420, commit bbcfc761, padre 4937c3e9, 07:26:59 UTC); la 95531 (6550ee05, merge del #40, 01:39 CDMX) y la 95533 (a20021e0, merge del #37, 07:43:42 UTC, sin versión ni APK) son la misma carrera; arreglo = merge normal de bbcfc761 a master.

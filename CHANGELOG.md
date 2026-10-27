@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.37](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.36...v0.0.37) (2026-10-27)
+
+
+### Features
+
+* fijar el hash del texto de lectura al comprimir ([47cdf07](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/47cdf079a5a56206b8a6f06035b77a5e72edfe0a))
+* private class as a file on the device ([3507f55](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/3507f55ead283213edf1f2d6b0bb6616611da682))
+* review saved notes and bookmarks with SM-2 ([7efe03b](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/7efe03b3356cc8e04cad5e5183148a166a9aff94))
+
 ### [0.0.36](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.33...v0.0.36) (2026-10-27)
 
 
