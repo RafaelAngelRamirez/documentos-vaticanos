@@ -34,6 +34,7 @@
     "test:narrator-grok": "bash ../scripts/node-strip-types.sh src/app/services/narrator-grok.logic.test.js && bash ../scripts/node-strip-types.sh src/app/services/narrator-prefs.logic.test.js",
     "test:speech-prep": "bash ../scripts/node-strip-types.sh src/app/services/speech-prep.logic.test.js",
     "test:speech-lang": "bash ../scripts/node-strip-types.sh src/app/services/speech-lang.logic.test.js",
+    "test:read-aloud": "bash ../scripts/node-strip-types.sh src/app/services/read-aloud.logic.test.js",
     "test:semantic-search": "bash ../scripts/node-strip-types.sh src/app/core/search/semantic-search.logic.test.js",
     "test:related-suggestion": "bash ../scripts/node-strip-types.sh src/app/core/search/related-suggestion.logic.test.js",
     "test:document-toc": "bash ../scripts/node-strip-types.sh src/app/services/document-toc.logic.test.js",
