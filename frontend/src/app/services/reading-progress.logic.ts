@@ -1,10 +1,9 @@
 /**
  * Pure last-read helpers (no Angular). Used by ReadingProgressService and tests.
- * Keys aligned with design ARQUITECTURA.md (`dv.*`).
+ * One card, `dv.lastRead`. Size and mode live in `reader.prefs.v1`.
  */
 
 export const LAST_READ_KEY = 'dv.lastRead';
-export const SETTINGS_KEY = 'dv.settings';
 
 export interface LastRead {
   documentId: string;
