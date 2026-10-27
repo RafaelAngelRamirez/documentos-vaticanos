@@ -160,6 +160,7 @@ CURRENT_STAGE="Cheap tests"
 notify_step "$CURRENT_STAGE" || true
 export DV_CI=1
 npm --prefix frontend run test:open-reading
+npm --prefix frontend run test:reader-prefs
 npm --prefix frontend run test:mobile-flows
 npm --prefix frontend run test:speech-prep
 npm --prefix frontend run test:speech-lang
