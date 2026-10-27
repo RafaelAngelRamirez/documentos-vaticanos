@@ -163,7 +163,9 @@ npm --prefix frontend run test:open-reading
 npm --prefix frontend run test:mobile-flows
 npm --prefix frontend run test:speech-prep
 npm --prefix frontend run test:speech-lang
+npm --prefix frontend run test:read-aloud
 npm --prefix frontend run test:ui-i18n
+npm --prefix frontend run test:unpack-ship-index
 node scripts-descarga/corpus_structure_contract.test.js
 node scripts/corpus-sync-assets.test.js
 node scripts/dead-style-copies.test.js

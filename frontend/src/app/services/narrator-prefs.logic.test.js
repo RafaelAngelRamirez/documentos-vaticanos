@@ -52,7 +52,10 @@ async function main() {
     'Ajustes must not overwrite voiceId on incomplete catalog',
   );
   const lectorSrc = fs.readFileSync(LECTOR, 'utf8');
-  assert.ok(lectorSrc.includes('resolvePreferredVoice'), 'lector resolves global voice');
+  assert.ok(
+    lectorSrc.includes('pickDeviceVoice'),
+    'lector speaks with a device voice',
+  );
   assert.ok(lectorSrc.includes('applyGlobalVoice'), 'lector re-applies voice on speak');
   assert.ok(lectorSrc.includes('setVoiceId'), 'cycleVoice persists global voiceId');
   assert.ok(lectorSrc.includes('startNarratorFrom'), 'start waits/resolves global voice');

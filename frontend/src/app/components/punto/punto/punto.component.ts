@@ -43,6 +43,14 @@ export type ContentSegment =
       url?: string;
     };
 
+export type RefSegment = Extract<ContentSegment, { type: 'ref' }>;
+
+/** Resolved citation click. The reader receives it; navigation stays in openRef. */
+export interface CitationPreview {
+  seg: RefSegment;
+  documentId?: string;
+}
+
 @Component({
   selector: 'app-punto',
   templateUrl: './punto.component.html',
@@ -63,7 +71,7 @@ export class PuntoComponent implements OnInit, OnDestroy {
    * Emitted when user clicks a citation.
    * Parent (Lector) can show a preview dv-sheet instead of direct navigation.
    */
-  @Output() citationPreview = new EventEmitter<{ seg: any; documentId?: string }>();
+  @Output() citationPreview = new EventEmitter<CitationPreview>();
 
   saveMsg: string | null = null;
   saveError: string | null = null;
