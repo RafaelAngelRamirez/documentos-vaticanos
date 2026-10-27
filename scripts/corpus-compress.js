@@ -32,6 +32,7 @@
 
 'use strict';
 
+const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const { packIndexBuffer } = require('./index-pack.js');
@@ -145,6 +146,24 @@ function readingSnapshot(data) {
       };
     }),
   };
+}
+
+function readingTextHash(data) {
+  const snap = readingSnapshot(data);
+  const parts = snap.units.map((unit) => {
+    const consecutivo = String(unit.consecutivo ?? '')
+      .replace(/\u00a0/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const contenido = String(unit.contenido ?? '')
+      .replace(/\u00a0/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const refs = JSON.stringify(unit.referencias ?? []);
+    const biblia = unit.biblia == null ? '' : JSON.stringify(unit.biblia);
+    return `${consecutivo}\n${contenido}\n${refs}\n${biblia}`;
+  });
+  return crypto.createHash('sha256').update(parts.join('\n---\n')).digest('hex');
 }
 
 const UNUSED_SIDECAR_NAME = 'patristic-verse-hits.json';
@@ -701,6 +720,7 @@ module.exports = {
   writeShipChunks,
   SHIP_BODY_CHUNK_SIZE,
   readingSnapshot,
+  readingTextHash,
   serializeCompact,
   isArticleLike,
   isAiProvenance,
