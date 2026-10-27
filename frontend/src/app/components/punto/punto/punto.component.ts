@@ -23,6 +23,7 @@ import {
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { ReferencesService } from 'src/app/core/account/references.service';
+import { unitHasBookmark } from 'src/app/core/reading/reading-place.logic';
 import { AnotacionesService } from 'src/app/services/anotaciones.service';
 import {
   headingLevel,
@@ -441,10 +442,12 @@ export class PuntoComponent implements OnInit, OnDestroy {
         ? String(article.consecutivo)
         : undefined);
 
-    // Siempre en localStorage; se evita duplicar el marcador de una unidad.
-    const yaExiste = this.anotaciones
-      .forUnit(documentId, unitIndex)
-      .some((x) => x.kind === 'marcador');
+    // Misma cita (pack + unidad). Un subrayado o una nota no ocupan el marcador.
+    const yaExiste = unitHasBookmark(
+      this.anotaciones.snapshot,
+      documentId,
+      unitIndex,
+    );
     if (!yaExiste) {
       this.anotaciones.add({
         documentId,

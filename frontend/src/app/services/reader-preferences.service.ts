@@ -7,73 +7,36 @@ import {
   defaultUiLocaleFromDevice,
   localePrefsFromStorage,
 } from '../core/i18n/ui-i18n.logic';
+import {
+  clampReaderPreferences,
+  clampUiLocale,
+  DEFAULT_READER_PREFERENCES,
+  FONT_CYCLE,
+  mergeReaderPreferences,
+  READER_PREFS_STORAGE_KEY,
+  THEME_CYCLE,
+  type ContentLocalePref,
+  type ReaderFont,
+  type ReaderPreferences,
+  type ReaderTheme,
+  type UiLocalePref,
+} from './reader-prefs.logic';
 
-/** Temas: Mono (monocromo oscuro, default) · Sepia · Claro · Oscuro · Sistema. */
-export type ReaderTheme = 'mono' | 'claro' | 'sepia' | 'oscuro' | 'system';
-export type ReaderFont = 'serif' | 'sans';
-
-/**
- * Idioma preferido del **contenido** del corpus (`es`, `la`, …) o `system`
- * (sigue `navigator.language`). No es i18n de la UI.
- */
-export type ContentLocalePref = 'system' | string;
-
-/** Idiomas de interfaz soportados (`UiI18nService` / `assets/i18n`). */
-export const UI_LOCALE_CODES = ['es', 'en', 'zh', 'hi', 'ar'] as const;
-export type UiLocalePref = (typeof UI_LOCALE_CODES)[number];
-
-export interface ReaderPreferences {
-  theme: ReaderTheme;
-  font: ReaderFont;
-  fontSizePx: number; // 14-28
-  lineHeight: number; // 1.4-2.0
-  maxWidthCh: number; // 55-80
-  /** Ajustes 4A: "Mantener pantalla encendida" (Wake Lock). */
-  keepAwake: boolean;
-  /**
-   * Idioma de los textos del corpus cuando hay varias ediciones.
-   * `system` → locale del dispositivo; fallback de catálogo `es`.
-   */
-  contentLocale: ContentLocalePref;
-  /**
-   * Idioma de la **interfaz** (menús, chrome). Independiente del corpus.
-   * Valores: `es` | `en` | `zh` | `hi` | `ar`.
-   * Sin preferencia guardada: locale del dispositivo (web/Android WebView).
-   */
-  uiLocale: UiLocalePref;
-}
-
-export const READER_PREFS_STORAGE_KEY = 'reader.prefs.v1';
+export type {
+  ContentLocalePref,
+  ReaderFont,
+  ReaderPreferences,
+  ReaderTheme,
+  UiLocalePref,
+} from './reader-prefs.logic';
+export {
+  DEFAULT_READER_PREFERENCES,
+  READER_PREFS_STORAGE_KEY,
+  THEME_CYCLE,
+  UI_LOCALE_CODES,
+} from './reader-prefs.logic';
 
 export { defaultUiLocaleFromDevice };
-
-export const DEFAULT_READER_PREFERENCES: ReaderPreferences = {
-  theme: 'mono',
-  font: 'serif',
-  fontSizePx: 18,
-  lineHeight: 1.65,
-  maxWidthCh: 65,
-  keepAwake: false,
-  contentLocale: 'system',
-  /** Placeholder; first load / reset use {@link defaultUiLocaleFromDevice}. */
-  uiLocale: 'es',
-};
-
-export const THEME_CYCLE: ReaderTheme[] = [
-  'mono',
-  'claro',
-  'sepia',
-  'oscuro',
-  'system',
-];
-const FONT_CYCLE: ReaderFont[] = ['serif', 'sans'];
-
-/** Valores guardados por versiones previas de la app. */
-const LEGACY_THEME_MAP: Record<string, ReaderTheme> = {
-  // El monocromo oscuro prima sobre el tipo papel.
-  paper: 'mono',
-  night: 'oscuro',
-};
 
 const FONT_SERIF =
   '"EB Garamond", Georgia, "Times New Roman", "Palatino Linotype", serif';
@@ -103,7 +66,7 @@ export class ReaderPreferencesService {
   }
 
   update(partial: Partial<ReaderPreferences>): void {
-    const next = this.clamp({ ...this.prefsSubject.value, ...partial });
+    const next = mergeReaderPreferences(this.prefsSubject.value, partial);
     this.prefsSubject.next(next);
     this.persist(next);
     this.applyToDom(next);
@@ -249,37 +212,7 @@ export class ReaderPreferencesService {
 
   /** Idioma de la interfaz (`es`|`en`|`zh`|`hi`|`ar`). */
   setUiLocale(uiLocale: string): void {
-    this.update({ uiLocale: this.clampUiLocale(uiLocale) });
-  }
-
-  private clampUiLocale(raw: string | null | undefined): UiLocalePref {
-    const code = (raw ?? 'es').toString().trim().toLowerCase().split(/[-_]/)[0];
-    return (UI_LOCALE_CODES as readonly string[]).includes(code)
-      ? (code as UiLocalePref)
-      : 'es';
-  }
-
-  private clamp(prefs: ReaderPreferences): ReaderPreferences {
-    const migrated =
-      LEGACY_THEME_MAP[prefs.theme as string] ?? (prefs.theme as ReaderTheme);
-    const rawLoc = (prefs.contentLocale ?? 'system').toString().trim();
-    const contentLocale: ContentLocalePref =
-      !rawLoc || rawLoc === 'system'
-        ? 'system'
-        : rawLoc.toLowerCase().split(/[-_]/)[0] || 'system';
-    return {
-      theme: THEME_CYCLE.includes(migrated) ? migrated : 'mono',
-      font: FONT_CYCLE.includes(prefs.font) ? prefs.font : 'serif',
-      fontSizePx: Math.min(28, Math.max(14, Math.round(prefs.fontSizePx))),
-      lineHeight: Math.min(
-        2.0,
-        Math.max(1.4, Math.round(prefs.lineHeight * 100) / 100)
-      ),
-      maxWidthCh: Math.min(80, Math.max(55, Math.round(prefs.maxWidthCh))),
-      keepAwake: prefs.keepAwake === true,
-      contentLocale,
-      uiLocale: this.clampUiLocale(prefs.uiLocale),
-    };
+    this.update({ uiLocale: clampUiLocale(uiLocale) });
   }
 
   private load(): ReaderPreferences {
@@ -296,7 +229,7 @@ export class ReaderPreferencesService {
         };
       }
       const parsed = JSON.parse(raw) as Partial<ReaderPreferences>;
-      return this.clamp({
+      return clampReaderPreferences({
         ...DEFAULT_READER_PREFERENCES,
         ...parsed,
         ...locales,
