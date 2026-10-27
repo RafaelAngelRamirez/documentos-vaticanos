@@ -25,7 +25,10 @@ import {
   ReaderPreferencesService,
   ReaderTheme,
 } from 'src/app/services/reader-preferences.service';
-import { ArticleInfo } from '../punto/punto/punto.component';
+import {
+  ArticleInfo,
+  type CitationPreview,
+} from '../punto/punto/punto.component';
 import { PuntoModule } from '../punto/punto.module';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
@@ -311,7 +314,7 @@ export class LectorComponent implements OnInit, OnDestroy {
    * Citation click from app-punto. Navigation still happens inside PuntoComponent.openRef;
    * this hook is reserved for a future preview sheet without blocking the build.
    */
-  onCitationPreview(_event: { seg: unknown; documentId?: string }): void {
+  onCitationPreview(_event: CitationPreview): void {
     // no-op for now
   }
 
@@ -460,12 +463,12 @@ export class LectorComponent implements OnInit, OnDestroy {
     let speakText = prep.text;
     if (this.narrPrefs.snapshot.readCitationPrefix) {
       const unit = this.document?.documento?.[speakIndex];
-      const refs = (unit as any)?.referencias;
-      if (refs && Array.isArray(refs) && refs.length > 0) {
+      const refs = unit?.referencias;
+      if (Array.isArray(refs) && refs.length > 0) {
         const labels = refs
-          .map((r: any) => r?.descripcion)
-          .filter((d: any): d is string => typeof d === "string" && d.trim().length > 0)
-          .join(", ");
+          .map((r) => r.descripcion)
+          .filter((d): d is string => typeof d === 'string' && d.trim().length > 0)
+          .join(', ');
         if (labels) {
           speakText = `Cita ${labels}. Dice: ${prep.text}`;
         }
