@@ -12,6 +12,8 @@
     "test:refs": "npx ts-node --transpile-only ref_parser.test.ts",
     "test:unlinked-refs": "npx ts-node --transpile-only unlinked_ref_classifier.test.ts",
     "inventory:unlinked-refs": "npx ts-node --transpile-only inventory_unlinked_refs.ts",
+    "measure:cited-gaps": "python3 measure_cited_gaps.py",
+    "audit:corpus": "python3 audit_corpus.py",
     "import:roman-catechism": "npx ts-node --transpile-only import_roman_catechism.ts",
     "test:roman-catechism": "npx ts-node --transpile-only roman_catechism_units.test.ts",
     "test:corpus-structure": "node corpus_structure_contract.test.js",
