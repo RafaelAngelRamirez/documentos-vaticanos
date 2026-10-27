@@ -37,6 +37,7 @@ const {
   dropUnusedSidecars,
   SHIP_BODY_CHUNK_SIZE,
 } = require('./corpus-compress.js');
+const { packIndexBuffer, unpackIndex, sameIndex } = require('./index-pack.js');
 
 function section(name) {
   console.log(`\n== ${name} ==`);
@@ -252,8 +253,9 @@ function main() {
         );
       }
       assert.ok(index && typeof index === 'object', `${id} index object`);
+      const loaded = index.v === 2 ? unpackIndex(index) : index;
       assert.ok(
-        index.indice && typeof index.indice === 'object',
+        loaded && loaded.indice && typeof loaded.indice === 'object',
         `${id} index.indice`,
       );
     }
@@ -629,6 +631,40 @@ function main() {
   } else {
     console.log('  bible pack absent — skipped');
   }
+
+  section('index.json ship pack keeps postings and contenido');
+  const indexSample = path.join(CANONICAL, 'documents', 'lg-es', 'index.json');
+  const contentSample = path.join(CANONICAL, 'documents', 'lg-es', 'content.json');
+  assert.ok(fs.existsSync(indexSample), 'lg-es index');
+  const classic = JSON.parse(fs.readFileSync(indexSample, 'utf8'));
+  const packedBuf = packIndexBuffer(classic);
+  assert.ok(packedBuf && packedBuf.length < fs.statSync(indexSample).size);
+  const unpacked = unpackIndex(JSON.parse(packedBuf.toString('utf8')));
+  assert.ok(unpacked && sameIndex(classic, unpacked));
+  const tmpIdx = fs.mkdtempSync(path.join(os.tmpdir(), 'corpus-index-pack-'));
+  fs.mkdirSync(path.join(tmpIdx, 'documents', 'lg-es'), { recursive: true });
+  fs.copyFileSync(contentSample, path.join(tmpIdx, 'documents', 'lg-es', 'content.json'));
+  fs.copyFileSync(indexSample, path.join(tmpIdx, 'documents', 'lg-es', 'index.json'));
+  fs.copyFileSync(
+    path.join(CANONICAL, 'manifest.json'),
+    path.join(tmpIdx, 'manifest.json'),
+  );
+  const beforeUnits = JSON.parse(fs.readFileSync(contentSample, 'utf8'));
+  compressCorpusTree(tmpIdx, { dropAi: false, dropUnusedSidecars: false });
+  const afterIndex = JSON.parse(
+    fs.readFileSync(path.join(tmpIdx, 'documents', 'lg-es', 'index.json'), 'utf8'),
+  );
+  assert.strictEqual(afterIndex.v, 2);
+  const afterUnits = JSON.parse(
+    fs.readFileSync(path.join(tmpIdx, 'documents', 'lg-es', 'content.json'), 'utf8'),
+  );
+  assert.strictEqual(beforeUnits.length, afterUnits.length);
+  assert.strictEqual(beforeUnits[0].contenido, afterUnits[0].contenido);
+  assert.ok(sameIndex(classic, unpackIndex(afterIndex)));
+  fs.rmSync(tmpIdx, { recursive: true, force: true });
+  console.log(
+    `  lg-es index ${fs.statSync(indexSample).size} → packed ${packedBuf.length}`,
+  );
 
   console.log('\nAll corpus-compress tests passed.');
 }

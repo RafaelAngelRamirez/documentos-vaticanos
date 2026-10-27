@@ -155,6 +155,94 @@ export function shipChunkPathFromBody(bodyPath: string, chunk: number): string {
   return String(bodyPath || '').replace(/content\.json$/i, `c/${chunk}.json`);
 }
 
+/**
+ * Expand a ship index (`v: 2` delta lists) into the classic
+ * `{ indice, indice_por_punto }` shape. Returns null when `raw` is not
+ * that pack, so classic index.json still loads. Same rules as
+ * scripts/index-pack.js `unpackIndex`.
+ */
+export function unpackShipIndex(raw: unknown): Indice | null {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+  const obj = raw as { v?: unknown; t?: unknown; p?: unknown };
+  if (obj.v !== 2 || typeof obj.t !== 'string') return null;
+
+  const indice: Indice['indice'] = {};
+  if (obj.t.length) {
+    for (const line of obj.t.split('\n')) {
+      const tab = line.indexOf('\t');
+      if (tab < 0) {
+        if (line.length) indice[line] = [];
+        continue;
+      }
+      const term = line.slice(0, tab);
+      const rest = line.slice(tab + 1);
+      if (!rest) {
+        indice[term] = [];
+        continue;
+      }
+      const parts = rest.split(',');
+      const arr = new Array<number>(parts.length);
+      let prev = 0;
+      for (let i = 0; i < parts.length; i++) {
+        const d = Number(parts[i]);
+        if (!Number.isFinite(d)) return null;
+        prev += d;
+        arr[i] = prev;
+      }
+      indice[term] = arr;
+    }
+  }
+
+  const indice_por_punto: Indice['indice_por_punto'] = {};
+  if (typeof obj.p === 'string') {
+    if (obj.p.length) {
+      if (obj.p.charAt(0) === '{') {
+        try {
+          const parsed = JSON.parse(obj.p) as unknown;
+          if (!copyShipPoints(parsed, indice_por_punto)) return null;
+        } catch {
+          return null;
+        }
+      } else {
+        const parts = obj.p.split(',');
+        for (let i = 0; i < parts.length; i++) {
+          if (parts[i] === '') indice_por_punto[i] = null;
+          else {
+            const n = Number(parts[i]);
+            if (!Number.isFinite(n)) return null;
+            indice_por_punto[i] = n;
+          }
+        }
+      }
+    }
+  } else if (obj.p && typeof obj.p === 'object' && !Array.isArray(obj.p)) {
+    if (!copyShipPoints(obj.p, indice_por_punto)) return null;
+  } else if (obj.p != null) {
+    return null;
+  }
+
+  return { indice, indice_por_punto };
+}
+
+function copyShipPoints(
+  src: unknown,
+  dest: Indice['indice_por_punto'],
+): boolean {
+  if (!src || typeof src !== 'object' || Array.isArray(src)) return false;
+  const rec = src as { [key: string]: unknown };
+  for (const k of Object.keys(rec)) {
+    const v = rec[k];
+    if (v == null) {
+      dest[Number(k)] = null;
+      continue;
+    }
+    const n = Number(v);
+    if (!Number.isFinite(n)) return false;
+    dest[Number(k)] = n;
+  }
+  return true;
+}
+
 export function chunkIndexForUnit(
   unitIndex: number,
   size: number = BODY_CHUNK_SIZE
@@ -821,6 +909,9 @@ export class CorpusLoadEngine {
   }
 
   normalizeIndex(raw: unknown): Indice {
+    const shipped = unpackShipIndex(raw);
+    if (shipped) return shipped;
+
     if (!raw || typeof raw !== 'object') {
       return { indice: {}, indice_por_punto: {} };
     }

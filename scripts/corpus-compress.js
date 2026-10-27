@@ -8,6 +8,8 @@
  *   - drop load-stamped `index_array` (CorpusLoadEngine.stampIndexArray)
  *   - omit empty `referencias: []` (loader treats missing as empty)
  *   - omit ship-only `meta.json` (catalog is manifest.json; UI never fetches meta)
+ *   - pack document `index.json` as delta lists (`v: 2`) when the unpacked
+ *     index matches and the file is smaller (contenido is not an input)
  *
  * Does NOT reindex units, rename document ids, or change consecutivo /
  * contenido / non-empty referencias. Packs with more than SHIP_BODY_CHUNK_SIZE
@@ -32,6 +34,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const { packIndexBuffer } = require('./index-pack.js');
 
 /** @param {unknown} unit */
 function isArticleLike(unit) {
@@ -488,8 +491,23 @@ function compressCorpusTree(rootDir, opts = {}) {
         stats.skipped += 1;
         continue;
       }
-      const output = packed.output;
-      const parsed = packed.parsed;
+      let output = packed.output;
+      let parsed = packed.parsed;
+
+      if (
+        ent.name === 'index.json' &&
+        !underSiblingPack &&
+        parsed &&
+        typeof parsed === 'object' &&
+        !Array.isArray(parsed) &&
+        /** @type {{ v?: unknown }} */ (parsed).v !== 2
+      ) {
+        const shipIdx = packIndexBuffer(parsed);
+        if (shipIdx && shipIdx.length < output.length) {
+          output = shipIdx;
+          parsed = JSON.parse(shipIdx.toString('utf8'));
+        }
+      }
 
       stats.bytesAfter += output.length;
 
@@ -605,8 +623,9 @@ Options:
   --drop-unused-sidecars     Delete every patristic-verse-hits.json under root
   --help                     Show this help
 
-Flags default off. Compact JSON / empty refs / drop meta.json always run.
-Safe transforms only (reading contract preserved).`);
+Flags default off. Compact JSON, empty refs, drop meta.json, and the
+index.json delta pack (v: 2) always run. Safe transforms only: contenido
+is not rewritten and a packed index must unpack to the same postings.`);
 }
 
 function main(argv) {
