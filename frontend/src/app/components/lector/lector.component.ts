@@ -130,8 +130,6 @@ export class LectorComponent implements OnInit, OnDestroy {
   barsHidden = false;
   private lastScrollY = 0;
   private scrollAccum = 0;
-  /** True while a route jump scrolls. That jump is not the reader moving down. */
-  private jumpGuardsBars = false;
 
   /** 5D · Narrador (TTS del dispositivo). `narrPlaying` alimenta la pastilla. */
   narrPlaying = false;
@@ -195,12 +193,6 @@ export class LectorComponent implements OnInit, OnDestroy {
   private updateBarsVisibility(): void {
     if (typeof window === 'undefined') return;
     const y = window.scrollY;
-    if (this.jumpGuardsBars) {
-      this.lastScrollY = y;
-      this.scrollAccum = 0;
-      this.barsHidden = false;
-      return;
-    }
     const delta = y - this.lastScrollY;
     this.lastScrollY = y;
 
@@ -1074,14 +1066,7 @@ export class LectorComponent implements OnInit, OnDestroy {
         return;
       }
       this.pinScrolled = true;
-      this.jumpGuardsBars = true;
       el.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' });
-      setTimeout(() => {
-        this.jumpGuardsBars = false;
-        this.scrollAccum = 0;
-        this.barsHidden = false;
-        if (typeof window !== 'undefined') this.lastScrollY = window.scrollY;
-      }, 120);
     }, wait);
   }
 
