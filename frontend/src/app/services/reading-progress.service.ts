@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {
-  SETTINGS_KEY,
   LastRead,
   LastReadInput,
   getLastReadFromStore,
@@ -10,27 +9,8 @@ import {
 
 export type { LastRead } from './reading-progress.logic';
 
-export interface DvSettings {
-  size: number;
-  theme: 'sepia' | 'claro' | 'oscuro';
-  font: 'serif' | 'sans';
-}
-
 @Injectable({ providedIn: 'root' })
 export class ReadingProgressService {
-  getSettings(): Partial<DvSettings> {
-    try {
-      return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
-    } catch {
-      return {};
-    }
-  }
-
-  saveSettings(partial: Partial<DvSettings>): void {
-    const next = { ...this.getSettings(), ...partial };
-    localStorage.setItem(SETTINGS_KEY, JSON.stringify(next));
-  }
-
   setLastRead(entry: LastReadInput): void {
     setLastReadInStore(localStorage, entry);
   }
