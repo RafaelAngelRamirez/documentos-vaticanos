@@ -171,6 +171,8 @@ npm --prefix frontend run test:ui-i18n
 npm --prefix frontend run test:unpack-ship-index
 node scripts-descarga/corpus_structure_contract.test.js
 node scripts/corpus-sync-assets.test.js
+node scripts/on-demand-sources.test.js
+bash scripts/on-demand-ship.test.sh
 node scripts/dead-style-copies.test.js
 node scripts-descarga/write_corpus_copy.test.js
 node scripts/agent-structure.test.js
