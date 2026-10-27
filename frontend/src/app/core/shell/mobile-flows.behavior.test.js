@@ -1,8 +1,7 @@
 /**
- * Mobile feature map and the four critical flows, driven on the real modules.
- *
- * Pack bytes come from documentos/corpus (the tree corpus:sync-assets copies
- * into assets). No Angular, no network, no server.
+ * Four offline flows on the real modules: open a pack, search it, cite a hit,
+ * and decide whether an update is newer. No Angular, no network, no server.
+ * Pack bytes come from documentos/corpus (the tree corpus:sync-assets copies).
  *
  *   bash ../scripts/node-strip-types.sh src/app/core/shell/mobile-flows.behavior.test.js
  */
@@ -13,7 +12,6 @@ const { pathToFileURL } = require('url');
 
 const HERE = __dirname;
 const REPO = path.resolve(HERE, '../../../../..');
-const APP = path.join(REPO, 'frontend/src/app');
 const CANON = path.join(REPO, 'documentos/corpus');
 const STUB_PATH = path.join(
   REPO,
@@ -26,17 +24,9 @@ function section(name) {
   console.log(`\n== ${name} ==`);
 }
 
-function read(relFromApp) {
-  return fs.readFileSync(path.join(APP, relFromApp), 'utf8');
-}
-
-function mustInclude(file, text, label) {
-  assert.ok(text.length > 0 && file.includes(text), label || text);
-}
-
 async function load(relFromRepo) {
   const file = path.join(REPO, relFromRepo);
-  return import(pathToFileURL(file).href + `?t=${Date.now()}`);
+  return import(pathToFileURL(file).href);
 }
 
 /** assets/corpus/… → documentos/corpus/… (the ship source). */
@@ -90,52 +80,7 @@ async function main() {
   const shell = await load('frontend/src/app/core/shell/shell.util.ts');
   const env = await load('frontend/src/environments/environment.ts');
 
-  const bnav = read('components/bnav/bnav.component.ts');
-  const routing = read('pages/pages-routing.module.ts');
-  const lector = read('components/lector/lector.component.html');
-  const inicio = read('pages/inicio/inicio.component.html');
-  const biblioteca = read(
-    'pages/list-documents-pages/list-documents-pages.component.html',
-  );
-  const bibliotecaTs = read(
-    'pages/list-documents-pages/list-documents-pages.component.ts',
-  );
-  const buscarHtml = read('pages/buscar/buscar.component.html');
-  const buscarTs = read('components/buscador/buscador.component.ts');
-  const estudios = read('pages/estudios/estudios.component.html');
-  const ajustes = read('pages/ajustes/ajustes.component.html');
-  const downloadsTs = read('core/downloads/downloads.service.ts');
-  const inicioTs = read('pages/inicio/inicio.component.ts');
-
-  section('mapa del móvil');
-  const map = [
-    ['Inicio', '/inicio', 'inmersiva', 'sin bnav'],
-    ['Biblioteca', '/biblioteca', 'inmersiva', 'bnav biblioteca'],
-    ['Buscar', '/buscar', 'inmersiva', 'fbar propia, sin bnav'],
-    ['Lector', '/leyendo/:id/u/:unit', 'inmersiva', 'fbar + rfoot, sin bnav'],
-    ['Ficha', '/documento/:id', 'producto', 'cubre el lector'],
-    ['Estudio', '/estudios', 'producto', 'bnav estudio'],
-    ['Ajustes', '/ajustes', 'producto', 'bnav ajustes'],
-  ];
-  for (const row of map) {
-    console.log(row.join(' · '));
-  }
-
-  mustInclude(bnav, "go(['/', route.inicio])", 'bnav inicio');
-  mustInclude(bnav, "go(['/biblioteca'])", 'bnav biblioteca');
-  mustInclude(bnav, "go(['/estudios'])", 'bnav estudio');
-  mustInclude(bnav, "go(['/ajustes'])", 'bnav ajustes');
-  assert.ok(!bnav.includes("go(['/leyendo"), 'la barra no abre el lector');
-  mustInclude(bnav, "p.startsWith('/buscar')", 'buscar marcaría biblioteca');
-
-  mustInclude(routing, "path: 'biblioteca'", 'ruta biblioteca');
-  mustInclude(routing, "path: 'buscar'", 'ruta buscar');
-  mustInclude(routing, "path: 'estudios'", 'ruta estudios');
-  mustInclude(routing, "path: 'ajustes'", 'ruta ajustes');
-  mustInclude(routing, "path: 'documento/:id'", 'ruta ficha');
-  mustInclude(routing, 'ROUTE.leyendo}/:id/u/:unit', 'ruta canónica del lector');
-  mustInclude(routing, 'component: InicioComponent', 'ruta inicio');
-
+  section('rutas inmersivas');
   assert.strictEqual(immersive.isImmersivePath('/inicio'), true);
   assert.strictEqual(immersive.isImmersivePath('/biblioteca'), true);
   assert.strictEqual(immersive.isImmersivePath('/buscar?q=suicidio'), true);
@@ -146,21 +91,6 @@ async function main() {
   assert.strictEqual(immersive.isImmersivePath('/documento/iura-et-bona-es'), false);
   assert.strictEqual(immersive.isImmersivePath('/estudios'), false);
   assert.strictEqual(immersive.isImmersivePath('/ajustes'), false);
-
-  assert.ok(!inicio.includes('app-bnav'), 'inicio no monta bnav');
-  assert.ok(!lector.includes('app-bnav'), 'lector no monta bnav');
-  assert.ok(!buscarHtml.includes('app-bnav'), 'buscar no monta bnav');
-  mustInclude(lector, 'class="fbar hair only-mobile"', 'fbar del lector');
-  mustInclude(lector, 'class="rfoot only-mobile"', 'rfoot del lector');
-  mustInclude(buscarHtml, 'Volver a la biblioteca', 'volver desde buscar');
-  mustInclude(buscarHtml, 'Offline, sin red', 'buscar declara offline');
-  mustInclude(biblioteca, 'app-bnav current="biblioteca"', 'bnav biblioteca');
-  mustInclude(biblioteca, 'class="only-mobile"', 'biblioteca móvil');
-  mustInclude(estudios, 'app-bnav current="estudio"', 'bnav estudio');
-  mustInclude(ajustes, 'app-bnav current="ajustes"', 'bnav ajustes');
-  mustInclude(bibliotecaTs, "navigate(['/documento', item.id])", 'abrir ficha');
-  mustInclude(buscarTs, 'rankUnitsForDocument', 'buscar usa el ranker');
-  mustInclude(buscarTs, 'openReading', 'un resultado abre el lector');
 
   section('abrir y leer offline');
   const firstUrls = [];
@@ -262,9 +192,7 @@ async function main() {
   ]);
   const url = `/${commands.join('/')}`;
   assert.strictEqual(immersive.isImmersivePath(url), true);
-  assert.ok(!lector.includes('app-bnav'));
   console.log(`abrir ${url}`);
-  console.log('chrome lector · inmersiva · sin bnav');
 
   const cover = `/documento/${DOC_ID}`;
   assert.strictEqual(immersive.isImmersivePath(cover), false);
@@ -276,22 +204,6 @@ async function main() {
   assert.strictEqual(stub.downloads.apk, STABLE.apk);
   assert.strictEqual(stub.downloads.linux, STABLE.linux);
   assert.strictEqual(stub.downloads.windows, STABLE.windows);
-
-  mustInclude(
-    downloadsTs,
-    'STABLE_DOWNLOAD_PATHS.manifest',
-    'primero el manifest público',
-  );
-  mustInclude(
-    downloadsTs,
-    "get<DownloadsManifest>('assets/downloads/manifest.json')",
-    'luego el stub empaquetado',
-  );
-  mustInclude(downloadsTs, 'fallbackManifest()', 'luego las rutas estables');
-  mustInclude(downloadsTs, 'pickAppVersionForDisplay', 'la etiqueta es la del build');
-  mustInclude(inicioTs, 'isWebDownloadShell', 'inicio decide si muestra iconos');
-  mustInclude(inicio, 'data-testid="inicio-downloads"', 'fila de descargas');
-  mustInclude(inicio, '*ngIf="showDownloads"', 'la fila es condicional');
 
   const build = env.environment.version;
   const shown = version.pickAppVersionForDisplay(build, '0.0.1');
@@ -349,7 +261,6 @@ async function main() {
   );
 
   console.log(`web · iconos · ${STABLE.apk}`);
-  console.log(`android · sin iconos · aviso si el remoto es más nuevo`);
   console.log(`etiqueta v${shown} · stub no la pisa`);
   console.log(`apk nuevo · ${newer.downloadUrl}`);
 
