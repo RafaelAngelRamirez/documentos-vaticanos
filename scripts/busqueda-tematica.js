@@ -24,7 +24,6 @@ const VATICAN_II = new Set([
   'im',
   'lg',
   'na',
-  'oe',
   'ot',
   'pc',
   'po',
