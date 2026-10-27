@@ -43,8 +43,12 @@ npm run topics:validate -- --locale es
 npm --prefix frontend run test:open-reading
 npm --prefix frontend run test:speech-prep
 npm --prefix frontend run test:speech-lang
+npm --prefix frontend run test:ui-i18n
 node scripts-descarga/corpus_structure_contract.test.js
 node scripts/corpus-sync-assets.test.js
+node scripts/dead-style-copies.test.js
+node scripts-descarga/write_corpus_copy.test.js
+node scripts/agent-structure.test.js
 ```
 
 `topics:validate` usa el ts-node de `scripts-descarga` y no lleva `--skip-fp`. Si falla por huella vieja tras un cambio de corpus, regenera con `npm run topics:build` y vuelve a validar.
