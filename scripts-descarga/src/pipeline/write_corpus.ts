@@ -24,6 +24,8 @@ const REPO = path.resolve(__dirname, "../../..");
 const SCRIPTS = path.resolve(__dirname, "../..");
 
 export const CANONICAL_CORPUS_ROOT = path.join(REPO, "documentos", "corpus");
+/** Cited texts fetched later. corpus-sync-assets.sh does not read this tree. */
+export const ON_DEMAND_CORPUS_ROOT = path.join(REPO, "documentos", "on-demand");
 export const ASSETS_CORPUS_ROOT = path.join(
   REPO,
   "frontend",
@@ -251,7 +253,8 @@ export function writeCorpusDocument(
     meta.translationProvenance = "ai";
   }
 
-  const root = CANONICAL_CORPUS_ROOT;
+  const onDemand = config.onDemand === true;
+  const root = onDemand ? ON_DEMAND_CORPUS_ROOT : CANONICAL_CORPUS_ROOT;
   ensureDir(path.join(root, "documents", config.corpusDocId));
   writeJson(path.join(root, relBody), units);
   writeJson(path.join(root, relIndex), index);
@@ -261,6 +264,19 @@ export function writeCorpusDocument(
   mergeDocumentIntoManifest(manifestPath, meta, options);
   console.log(`[✓] corpus → ${path.join(root, "documents", config.corpusDocId)}`);
   console.log(`[✓] manifest → ${manifestPath}`);
+
+  if (onDemand) {
+    console.log(
+      `[i] on-demand: not copied to assets or the APK pack (${config.corpusDocId})`,
+    );
+    return {
+      meta,
+      index,
+      unitCount,
+      termCount,
+      roots: [root],
+    };
+  }
 
   syncDocToAssets(config.corpusDocId);
   syncManifestToAssets();

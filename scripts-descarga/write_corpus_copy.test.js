@@ -283,6 +283,67 @@ function run() {
 
     console.log('extras=0');
     console.log('manifest-kept');
+
+    const probeId = 'on-demand-probe-bb3d';
+    const onDemandRoot = writer.ON_DEMAND_CORPUS_ROOT;
+    const onDemandExisted = fs.existsSync(onDemandRoot);
+    const shipDoc = path.join(realCanon, 'documents', probeId);
+    const shipManifest = path.join(realCanon, 'manifest.json');
+    const shipBefore = fs.statSync(shipManifest);
+    writer.writeCorpusDocument(
+      {
+        id: 'probe',
+        title: 'Probe',
+        shortTitle: 'Probe',
+        kind: 'magisterium',
+        locale: 'la',
+        corpusDocId: probeId,
+        adapter: 'vatican_prose',
+        seedUrls: ['https://www.vatican.va/example.html'],
+        onDemand: true,
+      },
+      [
+        {
+          consecutivo: '1',
+          contenido:
+            'Lux veritatis temporumque testis historia docet probe text long enough.',
+          referencias: [],
+        },
+      ],
+    );
+    const demandDoc = path.join(onDemandRoot, 'documents', probeId, 'content.json');
+    if (!fs.existsSync(demandDoc)) fail('on-demand body was not written');
+    if (fs.existsSync(shipDoc)) fail('on-demand body landed in the ship corpus');
+    if (fs.existsSync(path.join(realAssets, 'documents', probeId))) {
+      fail('on-demand body landed in assets');
+    }
+    const shipAfter = fs.statSync(shipManifest);
+    if (
+      shipBefore.ino !== shipAfter.ino ||
+      shipBefore.size !== shipAfter.size ||
+      shipBefore.mtimeMs !== shipAfter.mtimeMs
+    ) {
+      fail('on-demand write changed the ship manifest');
+    }
+    const demandManifest = JSON.parse(
+      fs.readFileSync(path.join(onDemandRoot, 'manifest.json'), 'utf8'),
+    );
+    if (!demandManifest.documents.some((d) => d.id === probeId)) {
+      fail('on-demand manifest missing probe');
+    }
+    fs.rmSync(path.join(onDemandRoot, 'documents', probeId), {
+      recursive: true,
+      force: true,
+    });
+    if (!onDemandExisted) {
+      fs.rmSync(onDemandRoot, { recursive: true, force: true });
+    } else {
+      const manifestFile = path.join(onDemandRoot, 'manifest.json');
+      const kept = JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
+      kept.documents = (kept.documents || []).filter((d) => d.id !== probeId);
+      fs.writeFileSync(manifestFile, JSON.stringify(kept));
+    }
+    console.log('on-demand-kept-out');
   } finally {
     try {
       if (fs.lstatSync(corpusLink).isSymbolicLink()) fs.unlinkSync(corpusLink);

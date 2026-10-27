@@ -446,6 +446,7 @@ async function main() {
         `  - ${s.id} → ${s.corpusDocId} (adapter=${s.adapter}` +
           (s.legacyScript ? `, legacy=${s.legacyScript}` : "") +
           (s.expectedUnitCount ? `, expected≈${s.expectedUnitCount}` : "") +
+          (s.onDemand ? `, onDemand` : "") +
           `)`,
       );
     }

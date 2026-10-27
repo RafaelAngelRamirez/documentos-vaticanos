@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Copy the ship subset of documentos/corpus/ into frontend/src/assets/corpus/.
 # Canonical pack stays in documentos/corpus/. Assets is a generated copy.
+# documentos/on-demand/ (sources.json onDemand) is outside this tree and stays out of the APK.
 #
 # Usage:
 #   bash scripts/corpus-sync-assets.sh            # documents + manifest + packs

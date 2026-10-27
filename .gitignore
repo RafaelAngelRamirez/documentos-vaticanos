@@ -74,6 +74,9 @@ scripts-descarga/documentos/
 # Ship copy of the canonical pack (regenerate with npm run corpus:sync-assets)
 frontend/src/assets/corpus/documents/
 
+# On-demand encyclicals (sources.json onDemand). Not the APK pack.
+documentos/on-demand/
+
 # AI locale-twin MT checkpoints / intermediate clean dumps (resume-local only)
 documentos/magisterium-source/clean/
 

@@ -35,6 +35,11 @@ export interface SourceConfig {
    * `ai` = machine/LLM twin (never assign docCode); `official` = human/source edition.
    */
   translationProvenance?: "official" | "ai";
+  /**
+   * Fetch stays out of the ship corpus and the APK.
+   * `npm run scrape` writes documentos/on-demand/ only.
+   */
+  onDemand?: boolean;
 }
 
 export interface SourcesFile {

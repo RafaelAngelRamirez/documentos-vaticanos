@@ -1606,6 +1606,81 @@
       "fixturePath": "fixtures/dn-es/source.html",
       "expectedUnitCount": 220,
       "notes": "Official ES. URL pattern papa-francesco_20241024_enciclica-dilexit-nos.html is 404; use the 20241024-enciclica-dilexit-nos.html form."
+    },
+    {
+      "id": "lux-veritatis",
+      "title": "Lux veritatis",
+      "shortTitle": "Lux veritatis",
+      "author": "Pío XI",
+      "kind": "magisterium",
+      "locale": "la",
+      "corpusDocId": "lux-veritatis-la",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/pius-xi/la/encyclicals/documents/hf_p-xi_enc_19311225_lux-veritatis.html"
+      ],
+      "onDemand": true,
+      "notes": "Encíclica citada (1931) que no está en la descarga del APK. HTML latino en vatican.va; no hay es/en/ar/zh para import_papal_catalog.ts. onDemand: scrape escribe documentos/on-demand/ y no entra al corpus de la app."
+    },
+    {
+      "id": "studiorum-ducem",
+      "title": "Studiorum ducem",
+      "shortTitle": "Studiorum ducem",
+      "author": "Pío XI",
+      "kind": "magisterium",
+      "locale": "la",
+      "corpusDocId": "studiorum-ducem-la",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/pius-xi/la/encyclicals/documents/hf_p-xi_enc_19230629_studiorum-ducem.html"
+      ],
+      "onDemand": true,
+      "notes": "Encíclica citada (1923) que no está en la descarga del APK. HTML latino en vatican.va. onDemand: scrape escribe documentos/on-demand/ y no entra al corpus de la app."
+    },
+    {
+      "id": "acerba-animi",
+      "title": "Acerba animi",
+      "shortTitle": "Acerba animi",
+      "author": "Pío XI",
+      "kind": "magisterium",
+      "locale": "la",
+      "corpusDocId": "acerba-animi-la",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/pius-xi/la/encyclicals/documents/hf_p-xi_enc_19320929_acerba-animi.html"
+      ],
+      "onDemand": true,
+      "notes": "Encíclica citada (1932) que no está en la descarga del APK. HTML latino en vatican.va. onDemand: scrape escribe documentos/on-demand/ y no entra al corpus de la app."
+    },
+    {
+      "id": "ad-salutem-humani",
+      "title": "Ad salutem humani",
+      "shortTitle": "Ad salutem",
+      "author": "Pío XI",
+      "kind": "magisterium",
+      "locale": "la",
+      "corpusDocId": "ad-salutem-humani-la",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/pius-xi/la/encyclicals/documents/hf_p-xi_enc_19300420_ad-salutem-humani.html"
+      ],
+      "onDemand": true,
+      "notes": "Encíclica citada (1930) que no está en la descarga del APK. HTML latino en vatican.va. onDemand: scrape escribe documentos/on-demand/ y no entra al corpus de la app."
+    },
+    {
+      "id": "caritate-christi-compulsi",
+      "title": "Caritate Christi compulsi",
+      "shortTitle": "Caritate Christi",
+      "author": "Pío XI",
+      "kind": "magisterium",
+      "locale": "la",
+      "corpusDocId": "caritate-christi-compulsi-la",
+      "adapter": "vatican_prose",
+      "seedUrls": [
+        "https://www.vatican.va/content/pius-xi/la/encyclicals/documents/hf_p-xi_enc_19320503_caritate-christi-compulsi.html"
+      ],
+      "onDemand": true,
+      "notes": "Encíclica citada (1932) que no está en la descarga del APK. HTML latino en vatican.va. onDemand: scrape escribe documentos/on-demand/ y no entra al corpus de la app."
     }
   ]
 }
