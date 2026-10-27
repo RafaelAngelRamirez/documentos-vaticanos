@@ -306,6 +306,38 @@ export class MemoryCorpusStore implements CorpusDurableStore {
 export const CORPUS_ROOT = 'assets/corpus';
 export const MANIFEST_URL = `${CORPUS_ROOT}/manifest.json`;
 
+/** Drop `postings` after expanding, so a second call does not sum absolute lists. */
+export function expandShipIndex(raw: unknown): unknown {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return raw;
+  const obj = raw as { [key: string]: unknown };
+  if (obj['postings'] !== 'delta') return raw;
+  const src = obj['indice'];
+  if (!src || typeof src !== 'object' || Array.isArray(src)) return raw;
+  const srcObj = src as { [key: string]: unknown };
+  const indice: { [key: string]: number[] } = {};
+  for (const key of Object.keys(srcObj)) {
+    indice[key] = prefixSumPostings(srcObj[key]);
+  }
+  const out: { [key: string]: unknown } = {};
+  for (const key of Object.keys(obj)) {
+    if (key === 'postings') continue;
+    out[key] = key === 'indice' ? indice : obj[key];
+  }
+  return out;
+}
+
+function prefixSumPostings(deltas: unknown): number[] {
+  if (!Array.isArray(deltas)) return [];
+  const abs: number[] = [];
+  let acc = 0;
+  for (const d of deltas) {
+    if (typeof d !== 'number' || !Number.isInteger(d) || d < 0) return [];
+    acc += d;
+    abs.push(acc);
+  }
+  return abs;
+}
+
 export type CorpusHttpGet = <T>(url: string) => Promise<T>;
 
 export interface CorpusLoadEngineOptions {
@@ -821,6 +853,7 @@ export class CorpusLoadEngine {
   }
 
   normalizeIndex(raw: unknown): Indice {
+    raw = expandShipIndex(raw);
     if (!raw || typeof raw !== 'object') {
       return { indice: {}, indice_por_punto: {} };
     }

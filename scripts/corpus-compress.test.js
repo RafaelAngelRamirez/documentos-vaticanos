@@ -31,6 +31,9 @@ const {
   compressJsonValue,
   compressJsonBuffer,
   compressCorpusTree,
+  compressIndexValue,
+  deflateRawLevel1Size,
+  serializeCompact,
   readingSnapshot,
   isAiProvenance,
   dropAiDocuments,
@@ -630,7 +633,85 @@ function main() {
     console.log('  bible pack absent — skipped');
   }
 
+  section('index postings delta round-trip');
+  const fat = [];
+  for (let i = 0; i < 4000; i++) fat.push(i * 3 + 1);
+  const indexIn = {
+    indice: { dios: fat, amor: [1, 4, 4, 9] },
+    indice_por_punto: { 0: 27, 1: 28 },
+  };
+  const encoded = compressIndexValue(indexIn);
+  assert.strictEqual(encoded.postings, 'delta');
+  assert.deepStrictEqual(encoded.indice.amor, [1, 3, 0, 5]);
+  assert.strictEqual(encoded.indice_por_punto[0], 27);
+  assert.notStrictEqual(encoded, indexIn);
+  assert.deepStrictEqual(indexIn.indice.amor, [1, 4, 4, 9]);
+  const encodedBytes = serializeCompact(encoded);
+  const plainBytes = serializeCompact(indexIn);
+  assert.ok(
+    deflateRawLevel1Size(encodedBytes) < deflateRawLevel1Size(plainBytes),
+    'long posting list must shrink under raw deflate level 1',
+  );
+  const twice = compressIndexValue(encoded);
+  assert.strictEqual(twice, encoded, 'delta input is not encoded again');
+  const unsorted = compressIndexValue({
+    indice: { a: [3, 1] },
+    indice_por_punto: { 0: 1 },
+  });
+  assert.ok(!Object.prototype.hasOwnProperty.call(unsorted, 'postings'));
+  assert.deepStrictEqual(unsorted.indice.a, [3, 1]);
+  const expanded = expandShipIndex(encoded);
+  assert.ok(!Object.prototype.hasOwnProperty.call(expanded, 'postings'));
+  assert.deepStrictEqual(expanded.indice.dios, fat);
+  assert.deepStrictEqual(expanded.indice.amor, [1, 4, 4, 9]);
+  assert.deepStrictEqual(expanded.indice_por_punto, indexIn.indice_por_punto);
+  const absolute = { indice: { a: [0, 2] }, indice_por_punto: { 0: 1 } };
+  assert.deepStrictEqual(expandShipIndex(absolute), absolute);
+  console.log(
+    `  stored ${deflateRawLevel1Size(plainBytes)} → ${deflateRawLevel1Size(encodedBytes)}`,
+  );
+
+  section('reading hash stays equal on a fixture pack');
+  execFileSync(
+    'bash',
+    [path.join(ROOT, 'scripts/node-strip-types.sh'), path.join(ROOT, 'scripts/corpus-reading-hash.js'), '--self-test'],
+    { stdio: 'inherit' },
+  );
+
   console.log('\nAll corpus-compress tests passed.');
+}
+
+function expandShipIndex(value) {
+  const logic = path.join(
+    ROOT,
+    'frontend/src/app/core/corpus/corpus-load.logic.ts',
+  );
+  const script = [
+    "const { pathToFileURL } = require('url');",
+    '(async () => {',
+    '  const mod = await import(pathToFileURL(process.env.LOGIC_TS).href);',
+    "  let raw = '';",
+    "  process.stdin.setEncoding('utf8');",
+    '  for await (const chunk of process.stdin) raw += chunk;',
+    '  process.stdout.write(JSON.stringify(mod.expandShipIndex(JSON.parse(raw))));',
+    '})().catch((err) => { console.error(err); process.exit(1); });',
+  ].join('\n');
+  const out = execFileSync(
+    process.execPath,
+    [
+      '--experimental-strip-types',
+      '--disable-warning=ExperimentalWarning',
+      '--disable-warning=MODULE_TYPELESS_PACKAGE_JSON',
+      '-e',
+      script,
+    ],
+    {
+      input: JSON.stringify(value),
+      encoding: 'utf8',
+      env: { ...process.env, LOGIC_TS: logic },
+    },
+  );
+  return JSON.parse(out);
 }
 
 main();

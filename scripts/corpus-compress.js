@@ -8,6 +8,8 @@
  *   - drop load-stamped `index_array` (CorpusLoadEngine.stampIndexArray)
  *   - omit empty `referencias: []` (loader treats missing as empty)
  *   - omit ship-only `meta.json` (catalog is manifest.json; UI never fetches meta)
+ *   - delta-encode document index postings (`postings: "delta"`) when raw
+ *     deflate level 1 shrinks. expandShipIndex restores the absolute lists.
  *
  * Does NOT reindex units, rename document ids, or change consecutivo /
  * contenido / non-empty referencias. Packs with more than SHIP_BODY_CHUNK_SIZE
@@ -32,6 +34,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const zlib = require('zlib');
 
 /** @param {unknown} unit */
 function isArticleLike(unit) {
@@ -66,15 +69,70 @@ function compressUnit(unit) {
 }
 
 /**
+ * Node raw deflate, level 1. Not the APK byte size. The proof script
+ * deflates emitted bytes with CPython zlib, which matched this debug APK.
+ * @param {Buffer} buf
+ * @returns {number}
+ */
+function deflateRawLevel1Size(buf) {
+  return zlib.deflateRawSync(buf, { level: 1 }).length;
+}
+
+/**
+ * @param {unknown} data
+ * @returns {unknown}
+ */
+function compressIndexValue(data) {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) return data;
+  const obj = /** @type {Record<string, unknown>} */ (data);
+  if (obj.postings === 'delta') return data;
+  const indice = obj.indice;
+  const porPunto = obj.indice_por_punto;
+  if (!indice || typeof indice !== 'object' || Array.isArray(indice)) return data;
+  if (!porPunto || typeof porPunto !== 'object' || Array.isArray(porPunto)) {
+    return data;
+  }
+  /** @type {Record<string, number[]>} */
+  const encoded = {};
+  for (const key of Object.keys(indice)) {
+    const arr = /** @type {Record<string, unknown>} */ (indice)[key];
+    if (!Array.isArray(arr)) return data;
+    let prev = 0;
+    const deltas = new Array(arr.length);
+    for (let i = 0; i < arr.length; i++) {
+      const n = arr[i];
+      if (typeof n !== 'number' || !Number.isInteger(n) || n < prev) return data;
+      deltas[i] = n - prev;
+      prev = n;
+    }
+    encoded[key] = deltas;
+  }
+  /** @type {Record<string, unknown>} */
+  const out = {};
+  for (const key of Object.keys(obj)) {
+    out[key] = key === 'indice' ? encoded : obj[key];
+  }
+  out.postings = 'delta';
+  const before = serializeCompact(data);
+  const after = serializeCompact(out);
+  if (deflateRawLevel1Size(after) < deflateRawLevel1Size(before)) return out;
+  return data;
+}
+
+/**
  * Pure JSON value transform for a corpus file basename.
- * content.json arrays of units get field hygiene; other JSON is left structurally
- * intact (still re-serialized compact by the walker).
+ * content.json arrays of units get field hygiene. Document index.json may
+ * switch posting lists to deltas. Other JSON stays structurally intact
+ * (still re-serialized compact by the walker).
  * @param {unknown} data
  * @param {string} [fileName]
  * @returns {unknown}
  */
 function compressJsonValue(data, fileName) {
   const base = fileName ? path.basename(fileName) : '';
+  if (base === 'index.json') {
+    return compressIndexValue(data);
+  }
   const treatAsContent =
     base === 'content.json' ||
     (Array.isArray(data) && data.length > 0 && isArticleLike(data[0]));
@@ -677,6 +735,8 @@ function main(argv) {
 module.exports = {
   compressUnit,
   compressJsonValue,
+  compressIndexValue,
+  deflateRawLevel1Size,
   compressJsonBuffer,
   compressCorpusTree,
   writeShipChunks,

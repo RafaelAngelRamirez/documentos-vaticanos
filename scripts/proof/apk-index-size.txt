@@ -1,0 +1,16 @@
+apk /home/angel/proyectos/personal/documentos-vaticanos/frontend/android/app/build/outputs/apk/debug/app-debug.apk
+apk_bytes 114951413
+index_files 901
+orig_deflate_matches_apk 901
+index_stored_before 43793734
+index_stored_after 35820276
+index_stored_save 7973458
+files_smaller 667
+files_larger 14
+files_same 220
+bytes_saved_on_smaller 7973547
+bytes_added_on_larger 89
+index_logical_mismatches 0
+apk_bytes_after 106977955
+deflate CPython zlib 1.3.2 level 1 window -15 memLevel 8
+node_zlib 1.3.2.1-motley-285e94b
