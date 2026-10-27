@@ -266,11 +266,53 @@
       ></button>
     </div>
 
-    <div class="srowx">
-      <span class="fs13 muted"
-        >Interlineado {{ prefs.lineHeight }} · Ancho
-        {{ prefs.maxWidthCh }}ch</span
+    <div class="flabel">{{ t('reader.line_height') }}</div>
+    <div class="stepbtn">
+      <button
+        type="button"
+        class="szbtn"
+        (click)="bumpLine(-1)"
+        [disabled]="prefs.lineHeight <= 1.4"
+        [attr.aria-label]="t('reader.line_height_down')"
       >
+        −
+      </button>
+      <span class="szbtn on" aria-live="polite">{{ lineHeightLabel }}</span>
+      <button
+        type="button"
+        class="szbtn"
+        (click)="bumpLine(1)"
+        [disabled]="prefs.lineHeight >= 2"
+        [attr.aria-label]="t('reader.line_height_up')"
+      >
+        +
+      </button>
+    </div>
+
+    <div class="flabel">{{ t('reader.measure') }}</div>
+    <div class="stepbtn">
+      <button
+        type="button"
+        class="szbtn"
+        (click)="bumpMeasure(-1)"
+        [disabled]="prefs.maxWidthCh <= 55"
+        [attr.aria-label]="t('reader.measure_down')"
+      >
+        −
+      </button>
+      <span class="szbtn on" aria-live="polite">{{ prefs.maxWidthCh }}</span>
+      <button
+        type="button"
+        class="szbtn"
+        (click)="bumpMeasure(1)"
+        [disabled]="prefs.maxWidthCh >= 80"
+        [attr.aria-label]="t('reader.measure_up')"
+      >
+        +
+      </button>
+    </div>
+
+    <div class="srowx">
       <button type="button" class="back fs13" (click)="resetPrefs()">
         Restablecer
       </button>

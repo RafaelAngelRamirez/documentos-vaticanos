@@ -263,6 +263,22 @@ export class AjustesComponent implements OnInit, OnDestroy {
     this.readerPrefs.bumpFontSize(delta);
   }
 
+  get lineHeightLabel(): string {
+    return this.prefs.lineHeight.toFixed(2);
+  }
+
+  bumpLine(direction: number): void {
+    const step = direction < 0 ? -0.05 : 0.05;
+    this.readerPrefs.update({
+      lineHeight: Math.round((this.prefs.lineHeight + step) * 100) / 100,
+    });
+  }
+
+  bumpMeasure(direction: number): void {
+    const step = direction < 0 ? -5 : 5;
+    this.readerPrefs.update({ maxWidthCh: this.prefs.maxWidthCh + step });
+  }
+
   setTheme(theme: ReaderTheme): void {
     this.readerPrefs.setTheme(theme);
   }
