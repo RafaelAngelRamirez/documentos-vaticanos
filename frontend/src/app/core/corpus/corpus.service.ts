@@ -15,6 +15,16 @@ import {
   type IndexedDocument,
 } from './corpus-load.logic';
 import {
+  assetUrlToPackRel,
+  filesFromZip,
+  installPatristicPack,
+  readInstalledPack,
+  sourceFromMap,
+  type InstallPatristicResult,
+  type PatristicPackStore,
+} from './patristic-pack.logic';
+import { openPatristicPackStore } from './patristic-pack.store';
+import {
   DocumentFamily,
   editionsForDocument,
   familyKey,
@@ -53,6 +63,7 @@ export interface EnsureLoadedManyOptions {
 })
 export class CorpusService {
   private readonly engine: CorpusLoadEngine;
+  private packStorePromise: Promise<PatristicPackStore> | null = null;
 
   /** In-flight Observable wrappers so concurrent subscribers share one request. */
   private manifestInflight$: Observable<DocumentMeta[]> | null = null;
@@ -70,7 +81,76 @@ export class CorpusService {
     this.engine = new CorpusLoadEngine({
       httpGet: <T>(url: string) => firstValueFrom(this.http.get<T>(url)),
       store: durableStore,
+      readLocalJson: (url) => this.readPatristicJson(url),
+      installedPack: () => this.installedPatristicMetas(),
     });
+  }
+
+  private packStore(): Promise<PatristicPackStore> {
+    if (!this.packStorePromise) {
+      this.packStorePromise = openPatristicPackStore();
+    }
+    return this.packStorePromise;
+  }
+
+  private async installedPatristicMetas(): Promise<DocumentMeta[]> {
+    try {
+      const manifest = await readInstalledPack(await this.packStore());
+      return (manifest?.documents ?? []) as DocumentMeta[];
+    } catch {
+      return [];
+    }
+  }
+
+  private async readPatristicJson(url: string): Promise<unknown | undefined> {
+    const rel = assetUrlToPackRel(url);
+    if (!rel) return undefined;
+    try {
+      const bytes = await (await this.packStore()).read(rel);
+      if (!bytes) return undefined;
+      return JSON.parse(new TextDecoder().decode(bytes)) as unknown;
+    } catch {
+      return undefined;
+    }
+  }
+
+  /**
+   * Install a local zip of the patristic pack. Hash mismatch does not open it
+   * and does not touch the network.
+   */
+  async installPatristicZip(bytes: Uint8Array): Promise<InstallPatristicResult> {
+    let result: InstallPatristicResult;
+    try {
+      const files = await filesFromZip(bytes);
+      result = await installPatristicPack(
+        sourceFromMap(files),
+        await this.packStore(),
+      );
+    } catch (err) {
+      const reason =
+        err instanceof Error && err.message
+          ? err.message
+          : 'No se pudo instalar el paquete';
+      return { ok: false, reason };
+    }
+    if (result.ok) {
+      this.engine.setInstalledPack(result.manifest.documents as DocumentMeta[]);
+      this.manifestInflight$ = null;
+    }
+    return result;
+  }
+
+  async patristicPackStatus(): Promise<{
+    installed: boolean;
+    documentCount: number;
+  }> {
+    try {
+      const manifest = await readInstalledPack(await this.packStore());
+      const documentCount = manifest?.documents.length ?? 0;
+      return { installed: documentCount > 0, documentCount };
+    } catch {
+      return { installed: false, documentCount: 0 };
+    }
   }
 
   private saintPack(): SantoralService {

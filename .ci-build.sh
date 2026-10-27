@@ -170,6 +170,9 @@ npm --prefix frontend run test:ui-i18n
 npm --prefix frontend run test:unpack-ship-index
 node scripts-descarga/corpus_structure_contract.test.js
 node scripts/corpus-sync-assets.test.js
+node scripts/patristic-pack.test.js
+node scripts/patristic-pack.js proof --canonical documentos/corpus --check --out scripts/proof/patristic-pack-hash.ndjson
+bash scripts/node-strip-types.sh frontend/src/app/core/corpus/patristic-pack.logic.test.js
 node scripts/dead-style-copies.test.js
 node scripts-descarga/write_corpus_copy.test.js
 node scripts/agent-structure.test.js
