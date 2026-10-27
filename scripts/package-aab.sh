@@ -128,6 +128,13 @@ if [[ ! -f "$PUBLIC_DIR/index.html" ]]; then
   echo "ERROR: Cap sync did not copy index.html to $PUBLIC_DIR" >&2
   exit 1
 fi
+if [[ -f "$PUBLIC_DIR/assets/corpus/manifest.json" ]]; then
+  echo "==> Patristic pack outside the base bundle"
+  run node "$ROOT/scripts/patristic-pack.js" split \
+    --canonical "$ROOT/documentos/corpus" \
+    --ship "$PUBLIC_DIR/assets/corpus" \
+    --out "$ROOT/dist/packs/patristica"
+fi
 
 if [[ ! -x "$ANDROID/gradlew" ]]; then
   echo "ERROR: missing $ANDROID/gradlew" >&2

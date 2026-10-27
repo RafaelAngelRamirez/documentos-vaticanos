@@ -108,6 +108,16 @@ if ! ls "$PUBLIC_DIR/assets/corpus/documents"/*/content.json >/dev/null 2>&1 \
   exit 1
 fi
 
+# Patristics leave the base APK here, after cap sync, so the web dist
+# (PWA / Electron) keeps them. The pack is a sibling file, installed once.
+if [[ -f "$PUBLIC_DIR/assets/corpus/manifest.json" ]]; then
+  echo "==> Patristic pack outside the base APK"
+  run node "$ROOT/scripts/patristic-pack.js" split \
+    --canonical "$ROOT/documentos/corpus" \
+    --ship "$PUBLIC_DIR/assets/corpus" \
+    --out "$ROOT/dist/packs/patristica"
+fi
+
 if [[ ! -x "$ANDROID/gradlew" ]]; then
   echo "ERROR: missing $ANDROID/gradlew" >&2
   exit 1

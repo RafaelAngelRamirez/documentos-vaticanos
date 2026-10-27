@@ -9,6 +9,7 @@ import {
   UpdateAvailable,
 } from 'src/app/core/downloads/app-update.logic';
 import { AppUpdateService } from 'src/app/core/downloads/app-update.service';
+import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { localeLabel } from 'src/app/core/corpus/document-locale.logic';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { UI_LOCALES } from 'src/app/core/i18n/ui-i18n.logic';
@@ -123,6 +124,11 @@ export class AjustesComponent implements OnInit, OnDestroy {
   appUpdate: UpdateAvailable | null = null;
   readonly localVersion = environment.version || '';
 
+  /** Paquete de patrística: se instala una vez desde un archivo local. */
+  patristicStatus = 'Sin instalar';
+  patristicError: string | null = null;
+  patristicBusy = false;
+
   constructor(
     private readerPrefs: ReaderPreferencesService,
     private backup: BackupService,
@@ -134,6 +140,7 @@ export class AjustesComponent implements OnInit, OnDestroy {
     public i18n: UiI18nService,
     private notifSvc: NotificationPrefsService,
     private dailyNotif: DailyNotificationsService,
+    private corpus: CorpusService,
   ) {}
 
   get notifPrefs(): DailyNotificationPrefs {
@@ -173,6 +180,39 @@ export class AjustesComponent implements OnInit, OnDestroy {
       void this.requestWakeLock();
     }
     void this.refreshNarratorSection();
+    void this.refreshPatristicPack();
+  }
+
+  async refreshPatristicPack(): Promise<void> {
+    try {
+      const status = await this.corpus.patristicPackStatus();
+      this.patristicStatus = status.installed
+        ? `${status.documentCount} obras en el aparato`
+        : 'Sin instalar';
+    } catch {
+      this.patristicStatus = 'Sin instalar';
+    }
+  }
+
+  async onPatristicPack(ev: Event): Promise<void> {
+    const input = ev.target as HTMLInputElement;
+    const file = input.files && input.files[0];
+    input.value = '';
+    if (!file) return;
+    this.patristicBusy = true;
+    this.patristicError = null;
+    try {
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      const result = await this.corpus.installPatristicZip(bytes);
+      if (!result.ok) {
+        this.patristicError = result.reason;
+      }
+      await this.refreshPatristicPack();
+    } catch {
+      this.patristicError = 'No se pudo instalar el paquete';
+    } finally {
+      this.patristicBusy = false;
+    }
   }
 
   downloadUpdate(): void {

@@ -78,10 +78,42 @@
     <div class="sect">{{ t('settings.reading') }}</div>
     <div class="offok hair">
       ✓<span class="offtx"
-        >Todos los documentos vienen incluidos en la app — no requiere
-        conexión</span
+        >El corpus base viene en la app y se lee sin conexión. La patrística
+        se instala una vez y se queda en el aparato.</span
       >
     </div>
+    <div class="setrow">
+      <span class="setk"
+        >Patrística<span class="seth"
+          >Si el paquete no está, la obra no está. No se pide por red.</span
+        ></span
+      >
+      <span class="stepbtn mini">
+        <button
+          type="button"
+          class="szbtn"
+          data-testid="patristic-pack-install"
+          [disabled]="patristicBusy"
+          (click)="patristicFile.click()"
+        >
+          {{ patristicBusy ? 'Instalando' : 'Instalar' }}
+        </button>
+      </span>
+    </div>
+    <div class="setrow">
+      <span class="setk">{{ patristicStatus }}</span>
+    </div>
+    <p class="fs13 muted" *ngIf="patristicError" data-testid="patristic-pack-error">
+      {{ patristicError }}
+    </p>
+    <input
+      #patristicFile
+      type="file"
+      accept=".zip,application/zip"
+      hidden
+      data-testid="patristic-pack-file"
+      (change)="onPatristicPack($event)"
+    />
     <div class="setrow">
       <span class="setk">{{ t('settings.font_size') }}</span>
       <span class="stepbtn mini">

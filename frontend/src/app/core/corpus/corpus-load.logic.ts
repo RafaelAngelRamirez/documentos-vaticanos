@@ -30,6 +30,15 @@ export interface DocumentMeta {
    * OCR/text repairs invalidate IndexedDB even if unitCount is unchanged.
    */
   contentHash?: string;
+  /**
+   * `patristica` when this work lives in the offline pack, not in the base APK.
+   * Absent on documents that ship inside the app.
+   */
+  packId?: string;
+  /** Full SHA-256 of canonical content.json. Set by the patristic pack. */
+  contentSha256?: string;
+  /** Byte length of that content.json. */
+  contentBytes?: number;
 }
 
 export interface CorpusManifest {
@@ -400,6 +409,30 @@ export interface CorpusLoadEngineOptions {
   httpGet: CorpusHttpGet;
   store: CorpusDurableStore;
   onHttpGet?: (url: string) => void;
+  /**
+   * Parsed JSON from the installed patristic pack.
+   * `undefined` means this URL is not in the pack.
+   */
+  readLocalJson?: (url: string) => Promise<unknown | undefined>;
+  /** Installed patristic documents. Empty when the pack is not on the device. */
+  installedPack?: () => Promise<DocumentMeta[]>;
+}
+
+const PATRISTIC_PACK_ID = 'patristica';
+
+function withoutPatristicPack(docs: DocumentMeta[]): DocumentMeta[] {
+  return docs.filter((d) => d.packId !== PATRISTIC_PACK_ID);
+}
+
+function mergePatristicPack(
+  base: DocumentMeta[],
+  installed: DocumentMeta[],
+): DocumentMeta[] {
+  const ids = new Set(base.map((d) => d.id));
+  const extra = (installed || []).filter(
+    (d) => d && d.packId === PATRISTIC_PACK_ID && d.id && !ids.has(d.id),
+  );
+  return extra.length ? base.concat(extra) : base;
 }
 
 /**
@@ -419,11 +452,17 @@ export class CorpusLoadEngine {
   private httpGet: CorpusHttpGet;
   private store: CorpusDurableStore;
   private onHttpGet: ((url: string) => void) | undefined;
+  private readLocalJson: ((url: string) => Promise<unknown | undefined>) | undefined;
+  private installedPack: (() => Promise<DocumentMeta[]>) | undefined;
+  private installedDocs: DocumentMeta[] = [];
+  private packDocIds: Set<string> = new Set();
 
   constructor(options: CorpusLoadEngineOptions) {
     this.httpGet = options.httpGet;
     this.store = options.store;
     this.onHttpGet = options.onHttpGet;
+    this.readLocalJson = options.readLocalJson;
+    this.installedPack = options.installedPack;
   }
 
   clearMemory(): void {
@@ -567,31 +606,88 @@ export class CorpusLoadEngine {
     return this.manifestInflight;
   }
 
+  /**
+   * Replace the in-memory patristic set after a local install.
+   * Documents already in the base manifest stay there and are not fetched.
+   */
+  setInstalledPack(docs: DocumentMeta[]): void {
+    this.installedDocs = (docs || []).filter(
+      (d) => d && d.packId === PATRISTIC_PACK_ID && !!d.id,
+    );
+    if (this.manifest) {
+      const base = withoutPatristicPack(this.manifest);
+      this.manifest = mergePatristicPack(base, this.installedDocs);
+    }
+    this.rebuildPackIds();
+  }
+
+  private rebuildPackIds(): void {
+    const baseIds = new Set(
+      withoutPatristicPack(this.manifest || []).map((d) => d.id),
+    );
+    this.packDocIds = new Set(
+      this.installedDocs.filter((d) => d.id && !baseIds.has(d.id)).map((d) => d.id),
+    );
+  }
+
+  private isPackOwned(url: string): boolean {
+    const match = String(url || '').match(/(?:^|\/)documents\/([^/]+)\//);
+    if (!match) return false;
+    return this.packDocIds.has(match[1]);
+  }
+
   private async fetchManifest(): Promise<DocumentMeta[]> {
+    let documents: DocumentMeta[] | null = null;
+    let version: string | number = '0';
+    let generatedAt: string | undefined;
+    let fromNetwork = false;
+    let networkErr: unknown = null;
     try {
       const raw = await this.getJson<CorpusManifest>(MANIFEST_URL);
-      const documents = raw?.documents ?? [];
-      this.manifest = documents;
-      this.packVersion = raw?.version ?? '0';
-      try {
-        await this.store.setManifest(toStoredManifest(raw || { documents }));
-      } catch {
-        /* quota / private mode */
-      }
-      return documents;
-    } catch (networkErr) {
+      documents = raw?.documents ?? [];
+      version = raw?.version ?? '0';
+      generatedAt = raw?.generatedAt;
+      fromNetwork = true;
+    } catch (err) {
+      networkErr = err;
+    }
+    if (!fromNetwork) {
       try {
         const stored = await this.store.getManifest();
         if (stored?.documents?.length) {
-          this.manifest = stored.documents;
-          this.packVersion = stored.version;
-          return stored.documents;
+          documents = stored.documents;
+          version = stored.version;
+          generatedAt = stored.generatedAt;
         }
       } catch {
         /* ignore */
       }
-      throw networkErr;
+      if (!documents) throw networkErr;
     }
+    const installed = this.installedPack
+      ? await this.installedPack()
+      : this.installedDocs;
+    this.installedDocs = (installed || []).filter(
+      (d) => d && d.packId === PATRISTIC_PACK_ID && !!d.id,
+    );
+    const base = withoutPatristicPack(documents || []);
+    this.manifest = mergePatristicPack(base, this.installedDocs);
+    this.packVersion = version ?? '0';
+    this.rebuildPackIds();
+    if (fromNetwork) {
+      try {
+        await this.store.setManifest(
+          toStoredManifest({
+            version: this.packVersion,
+            generatedAt,
+            documents: this.manifest,
+          }),
+        );
+      } catch {
+        /* quota / private mode */
+      }
+    }
+    return this.manifest;
   }
 
   async ensureLoaded(documentId: string): Promise<LoadedDocument> {
@@ -947,7 +1043,19 @@ export class CorpusLoadEngine {
     return `${CORPUS_ROOT}/${cleaned}`;
   }
 
-  private async getJson<T>(url: string): Promise<T> {
+  private async getJson<T>(
+    url: string,
+    opts?: { optional?: boolean },
+  ): Promise<T> {
+    if (this.readLocalJson) {
+      const local = await this.readLocalJson(url);
+      if (local !== undefined) return local as T;
+    }
+    // A work that lives only in the pack is never requested over the network.
+    if (this.isPackOwned(url)) {
+      if (opts?.optional) return null as T;
+      throw new Error(`Paquete de patrística sin archivo: ${url}`);
+    }
     if (this.onHttpGet) {
       this.onHttpGet(url);
     }
@@ -956,7 +1064,7 @@ export class CorpusLoadEngine {
 
   private async tryGetJson<T>(url: string): Promise<T | null> {
     try {
-      return await this.getJson<T>(url);
+      return await this.getJson<T>(url, { optional: true });
     } catch {
       return null;
     }
