@@ -1,6 +1,6 @@
 {
   "name": "documentos-vaticanos",
-  "version": "0.0.33",
+  "version": "0.0.35",
   "private": true,
   "builders": "tools/builders.json",
   "description": "Documentos Vaticanos — lector offline (web, Android, Electron)",
@@ -31,6 +31,7 @@
     "test:unpack-ship-index": "bash ../scripts/node-strip-types.sh src/app/core/corpus/unpack-ship-index.logic.test.js",
     "test:library-catalog": "bash ../scripts/node-strip-types.sh src/app/pages/list-documents-pages/library-catalog-load.test.js",
     "test:ui-i18n": "bash ../scripts/node-strip-types.sh src/app/core/i18n/ui-i18n.logic.test.js",
+    "test:clases": "bash ../scripts/node-strip-types.sh src/app/core/account/clases.logic.test.js",
     "test:safe-area": "bash ../scripts/node-strip-types.sh src/app/core/shell/safe-area.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/shell/reader-chrome.logic.test.js",
     "test:narrator-grok": "bash ../scripts/node-strip-types.sh src/app/services/narrator-grok.logic.test.js && bash ../scripts/node-strip-types.sh src/app/services/narrator-prefs.logic.test.js",
     "test:speech-prep": "bash ../scripts/node-strip-types.sh src/app/services/speech-prep.logic.test.js",
@@ -42,6 +43,7 @@
     "test:open-reading": "bash ../scripts/node-strip-types.sh src/app/services/open-reading.logic.test.js && bash ../scripts/node-strip-types.sh src/app/services/open-reading.handoff.test.js && bash ../scripts/node-strip-types.sh src/app/pages/immersive-route.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/person/person-reading.logic.test.js",
     "test:reader-prefs": "bash ../scripts/node-strip-types.sh src/app/services/reader-prefs.logic.test.js",
     "test:unit-bookmark": "bash ../scripts/node-strip-types.sh src/app/core/reading/reading-place.logic.test.js",
+    "test:review": "bash ../scripts/node-strip-types.sh src/app/core/review/review-schedule.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/review/review-notas.behavior.test.js",
     "test:reader-bars": "bash ../scripts/node-strip-types.sh src/app/core/shell/reader-bars.logic.test.js",
     "test:mobile-flows": "bash ../scripts/node-strip-types.sh src/app/core/shell/mobile-flows.behavior.test.js",
     "test:santoral": "bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-resolve.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-units.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/santoral/santoral-progress.logic.test.js",

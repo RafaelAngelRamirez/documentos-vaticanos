@@ -1,0 +1,61 @@
+<div class="app-product web-shell">
+  <app-wbar active="estudio"></app-wbar>
+
+  <div class="only-mobile">
+    <app-fbar
+      title="Repaso"
+      back="← Notas"
+      backLink="/notas"
+      [avatar]="false"
+    ></app-fbar>
+  </div>
+
+  <div class="fbody">
+    <div class="only-desktop deskhead">
+      <a routerLink="/notas">Notas</a>
+      <h2 class="h2">Repaso</h2>
+    </div>
+    <p class="fs13 muted lead">
+      Notas y marcadores de este dispositivo. Fácil sube la facilidad.
+    </p>
+
+    <p class="fs13 ease-now" *ngIf="lastEase != null">
+      Facilidad {{ easeText(lastEase) }} · vuelve el {{ lastDue }}
+    </p>
+
+    <ng-container *ngIf="card as c">
+      <div class="notecard">
+        <div class="fs12 upper muted">
+          {{ c.kind === 'marcador' ? 'Marcador' : 'Nota' }} · {{ pending }} para
+          hoy
+        </div>
+        <div class="fs14 lh16" *ngIf="c.excerpt">
+          <span class="hl">«{{ c.excerpt }}»</span>
+        </div>
+        <div class="fs14 lh16 note-body" *ngIf="c.nota">{{ c.nota }}</div>
+        <div class="fs14 lh16 serif fw5" *ngIf="c.kind === 'marcador'">
+          ★ {{ c.unitLabel }}
+        </div>
+        <div class="nsrc">{{ c.unitLabel }} · Nº {{ c.unitIndex }}</div>
+        <div class="nsrc">Facilidad {{ easeText(c.ease) }}</div>
+        <button type="button" class="open" (click)="open()">
+          Abrir en el lector
+        </button>
+      </div>
+
+      <div class="grades">
+        <button type="button" class="again" (click)="again()">Otra vez</button>
+        <button type="button" class="good" (click)="good()">La sé</button>
+        <button type="button" class="easy" (click)="easy()">Fácil</button>
+      </div>
+    </ng-container>
+
+    <div class="fs13 muted" *ngIf="!card && !hasMarks">
+      Aún no hay notas ni marcadores. Guarde una en el lector.
+    </div>
+    <div class="fs13 muted" *ngIf="!card && hasMarks">
+      Nada pendiente hoy.
+      <span *ngIf="nextDue">La siguiente vuelve el {{ nextDue }}.</span>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,16 @@
   margin: 0 auto;
 }
 
+.repaso-link {
+  margin-top: 14px;
+}
+
+.repaso-link a {
+  color: var(--acc);
+  font-size: 14px;
+  text-decoration: none;
+}
+
 .nlist {
   margin-top: 16px;
 }

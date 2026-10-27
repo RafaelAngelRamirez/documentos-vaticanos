@@ -124,6 +124,9 @@
 </div>
 
 <ng-template #listTpl>
+  <div class="repaso-link">
+    <a routerLink="/notas/repaso">Repasar notas y marcadores</a>
+  </div>
   <div class="nlist">
     <ng-container *ngIf="tab === 'subrayados'">
       <div class="notecard" *ngFor="let a of subrayados" (click)="open(a)">

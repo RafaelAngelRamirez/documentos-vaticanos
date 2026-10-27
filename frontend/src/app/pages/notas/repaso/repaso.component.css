@@ -1,0 +1,78 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbody {
+  padding: 28px 24px 32px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.deskhead {
+  margin-bottom: 8px;
+}
+
+.deskhead a {
+  color: var(--acc);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.lead {
+  margin: 12px 0 16px;
+  line-height: 1.5;
+}
+
+.ease-now {
+  margin: 0 0 14px;
+}
+
+.lh16 {
+  line-height: 1.6;
+}
+
+.note-body {
+  margin-top: 6px;
+}
+
+.open {
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--acc);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.grades {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.grades button {
+  flex: 1;
+  min-height: 48px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.again,
+.good {
+  background: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--btnb);
+}
+
+.easy {
+  background: var(--acc);
+  color: var(--accink);
+  border: 0;
+  font-weight: 500;
+}

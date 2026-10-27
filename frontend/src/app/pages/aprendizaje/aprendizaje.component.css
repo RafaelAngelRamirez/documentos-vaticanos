@@ -9,3 +9,37 @@
   max-width: 480px;
   margin: 0 auto;
 }
+
+.clase-card {
+  margin-bottom: 16px;
+}
+
+button.clase-open {
+  width: 100%;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  text-align: start;
+  cursor: pointer;
+  padding: 0;
+}
+
+.clase-import {
+  position: relative;
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+.clase-import input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.clase-link {
+  margin-top: 10px;
+  text-decoration: none;
+}

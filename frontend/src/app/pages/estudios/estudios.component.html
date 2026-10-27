@@ -65,7 +65,41 @@
       </div>
 
       <div class="estudio-side">
-        <div class="sect side-first">Planes de estudio</div>
+        <div class="sect side-first" data-testid="clase-mias">{{ t('clase.mine') }}</div>
+        <p class="fs13 muted" *ngIf="claseAviso">{{ claseAviso }}</p>
+        <p class="fs13 muted" *ngIf="!puedeArmar">{{ t('clase.need_teacher') }}</p>
+        <div class="card" *ngIf="puedeArmar" style="margin-bottom: 12px">
+          <label class="fs13" for="nueva-clase">{{ t('clase.title_field') }}</label>
+          <input id="nueva-clase" class="field" #nuevaClase maxlength="200" data-testid="clase-nueva-titulo" />
+          <button
+            type="button"
+            class="primary"
+            data-testid="clase-crear"
+            (click)="crearClase(nuevaClase.value, nuevaClase)"
+          >
+            {{ t('clase.create') }}
+          </button>
+        </div>
+        <button
+          type="button"
+          class="mrow clase-row"
+          *ngFor="let c of clasesMias"
+          (click)="openClase(c.clase.id)"
+        >
+          <span class="avatar">{{ initials(c.clase.titulo) }}</span>
+          <div>
+            <div class="mname">{{ c.clase.titulo }}</div>
+            <div class="mmeta">
+              {{ t('clase.revision', { n: c.clase.revision }) }}
+              · {{ c.clase.pasos.length }}
+              <span *ngIf="c.listaParaAlumnos"> · {{ t('clase.ready_yes') }}</span>
+            </div>
+          </div>
+          <span class="chev">›</span>
+        </button>
+        <a routerLink="/aprendizaje" class="fs13">{{ t('clase.open_learning') }}</a>
+
+        <div class="sect">Planes de estudio</div>
         <div *ngIf="loading" class="fs13 muted">Cargando…</div>
         <div *ngIf="!loading && !plans.length" class="fs13 muted">
           No hay planes publicados todavía.
