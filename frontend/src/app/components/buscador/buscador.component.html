@@ -7,7 +7,62 @@
     {{ load_error }}
   </div>
 
-  <ng-container *ngIf="!loading_docs && !load_error && hasQuery">
+  <ng-container *ngIf="!load_error && hasQuery && shelfMode">
+    <div class="shelf-chips" role="group" aria-label="Estantes">
+      <button
+        type="button"
+        class="chip"
+        *ngFor="let chip of shelfChips"
+        [class.on]="chip.on"
+        [attr.aria-pressed]="chip.on"
+        (click)="toggleShelf(chip.id)"
+      >
+        {{ chip.label }}
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!loading_docs && !load_error && hasQuery && shelfMode">
+    <div class="fs12 muted count">{{ countLabel }}</div>
+    <div class="shelf-columns">
+      <section class="shelf-col" *ngFor="let col of shelfColumns">
+        <h2 class="shelf-h">{{ col.label }}</h2>
+        <p *ngIf="!col.rows.length" class="fs13 muted empty">{{ col.empty }}</p>
+        <div class="shelf-alts" *ngIf="col.alternatives.length">
+          <button
+            type="button"
+            class="chip"
+            *ngFor="let alt of col.alternatives"
+            (click)="searchAlternative(alt.term)"
+          >
+            {{ alt.term }} · {{ alt.units }}
+          </button>
+        </div>
+        <div
+          class="srow"
+          *ngFor="let row of col.rows"
+          role="link"
+          tabindex="0"
+          (click)="openRow(row)"
+          (keyup.enter)="openRow(row)"
+        >
+          <span class="st">{{ row.title }}</span>
+          <span class="shelf-meta">
+            <span class="shelf-mark">{{ row.mark }}</span>
+            <span *ngIf="row.study" class="shelf-study">estudio</span>
+          </span>
+          <span class="sx" [innerHTML]="row.snippetHtml"></span>
+        </div>
+        <div class="more" *ngIf="col.more">
+          <a href="javascript:void(0)" class="muted" (click)="showMoreShelf(col.id)"
+            >Mostrar más</a
+          >
+        </div>
+      </section>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!loading_docs && !load_error && hasQuery && !shelfMode">
     <div class="fs12 muted count">{{ countLabel }}</div>
 
     <div

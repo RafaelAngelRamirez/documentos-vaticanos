@@ -37,6 +37,12 @@
   padding-bottom: 80px;
 }
 
+@media (min-width: 960px) {
+  .fbody.search-page {
+    max-width: 1120px;
+  }
+}
+
 .search-hint {
   margin: 8px 2px 14px;
   line-height: 1.45;

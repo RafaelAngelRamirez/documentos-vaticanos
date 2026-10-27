@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "locale": "es",
+  "measuredAt": "2026-10-27T06:42:46.221Z",
+  "node": "v22.23.4",
+  "note": "El gzip −9 es la medida. El archivo que lee la app es el crudo.",
+  "packages": [
+    {
+      "id": "base",
+      "file": "es-base.dvix",
+      "docs": 356,
+      "terms": 68495,
+      "rawBytes": 4877136,
+      "gzipBytes": 3042176,
+      "buildMs": 2634,
+      "encodeMs": 383,
+      "decodeMs": 188,
+      "lookupUs": 8,
+      "eucaristia": {
+        "df": 95,
+        "units": 679,
+        "byShelf": {
+          "magisterio": 200,
+          "concilio": 18,
+          "enciclica": 102,
+          "exhortacion": 160,
+          "codigo": 38,
+          "catecismo": 161
+        }
+      },
+      "droppedDigitKeys": 0,
+      "avgTokens": {
+        "magisterio": 99,
+        "concilio": 103.8,
+        "enciclica": 122.4,
+        "exhortacion": 129.4,
+        "biblia": 23.2,
+        "codigo": 72,
+        "catecismo": 53.8
+      },
+      "postings": 2243192
+    },
+    {
+      "id": "padres",
+      "file": "es-padres.dvix",
+      "docs": 45,
+      "terms": 637593,
+      "rawBytes": 26069503,
+      "gzipBytes": 15699989,
+      "buildMs": 15094,
+      "encodeMs": 3212,
+      "decodeMs": 2075,
+      "lookupUs": 2,
+      "eucaristia": {
+        "df": 30,
+        "units": 162,
+        "byShelf": {
+          "padres": 162
+        }
+      },
+      "droppedDigitKeys": 114545,
+      "avgTokens": {
+        "padres": 181.6
+      },
+      "postings": 9364736
+    }
+  ]
+}

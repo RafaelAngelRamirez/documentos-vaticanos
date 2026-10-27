@@ -30,6 +30,64 @@
   border-bottom-color: var(--acc);
 }
 
+.shelf-chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 2px 2px 10px;
+  margin-top: 4px;
+}
+
+.shelf-chips .chip {
+  flex: 0 0 auto;
+}
+
+.shelf-columns {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.shelf-h {
+  margin: 8px 0 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--acc);
+}
+
+.shelf-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.shelf-mark,
+.shelf-study {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.shelf-alts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+@media (min-width: 960px) {
+  .shelf-columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    align-items: start;
+    gap: 18px 22px;
+  }
+}
+
 /* La última fila del diseño no lleva separador. */
 .srow:last-of-type {
   border-bottom: none;
