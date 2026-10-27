@@ -12,6 +12,8 @@ import { TemaDetalleComponent } from './tema-detalle/tema-detalle.component';
 import { EstudiosComponent } from './estudios/estudios.component';
 import { EstudioDetalleComponent } from './estudio-detalle/estudio-detalle.component';
 import { EstudioEditarComponent } from './estudio-editar/estudio-editar.component';
+import { ClaseDetalleComponent } from './clase-detalle/clase-detalle.component';
+import { ClaseEditarComponent } from './clase-editar/clase-editar.component';
 import { BuscarComponent } from './buscar/buscar.component';
 import { AprendizajeComponent } from './aprendizaje/aprendizaje.component';
 import { ExplorarComponent } from './explorar/explorar.component';
@@ -19,6 +21,7 @@ import { TopicoDetalleComponent } from './topico-detalle/topico-detalle.componen
 import { AjustesComponent } from './ajustes/ajustes.component';
 import { DocumentoDetalleComponent } from './documento-detalle/documento-detalle.component';
 import { NotasComponent } from './notas/notas.component';
+import { RepasoComponent } from './notas/repaso/repaso.component';
 import { AdminRevisionComponent } from './admin-revision/admin-revision.component';
 import { AdminRevisionDetalleComponent } from './admin-revision-detalle/admin-revision-detalle.component';
 import { PadresComponent } from './padres/padres.component';
@@ -41,6 +44,7 @@ const routes: Routes = [
   { path: 'cuenta/referencias', component: MisReferenciasComponent },
   { path: 'cuenta/temas', component: MisTemasComponent },
   /** Design 3G */
+  { path: 'notas/repaso', component: RepasoComponent },
   { path: 'notas', component: NotasComponent },
   { path: 'cuenta/temas/:id', component: TemaDetalleComponent },
   /** Design hub 1C */
@@ -48,6 +52,8 @@ const routes: Routes = [
   { path: 'estudios', component: EstudiosComponent },
   { path: 'estudios/:id/editar', component: EstudioEditarComponent },
   { path: 'estudios/:id', component: EstudioDetalleComponent },
+  { path: 'clases/:id/editar', component: ClaseEditarComponent },
+  { path: 'clases/:id', component: ClaseDetalleComponent },
   /** Design 1D / 1E */
   { path: 'aprendizaje', component: AprendizajeComponent },
   /** PR6 · tema del corpus (índice temático offline); more specific before explorar */

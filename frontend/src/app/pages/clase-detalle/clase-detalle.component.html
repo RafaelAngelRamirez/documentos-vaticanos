@@ -1,0 +1,105 @@
+<div class="app-product web-shell has-bnav" [attr.data-tick]="localeTick">
+  <app-wbar active="estudio"></app-wbar>
+  <app-fbar
+    class="hide-desktop"
+    [title]="entry?.clase?.titulo || t('learning.title')"
+    back="←"
+    [backLink]="esMaestro ? '/estudios' : '/aprendizaje'"
+  ></app-fbar>
+
+  <div class="fbody">
+    <div *ngIf="aviso" class="fs13 muted">{{ aviso }}</div>
+
+    <ng-container *ngIf="entry as e; else missing">
+      <div class="card">
+        <div class="fx ac jb">
+          <div class="fs12 upper muted" style="letter-spacing: 0.14em">
+            {{ t('clase.revision', { n: e.clase.revision }) }}
+          </div>
+          <span class="fs12" style="color: var(--ok)" *ngIf="!esMaestro && total">
+            {{ t('clase.progress', { done: doneCount, total: total }) }}
+          </span>
+        </div>
+        <div class="serif fw6" style="font-size: 22px; margin-top: 6px">{{ e.clase.titulo }}</div>
+        <p class="fs13" *ngIf="e.clase.descripcion">{{ e.clase.descripcion }}</p>
+        <div class="prog" *ngIf="!esMaestro && total">
+          <div class="progfill" [style.width.%]="pct"></div>
+        </div>
+      </div>
+
+      <p class="fs13 muted" *ngIf="esMaestro" data-testid="clase-archivo">
+        {{ t('clase.file_only') }}
+      </p>
+      <p class="fs13 muted" *ngIf="esMaestro && !puedeArmar">{{ t('clase.need_teacher') }}</p>
+
+      <div class="card" *ngIf="!esMaestro && e.pendiente as pend" data-testid="clase-pendiente">
+        <p class="fs13">{{ t('clase.pending') }}</p>
+        <p class="fs13 muted">{{ t('clase.revision', { n: pend.revision }) }} · {{ pend.titulo }}</p>
+        <button type="button" class="primary" data-testid="clase-aceptar" (click)="aceptar()">
+          {{ t('clase.accept', { n: pend.revision }) }}
+        </button>
+        <button type="button" class="gbtn" (click)="conservar()">{{ t('clase.keep') }}</button>
+      </div>
+
+      <div class="fx gap8 wrap" *ngIf="esMaestro && puedeArmar">
+        <a class="gbtn clase-link" [routerLink]="['/clases', e.clase.id, 'editar']">{{ t('clase.edit') }}</a>
+        <button type="button" class="primary clase-inline" data-testid="clase-export" (click)="exportar()">
+          {{ t('clase.export') }}
+        </button>
+      </div>
+
+      <div class="sect">{{ t('clase.steps') }}</div>
+      <button
+        type="button"
+        class="lrow clase-paso"
+        *ngFor="let p of e.clase.pasos; let i = index"
+        (click)="abrir(p)"
+        [attr.data-testid]="'clase-paso-' + i"
+      >
+        <span class="lnum" [class.done]="hecho(p)">{{ hecho(p) ? '✓' : i + 1 }}</span>
+        <span class="paso-body">
+          <span [class.fw5]="esSiguiente(i)">{{ rotulo(p) }}</span>
+          <span class="fs12 muted" *ngIf="p.nota">{{ p.nota }}</span>
+        </span>
+        <span class="chev fs12">
+          {{ hecho(p) ? t('clase.done') : esSiguiente(i) ? t('clase.next') : '' }}
+        </span>
+      </button>
+
+      <button
+        type="button"
+        class="primary"
+        *ngIf="!esMaestro && total"
+        data-testid="clase-continuar"
+        (click)="continuar()"
+      >
+        {{ t('clase.continue') }}
+      </button>
+
+      <label class="gbtn clase-import" *ngIf="!esMaestro">
+        {{ t('clase.import') }}
+        <input data-testid="clase-import" type="file" accept="application/json,.json,.dv-clase.json" (change)="onFile($event)" />
+      </label>
+
+      <button type="button" class="gbtn" *ngIf="!confirmarSalida" (click)="confirmarSalida = true">
+        {{ esMaestro ? t('clase.delete') : t('clase.leave') }}
+      </button>
+      <button
+        type="button"
+        class="primary"
+        *ngIf="confirmarSalida"
+        data-testid="clase-salir"
+        (click)="salir()"
+      >
+        {{ esMaestro ? t('clase.delete_confirm') : t('clase.leave_confirm') }}
+      </button>
+    </ng-container>
+
+    <ng-template #missing>
+      <p class="fs13 muted">{{ t('clase.not_found') }}</p>
+      <a routerLink="/aprendizaje" class="gbtn clase-link">{{ t('clase.open_learning') }}</a>
+    </ng-template>
+  </div>
+
+  <app-bnav current="estudio"></app-bnav>
+</div>

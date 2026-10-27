@@ -227,6 +227,7 @@ export class WbarComponent implements OnDestroy {
     if (
       p.startsWith('/estudio') ||
       p.startsWith('/aprendizaje') ||
+      p.startsWith('/clases') ||
       p.startsWith('/notas')
     ) {
       return 'estudio';

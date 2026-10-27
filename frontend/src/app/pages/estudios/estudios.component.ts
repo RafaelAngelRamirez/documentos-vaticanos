@@ -3,6 +3,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/auth/auth.service';
+import {
+  ClaseEnAparato,
+  ClasesService,
+} from 'src/app/core/account/clases.service';
+import { puedeArmarClase } from 'src/app/core/account/clases.logic';
 import { Study, StudiesService } from 'src/app/core/account/studies.service';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { environment } from 'src/environments/environment';
@@ -30,6 +35,8 @@ import { NavigationService } from 'src/app/services/navigation.service';
 })
 export class EstudiosComponent implements OnInit, OnDestroy {
   plans: Study[] = [];
+  clasesMias: ClaseEnAparato[] = [];
+  claseAviso: string | null = null;
   loading = false;
   error: string | null = null;
   apiEnabled = Boolean(environment.apiBaseUrl);
@@ -42,6 +49,7 @@ export class EstudiosComponent implements OnInit, OnDestroy {
     public i18n: UiI18nService,
     public auth: AuthService,
     private studies: StudiesService,
+    private clases: ClasesService,
     private router: Router,
     private progress: ReadingProgressService,
     private navigation: NavigationService,
@@ -58,6 +66,7 @@ export class EstudiosComponent implements OnInit, OnDestroy {
       }),
     );
     this.lastRead = this.progress.getLastRead();
+    this.refrescarClases();
     if (!this.apiEnabled) {
       this.error = null;
       return;
@@ -78,6 +87,13 @@ export class EstudiosComponent implements OnInit, OnDestroy {
 
   get progressPct(): number {
     return this.progress.percent(this.lastRead);
+  }
+
+  get puedeArmar(): boolean {
+    return puedeArmarClase({
+      isLoggedIn: this.auth.isLoggedIn,
+      isTeacher: this.auth.isTeacher,
+    });
   }
 
   reload(): void {
@@ -137,6 +153,26 @@ export class EstudiosComponent implements OnInit, OnDestroy {
 
   open(s: Study): void {
     this.router.navigate(['/estudios', s.id]);
+  }
+
+  refrescarClases(): void {
+    this.clasesMias = this.clases.mias();
+  }
+
+  crearClase(titulo: string, input?: HTMLInputElement): void {
+    if (!this.puedeArmar) return;
+    const res = this.clases.crear(titulo);
+    if (!res.ok) {
+      this.claseAviso = this.t('clase.bad_title');
+      return;
+    }
+    if (input) input.value = '';
+    this.claseAviso = null;
+    void this.router.navigate(['/clases', res.entry.clase.id, 'editar']);
+  }
+
+  openClase(id: string): void {
+    void this.router.navigate(['/clases', id]);
   }
 
   createMine(): void {

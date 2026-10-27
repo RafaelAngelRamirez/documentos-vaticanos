@@ -23,6 +23,22 @@
   cursor: pointer;
 }
 
+button.clase-row {
+  width: 100%;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  font: inherit;
+  color: inherit;
+  text-align: start;
+  cursor: pointer;
+  min-height: 48px;
+}
+
+#nueva-clase {
+  margin-top: 8px;
+}
+
 .fx {
   display: flex;
 }
