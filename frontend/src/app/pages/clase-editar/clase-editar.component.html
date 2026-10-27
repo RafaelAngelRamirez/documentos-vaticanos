@@ -1,0 +1,83 @@
+<div class="app-product web-shell has-bnav" [attr.data-tick]="localeTick">
+  <app-wbar active="estudio"></app-wbar>
+  <app-fbar class="hide-desktop" [title]="t('clase.edit')" back="←" [backLink]="detalleLink"></app-fbar>
+
+  <div class="fbody" *ngIf="entry as e">
+    <p class="fs13 muted" *ngIf="!puedeArmar">{{ t('clase.need_teacher') }}</p>
+    <p class="fs13 muted" *ngIf="aviso">{{ aviso }}</p>
+
+    <form [formGroup]="meta" (ngSubmit)="guardar()" class="card">
+      <label class="fs13" for="clase-titulo">{{ t('clase.title_field') }}</label>
+      <input id="clase-titulo" class="field" formControlName="titulo" maxlength="200" data-testid="clase-titulo" />
+      <label class="fs13" for="clase-desc">{{ t('clase.description') }}</label>
+      <textarea id="clase-desc" class="field" rows="3" formControlName="descripcion" maxlength="4000"></textarea>
+      <button class="primary" type="submit" [disabled]="!puedeArmar || meta.invalid">{{ t('clase.save') }}</button>
+    </form>
+
+    <p class="fs13 muted">{{ t('clase.revision', { n: e.clase.revision }) }}</p>
+    <button
+      type="button"
+      class="gbtn"
+      data-testid="clase-lista"
+      [disabled]="!puedeArmar"
+      (click)="toggleLista()"
+    >
+      {{ e.listaParaAlumnos ? t('clase.ready_yes') : t('clase.ready_no') }}
+    </button>
+    <p class="fs13 muted">{{ t('clase.ready_help') }}</p>
+    <button type="button" class="primary" data-testid="clase-export" [disabled]="!puedeArmar" (click)="exportar()">
+      {{ t('clase.export') }}
+    </button>
+
+    <div class="sect">{{ t('clase.steps') }}</div>
+    <p class="fs13 muted" *ngIf="!e.clase.pasos.length">{{ t('clase.need_step') }}</p>
+    <div class="lrow" *ngFor="let p of e.clase.pasos; let i = index">
+      <span class="lnum">{{ i + 1 }}</span>
+      <span class="paso-txt">
+        {{ rotulo(p) }}
+        <span class="fs12 muted" *ngIf="p.nota">{{ p.nota }}</span>
+      </span>
+      <span class="paso-actions">
+        <button type="button" class="gbtn mini" [disabled]="!puedeArmar || i === 0" (click)="mover(p.id, -1)">
+          {{ t('clase.up') }}
+        </button>
+        <button
+          type="button"
+          class="gbtn mini"
+          [disabled]="!puedeArmar || i === e.clase.pasos.length - 1"
+          (click)="mover(p.id, 1)"
+        >
+          {{ t('clase.down') }}
+        </button>
+        <button type="button" class="gbtn mini" [disabled]="!puedeArmar" (click)="quitar(p.id)">
+          {{ t('clase.remove') }}
+        </button>
+      </span>
+    </div>
+
+    <form [formGroup]="paso" (ngSubmit)="agregar()" class="card" data-testid="clase-nuevo-paso">
+      <div class="sect" style="margin-top: 0">{{ t('clase.add_step') }}</div>
+      <label class="fs13" for="clase-doc">{{ t('clase.document') }}</label>
+      <input id="clase-doc" class="field" formControlName="documentId" data-testid="clase-documento" />
+      <label class="fs13" for="clase-unit">{{ t('clase.unit') }}</label>
+      <input id="clase-unit" class="field" type="number" min="0" formControlName="unitIndex" data-testid="clase-unidad" />
+      <label class="fs13" for="clase-rotulo">{{ t('clase.label') }}</label>
+      <input id="clase-rotulo" class="field" formControlName="rotulo" maxlength="200" />
+      <label class="fs13" for="clase-nota">{{ t('clase.note') }}</label>
+      <textarea id="clase-nota" class="field" rows="2" formControlName="nota" maxlength="4000"></textarea>
+      <button class="primary" type="submit" [disabled]="!puedeArmar || paso.invalid || e.clase.pasos.length >= tope">
+        {{ t('clase.add_step') }}
+      </button>
+      <p class="fs13 muted">{{ t('clase.cap', { n: tope }) }}</p>
+    </form>
+
+    <button type="button" class="gbtn" *ngIf="!confirmarBorrado" (click)="confirmarBorrado = true">
+      {{ t('clase.delete') }}
+    </button>
+    <button type="button" class="primary" *ngIf="confirmarBorrado" data-testid="clase-borrar" (click)="borrar()">
+      {{ t('clase.delete_confirm') }}
+    </button>
+  </div>
+
+  <app-bnav current="estudio"></app-bnav>
+</div>

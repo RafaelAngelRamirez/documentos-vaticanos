@@ -1,0 +1,41 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.fbody {
+  padding: 28px 24px 32px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+label.fs13 {
+  display: block;
+  margin: 14px 0 6px;
+}
+
+.paso-txt {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.paso-actions {
+  display: flex;
+  gap: 8px;
+  margin-inline-start: auto;
+  flex-shrink: 0;
+}
+
+button.mini {
+  width: auto;
+  min-height: 48px;
+  margin: 0;
+  padding: 8px 12px;
+}
+
+.lrow {
+  align-items: center;
+}
