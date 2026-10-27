@@ -5,18 +5,18 @@ import { Subscription } from 'rxjs';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { BnavComponent } from 'src/app/components/bnav/bnav.component';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
-import { AuthService } from 'src/app/core/auth/auth.service';
-import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import {
-  Enrollment,
-  Study,
-  StudyStep,
-  StudiesService,
-} from 'src/app/core/account/studies.service';
-import { environment } from 'src/environments/environment';
+  claveAvisoImportacion,
+  leerArchivoClase,
+} from 'src/app/core/account/clase-archivo';
+import {
+  ClaseEnAparato,
+  ClasesService,
+} from 'src/app/core/account/clases.service';
+import { indiceSiguiente, leidos } from 'src/app/core/account/clases.logic';
+import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { NavigationService } from 'src/app/services/navigation.service';
-
-const LESSON_KEY = (id: string) => `dv.lesson.${id}`;
+import { environment } from 'src/environments/environment';
 
 @Component({
   standalone: true,
@@ -32,17 +32,15 @@ const LESSON_KEY = (id: string) => `dv.lesson.${id}`;
   styleUrls: ['./aprendizaje.component.css'],
 })
 export class AprendizajeComponent implements OnInit, OnDestroy {
-  loading = false;
-  error: string | null = null;
-  study: Study | null = null;
-  done = new Set<number>();
+  copias: ClaseEnAparato[] = [];
+  aviso: string | null = null;
+  apiEnabled = Boolean(environment.apiBaseUrl);
   localeTick = 0;
   private sub = new Subscription();
 
   constructor(
     public i18n: UiI18nService,
-    public auth: AuthService,
-    private studies: StudiesService,
+    private clases: ClasesService,
     private router: Router,
     private navigation: NavigationService,
   ) {}
@@ -57,93 +55,56 @@ export class AprendizajeComponent implements OnInit, OnDestroy {
         this.localeTick++;
       }),
     );
-    if (!this.auth.isLoggedIn || !environment.apiBaseUrl) {
-      return;
-    }
-    this.loading = true;
-    this.studies.myEnrollments().subscribe({
-      next: (items: Enrollment[]) => {
-        this.loading = false;
-        const first = items.find((e) => e.study)?.study ?? null;
-        this.study = first;
-        if (first) this.loadDone(first.id);
-      },
-      error: (err) => {
-        this.loading = false;
-        this.error = err?.error?.error || err?.message || 'Error';
-      },
-    });
+    this.cargar();
   }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 
-  get steps(): StudyStep[] {
-    return this.study?.steps || [];
+  hechos(c: ClaseEnAparato): number {
+    return leidos(c.clase.pasos, this.clases.progreso(c.clase.id));
   }
 
-  get doneCount(): number {
-    return this.steps.filter((_, i) => this.done.has(i)).length;
+  pct(c: ClaseEnAparato): number {
+    const total = c.clase.pasos.length;
+    if (!total) return 0;
+    return Math.round((this.hechos(c) / total) * 100);
   }
 
-  get total(): number {
-    return this.steps.length || 12;
+  abrir(c: ClaseEnAparato): void {
+    void this.router.navigate(['/clases', c.clase.id]);
   }
 
-  get pct(): number {
-    if (!this.steps.length) return 0;
-    return Math.round((this.doneCount / this.steps.length) * 100);
+  continuar(c: ClaseEnAparato): void {
+    const hechos = this.clases.progreso(c.clase.id);
+    const i = indiceSiguiente(c.clase.pasos, hechos);
+    const paso = c.clase.pasos[i];
+    if (!paso) return;
+    this.clases.marcarPaso(c.clase.id, paso.id);
+    this.navigation.openReading(paso.documentId, { unitIndex: paso.unitIndex });
   }
 
-  get nextIndex(): number {
-    const i = this.steps.findIndex((_, idx) => !this.done.has(idx));
-    return i < 0 ? 0 : i;
-  }
-
-  isDone(i: number): boolean {
-    return this.done.has(i);
-  }
-
-  isNext(i: number): boolean {
-    return i === this.nextIndex && !this.isDone(i);
-  }
-
-  private loadDone(studyId: string): void {
+  async onFile(ev: Event): Promise<void> {
+    const input = ev.target as HTMLInputElement;
+    const file = input.files?.[0];
+    input.value = '';
+    if (!file) return;
     try {
-      const raw = localStorage.getItem(LESSON_KEY(studyId));
-      const arr = raw ? (JSON.parse(raw) as number[]) : [];
-      this.done = new Set(arr);
-    } catch {
-      this.done = new Set();
+      const text = await leerArchivoClase(file);
+      const res = this.clases.importar(text);
+      this.aviso = this.t(claveAvisoImportacion(res.codigo));
+      this.cargar();
+      if (res.ok && res.codigo !== 'misma') {
+        await this.router.navigate(['/clases', res.id]);
+      }
+    } catch (err) {
+      const codigo = err instanceof Error && err.message === 'grande' ? 'grande' : 'invalida';
+      this.aviso = this.t(claveAvisoImportacion(codigo));
     }
   }
 
-  private saveDone(): void {
-    if (!this.study) return;
-    localStorage.setItem(
-      LESSON_KEY(this.study.id),
-      JSON.stringify([...this.done])
-    );
-  }
-
-  openStep(i: number): void {
-    const s = this.steps[i];
-    if (!s) return;
-    this.done.add(i);
-    this.saveDone();
-    this.navigation.openReading(s.documentId, { unitIndex: s.unitIndex });
-  }
-
-  continueNext(): void {
-    this.openStep(this.nextIndex);
-  }
-
-  goEstudio(): void {
-    this.router.navigate(['/estudio']);
-  }
-
-  goCuenta(): void {
-    this.router.navigate(['/cuenta']);
+  private cargar(): void {
+    this.copias = this.clases.alumnas();
   }
 }

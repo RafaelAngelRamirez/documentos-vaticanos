@@ -31,6 +31,7 @@
     "test:unpack-ship-index": "bash ../scripts/node-strip-types.sh src/app/core/corpus/unpack-ship-index.logic.test.js",
     "test:library-catalog": "bash ../scripts/node-strip-types.sh src/app/pages/list-documents-pages/library-catalog-load.test.js",
     "test:ui-i18n": "bash ../scripts/node-strip-types.sh src/app/core/i18n/ui-i18n.logic.test.js",
+    "test:clases": "bash ../scripts/node-strip-types.sh src/app/core/account/clases.logic.test.js",
     "test:safe-area": "bash ../scripts/node-strip-types.sh src/app/core/shell/safe-area.logic.test.js && bash ../scripts/node-strip-types.sh src/app/core/shell/reader-chrome.logic.test.js",
     "test:narrator-grok": "bash ../scripts/node-strip-types.sh src/app/services/narrator-grok.logic.test.js && bash ../scripts/node-strip-types.sh src/app/services/narrator-prefs.logic.test.js",
     "test:speech-prep": "bash ../scripts/node-strip-types.sh src/app/services/speech-prep.logic.test.js",

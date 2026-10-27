@@ -328,6 +328,12 @@ export function parentPathForAppUrl(url: string): string | null {
   if (a === 'estudios' && b) {
     return '/estudios';
   }
+  if (a === 'clases' && c === 'editar' && b) {
+    return `/clases/${b}`;
+  }
+  if (a === 'clases' && b) {
+    return '/estudios';
+  }
   if (a === 'cuenta' && b === 'temas' && c) {
     return '/cuenta/temas';
   }

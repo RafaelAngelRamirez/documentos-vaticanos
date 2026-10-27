@@ -100,7 +100,11 @@ export class BnavComponent implements OnDestroy {
     if (this.current) return this.current;
     const p = (this.router.url || '').split('?')[0].split('#')[0];
     if (p.startsWith('/ajustes')) return 'ajustes';
-    if (p.startsWith('/estudio') || p.startsWith('/aprendizaje')) {
+    if (
+      p.startsWith('/estudio') ||
+      p.startsWith('/aprendizaje') ||
+      p.startsWith('/clases')
+    ) {
       return 'estudio';
     }
     if (
