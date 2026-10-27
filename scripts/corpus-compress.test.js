@@ -32,6 +32,7 @@ const {
   compressJsonBuffer,
   compressCorpusTree,
   readingSnapshot,
+  readingTextHash,
   isAiProvenance,
   dropAiDocuments,
   dropUnusedSidecars,
@@ -72,6 +73,7 @@ function main() {
   assert.ok(typeof compressJsonBuffer === 'function');
   assert.ok(typeof compressCorpusTree === 'function');
   assert.ok(typeof readingSnapshot === 'function');
+  assert.ok(typeof readingTextHash === 'function');
   assert.ok(typeof isAiProvenance === 'function');
   assert.ok(typeof dropAiDocuments === 'function');
   assert.ok(typeof dropUnusedSidecars === 'function');
@@ -128,8 +130,10 @@ function main() {
   );
   assert.ok(Array.isArray(parsed));
   assert.strictEqual(parsed.length, 200);
-  const snapIn = readingSnapshot(JSON.parse(raw.toString('utf8')));
+  const parsedIn = JSON.parse(raw.toString('utf8'));
+  const snapIn = readingSnapshot(parsedIn);
   const snapOut = readingSnapshot(parsed);
+  assert.strictEqual(readingTextHash(parsed), readingTextHash(parsedIn));
   assert.strictEqual(snapOut.unitCount, snapIn.unitCount);
   for (let i = 0; i < snapIn.unitCount; i++) {
     assert.strictEqual(snapOut.units[i].consecutivo, snapIn.units[i].consecutivo);
@@ -181,6 +185,7 @@ function main() {
         ),
       );
       beforeSnaps[id] = readingSnapshot(body);
+      beforeSnaps[id].hash = readingTextHash(body);
     }
 
     const stats = compressCorpusTree(tmpRoot, { keepMeta: false });
@@ -226,6 +231,7 @@ function main() {
       }
       const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
       const snap = readingSnapshot(body);
+      assert.strictEqual(readingTextHash(body), beforeSnaps[id].hash, `${id} reading hash`);
       assert.strictEqual(snap.unitCount, beforeSnaps[id].unitCount, `${id} unitCount`);
       for (let i = 0; i < snap.unitCount; i++) {
         assert.strictEqual(

@@ -1606,6 +1606,60 @@
       "fixturePath": "fixtures/dn-es/source.html",
       "expectedUnitCount": 220,
       "notes": "Official ES. URL pattern papa-francesco_20241024_enciclica-dilexit-nos.html is 404; use the 20241024-enciclica-dilexit-nos.html form."
+    },
+    {
+      "id": "spiritus-paraclitus",
+      "title": "Spiritus Paraclitus",
+      "shortTitle": "SPar",
+      "author": "Benedicto XV",
+      "kind": "magisterium",
+      "locale": "es",
+      "corpusDocId": "spiritus-paraclitus-es",
+      "adapter": "generic_numbered",
+      "packaging": "on-demand",
+      "seedUrls": [
+        "https://www.vatican.va/content/benedict-xv/es/encyclicals/documents/hf_ben-xv_enc_15091920_spiritus-paraclitus.html"
+      ],
+      "expectedUnitCount": 66,
+      "translationProvenance": "official",
+      "sourceNote": "Encíclica oficial de vatican.va (es), 15 de septiembre de 1920. El HTML español numera §§1–66. La página inglesa numera §§1–133. No es el motu proprio Spiritus Paracliti de 1964.",
+      "notes": "On-demand. Do not copy into app assets. Cited from the corpus and absent as its own pack. EN/HI/ZH/AR twins are not in this entry."
+    },
+    {
+      "id": "qui-pluribus",
+      "title": "Qui pluribus",
+      "shortTitle": "QPl",
+      "author": "Pío IX",
+      "kind": "magisterium",
+      "locale": "it",
+      "corpusDocId": "qui-pluribus-it",
+      "adapter": "vatican_prose",
+      "packaging": "on-demand",
+      "seedUrls": [
+        "https://www.vatican.va/content/pius-ix/it/documents/enciclica-qui-pluribus-9-novembre-1846.html"
+      ],
+      "expectedUnitCount": 30,
+      "translationProvenance": "official",
+      "sourceNote": "Encíclica oficial de vatican.va (it), 9 de noviembre de 1846. No hay HTML español en esa ruta. Texto seguido, sin párrafos N.",
+      "notes": "On-demand. Do not copy into app assets. ES/EN/HI/ZH/AR are not published at this URL."
+    },
+    {
+      "id": "nostis-et-nobiscum",
+      "title": "Nostis et nobiscum",
+      "shortTitle": "NNob",
+      "author": "Pío IX",
+      "kind": "magisterium",
+      "locale": "it",
+      "corpusDocId": "nostis-et-nobiscum-it",
+      "adapter": "vatican_prose",
+      "packaging": "on-demand",
+      "seedUrls": [
+        "https://www.vatican.va/content/pius-ix/it/documents/enciclica-nostis-et-nobiscum-8-dicembre-1849.html"
+      ],
+      "expectedUnitCount": 30,
+      "translationProvenance": "official",
+      "sourceNote": "Encíclica oficial de vatican.va (it), 8 de diciembre de 1849. No hay HTML español en esa ruta. Texto seguido, sin párrafos N.",
+      "notes": "On-demand. Do not copy into app assets. ES/EN/HI/ZH/AR are not published at this URL."
     }
   ]
 }

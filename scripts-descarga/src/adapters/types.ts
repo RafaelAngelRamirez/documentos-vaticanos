@@ -35,6 +35,11 @@ export interface SourceConfig {
    * `ai` = machine/LLM twin (never assign docCode); `official` = human/source edition.
    */
   translationProvenance?: "official" | "ai";
+  /**
+   * `ship` copies the pack into the app assets. `on-demand` stays out of the
+   * APK and the web ship copy until a reader asks for it.
+   */
+  packaging?: "ship" | "on-demand";
 }
 
 export interface SourcesFile {

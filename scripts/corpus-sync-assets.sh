@@ -56,10 +56,33 @@ copy_rel() {
   fi
 }
 
+ON_DEMAND=()
+if [[ -f "$ROOT/scripts/ship-exclude-ids.js" ]]; then
+  while IFS= read -r id; do
+    [[ -n "$id" ]] && ON_DEMAND+=("$id")
+  done < <(node "$ROOT/scripts/ship-exclude-ids.js")
+fi
+
+is_on_demand() {
+  local id="$1"
+  local item
+  if ((${#ON_DEMAND[@]} == 0)); then
+    return 1
+  fi
+  for item in "${ON_DEMAND[@]}"; do
+    [[ "$item" == "$id" ]] && return 0
+  done
+  return 1
+}
+
 DOC_ID="${1:-}"
 mkdir -p "$DST"
 
 if [[ -n "$DOC_ID" ]]; then
+  if is_on_demand "$DOC_ID"; then
+    echo "SKIP on-demand document $DOC_ID (not copied into app assets)"
+    exit 0
+  fi
   if [[ "$DOC_ID" == *"/"* || "$DOC_ID" == *".."* ]]; then
     echo "ERROR: invalid document id: $DOC_ID" >&2
     exit 1
@@ -70,12 +93,41 @@ if [[ -n "$DOC_ID" ]]; then
   fi
   copy_rel "documents/$DOC_ID"
   copy_rel "manifest.json"
+  if [[ -f "$DST/manifest.json" ]]; then
+    node "$ROOT/scripts/ship-exclude-ids.js" --filter-manifest "$DST/manifest.json"
+  fi
   echo "OK corpus sync: documents/$DOC_ID + manifest.json → $DST"
   exit 0
 fi
 
-copy_rel "documents"
+DOC_EXCLUDES=()
+if ((${#ON_DEMAND[@]})); then
+  for id in "${ON_DEMAND[@]}"; do
+    DOC_EXCLUDES+=(--exclude "$id/")
+    DOC_EXCLUDES+=(--exclude "$id/**")
+  done
+fi
+if [[ -d "$SRC/documents" ]]; then
+  mkdir -p "$DST/documents"
+  if command -v rsync >/dev/null 2>&1; then
+    if ((${#DOC_EXCLUDES[@]})); then
+      rsync -a "${RSYNC_EXCLUDES[@]}" "${DOC_EXCLUDES[@]}" "$SRC/documents/" "$DST/documents/"
+    else
+      rsync -a "${RSYNC_EXCLUDES[@]}" "$SRC/documents/" "$DST/documents/"
+    fi
+  else
+    cp -a "$SRC/documents/." "$DST/documents/"
+    if ((${#ON_DEMAND[@]})); then
+      for id in "${ON_DEMAND[@]}"; do
+        rm -rf "$DST/documents/$id"
+      done
+    fi
+  fi
+fi
 copy_rel "manifest.json"
+if [[ -f "$DST/manifest.json" ]]; then
+  node "$ROOT/scripts/ship-exclude-ids.js" --filter-manifest "$DST/manifest.json"
+fi
 copy_rel "papacy"
 copy_rel "santoral"
 copy_rel "search"
