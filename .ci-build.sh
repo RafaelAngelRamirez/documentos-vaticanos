@@ -155,13 +155,14 @@ CURRENT_STAGE="Topic pack validate"
 notify_step "$CURRENT_STAGE" || true
 npm run topics:validate -- --locale es
 
-echo "==> Cheap tests (open-reading, mobile flows, speech-prep, ui-i18n, corpus structure)"
+echo "==> Cheap tests (open-reading, mobile flows, review, speech-prep, ui-i18n, corpus structure)"
 CURRENT_STAGE="Cheap tests"
 notify_step "$CURRENT_STAGE" || true
 export DV_CI=1
 npm --prefix frontend run test:open-reading
 npm --prefix frontend run test:reader-prefs
 npm --prefix frontend run test:unit-bookmark
+npm --prefix frontend run test:review
 npm --prefix frontend run test:mobile-flows
 npm --prefix frontend run test:speech-prep
 npm --prefix frontend run test:speech-lang
