@@ -56,6 +56,32 @@ copy_rel() {
   fi
 }
 
+ON_DEMAND=()
+if [[ -f "$ROOT/scripts/ship-exclude-ids.js" ]]; then
+  while IFS= read -r id; do
+    [[ -n "$id" ]] && ON_DEMAND+=("$id")
+  done < <(SHIP_SOURCES="${SHIP_SOURCES:-}" node "$ROOT/scripts/ship-exclude-ids.js")
+fi
+
+is_on_demand() {
+  local id="$1"
+  local item
+  for item in "${ON_DEMAND[@]}"; do
+    [[ "$item" == "$id" ]] && return 0
+  done
+  return 1
+}
+
+drop_on_demand_from_assets() {
+  local id
+  for id in "${ON_DEMAND[@]}"; do
+    rm -rf "$DST/documents/$id"
+  done
+  if [[ -f "$DST/manifest.json" && -f "$ROOT/scripts/ship-exclude-ids.js" ]]; then
+    SHIP_SOURCES="${SHIP_SOURCES:-}" node "$ROOT/scripts/ship-exclude-ids.js" --filter-manifest "$DST/manifest.json"
+  fi
+}
+
 DOC_ID="${1:-}"
 mkdir -p "$DST"
 
@@ -64,18 +90,30 @@ if [[ -n "$DOC_ID" ]]; then
     echo "ERROR: invalid document id: $DOC_ID" >&2
     exit 1
   fi
+  if is_on_demand "$DOC_ID"; then
+    rm -rf "$DST/documents/$DOC_ID"
+    if [[ -f "$SRC/manifest.json" ]]; then
+      copy_rel "manifest.json"
+      drop_on_demand_from_assets
+    fi
+    echo "SKIP on-demand document $DOC_ID (not copied into app assets)"
+    exit 0
+  fi
   if [[ ! -d "$SRC/documents/$DOC_ID" ]]; then
     echo "ERROR: missing document $DOC_ID under $SRC/documents" >&2
     exit 1
   fi
   copy_rel "documents/$DOC_ID"
   copy_rel "manifest.json"
+  drop_on_demand_from_assets
   echo "OK corpus sync: documents/$DOC_ID + manifest.json → $DST"
   exit 0
 fi
 
 copy_rel "documents"
+drop_on_demand_from_assets
 copy_rel "manifest.json"
+drop_on_demand_from_assets
 copy_rel "papacy"
 copy_rel "santoral"
 copy_rel "search"

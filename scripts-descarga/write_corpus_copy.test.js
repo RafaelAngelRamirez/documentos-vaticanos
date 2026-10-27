@@ -281,6 +281,33 @@ function run() {
       fail('canonical manifest changed');
     }
 
+    const calls = [];
+    const onDemand = writer.applyShipCopy(
+      { packaging: 'on-demand', corpusDocId: 'later-es' },
+      {
+        copyDoc: (id) => calls.push(`copy:${id}`),
+        copyManifest: () => calls.push('manifest'),
+        dropDoc: (id) => calls.push(`drop:${id}`),
+        stripManifest: () => calls.push('strip'),
+      },
+    );
+    if (onDemand !== 'on-demand' || calls.join(',') !== 'drop:later-es,manifest,strip') {
+      fail(`on-demand ship copy ${onDemand} ${calls.join(',')}`);
+    }
+    calls.length = 0;
+    const shipped = writer.applyShipCopy(
+      { packaging: 'ship', corpusDocId: 'keep-es' },
+      {
+        copyDoc: (id) => calls.push(`copy:${id}`),
+        copyManifest: () => calls.push('manifest'),
+        dropDoc: (id) => calls.push(`drop:${id}`),
+        stripManifest: () => calls.push('strip'),
+      },
+    );
+    if (shipped !== 'ship' || calls.join(',') !== 'copy:keep-es,manifest') {
+      fail(`ship copy ${shipped} ${calls.join(',')}`);
+    }
+
     console.log('extras=0');
     console.log('manifest-kept');
   } finally {
