@@ -42,7 +42,7 @@ Los de `.versionrc`, con `standard-version-updater.js` donde no basta el tipo `j
 
 El updater lee la última cadena semver del archivo. En `README.md`, si no hay ninguna, `readVersion` falla y ese archivo no sube. No inventes una versión en el README para forzarlo.
 
-El bump es el de standard-version: `feat` sube minor, `fix` sube patch, un breaking sube major. Un commit `docs` o `test` no sube la versión por sí solo.
+El bump es el de standard-version 9.5.0 con conventionalcommits. Con `package.json` en `0.0.x` el preset lleva `preMajor` (`semver.lt(versión, '1.0.0')`). Eso baja un nivel: `feat` sube patch y un breaking sube minor. `whatBump` arranca en patch y siempre propone bump, así que `fix`, `docs` o `test` también suben patch. Fusionar solo documentación corta la siguiente versión. Hoy esa siguiente es `v0.0.34`, y ese tag ya existe fuera de `master`. Si no es ancestro de `HEAD`, el CI falla al recrear el tag. No lo recrees.
 
 ## Parar
 
