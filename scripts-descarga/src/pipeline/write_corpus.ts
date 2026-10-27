@@ -6,6 +6,7 @@
  * copy (syncDocToAssets / npm run corpus:sync-assets). Do not copy OCR
  * inventories, revisions/, pending-documents.json, or unlinked-refs-worksheet.json.
  */
+import { spawnSync } from "child_process";
 import fs from "fs";
 import path from "path";
 import crypto from "crypto";
@@ -130,6 +131,48 @@ export function syncDocToAssets(docId: string): void {
 
 export function syncManifestToAssets(): void {
   syncCorpusPathToAssets("manifest.json");
+}
+
+export function applyShipCopy(
+  config: { packaging?: string; corpusDocId: string },
+  io: {
+    copyDoc: (id: string) => void;
+    copyManifest: () => void;
+    dropDoc: (id: string) => void;
+    stripManifest: () => void;
+  },
+): "ship" | "on-demand" {
+  if (config.packaging === "on-demand") {
+    io.dropDoc(config.corpusDocId);
+    io.copyManifest();
+    io.stripManifest();
+    return "on-demand";
+  }
+  io.copyDoc(config.corpusDocId);
+  io.copyManifest();
+  return "ship";
+}
+
+function dropAssetsDocument(docId: string): void {
+  if (!docId || docId.includes("/") || docId.includes(path.sep)) {
+    throw new Error(`dropAssetsDocument: invalid document id ${JSON.stringify(docId)}`);
+  }
+  fs.rmSync(path.join(ASSETS_CORPUS_ROOT, "documents", docId), {
+    recursive: true,
+    force: true,
+  });
+}
+
+function stripOnDemandFromAssets(): void {
+  const manifest = path.join(ASSETS_CORPUS_ROOT, "manifest.json");
+  const script = path.join(REPO, "scripts", "ship-exclude-ids.js");
+  if (!fs.existsSync(manifest) || !fs.existsSync(script)) return;
+  const result = spawnSync(process.execPath, [script, "--filter-manifest", manifest], {
+    stdio: "inherit",
+  });
+  if (result.status !== 0) {
+    throw new Error("ship-exclude-ids failed while stripping on-demand packs");
+  }
 }
 
 /** First 12 hex chars of sha256 — stamped on DocumentMeta.contentHash. */
@@ -262,11 +305,21 @@ export function writeCorpusDocument(
   console.log(`[✓] corpus → ${path.join(root, "documents", config.corpusDocId)}`);
   console.log(`[✓] manifest → ${manifestPath}`);
 
-  syncDocToAssets(config.corpusDocId);
-  syncManifestToAssets();
-  console.log(
-    `[✓] assets copy → ${path.join(ASSETS_CORPUS_ROOT, "documents", config.corpusDocId)}`,
-  );
+  const shipped = applyShipCopy(config, {
+    copyDoc: syncDocToAssets,
+    copyManifest: syncManifestToAssets,
+    dropDoc: dropAssetsDocument,
+    stripManifest: stripOnDemandFromAssets,
+  });
+  if (shipped === "on-demand") {
+    console.log(
+      `[i] on-demand ${config.corpusDocId} stays out of app assets`,
+    );
+  } else {
+    console.log(
+      `[✓] assets copy → ${path.join(ASSETS_CORPUS_ROOT, "documents", config.corpusDocId)}`,
+    );
+  }
 
   // Working copy under scripts-descarga/documentos/
   const workBase = path.join(SCRIPTS, "documentos", config.corpusDocId);
