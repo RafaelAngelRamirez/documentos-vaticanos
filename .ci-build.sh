@@ -102,12 +102,14 @@ assert_disk_space "$ROOT"
 # Bump is persisted later by n8n "Artifact commit" + "Push" on /tmp/repo/docvat.
 # Set DV_SKIP_RELEASE=1 only for emergency rebuilds without a version bump.
 # ---------------------------------------------------------------------------
-echo "==> [2/${_STAGES}] Release: standard-version (bump + CHANGELOG + tag, push via n8n)"
+echo "==> [2/${_STAGES}] Release: guard + standard-version (bump + CHANGELOG + tag, push via n8n)"
 CURRENT_STAGE="Release (standard-version)"
 notify_step "$CURRENT_STAGE" || true
 if [[ "${DV_SKIP_RELEASE:-0}" != "1" ]]; then
   # Fail hard — swallowing errors left production stuck at 0.0.13.
-  npx --yes standard-version@9.5.0
+  # The guard exits before standard-version when the tag already exists on
+  # origin, or when HEAD is not the tip of origin/master. No commit, no tag.
+  bash scripts/ci-release-guard.sh
 else
   echo "WARN: release skipped via DV_SKIP_RELEASE — version will NOT be bumped"
 fi
@@ -181,6 +183,7 @@ bash scripts/on-demand-ship.test.sh
 node scripts/dead-style-copies.test.js
 node scripts-descarga/write_corpus_copy.test.js
 node scripts/agent-structure.test.js
+bash scripts/ci-release-guard.test.sh
 
 echo "==> [4/${_STAGES}] Web production + corpus"
 CURRENT_STAGE="Web production"
