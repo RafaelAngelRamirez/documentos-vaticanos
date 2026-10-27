@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription, of } from 'rxjs';
+import { Subscription, forkJoin, of } from 'rxjs';
 import { catchError, map, switchMap, take } from 'rxjs/operators';
 import { BuscadorService, TermsProcessed } from './buscador.service';
 import { IndiceDocumentos as DocumentoDatos } from 'src/app/core/corpus/corpus.models';
@@ -32,6 +32,22 @@ import {
   parseTopicQuery,
   type TopicPackQueryLike,
 } from 'src/app/core/search/topic-query.logic';
+import { ShelfIndexService } from 'src/app/core/search/shelf-index.service';
+import {
+  SHELF_STORAGE_KEY,
+  collectCandidates,
+  docsToHydrate,
+  emptyShelfMessage,
+  expandQueryTerms,
+  rankShelves,
+  resolveEnabledShelves,
+  scoreCandidates,
+  visibleShelves,
+  type HydratedUnit,
+  type ShelfCandidate,
+  type ShelfHit,
+  type ShelfPackage,
+} from 'src/app/core/search/shelf-search.logic';
 
 const PAGE = 50;
 /** Unique documents to hydrate for snippets after index-only ranking. */
@@ -45,6 +61,19 @@ export interface SearchRow {
   snippetHtml: string;
   punto: ArticleInfo;
   resultado: ResultadoDeBusqueda;
+  /** palabra o lema, según de dónde salió el acierto. */
+  mark?: string;
+  /** Traducción de estudio, al final de la columna. */
+  study?: boolean;
+}
+
+export interface ShelfColumnView {
+  id: string;
+  label: string;
+  empty: string;
+  alternatives: { term: string; units: number }[];
+  rows: SearchRow[];
+  more: boolean;
 }
 
 @Component({
@@ -63,6 +92,11 @@ export class BuscadorComponent implements OnInit, OnDestroy {
   rows: SearchRow[] = [];
   visibleCount = PAGE;
 
+  /** Columnas por estante. La lista plana queda para la búsqueda por punto. */
+  shelfMode = false;
+  shelfColumns: ShelfColumnView[] = [];
+  shelfChips: { id: string; label: string; on: boolean }[] = [];
+
   loading_docs = false;
   load_error: string | null = null;
   /**
@@ -74,6 +108,19 @@ export class BuscadorComponent implements OnInit, OnDestroy {
   private searchGen = 0;
   /** Locale for which topic pack was last requested (avoid duplicate loads). */
   private topicPackLocale: string | null = null;
+  private shelfPackages: ShelfPackage[] = [];
+  private shelfPackageIds: string[] = [];
+  private enabledShelfIds: string[] = [];
+  private shelfQueryParts: { term: string; via: 'palabra' | 'lema' }[] = [];
+  private shelfLocale = 'es';
+  private shelfFolded = '';
+  private shelfTexts = new Map<string, HydratedUnit>();
+  private hydratedDocs = new Set<string>();
+  private hydratedById = new Map<string, DocumentoDatos>();
+  private shelfVisibleCap: Record<string, number> = {};
+  private shelfDocCap = 24;
+  /** Si el paquete de estantes no está, se vuelve a la lista por obra. */
+  private forceFlat = false;
 
   constructor(
     public busadorService: BuscadorService,
@@ -82,6 +129,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     private corpus: CorpusService,
     private readerPrefs: ReaderPreferencesService,
     private topics: TopicIndexService,
+    private shelfIndex: ShelfIndexService,
   ) {}
 
   ngOnInit(): void {
@@ -145,8 +193,15 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     return Math.max(0, this.rows.length - this.visibleCount);
   }
 
-  /** «14 resultados en 5 documentos». */
+  /** «14 resultados en 5 documentos», o pasajes por estante. */
   get countLabel(): string {
+    if (this.shelfMode) {
+      const total = this.shelfColumns.reduce((n, col) => n + col.rows.length, 0);
+      const shelves = this.shelfColumns.filter((col) => col.rows.length).length;
+      const res = total === 1 ? 'pasaje' : 'pasajes';
+      const est = shelves === 1 ? 'estante' : 'estantes';
+      return `${total} ${res} en ${shelves} ${est}`;
+    }
     const total = this.rows.length;
     const docs = this.docs_resultados.filter((r) => r.puntos.length > 0).length;
     const res = total === 1 ? 'resultado' : 'resultados';
@@ -156,6 +211,34 @@ export class BuscadorComponent implements OnInit, OnDestroy {
 
   showMore(): void {
     this.visibleCount += PAGE;
+  }
+
+  toggleShelf(id: string): void {
+    const wasOn = this.enabledShelfIds.includes(id);
+    this.enabledShelfIds = wasOn
+      ? this.enabledShelfIds.filter((shelf) => shelf !== id)
+      : [...this.enabledShelfIds, id];
+    this.shelfChips = this.shelfChips.map((chip) =>
+      chip.id === id ? { ...chip, on: !wasOn } : chip,
+    );
+    this.persistShelves();
+    if (id === 'padres' && !wasOn && !this.shelfPackages.some((pkg) => pkg.packageId === 'padres')) {
+      this.loadPadresThenPaint();
+      return;
+    }
+    this.paintShelves(this.searchGen);
+  }
+
+  showMoreShelf(id: string): void {
+    this.shelfVisibleCap[id] = (this.shelfVisibleCap[id] || 3) + 3;
+    this.shelfDocCap += 8;
+    this.paintShelves(this.searchGen);
+  }
+
+  searchAlternative(term: string): void {
+    const control = this.busadorService.global_control_search_input;
+    if (control) control.setValue(term, { emitEvent: false });
+    this.busadorService.buscar(term);
   }
 
   openRow(row: SearchRow): void {
@@ -230,6 +313,8 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     if (parsed.empty && !isTopicMode) {
       this.searchGen++;
       this.loading_docs = false;
+      this.shelfMode = false;
+      this.shelfColumns = [];
       this.buildRows();
       return;
     }
@@ -239,6 +324,21 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     this.load_error = null;
     const locale = this.readerPrefs.resolveContentLocale();
     this.ensureTopicPack(locale);
+
+    const pointOnly =
+      (parsed.points?.length ?? 0) > 0 &&
+      (parsed.contentTerms?.length ?? 0) === 0;
+    if (
+      !this.forceFlat &&
+      !this.allLocales &&
+      !pointOnly &&
+      (parsed.contentTerms?.length ?? 0) > 0
+    ) {
+      this.searchShelves(parsed, locale, myGen);
+      return;
+    }
+    this.forceFlat = false;
+    this.shelfMode = false;
 
     // Topic pack (optional) + index load; soft-empty pack never blocks search.
     const pack$ = this.topics.featureEnabled
@@ -756,6 +856,269 @@ export class BuscadorComponent implements OnInit, OnDestroy {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;');
+  }
+
+  private searchShelves(
+    parsed: { contentTerms: string[] },
+    locale: string,
+    myGen: number,
+  ): void {
+    this.shelfMode = true;
+    this.rows = [];
+    this.shelfColumns = [];
+    this.shelfTexts.clear();
+    this.hydratedDocs.clear();
+    this.hydratedById.clear();
+    this.shelfVisibleCap = {};
+    this.shelfDocCap = 24;
+    this.shelfLocale =
+      (locale || 'es').trim().toLowerCase().split(/[-_]/)[0] || 'es';
+    this.shelfFolded = parsed.contentTerms[0] || '';
+    this.shelfQueryParts = expandQueryTerms(
+      parsed.contentTerms,
+      this.shelfLocale,
+    );
+    this.sub.add(
+      this.shelfIndex.manifest(this.shelfLocale).subscribe({
+        next: (manifest) => {
+          if (myGen !== this.searchGen) return;
+          const entries = manifest?.packages || [];
+          if (!entries.length) {
+            this.fallBackToDocumentIndex();
+            return;
+          }
+          this.shelfPackageIds = entries.map((entry) => entry.id);
+          this.enabledShelfIds = this.readShelfPrefs(this.shelfPackageIds);
+          this.shelfChips = visibleShelves(this.shelfPackageIds).map((shelf) => ({
+            id: shelf.id,
+            label: shelf.label,
+            on: this.enabledShelfIds.includes(shelf.id),
+          }));
+          const needed = new Set<string>(['base']);
+          if (this.enabledShelfIds.includes('padres')) needed.add('padres');
+          const loads = entries
+            .filter((entry) => needed.has(entry.id))
+            .map((entry) =>
+              this.shelfIndex.load(this.shelfLocale, entry.id, entry.file),
+            );
+          if (!loads.length) {
+            this.fallBackToDocumentIndex();
+            return;
+          }
+          this.sub.add(
+            forkJoin(loads).subscribe({
+              next: (packages) => {
+                if (myGen !== this.searchGen) return;
+                this.shelfPackages = packages.filter(
+                  (pkg): pkg is ShelfPackage => !!pkg,
+                );
+                if (!this.shelfPackages.length) {
+                  this.fallBackToDocumentIndex();
+                  return;
+                }
+                this.paintShelves(myGen);
+              },
+              error: () => {
+                if (myGen !== this.searchGen) return;
+                this.fallBackToDocumentIndex();
+              },
+            }),
+          );
+        },
+        error: () => {
+          if (myGen !== this.searchGen) return;
+          this.fallBackToDocumentIndex();
+        },
+      }),
+    );
+  }
+
+  private fallBackToDocumentIndex(): void {
+    this.forceFlat = true;
+    this.shelfMode = false;
+    this.shelfColumns = [];
+    this.procesar_busqueda(this.terminos);
+  }
+
+  private loadPadresThenPaint(): void {
+    const myGen = this.searchGen;
+    this.sub.add(
+      this.shelfIndex.manifest(this.shelfLocale).subscribe((manifest) => {
+        const entry = manifest?.packages?.find((pkg) => pkg.id === 'padres');
+        if (!entry) {
+          this.paintShelves(myGen);
+          return;
+        }
+        this.sub.add(
+          this.shelfIndex.load(this.shelfLocale, entry.id, entry.file).subscribe((pkg) => {
+            if (myGen !== this.searchGen || !pkg) return;
+            if (!this.shelfPackages.some((have) => have.packageId === 'padres')) {
+              this.shelfPackages = [...this.shelfPackages, pkg];
+            }
+            this.paintShelves(myGen);
+          }),
+        );
+      }),
+    );
+  }
+
+  private paintShelves(myGen: number): void {
+    if (myGen !== this.searchGen) return;
+    const shelves = this.enabledShelfIds;
+    const candidates = collectCandidates(
+      this.shelfPackages,
+      this.shelfQueryParts,
+      shelves,
+    );
+    const ids = docsToHydrate(candidates, this.shelfDocCap);
+    const missing = ids.filter((id) => !this.hydratedDocs.has(id));
+    if (!missing.length) {
+      this.applyShelfPaint(candidates, shelves, myGen);
+      return;
+    }
+    this.loading_docs = true;
+    this.sub.add(
+      this.corpus
+        .ensureLoadedMany(missing, {
+          concurrency: DEFAULT_BODY_LOAD_CONCURRENCY,
+          isCancelled: () => myGen !== this.searchGen,
+        })
+        .subscribe({
+          next: (docs) => {
+            if (myGen !== this.searchGen) return;
+            for (const doc of docs) {
+              const id = doc.id || doc.nombre || '';
+              if (!id) continue;
+              this.hydratedDocs.add(id);
+              this.hydratedById.set(id, doc);
+              for (const hit of candidates) {
+                if (hit.documentId !== id) continue;
+                const article = doc.documento?.[hit.unitIndex];
+                if (!article) continue;
+                this.shelfTexts.set(`${id}:${hit.unitIndex}`, {
+                  text: article.contenido || '',
+                  consecutivo: article.consecutivo,
+                });
+              }
+            }
+            this.applyShelfPaint(candidates, shelves, myGen);
+          },
+          error: () => {
+            if (myGen !== this.searchGen) return;
+            for (const id of missing) this.hydratedDocs.add(id);
+            this.applyShelfPaint(candidates, shelves, myGen);
+          },
+        }),
+    );
+  }
+
+  private applyShelfPaint(
+    candidates: ShelfCandidate[],
+    shelves: string[],
+    myGen: number,
+  ): void {
+    if (myGen !== this.searchGen) return;
+    this.loading_docs = false;
+    const scored = scoreCandidates(
+      candidates,
+      this.shelfPackages,
+      this.shelfTexts,
+    );
+    const ranked = rankShelves(scored, {
+      shelves,
+      maxPerDoc: 2,
+      maxPerShelf: 9999,
+    });
+    const labels = new Map(visibleShelves(this.shelfPackageIds).map((shelf) => [shelf.id, shelf.label]));
+    const order = visibleShelves(this.shelfPackageIds).map((shelf) => shelf.id);
+    const columns: ShelfColumnView[] = [];
+    for (const id of order) {
+      if (!shelves.includes(id)) continue;
+      const column = ranked.find((item) => item.shelf === id);
+      const cap = this.shelfVisibleCap[id] || 3;
+      const hits = (column?.picked || []).slice(0, cap);
+      const rows: SearchRow[] = [];
+      for (const hit of hits) {
+        const row = this.rowFromShelfHit(hit);
+        if (row) rows.push(row);
+      }
+      const candDocs = new Set(
+        candidates.filter((hit) => hit.shelf === id).map((hit) => hit.documentId),
+      );
+      let loaded = 0;
+      for (const docId of candDocs) {
+        if (this.hydratedDocs.has(docId)) loaded += 1;
+      }
+      const empty = emptyShelfMessage(
+        id,
+        this.shelfFolded,
+        this.shelfLocale,
+        this.shelfPackageIds,
+      );
+      columns.push({
+        id,
+        label: labels.get(id) || id,
+        empty: empty.message,
+        alternatives: rows.length ? [] : [...empty.alternatives],
+        rows,
+        more:
+          (column?.available || 0) > rows.length || loaded < candDocs.size,
+      });
+    }
+    this.shelfColumns = columns;
+    this.rows = columns.flatMap((column) => column.rows);
+    this.docs_resultados = columns.flatMap((column) =>
+      column.rows.map((row) => row.resultado),
+    );
+  }
+
+  private rowFromShelfHit(hit: ShelfHit): SearchRow | null {
+    const doc = this.hydratedById.get(hit.documentId);
+    if (!doc) return null;
+    const article = doc.documento?.[hit.unitIndex];
+    if (!article) return null;
+    if (article.index_array == null) article.index_array = hit.unitIndex;
+    const terms = hit.matchedTerms.length ? hit.matchedTerms : [this.shelfFolded];
+    const punto = { article, terms_pure: terms } as ArticleInfo;
+    const resultado: ResultadoDeBusqueda = {
+      doc,
+      puntos: [punto],
+      puntos_paginados: [punto],
+    };
+    const unidad =
+      article.biblia?.consecutivo_versiculo ||
+      (article.consecutivo && article.consecutivo !== 'no-encontrado'
+        ? article.consecutivo
+        : String((article.index_array ?? hit.unitIndex) + 1));
+    return {
+      title: `${this.shortLabel(resultado)} · Nº ${unidad}`,
+      snippetHtml: this.buildSnippet(article.contenido ?? '', terms),
+      punto,
+      resultado,
+      mark: hit.via === 'lema' ? 'lema' : 'palabra',
+      study: hit.ai === true,
+    };
+  }
+
+  private readShelfPrefs(packageIds: string[]): string[] {
+    let raw: string | null = null;
+    try {
+      raw = localStorage.getItem(SHELF_STORAGE_KEY);
+    } catch {
+      raw = null;
+    }
+    return resolveEnabledShelves(raw, packageIds);
+  }
+
+  private persistShelves(): void {
+    try {
+      localStorage.setItem(
+        SHELF_STORAGE_KEY,
+        JSON.stringify(this.enabledShelfIds),
+      );
+    } catch {
+      /* el aparato puede negar el almacén */
+    }
   }
 
   buscar_por_valor_una_llave(

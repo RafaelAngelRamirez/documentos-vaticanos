@@ -170,6 +170,7 @@ npm --prefix frontend run test:read-aloud
 npm --prefix frontend run test:ui-i18n
 npm --prefix frontend run test:clases
 npm --prefix frontend run test:unpack-ship-index
+npm --prefix frontend run test:shelf-search
 node scripts-descarga/corpus_structure_contract.test.js
 node scripts/corpus-sync-assets.test.js
 node scripts/on-demand-sources.test.js
