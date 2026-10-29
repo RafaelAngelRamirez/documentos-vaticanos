@@ -15,6 +15,7 @@
         <div class="fx ac jb">
           <div class="fs12 upper muted" style="letter-spacing: 0.14em">
             {{ t('clase.revision', { n: e.clase.revision }) }}
+            <span *ngIf="esPublica"> · {{ t('clase.audience_public') }}</span>
           </div>
           <span class="fs12" style="color: var(--ok)" *ngIf="!esMaestro && total">
             {{ t('clase.progress', { done: doneCount, total: total }) }}
@@ -27,8 +28,11 @@
         </div>
       </div>
 
-      <p class="fs13 muted" *ngIf="esMaestro" data-testid="clase-archivo">
+      <p class="fs13 muted" *ngIf="esMaestro && !esPublica" data-testid="clase-archivo">
         {{ t('clase.file_only') }}
+      </p>
+      <p class="fs13 muted" *ngIf="esMaestro && esPublica" data-testid="clase-archivo-publica">
+        {{ t('clase.file_public') }}
       </p>
       <p class="fs13 muted" *ngIf="esMaestro && !puedeArmar">{{ t('clase.need_teacher') }}</p>
 
@@ -47,6 +51,15 @@
           {{ t('clase.export') }}
         </button>
       </div>
+      <button
+        type="button"
+        class="primary"
+        *ngIf="!esMaestro && puedeExportar"
+        data-testid="clase-export-copia"
+        (click)="exportar()"
+      >
+        {{ t('clase.export') }}
+      </button>
 
       <div class="sect">{{ t('clase.steps') }}</div>
       <button

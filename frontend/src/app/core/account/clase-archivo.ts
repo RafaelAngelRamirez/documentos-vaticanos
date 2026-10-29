@@ -13,8 +13,6 @@ export function claveAvisoImportacion(codigo: string): string {
       return 'clase.own';
     case 'antigua':
       return 'clase.older';
-    case 'publica':
-      return 'clase.public_file';
     case 'grande':
       return 'clase.too_big';
     default:

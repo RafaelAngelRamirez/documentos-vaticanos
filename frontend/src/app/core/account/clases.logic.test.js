@@ -1,5 +1,5 @@
 /**
- * Clase privada: archivo, revisión y avance por id de paso.
+ * Clase en el aparato: privada o pública, archivo, revisión y avance.
  * Run: npm --prefix frontend run test:clases
  */
 const assert = require('assert');
@@ -38,6 +38,7 @@ const B = 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb';
 const C = 'cccccccc-cccc-4ccc-8ccc-cccccccccccc';
 const NOW = '2026-10-27T12:00:00.000Z';
 const NOW2 = '2026-10-27T13:00:00.000Z';
+const NOW3 = '2026-10-27T14:00:00.000Z';
 
 function section(name) {
   console.log(`\n== ${name} ==`);
@@ -97,6 +98,7 @@ async function main() {
   const lista = L.marcarLista(entry, true);
   assert.strictEqual(lista.ok, true);
   assert.strictEqual(lista.entry.clase.revision, entry.clase.revision);
+  assert.strictEqual(lista.entry.clase.audiencia, 'privada');
   const movido = L.reordenar(lista.entry, [B, A], NOW2);
   assert.strictEqual(movido.ok, true);
   assert.deepStrictEqual(movido.entry.clase.pasos.map((p) => p.id), [B, A]);
@@ -111,7 +113,7 @@ async function main() {
   assert.strictEqual(mismaMeta.ok, true);
   assert.strictEqual(mismaMeta.entry.clase.revision, movido.entry.clase.revision);
 
-  section('exportar solo si está lista');
+  section('exportar solo si está lista (privada)');
   assert.strictEqual(L.archivoExportable(movido.entry).codigo, 'nolista');
   const lista2 = L.marcarLista(movido.entry, true);
   const archivo = L.archivoExportable(lista2.entry);
@@ -136,7 +138,7 @@ async function main() {
   assert.strictEqual(round.ok, true);
   assert.strictEqual(round.clase.pasos[1].id, A);
 
-  section('importar');
+  section('importar privada');
   const nueva = L.incorporarArchivo([], archivo.json);
   assert.strictEqual(nueva.ok, true);
   assert.strictEqual(nueva.codigo, 'nueva');
@@ -182,12 +184,115 @@ async function main() {
   assert.strictEqual(L.leidos(aceptada.entry.clase.pasos, hechos), 1);
   assert.strictEqual(L.indiceSiguiente(aceptada.entry.clase.pasos, { [B]: true }), 0);
 
-  const publica = L.parsearArchivo(JSON.stringify({ ...json, audiencia: 'publica' }));
-  assert.strictEqual(publica.codigo, 'publica');
   const conTexto = L.parsearArchivo(JSON.stringify({ ...json, texto: 'corpus' }));
   assert.strictEqual(conTexto.codigo, 'invalida');
   const enorme = L.parsearArchivo('x'.repeat(L.MAX_ARCHIVO_BYTES + 1));
   assert.strictEqual(enorme.codigo, 'grande');
+
+  section('publicar: misma JSON, sube revisión una vez');
+  let pubBase = maestroCon(L, 1);
+  assert.strictEqual(pubBase.clase.audiencia, 'privada');
+  assert.strictEqual(pubBase.clase.pasos[0].rotulo, 'Paso 1');
+  const vaciaPub = L.publicar(
+    { ...pubBase, clase: { ...pubBase.clase, pasos: [] } },
+    NOW2,
+  );
+  assert.strictEqual(vaciaPub.codigo, 'vacia');
+  const listaNoPublica = L.marcarLista(pubBase, true);
+  assert.strictEqual(listaNoPublica.ok, true);
+  assert.strictEqual(listaNoPublica.entry.clase.audiencia, 'privada');
+  assert.strictEqual(listaNoPublica.entry.clase.revision, pubBase.clase.revision);
+
+  const publicada = L.publicar(listaNoPublica.entry, NOW2);
+  assert.strictEqual(publicada.ok, true);
+  assert.strictEqual(publicada.entry.clase.audiencia, 'publica');
+  assert.strictEqual(publicada.entry.clase.revision, listaNoPublica.entry.clase.revision + 1);
+  assert.strictEqual(publicada.entry.clase.actualizadaEn, NOW2);
+  assert.strictEqual(publicada.entry.listaParaAlumnos, true);
+  assert.strictEqual(publicada.entry.clase.pasos[0].id, A);
+
+  const yaPublica = L.publicar(publicada.entry, NOW3);
+  assert.strictEqual(yaPublica.ok, true);
+  assert.strictEqual(yaPublica.entry.clase.revision, publicada.entry.clase.revision);
+  assert.strictEqual(yaPublica.entry.clase.audiencia, 'publica');
+
+  const alumnoNoPublica = L.publicar(
+    { clase: publicada.entry.clase, papel: 'alumno', listaParaAlumnos: false },
+    NOW3,
+  );
+  assert.strictEqual(alumnoNoPublica.codigo, 'alumno');
+
+  section('exportar e importar pública sin API');
+  const archivoPub = L.archivoExportable(publicada.entry);
+  assert.strictEqual(archivoPub.ok, true);
+  const jsonPub = JSON.parse(archivoPub.json);
+  assert.strictEqual(jsonPub.audiencia, 'publica');
+  assert.ok(!('email' in jsonPub));
+  assert.ok(!('texto' in jsonPub));
+  assert.ok(!('listaParaAlumnos' in jsonPub));
+  assert.deepStrictEqual(Object.keys(jsonPub).sort(), [
+    'actualizadaEn',
+    'audiencia',
+    'descripcion',
+    'id',
+    'pasos',
+    'revision',
+    'titulo',
+  ]);
+
+  const parsePub = L.parsearArchivo(archivoPub.json);
+  assert.strictEqual(parsePub.ok, true);
+  assert.strictEqual(parsePub.clase.audiencia, 'publica');
+  assert.strictEqual(L.esPublica(parsePub.clase), true);
+
+  const importPub = L.incorporarArchivo([], archivoPub.json);
+  assert.strictEqual(importPub.ok, true);
+  assert.strictEqual(importPub.codigo, 'nueva');
+  assert.strictEqual(importPub.entries[0].papel, 'alumno');
+  assert.strictEqual(importPub.entries[0].clase.audiencia, 'publica');
+  assert.strictEqual(importPub.entries[0].listaParaAlumnos, false);
+
+  const copia = importPub.entries[0];
+  const reexport = L.archivoExportable(copia);
+  assert.strictEqual(reexport.ok, true);
+  assert.strictEqual(JSON.parse(reexport.json).audiencia, 'publica');
+
+  const privadaAlumno = {
+    clase: { ...copia.clase, audiencia: 'privada' },
+    papel: 'alumno',
+    listaParaAlumnos: false,
+  };
+  assert.strictEqual(L.archivoExportable(privadaAlumno).codigo, 'alumno');
+
+  const entradaPub = L.entradaDesde({
+    clase: copia.clase,
+    papel: 'alumno',
+    listaParaAlumnos: false,
+  });
+  assert.ok(entradaPub);
+  assert.strictEqual(entradaPub.clase.audiencia, 'publica');
+
+  section('revisión pendiente en pública conserva ids leídos');
+  const subidaPub = L.serializarClase({
+    ...copia.clase,
+    revision: copia.clase.revision + 1,
+    titulo: 'Cuaresma pública II',
+    pasos: [copia.clase.pasos[0]],
+    actualizadaEn: NOW3,
+  });
+  const pendPub = L.incorporarArchivo(importPub.entries, subidaPub);
+  assert.strictEqual(pendPub.codigo, 'pendiente');
+  assert.strictEqual(pendPub.entries[0].clase.audiencia, 'publica');
+  assert.strictEqual(pendPub.entries[0].pendiente.audiencia, 'publica');
+  assert.strictEqual(pendPub.entries[0].pendiente.titulo, 'Cuaresma pública II');
+
+  const hechosPub = { [A]: true };
+  assert.strictEqual(L.leidos(pendPub.entries[0].clase.pasos, hechosPub), 1);
+  const aceptPub = L.aceptarPendiente(pendPub.entries[0]);
+  assert.strictEqual(aceptPub.ok, true);
+  assert.strictEqual(aceptPub.entry.clase.titulo, 'Cuaresma pública II');
+  assert.strictEqual(aceptPub.entry.clase.pasos[0].id, A);
+  assert.strictEqual(L.leidos(aceptPub.entry.clase.pasos, hechosPub), 1);
 
   section('avance legado');
   const mapa0 = {};
@@ -213,6 +318,7 @@ async function main() {
     fs.readFileSync(path.join(FRONTEND, 'src/app/pages/aprendizaje/aprendizaje.component.html'), 'utf8');
   assert.ok(apr.includes('learning.title'));
   assert.ok(apr.includes('clase.import'));
+  assert.ok(apr.includes('clase.audience_public'));
   assert.ok(!apr.includes('myEnrollments'));
   assert.ok(!apr.includes('Inicie sesión'));
   assert.ok(!apr.includes('dv.lesson.'));
@@ -223,7 +329,30 @@ async function main() {
   );
   assert.ok(est.includes('clase.mine'));
   assert.ok(est.includes('clase.create'));
+  assert.ok(est.includes('clase.audience_public'));
   assert.ok(est.includes("t('study.title')"));
+
+  const editar =
+    fs.readFileSync(path.join(FRONTEND, 'src/app/pages/clase-editar/clase-editar.component.html'), 'utf8') +
+    fs.readFileSync(path.join(FRONTEND, 'src/app/pages/clase-editar/clase-editar.component.ts'), 'utf8');
+  assert.ok(editar.includes('clase-publicar'));
+  assert.ok(editar.includes('publicar('));
+  assert.ok(editar.includes('clase.publish'));
+
+  const detalle =
+    fs.readFileSync(path.join(FRONTEND, 'src/app/pages/clase-detalle/clase-detalle.component.html'), 'utf8') +
+    fs.readFileSync(path.join(FRONTEND, 'src/app/pages/clase-detalle/clase-detalle.component.ts'), 'utf8');
+  assert.ok(detalle.includes('clase.audience_public'));
+  assert.ok(detalle.includes('puedeExportar'));
+  assert.ok(!detalle.includes('/api/'));
+
+  const servicio = fs.readFileSync(
+    path.join(FRONTEND, 'src/app/core/account/clases.service.ts'),
+    'utf8',
+  );
+  assert.ok(servicio.includes('publicar'));
+  assert.ok(!servicio.includes('apiBaseUrl'));
+  assert.ok(!servicio.includes('HttpClient'));
 
   console.log('\nOK: clases.logic.test.js');
 }

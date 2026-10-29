@@ -1,6 +1,7 @@
 /**
- * Clase privada en el aparato: plan de lectura, archivo y avance.
- * El texto del corpus no entra en el archivo. Sin red.
+ * Clase en el aparato: plan de lectura, archivo y avance.
+ * Privada o pública: el mismo JSON. El texto del corpus no entra.
+ * Abrir una copia guardada no llama a la API.
  */
 
 import {
@@ -73,7 +74,6 @@ export type CodigoClase =
   | 'orden'
   | 'nolista'
   | 'invalida'
-  | 'publica'
   | 'grande'
   | 'propia'
   | 'antigua'
@@ -197,12 +197,12 @@ function pasoDesde(raw: unknown): PasoClase | null {
   return paso;
 }
 
-/** Normaliza una clase ya validada en forma. Devuelve null si no es una privada. */
-export function clasePrivadaDesde(raw: unknown): ClaseLocal | null {
+/** Normaliza una clase ya validada en forma (privada o pública). */
+export function claseDesde(raw: unknown): ClaseLocal | null {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
   const o = raw as CrudoClase;
   if (!soloClaves(o, CLASE_KEYS)) return null;
-  if (o.audiencia !== 'privada') return null;
+  if (o.audiencia !== 'privada' && o.audiencia !== 'publica') return null;
   if (typeof o.id !== 'string' || !PASO_ID.test(o.id)) return null;
   const titulo = texto(o.titulo, TITULO_MAX);
   if (!titulo) return null;
@@ -222,7 +222,7 @@ export function clasePrivadaDesde(raw: unknown): ClaseLocal | null {
   }
   const clase: ClaseLocal = {
     id: o.id,
-    audiencia: 'privada',
+    audiencia: o.audiencia,
     titulo,
     revision: o.revision,
     pasos,
@@ -236,14 +236,20 @@ export function clasePrivadaDesde(raw: unknown): ClaseLocal | null {
   return clase;
 }
 
-export function esPublica(raw: unknown): boolean {
-  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return false;
-  return (raw as { audiencia?: unknown }).audiencia === 'publica';
+/** @deprecated Preferir claseDesde; solo acepta audiencia privada. */
+export function clasePrivadaDesde(raw: unknown): ClaseLocal | null {
+  const clase = claseDesde(raw);
+  if (!clase || clase.audiencia !== 'privada') return null;
+  return clase;
+}
+
+export function esPublica(clase: { audiencia?: unknown } | null | undefined): boolean {
+  return clase?.audiencia === 'publica';
 }
 
 export type ParseoArchivo =
   | { ok: true; clase: ClaseLocal }
-  | { ok: false; codigo: 'invalida' | 'publica' | 'grande' };
+  | { ok: false; codigo: 'invalida' | 'grande' };
 
 export function parsearArchivo(raw: string): ParseoArchivo {
   if (typeof raw !== 'string' || raw.length > MAX_ARCHIVO_BYTES) {
@@ -255,8 +261,7 @@ export function parsearArchivo(raw: string): ParseoArchivo {
   } catch {
     return { ok: false, codigo: 'invalida' };
   }
-  if (esPublica(data)) return { ok: false, codigo: 'publica' };
-  const clase = clasePrivadaDesde(data);
+  const clase = claseDesde(data);
   if (!clase) return { ok: false, codigo: 'invalida' };
   return { ok: true, clase };
 }
@@ -264,7 +269,7 @@ export function parsearArchivo(raw: string): ParseoArchivo {
 export function serializarClase(clase: ClaseLocal): string {
   const cuerpo: ClaseLocal = {
     id: clase.id,
-    audiencia: 'privada',
+    audiencia: clase.audiencia,
     titulo: clase.titulo,
     revision: clase.revision,
     pasos: clase.pasos.map(clonPaso),
@@ -506,12 +511,39 @@ export function marcarLista(
   return { ok: true, entry: next };
 }
 
+/**
+ * Publicar: misma clase con audiencia pública. Sube la revisión una vez.
+ * «Lista para mis alumnos» no la vuelve pública.
+ */
+export function publicar(
+  entry: ClaseEnAparato,
+  now: string,
+): Ok<{ entry: ClaseEnAparato }> | Err {
+  if (entry.papel !== 'maestro') return { ok: false, codigo: 'alumno' };
+  if (entry.clase.pasos.length === 0) return { ok: false, codigo: 'vacia' };
+  if (entry.clase.audiencia === 'publica') {
+    return { ok: true, entry: clonEntrada(entry) };
+  }
+  const next = clonEntrada(entry);
+  next.clase.audiencia = 'publica';
+  next.clase.revision += 1;
+  next.clase.actualizadaEn = now;
+  return { ok: true, entry: next };
+}
+
 export function archivoExportable(
   entry: ClaseEnAparato,
 ): Ok<{ json: string; nombre: string }> | Err {
+  if (entry.clase.pasos.length === 0) return { ok: false, codigo: 'vacia' };
+  if (entry.clase.audiencia === 'publica') {
+    return {
+      ok: true,
+      json: serializarClase(entry.clase),
+      nombre: nombreArchivo(entry.clase),
+    };
+  }
   if (entry.papel !== 'maestro') return { ok: false, codigo: 'alumno' };
   if (!entry.listaParaAlumnos) return { ok: false, codigo: 'nolista' };
-  if (entry.clase.pasos.length === 0) return { ok: false, codigo: 'vacia' };
   return {
     ok: true,
     json: serializarClase(entry.clase),
@@ -521,7 +553,7 @@ export function archivoExportable(
 
 export type ResultadoImportacion =
   | { ok: true; codigo: 'nueva' | 'pendiente' | 'misma'; entries: ClaseEnAparato[]; id: string }
-  | { ok: false; codigo: 'propia' | 'antigua' | 'invalida' | 'publica' | 'grande'; entries: ClaseEnAparato[] };
+  | { ok: false; codigo: 'propia' | 'antigua' | 'invalida' | 'grande'; entries: ClaseEnAparato[] };
 
 export function incorporarArchivo(
   entries: ClaseEnAparato[],
@@ -593,7 +625,7 @@ export function quitarEntrada(
 export function entradaDesde(raw: unknown): ClaseEnAparato | null {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
   const o = raw as CrudoEntrada;
-  const clase = clasePrivadaDesde(o.clase);
+  const clase = claseDesde(o.clase);
   if (!clase) return null;
   if (o.papel !== 'maestro' && o.papel !== 'alumno') return null;
   const entry: ClaseEnAparato = {
@@ -602,7 +634,7 @@ export function entradaDesde(raw: unknown): ClaseEnAparato | null {
     listaParaAlumnos: o.papel === 'maestro' && o.listaParaAlumnos === true,
   };
   if (o.pendiente !== undefined && o.papel === 'alumno') {
-    const pendiente = clasePrivadaDesde(o.pendiente);
+    const pendiente = claseDesde(o.pendiente);
     if (!pendiente || pendiente.id !== clase.id) return null;
     if (pendiente.revision > clase.revision) entry.pendiente = pendiente;
   }

@@ -182,6 +182,15 @@ export class ClaseEditarComponent implements OnInit, OnDestroy {
     this.aplicar(this.clases.marcarLista(this.id, !this.entry.listaParaAlumnos));
   }
 
+  publicar(): void {
+    if (!this.puedeArmar || !this.entry) return;
+    this.aplicar(this.clases.publicar(this.id));
+  }
+
+  get esPublica(): boolean {
+    return this.entry?.clase.audiencia === 'publica';
+  }
+
   async exportar(): Promise<void> {
     if (!this.puedeArmar) return;
     const res = this.clases.exportar(this.id);

@@ -14,7 +14,10 @@
       <button class="primary" type="submit" [disabled]="!puedeArmar || meta.invalid">{{ t('clase.save') }}</button>
     </form>
 
-    <p class="fs13 muted">{{ t('clase.revision', { n: e.clase.revision }) }}</p>
+    <p class="fs13 muted">
+      {{ t('clase.revision', { n: e.clase.revision }) }}
+      <span *ngIf="esPublica"> · {{ t('clase.audience_public') }}</span>
+    </p>
     <button
       type="button"
       class="gbtn"
@@ -25,6 +28,16 @@
       {{ e.listaParaAlumnos ? t('clase.ready_yes') : t('clase.ready_no') }}
     </button>
     <p class="fs13 muted">{{ t('clase.ready_help') }}</p>
+    <button
+      type="button"
+      class="primary"
+      data-testid="clase-publicar"
+      [disabled]="!puedeArmar || esPublica || !e.clase.pasos.length"
+      (click)="publicar()"
+    >
+      {{ esPublica ? t('clase.audience_public') : t('clase.publish') }}
+    </button>
+    <p class="fs13 muted">{{ t('clase.publish_help') }}</p>
     <button type="button" class="primary" data-testid="clase-export" [disabled]="!puedeArmar" (click)="exportar()">
       {{ t('clase.export') }}
     </button>
