@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { SyncJournalService } from '../core/sync/sync-journal.service';
 
 export type AnotacionKind = 'subrayado' | 'nota' | 'marcador';
 
@@ -29,6 +30,10 @@ export class AnotacionesService {
   private subject = new BehaviorSubject<Anotacion[]>(this.load());
 
   readonly anotaciones$: Observable<Anotacion[]> = this.subject.asObservable();
+
+  constructor(private journal: SyncJournalService) {
+    void this.journal.ensureReady();
+  }
 
   get snapshot(): Anotacion[] {
     return this.subject.value;
@@ -62,6 +67,7 @@ export class AnotacionesService {
       updatedAt: new Date().toISOString(),
     };
     this.persist([anotacion, ...this.subject.value]);
+    this.journal.recordAnotacionPoner(anotacion);
     return anotacion;
   }
 
@@ -70,17 +76,20 @@ export class AnotacionesService {
     id: string,
     changes: Partial<Omit<Anotacion, 'id' | 'createdAt' | 'updatedAt'>>
   ): void {
-    this.persist(
-      this.subject.value.map((a) =>
-        a.id === id
-          ? { ...a, ...changes, updatedAt: new Date().toISOString() }
-          : a
-      )
+    const next = this.subject.value.map((a) =>
+      a.id === id
+        ? { ...a, ...changes, updatedAt: new Date().toISOString() }
+        : a
     );
+    this.persist(next);
+    const updated = next.find((a) => a.id === id);
+    if (updated) this.journal.recordAnotacionPoner(updated);
   }
 
   remove(id: string): void {
+    const prev = this.subject.value.find((a) => a.id === id);
     this.persist(this.subject.value.filter((a) => a.id !== id));
+    this.journal.recordAnotacionLapida(id, prev?.kind || 'nota');
   }
 
   /** Re-read localStorage after an external writer (sync merge). */

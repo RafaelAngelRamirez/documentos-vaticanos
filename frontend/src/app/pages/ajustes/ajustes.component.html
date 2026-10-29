@@ -450,7 +450,8 @@
         >Copia de seguridad local<span class="seth"
           >El archivo incluye tus notas y subrayados, tus temas y las
           preferencias de lectura. Todo se guarda en este dispositivo; no se
-          requiere cuenta.</span
+          requiere cuenta. «Exportar diario» baja un .dvdelta con el historial
+          de operaciones (lápidas incluidas) para otro aparato, sin red.</span
         ></span
       >
     </div>
@@ -466,6 +467,14 @@
       <button
         type="button"
         class="szbtn"
+        (click)="exportarDiario()"
+        [disabled]="importando"
+      >
+        Exportar diario
+      </button>
+      <button
+        type="button"
+        class="szbtn"
         (click)="importInput.click()"
         [disabled]="importando"
       >
@@ -474,7 +483,7 @@
       <input
         #importInput
         type="file"
-        accept="application/json,.json"
+        accept="application/json,.json,.dvdelta,application/octet-stream"
         class="filehidden"
         (change)="onImportarArchivo($event)"
       />
