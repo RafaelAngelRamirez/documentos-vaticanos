@@ -373,6 +373,24 @@ assert.ok(
   buscador.includes('rankUnitsForDocument'),
   'la búsqueda por punto sigue en el índice de la obra',
 );
+assert.ok(
+  buscador.includes('rankTopicThenHydrate'),
+  'tema: llega al índice de tema',
+);
+const shelfCall = buscador.indexOf('this.searchShelves(');
+assert.ok(shelfCall > 0, 'hay una llamada a searchShelves');
+const shelfGate = buscador.slice(
+  Math.max(0, shelfCall - 400),
+  shelfCall,
+);
+assert.ok(
+  /!isTopicMode/.test(shelfGate),
+  'el gate de estantes no traga tema: / mode=topic',
+);
+assert.ok(
+  /!hasPoints/.test(shelfGate),
+  'el gate de estantes no traga .12 / puntuación',
+);
 
 function readPkg(name) {
   const file = path.join(PACKAGES, name);
