@@ -14,10 +14,12 @@ El merge normal de `bbcfc761` es el [PR #42](https://github.com/RafaelAngelRamir
 
 `.ci-build.sh` llama a `scripts/ci-release-guard.sh` antes de cortar (salvo `DV_SKIP_RELEASE=1`). El guardia no hace fetch y no empuja.
 
-1. Lee `refs/heads/master` en origin con `git ls-remote`. Si `HEAD` no es esa punta, sale **3** y no corta versión.
-2. El tag siguiente sale de `standard-version --dry-run` (no escribe archivos ni tags). Si ese tag ya está en origin o en el clon, sale **2**: ni otro tag ni otro commit de release.
-3. Si las dos pasan, corre `npx --yes standard-version@9.5.0`. El push del commit y del tag sigue fuera de este script.
+1. Lee `refs/heads/master` en origin con `git ls-remote`. Si `DV_RELEASE_EVENT_SHA` / `GITHUB_SHA` está definido y ya no es esa punta, sale **4** (webhook viejo o duplicado) y no corta.
+2. Si `HEAD` no es esa punta, sale **3** y no corta versión.
+3. Si la punta ya es un commit `chore(release): …`, sale **5** y no vuelve a cortar (evita vX.Y.Z vacías tras el push del propio release).
+4. El tag siguiente sale de `standard-version --dry-run` (no escribe archivos ni tags). Si ese tag ya está en origin o en el clon, sale **2**: ni otro tag ni otro commit de release.
+5. Si todo pasa, corre `npx --yes standard-version@9.5.0`. El push del commit y del tag sigue fuera de este script.
 
-`scripts/ci-release-guard.test.sh` lo demuestra en un remoto local de usar y tirar: tag ya presente → salida 2, el clon no gana commit ni tag; SHA que no es la punta → salida 3, no corta. Si la punta coincide y el tag no existe, el corte de prueba sí corre y no empuja.
+`scripts/ci-release-guard.test.sh` lo demuestra en un remoto local de usar y tirar: tag ya presente → 2; SHA que no es la punta → 3; event SHA viejo → 4; punta `chore(release):` → 5; punta libre y tag libre → corta en el clon y no empuja.
 
-Queda abierta la ventana en que dos builds leen la misma punta antes de que exista el tag. Cerrarla es un candado del flujo. El flujo no se tocó.
+Tras el #43, webhooks push duplicados podían clonar la punta ya cortada y seguir proponiendo el siguiente patch vacío; **4** y **5** cierran ese hueco sin tocar n8n. Queda abierta la ventana en que dos builds leen la misma punta no-release antes de que exista el tag: eso es un candado del flujo. El flujo no se tocó.
