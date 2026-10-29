@@ -12,7 +12,7 @@ La versión de producto es la de `package.json` en la raíz. El tag es `v` más 
 
 ## Quién la corta
 
-En el build de CI, `.ci-build.sh` corre esto con el árbol limpio, antes de instalar dependencias:
+En el build de CI, `.ci-build.sh` llama a `scripts/ci-release-guard.sh` con el árbol limpio, antes de instalar dependencias. El guardia no hace fetch y no empuja. Sale sin commit y sin tag si `HEAD` no es la punta de `origin/master`, o si el tag que saldría ya está en origin (o en el clon). Si las dos comprobaciones pasan, corre:
 
 ```bash
 npx --yes standard-version@9.5.0
@@ -42,7 +42,7 @@ Los de `.versionrc`, con `standard-version-updater.js` donde no basta el tipo `j
 
 El updater lee la última cadena semver del archivo. En `README.md`, si no hay ninguna, `readVersion` falla y ese archivo no sube. No inventes una versión en el README para forzarlo.
 
-El bump es el de standard-version 9.5.0 con conventionalcommits. Con `package.json` en `0.0.x` el preset lleva `preMajor` (`semver.lt(versión, '1.0.0')`). Eso baja un nivel: `feat` sube patch y un breaking sube minor. `whatBump` arranca en patch y siempre propone bump, así que `fix`, `docs` o `test` también suben patch. Fusionar solo documentación corta la siguiente versión. Hoy esa siguiente es `v0.0.34`, y ese tag ya existe fuera de `master`. Si no es ancestro de `HEAD`, el CI falla al recrear el tag. No lo recrees.
+El bump es el de standard-version 9.5.0 con conventionalcommits. Con `package.json` en `0.0.x` el preset lleva `preMajor` (`semver.lt(versión, '1.0.0')`). Eso baja un nivel: `feat` sube patch y un breaking sube minor. `whatBump` arranca en patch y siempre propone bump, así que `fix`, `docs` o `test` también suben patch. Fusionar solo documentación corta la siguiente versión. Si el tag que saldría ya existe en origin, `scripts/ci-release-guard.sh` sale sin recrearlo. No lo recrees y no lo muevas.
 
 ## Parar
 

@@ -49,6 +49,7 @@ node scripts/corpus-sync-assets.test.js
 node scripts/dead-style-copies.test.js
 node scripts-descarga/write_corpus_copy.test.js
 node scripts/agent-structure.test.js
+bash scripts/ci-release-guard.test.sh
 ```
 
 `topics:validate` usa el ts-node de `scripts-descarga` y no lleva `--skip-fp`. Si falla por huella vieja tras un cambio de corpus, regenera con `npm run topics:build` y vuelve a validar.
@@ -60,7 +61,7 @@ Un push a `master` o `typescript-migration` arranca el flujo «Documentos Vatica
 Orden, con Electron apagado (7 etapas):
 
 1. Disco libre. Default `DV_MIN_FREE_GB=10`. `0` salta el chequeo.
-2. `npx --yes standard-version@9.5.0`, salvo `DV_SKIP_RELEASE=1`.
+2. `scripts/ci-release-guard.sh`, salvo `DV_SKIP_RELEASE=1`. Si `HEAD` no es la punta de `origin/master`, o el tag que saldría ya está en origin, el script sale y no crea commit ni tag. Si pasa, corre `npx --yes standard-version@9.5.0`.
 3. Dependencias (raíz, `frontend`, `backend`, `scripts-descarga`) y las pruebas de arriba.
 4. `scripts/package-web.sh` y `bash e2e/run-dist-smoke.sh`.
 5. `scripts/package-apk.sh`.
