@@ -107,8 +107,9 @@ CURRENT_STAGE="Release (standard-version)"
 notify_step "$CURRENT_STAGE" || true
 if [[ "${DV_SKIP_RELEASE:-0}" != "1" ]]; then
   # Fail hard — swallowing errors left production stuck at 0.0.13.
-  # The guard exits before standard-version when the tag already exists on
-  # origin, or when HEAD is not the tip of origin/master. No commit, no tag.
+  # The guard exits before standard-version when the event SHA / HEAD is not
+  # the tip of origin/master, the tip is already chore(release):, or the next
+  # tag already exists on origin. No commit, no tag.
   bash scripts/ci-release-guard.sh
 else
   echo "WARN: release skipped via DV_SKIP_RELEASE — version will NOT be bumped"

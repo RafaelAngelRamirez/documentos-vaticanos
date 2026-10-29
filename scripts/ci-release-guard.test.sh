@@ -18,6 +18,8 @@ grep -q 'bash scripts/ci-release-guard.sh' "$CI" || fail ".ci-build.sh does not 
 if grep -E '^[[:space:]]*npx --yes standard-version' "$CI" >/dev/null; then
   fail ".ci-build.sh still invokes standard-version itself"
 fi
+grep -q 'Exit 4:' "$GUARD" || fail "guard does not document exit 4 (stale event SHA)"
+grep -q 'Exit 5:' "$GUARD" || fail "guard does not document exit 5 (tip already chore(release))"
 
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
@@ -49,15 +51,22 @@ chmod +x "$cutter"
 run_guard() {
   local expected="$1"
   local code=0
+  local -a env_args=(
+    env -u GITHUB_SHA -u CI_COMMIT_SHA
+    DV_RELEASE_REMOTE=origin
+    DV_RELEASE_BRANCH=master
+    "DV_CUT_MARKER=$marker"
+    "DV_RELEASE_CUTTER=$cutter"
+    "DV_NEXT_TAG=$DV_NEXT_TAG"
+  )
+  if [[ -n "${DV_RELEASE_EVENT_SHA+x}" ]]; then
+    env_args+=("DV_RELEASE_EVENT_SHA=$DV_RELEASE_EVENT_SHA")
+  fi
   set +e
   (
     cd "$work"
-    DV_RELEASE_REMOTE=origin \
-    DV_RELEASE_BRANCH=master \
-    DV_CUT_MARKER="$marker" \
-    DV_RELEASE_CUTTER="$cutter" \
-    DV_NEXT_TAG="$DV_NEXT_TAG" \
-      bash "$GUARD"
+    # Clear host CI SHAs; only pass DV_RELEASE_EVENT_SHA when the case sets it.
+    "${env_args[@]}" bash "$GUARD"
   )
   code=$?
   set -e
@@ -97,6 +106,7 @@ git -C "$other" tag -a v0.0.37 -m "chore(release): 0.0.37"
 git -C "$other" push origin refs/tags/v0.0.37 >/dev/null
 git -C "$work" rev-parse --verify --quiet refs/tags/v0.0.37 >/dev/null && fail "work clone should not have the tag yet"
 snapshot
+unset DV_RELEASE_EVENT_SHA || true
 DV_NEXT_TAG=v0.0.37 run_guard 2
 assert_unchanged
 echo "ok: tag exists, no new commit, no new tag, cutter not called"
@@ -109,25 +119,59 @@ work_before="$(git -C "$work" rev-parse HEAD)"
 origin_tip="$(git -C "$origin" rev-parse refs/heads/master)"
 [[ "$work_before" != "$origin_tip" ]] || fail "fixture did not move the tip"
 snapshot
+unset DV_RELEASE_EVENT_SHA || true
 DV_NEXT_TAG=v0.0.38 run_guard 3
 assert_unchanged
 git -C "$work" rev-parse --verify --quiet refs/tags/v0.0.38 >/dev/null && fail "refused cut still created v0.0.38"
 echo "ok: stale SHA, no release"
 
+echo "== event SHA is not the tip: exit 4 without cutting =="
+rm -f "$marker"
+stale_event="$work_before"
+git -C "$work" fetch --no-tags origin master >/dev/null
+git -C "$work" merge --ff-only origin/master >/dev/null
+[[ "$(git -C "$work" rev-parse HEAD)" == "$(git -C "$origin" rev-parse refs/heads/master)" ]] || fail "work is not the tip before event-SHA check"
+[[ "$stale_event" != "$(git -C "$work" rev-parse HEAD)" ]] || fail "fixture needs a stale event SHA"
+snapshot
+DV_RELEASE_EVENT_SHA="$stale_event" DV_NEXT_TAG=v0.0.38 run_guard 4
+assert_unchanged
+git -C "$work" rev-parse --verify --quiet refs/tags/v0.0.38 >/dev/null && fail "stale event still created v0.0.38"
+echo "ok: stale event SHA, exit 4, no release"
+
+echo "== tip is already chore(release): exit 5 without cutting =="
+rm -f "$marker"
+git -C "$other" commit --allow-empty -m "chore(release): 0.0.38" >/dev/null
+git -C "$other" push origin HEAD:master >/dev/null
+git -C "$work" fetch --no-tags origin master >/dev/null
+git -C "$work" merge --ff-only origin/master >/dev/null
+[[ "$(git -C "$work" log -1 --format=%s)" == chore\(release\):* ]] || fail "fixture tip is not chore(release)"
+[[ "$(git -C "$work" rev-parse HEAD)" == "$(git -C "$origin" rev-parse refs/heads/master)" ]] || fail "work is not the release tip"
+snapshot
+unset DV_RELEASE_EVENT_SHA || true
+DV_NEXT_TAG=v0.0.39 run_guard 5
+assert_unchanged
+git -C "$work" rev-parse --verify --quiet refs/tags/v0.0.39 >/dev/null && fail "release tip still created v0.0.39"
+echo "ok: tip already chore(release), exit 5, no release"
+
 echo "== tip and free tag: cutter may run =="
 rm -f "$marker"
+git -C "$other" commit --allow-empty -m "feat: after release" >/dev/null
+git -C "$other" push origin HEAD:master >/dev/null
 git -C "$work" fetch --no-tags origin master >/dev/null
 git -C "$work" merge --ff-only origin/master >/dev/null
 [[ "$(git -C "$work" rev-parse HEAD)" == "$(git -C "$origin" rev-parse refs/heads/master)" ]] || fail "work is not the tip"
+[[ "$(git -C "$work" log -1 --format=%s)" != chore\(release\):* ]] || fail "allowed cut fixture must not be chore(release)"
 before_commits="$(git -C "$work" rev-list --count HEAD)"
 origin_before="$(git -C "$origin" rev-parse refs/heads/master)"
-DV_NEXT_TAG=v0.0.38 run_guard 0
+tip_now="$(git -C "$work" rev-parse HEAD)"
+unset DV_RELEASE_EVENT_SHA || true
+DV_RELEASE_EVENT_SHA="$tip_now" DV_NEXT_TAG=v0.0.39 run_guard 0
 [[ -e "$marker" ]] || fail "cutter did not run when the cut was allowed"
 after_commits="$(git -C "$work" rev-list --count HEAD)"
 [[ "$after_commits" == "$((before_commits + 1))" ]] || fail "allowed cut did not create exactly one commit"
-git -C "$work" rev-parse --verify --quiet refs/tags/v0.0.38 >/dev/null || fail "allowed cut did not create the tag"
+git -C "$work" rev-parse --verify --quiet refs/tags/v0.0.39 >/dev/null || fail "allowed cut did not create the tag"
 [[ "$(git -C "$origin" rev-parse refs/heads/master)" == "$origin_before" ]] || fail "allowed cut pushed master"
-git -C "$origin" rev-parse --verify --quiet refs/tags/v0.0.38 >/dev/null && fail "allowed cut pushed the tag"
+git -C "$origin" rev-parse --verify --quiet refs/tags/v0.0.39 >/dev/null && fail "allowed cut pushed the tag"
 echo "ok: allowed cut stays local to the clone"
 
 echo "ci-release-guard.test.sh: ok"

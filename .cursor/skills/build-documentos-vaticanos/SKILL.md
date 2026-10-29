@@ -61,7 +61,7 @@ Un push a `master` o `typescript-migration` arranca el flujo «Documentos Vatica
 Orden, con Electron apagado (7 etapas):
 
 1. Disco libre. Default `DV_MIN_FREE_GB=10`. `0` salta el chequeo.
-2. `scripts/ci-release-guard.sh`, salvo `DV_SKIP_RELEASE=1`. Si `HEAD` no es la punta de `origin/master`, o el tag que saldría ya está en origin, el script sale y no crea commit ni tag. Si pasa, corre `npx --yes standard-version@9.5.0`.
+2. `scripts/ci-release-guard.sh`, salvo `DV_SKIP_RELEASE=1`. Si el SHA del evento o `HEAD` no es la punta de `origin/master`, si la punta ya es `chore(release):`, o si el tag que saldría ya está en origin, el script sale y no crea commit ni tag. Si pasa, corre `npx --yes standard-version@9.5.0`.
 3. Dependencias (raíz, `frontend`, `backend`, `scripts-descarga`) y las pruebas de arriba.
 4. `scripts/package-web.sh` y `bash e2e/run-dist-smoke.sh`.
 5. `scripts/package-apk.sh`.

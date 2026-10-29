@@ -12,7 +12,7 @@ La versión de producto es la de `package.json` en la raíz. El tag es `v` más 
 
 ## Quién la corta
 
-En el build de CI, `.ci-build.sh` llama a `scripts/ci-release-guard.sh` con el árbol limpio, antes de instalar dependencias. El guardia no hace fetch y no empuja. Sale sin commit y sin tag si `HEAD` no es la punta de `origin/master`, o si el tag que saldría ya está en origin (o en el clon). Si las dos comprobaciones pasan, corre:
+En el build de CI, `.ci-build.sh` llama a `scripts/ci-release-guard.sh` con el árbol limpio, antes de instalar dependencias. El guardia no hace fetch y no empuja. Sale sin commit y sin tag si el SHA del evento ya no es la punta de `origin/master` (4), si `HEAD` no es esa punta (3), si la punta ya es `chore(release):` (5), o si el tag que saldría ya está en origin o en el clon (2). Si pasa, corre:
 
 ```bash
 npx --yes standard-version@9.5.0
