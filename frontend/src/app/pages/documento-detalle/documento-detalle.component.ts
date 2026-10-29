@@ -42,6 +42,7 @@ import { PopeRecord } from 'src/app/core/papacy/papacy.models';
 import { HistoricalContextService } from 'src/app/core/context/historical-context.service';
 import { ResolvedHistoricalContext } from 'src/app/core/context/historical-context.models';
 import { relatedSeedForDocument } from 'src/app/core/search/semantic-search.logic';
+import { SyncJournalService } from 'src/app/core/sync/sync-journal.service';
 
 const FAVS_KEY = 'dv.favs';
 
@@ -103,6 +104,7 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     private historical: HistoricalContextService,
     private topicIndex: TopicIndexService,
     private readerPrefs: ReaderPreferencesService,
+    private journal: SyncJournalService,
   ) {}
 
   ngOnInit(): void {
@@ -231,8 +233,13 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
     if (!this.meta) return;
     const favs = this.leerFavs();
     const idx = favs.indexOf(this.meta.id);
-    if (idx >= 0) favs.splice(idx, 1);
-    else favs.push(this.meta.id);
+    if (idx >= 0) {
+      favs.splice(idx, 1);
+      this.journal.recordFavoritoLapida(this.meta.id);
+    } else {
+      favs.push(this.meta.id);
+      this.journal.recordFavoritoPoner(this.meta.id);
+    }
     this.fav = idx < 0;
     try {
       localStorage.setItem(FAVS_KEY, JSON.stringify(favs));

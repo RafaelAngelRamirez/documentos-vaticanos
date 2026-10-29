@@ -4,6 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../auth/auth.service';
+import { SyncJournalService } from '../sync/sync-journal.service';
 
 export type ThemeReviewStatus =
   | 'none'
@@ -60,7 +61,13 @@ const THEMES_STORAGE_KEY = 'themes.user';
  */
 @Injectable({ providedIn: 'root' })
 export class ThemesService {
-  constructor(private http: HttpClient, private auth: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService,
+    private journal: SyncJournalService,
+  ) {
+    void this.journal.ensureReady();
+  }
 
   // ── Persistencia local (fuente primaria) ─────────────────────────────
 
@@ -113,6 +120,7 @@ export class ThemesService {
     if (idx >= 0) items[idx] = theme;
     else items.push(theme);
     this.writeLocal(items);
+    this.journal.recordTemaPoner(theme);
   }
 
   private newId(): string {
@@ -297,6 +305,7 @@ export class ThemesService {
 
   remove(id: string): Observable<void> {
     this.writeLocal(this.readLocal().filter((t) => t.id !== id));
+    this.journal.recordTemaLapida(id);
     this.trySync(this.http.delete(`${environment.apiBaseUrl}/me/themes/${id}`));
     return of(undefined);
   }

@@ -14,6 +14,7 @@ import { localeLabel } from 'src/app/core/corpus/document-locale.logic';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { UI_LOCALES } from 'src/app/core/i18n/ui-i18n.logic';
 import { BackupService } from 'src/app/services/backup.service';
+import { SyncJournalService } from 'src/app/core/sync/sync-journal.service';
 import {
   ContentLocalePref,
   ReaderFont,
@@ -132,6 +133,7 @@ export class AjustesComponent implements OnInit, OnDestroy {
   constructor(
     private readerPrefs: ReaderPreferencesService,
     private backup: BackupService,
+    private journal: SyncJournalService,
     public auth: AuthService,
     private router: Router,
     private appUpdateSvc: AppUpdateService,
@@ -419,6 +421,15 @@ export class AjustesComponent implements OnInit, OnDestroy {
     }
   }
 
+  async exportarDiario(): Promise<void> {
+    try {
+      await this.journal.exportarDelta();
+      this.setDataMsg('Diario exportado (.dvdelta): pásalo a otro aparato sin red.');
+    } catch {
+      this.setDataMsg('No se pudo exportar el diario.', true);
+    }
+  }
+
   async onImportarArchivo(event: Event): Promise<void> {
     const input = event.target as HTMLInputElement;
     const file = input.files?.[0];
@@ -426,6 +437,15 @@ export class AjustesComponent implements OnInit, OnDestroy {
     if (!file) return;
     this.importando = true;
     try {
+      const name = (file.name || '').toLowerCase();
+      if (name.endsWith('.dvdelta')) {
+        const resumen = await this.journal.importarDelta(file);
+        this.setDataMsg(
+          `Diario importado (${resumen.aplicadas} operaciones nuevas). La página se recargará…`,
+        );
+        setTimeout(() => window.location.reload(), 1500);
+        return;
+      }
       const resumen = await this.backup.importar(file);
       const partes = [`${resumen.anotaciones} anotaciones`];
       partes.push(

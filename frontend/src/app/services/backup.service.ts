@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { mergeBackupById } from '../core/sync/sync-journal.logic';
 import { READER_PREFS_STORAGE_KEY } from './reader-preferences.service';
 import {
   NARRATOR_PREFS_STORAGE_KEY,
@@ -172,15 +173,29 @@ export class BackupService {
       notificaciones: false,
     };
     if (Array.isArray(data.anotaciones)) {
-      localStorage.setItem(
-        ANOTACIONES_STORAGE_KEY,
-        JSON.stringify(data.anotaciones)
+      // Unión por id: lo que falta en el archivo no es una lápida.
+      const local =
+        this.leerJson<Array<{ id?: unknown; updatedAt?: unknown }>>(
+          ANOTACIONES_STORAGE_KEY,
+        ) || [];
+      const merged = mergeBackupById(
+        local,
+        data.anotaciones as Array<{ id?: unknown; updatedAt?: unknown }>,
       );
-      resumen.anotaciones = data.anotaciones.length;
+      localStorage.setItem(ANOTACIONES_STORAGE_KEY, JSON.stringify(merged));
+      resumen.anotaciones = merged.length;
     }
     if (Array.isArray(data.temas)) {
-      localStorage.setItem(TEMAS_STORAGE_KEY, JSON.stringify(data.temas));
-      resumen.temas = data.temas.length;
+      const local =
+        this.leerJson<Array<{ id?: unknown; updatedAt?: unknown }>>(
+          TEMAS_STORAGE_KEY,
+        ) || [];
+      const merged = mergeBackupById(
+        local,
+        data.temas as Array<{ id?: unknown; updatedAt?: unknown }>,
+      );
+      localStorage.setItem(TEMAS_STORAGE_KEY, JSON.stringify(merged));
+      resumen.temas = merged.length;
     }
     if (
       data.preferencias &&
