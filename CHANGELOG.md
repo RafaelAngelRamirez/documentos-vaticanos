@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.38](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.37...v0.0.38) (2026-10-31)
+
+
+### Features
+
+* clase pública en el mismo JSON, lectura offline sin API ([799761f](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/799761f2ba281d6cb96f78a0e27b68fec0b56035))
+* diario local-first append-only (dv-sync-v1) ([c005511](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/c005511a6baa46833859ac711ff4980988c610b7))
+* keep patristics in an offline pack outside the base APK ([397fc88](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/397fc88d13bf1287fffb1c69079734f8e5fddf82))
+* let the reader change line spacing and measure ([6e68719](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/6e6871906d949113c85bd7610335c5b6a13a2245))
+* medir citas fuera del corpus y auditarlo ([3a9d715](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/3a9d715307b29251631dee9f66bb3fca3da2d636))
+* offline shelf search from a compact per-package index ([dfdc0e5](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/dfdc0e54462fbea862024003325ca3d4c742a2f4))
+
+
+### Bug Fixes
+
+* alinear DocumentMeta packId/contentSha256/contentBytes ([9123ca2](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/9123ca26eb482a02e1871e81a969835d05df2f91))
+* **ci:** no cortar release si el event SHA es viejo o la punta ya es chore(release) ([219f32d](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/219f32df9d9356b16049bd54dc6f2b720e8df762))
+* **ci:** no cortar release si el tag existe o el SHA no es master ([a0a510b](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/a0a510b117be9e5c2369f996c22f08f9dbac556f))
+* keep line spacing separate from the route-jump bar ([3d7030c](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/3d7030c1b85b0e9357234f9ffdf54c0c6ec6c8fb))
+* keep reader bars up during a route jump ([0c43e37](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/0c43e37b1c4b04f332307d76c1dfbfe04883c714))
+* **search:** tema: al índice de tema y .punto al filtro ([07e2628](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/07e2628e78f4f83fee8c375bc1ca52d04fafbb0a)), closes [#36](https://github.com/RafaelAngelRamirez/documentos-vaticanos/issues/36)
+
 ### [0.0.37](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.36...v0.0.37) (2026-10-27)
 
 
