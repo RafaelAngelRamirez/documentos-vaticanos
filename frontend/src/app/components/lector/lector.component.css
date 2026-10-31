@@ -164,10 +164,11 @@
     min-height: calc(var(--reader-narr-height) + var(--safe-area-inset-bottom));
   }
 
-  .rcolw {
-    max-width: 62ch;
-    margin: 0 auto;
-  }
+}
+
+.rcolw {
+  max-width: var(--reader-max-width, 65ch);
+  margin-inline: auto;
 }
 
 .rtxt {
