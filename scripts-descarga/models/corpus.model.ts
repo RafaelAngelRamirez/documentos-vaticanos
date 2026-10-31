@@ -50,6 +50,12 @@ export interface DocumentMeta {
   unitCount?: number;
   /** Short sha256 of content.json; invalidates the reader durable cache on repair. */
   contentHash?: string;
+  /** `patristica` when the work is in the offline pack, not the base APK. */
+  packId?: string;
+  /** Full SHA-256 of canonical content.json. Pack manifests only. */
+  contentSha256?: string;
+  /** Byte length of that content.json. */
+  contentBytes?: number;
 }
 
 /**
