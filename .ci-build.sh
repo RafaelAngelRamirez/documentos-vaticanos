@@ -166,6 +166,7 @@ npm --prefix frontend run test:open-reading
 npm --prefix frontend run test:reader-prefs
 npm --prefix frontend run test:unit-bookmark
 npm --prefix frontend run test:review
+npm --prefix frontend run test:reader-bars
 npm --prefix frontend run test:mobile-flows
 npm --prefix frontend run test:speech-prep
 npm --prefix frontend run test:speech-lang

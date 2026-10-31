@@ -32,6 +32,7 @@ import {
 import { PuntoModule } from '../punto/punto.module';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
+import { barsAfterScroll } from 'src/app/core/shell/reader-bars.logic';
 import { AnotacionesService } from 'src/app/services/anotaciones.service';
 import {
   adoptSpiedUnit,
@@ -130,6 +131,9 @@ export class LectorComponent implements OnInit, OnDestroy {
   barsHidden = false;
   private lastScrollY = 0;
   private scrollAccum = 0;
+  /** True while a route jump scrolls. That jump is not the reader moving down. */
+  private jumpGuardsBars = false;
+  private jumpGuardTimer: ReturnType<typeof setTimeout> | null = null;
 
   /** 5D · Narrador (TTS del dispositivo). `narrPlaying` alimenta la pastilla. */
   narrPlaying = false;
@@ -189,31 +193,42 @@ export class LectorComponent implements OnInit, OnDestroy {
   };
 
   /** F4: oculta las barras al bajar >24px, las muestra al subir.
-   *  Siempre visibles en los extremos y con ajustes/narrador abiertos. */
+   *  Siempre visibles en los extremos, con ajustes/narrador abiertos,
+   *  y mientras un salto de ruta está en curso. */
   private updateBarsVisibility(): void {
     if (typeof window === 'undefined') return;
     const y = window.scrollY;
-    const delta = y - this.lastScrollY;
-    this.lastScrollY = y;
-
     const doc = document.documentElement;
-    const atTop = y < 48;
-    const atBottom = y + window.innerHeight >= doc.scrollHeight - 48;
-    const uiOpen = this.prefsOpen || this.notaOpen || this.narrPlaying;
+    const next = barsAfterScroll(
+      {
+        lastScrollY: this.lastScrollY,
+        scrollAccum: this.scrollAccum,
+        barsHidden: this.barsHidden,
+      },
+      {
+        y,
+        atTop: y < 48,
+        atBottom: y + window.innerHeight >= doc.scrollHeight - 48,
+        uiOpen: this.prefsOpen || this.notaOpen || this.narrPlaying,
+        jumpGuardsBars: this.jumpGuardsBars,
+      },
+    );
+    this.lastScrollY = next.lastScrollY;
+    this.scrollAccum = next.scrollAccum;
+    this.barsHidden = next.barsHidden;
+  }
 
-    if (atTop || atBottom || uiOpen) {
+  /** Keep bars up across the scroll events that scrollIntoView emits. */
+  private armJumpGuard(): void {
+    this.jumpGuardsBars = true;
+    if (this.jumpGuardTimer) clearTimeout(this.jumpGuardTimer);
+    this.jumpGuardTimer = setTimeout(() => {
+      this.jumpGuardTimer = null;
+      this.jumpGuardsBars = false;
       this.scrollAccum = 0;
       this.barsHidden = false;
-      return;
-    }
-
-    // Acumula en la misma dirección; cambio de dirección reinicia.
-    this.scrollAccum = Math.sign(delta) === Math.sign(this.scrollAccum)
-      ? this.scrollAccum + delta
-      : delta;
-
-    if (this.scrollAccum > 24) this.barsHidden = true;
-    else if (this.scrollAccum < -24) this.barsHidden = false;
+      if (typeof window !== 'undefined') this.lastScrollY = window.scrollY;
+    }, 120);
   }
 
   private readonly onSelectionChange = (): void => {
@@ -321,6 +336,10 @@ export class LectorComponent implements OnInit, OnDestroy {
     }
     if (this.selDebounce) clearTimeout(this.selDebounce);
     if (this.feedbackTimer) clearTimeout(this.feedbackTimer);
+    if (this.jumpGuardTimer) {
+      clearTimeout(this.jumpGuardTimer);
+      this.jumpGuardTimer = null;
+    }
     if (this.persistTimer) {
       clearTimeout(this.persistTimer);
       this.persistTimer = null;
@@ -1050,6 +1069,7 @@ export class LectorComponent implements OnInit, OnDestroy {
         return;
       }
       this.pinScrolled = true;
+      this.armJumpGuard();
       el.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' });
     }, wait);
   }
