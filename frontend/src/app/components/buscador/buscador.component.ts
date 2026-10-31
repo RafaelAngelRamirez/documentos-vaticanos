@@ -325,13 +325,14 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     const locale = this.readerPrefs.resolveContentLocale();
     this.ensureTopicPack(locale);
 
-    const pointOnly =
-      (parsed.points?.length ?? 0) > 0 &&
-      (parsed.contentTerms?.length ?? 0) === 0;
+    // Shelves are lexical-only. `tema:` / mode=topic goes to the topic index;
+    // any `.12` / point clause keeps the per-work index + point filter.
+    const hasPoints = (parsed.points?.length ?? 0) > 0;
     if (
       !this.forceFlat &&
       !this.allLocales &&
-      !pointOnly &&
+      !isTopicMode &&
+      !hasPoints &&
       (parsed.contentTerms?.length ?? 0) > 0
     ) {
       this.searchShelves(parsed, locale, myGen);
