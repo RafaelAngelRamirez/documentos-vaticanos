@@ -71,6 +71,16 @@ export class ClaseDetalleComponent implements OnInit, OnDestroy {
     return this.entry?.papel === 'maestro';
   }
 
+  get esPublica(): boolean {
+    return this.entry?.clase.audiencia === 'publica';
+  }
+
+  get puedeExportar(): boolean {
+    if (!this.entry || !this.entry.clase.pasos.length) return false;
+    if (this.esPublica) return true;
+    return this.esMaestro && this.puedeArmar;
+  }
+
   get puedeArmar(): boolean {
     return puedeArmarClase({
       isLoggedIn: this.auth.isLoggedIn,
@@ -130,7 +140,13 @@ export class ClaseDetalleComponent implements OnInit, OnDestroy {
   async exportar(): Promise<void> {
     const res = this.clases.exportar(this.id);
     if (!res.ok) {
-      this.aviso = this.t(res.codigo === 'nolista' ? 'clase.need_ready' : 'clase.need_step');
+      this.aviso = this.t(
+        res.codigo === 'nolista'
+          ? 'clase.need_ready'
+          : res.codigo === 'alumno'
+            ? 'clase.need_teacher'
+            : 'clase.need_step',
+      );
       return;
     }
     await entregarArchivo(res.nombre, res.json);

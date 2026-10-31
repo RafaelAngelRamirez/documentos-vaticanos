@@ -12,6 +12,7 @@
         <button type="button" class="clase-open" (click)="abrir(c)">
           <div class="serif fw6" style="font-size: 20px">{{ c.clase.titulo }}</div>
           <div class="fs13 muted">
+            <span *ngIf="c.clase.audiencia === 'publica'">{{ t('clase.audience_public') }} · </span>
             {{ t('clase.revision', { n: c.clase.revision }) }}
             · {{ t('clase.progress', { done: hechos(c), total: c.clase.pasos.length }) }}
           </div>

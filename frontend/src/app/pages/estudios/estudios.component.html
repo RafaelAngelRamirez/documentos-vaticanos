@@ -92,6 +92,7 @@
             <div class="mmeta">
               {{ t('clase.revision', { n: c.clase.revision }) }}
               · {{ c.clase.pasos.length }}
+              <span *ngIf="c.clase.audiencia === 'publica'"> · {{ t('clase.audience_public') }}</span>
               <span *ngIf="c.listaParaAlumnos"> · {{ t('clase.ready_yes') }}</span>
             </div>
           </div>

@@ -20,6 +20,7 @@ import {
   marcarLista,
   migrarProgresoLegado,
   olvidarProgreso,
+  publicar,
   quitarEntrada,
   quitarPaso,
   reordenar,
@@ -86,6 +87,10 @@ export class ClasesService {
 
   marcarLista(id: string, lista: boolean): OkEntry | Err {
     return this.mapEntry(id, (e) => marcarLista(e, lista));
+  }
+
+  publicar(id: string): OkEntry | Err {
+    return this.mapEntry(id, (e) => publicar(e, this.now()));
   }
 
   exportar(id: string): { ok: true; json: string; nombre: string } | Err {
