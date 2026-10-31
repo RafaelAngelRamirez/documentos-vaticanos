@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { SyncJournalService } from '../core/sync/sync-journal.service';
 import {
   LastRead,
   LastReadInput,
@@ -11,8 +12,11 @@ export type { LastRead } from './reading-progress.logic';
 
 @Injectable({ providedIn: 'root' })
 export class ReadingProgressService {
+  constructor(private journal: SyncJournalService) {}
+
   setLastRead(entry: LastReadInput): void {
-    setLastReadInStore(localStorage, entry);
+    const full = setLastReadInStore(localStorage, entry);
+    this.journal.recordLectura(full);
   }
 
   getLastRead(): LastRead | null {
