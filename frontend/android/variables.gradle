@@ -1,5 +1,6 @@
 ext {
-    minSdkVersion = 22
+    // Play automatic protection requires minSdk >= 24 (n8n125905 rejected 22).
+    minSdkVersion = 24
     // Play requires target API 36 from 2026-08-31 (android-36 is on the runner SDK volume).
     compileSdkVersion = 36
     targetSdkVersion = 36
