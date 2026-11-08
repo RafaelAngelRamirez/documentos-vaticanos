@@ -33,6 +33,13 @@ function main() {
   );
   assert.match(variables, /compileSdkVersion = 36/);
   assert.match(variables, /targetSdkVersion = 36/);
+  // Play automatic protection rejects bundles with minSdk < 24 (n8n125905 / 7-nov).
+  const minSdk = variables.match(/minSdkVersion\s*=\s*(\d+)/);
+  assert.ok(minSdk, 'minSdkVersion in variables.gradle');
+  assert.ok(
+    Number(minSdk[1]) >= 24,
+    `Play packaging minSdk must be >= 24; got ${minSdk[1]}`,
+  );
   const rootGradle = fs.readFileSync(
     path.join(ROOT, 'frontend/android/build.gradle'),
     'utf8',
