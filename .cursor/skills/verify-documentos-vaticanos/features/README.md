@@ -33,6 +33,10 @@ Each feature file has an H1, one paragraph, then these H2 sections in order.
 3. `Driving it with dv-verify`
 4. `Gotchas`
 
+## Maintenance
+
+After a route or drive change, run `node .cursor/skills/verify-documentos-vaticanos/scripts/check-map.mjs` and expect `map ok`. The routine, the debt rule, and the pointer to `docs/debt-hotspots.md` live in `../SKILL.md`.
+
 ## Route index
 
 Every `path:` in `frontend/src/app/pages/pages-routing.module.ts` is named in one feature file.
@@ -49,11 +53,14 @@ Every `path:` in `frontend/src/app/pages/pages-routing.module.ts` is named in on
 | `cuenta/referencias` | [referencias.md](./referencias.md) |
 | `cuenta/temas` | [temas.md](./temas.md) |
 | `cuenta/temas/:id` | [temas.md](./temas.md) |
+| `notas/repaso` | [notas.md](./notas.md) |
 | `notas` | [notas.md](./notas.md) |
 | `estudio` | [estudios.md](./estudios.md) |
 | `estudios` | [estudios.md](./estudios.md) |
 | `estudios/:id` | [estudios.md](./estudios.md) |
 | `estudios/:id/editar` | [estudios.md](./estudios.md) |
+| `clases/:id/editar` | [aprendizaje.md](./aprendizaje.md) |
+| `clases/:id` | [aprendizaje.md](./aprendizaje.md) |
 | `aprendizaje` | [aprendizaje.md](./aprendizaje.md) |
 | `explorar` | [explorar.md](./explorar.md) |
 | `explorar/relaciones` | [explorar.md](./explorar.md) |
@@ -71,6 +78,7 @@ Every `path:` in `frontend/src/app/pages/pages-routing.module.ts` is named in on
 | `papas` | [papas.md](./papas.md) |
 | `papas/:id` | [papas.md](./papas.md) |
 | `lectio` | [lectio.md](./lectio.md) |
+| `` `${ROUTE.leyendo}/:id/u/:unit` `` (`leyendo/:id/u/:unit`) | [lector.md](./lector.md) |
 | `` `${ROUTE.leyendo}/:documento` `` (`leyendo/:documento`) | [lector.md](./lector.md) |
 | `` `${ROUTE.leyendo}/:id/${ROUTE.punto}/:user` `` (`leyendo/:id/punto/:user`) | [lector.md](./lector.md) |
 
@@ -83,9 +91,9 @@ Every `path:` in `frontend/src/app/pages/pages-routing.module.ts` is named in on
 - [Cuenta](./cuenta.md) covers `cuenta`.
 - [Mis referencias](./referencias.md) covers `cuenta/referencias`.
 - [Mis temas](./temas.md) covers `cuenta/temas` and `cuenta/temas/:id`.
-- [Notas](./notas.md) covers `notas`.
+- [Notas](./notas.md) covers `notas` and `notas/repaso`.
 - [Estudios](./estudios.md) covers `estudio`, `estudios`, `estudios/:id`, and `estudios/:id/editar`.
-- [Aprendizaje](./aprendizaje.md) covers `aprendizaje`.
+- [Aprendizaje](./aprendizaje.md) covers `aprendizaje`, `clases/:id`, and `clases/:id/editar`.
 - [Explorar](./explorar.md) covers `explorar`, `explorar/relaciones`, and `explorar/topicos/:slug`.
 - [Ajustes](./ajustes.md) covers `ajustes`.
 - [Ficha de documento](./documento.md) covers `documento/:id`.
@@ -95,4 +103,4 @@ Every `path:` in `frontend/src/app/pages/pages-routing.module.ts` is named in on
 - [Santoral](./santoral.md) covers `santoral` and `santoral/:id`.
 - [Papas](./papas.md) covers `papas` and `papas/:id`.
 - [Lectio divina](./lectio.md) covers `lectio`.
-- [Lector](./lector.md) covers `leyendo/:documento` and `leyendo/:id/punto/:user`.
+- [Lector](./lector.md) covers `leyendo/:id/u/:unit`, `leyendo/:documento`, and `leyendo/:id/punto/:user`.

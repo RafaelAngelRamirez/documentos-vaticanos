@@ -17,6 +17,11 @@ const H2 = [
   '## Driving it with dv-verify',
   '## Gotchas',
 ];
+const CRITICAL_TESTS = [
+  ['lector.md', 'yarn test:e2e-reader'],
+  ['biblioteca.md', 'npm --prefix frontend run test:library-catalog'],
+  ['buscar.md', 'yarn test:search-load'],
+];
 
 const files = fs
   .readdirSync(featuresDir)
@@ -52,7 +57,7 @@ const templates = [...routeSource.matchAll(/path:\s*(`[^`]+`)/g)].map((m) => m[1
 for (const token of [...literals, ...exprs, ...templates]) {
   if (!mapText.includes(token)) fail(`route token missing from map: ${token}`);
 }
-const resolved = ['inicio', 'about', 'documentos/listar', 'leyendo/:documento', 'leyendo/:id/punto/:user', 'ROUTE.punto', 'ROUTE.leyendo'];
+const resolved = ['inicio', 'about', 'documentos/listar', 'leyendo/:documento', 'leyendo/:id/u/:unit', 'leyendo/:id/punto/:user', 'ROUTE.punto', 'ROUTE.leyendo'];
 for (const token of resolved) {
   if (!mapText.includes(token)) fail(`resolved path missing: ${token}`);
 }
@@ -68,6 +73,10 @@ for (const file of files) {
     if (positions[i] < positions[i - 1]) fail(`${file} H2 order`);
   }
   if (!text.startsWith('# ')) fail(`${file} missing H1`);
+  const critical = CRITICAL_TESTS.find((row) => row[0] === file);
+  if (critical && !text.includes(critical[1])) {
+    fail(`${file} missing test command ${critical[1]}`);
+  }
 }
 
 if (failed) process.exit(1);

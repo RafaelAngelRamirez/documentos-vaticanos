@@ -22,8 +22,10 @@ Preconditions:
 - UI locale is the default Spanish catalog (`frontend/src/assets/i18n/es.json`).
 
 - **Open search.** Run `node .cursor/skills/verify-documentos-vaticanos/scripts/dv-verify.mjs drive buscar`. The title `Buscar` is visible and the field `[aria-label="Búsqueda en el texto: palabra, frase o intención"]` is attached.
+- **Test.** `yarn test:search-load` covers the load contract (`ensureIndexForLocale` on a query, no `ensureAllLoaded`). The smoke drive does not submit a query.
 
 ## Gotchas
 
 - Search may load a large index after the shell paints. The drive waits for the field, not for a hit list.
 - Do not treat the library filter on `/biblioteca` as this screen.
+- Canonical open is `loadManifest` only. A query uses `ensureIndexForLocale`, then `ensureLoadedMany` for the hits. Drive fails if the smoke loads four or more `content.json` bodies (`ensureAllLoaded` is still on `CorpusService`, deprecated), if legacy cursor keys are written, or if `design-product.css` / `design-reading.css` is linked. Do not copy `margin-left: auto` from `.wsearch` in `wbar.component.ts`; the canonical inset is `margin-inline-start: auto`. That physical margin is existing debt and is not a Drive failure yet. See `docs/debt-hotspots.md`.

@@ -17,6 +17,17 @@ const runDir = path.join(skillDir, '.run');
 const evidenceDir = path.join(skillDir, 'evidence');
 const statePath = path.join(runDir, 'state.json');
 
+const LEGACY_STORAGE_KEYS = new Set([
+  'document_id',
+  'article_selected',
+  'actual_index',
+  'dv.settings',
+]);
+const DEAD_STYLESHEETS = ['design-product.css', 'design-reading.css'];
+const BULK_CONTENT_JSON = 4;
+const DEBT_RULE =
+  'Si encuentras deuda técnica, no la copies. Usa el patrón canónico. Si la verificación falla por deuda, reporta el patrón y propón subir la corrección en la pirámide.';
+
 const FEATURES = {
   inicio: {
     path: '/inicio',
@@ -30,6 +41,7 @@ const FEATURES = {
   biblioteca: {
     path: '/biblioteca',
     text: 'Biblioteca',
+    selector: 'button.bookcard',
   },
   'biblioteca-redirect': {
     path: '/documentos/listar',
@@ -159,7 +171,7 @@ const FEATURES = {
   lector: {
     path: '/leyendo/cic-es/punto/2',
     selector: 'app-lector',
-    urlIncludes: '/leyendo/cic-es/punto/2',
+    urlIncludes: '/leyendo/cic-es/u/2',
     paper: true,
     bnav: 0,
   },
@@ -229,6 +241,107 @@ function resolveDist() {
     if (fs.existsSync(path.join(dir, 'index.html'))) return dir;
   }
   return candidates[0];
+}
+
+function firstSelector(selector) {
+  let quote = '';
+  let current = '';
+  for (const ch of selector) {
+    if ((ch === '"' || ch === "'") && !quote) quote = ch;
+    else if (ch === quote) quote = '';
+    else if (ch === ',' && !quote) return current.trim();
+    current += ch;
+  }
+  return current.trim();
+}
+
+function resolveChromium() {
+  if (process.env.DV_VERIFY_CHROMIUM) return process.env.DV_VERIFY_CHROMIUM;
+  const candidates = [
+    '/usr/bin/chromium',
+    '/usr/bin/chromium-browser',
+    '/usr/local/bin/google-chrome',
+    '/usr/bin/google-chrome',
+  ];
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) return candidate;
+  }
+  return candidates[0];
+}
+
+function debtFindings(snapshot) {
+  const findings = [];
+  const keys = (snapshot.storageKeys || []).filter(
+    (key) => LEGACY_STORAGE_KEYS.has(key) || String(key).startsWith('dv.pos.'),
+  );
+  if (keys.length) {
+    findings.push({
+      id: 'legacy-reading-keys',
+      forbidden: 'document_id, article_selected, actual_index, dv.settings, dv.pos.*',
+      seen: keys.join(' '),
+      canonical: 'route cite documentId + unitIndex and reader.prefs.v1',
+    });
+  }
+  const sheets = (snapshot.stylesheets || []).filter((href) =>
+    DEAD_STYLESHEETS.some((name) => String(href).includes(name)),
+  );
+  if (sheets.length) {
+    findings.push({
+      id: 'dead-style-copies',
+      forbidden: 'design-product.css, design-reading.css',
+      seen: sheets.join(' '),
+      canonical: 'frontend/src/styles.css',
+    });
+  }
+  const bodies = snapshot.contentDocumentIds || [];
+  if (bodies.length >= BULK_CONTENT_JSON) {
+    findings.push({
+      id: 'ensure-all-loaded',
+      forbidden: 'ensureAllLoaded',
+      seen: `${bodies.length} content.json (${bodies.slice(0, 8).join(' ')})`,
+      canonical:
+        'ensureWindow for the open document, or loadManifest and listCatalogDocuments; search uses ensureIndexForLocale',
+    });
+  }
+  return findings;
+}
+
+function formatDebt(finding) {
+  return [
+    `DEBT FAIL ${finding.id}`,
+    `pattern ${finding.forbidden}`,
+    `seen ${finding.seen}`,
+    `canonical ${finding.canonical}`,
+    'catalog docs/debt-hotspots.md',
+    DEBT_RULE,
+  ].join('\n');
+}
+
+function debtSelfCheck() {
+  const bad = [
+    debtFindings({ storageKeys: ['document_id', 'reader.prefs.v1'] }),
+    debtFindings({ stylesheets: ['http://127.0.0.1/design-reading.css'] }),
+    debtFindings({
+      contentDocumentIds: ['cic-es', 'lg-es', 'sc-es', 'bible-pueblo-de-dios-es'],
+    }),
+  ];
+  const clean = debtFindings({
+    storageKeys: ['reader.prefs.v1'],
+    stylesheets: ['http://127.0.0.1/styles.abc123.css'],
+    contentDocumentIds: ['cic-es'],
+  });
+  const labels = ['legacy-reading-keys', 'dead-style-copies', 'ensure-all-loaded'];
+  let ok = clean.length === 0;
+  bad.forEach((findings, index) => {
+    const hit = findings.some((finding) => finding.id === labels[index]);
+    if (!hit) ok = false;
+    for (const finding of findings) console.log(formatDebt(finding));
+  });
+  if (!ok) {
+    console.log('debt-self-check fail');
+    process.exit(1);
+  }
+  console.log('debt-self-check ok');
 }
 
 function pidAlive(pid) {
@@ -395,7 +508,11 @@ async function drive(name) {
   const base = baseUrl();
   const require = createRequire(path.join(repoRoot, 'e2e/package.json'));
   const { chromium } = require('playwright');
-  const executablePath = process.env.DV_VERIFY_CHROMIUM || '/usr/bin/chromium';
+  const executablePath = resolveChromium();
+  if (!fs.existsSync(executablePath)) {
+    console.log(`drive fail missing chromium ${executablePath}`);
+    process.exit(1);
+  }
   const browser = await chromium.launch({
     headless: true,
     executablePath,
@@ -416,12 +533,18 @@ async function drive(name) {
     localStorage.setItem('reader.prefs.v1', JSON.stringify(prefs));
   });
   const action = `${base}${feature.path}`;
-  const lines = [`feature ${name}`, `action GET ${feature.path}`, `action_url ${action}`];
+  const lines = [`feature ${name}`, `action GET ${feature.path}`, `action_url ${action}`, `chromium ${executablePath}`];
+  const contentDocumentIds = new Set();
+  page.on('response', (response) => {
+    const match = response.url().match(/\/documents\/([^/]+)\/content\.json(?:\?|$)/);
+    if (match && response.ok()) contentDocumentIds.add(decodeURIComponent(match[1]));
+  });
   let failed = false;
+  let debtSnapshot = { storageKeys: [], stylesheets: [] };
   try {
     await page.goto(action, { waitUntil: 'domcontentloaded', timeout: 60000 });
     if (feature.selector) {
-      await page.locator(feature.selector.split(',')[0].trim()).first().waitFor({
+      await page.locator(firstSelector(feature.selector)).first().waitFor({
         state: 'attached',
         timeout: 60000,
       });
@@ -461,7 +584,39 @@ async function drive(name) {
       /* page already closed */
     }
   } finally {
+    try {
+      debtSnapshot = await page.evaluate(() => {
+        const storageKeys = [];
+        try {
+          for (let i = 0; i < localStorage.length; i += 1) {
+            const key = localStorage.key(i);
+            if (key) storageKeys.push(key);
+          }
+        } catch {
+          /* private mode */
+        }
+        const stylesheets = [];
+        for (const node of document.querySelectorAll('link[rel="stylesheet"]')) {
+          if (node.href) stylesheets.push(node.href);
+        }
+        for (const sheet of document.styleSheets) {
+          if (sheet.href) stylesheets.push(sheet.href);
+        }
+        return { storageKeys, stylesheets };
+      });
+    } catch {
+      /* page already closed */
+    }
     await browser.close();
+  }
+  const findings = debtFindings({
+    storageKeys: debtSnapshot.storageKeys,
+    stylesheets: debtSnapshot.stylesheets,
+    contentDocumentIds: [...contentDocumentIds],
+  });
+  for (const finding of findings) {
+    failed = true;
+    lines.push(formatDebt(finding));
   }
   fs.mkdirSync(evidenceDir, { recursive: true });
   const evidencePath = path.join(evidenceDir, `${name}.txt`);
@@ -480,7 +635,9 @@ if (cmd === 'launch') {
   await drive(arg || 'lector');
 } else if (cmd === 'cleanup') {
   cleanup();
+} else if (cmd === 'debt-self-check') {
+  debtSelfCheck();
 } else {
-  console.log('usage: dv-verify.mjs launch|doctor|drive <feature>|cleanup');
+  console.log('usage: dv-verify.mjs launch|doctor|drive <feature>|cleanup|debt-self-check');
   process.exit(2);
 }

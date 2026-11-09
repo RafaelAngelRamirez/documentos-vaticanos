@@ -47,18 +47,30 @@ Stdout `doctor ok` is the pass. Anything else is a fail. Exit code is non-zero o
 node .cursor/skills/verify-documentos-vaticanos/scripts/dv-verify.mjs drive lector
 ```
 
-Replace `lector` with a feature id from `features/`. The script launches Playwright from `e2e/node_modules/playwright` against Chromium at `/usr/bin/chromium` (`DV_VERIFY_CHROMIUM` overrides the binary). Viewport is 1280×800. The context is anonymous. Before the app boots, the helper writes `reader.prefs.v1` with `uiLocale` and `contentLocale` set to `es`. A fresh context would otherwise follow `navigator.language` (`ReaderPreferencesService.load`).
+Replace `lector` with a feature id from `features/`. The script launches Playwright from `e2e/node_modules/playwright` against Chromium at `/usr/bin/chromium` (`DV_VERIFY_CHROMIUM` overrides the binary). If that path is missing, the helper uses the first existing binary among `/usr/bin/chromium-browser`, `/usr/local/bin/google-chrome`, and `/usr/bin/google-chrome`. Viewport is 1280×800. The context is anonymous. Before the app boots, the helper writes `reader.prefs.v1` with `uiLocale` and `contentLocale` set to `es`. A fresh context would otherwise follow `navigator.language` (`ReaderPreferencesService.load`).
 
 The reader proof is `drive lector`.
 
 - Action. `GET /leyendo/cic-es/punto/2`.
-- Result. The URL contains `/leyendo/cic-es/punto/2`. `app-lector` is attached. `app-punto` is visible. `.bnav` count is 0.
+- Result. The URL contains `/leyendo/cic-es/u/2` (`readingCommands` rewrites the `punto` segment to the cite form). `app-lector` is attached. `app-punto` is visible. `.bnav` count is 0.
 
 `drive lector-doc` opens `/leyendo/cic-es` and expects the same shell without the bottom nav.
 
 Other ids and the exact URL each one opens are in the feature files. A drive that cannot see its text or selector exits non-zero and still writes the evidence file.
 
 Do not drive two browsers against one mutation at the same time. This app's anonymous reader does not mutate the server. Local storage from a drive dies with the browser context.
+
+Drive rejects three debt patterns that already exist in the repo. A hit prints `DEBT FAIL`, names the pattern and the canonical path, points at `docs/debt-hotspots.md`, and exits non-zero. The evidence file is still written.
+
+- `legacy-reading-keys`. localStorage holds `document_id`, `article_selected`, `actual_index`, `dv.settings`, or `dv.pos.*`. Canonical: the route cite (`documentId` + `unitIndex`) and `reader.prefs.v1`. The keys are still named in `frontend/src/app/core/reading/cite.ts` and cleared on startup.
+- `dead-style-copies`. A stylesheet URL contains `design-product.css` or `design-reading.css`. Canonical: `frontend/src/styles.css`. `scripts/dead-style-copies.test.js` already forbids the copies.
+- `ensure-all-loaded`. The drive receives four or more `/documents/<id>/content.json` responses. Canonical: `ensureWindow` for the open document, or `loadManifest` and `listCatalogDocuments`. Search uses `ensureIndexForLocale` on a query. `ensureAllLoaded` remains on `CorpusService`, marked deprecated.
+
+`debt-self-check` feeds those three patterns and one clean snapshot. It prints the `DEBT FAIL` lines and does not write `evidence/`.
+
+```bash
+node .cursor/skills/verify-documentos-vaticanos/scripts/dv-verify.mjs debt-self-check
+```
 
 ## Evidence
 
@@ -95,12 +107,28 @@ node .cursor/skills/verify-documentos-vaticanos/scripts/dv-verify.mjs drive lect
 node .cursor/skills/verify-documentos-vaticanos/scripts/dv-verify.mjs cleanup
 ```
 
-`scripts/check-map.mjs` checks that `features/README.md` lists exactly the sibling feature files, that each file has the four H2 sections in order, and that every `path:` from `frontend/src/app/pages/pages-routing.module.ts` appears in the map.
+`scripts/check-map.mjs` checks that `features/README.md` lists exactly the sibling feature files, that each file has the four H2 sections in order, that every `path:` from `frontend/src/app/pages/pages-routing.module.ts` appears in the map, and that `lector.md`, `biblioteca.md`, and `buscar.md` name their test command.
 
 ```bash
 node .cursor/skills/verify-documentos-vaticanos/scripts/check-map.mjs
 ```
 
+## Deuda técnica
+
+Si encuentras deuda técnica, no la copies. Usa el patrón canónico. Si la verificación falla por deuda, reporta el patrón y propón subir la corrección en la pirámide.
+
+Prioriza el patrón canónico documentado sobre el código existente con deuda. El catálogo canónico contra prohibido es `docs/debt-hotspots.md`. Un `DEBT FAIL` no se arregla copiando el patrón: se reporta y la corrección se sube en la pirámide (arquitectura, luego análisis estático, luego esta skill).
+
 ## Feature map
 
-Read `features/README.md`, then the feature file for the route under test. Maintenance of this map is `/maintain-verification-skill`.
+Read `features/README.md`, then the feature file for the route under test.
+
+## Mantenimiento del mapa
+
+Hazlo en el mismo cambio que toca una ruta o una prueba de drive. No hay un comando `/maintain-verification-skill`.
+
+1. Si `frontend/src/app/pages/pages-routing.module.ts` gana, renombra o pierde un `path:`, actualiza el archivo de feature y la fila del índice en `features/README.md`.
+2. Conserva los cuatro H2 en este orden: `Sub-features`, `How to get to it (user POV)`, `Driving it with dv-verify`, `Gotchas`. El comando de test de una feature crítica va dentro de `Driving it with dv-verify`.
+3. Corre `node .cursor/skills/verify-documentos-vaticanos/scripts/check-map.mjs`. La salida tiene que incluir `map ok`. Si sale distinto de cero, corrige el mapa. No debilites el script para esconder una ruta nueva.
+4. Si cambió la prueba de `lector`, `biblioteca` o `buscar`, regenera `evidence/<feature>.txt` con `launch`, `doctor` y `drive`. No edites ese archivo a mano. `cleanup` no lo borra.
+5. No versiones `.run/`.
