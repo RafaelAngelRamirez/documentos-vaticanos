@@ -31,9 +31,9 @@ Prohibido. Copiar `ReferencesService` (`frontend/src/app/core/account/references
 
 ## 4. Identidad de un tema en el merge
 
-Canónico. El id del tema. `ThemesService` actualiza buscando ese id. Un título repetido es otro tema.
+Canónico. `themeMergeAction` en `backend/src/routes/sync-theme.logic.ts` es la única decisión. El merge de `backend/src/routes/sync.ts` busca ese id entre los temas del dueño. Un título repetido es otro tema: se crea una fila nueva y no se pisan los pasos del anterior. `ThemesService` actualiza en local con el mismo criterio (`findIndex` por `id`).
 
-Prohibido. El fallback de `backend/src/routes/sync.ts`: si el id local no está en la nube, `findFirst` por `ownerId` + `title` y, si gana el `updatedAt` local, sustituye los pasos del tema viejo. No extiendas ese emparejamiento a estudios, referencias ni a un tema nuevo.
+Prohibido. Volver a emparejar por `ownerId` + `title` cuando el id local no está en la nube. Ese `findFirst` sustituía los pasos del tema viejo si ganaba el `updatedAt` local. No lo reintroduzcas en el merge, ni en estudios, ni en referencias.
 
 ## 5. `updatedAt` ausente o empatado
 

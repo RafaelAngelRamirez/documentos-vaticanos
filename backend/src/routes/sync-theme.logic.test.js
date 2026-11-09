@@ -1,0 +1,65 @@
+/**
+ * Identidad de un tema en el merge: solo el id.
+ * Run from backend/:
+ *   bash ../scripts/node-strip-types.sh src/routes/sync-theme.logic.test.js
+ */
+const assert = require('assert');
+const fs = require('fs');
+const path = require('path');
+const { pathToFileURL } = require('url');
+
+async function main() {
+  const { themeMergeAction } = await import(
+    pathToFileURL(path.join(__dirname, 'sync-theme.logic.ts')).href
+  );
+
+  const owner = 'user-1';
+  const other = 'user-2';
+
+  assert.deepStrictEqual(
+    themeMergeAction('tema-local', { id: 'tema-local', ownerId: owner }, owner),
+    { action: 'update', id: 'tema-local' },
+  );
+
+  assert.deepStrictEqual(
+    themeMergeAction('tema-local', null, owner),
+    { action: 'create', id: 'tema-local' },
+  );
+
+  assert.deepStrictEqual(
+    themeMergeAction('tema-local', { id: 'tema-local', ownerId: other }, owner),
+    { action: 'create', id: null },
+  );
+
+  assert.deepStrictEqual(themeMergeAction(null, null, owner), {
+    action: 'create',
+    id: null,
+  });
+
+  assert.deepStrictEqual(themeMergeAction('', null, owner), {
+    action: 'create',
+    id: null,
+  });
+
+  assert.deepStrictEqual(
+    themeMergeAction('tema-b', { id: 'tema-a', ownerId: owner }, owner),
+    { action: 'create', id: 'tema-b' },
+  );
+
+  const logic = fs.readFileSync(path.join(__dirname, 'sync-theme.logic.ts'), 'utf8');
+  assert.ok(!/\btitle\b/.test(logic));
+
+  const sync = fs.readFileSync(path.join(__dirname, 'sync.ts'), 'utf8');
+  assert.ok(sync.includes('themeMergeAction('));
+  assert.ok(sync.includes('...(decision.id ? { id: decision.id } : {})'));
+  assert.ok(!sync.includes('findFirst'));
+  assert.ok(!sync.includes('ownerId: userId, title'));
+  assert.ok(!sync.includes('clave natural'));
+
+  console.log('sync-theme ok');
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
