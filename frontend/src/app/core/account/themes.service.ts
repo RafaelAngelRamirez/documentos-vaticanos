@@ -221,7 +221,10 @@ export class ThemesService {
     };
     this.saveTheme(theme);
     this.trySync(
-      this.http.post(`${environment.apiBaseUrl}/me/themes`, input)
+      this.http.post(`${environment.apiBaseUrl}/me/themes`, {
+        ...input,
+        id: theme.id,
+      })
     );
     return of(theme);
   }

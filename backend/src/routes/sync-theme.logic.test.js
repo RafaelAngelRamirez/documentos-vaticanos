@@ -56,6 +56,24 @@ async function main() {
   assert.ok(!sync.includes('ownerId: userId, title'));
   assert.ok(!sync.includes('clave natural'));
 
+  const themesRoute = fs.readFileSync(path.join(__dirname, 'themes.ts'), 'utf8');
+  const post = themesRoute.slice(
+    themesRoute.indexOf('/** POST /api/v1/me/themes */'),
+    themesRoute.indexOf('/** PATCH /api/v1/me/themes/:id */'),
+  );
+  assert.ok(post.includes('themeMergeAction('));
+  assert.ok(post.includes('...(decision.id ? { id: decision.id } : {})'));
+  assert.ok(post.includes("decision.action === 'update'"));
+  assert.ok(!/where:\s*\{[^}]*title/.test(post));
+
+  const service = fs.readFileSync(
+    path.join(__dirname, '../../../frontend/src/app/core/account/themes.service.ts'),
+    'utf8',
+  );
+  const createFn = service.slice(service.indexOf('create(input:'), service.indexOf('update('));
+  assert.ok(createFn.includes('id: theme.id'));
+  assert.ok(!createFn.includes('/me/themes`, input)'));
+
   console.log('sync-theme ok');
 }
 

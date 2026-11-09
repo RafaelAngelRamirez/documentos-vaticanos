@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { prisma } from '../db';
 import { requireAuth, requireRole } from '../middleware/auth';
+import { themeMergeAction } from './sync-theme.logic';
 
 export const themesRouter = Router();
 
@@ -66,9 +67,33 @@ themesRouter.post('/me/themes', requireAuth, async (req, res) => {
       ? req.body.visibility
       : 'private';
 
+    const requestedId =
+      typeof req.body?.id === 'string' && req.body.id.trim()
+        ? req.body.id.trim()
+        : null;
+    const occupant = requestedId
+      ? await prisma.theme.findUnique({
+          where: { id: requestedId },
+          include: { steps: true },
+        })
+      : null;
+    const decision = themeMergeAction(
+      requestedId,
+      occupant ? { id: occupant.id, ownerId: occupant.ownerId } : null,
+      req.user!.id,
+    );
+    if (decision.action === 'update') {
+      if (!occupant || occupant.ownerId !== req.user!.id) {
+        throw new Error('theme create: id sin fila de ese dueño');
+      }
+      res.status(200).json({ item: occupant });
+      return;
+    }
+
     const wantsPublic = visibility === 'public';
     const item = await prisma.theme.create({
       data: {
+        ...(decision.id ? { id: decision.id } : {}),
         ownerId: req.user!.id,
         title,
         description,
