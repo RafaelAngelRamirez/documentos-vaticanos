@@ -1,0 +1,33 @@
+feature api-smoke
+action node e2e/api-e2e.mjs
+action_url http://127.0.0.1:3000
+exit_code 0
+result api e2e DONE
+--- output ---
+=== api e2e === http://127.0.0.1:3000
+OK: health 200
+OK: health body
+OK: accessToken present
+OK: user email
+OK: me 200
+OK: me email
+OK: upgrade 200
+OK: role teacher got teacher
+OK: ref create 201
+OK: ref id
+OK: ref list 200
+OK: ref list non-empty
+OK: theme create 201
+OK: theme id
+OK: theme steps 200
+OK: theme has 1 step
+OK: study create 201
+OK: study id
+OK: study steps 200
+OK: study publish 200
+OK: published status
+OK: studies list 200
+OK: studies array
+OK: student login
+OK: enroll 201
+=== api e2e DONE ===

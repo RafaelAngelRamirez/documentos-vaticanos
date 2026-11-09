@@ -1,0 +1,11 @@
+feature lector
+viewport 390x844
+action GET /leyendo/cic-es/punto/2
+action_url http://127.0.0.1:4219/leyendo/cic-es/punto/2
+browser playwright-chromium
+viewport_actual 390x844
+inner 390x844
+app-punto visible
+bnav 0
+result_url http://127.0.0.1:4219/leyendo/cic-es/u/2
+excerpt ← Catecismo Aa Nº 1–17 Inicio del documento ★ CARTA APOSTÓLICA « LAETAMUR MAGNOPERE »★ por la que se aprueba la edición típica latina del Catecismo de la Iglesia Católica ★ A los Venerables Hermanos Cardenales, Patriarcas, Arzobispos, Obispos, Presbíteros, Diáconos y demás miembr
