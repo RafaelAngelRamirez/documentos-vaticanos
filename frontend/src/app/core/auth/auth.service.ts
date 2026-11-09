@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { AuthResponse, AuthUser } from './auth.models';
+import { meFailureStatus, sessionEndsOnMeFailure } from './auth-session.logic';
 
 const ACCESS_KEY = 'auth.accessToken';
 const REFRESH_KEY = 'auth.refreshToken';
@@ -77,9 +78,12 @@ export class AuthService {
           localStorage.setItem(USER_KEY, JSON.stringify(res.user));
         }),
         map((res) => res.user),
-        catchError(() => {
-          this.logout();
-          return of(null);
+        catchError((err: unknown) => {
+          if (sessionEndsOnMeFailure(meFailureStatus(err))) {
+            this.logout();
+            return of(null);
+          }
+          return of(this.user);
         })
       );
   }
