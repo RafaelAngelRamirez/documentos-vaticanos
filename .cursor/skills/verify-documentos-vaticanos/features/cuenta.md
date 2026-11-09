@@ -29,3 +29,4 @@ Preconditions:
 - A packaged static server has no API. The Google button is disabled. Do not call that a failed login.
 - With `bash scripts/dev.sh` and `DEV_AUTH_BYPASS`, the email form can appear. This drive does not submit it.
 - Admin routes redirect here when there is no session. That landing is not a successful look at the profile card.
+- When `auth.user` is already stored, this screen calls `GET /me`. Only HTTP 401 clears `auth.accessToken`, `auth.refreshToken`, and `auth.user`. A network failure or any other status leaves that session in place. The anonymous drive does not sign in, so it does not observe that branch.

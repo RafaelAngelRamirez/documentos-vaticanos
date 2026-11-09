@@ -68,9 +68,9 @@ Prohibido. Pegar otra barra en una pantalla, resucitar una hoja de diseño paral
 
 ## 8. Sesión ante un fallo de red
 
-Canónico. Cerrar sesión solo ante 401. Sin red, el lector sigue y el usuario guardado permanece en `auth.accessToken`, `auth.refreshToken` y `auth.user`.
+Canónico. `sessionEndsOnMeFailure` en `frontend/src/app/core/auth/auth-session.logic.ts` es la única decisión. `AuthService.refreshMe` llama a `logout()` solo cuando esa función lo dice: estado HTTP 401. Sin red, o con otro estado, el lector sigue y el usuario guardado permanece en `auth.accessToken`, `auth.refreshToken` y `auth.user`.
 
-Prohibido. Copiar el `catchError` de `AuthService.refreshMe` (`frontend/src/app/core/auth/auth.service.ts`): cualquier error de `GET /me` llama a `logout()`.
+Prohibido. Cerrar sesión en el `catchError` de `GET /me` sin mirar el estado. Un fallo de red o un 500 no es un 401.
 
 ## 9. Claves que ya no existen
 
