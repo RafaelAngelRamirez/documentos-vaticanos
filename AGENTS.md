@@ -11,6 +11,8 @@ Cada corrección se empuja lo más arriba posible. El plan por etapas está en `
 3. Instrucciones y skills. El mínimo para encontrar el camino: este archivo, el mapa y la skill de verificación.
 4. Revisión humana. Último recurso: muestreo.
 
+Muestreo y corte: `docs/gardening.md` y `docs/agent-metrics.md`.
+
 El patrón que se extiende está en `docs/debt-hotspots.md` (mismo PR #52), en el apartado Canónico. El apartado Prohibido se deja quieto.
 
 ## Arranque por superficie
