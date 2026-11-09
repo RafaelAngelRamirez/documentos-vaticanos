@@ -1,0 +1,14 @@
+feature biblioteca
+viewport 390x844
+action GET /biblioteca
+action_url http://127.0.0.1:4219/biblioteca
+browser playwright-chromium
+viewport_actual 390x844
+inner 390x844
+app-bnav display block
+bnav display flex
+only-mobile display block
+only-desktop display none
+bnav height 63
+result_url http://127.0.0.1:4219/biblioteca
+excerpt Biblioteca · Todos Concilios Catecismo Escritura Padres Otros “C’est la confiance”: Exhortación Apostólica sobre la confianza en el amor misericordioso de Dios con motivo del 150° aniversario del nacimiento de Santa Teresa del Niño Jesús y de la Santa Faz (15 de octubre de 2023) 
