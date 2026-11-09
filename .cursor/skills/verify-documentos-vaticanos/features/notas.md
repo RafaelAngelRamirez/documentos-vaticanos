@@ -5,6 +5,7 @@ Notas shows highlights, bookmarks, and notes kept on the device. The pages path 
 ## Sub-features
 
 - `notas` is path `notas`.
+- `notas/repaso` is path `notas/repaso`. It is the device review queue. The smoke drive does not open it.
 - `notas-tabs` switches Subrayados, Marcadores, and Notas. The smoke drive proves the title and the first tab label.
 
 ## How to get to it (user POV)

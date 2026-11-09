@@ -1,0 +1,6 @@
+feature buscar
+action GET /buscar
+action_url http://127.0.0.1:4219/buscar
+chromium /usr/local/bin/google-chrome
+result_url http://127.0.0.1:4219/buscar
+excerpt ← Buscar Frases e intenciones valen (p. ej. el amor de Dios). También un término (fe) o un punto (.27 · .200-205). Offline, sin red. Cargando documentos para la búsqueda…

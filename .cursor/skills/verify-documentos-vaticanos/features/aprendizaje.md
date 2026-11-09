@@ -5,6 +5,7 @@ Aprendizaje shows the active course for a signed-in reader. The pages path is `a
 ## Sub-features
 
 - `aprendizaje` is path `aprendizaje`.
+- `clases/:id` is path `clases/:id` (class detail). `clases/:id/editar` is path `clases/:id/editar`. The anonymous smoke drive does not open them.
 - `aprendizaje-anon` shows `Inicie sesión para ver su curso activo.`
 - `aprendizaje-course` shows the course title only when `auth.isLoggedIn` and a study loads.
 

@@ -1,0 +1,6 @@
+feature biblioteca
+action GET /biblioteca
+action_url http://127.0.0.1:4219/biblioteca
+chromium /usr/local/bin/google-chrome
+result_url http://127.0.0.1:4219/biblioteca
+excerpt DV Documentos Vaticanos Inicio Biblioteca Estudio Padres Papas Doctores Santoral Temas D Todos Concilios Catecismo Escritura Padres Otros MI LECTURA Continuar Marcadores Mis notas Biblioteca 588 documentos · disponibles sin conexión MAGISTERIO “C’est la confiance”: Exhortación Ap
