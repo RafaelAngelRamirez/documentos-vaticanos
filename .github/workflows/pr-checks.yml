@@ -1,0 +1,91 @@
+# Pull-request status. The n8n build does not run this file.
+# check-map also runs inside scripts/ci-cheap.sh (the n8n cheap stage).
+# `yarn run check` is required here, after npm ci. The lector drive is
+# recorded and does not fail the job: it needs a packaged web tree.
+name: PR checks
+
+on:
+  pull_request:
+
+jobs:
+  cheap:
+    name: Cheap tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Cheap tests
+        run: bash scripts/ci-cheap.sh
+
+  agent-gate:
+    name: Agent gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install toolchains
+        run: |
+          npm ci
+          npm ci --prefix frontend
+          npm ci --prefix backend
+      - name: check-map
+        id: map
+        continue-on-error: true
+        run: |
+          set +e
+          bash scripts/ci-agent-gate.sh map
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
+      - name: yarn run check
+        id: check
+        continue-on-error: true
+        run: |
+          set +e
+          bash scripts/ci-agent-gate.sh check
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
+      - name: Evidence policy
+        id: evidence
+        continue-on-error: true
+        run: |
+          set +e
+          bash scripts/ci-agent-gate.sh evidence
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
+      - name: Lector drive
+        id: lector
+        continue-on-error: true
+        run: |
+          set +e
+          bash scripts/ci-agent-gate.sh lector
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
+      - name: Gate summary
+        run: |
+          {
+            echo "### Agent gate"
+            echo "check-map exit ${{ steps.map.outputs.code }}"
+            echo "yarn run check exit ${{ steps.check.outputs.code }}"
+            echo "evidence exit ${{ steps.evidence.outputs.code }}"
+            echo "lector exit ${{ steps.lector.outputs.code }}"
+            echo "check-map y \`yarn run check\` tumban este job si no salen 0. El drive de lector solo se registra."
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [[ "${{ steps.map.outputs.code }}" != "0" ]]; then
+            exit 1
+          fi
+          if [[ "${{ steps.check.outputs.code }}" != "0" ]]; then
+            exit 1
+          fi
+          if [[ "${{ steps.evidence.outputs.code }}" != "0" ]]; then
+            exit 1
+          fi
