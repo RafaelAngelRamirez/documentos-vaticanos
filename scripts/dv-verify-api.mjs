@@ -172,13 +172,28 @@ function failLaunch(message) {
 
 async function launch() {
   const base = process.env.E2E_API_URL || process.env.DV_VERIFY_API_URL || 'http://127.0.0.1:3000';
-  const healthy = await readHealth(base.replace(/\/$/, ''));
+  const normalized = base.replace(/\/$/, '');
+  const healthy = await readHealth(normalized);
   if (healthy.ok) {
-    writeState({ base: base.replace(/\/$/, ''), owned: false, adopted: true, project: PROJECT });
+    const previous = readState();
+    const sameBase = !previous?.base || previous.base === normalized;
+    const owned = previous?.owned === true && sameBase;
+    writeState({
+      base: normalized,
+      owned,
+      adopted: !owned,
+      project: previous?.project || PROJECT,
+      composeFile: previous?.composeFile || COMPOSE_FILE,
+    });
     await doctor();
     clearLaunchEvidence();
-    console.log('launch adopted');
-    console.log('launch ready');
+    if (owned) {
+      console.log('launch ready');
+      console.log('owned true');
+    } else {
+      console.log('launch adopted');
+      console.log('launch ready');
+    }
     return;
   }
   const docker = dockerComposeAvailable();
@@ -237,9 +252,10 @@ async function cleanup() {
     const down = await composeStreaming(['down']);
     if (down.code !== 0) {
       console.log(`cleanup fail compose down exit ${down.code}`);
-    } else {
-      console.log('cleanup compose down');
+      console.log(`cleanup state kept ${statePath}`);
+      process.exit(1);
     }
+    console.log('cleanup compose down');
   } else {
     console.log('cleanup no owned stack');
   }

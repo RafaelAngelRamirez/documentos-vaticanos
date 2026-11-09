@@ -21,7 +21,7 @@ node scripts/dv-verify-api.mjs launch
 
 Ready cuando stdout contiene `launch ready` y `doctor ok`.
 
-- Si `GET /api/v1/health` ya responde 200 con `ok: true` y `service: documentos-vaticanos-backend`, el launch adopta esa API (`launch adopted`, `owned false`). Cleanup no la apaga.
+- Si `GET /api/v1/health` ya responde 200 con `ok: true` y `service: documentos-vaticanos-backend`, y el estado previo dice `owned true` para esa misma base, el launch conserva `owned`. Cleanup sigue bajando ese stack. Si no había estado propio, adopta la API (`launch adopted`, `owned false`) y cleanup no la apaga.
 - Si no responde, hace `docker compose -f docker-compose.dev.yml -p documentos-vaticanos up -d postgres api` y espera el health. `owned true` si el proyecto no tenía contenedores, o si un launch anterior de esta skill ya los había creado. Si `api` o `postgres` salen durante la espera (Prisma a veces arranca antes de que Postgres acepte conexiones), el launch repite `up -d`. La espera por defecto es 180 s (`DV_VERIFY_API_WAIT_MS`).
 - La URL por defecto es `http://127.0.0.1:3000`. `E2E_API_URL` o `DV_VERIFY_API_URL` la cambian.
 
@@ -62,7 +62,7 @@ El archivo tiene la URL, el código de salida y la salida completa del smoke (ca
 node scripts/dv-verify-api.mjs cleanup
 ```
 
-Si `owned` es true, `docker compose … down` (sin `-v`: el volumen de Postgres se queda). Si el launch adoptó una API ajena, no apaga nada. Borra `.run/`. No borra `evidence/`.
+Si `owned` es true, `docker compose … down` (sin `-v`: el volumen de Postgres se queda). Si ese down falla, no borra `.run/` y sale con código distinto de cero: un segundo cleanup puede tumbar el stack. Si el launch adoptó una API ajena, no apaga nada y sí borra `.run/`. No borra `evidence/`.
 
 ## Helpers
 
