@@ -82,7 +82,7 @@ Estos documentos entran con el [#52](https://github.com/RafaelAngelRamirez/docum
 | `docs/agent-readiness-plan.md` | Plan de las etapas |
 | `docs/design/handoff/ARQUITECTURA.md` | Capas y qué no se cruza |
 
-La arquitectura que hay que leer es la de esa rama. En `master`, antes del merge, `docs/design/handoff/ARQUITECTURA.md` sigue siendo el handoff viejo (`documentos.js`, claves `dv.settings`, `appId` `dev.munin.documentosvaticanos`).
+La arquitectura que hay que leer es `docs/design/handoff/ARQUITECTURA.md`. Ese archivo describe el árbol actual.
 
 ## Flujo
 
