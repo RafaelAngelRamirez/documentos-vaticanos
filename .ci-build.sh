@@ -162,31 +162,7 @@ echo "==> Cheap tests (open-reading, mobile flows, review, speech-prep, ui-i18n,
 CURRENT_STAGE="Cheap tests"
 notify_step "$CURRENT_STAGE" || true
 export DV_CI=1
-npm --prefix frontend run test:open-reading
-npm --prefix frontend run test:reader-prefs
-npm --prefix frontend run test:unit-bookmark
-npm --prefix frontend run test:review
-npm --prefix frontend run test:reader-bars
-npm --prefix frontend run test:mobile-flows
-npm --prefix frontend run test:speech-prep
-npm --prefix frontend run test:speech-lang
-npm --prefix frontend run test:read-aloud
-npm --prefix frontend run test:ui-i18n
-npm --prefix frontend run test:clases
-npm --prefix frontend run test:sync-journal
-npm --prefix frontend run test:unpack-ship-index
-npm --prefix frontend run test:shelf-search
-node scripts-descarga/corpus_structure_contract.test.js
-node scripts/corpus-sync-assets.test.js
-node scripts/patristic-pack.test.js
-node scripts/patristic-pack.js proof --canonical documentos/corpus --check --out scripts/proof/patristic-pack-hash.ndjson
-bash scripts/node-strip-types.sh frontend/src/app/core/corpus/patristic-pack.logic.test.js
-node scripts/on-demand-sources.test.js
-bash scripts/on-demand-ship.test.sh
-node scripts/dead-style-copies.test.js
-node scripts-descarga/write_corpus_copy.test.js
-node scripts/agent-structure.test.js
-bash scripts/ci-release-guard.test.sh
+bash scripts/ci-cheap.sh
 
 echo "==> [4/${_STAGES}] Web production + corpus"
 CURRENT_STAGE="Web production"
@@ -200,6 +176,16 @@ bash e2e/run-dist-smoke.sh || {
   echo "ERROR: dist Playwright smoke failed" >&2
   exit 1
 }
+
+# Full agent gate is opt-in. check-map already runs inside scripts/ci-cheap.sh.
+# Default 0 keeps this block off the Imperium entry. The pull-request
+# workflow runs `yarn run check`. Lector needs a packaged web tree.
+if [[ "${DV_AGENT_GATE:-0}" == "1" ]]; then
+  echo "==> Agent gate (DV_AGENT_GATE=1)"
+  CURRENT_STAGE="Agent gate"
+  notify_step "$CURRENT_STAGE" || true
+  bash scripts/ci-agent-gate.sh
+fi
 
 # Mobile-first: APK is the product priority (before Electron / desktop).
 echo "==> [5/${_STAGES}] APK instalable (mobile-first)"
