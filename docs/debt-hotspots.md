@@ -37,12 +37,9 @@ Prohibido. Volver a emparejar por `ownerId` + `title` cuando el id local no est�
 
 ## 5. `updatedAt` ausente o empatado
 
-Canónico. Si falta la marca, reutilizar `createdAt`, como hace `ThemesService` al migrar un tema. En empate de reloj, no descartar el texto del dispositivo en silencio.
+Canónico. `fillAnotacionUpdatedAt` en `frontend/src/app/services/anotaciones.logic.ts` es la marca local: si falta `updatedAt`, reutiliza `createdAt`, como `ThemesService` al migrar un tema. `anotacionMergePlan` en `backend/src/routes/sync-anotacion.logic.ts` es la única decisión del merge de anotaciones. Un reloj más nuevo gana. En empate, si el texto del dispositivo difiere, se escribe. Las filas nuevas van en un `createMany` y las actualizaciones en la misma transacción. El merge de `backend/src/routes/sync.ts` llama a ese plan.
 
-Prohibido. Dos copias que ya están en el árbol y no deben repetirse:
-
-- `AnotacionesService` rellena un `updatedAt` ausente con `new Date()` al cargar. El merge trata esa hora como la última edición.
-- `backend/src/routes/sync.ts` solo actualiza la anotación si el `updatedAt` local es estrictamente mayor. El comentario del código dice que igual o más antigua gana la nube. El bucle hace `create`/`update` de una en una.
+Prohibido. Rellenar un `updatedAt` ausente con `new Date()` al cargar: el merge trataría esa hora como la última edición. Exigir que el `updatedAt` local sea estrictamente mayor para escribir la anotación. Volver al `create`/`update` de una en una, en serie, dentro del merge.
 
 ## 6. Forma de `documentId`
 

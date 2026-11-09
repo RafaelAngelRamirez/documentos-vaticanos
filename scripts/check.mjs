@@ -104,6 +104,8 @@ function cheapTests() {
     ['agent structure', node, ['scripts/agent-structure.test.js']],
     ['ci release guard', 'bash', ['scripts/ci-release-guard.test.sh']],
     ['sync theme id', 'npm', ['--prefix', 'backend', 'run', 'test:sync-theme']],
+    ['sync anotacion stamp', 'npm', ['--prefix', 'backend', 'run', 'test:sync-anotacion']],
+    ['frontend test:anotaciones', 'npm', ['--prefix', 'frontend', 'run', 'test:anotaciones']],
   ];
   for (const [title, cmd, args] of commands) {
     run(title, cmd, args, root, env);

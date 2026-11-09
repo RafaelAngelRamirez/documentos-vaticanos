@@ -28,3 +28,4 @@ Preconditions:
 
 - The same word `Notas` is both the screen title and a tab. The drive accepts the first visible match.
 - Notes are local (`dv_anotaciones_v1`). A fresh context has an empty list. That is success.
+- A stored note without `updatedAt` is stamped from `createdAt` (`fillAnotacionUpdatedAt` in `frontend/src/app/services/anotaciones.logic.ts`). Cloud merge (`anotacionMergePlan` in `backend/src/routes/sync-anotacion.logic.ts`) writes the device text when the clocks tie and the text differs. New rows go in one `createMany`; updates share that transaction. This anonymous drive does not sign in and does not call `POST /sync/merge`. The checks are `npm --prefix frontend run test:anotaciones` and `npm --prefix backend run test:sync-anotacion`.

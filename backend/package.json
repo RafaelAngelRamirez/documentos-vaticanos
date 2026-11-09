@@ -11,7 +11,8 @@
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "test:reference-document-id": "bash ../scripts/node-strip-types.sh src/routes/references-document-id.logic.test.js",
-    "test:sync-theme": "bash ../scripts/node-strip-types.sh src/routes/sync-theme.logic.test.js"
+    "test:sync-theme": "bash ../scripts/node-strip-types.sh src/routes/sync-theme.logic.test.js",
+    "test:sync-anotacion": "bash ../scripts/node-strip-types.sh src/routes/sync-anotacion.logic.test.js"
   },
   "engines": {
     "node": ">=20"

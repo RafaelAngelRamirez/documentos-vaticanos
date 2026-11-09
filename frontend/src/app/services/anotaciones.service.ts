@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SyncJournalService } from '../core/sync/sync-journal.service';
+import { fillAnotacionUpdatedAt } from './anotaciones.logic';
 
 export type AnotacionKind = 'subrayado' | 'nota' | 'marcador';
 
@@ -122,14 +123,14 @@ export class AnotacionesService {
           typeof a.unitIndex === 'number' &&
           typeof a.excerpt === 'string'
       );
-      // Migración F8a: registros antiguos sin `updatedAt` reciben la fecha
-      // actual (permite merges futuros en F9).
-      const ahora = new Date().toISOString();
+      // Sin `updatedAt`: reutilizar `createdAt`. El reloj de esta carga
+      // solo entra si tampoco hay `createdAt`.
       let migrado = false;
       const migrados = list.map((a) => {
-        if (typeof a.updatedAt === 'string' && a.updatedAt) return a;
+        const updatedAt = fillAnotacionUpdatedAt(a.updatedAt, a.createdAt);
+        if (updatedAt === a.updatedAt) return a;
         migrado = true;
-        return { ...a, updatedAt: ahora };
+        return { ...a, updatedAt };
       });
       if (migrado) {
         try {
