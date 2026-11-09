@@ -22,9 +22,9 @@ Ahí está cómo se llega, cómo se conduce con `dv-verify` y qué cuenta como e
 
 ## 2. Leer la arquitectura
 
-`docs/design/handoff/ARQUITECTURA.md`, en la versión del [PR #52](https://github.com/RafaelAngelRamirez/documentos-vaticanos/pull/52) (rama `cursor/bloque-a-memoria-base-4758`).
+`docs/design/handoff/ARQUITECTURA.md`, el de `master`, actualizado en el [PR #52](https://github.com/RafaelAngelRamirez/documentos-vaticanos/pull/52). Describe las capas del árbol actual.
 
-Ese PR también trae `docs/surfaces.md`, `docs/debt-hotspots.md`, `docs/features/README.md` y `docs/agent-readiness-plan.md`. En `master`, antes del merge, `ARQUITECTURA.md` sigue siendo el handoff viejo (`documentos.js`, `dv.settings`, `appId` `dev.munin.documentosvaticanos`). Se lee la versión de la rama.
+Ese PR también trajo `docs/surfaces.md`, `docs/debt-hotspots.md`, `docs/features/README.md` y `docs/agent-readiness-plan.md`.
 
 Después, `AGENTS.md` y `docs/agent-workflow.md`.
 

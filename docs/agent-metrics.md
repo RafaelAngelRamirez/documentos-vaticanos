@@ -51,7 +51,7 @@ El comando del mapa es:
 node .cursor/skills/verify-documentos-vaticanos/scripts/check-map.mjs
 ```
 
-La salida de esta rama está en el cuerpo del PR. El job de CI que lo exige está en el [PR #57](https://github.com/RafaelAngelRamirez/documentos-vaticanos/pull/57), sin merge. Este archivo no añade un workflow.
+En `master` lo exige el job del [PR #57](https://github.com/RafaelAngelRamirez/documentos-vaticanos/pull/57), ya mergeado: `check-map` y `yarn run check` tumban el job si no salen 0. Este archivo no añade un workflow.
 
 ## Escalado
 
