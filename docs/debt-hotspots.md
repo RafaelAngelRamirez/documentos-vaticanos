@@ -54,7 +54,9 @@ Canónico. `parseDocumentId` en `frontend/src/app/core/reading/cite.ts`:
 
 `documentIdKey` devuelve esa misma cadena. Una cita guarda el id y el `unitIndex`, nunca el título.
 
-Prohibido. Copiar el filtro de `backend/src/routes/references.ts`: `/^[a-z0-9-]+$/i` responde 400 `documentId invalid` para `santoral:` y `papacy:`. Un validador nuevo de una cita acepta las tres formas de `parseDocumentId`.
+`referenceDocumentId` en `backend/src/routes/references-document-id.logic.ts` es el filtro de `POST /me/references`. Acepta esas tres formas y devuelve la cadena que se guarda. Un prefijo sin id (`santoral:`, `papacy:`) no pasa. `references.ts` no elige el formato.
+
+Prohibido. Volver a `/^[a-z0-9-]+$/i` en esa ruta. Ese filtro responde 400 `documentId invalid` para `santoral:` y `papacy:`, y deja pasar un `CIC` en mayúsculas. Un título, un `shortTitle` o un consecutivo (`LG 16`) no son `documentId`.
 
 ## 7. Hoja de estilos, barras y `DocumentMeta`
 

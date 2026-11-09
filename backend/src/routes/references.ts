@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { prisma } from '../db';
 import { requireAuth } from '../middleware/auth';
+import { referenceDocumentId } from './references-document-id.logic';
 
 export const referencesRouter = Router();
 
@@ -21,7 +22,7 @@ referencesRouter.get('/me/references', requireAuth, async (req, res) => {
 /** POST /api/v1/me/references */
 referencesRouter.post('/me/references', requireAuth, async (req, res) => {
   try {
-    const documentId = String(req.body?.documentId ?? '').trim();
+    const documentId = referenceDocumentId(req.body?.documentId);
     const unitIndex = Number(req.body?.unitIndex);
     const unitLabel =
       typeof req.body?.unitLabel === 'string' ? req.body.unitLabel.trim() : undefined;
@@ -30,7 +31,7 @@ referencesRouter.post('/me/references', requireAuth, async (req, res) => {
       ? req.body.tags.map(String).slice(0, 20)
       : [];
 
-    if (!documentId || !/^[a-z0-9-]+$/i.test(documentId)) {
+    if (!documentId) {
       res.status(400).json({ error: 'documentId invalid' });
       return;
     }

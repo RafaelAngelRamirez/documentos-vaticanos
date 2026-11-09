@@ -100,6 +100,7 @@ function cheapTests() {
     ['on-demand ship', 'bash', ['scripts/on-demand-ship.test.sh']],
     ['dead style copies', node, ['scripts/dead-style-copies.test.js']],
     ['corpus copy', node, ['scripts-descarga/write_corpus_copy.test.js']],
+    ['reference documentId', 'bash', ['scripts/node-strip-types.sh', 'backend/src/routes/references-document-id.logic.test.js']],
     ['agent structure', node, ['scripts/agent-structure.test.js']],
     ['ci release guard', 'bash', ['scripts/ci-release-guard.test.sh']],
   ];

@@ -27,6 +27,7 @@
     "test:scrape:unit": "npm --prefix scripts-descarga run test:scrape",
     "test:api": "node e2e/api-e2e.mjs",
     "test:refs": "npm --prefix scripts-descarga run test:refs",
+    "test:reference-document-id": "npm --prefix backend run test:reference-document-id",
     "test:unlinked-refs": "npm --prefix scripts-descarga run test:unlinked-refs",
     "inventory:unlinked-refs": "npm --prefix scripts-descarga run inventory:unlinked-refs",
     "test:corpus-structure": "node scripts-descarga/corpus_structure_contract.test.js && node scripts/corpus-sync-assets.test.js",
