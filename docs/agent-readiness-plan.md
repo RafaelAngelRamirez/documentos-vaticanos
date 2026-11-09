@@ -33,7 +33,7 @@ No se vuelve a crear:
 
 Hecho en este nivel: superficies, hotspots y el puntero al mapa. Los comandos reales de arranque por cascarón están en [surfaces.md](surfaces.md) y en [DEV-DOCKER.md](DEV-DOCKER.md).
 
-Pendiente de otra etapa: un corte de métricas (tareas verificadas, revisiones profundas, patrones subidos de nivel, tiempo de ciclo). No hay fichero de métricas todavía. No se inventa un número.
+El corte de métricas (tareas verificadas, revisiones profundas, patrones subidos de nivel, tiempo de ciclo) está en [agent-metrics.md](agent-metrics.md). No se inventa un número.
 
 ## Etapa 1 — Verificación
 
@@ -62,9 +62,9 @@ Reglas de un cambio de esta etapa:
 
 ## Etapa 3 — Análisis estático
 
-Hoy el typecheck de Angular es estricto (`frontend/tsconfig.json`: `strict` y plantillas estrictas). No hay ESLint ni un script único `yarn check`. Las dos pruebas de estructura de la etapa anterior ya fallan si vuelve una hoja muerta, si el cromo deja de ser 7 barras o si `DocumentMeta` diverge.
+Hoy el typecheck de Angular es estricto (`frontend/tsconfig.json`: `strict` y plantillas estrictas). La regla `docvat/no-margin-left-auto` (`frontend/eslint-rules/no-margin-left-auto.mjs`) ya está en master: el mensaje dice qué no usar (`margin-left: auto`), qué usar (`margin-inline-start: auto`) y qué ficha mirar. El comando es `yarn run check`. Las dos pruebas de estructura de la etapa anterior ya fallan si vuelve una hoja muerta, si el cromo deja de ser 7 barras o si `DocumentMeta` diverge.
 
-El siguiente gate, en un cambio propio, es una regla cuyo mensaje diga qué no usar, qué usar y qué ficha mirar. Hasta que exista, un agente no inventa un linter paralelo en el PR de la feature.
+Un agente no inventa un linter paralelo en el PR de la feature.
 
 `yarn test:api` cubre el humo de `/api/v1`. No hay contrato OpenAPI que generar ni que verificar.
 

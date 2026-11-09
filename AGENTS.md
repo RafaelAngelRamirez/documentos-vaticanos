@@ -11,6 +11,8 @@ Cada corrección se empuja lo más arriba posible. El plan por etapas está en `
 3. Instrucciones y skills. El mínimo para encontrar el camino: este archivo, el mapa y la skill de verificación.
 4. Revisión humana. Último recurso: muestreo.
 
+Muestreo y corte: `docs/gardening.md` y `docs/agent-metrics.md`.
+
 El patrón que se extiende está en `docs/debt-hotspots.md` (mismo PR #52), en el apartado Canónico. El apartado Prohibido se deja quieto.
 
 ## Arranque por superficie
@@ -80,7 +82,7 @@ Estos documentos entran con el [#52](https://github.com/RafaelAngelRamirez/docum
 | `docs/agent-readiness-plan.md` | Plan de las etapas |
 | `docs/design/handoff/ARQUITECTURA.md` | Capas y qué no se cruza |
 
-La arquitectura que hay que leer es la de esa rama. En `master`, antes del merge, `docs/design/handoff/ARQUITECTURA.md` sigue siendo el handoff viejo (`documentos.js`, claves `dv.settings`, `appId` `dev.munin.documentosvaticanos`).
+La arquitectura que hay que leer es `docs/design/handoff/ARQUITECTURA.md`. Ese archivo describe el árbol actual.
 
 ## Flujo
 
