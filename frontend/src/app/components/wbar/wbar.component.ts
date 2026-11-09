@@ -41,7 +41,7 @@ export type WbarMode = 'nav' | 'auth' | 'reader';
         <span class="wmark">DV</span>
       </a>
       <span class="wname">{{ t('app.name') }}</span>
-      <span class="wlink auth-cta" style="margin-left: auto">
+      <span class="wlink auth-cta" style="margin-inline-start: auto">
         {{ t('auth.no_account') }}
         <a href="javascript:void(0)" (click)="createAccount.emit()">{{
           t('auth.create_account')
@@ -62,7 +62,7 @@ export type WbarMode = 'nav' | 'auth' | 'reader';
       <span class="fs13 muted reader-ttl" [attr.title]="readerTitle">{{
         readerTitle || t('reader.reading')
       }}</span>
-      <button type="button" class="wlink" style="margin-left: auto" (click)="indexClick.emit()">
+      <button type="button" class="wlink" style="margin-inline-start: auto" (click)="indexClick.emit()">
         {{ t('reader.index') }}
       </button>
       <a routerLink="/notas" class="wlink">{{ t('reader.markers') }}</a>
@@ -156,7 +156,7 @@ export type WbarMode = 'nav' | 'auth' | 'reader';
         flex-shrink: 0;
       }
       .wsearch {
-        margin-left: auto;
+        margin-inline-start: auto;
       }
       .auth-cta {
         font-size: 14px;
