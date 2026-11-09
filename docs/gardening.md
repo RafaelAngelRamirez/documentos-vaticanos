@@ -30,6 +30,6 @@ Recurrente: la muestra lo ve otra vez después de estar nombrado.
    - El drive web, en `dv-verify.mjs`, con `DEBT FAIL` para `legacy-reading-keys`, `dead-style-copies` y `ensure-all-loaded`. `margin-left: auto` no es un fallo de ese drive. La ficha `buscar.md` lo deja como deuda presente.
 3. Una frase en `AGENTS.md` o en la skill, cuando la arquitectura y el análisis estático no pueden cargar el patrón.
 
-El checklist de evidencia del PR está en el [PR #57](https://github.com/RafaelAngelRamirez/documentos-vaticanos/pull/57), abierto y sin merge. La secuencia corta del cambio está en `docs/agent-workflow.md`.
+El checklist de evidencia que exige CI entró con el [PR #57](https://github.com/RafaelAngelRamirez/documentos-vaticanos/pull/57), ya mergeado. La secuencia corta del cambio está en `docs/agent-workflow.md`.
 
 El escalado queda fuera de esta rutina. `docs/agent-metrics.md` lo deja diferido.

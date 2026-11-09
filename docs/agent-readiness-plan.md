@@ -47,7 +47,7 @@ La skill web ya es el criterio de «hecho» para una ruta de la SPA empaquetada.
 
 La instrucción de la skill: no marcar terminado sin ejecutarla y sin adjuntar la evidencia. Compilar no cuenta.
 
-Sigue fuera de este archivo: endurecer el Drive contra los patrones de [debt-hotspots.md](debt-hotspots.md), una skill o un orquestador para la API y para Android, y correr la skill en CI. El puerto de la skill web (`4219`) no es el de `yarn dev` (`4200`).
+El Drive web ya falla ante los patrones de [debt-hotspots.md](debt-hotspots.md) (#53). La API tiene la skill `verify-documentos-vaticanos-api` y el viewport 390×844 tiene `verify-documentos-vaticanos-viewport` (#56). En CI, `check-map` y `yarn run check` tumban el job (#57); el drive de lector se registra y no tumba el job, porque pide el `dist` empaquetado. El puerto de la skill web (`4219`) no es el de `yarn dev` (`4200`).
 
 ## Etapa 2 — Arquitectura
 
@@ -70,7 +70,7 @@ Un agente no inventa un linter paralelo en el PR de la feature.
 
 ## Etapa 4 — Instrucciones y flujo
 
-`AGENTS.md` sigue siendo el archivo corto de arranque. Ampliarlo con la pirámide, el mapa y el gate de verificación es un cambio distinto de este plan.
+`AGENTS.md` es el archivo corto de arranque. Ya incluye la pirámide, el mapa y el gate de verificación (#54).
 
 Flujo de un cambio de producto:
 
@@ -86,7 +86,7 @@ Onboarding de un agente nuevo: el primer paso es la verificación web de una rut
 
 Muestreo sobre `master`. Un patrón malo que vuelve a aparecer se sube: primero arquitectura, luego test o lint, y solo al final una frase en las instrucciones. La ficha del mapa y la skill se actualizan en el mismo PR que el cambio de comportamiento.
 
-El documento de jardinería y el de métricas son de esta etapa y de la siguiente. No forman parte de la memoria base.
+La rutina está en [gardening.md](gardening.md) y el corte en [agent-metrics.md](agent-metrics.md) (#58). Los dos viven en el árbol, junto a la memoria base.
 
 ## Hecho
 
