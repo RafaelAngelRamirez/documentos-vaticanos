@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.42](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.41...v0.0.42) (2026-11-10)
+
+
+### Bug Fixes
+
+* **api:** accept the three documentId forms on references ([b123d70](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/b123d7092b511999daf443fd577bb41991abaaa7))
+
 ### [0.0.41](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.40...v0.0.41) (2026-11-10)
 
 
