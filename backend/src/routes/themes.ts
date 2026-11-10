@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { prisma } from '../db';
 import { requireAuth, requireRole } from '../middleware/auth';
-import { themeMergeAction } from './sync-theme.logic';
+import { themeDeviceId, themeMergeAction } from './sync-theme.logic';
 
 export const themesRouter = Router();
 
@@ -67,10 +67,11 @@ themesRouter.post('/me/themes', requireAuth, async (req, res) => {
       ? req.body.visibility
       : 'private';
 
-    const requestedId =
-      typeof req.body?.id === 'string' && req.body.id.trim()
-        ? req.body.id.trim()
-        : null;
+    const requestedId = themeDeviceId(req.body?.id);
+    if (!requestedId) {
+      res.status(400).json({ error: 'id is required' });
+      return;
+    }
     const occupant = requestedId
       ? await prisma.theme.findUnique({
           where: { id: requestedId },

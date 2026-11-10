@@ -241,6 +241,8 @@ syncRouter.post('/sync/merge', requireAuth, async (req, res) => {
         }
         // Igual o más antiguo que la nube → gana la nube (no-op).
       } else {
+        // Primera fila de este id. El alta HTTP guarda el mismo id
+        // y, si no lo trae, no inserta: esta rama no duplica esa fila.
         await prisma.theme.create({
           data: {
             ...(decision.id ? { id: decision.id } : {}),

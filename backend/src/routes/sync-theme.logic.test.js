@@ -9,7 +9,7 @@ const path = require('path');
 const { pathToFileURL } = require('url');
 
 async function main() {
-  const { themeMergeAction } = await import(
+  const { themeDeviceId, themeMergeAction, signedCreateThenMerge } = await import(
     pathToFileURL(path.join(__dirname, 'sync-theme.logic.ts')).href
   );
 
@@ -46,6 +46,16 @@ async function main() {
     { action: 'create', id: 'tema-b' },
   );
 
+  assert.strictEqual(themeDeviceId(undefined), null);
+  assert.strictEqual(themeDeviceId(''), null);
+  assert.strictEqual(themeDeviceId('  '), null);
+  assert.strictEqual(themeDeviceId(' device-1 '), 'device-1');
+
+  const roundTrip = signedCreateThenMerge('device-1', owner);
+  assert.strictEqual(roundTrip.cloudId, 'device-1');
+  assert.deepStrictEqual(roundTrip.merge, { action: 'update', id: 'device-1' });
+  assert.notStrictEqual(roundTrip.merge.action, 'create');
+
   const logic = fs.readFileSync(path.join(__dirname, 'sync-theme.logic.ts'), 'utf8');
   assert.ok(!/\btitle\b/.test(logic));
 
@@ -62,6 +72,9 @@ async function main() {
     themesRoute.indexOf('/** PATCH /api/v1/me/themes/:id */'),
   );
   assert.ok(post.includes('themeMergeAction('));
+  assert.ok(post.includes('themeDeviceId('));
+  assert.ok(post.includes("error: 'id is required'"));
+  assert.ok(post.indexOf("error: 'id is required'") < post.indexOf('prisma.theme.create'));
   assert.ok(post.includes('...(decision.id ? { id: decision.id } : {})'));
   assert.ok(post.includes("decision.action === 'update'"));
   assert.ok(!/where:\s*\{[^}]*title/.test(post));
