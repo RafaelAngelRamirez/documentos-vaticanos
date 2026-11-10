@@ -1,6 +1,11 @@
 import { Router } from 'express';
 import { prisma } from '../db';
 import { requireAuth } from '../middleware/auth';
+import {
+  anotacionMergePlan,
+  resolveAnotacionStamp,
+  type AnotacionRow,
+} from './sync-anotacion.logic';
 import { planThemeMerges } from './sync-theme.logic';
 
 /**
@@ -8,26 +13,21 @@ import { planThemeMerges } from './sync-theme.logic';
  *
  * POST /api/v1/sync/merge
  * Body: { anotaciones: [...], temas: [...] } — cada ítem con `updatedAt` ISO.
- * Política: upsert por id. Anotaciones: PK compuesta userId+id. Temas: solo
- * el id (`planThemeMerges`); un título repetido es otro tema. Last-write-wins
- * compara `updatedAt`. Devuelve el estado consolidado { anotaciones, temas }
- * más un `summary` con contadores para que el cliente sepa si subió algo.
+ * Política: upsert por id. Anotaciones: PK compuesta userId+id
+ * (`anotacionMergePlan`). Si falta `updatedAt`, la marca es `createdAt`.
+ * Un reloj más nuevo gana; en empate se escribe el texto distinto del
+ * dispositivo. Las filas nuevas van en un `createMany` y las actualizaciones
+ * en la misma transacción. Temas: solo el id (`planThemeMerges`); un título
+ * repetido es otro tema, salvo el reenganche de una sola fila. Devuelve el
+ * estado consolidado { anotaciones, temas } más un `summary` con contadores
+ * para que el cliente sepa si subió algo.
  */
 export const syncRouter = Router();
 
 const MAX_ITEMS = 2000;
 const ANOTACION_KINDS = ['subrayado', 'nota', 'marcador'] as const;
 
-type InAnotacion = {
-  id: string;
-  documentId: string;
-  unitIndex: number;
-  unitLabel: string | null;
-  excerpt: string;
-  nota: string | null;
-  kind: (typeof ANOTACION_KINDS)[number];
-  updatedAt: Date;
-};
+type InAnotacion = AnotacionRow;
 
 type InTemaStep = {
   order: number;
@@ -66,7 +66,10 @@ function parseAnotacion(raw: unknown): InAnotacion | null {
   const unitIndex = Number(r['unitIndex']);
   const excerpt = typeof r['excerpt'] === 'string' ? r['excerpt'] : '';
   const kind = r['kind'];
-  const updatedAt = parseDate(r['updatedAt']);
+  const updatedAt = resolveAnotacionStamp(
+    parseDate(r['updatedAt']),
+    parseDate(r['createdAt']),
+  );
   if (
     !id ||
     !documentId ||
@@ -149,7 +152,7 @@ syncRouter.post('/sync/merge', requireAuth, async (req, res) => {
       temasIgnorados: 0,
     };
 
-    // ── Anotaciones: upsert por (userId, id), last-write-wins ────────────
+    // ── Anotaciones: lote por (userId, id). Ver anotacionMergePlan. ──
     const anots = rawAnots
       .map(parseAnotacion)
       .filter((a): a is InAnotacion => a !== null);
@@ -158,31 +161,44 @@ syncRouter.post('/sync/merge', requireAuth, async (req, res) => {
     if (anots.length > 0) {
       const existing = await prisma.anotacion.findMany({
         where: { userId, id: { in: anots.map((a) => a.id) } },
-        select: { id: true, updatedAt: true },
+        select: {
+          id: true,
+          documentId: true,
+          unitIndex: true,
+          unitLabel: true,
+          excerpt: true,
+          nota: true,
+          kind: true,
+          updatedAt: true,
+        },
       });
-      const byId = new Map(existing.map((e) => [e.id, e.updatedAt]));
-
-      for (const a of anots) {
-        const prevUpdatedAt = byId.get(a.id);
-        if (prevUpdatedAt === undefined) {
-          await prisma.anotacion.create({ data: { userId, ...a } });
-          summary.anotacionesCreadas += 1;
-        } else if (a.updatedAt.getTime() > prevUpdatedAt.getTime()) {
-          await prisma.anotacion.update({
-            where: { userId_id: { userId, id: a.id } },
-            data: {
-              documentId: a.documentId,
-              unitIndex: a.unitIndex,
-              unitLabel: a.unitLabel,
-              excerpt: a.excerpt,
-              nota: a.nota,
-              kind: a.kind,
-              updatedAt: a.updatedAt,
-            },
-          });
-          summary.anotacionesActualizadas += 1;
-        }
-        // Igual o más antigua que la nube → gana la nube (no-op).
+      const plan = anotacionMergePlan(anots, existing);
+      summary.anotacionesCreadas += plan.create.length;
+      summary.anotacionesActualizadas += plan.update.length;
+      if (plan.create.length > 0 || plan.update.length > 0) {
+        await prisma.$transaction([
+          ...(plan.create.length > 0
+            ? [
+                prisma.anotacion.createMany({
+                  data: plan.create.map((a) => ({ userId, ...a })),
+                }),
+              ]
+            : []),
+          ...plan.update.map((a) =>
+            prisma.anotacion.update({
+              where: { userId_id: { userId, id: a.id } },
+              data: {
+                documentId: a.documentId,
+                unitIndex: a.unitIndex,
+                unitLabel: a.unitLabel,
+                excerpt: a.excerpt,
+                nota: a.nota,
+                kind: a.kind,
+                updatedAt: a.updatedAt,
+              },
+            }),
+          ),
+        ]);
       }
     }
 

@@ -37,3 +37,5 @@ node scripts/agent-structure.test.js
 bash scripts/ci-release-guard.test.sh
 node scripts/ci-evidence-policy.test.mjs
 npm --prefix backend run test:sync-theme
+npm --prefix backend run test:sync-anotacion
+npm --prefix frontend run test:anotaciones
