@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.41](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.40...v0.0.41) (2026-11-10)
+
+
+### Features
+
+* **verify:** add API and 390x844 viewport skills ([#56](https://github.com/RafaelAngelRamirez/documentos-vaticanos/issues/56)) ([1dfdc7e](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/1dfdc7ed0f6349e0a245dcc7e0c1a86574966aa3))
+* **verify:** fail web drive on known debt patterns ([#53](https://github.com/RafaelAngelRamirez/documentos-vaticanos/issues/53)) ([b13bb50](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/b13bb507fe8b1cd687781ede970439e35f4c73f0))
+
+
+### Bug Fixes
+
+* **auth:** end the stored session only on 401 ([#59](https://github.com/RafaelAngelRamirez/documentos-vaticanos/issues/59)) ([c88570a](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/c88570a63eb405e766115982dedaf85fb351bd9f))
+
 ### [0.0.40](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.39...v0.0.40) (2026-11-08)
 
 
