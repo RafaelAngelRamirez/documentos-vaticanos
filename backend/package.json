@@ -9,7 +9,8 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev"
+    "prisma:migrate": "prisma migrate dev",
+    "test:reference-document-id": "bash ../scripts/node-strip-types.sh src/routes/references-document-id.logic.test.js"
   },
   "engines": {
     "node": ">=20"

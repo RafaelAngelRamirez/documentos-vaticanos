@@ -26,3 +26,4 @@ Preconditions:
 
 - The title in the template is the literal `Mis referencias`, not an i18n key.
 - Rows need a prior save. Absence of rows is the anonymous end state.
+- A cloud row stores `documentId` only as `referenceDocumentId` accepts it: a pack slug (`cic-es`), `santoral:<id>`, or `papacy:<id>`. A title or `CIC` is rejected with `documentId invalid`. `yarn test:reference-document-id` checks that filter. This drive does not create a row.
