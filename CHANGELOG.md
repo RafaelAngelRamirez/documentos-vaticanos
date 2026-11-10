@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.43](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.42...v0.0.43) (2026-11-10)
+
+
+### Bug Fixes
+
+* **sync:** match a theme by id, not by title ([4c9ec64](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/4c9ec643e26a1a720f086ed7171eeb6e8307b00e))
+* **sync:** rebind a remapped theme instead of inserting a copy ([bebb1c6](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/bebb1c6f44bd3bd7e4ece3f910d5d78c04fead95))
+* **sync:** reject a theme create that has no device id ([5319963](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/53199633d5682c498148bc63e36192fab0361327))
+* **sync:** store the device theme id on create ([0dd7f33](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/0dd7f33055942bf769cf99abd3b8faffe3cbb03d))
+
 ### [0.0.42](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.41...v0.0.42) (2026-11-10)
 
 
