@@ -11,7 +11,8 @@ export type ThemeIdOccupant = {
 
 export type ThemeMergeAction =
   | { action: 'update'; id: string }
-  | { action: 'create'; id: string | null };
+  | { action: 'create'; id: string }
+  | { action: 'mint' };
 
 /** Id que manda el dispositivo. Vacío no es un id. */
 export function themeDeviceId(raw: unknown): string | null {
@@ -42,8 +43,9 @@ export function signedCreateThenMerge(
 /**
  * El id que ya es de este dueño se actualiza.
  * Un id libre se crea con ese mismo id.
- * Un id de otro dueño no se toca: la fila nueva lleva id del servidor.
- * Sin id, la fila nueva también lleva id del servidor.
+ * Un id de otro dueño, o ninguno, no se puede guardar: `mint`
+ * pide un id nuevo. El plan de lote puede reenganchar esa alta
+ * a la única fila de este dueño que el envío no nombra.
  */
 export function themeMergeAction(
   incomingId: string | null,
@@ -51,10 +53,38 @@ export function themeMergeAction(
   ownerId: string,
 ): ThemeMergeAction {
   const id = typeof incomingId === 'string' && incomingId.length > 0 ? incomingId : null;
-  if (!id) return { action: 'create', id: null };
+  if (!id) return { action: 'mint' };
   if (occupant?.id === id && occupant.ownerId === ownerId) {
     return { action: 'update', id };
   }
-  if (occupant?.id === id) return { action: 'create', id: null };
+  if (occupant?.id === id) return { action: 'mint' };
   return { action: 'create', id };
+}
+
+/**
+ * Una sola alta (id nuevo o id que no se puede guardar) no se inserta
+ * si a este dueño le queda una sola fila que el envío no nombra:
+ * se actualiza esa fila. No se mira el nombre.
+ * Con varias altas o varias filas así, cada id libre sigue siendo otro tema.
+ */
+export function planThemeMerges(
+  ownerId: string,
+  incomingIds: readonly (string | null)[],
+  ownedIds: readonly string[],
+  occupants: readonly (ThemeIdOccupant | null)[],
+): ThemeMergeAction[] {
+  const actions = incomingIds.map((incomingId, index) =>
+    themeMergeAction(incomingId, occupants[index] ?? null, ownerId),
+  );
+  const named = new Set(
+    incomingIds.filter((id): id is string => typeof id === 'string' && id.length > 0),
+  );
+  const unclaimed = ownedIds.filter((id) => !named.has(id));
+  const insertAt = actions.flatMap((action, index) =>
+    action.action === 'create' || action.action === 'mint' ? [index] : [],
+  );
+  if (insertAt.length === 1 && unclaimed.length === 1) {
+    actions[insertAt[0]] = { action: 'update', id: unclaimed[0] };
+  }
+  return actions;
 }

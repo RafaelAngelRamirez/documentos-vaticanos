@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { prisma } from '../db';
 import { requireAuth } from '../middleware/auth';
-import { themeMergeAction } from './sync-theme.logic';
+import { planThemeMerges } from './sync-theme.logic';
 
 /**
  * F9 · Registro = respaldo en nube; merge local→nube al iniciar sesión.
@@ -9,7 +9,7 @@ import { themeMergeAction } from './sync-theme.logic';
  * POST /api/v1/sync/merge
  * Body: { anotaciones: [...], temas: [...] } — cada ítem con `updatedAt` ISO.
  * Política: upsert por id. Anotaciones: PK compuesta userId+id. Temas: solo
- * el id (`themeMergeAction`); un título repetido es otro tema. Last-write-wins
+ * el id (`planThemeMerges`); un título repetido es otro tema. Last-write-wins
  * compara `updatedAt`. Devuelve el estado consolidado { anotaciones, temas }
  * más un `summary` con contadores para que el cliente sepa si subió algo.
  */
@@ -192,42 +192,63 @@ syncRouter.post('/sync/merge', requireAuth, async (req, res) => {
       .filter((t): t is InTema => t !== null);
     summary.temasIgnorados = rawTemas.length - temas.length;
 
-    for (const t of temas) {
-      const occupant = t.id
-        ? await prisma.theme.findUnique({ where: { id: t.id } })
-        : null;
-      const decision = themeMergeAction(
-        t.id,
-        occupant ? { id: occupant.id, ownerId: occupant.ownerId } : null,
-        userId,
-      );
+    const incomingIds = temas
+      .map((t) => t.id)
+      .filter((id): id is string => typeof id === 'string' && id.length > 0);
+    const knownRows = await prisma.theme.findMany({
+      where: incomingIds.length
+        ? { OR: [{ ownerId: userId }, { id: { in: incomingIds } }] }
+        : { ownerId: userId },
+    });
+    const byId = new Map(knownRows.map((row) => [row.id, row]));
+    const ownedIds = knownRows
+      .filter((row) => row.ownerId === userId)
+      .map((row) => row.id);
+    const plan = planThemeMerges(
+      userId,
+      temas.map((t) => t.id),
+      ownedIds,
+      temas.map((t) => {
+        if (!t.id) return null;
+        const row = byId.get(t.id);
+        return row ? { id: row.id, ownerId: row.ownerId } : null;
+      }),
+    );
+
+    for (const [index, t] of temas.entries()) {
+      const decision = plan[index];
+      if (!decision) {
+        summary.temasIgnorados += 1;
+        continue;
+      }
 
       if (decision.action === 'update') {
-        if (!occupant || occupant.ownerId !== userId) {
+        const existing = byId.get(decision.id);
+        if (!existing || existing.ownerId !== userId) {
           throw new Error('sync theme: actualización sin fila de ese dueño');
         }
-        if (t.updatedAt.getTime() > occupant.updatedAt.getTime()) {
+        if (t.updatedAt.getTime() > existing.updatedAt.getTime()) {
           await prisma.theme.update({
-            where: { id: occupant.id },
+            where: { id: existing.id },
             data: {
               title: t.title,
-              description: t.description ?? occupant.description,
-              coverImageKey: t.coverImageKey ?? occupant.coverImageKey,
+              description: t.description ?? existing.description,
+              coverImageKey: t.coverImageKey ?? existing.coverImageKey,
               // La visibilidad/revisión no se degrada desde sync salvo que el
               // tema siga privado/unlisted; 'public' y su cola no se tocan.
-              ...(occupant.visibility !== 'public'
+              ...(existing.visibility !== 'public'
                 ? { visibility: t.visibility }
                 : {}),
             },
           });
           if (t.steps) {
             await prisma.themeStep.deleteMany({
-              where: { themeId: occupant.id },
+              where: { themeId: existing.id },
             });
             if (t.steps.length > 0) {
               await prisma.themeStep.createMany({
                 data: t.steps.map((s) => ({
-                  themeId: occupant.id,
+                  themeId: existing.id,
                   order: s.order,
                   documentId: s.documentId,
                   unitIndex: s.unitIndex,
@@ -239,13 +260,11 @@ syncRouter.post('/sync/merge', requireAuth, async (req, res) => {
           }
           summary.temasActualizados += 1;
         }
-        // Igual o más antiguo que la nube → gana la nube (no-op).
+        // Igual o más antigua que la nube → gana la nube (no-op).
       } else {
-        // Primera fila de este id. El alta HTTP guarda el mismo id
-        // y, si no lo trae, no inserta: esta rama no duplica esa fila.
         await prisma.theme.create({
           data: {
-            ...(decision.id ? { id: decision.id } : {}),
+            ...(decision.action === 'mint' ? {} : { id: decision.id }),
             ownerId: userId,
             title: t.title,
             description: t.description,

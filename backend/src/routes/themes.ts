@@ -94,7 +94,7 @@ themesRouter.post('/me/themes', requireAuth, async (req, res) => {
     const wantsPublic = visibility === 'public';
     const item = await prisma.theme.create({
       data: {
-        ...(decision.id ? { id: decision.id } : {}),
+        ...(decision.action === 'mint' ? {} : { id: decision.id }),
         ownerId: req.user!.id,
         title,
         description,

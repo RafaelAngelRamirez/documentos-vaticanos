@@ -151,6 +151,28 @@ export class ThemesService {
     req.subscribe({ next: () => undefined, error: () => undefined });
   }
 
+  /**
+   * Si el alta respondió con otro id, el dispositivo se queda con ese.
+   * El merge siguiente nombra la misma fila.
+   */
+  private adoptServerThemeId(localId: string, serverId: string | undefined): void {
+    if (!serverId || serverId === localId) return;
+    const items = this.readLocal();
+    const idx = items.findIndex((t) => t.id === localId);
+    if (idx < 0) return;
+    const mine = { ...items[idx], id: serverId };
+    const existing = items.find((t) => t.id === serverId);
+    const rest = items.filter((t) => t.id !== localId && t.id !== serverId);
+    const mineTime = Date.parse(mine.updatedAt || '') || 0;
+    const existingTime = existing ? Date.parse(existing.updatedAt || '') || 0 : -1;
+    const winner = !existing || mineTime >= existingTime ? mine : existing;
+    this.writeLocal([...rest, winner]);
+    this.journal.recordTemaLapida(localId);
+    if (winner.id === serverId && winner === mine) {
+      this.journal.recordTemaPoner(mine);
+    }
+  }
+
   /** Incorpora temas del servidor al almacén local (gana el más reciente). */
   private mergeFromServer(serverItems: Theme[]): void {
     try {
@@ -220,12 +242,17 @@ export class ThemesService {
       updatedAt: now,
     };
     this.saveTheme(theme);
-    this.trySync(
-      this.http.post(`${environment.apiBaseUrl}/me/themes`, {
-        ...input,
-        id: theme.id,
-      })
-    );
+    if (this.canSync) {
+      this.http
+        .post<{ item?: { id?: string } }>(`${environment.apiBaseUrl}/me/themes`, {
+          ...input,
+          id: theme.id,
+        })
+        .subscribe({
+          next: (res) => this.adoptServerThemeId(theme.id, res?.item?.id),
+          error: () => undefined,
+        });
+    }
     return of(theme);
   }
 
