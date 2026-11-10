@@ -104,7 +104,11 @@ async function main() {
         Authorization: `Bearer ${globalThis.__token}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ title: 'Tema e2e', description: 'test' }),
+      body: JSON.stringify({
+        id: 'e2e-theme-device',
+        title: 'Tema e2e',
+        description: 'test',
+      }),
     });
     assert(r.ok, `theme create ${r.status}`);
     const j = await r.json();

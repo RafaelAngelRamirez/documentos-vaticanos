@@ -29,3 +29,4 @@ Preconditions:
 
 - The detail template renders the title only when `theme` is set (`tema-detalle.component.html`). A failed load stores `error` but the read-mode error line sits inside that same `theme` block, so the anonymous missing id looks almost empty.
 - Creating a theme is a mutation. The smoke drive does not do it.
+- Cloud merge identifies a theme by id (`planThemeMerges` in `backend/src/routes/sync-theme.logic.ts`). A signed-in create sends that id on `POST /me/themes` and adopts a different id from the response. A body without `id` is rejected. One unnamed cloud row plus one new device id, or plus one id owned by someone else, updates that row instead of inserting a second copy. A foreign id with no such row gets a new id, and the device keeps that id. This does not compare titles. This anonymous drive does not sign in and does not call `POST /sync/merge`. The check is `npm --prefix backend run test:sync-theme`.

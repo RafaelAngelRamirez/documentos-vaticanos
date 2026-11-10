@@ -103,6 +103,7 @@ function cheapTests() {
     ['reference documentId', 'bash', ['scripts/node-strip-types.sh', 'backend/src/routes/references-document-id.logic.test.js']],
     ['agent structure', node, ['scripts/agent-structure.test.js']],
     ['ci release guard', 'bash', ['scripts/ci-release-guard.test.sh']],
+    ['sync theme id', 'npm', ['--prefix', 'backend', 'run', 'test:sync-theme']],
   ];
   for (const [title, cmd, args] of commands) {
     run(title, cmd, args, root, env);
