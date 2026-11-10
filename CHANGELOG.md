@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.44](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.43...v0.0.44) (2026-11-10)
+
+
+### Bug Fixes
+
+* **sync:** reuse createdAt and keep device notes on a tie ([33eed21](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/33eed2121f8ff2a0cc78987d404b2843248f97d0))
+
 ### [0.0.43](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.42...v0.0.43) (2026-11-10)
 
 

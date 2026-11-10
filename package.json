@@ -1,6 +1,6 @@
 {
   "name": "documentos-vaticanos",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "private": true,
   "dependencies": {
     "googleapis": "^144.0.0",
