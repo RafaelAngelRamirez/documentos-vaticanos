@@ -99,12 +99,12 @@ export class InicioComponent implements OnInit, OnDestroy {
   showDownloads = false;
 
   links: {
-    apk: string;
+    apk: string | null;
     linux: string;
     windows: string;
     version: string;
   } = {
-    apk: STABLE_DOWNLOAD_PATHS.apk,
+    apk: null,
     linux: STABLE_DOWNLOAD_PATHS.linux,
     windows: STABLE_DOWNLOAD_PATHS.windows,
     version: environment.version || '',

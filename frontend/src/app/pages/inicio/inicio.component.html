@@ -190,6 +190,7 @@
       aria-label="Descargas de la aplicación"
     >
       <a
+        *ngIf="links.apk"
         class="wdl-item"
         [href]="links.apk"
         download="documentos-vaticanos.apk"

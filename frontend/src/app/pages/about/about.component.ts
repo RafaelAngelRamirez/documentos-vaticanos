@@ -13,12 +13,12 @@ export class AboutComponent implements OnInit, OnDestroy {
   localeTick = 0;
   private sub = new Subscription();
   links: {
-    apk: string;
+    apk: string | null;
     linux: string;
     windows: string;
     version: string;
   } = {
-    apk: '/downloads/documentos-vaticanos.apk',
+    apk: null,
     linux: '/downloads/documentos-vaticanos-linux.AppImage',
     windows: '/downloads/documentos-vaticanos-windows.exe',
     // Build-embedded version (same source as Inicio); not the downloads stub.

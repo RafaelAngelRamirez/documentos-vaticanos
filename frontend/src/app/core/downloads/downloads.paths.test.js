@@ -65,6 +65,26 @@ function main() {
   assert.ok(stub.downloads.linux.includes('AppImage'));
   assert.ok(stub.downloads.windows.includes('.exe'));
 
+  section('publishedApkHref hides an APK this publish did not build');
+  const models = fs.readFileSync(path.join(__dirname, 'downloads.models.ts'), 'utf8');
+  assert.ok(models.includes('export function publishedApkHref'), 'publishedApkHref');
+  assert.ok(
+    models.includes('available?.apk === false'),
+    'null href when available.apk is false'
+  );
+  const svc = fs.readFileSync(path.join(__dirname, 'downloads.service.ts'), 'utf8');
+  assert.ok(svc.includes('publishedApkHref'), 'DownloadsService uses publishedApkHref');
+  const inicioHtmlGate = fs.readFileSync(
+    path.join(FRONTEND, 'src/app/pages/inicio/inicio.component.html'),
+    'utf8'
+  );
+  const aboutHtmlGate = fs.readFileSync(
+    path.join(FRONTEND, 'src/app/pages/about/about.component.html'),
+    'utf8'
+  );
+  assert.ok(inicioHtmlGate.includes('*ngIf="links.apk"'), 'inicio hides missing apk');
+  assert.ok(aboutHtmlGate.includes('*ngIf="links.apk"'), 'about hides missing apk');
+
   section('normalize fills missing keys from stable paths');
   const empty = normalize({});
   assert.strictEqual(empty.downloads.apk, STABLE.apk);
