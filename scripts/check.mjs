@@ -102,6 +102,7 @@ function cheapTests() {
     ['corpus copy', node, ['scripts-descarga/write_corpus_copy.test.js']],
     ['reference documentId', 'bash', ['scripts/node-strip-types.sh', 'backend/src/routes/references-document-id.logic.test.js']],
     ['agent structure', node, ['scripts/agent-structure.test.js']],
+    ['android verify gates', node, ['--test', 'scripts/dv-verify-android.test.mjs']],
     ['ci release guard', 'bash', ['scripts/ci-release-guard.test.sh']],
     ['sync theme id', 'npm', ['--prefix', 'backend', 'run', 'test:sync-theme']],
     ['sync anotacion stamp', 'npm', ['--prefix', 'backend', 'run', 'test:sync-anotacion']],

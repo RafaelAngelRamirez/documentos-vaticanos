@@ -1,0 +1,15 @@
+sdk /home/ubuntu/Android/Sdk
+avd dv_verify
+port 5574
+kvm ok
+mem_available_mb 6974
+disk_free_gb 240.7
+avd created dv_verify
+emulator pid 5044
+boot_completed 1
+elapsed_ms 26317
+launch ready
+serial emulator-5574
+boot_completed 1
+pid 5044 alive
+doctor ok

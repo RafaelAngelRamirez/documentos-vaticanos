@@ -58,6 +58,8 @@ node .cursor/skills/verify-documentos-vaticanos/scripts/dv-verify.mjs cleanup
 
 Sin subcomando imprime `usage: dv-verify.mjs launch|doctor|drive <feature>|cleanup` y sale 2. `drive <feature>` usa el id de una ficha del mapa. La prueba de lector es `drive lector`. Cada drive escribe `.cursor/skills/verify-documentos-vaticanos/evidence/<feature>.txt`. `cleanup` para el pid de esta skill y no borra `evidence/`.
 
+La skill Android es `.cursor/skills/verify-documentos-vaticanos-android/`. El helper es `node scripts/dv-verify-android.mjs` (`launch`, `doctor`, `drive lector`, `cleanup`). Exige KVM usable por el usuario, el SDK ya instalado y la imagen `system-images;android-34;default;x86_64`. El AVD por defecto es `dv_verify` en el puerto 5574. No descarga la imagen, no usa `-wipe-data` y no toca los puertos 5564 ni 5580. Si falta KVM, memoria, disco o la imagen, sale con `launch fail` y no crea un AVD. El drive instala un APK de depuración ya construido (`yarn package:apk`) y lee el WebView. La evidencia queda en `.cursor/skills/verify-documentos-vaticanos-android/evidence/`.
+
 Launch está listo cuando la salida trae `launch ready` y `doctor ok`. El servidor por defecto es `http://127.0.0.1:4219` sobre el `dist` empaquetado. `yarn dev` (puerto 4200) se adopta solo si la ficha necesita cuenta o sync; no se levanta un segundo servidor en 4219.
 
 ## Gate
