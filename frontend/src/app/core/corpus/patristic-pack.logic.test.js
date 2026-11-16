@@ -9,8 +9,8 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { pathToFileURL } = require('url');
-const { crc32 } = require('node:zlib');
 const { register } = require('node:module');
+const { zipPackDir } = require('../../../../../scripts/patristic-pack.js');
 
 register(
   'data:text/javascript,' +
@@ -124,7 +124,7 @@ async function main() {
     );
     assert.strictEqual(built.status, 0, built.stderr || built.stdout);
     const zipPath = path.join(tmp, 'patristica.zip');
-    fs.writeFileSync(zipPath, zipStore(out));
+    zipPackDir(out, zipPath);
     const zipBytes = new Uint8Array(fs.readFileSync(zipPath));
     const files = await filesFromZip(zipBytes);
     assert.ok(files.has('manifest.json'));
@@ -245,57 +245,6 @@ async function main() {
   } finally {
     fs.rmSync(tmp, { recursive: true, force: true });
   }
-}
-
-function zipStore(root) {
-  const files = [];
-  const walk = (dir, prefix) => {
-    for (const name of fs.readdirSync(dir).sort()) {
-      const abs = path.join(dir, name);
-      const rel = prefix ? `${prefix}/${name}` : name;
-      if (fs.statSync(abs).isDirectory()) walk(abs, rel);
-      else files.push({ rel, data: fs.readFileSync(abs) });
-    }
-  };
-  walk(root, '');
-  const parts = [];
-  const central = [];
-  let offset = 0;
-  for (const file of files) {
-    const name = Buffer.from(file.rel);
-    const crc = crc32(file.data) >>> 0;
-    const local = Buffer.alloc(30 + name.length);
-    local.writeUInt32LE(0x04034b50, 0);
-    local.writeUInt16LE(20, 4);
-    local.writeUInt16LE(0, 8);
-    local.writeUInt32LE(crc, 14);
-    local.writeUInt32LE(file.data.length, 18);
-    local.writeUInt32LE(file.data.length, 22);
-    local.writeUInt16LE(name.length, 26);
-    name.copy(local, 30);
-    parts.push(local, file.data);
-    const cd = Buffer.alloc(46 + name.length);
-    cd.writeUInt32LE(0x02014b50, 0);
-    cd.writeUInt16LE(20, 4);
-    cd.writeUInt16LE(20, 6);
-    cd.writeUInt16LE(0, 10);
-    cd.writeUInt32LE(crc, 16);
-    cd.writeUInt32LE(file.data.length, 20);
-    cd.writeUInt32LE(file.data.length, 24);
-    cd.writeUInt16LE(name.length, 28);
-    cd.writeUInt32LE(offset, 42);
-    name.copy(cd, 46);
-    central.push(cd);
-    offset += local.length + file.data.length;
-  }
-  const cd = Buffer.concat(central);
-  const eocd = Buffer.alloc(22);
-  eocd.writeUInt32LE(0x06054b50, 0);
-  eocd.writeUInt16LE(files.length, 8);
-  eocd.writeUInt16LE(files.length, 10);
-  eocd.writeUInt32LE(cd.length, 12);
-  eocd.writeUInt32LE(offset, 16);
-  return Buffer.concat([...parts, cd, eocd]);
 }
 
 main().catch((err) => {

@@ -10,7 +10,7 @@ on:
 jobs:
   cheap:
     name: Cheap tests
-    # docvat-ci-1: ephemeral, 1 CPU / 2 GiB, no Docker. Fork PRs must not
+    # docvat-ci-1: ephemeral, 2 CPU / 4 GiB, no Docker. Fork PRs must not
     # land on that runner. This job is node scripts only (scripts/ci-cheap.sh).
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: [self-hosted, linux, docvat-ci]
@@ -24,11 +24,11 @@ jobs:
 
   agent-gate:
     name: Agent gate
-    # Stays on GitHub-hosted runners. npm ci (root, frontend, backend),
-    # `yarn run check` (Angular tsc) and the lector Chromium drive do not
-    # fit a 2 GiB machine without Docker headroom. ubuntu-latest is billing-
-    # locked; this job is not forced onto docvat-ci.
-    runs-on: ubuntu-latest
+    # Same runner and fork guard as cheap. Heap cap leaves room under 4 GiB.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, linux, docvat-ci]
+    env:
+      NODE_OPTIONS: --max-old-space-size=3072
     steps:
       - uses: actions/checkout@v4
         with:
@@ -68,6 +68,8 @@ jobs:
           code=$?
           echo "code=$code" >> "$GITHUB_OUTPUT"
           exit "$code"
+      - name: Package web
+        run: npm --prefix frontend run build
       - name: Lector drive
         id: lector
         continue-on-error: true
