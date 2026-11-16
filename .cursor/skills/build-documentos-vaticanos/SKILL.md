@@ -36,23 +36,18 @@ No ejecutes `scripts/ci-docker-push.sh` ni `scripts/ci-deploy-docvat.sh`. Public
 
 ## Pruebas de antes del empaquetado
 
-Las mismas que corre `.ci-build.sh` antes de la web:
+`.ci-build.sh` las corre en la etapa 3, después de instalar dependencias y antes de `scripts/package-web.sh`:
 
 ```bash
 npm run topics:validate -- --locale es
-npm --prefix frontend run test:open-reading
-npm --prefix frontend run test:speech-prep
-npm --prefix frontend run test:speech-lang
-npm --prefix frontend run test:ui-i18n
-node scripts-descarga/corpus_structure_contract.test.js
-node scripts/corpus-sync-assets.test.js
-node scripts/dead-style-copies.test.js
-node scripts-descarga/write_corpus_copy.test.js
-node scripts/agent-structure.test.js
-bash scripts/ci-release-guard.test.sh
+bash scripts/ci-cheap.sh
 ```
 
 `topics:validate` usa el ts-node de `scripts-descarga` y no lleva `--skip-fp`. Si falla por huella vieja tras un cambio de corpus, regenera con `npm run topics:build` y vuelve a validar.
+
+`scripts/ci-cheap.sh` es la lista canónica (también la usa el workflow de pull request). Con `DV_CI=1` corre, en este orden: `bash scripts/ci-agent-gate.sh map`; en `frontend`, `test:open-reading`, `test:reader-prefs`, `test:unit-bookmark`, `test:review`, `test:reader-bars`, `test:mobile-flows`, `test:speech-prep`, `test:speech-lang`, `test:read-aloud`, `test:ui-i18n`, `test:clases`, `test:sync-journal`, `test:unpack-ship-index`, `test:shelf-search`; `node scripts-descarga/corpus_structure_contract.test.js`; `node scripts/corpus-sync-assets.test.js`; `node scripts/patristic-pack.test.js` y `node scripts/patristic-pack.js proof --canonical documentos/corpus --check`; `frontend/src/app/core/corpus/patristic-pack.logic.test.js` vía `scripts/node-strip-types.sh`; `node scripts/on-demand-sources.test.js`; `bash scripts/on-demand-ship.test.sh`; `node scripts/dead-style-copies.test.js`; `node scripts-descarga/write_corpus_copy.test.js`; `backend/src/routes/references-document-id.logic.test.js` vía `scripts/node-strip-types.sh`; `node scripts/agent-structure.test.js`; `bash scripts/ci-release-guard.test.sh`; `node scripts/ci-evidence-policy.test.mjs`; en `backend`, `test:sync-theme` y `test:sync-anotacion`; en `frontend`, `test:anotaciones`.
+
+El gate completo del agente (`bash scripts/ci-agent-gate.sh`) queda fuera de esa lista. `.ci-build.sh` solo lo corre con `DV_AGENT_GATE=1`, después del smoke de `dist`. `check-map` ya entra en `ci-cheap.sh` por `ci-agent-gate.sh map`.
 
 ## Qué corre el CI
 
