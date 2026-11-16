@@ -58,6 +58,8 @@ yarn package:apk
 
 El `applicationId` y las versiones que firma el paquete salen de propiedades Gradle (`dvApplicationId`, `dvVersionCode`, `dvVersionName`) en `frontend/android/app/build.gradle`. Los secretos de firma no están en el repositorio.
 
+La verificación del emulador, cuando KVM es usable, es `.cursor/skills/verify-documentos-vaticanos-android/` y `node scripts/dv-verify-android.mjs`. Arranca el AVD `dv_verify` en el puerto 5574 sin ventana y sin `-wipe-data`. No sustituye a `yarn dev:android`. Si `/dev/kvm` no se puede abrir, o faltan memoria, disco o la imagen `system-images;android-34;default;x86_64`, el launch sale sin crear un AVD.
+
 ## Electron
 
 `frontend/electron/main.js` abre una ventana y sirve el build con `frontend/electron/static-server.js`. `frontend/electron/paths.js` resuelve el directorio `dist/documentos-vaticanos` bajo `frontend/`. `frontend/electron/preload.js` expone `documentosVaticanosShell` (`kind: 'electron'` y `openExternal`). El renderer no recibe Node.

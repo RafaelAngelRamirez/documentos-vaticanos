@@ -34,6 +34,7 @@ node scripts/dead-style-copies.test.js
 node scripts-descarga/write_corpus_copy.test.js
 bash scripts/node-strip-types.sh backend/src/routes/references-document-id.logic.test.js
 node scripts/agent-structure.test.js
+node --test scripts/dv-verify-android.test.mjs
 bash scripts/ci-release-guard.test.sh
 node scripts/ci-evidence-policy.test.mjs
 npm --prefix backend run test:sync-theme

@@ -1,0 +1,11 @@
+feature lector
+serial emulator-5574
+install /agent/repos/documentos-vaticanos/frontend/android/app/build/outputs/apk/debug/app-debug.apk
+action start digital.documentosvaticanos.app/.MainActivity
+action navigate https://localhost/leyendo/cic-es/punto/2
+webview webview_devtools_remote_2315
+app-lector attached
+app-punto visible
+bnav 0
+result_url https://localhost/leyendo/cic-es/u/2
+excerpt ← Catecismo Aa Nº 1–7 Inicio del documento ★ CARTA APOSTÓLICA « LAETAMUR MAGNOPERE »★ por la que se aprueba la edición típica latina del Catecismo de la Iglesia Católica ★ A los Venerables Hermanos Cardenales, Patriarcas, Arzobispos, Obispos, Presbíteros, Diáconos y demás miembro
