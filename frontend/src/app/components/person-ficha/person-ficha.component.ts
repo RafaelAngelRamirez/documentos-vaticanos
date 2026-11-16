@@ -110,7 +110,7 @@ export interface PersonWorkLink {
 })
 export class PersonFichaComponent {
   @Input() wbarActive: WbarSection = null;
-  @Input() backLink: string | any[] = '/';
+  @Input() backLink = '/';
   @Input() backLabel = '←';
   @Input() kindLine = '';
   @Input() title = '';

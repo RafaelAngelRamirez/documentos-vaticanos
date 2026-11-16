@@ -5,6 +5,8 @@
  * documentId namespace: `santoral:{saintId}` — never collides with pack ids.
  */
 
+import { stripDiacritics } from '../text/strip-diacritics.js';
+
 export const SANTORAL_DOC_PREFIX = 'santoral:';
 
 /** Minimal saint shape for materialization (aligned with SaintRecord). */
@@ -487,18 +489,9 @@ export function canContinueSaintReading(
   return got === want;
 }
 
-/**
- * Fold token like corpus search (keep ñ; strip other diacritics).
- * Local copy so this module stays free of semantic-search imports.
- */
+/** Fold token like corpus search (keep ñ; strip other diacritics). */
 function foldSeedToken(raw: string): string {
-  return String(raw || '')
-    .normalize('NFD')
-    .replace(
-      /([^n\u0300-\u036f]|n(?!\u0303(?![\u0300-\u036f])))[\u0300-\u036f]+/gi,
-      '$1',
-    )
-    .normalize()
+  return stripDiacritics(String(raw || ''))
     .toLowerCase()
     .replace(/[,"\.«»“”:;!¡¿?—']/gi, '')
     .replace(/[-\(\)\*\/`‘–…\[\]]/gi, ' ')

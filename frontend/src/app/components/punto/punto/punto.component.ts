@@ -13,7 +13,7 @@ import {
   Referencia,
 } from 'src/app/core/corpus/corpus.models';
 import { TermsProcessed } from '../../buscador/buscador.service';
-import { UtilidadesService } from 'src/app/services/utilidades.service';
+import { stripDiacritics } from 'src/app/core/text/strip-diacritics.js';
 import { NavigationService } from 'src/app/services/navigation.service';
 import {
   documentIdKey,
@@ -91,7 +91,6 @@ export class PuntoComponent implements OnInit, OnDestroy {
   private hlSub?: Subscription;
 
   constructor(
-    private utilidadesService: UtilidadesService,
     private navigationService: NavigationService,
     public auth: AuthService,
     private references: ReferencesService,
@@ -278,18 +277,14 @@ export class PuntoComponent implements OnInit, OnDestroy {
     escaped: string,
     sources: { terms: string[]; cls: string }[]
   ): string {
-    const folded = this.utilidadesService.texto
-      .eliminar_diacriticos(escaped)
-      .toLowerCase();
+    const folded = stripDiacritics(escaped).toLowerCase();
 
     type Range = { start: number; end: number; cls: string };
     const ranges: Range[] = [];
 
     for (const src of sources) {
       for (const term of src.terms) {
-        const t = this.utilidadesService.texto
-          .eliminar_diacriticos(term)
-          .toLowerCase();
+        const t = stripDiacritics(term).toLowerCase();
         if (!t) continue;
 
         let from = 0;
