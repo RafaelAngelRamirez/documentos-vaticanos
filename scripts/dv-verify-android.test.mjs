@@ -12,6 +12,7 @@ import {
   MIN_MEM_MB,
   emulatorArgs,
   gateReasons,
+  launchAction,
   systemImageFile,
   judgeLector,
   kvmOpenable,
@@ -53,6 +54,14 @@ test('gates refuse a host that cannot run the emulator', () => {
   assert.ok(MIN_DISK_BYTES >= 8 * 1024 * 1024 * 1024);
   assert.ok(FORBIDDEN_PORTS.has(5564));
   assert.ok(FORBIDDEN_PORTS.has(5580));
+});
+
+test('a booting emulator is waited on, not started twice', () => {
+  assert.equal(launchAction({ booted: true, ownedPidAlive: true, portOpen: true, deviceListed: true }), 'reuse');
+  assert.equal(launchAction({ booted: false, ownedPidAlive: true, portOpen: false, deviceListed: false }), 'wait');
+  assert.equal(launchAction({ booted: false, ownedPidAlive: false, portOpen: true, deviceListed: false }), 'wait');
+  assert.equal(launchAction({ booted: false, ownedPidAlive: false, portOpen: false, deviceListed: true }), 'wait');
+  assert.equal(launchAction({ booted: false, ownedPidAlive: false, portOpen: false, deviceListed: false }), 'spawn');
 });
 
 test('gates pass a host with kvm, memory, disk, and the sdk', () => {

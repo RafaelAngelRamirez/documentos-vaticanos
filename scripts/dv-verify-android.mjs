@@ -6,6 +6,7 @@
  */
 import { spawn, spawnSync } from 'node:child_process';
 import fs from 'node:fs';
+import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -67,6 +68,12 @@ export function memAvailableMb(meminfo) {
 export function diskFreeBytes(target) {
   const stat = fs.statfsSync(target);
   return Number(stat.bavail) * Number(stat.bsize);
+}
+
+export function launchAction({ booted, ownedPidAlive, portOpen, deviceListed }) {
+  if (booted) return 'reuse';
+  if (ownedPidAlive || portOpen || deviceListed) return 'wait';
+  return 'spawn';
 }
 
 export function gateReasons({ kvm, memMb, diskBytes, emulatorExists, adbExists, port }) {
@@ -214,6 +221,53 @@ function bootCompleted(sdk, serial) {
   return (result.stdout || '').replace(/\r/g, '').trim() === '1';
 }
 
+function deviceListed(sdk, serial) {
+  const result = adb(sdk, ['devices'], 10000);
+  return (result.stdout || '').split('\n').some((line) => {
+    const id = line.trim().split(/\s+/)[0];
+    return id === serial;
+  });
+}
+
+function portListening(port) {
+  return new Promise((resolve) => {
+    const socket = net.connect({ host: '127.0.0.1', port });
+    let settled = false;
+    const finish = (open) => {
+      if (settled) return;
+      settled = true;
+      socket.destroy();
+      resolve(open);
+    };
+    socket.setTimeout(400);
+    socket.once('connect', () => finish(true));
+    socket.once('timeout', () => finish(false));
+    socket.once('error', () => finish(false));
+  });
+}
+
+function stopOwned(sdk, state) {
+  if (!state?.owned) return;
+  if (state.pid) {
+    try {
+      process.kill(-state.pid, 'SIGTERM');
+    } catch {
+      try {
+        process.kill(state.pid, 'SIGTERM');
+      } catch {
+        /* already gone */
+      }
+    }
+  }
+  if (state.serial && fs.existsSync(adbBin(sdk))) {
+    adb(sdk, ['-s', state.serial, 'emu', 'kill'], 15000);
+  }
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function writeEvidence(name, lines) {
   fs.mkdirSync(evidenceDir, { recursive: true });
   const evidencePath = path.join(evidenceDir, `${name}.txt`);
@@ -329,8 +383,24 @@ async function launch() {
   }
 
   const previous = readState();
-  if (bootCompleted(sdk, serial)) {
-    const owned = Boolean(previous?.owned && previous.serial === serial && pidAlive(previous.pid));
+  const ownedPidAlive = Boolean(previous?.owned && previous.serial === serial && pidAlive(previous.pid));
+  const action = launchAction({
+    booted: bootCompleted(sdk, serial),
+    ownedPidAlive,
+    portOpen: await portListening(port),
+    deviceListed: deviceListed(sdk, serial),
+  });
+  if (action === 'reuse' || action === 'wait') {
+    const waitMs = Number(process.env.DV_VERIFY_ANDROID_WAIT_MS || 180000);
+    const elapsed = action === 'wait' ? await waitForBoot(sdk, serial, waitMs) : 0;
+    if (action === 'wait' && elapsed == null) {
+      lines.push('launch fail timeout');
+      if (ownedPidAlive) stopOwned(sdk, { ...previous, serial, owned: true });
+      const evidencePath = writeEvidence('launch', lines);
+      console.log([...lines, `evidence ${evidencePath}`].join('\n'));
+      process.exit(1);
+    }
+    const owned = ownedPidAlive;
     writeState({
       sdk,
       avd,
@@ -341,6 +411,7 @@ async function launch() {
       adopted: !owned,
     });
     lines.push(owned ? 'launch reuse' : 'launch adopted');
+    if (action === 'wait') lines.push(`elapsed_ms ${elapsed}`);
     lines.push('boot_completed 1');
     lines.push('launch ready');
     const doctorLines = doctorLinesFor(sdk, readState());
@@ -387,11 +458,7 @@ async function launch() {
   if (elapsed == null) {
     lines.push('launch fail timeout');
     lines.push(...tailFile(logPath).map((line) => `log ${line}`));
-    try {
-      process.kill(child.pid, 'SIGTERM');
-    } catch {
-      /* already gone */
-    }
+    stopOwned(sdk, { sdk, avd, port, serial, pid: child.pid, owned: true });
     const evidencePath = writeEvidence('launch', lines);
     console.log([...lines, `evidence ${evidencePath}`].join('\n'));
     process.exit(1);
@@ -519,34 +586,67 @@ function openCdp(wsUrl) {
   };
 }
 
-async function readLector(wsUrl) {
-  const client = openCdp(wsUrl);
-  await client.ready;
-  try {
-    await client.call('Runtime.enable', {});
-    await client.call('Page.enable', {});
-    const prefs = JSON.stringify(PREFS).replace(/</g, '\\u003c');
-    await client.call('Runtime.evaluate', {
-      expression: `localStorage.setItem('reader.prefs.v1', ${JSON.stringify(prefs)})`,
-      returnByValue: true,
-    });
-    await client.call('Page.navigate', { url: LECTOR_NAV });
-    const expression = cdpEvaluateExpression();
-    const started = Date.now();
-    let last = null;
-    while (Date.now() - started < 60000) {
-      const evaluated = await client.call('Runtime.evaluate', {
-        expression,
-        returnByValue: true,
-      });
-      last = evaluated?.result?.value || null;
-      if (last && judgeLector(last).length === 0) return last;
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+async function pageSocket(cdpPort) {
+  const response = await fetch(`http://127.0.0.1:${cdpPort}/json/list`);
+  if (!response.ok) throw new Error(`cdp list ${response.status}`);
+  const list = await response.json();
+  const pages = Array.isArray(list) ? list : [];
+  const page = pages.find((target) => target.type === 'page' && target.webSocketDebuggerUrl)
+    || pages.find((target) => target.webSocketDebuggerUrl);
+  if (!page?.webSocketDebuggerUrl) throw new Error('cdp list empty');
+  return page.webSocketDebuggerUrl;
+}
+
+async function readLector(cdpPort) {
+  const deadline = Date.now() + 60000;
+  const expression = cdpEvaluateExpression();
+  const prefs = JSON.stringify(PREFS).replace(/</g, '\\u003c');
+  let last = null;
+  let prefsSet = false;
+  let navigated = false;
+  while (Date.now() < deadline) {
+    let client;
+    try {
+      client = openCdp(await pageSocket(cdpPort));
+      await client.ready;
+      await client.call('Runtime.enable', {});
+      await client.call('Page.enable', {});
+      if (!prefsSet) {
+        await client.call('Runtime.evaluate', {
+          expression: `localStorage.setItem('reader.prefs.v1', ${JSON.stringify(prefs)})`,
+          returnByValue: true,
+        });
+        prefsSet = true;
+      }
+      if (!navigated) {
+        await client.call('Page.navigate', { url: LECTOR_NAV });
+        navigated = true;
+      }
+      while (Date.now() < deadline) {
+        try {
+          const evaluated = await client.call('Runtime.evaluate', {
+            expression,
+            returnByValue: true,
+          });
+          last = evaluated?.result?.value || last;
+          if (last && judgeLector(last).length === 0) return last;
+        } catch {
+          break;
+        }
+        await sleep(1000);
+      }
+    } catch {
+      /* endpoint not up yet, or the page navigated and closed the socket */
+    } finally {
+      try {
+        client?.ws.close();
+      } catch {
+        /* already closed */
+      }
     }
-    return last || { href: '', lector: false, punto: false, bnav: -1, excerpt: '' };
-  } finally {
-    client.ws.close();
+    await sleep(500);
   }
+  return last || { href: '', lector: false, punto: false, bnav: -1, excerpt: '' };
 }
 
 async function drive(name) {
@@ -626,11 +726,7 @@ async function drive(name) {
   }
   let snapshot;
   try {
-    const list = await fetch(`http://127.0.0.1:${cdpPort}/json/list`).then((response) => response.json());
-    const page = (Array.isArray(list) ? list : []).find((target) => target.type === 'page' && target.webSocketDebuggerUrl)
-      || (Array.isArray(list) ? list : []).find((target) => target.webSocketDebuggerUrl);
-    if (!page?.webSocketDebuggerUrl) throw new Error('cdp list empty');
-    snapshot = await readLector(page.webSocketDebuggerUrl);
+    snapshot = await readLector(cdpPort);
   } catch (err) {
     lines.push(`error ${err.message}`);
     const evidencePath = writeEvidence('lector', lines);
@@ -652,16 +748,7 @@ async function drive(name) {
 function cleanup() {
   const state = readState();
   const sdk = state?.sdk || sdkRoot();
-  if (state?.owned && state.pid && pidAlive(state.pid)) {
-    try {
-      process.kill(state.pid, 'SIGTERM');
-    } catch {
-      /* already gone */
-    }
-  }
-  if (state?.owned && state.serial && fs.existsSync(adbBin(sdk))) {
-    adb(sdk, ['-s', state.serial, 'emu', 'kill'], 15000);
-  }
+  stopOwned(sdk, state);
   if (state?.serial && fs.existsSync(adbBin(sdk))) {
     const cdpPort = Number(process.env.DV_VERIFY_ANDROID_CDP_PORT || 9222);
     adb(sdk, ['-s', state.serial, 'forward', '--remove', `tcp:${cdpPort}`], 10000);

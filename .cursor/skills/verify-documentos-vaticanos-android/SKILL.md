@@ -39,9 +39,9 @@ node scripts/dv-verify-android.mjs launch
 
 Ready cuando stdout contiene `launch ready` y `doctor ok`. El estado queda en `.cursor/skills/verify-documentos-vaticanos-android/.run/state.json`. La espera por defecto es 180 s (`DV_VERIFY_ANDROID_WAIT_MS`).
 
-Si `emulator-5574` ya tiene `sys.boot_completed` 1 y el pid guardado sigue vivo, el launch reutiliza ese proceso (`launch reuse`). Si el emulador ya está en ese puerto y no es de esta skill, lo adopta (`launch adopted`) y cleanup no lo mata.
+Si `emulator-5574` ya arrancó, o el pid propio sigue vivo, o el puerto de consola ya escucha, el launch espera ese proceso (`launch reuse` si es propio, `launch adopted` si no). No abre un segundo emulador en el mismo puerto. Cleanup no mata un emulador adoptado.
 
-Un timeout escribe `evidence/launch.txt`, termina el pid que esta skill arrancó y sale distinto de cero. No deja el proceso colgado a propósito.
+Un timeout escribe `evidence/launch.txt`. Si el proceso es propio, manda `SIGTERM` al grupo y `adb emu kill`, y sale distinto de cero.
 
 El proceso usa `-no-window`, `-no-audio`, `-no-boot-anim`, `-gpu swiftshader_indirect`, `-accel on`, `-memory 1536` y `-no-metrics`.
 
