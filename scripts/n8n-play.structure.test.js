@@ -63,10 +63,18 @@ function main() {
   section('.ci-build.sh is the only APK packager on the sidecar path');
   const ci = fs.readFileSync(path.join(ROOT, '.ci-build.sh'), 'utf8');
   assert.match(ci, /bash scripts\/package-apk\.sh/);
+  assert.match(ci, /DV_BUILD_APK:-0/, 'APK build defaults off; web deploy stays on');
+  assert.match(
+    ci,
+    /DV_REQUIRE_APK="\$\{DV_REQUIRE_APK:-\$DV_BUILD_APK\}"/,
+    'DV_REQUIRE_APK follows DV_BUILD_APK',
+  );
   const apkIdx = ci.indexOf('bash scripts/package-apk.sh');
+  const apkGate = ci.indexOf('DV_BUILD_APK:-0');
   const aabGate = ci.indexOf('DV_BUILD_AAB:-0');
   const playGate = ci.indexOf('DV_PLAY_UPLOAD:-0');
   assert.ok(apkIdx > 0, 'CI calls package-apk.sh');
+  assert.ok(apkGate > 0 && apkIdx > apkGate, 'package-apk.sh stays behind DV_BUILD_APK');
   assert.ok(aabGate > apkIdx, 'AAB is optional after APK');
   assert.ok(playGate > 0, 'Play upload gated on DV_PLAY_UPLOAD');
 

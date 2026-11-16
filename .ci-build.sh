@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # CI entrypoint for n8n sidecar (imperium-build-runner).
-# Critical path is mobile-first: web + APK + Docker deploy.
+# Critical path is web + Docker deploy. The installable APK is OFF unless
+# DV_BUILD_APK=1 (then the path matches the previous web+APK deploy).
 # Electron (esp. Windows/Wine) is OFF by default — opt in with DV_BUILD_ELECTRON=1.
+# AAB and Play stay OFF unless DV_BUILD_AAB=1 or DV_PLAY_UPLOAD=1.
 #
 # Layout note: n8n clones into /work/docvat (volume root is /work). When this
 # file is used directly, set DV_CI_ROOT or run from the repo root.
@@ -187,11 +189,17 @@ if [[ "${DV_AGENT_GATE:-0}" == "1" ]]; then
   bash scripts/ci-agent-gate.sh
 fi
 
-# Mobile-first: APK is the product priority (before Electron / desktop).
-echo "==> [5/${_STAGES}] APK instalable (mobile-first)"
+# APK is off by default (web still publishes). Opt in: DV_BUILD_APK=1.
+# DV_REQUIRE_APK follows that switch unless the runner sets it explicitly.
+export DV_BUILD_APK="${DV_BUILD_APK:-0}"
+echo "==> [5/${_STAGES}] APK instalable (DV_BUILD_APK=${DV_BUILD_APK})"
 CURRENT_STAGE="APK instalable"
 notify_step "$CURRENT_STAGE" || true
-bash scripts/package-apk.sh
+if [[ "$DV_BUILD_APK" == "1" ]]; then
+  bash scripts/package-apk.sh
+else
+  echo "==> APK skipped (web-only deploy; set DV_BUILD_APK=1 to build and publish the APK)"
+fi
 
 # Optional AAB (Play) — off unless explicitly requested. Keystore alone must NOT
 # enable AAB (n8n/host often mounts secrets; critical path is web+APK only).
@@ -223,12 +231,16 @@ else
   echo "==> Electron skipped (critical path is mobile-first; set DV_BUILD_ELECTRON=1 to enable)"
 fi
 
-echo "==> [collect] downloads into web tree (APK required)"
+echo "==> [collect] downloads into web tree (DV_REQUIRE_APK follows DV_BUILD_APK)"
 CURRENT_STAGE="Collect downloads"
 notify_step "$CURRENT_STAGE" || true
-# Require APK only — desktop installers are optional on the critical path.
-export DV_REQUIRE_APK="${DV_REQUIRE_APK:-1}"
+# Require the APK only when this run is building one. Desktop stays optional.
+export DV_REQUIRE_APK="${DV_REQUIRE_APK:-$DV_BUILD_APK}"
 export DV_REQUIRE_ALL_DOWNLOADS="${DV_REQUIRE_ALL_DOWNLOADS:-0}"
+# Web-only: a dist with manifest and no installer is a valid deploy input.
+if [[ "$DV_BUILD_APK" != "1" ]]; then
+  export DV_ALLOW_EMPTY_DOWNLOADS="${DV_ALLOW_EMPTY_DOWNLOADS:-1}"
+fi
 bash scripts/package-collect-downloads.sh
 
 echo "==> [final] Docker image + push + deploy docvat"
@@ -238,9 +250,17 @@ if [[ ! -d frontend/dist/documentos-vaticanos/downloads ]]; then
   echo "ERROR: downloads missing under frontend dist" >&2
   exit 1
 fi
+if [[ ! -f frontend/dist/documentos-vaticanos/downloads/manifest.json ]]; then
+  echo "ERROR: downloads/manifest.json missing under frontend dist" >&2
+  exit 1
+fi
+if [[ ! -f frontend/dist/documentos-vaticanos/index.html ]]; then
+  echo "ERROR: web index.html missing under frontend dist" >&2
+  exit 1
+fi
 if [[ ! -f frontend/dist/documentos-vaticanos/downloads/documentos-vaticanos.apk ]] \
-  && [[ "${DV_REQUIRE_APK:-1}" == "1" ]]; then
-  echo "ERROR: APK missing under frontend dist downloads (mobile-first CI)" >&2
+  && [[ "${DV_REQUIRE_APK:-0}" == "1" ]]; then
+  echo "ERROR: APK missing under frontend dist downloads (DV_REQUIRE_APK=1)" >&2
   exit 1
 fi
 

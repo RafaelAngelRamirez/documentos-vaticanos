@@ -167,11 +167,31 @@ async function main() {
       linux: null,
       windows: null,
     });
-    // STABLE_DOWNLOAD_PATHS still fills path via resolveUpdate fallback
+    // No `available` flag: STABLE_DOWNLOAD_PATHS still fills the path.
     const r = resolveUpdate('1.0.0', m, 'apk', ORIGIN);
-    // available true because stable paths kick in
     assert.strictEqual(r.available, true);
     assert.ok(r.downloadUrl.includes('documentos-vaticanos.apk'));
+  }
+  {
+    const m = fixtureManifest('9.0.0');
+    m.available = { apk: false, linux: true, windows: true };
+    const r = resolveUpdate('1.0.0', m, 'apk', ORIGIN);
+    assert.strictEqual(r.available, false);
+    assert.strictEqual(r.reason, 'missing_path');
+  }
+  {
+    const m = fixtureManifest(null);
+    m.available = { apk: false };
+    const r = resolveUpdate('1.0.0', m, 'apk', ORIGIN);
+    assert.strictEqual(r.available, false);
+    assert.strictEqual(r.reason, 'missing_path');
+  }
+  {
+    // Desktop flag does not change the APK=1 notice path.
+    const m = fixtureManifest('9.0.0');
+    m.available = { apk: true, linux: false };
+    const r = resolveUpdate('1.0.0', m, 'linux', ORIGIN);
+    assert.strictEqual(r.available, true);
   }
 
   section('detectUpdatePlatform');

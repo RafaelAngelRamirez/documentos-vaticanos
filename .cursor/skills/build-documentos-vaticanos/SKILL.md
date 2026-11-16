@@ -53,15 +53,17 @@ El gate completo del agente (`bash scripts/ci-agent-gate.sh`) queda fuera de esa
 
 Un push a `master` o `typescript-migration` arranca el flujo «Documentos Vaticanos build». La entrada es `.ci-build.sh`. La cola está en la skill `n8n-documentos-vaticanos`. El corte de versión está en `release-documentos-vaticanos`.
 
-Orden, con Electron apagado (7 etapas):
+Orden, con Electron apagado (7 etapas). El APK también va apagado: cada merge a `master` publica solo la web.
 
 1. Disco libre. Default `DV_MIN_FREE_GB=10`. `0` salta el chequeo.
 2. `scripts/ci-release-guard.sh`, salvo `DV_SKIP_RELEASE=1`. Si el SHA del evento o `HEAD` no es la punta de `origin/master`, si la punta ya es `chore(release):`, o si el tag que saldría ya está en origin, el script sale y no crea commit ni tag. Si pasa, corre `npx --yes standard-version@9.5.0`.
 3. Dependencias (raíz, `frontend`, `backend`, `scripts-descarga`) y las pruebas de arriba.
 4. `scripts/package-web.sh` y `bash e2e/run-dist-smoke.sh`.
-5. `scripts/package-apk.sh`.
-6. `scripts/package-collect-downloads.sh` con `DV_REQUIRE_APK=1`.
-7. `scripts/ci-docker-push.sh` y `scripts/ci-deploy-docvat.sh`.
+5. `scripts/package-apk.sh` solo con `DV_BUILD_APK=1`. El default es `0`: el paso se salta y el deploy sigue.
+6. `scripts/package-collect-downloads.sh`. `DV_REQUIRE_APK` sigue a `DV_BUILD_APK` (default `0`). Sin APK el script escribe `manifest.json` con `version: null`, `available.apk: false` y `downloads.apk: null`, y no sale con error (`DV_ALLOW_EMPTY_DOWNLOADS=1`). Así el aviso de actualización no anuncia un APK que este build no generó.
+7. `scripts/ci-docker-push.sh` y `scripts/ci-deploy-docvat.sh`. Publican la web. El APK en `frontend/dist/documentos-vaticanos/downloads/` solo se exige si `DV_REQUIRE_APK=1`.
+
+Para volver a construir y publicar el APK en el runner, exporta `DV_BUILD_APK=1` antes de `.ci-build.sh`. No hace falta tocar el flujo n8n: el default vive en el script. El AAB y Play siguen apagados.
 
 Electron entra solo con `DV_BUILD_ELECTRON=1` (entonces son 8 etapas; el target de CI es `linux` salvo que pidas otra cosa). El AAB entra solo con `DV_BUILD_AAB=1` o `DV_PLAY_UPLOAD=1`.
 
