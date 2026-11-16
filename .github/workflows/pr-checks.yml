@@ -10,7 +10,10 @@ on:
 jobs:
   cheap:
     name: Cheap tests
-    runs-on: ubuntu-latest
+    # docvat-ci-1: ephemeral, 1 CPU / 2 GiB, no Docker. Fork PRs must not
+    # land on that runner. This job is node scripts only (scripts/ci-cheap.sh).
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: [self-hosted, linux, docvat-ci]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -21,6 +24,10 @@ jobs:
 
   agent-gate:
     name: Agent gate
+    # Stays on GitHub-hosted runners. npm ci (root, frontend, backend),
+    # `yarn run check` (Angular tsc) and the lector Chromium drive do not
+    # fit a 2 GiB machine without Docker headroom. ubuntu-latest is billing-
+    # locked; this job is not forced onto docvat-ci.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
