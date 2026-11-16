@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.45](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.44...v0.0.45) (2026-11-16)
+
+
+### Features
+
+* **verify:** skill de emulador Android para el lector ([d6081d4](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/d6081d45cf62b296c4e85bfe049d16dd18e29f76))
+
+
+### Bug Fixes
+
+* **verify:** no duplicar el emulador ni abortar el drive al navegar ([4b35eaf](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/4b35eaf2ee7b472e5bc96410ccb084ba0440eed5))
+
 ### [0.0.44](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.43...v0.0.44) (2026-11-10)
 
 
