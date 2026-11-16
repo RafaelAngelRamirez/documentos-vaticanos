@@ -5,7 +5,7 @@ import { BuscadorService, TermsProcessed } from './buscador.service';
 import { IndiceDocumentos as DocumentoDatos } from 'src/app/core/corpus/corpus.models';
 import { CommonModule } from '@angular/common';
 import { ArticleInfo } from '../punto/punto/punto.component';
-import { UtilidadesService } from 'src/app/services/utilidades.service';
+import { stripDiacritics } from 'src/app/core/text/strip-diacritics.js';
 import { NavigationService } from 'src/app/services/navigation.service';
 import {
   documentIdKey,
@@ -124,7 +124,6 @@ export class BuscadorComponent implements OnInit, OnDestroy {
 
   constructor(
     public busadorService: BuscadorService,
-    private utilidadesService: UtilidadesService,
     private navigationService: NavigationService,
     private corpus: CorpusService,
     private readerPrefs: ReaderPreferencesService,
@@ -788,8 +787,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
       .replace(/\[\+\[\d+\]\+\]/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
-    const fold = (s: string) =>
-      this.utilidadesService.texto.eliminar_diacriticos(s).toLowerCase();
+    const fold = (s: string) => stripDiacritics(s).toLowerCase();
     const foldedRaw = fold(raw);
 
     let firstIdx = -1;

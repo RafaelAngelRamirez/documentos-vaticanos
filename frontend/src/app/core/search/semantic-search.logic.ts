@@ -10,6 +10,8 @@
  * content.json / index.json.
  */
 
+import { stripDiacritics } from '../text/strip-diacritics.js';
+
 /** Spanish function words that rarely carry theological intent alone. */
 export const SPANISH_STOPWORDS: ReadonlySet<string> = new Set([
   'a',
@@ -263,16 +265,7 @@ export interface RankOptions {
   requireMultiTermOverlap?: boolean;
 }
 
-/** Same diacritic strip as index build / UtilidadesService (keeps ñ). */
-export function stripDiacritics(texto: string): string {
-  return texto
-    .normalize('NFD')
-    .replace(
-      /([^n\u0300-\u036f]|n(?!\u0303(?![\u0300-\u036f])))[\u0300-\u036f]+/gi,
-      '$1',
-    )
-    .normalize();
-}
+export { stripDiacritics } from '../text/strip-diacritics.js';
 
 /** Match pack index key cleaning (subset of build_index). */
 export function cleanForIndex(texto: string): string {

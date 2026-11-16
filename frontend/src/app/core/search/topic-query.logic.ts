@@ -1,9 +1,9 @@
 /**
  * Pure helpers for topic-aware query parsing and ranking boost (PR5).
- * Self-contained for node strip-types tests — no sibling runtime imports.
- *
  * Soft-degrades when term-topics / postings are empty (identity boost, empty topic hits).
  */
+
+import { stripDiacritics } from '../text/strip-diacritics.js';
 
 export type TopicQueryMode = 'lexical' | 'topic';
 
@@ -72,17 +72,10 @@ const TEMA_PREFIX = /^(?:tema|topic)\s*:\s*(.+)$/i;
 
 /**
  * Fold a term like semantic foldToken: strip diacritics (keep ñ), lowercase, light clean.
- * Self-contained copy so this file needs no sibling imports under strip-types.
  */
 export function foldTopicTerm(raw: string): string {
   if (raw == null) return '';
-  const stripped = String(raw)
-    .normalize('NFD')
-    .replace(
-      /([^n\u0300-\u036f]|n(?!\u0303(?![\u0300-\u036f])))[\u0300-\u036f]+/gi,
-      '$1',
-    )
-    .normalize();
+  const stripped = stripDiacritics(String(raw));
   return stripped
     .replace(/[,"\.«»“”:;!¡¿?—']/gi, '')
     .replace(/[\[\]”']/gi, '')
