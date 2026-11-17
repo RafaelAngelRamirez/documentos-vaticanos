@@ -38,7 +38,7 @@ export default defineConfig({
       testIgnore: /mobile-viewport\.spec\.ts/,
     },
     {
-      // Canonical phone layout: 390×844. Lector + biblioteca smoke only.
+      // Canonical phone layout: 390×844. Lector, biblioteca, and document cover.
       name: "mobile-390",
       use: {
         ...devices["Desktop Chrome"],

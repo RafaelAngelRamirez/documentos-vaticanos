@@ -13,7 +13,7 @@
 # Default required steps for `all` are map, check, and evidence. Lector is
 # required only when DV_AGENT_GATE_REQUIRE lists `lector`. The pull-request
 # workflow calls `lector` and `mobile` as their own steps; both fail that job.
-# `mobile` is Playwright project mobile-390 (lector + biblioteca, 390×844).
+# `mobile` is Playwright project mobile-390 (lector, biblioteca y portada, 390×844).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
