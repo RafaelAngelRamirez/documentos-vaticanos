@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 /**
  * Phone layout smoke at 390×844 (project mobile-390).
- * Lector, biblioteca, document cover (one header aligned with the meta card),
+ * Portada, lector, biblioteca, document cover (one header aligned with the meta card),
  * and offline reading history.
  */
 test.beforeEach(async ({ page }) => {
@@ -22,6 +22,16 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('viewport móvil 390×844', () => {
+  test('portada sin puntos de carrusel', async ({ page }) => {
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await page.goto('/inicio');
+    await expect(page.locator('.wtitle')).toBeVisible({ timeout: 30_000 });
+    await expect(page.locator('.dots')).toHaveCount(0);
+    await expect(page.locator('.dotp')).toHaveCount(0);
+    await expect(page.locator('button.primary.wbtn')).toBeVisible();
+    await expect(page.locator('[data-testid="inicio-lecturas"]')).toBeVisible();
+  });
+
   test('lector', async ({ page }) => {
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
     await page.goto('/leyendo/cic-es/punto/2');

@@ -171,13 +171,13 @@ export class RelatedUnitsPanelComponent implements OnChanges {
         next: ({ list, graph, seedNeighbors }) => {
           if (myGen !== this.gen) return;
           try {
-            const inputs = list.map((d) =>
-              toSearchDocumentInput(
-                d.id || d.nombre || '',
-                d.indice,
-                d.documento || [],
-              ),
-            );
+            const inputs = list.map((d) => {
+              const id = d.id || d.nombre || '';
+              return toSearchDocumentInput(id, d.indice, d.documento || [], {
+                shortTitle: d.shortTitle,
+                nombre: d.title || d.nombre,
+              });
+            });
 
             let lexical: RelatedCitationRow[] = [];
             if (step) {
@@ -214,7 +214,7 @@ export class RelatedUnitsPanelComponent implements OnChanges {
                 step.documentId,
                 step.unitIndex,
                 seedNeighbors,
-                inputs,
+                this.graphDocs(inputs, seedNeighbors),
                 {
                   excludeDocumentId: this.excludeDocumentId,
                   limit: this.limit,
@@ -245,6 +245,39 @@ export class RelatedUnitsPanelComponent implements OnChanges {
           this.loadError = null;
         },
       });
+  }
+
+  /**
+   * Graph neighbors outside the loaded pool still take the catalog short
+   * title. Bodies stay unloaded.
+   */
+  private graphDocs(
+    inputs: Array<{
+      documentId: string;
+      shortTitle?: string | null;
+      nombre?: string | null;
+      units?: Array<{ consecutivo?: string; contenido?: string }>;
+    }>,
+    neighbors: Array<{ documentId: string }>,
+  ) {
+    const seen = new Set(inputs.map((d) => d.documentId));
+    const extra: Array<{
+      documentId: string;
+      shortTitle?: string;
+      nombre?: string;
+    }> = [];
+    for (const edge of neighbors) {
+      if (seen.has(edge.documentId)) continue;
+      seen.add(edge.documentId);
+      const meta = this.docs.getMeta(edge.documentId);
+      if (!meta) continue;
+      extra.push({
+        documentId: edge.documentId,
+        shortTitle: meta.shortTitle,
+        nombre: meta.title,
+      });
+    }
+    return [...inputs, ...extra];
   }
 
   open(row: RelatedCitationRow): void {
