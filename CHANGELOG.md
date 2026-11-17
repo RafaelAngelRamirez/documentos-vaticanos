@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.50](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.49...v0.0.50) (2026-11-17)
+
+
+### Features
+
+* **relacionados:** título corto en la fila ([#83](https://github.com/RafaelAngelRamirez/documentos-vaticanos/issues/83)) ([cbe75e6](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/cbe75e6ba22fdea1843cb460466619ec90419558))
+
 ### [0.0.49](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.48...v0.0.49) (2026-11-17)
 
 ### [0.0.48](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.47...v0.0.48) (2026-11-17)
