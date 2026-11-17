@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.51](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.50...v0.0.51) (2026-11-17)
+
+
+### Features
+
+* **lector:** sesión de medios para la narración web ([#84](https://github.com/RafaelAngelRamirez/documentos-vaticanos/issues/84)) ([c9cc2e6](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/c9cc2e6d50b4f043b120691a49e2c7e61bb0cc6f))
+
 ### [0.0.50](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.49...v0.0.50) (2026-11-17)
 
 
