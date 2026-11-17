@@ -84,6 +84,52 @@
   padding: 20px 24px 60px;
 }
 
+.estudio {
+  margin: 4px 0 16px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.estudio > summary {
+  list-style: none;
+  cursor: pointer;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--app-font-sans, inherit);
+  color: var(--ink);
+}
+
+.estudio > summary::-webkit-details-marker {
+  display: none;
+}
+
+.estudio-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.estudio > summary::after {
+  content: '▸';
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.estudio[open] > summary::after {
+  content: '▾';
+}
+
+.estudio-lede {
+  margin: 0 0 4px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
 .fav-on {
   color: var(--acc);
 }
