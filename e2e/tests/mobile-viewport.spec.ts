@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { expect, type Page, test } from '@playwright/test';
 
 /**
@@ -116,6 +118,9 @@ test.describe('viewport móvil 390×844', () => {
     await expect(page.locator('.dv-toast')).toContainText('salir');
   });
 
+  test.describe('cita bíblica', () => {
+    test.use({ serviceWorkers: 'block' });
+
   test('cita bíblica abre la lectura rápida y el atrás la cierra', async ({ page }) => {
     test.setTimeout(120_000);
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
@@ -131,9 +136,7 @@ test.describe('viewport móvil 390×844', () => {
 
     const sheet = page.getByRole('dialog', { name: 'Lectura rápida' });
     await expect(sheet).toBeVisible();
-    await expect(sheet.getByTestId('cite-quick-body')).toContainText(
-      'hasta que todos lleguemos a la unidad de la fe',
-    );
+    await expectCitedText(sheet, 'hasta que todos lleguemos a la unidad de la fe');
     await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/14/);
     await expect(page).not.toHaveURL(/bible-pueblo/);
 
@@ -161,8 +164,8 @@ test.describe('viewport móvil 390×844', () => {
 
     const sheet = page.getByRole('dialog', { name: 'Lectura rápida' });
     await expect(sheet).toBeVisible();
+    await expectCitedText(sheet, 'santiago verso 14');
     const body = sheet.getByTestId('cite-quick-body');
-    await expect(body).toContainText('santiago verso 14');
     await expect(body).toContainText('santiago verso 26');
     await expect(body).not.toContainText('santiago verso 27');
     await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/51/);
@@ -170,6 +173,7 @@ test.describe('viewport móvil 390×844', () => {
     await pressBrowserBack(page);
     await expect(sheet).toHaveCount(0);
     await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/51/);
+  });
   });
 
   test('búsqueda en frío vuelve a inicio', async ({ page }) => {
@@ -228,6 +232,18 @@ test.describe('viewport móvil 390×844', () => {
  * Cuerpo mínimo de la Biblia offline. El pack real no va en el dist del smoke;
  * la hoja lee estas unidades por el idPunto ya resuelto en el Catecismo.
  */
+async function expectCitedText(
+  sheet: ReturnType<Page['getByRole']>,
+  text: string,
+): Promise<void> {
+  const settled = sheet.locator(
+    '[data-testid="cite-quick-body"], [data-testid="cite-quick-missing"]',
+  );
+  await expect(settled).toBeVisible({ timeout: 30_000 });
+  await expect(sheet.getByTestId('cite-quick-missing')).toHaveCount(0);
+  await expect(sheet.getByTestId('cite-quick-body')).toContainText(text);
+}
+
 async function stubOfflineBible(page: Page): Promise<void> {
   const units: unknown[] = Array.from({ length: 35652 }, () => ({
     contenido: '',
@@ -263,16 +279,26 @@ async function stubOfflineBible(page: Page): Promise<void> {
   }
   const body = JSON.stringify(units);
   const index = JSON.stringify({ indice: { a: [33833] }, indice_por_punto: {} });
+  const chunks = JSON.stringify({ unitCount: 0, chunkSize: 0 });
+  const dir = path.join(packagedDist(), 'assets/corpus/documents/bible-pueblo-de-dios-es');
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'content.json'), body);
+  fs.writeFileSync(path.join(dir, 'index.json'), index);
+  fs.writeFileSync(path.join(dir, 'chunks.json'), chunks);
   await page.route(/bible-pueblo-de-dios-es\/(content|index|chunks)\.json$/, (route) => {
     const url = route.request().url();
-    if (url.includes('content.json')) {
-      return route.fulfill({ contentType: 'application/json', body });
-    }
-    if (url.includes('chunks.json')) {
-      return route.fulfill({ status: 404, contentType: 'application/json', body: '' });
-    }
-    return route.fulfill({ contentType: 'application/json', body: index });
+    const payload = url.includes('content.json')
+      ? body
+      : url.includes('chunks.json')
+        ? chunks
+        : index;
+    return route.fulfill({ contentType: 'application/json', body: payload });
   });
+}
+
+function packagedDist(): string {
+  if (process.env.DV_VERIFY_DIST) return process.env.DV_VERIFY_DIST;
+  return path.resolve(process.cwd(), '../frontend/dist/documentos-vaticanos');
 }
 
 /** Browser/Android back. Stays on this origin: the gesture must not unload the SPA. */
