@@ -97,21 +97,30 @@ reader_dist() {
 # The packaged tree does not vendor document bodies (assets/corpus/documents
 # is gitignored). Copy cic-es from the canonical corpus into that dist so the
 # reader can mount app-punto. The canonical files are not modified.
-seed_cic() {
+seed_doc() {
+  local id="$1"
   local dist src dest
   dist="$(reader_dist)" || {
     echo "seed fail missing packaged index.html" >&2
     return 1
   }
-  src="$ROOT/documentos/corpus/documents/cic-es"
-  dest="$dist/assets/corpus/documents/cic-es"
+  src="$ROOT/documentos/corpus/documents/$id"
+  dest="$dist/assets/corpus/documents/$id"
   if [[ ! -f "$src/content.json" || ! -f "$src/index.json" ]]; then
     echo "seed fail missing $src" >&2
     return 1
   fi
   mkdir -p "$dest"
   cp -a "$src/." "$dest/"
-  echo "==> seeded cic-es → $dest"
+  echo "==> seeded $id → $dest"
+}
+
+seed_cic() {
+  seed_doc cic-es
+}
+
+seed_bible() {
+  seed_doc bible-pueblo-de-dios-es
 }
 
 drive_lector() {
@@ -170,6 +179,7 @@ run_mobile() {
   ensure_playwright
   ensure_browser
   seed_cic
+  seed_bible
   local dist port srv ec ready
   dist="$(reader_dist)"
   port="${E2E_PORT:-4173}"

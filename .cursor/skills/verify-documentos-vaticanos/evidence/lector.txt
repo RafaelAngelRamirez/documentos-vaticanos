@@ -6,3 +6,6 @@ app-punto visible
 bnav 0
 result_url http://127.0.0.1:4219/leyendo/cic-es/u/2
 excerpt DV Catecismo · Nº 1–17 Índice Marcadores Aa Nº 1–17 Inicio del documento ★ CARTA APOSTÓLICA « LAETAMUR MAGNOPERE »★ por la que se aprueba la edición típica latina del Catecismo de la Iglesia Católica ★ A los Venerables Hermanos Cardenales, Patriarcas, Arzobispos, Obispos, Presbít
+sal15 GET /leyendo/bible-pueblo-de-dios-es/u/15400 mobile-390 390x844
+shown Sal 15, 2. El que procede
+repeated 0

@@ -5,6 +5,7 @@ import { BuscadorService, TermsProcessed } from './buscador.service';
 import { IndiceDocumentos as DocumentoDatos } from 'src/app/core/corpus/corpus.models';
 import { CommonModule } from '@angular/common';
 import { ArticleInfo } from '../punto/punto/punto.component';
+import { displayBody } from 'src/app/core/text/strip-shown-number.logic';
 import { stripDiacritics } from 'src/app/core/text/strip-diacritics.js';
 import { NavigationService } from 'src/app/services/navigation.service';
 import {
@@ -741,7 +742,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
           : String((article.index_array ?? hit.unitIndex) + 1));
       rows.push({
         title: `${docLabel} · Nº ${unidad}`,
-        snippetHtml: this.buildSnippet(article.contenido ?? '', terms),
+        snippetHtml: this.buildSnippet(displayBody(article), terms),
         punto,
         resultado,
       });
@@ -765,7 +766,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
         rows.push({
           title: `${docLabel} · Nº ${unidad}`,
           snippetHtml: this.buildSnippet(
-            art.contenido ?? '',
+            displayBody(art),
             punto.terms_pure ?? []
           ),
           punto,
@@ -1091,7 +1092,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
         : String((article.index_array ?? hit.unitIndex) + 1));
     return {
       title: `${this.shortLabel(resultado)} · Nº ${unidad}`,
-      snippetHtml: this.buildSnippet(article.contenido ?? '', terms),
+      snippetHtml: this.buildSnippet(displayBody(article), terms),
       punto,
       resultado,
       mark: hit.via === 'lema' ? 'lema' : 'palabra',
