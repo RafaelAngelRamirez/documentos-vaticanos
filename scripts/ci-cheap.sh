@@ -36,6 +36,7 @@ bash scripts/node-strip-types.sh backend/src/routes/references-document-id.logic
 node scripts/agent-structure.test.js
 node --test scripts/dv-verify-android.test.mjs
 bash scripts/ci-release-guard.test.sh
+bash scripts/ci-apk-require.test.sh
 node scripts/ci-evidence-policy.test.mjs
 npm --prefix backend run test:sync-theme
 npm --prefix backend run test:sync-anotacion

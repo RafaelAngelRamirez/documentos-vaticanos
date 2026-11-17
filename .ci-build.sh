@@ -190,8 +190,19 @@ if [[ "${DV_AGENT_GATE:-0}" == "1" ]]; then
 fi
 
 # APK is off by default (web still publishes). Opt in: DV_BUILD_APK=1.
-# DV_REQUIRE_APK follows that switch unless the runner sets it explicitly.
-export DV_BUILD_APK="${DV_BUILD_APK:-0}"
+# DV_BUILD_APK is authoritative: n8n still exports DV_REQUIRE_APK=1 and does
+# not set DV_BUILD_APK. That inherited 1 must not demand an APK this run skips.
+apk_require_from_build() {
+  if [[ "${DV_BUILD_APK:-0}" == "1" ]]; then
+    DV_BUILD_APK=1
+    DV_REQUIRE_APK=1
+  else
+    DV_BUILD_APK=0
+    DV_REQUIRE_APK=0
+  fi
+  export DV_BUILD_APK DV_REQUIRE_APK
+}
+apk_require_from_build
 echo "==> [5/${_STAGES}] APK instalable (DV_BUILD_APK=${DV_BUILD_APK})"
 CURRENT_STAGE="APK instalable"
 notify_step "$CURRENT_STAGE" || true
@@ -234,8 +245,7 @@ fi
 echo "==> [collect] downloads into web tree (DV_REQUIRE_APK follows DV_BUILD_APK)"
 CURRENT_STAGE="Collect downloads"
 notify_step "$CURRENT_STAGE" || true
-# Require the APK only when this run is building one. Desktop stays optional.
-export DV_REQUIRE_APK="${DV_REQUIRE_APK:-$DV_BUILD_APK}"
+# DV_REQUIRE_APK was set by apk_require_from_build. Desktop stays optional.
 export DV_REQUIRE_ALL_DOWNLOADS="${DV_REQUIRE_ALL_DOWNLOADS:-0}"
 # Web-only: a dist with manifest and no installer is a valid deploy input.
 if [[ "$DV_BUILD_APK" != "1" ]]; then
