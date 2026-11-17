@@ -99,6 +99,8 @@ function main() {
     [
       {
         documentId: neigh[0].documentId,
+        shortTitle: 'Catecismo',
+        nombre: 'Catecismo de la Iglesia Católica',
         units: Array.from({ length: neigh[0].unitIndex + 1 }, (_, i) =>
           i === neigh[0].unitIndex
             ? { consecutivo: String(i), contenido: 'Cuerpo de prueba del target' }
@@ -110,6 +112,9 @@ function main() {
   );
   assert.ok(rows2.length >= 1);
   assert.strictEqual(rows2[0].reason, 'ref');
+  assert.strictEqual(rows2[0].documentId, neigh[0].documentId);
+  assert.ok(rows2[0].title.startsWith('Catecismo · Nº '));
+  assert.ok(!rows2[0].title.includes(neigh[0].documentId));
   assert.ok(rows2[0].snippet.includes('Cuerpo') || rows2[0].snippet.length > 0);
   console.log('  graph rows OK');
 
