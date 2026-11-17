@@ -8,7 +8,8 @@ import { ReadingCtasComponent } from './reading-ctas.component';
 
 /**
  * Portada de documento unificada 2A (móvil) + 5C (desktop ≥1024px).
- * Un solo árbol de contenido; CTAs/TOC se reubican con CSS.
+ * Una sola cabecera, en la misma columna que la tarjeta de metadatos.
+ * CTAs e índice se reubican con CSS.
  *
  * Slots (atributo en el hijo proyectado):
  * - `[cover-lang]` idioma

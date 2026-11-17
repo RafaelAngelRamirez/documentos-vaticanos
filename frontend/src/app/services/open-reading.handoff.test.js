@@ -81,6 +81,9 @@ async function main() {
   }
 
   const coverHtml = read('components/reading-cover/reading-cover.component.html');
+  const coverHeaders = (coverHtml.match(/<app-cover-header/g) || []).length;
+  assert.strictEqual(coverHeaders, 1, 'document cover renders one header');
+  assert.ok(/class="rc-head"/.test(coverHtml), 'header shares the meta column');
   const mobileCtas = (coverHtml.match(/rc-ctas-mobile only-mobile/g) || []).length;
   const deskCtas = (coverHtml.match(/rc-ctas-desk only-desktop/g) || []).length;
   assert.strictEqual(mobileCtas, 1, 'one mobile CTA stack on document cover');
@@ -92,8 +95,22 @@ async function main() {
     'mobile CTA block is viewport-gated',
   );
 
+  const coverCss = read('components/reading-cover/reading-cover.component.css');
+  assert.ok(
+    /@media\s*\(min-width:\s*1024px\)[\s\S]*\.fbar\.only-mobile[\s\S]*display:\s*none\s*!important/.test(
+      coverCss,
+    ),
+    'cover hides encapsulated mobile fbar at desktop',
+  );
   const fichaHtml = read('components/person-ficha/person-ficha.component.ts');
+  const fichaCss = read('components/person-ficha/person-ficha.component.css');
   assert.ok(/fbar hair only-mobile/.test(fichaHtml), 'ficha fbar is mobile-only');
+  assert.ok(
+    /@media\s*\(min-width:\s*1024px\)[\s\S]*\.fbar\.only-mobile[\s\S]*display:\s*none\s*!important/.test(
+      fichaCss,
+    ),
+    'ficha hides encapsulated mobile fbar at desktop',
+  );
   assert.ok(/ficha-desk-back only-desktop/.test(fichaHtml), 'ficha desktop back gated');
 
   const padreHtml = read('pages/padre-detalle/padre-detalle.component.html');

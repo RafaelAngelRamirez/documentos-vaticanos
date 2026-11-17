@@ -28,22 +28,16 @@
 
   <div class="rc-layout" *ngIf="hasBody">
     <div class="rc-main">
-      <!-- Title: paper cover on mobile, large web title on desktop -->
-      <app-cover-header
-        class="only-mobile"
-        variant="cover"
-        [wrapInner]="true"
-        [kindLine]="kindLine"
-        [title]="title"
-        [subtitle]="subtitle"
-      ></app-cover-header>
-      <app-cover-header
-        class="only-desktop"
-        variant="web"
-        [kindLine]="kindLine"
-        [title]="title"
-        [subtitle]="subtitle"
-      ></app-cover-header>
+      <!-- Una cabecera: misma columna que la tarjeta de metadatos. -->
+      <div class="rc-head">
+        <app-cover-header
+          class="in-measure"
+          variant="web"
+          [kindLine]="kindLine"
+          [title]="title"
+          [subtitle]="subtitle"
+        ></app-cover-header>
+      </div>
 
       <!-- 5C: CTAs under title -->
       <div class="rc-ctas-desk only-desktop">
