@@ -109,6 +109,7 @@ function cheapTests() {
     ['sync theme id', 'npm', ['--prefix', 'backend', 'run', 'test:sync-theme']],
     ['sync anotacion stamp', 'npm', ['--prefix', 'backend', 'run', 'test:sync-anotacion']],
     ['frontend test:anotaciones', 'npm', ['--prefix', 'frontend', 'run', 'test:anotaciones']],
+    ['frontend test:reading-history', 'npm', ['--prefix', 'frontend', 'run', 'test:reading-history']],
   ];
   for (const [title, cmd, args] of commands) {
     run(title, cmd, args, root, env);

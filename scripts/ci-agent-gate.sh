@@ -180,6 +180,7 @@ run_mobile() {
   ensure_browser
   seed_cic
   seed_bible
+  seed_doc lg-es
   local dist port srv ec ready
   dist="$(reader_dist)"
   port="${E2E_PORT:-4173}"

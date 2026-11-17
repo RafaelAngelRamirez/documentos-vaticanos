@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 /**
  * Phone layout smoke at 390×844 (project mobile-390).
- * Same routes as verify-documentos-vaticanos-viewport: lector and biblioteca.
+ * Portada, lector, biblioteca, and offline reading history.
  */
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
@@ -21,6 +21,16 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('viewport móvil 390×844', () => {
+  test('portada sin puntos de carrusel', async ({ page }) => {
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await page.goto('/inicio');
+    await expect(page.locator('.wtitle')).toBeVisible({ timeout: 30_000 });
+    await expect(page.locator('.dots')).toHaveCount(0);
+    await expect(page.locator('.dotp')).toHaveCount(0);
+    await expect(page.locator('button.primary.wbtn')).toBeVisible();
+    await expect(page.locator('[data-testid="inicio-lecturas"]')).toBeVisible();
+  });
+
   test('lector', async ({ page }) => {
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
     await page.goto('/leyendo/cic-es/punto/2');
@@ -64,5 +74,42 @@ test.describe('viewport móvil 390×844', () => {
     await expect(page.locator('.bnav')).toHaveCount(0);
     const inner = await page.evaluate(() => window.innerWidth);
     expect(inner).toBeLessThan(1024);
+  });
+
+  test('historial', async ({ page }) => {
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+
+    await page.goto('/leyendo/cic-es/u/2');
+    await expect(page.locator('app-punto').first()).toBeVisible({ timeout: 60_000 });
+    await page.waitForFunction(() => {
+      const raw = localStorage.getItem('dv.readingHistory.v1');
+      if (!raw) return false;
+      const list = JSON.parse(raw) as { documentId?: string; unitIndex?: number }[];
+      return list.some((row) => row.documentId === 'cic-es' && row.unitIndex === 2);
+    });
+
+    await page.goto('/leyendo/lg-es/u/1');
+    await expect(page.locator('app-punto').first()).toBeVisible({ timeout: 60_000 });
+    await page.waitForFunction(() => {
+      const raw = localStorage.getItem('dv.readingHistory.v1');
+      if (!raw) return false;
+      const list = JSON.parse(raw) as { documentId?: string }[];
+      return list[0]?.documentId === 'lg-es' && list[1]?.documentId === 'cic-es';
+    });
+
+    await page.goto('/biblioteca');
+    await page.getByTestId('bnav-historial').click();
+    await expect(page).toHaveURL(/\/historial/);
+    const items = page.getByTestId('history-item');
+    await expect(items).toHaveCount(2);
+    await expect(items.nth(0)).toHaveAttribute('data-document-id', 'lg-es');
+    await expect(items.nth(1)).toHaveAttribute('data-document-id', 'cic-es');
+    await expect(items.nth(1)).toHaveAttribute('data-unit-index', '2');
+    await expect(page.getByTestId('history-clear')).toBeVisible();
+
+    await items.nth(1).click();
+    await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/2/, { timeout: 60_000 });
+    await expect(page.locator('app-lector')).toBeVisible();
+    await expect(page.locator('app-punto').first()).toBeVisible({ timeout: 60_000 });
   });
 });
