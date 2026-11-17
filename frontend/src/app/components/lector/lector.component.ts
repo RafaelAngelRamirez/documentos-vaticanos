@@ -49,6 +49,7 @@ import {
   type UnitIndex,
 } from 'src/app/core/reading/cite';
 import { DvSheetComponent } from '../dv-sheet/dv-sheet.component';
+import { RelatedUnitsPanelComponent } from '../related-units/related-units-panel.component';
 import { WbarComponent } from '../wbar/wbar.component';
 import {
   NarratorService,
@@ -97,7 +98,14 @@ interface ThemeOption {
 @Component({
   selector: 'app-lector',
   standalone: true,
-  imports: [CommonModule, FormsModule, PuntoModule, DvSheetComponent, WbarComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    PuntoModule,
+    DvSheetComponent,
+    WbarComponent,
+    RelatedUnitsPanelComponent,
+  ],
   templateUrl: './lector.component.html',
   styleUrls: ['./lector.component.css'],
 })
@@ -121,6 +129,8 @@ export class LectorComponent implements OnInit, OnDestroy {
 
   /** Índice global (index_array) de la unidad visible — alimenta rfoot. */
   visibleIndex = 0;
+  /** Cierre de vocabulario del párrafo visible. Cerrado al entrar; no es historial. */
+  vocabOpen = false;
 
   /** 4A: popover de selección. */
   selPop: { top: number; left: number } | null = null;
@@ -301,6 +311,10 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.unregisterBack = this.back.register(() => {
       if (this.selPop) {
         this.selPop = null;
+        return true;
+      }
+      if (this.vocabOpen) {
+        this.vocabOpen = false;
         return true;
       }
       return false;
@@ -803,6 +817,14 @@ export class LectorComponent implements OnInit, OnDestroy {
     return first === last ? `Nº ${first}` : `Nº ${first}–${last}`;
   }
 
+  /** Cuerpo del párrafo visible. Vacío si todavía no hay unidad. */
+  get relatedSeed(): string {
+    const unit = this.document?.documento?.[this.visibleIndex];
+    return String(unit?.contenido || '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
   /** rfoot izquierda: «Nº 17 de 246». */
   get posLabel(): string {
     const total = this.document?.documento.length ?? 0;
@@ -844,6 +866,10 @@ export class LectorComponent implements OnInit, OnDestroy {
 
   goBackFromRef(): void {
     this.navigationService.goBack();
+  }
+
+  closeVocab(): void {
+    this.vocabOpen = false;
   }
 
   togglePrefs(): void {

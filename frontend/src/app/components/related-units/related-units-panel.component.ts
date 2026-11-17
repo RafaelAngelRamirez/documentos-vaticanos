@@ -4,6 +4,7 @@ import {
   EventEmitter,
   Input,
   OnChanges,
+  OnDestroy,
   Output,
   SimpleChanges,
 } from '@angular/core';
@@ -23,6 +24,7 @@ import { TopicIndexService } from 'src/app/core/search/topic-index.service';
 import {
   mergeRelatedByEvidence,
   neighborsFromGraph,
+  neighborsInLoadedPool,
   rowsFromGraphNeighbors,
 } from 'src/app/core/search/topic-search.logic';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
@@ -43,7 +45,7 @@ export type RelatedUnitsVariant = 'passage' | 'saint' | 'document';
   templateUrl: './related-units-panel.component.html',
   styleUrls: ['./related-units-panel.component.css'],
 })
-export class RelatedUnitsPanelComponent implements OnChanges {
+export class RelatedUnitsPanelComponent implements OnChanges, OnDestroy {
   /** Free-text seed (note body, theme description, document intro…). */
   @Input() seedText: string | null = null;
   /** Prefer step citation: resolves unit body from pack when available. */
@@ -65,6 +67,19 @@ export class RelatedUnitsPanelComponent implements OnChanges {
   @Input() preferDocumentIds: string[] | null = null;
   /** Document cover: omit every unit of this pack. */
   @Input() excludeDocumentId: string | null = null;
+  /**
+   * Open paragraph: omit this unit only. The rest of the pack can still match.
+   * The pack id is added to the hub pool as one extra document, not a higher cap.
+   */
+  @Input() excludeUnitDocumentId: string | null = null;
+  @Input() excludeUnitIndex: number | null = null;
+  /**
+   * Mix unit-graph neighbors that are already in the loaded pool.
+   * Does not fetch neighbor packs outside that pool.
+   */
+  @Input() graphWithinPool = false;
+  /** `push` records the current cite so back returns to it. Cover stays `keep`. */
+  @Input() openStack: 'keep' | 'push' = 'keep';
   /** Override lede; empty string hides it. */
   @Input() lede: string | null = null;
 
@@ -110,10 +125,17 @@ export class RelatedUnitsPanelComponent implements OnChanges {
       changes['limit'] ||
       changes['variant'] ||
       changes['preferDocumentIds'] ||
-      changes['excludeDocumentId']
+      changes['excludeDocumentId'] ||
+      changes['excludeUnitDocumentId'] ||
+      changes['excludeUnitIndex'] ||
+      changes['graphWithinPool']
     ) {
       this.refresh();
     }
+  }
+
+  ngOnDestroy(): void {
+    this.gen += 1;
   }
 
   refresh(): void {
@@ -140,14 +162,30 @@ export class RelatedUnitsPanelComponent implements OnChanges {
         catchError(() => of(null)),
         switchMap((pack) => {
           const graph = pack?.graph ?? null;
+          const unitExclude = this.unitExclude();
+          const graphSeed = step
+            ? { documentId: step.documentId, unitIndex: step.unitIndex }
+            : this.graphWithinPool && unitExclude
+              ? unitExclude
+              : null;
           const seedNeighbors =
-            step && graph
-              ? neighborsFromGraph(graph, step.documentId, step.unitIndex)
+            graphSeed && graph
+              ? neighborsFromGraph(
+                  graph,
+                  graphSeed.documentId,
+                  graphSeed.unitIndex,
+                )
               : [];
-          const neighborDocIds = seedNeighbors.map((e) => e.documentId);
+          // Theme steps may load neighbor packs. The open paragraph does not:
+          // a citation outside the hub pool is omitted.
+          const neighborDocIds =
+            step && !this.graphWithinPool
+              ? seedNeighbors.map((e) => e.documentId)
+              : [];
           const extraIds = [
             step?.documentId,
             this.excludeDocumentId || undefined,
+            unitExclude?.documentId,
             ...preferIds,
             ...neighborDocIds,
           ].filter((id): id is string => !!id);
@@ -161,14 +199,13 @@ export class RelatedUnitsPanelComponent implements OnChanges {
             .pipe(
               map((list) => ({
                 list,
-                graph,
                 seedNeighbors,
               })),
             );
         }),
       )
       .subscribe({
-        next: ({ list, graph, seedNeighbors }) => {
+        next: ({ list, seedNeighbors }) => {
           if (myGen !== this.gen) return;
           try {
             const inputs = list.map((d) =>
@@ -179,6 +216,7 @@ export class RelatedUnitsPanelComponent implements OnChanges {
               ),
             );
 
+            const unitExclude = this.unitExclude();
             let lexical: RelatedCitationRow[] = [];
             if (step) {
               lexical = suggestRelatedForStep(step, inputs, {
@@ -190,7 +228,7 @@ export class RelatedUnitsPanelComponent implements OnChanges {
                 limit: this.limit,
                 preferDocumentIds: preferIds.length ? preferIds : undefined,
               });
-            } else if (text && this.variant === 'document') {
+            } else if (text && this.variant === 'document' && !unitExclude) {
               lexical = suggestRelatedForDocument(text, inputs, {
                 documentId: this.excludeDocumentId || undefined,
                 limit: this.limit,
@@ -199,6 +237,7 @@ export class RelatedUnitsPanelComponent implements OnChanges {
               lexical = suggestRelatedCitations(text, inputs, {
                 limit: this.limit,
                 quality: 'passage',
+                exclude: unitExclude,
                 excludeDocumentId: this.excludeDocumentId || undefined,
               });
             }
@@ -209,11 +248,22 @@ export class RelatedUnitsPanelComponent implements OnChanges {
             }));
 
             let graphRows: RelatedCitationRow[] = [];
-            if (step && seedNeighbors.length) {
+            const graphUnit = step
+              ? { documentId: step.documentId, unitIndex: step.unitIndex }
+              : this.graphWithinPool
+                ? this.unitExclude()
+                : undefined;
+            if (graphUnit && seedNeighbors.length) {
+              const neighbors = this.graphWithinPool
+                ? neighborsInLoadedPool(
+                    seedNeighbors,
+                    inputs.map((d) => d.documentId),
+                  )
+                : seedNeighbors;
               graphRows = rowsFromGraphNeighbors(
-                step.documentId,
-                step.unitIndex,
-                seedNeighbors,
+                graphUnit.documentId,
+                graphUnit.unitIndex,
+                neighbors,
                 inputs,
                 {
                   excludeDocumentId: this.excludeDocumentId,
@@ -249,7 +299,21 @@ export class RelatedUnitsPanelComponent implements OnChanges {
 
   open(row: RelatedCitationRow): void {
     this.openCitation.emit(row);
-    this.nav.openReading(row.documentId, { unitIndex: row.unitIndex });
+    this.nav.openReading(row.documentId, {
+      unitIndex: row.unitIndex,
+      stack: this.openStack === 'push' ? 'push' : 'keep',
+    });
+  }
+
+  private unitExclude():
+    | { documentId: string; unitIndex: number }
+    | undefined {
+    const id = (this.excludeUnitDocumentId || '').trim();
+    const unit = this.excludeUnitIndex;
+    if (!id || unit == null || !Number.isFinite(unit) || unit < 0) {
+      return undefined;
+    }
+    return { documentId: id, unitIndex: unit };
   }
 
   add(ev: Event, row: RelatedCitationRow): void {

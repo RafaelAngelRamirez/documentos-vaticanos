@@ -147,6 +147,19 @@ export function neighborsFromGraph(
   return graph.edges[unitKey(documentId, unitIndex)] || [];
 }
 
+/**
+ * Keep graph neighbors whose pack is already in the loaded hub pool.
+ * Does not add documents; the caller must not widen the pool to satisfy them.
+ */
+export function neighborsInLoadedPool(
+  neighbors: readonly UnitGraphEdge[],
+  loadedDocumentIds: readonly string[],
+): UnitGraphEdge[] {
+  if (!neighbors.length || !loadedDocumentIds.length) return [];
+  const loaded = new Set(loadedDocumentIds);
+  return neighbors.filter((edge) => loaded.has(edge.documentId));
+}
+
 /** Prefer evidence reason for UI / merge (ref > topic > lexical). */
 export function preferReason(
   a?: RelatedEvidenceReason,
