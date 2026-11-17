@@ -94,6 +94,14 @@ async function main() {
     ),
     'mobile CTA block is viewport-gated',
   );
+  assert.ok(
+    /<details class="estudio"/.test(coverHtml),
+    'document cover folds study material',
+  );
+  assert.ok(
+    !/<app-meta-grid/.test(coverHtml),
+    'meta grid is projected into the study fold',
+  );
 
   const coverCss = read('components/reading-cover/reading-cover.component.css');
   assert.ok(

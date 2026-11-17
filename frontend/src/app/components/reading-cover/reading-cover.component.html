@@ -64,13 +64,20 @@
       </div>
 
       <div class="rc-body">
-        <app-meta-grid [cells]="metaCells"></app-meta-grid>
-
         <ng-content select="[cover-lang]"></ng-content>
-        <ng-content select="[cover-source]"></ng-content>
-        <ng-content select="[cover-context]"></ng-content>
-        <ng-content select="[cover-refs]"></ng-content>
-        <ng-content select="[cover-related]"></ng-content>
+
+        <details class="estudio" data-testid="documento-estudio">
+          <summary>
+            <span class="estudio-label">Estudio</span>
+          </summary>
+          <p class="estudio-lede">Información extra de esta obra</p>
+          <ng-content select="[cover-ficha]"></ng-content>
+          <ng-content select="[cover-source]"></ng-content>
+          <ng-content select="[cover-context]"></ng-content>
+          <ng-content select="[cover-refs]"></ng-content>
+          <ng-content select="[cover-related]"></ng-content>
+        </details>
+
         <ng-content></ng-content>
 
         <!-- 2A: índice in flow before CTAs -->
