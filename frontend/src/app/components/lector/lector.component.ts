@@ -76,6 +76,11 @@ import {
   type ReadAloudPhase,
 } from 'src/app/services/read-aloud.logic';
 import { coverNavCommandsForDocumentId } from 'src/app/core/santoral/santoral-units.logic';
+import {
+  isOfflineBibleId,
+  quickReadVerses,
+  type QuickVerse,
+} from 'src/app/core/liturgia/cite-quick-read.logic';
 
 const CONTEXT_SIZE = 5;
 /** Max units kept in the DOM (sliding window). */
@@ -247,6 +252,18 @@ export class LectorComponent implements OnInit, OnDestroy {
   /** Tick so chrome labels re-resolve when UI locale changes. */
   localeTick = 0;
 
+  /**
+   * Hoja de lectura rápida: solo el pasaje citado, sin cambiar de ruta.
+   * El atrás la cierra (handler del dv-sheet) y el historial del lector sigue.
+   */
+  quickCite: {
+    label: string;
+    status: 'loading' | 'ready' | 'missing';
+    verses: QuickVerse[];
+  } | null = null;
+
+  private citeLoadSub: Subscription | null = null;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -326,6 +343,8 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.loadSub?.unsubscribe();
     this.loadSub = null;
     this.sub.unsubscribe();
+    this.citeLoadSub?.unsubscribe();
+    this.citeLoadSub = null;
     this.io?.disconnect();
     if (typeof window !== 'undefined') {
       window.removeEventListener('scroll', this.onScroll);
@@ -352,11 +371,38 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Citation click from app-punto. Navigation still happens inside PuntoComponent.openRef;
-   * this hook is reserved for a future preview sheet without blocking the build.
+   * Cita bíblica resuelta: hoja con el texto del corpus. No abre el lector
+   * de la Biblia, así que la pila de citas y la ruta no se mueven.
    */
-  onCitationPreview(_event: CitationPreview): void {
-    // no-op for now
+  onCitationPreview(event: CitationPreview): void {
+    const local = event.seg.local;
+    if (!local || !isOfflineBibleId(local.idDocumento)) return;
+    const anchor = parseUnitIndex(local.idPunto);
+    if (anchor == null) return;
+    const label = event.seg.label?.trim() || local.idDocumento;
+    this.citeLoadSub?.unsubscribe();
+    this.quickCite = { label, status: 'loading', verses: [] };
+    this.citeLoadSub = this.corpus.ensureLoaded(local.idDocumento).subscribe({
+      next: (doc) => {
+        if (!this.quickCite || this.quickCite.label !== label) return;
+        const verses = quickReadVerses(doc.documento, anchor, label);
+        this.quickCite = {
+          label,
+          status: verses.length ? 'ready' : 'missing',
+          verses,
+        };
+      },
+      error: () => {
+        if (!this.quickCite || this.quickCite.label !== label) return;
+        this.quickCite = { label, status: 'missing', verses: [] };
+      },
+    });
+  }
+
+  closeQuickCite(): void {
+    this.citeLoadSub?.unsubscribe();
+    this.citeLoadSub = null;
+    this.quickCite = null;
   }
 
   get narrSupported(): boolean {

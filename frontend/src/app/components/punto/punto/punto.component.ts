@@ -30,6 +30,7 @@ import {
   headingLevelClass,
   type HeadingLevel,
 } from 'src/app/services/speech-prep.logic';
+import { isOfflineBibleId } from 'src/app/core/liturgia/cite-quick-read.logic';
 
 /** Placeholder pattern produced by the scraper: `[+[0]+]`, `[+[1]+]`, … */
 const REF_PLACEHOLDER = /\[\+\[(\d+)\]\+\]/g;
@@ -46,7 +47,7 @@ export type ContentSegment =
 
 export type RefSegment = Extract<ContentSegment, { type: 'ref' }>;
 
-/** Resolved citation click. The reader receives it; navigation stays in openRef. */
+/** Clic en una cita. La bíblica abre la hoja; el resto navega en openRef. */
 export interface CitationPreview {
   seg: RefSegment;
   documentId?: string;
@@ -372,11 +373,6 @@ export class PuntoComponent implements OnInit, OnDestroy {
     return valor;
   }
 
-  /**
-   * Follow a resolved local reference.
-   * Emits citationPreview so parent can show a preview sheet.
-   * Still navigates for backward compatibility.
-   */
   get localRefs(): Referencia[] {
     const refs = this._infoPunto?.article?.referencias ?? [];
     return refs.filter(
@@ -390,6 +386,18 @@ export class PuntoComponent implements OnInit, OnDestroy {
     const idDocumento = ref.local?.idDocumento;
     const idPunto = ref.local?.idPunto;
     if (!idDocumento || idPunto == null) return;
+    if (isOfflineBibleId(idDocumento)) {
+      this.citationPreview.emit({
+        seg: {
+          type: 'ref',
+          label: ref.descripcion?.trim() || idDocumento,
+          index: -1,
+          local: { idDocumento, idPunto },
+        },
+        documentId: this.documentId,
+      });
+      return;
+    }
     const id = parseDocumentId(idDocumento);
     const unitIndex = parseUnitIndex(idPunto);
     if (!id || unitIndex == null) return;
@@ -408,11 +416,14 @@ export class PuntoComponent implements OnInit, OnDestroy {
     }
 
     const { idDocumento, idPunto } = seg.local;
+    if (isOfflineBibleId(idDocumento)) {
+      this.citationPreview.emit({ seg, documentId: this.documentId });
+      return;
+    }
     const id = parseDocumentId(idDocumento);
     const unitIndex = parseUnitIndex(idPunto);
     if (!id || unitIndex == null) return;
 
-    this.citationPreview.emit({ seg, documentId: this.documentId });
     this.navigationService.openReading(documentIdKey(id), {
       unitIndex,
       stack: 'push',

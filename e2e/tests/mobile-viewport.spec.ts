@@ -116,6 +116,62 @@ test.describe('viewport móvil 390×844', () => {
     await expect(page.locator('.dv-toast')).toContainText('salir');
   });
 
+  test('cita bíblica abre la lectura rápida y el atrás la cierra', async ({ page }) => {
+    test.setTimeout(120_000);
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await stubOfflineBible(page);
+
+    await page.goto('/leyendo/cic-es/punto/14');
+    await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/14/, { timeout: 60_000 });
+    await expect(page.locator('app-punto').first()).toBeVisible({ timeout: 60_000 });
+
+    const cite = page.getByRole('link', { name: 'Ef 4, 13' }).first();
+    await expect(cite).toBeVisible({ timeout: 30_000 });
+    await cite.click();
+
+    const sheet = page.getByRole('dialog', { name: 'Lectura rápida' });
+    await expect(sheet).toBeVisible();
+    await expect(sheet.getByTestId('cite-quick-body')).toContainText(
+      'hasta que todos lleguemos a la unidad de la fe',
+    );
+    await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/14/);
+    await expect(page).not.toHaveURL(/bible-pueblo/);
+
+    await pressBrowserBack(page);
+    await expect(sheet).toHaveCount(0);
+    await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/14/);
+    await expect(page.locator('app-punto').first()).toBeVisible();
+
+    await pressBrowserBack(page);
+    await expect(page).toHaveURL(/\/documento\/cic-es$/);
+    await expect(page.locator('app-documento-detalle')).toBeVisible();
+    await expect(page).not.toHaveURL(/bible-pueblo/);
+  });
+
+  test('la lectura rápida muestra el intervalo citado', async ({ page }) => {
+    test.setTimeout(120_000);
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await stubOfflineBible(page);
+
+    await page.goto('/leyendo/cic-es/punto/51');
+    await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/51/, { timeout: 60_000 });
+    const cite = page.getByRole('link', { name: 'cf. St 2, 14-26' }).first();
+    await expect(cite).toBeVisible({ timeout: 30_000 });
+    await cite.click();
+
+    const sheet = page.getByRole('dialog', { name: 'Lectura rápida' });
+    await expect(sheet).toBeVisible();
+    const body = sheet.getByTestId('cite-quick-body');
+    await expect(body).toContainText('santiago verso 14');
+    await expect(body).toContainText('santiago verso 26');
+    await expect(body).not.toContainText('santiago verso 27');
+    await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/51/);
+
+    await pressBrowserBack(page);
+    await expect(sheet).toHaveCount(0);
+    await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/51/);
+  });
+
   test('búsqueda en frío vuelve a inicio', async ({ page }) => {
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
     await page.goto('/buscar');
@@ -130,6 +186,57 @@ test.describe('viewport móvil 390×844', () => {
     await expect(page.locator('app-root')).toBeVisible();
   });
 });
+
+/**
+ * Cuerpo mínimo de la Biblia offline. El pack real no va en el dist del smoke;
+ * la hoja lee estas unidades por el idPunto ya resuelto en el Catecismo.
+ */
+async function stubOfflineBible(page: Page): Promise<void> {
+  const units: unknown[] = Array.from({ length: 35652 }, () => ({
+    contenido: '',
+  }));
+  const put = (
+    index: number,
+    book: string,
+    chapter: number,
+    verse: number,
+    text: string,
+  ) => {
+    units[index] = {
+      consecutivo: String(index),
+      contenido: `${verse} ${text}`,
+      biblia: {
+        libro: book,
+        capitulo: String(chapter),
+        versiculo: verse,
+        consecutivo_versiculo: `${book} ${chapter}, ${verse}`,
+        index_general: String(index),
+      },
+    };
+  };
+  put(
+    33833,
+    'carta a los efesios',
+    4,
+    13,
+    'hasta que todos lleguemos a la unidad de la fe',
+  );
+  for (let verse = 14; verse <= 26; verse++) {
+    put(34841 + verse, 'carta de santiago', 2, verse, `santiago verso ${verse}`);
+  }
+  const body = JSON.stringify(units);
+  const index = JSON.stringify({ indice: { a: [33833] }, indice_por_punto: {} });
+  await page.route(/bible-pueblo-de-dios-es\/(content|index|chunks)\.json$/, (route) => {
+    const url = route.request().url();
+    if (url.includes('content.json')) {
+      return route.fulfill({ contentType: 'application/json', body });
+    }
+    if (url.includes('chunks.json')) {
+      return route.fulfill({ status: 404, contentType: 'application/json', body: '' });
+    }
+    return route.fulfill({ contentType: 'application/json', body: index });
+  });
+}
 
 /** Browser/Android back. Stays on this origin: the gesture must not unload the SPA. */
 async function pressBrowserBack(page: Page): Promise<void> {
