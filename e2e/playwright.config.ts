@@ -5,6 +5,18 @@ const baseURL =
   process.env.BASE_URL ||
   "http://127.0.0.1:4200";
 
+const executablePath = process.env.DV_VERIFY_CHROMIUM;
+const browserLaunch = executablePath
+  ? {
+      launchOptions: {
+        executablePath,
+        args: ["--no-sandbox", "--disable-dev-shm-usage"],
+      },
+    }
+  : process.env.CI
+    ? { launchOptions: { args: ["--no-sandbox", "--disable-dev-shm-usage"] } }
+    : {};
+
 export default defineConfig({
   testDir: "./tests",
   timeout: 60_000,
@@ -31,6 +43,7 @@ export default defineConfig({
       use: {
         ...devices["Desktop Chrome"],
         viewport: { width: 390, height: 844 },
+        ...browserLaunch,
       },
       testMatch: /mobile-viewport\.spec\.ts/,
     },

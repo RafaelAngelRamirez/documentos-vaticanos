@@ -11,7 +11,9 @@
 # drive still needs a packaged web tree, and this block stays off that path.
 #
 # Default required steps for `all` are map, check, and evidence. Lector is
-# required only when DV_AGENT_GATE_REQUIRE lists `lector`.
+# required only when DV_AGENT_GATE_REQUIRE lists `lector`. The pull-request
+# workflow calls `lector` and `mobile` as their own steps; both fail that job.
+# `mobile` is Playwright project mobile-390 (lector + biblioteca, 390×844).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -21,7 +23,7 @@ VERIFY=(node .cursor/skills/verify-documentos-vaticanos/scripts/dv-verify.mjs)
 MAP=(node .cursor/skills/verify-documentos-vaticanos/scripts/check-map.mjs)
 
 usage() {
-  echo "usage: ci-agent-gate.sh [all|map|check|evidence|lector]" >&2
+  echo "usage: ci-agent-gate.sh [all|map|check|evidence|lector|mobile]" >&2
   exit 2
 }
 
@@ -44,10 +46,75 @@ pick_chromium() {
     export DV_VERIFY_CHROMIUM=/usr/bin/chromium-browser
   elif [[ -x /usr/local/bin/google-chrome ]]; then
     export DV_VERIFY_CHROMIUM=/usr/local/bin/google-chrome
+  elif [[ -x /usr/bin/google-chrome ]]; then
+    export DV_VERIFY_CHROMIUM=/usr/bin/google-chrome
   fi
 }
 
-run_lector() {
+ensure_playwright() {
+  if [[ -d "$ROOT/e2e/node_modules/playwright" ]]; then
+    return 0
+  fi
+  echo "==> npm ci e2e"
+  npm ci --prefix "$ROOT/e2e"
+}
+
+ensure_browser() {
+  pick_chromium
+  if [[ -n "${DV_VERIFY_CHROMIUM:-}" && -x "${DV_VERIFY_CHROMIUM}" ]]; then
+    return 0
+  fi
+  unset DV_VERIFY_CHROMIUM
+  echo "==> playwright install chromium"
+  (cd "$ROOT/e2e" && npx playwright install chromium)
+  local bin
+  bin="$(
+    cd "$ROOT/e2e" &&
+      node -e 'const {chromium}=require("playwright"); process.stdout.write(chromium.executablePath())'
+  )"
+  if [[ ! -x "$bin" ]]; then
+    echo "browser fail missing ${bin}" >&2
+    return 1
+  fi
+  export DV_VERIFY_CHROMIUM="$bin"
+}
+
+reader_dist() {
+  if [[ -n "${DV_VERIFY_DIST:-}" && -f "${DV_VERIFY_DIST}/index.html" ]]; then
+    printf '%s\n' "$DV_VERIFY_DIST"
+    return 0
+  fi
+  local dir
+  for dir in "$ROOT/frontend/dist/documentos-vaticanos" "$ROOT/dist/web"; do
+    if [[ -f "$dir/index.html" ]]; then
+      printf '%s\n' "$dir"
+      return 0
+    fi
+  done
+  return 1
+}
+
+# The packaged tree does not vendor document bodies (assets/corpus/documents
+# is gitignored). Copy cic-es from the canonical corpus into that dist so the
+# reader can mount app-punto. The canonical files are not modified.
+seed_cic() {
+  local dist src dest
+  dist="$(reader_dist)" || {
+    echo "seed fail missing packaged index.html" >&2
+    return 1
+  }
+  src="$ROOT/documentos/corpus/documents/cic-es"
+  dest="$dist/assets/corpus/documents/cic-es"
+  if [[ ! -f "$src/content.json" || ! -f "$src/index.json" ]]; then
+    echo "seed fail missing $src" >&2
+    return 1
+  fi
+  mkdir -p "$dest"
+  cp -a "$src/." "$dest/"
+  echo "==> seeded cic-es → $dest"
+}
+
+drive_lector() {
   echo "==> lector drive"
   pick_chromium
   local ec=0
@@ -71,6 +138,15 @@ run_lector() {
   return "$ec"
 }
 
+# Pull-request step. `all` keeps drive_lector without this prep so the n8n
+# opt-in (DV_AGENT_GATE=1) does not install a browser.
+run_lector() {
+  ensure_playwright
+  ensure_browser
+  seed_cic
+  drive_lector
+}
+
 run_check() {
   echo "==> yarn run check"
   set +e
@@ -86,6 +162,66 @@ run_evidence() {
   node scripts/ci-evidence-policy.mjs
   local ec=$?
   echo "exit evidence ${ec}"
+  return "$ec"
+}
+
+run_mobile() {
+  echo "==> mobile-390"
+  ensure_playwright
+  ensure_browser
+  seed_cic
+  local dist port srv ec ready
+  dist="$(reader_dist)"
+  port="${E2E_PORT:-4173}"
+  node "$ROOT/e2e/spa-static.js" "$dist" "$port" &
+  srv=$!
+  stop_srv() {
+    if [[ -n "${srv:-}" ]]; then
+      kill "$srv" 2>/dev/null || true
+      wait "$srv" 2>/dev/null || true
+      srv=
+    fi
+  }
+  ready=0
+  local _
+  for _ in $(seq 1 40); do
+    if curl -sf "http://127.0.0.1:${port}/" >/dev/null; then
+      ready=1
+      break
+    fi
+    sleep 0.25
+  done
+  if [[ "$ready" -ne 1 ]]; then
+    stop_srv
+    echo "mobile fail server http://127.0.0.1:${port}" >&2
+    return 1
+  fi
+  local probe
+  probe="$(mktemp)"
+  if ! curl -sf "http://127.0.0.1:${port}/assets/corpus/documents/cic-es/content.json" -o "$probe"; then
+    rm -f "$probe"
+    stop_srv
+    echo "mobile fail cic-es content" >&2
+    return 1
+  fi
+  if [[ "$(head -c 1 "$probe")" != "[" ]]; then
+    rm -f "$probe"
+    stop_srv
+    echo "mobile fail cic-es content is not json" >&2
+    return 1
+  fi
+  rm -f "$probe"
+  set +e
+  (
+    cd "$ROOT/e2e"
+    E2E_BASE_URL="http://127.0.0.1:${port}" \
+      E2E_START_WEB= \
+      npx playwright test --project=mobile-390 --reporter=list
+  )
+  ec=$?
+  set -e
+  stop_srv
+  echo "exit mobile-390 ${ec}"
   return "$ec"
 }
 
@@ -107,13 +243,17 @@ case "$cmd" in
     run_lector
     exit $?
     ;;
+  mobile)
+    run_mobile
+    exit $?
+    ;;
   all)
     set +e
     run_map
     map_ec=$?
     run_check
     check_ec=$?
-    run_lector
+    drive_lector
     lector_ec=$?
     if [[ "$lector_ec" -eq 0 ]]; then
       if [[ -n "${DV_EVIDENCE_REGENERATED:-}" ]]; then

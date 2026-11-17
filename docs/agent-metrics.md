@@ -57,6 +57,8 @@ En `master` lo exige el job del [PR #57](https://github.com/RafaelAngelRamirez/d
 
 ## Escalado
 
-El escalado queda diferido hasta que el verify web sea fiable en CI.
+El aplazamiento de esta fila se cierra: el drive de lector y la prueba móvil 390×844 tumban el job de CI.
 
-En este árbol el launch web pide `frontend/dist/documentos-vaticanos/index.html`, y ese archivo no está versionado. El cuerpo del PR #57 registra el drive de lector con salida 1 por esa falta, y registra que ese drive no tumba el job. Hasta que ese verify falle el CI cuando el lector no abre, no hay paralelismo de agentes que documentar aquí.
+`check-map`, `yarn run check` y la política de evidencia ya lo hacían ([PR #57](https://github.com/RafaelAngelRamirez/documentos-vaticanos/pull/57)). El workflow de pull request construye `frontend/dist/documentos-vaticanos` (ese `index.html` no está versionado) y después corre dos pasos que salen distintos de 0 si fallan: Playwright `mobile-390` (lector y biblioteca, viewport 390×844) y el drive de lector. El drive de lector ya no usa `continue-on-error`. El cuerpo del PR #57 había registrado ese drive con salida 1 y sin tumbar el job, porque faltaba el `dist` y Playwright. El emulador sigue fuera del gate.
+
+Este corte no cuenta agentes en paralelo. El árbol no guarda esa cifra.
