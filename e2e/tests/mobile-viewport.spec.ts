@@ -1,9 +1,9 @@
-import { expect, test } from '@playwright/test';
+import { expect, type Page, test } from '@playwright/test';
 
 /**
  * Phone layout smoke at 390×844 (project mobile-390).
- * Portada, lector, biblioteca, document cover (one header aligned with the meta card),
- * and offline reading history.
+ * Portada, lector, biblioteca, document cover, offline reading history,
+ * browser back hierarchy, and Sal 15 shown-number.
  */
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
@@ -58,6 +58,87 @@ test.describe('viewport móvil 390×844', () => {
     expect(height).toBeGreaterThan(0);
     await expect(mobile).not.toHaveCSS('display', 'none');
     await expect(page.locator('.only-desktop').first()).toHaveCSS('display', 'none');
+  });
+
+  test('atrás recorre la app y no sale', async ({ page }) => {
+    test.setTimeout(120_000);
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+
+    await page.goto('/inicio');
+    await expect(page.getByTestId('inicio-lectio-open')).toBeVisible({
+      timeout: 30_000,
+    });
+
+    await page.getByTestId('inicio-lectio-open').click();
+    await expect(page).toHaveURL(/\/lectio$/);
+    await expect(page.getByRole('heading', { name: 'Lectio divina', level: 1 })).toBeVisible();
+    await pressBrowserBack(page);
+    await expect(page).toHaveURL(/\/inicio$/);
+    await expect(page.getByTestId('inicio-lectio-open')).toBeVisible();
+
+    await page.locator('button.primary.wbtn').click();
+    await expect(page).toHaveURL(/\/biblioteca$/);
+    const catecismo = page
+      .locator('.only-mobile button.srow')
+      .filter({ hasText: 'Catecismo de la Iglesia Católica' })
+      .first();
+    await expect(catecismo).toBeVisible({ timeout: 30_000 });
+    await catecismo.click();
+    await expect(page).toHaveURL(/\/documento\/cic-es$/);
+    await expect(page.locator('app-documento-detalle')).toBeVisible();
+
+    const empezar = page
+      .locator('.rc-ctas-mobile')
+      .getByRole('button', { name: /^(Empezar|Continuar)$/ });
+    await expect(empezar).toBeVisible({ timeout: 30_000 });
+    await empezar.click();
+    await expect(page).toHaveURL(/\/leyendo\/cic-es\//, { timeout: 60_000 });
+    await expect(page.locator('app-lector')).toBeVisible();
+    await expect(page.locator('app-punto').first()).toBeVisible({ timeout: 60_000 });
+
+    await page
+      .locator('.only-mobile')
+      .getByRole('button', { name: 'Ajustes de lectura' })
+      .click();
+    await expect(page.locator('dv-sheet')).toBeVisible();
+    await pressBrowserBack(page);
+    await expect(page.locator('dv-sheet')).toHaveCount(0);
+    await expect(page).toHaveURL(/\/leyendo\/cic-es\//);
+    await expect(page.locator('app-punto').first()).toBeVisible();
+
+    await pressBrowserBack(page);
+    await expect(page).toHaveURL(/\/documento\/cic-es$/);
+    await expect(page.locator('app-documento-detalle')).toBeVisible();
+    await expect(
+      page.locator('.only-mobile').getByRole('button', { name: '← Biblioteca' }),
+    ).toBeVisible();
+
+    await pressBrowserBack(page);
+    await expect(page).toHaveURL(/\/biblioteca$/);
+    await expect(page.locator('.only-mobile button.srow').first()).toBeVisible();
+
+    await pressBrowserBack(page);
+    await expect(page).toHaveURL(/\/inicio$/);
+    await expect(page.getByTestId('inicio-lectio-open')).toBeVisible();
+
+    await pressBrowserBack(page);
+    await expect(page).toHaveURL(/\/inicio$/);
+    await expect(page.locator('app-root')).toBeVisible();
+    await expect(page.locator('.dv-toast')).toContainText('salir');
+  });
+
+  test('búsqueda en frío vuelve a inicio', async ({ page }) => {
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await page.goto('/buscar');
+    await expect(
+      page.getByRole('searchbox', {
+        name: 'Búsqueda en el texto: palabra, frase o intención',
+      }),
+    ).toBeVisible({ timeout: 30_000 });
+    await pressBrowserBack(page);
+    await expect(page).toHaveURL(/\/inicio$/);
+    await expect(page.getByTestId('inicio-lectio-open')).toBeVisible();
+    await expect(page.locator('app-root')).toBeVisible();
   });
 
   test('portada de documento', async ({ page }) => {
@@ -335,3 +416,12 @@ test.describe('viewport móvil 390×844', () => {
     expect(afterVoice[0].lang).not.toBe(afterVoice[1].lang);
   });
 });
+
+/** Browser/Android back. Stays on this origin: the gesture must not unload the SPA. */
+async function pressBrowserBack(page: Page): Promise<void> {
+  const before = page.url();
+  expect(before.startsWith('http')).toBe(true);
+  await page.evaluate(() => history.back());
+  await expect.poll(() => page.url(), { timeout: 20_000 }).not.toBe('about:blank');
+  expect(new URL(page.url()).origin).toBe(new URL(before).origin);
+}
