@@ -104,6 +104,7 @@ function cheapTests() {
     ['agent structure', node, ['scripts/agent-structure.test.js']],
     ['android verify gates', node, ['--test', 'scripts/dv-verify-android.test.mjs']],
     ['ci release guard', 'bash', ['scripts/ci-release-guard.test.sh']],
+    ['ci apk require', 'bash', ['scripts/ci-apk-require.test.sh']],
     ['sync theme id', 'npm', ['--prefix', 'backend', 'run', 'test:sync-theme']],
     ['sync anotacion stamp', 'npm', ['--prefix', 'backend', 'run', 'test:sync-anotacion']],
     ['frontend test:anotaciones', 'npm', ['--prefix', 'frontend', 'run', 'test:anotaciones']],
