@@ -55,6 +55,12 @@
               {{ t('inicio.read') }}
             </button>
           </div>
+          <app-pasaje
+            *ngIf="pasajeId === r.id && pasajeVerses.length"
+            data-testid="inicio-pasaje"
+            [verses]="pasajeVerses"
+            [label]="r.cite"
+          ></app-pasaje>
         </li>
       </ul>
 

@@ -1,0 +1,12 @@
+<div class="pasaje" data-testid="pasaje" [attr.aria-label]="label || null">
+  <p
+    class="pasaje-verse"
+    *ngFor="let v of verses; trackBy: trackVerse"
+    data-testid="pasaje-verse"
+    [attr.data-chapter]="v.chapter"
+    [attr.data-verse]="v.verse"
+  >
+    <span class="pasaje-num">{{ v.verse }}</span
+    >{{ v.text }}
+  </p>
+</div>

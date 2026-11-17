@@ -37,7 +37,9 @@ function main() {
     'account link hidden on inicio',
   );
   assert.ok(/lecturasForLiturgicalDate/.test(ts), 'liturgical picker');
-  assert.ok(/openReading/.test(ts), 'listen/read opens lector');
+  assert.ok(/openReading/.test(ts), 'saint listen still opens the lector');
+  assert.ok(/collectCitedVerses/.test(ts), 'lecturas extract the cited verses');
+  assert.ok(/data-testid=["']inicio-pasaje["']/.test(html), 'passage on the row');
 
   const calHtml = read('pages/santoral/santoral.component.html');
   assert.ok(
