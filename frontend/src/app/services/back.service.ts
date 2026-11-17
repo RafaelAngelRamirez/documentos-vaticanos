@@ -11,6 +11,24 @@ import { NavigationService } from './navigation.service';
  */
 export type BackHandler = () => boolean;
 
+interface BackTrapState {
+  __dvBackSentinel: true;
+  __dvSeq: number;
+}
+
+interface BackNavigateEvent extends Event {
+  navigationType?: string;
+  destination?: { index?: number };
+}
+
+interface BackNavigation {
+  currentEntry?: { index?: number } | null;
+  addEventListener(
+    type: 'navigate',
+    listener: (event: BackNavigateEvent) => void,
+  ): void;
+}
+
 /** Ventana del doble-back para salir (7A del handoff). */
 const EXIT_WINDOW_MS = 2000;
 const TOAST_MS = 2000;
@@ -27,8 +45,14 @@ const TOAST_MS = 2000;
  *      inicio; raíces de la bnav y páginas sueltas → inicio.
  *   4. En inicio: doble-back con aviso «Pulsa atrás de nuevo para salir».
  *
- * Fuentes: `App.addListener('backButton')` en Capacitor (Android) y un
- * centinela `history.pushState` + `popstate` en web/PWA.
+ * Fuentes: `App.addListener('backButton')` en Capacitor (Android) y, en
+ * web/PWA, un centinela de historial. El botón atrás del navegador (y el
+ * de Android sobre la PWA) no puede descargar el documento mientras haya
+ * jerarquía: el centinela hace que ese gesto sea un `popstate` del mismo
+ * documento. Lo atendemos en fase capture, antes de que el `Router` de
+ * Angular sincronice la URL y deje la sesión. El estado del centinela no
+ * copia `navigationId` ni `ɵrouterPageId`: si se copian, Angular calcula
+ * un salto de historial y el gesto sale de la app.
  */
 @Injectable({ providedIn: 'root' })
 export class BackService {
@@ -37,6 +61,11 @@ export class BackService {
   private toastEl: HTMLElement | null = null;
   private toastTimer: ReturnType<typeof setTimeout> | null = null;
   private started = false;
+  /** Evita salir mientras el gesto aún recorre la jerarquía. */
+  private allowLeave = false;
+  /** Un mismo gesto dispara `navigate` y `popstate`; se atiende una vez. */
+  private trap = false;
+  private seq = 0;
 
   constructor(
     private router: Router,
@@ -65,14 +94,19 @@ export class BackService {
       return;
     }
 
-    // Web/PWA: centinela en el historial para interceptar el botón atrás.
-    this.armSentinel();
-    window.addEventListener('popstate', this.onPopState);
+    // Web/PWA. Capture corre antes del listener del Router (bubble).
+    window.addEventListener('popstate', this.onPopState, true);
+    const nav = this.webNavigation();
+    nav?.addEventListener('navigate', this.onNavigate);
+    window.addEventListener('pageshow', this.onPageShow);
     this.router.events.subscribe((e) => {
       if (e instanceof NavigationEnd) {
         this.armSentinel();
       }
     });
+    // La navegación inicial del Router puede hacer replaceState en el
+    // mismo turno en que se construye el servicio. El centinela va después.
+    queueMicrotask(() => this.armSentinel());
   }
 
   /**
@@ -141,31 +175,101 @@ export class BackService {
   // Web: centinela de historial
   // ------------------------------------------------------------------
 
-  private readonly onPopState = (): void => {
-    // El navegador ya sacó el centinela; decidimos nosotros.
-    this.zone.run(() => {
-      if (this.handleBack()) {
-        // Nos quedamos: re-armar el centinela.
-        this.armSentinel();
-      } else {
-        this.exit();
-      }
-    });
+  private readonly onPageShow = (event: PageTransitionEvent): void => {
+    if (event.persisted) this.armSentinel();
   };
 
-  private armSentinel(): void {
+  /**
+   * Chrome (Android y escritorio) avisa el atrás en `navigate` antes de
+   * confirmar el salto. Si se puede cancelar, el documento no se descarga
+   * y la jerarquía decide. Si no se puede, el `popstate` de abajo lo cubre.
+   */
+  private readonly onNavigate = (event: BackNavigateEvent): void => {
+    if (this.allowLeave || this.trap) return;
+    if (event.navigationType !== 'traverse') return;
+    const dest = event.destination?.index;
+    const cur = this.webNavigation()?.currentEntry?.index;
+    if (typeof dest === 'number' && typeof cur === 'number' && dest > cur) {
+      return;
+    }
+    if (!event.cancelable) return;
     try {
-      const state = history.state ?? {};
-      if (!state.__dvBackSentinel) {
-        history.pushState(
-          { ...state, __dvBackSentinel: true },
-          '',
-          location.href
-        );
-      }
+      event.preventDefault();
+    } catch {
+      return;
+    }
+    this.consumeBack();
+  };
+
+  private readonly onPopState = (event: PopStateEvent): void => {
+    if (this.allowLeave) return;
+    const incoming = this.seqOf(event.state);
+    if (incoming > this.seq) {
+      this.seq = incoming;
+      return;
+    }
+    event.stopImmediatePropagation();
+    this.restoreSentinel();
+    if (this.trap) return;
+    this.consumeBack();
+  };
+
+  private consumeBack(): void {
+    if (this.trap) return;
+    this.trap = true;
+    try {
+      this.zone.run(() => {
+        if (!this.handleBack()) this.exit();
+      });
+    } finally {
+      queueMicrotask(() => {
+        this.trap = false;
+      });
+    }
+  }
+
+  private armSentinel(): void {
+    if (this.allowLeave) return;
+    if (this.isTrap(history.state)) return;
+    try {
+      this.pushTrap(this.appHref());
     } catch {
       // history puede fallar en contextos embebidos; el back nativo sigue.
     }
+  }
+
+  /** El pop ya movió la URL. La devolvemos al documento que seguía abierto. */
+  private restoreSentinel(): void {
+    try {
+      this.pushTrap(this.appHref());
+    } catch {
+      /* el consumeBack sigue con la jerarquía */
+    }
+  }
+
+  private pushTrap(url: string): void {
+    this.seq += 1;
+    const state: BackTrapState = { __dvBackSentinel: true, __dvSeq: this.seq };
+    history.pushState(state, '', url);
+  }
+
+  private appHref(): string {
+    const raw = this.router.url || '/';
+    return raw.startsWith('/') ? raw : `/${raw}`;
+  }
+
+  private isTrap(state: unknown): boolean {
+    return !!state && (state as { __dvBackSentinel?: boolean }).__dvBackSentinel === true;
+  }
+
+  private seqOf(state: unknown): number {
+    const seq = (state as { __dvSeq?: number } | null)?.__dvSeq;
+    return typeof seq === 'number' ? seq : 0;
+  }
+
+  private webNavigation(): BackNavigation | null {
+    const nav = (window as Window & { navigation?: BackNavigation }).navigation;
+    return nav && typeof nav.addEventListener === 'function' ? nav : null;
   }
 
   private exit(): void {
@@ -174,12 +278,16 @@ export class BackService {
       App.exitApp();
       return;
     }
-    // Web: dejar salir hacia la entrada previa a la app (si existe).
-    try {
-      history.back();
-    } catch {
-      /* sin historial previo: no-op */
-    }
+    // Raíz confirmada: el siguiente salto de historial puede salir.
+    this.allowLeave = true;
+    const steps = Math.max(1, history.length);
+    setTimeout(() => {
+      try {
+        history.go(-steps);
+      } catch {
+        /* sin historial previo: no-op */
+      }
+    }, 0);
   }
 
   // ------------------------------------------------------------------
