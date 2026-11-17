@@ -115,6 +115,10 @@ if [[ -n "$APK_SRC" ]]; then
 else
   echo "WARN: no APK found under dist/ or android outputs" >&2
 fi
+# Drop a leftover stable APK so a web-only run does not ship a previous binary.
+if [[ $HAVE_APK -eq 0 ]]; then
+  rm -f "$WEB_OUT/documentos-vaticanos.apk" "$FE_OUT/documentos-vaticanos.apk"
+fi
 
 if [[ -n "$LINUX_SRC" ]]; then
   copy_stable "$LINUX_SRC" "documentos-vaticanos-linux.AppImage" && HAVE_LINUX=1 || true
@@ -137,6 +141,17 @@ fi
 VERSION=$(node -p "require('$ROOT/package.json').version" 2>/dev/null || echo "0.0.0")
 BUILT_AT=$(date -Iseconds)
 
+# Published manifest version is the installer version. With no APK, leave it
+# null so already-shipped shells (they ignore `available` and fall back to the
+# stable APK path) do not announce an update for a file this run did not build.
+if [[ $HAVE_APK -eq 1 ]]; then
+  MANIFEST_VERSION_JSON="\"$VERSION\""
+  APK_PATH_JSON="\"/downloads/documentos-vaticanos.apk\""
+else
+  MANIFEST_VERSION_JSON=null
+  APK_PATH_JSON=null
+fi
+
 # Public path for Windows: real .exe preferred, zip fallback.
 WIN_PUBLIC_PATH="/downloads/documentos-vaticanos-windows.exe"
 if [[ $HAVE_WIN -eq 1 ]]; then
@@ -147,12 +162,13 @@ if [[ $HAVE_WIN -eq 1 ]]; then
   fi
 fi
 
-# Always emit stable public paths so UI links never break (404 if binary missing).
+# Stable public paths for installers that exist. A missing APK is JSON null
+# (not the stable URL) so the manifest does not name a file this run lacks.
 # "available" flags note which bits were actually collected this run.
 MANIFEST_JSON=$(cat <<EOF
 {
   "app": "documentos-vaticanos",
-  "version": "$VERSION",
+  "version": $MANIFEST_VERSION_JSON,
   "builtAt": "$BUILT_AT",
   "available": {
     "apk": $( [[ $HAVE_APK -eq 1 ]] && echo 'true' || echo 'false' ),
@@ -160,7 +176,7 @@ MANIFEST_JSON=$(cat <<EOF
     "windows": $( [[ $HAVE_WIN -eq 1 ]] && echo 'true' || echo 'false' )
   },
   "downloads": {
-    "apk": "/downloads/documentos-vaticanos.apk",
+    "apk": $APK_PATH_JSON,
     "linux": "/downloads/documentos-vaticanos-linux.AppImage",
     "windows": "$WIN_PUBLIC_PATH"
   }
@@ -228,10 +244,15 @@ if [[ "${DV_REQUIRE_ALL_DOWNLOADS:-0}" == "1" ]]; then
   fi
 fi
 
-# Soft fail only when nothing was collected
+# Soft fail only when nothing was collected. Web-only CI sets
+# DV_ALLOW_EMPTY_DOWNLOADS=1 and still publishes manifest.json.
 if [[ $HAVE_APK -eq 0 && $HAVE_LINUX -eq 0 && $HAVE_WIN -eq 0 ]]; then
-  echo "ERROR: no downloadable installers found to collect" >&2
-  exit 1
+  if [[ "${DV_ALLOW_EMPTY_DOWNLOADS:-0}" == "1" ]]; then
+    echo "WARN: no installers collected (DV_ALLOW_EMPTY_DOWNLOADS=1; web dist still valid)"
+  else
+    echo "ERROR: no downloadable installers found to collect" >&2
+    exit 1
+  fi
 fi
 
 echo "OK downloads → $WEB_OUT and $FE_OUT"

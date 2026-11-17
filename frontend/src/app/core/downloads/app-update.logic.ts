@@ -9,6 +9,12 @@ export type UpdatePlatform = 'apk' | 'linux' | 'windows';
 /** Minimal manifest shape needed for update resolution. */
 export interface UpdateManifestInput {
   version?: string | null;
+  /** False means this run did not publish that installer. Absent = unknown. */
+  available?: {
+    apk?: boolean;
+    linux?: boolean;
+    windows?: boolean;
+  } | null;
   downloads?: {
     apk?: string | null;
     linux?: string | null;
@@ -185,6 +191,16 @@ export function resolveUpdate(
   }
   if (!manifest || typeof manifest !== 'object') {
     return { available: false, reason: 'no_manifest' };
+  }
+  // Explicit false on the APK: this publish did not build one.
+  // Linux/Windows stay on the previous rule (path, or the stable fallback
+  // when `available` is absent) so DV_BUILD_APK=1 matches the old notice.
+  if (
+    platform === 'apk' &&
+    manifest.available &&
+    manifest.available.apk === false
+  ) {
+    return { available: false, reason: 'missing_path' };
   }
   const local = parseSemver(localVersion);
   if (!local) {

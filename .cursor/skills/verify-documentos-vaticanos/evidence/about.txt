@@ -1,0 +1,6 @@
+feature about
+action GET /about
+action_url http://127.0.0.1:4219/about
+chromium /usr/local/bin/google-chrome
+result_url http://127.0.0.1:4219/about
+excerpt Acerca de Documentos Vaticanos facilita el acceso a los textos del magisterio de la Iglesia Católica: catecismo, Escritura y documentos conciliares, para leer con calma y sin distracciones. Fuente Nuestra fuente principal es la biblioteca electrónica del Vaticano. Somos fieles al

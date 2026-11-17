@@ -117,3 +117,5 @@ Las skills de este repo son `build-documentos-vaticanos`, `release-documentos-va
 ## Build
 
 El build de n8n de Documentos Vaticanos espera a Imperium y no se modifica desde este repo. Empaquetar en local es la skill `build-documentos-vaticanos`. La cola es `n8n-documentos-vaticanos`. El corte de versión es `release-documentos-vaticanos`.
+
+`.ci-build.sh` publica la web en cada merge a `master`. El APK va apagado (`DV_BUILD_APK` default `0`); para volver a empaquetarlo y exigirlo en el deploy, `DV_BUILD_APK=1`. El AAB y Play siguen en `0`. El detalle está en la skill de build.

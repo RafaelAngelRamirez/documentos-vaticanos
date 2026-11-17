@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import {
   DownloadsManifest,
   STABLE_DOWNLOAD_PATHS,
+  publishedApkHref,
 } from './downloads.models';
 import {
   pickAppVersionForDisplay,
@@ -43,14 +44,14 @@ export class DownloadsService {
 
   /** Absolute same-origin paths ready for `<a href>`. */
   getLinks(): Observable<{
-    apk: string;
+    apk: string | null;
     linux: string;
     windows: string;
     version: string;
   }> {
     return this.manifest$.pipe(
       map((m) => ({
-        apk: m.downloads.apk || STABLE_DOWNLOAD_PATHS.apk,
+        apk: publishedApkHref(m),
         linux: m.downloads.linux || STABLE_DOWNLOAD_PATHS.linux,
         windows: m.downloads.windows || STABLE_DOWNLOAD_PATHS.windows,
         version: pickAppVersionForDisplay(
@@ -84,8 +85,9 @@ export class DownloadsService {
       // Prefer build version when the assets/stub lags or is missing.
       version: pickAppVersionForDisplay(environment.version, m.version),
       builtAt: m.builtAt ?? null,
+      available: m.available ?? null,
       downloads: {
-        apk: m.downloads?.apk || base.downloads.apk,
+        apk: publishedApkHref(m),
         linux: m.downloads?.linux || base.downloads.linux,
         windows: m.downloads?.windows || base.downloads.windows,
       },
