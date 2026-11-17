@@ -83,6 +83,8 @@
   "reader.narrator_aria": "朗读",
   "reader.play": "开始朗读",
   "reader.pause": "暂停朗读",
+  "reader.previous": "上一段",
+  "reader.next": "下一段",
   "reader.sleep": "睡眠",
   "reader.font_size": "字号",
   "reader.line_height": "行距",
