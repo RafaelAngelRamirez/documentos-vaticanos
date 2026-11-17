@@ -9,7 +9,7 @@ description: >-
 
 # Onboarding de Documentos Vaticanos
 
-Antes de la primera edición. La entrada queda hecha cuando los tres bloques de abajo están cumplidos. El typecheck no los sustituye.
+Antes de la primera edición. La entrada queda hecha cuando el mapa, la arquitectura, el dv-verify de escritorio y la prueba móvil canónica (`node scripts/dv-verify-viewport.mjs`, lector y biblioteca) están cumplidos. El typecheck no los sustituye. El emulador queda fuera de esa entrada.
 
 ## 1. Leer el mapa
 
@@ -45,6 +45,22 @@ Pasa cuando:
 - Cleanup termina y `evidence/` sigue en su sitio.
 
 Si Launch no imprime `doctor ok`, el drive no se lanza. Sin subcomando, el helper imprime `usage: dv-verify.mjs launch|doctor|drive <feature>|cleanup` y sale 2. Eso comprueba el binario; no cuenta como el onboarding.
+
+## 3b. Prueba móvil
+
+La prueba móvil canónica es la vista web a 390×844. Skill `verify-documentos-vaticanos-viewport`. Desde la raíz:
+
+```bash
+node scripts/dv-verify-viewport.mjs launch
+node scripts/dv-verify-viewport.mjs doctor
+node scripts/dv-verify-viewport.mjs drive lector
+node scripts/dv-verify-viewport.mjs drive biblioteca
+node scripts/dv-verify-viewport.mjs cleanup
+```
+
+Pasa cuando `drive lector` y `drive biblioteca` salen 0 y dejan `.cursor/skills/verify-documentos-vaticanos-viewport/evidence/lector.txt` y `biblioteca.txt`.
+
+`yarn dev:android` y `.cursor/skills/verify-documentos-vaticanos-android/` (PR #66) están fuera del gate y marcados como no usados. Los archivos siguen en el repo.
 
 ## 4. Seguir
 

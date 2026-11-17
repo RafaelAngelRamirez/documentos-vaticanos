@@ -1,11 +1,13 @@
 ---
 name: verify-documentos-vaticanos-android
-description: "Drive the Documentos Vaticanos Capacitor app on an Android emulator. Launch, doctor, drive lector, and cleanup. Use when KVM, the SDK, and a debug APK are available. Refuses without creating an AVD when KVM, memory, disk, or the system image is missing."
+description: "No usada y fuera del gate (PR #66). El emulador Android no es la prueba móvil. La prueba canónica es verify-documentos-vaticanos-viewport (node scripts/dv-verify-viewport.mjs, drive lector y drive biblioteca). Estos archivos se conservan."
 ---
 
 # Verify Android
 
-La superficie es el emulador Android del mismo lector Capacitor (`digital.documentosvaticanos.app`). No es el viewport 390×844, no es un navegador de escritorio y no publica en Play.
+Fuera del gate y no usada. La prueba móvil canónica es `verify-documentos-vaticanos-viewport` (`node scripts/dv-verify-viewport.mjs`, `drive lector` y `drive biblioteca`). Los archivos de esta skill se conservan.
+
+La superficie descrita abajo es el emulador Android del lector Capacitor (`digital.documentosvaticanos.app`). No publica en Play.
 
 Launch, doctor, drive y cleanup viven en `scripts/dv-verify-android.mjs`. El mapa de rutas de la web sigue en `.cursor/skills/verify-documentos-vaticanos/features/`. Esta skill no lo copia. La prueba de lector es la misma puerta: `/leyendo/cic-es/punto/2`, que `readingCommands` reescribe a `/leyendo/cic-es/u/2`.
 

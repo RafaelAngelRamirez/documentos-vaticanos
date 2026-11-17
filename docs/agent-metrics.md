@@ -19,7 +19,7 @@ El corte es el inventario de evidencia commiteada en ese `master`. Un porcentaje
 
 El mapa tiene 20 fichas (los `.md` de `features/` distintos de `README.md`). Con evidencia web commiteada están lector, biblioteca y buscar. Con evidencia de viewport 390×844 están lector y biblioteca. Buscar no tiene txt de viewport.
 
-El emulador no entra en ese corte. La skill `verify-documentos-vaticanos-android` guarda `evidence/launch.txt` (`boot_completed 1` y `doctor ok`) y `evidence/lector.txt` (`result_url` con `/leyendo/cic-es/u/2` y un extracto, sin `exit_code`).
+El emulador no entra en ese corte. `yarn dev:android` y la skill `verify-documentos-vaticanos-android` (PR #66) quedan fuera del gate y no se usan. Esa skill guarda `evidence/launch.txt` (`boot_completed 1` y `doctor ok`) y `evidence/lector.txt` (`result_url` con `/leyendo/cic-es/u/2` y un extracto, sin `exit_code`). Los archivos se conservan.
 
 Esos archivos no son una tasa de tareas.
 

@@ -32,6 +32,20 @@ yarn test:api
 
 El cierre de la tarea lleva esa salida o el `evidence/<feature>.txt` en el PR. El typecheck no cierra el paso.
 
+Vista móvil (lector y biblioteca). La prueba canónica es la skill `verify-documentos-vaticanos-viewport`:
+
+```bash
+node scripts/dv-verify-viewport.mjs launch
+node scripts/dv-verify-viewport.mjs doctor
+node scripts/dv-verify-viewport.mjs drive lector
+node scripts/dv-verify-viewport.mjs drive biblioteca
+node scripts/dv-verify-viewport.mjs cleanup
+```
+
+El viewport es 390×844. La evidencia queda en `.cursor/skills/verify-documentos-vaticanos-viewport/evidence/`. El proyecto Playwright `mobile-390` (`e2e/playwright.config.ts`) corre el mismo smoke de lector y biblioteca. Ese smoke no tumba el job de CI.
+
+`yarn dev:android` y `.cursor/skills/verify-documentos-vaticanos-android/` (PR #66) quedan fuera del gate y se marcan como no usados. Los archivos se conservan.
+
 ## Refactor
 
 Si el cambio mueve una ruta, un selector o el modo de llegar a la pantalla, la ficha en `.cursor/skills/verify-documentos-vaticanos/features/` se actualiza en el mismo PR.

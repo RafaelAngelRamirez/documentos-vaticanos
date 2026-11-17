@@ -23,6 +23,16 @@ export default defineConfig({
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
+      testIgnore: /mobile-viewport\.spec\.ts/,
+    },
+    {
+      // Canonical phone layout: 390×844. Lector + biblioteca smoke only.
+      name: "mobile-390",
+      use: {
+        ...devices["Desktop Chrome"],
+        viewport: { width: 390, height: 844 },
+      },
+      testMatch: /mobile-viewport\.spec\.ts/,
     },
   ],
   webServer: process.env.E2E_START_WEB
