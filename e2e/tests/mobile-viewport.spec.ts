@@ -2,7 +2,8 @@ import { expect, test } from '@playwright/test';
 
 /**
  * Phone layout smoke at 390×844 (project mobile-390).
- * Portada, lector, biblioteca, and offline reading history.
+ * Portada, lector, biblioteca, document cover (one header aligned with the meta card),
+ * and offline reading history.
  */
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
@@ -57,6 +58,34 @@ test.describe('viewport móvil 390×844', () => {
     expect(height).toBeGreaterThan(0);
     await expect(mobile).not.toHaveCSS('display', 'none');
     await expect(page.locator('.only-desktop').first()).toHaveCSS('display', 'none');
+  });
+
+  test('portada de documento', async ({ page }) => {
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await page.goto('/documento/cic-es');
+    await expect(page).toHaveURL(/\/documento\/cic-es/, { timeout: 30_000 });
+    await expect(page.locator('app-reading-cover')).toBeVisible({ timeout: 60_000 });
+    await expect(page.locator('app-cover-header')).toHaveCount(1);
+    await expect(page.locator('app-reading-cover .dcover')).toHaveCount(0);
+    const title = page.locator('app-cover-header .web-title');
+    await expect(title).toHaveText('Catecismo de la Iglesia Católica');
+    const meta = page.locator('app-meta-grid .meta2');
+    await expect(meta).toBeVisible();
+    const edges = await page.evaluate(() => {
+      const titleEl = document.querySelector('app-cover-header .web-title');
+      const metaEl = document.querySelector('app-meta-grid .meta2');
+      if (!titleEl || !metaEl) return null;
+      const titleBox = titleEl.getBoundingClientRect();
+      const metaBox = metaEl.getBoundingClientRect();
+      return {
+        titleLeft: titleBox.left,
+        metaLeft: metaBox.left,
+        align: getComputedStyle(titleEl).textAlign,
+      };
+    });
+    expect(edges).not.toBeNull();
+    expect(Math.abs(edges!.titleLeft - edges!.metaLeft)).toBeLessThanOrEqual(1);
+    expect(['start', 'left']).toContain(edges!.align);
   });
 
   test('Sal 15 no repite el versículo', async ({ page }) => {
