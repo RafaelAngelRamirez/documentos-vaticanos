@@ -8,13 +8,14 @@ import { ROUTE } from 'src/app/services/navigation.service';
 export type BnavSection =
   | 'inicio'
   | 'biblioteca'
+  | 'historial'
   | 'estudio'
   | 'ajustes'
   | null;
 
 /**
  * Barra de navegación inferior del diseño (móvil):
- * Inicio · Biblioteca · Estudio · Ajustes.
+ * Inicio · Biblioteca · Historial · Estudio · Ajustes.
  * Oculta en ≥1024px (ver adaptaciones en styles.css).
  */
 @Component({
@@ -42,6 +43,15 @@ export type BnavSection =
       <button
         type="button"
         class="bitem"
+        data-testid="bnav-historial"
+        [class.on]="section === 'historial'"
+        (click)="go(['/historial'])"
+      >
+        <span class="bico">◷</span>{{ t('nav.history') }}
+      </button>
+      <button
+        type="button"
+        class="bitem"
         [class.on]="section === 'estudio'"
         (click)="go(['/estudios'])"
       >
@@ -63,6 +73,11 @@ export type BnavSection =
         background: none;
         border: none;
         font-family: inherit;
+        min-width: 0;
+        padding-left: 2px;
+        padding-right: 2px;
+        font-size: 10px;
+        white-space: nowrap;
       }
     `,
   ],
@@ -100,6 +115,7 @@ export class BnavComponent implements OnDestroy {
     if (this.current) return this.current;
     const p = (this.router.url || '').split('?')[0].split('#')[0];
     if (p.startsWith('/ajustes')) return 'ajustes';
+    if (p.startsWith('/historial')) return 'historial';
     if (
       p.startsWith('/estudio') ||
       p.startsWith('/aprendizaje') ||

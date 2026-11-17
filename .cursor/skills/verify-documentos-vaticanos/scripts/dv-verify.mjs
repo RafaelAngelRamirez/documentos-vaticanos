@@ -168,6 +168,11 @@ const FEATURES = {
     text: 'Lectio divina',
     selector: '[data-testid="lectio-date"], h1.app-title-md',
   },
+  historial: {
+    path: '/historial',
+    text: 'Historial',
+    selector: '[data-testid="history-empty"]',
+  },
   lector: {
     path: '/leyendo/cic-es/punto/2',
     selector: 'app-lector',

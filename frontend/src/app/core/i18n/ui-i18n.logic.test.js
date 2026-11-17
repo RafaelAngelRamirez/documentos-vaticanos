@@ -159,6 +159,7 @@ async function main() {
     'nav.library',
     'nav.study',
     'nav.settings',
+    'nav.history',
     'nav.account',
     'nav.parents',
     'nav.popes',
@@ -231,6 +232,10 @@ async function main() {
     'popes.title',
     'saints.title',
     'notes.title',
+    'history.title',
+    'history.empty',
+    'history.clear',
+    'history.unit',
     'themes.title',
     'learning.title',
     'about.title',
@@ -280,6 +285,10 @@ async function main() {
     'popes.title',
     'saints.title',
     'notes.title',
+    'history.title',
+    'history.empty',
+    'history.clear',
+    'history.unit',
     'themes.title',
     'learning.title',
     'about.title',
@@ -315,7 +324,7 @@ async function main() {
 
   // Chrome surfaces: keys used by shipped component templates
   const chromeKeysBySurface = {
-    bnav: ['nav.home', 'nav.library', 'nav.study', 'nav.settings', 'nav.bottom_aria'],
+    bnav: ['nav.home', 'nav.library', 'nav.history', 'nav.study', 'nav.settings', 'nav.bottom_aria'],
     wbar: [
       'app.name',
       'nav.home',
@@ -614,7 +623,7 @@ async function main() {
     }
   }
   // Distinct labels across locales for primary nav (criterion 1)
-  for (const key of ['nav.home', 'nav.library', 'nav.study', 'nav.settings']) {
+  for (const key of ['nav.home', 'nav.library', 'nav.history', 'nav.study', 'nav.settings']) {
     const vals = LOCALES.map((loc) => L.t(catalogs, loc, key));
     assert.strictEqual(new Set(vals).size, LOCALES.length, `all locales differ for ${key}: ${vals}`);
   }

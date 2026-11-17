@@ -1,0 +1,36 @@
+<div class="app has-bnav web-shell" [attr.data-tick]="localeTick">
+  <app-wbar></app-wbar>
+  <h1 class="app-title-md only-desktop hist-title">{{ t('history.title') }}</h1>
+  <div class="only-mobile">
+    <app-fbar [title]="t('history.title')" [avatar]="false"></app-fbar>
+  </div>
+
+  <div class="hist">
+    <p class="empty" *ngIf="!entries.length" data-testid="history-empty">
+      {{ t('history.empty') }}
+    </p>
+    <button
+      type="button"
+      class="srow"
+      *ngFor="let entry of entries"
+      data-testid="history-item"
+      [attr.data-document-id]="entry.documentId"
+      [attr.data-unit-index]="entry.unitIndex"
+      (click)="open(entry)"
+    >
+      <span class="st">{{ entry.title || entry.documentId }}</span>
+      <span class="sx">{{ line(entry) }}</span>
+    </button>
+    <button
+      type="button"
+      class="gbtn hist-clear"
+      *ngIf="entries.length"
+      data-testid="history-clear"
+      (click)="clear()"
+    >
+      {{ t('history.clear') }}
+    </button>
+  </div>
+
+  <app-bnav current="historial"></app-bnav>
+</div>
