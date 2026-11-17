@@ -3,20 +3,24 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TocEntry } from 'src/app/services/document-toc.logic';
 import { CoverHeaderComponent } from './cover-header.component';
 import { DocTocComponent } from './doc-toc.component';
-import { MetaGridCell, MetaGridComponent } from './meta-grid.component';
 import { ReadingCtasComponent } from './reading-ctas.component';
 
 /**
  * Portada de documento unificada 2A (móvil) + 5C (desktop ≥1024px).
- * Un solo árbol de contenido; CTAs/TOC se reubican con CSS.
+ * Una sola cabecera, en la misma columna que la tarjeta de metadatos.
+ * CTAs e índice se reubican con CSS.
+ *
+ * La lectura queda fuera del cierre: idioma, índice y acciones.
+ * Estudio empieza cerrado y no cambia la URL.
  *
  * Slots (atributo en el hijo proyectado):
- * - `[cover-lang]` idioma
- * - `[cover-source]` fuente / compilador
- * - `[cover-context]` contexto histórico
- * - `[cover-refs]` referencias / obras hermanas
- * - `[cover-related]` relacionados
- * - default `ng-content` extras
+ * - `[cover-lang]` idioma, en el flujo de lectura
+ * - `[cover-ficha]` rejilla de consulta, dentro de Estudio
+ * - `[cover-source]` fuente / compilador, dentro de Estudio
+ * - `[cover-context]` contexto histórico, dentro de Estudio
+ * - `[cover-refs]` autor y obras hermanas, dentro de Estudio
+ * - `[cover-related]` citas y vocabulario parecido, dentro de Estudio
+ * - default `ng-content` extras, en el flujo de lectura
  */
 @Component({
   standalone: true,
@@ -24,7 +28,6 @@ import { ReadingCtasComponent } from './reading-ctas.component';
   imports: [
     CommonModule,
     CoverHeaderComponent,
-    MetaGridComponent,
     DocTocComponent,
     ReadingCtasComponent,
   ],
@@ -40,7 +43,6 @@ export class ReadingCoverComponent {
   @Input() kindLine = '';
   @Input() title = '';
   @Input() subtitle: string | null | undefined;
-  @Input() metaCells: MetaGridCell[] = [];
   @Input() chapters: TocEntry[] = [];
   @Input() tocEmptyHint: string | null = null;
 

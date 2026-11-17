@@ -1,6 +1,6 @@
 feature documento
 action GET /documento/cic-es
 action_url http://127.0.0.1:4219/documento/cic-es
-chromium /usr/bin/google-chrome
+chromium /home/ubuntu/.cache/ms-playwright/chromium-1248/chrome-linux64/chrome
 result_url http://127.0.0.1:4219/documento/cic-es
-excerpt DV Documentos Vaticanos Inicio Biblioteca Estudio Padres Papas Doctores Santoral Temas D ← Biblioteca ♡ ← Biblioteca CATECISMO · 1997 Catecismo de la Iglesia Católica Carta apostólica « Laetamur Magnopere » CATECISMO · 1997 Catecismo de la Iglesia Católica Carta apostólica « Laet
+excerpt DV Documentos Vaticanos Inicio Biblioteca Estudio Padres Papas Doctores Santoral Temas D ← Biblioteca CATECISMO · 1997 Catecismo de la Iglesia Católica Carta apostólica « Laetamur Magnopere » Empezar ▶ Escuchar ♡ IDIOMA Español English 中文 हिन्दी · हिन्दी(AI) العربية ESTUDIO 5092 

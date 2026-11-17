@@ -2,7 +2,8 @@ import { expect, test } from '@playwright/test';
 
 /**
  * Phone layout smoke at 390×844 (project mobile-390).
- * Portada, lector, biblioteca, offline reading history, and the cited-verse passage.
+ * Portada, lector, biblioteca, document cover (one header aligned with the meta card),
+ * offline reading history, and the cited-verse passage.
  */
 
 function bibleUnit(
@@ -92,6 +93,67 @@ test.describe('viewport móvil 390×844', () => {
     await expect(page.locator('.only-desktop').first()).toHaveCSS('display', 'none');
   });
 
+  test('portada de documento', async ({ page }) => {
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await page.goto('/documento/cic-es');
+    await expect(page).toHaveURL(/\/documento\/cic-es/, { timeout: 30_000 });
+    await expect(page.locator('app-reading-cover')).toBeVisible({ timeout: 60_000 });
+    await expect(page.locator('app-cover-header')).toHaveCount(1);
+    await expect(page.locator('app-reading-cover .dcover')).toHaveCount(0);
+    const title = page.locator('app-cover-header .web-title');
+    await expect(title).toHaveText('Catecismo de la Iglesia Católica');
+
+    const estudio = page.locator('details.estudio');
+    await expect(estudio).toBeVisible();
+    await expect(estudio).toHaveJSProperty('open', false);
+    await expect(estudio.locator('.estudio-lede')).toBeHidden();
+    await expect(page.locator('app-meta-grid .meta2')).toBeHidden();
+    const beforeOpen = page.url();
+    await estudio.locator('summary').click();
+    await expect(page).toHaveURL(beforeOpen);
+    await expect(estudio).toHaveJSProperty('open', true);
+    await expect(estudio.locator('.estudio-lede')).toHaveText(
+      'Información extra de esta obra',
+    );
+    await expect(estudio.getByText('Ficha', { exact: true })).toBeVisible();
+    await expect(estudio.getByText('Fuente', { exact: true })).toBeVisible();
+
+    const meta = page.locator('app-meta-grid .meta2');
+    await expect(meta).toBeVisible();
+    const edges = await page.evaluate(() => {
+      const titleEl = document.querySelector('app-cover-header .web-title');
+      const metaEl = document.querySelector('app-meta-grid .meta2');
+      if (!titleEl || !metaEl) return null;
+      const titleBox = titleEl.getBoundingClientRect();
+      const metaBox = metaEl.getBoundingClientRect();
+      return {
+        titleLeft: titleBox.left,
+        metaLeft: metaBox.left,
+        align: getComputedStyle(titleEl).textAlign,
+      };
+    });
+    expect(edges).not.toBeNull();
+    expect(Math.abs(edges!.titleLeft - edges!.metaLeft)).toBeLessThanOrEqual(1);
+    expect(['start', 'left']).toContain(edges!.align);
+  });
+
+  test('Sal 15 no repite el versículo', async ({ page }) => {
+    test.setTimeout(120_000);
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await page.goto('/leyendo/bible-pueblo-de-dios-es/punto/15400');
+    await expect(page).toHaveURL(/\/leyendo\/bible-pueblo-de-dios-es\/u\/15400/, {
+      timeout: 90_000,
+    });
+    const verse = page.locator('p.punto-contenido[data-unit="15400"]');
+    await expect(verse).toBeVisible({ timeout: 90_000 });
+    const text = (await verse.innerText()).replace(/\s+/g, ' ').trim();
+    expect(text).toMatch(/Sal 15, 2\.\s*El que procede/);
+    expect(text).not.toMatch(/Sal 15, 2\.\s*2\b/);
+    await expect(page.locator('.bnav')).toHaveCount(0);
+    const inner = await page.evaluate(() => window.innerWidth);
+    expect(inner).toBeLessThan(1024);
+  });
+
   test('historial', async ({ page }) => {
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
 
@@ -131,7 +193,8 @@ test.describe('viewport móvil 390×844', () => {
 
   test('pasaje citado sin versículos intermedios', async ({ page }) => {
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
-    await page.clock.install({ time: new Date(2026, 10, 17, 12, 0, 0) });
+    // Freeze calendar day only; do not install fake timers (Angular HTTP/CD).
+    await page.clock.setFixedTime(new Date(2026, 10, 17, 12, 0, 0));
     await page.addInitScript(() => {
       const spoken: string[] = [];
       (window as unknown as { __spoken: string[] }).__spoken = spoken;
@@ -173,7 +236,7 @@ test.describe('viewport móvil 390×844', () => {
     await expect(first).toContainText('Ap 3,1-6.14-22', { timeout: 30_000 });
     await first.getByTestId('inicio-lectura-read').click();
     const pasaje = first.getByTestId('inicio-pasaje');
-    await expect(pasaje).toBeVisible();
+    await expect(pasaje).toBeVisible({ timeout: 30_000 });
     await expect(pasaje.getByTestId('pasaje-verse')).toHaveCount(4);
     const numbers = await pasaje
       .getByTestId('pasaje-verse')

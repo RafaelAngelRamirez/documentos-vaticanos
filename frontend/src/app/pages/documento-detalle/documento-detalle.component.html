@@ -8,7 +8,6 @@
     [kindLine]="kindLine"
     [title]="meta?.title || ''"
     [subtitle]="display.subtitulo"
-    [metaCells]="metaCells"
     [chapters]="chapters"
     [tocEmptyHint]="tocEmptyHint"
     [canContinue]="puedeContinuar"
@@ -22,6 +21,11 @@
     (restart)="reiniciar()"
     (selectToc)="openChapter($event)"
   >
+    <div cover-ficha *ngIf="metaCells.length">
+      <div class="sect">Ficha</div>
+      <app-meta-grid [cells]="metaCells"></app-meta-grid>
+    </div>
+
     <!-- Idioma (multi-edición) -->
     <div cover-lang *ngIf="meta && showLanguageSwitcher">
       <div class="sect">Idioma</div>
@@ -45,6 +49,7 @@
       class="fs13 muted fuente-block"
       *ngIf="meta && (display.compilador || meta.sourceUrl || display.fuenteNota)"
     >
+      <div class="sect">Fuente</div>
       <div *ngIf="display.compilador">
         Compilación: <strong>{{ display.compilador }}</strong>
       </div>
@@ -68,7 +73,7 @@
 
     <!-- Referencias santoral / papa: autor + obras hermanas -->
     <div cover-refs *ngIf="relatedSaint || relatedPope">
-      <div class="sect">Referencias</div>
+      <div class="sect">Autor y obras</div>
       <div class="ref-block">
         <a
           *ngIf="relatedPope"
@@ -143,7 +148,8 @@
         variant="document"
         [hideWhenEmpty]="true"
         [excludeDocumentId]="meta.id"
-        heading="Relacionados"
+        heading="Vocabulario parecido"
+        lede="Pasajes de otras obras que comparten palabras con el inicio de esta. Sugerencia hecha en el aparato."
       ></app-related-units-panel>
     </ng-container>
   </app-reading-cover>

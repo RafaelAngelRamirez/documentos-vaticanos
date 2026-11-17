@@ -69,10 +69,65 @@
   color: var(--app-danger);
 }
 
+/* Misma caja que .rc-body: el título y la tarjeta comparten el borde izquierdo. */
+.rc-head,
 .rc-body {
   max-width: var(--app-measure);
   margin: 0 auto;
+}
+
+.rc-head {
+  padding: 20px 24px 0;
+}
+
+.rc-body {
   padding: 20px 24px 60px;
+}
+
+.estudio {
+  margin: 4px 0 16px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.estudio > summary {
+  list-style: none;
+  cursor: pointer;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--app-font-sans, inherit);
+  color: var(--ink);
+}
+
+.estudio > summary::-webkit-details-marker {
+  display: none;
+}
+
+.estudio-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.estudio > summary::after {
+  content: '▸';
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.estudio[open] > summary::after {
+  content: '▾';
+}
+
+.estudio-lede {
+  margin: 0 0 4px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--muted);
 }
 
 .fav-on {
@@ -87,6 +142,11 @@
 
 /* —— Desktop 5C (≥1024px, same breakpoint as shell) —— */
 @media (min-width: 1024px) {
+  /* .fbar { display:flex } encapsulado gana a .only-mobile global. */
+  .fbar.only-mobile {
+    display: none !important;
+  }
+
   .rc-surface {
     padding: 28px 36px 36px;
   }
@@ -108,9 +168,17 @@
     flex-shrink: 0;
   }
 
+  .rc-head,
   .rc-body {
     max-width: none;
     margin: 0;
+  }
+
+  .rc-head {
+    padding: 0;
+  }
+
+  .rc-body {
     padding: 0 0 40px;
   }
 
