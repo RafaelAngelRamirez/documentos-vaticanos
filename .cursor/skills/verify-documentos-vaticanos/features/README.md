@@ -55,6 +55,7 @@ Every `path:` in `frontend/src/app/pages/pages-routing.module.ts` is named in on
 | `cuenta/temas/:id` | [temas.md](./temas.md) |
 | `notas/repaso` | [notas.md](./notas.md) |
 | `notas` | [notas.md](./notas.md) |
+| `historial` | [historial.md](./historial.md) |
 | `estudio` | [estudios.md](./estudios.md) |
 | `estudios` | [estudios.md](./estudios.md) |
 | `estudios/:id` | [estudios.md](./estudios.md) |
@@ -92,6 +93,7 @@ Every `path:` in `frontend/src/app/pages/pages-routing.module.ts` is named in on
 - [Mis referencias](./referencias.md) covers `cuenta/referencias`.
 - [Mis temas](./temas.md) covers `cuenta/temas` and `cuenta/temas/:id`.
 - [Notas](./notas.md) covers `notas` and `notas/repaso`.
+- [Historial](./historial.md) covers `historial`.
 - [Estudios](./estudios.md) covers `estudio`, `estudios`, `estudios/:id`, and `estudios/:id/editar`.
 - [Aprendizaje](./aprendizaje.md) covers `aprendizaje`, `clases/:id`, and `clases/:id/editar`.
 - [Explorar](./explorar.md) covers `explorar`, `explorar/relaciones`, and `explorar/topicos/:slug`.

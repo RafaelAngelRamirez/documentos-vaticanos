@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.hist {
+  padding: 8px 24px 24px;
+  max-width: var(--app-measure);
+  margin: 0 auto;
+}
+
+.hist-title {
+  max-width: var(--app-measure);
+  margin: 18px auto 0;
+  padding: 0 24px;
+}
+
+button.srow {
+  width: 100%;
+  text-align: start;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-family: inherit;
+  cursor: pointer;
+  color: inherit;
+}
+
+.hist-clear {
+  margin-top: 18px;
+}

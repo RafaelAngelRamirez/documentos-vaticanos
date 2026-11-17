@@ -44,6 +44,7 @@ export const PAGE_FEATURE = {
   explorar: 'explorar',
   inicio: 'inicio',
   lectio: 'lectio',
+  historial: 'historial',
   'list-documents-pages': 'biblioteca',
   'mis-referencias': 'referencias',
   'mis-temas': 'temas',
