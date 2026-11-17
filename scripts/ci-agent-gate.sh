@@ -119,6 +119,10 @@ seed_cic() {
   seed_doc cic-es
 }
 
+seed_bible() {
+  seed_doc bible-pueblo-de-dios-es
+}
+
 drive_lector() {
   echo "==> lector drive"
   pick_chromium
@@ -175,6 +179,7 @@ run_mobile() {
   ensure_playwright
   ensure_browser
   seed_cic
+  seed_bible
   seed_doc lg-es
   local dist port srv ec ready
   dist="$(reader_dist)"

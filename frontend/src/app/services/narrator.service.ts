@@ -13,6 +13,21 @@ import {
   xaiTtsVoicesUrl,
 } from './narrator-grok.logic';
 import { NarratorPreferencesService } from './narrator-preferences.service';
+import type { ReadAloudPhase } from './read-aloud.logic';
+import {
+  CARRIER_ELEMENT_VOLUME,
+  MEDIA_SESSION_ACTIONS,
+  type MediaSessionAction,
+  carrierWavBytes,
+  planMediaSession,
+} from './read-aloud-media.logic';
+
+export interface ReadAloudMediaHandlers {
+  onPlay: () => void;
+  onPause: () => void;
+  onPrevious: () => void;
+  onNext: () => void;
+}
 
 export type { NarratorVoice } from './narrator-grok.logic';
 export {
@@ -24,7 +39,10 @@ export {
 /**
  * 5D · Narrador — abstracción sobre el backend de síntesis de voz.
  *
- * - Web/desktop: Web Speech API (`window.speechSynthesis`).
+ * - Web/desktop: Web Speech API (`window.speechSynthesis`). Esa voz no
+ *   sigue sola al minimizar: no es un medio. En la web, la lectura en
+ *   voz alta ancla un `<audio>` local (WAV inaudible, no es la voz) y
+ *   publica título, play, pause, anterior y siguiente. La voz no cambia.
  * - APK (Capacitor): plugin nativo `@capacitor-community/text-to-speech`.
  * - Online (opcional): voces Grok vía **API key del dispositivo**
  *   (`dv.narr.prefs.v1` → xaiApiKey) llamando a `https://api.x.ai/v1/tts`.
@@ -45,6 +63,15 @@ export class NarratorService {
   /** Reproducción Grok en curso (blob URL + elemento audio). */
   private grokAudio: HTMLAudioElement | null = null;
   private grokObjectUrl: string | null = null;
+
+  /**
+   * Audio de anclaje de la sesión web. Mantiene la Media Session mientras
+   * habla la voz del sistema. No es esa voz y no se usa en el APK.
+   */
+  private carrierAudio: HTMLAudioElement | null = null;
+  private carrierObjectUrl: string | null = null;
+  private mediaHandlers: ReadAloudMediaHandlers | null = null;
+  private mediaHandlersInstalled = false;
 
   constructor(private narrPrefs: NarratorPreferencesService) {}
 
@@ -314,6 +341,168 @@ export class NarratorService {
         /* ignore */
       }
       this.grokObjectUrl = null;
+    }
+  }
+
+  /**
+   * Engancha play, pause, anterior y siguiente del sistema a la sesión
+   * del lector. En el APK no hace nada: allí sostiene el proceso el
+   * servicio en primer plano.
+   */
+  bindReadAloudSession(handlers: ReadAloudMediaHandlers): void {
+    this.mediaHandlers = handlers;
+    this.installMediaHandlers();
+  }
+
+  /** Arranca el audio de anclaje dentro del gesto (clic o tecla de medios). */
+  holdWebMedia(): void {
+    if (this.native) return;
+    const audio = this.ensureCarrier();
+    if (!audio || !audio.paused) return;
+    void audio.play().catch(() => undefined);
+  }
+
+  /**
+   * Publica título y estado. `playing` mantiene el anclaje; `paused` e
+   * `idle` lo paran. No toca la voz.
+   */
+  syncReadAloudMedia(input: {
+    title: string;
+    phase: ReadAloudPhase;
+  }): void {
+    if (this.native) return;
+    const session = this.mediaSession();
+    if (!session) return;
+    this.installMediaHandlers();
+    const plan = planMediaSession(input);
+    try {
+      session.metadata = new MediaMetadata({
+        title: plan.title,
+        artist: plan.artist,
+      });
+      session.playbackState = plan.playbackState;
+    } catch {
+      /* sesión no disponible */
+    }
+    if (plan.playbackState === 'playing') this.holdWebMedia();
+    else this.pauseWebMedia();
+  }
+
+  /**
+   * Al volver a primer plano: la locución web sigue, el navegador la
+   * había pausado, o la cortó sin dejarla en cola.
+   */
+  recoverWebSpeech(): 'native' | 'live' | 'resumed' | 'dropped' {
+    if (this.native) return 'native';
+    if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+      return 'dropped';
+    }
+    const synth = window.speechSynthesis;
+    if (synth.paused) {
+      try {
+        synth.resume();
+      } catch {
+        return 'dropped';
+      }
+      return 'resumed';
+    }
+    if (synth.speaking || synth.pending) return 'live';
+    return 'dropped';
+  }
+
+  /** Suelta controles, metadatos y el audio de anclaje. */
+  releaseReadAloudSession(): void {
+    this.mediaHandlers = null;
+    const session = this.mediaSession();
+    if (session) {
+      for (const action of MEDIA_SESSION_ACTIONS) {
+        try {
+          session.setActionHandler(action, null);
+        } catch {
+          /* acción no instalada */
+        }
+      }
+      try {
+        session.metadata = null;
+        session.playbackState = 'none';
+      } catch {
+        /* ignore */
+      }
+    }
+    this.stopCarrier();
+    this.mediaHandlersInstalled = false;
+  }
+
+  private mediaSession(): MediaSession | null {
+    if (typeof navigator === 'undefined' || !('mediaSession' in navigator)) {
+      return null;
+    }
+    return navigator.mediaSession;
+  }
+
+  private installMediaHandlers(): void {
+    if (this.native || this.mediaHandlersInstalled) return;
+    const session = this.mediaSession();
+    if (!session) return;
+    const dispatch: Record<MediaSessionAction, () => void> = {
+      play: () => this.mediaHandlers?.onPlay(),
+      pause: () => this.mediaHandlers?.onPause(),
+      previoustrack: () => this.mediaHandlers?.onPrevious(),
+      nexttrack: () => this.mediaHandlers?.onNext(),
+    };
+    for (const action of MEDIA_SESSION_ACTIONS) {
+      try {
+        session.setActionHandler(action, () => dispatch[action]());
+      } catch {
+        /* el navegador no ofrece esta acción */
+      }
+    }
+    this.mediaHandlersInstalled = true;
+  }
+
+  private ensureCarrier(): HTMLAudioElement | null {
+    if (typeof Audio === 'undefined') return null;
+    if (this.carrierAudio) return this.carrierAudio;
+    try {
+      const url = URL.createObjectURL(
+        new Blob([carrierWavBytes()], { type: 'audio/wav' }),
+      );
+      const audio = new Audio(url);
+      audio.loop = true;
+      audio.volume = CARRIER_ELEMENT_VOLUME;
+      this.carrierObjectUrl = url;
+      this.carrierAudio = audio;
+      return audio;
+    } catch {
+      return null;
+    }
+  }
+
+  private pauseWebMedia(): void {
+    try {
+      this.carrierAudio?.pause();
+    } catch {
+      /* ignore */
+    }
+  }
+
+  private stopCarrier(): void {
+    if (this.carrierAudio) {
+      try {
+        this.carrierAudio.pause();
+        this.carrierAudio.src = '';
+      } catch {
+        /* ignore */
+      }
+      this.carrierAudio = null;
+    }
+    if (this.carrierObjectUrl) {
+      try {
+        URL.revokeObjectURL(this.carrierObjectUrl);
+      } catch {
+        /* ignore */
+      }
+      this.carrierObjectUrl = null;
     }
   }
 

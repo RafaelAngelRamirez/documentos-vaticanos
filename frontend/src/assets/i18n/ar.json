@@ -83,6 +83,8 @@
   "reader.narrator_aria": "الراوي",
   "reader.play": "تشغيل السرد",
   "reader.pause": "إيقاف السرد مؤقتًا",
+  "reader.previous": "الفقرة السابقة",
+  "reader.next": "الفقرة التالية",
   "reader.sleep": "نوم",
   "reader.font_size": "حجم النص",
   "reader.line_height": "تباعد الأسطر",
