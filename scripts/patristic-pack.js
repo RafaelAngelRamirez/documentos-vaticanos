@@ -20,7 +20,7 @@
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
-const { spawnSync } = require('child_process');
+const { crc32 } = require('zlib');
 const { serializeCompact } = require('./corpus-compress.js');
 
 const PACK_ID = 'patristica';
@@ -356,6 +356,8 @@ function assertBaseHasNoPatristic(shipRoot, canonicalRoot) {
 }
 
 /**
+ * Stored zip of the pack directory. Same layout `zip -X -r` would write
+ * for the files, without the host `zip` binary (docvat-ci does not ship it).
  * @param {string} dir
  * @param {string} zipPath
  */
@@ -363,15 +365,54 @@ function zipPackDir(dir, zipPath) {
   const dest = path.resolve(zipPath);
   fs.rmSync(dest, { force: true });
   fs.mkdirSync(path.dirname(dest), { recursive: true });
-  const r = spawnSync('zip', ['-X', '-r', '-q', dest, '.'], {
-    cwd: dir,
-    encoding: 'utf8',
-  });
-  if (r.status !== 0) {
-    throw new Error(
-      `zip failed (${r.status}): ${r.stderr || r.stdout || 'no zip output'}`,
-    );
+  const files = [];
+  const walk = (current, prefix) => {
+    for (const name of fs.readdirSync(current).sort()) {
+      const abs = path.join(current, name);
+      const rel = prefix ? `${prefix}/${name}` : name;
+      if (fs.statSync(abs).isDirectory()) walk(abs, rel);
+      else files.push({ rel, data: fs.readFileSync(abs) });
+    }
+  };
+  walk(dir, '');
+  const parts = [];
+  const central = [];
+  let offset = 0;
+  for (const file of files) {
+    const name = Buffer.from(file.rel);
+    const sum = crc32(file.data) >>> 0;
+    const local = Buffer.alloc(30 + name.length);
+    local.writeUInt32LE(0x04034b50, 0);
+    local.writeUInt16LE(20, 4);
+    local.writeUInt16LE(0, 8);
+    local.writeUInt32LE(sum, 14);
+    local.writeUInt32LE(file.data.length, 18);
+    local.writeUInt32LE(file.data.length, 22);
+    local.writeUInt16LE(name.length, 26);
+    name.copy(local, 30);
+    parts.push(local, file.data);
+    const cd = Buffer.alloc(46 + name.length);
+    cd.writeUInt32LE(0x02014b50, 0);
+    cd.writeUInt16LE(20, 4);
+    cd.writeUInt16LE(20, 6);
+    cd.writeUInt16LE(0, 10);
+    cd.writeUInt32LE(sum, 16);
+    cd.writeUInt32LE(file.data.length, 20);
+    cd.writeUInt32LE(file.data.length, 24);
+    cd.writeUInt16LE(name.length, 28);
+    cd.writeUInt32LE(offset, 42);
+    name.copy(cd, 46);
+    central.push(cd);
+    offset += local.length + file.data.length;
   }
+  const directory = Buffer.concat(central);
+  const eocd = Buffer.alloc(22);
+  eocd.writeUInt32LE(0x06054b50, 0);
+  eocd.writeUInt16LE(files.length, 8);
+  eocd.writeUInt16LE(files.length, 10);
+  eocd.writeUInt32LE(directory.length, 12);
+  eocd.writeUInt32LE(offset, 16);
+  fs.writeFileSync(dest, Buffer.concat([...parts, directory, eocd]));
   return dest;
 }
 
@@ -581,6 +622,7 @@ module.exports = {
   sha256Buffer,
   hashUnits,
   buildPatristicPack,
+  zipPackDir,
   verifyPatristicPack,
   detachPatristicFromShip,
   assertBaseHasNoPatristic,

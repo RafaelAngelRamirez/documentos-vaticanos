@@ -10,6 +10,7 @@ const os = require('os');
 const path = require('path');
 const { pathToFileURL } = require('url');
 const { register } = require('node:module');
+const { zipPackDir } = require('../../../../../scripts/patristic-pack.js');
 
 register(
   'data:text/javascript,' +
@@ -123,10 +124,7 @@ async function main() {
     );
     assert.strictEqual(built.status, 0, built.stderr || built.stdout);
     const zipPath = path.join(tmp, 'patristica.zip');
-    const zipped = spawnSync('zip', ['-X', '-r', '-q', zipPath, '.'], {
-      cwd: out,
-    });
-    assert.strictEqual(zipped.status, 0, 'zip');
+    zipPackDir(out, zipPath);
     const zipBytes = new Uint8Array(fs.readFileSync(zipPath));
     const files = await filesFromZip(zipBytes);
     assert.ok(files.has('manifest.json'));
