@@ -83,6 +83,8 @@
   "reader.narrator_aria": "Narrador",
   "reader.play": "Reproducir narración",
   "reader.pause": "Pausar narración",
+  "reader.previous": "Párrafo anterior",
+  "reader.next": "Párrafo siguiente",
   "reader.sleep": "Dormir",
   "reader.font_size": "Tamaño del texto",
   "reader.line_height": "Interlineado",

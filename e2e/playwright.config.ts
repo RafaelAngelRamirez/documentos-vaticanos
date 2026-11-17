@@ -38,7 +38,7 @@ export default defineConfig({
       testIgnore: /mobile-viewport\.spec\.ts/,
     },
     {
-      // Canonical phone layout: 390×844. Portada, lector, biblioteca, historial y atrás.
+      // Canonical phone layout: 390×844. Portada, lector, biblioteca, historial, atrás y Sal 15.
       name: "mobile-390",
       use: {
         ...devices["Desktop Chrome"],
