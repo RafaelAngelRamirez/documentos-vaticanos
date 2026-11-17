@@ -1,6 +1,6 @@
 {
   "name": "documentos-vaticanos",
-  "version": "0.0.47",
+  "version": "0.0.48",
   "private": true,
   "builders": "tools/builders.json",
   "description": "Documentos Vaticanos — lector offline (web, Android, Electron)",
@@ -40,6 +40,7 @@
     "test:speech-lang": "bash ../scripts/node-strip-types.sh src/app/services/speech-lang.logic.test.js",
     "test:read-aloud": "bash ../scripts/node-strip-types.sh src/app/services/read-aloud.logic.test.js",
     "test:cite-quick-read": "bash ../scripts/node-strip-types.sh src/app/core/liturgia/cite-quick-read.logic.test.js",
+    "test:reading-history": "bash ../scripts/node-strip-types.sh src/app/services/reading-history.logic.test.js",
     "test:semantic-search": "bash ../scripts/node-strip-types.sh src/app/core/search/semantic-search.logic.test.js",
     "test:shelf-search": "bash ../scripts/node-strip-types.sh src/app/core/search/shelf-search.logic.test.js",
     "test:related-suggestion": "bash ../scripts/node-strip-types.sh src/app/core/search/related-suggestion.logic.test.js",

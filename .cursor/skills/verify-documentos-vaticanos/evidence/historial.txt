@@ -1,0 +1,6 @@
+feature historial
+action GET /historial
+action_url http://127.0.0.1:4200/historial
+chromium /usr/local/bin/google-chrome
+result_url http://127.0.0.1:4200/historial
+excerpt DV Documentos Vaticanos Inicio Biblioteca Estudio Padres Papas Doctores Santoral Temas D Historial Aún no hay lecturas en este dispositivo.
