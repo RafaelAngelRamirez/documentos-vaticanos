@@ -121,6 +121,15 @@ describe('InicioComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('welcome has Empezar and lecturas without carousel dots', () => {
+    createWithShell(true);
+    const el: HTMLElement = fixture.nativeElement;
+    expect(el.querySelector('.dots')).toBeNull();
+    expect(el.querySelector('.dotp')).toBeNull();
+    expect(el.querySelector('button.primary.wbtn')).toBeTruthy();
+    expect(el.querySelector('[data-testid="inicio-lecturas"]')).toBeTruthy();
+  });
+
   it('on web shows three download anchors with resolved hrefs and version label', () => {
     createWithShell(true);
     const el: HTMLElement = fixture.nativeElement;

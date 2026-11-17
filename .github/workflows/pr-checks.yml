@@ -1,7 +1,7 @@
 # Pull-request status. The n8n build does not run this file.
 # check-map also runs inside scripts/ci-cheap.sh (the n8n cheap stage).
 # `yarn run check` is required here, after npm ci. The lector drive and the
-# Playwright mobile-390 smoke (lector, biblioteca y portada, 390×844) fail the job.
+# Playwright mobile-390 smoke (lector, biblioteca, portada e historial, 390×844) fail the job.
 # Both need the packaged web tree built below.
 name: PR checks
 

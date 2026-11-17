@@ -15,6 +15,7 @@ import {
   parseUnitIndex,
   pushCite,
   readingCommands,
+  recordReadingInStore,
   sameCite,
   sameDocument,
   serializeResumeCard,
@@ -222,6 +223,13 @@ export class NavigationService {
     } catch {
       // quota / private mode
     }
+    recordReadingInStore(store, {
+      documentId: documentIdKey(place.documentId),
+      title: display.title,
+      unitIndex: place.unitIndex,
+      unitCount: display.unitCount,
+      label: display.label,
+    });
   }
 
   /** Legacy arrival: replace the URL with the canonical cite. Does not touch the stack. */

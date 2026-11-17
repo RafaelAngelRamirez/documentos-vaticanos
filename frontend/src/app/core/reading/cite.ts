@@ -316,3 +316,171 @@ export function parseArrival(input: {
   }
   return { kind: 'redirect', cite: cite(id, resumeUnitFor(input.resume, id)) };
 }
+
+/**
+ * Offline reading history on this device.
+ * One row per document, newest `updatedAt` first. The corpus is not stored.
+ * `dv.lastRead` stays the single resume card; this list is the history view.
+ */
+export const READING_HISTORY_KEY = 'dv.readingHistory.v1';
+export const READING_HISTORY_CAP = 100;
+
+export interface ReadingHistoryEntry {
+  documentId: string;
+  title: string;
+  unitIndex: number;
+  unitCount: number;
+  label?: string;
+  /** First time this document was recorded. */
+  openedAt: string;
+  /** Last time the reader reported this document. */
+  updatedAt: string;
+}
+
+export type ReadingHistoryInput = Omit<
+  ReadingHistoryEntry,
+  'openedAt' | 'updatedAt'
+>;
+
+type HistoryStore = {
+  getItem(key: string): string | null;
+  setItem(key: string, value: string): void;
+  removeItem(key: string): void;
+};
+
+function cleanHistoryEntry(raw: unknown): ReadingHistoryEntry | null {
+  if (!raw || typeof raw !== 'object') return null;
+  const row = raw as Record<string, unknown>;
+  const id = parseDocumentId(
+    typeof row['documentId'] === 'string' ? row['documentId'] : null,
+  );
+  const unit = parseUnitIndex(
+    typeof row['unitIndex'] === 'number' || typeof row['unitIndex'] === 'string'
+      ? row['unitIndex']
+      : null,
+  );
+  if (!id || unit == null) return null;
+  const title = typeof row['title'] === 'string' ? row['title'] : '';
+  const unitCountRaw = row['unitCount'];
+  const unitCount =
+    typeof unitCountRaw === 'number' &&
+    Number.isInteger(unitCountRaw) &&
+    unitCountRaw >= 0
+      ? unitCountRaw
+      : 0;
+  const labelRaw = row['label'];
+  const label =
+    typeof labelRaw === 'string' && labelRaw.length > 0 ? labelRaw : undefined;
+  const openedAt = typeof row['openedAt'] === 'string' ? row['openedAt'] : '';
+  const updatedAt = typeof row['updatedAt'] === 'string' ? row['updatedAt'] : '';
+  if (!openedAt || !updatedAt) return null;
+  return {
+    documentId: documentIdKey(id),
+    title,
+    unitIndex: unit,
+    unitCount,
+    ...(label ? { label } : {}),
+    openedAt,
+    updatedAt,
+  };
+}
+
+/** Parse stored history. Invalid rows are dropped. Order is kept. */
+export function parseReadingHistory(
+  raw: string | null | undefined,
+): ReadingHistoryEntry[] {
+  if (!raw) return [];
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    return [];
+  }
+  if (!Array.isArray(parsed)) return [];
+  const out: ReadingHistoryEntry[] = [];
+  const seen = new Set<string>();
+  for (const row of parsed) {
+    const entry = cleanHistoryEntry(row);
+    if (!entry || seen.has(entry.documentId)) continue;
+    seen.add(entry.documentId);
+    out.push(entry);
+    if (out.length >= READING_HISTORY_CAP) break;
+  }
+  return out;
+}
+
+export function serializeReadingHistory(
+  entries: readonly ReadingHistoryEntry[],
+): string {
+  return JSON.stringify(entries);
+}
+
+/**
+ * Upsert by document id and move that row to the front.
+ * `openedAt` stays the first visit. A bad id or unit leaves the list unchanged.
+ */
+export function recordReading(
+  entries: readonly ReadingHistoryEntry[],
+  input: ReadingHistoryInput,
+  now: string,
+): ReadingHistoryEntry[] {
+  const id = parseDocumentId(input.documentId);
+  const unit = parseUnitIndex(input.unitIndex);
+  if (!id || unit == null || !now) return entries.slice();
+  const documentId = documentIdKey(id);
+  const title = typeof input.title === 'string' ? input.title : '';
+  const unitCount =
+    typeof input.unitCount === 'number' &&
+    Number.isInteger(input.unitCount) &&
+    input.unitCount >= 0
+      ? input.unitCount
+      : 0;
+  const label =
+    typeof input.label === 'string' && input.label.length > 0
+      ? input.label
+      : undefined;
+  const prev = entries.find((entry) => entry.documentId === documentId);
+  const row: ReadingHistoryEntry = {
+    documentId,
+    title,
+    unitIndex: unit,
+    unitCount,
+    ...(label ? { label } : {}),
+    openedAt: prev?.openedAt || now,
+    updatedAt: now,
+  };
+  const rest = entries.filter((entry) => entry.documentId !== documentId);
+  return [row, ...rest].slice(0, READING_HISTORY_CAP);
+}
+
+export function readReadingHistory(
+  store: Pick<HistoryStore, 'getItem'>,
+): ReadingHistoryEntry[] {
+  try {
+    return parseReadingHistory(store.getItem(READING_HISTORY_KEY));
+  } catch {
+    return [];
+  }
+}
+
+export function recordReadingInStore(
+  store: HistoryStore,
+  input: ReadingHistoryInput,
+  now: () => string = () => new Date().toISOString(),
+): ReadingHistoryEntry[] {
+  const next = recordReading(readReadingHistory(store), input, now());
+  try {
+    store.setItem(READING_HISTORY_KEY, serializeReadingHistory(next));
+  } catch {
+    // quota / private mode
+  }
+  return next;
+}
+
+export function clearReadingHistory(store: Pick<HistoryStore, 'removeItem'>): void {
+  try {
+    store.removeItem(READING_HISTORY_KEY);
+  } catch {
+    // private mode
+  }
+}

@@ -33,6 +33,7 @@ import { SantoDetalleComponent } from './santo-detalle/santo-detalle.component';
 import { PapasComponent } from './papas/papas.component';
 import { PapaDetalleComponent } from './papa-detalle/papa-detalle.component';
 import { LectioComponent } from './lectio/lectio.component';
+import { HistorialComponent } from './historial/historial.component';
 
 const routes: Routes = [
   { path: ROUTE.inicio, component: InicioComponent },
@@ -78,6 +79,7 @@ const routes: Routes = [
   { path: 'papas', component: PapasComponent },
   { path: 'papas/:id', component: PapaDetalleComponent },
   { path: 'lectio', component: LectioComponent },
+  { path: 'historial', component: HistorialComponent },
   {
     path: `${ROUTE.leyendo}/:id/u/:unit`,
     component: LectorComponent,
