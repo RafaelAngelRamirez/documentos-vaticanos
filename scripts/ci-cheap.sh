@@ -43,3 +43,4 @@ node scripts/ci-pr-mobile-gate.test.mjs
 npm --prefix backend run test:sync-theme
 npm --prefix backend run test:sync-anotacion
 npm --prefix frontend run test:anotaciones
+npm --prefix frontend run test:reading-history
