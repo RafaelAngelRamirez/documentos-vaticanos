@@ -32,4 +32,4 @@ Recurrente: la muestra lo ve otra vez después de estar nombrado.
 
 El checklist de evidencia que exige CI entró con el [PR #57](https://github.com/RafaelAngelRamirez/documentos-vaticanos/pull/57), ya mergeado. La secuencia corta del cambio está en `docs/agent-workflow.md`.
 
-El escalado queda fuera de esta rutina. `docs/agent-metrics.md` lo deja diferido.
+El escalado de agentes en paralelo no entra en esta rutina. `docs/agent-metrics.md` registra que el drive de lector y la prueba móvil 390×844 ya tumban el job, y que el árbol no cuenta agentes en paralelo.

@@ -47,7 +47,7 @@ La skill web ya es el criterio de «hecho» para una ruta de la SPA empaquetada.
 
 La instrucción de la skill: no marcar terminado sin ejecutarla y sin adjuntar la evidencia. Compilar no cuenta.
 
-El Drive web ya falla ante los patrones de [debt-hotspots.md](debt-hotspots.md) (#53). La API tiene la skill `verify-documentos-vaticanos-api`. La prueba móvil canónica es `verify-documentos-vaticanos-viewport` (#56): `node scripts/dv-verify-viewport.mjs`, `drive lector` y `drive biblioteca`, viewport 390×844. `yarn dev:android` y `verify-documentos-vaticanos-android` (PR #66) quedan fuera del gate y no se usan; los archivos se conservan. En CI, `check-map` y `yarn run check` tumban el job (#57); el drive de lector se registra y no tumba el job, porque pide el `dist` empaquetado. El smoke Playwright `mobile-390` tampoco tumba ese job. El puerto de la skill web (`4219`) no es el de `yarn dev` (`4200`).
+El Drive web ya falla ante los patrones de [debt-hotspots.md](debt-hotspots.md) (#53). La API tiene la skill `verify-documentos-vaticanos-api`. La prueba móvil canónica es `verify-documentos-vaticanos-viewport` (#56): `node scripts/dv-verify-viewport.mjs`, `drive lector` y `drive biblioteca`, viewport 390×844. `yarn dev:android` y `verify-documentos-vaticanos-android` (PR #66) quedan fuera del gate y no se usan; los archivos se conservan. En CI, `check-map`, `yarn run check`, el drive de lector y el smoke Playwright `mobile-390` (lector y biblioteca, 390×844) tumban el job (#57 y el paso que engancha el viewport). El job construye el `dist` antes de esas dos pruebas. El puerto de la skill web (`4219`) no es el de `yarn dev` (`4200`).
 
 ## Etapa 2 — Arquitectura
 

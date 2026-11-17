@@ -38,6 +38,7 @@ node --test scripts/dv-verify-android.test.mjs
 bash scripts/ci-release-guard.test.sh
 bash scripts/ci-apk-require.test.sh
 node scripts/ci-evidence-policy.test.mjs
+node scripts/ci-pr-mobile-gate.test.mjs
 npm --prefix backend run test:sync-theme
 npm --prefix backend run test:sync-anotacion
 npm --prefix frontend run test:anotaciones

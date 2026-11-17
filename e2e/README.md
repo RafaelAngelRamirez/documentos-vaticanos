@@ -26,6 +26,8 @@ E2E_BASE_URL=http://127.0.0.1:4200 npx playwright test
 E2E_START_WEB=1 npx playwright test
 # phone layout 390×844: lector + biblioteca (project mobile-390)
 E2E_BASE_URL=http://127.0.0.1:4200 npx playwright test --project=mobile-390
+# El job de pull request corre `bash scripts/ci-agent-gate.sh mobile` sobre el dist
+# empaquetado. Si lector o biblioteca fallan, el job falla.
 ```
 
 ## Docker Compose profile

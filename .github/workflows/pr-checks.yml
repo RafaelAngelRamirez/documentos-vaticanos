@@ -1,7 +1,8 @@
 # Pull-request status. The n8n build does not run this file.
 # check-map also runs inside scripts/ci-cheap.sh (the n8n cheap stage).
-# `yarn run check` is required here, after npm ci. The lector drive is
-# recorded and does not fail the job: it needs a packaged web tree.
+# `yarn run check` is required here, after npm ci. The lector drive and the
+# Playwright mobile-390 smoke (lector + biblioteca, 390×844) fail the job.
+# Both need the packaged web tree built below.
 name: PR checks
 
 on:
@@ -41,6 +42,7 @@ jobs:
           npm ci
           npm ci --prefix frontend
           npm ci --prefix backend
+          npm ci --prefix e2e
       - name: check-map
         id: map
         continue-on-error: true
@@ -70,9 +72,16 @@ jobs:
           exit "$code"
       - name: Package web
         run: npm --prefix frontend run build
+      - name: Mobile 390
+        id: mobile
+        run: |
+          set +e
+          bash scripts/ci-agent-gate.sh mobile
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
       - name: Lector drive
         id: lector
-        continue-on-error: true
         run: |
           set +e
           bash scripts/ci-agent-gate.sh lector
@@ -86,8 +95,9 @@ jobs:
             echo "check-map exit ${{ steps.map.outputs.code }}"
             echo "yarn run check exit ${{ steps.check.outputs.code }}"
             echo "evidence exit ${{ steps.evidence.outputs.code }}"
+            echo "mobile-390 exit ${{ steps.mobile.outputs.code }}"
             echo "lector exit ${{ steps.lector.outputs.code }}"
-            echo "check-map y \`yarn run check\` tumban este job si no salen 0. El drive de lector solo se registra."
+            echo "check-map, \`yarn run check\`, la prueba móvil 390×844 y el drive de lector tumban este job si no salen 0."
           } >> "$GITHUB_STEP_SUMMARY"
           if [[ "${{ steps.map.outputs.code }}" != "0" ]]; then
             exit 1
@@ -96,5 +106,11 @@ jobs:
             exit 1
           fi
           if [[ "${{ steps.evidence.outputs.code }}" != "0" ]]; then
+            exit 1
+          fi
+          if [[ "${{ steps.mobile.outputs.code }}" != "0" ]]; then
+            exit 1
+          fi
+          if [[ "${{ steps.lector.outputs.code }}" != "0" ]]; then
             exit 1
           fi

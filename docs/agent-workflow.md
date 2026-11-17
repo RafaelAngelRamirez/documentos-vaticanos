@@ -42,7 +42,7 @@ node scripts/dv-verify-viewport.mjs drive biblioteca
 node scripts/dv-verify-viewport.mjs cleanup
 ```
 
-El viewport es 390×844. La evidencia queda en `.cursor/skills/verify-documentos-vaticanos-viewport/evidence/`. El proyecto Playwright `mobile-390` (`e2e/playwright.config.ts`) corre el mismo smoke de lector y biblioteca. Ese smoke no tumba el job de CI.
+El viewport es 390×844. La evidencia queda en `.cursor/skills/verify-documentos-vaticanos-viewport/evidence/`. El proyecto Playwright `mobile-390` (`e2e/playwright.config.ts`) corre el mismo smoke de lector y biblioteca. Ese smoke tumba el job de CI si falla, igual que el drive de lector.
 
 `yarn dev:android` y `.cursor/skills/verify-documentos-vaticanos-android/` (PR #66) quedan fuera del gate y se marcan como no usados. Los archivos se conservan.
 
