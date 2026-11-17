@@ -7,7 +7,8 @@ The document cover is path `documento/:id`. For `cic-es` it shows the full title
 - `documento/:id` renders `app-reading-cover` for a manifest id.
 - `documento-start` is the primary button (Comenzar or Continuar).
 - `documento-listen` is the button whose label starts with the listen string.
-- `documento-source` shows `{Idioma} · fuente` when `sourceUrl` exists.
+- `documento-estudio` is the closed `details` (`data-testid="documento-estudio"`) whose summary is `Estudio`. It starts closed on phone and desktop. Opening it does not change the URL. The first line inside is `Información extra de esta obra`.
+- `documento-source` shows `{Idioma} · fuente` inside that block, under the heading `Fuente`, when `sourceUrl` exists. The drive does not open the block.
 
 ## How to get to it (user POV)
 
@@ -28,3 +29,4 @@ Preconditions:
 
 - Continue versus Comenzar depends on local progress. The drive asserts the title word `Catecismo`, which is in the official title, not a single button label.
 - An unknown id shows the cover error state. `cic-es` is required by doctor, so this drive uses that id.
+- Ficha, Fuente, Contexto histórico, Autor y obras, Citas cruzadas and Vocabulario parecido sit inside Estudio. The reading layer stays the header, the actions, the language switcher when there is more than one edition, and the index.
