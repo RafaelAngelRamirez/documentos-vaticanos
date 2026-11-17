@@ -24,6 +24,8 @@ cd e2e && npm install && npx playwright install chromium
 E2E_BASE_URL=http://127.0.0.1:4200 npx playwright test
 # or auto-start ng serve
 E2E_START_WEB=1 npx playwright test
+# phone layout 390×844: lector + biblioteca (project mobile-390)
+E2E_BASE_URL=http://127.0.0.1:4200 npx playwright test --project=mobile-390
 ```
 
 ## Docker Compose profile

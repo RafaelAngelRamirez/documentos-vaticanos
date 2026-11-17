@@ -9,7 +9,8 @@ El mapa de rutas de la app ya versionado está en [features/README.md](features/
 | Superficie | Dónde | Qué ejecuta | Arranque |
 | --- | --- | --- | --- |
 | Web (Angular, también PWA) | `frontend/` | SPA en `frontend/src/`. Producción activa el service worker (`frontend/angular.json`, `frontend/ngsw-config.json`). | `yarn dev` → http://localhost:4200 |
-| Android (Capacitor) | `frontend/android/` | El mismo `dist` web. `appId` `digital.documentosvaticanos.app`. `minSdk` 24, `compileSdk`/`targetSdk` 36 (`frontend/android/variables.gradle`). | `yarn dev:android` en un host con emulador y pantalla |
+| Móvil (vista web 390×844) | El mismo SPA de `frontend/` | Prueba móvil canónica. Skill `verify-documentos-vaticanos-viewport`. | `node scripts/dv-verify-viewport.mjs` (`drive lector`, `drive biblioteca`) |
+| Android (Capacitor, emulador no usado) | `frontend/android/` | El mismo `dist` web. `appId` `digital.documentosvaticanos.app`. `minSdk` 24, `compileSdk`/`targetSdk` 36 (`frontend/android/variables.gradle`). | `yarn dev:android` queda fuera del gate |
 | Electron | `frontend/electron/` | El mismo `dist` web, servido en local por el proceso principal. | `yarn package:electron` |
 | API | `backend/` | Express + Prisma + Postgres. Prefijo `/api/v1`. | `yarn dev` → http://localhost:3000/api/v1/health |
 | Corpus (no es un servidor) | `scripts-descarga/` escribe `documentos/corpus/` | Herramientas offline. La app lee la copia de assets, no esta carpeta en caliente. | `bash scripts/corpus-sync-assets.sh` |
@@ -48,7 +49,7 @@ yarn package:web
 
 Proyecto Capacitor en `frontend/android/`. La config web está en `frontend/capacitor.config.ts`: `webDir` `dist/documentos-vaticanos`, `appId` `digital.documentosvaticanos.app`. El recarga en vivo (`CAP_LIVE_RELOAD=1`) apunta al host del emulador y no entra en un APK de publicación.
 
-`yarn dev:android` ejecuta `scripts/dev-android-emu.sh`. Ese script sale si no hay emulador en el SDK o si no hay `DISPLAY` ni `WAYLAND_DISPLAY`. El AVD por defecto es `medium_phone`.
+`yarn dev:android` ejecuta `scripts/dev-android-emu.sh`. Queda fuera del gate y no se usa. El script sale si no hay emulador en el SDK o si no hay `DISPLAY` ni `WAYLAND_DISPLAY`. El AVD por defecto es `medium_phone`.
 
 Empaquetado de depuración, desde la raíz:
 
@@ -58,7 +59,7 @@ yarn package:apk
 
 El `applicationId` y las versiones que firma el paquete salen de propiedades Gradle (`dvApplicationId`, `dvVersionCode`, `dvVersionName`) en `frontend/android/app/build.gradle`. Los secretos de firma no están en el repositorio.
 
-La verificación del emulador, cuando KVM es usable, es `.cursor/skills/verify-documentos-vaticanos-android/` y `node scripts/dv-verify-android.mjs`. Arranca el AVD `dv_verify` en el puerto 5574 sin ventana y sin `-wipe-data`. No sustituye a `yarn dev:android`. Si `/dev/kvm` no se puede abrir, o faltan memoria, disco o la imagen `system-images;android-34;default;x86_64`, el launch sale sin crear un AVD.
+La prueba móvil canónica es `.cursor/skills/verify-documentos-vaticanos-viewport/` y `node scripts/dv-verify-viewport.mjs` (`drive lector` y `drive biblioteca`, viewport 390×844). `yarn dev:android` y `.cursor/skills/verify-documentos-vaticanos-android/` (PR #66) están fuera del gate y marcados como no usados. Esos archivos se conservan.
 
 ## Electron
 

@@ -25,7 +25,8 @@ Desde la raíz. Solo comandos que ya están en `package.json` o en `scripts/`.
 | Solo API | `yarn dev:api-only` | `bash scripts/dev.sh --api-only`. Postgres y API. |
 | API en el host | `yarn dev:api` | `npm --prefix backend run dev` (`tsx watch src/index.ts`). |
 | Bajar el stack | `yarn dev:down` | `bash scripts/dev.sh --down`. |
-| Android | `yarn dev:android` | `bash scripts/dev-android-emu.sh`. Emulador, `ng serve` y el último APK de depuración. |
+| Móvil (vista web) | `node scripts/dv-verify-viewport.mjs` | Prueba móvil canónica. Skill `verify-documentos-vaticanos-viewport`. Viewport 390×844. `drive lector` y `drive biblioteca`. |
+| Android (emulador, no usado) | `yarn dev:android` | Fuera del gate. `bash scripts/dev-android-emu.sh` sigue en el repo. No es la prueba móvil. |
 | Electron | `yarn package:electron` | `bash scripts/package-electron.sh`. Empaqueta; no hay script de desarrollo en vivo en la raíz. |
 
 - Web: http://localhost:4200
@@ -33,7 +34,7 @@ Desde la raíz. Solo comandos que ya están en `package.json` o en `scripts/`.
 
 `yarn dev` deja `DEV_AUTH_BYPASS` activo. Puertos y flags: `docs/DEV-DOCKER.md`. Hace falta Docker. `scripts/dev.sh --help` lista `--build`, `--api-only`, `--down`, `--logs`, `--status` y `--help`; el chequeo de Docker corre antes que `--help`.
 
-Android exige el emulador del SDK, `adb` y `DISPLAY` o `WAYLAND_DISPLAY`. El AVD por defecto es `medium_phone` (`DV_AVD`). El script no tiene `--help` ni `--dry-run`.
+`yarn dev:android` y la skill `.cursor/skills/verify-documentos-vaticanos-android/` (PR #66) están fuera del gate y marcados como no usados. Los archivos se conservan. El script del emulador no tiene `--help` ni `--dry-run`.
 
 Electron en la raíz es el empaquetado. `DV_ELECTRON_TARGETS` (default `linux,win`). Con el `dist` web ya construido, `frontend/package.json` tiene `electron` (`electron .`) y `electron:smoke`. Esos dos arrancan el proceso local. El empaquetado de escritorio sigue siendo `yarn package:electron`. Ninguno de los tres define `--dry-run`.
 
@@ -58,13 +59,23 @@ node .cursor/skills/verify-documentos-vaticanos/scripts/dv-verify.mjs cleanup
 
 Sin subcomando imprime `usage: dv-verify.mjs launch|doctor|drive <feature>|cleanup` y sale 2. `drive <feature>` usa el id de una ficha del mapa. La prueba de lector es `drive lector`. Cada drive escribe `.cursor/skills/verify-documentos-vaticanos/evidence/<feature>.txt`. `cleanup` para el pid de esta skill y no borra `evidence/`.
 
-La skill Android es `.cursor/skills/verify-documentos-vaticanos-android/`. El helper es `node scripts/dv-verify-android.mjs` (`launch`, `doctor`, `drive lector`, `cleanup`). Exige KVM usable por el usuario, el SDK ya instalado y la imagen `system-images;android-34;default;x86_64`. El AVD por defecto es `dv_verify` en el puerto 5574. No descarga la imagen, no usa `-wipe-data` y no toca los puertos 5564 ni 5580. Si falta KVM, memoria, disco o la imagen, sale con `launch fail` y no crea un AVD. El drive instala un APK de depuración ya construido (`yarn package:apk`) y lee el WebView. La evidencia queda en `.cursor/skills/verify-documentos-vaticanos-android/evidence/`.
+La prueba móvil canónica es la skill `verify-documentos-vaticanos-viewport`. Desde la raíz:
+
+```bash
+node scripts/dv-verify-viewport.mjs launch
+node scripts/dv-verify-viewport.mjs doctor
+node scripts/dv-verify-viewport.mjs drive lector
+node scripts/dv-verify-viewport.mjs drive biblioteca
+node scripts/dv-verify-viewport.mjs cleanup
+```
+
+El viewport es 390×844. `drive lector` y `drive biblioteca` escriben `.cursor/skills/verify-documentos-vaticanos-viewport/evidence/<feature>.txt`. El emulador y `.cursor/skills/verify-documentos-vaticanos-android/` (PR #66) no entran en este gate.
 
 Launch está listo cuando la salida trae `launch ready` y `doctor ok`. El servidor por defecto es `http://127.0.0.1:4219` sobre el `dist` empaquetado. `yarn dev` (puerto 4200) se adopta solo si la ficha necesita cuenta o sync; no se levanta un segundo servidor en 4219.
 
 ## Gate
 
-Una tarea queda terminada cuando la skill de verificación del flujo tocado ha corrido y la evidencia va en el PR. En una ruta de la SPA eso es Launch, Doctor, Drive de la ficha, el `evidence/<feature>.txt` y Cleanup. En la API de cuenta es la salida de `yarn test:api` con el stack arriba. El typecheck no basta. Si la verificación falla por un patrón de `docs/debt-hotspots.md`, se informa y se sube la corrección en la pirámide.
+Una tarea queda terminada cuando la skill de verificación del flujo tocado ha corrido y la evidencia va en el PR. En una ruta de la SPA eso es Launch, Doctor, Drive de la ficha, el `evidence/<feature>.txt` y Cleanup. En la vista móvil (lector y biblioteca) eso es `node scripts/dv-verify-viewport.mjs` con `drive lector` y `drive biblioteca`. En la API de cuenta es la salida de `yarn test:api` con el stack arriba. El typecheck no basta. El emulador no cierra el gate. Si la verificación falla por un patrón de `docs/debt-hotspots.md`, se informa y se sube la corrección en la pirámide.
 
 ## Mapa y memoria
 
@@ -103,12 +114,14 @@ Un refactor que mueve una ruta, un selector o el modo de llegar a la pantalla ac
 | `backend/` | API Express + Prisma (`/api/v1`) |
 | `scripts-descarga/` | Scrapers de vatican.va y herramientas del corpus |
 | `.cursor/skills/verify-documentos-vaticanos/` | Skill que abre el lector web empaquetado y comprueba una ruta |
+| `.cursor/skills/verify-documentos-vaticanos-viewport/` | Prueba móvil canónica: vista web 390×844, `drive lector` y `drive biblioteca` |
+| `.cursor/skills/verify-documentos-vaticanos-android/` | Emulador. Fuera del gate y no usado. Los archivos se conservan |
 | `.cursor/skills/onboard-documentos-vaticanos/` | Checklist de entrada: mapa, arquitectura y `dv-verify` |
 | `docs/agent-workflow.md` | Secuencia investigar → canónico → evidencia → PR |
 
 ## Skills
 
-Las skills de este repo son `build-documentos-vaticanos`, `release-documentos-vaticanos`, `n8n-documentos-vaticanos`, `verify-documentos-vaticanos` y el onboarding. Investigar, planificar, corregir y describir la arquitectura se leen en el mapa, en los docs del #52 y en `docs/agent-workflow.md`. No hay una skill aparte para cada una de esas cuatro.
+Las skills de este repo son `build-documentos-vaticanos`, `release-documentos-vaticanos`, `n8n-documentos-vaticanos`, `verify-documentos-vaticanos`, `verify-documentos-vaticanos-viewport` y el onboarding. La prueba móvil canónica es `verify-documentos-vaticanos-viewport` (`node scripts/dv-verify-viewport.mjs`, lector y biblioteca). `verify-documentos-vaticanos-android` queda fuera del gate y no se usa. Investigar, planificar, corregir y describir la arquitectura se leen en el mapa, en los docs del #52 y en `docs/agent-workflow.md`. No hay una skill aparte para cada una de esas cuatro.
 
 ## Ramas
 

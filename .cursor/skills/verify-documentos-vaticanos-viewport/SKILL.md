@@ -1,19 +1,19 @@
 ---
 name: verify-documentos-vaticanos-viewport
-description: "Drive the Documentos Vaticanos web reader at a 390x844 phone viewport. Reuses verify-documentos-vaticanos for Launch, Doctor, and Cleanup. Use when an Android emulator is not available and the proof is the mobile web layout."
+description: "Prueba móvil canónica: lector web a 390×844. Launch, doctor y cleanup reutilizan verify-documentos-vaticanos. Drive de lector y biblioteca con node scripts/dv-verify-viewport.mjs. El emulador Android queda fuera del gate."
 ---
 
 # Verify viewport 390×844
 
-La superficie móvil de este repo, cuando no hay emulador, es el mismo lector web con viewport 390×844. No es un AVD, no es WebView de Android y no publica en Play.
+La prueba móvil canónica es el mismo lector web con viewport 390×844. El comando es `node scripts/dv-verify-viewport.mjs`. Cubre `drive lector` y `drive biblioteca`. No es un AVD, no es WebView de Android y no publica en Play.
 
 Launch, doctor y cleanup delegan en `.cursor/skills/verify-documentos-vaticanos/scripts/dv-verify.mjs`. El mapa de rutas sigue siendo el de esa skill. No se copia. El drive no delega: ese helper fija el viewport en 1280×800, y esta skill no edita esos archivos.
 
 Prioriza el patrón canónico documentado sobre el código existente con deuda. El patrón canónico es el verify web (un servidor estático, un drive por contexto, prueba `lector` en `/leyendo/cic-es/punto/2`). Si la verificación falla por deuda técnica, reporta el patrón malo y propón la corrección hacia arriba en la pirámide (arquitectura, luego análisis estático, luego instrucción).
 
-## Choque con Android
+## Emulador
 
-El diagnóstico de brecha nombra una skill Android o este viewport. Aquí no se crea un AVD, no se instala una imagen de emulador, no se tocan keystores y no se publica en Play. La prueba es Chromium con el viewport de layout 390×844.
+`yarn dev:android` y `.cursor/skills/verify-documentos-vaticanos-android/` (PR #66) están fuera del gate y marcados como no usados. Los archivos se conservan. Aquí no se crea un AVD, no se instala una imagen de emulador, no se tocan keystores y no se publica en Play. La prueba es Chromium con el viewport de layout 390×844.
 
 ## Launch
 
