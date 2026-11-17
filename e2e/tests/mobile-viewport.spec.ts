@@ -1,5 +1,3 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import { expect, type Page, test } from '@playwright/test';
 
 /**
@@ -301,8 +299,8 @@ test.describe('viewport móvil 390×844', () => {
 });
 
 /**
- * Cuerpo mínimo de la Biblia offline. El pack real no va en el dist del smoke;
- * la hoja lee estas unidades por el idPunto ya resuelto en el Catecismo.
+ * Cuerpo mínimo de la Biblia offline para la hoja de lectura rápida.
+ * Solo por page.route: no tocar el dist (Sal 15 y otros workers leen el seed).
  */
 async function expectCitedText(
   sheet: ReturnType<Page['getByRole']>,
@@ -352,11 +350,6 @@ async function stubOfflineBible(page: Page): Promise<void> {
   const body = JSON.stringify(units);
   const index = JSON.stringify({ indice: { a: [33833] }, indice_por_punto: {} });
   const chunks = JSON.stringify({ unitCount: 0, chunkSize: 0 });
-  const dir = path.join(packagedDist(), 'assets/corpus/documents/bible-pueblo-de-dios-es');
-  fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'content.json'), body);
-  fs.writeFileSync(path.join(dir, 'index.json'), index);
-  fs.writeFileSync(path.join(dir, 'chunks.json'), chunks);
   await page.route(/bible-pueblo-de-dios-es\/(content|index|chunks)\.json$/, (route) => {
     const url = route.request().url();
     const payload = url.includes('content.json')
@@ -366,11 +359,6 @@ async function stubOfflineBible(page: Page): Promise<void> {
         : index;
     return route.fulfill({ contentType: 'application/json', body: payload });
   });
-}
-
-function packagedDist(): string {
-  if (process.env.DV_VERIFY_DIST) return process.env.DV_VERIFY_DIST;
-  return path.resolve(process.cwd(), '../frontend/dist/documentos-vaticanos');
 }
 
 /** Browser/Android back. Stays on this origin: the gesture must not unload the SPA. */
