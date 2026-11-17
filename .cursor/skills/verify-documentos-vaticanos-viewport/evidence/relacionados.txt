@@ -1,0 +1,17 @@
+feature relacionados
+viewport 390x844
+viewport_actual 390x844
+inner 390x844
+action GET /documento/cic-es
+action_url http://127.0.0.1:4219/documento/cic-es
+result_url http://127.0.0.1:4219/documento/cic-es
+heading Relacionados
+rows 6
+raw_ids 0
+title 1 Salutiferae crucis · Nº 1 Texto
+title 2 Gloria matriti · Nº 1 Texto
+title 3 Quamquam pluries · Nº 2 Texto
+title 4 Situation lebanon · Nº 6 Texto
+title 5 Situation lebanon · Nº 7 Texto
+title 6 MF · Nº 1 Texto
+citas Biblia · 3119 | LG · 272 | GS · 150 | DS · 142

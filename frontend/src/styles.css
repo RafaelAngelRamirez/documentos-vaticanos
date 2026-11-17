@@ -343,9 +343,6 @@ a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
 .bitem{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 0 14px;font-size:11px;color:var(--muted);cursor:pointer}
 .bitem.on{color:var(--acc);font-weight:500}
 .bico{font-size:18px;line-height:1}
-.dots{display:flex;gap:8px;justify-content:center;margin:26px 0}
-.dotp{width:7px;height:7px;border-radius:50%;background:var(--btnb)}
-.dotp.on{background:var(--acc)}
 .srow{display:flex;flex-direction:column;gap:4px;padding:14px 2px;border-bottom:1px solid var(--line);cursor:pointer}
 .srow:hover .st{color:var(--acc)}
 .st{font-family:'EB Garamond',serif;font-size:18px;font-weight:500}
