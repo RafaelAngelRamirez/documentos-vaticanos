@@ -191,7 +191,11 @@ test.describe('viewport móvil 390×844', () => {
     await expect(page.locator('app-punto').first()).toBeVisible({ timeout: 60_000 });
   });
 
-  test('pasaje citado sin versículos intermedios', async ({ page }) => {
+  test.describe('pasaje citado', () => {
+    // Block the SW so page.route can stub the bible body (dist seeds the real pack).
+    test.use({ serviceWorkers: 'block' });
+
+    test('pasaje citado sin versículos intermedios', async ({ page }) => {
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
     // Freeze calendar day only; do not install fake timers (Angular HTTP/CD).
     await page.clock.setFixedTime(new Date(2026, 10, 17, 12, 0, 0));
@@ -299,5 +303,6 @@ test.describe('viewport móvil 390×844', () => {
     expect(gospelSpoken).not.toContain('Zaqueo');
     const inner = await page.evaluate(() => window.innerWidth);
     expect(inner).toBeLessThan(1024);
+  });
   });
 });

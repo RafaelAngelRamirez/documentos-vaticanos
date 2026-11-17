@@ -1,7 +1,7 @@
 feature lector
 action GET /leyendo/cic-es/punto/2
 action_url http://127.0.0.1:4219/leyendo/cic-es/punto/2
-chromium /home/ubuntu/.cache/ms-playwright/chromium-1248/chrome-linux64/chrome
+chromium /usr/local/bin/google-chrome
 app-punto visible
 bnav 0
 result_url http://127.0.0.1:4219/leyendo/cic-es/u/2
