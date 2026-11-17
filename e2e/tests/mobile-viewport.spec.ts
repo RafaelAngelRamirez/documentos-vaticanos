@@ -4,7 +4,7 @@ import { expect, type Page, test } from '@playwright/test';
 
 /**
  * Phone layout smoke at 390×844 (project mobile-390).
- * Lector, biblioteca, offline reading history, and browser back hierarchy.
+ * Portada, lector, biblioteca, offline reading history, browser back hierarchy, and Sal 15 shown-number.
  */
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
@@ -23,6 +23,16 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('viewport móvil 390×844', () => {
+  test('portada sin puntos de carrusel', async ({ page }) => {
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await page.goto('/inicio');
+    await expect(page.locator('.wtitle')).toBeVisible({ timeout: 30_000 });
+    await expect(page.locator('.dots')).toHaveCount(0);
+    await expect(page.locator('.dotp')).toHaveCount(0);
+    await expect(page.locator('button.primary.wbtn')).toBeVisible();
+    await expect(page.locator('[data-testid="inicio-lecturas"]')).toBeVisible();
+  });
+
   test('lector', async ({ page }) => {
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
     await page.goto('/leyendo/cic-es/punto/2');
@@ -188,6 +198,23 @@ test.describe('viewport móvil 390×844', () => {
     await expect(page).toHaveURL(/\/inicio$/);
     await expect(page.getByTestId('inicio-lectio-open')).toBeVisible();
     await expect(page.locator('app-root')).toBeVisible();
+  });
+
+  test('Sal 15 no repite el versículo', async ({ page }) => {
+    test.setTimeout(120_000);
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await page.goto('/leyendo/bible-pueblo-de-dios-es/punto/15400');
+    await expect(page).toHaveURL(/\/leyendo\/bible-pueblo-de-dios-es\/u\/15400/, {
+      timeout: 90_000,
+    });
+    const verse = page.locator('p.punto-contenido[data-unit="15400"]');
+    await expect(verse).toBeVisible({ timeout: 90_000 });
+    const text = (await verse.innerText()).replace(/\s+/g, ' ').trim();
+    expect(text).toMatch(/Sal 15, 2\.\s*El que procede/);
+    expect(text).not.toMatch(/Sal 15, 2\.\s*2\b/);
+    await expect(page.locator('.bnav')).toHaveCount(0);
+    const inner = await page.evaluate(() => window.innerWidth);
+    expect(inner).toBeLessThan(1024);
   });
 
   test('historial', async ({ page }) => {

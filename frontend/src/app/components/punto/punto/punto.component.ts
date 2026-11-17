@@ -13,6 +13,7 @@ import {
   Referencia,
 } from 'src/app/core/corpus/corpus.models';
 import { TermsProcessed } from '../../buscador/buscador.service';
+import { displayBody } from 'src/app/core/text/strip-shown-number.logic';
 import { stripDiacritics } from 'src/app/core/text/strip-diacritics.js';
 import { NavigationService } from 'src/app/services/navigation.service';
 import {
@@ -180,10 +181,7 @@ export class PuntoComponent implements OnInit, OnDestroy {
     article: Article,
     terms?: string[]
   ): ContentSegment[] {
-    const raw = this.stripConsecutivoPrefix(
-      article.contenido ?? '',
-      article.consecutivo
-    );
+    const raw = displayBody(article);
     const refs = article.referencias ?? [];
     const userHl = this.userHighlightsFor(article);
     const segments: ContentSegment[] = [];
@@ -344,19 +342,6 @@ export class PuntoComponent implements OnInit, OnDestroy {
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;');
-  }
-
-  private stripConsecutivoPrefix(
-    contenido: string,
-    consecutivo: string | undefined
-  ): string {
-    if (!consecutivo) return contenido;
-    const valor = consecutivo.trim();
-    if (!valor || valor === 'no-encontrado') return contenido;
-    if (contenido.startsWith(valor + ' ')) {
-      return contenido.slice(valor.length + 1);
-    }
-    return contenido.replace(valor + ' ', '');
   }
 
   /**

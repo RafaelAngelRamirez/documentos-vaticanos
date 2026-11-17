@@ -106,8 +106,27 @@
   z-index: 13;
   box-sizing: border-box;
   min-height: var(--reader-narr-height);
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
+}
+
+.narr .step {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--btnb);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.narr .step:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 
 .narr .nline {
@@ -121,6 +140,22 @@
 }
 
 @media (max-width: 1023px) {
+  .narr {
+    gap: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .narr .nline {
+    min-width: 24px;
+  }
+
+  .narr .npill {
+    max-width: 88px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .has-narr.has-rfoot .narr {
     bottom: calc(var(--reader-rfoot-height) + var(--safe-area-inset-bottom));
   }

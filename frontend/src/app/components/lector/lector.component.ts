@@ -57,7 +57,10 @@ import {
 } from 'src/app/services/narrator.service';
 import { NarratorPreferencesService } from 'src/app/services/narrator-preferences.service';
 import { NarracionFgService } from 'src/app/services/narracion-fg.service';
-import { nextSpeakableIndex } from 'src/app/services/speech-prep.logic';
+import {
+  nextSpeakableIndex,
+  previousSpeakableIndex,
+} from 'src/app/services/speech-prep.logic';
 import { speechLangForDocumentLocale } from 'src/app/services/speech-lang.logic';
 import { Capacitor } from '@capacitor/core';
 import {
@@ -75,6 +78,7 @@ import {
   toggleReadAloud,
   type ReadAloudPhase,
 } from 'src/app/services/read-aloud.logic';
+import { planTrackStep } from 'src/app/services/read-aloud-media.logic';
 import { coverNavCommandsForDocumentId } from 'src/app/core/santoral/santoral-units.logic';
 import {
   isOfflineBibleId,
@@ -333,6 +337,12 @@ export class LectorComponent implements OnInit, OnDestroy {
     if (this.narrSupported) {
       void this.loadNarrVoices();
     }
+    this.narrator.bindReadAloudSession({
+      onPlay: () => this.zone.run(() => this.playNarratorFromMedia()),
+      onPause: () => this.zone.run(() => this.pauseNarrator()),
+      onPrevious: () => this.zone.run(() => this.stepNarrator('previous')),
+      onNext: () => this.zone.run(() => this.stepNarrator('next')),
+    });
   }
 
   ngOnDestroy(): void {
@@ -340,6 +350,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.unregisterBack?.();
     this.unregisterBack = null;
     this.stopNarrator();
+    this.narrator.releaseReadAloudSession();
     this.loadSub?.unsubscribe();
     this.loadSub = null;
     this.sub.unsubscribe();
@@ -445,7 +456,76 @@ export class LectorComponent implements OnInit, OnDestroy {
       this.pauseNarrator();
       return;
     }
+    this.narrator.holdWebMedia();
     this.narrPhase = 'playing';
+    this.narrator.syncReadAloudMedia({
+      title: this.documentTitle,
+      phase: 'playing',
+    });
+    void this.startNarratorFrom(decision.fromIndex);
+  }
+
+  /**
+   * Párrafo anterior o siguiente. El mismo corte que las teclas del sistema.
+   * Si hay narración, sigue; si estaba en pausa o en idle, arranca.
+   */
+  stepNarrator(direction: 'previous' | 'next'): void {
+    const doc = this.document?.documento;
+    if (!this.narrSupported || !doc?.length) return;
+    const base = this.narrPhase === 'idle' ? this.visibleIndex : this.narrIndex;
+    const step = planTrackStep({
+      direction,
+      unitIndex: base,
+      unitCount: doc.length,
+    });
+    if (!step) return;
+    const hit =
+      direction === 'next'
+        ? nextSpeakableIndex(doc as unknown[], step.fromIndex)
+        : previousSpeakableIndex(doc as unknown[], step.fromIndex);
+    if (!hit) return;
+    this.narrator.holdWebMedia();
+    this.narrPhase = 'playing';
+    this.narrator.syncReadAloudMedia({
+      title: this.documentTitle,
+      phase: 'playing',
+    });
+    this.narrPlaying = false;
+    void this.narrator.cancel();
+    void this.startNarratorFrom(hit.index);
+  }
+
+  canStepNarrator(direction: 'previous' | 'next'): boolean {
+    const total = this.document?.documento.length ?? 0;
+    const index = this.narrPhase === 'idle' ? this.visibleIndex : this.narrIndex;
+    return (
+      planTrackStep({ direction, unitIndex: index, unitCount: total }) != null
+    );
+  }
+
+  /** Play de la sesión de medios. No pausa si ya está sonando. */
+  private playNarratorFromMedia(): void {
+    if (!this.narrSupported || !this.document) return;
+    if (this.narrPhase === 'playing') {
+      this.narrator.holdWebMedia();
+      this.narrator.syncReadAloudMedia({
+        title: this.documentTitle,
+        phase: 'playing',
+      });
+      return;
+    }
+    const decision = toggleReadAloud({
+      phase: this.narrPhase,
+      unitIndex: this.narrIndex,
+      visibleIndex: this.visibleIndex,
+    });
+    if (decision.action !== 'speak') return;
+    this.narrator.holdWebMedia();
+    this.narrPhase = 'playing';
+    this.narrator.syncReadAloudMedia({
+      title: this.documentTitle,
+      phase: 'playing',
+    });
     void this.startNarratorFrom(decision.fromIndex);
   }
 
@@ -516,12 +596,19 @@ export class LectorComponent implements OnInit, OnDestroy {
 
   /** Al encender la pantalla, el párrafo narrado vuelve a la vista. */
   private readonly onVisibility = (): void => {
+    const hidden = this.screenOff();
     const index = paragraphToFollowOnShow({
       phase: this.narrPhase,
       unitIndex: this.narrIndex,
-      hidden: this.screenOff(),
+      hidden,
     });
     if (index != null) this.ensureNarrVisible(index);
+    if (hidden || this.narrPhase !== 'playing') return;
+    if (this.narrator.recoverWebSpeech() !== 'dropped') return;
+    this.narrStartGen++;
+    this.narrPlaying = false;
+    void this.narrator.cancel();
+    void this.startNarratorFrom(this.narrIndex);
   };
 
   private startNarrator(): void {
@@ -567,6 +654,10 @@ export class LectorComponent implements OnInit, OnDestroy {
       this.narrPlaying = false;
       if (doc) this.clearReadAloudCheckpoint();
       void this.narracionFg.stop();
+      this.narrator.syncReadAloudMedia({
+        title: this.documentTitle,
+        phase: 'idle',
+      });
       return;
     }
     const { index: speakIndex, prep } = hit!;
@@ -598,11 +689,16 @@ export class LectorComponent implements OnInit, OnDestroy {
     }
     if (step.follow) this.ensureNarrVisible(step.index);
     if (screenOff) this.persistProgress(step.index);
+    this.narrator.syncReadAloudMedia({
+      title: this.documentTitle,
+      phase: 'playing',
+    });
     // La promesa de speak() se resuelve fuera de la zona de Angular, así
     // encadenar párrafos con la pantalla apagada no dispara change detection.
     // Con la app visible se re-entra en la zona para refrescar la pastilla.
     const lang = this.speechLang();
     const voice = this.narrVoice;
+    const generation = this.narrStartGen;
     this.zone.runOutsideAngular(() => {
       void this.narrator
         .speak(speakText, {
@@ -611,6 +707,7 @@ export class LectorComponent implements OnInit, OnDestroy {
           voice,
         })
         .then((finished) => {
+          if (generation !== this.narrStartGen) return;
           const next = afterUtterance({
             phase: this.narrPhase,
             unitIndex: speakIndex,
@@ -654,6 +751,10 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.rememberReadAloudCheckpoint('paused', this.narrIndex);
     void this.narrator.cancel();
     void this.narracionFg.stop();
+    this.narrator.syncReadAloudMedia({
+      title: this.documentTitle,
+      phase: 'paused',
+    });
   }
 
   /** Corta el audio. Si estaba sonando, el checkpoint queda en pausa para retomar. */
@@ -666,6 +767,12 @@ export class LectorComponent implements OnInit, OnDestroy {
     }
     void this.narrator.cancel();
     void this.narracionFg.stop();
+    if (this.narrPhase === 'paused') {
+      this.narrator.syncReadAloudMedia({
+        title: this.documentTitle,
+        phase: 'paused',
+      });
+    }
   }
 
   private screenOff(): boolean {
