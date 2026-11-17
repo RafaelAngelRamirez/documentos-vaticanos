@@ -1,7 +1,8 @@
 /**
  * Pure helpers for topic pack ranking / membership (no Angular).
- * Self-contained for node strip-types tests (no sibling runtime imports).
+ * The only sibling import is the related-row label.
  */
+import { relatedChromeTitle } from './related-row-label.logic.js';
 
 export type RelatedEvidenceReason = 'ref' | 'topic' | 'lexical';
 
@@ -261,6 +262,8 @@ export function rowsFromGraphNeighbors(
   neighbors: UnitGraphEdge[],
   docs: Array<{
     documentId: string;
+    shortTitle?: string | null;
+    nombre?: string | null;
     units?: Array<{ consecutivo?: string; contenido?: string }>;
   }>,
   opts: {
@@ -297,7 +300,7 @@ export function rowsFromGraphNeighbors(
       unitIndex: e.unitIndex,
       consecutivo: unit?.consecutivo,
       score: 10 * (e.weight || 1) + (e.type === 'ref' ? 2 : 0),
-      title: `${e.documentId} · Nº ${consec}`,
+      title: relatedChromeTitle(e.documentId, consec, doc),
       snippet: snippet
         ? snippet.length >= 140
           ? snippet.slice(0, 139) + '…'

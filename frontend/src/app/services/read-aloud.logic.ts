@@ -3,7 +3,9 @@
  * Motor: TTS del dispositivo (Web Speech o plugin nativo). Sin red y sin UI.
  *
  * Grok queda fuera de esta sesión: una voz `grok:` no se pronuncia aquí.
- * La pantalla apagada solo se sostiene en Android (servicio en primer plano).
+ * La pantalla apagada del proceso solo se sostiene en Android (servicio
+ * en primer plano). En la web la voz sigue siendo la del dispositivo;
+ * la sesión de medios que la acompaña está en `read-aloud-media.logic.ts`.
  */
 
 export const READ_ALOUD_RATES = [0.75, 1, 1.25, 1.5] as const;

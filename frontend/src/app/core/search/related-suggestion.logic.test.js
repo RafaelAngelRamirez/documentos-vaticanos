@@ -203,6 +203,10 @@ async function main() {
     panelTs.includes('hideWhenEmpty') || panelHtml.includes('hideWhenEmpty'),
     'panel supports hideWhenEmpty',
   );
+  assert.ok(
+    panelTs.includes('shortTitle: d.shortTitle'),
+    'panel passes the loaded short title into the row',
+  );
 
   section('empty / single / point still work (shipped search entry)');
   assert.deepStrictEqual(searchCorpus('', []), []);
@@ -368,7 +372,10 @@ async function main() {
   const cicIndex = JSON.parse(
     fs.readFileSync(path.join(CORPUS_CIC, 'index.json'), 'utf8'),
   );
-  const cicDoc = toSearchDocumentInput('cic-es', cicIndex, cicContent);
+  const cicDoc = toSearchDocumentInput('cic-es', cicIndex, cicContent, {
+    shortTitle: 'Catecismo',
+    nombre: 'Catecismo de la Iglesia Católica',
+  });
 
   // Numbered-body CIC unit (amor/Creador) — product panel path
   const UNIT_707 = 707;
@@ -493,7 +500,22 @@ async function main() {
   });
   const mapped = mapHitsToRelatedRows(rawHits, [cicDoc]);
   assert.strictEqual(mapped.length, rawHits.length);
-  assert.ok(mapped[0].title.includes('cic-es'));
+  assert.strictEqual(mapped[0].documentId, 'cic-es');
+  assert.ok(mapped[0].title.startsWith('Catecismo · Nº '));
+  assert.ok(!mapped[0].title.includes('cic-es'));
+
+  const nombreOnly = mapHitsToRelatedRows(rawHits.slice(0, 1), [
+    { ...cicDoc, shortTitle: undefined, nombre: 'Catecismo de la Iglesia Católica' },
+  ]);
+  assert.ok(
+    nombreOnly[0].title.startsWith('Catecismo de la Iglesia Católica · Nº '),
+  );
+  assert.strictEqual(nombreOnly[0].documentId, 'cic-es');
+
+  const unlabeled = toSearchDocumentInput('cic-es', cicIndex, cicContent);
+  const rawId = mapHitsToRelatedRows(rawHits.slice(0, 1), [unlabeled]);
+  assert.ok(rawId[0].title.includes('cic-es'));
+  assert.strictEqual(rawId[0].documentId, 'cic-es');
 
   section('saint-related quality gate');
   // Diversity: max 2 per document
@@ -635,11 +657,18 @@ async function main() {
     '../../pages/documento-detalle/documento-detalle.component.ts',
   );
   assert.ok(fs.existsSync(docHtml) && fs.existsSync(docTs));
+  const docPage = fs.readFileSync(docHtml, 'utf8') + fs.readFileSync(docTs, 'utf8');
   assert.ok(
-    /related-units-panel|variant="document"|relatedSeedForDocument/.test(
-      fs.readFileSync(docHtml, 'utf8') + fs.readFileSync(docTs, 'utf8'),
-    ),
+    /related-units-panel|variant="document"|relatedSeedForDocument/.test(docPage),
     'documento-detalle wires related panel',
+  );
+  assert.ok(
+    /heading="Vocabulario parecido"/.test(docPage),
+    'document cover names the lexical list',
+  );
+  assert.ok(
+    !/heading="Relacionados"/.test(fs.readFileSync(docHtml, 'utf8')),
+    'document cover does not keep the old related heading',
   );
 
   console.log('\nAll product related-suggestion tests passed.');

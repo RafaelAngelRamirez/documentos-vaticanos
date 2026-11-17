@@ -8,4 +8,4 @@ inner 390x844
 app-punto visible
 bnav 0
 result_url http://127.0.0.1:4219/leyendo/cic-es/u/2
-excerpt ← Catecismo Aa ▸ Vocabulario parecido Nº 1–17 Inicio del documento ★ CARTA APOSTÓLICA « LAETAMUR MAGNOPERE »★ por la que se aprueba la edición típica latina del Catecismo de la Iglesia Católica ★ A los Venerables Hermanos Cardenales, Patriarcas, Arzobispos, Obispos, Presbíteros, 
+excerpt ← Catecismo Aa ▸ Vocabulario parecido Nº 1–17 Inicio del documento ★ CARTA APOSTÓLICA « LAETAMUR MAGNOPERE »★ por la que se aprueba la edición típica latina del Catecismo de la Iglesia Católica ★ A los Venerables Hermanos Cardenales, Patriarcas, Arzobispos, Obispos, Presbíteros,

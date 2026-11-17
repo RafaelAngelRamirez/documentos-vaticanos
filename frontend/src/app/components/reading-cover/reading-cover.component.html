@@ -28,22 +28,16 @@
 
   <div class="rc-layout" *ngIf="hasBody">
     <div class="rc-main">
-      <!-- Title: paper cover on mobile, large web title on desktop -->
-      <app-cover-header
-        class="only-mobile"
-        variant="cover"
-        [wrapInner]="true"
-        [kindLine]="kindLine"
-        [title]="title"
-        [subtitle]="subtitle"
-      ></app-cover-header>
-      <app-cover-header
-        class="only-desktop"
-        variant="web"
-        [kindLine]="kindLine"
-        [title]="title"
-        [subtitle]="subtitle"
-      ></app-cover-header>
+      <!-- Una cabecera: misma columna que la tarjeta de metadatos. -->
+      <div class="rc-head">
+        <app-cover-header
+          class="in-measure"
+          variant="web"
+          [kindLine]="kindLine"
+          [title]="title"
+          [subtitle]="subtitle"
+        ></app-cover-header>
+      </div>
 
       <!-- 5C: CTAs under title -->
       <div class="rc-ctas-desk only-desktop">
@@ -70,13 +64,20 @@
       </div>
 
       <div class="rc-body">
-        <app-meta-grid [cells]="metaCells"></app-meta-grid>
-
         <ng-content select="[cover-lang]"></ng-content>
-        <ng-content select="[cover-source]"></ng-content>
-        <ng-content select="[cover-context]"></ng-content>
-        <ng-content select="[cover-refs]"></ng-content>
-        <ng-content select="[cover-related]"></ng-content>
+
+        <details class="estudio" data-testid="documento-estudio">
+          <summary>
+            <span class="estudio-label">Estudio</span>
+          </summary>
+          <p class="estudio-lede">Información extra de esta obra</p>
+          <ng-content select="[cover-ficha]"></ng-content>
+          <ng-content select="[cover-source]"></ng-content>
+          <ng-content select="[cover-context]"></ng-content>
+          <ng-content select="[cover-refs]"></ng-content>
+          <ng-content select="[cover-related]"></ng-content>
+        </details>
+
         <ng-content></ng-content>
 
         <!-- 2A: índice in flow before CTAs -->

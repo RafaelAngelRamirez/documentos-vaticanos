@@ -11,6 +11,7 @@
  */
 
 import { stripDiacritics } from '../text/strip-diacritics.js';
+import { relatedChromeTitle } from './related-row-label.logic.js';
 
 /** Spanish function words that rarely carry theological intent alone. */
 export const SPANISH_STOPWORDS: ReadonlySet<string> = new Set([
@@ -253,6 +254,10 @@ export interface SearchDocumentInput {
   documentId: string;
   index: CorpusIndexLike;
   units: SearchUnit[];
+  /** Compact label already on the loaded pack. Not a pack id. */
+  shortTitle?: string;
+  /** Full name already on the loaded pack. Not a pack id. */
+  nombre?: string;
 }
 
 export interface RankOptions {
@@ -730,7 +735,7 @@ export interface RelatedCitationRow {
   unitIndex: number;
   consecutivo?: string;
   score: number;
-  /** Compact chrome label, e.g. "cic-es · Nº 27". */
+  /** Compact chrome label, e.g. "Catecismo · Nº 27". */
   title: string;
   /** Short plain snippet for list rows. */
   snippet: string;
@@ -792,12 +797,13 @@ function unitChromeLabel(
   documentId: string,
   unitIndex: number,
   unit: SearchUnit | undefined,
+  labels?: { shortTitle?: string | null; nombre?: string | null } | null,
 ): string {
   const consec =
     unit?.consecutivo && unit.consecutivo !== 'no-encontrado'
       ? unit.consecutivo
       : String(unitIndex);
-  return `${documentId || 'doc'} · Nº ${consec}`;
+  return relatedChromeTitle(documentId, consec, labels);
 }
 
 /** Map ranked hits to list rows using unit bodies from the same doc inputs. */
@@ -814,7 +820,7 @@ export function mapHitsToRelatedRows(
       unitIndex: h.unitIndex,
       consecutivo: h.consecutivo ?? unit?.consecutivo,
       score: h.score,
-      title: unitChromeLabel(h.documentId, h.unitIndex, unit),
+      title: unitChromeLabel(h.documentId, h.unitIndex, unit, doc),
       snippet: plainSnippet(unit?.contenido),
       matchedTerms: h.matchedTerms ?? [],
     };
@@ -1175,7 +1181,15 @@ export function toSearchDocumentInput(
   documentId: string,
   index: SearchDocumentInput['index'],
   units: SearchUnit[],
+  labels?: {
+    shortTitle?: string | null;
+    nombre?: string | null;
+    title?: string | null;
+  },
 ): SearchDocumentInput {
+  const id = (documentId || '').trim();
+  const shortTitle = String(labels?.shortTitle || '').trim();
+  const nombre = String(labels?.nombre || labels?.title || '').trim();
   return {
     documentId,
     index,
@@ -1184,5 +1198,7 @@ export function toSearchDocumentInput(
       unitIndex: typeof u.unitIndex === 'number' ? u.unitIndex : i,
       index_array: typeof u.index_array === 'number' ? u.index_array : i,
     })),
+    ...(shortTitle && shortTitle !== id ? { shortTitle } : {}),
+    ...(nombre && nombre !== id ? { nombre } : {}),
   };
 }

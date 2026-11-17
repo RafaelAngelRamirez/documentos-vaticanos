@@ -523,3 +523,26 @@ export function nextSpeakableIndex(
   }
   return null;
 }
+
+/**
+ * Find the previous speakable unit index at or before `from`, or null.
+ * Walks backward so a placeholder between paragraphs is not spoken.
+ */
+export function previousSpeakableIndex(
+  units: unknown[],
+  from: number,
+): { index: number; prep: SpeechPrepResult } | null {
+  if (!Array.isArray(units) || units.length === 0) return null;
+  if (!Number.isInteger(from) || from < 0) return null;
+  const start = Math.min(units.length - 1, from);
+  for (let i = start; i >= 0; i--) {
+    const fields = extractUnitFields(units[i]);
+    const prep = prepareSpeechText(fields.raw, {
+      consecutivo: fields.consecutivo,
+    });
+    if (!prep.skip && prep.text) {
+      return { index: i, prep };
+    }
+  }
+  return null;
+}

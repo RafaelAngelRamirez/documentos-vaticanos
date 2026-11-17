@@ -68,6 +68,7 @@ function cheapTests() {
     ['frontend test:reader-bars', 'npm', ['--prefix', 'frontend', 'run', 'test:reader-bars']],
     ['frontend test:mobile-flows', 'npm', ['--prefix', 'frontend', 'run', 'test:mobile-flows']],
     ['frontend test:speech-prep', 'npm', ['--prefix', 'frontend', 'run', 'test:speech-prep']],
+    ['frontend test:strip-shown-number', 'npm', ['--prefix', 'frontend', 'run', 'test:strip-shown-number']],
     ['frontend test:speech-lang', 'npm', ['--prefix', 'frontend', 'run', 'test:speech-lang']],
     ['frontend test:read-aloud', 'npm', ['--prefix', 'frontend', 'run', 'test:read-aloud']],
     ['frontend test:cite-quick-read', 'npm', ['--prefix', 'frontend', 'run', 'test:cite-quick-read']],

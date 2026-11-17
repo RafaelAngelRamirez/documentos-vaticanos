@@ -127,11 +127,32 @@
   >
     <button
       type="button"
+      class="step"
+      data-narr="previous"
+      (click)="stepNarrator('previous')"
+      [disabled]="!canStepNarrator('previous')"
+      [attr.aria-label]="t('reader.previous')"
+    >
+      ‹
+    </button>
+    <button
+      type="button"
       class="play"
+      data-narr="play"
       (click)="toggleNarrator()"
       [attr.aria-label]="narrPlaying ? t('reader.pause') : t('reader.play')"
     >
       {{ narrPlaying ? '❚❚' : '▶' }}
+    </button>
+    <button
+      type="button"
+      class="step"
+      data-narr="next"
+      (click)="stepNarrator('next')"
+      [disabled]="!canStepNarrator('next')"
+      [attr.aria-label]="t('reader.next')"
+    >
+      ›
     </button>
     <div class="narr-meta only-desktop">
       <div class="fs13 fw5" style="white-space: nowrap">{{ t('reader.narrator') }}</div>
