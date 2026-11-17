@@ -58,6 +58,22 @@ test.describe('viewport móvil 390×844', () => {
     await expect(page.locator('app-reading-cover .dcover')).toHaveCount(0);
     const title = page.locator('app-cover-header .web-title');
     await expect(title).toHaveText('Catecismo de la Iglesia Católica');
+
+    const estudio = page.locator('details.estudio');
+    await expect(estudio).toBeVisible();
+    await expect(estudio).toHaveJSProperty('open', false);
+    await expect(estudio.locator('.estudio-lede')).toBeHidden();
+    await expect(page.locator('app-meta-grid .meta2')).toBeHidden();
+    const beforeOpen = page.url();
+    await estudio.locator('summary').click();
+    await expect(page).toHaveURL(beforeOpen);
+    await expect(estudio).toHaveJSProperty('open', true);
+    await expect(estudio.locator('.estudio-lede')).toHaveText(
+      'Información extra de esta obra',
+    );
+    await expect(estudio.getByText('Ficha', { exact: true })).toBeVisible();
+    await expect(estudio.getByText('Fuente', { exact: true })).toBeVisible();
+
     const meta = page.locator('app-meta-grid .meta2');
     await expect(meta).toBeVisible();
     const edges = await page.evaluate(() => {

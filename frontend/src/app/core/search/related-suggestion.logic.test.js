@@ -635,11 +635,18 @@ async function main() {
     '../../pages/documento-detalle/documento-detalle.component.ts',
   );
   assert.ok(fs.existsSync(docHtml) && fs.existsSync(docTs));
+  const docPage = fs.readFileSync(docHtml, 'utf8') + fs.readFileSync(docTs, 'utf8');
   assert.ok(
-    /related-units-panel|variant="document"|relatedSeedForDocument/.test(
-      fs.readFileSync(docHtml, 'utf8') + fs.readFileSync(docTs, 'utf8'),
-    ),
+    /related-units-panel|variant="document"|relatedSeedForDocument/.test(docPage),
     'documento-detalle wires related panel',
+  );
+  assert.ok(
+    /heading="Vocabulario parecido"/.test(docPage),
+    'document cover names the lexical list',
+  );
+  assert.ok(
+    !/heading="Relacionados"/.test(fs.readFileSync(docHtml, 'utf8')),
+    'document cover does not keep the old related heading',
   );
 
   console.log('\nAll product related-suggestion tests passed.');

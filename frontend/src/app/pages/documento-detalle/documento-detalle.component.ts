@@ -33,6 +33,7 @@ import { DocGraphEdge, DocGraphNode } from 'src/app/core/search/topic-pack.model
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import {
   MetaGridCell,
+  MetaGridComponent,
   ReadingCoverComponent,
 } from 'src/app/components/reading-cover';
 import { SaintRecord } from 'src/app/core/santoral/santoral-resolve.logic';
@@ -57,6 +58,7 @@ const FAVS_KEY = 'dv.favs';
     HistoricalContextBlockComponent,
     RelatedUnitsPanelComponent,
     ReadingCoverComponent,
+    MetaGridComponent,
   ],
   templateUrl: './documento-detalle.component.html',
   styleUrls: ['./documento-detalle.component.css'],
