@@ -13,7 +13,7 @@
 # Default required steps for `all` are map, check, and evidence. Lector is
 # required only when DV_AGENT_GATE_REQUIRE lists `lector`. The pull-request
 # workflow calls `lector` and `mobile` as their own steps; both fail that job.
-# `mobile` is Playwright project mobile-390 (lector + biblioteca, 390×844).
+# `mobile` is Playwright project mobile-390 (lector, biblioteca, portada e historial, 390×844).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -119,6 +119,10 @@ seed_cic() {
   seed_doc cic-es
 }
 
+seed_bible() {
+  seed_doc bible-pueblo-de-dios-es
+}
+
 drive_lector() {
   echo "==> lector drive"
   pick_chromium
@@ -175,6 +179,7 @@ run_mobile() {
   ensure_playwright
   ensure_browser
   seed_cic
+  seed_bible
   seed_doc lg-es
   local dist port srv ec ready
   dist="$(reader_dist)"

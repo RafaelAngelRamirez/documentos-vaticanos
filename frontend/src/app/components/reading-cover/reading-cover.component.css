@@ -69,9 +69,18 @@
   color: var(--app-danger);
 }
 
+/* Misma caja que .rc-body: el título y la tarjeta comparten el borde izquierdo. */
+.rc-head,
 .rc-body {
   max-width: var(--app-measure);
   margin: 0 auto;
+}
+
+.rc-head {
+  padding: 20px 24px 0;
+}
+
+.rc-body {
   padding: 20px 24px 60px;
 }
 
@@ -87,6 +96,11 @@
 
 /* —— Desktop 5C (≥1024px, same breakpoint as shell) —— */
 @media (min-width: 1024px) {
+  /* .fbar { display:flex } encapsulado gana a .only-mobile global. */
+  .fbar.only-mobile {
+    display: none !important;
+  }
+
   .rc-surface {
     padding: 28px 36px 36px;
   }
@@ -108,9 +122,17 @@
     flex-shrink: 0;
   }
 
+  .rc-head,
   .rc-body {
     max-width: none;
     margin: 0;
+  }
+
+  .rc-head {
+    padding: 0;
+  }
+
+  .rc-body {
     padding: 0 0 40px;
   }
 
