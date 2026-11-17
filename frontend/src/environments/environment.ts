@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  version: '0.0.45',
+  version: '0.0.46',
   apiBaseUrl: 'http://localhost:3000/api/v1',
   /** When true, show "dev login" form (matches backend DEV_AUTH_BYPASS). */
   devAuthBypass: true,

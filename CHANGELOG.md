@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.46](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.45...v0.0.46) (2026-11-17)
+
+
+### Bug Fixes
+
+* no ofrecer el APK cuando el manifiesto lo marca ausente ([f3fbab4](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/f3fbab4d67e1f1719d7606fd75972d38788522a6))
+
 ### [0.0.45](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.44...v0.0.45) (2026-11-16)
 
 
