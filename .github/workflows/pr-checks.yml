@@ -8,6 +8,11 @@ name: PR checks
 on:
   pull_request:
 
+# One active run per PR/branch; a new push cancels the previous run.
+concurrency:
+  group: pr-checks-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   cheap:
     name: Cheap tests
