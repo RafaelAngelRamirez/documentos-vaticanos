@@ -104,6 +104,23 @@ test.describe('viewport móvil 390×844', () => {
     expect(['start', 'left']).toContain(edges!.align);
   });
 
+  test('Sal 15 no repite el versículo', async ({ page }) => {
+    test.setTimeout(120_000);
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await page.goto('/leyendo/bible-pueblo-de-dios-es/punto/15400');
+    await expect(page).toHaveURL(/\/leyendo\/bible-pueblo-de-dios-es\/u\/15400/, {
+      timeout: 90_000,
+    });
+    const verse = page.locator('p.punto-contenido[data-unit="15400"]');
+    await expect(verse).toBeVisible({ timeout: 90_000 });
+    const text = (await verse.innerText()).replace(/\s+/g, ' ').trim();
+    expect(text).toMatch(/Sal 15, 2\.\s*El que procede/);
+    expect(text).not.toMatch(/Sal 15, 2\.\s*2\b/);
+    await expect(page.locator('.bnav')).toHaveCount(0);
+    const inner = await page.evaluate(() => window.innerWidth);
+    expect(inner).toBeLessThan(1024);
+  });
+
   test('historial', async ({ page }) => {
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
 

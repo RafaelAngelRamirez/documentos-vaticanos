@@ -83,6 +83,8 @@
   "reader.narrator_aria": "वाचक",
   "reader.play": "वाचन चलाएँ",
   "reader.pause": "वाचन रोकें",
+  "reader.previous": "पिछला अनुच्छेद",
+  "reader.next": "अगला अनुच्छेद",
   "reader.sleep": "स्लीप",
   "reader.font_size": "पाठ का आकार",
   "reader.line_height": "पंक्ति अंतर",
