@@ -55,8 +55,14 @@ async function main() {
     apVerses.map((v) => v.verse),
     [1, 2, 3, 4, 5, 6, 14, 15, 16, 17, 18, 19, 20, 21, 22],
   );
+  assert.strictEqual(apVerses[0].spanBreakBefore, false);
+  assert.ok(apVerses.slice(1, 6).every((v) => v.spanBreakBefore === false));
+  const laodicea = apVerses.find((v) => v.verse === 14);
+  assert.ok(laodicea);
+  assert.strictEqual(laodicea.spanBreakBefore, true);
+  assert.ok(apVerses.filter((v) => v.spanBreakBefore).length === 1);
   assert.ok(apVerses[0].text.includes('Sardes'));
-  assert.ok(apVerses.find((v) => v.verse === 14).text.includes('Laodicea'));
+  assert.ok(laodicea.text.includes('Laodicea'));
   assert.ok(!apVerses.some((v) => /Filadelfia|sinagoga de Satanás/.test(v.text)));
   const apSpeech = cite.passageSpeechText(apVerses);
   assert.ok(apSpeech.includes('Sardes'));

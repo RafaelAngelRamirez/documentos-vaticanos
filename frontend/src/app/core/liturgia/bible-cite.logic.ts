@@ -37,6 +37,11 @@ export interface CitedVerse {
   chapter: number;
   verse: number;
   text: string;
+  /**
+   * True on the first verse of a later citation span (dot / semicolon / plus jump).
+   * The pasaje UI draws a discreet break before that verse.
+   */
+  spanBreakBefore: boolean;
 }
 
 /** Abbreviations used in the Roman weekday/Sunday lectionary → corpus `biblia.libro`. */
@@ -339,7 +344,8 @@ export function collectCitedVerses(
   };
   const seen = new Set<string>();
   const out: CitedVerse[] = [];
-  const push = (row: IndexedVerse): void => {
+  let spanOrdinal = 0;
+  const push = (row: IndexedVerse, breakBefore: boolean): void => {
     const key = `${row.chapter}:${row.verse}`;
     if (seen.has(key)) return;
     seen.add(key);
@@ -348,15 +354,21 @@ export function collectCitedVerses(
       chapter: row.chapter,
       verse: row.verse,
       text: plainVerseText(row.contenido, row.verse),
+      spanBreakBefore: breakBefore,
     });
   };
   for (const span of passage.spans) {
+    const breakBefore = spanOrdinal > 0;
+    let added = 0;
+    const pushSpan = (row: IndexedVerse): void => {
+      const before = out.length;
+      push(row, breakBefore && added === 0);
+      if (out.length > before) added += 1;
+    };
     const chapter = storedChapter(span.chapter);
     if (span.start == null) {
-      for (const row of byChapter.get(chapter) || []) push(row);
-      continue;
-    }
-    if (span.chapterEnd != null && span.verseEnd != null) {
+      for (const row of byChapter.get(chapter) || []) pushSpan(row);
+    } else if (span.chapterEnd != null && span.verseEnd != null) {
       const endChapter = storedChapter(span.chapterEnd);
       const chapters = [...byChapter.keys()]
         .filter((ch) => ch >= chapter && ch <= endChapter)
@@ -365,16 +377,17 @@ export function collectCitedVerses(
         for (const row of byChapter.get(ch) || []) {
           if (ch === chapter && row.verse < span.start) continue;
           if (ch === endChapter && row.verse > span.verseEnd) continue;
-          push(row);
+          pushSpan(row);
         }
       }
-      continue;
+    } else {
+      const end = span.end ?? span.start;
+      for (let verse = span.start; verse <= end; verse++) {
+        const row = byKey.get(`${chapter}:${verse}`);
+        if (row) pushSpan(row);
+      }
     }
-    const end = span.end ?? span.start;
-    for (let verse = span.start; verse <= end; verse++) {
-      const row = byKey.get(`${chapter}:${verse}`);
-      if (row) push(row);
-    }
+    if (added > 0) spanOrdinal += 1;
   }
   return out;
 }

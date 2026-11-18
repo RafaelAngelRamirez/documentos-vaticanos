@@ -371,6 +371,7 @@ test.describe('viewport móvil 390×844', () => {
     const pasaje = first.getByTestId('inicio-pasaje');
     await expect(pasaje).toBeVisible({ timeout: 30_000 });
     await expect(pasaje.getByTestId('pasaje-verse')).toHaveCount(4);
+    await expect(pasaje.getByTestId('pasaje-span-gap')).toHaveCount(1);
     const numbers = await pasaje
       .getByTestId('pasaje-verse')
       .evaluateAll((els) => els.map((el) => el.getAttribute('data-verse')));
@@ -379,6 +380,13 @@ test.describe('viewport móvil 390×844', () => {
     await expect(pasaje).toContainText('Laodicea');
     await expect(pasaje).not.toContainText('Filadelfia');
     await expect(pasaje).not.toContainText('sinagoga de Satanás');
+    // Gap sits between the 1–6 span and the 14–22 span (before verse 14).
+    const gapBefore = await pasaje.evaluate((root) => {
+      const gap = root.querySelector('[data-testid="pasaje-span-gap"]');
+      const verse14 = root.querySelector('[data-verse="14"]');
+      return !!(gap && verse14 && gap.nextElementSibling === verse14);
+    });
+    expect(gapBefore).toBe(true);
 
     await first.getByTestId('inicio-lectura-listen').click();
     await expect
@@ -407,6 +415,7 @@ test.describe('viewport móvil 390×844', () => {
 
     await page.locator('[data-testid="lectio-reading"][data-cite="Ap 3,1-6.14-22"]').click();
     await expect(gospel.getByTestId('pasaje-verse')).toHaveCount(4);
+    await expect(gospel.getByTestId('pasaje-span-gap')).toHaveCount(1);
     const lectioNumbers = await gospel
       .getByTestId('pasaje-verse')
       .evaluateAll((els) => els.map((el) => el.getAttribute('data-verse')));

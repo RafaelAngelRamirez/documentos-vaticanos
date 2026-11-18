@@ -9,6 +9,14 @@
   margin: 8px 0 0;
 }
 
+.pasaje-gap {
+  height: 0;
+  margin: 6px 0 2px;
+  border: 0;
+  border-top: 1px solid var(--app-muted, var(--muted));
+  opacity: 0.35;
+}
+
 .pasaje-verse {
   margin: 0;
   font-family: var(--app-font-serif, 'EB Garamond', Georgia, serif);
