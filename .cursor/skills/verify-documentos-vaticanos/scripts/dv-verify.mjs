@@ -555,10 +555,16 @@ async function drive(name) {
       });
     }
     if (feature.text) {
-      await page.getByText(feature.text, { exact: false }).first().waitFor({
-        state: 'visible',
-        timeout: 60000,
-      });
+      // Prefer a visible node: mobile-only chrome (fbar title) can match first
+      // and stay hidden at the desktop verify viewport.
+      await page
+        .getByText(feature.text, { exact: false })
+        .filter({ visible: true })
+        .first()
+        .waitFor({
+          state: 'visible',
+          timeout: 60000,
+        });
     }
     if (feature.paper) {
       await page.locator('app-punto').first().waitFor({

@@ -4,6 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { BnavComponent } from 'src/app/components/bnav/bnav.component';
+import { PasajeComponent } from 'src/app/components/pasaje/pasaje.component';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import { Article } from 'src/app/core/corpus/corpus.models';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
@@ -11,15 +12,11 @@ import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import {
   LectioDay,
   buildLectioDay,
-  snippet,
-  stripHtmlLite,
 } from 'src/app/core/lectio/lectio-day.logic';
 import { LECTIO_STEPS } from 'src/app/core/lectio/lectio-steps';
 import { PalabraDelDiaService } from 'src/app/core/lectio/palabra-del-dia.service';
-import {
-  findBibleUnitIndex,
-  parseLectionaryCite,
-} from 'src/app/core/liturgia/bible-cite.logic';
+import { CitedVerse } from 'src/app/core/liturgia/bible-cite.logic';
+import { resolveCitedPassageFromCite } from 'src/app/core/reading/resolve-cited-passage.logic';
 import { LecturaItem } from 'src/app/core/liturgia/lecturas-del-dia.logic';
 import {
   calendarSaintLabel,
@@ -40,6 +37,7 @@ import { speechLangForDocumentLocale } from 'src/app/services/speech-lang.logic'
     RouterModule,
     AppFbarComponent,
     BnavComponent,
+    PasajeComponent,
     WbarComponent,
   ],
   templateUrl: './lectio.component.html',
@@ -48,10 +46,13 @@ import { speechLangForDocumentLocale } from 'src/app/services/speech-lang.logic'
 export class LectioComponent implements OnInit, OnDestroy {
   readonly steps = LECTIO_STEPS;
   day: LectioDay = buildLectioDay({});
-  gospelExcerpt = '';
+  pasajeVerses: CitedVerse[] = [];
+  pasajeCite = '';
   bibleDocId = '';
   opening = false;
   localeTick = 0;
+  private pasajeSpeech = '';
+  private pasajeToken = 0;
   private sub = new Subscription();
 
   constructor(
@@ -101,7 +102,7 @@ export class LectioComponent implements OnInit, OnDestroy {
               .find((d) => d.id.startsWith('bible-pueblo-de-dios-'));
           if (bible?.id) {
             this.bibleDocId = bible.id;
-            this.loadGospelExcerpt();
+            this.showPassage(this.day.gospel?.cite || '', false);
           }
         },
       }),
@@ -120,61 +121,23 @@ export class LectioComponent implements OnInit, OnDestroy {
 
   openGospel(autoNarr = false): void {
     const gospel = this.day.gospel;
-    if (!gospel || !this.bibleDocId || this.opening) return;
-    const parsed = parseLectionaryCite(gospel.cite);
-    if (!parsed) {
-      void this.router.navigate(['/documento', this.bibleDocId]);
+    if (!gospel || this.opening) return;
+    this.showPassage(gospel.cite, autoNarr, true);
+  }
+
+  /** Speaks the passage on screen: the gospel, or the reading just chosen. */
+  listenPassage(): void {
+    if (this.opening) return;
+    if (!this.pasajeSpeech.trim()) {
+      this.openGospel(true);
       return;
     }
-    this.opening = true;
-    this.sub.add(
-      this.corpus.ensureLoaded(this.bibleDocId).subscribe({
-        next: (doc) => {
-          this.opening = false;
-          const units = (doc.documento || []) as Article[];
-          const idx = findBibleUnitIndex(units, parsed);
-          if (idx == null) {
-            void this.router.navigate(['/documento', this.bibleDocId]);
-            return;
-          }
-          this.navigation.openReading(this.bibleDocId, {
-            unitIndex: idx,
-            autoNarr,
-          });
-        },
-        error: () => {
-          this.opening = false;
-          void this.router.navigate(['/documento', this.bibleDocId]);
-        },
-      }),
-    );
+    void this.speakPassage();
   }
 
   openReading(r: LecturaItem): void {
-    this.day = { ...this.day, gospel: r.role === 'gospel' ? r : this.day.gospel };
-    if (r.role === 'gospel') {
-      this.openGospel(false);
-      return;
-    }
-    if (!this.bibleDocId) return;
-    const parsed = parseLectionaryCite(r.cite);
-    if (!parsed) {
-      void this.router.navigate(['/documento', this.bibleDocId]);
-      return;
-    }
-    this.sub.add(
-      this.corpus.ensureLoaded(this.bibleDocId).subscribe({
-        next: (doc) => {
-          const units = (doc.documento || []) as Article[];
-          const idx = findBibleUnitIndex(units, parsed);
-          if (idx == null) {
-            void this.router.navigate(['/documento', this.bibleDocId]);
-            return;
-          }
-          this.navigation.openReading(this.bibleDocId, { unitIndex: idx });
-        },
-      }),
-    );
+    if (!r?.cite || this.opening) return;
+    this.showPassage(r.cite, false, true);
   }
 
   async listenReflection(): Promise<void> {
@@ -232,23 +195,61 @@ export class LectioComponent implements OnInit, OnDestroy {
     }
   }
 
-  private loadGospelExcerpt(): void {
-    const gospel = this.day.gospel;
-    if (!gospel || !this.bibleDocId) return;
-    const parsed = parseLectionaryCite(gospel.cite);
-    if (!parsed) return;
+  /**
+   * Show only the verses the citation names (shared resolver).
+   * The full bible stays closed: a jump must not pull in the verses between.
+   */
+  private showPassage(cite: string, speak: boolean, focus = false): void {
+    this.pasajeCite = cite;
+    this.pasajeVerses = [];
+    this.pasajeSpeech = '';
+    if (!cite || !this.bibleDocId) return;
+    const token = ++this.pasajeToken;
+    this.opening = true;
     this.sub.add(
       this.corpus.ensureLoaded(this.bibleDocId).subscribe({
         next: (doc) => {
+          if (token !== this.pasajeToken) return;
+          this.opening = false;
           const units = (doc.documento || []) as Article[];
-          const idx = findBibleUnitIndex(units, parsed);
-          if (idx == null) return;
-          this.gospelExcerpt = snippet(
-            stripHtmlLite(units[idx]?.contenido || ''),
-            480,
+          const resolved = resolveCitedPassageFromCite(
+            this.bibleDocId,
+            cite,
+            units,
           );
+          this.pasajeVerses = resolved?.verses ?? [];
+          this.pasajeSpeech = resolved?.speechText ?? '';
+          if (focus) this.focusPassage();
+          if (speak) void this.speakPassage();
+        },
+        error: () => {
+          if (token !== this.pasajeToken) return;
+          this.opening = false;
+          this.pasajeVerses = [];
+          this.pasajeSpeech = '';
         },
       }),
     );
+  }
+
+  private focusPassage(): void {
+    setTimeout(() => {
+      document
+        .querySelector('[data-testid="lectio-gospel-excerpt"]')
+        ?.scrollIntoView({ block: 'nearest' });
+    }, 0);
+  }
+
+  private async speakPassage(): Promise<void> {
+    const text = this.pasajeSpeech.trim();
+    if (!text) return;
+    await this.narrator.cancel();
+    const locale =
+      this.corpus.getMeta(this.bibleDocId)?.locale ||
+      this.readerPrefs.resolveContentLocale();
+    await this.narrator.speak(text, {
+      lang: speechLangForDocumentLocale(locale),
+      rate: 1,
+    });
   }
 }

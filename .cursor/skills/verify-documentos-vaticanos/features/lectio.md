@@ -27,4 +27,5 @@ Preconditions:
 ## Gotchas
 
 - Gospel presence depends on the date and the packaged lectionary. The heading is the stable proof. A missing Gospel is `lectio.no_gospel`, not a broken route.
+- The gospel block lists only the verses named in the citation. A jump (`Ap 3,1-6.14-22`) leaves out the verses in the gap. Escuchar speaks that same list. Leer stays on this screen.
 - Vatican News reflection text is enrichment. The offline steps still render without a network.

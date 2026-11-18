@@ -5,6 +5,25 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 const { pathToFileURL } = require('url');
+const { register } = require('node:module');
+
+register(
+  'data:text/javascript,' +
+    encodeURIComponent(`
+      export async function resolve(specifier, context, nextResolve) {
+        if (
+          (specifier.startsWith('./') || specifier.startsWith('../')) &&
+          !/\\.(ts|js|mjs|cjs|json|node)$/i.test(specifier)
+        ) {
+          try {
+            return await nextResolve(specifier + '.ts', context);
+          } catch {}
+        }
+        return nextResolve(specifier, context);
+      }
+    `),
+  pathToFileURL(__filename),
+);
 
 async function main() {
   const dateMod = await import(
