@@ -2,7 +2,7 @@ feature biblioteca
 viewport 390x844
 action GET /biblioteca
 action_url http://127.0.0.1:4219/biblioteca
-browser playwright-chromium
+browser /usr/local/bin/google-chrome
 viewport_actual 390x844
 inner 390x844
 app-bnav display block

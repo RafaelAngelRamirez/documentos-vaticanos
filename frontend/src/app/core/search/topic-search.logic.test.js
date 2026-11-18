@@ -118,13 +118,41 @@ function main() {
   assert.ok(rows2[0].snippet.includes('Cuerpo') || rows2[0].snippet.length > 0);
   console.log('  graph rows OK');
 
+  section('neighborsInLoadedPool drops packs outside the hub pool');
+  const pooled = T.neighborsInLoadedPool(
+    [
+      { documentId: 'cic-es', unitIndex: 2, weight: 1, type: 'ref' },
+      { documentId: 'padre-fuera', unitIndex: 9, weight: 1, type: 'ref' },
+    ],
+    ['cic-es', 'lg-es'],
+  );
+  assert.strictEqual(pooled.length, 1);
+  assert.strictEqual(pooled[0].documentId, 'cic-es');
+  assert.strictEqual(T.neighborsInLoadedPool(pooled, []).length, 0);
+  console.log('  pool filter OK');
+
   section('related panel wiring');
   const src = fs.readFileSync(RELATED_TS, 'utf8');
   assert.ok(src.includes('mergeRelatedByEvidence'));
   assert.ok(src.includes('TopicIndexService'));
   assert.ok(src.includes('loadGraphs'));
   assert.ok(src.includes('neighborsFromGraph'));
+  assert.ok(src.includes('neighborsInLoadedPool'));
+  assert.ok(src.includes('graphWithinPool'));
+  assert.ok(src.includes("this.openStack === 'push' ? 'push' : 'keep'"));
   assert.ok(!/\bensureAllLoaded\b/.test(src));
+  assert.ok(!src.includes('history.pushState'));
+  const lectorHtml = fs.readFileSync(
+    path.resolve(HERE, '../../components/lector/lector.component.html'),
+    'utf8',
+  );
+  assert.ok(lectorHtml.includes('Vocabulario parecido'));
+  assert.ok(lectorHtml.includes('openStack="push"'));
+  assert.ok(lectorHtml.includes('graphWithinPool'));
+  assert.ok(lectorHtml.includes('*ngIf="vocabOpen"'));
+  const vocabBlock = lectorHtml.split('class="reader-vocab"')[1] || '';
+  assert.ok(vocabBlock.length > 0);
+  assert.ok(!vocabBlock.slice(0, 900).includes('dv-sheet'));
   console.log('  panel wiring OK');
 
   console.log('\nAll topic-search tests passed.');

@@ -2,6 +2,7 @@
   class="app rpaper web-shell"
   [class.has-rfoot]="showReaderFoot"
   [class.has-narr]="showReaderNarr"
+  [class.has-vocab]="!!relatedSeed"
 >
   <!-- 5D desktop chrome -->
   <app-wbar
@@ -29,6 +30,31 @@
       Aa
     </button>
   </div>
+
+  <section class="reader-vocab" *ngIf="!loading && document && relatedSeed" aria-label="Vocabulario parecido">
+    <div class="reader-vocab-panel" *ngIf="vocabOpen">
+      <app-related-units-panel
+        [seedText]="relatedSeed"
+        [excludeUnitDocumentId]="document.id || ''"
+        [excludeUnitIndex]="visibleIndex"
+        [graphWithinPool]="true"
+        openStack="push"
+        [limit]="4"
+        heading=""
+        lede="Pasajes que comparten palabras con este párrafo. Sugerencia hecha en el aparato."
+        (openCitation)="closeVocab()"
+      ></app-related-units-panel>
+    </div>
+    <button
+      type="button"
+      class="reader-vocab-toggle"
+      (click)="vocabOpen = !vocabOpen"
+      [attr.aria-expanded]="vocabOpen"
+    >
+      <span class="reader-vocab-chev" aria-hidden="true">{{ vocabOpen ? '▾' : '▸' }}</span>
+      Vocabulario parecido
+    </button>
+  </section>
 
   <div class="reader">
     <div class="rcolw">
@@ -79,6 +105,7 @@
         >
       </div>
       <div class="rend" *ngIf="!canLoadNext">· · ·</div>
+
       <div class="fs12 muted tc only-desktop" style="margin-top: 20px" *ngIf="!loading && document">
         {{ t('reader.scroll_hint') }}
       </div>

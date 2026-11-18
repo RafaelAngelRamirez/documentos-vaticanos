@@ -1,5 +1,5 @@
 <section class="related-panel" *ngIf="visible">
-  <div class="sect">{{ heading }}</div>
+  <div class="sect" *ngIf="heading">{{ heading }}</div>
   <p class="fs12 muted related-lede" *ngIf="resolvedLede">
     {{ resolvedLede }}
   </p>
