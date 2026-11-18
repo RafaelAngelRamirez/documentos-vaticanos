@@ -13,6 +13,11 @@ import {
   xaiTtsVoicesUrl,
 } from './narrator-grok.logic';
 import { NarratorPreferencesService } from './narrator-preferences.service';
+import {
+  estimateSpeakCharIndex,
+  resumeSpeakText,
+  wordStartAt,
+} from './narrator-resume.logic';
 import type { ReadAloudPhase } from './read-aloud.logic';
 import {
   CARRIER_ELEMENT_VOLUME,
@@ -27,6 +32,28 @@ export interface ReadAloudMediaHandlers {
   onPause: () => void;
   onPrevious: () => void;
   onNext: () => void;
+}
+
+/** Voz, acento o velocidad que se aplican a la locución en curso. */
+export interface NarratorSpeakPatch {
+  lang?: string;
+  rate?: number;
+  voice?: NarratorVoice | null;
+}
+
+interface LiveSpeak {
+  text: string;
+  lang: string;
+  rate: number;
+  voice: NarratorVoice | null;
+  gen: number;
+  token: number;
+  cursor: number;
+  heardBoundary: boolean;
+  startedAt: number;
+  timer: ReturnType<typeof setInterval> | null;
+  settled: boolean;
+  resolve: (ok: boolean) => void;
 }
 
 export type { NarratorVoice } from './narrator-grok.logic';
@@ -52,6 +79,9 @@ export {
  * - Web: `SpeechSynthesisUtterance.voice`.
  * - Nativo: índice / lang del plugin.
  * - Grok: descarga audio de xAI y reproduce con `HTMLAudioElement`.
+ *
+ * Cambiar voz, acento (`lang`) o velocidad durante la locución no
+ * vuelve al inicio: `retune` sigue en la palabra o frase actual.
  */
 @Injectable({ providedIn: 'root' })
 export class NarratorService {
@@ -60,9 +90,16 @@ export class NarratorService {
   /** Generación de habla; invalida promesas pendientes al cancelar. */
   private generation = 0;
 
+  /** Locución viva. `retune` cambia su config sin cerrar la promesa. */
+  private live: LiveSpeak | null = null;
+
+  /** Identifica el intento de motor vigente. Un corte deja el anterior mudo. */
+  private engineToken = 0;
+
   /** Reproducción Grok en curso (blob URL + elemento audio). */
   private grokAudio: HTMLAudioElement | null = null;
   private grokObjectUrl: string | null = null;
+  private grokAbort: AbortController | null = null;
 
   /**
    * Audio de anclaje de la sesión web. Mantiene la Media Session mientras
@@ -213,124 +250,78 @@ export class NarratorService {
   /**
    * Lee un texto en voz alta.
    * Resuelve `true` si la locución terminó de forma natural y
-   * `false` si fue cancelada o falló.
+   * `false` si fue cancelada o falló. `retune` no cierra esta promesa:
+   * sigue siendo la misma lectura, con la config nueva.
    */
   async speak(
     text: string,
     opts: { lang?: string; rate?: number; voice?: NarratorVoice | null } = {}
   ): Promise<boolean> {
     if (!this.supported || !text) return false;
+    this.generation++;
+    this.dropLive(false);
+    await this.stopPlaybackEngines();
+    const gen = this.generation;
     const lang = opts.voice?.lang ?? opts.lang ?? 'es-ES';
     const rate = opts.rate ?? 1;
-    const gen = ++this.generation;
-
-    await this.stopPlaybackEngines();
-
-    if (isGrokVoice(opts.voice) && this.narrPrefs.grokEnabled) {
-      return this.speakGrok(text, { lang, rate, voice: opts.voice!, gen });
-    }
-
-    if (this.native) {
-      try {
-        await TextToSpeech.stop().catch(() => undefined);
-        await TextToSpeech.speak({
-          text,
-          lang,
-          rate,
-          pitch: 1,
-          volume: 1,
-          category: 'playback',
-          ...(opts.voice && opts.voice.index >= 0
-            ? { voice: opts.voice.index }
-            : {}),
-        });
-        return gen === this.generation;
-      } catch {
-        return false;
-      }
-    }
-
     return new Promise<boolean>((resolve) => {
-      window.speechSynthesis.cancel();
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = lang;
-      u.rate = rate;
-      if (opts.voice) {
-        const match = window.speechSynthesis
-          .getVoices()
-          .find((v) => v.voiceURI === opts.voice!.id);
-        if (match) u.voice = match;
+      if (this.generation !== gen) {
+        resolve(false);
+        return;
       }
-      u.onend = () => resolve(gen === this.generation);
-      u.onerror = () => resolve(false);
-      window.speechSynthesis.speak(u);
+      const live: LiveSpeak = {
+        text,
+        lang,
+        rate,
+        voice: opts.voice ?? null,
+        gen,
+        token: 0,
+        cursor: 0,
+        heardBoundary: false,
+        startedAt: Date.now(),
+        timer: null,
+        settled: false,
+        resolve,
+      };
+      this.live = live;
+      this.pump(live);
     });
   }
 
   /**
-   * Sintetiza en xAI con la key del dispositivo y reproduce el audio.
+   * Cambia voz, acento o velocidad de la locución en curso y sigue
+   * desde la palabra (o la frase, si el motor solo marca frases).
+   * Si no hay nada sonando, no hace nada.
+   * La promesa de `speak` sigue abierta hasta que ese resto termina.
    */
-  private async speakGrok(
-    text: string,
-    opts: {
-      lang: string;
-      rate: number;
-      voice: NarratorVoice;
-      gen: number;
+  async retune(opts: NarratorSpeakPatch = {}): Promise<boolean> {
+    const live = this.live;
+    if (!live || live.settled) return false;
+    if (typeof opts.lang === 'string' && opts.lang.trim()) live.lang = opts.lang;
+    if (typeof opts.rate === 'number' && Number.isFinite(opts.rate)) {
+      live.rate = opts.rate;
     }
-  ): Promise<boolean> {
-    const key = this.narrPrefs.xaiApiKey;
-    if (!key || typeof fetch === 'undefined') return false;
-    if (typeof Audio === 'undefined') return false;
-
-    try {
-      const body = buildGrokSpeakBody({
-        text,
-        voice: opts.voice,
-        language: opts.lang,
-        rate: opts.rate,
-      });
-      const res = await fetch(xaiTtsSpeakUrl(), {
-        method: 'POST',
-        headers: {
-          ...xaiAuthHeaders(key),
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(body),
-      });
-      if (opts.gen !== this.generation) return false;
-      if (!res.ok) return false;
-      const blob = await res.blob();
-      if (opts.gen !== this.generation) return false;
-      if (!blob || blob.size === 0) return false;
-
-      this.revokeGrokUrl();
-      const url = URL.createObjectURL(blob);
-      this.grokObjectUrl = url;
-      const audio = new Audio(url);
-      this.grokAudio = audio;
-      const { playbackRate } = planGrokRate(opts.rate);
-      try {
-        audio.playbackRate = playbackRate;
-      } catch {
-        /* ignore */
-      }
-
-      return await new Promise<boolean>((resolve) => {
-        const finish = (ok: boolean) => {
-          if (this.grokAudio === audio) {
-            this.grokAudio = null;
-          }
-          this.revokeGrokUrl();
-          resolve(ok && opts.gen === this.generation);
-        };
-        audio.onended = () => finish(true);
-        audio.onerror = () => finish(false);
-        void audio.play().catch(() => finish(false));
-      });
-    } catch {
+    if (Object.prototype.hasOwnProperty.call(opts, 'voice')) {
+      live.voice = opts.voice ?? null;
+    }
+    const rest = resumeSpeakText(live.text, live.cursor);
+    this.clearCursor(live);
+    live.token = ++this.engineToken;
+    if (!rest) {
+      await this.stopPlaybackEngines();
+      if (this.live !== live || live.settled) return false;
+      this.settle(true);
+      return true;
+    }
+    await this.stopPlaybackEngines();
+    if (this.live !== live || live.settled || this.generation !== live.gen) {
       return false;
     }
+    live.text = rest;
+    live.cursor = 0;
+    live.heardBoundary = false;
+    this.pump(live);
+    return true;
   }
 
   private revokeGrokUrl(): void {
@@ -506,7 +497,203 @@ export class NarratorService {
     }
   }
 
+  private pump(live: LiveSpeak): void {
+    const token = ++this.engineToken;
+    live.token = token;
+    live.startedAt = Date.now();
+    const grok = isGrokVoice(live.voice) && this.narrPrefs.grokEnabled;
+    if (grok) this.clearCursor(live);
+    else this.armCursor(live);
+
+    if (grok && live.voice) {
+      void this.speakGrok(live, token);
+      return;
+    }
+    if (this.native) {
+      void this.speakNative(live, token);
+      return;
+    }
+    this.speakWeb(live, token);
+  }
+
+  /** Web Speech. El `charIndex` del límite es la palabra o la frase actual. */
+  private speakWeb(live: LiveSpeak, token: number): void {
+    const synth = window.speechSynthesis;
+    try {
+      synth.cancel();
+    } catch {
+      /* ignore */
+    }
+    // Chrome se traga un speak() en el mismo turno que cancel().
+    setTimeout(() => {
+      if (this.live !== live || live.token !== token || live.settled) return;
+      const u = new SpeechSynthesisUtterance(live.text);
+      u.lang = live.lang;
+      u.rate = live.rate;
+      if (live.voice) {
+        const match = synth
+          .getVoices()
+          .find((v) => v.voiceURI === live.voice!.id);
+        if (match) u.voice = match;
+      }
+      u.onboundary = (ev: SpeechSynthesisEvent) => {
+        if (this.live !== live || live.token !== token) return;
+        const idx = ev.charIndex;
+        if (!Number.isFinite(idx) || idx <= 0) return;
+        live.heardBoundary = true;
+        live.cursor = wordStartAt(live.text, idx);
+      };
+      u.onend = () => this.finish(live, token, true);
+      u.onerror = () => this.finish(live, token, false);
+      synth.speak(u);
+    }, 0);
+  }
+
+  private async speakNative(live: LiveSpeak, token: number): Promise<void> {
+    try {
+      await TextToSpeech.stop().catch(() => undefined);
+      if (this.live !== live || live.token !== token || live.settled) return;
+      await TextToSpeech.speak({
+        text: live.text,
+        lang: live.lang,
+        rate: live.rate,
+        pitch: 1,
+        volume: 1,
+        category: 'playback',
+        ...(live.voice && live.voice.index >= 0
+          ? { voice: live.voice.index }
+          : {}),
+      });
+      this.finish(live, token, true);
+    } catch {
+      this.finish(live, token, false);
+    }
+  }
+
+  /** Sintetiza en xAI con la key del dispositivo y reproduce el audio. */
+  private async speakGrok(live: LiveSpeak, token: number): Promise<void> {
+    const key = this.narrPrefs.xaiApiKey;
+    const voice = live.voice;
+    if (!key || !voice || typeof fetch === 'undefined' || typeof Audio === 'undefined') {
+      this.finish(live, token, false);
+      return;
+    }
+    const abort = new AbortController();
+    this.grokAbort = abort;
+    try {
+      const body = buildGrokSpeakBody({
+        text: live.text,
+        voice,
+        language: live.lang,
+        rate: live.rate,
+      });
+      const res = await fetch(xaiTtsSpeakUrl(), {
+        method: 'POST',
+        headers: {
+          ...xaiAuthHeaders(key),
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+        signal: abort.signal,
+      });
+      if (this.live !== live || live.token !== token || live.settled) return;
+      if (!res.ok) {
+        this.finish(live, token, false);
+        return;
+      }
+      const blob = await res.blob();
+      if (this.live !== live || live.token !== token || live.settled) return;
+      if (!blob || blob.size === 0) {
+        this.finish(live, token, false);
+        return;
+      }
+      this.revokeGrokUrl();
+      const url = URL.createObjectURL(blob);
+      this.grokObjectUrl = url;
+      const audio = new Audio(url);
+      this.grokAudio = audio;
+      const { playbackRate } = planGrokRate(live.rate);
+      try {
+        audio.playbackRate = playbackRate;
+      } catch {
+        /* ignore */
+      }
+      audio.ontimeupdate = () => {
+        if (this.live !== live || live.token !== token) return;
+        const dur = audio.duration;
+        if (!Number.isFinite(dur) || dur <= 0) return;
+        const idx = Math.floor((audio.currentTime / dur) * live.text.length);
+        live.heardBoundary = true;
+        live.cursor = wordStartAt(live.text, idx);
+      };
+      audio.onended = () => {
+        if (this.grokAudio === audio) this.grokAudio = null;
+        this.revokeGrokUrl();
+        this.finish(live, token, true);
+      };
+      audio.onerror = () => {
+        if (this.grokAudio === audio) this.grokAudio = null;
+        this.revokeGrokUrl();
+        this.finish(live, token, false);
+      };
+      await audio.play();
+      if (this.live !== live || live.token !== token || live.settled) return;
+      live.startedAt = Date.now();
+      this.armCursor(live);
+    } catch {
+      this.finish(live, token, false);
+    }
+  }
+
+  private armCursor(live: LiveSpeak): void {
+    this.clearCursor(live);
+    live.timer = setInterval(() => {
+      if (this.live !== live || live.heardBoundary || live.settled) return;
+      live.cursor = estimateSpeakCharIndex(
+        live.text,
+        Date.now() - live.startedAt,
+        live.rate,
+      );
+    }, 200);
+  }
+
+  private clearCursor(live: LiveSpeak | null): void {
+    if (live?.timer) {
+      clearInterval(live.timer);
+      live.timer = null;
+    }
+  }
+
+  private finish(live: LiveSpeak, token: number, ok: boolean): void {
+    if (this.live !== live || live.token !== token || live.settled) return;
+    this.settle(ok);
+  }
+
+  private settle(ok: boolean): void {
+    const live = this.live;
+    if (!live || live.settled) return;
+    live.settled = true;
+    this.live = null;
+    this.clearCursor(live);
+    live.resolve(ok);
+  }
+
+  /** Cierra la promesa viva. El motor se para aparte. */
+  private dropLive(ok: boolean): void {
+    this.engineToken++;
+    if (this.live) this.live.token = -1;
+    this.settle(ok);
+  }
+
   private async stopPlaybackEngines(): Promise<void> {
+    if (this.grokAbort) {
+      try {
+        this.grokAbort.abort();
+      } catch {
+        /* ignore */
+      }
+      this.grokAbort = null;
+    }
     if (this.grokAudio) {
       try {
         this.grokAudio.pause();
@@ -526,6 +713,7 @@ export class NarratorService {
 
   async cancel(): Promise<void> {
     this.generation++;
+    this.dropLive(false);
     await this.stopPlaybackEngines();
   }
 }
