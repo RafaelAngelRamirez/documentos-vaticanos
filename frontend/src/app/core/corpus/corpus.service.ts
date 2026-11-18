@@ -12,8 +12,17 @@ import {
 import { IndexedDbCorpusStore } from './corpus-durable-idb.store';
 import {
   CorpusLoadEngine,
+  citeMapPathFromBody,
   type IndexedDocument,
 } from './corpus-load.logic';
+import { parseLectionaryPassage } from '../liturgia/bible-cite.logic';
+import type { ParsedPassage } from '../liturgia/bible-cite.logic';
+import {
+  mergeUnitRanges,
+  unitIndexesForPassage,
+  type BibleCiteMap,
+} from '../liturgia/cite-map.logic';
+import { normalizeCiteForParse } from '../reading/resolve-cited-passage.logic';
 import {
   assetUrlToPackRel,
   filesFromZip,
@@ -167,6 +176,8 @@ export class CorpusService {
     this.manifestInflight$ = null;
     this.inflight$.clear();
     this.indexInflight$.clear();
+    this.citeMapCache.clear();
+    this.citeMapInflight.clear();
   }
 
   loadManifest(): Observable<DocumentMeta[]> {
@@ -359,6 +370,117 @@ export class CorpusService {
     return from(
       this.engine.ensureUnits(documentId, fromIndex, toIndex) as Promise<LoadedDocument>
     );
+  }
+
+  /**
+   * Preload only the units a citation needs, then hand the body to
+   * resolveCitedPassage*. Uses cite-map + ship chunks for bible packs;
+   * falls back to ensureWindow (anchor) or ensureLoaded.
+   */
+  ensureForCitedPassage(
+    documentId: string,
+    opts: { citeLabel?: string; anchorIndex?: number } = {},
+  ): Observable<LoadedDocument> {
+    if (isPopeDocumentId(documentId) || isSaintDocumentId(documentId)) {
+      return this.ensureLoaded(documentId);
+    }
+    return from(this.loadForCitedPassage(documentId, opts));
+  }
+
+  private readonly citeMapCache = new Map<string, BibleCiteMap | null>();
+  private readonly citeMapInflight = new Map<
+    string,
+    Promise<BibleCiteMap | null>
+  >();
+
+  private async loadForCitedPassage(
+    documentId: string,
+    opts: { citeLabel?: string; anchorIndex?: number },
+  ): Promise<LoadedDocument> {
+    const cachedFull = this.engine.getLoaded(documentId) as
+      | LoadedDocument
+      | undefined;
+    if (cachedFull && !cachedFull.partial && cachedFull.documento?.length) {
+      return cachedFull;
+    }
+
+    const label = (opts.citeLabel || '').trim();
+    const passage: ParsedPassage | null = label
+      ? parseLectionaryPassage(normalizeCiteForParse(label))
+      : null;
+    if (passage) {
+      const map = await this.loadCiteMap(documentId);
+      if (map) {
+        const indexes = unitIndexesForPassage(map, passage);
+        if (indexes.length) {
+          const ranges = mergeUnitRanges(indexes);
+          let loaded: LoadedDocument | undefined;
+          for (const range of ranges) {
+            loaded = (await this.engine.ensureUnits(
+              documentId,
+              range.from,
+              range.to,
+            )) as LoadedDocument;
+          }
+          if (loaded) return loaded;
+        }
+      }
+    }
+
+    if (
+      typeof opts.anchorIndex === 'number' &&
+      Number.isInteger(opts.anchorIndex) &&
+      opts.anchorIndex >= 0
+    ) {
+      return this.engine.ensureWindow(
+        documentId,
+        opts.anchorIndex,
+        2,
+      ) as Promise<LoadedDocument>;
+    }
+
+    return this.engine.ensureLoaded(documentId) as Promise<LoadedDocument>;
+  }
+
+  private async loadCiteMap(
+    documentId: string,
+  ): Promise<BibleCiteMap | null> {
+    if (this.citeMapCache.has(documentId)) {
+      return this.citeMapCache.get(documentId) ?? null;
+    }
+    const pending = this.citeMapInflight.get(documentId);
+    if (pending) return pending;
+
+    const request = (async () => {
+      const metas = await this.engine.loadManifest();
+      const meta = metas.find((m) => m.id === documentId);
+      if (!meta?.bodyPath) {
+        this.citeMapCache.set(documentId, null);
+        return null;
+      }
+      const url = this.engine.resolveAssetPath(
+        citeMapPathFromBody(meta.bodyPath),
+      );
+      try {
+        const raw = await firstValueFrom(this.http.get<BibleCiteMap>(url));
+        const ok =
+          raw &&
+          raw.v === 1 &&
+          raw.books &&
+          typeof raw.books === 'object'
+            ? raw
+            : null;
+        this.citeMapCache.set(documentId, ok);
+        return ok;
+      } catch {
+        this.citeMapCache.set(documentId, null);
+        return null;
+      } finally {
+        this.citeMapInflight.delete(documentId);
+      }
+    })();
+    this.citeMapInflight.set(documentId, request);
+    return request;
   }
 
   /**

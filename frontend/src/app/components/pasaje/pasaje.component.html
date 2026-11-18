@@ -1,0 +1,20 @@
+<div class="pasaje" data-testid="pasaje" [attr.aria-label]="label || null">
+  <ng-container *ngFor="let v of verses; trackBy: trackVerse">
+    <div
+      *ngIf="v.spanBreakBefore"
+      class="pasaje-gap"
+      data-testid="pasaje-span-gap"
+      role="separator"
+      aria-hidden="true"
+    ></div>
+    <p
+      class="pasaje-verse"
+      data-testid="pasaje-verse"
+      [attr.data-chapter]="v.chapter"
+      [attr.data-verse]="v.verse"
+    >
+      <span class="pasaje-num" *ngIf="v.verse > 0">{{ v.verse }}</span
+      >{{ v.text }}
+    </p>
+  </ng-container>
+</div>

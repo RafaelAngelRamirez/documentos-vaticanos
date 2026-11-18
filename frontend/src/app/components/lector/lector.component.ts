@@ -50,7 +50,13 @@ import {
 } from 'src/app/core/reading/cite';
 import { DvSheetComponent } from '../dv-sheet/dv-sheet.component';
 import { RelatedUnitsPanelComponent } from '../related-units/related-units-panel.component';
+import { PasajeComponent } from '../pasaje/pasaje.component';
 import { WbarComponent } from '../wbar/wbar.component';
+import {
+  resolveCitedPassageFromLocalRef,
+  type CitedPassage,
+} from 'src/app/core/reading/resolve-cited-passage.logic';
+import type { Article } from 'src/app/core/corpus/corpus.models';
 import {
   NarratorService,
   NarratorVoice,
@@ -82,10 +88,12 @@ import {
 import { planTrackStep } from 'src/app/services/read-aloud-media.logic';
 import { coverNavCommandsForDocumentId } from 'src/app/core/santoral/santoral-units.logic';
 import {
-  isOfflineBibleId,
-  quickReadVerses,
-  type QuickVerse,
-} from 'src/app/core/liturgia/cite-quick-read.logic';
+  clipSelectionExcerpt,
+  keepSelectionPopoverOnCollapse,
+  selectionPopoverPosition,
+  shouldClearNativeSelectionMenu,
+  type SelectionMenuEnv,
+} from 'src/app/core/reading/selection-menu.logic';
 
 const CONTEXT_SIZE = 5;
 /** Max units kept in the DOM (sliding window). */
@@ -107,6 +115,7 @@ interface ThemeOption {
     FormsModule,
     PuntoModule,
     DvSheetComponent,
+    PasajeComponent,
     WbarComponent,
     RelatedUnitsPanelComponent,
   ],
@@ -141,10 +150,26 @@ export class LectorComponent implements OnInit, OnDestroy {
   selExcerpt = '';
   selUnitIndex: number | null = null;
   selFeedback: string | null = null;
+  /**
+   * True after clearing the native Selection so Chrome's ActionMode dismisses
+   * while the app popover keeps the excerpt.
+   */
+  private selHold = false;
 
   /** 4B: sheet de nueva nota. */
   notaOpen = false;
   notaText = '';
+
+  /**
+   * Shared cited-passage sheet (bible or doc-to-doc).
+   * Back closes it before climbing the reader hierarchy.
+   */
+  quickCite: {
+    label: string;
+    status: 'loading' | 'ready' | 'missing';
+    passage: CitedPassage | null;
+  } | null = null;
+  private citeLoadSub: Subscription | null = null;
 
   /** F4: barras auto-ocultables al desplazar. */
   barsHidden = false;
@@ -205,11 +230,59 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.scrollPending = true;
     requestAnimationFrame(() => {
       this.scrollPending = false;
-      if (this.selPop) this.selPop = null;
+      if (this.selPop || this.selHold) {
+        this.selHold = false;
+        this.selPop = null;
+      }
       this.updateBarsVisibility();
       this.updateVisibleUnit();
     });
   };
+
+  private readonly onContextMenu = (e: Event): void => {
+    if (this.selPop || this.selHold) {
+      e.preventDefault();
+      return;
+    }
+    const t = e.target as Node | null;
+    if (!t || !this.host.nativeElement.contains(t)) return;
+    if (shouldClearNativeSelectionMenu(this.selectionMenuEnv())) {
+      e.preventDefault();
+    }
+  };
+
+  /** After clearing the native Selection, a tap outside the popover closes it. */
+  private readonly onPointerDownCapture = (e: PointerEvent): void => {
+    if (!this.selPop || !this.selHold) return;
+    const path = typeof e.composedPath === 'function' ? e.composedPath() : [];
+    const inPop = path.some(
+      (n) => n instanceof Element && n.classList.contains('selpop'),
+    );
+    if (inPop) return;
+    this.dismissSelection();
+  };
+
+  private selectionMenuEnv(): SelectionMenuEnv {
+    const mm = (q: string): boolean => {
+      try {
+        return !!window.matchMedia?.(q).matches;
+      } catch {
+        return false;
+      }
+    };
+    let isNativePlatform = false;
+    try {
+      isNativePlatform = Capacitor.isNativePlatform();
+    } catch {
+      isNativePlatform = false;
+    }
+    return {
+      userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+      pointerCoarse: typeof window !== 'undefined' && mm('(pointer: coarse)'),
+      hoverNone: typeof window !== 'undefined' && mm('(hover: none)'),
+      isNativePlatform,
+    };
+  }
 
   /** F4: oculta las barras al bajar >24px, las muestra al subir.
    *  Siempre visibles en los extremos, con ajustes/narrador abiertos,
@@ -228,7 +301,11 @@ export class LectorComponent implements OnInit, OnDestroy {
         y,
         atTop: y < 48,
         atBottom: y + window.innerHeight >= doc.scrollHeight - 48,
-        uiOpen: this.prefsOpen || this.notaOpen || this.narrPlaying,
+        uiOpen:
+          this.prefsOpen ||
+          this.notaOpen ||
+          !!this.quickCite ||
+          this.narrPlaying,
         jumpGuardsBars: this.jumpGuardsBars,
       },
     );
@@ -266,18 +343,6 @@ export class LectorComponent implements OnInit, OnDestroy {
   /** Tick so chrome labels re-resolve when UI locale changes. */
   localeTick = 0;
 
-  /**
-   * Hoja de lectura rápida: solo el pasaje citado, sin cambiar de ruta.
-   * El atrás la cierra (handler del dv-sheet) y el historial del lector sigue.
-   */
-  quickCite: {
-    label: string;
-    status: 'loading' | 'ready' | 'missing';
-    verses: QuickVerse[];
-  } | null = null;
-
-  private citeLoadSub: Subscription | null = null;
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -313,8 +378,8 @@ export class LectorComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // 7A: el back cierra el popover de selección antes de navegar.
     this.unregisterBack = this.back.register(() => {
-      if (this.selPop) {
-        this.selPop = null;
+      if (this.selPop || this.selHold) {
+        this.dismissSelection();
         return true;
       }
       if (this.vocabOpen) {
@@ -346,6 +411,8 @@ export class LectorComponent implements OnInit, OnDestroy {
     if (typeof document !== 'undefined') {
       document.addEventListener('selectionchange', this.onSelectionChange);
       document.addEventListener('visibilitychange', this.onVisibility);
+      document.addEventListener('contextmenu', this.onContextMenu);
+      document.addEventListener('pointerdown', this.onPointerDownCapture, true);
     }
     this.narrRate = this.narrPrefs.rate;
     if (this.narrSupported) {
@@ -367,9 +434,9 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.narrator.releaseReadAloudSession();
     this.loadSub?.unsubscribe();
     this.loadSub = null;
-    this.sub.unsubscribe();
     this.citeLoadSub?.unsubscribe();
     this.citeLoadSub = null;
+    this.sub.unsubscribe();
     this.io?.disconnect();
     if (typeof window !== 'undefined') {
       window.removeEventListener('scroll', this.onScroll);
@@ -377,6 +444,12 @@ export class LectorComponent implements OnInit, OnDestroy {
     if (typeof document !== 'undefined') {
       document.removeEventListener('selectionchange', this.onSelectionChange);
       document.removeEventListener('visibilitychange', this.onVisibility);
+      document.removeEventListener('contextmenu', this.onContextMenu);
+      document.removeEventListener(
+        'pointerdown',
+        this.onPointerDownCapture,
+        true,
+      );
     }
     if (this.selDebounce) clearTimeout(this.selDebounce);
     if (this.feedbackTimer) clearTimeout(this.feedbackTimer);
@@ -396,30 +469,43 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Cita bíblica resuelta: hoja con el texto del corpus. No abre el lector
-   * de la Biblia, así que la pila de citas y la ruta no se mueven.
+   * Citation click: load the target pack and show only the cited units
+   * through the shared resolver. Route and cite stack stay put.
    */
   onCitationPreview(event: CitationPreview): void {
     const local = event.seg.local;
-    if (!local || !isOfflineBibleId(local.idDocumento)) return;
+    if (!local) return;
+    const docId = parseDocumentId(local.idDocumento);
     const anchor = parseUnitIndex(local.idPunto);
-    if (anchor == null) return;
-    const label = event.seg.label?.trim() || local.idDocumento;
+    if (!docId || anchor == null) return;
+    const documentId = documentIdKey(docId);
+    const label = event.seg.label?.trim() || documentId;
     this.citeLoadSub?.unsubscribe();
-    this.quickCite = { label, status: 'loading', verses: [] };
-    this.citeLoadSub = this.corpus.ensureLoaded(local.idDocumento).subscribe({
+    this.quickCite = { label, status: 'loading', passage: null };
+    this.citeLoadSub = this.corpus
+      .ensureForCitedPassage(documentId, {
+        citeLabel: label,
+        anchorIndex: anchor,
+      })
+      .subscribe({
       next: (doc) => {
         if (!this.quickCite || this.quickCite.label !== label) return;
-        const verses = quickReadVerses(doc.documento, anchor, label);
+        const units = (doc.documento || []) as Article[];
+        const passage = resolveCitedPassageFromLocalRef(
+          documentId,
+          anchor,
+          label,
+          units,
+        );
         this.quickCite = {
           label,
-          status: verses.length ? 'ready' : 'missing',
-          verses,
+          status: passage?.verses.length ? 'ready' : 'missing',
+          passage,
         };
       },
       error: () => {
         if (!this.quickCite || this.quickCite.label !== label) return;
-        this.quickCite = { label, status: 'missing', verses: [] };
+        this.quickCite = { label, status: 'missing', passage: null };
       },
     });
   }
@@ -1038,6 +1124,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     if (this.selUnitIndex == null || !this.selExcerpt) return;
     this.notaText = '';
     this.notaOpen = true;
+    this.selHold = false;
     this.selPop = null;
   }
 
@@ -1089,14 +1176,22 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   private evaluateSelection(): void {
-    if (this.notaOpen) return;
     const sel = typeof window !== 'undefined' ? window.getSelection() : null;
-    if (!sel || sel.isCollapsed || sel.rangeCount === 0) {
+    const collapsed = !sel || sel.isCollapsed || sel.rangeCount === 0;
+    const phase = keepSelectionPopoverOnCollapse({
+      notaOpen: this.notaOpen,
+      holdingClearedSelection: this.selHold,
+      selectionCollapsed: collapsed,
+    });
+    if (phase === 'ignore') return;
+    if (phase === 'dismiss') {
       this.selPop = null;
       return;
     }
+    if (!sel) return;
     const text = sel.toString().trim();
     if (!text || text.length < 3) {
+      this.selHold = false;
       this.selPop = null;
       return;
     }
@@ -1105,22 +1200,29 @@ export class LectorComponent implements OnInit, OnDestroy {
     const el = node instanceof Element ? node : node.parentElement;
     const puntoEl = el?.closest?.('[data-unit]') ?? null;
     if (!puntoEl || !this.host.nativeElement.contains(puntoEl)) {
+      this.selHold = false;
       this.selPop = null;
       return;
     }
     const unit = Number(puntoEl.getAttribute('data-unit'));
     if (!Number.isFinite(unit)) {
+      this.selHold = false;
       this.selPop = null;
       return;
     }
     const rect = range.getBoundingClientRect();
     const width = typeof window !== 'undefined' ? window.innerWidth : 360;
-    this.selExcerpt = text.length > 280 ? `${text.slice(0, 277)}…` : text;
+    this.selExcerpt = clipSelectionExcerpt(text);
     this.selUnitIndex = unit;
-    this.selPop = {
-      top: Math.max(64, rect.top - 10),
-      left: Math.min(Math.max(rect.left + rect.width / 2, 92), width - 92),
-    };
+    this.selPop = selectionPopoverPosition(rect, width);
+    // Chrome Android ActionMode cannot be suppressed while a Selection is
+    // live; clearing it dismisses the native menu. Excerpt stays for actions.
+    if (shouldClearNativeSelectionMenu(this.selectionMenuEnv())) {
+      this.selHold = true;
+      sel.removeAllRanges();
+    } else {
+      this.selHold = false;
+    }
   }
 
   private saveAnnotation(kind: 'subrayado' | 'nota', nota?: string): boolean {
@@ -1138,6 +1240,7 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   private dismissSelection(): void {
+    this.selHold = false;
     if (typeof window !== 'undefined') {
       window.getSelection()?.removeAllRanges();
     }

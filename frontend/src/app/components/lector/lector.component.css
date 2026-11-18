@@ -5,6 +5,11 @@
   color: var(--ink);
 }
 
+/* iOS callout; Chrome Android ActionMode is dismissed by clearing Selection. */
+.rtxt {
+  -webkit-touch-callout: none;
+}
+
 .app.rpaper {
   min-height: 100vh;
 }
@@ -442,7 +447,7 @@
 }
 
 .cite-quick-label {
-  font-family: var(--app-font-serif, 'EB Garamond', serif);
+  font-family: var(--app-font-serif, 'EB Garamond', Georgia, serif);
   font-size: 1.35rem;
   font-weight: 600;
   line-height: 1.25;
@@ -458,18 +463,4 @@
   overflow: auto;
   margin-top: 12px;
   padding-right: 4px;
-}
-
-.cite-quick-verse {
-  margin: 0 0 0.7em;
-  font-family: var(--app-font-serif, 'EB Garamond', serif);
-  font-size: 1.12rem;
-  line-height: 1.45;
-}
-
-.cite-quick-n {
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.72em;
-  margin-right: 0.35em;
-  color: var(--reader-muted, var(--muted, var(--ink)));
 }

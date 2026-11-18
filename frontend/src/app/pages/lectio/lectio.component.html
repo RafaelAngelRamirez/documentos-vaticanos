@@ -19,10 +19,13 @@
     <section class="sect lectio-block" aria-labelledby="lectio-gospel-h">
       <h2 id="lectio-gospel-h" class="lectio-h">{{ t('lectio.reading') }}</h2>
       <ng-container *ngIf="day.gospel as g">
-        <p class="lectio-cite">{{ g.cite }}</p>
-        <blockquote class="quote" *ngIf="gospelExcerpt" data-testid="lectio-gospel-excerpt">
-          {{ gospelExcerpt }}
-        </blockquote>
+        <p class="lectio-cite">{{ pasajeCite || g.cite }}</p>
+        <app-pasaje
+          *ngIf="pasajeVerses.length"
+          data-testid="lectio-gospel-excerpt"
+          [verses]="pasajeVerses"
+          [label]="pasajeCite || g.cite"
+        ></app-pasaje>
         <div class="lectio-actions">
           <button
             type="button"
@@ -38,7 +41,7 @@
             class="gbtn"
             data-testid="lectio-gospel-listen"
             [disabled]="opening"
-            (click)="openGospel(true)"
+            (click)="listenPassage()"
           >
             {{ t('lectio.listen_gospel') }}
           </button>
@@ -49,7 +52,13 @@
       </p>
       <ul class="lectio-readings" *ngIf="day.readings.length > 1">
         <li *ngFor="let r of day.readings">
-          <button type="button" class="lectio-reading-btn" (click)="openReading(r)">
+          <button
+            type="button"
+            class="lectio-reading-btn"
+            data-testid="lectio-reading"
+            [attr.data-cite]="r.cite"
+            (click)="openReading(r)"
+          >
             <span>{{ r.label }}</span>
             <span class="app-muted">{{ r.cite }}</span>
           </button>

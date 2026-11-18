@@ -391,13 +391,14 @@
       Este pasaje no está en el corpus de este dispositivo.
     </p>
     <div
-      *ngIf="quickCite.status === 'ready'"
+      *ngIf="quickCite.status === 'ready' && quickCite.passage"
       class="cite-quick-body"
       data-testid="cite-quick-body"
     >
-      <p *ngFor="let v of quickCite.verses" class="cite-quick-verse">
-        <sup class="cite-quick-n">{{ v.verse }}</sup> {{ v.text }}
-      </p>
+      <app-pasaje
+        [verses]="quickCite.passage.verses"
+        [label]="quickCite.label"
+      ></app-pasaje>
     </div>
   </dv-sheet>
 </div>
