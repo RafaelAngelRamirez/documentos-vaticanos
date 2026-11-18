@@ -36,6 +36,7 @@ const {
   isAiProvenance,
   dropAiDocuments,
   dropUnusedSidecars,
+  buildBibleCiteMap,
   SHIP_BODY_CHUNK_SIZE,
 } = require('./corpus-compress.js');
 const { packIndexBuffer, unpackIndex, sameIndex } = require('./index-pack.js');
@@ -402,6 +403,52 @@ function main() {
       console.log('  ship chunks split OK');
     } finally {
       fs.rmSync(tmpChunk, { recursive: true, force: true });
+    }
+  }
+
+
+  section('bible-like units write cite-map.json beside chunks');
+  {
+    const tmpBible = fs.mkdtempSync(
+      path.join(os.tmpdir(), 'corpus-compress-citemap-'),
+    );
+    try {
+      const n = SHIP_BODY_CHUNK_SIZE + 5;
+      const units = [];
+      for (let i = 0; i < n; i++) {
+        units.push({
+          consecutivo: String(i + 1),
+          contenido: `Ap verse ${i + 1}`,
+          biblia: {
+            libro: 'apocalipsis',
+            capitulo: '1',
+            versiculo: i + 1,
+          },
+        });
+      }
+      const dir = path.join(tmpBible, 'documents', 'bible-es');
+      fs.mkdirSync(dir, { recursive: true });
+      fs.writeFileSync(path.join(dir, 'content.json'), JSON.stringify(units));
+      fs.writeFileSync(
+        path.join(dir, 'index.json'),
+        JSON.stringify({ indice: { a: [0] } }),
+      );
+      fs.writeFileSync(
+        path.join(tmpBible, 'manifest.json'),
+        JSON.stringify({ version: '1', documents: [{ id: 'bible-es' }] }),
+      );
+      compressCorpusTree(tmpBible);
+      const citeMap = JSON.parse(
+        fs.readFileSync(path.join(dir, 'cite-map.json'), 'utf8'),
+      );
+      assert.strictEqual(citeMap.v, 1);
+      assert.strictEqual(citeMap.books.apocalipsis['1']['1'], 0);
+      assert.strictEqual(citeMap.books.apocalipsis['1'][String(n)], n - 1);
+      const built = buildBibleCiteMap(units);
+      assert.deepStrictEqual(built.books.apocalipsis['1']['2'], 1);
+      console.log('  cite-map beside chunks OK');
+    } finally {
+      fs.rmSync(tmpBible, { recursive: true, force: true });
     }
   }
 

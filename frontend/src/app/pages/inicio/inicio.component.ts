@@ -319,7 +319,9 @@ export class InicioComponent implements OnInit, OnDestroy {
     this.pasajeVerses = [];
     this.pasajeSpeech = '';
     this.sub.add(
-      this.corpus.ensureLoaded(this.bibleDocId).subscribe({
+      this.corpus
+        .ensureForCitedPassage(this.bibleDocId, { citeLabel: r.cite })
+        .subscribe({
         next: (doc) => {
           if (token !== this.pasajeToken) return;
           this.listeningLecturaId = null;

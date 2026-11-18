@@ -31,4 +31,5 @@ Preconditions:
 
 - `/` is the empty parent route in `app-routing.module.ts`, not a pages path. The pages catch-all is `**`.
 - Readings are date-dependent. An empty `data-testid="inicio-lecturas-empty"` is a valid day outside Ordinary Time. Do not fail the welcome screen for that.
+- Leer / Escuchar hydrates via `CorpusService.ensureForCitedPassage` (cite-map + chunks) into `resolveCitedPassageFromCite`. With `cite-map.json` present it must not wait on a full bible `content.json` parse.
 - Empezar is a button, not a link. The drive asserts the label, not a URL change.

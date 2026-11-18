@@ -14,7 +14,8 @@
  * Does NOT reindex units, rename document ids, or change consecutivo /
  * contenido / non-empty referencias. Packs with more than SHIP_BODY_CHUNK_SIZE
  * units replace content.json with chunks.json + c/N.json so the reader can
- * JSON.parse a window instead of the whole book.
+ * JSON.parse a window instead of the whole book. Bible packs also write
+ * cite-map.json (libro→capítulo→versículo→unitIndex) for citation preload.
  * Does NOT delete sibling packs under papacy/ santoral/ context/ search/
  * (except --drop-unused-sidecars, which removes every patristic-verse-hits.json).
  *
@@ -267,8 +268,40 @@ function dropAiDocuments(rootDir, opts = {}) {
 }
 
 /**
+ * Compact libro → capítulo → versículo → unitIndex for citation preload.
+ * @param {unknown[]} units
+ * @returns {{ v: 1, books: Record<string, Record<string, Record<string, number>>> } | null}
+ */
+function buildBibleCiteMap(units) {
+  if (!Array.isArray(units) || !units.length) return null;
+  /** @type {Record<string, Record<string, Record<string, number>>>} */
+  const books = {};
+  let hits = 0;
+  for (let i = 0; i < units.length; i++) {
+    const unit = units[i];
+    if (!unit || typeof unit !== 'object' || Array.isArray(unit)) continue;
+    const biblia = /** @type {{ biblia?: { libro?: unknown, capitulo?: unknown, versiculo?: unknown } }} */ (
+      unit
+    ).biblia;
+    if (!biblia || biblia.libro == null) continue;
+    const libro = String(biblia.libro);
+    const ch = String(biblia.capitulo ?? '');
+    const v = String(biblia.versiculo ?? '');
+    if (!books[libro]) books[libro] = {};
+    if (!books[libro][ch]) books[libro][ch] = {};
+    if (books[libro][ch][v] == null) {
+      books[libro][ch][v] = i;
+      hits += 1;
+    }
+  }
+  if (!hits) return null;
+  return { v: 1, books };
+}
+
+/**
  * Split a content.json unit array into chunks.json + c/N.json and drop the
  * original body file. Caller has already compacted the units.
+ * When units carry `biblia`, also writes cite-map.json for fast cite preload.
  * @param {string} docDir documents/<id>
  * @param {unknown[]} units
  * @param {{ dryRun?: boolean, chunkSize?: number }} [opts]
@@ -302,6 +335,10 @@ function writeShipChunks(docDir, units, opts = {}) {
       path.join(docDir, 'c', `${c}.json`),
       units.slice(c * chunkSize, (c + 1) * chunkSize),
     );
+  }
+  const citeMap = buildBibleCiteMap(units);
+  if (citeMap) {
+    writeFile(path.join(docDir, 'cite-map.json'), citeMap);
   }
   return { files, bytes, chunks: chunkCount };
 }
@@ -718,6 +755,7 @@ module.exports = {
   compressJsonBuffer,
   compressCorpusTree,
   writeShipChunks,
+  buildBibleCiteMap,
   SHIP_BODY_CHUNK_SIZE,
   readingSnapshot,
   readingTextHash,

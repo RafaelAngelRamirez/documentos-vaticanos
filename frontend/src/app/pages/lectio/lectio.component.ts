@@ -207,7 +207,9 @@ export class LectioComponent implements OnInit, OnDestroy {
     const token = ++this.pasajeToken;
     this.opening = true;
     this.sub.add(
-      this.corpus.ensureLoaded(this.bibleDocId).subscribe({
+      this.corpus
+        .ensureForCitedPassage(this.bibleDocId, { citeLabel: cite })
+        .subscribe({
         next: (doc) => {
           if (token !== this.pasajeToken) return;
           this.opening = false;

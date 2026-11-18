@@ -164,6 +164,11 @@ export function shipChunkPathFromBody(bodyPath: string, chunk: number): string {
   return String(bodyPath || '').replace(/content\.json$/i, `c/${chunk}.json`);
 }
 
+/** Bible citation index written next to ship chunks (corpus-compress). */
+export function citeMapPathFromBody(bodyPath: string): string {
+  return String(bodyPath || '').replace(/content\.json$/i, 'cite-map.json');
+}
+
 /**
  * Expand a ship index (`v: 2` delta lists) into the classic
  * `{ indice, indice_por_punto }` shape. Returns null when `raw` is not
