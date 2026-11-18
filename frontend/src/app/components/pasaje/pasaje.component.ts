@@ -18,6 +18,6 @@ export class PasajeComponent {
   @Input() label = '';
 
   trackVerse(_index: number, verse: CitedVerse): string {
-    return `${verse.chapter}:${verse.verse}`;
+    return `${verse.index}:${verse.chapter}:${verse.verse}`;
   }
 }

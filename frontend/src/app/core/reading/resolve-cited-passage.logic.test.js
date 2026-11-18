@@ -111,7 +111,7 @@ async function main() {
   );
   assert.strictEqual(picked.verses[1].spanBreakBefore, true);
 
-  // Doc-to-doc: only the anchored unit.
+  // Doc-to-doc: a single locator stays that unit.
   const cic = [
     unit(13, null, 0, 0, 'unidad previa', { consecutivo: '13' }),
     unit(14, null, 0, 0, 'unidad de la fe y del conocimiento', {
@@ -131,6 +131,103 @@ async function main() {
   assert.ok(docCite.verses[0].text.includes('unidad de la fe'));
   assert.ok(!docCite.verses[0].text.includes('previa'));
   assert.ok(!docCite.verses[0].text.includes('siguiente'));
+
+  assert.deepStrictEqual(mod.parseDocumentUnitSpans('cf.  CT 20-22; 25', 20), [
+    { start: 20, end: 22 },
+    { start: 25, end: 25 },
+  ]);
+  assert.deepStrictEqual(mod.parseDocumentUnitSpans('cf. GS 19-21', 19), [
+    { start: 19, end: 21 },
+  ]);
+  assert.deepStrictEqual(mod.parseDocumentUnitSpans('GS 19,1', 19), [
+    { start: 19, end: 19 },
+  ]);
+  assert.deepStrictEqual(mod.parseDocumentUnitSpans('cf GS 78, 1-2', 78), [
+    { start: 78, end: 78 },
+  ]);
+  assert.deepStrictEqual(mod.parseDocumentUnitSpans('cf LG 40; 48-51', 40), [
+    { start: 40, end: 40 },
+    { start: 48, end: 51 },
+  ]);
+  assert.deepStrictEqual(mod.parseDocumentUnitSpans('CD 4,36-37', 4), [
+    { start: 4, end: 4 },
+  ]);
+  assert.deepStrictEqual(
+    mod.parseDocumentUnitSpans('LG 42-43; PC 1', 42),
+    [{ start: 42, end: 43 }],
+  );
+  assert.deepStrictEqual(
+    mod.parseDocumentUnitSpans('cf Concilio de Trento: DS 1712-13', 1712),
+    [{ start: 1712, end: 1713 }],
+  );
+  assert.deepStrictEqual(mod.parseDocumentUnitSpans('AG 5.6.38', 5), [
+    { start: 5, end: 5 },
+    { start: 6, end: 6 },
+    { start: 38, end: 38 },
+  ]);
+
+  const ct = JSON.parse(
+    fs.readFileSync(
+      path.resolve(__dirname, '../../../../../documentos/corpus/documents/ct-es/content.json'),
+      'utf8',
+    ),
+  );
+  const ctCite = mod.resolveCitedPassageFromLocalRef(
+    'ct-es',
+    19,
+    'cf.  CT 20-22; 25',
+    ct,
+  );
+  assert.ok(ctCite);
+  assert.deepStrictEqual(
+    ctCite.verses.map((v) => v.verse),
+    [20, 21, 22, 25],
+  );
+  assert.deepStrictEqual(
+    ctCite.verses.map((v) => v.spanBreakBefore),
+    [false, false, false, true],
+  );
+  assert.ok(ctCite.verses[0].text.includes('finalidad específica'));
+  assert.ok(ctCite.verses[1].text.includes('discurso de clausura'));
+  assert.ok(ctCite.verses[2].text.includes('ortopraxis'));
+  assert.ok(ctCite.verses[3].text.includes('kerygma'));
+  assert.ok(!ctCite.verses.some((v) => v.verse === 23 || v.verse === 24));
+  assert.ok(!ctCite.speechText.includes('acción litúrgica'));
+
+  const gs = JSON.parse(
+    fs.readFileSync(
+      path.resolve(__dirname, '../../../../../documentos/corpus/documents/gs-es/content.json'),
+      'utf8',
+    ),
+  );
+  const gsCite = mod.resolveCitedPassageFromLocalRef(
+    'gs-es',
+    18,
+    'cf.  GS 19-21',
+    gs,
+  );
+  assert.ok(gsCite);
+  assert.deepStrictEqual(
+    gsCite.verses.map((v) => v.verse),
+    [19, 20, 21],
+  );
+  assert.ok(gsCite.verses.every((v) => !v.spanBreakBefore));
+  assert.ok(gsCite.verses[0].text.includes('unión con Dios'));
+  assert.ok(gsCite.verses[1].text.includes('ateísmo moderno'));
+  assert.ok(gsCite.verses[2].text.includes('reprobar'));
+  assert.ok(!gsCite.speechText.includes('enigma de la vida'));
+  assert.ok(!gsCite.speechText.includes('Verbo encarnado'));
+
+  const subsection = mod.resolveCitedPassageFromLocalRef(
+    'gs-es',
+    18,
+    'GS 19,1',
+    gs,
+  );
+  assert.deepStrictEqual(
+    subsection.verses.map((v) => v.verse),
+    [19],
+  );
 
   console.log('ok resolve-cited-passage');
 }
