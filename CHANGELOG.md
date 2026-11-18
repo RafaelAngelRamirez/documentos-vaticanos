@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.57](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.56...v0.0.57) (2026-11-18)
+
+
+### Bug Fixes
+
+* **lector:** seguir en la palabra al cambiar voz o velocidad ([#86](https://github.com/RafaelAngelRamirez/documentos-vaticanos/issues/86)) ([3186e34](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/3186e3499561915eec1db2ba5406ec22dce2092c))
+
+### [0.0.56](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.55...v0.0.56) (2026-11-18)
+
+
+### Bug Fixes
+
+* **lector:** avoid stacking Chrome Android selection menu ([#89](https://github.com/RafaelAngelRamirez/documentos-vaticanos/issues/89)) ([4d22f85](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/4d22f85828d1d576edd07c3a39a3b8a2accfef52))
+
 ### [0.0.55](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.54...v0.0.55) (2026-11-17)
 
 ### [0.0.54](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.53...v0.0.54) (2026-11-17)

@@ -80,6 +80,7 @@ import {
   parseReadAloudCheckpoint,
   pickDeviceVoice,
   planSpeak,
+  utteranceRate,
   serializeReadAloudCheckpoint,
   toggleReadAloud,
   type ReadAloudPhase,
@@ -629,12 +630,9 @@ export class LectorComponent implements OnInit, OnDestroy {
     });
     this.narrRate = next.rate;
     this.narrPrefs.setRate(next.rate);
+    // El párrafo sigue. La voz nueva arranca en la palabra actual.
     if (next.restartFrom == null) return;
-    const from = next.restartFrom;
-    this.narrPlaying = false;
-    void this.narrator.cancel();
-    this.narrPhase = 'playing';
-    void this.startNarratorFrom(from);
+    void this.narrator.retune({ rate: this.narrUtteranceRate() });
   }
 
   /** Voces del TTS del dispositivo para el idioma del documento. */
@@ -662,7 +660,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     );
   }
 
-  /** 5D · Siguiente voz del dispositivo; si narra, reanuda el párrafo actual. */
+  /** Siguiente voz del dispositivo. Si narra, sigue en la palabra actual. */
   cycleVoice(): void {
     const next = cycleDeviceVoice(this.narrVoices, this.narrVoice?.id ?? null);
     if (!next) return;
@@ -670,11 +668,20 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.narrPrefs.setVoiceId(this.narrVoice.id);
     this.flashFeedback(`Voz: ${this.narrVoiceName}`);
     if (this.narrPhase !== 'playing') return;
-    const from = this.narrIndex;
-    this.narrPlaying = false;
-    void this.narrator.cancel();
-    this.narrPhase = 'playing';
-    void this.startNarratorFrom(from);
+    void this.narrator.retune({
+      voice: this.narrVoice,
+      lang: this.narrVoice.lang || this.speechLang(),
+    });
+  }
+
+  /** Ritmo de la unidad en curso, con la escala de los títulos. */
+  private narrUtteranceRate(): number {
+    const doc = this.document?.documento;
+    const hit =
+      doc && this.narrIndex >= 0
+        ? nextSpeakableIndex(doc as unknown[], this.narrIndex)
+        : null;
+    return utteranceRate(this.narrRate, hit?.prep.kind, hit?.prep.rateScale);
   }
 
   get narrVoiceName(): string {
