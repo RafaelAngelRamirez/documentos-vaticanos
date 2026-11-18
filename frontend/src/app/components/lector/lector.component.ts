@@ -474,7 +474,12 @@ export class LectorComponent implements OnInit, OnDestroy {
     const label = event.seg.label?.trim() || documentId;
     this.citeLoadSub?.unsubscribe();
     this.quickCite = { label, status: 'loading', passage: null };
-    this.citeLoadSub = this.corpus.ensureLoaded(documentId).subscribe({
+    this.citeLoadSub = this.corpus
+      .ensureForCitedPassage(documentId, {
+        citeLabel: label,
+        anchorIndex: anchor,
+      })
+      .subscribe({
       next: (doc) => {
         if (!this.quickCite || this.quickCite.label !== label) return;
         const units = (doc.documento || []) as Article[];

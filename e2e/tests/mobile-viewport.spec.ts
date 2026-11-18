@@ -575,15 +575,32 @@ async function stubOfflineBible(page: Page): Promise<void> {
   const body = JSON.stringify(units);
   const index = JSON.stringify({ indice: { a: [33833] }, indice_por_punto: {} });
   const chunks = JSON.stringify({ unitCount: 0, chunkSize: 0 });
-  await page.route(/bible-pueblo-de-dios-es\/(content|index|chunks)\.json$/, (route) => {
-    const url = route.request().url();
-    const payload = url.includes('content.json')
-      ? body
-      : url.includes('chunks.json')
-        ? chunks
-        : index;
-    return route.fulfill({ contentType: 'application/json', body: payload });
-  });
+  const books: Record<string, Record<string, Record<string, number>>> = {};
+  for (let i = 0; i < units.length; i++) {
+    const u = units[i] as {
+      biblia?: { libro?: string; capitulo?: string; versiculo?: number };
+    };
+    const b = u.biblia;
+    if (!b?.libro) continue;
+    if (!books[b.libro]) books[b.libro] = {};
+    if (!books[b.libro][String(b.capitulo)]) books[b.libro][String(b.capitulo)] = {};
+    books[b.libro][String(b.capitulo)][String(b.versiculo)] = i;
+  }
+  const citeMap = JSON.stringify({ v: 1, books });
+  await page.route(
+    /bible-pueblo-de-dios-es\/(content|index|chunks|cite-map)\.json$/,
+    (route) => {
+      const url = route.request().url();
+      const payload = url.includes('content.json')
+        ? body
+        : url.includes('cite-map.json')
+          ? citeMap
+          : url.includes('chunks.json')
+            ? chunks
+            : index;
+      return route.fulfill({ contentType: 'application/json', body: payload });
+    },
+  );
 }
 
 async function stubOfflineCt(page: Page): Promise<void> {
