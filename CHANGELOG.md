@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.57](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.56...v0.0.57) (2026-11-18)
+
+
+### Bug Fixes
+
+* **lector:** seguir en la palabra al cambiar voz o velocidad ([#86](https://github.com/RafaelAngelRamirez/documentos-vaticanos/issues/86)) ([3186e34](https://github.com/RafaelAngelRamirez/documentos-vaticanos/commit/3186e3499561915eec1db2ba5406ec22dce2092c))
+
 ### [0.0.56](https://github.com/RafaelAngelRamirez/documentos-vaticanos/compare/v0.0.55...v0.0.56) (2026-11-18)
 
 
