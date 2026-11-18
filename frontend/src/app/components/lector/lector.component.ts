@@ -85,6 +85,13 @@ import {
   quickReadVerses,
   type QuickVerse,
 } from 'src/app/core/liturgia/cite-quick-read.logic';
+import {
+  clipSelectionExcerpt,
+  keepSelectionPopoverOnCollapse,
+  selectionPopoverPosition,
+  shouldClearNativeSelectionMenu,
+  type SelectionMenuEnv,
+} from 'src/app/core/reading/selection-menu.logic';
 
 const CONTEXT_SIZE = 5;
 /** Max units kept in the DOM (sliding window). */
@@ -131,6 +138,11 @@ export class LectorComponent implements OnInit, OnDestroy {
   selExcerpt = '';
   selUnitIndex: number | null = null;
   selFeedback: string | null = null;
+  /**
+   * True after clearing the native Selection so Chrome's ActionMode dismisses
+   * while the app popover keeps the excerpt.
+   */
+  private selHold = false;
 
   /** 4B: sheet de nueva nota. */
   notaOpen = false;
@@ -195,11 +207,59 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.scrollPending = true;
     requestAnimationFrame(() => {
       this.scrollPending = false;
-      if (this.selPop) this.selPop = null;
+      if (this.selPop || this.selHold) {
+        this.selHold = false;
+        this.selPop = null;
+      }
       this.updateBarsVisibility();
       this.updateVisibleUnit();
     });
   };
+
+  private readonly onContextMenu = (e: Event): void => {
+    if (this.selPop || this.selHold) {
+      e.preventDefault();
+      return;
+    }
+    const t = e.target as Node | null;
+    if (!t || !this.host.nativeElement.contains(t)) return;
+    if (shouldClearNativeSelectionMenu(this.selectionMenuEnv())) {
+      e.preventDefault();
+    }
+  };
+
+  /** After clearing the native Selection, a tap outside the popover closes it. */
+  private readonly onPointerDownCapture = (e: PointerEvent): void => {
+    if (!this.selPop || !this.selHold) return;
+    const path = typeof e.composedPath === 'function' ? e.composedPath() : [];
+    const inPop = path.some(
+      (n) => n instanceof Element && n.classList.contains('selpop'),
+    );
+    if (inPop) return;
+    this.dismissSelection();
+  };
+
+  private selectionMenuEnv(): SelectionMenuEnv {
+    const mm = (q: string): boolean => {
+      try {
+        return !!window.matchMedia?.(q).matches;
+      } catch {
+        return false;
+      }
+    };
+    let isNativePlatform = false;
+    try {
+      isNativePlatform = Capacitor.isNativePlatform();
+    } catch {
+      isNativePlatform = false;
+    }
+    return {
+      userAgent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+      pointerCoarse: typeof window !== 'undefined' && mm('(pointer: coarse)'),
+      hoverNone: typeof window !== 'undefined' && mm('(hover: none)'),
+      isNativePlatform,
+    };
+  }
 
   /** F4: oculta las barras al bajar >24px, las muestra al subir.
    *  Siempre visibles en los extremos, con ajustes/narrador abiertos,
@@ -303,8 +363,8 @@ export class LectorComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     // 7A: el back cierra el popover de selección antes de navegar.
     this.unregisterBack = this.back.register(() => {
-      if (this.selPop) {
-        this.selPop = null;
+      if (this.selPop || this.selHold) {
+        this.dismissSelection();
         return true;
       }
       return false;
@@ -332,6 +392,8 @@ export class LectorComponent implements OnInit, OnDestroy {
     if (typeof document !== 'undefined') {
       document.addEventListener('selectionchange', this.onSelectionChange);
       document.addEventListener('visibilitychange', this.onVisibility);
+      document.addEventListener('contextmenu', this.onContextMenu);
+      document.addEventListener('pointerdown', this.onPointerDownCapture, true);
     }
     this.narrRate = this.narrPrefs.rate;
     if (this.narrSupported) {
@@ -363,6 +425,12 @@ export class LectorComponent implements OnInit, OnDestroy {
     if (typeof document !== 'undefined') {
       document.removeEventListener('selectionchange', this.onSelectionChange);
       document.removeEventListener('visibilitychange', this.onVisibility);
+      document.removeEventListener('contextmenu', this.onContextMenu);
+      document.removeEventListener(
+        'pointerdown',
+        this.onPointerDownCapture,
+        true,
+      );
     }
     if (this.selDebounce) clearTimeout(this.selDebounce);
     if (this.feedbackTimer) clearTimeout(this.feedbackTimer);
@@ -1012,6 +1080,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     if (this.selUnitIndex == null || !this.selExcerpt) return;
     this.notaText = '';
     this.notaOpen = true;
+    this.selHold = false;
     this.selPop = null;
   }
 
@@ -1063,14 +1132,22 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   private evaluateSelection(): void {
-    if (this.notaOpen) return;
     const sel = typeof window !== 'undefined' ? window.getSelection() : null;
-    if (!sel || sel.isCollapsed || sel.rangeCount === 0) {
+    const collapsed = !sel || sel.isCollapsed || sel.rangeCount === 0;
+    const phase = keepSelectionPopoverOnCollapse({
+      notaOpen: this.notaOpen,
+      holdingClearedSelection: this.selHold,
+      selectionCollapsed: collapsed,
+    });
+    if (phase === 'ignore') return;
+    if (phase === 'dismiss') {
       this.selPop = null;
       return;
     }
+    if (!sel) return;
     const text = sel.toString().trim();
     if (!text || text.length < 3) {
+      this.selHold = false;
       this.selPop = null;
       return;
     }
@@ -1079,22 +1156,29 @@ export class LectorComponent implements OnInit, OnDestroy {
     const el = node instanceof Element ? node : node.parentElement;
     const puntoEl = el?.closest?.('[data-unit]') ?? null;
     if (!puntoEl || !this.host.nativeElement.contains(puntoEl)) {
+      this.selHold = false;
       this.selPop = null;
       return;
     }
     const unit = Number(puntoEl.getAttribute('data-unit'));
     if (!Number.isFinite(unit)) {
+      this.selHold = false;
       this.selPop = null;
       return;
     }
     const rect = range.getBoundingClientRect();
     const width = typeof window !== 'undefined' ? window.innerWidth : 360;
-    this.selExcerpt = text.length > 280 ? `${text.slice(0, 277)}…` : text;
+    this.selExcerpt = clipSelectionExcerpt(text);
     this.selUnitIndex = unit;
-    this.selPop = {
-      top: Math.max(64, rect.top - 10),
-      left: Math.min(Math.max(rect.left + rect.width / 2, 92), width - 92),
-    };
+    this.selPop = selectionPopoverPosition(rect, width);
+    // Chrome Android ActionMode cannot be suppressed while a Selection is
+    // live; clearing it dismisses the native menu. Excerpt stays for actions.
+    if (shouldClearNativeSelectionMenu(this.selectionMenuEnv())) {
+      this.selHold = true;
+      sel.removeAllRanges();
+    } else {
+      this.selHold = false;
+    }
   }
 
   private saveAnnotation(kind: 'subrayado' | 'nota', nota?: string): boolean {
@@ -1112,6 +1196,7 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   private dismissSelection(): void {
+    this.selHold = false;
     if (typeof window !== 'undefined') {
       window.getSelection()?.removeAllRanges();
     }

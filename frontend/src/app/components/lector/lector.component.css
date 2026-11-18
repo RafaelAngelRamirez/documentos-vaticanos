@@ -5,6 +5,11 @@
   color: var(--ink);
 }
 
+/* iOS callout; Chrome Android ActionMode is dismissed by clearing Selection. */
+.rtxt {
+  -webkit-touch-callout: none;
+}
+
 .app.rpaper {
   min-height: 100vh;
 }
