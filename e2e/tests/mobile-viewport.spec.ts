@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { expect, type Page, test } from '@playwright/test';
 
 /**
@@ -524,6 +526,7 @@ test.describe('viewport móvil 390×844', () => {
       test.setTimeout(120_000);
       expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
 
+      await stubCanonicalDoc(page, 'ct-es');
       await page.goto('/leyendo/cic-es/punto/105');
       await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/105/, { timeout: 60_000 });
       const cite = page.getByRole('link', { name: /CT 20-22/ }).first();
@@ -562,6 +565,7 @@ test.describe('viewport móvil 390×844', () => {
       test.setTimeout(120_000);
       expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
 
+      await stubCanonicalDoc(page, 'gs-es');
       await page.goto('/leyendo/cic-es/punto/123');
       await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/123/, { timeout: 60_000 });
       const cite = page.getByRole('link', { name: /GS 19-21/ }).first();
@@ -845,6 +849,31 @@ async function stubOfflineBible(page: Page): Promise<void> {
       return route.fulfill({ contentType: 'application/json', body: payload });
     },
   );
+}
+
+/**
+ * CI's mobile dist seeds cic-es, the bible and lg-es. Other packs 404.
+ * Serve the canonical body (not a rewrite of the corpus) for this page only.
+ */
+async function stubCanonicalDoc(page: Page, id: string): Promise<void> {
+  const dir = path.resolve(
+    __dirname,
+    '../../documentos/corpus/documents',
+    id,
+  );
+  const body = fs.readFileSync(path.join(dir, 'content.json'), 'utf8');
+  const index = fs.readFileSync(path.join(dir, 'index.json'), 'utf8');
+  await page.route(new RegExp(`/${id}/(content|index|chunks)\\.json$`), (route) => {
+    const url = route.request().url();
+    if (url.includes('chunks.json')) {
+      return route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify({ unitCount: 0, chunkSize: 0 }),
+      });
+    }
+    const payload = url.includes('content.json') ? body : index;
+    return route.fulfill({ contentType: 'application/json', body: payload });
+  });
 }
 
 async function stubOfflineCt(page: Page): Promise<void> {
