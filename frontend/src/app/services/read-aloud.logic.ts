@@ -128,6 +128,11 @@ export function toggleReadAloud(opts: {
   return { action: 'speak', fromIndex: clampIndex(opts.visibleIndex) };
 }
 
+/**
+ * Siguiente peldaño. Si está sonando, `restartFrom` es el párrafo que
+ * sigue en curso: el motor continúa en la palabra actual (`retune`),
+ * no desde el primer carácter de ese párrafo.
+ */
 export function changeReadAloudRate(opts: {
   phase: ReadAloudPhase;
   rate: number;
