@@ -286,6 +286,183 @@ test.describe('viewport móvil 390×844', () => {
     await expect(page.locator('app-lector')).toBeVisible();
     await expect(page.locator('app-punto').first()).toBeVisible({ timeout: 60_000 });
   });
+
+  test('voz y velocidad siguen en la palabra', async ({ page }) => {
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await page.addInitScript(() => {
+      const voices = [
+        {
+          voiceURI: 'es-MX-mock-sabina',
+          name: 'Sabina',
+          lang: 'es-MX',
+          localService: true,
+          default: false,
+        },
+        {
+          voiceURI: 'es-ES-mock-paulina',
+          name: 'Paulina',
+          lang: 'es-ES',
+          localService: true,
+          default: true,
+        },
+      ];
+      class FakeUtterance {
+        text: string;
+        lang: string;
+        rate: number;
+        pitch: number;
+        volume: number;
+        voice: { voiceURI?: string } | null;
+        onend: (() => void) | null;
+        onerror: (() => void) | null;
+        onboundary: ((ev: { charIndex: number; name: string }) => void) | null;
+        constructor(text?: string) {
+          this.text = text == null ? '' : String(text);
+          this.lang = '';
+          this.rate = 1;
+          this.pitch = 1;
+          this.volume = 1;
+          this.voice = null;
+          this.onend = null;
+          this.onerror = null;
+          this.onboundary = null;
+        }
+      }
+      let current: FakeUtterance | null = null;
+      let timer = 0;
+      const synth = {
+        speaking: false,
+        pending: false,
+        paused: false,
+        getVoices: () => voices,
+        addEventListener: () => undefined,
+        removeEventListener: () => undefined,
+        pause() {
+          synth.paused = true;
+        },
+        resume() {
+          synth.paused = false;
+        },
+        cancel() {
+          if (timer) clearInterval(timer);
+          timer = 0;
+          synth.speaking = false;
+          synth.pending = false;
+          current = null;
+        },
+        speak(u: FakeUtterance) {
+          if (timer) clearInterval(timer);
+          current = u;
+          synth.speaking = true;
+          const marks: number[] = [];
+          const re = /\S+/g;
+          let found: RegExpExecArray | null = re.exec(u.text);
+          while (found) {
+            marks.push(found.index);
+            found = re.exec(u.text);
+          }
+          const rec = {
+            text: u.text,
+            rate: u.rate,
+            lang: u.lang,
+            voiceURI: (u.voice && u.voice.voiceURI) || '',
+            maxChar: 0,
+          };
+          const host = window as unknown as { __dvUtterances?: typeof rec[] };
+          const list = host.__dvUtterances || [];
+          list.push(rec);
+          host.__dvUtterances = list;
+          let step = 0;
+          timer = window.setInterval(() => {
+            if (current !== u || step >= marks.length) return;
+            const charIndex = marks[step] || 0;
+            step += 1;
+            rec.maxChar = charIndex;
+            if (u.onboundary) u.onboundary({ charIndex, name: 'word' });
+          }, 40);
+        },
+      };
+      Object.defineProperty(window, 'speechSynthesis', {
+        configurable: true,
+        writable: true,
+        value: synth,
+      });
+      Object.defineProperty(window, 'SpeechSynthesisUtterance', {
+        configurable: true,
+        writable: true,
+        value: FakeUtterance,
+      });
+    });
+
+    await page.goto('/leyendo/cic-es/punto/2');
+    await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/2/, { timeout: 60_000 });
+    await expect(page.locator('app-lector')).toBeVisible({ timeout: 60_000 });
+    await page.locator('[data-narr="play"]').click();
+    await page.waitForFunction(
+      () => {
+        const list = (window as unknown as { __dvUtterances?: { maxChar: number }[] })
+          .__dvUtterances;
+        return !!list && list.length >= 1 && list[0].maxChar > 0;
+      },
+      undefined,
+      { timeout: 15_000 },
+    );
+
+    await page.locator('.narr button.npill', { hasText: '×' }).click();
+    await page.waitForFunction(
+      () =>
+        ((window as unknown as { __dvUtterances?: unknown[] }).__dvUtterances
+          ?.length ?? 0) >= 2,
+      undefined,
+      { timeout: 15_000 },
+    );
+
+    const afterRate = await page.evaluate(() => {
+      const list = (
+        window as unknown as {
+          __dvUtterances: { text: string; rate: number }[];
+        }
+      ).__dvUtterances;
+      return [list[0], list[1]];
+    });
+    expect(afterRate[1].text.length).toBeGreaterThan(0);
+    expect(afterRate[1].text.length).toBeLessThan(afterRate[0].text.length);
+    expect(afterRate[0].text.endsWith(afterRate[1].text)).toBe(true);
+    expect(afterRate[1].rate).toBeGreaterThan(afterRate[0].rate);
+
+    await page.waitForFunction(
+      () => {
+        const list = (
+          window as unknown as { __dvUtterances?: { maxChar: number }[] }
+        ).__dvUtterances;
+        return !!list && list.length >= 2 && list[1].maxChar > 0;
+      },
+      undefined,
+      { timeout: 15_000 },
+    );
+    await page.getByRole('button', { name: /Cambiar voz/ }).click();
+    await page.waitForFunction(
+      () =>
+        ((window as unknown as { __dvUtterances?: unknown[] }).__dvUtterances
+          ?.length ?? 0) >= 3,
+      undefined,
+      { timeout: 15_000 },
+    );
+    const afterVoice = await page.evaluate(() => {
+      const list = (
+        window as unknown as {
+          __dvUtterances: { text: string; lang: string; voiceURI: string }[];
+        }
+      ).__dvUtterances;
+      return [list[1], list[2]];
+    });
+    expect(afterVoice[1].text.length).toBeGreaterThan(0);
+    expect(afterVoice[1].text.length).toBeLessThan(afterVoice[0].text.length);
+    expect(afterVoice[0].text.endsWith(afterVoice[1].text)).toBe(true);
+    expect(afterVoice[1].voiceURI).toBe('es-MX-mock-sabina');
+    expect(afterVoice[1].lang).toBe('es-MX');
+    expect(afterVoice[0].lang).not.toBe(afterVoice[1].lang);
+  });
 });
 
 /** Browser/Android back. Stays on this origin: the gesture must not unload the SPA. */
