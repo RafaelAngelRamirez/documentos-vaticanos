@@ -519,6 +519,74 @@ test.describe('viewport móvil 390×844', () => {
       await expect(sheet).toHaveCount(0);
       await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/79/);
     });
+
+    test('cita CT 20-22; 25 trae el rango y el salto', async ({ page }) => {
+      test.setTimeout(120_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+
+      await page.goto('/leyendo/cic-es/punto/105');
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/105/, { timeout: 60_000 });
+      const cite = page.getByRole('link', { name: /CT 20-22/ }).first();
+      await expect(cite).toBeVisible({ timeout: 30_000 });
+      await cite.click();
+
+      const sheet = page.getByRole('dialog', { name: 'Lectura rápida' });
+      await expect(sheet).toBeVisible();
+      const body = sheet.getByTestId('cite-quick-body');
+      await expectCitedText(sheet, 'finalidad específica de la catequesis');
+      await expect(body).toContainText('discurso de clausura');
+      await expect(body).toContainText('ortopraxis');
+      await expect(body).toContainText('kerygma');
+      await expect(body).not.toContainText('acción litúrgica');
+      await expect(body).not.toContainText('acción responsable');
+      const numbers = await body
+        .getByTestId('pasaje-verse')
+        .evaluateAll((els) => els.map((el) => el.getAttribute('data-verse')));
+      expect(numbers).toEqual(['20', '21', '22', '25']);
+      await expect(body.getByTestId('pasaje-span-gap')).toHaveCount(1);
+      const gapBefore25 = await body.evaluate((root) => {
+        const gap = root.querySelector('[data-testid="pasaje-span-gap"]');
+        const verse = root.querySelector('[data-verse="25"]');
+        return !!(gap && verse && gap.nextElementSibling === verse);
+      });
+      expect(gapBefore25).toBe(true);
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/105/);
+      await expect(page).not.toHaveURL(/\/leyendo\/ct-es/);
+
+      await pressBrowserBack(page);
+      await expect(sheet).toHaveCount(0);
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/105/);
+    });
+
+    test('cita GS 19-21 trae el rango continuo', async ({ page }) => {
+      test.setTimeout(120_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+
+      await page.goto('/leyendo/cic-es/punto/123');
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/123/, { timeout: 60_000 });
+      const cite = page.getByRole('link', { name: /GS 19-21/ }).first();
+      await expect(cite).toBeVisible({ timeout: 30_000 });
+      await cite.click();
+
+      const sheet = page.getByRole('dialog', { name: 'Lectura rápida' });
+      await expect(sheet).toBeVisible();
+      const body = sheet.getByTestId('cite-quick-body');
+      await expectCitedText(sheet, 'unión con Dios');
+      await expect(body).toContainText('ateísmo moderno');
+      await expect(body).toContainText('no puede dejar de reprobar');
+      await expect(body).not.toContainText('enigma de la vida');
+      await expect(body).not.toContainText('Verbo encarnado');
+      const numbers = await body
+        .getByTestId('pasaje-verse')
+        .evaluateAll((els) => els.map((el) => el.getAttribute('data-verse')));
+      expect(numbers).toEqual(['19', '20', '21']);
+      await expect(body.getByTestId('pasaje-span-gap')).toHaveCount(0);
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/123/);
+      await expect(page).not.toHaveURL(/\/leyendo\/gs-es/);
+
+      await pressBrowserBack(page);
+      await expect(sheet).toHaveCount(0);
+    });
   });
   test('voz y velocidad siguen en la palabra', async ({ page }) => {
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });

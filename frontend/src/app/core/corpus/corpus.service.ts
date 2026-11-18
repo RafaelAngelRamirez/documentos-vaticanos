@@ -22,7 +22,14 @@ import {
   unitIndexesForPassage,
   type BibleCiteMap,
 } from '../liturgia/cite-map.logic';
-import { normalizeCiteForParse } from '../reading/resolve-cited-passage.logic';
+import {
+  documentParagraphNumber,
+  indexOfParagraphNumber,
+  isOfflineBibleId,
+  normalizeCiteForParse,
+  parseDocumentUnitSpans,
+  type DocumentUnitSpan,
+} from '../reading/resolve-cited-passage.logic';
 import {
   assetUrlToPackRel,
   filesFromZip,
@@ -405,6 +412,20 @@ export class CorpusService {
     }
 
     const label = (opts.citeLabel || '').trim();
+    const anchor = opts.anchorIndex;
+    if (
+      !isOfflineBibleId(documentId) &&
+      label &&
+      typeof anchor === 'number' &&
+      Number.isInteger(anchor) &&
+      anchor >= 0
+    ) {
+      const spans = parseDocumentUnitSpans(label);
+      if (spans?.length) {
+        return this.loadDocumentSpans(documentId, anchor, spans);
+      }
+    }
+
     const passage: ParsedPassage | null = label
       ? parseLectionaryPassage(normalizeCiteForParse(label))
       : null;
@@ -440,6 +461,109 @@ export class CorpusService {
     }
 
     return this.engine.ensureLoaded(documentId) as Promise<LoadedDocument>;
+  }
+
+  /**
+   * Load the paragraph runs a document citation names.
+   * A pack without chunks comes back whole. A chunked pack loads the anchor
+   * chunk first, then only the chunks that hold a run still missing.
+   */
+  private async loadDocumentSpans(
+    documentId: string,
+    anchor: number,
+    spans: readonly DocumentUnitSpan[],
+  ): Promise<LoadedDocument> {
+    let loaded = (await this.engine.ensureUnits(
+      documentId,
+      anchor,
+      anchor + 1,
+    )) as LoadedDocument;
+    if (!loaded?.partial) return loaded;
+
+    const unitCount = loaded.meta?.unitCount || loaded.documento?.length || 0;
+    if (unitCount <= 0) return loaded;
+
+    const locate = async (n: number): Promise<number | null> => {
+      const have = indexOfParagraphNumber(loaded.documento, n);
+      if (have != null) return have;
+      const found = await this.searchParagraphIndex(documentId, n, unitCount);
+      const fresh = this.engine.getLoaded(documentId) as
+        | LoadedDocument
+        | undefined;
+      if (fresh) loaded = fresh;
+      return found;
+    };
+
+    for (const span of spans) {
+      const startIdx = await locate(span.start);
+      const endIdx =
+        span.end === span.start ? startIdx : await locate(span.end);
+      const bounds = [startIdx, endIdx].filter(
+        (n): n is number => typeof n === 'number',
+      );
+      if (!bounds.length) continue;
+      const from = Math.min(...bounds);
+      const to = Math.max(...bounds) + 1;
+      if (to <= from + 1) continue;
+      if (to - from > 400) {
+        loaded = (await this.engine.ensureUnits(
+          documentId,
+          from,
+          from + 1,
+        )) as LoadedDocument;
+        loaded = (await this.engine.ensureUnits(
+          documentId,
+          to - 1,
+          to,
+        )) as LoadedDocument;
+        continue;
+      }
+      loaded = (await this.engine.ensureUnits(
+        documentId,
+        from,
+        to,
+      )) as LoadedDocument;
+    }
+
+    return (
+      (this.engine.getLoaded(documentId) as LoadedDocument | undefined) ||
+      loaded
+    );
+  }
+
+  /** Paragraph numbers increase with the unit index, with titles in between. */
+  private async searchParagraphIndex(
+    documentId: string,
+    target: number,
+    unitCount: number,
+  ): Promise<number | null> {
+    let lo = 0;
+    let hi = unitCount - 1;
+    for (let guard = 0; guard < 24 && lo <= hi; guard++) {
+      const cached = this.engine.getLoaded(documentId) as
+        | LoadedDocument
+        | undefined;
+      const direct = indexOfParagraphNumber(cached?.documento, target);
+      if (direct != null) return direct;
+      const mid = (lo + hi) >> 1;
+      if (!cached?.documento?.[mid]) {
+        await this.engine.ensureUnits(documentId, mid, mid + 1);
+      }
+      const doc = (
+        this.engine.getLoaded(documentId) as LoadedDocument | undefined
+      )?.documento;
+      const again = indexOfParagraphNumber(doc, target);
+      if (again != null) return again;
+      const probe = nearestParagraph(doc, mid, lo, hi);
+      if (!probe) return null;
+      if (probe.value === target) return probe.index;
+      if (probe.value < target) lo = Math.max(lo + 1, probe.index + 1);
+      else hi = Math.min(hi - 1, probe.index - 1);
+    }
+    const doc = (
+      this.engine.getLoaded(documentId) as LoadedDocument | undefined
+    )?.documento;
+    return indexOfParagraphNumber(doc, target);
   }
 
   private async loadCiteMap(
@@ -728,4 +852,24 @@ export class CorpusService {
       ),
     ).pipe(map((rows) => rows.filter((d): d is T => d != null)));
   }
+}
+
+function nearestParagraph(
+  units: readonly { consecutivo?: string }[] | null | undefined,
+  mid: number,
+  lo: number,
+  hi: number,
+): { index: number; value: number } | null {
+  if (!units?.length) return null;
+  const left = Math.max(0, lo);
+  const right = Math.min(units.length - 1, hi);
+  for (let delta = 0; delta <= right - left; delta++) {
+    const candidates = delta === 0 ? [mid] : [mid - delta, mid + delta];
+    for (const index of candidates) {
+      if (index < left || index > right) continue;
+      const value = documentParagraphNumber(units[index]?.consecutivo);
+      if (value != null) return { index, value };
+    }
+  }
+  return null;
 }
