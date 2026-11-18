@@ -337,3 +337,22 @@
   gap: 14px;
   margin-top: 16px;
 }
+
+.cite-quick-label {
+  font-family: var(--app-font-serif, 'EB Garamond', Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 10px 0 0;
+}
+
+.cite-quick-status {
+  margin-top: 12px;
+}
+
+.cite-quick-body {
+  max-height: min(52vh, 420px);
+  overflow: auto;
+  margin-top: 12px;
+  padding-right: 4px;
+}

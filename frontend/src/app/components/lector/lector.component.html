@@ -345,4 +345,33 @@
       </button>
     </div>
   </dv-sheet>
+
+  <dv-sheet
+    *ngIf="quickCite"
+    label="Lectura rápida"
+    (closed)="closeQuickCite()"
+  >
+    <div class="fs12 muted shead">Lectura rápida</div>
+    <h2 class="cite-quick-label">{{ quickCite.label }}</h2>
+    <p *ngIf="quickCite.status === 'loading'" class="fs13 muted cite-quick-status">
+      Leyendo el corpus…
+    </p>
+    <p
+      *ngIf="quickCite.status === 'missing'"
+      class="fs13 cite-quick-status"
+      data-testid="cite-quick-missing"
+    >
+      Este pasaje no está en el corpus de este dispositivo.
+    </p>
+    <div
+      *ngIf="quickCite.status === 'ready' && quickCite.passage"
+      class="cite-quick-body"
+      data-testid="cite-quick-body"
+    >
+      <app-pasaje
+        [verses]="quickCite.passage.verses"
+        [label]="quickCite.label"
+      ></app-pasaje>
+    </div>
+  </dv-sheet>
 </div>

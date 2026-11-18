@@ -49,7 +49,13 @@ import {
   type UnitIndex,
 } from 'src/app/core/reading/cite';
 import { DvSheetComponent } from '../dv-sheet/dv-sheet.component';
+import { PasajeComponent } from '../pasaje/pasaje.component';
 import { WbarComponent } from '../wbar/wbar.component';
+import {
+  resolveCitedPassageFromLocalRef,
+  type CitedPassage,
+} from 'src/app/core/reading/resolve-cited-passage.logic';
+import type { Article } from 'src/app/core/corpus/corpus.models';
 import {
   NarratorService,
   NarratorVoice,
@@ -104,7 +110,14 @@ interface ThemeOption {
 @Component({
   selector: 'app-lector',
   standalone: true,
-  imports: [CommonModule, FormsModule, PuntoModule, DvSheetComponent, WbarComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    PuntoModule,
+    DvSheetComponent,
+    PasajeComponent,
+    WbarComponent,
+  ],
   templateUrl: './lector.component.html',
   styleUrls: ['./lector.component.css'],
 })
@@ -143,6 +156,17 @@ export class LectorComponent implements OnInit, OnDestroy {
   /** 4B: sheet de nueva nota. */
   notaOpen = false;
   notaText = '';
+
+  /**
+   * Shared cited-passage sheet (bible or doc-to-doc).
+   * Back closes it before climbing the reader hierarchy.
+   */
+  quickCite: {
+    label: string;
+    status: 'loading' | 'ready' | 'missing';
+    passage: CitedPassage | null;
+  } | null = null;
+  private citeLoadSub: Subscription | null = null;
 
   /** F4: barras auto-ocultables al desplazar. */
   barsHidden = false;
@@ -274,7 +298,11 @@ export class LectorComponent implements OnInit, OnDestroy {
         y,
         atTop: y < 48,
         atBottom: y + window.innerHeight >= doc.scrollHeight - 48,
-        uiOpen: this.prefsOpen || this.notaOpen || this.narrPlaying,
+        uiOpen:
+          this.prefsOpen ||
+          this.notaOpen ||
+          !!this.quickCite ||
+          this.narrPlaying,
         jumpGuardsBars: this.jumpGuardsBars,
       },
     );
@@ -399,6 +427,8 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.narrator.releaseReadAloudSession();
     this.loadSub?.unsubscribe();
     this.loadSub = null;
+    this.citeLoadSub?.unsubscribe();
+    this.citeLoadSub = null;
     this.sub.unsubscribe();
     this.io?.disconnect();
     if (typeof window !== 'undefined') {
@@ -432,11 +462,51 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Citation click from app-punto. Navigation still happens inside PuntoComponent.openRef;
-   * this hook is reserved for a future preview sheet without blocking the build.
+   * Citation click: load the target pack and show only the cited units
+   * through the shared resolver. Route and cite stack stay put.
    */
-  onCitationPreview(_event: CitationPreview): void {
-    // no-op for now
+  onCitationPreview(event: CitationPreview): void {
+    const local = event.seg.local;
+    if (!local) return;
+    const docId = parseDocumentId(local.idDocumento);
+    const anchor = parseUnitIndex(local.idPunto);
+    if (!docId || anchor == null) return;
+    const documentId = documentIdKey(docId);
+    const label = event.seg.label?.trim() || documentId;
+    this.citeLoadSub?.unsubscribe();
+    this.quickCite = { label, status: 'loading', passage: null };
+    this.citeLoadSub = this.corpus
+      .ensureForCitedPassage(documentId, {
+        citeLabel: label,
+        anchorIndex: anchor,
+      })
+      .subscribe({
+      next: (doc) => {
+        if (!this.quickCite || this.quickCite.label !== label) return;
+        const units = (doc.documento || []) as Article[];
+        const passage = resolveCitedPassageFromLocalRef(
+          documentId,
+          anchor,
+          label,
+          units,
+        );
+        this.quickCite = {
+          label,
+          status: passage?.verses.length ? 'ready' : 'missing',
+          passage,
+        };
+      },
+      error: () => {
+        if (!this.quickCite || this.quickCite.label !== label) return;
+        this.quickCite = { label, status: 'missing', passage: null };
+      },
+    });
+  }
+
+  closeQuickCite(): void {
+    this.citeLoadSub?.unsubscribe();
+    this.citeLoadSub = null;
+    this.quickCite = null;
   }
 
   get narrSupported(): boolean {

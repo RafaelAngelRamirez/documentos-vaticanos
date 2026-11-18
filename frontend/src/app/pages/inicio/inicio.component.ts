@@ -25,6 +25,7 @@ import {
   canContinueSaintReading,
   saintDocumentId,
 } from 'src/app/core/santoral/santoral-units.logic';
+import { PasajeComponent } from 'src/app/components/pasaje/pasaje.component';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { Article } from 'src/app/core/corpus/corpus.models';
 import {
@@ -35,13 +36,13 @@ import {
   LecturaItem,
   lecturasForLiturgicalDate,
 } from 'src/app/core/liturgia/lecturas-del-dia.logic';
-import {
-  findBibleUnitIndex,
-  parseLectionaryCite,
-} from 'src/app/core/liturgia/bible-cite.logic';
+import { CitedVerse } from 'src/app/core/liturgia/bible-cite.logic';
+import { resolveCitedPassageFromCite } from 'src/app/core/reading/resolve-cited-passage.logic';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import { NavigationService } from 'src/app/services/navigation.service';
+import { NarratorService } from 'src/app/services/narrator.service';
+import { speechLangForDocumentLocale } from 'src/app/services/speech-lang.logic';
 import { resolveCoverReadingIndex } from 'src/app/services/open-reading.logic';
 import { ReadingProgressService } from 'src/app/services/reading-progress.service';
 import { environment } from 'src/environments/environment';
@@ -92,7 +93,7 @@ export function resolveAppVersionLabel(
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css'],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, PasajeComponent],
 })
 export class InicioComponent implements OnInit, OnDestroy {
   /** Quick-download icons only on public web (not native / Electron shell). */
@@ -133,6 +134,10 @@ export class InicioComponent implements OnInit, OnDestroy {
   lecturasToday: LecturaItem[] = [];
   liturgicalLabel = '';
   listeningLecturaId: string | null = null;
+  pasajeId: string | null = null;
+  pasajeVerses: CitedVerse[] = [];
+  private pasajeSpeech = '';
+  private pasajeToken = 0;
   private bibleDocId = 'bible-pueblo-de-dios-es';
 
   private sub = new Subscription();
@@ -156,6 +161,7 @@ export class InicioComponent implements OnInit, OnDestroy {
     private progress: ReadingProgressService,
     private corpus: CorpusService,
     private readerPrefs: ReaderPreferencesService,
+    private narrator: NarratorService,
     public i18n: UiI18nService,
   ) {
     this.sub.add(
@@ -233,6 +239,7 @@ export class InicioComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+    void this.narrator.cancel();
   }
 
   /** Platform gate; overridden in unit tests for web vs native shells. */
@@ -300,31 +307,55 @@ export class InicioComponent implements OnInit, OnDestroy {
     this.openLecturaAt(r, true);
   }
 
+  /**
+   * The row shows only the verses named in the citation (shared resolver).
+   * Escuchar speaks that list. The full bible is not opened.
+   */
   private openLecturaAt(r: LecturaItem, autoNarr: boolean): void {
-    const parsed = parseLectionaryCite(r.cite);
-    if (!parsed || this.listeningLecturaId) return;
+    if (!r.cite || this.listeningLecturaId) return;
+    const token = ++this.pasajeToken;
     this.listeningLecturaId = r.id;
+    this.pasajeId = r.id;
+    this.pasajeVerses = [];
+    this.pasajeSpeech = '';
     this.sub.add(
-      this.corpus.ensureLoaded(this.bibleDocId).subscribe({
+      this.corpus
+        .ensureForCitedPassage(this.bibleDocId, { citeLabel: r.cite })
+        .subscribe({
         next: (doc) => {
+          if (token !== this.pasajeToken) return;
           this.listeningLecturaId = null;
           const units = (doc.documento || []) as Article[];
-          const idx = findBibleUnitIndex(units, parsed);
-          if (idx == null) {
-            this.router.navigate(['/documento', this.bibleDocId]);
-            return;
-          }
-          this.navigation.openReading(this.bibleDocId, {
-            unitIndex: idx,
-            autoNarr,
-          });
+          const resolved = resolveCitedPassageFromCite(
+            this.bibleDocId,
+            r.cite,
+            units,
+          );
+          this.pasajeVerses = resolved?.verses ?? [];
+          this.pasajeSpeech = resolved?.speechText ?? '';
+          if (autoNarr) void this.speakPasaje();
         },
         error: () => {
+          if (token !== this.pasajeToken) return;
           this.listeningLecturaId = null;
-          this.router.navigate(['/documento', this.bibleDocId]);
+          this.pasajeVerses = [];
+          this.pasajeSpeech = '';
         },
       }),
     );
+  }
+
+  private async speakPasaje(): Promise<void> {
+    const text = this.pasajeSpeech.trim();
+    if (!text) return;
+    await this.narrator.cancel();
+    const locale =
+      this.corpus.getMeta(this.bibleDocId)?.locale ||
+      this.readerPrefs.resolveContentLocale();
+    await this.narrator.speak(text, {
+      lang: speechLangForDocumentLocale(locale),
+      rate: 1,
+    });
   }
 
   /**

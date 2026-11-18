@@ -3,8 +3,41 @@ import { expect, type Page, test } from '@playwright/test';
 /**
  * Phone layout smoke at 390×844 (project mobile-390).
  * Portada, lector, biblioteca, document cover, offline reading history,
- * browser back hierarchy, and Sal 15 shown-number.
+ * browser back hierarchy, Sal 15 shown-number, and the cited-verse passage.
  */
+
+function bibleUnit(
+  libro: string,
+  chapter: string,
+  verse: number,
+  text: string,
+) {
+  return {
+    consecutivo: `${libro} ${chapter}, ${verse}`,
+    contenido: `${verse} ${text}`,
+    referencias: [],
+    biblia: {
+      consecutivo_versiculo: `${chapter}, ${verse}`,
+      versiculo: verse,
+      capitulo: chapter,
+      libro,
+      index_general: String(verse),
+    },
+  };
+}
+
+const BIBLE_FIXTURE = [
+  bibleUnit('apocalipsis', '3', 1, 'Escribe al Angel de la Iglesia de Sardes.'),
+  bibleUnit('apocalipsis', '3', 6, 'El que pueda entender, que entienda lo que el Espíritu dice a las Iglesias.'),
+  bibleUnit('apocalipsis', '3', 7, 'Escribe al Angel de la Iglesia de Filadelfia.'),
+  bibleUnit('apocalipsis', '3', 13, 'Obligaré a los de la sinagoga de Satanás.'),
+  bibleUnit('apocalipsis', '3', 14, 'Escribe al Angel de la Iglesia de Laodicea.'),
+  bibleUnit('apocalipsis', '3', 22, 'El que pueda entender, que entienda lo que el Espíritu dice a las Iglesias.'),
+  bibleUnit('evangelio segun san lucas', '19', 1, 'Jesús entró en Jericó y atravesaba la ciudad, donde estaba Zaqueo.'),
+  bibleUnit('evangelio segun san lucas', '19', 5, 'Jesús le dijo: Zaqueo, baja pronto.'),
+  bibleUnit('evangelio segun san lucas', '19', 10, 'El Hijo del hombre vino a buscar y a salvar lo que estaba perdido.'),
+  bibleUnit('evangelio segun san lucas', '19', 11, 'Este versículo queda fuera de la cita.'),
+];
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => {
     const prefs = {
@@ -287,6 +320,206 @@ test.describe('viewport móvil 390×844', () => {
     await expect(page.locator('app-punto').first()).toBeVisible({ timeout: 60_000 });
   });
 
+  test.describe('pasaje citado', () => {
+    // Block the SW so page.route can stub the bible body (dist seeds the real pack).
+    test.use({ serviceWorkers: 'block' });
+
+    test('pasaje citado sin versículos intermedios', async ({ page }) => {
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    // Freeze calendar day only; do not install fake timers (Angular HTTP/CD).
+    await page.clock.setFixedTime(new Date(2026, 10, 17, 12, 0, 0));
+    await page.addInitScript(() => {
+      const spoken: string[] = [];
+      (window as unknown as { __spoken: string[] }).__spoken = spoken;
+      const synth = window.speechSynthesis;
+      synth.cancel = () => undefined;
+      synth.getVoices = () => [];
+      synth.speak = (utterance: SpeechSynthesisUtterance) => {
+        spoken.push(utterance.text);
+        utterance.onend?.(new Event('end') as SpeechSynthesisEvent);
+      };
+    });
+    await page.route('**/bible-pueblo-de-dios-es/**', async (route) => {
+      const url = route.request().url();
+      if (url.includes('chunks.json') || url.includes('/c/')) {
+        await route.fulfill({ status: 404, body: '' });
+        return;
+      }
+      if (url.includes('index.json')) {
+        await route.fulfill({
+          status: 200,
+          contentType: 'application/json',
+          body: JSON.stringify({ indice: { a: [0] }, indice_por_punto: {} }),
+        });
+        return;
+      }
+      if (url.includes('content.json')) {
+        await route.fulfill({
+          status: 200,
+          contentType: 'application/json',
+          body: JSON.stringify(BIBLE_FIXTURE),
+        });
+        return;
+      }
+      await route.continue();
+    });
+
+    await page.goto('/inicio');
+    const first = page.locator('[data-lectura-id="first-0"]');
+    await expect(first).toContainText('Ap 3,1-6.14-22', { timeout: 30_000 });
+    await first.getByTestId('inicio-lectura-read').click();
+    const pasaje = first.getByTestId('inicio-pasaje');
+    await expect(pasaje).toBeVisible({ timeout: 30_000 });
+    await expect(pasaje.getByTestId('pasaje-verse')).toHaveCount(4);
+    await expect(pasaje.getByTestId('pasaje-span-gap')).toHaveCount(1);
+    const numbers = await pasaje
+      .getByTestId('pasaje-verse')
+      .evaluateAll((els) => els.map((el) => el.getAttribute('data-verse')));
+    expect(numbers).toEqual(['1', '6', '14', '22']);
+    await expect(pasaje).toContainText('Sardes');
+    await expect(pasaje).toContainText('Laodicea');
+    await expect(pasaje).not.toContainText('Filadelfia');
+    await expect(pasaje).not.toContainText('sinagoga de Satanás');
+    // Gap sits between the 1–6 span and the 14–22 span (before verse 14).
+    const gapBefore = await pasaje.evaluate((root) => {
+      const gap = root.querySelector('[data-testid="pasaje-span-gap"]');
+      const verse14 = root.querySelector('[data-verse="14"]');
+      return !!(gap && verse14 && gap.nextElementSibling === verse14);
+    });
+    expect(gapBefore).toBe(true);
+
+    await first.getByTestId('inicio-lectura-listen').click();
+    await expect
+      .poll(async () =>
+        page.evaluate(
+          () => (window as unknown as { __spoken: string[] }).__spoken.join('\n'),
+        ),
+      )
+      .toContain('Sardes');
+    const spoken = await page.evaluate(
+      () => (window as unknown as { __spoken: string[] }).__spoken.join('\n'),
+    );
+    expect(spoken).toContain('Laodicea');
+    expect(spoken).not.toContain('Filadelfia');
+    expect(spoken).not.toContain('sinagoga de Satanás');
+
+    await page.goto('/lectio');
+    const gospel = page.getByTestId('lectio-gospel-excerpt');
+    await expect(gospel).toBeVisible({ timeout: 30_000 });
+    const gospelNumbers = await gospel
+      .getByTestId('pasaje-verse')
+      .evaluateAll((els) => els.map((el) => el.getAttribute('data-verse')));
+    expect(gospelNumbers).toEqual(['1', '5', '10']);
+    await expect(gospel).toContainText('Zaqueo');
+    await expect(gospel).not.toContainText('fuera de la cita');
+
+    await page.locator('[data-testid="lectio-reading"][data-cite="Ap 3,1-6.14-22"]').click();
+    await expect(gospel.getByTestId('pasaje-verse')).toHaveCount(4);
+    await expect(gospel.getByTestId('pasaje-span-gap')).toHaveCount(1);
+    const lectioNumbers = await gospel
+      .getByTestId('pasaje-verse')
+      .evaluateAll((els) => els.map((el) => el.getAttribute('data-verse')));
+    expect(lectioNumbers).toEqual(['1', '6', '14', '22']);
+    await expect(gospel).toContainText('Sardes');
+    await expect(gospel).not.toContainText('Filadelfia');
+    await expect(gospel).not.toContainText('sinagoga de Satanás');
+
+    await page.getByTestId('lectio-gospel-listen').click();
+    await expect
+      .poll(async () =>
+        page.evaluate(
+          () => (window as unknown as { __spoken: string[] }).__spoken.at(-1) || '',
+        ),
+      )
+      .toContain('Sardes');
+    const gospelSpoken = await page.evaluate(
+      () => (window as unknown as { __spoken: string[] }).__spoken.at(-1) || '',
+    );
+    expect(gospelSpoken).toContain('Laodicea');
+    expect(gospelSpoken).not.toContain('Filadelfia');
+    expect(gospelSpoken).not.toContain('sinagoga de Satanás');
+    expect(gospelSpoken).not.toContain('Zaqueo');
+    const inner = await page.evaluate(() => window.innerWidth);
+    expect(inner).toBeLessThan(1024);
+  });
+  });
+
+  test.describe('cita compartida', () => {
+    test.use({ serviceWorkers: 'block' });
+
+    test('cita bíblica desde doc abre la hoja citada', async ({ page }) => {
+      test.setTimeout(120_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      await stubOfflineBible(page);
+
+      await page.goto('/leyendo/cic-es/punto/14');
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/14/, { timeout: 60_000 });
+      await expect(page.locator('app-punto').first()).toBeVisible({ timeout: 60_000 });
+
+      const cite = page.getByRole('link', { name: 'Ef 4, 13' }).first();
+      await expect(cite).toBeVisible({ timeout: 30_000 });
+      await cite.click();
+
+      const sheet = page.getByRole('dialog', { name: 'Lectura rápida' });
+      await expect(sheet).toBeVisible();
+      await expectCitedText(sheet, 'hasta que todos lleguemos a la unidad de la fe');
+      await expect(sheet.getByTestId('pasaje')).toBeVisible();
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/14/);
+      await expect(page).not.toHaveURL(/bible-pueblo/);
+
+      await pressBrowserBack(page);
+      await expect(sheet).toHaveCount(0);
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/14/);
+    });
+
+    test('cita bíblica discontinua en la hoja', async ({ page }) => {
+      test.setTimeout(120_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      await stubOfflineBible(page);
+
+      await page.goto('/leyendo/cic-es/punto/51');
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/51/, { timeout: 60_000 });
+      const cite = page.getByRole('link', { name: 'cf. St 2, 14-26' }).first();
+      await expect(cite).toBeVisible({ timeout: 30_000 });
+      await cite.click();
+
+      const sheet = page.getByRole('dialog', { name: 'Lectura rápida' });
+      await expect(sheet).toBeVisible();
+      const body = sheet.getByTestId('cite-quick-body');
+      await expectCitedText(sheet, 'santiago verso 14');
+      await expect(body).toContainText('santiago verso 26');
+      await expect(body).not.toContainText('santiago verso 27');
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/51/);
+
+      await pressBrowserBack(page);
+      await expect(sheet).toHaveCount(0);
+    });
+
+    test('cita doc-a-doc abre solo la unidad citada', async ({ page }) => {
+      test.setTimeout(120_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      await stubOfflineCt(page);
+
+      await page.goto('/leyendo/cic-es/punto/79');
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/79/, { timeout: 60_000 });
+      const cite = page.getByRole('link', { name: 'CT 18' }).first();
+      await expect(cite).toBeVisible({ timeout: 30_000 });
+      await cite.click();
+
+      const sheet = page.getByRole('dialog', { name: 'Lectura rápida' });
+      await expect(sheet).toBeVisible();
+      await expectCitedText(sheet, 'catequesis no puede disociarse');
+      await expect(sheet.getByTestId('cite-quick-body')).not.toContainText(
+        'unidad fuera de la cita',
+      );
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/79/);
+      await expect(page).not.toHaveURL(/\/leyendo\/ct-es/);
+
+      await pressBrowserBack(page);
+      await expect(sheet).toHaveCount(0);
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/79/);
+    });
+  });
   test('voz y velocidad siguen en la palabra', async ({ page }) => {
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
     await page.addInitScript(() => {
@@ -464,6 +697,120 @@ test.describe('viewport móvil 390×844', () => {
     expect(afterVoice[0].lang).not.toBe(afterVoice[1].lang);
   });
 });
+
+/**
+ * Cuerpo mínimo de la Biblia offline para la hoja de lectura rápida.
+ * Solo por page.route: no tocar el dist (Sal 15 y otros workers leen el seed).
+ */
+async function expectCitedText(
+  sheet: ReturnType<Page['getByRole']>,
+  text: string,
+): Promise<void> {
+  const settled = sheet.locator(
+    '[data-testid="cite-quick-body"], [data-testid="cite-quick-missing"]',
+  );
+  await expect(settled).toBeVisible({ timeout: 30_000 });
+  await expect(sheet.getByTestId('cite-quick-missing')).toHaveCount(0);
+  await expect(sheet.getByTestId('cite-quick-body')).toContainText(text);
+}
+
+async function stubOfflineBible(page: Page): Promise<void> {
+  const units: unknown[] = Array.from({ length: 35652 }, () => ({
+    contenido: '',
+  }));
+  const put = (
+    index: number,
+    book: string,
+    chapter: number,
+    verse: number,
+    text: string,
+  ) => {
+    units[index] = {
+      consecutivo: String(index),
+      contenido: `${verse} ${text}`,
+      biblia: {
+        libro: book,
+        capitulo: String(chapter),
+        versiculo: verse,
+        consecutivo_versiculo: `${book} ${chapter}, ${verse}`,
+        index_general: String(index),
+      },
+    };
+  };
+  put(
+    33833,
+    'carta a los efesios',
+    4,
+    13,
+    'hasta que todos lleguemos a la unidad de la fe',
+  );
+  for (let verse = 14; verse <= 26; verse++) {
+    put(34841 + verse, 'carta de santiago', 2, verse, `santiago verso ${verse}`);
+  }
+  put(34841 + 27, 'carta de santiago', 2, 27, 'santiago verso 27');
+  const body = JSON.stringify(units);
+  const index = JSON.stringify({ indice: { a: [33833] }, indice_por_punto: {} });
+  const chunks = JSON.stringify({ unitCount: 0, chunkSize: 0 });
+  const books: Record<string, Record<string, Record<string, number>>> = {};
+  for (let i = 0; i < units.length; i++) {
+    const u = units[i] as {
+      biblia?: { libro?: string; capitulo?: string; versiculo?: number };
+    };
+    const b = u.biblia;
+    if (!b?.libro) continue;
+    if (!books[b.libro]) books[b.libro] = {};
+    if (!books[b.libro][String(b.capitulo)]) books[b.libro][String(b.capitulo)] = {};
+    books[b.libro][String(b.capitulo)][String(b.versiculo)] = i;
+  }
+  const citeMap = JSON.stringify({ v: 1, books });
+  await page.route(
+    /bible-pueblo-de-dios-es\/(content|index|chunks|cite-map)\.json$/,
+    (route) => {
+      const url = route.request().url();
+      const payload = url.includes('content.json')
+        ? body
+        : url.includes('cite-map.json')
+          ? citeMap
+          : url.includes('chunks.json')
+            ? chunks
+            : index;
+      return route.fulfill({ contentType: 'application/json', body: payload });
+    },
+  );
+}
+
+async function stubOfflineCt(page: Page): Promise<void> {
+  const units = [
+    { consecutivo: '17', contenido: '17 unidad fuera de la cita' },
+    {
+      consecutivo: '18',
+      contenido:
+        '18. La catequesis no puede disociarse del conjunto de actividades pastorales',
+      index_array: 17,
+    },
+    { consecutivo: '19', contenido: '19 unidad fuera de la cita' },
+  ];
+  // Pack arrays are index-aligned: idPunto 17 → units[17].
+  const packed: unknown[] = Array.from({ length: 20 }, (_, i) => ({
+    consecutivo: String(i),
+    contenido: `${i} unidad fuera de la cita`,
+    index_array: i,
+  }));
+  packed[17] = units[1];
+  const body = JSON.stringify(packed);
+  const index = JSON.stringify({ indice: { a: [17] }, indice_por_punto: {} });
+  await page.route(/\/ct-es\/(content|index|chunks)\.json$/, (route) => {
+    const url = route.request().url();
+    if (url.includes('chunks.json')) {
+      return route.fulfill({
+        contentType: 'application/json',
+        body: JSON.stringify({ unitCount: 0, chunkSize: 0 }),
+      });
+    }
+    const payload = url.includes('content.json') ? body : index;
+    return route.fulfill({ contentType: 'application/json', body: payload });
+  });
+}
 
 /** Browser/Android back. Stays on this origin: the gesture must not unload the SPA. */
 async function pressBrowserBack(page: Page): Promise<void> {
