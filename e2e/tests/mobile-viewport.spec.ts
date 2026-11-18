@@ -76,6 +76,54 @@ test.describe('viewport móvil 390×844', () => {
     expect(inner).toBeLessThan(1024);
   });
 
+  test('lector selección sin menú nativo apilado', async ({ page }) => {
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'userAgent', {
+        configurable: true,
+        get: () =>
+          'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36',
+      });
+    });
+    await page.goto('/leyendo/cic-es/punto/2');
+    await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/2/, { timeout: 60_000 });
+    const rich = page.locator('app-punto[data-unit="7"]');
+    await expect(rich).toBeVisible({ timeout: 60_000 });
+
+    const selected = await rich.evaluate((el) => {
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      let node: Text | null = null;
+      while (walker.nextNode()) {
+        const cur = walker.currentNode as Text;
+        if (cur.textContent && cur.textContent.trim().length >= 24) {
+          node = cur;
+          break;
+        }
+      }
+      if (!node || !node.textContent) return false;
+      const start = node.textContent.search(/\S/);
+      if (start < 0) return false;
+      const end = Math.min(start + 40, node.textContent.length);
+      const range = document.createRange();
+      range.setStart(node, start);
+      range.setEnd(node, end);
+      const sel = window.getSelection();
+      if (!sel) return false;
+      sel.removeAllRanges();
+      sel.addRange(range);
+      return sel.toString().trim().length >= 3;
+    });
+    expect(selected).toBe(true);
+
+    await expect(page.locator('.selpop')).toBeVisible({ timeout: 5_000 });
+    await expect(page.locator('.selpop')).toContainText('Copiar');
+    const collapsed = await page.evaluate(() => {
+      const sel = window.getSelection();
+      return !sel || sel.isCollapsed || sel.rangeCount === 0;
+    });
+    expect(collapsed).toBe(true);
+  });
+
   test('biblioteca', async ({ page }) => {
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
     await page.goto('/biblioteca');
