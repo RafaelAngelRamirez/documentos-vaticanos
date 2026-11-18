@@ -23,8 +23,8 @@ function main() {
 
   assert.ok(/path:\s*'lectio'/.test(routing), 'route /lectio');
   assert.ok(/app-pasaje/.test(html), 'passage reader on lectio');
-  assert.ok(/collectCitedVerses/.test(ts), 'cited verses only');
-  assert.ok(/passageSpeechText/.test(ts), 'speech uses the passage');
+  assert.ok(/resolveCitedPassageFromCite/.test(ts), 'shared cited-passage resolver');
+  assert.ok(/resolveCitedPassageFromCite/.test(inicioTs), 'inicio uses shared resolver');
   assert.ok(/listenPassage/.test(ts + html), 'listen speaks the passage on screen');
   assert.ok(/data-testid=["']lectio-gospel-read["']/.test(html));
   assert.ok(/data-testid=["']lectio-gospel-listen["']/.test(html));

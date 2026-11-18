@@ -15,12 +15,8 @@ import {
 } from 'src/app/core/lectio/lectio-day.logic';
 import { LECTIO_STEPS } from 'src/app/core/lectio/lectio-steps';
 import { PalabraDelDiaService } from 'src/app/core/lectio/palabra-del-dia.service';
-import {
-  CitedVerse,
-  collectCitedVerses,
-  parseLectionaryPassage,
-  passageSpeechText,
-} from 'src/app/core/liturgia/bible-cite.logic';
+import { CitedVerse } from 'src/app/core/liturgia/bible-cite.logic';
+import { resolveCitedPassageFromCite } from 'src/app/core/reading/resolve-cited-passage.logic';
 import { LecturaItem } from 'src/app/core/liturgia/lecturas-del-dia.logic';
 import {
   calendarSaintLabel,
@@ -200,19 +196,14 @@ export class LectioComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Show only the verses the citation names. `speak` reads that list.
+   * Show only the verses the citation names (shared resolver).
    * The full bible stays closed: a jump must not pull in the verses between.
    */
   private showPassage(cite: string, speak: boolean, focus = false): void {
-    const passage = parseLectionaryPassage(cite);
     this.pasajeCite = cite;
     this.pasajeVerses = [];
     this.pasajeSpeech = '';
-    if (!passage || !this.bibleDocId) {
-      this.pasajeVerses = [];
-      this.pasajeSpeech = '';
-      return;
-    }
+    if (!cite || !this.bibleDocId) return;
     const token = ++this.pasajeToken;
     this.opening = true;
     this.sub.add(
@@ -221,9 +212,13 @@ export class LectioComponent implements OnInit, OnDestroy {
           if (token !== this.pasajeToken) return;
           this.opening = false;
           const units = (doc.documento || []) as Article[];
-          const verses = collectCitedVerses(units, passage);
-          this.pasajeVerses = verses;
-          this.pasajeSpeech = passageSpeechText(verses);
+          const resolved = resolveCitedPassageFromCite(
+            this.bibleDocId,
+            cite,
+            units,
+          );
+          this.pasajeVerses = resolved?.verses ?? [];
+          this.pasajeSpeech = resolved?.speechText ?? '';
           if (focus) this.focusPassage();
           if (speak) void this.speakPassage();
         },

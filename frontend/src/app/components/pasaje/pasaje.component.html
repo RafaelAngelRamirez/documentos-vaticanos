@@ -13,7 +13,7 @@
       [attr.data-chapter]="v.chapter"
       [attr.data-verse]="v.verse"
     >
-      <span class="pasaje-num">{{ v.verse }}</span
+      <span class="pasaje-num" *ngIf="v.verse > 0">{{ v.verse }}</span
       >{{ v.text }}
     </p>
   </ng-container>

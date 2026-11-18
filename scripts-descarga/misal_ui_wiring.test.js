@@ -38,7 +38,10 @@ function main() {
   );
   assert.ok(/lecturasForLiturgicalDate/.test(ts), 'liturgical picker');
   assert.ok(/openReading/.test(ts), 'saint listen still opens the lector');
-  assert.ok(/collectCitedVerses/.test(ts), 'lecturas extract the cited verses');
+  assert.ok(
+    /resolveCitedPassageFromCite/.test(ts),
+    'lecturas use the shared cited-passage resolver',
+  );
   assert.ok(/data-testid=["']inicio-pasaje["']/.test(html), 'passage on the row');
 
   const calHtml = read('pages/santoral/santoral.component.html');

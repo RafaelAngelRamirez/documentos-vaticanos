@@ -36,12 +36,8 @@ import {
   LecturaItem,
   lecturasForLiturgicalDate,
 } from 'src/app/core/liturgia/lecturas-del-dia.logic';
-import {
-  CitedVerse,
-  collectCitedVerses,
-  parseLectionaryPassage,
-  passageSpeechText,
-} from 'src/app/core/liturgia/bible-cite.logic';
+import { CitedVerse } from 'src/app/core/liturgia/bible-cite.logic';
+import { resolveCitedPassageFromCite } from 'src/app/core/reading/resolve-cited-passage.logic';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import { NavigationService } from 'src/app/services/navigation.service';
@@ -312,12 +308,11 @@ export class InicioComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * The row shows only the verses named in the citation.
+   * The row shows only the verses named in the citation (shared resolver).
    * Escuchar speaks that list. The full bible is not opened.
    */
   private openLecturaAt(r: LecturaItem, autoNarr: boolean): void {
-    const passage = parseLectionaryPassage(r.cite);
-    if (!passage || this.listeningLecturaId) return;
+    if (!r.cite || this.listeningLecturaId) return;
     const token = ++this.pasajeToken;
     this.listeningLecturaId = r.id;
     this.pasajeId = r.id;
@@ -329,9 +324,13 @@ export class InicioComponent implements OnInit, OnDestroy {
           if (token !== this.pasajeToken) return;
           this.listeningLecturaId = null;
           const units = (doc.documento || []) as Article[];
-          const verses = collectCitedVerses(units, passage);
-          this.pasajeVerses = verses;
-          this.pasajeSpeech = passageSpeechText(verses);
+          const resolved = resolveCitedPassageFromCite(
+            this.bibleDocId,
+            r.cite,
+            units,
+          );
+          this.pasajeVerses = resolved?.verses ?? [];
+          this.pasajeSpeech = resolved?.speechText ?? '';
           if (autoNarr) void this.speakPasaje();
         },
         error: () => {
