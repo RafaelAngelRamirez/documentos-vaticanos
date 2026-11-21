@@ -19,6 +19,11 @@ export interface NarratorVoice {
   lang: string;
   /** Índice nativo del motor de sistema; -1 si es Grok. */
   index: number;
+  /**
+   * Voz del aparato, sin red. `false` si el motor la marca remota.
+   * Ausente en Grok. Si hay alguna local del idioma, las remotas no se listan.
+   */
+  local?: boolean;
   /** Proveedor de síntesis. Por defecto `system`. */
   provider?: 'system' | 'grok';
   /** voice_id de xAI cuando provider === 'grok'. */

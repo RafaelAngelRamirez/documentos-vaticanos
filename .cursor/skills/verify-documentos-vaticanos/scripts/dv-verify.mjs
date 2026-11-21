@@ -587,6 +587,12 @@ async function drive(name) {
     }
     const excerpt = (await page.locator('body').innerText()).replace(/\s+/g, ' ').trim().slice(0, 280);
     lines.push(`excerpt ${excerpt}`);
+    // The 280-character excerpt stops at the language row. The Narrador
+    // section is further down, so a drive of Ajustes records it on its own line.
+    if (name === 'ajustes') {
+      const narr = await page.getByText('Narrador', { exact: false }).count();
+      lines.push(`narrador ${narr > 0 ? 'visible' : 'missing'}`);
+    }
   } catch (err) {
     failed = true;
     lines.push(`error ${err.message}`);

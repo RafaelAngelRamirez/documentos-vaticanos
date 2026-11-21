@@ -20,6 +20,12 @@ export interface NarratorDevicePrefs {
   /** Id de voz preferida (`voiceURI` o `grok:<id>`). null = default del sistema. */
   voiceId: string | null;
   /**
+   * Voz de dispositivo por prefijo de idioma (`es`, `en`…).
+   * No guarda ids `grok:`. Así el ciclo de un idioma no borra el de otro,
+   * y elegir Grok no pisa la voz offline de ese idioma.
+   */
+  voiceByLang: Record<string, string>;
+  /**
    * API key de console.x.ai **solo en este dispositivo**.
    * Vacío/null = Grok no disponible aquí. Nunca sincronizar a la nube.
    */
@@ -40,10 +46,26 @@ export interface NarratorDevicePrefs {
 export const DEFAULT_NARRATOR_DEVICE_PREFS: NarratorDevicePrefs = {
   grokEnabled: true,
   voiceId: null,
+  voiceByLang: {},
   xaiApiKey: null,
   readCitationPrefix: true,
   rate: 1,
 };
+
+/** Solo prefijos de idioma y voces de dispositivo. Descarta `grok:`. */
+export function normalizeVoiceByLang(raw: unknown): Record<string, string> {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return {};
+  const out: Record<string, string> = {};
+  for (const [key, value] of Object.entries(raw as Record<string, unknown>)) {
+    const prefix = String(key).split(/[-_]/)[0].toLowerCase();
+    if (!/^[a-z]{2,3}$/.test(prefix)) continue;
+    if (typeof value !== 'string') continue;
+    const id = value.trim();
+    if (!id || id.startsWith('grok:')) continue;
+    out[prefix] = id;
+  }
+  return out;
+}
 
 /** Peldaños de velocidad. Tiene que coincidir con `READ_ALOUD_RATES`. */
 export function normalizeNarratorRate(rate: unknown): number {
@@ -76,7 +98,10 @@ export function parseNarratorDevicePrefs(
   raw: string | null | undefined,
   legacyVoiceId?: string | null
 ): NarratorDevicePrefs {
-  let base: NarratorDevicePrefs = { ...DEFAULT_NARRATOR_DEVICE_PREFS };
+  let base: NarratorDevicePrefs = {
+    ...DEFAULT_NARRATOR_DEVICE_PREFS,
+    voiceByLang: { ...DEFAULT_NARRATOR_DEVICE_PREFS.voiceByLang },
+  };
   if (raw) {
     try {
       const parsed = JSON.parse(raw) as Partial<NarratorDevicePrefs>;
@@ -88,6 +113,7 @@ export function parseNarratorDevicePrefs(
       } else if (typeof parsed.voiceId === 'string' && parsed.voiceId.trim()) {
         base.voiceId = parsed.voiceId.trim();
       }
+      base.voiceByLang = normalizeVoiceByLang(parsed.voiceByLang);
       if (parsed.xaiApiKey === null || parsed.xaiApiKey === '') {
         base.xaiApiKey = null;
       } else if (typeof parsed.xaiApiKey === 'string') {
@@ -121,6 +147,7 @@ export function serializeNarratorDevicePrefs(
       prefs.voiceId == null || prefs.voiceId === ''
         ? null
         : String(prefs.voiceId),
+    voiceByLang: normalizeVoiceByLang(prefs.voiceByLang),
     xaiApiKey: normalizeXaiApiKey(prefs.xaiApiKey),
     readCitationPrefix: Boolean(prefs.readCitationPrefix),
     rate: normalizeNarratorRate(prefs.rate),
@@ -140,6 +167,7 @@ export function narratorPrefsForBackup(
     grokEnabled: Boolean(p.grokEnabled),
     voiceId:
       p.voiceId == null || p.voiceId === '' ? null : String(p.voiceId),
+    voiceByLang: normalizeVoiceByLang(p.voiceByLang),
     readCitationPrefix: Boolean(p.readCitationPrefix),
     rate: normalizeNarratorRate(p.rate),
     // xaiApiKey omitido a propósito
