@@ -1,0 +1,14 @@
+feature lectio
+viewport 390x844
+action GET /lectio
+action_url http://127.0.0.1:4219/lectio
+browser playwright-chromium
+viewport_actual 390x844
+inner 390x844
+reflection_visible true
+reflection_in_details false
+reflection_attr Benedicto XVI, Verbum Domini n. 102
+more_closed true
+reflection_excerpt En el contexto actual, es necesario más que nunca redescubrir la Palabra de Dios como fuente de reconciliación y paz, porque en ella Dios re
+result_url http://127.0.0.1:4219/lectio
+excerpt ← Lectio divina 2026-11-21 Lectio divina LECTURA DEL DÍA Lc 20,27-40 Leer el Evangelio Escuchar Primera lectura Ap 11,4-12 Salmo Sal 144 Evangelio Lc 20,27-40 REFLEXIÓN DEL DÍA En el contexto actual, es necesario más que nunca redescubrir la Palabra de Dios como fuente de reconci

@@ -43,11 +43,27 @@ export class PalabraDelDiaService {
     try {
       const xml = await this.getText(url);
       const parsed = parsePalabraDelDiaRss(xml, dateIso);
-      if (parsed) this.persist(parsed);
-      return parsed || this.loadCached();
+      if (parsed && this.matchesDay(parsed, dateIso)) {
+        this.persist(parsed);
+        return parsed;
+      }
+      return this.cachedForDay(dateIso);
     } catch {
-      return this.loadCached();
+      return this.cachedForDay(dateIso);
     }
+  }
+
+  /** Cache is usable only when it is the requested civil day. */
+  cachedForDay(dateIso?: string | null): PalabraDelDia | null {
+    const row = this.loadCached();
+    if (!row) return null;
+    if (dateIso && row.dateIso !== dateIso) return null;
+    return row;
+  }
+
+  private matchesDay(row: PalabraDelDia, dateIso?: string | null): boolean {
+    if (!dateIso) return true;
+    return row.dateIso === dateIso;
   }
 
   private async getText(url: string): Promise<string> {

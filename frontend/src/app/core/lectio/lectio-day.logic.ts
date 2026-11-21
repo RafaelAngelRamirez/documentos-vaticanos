@@ -10,11 +10,8 @@ import {
   liturgicalLabelEs,
 } from '../liturgia/liturgical-date.logic';
 import type { PalabraDelDia } from './palabra-del-dia.parse';
-import {
-  LECTIO_INTRO_DOC,
-  LECTIO_METHOD_DOC,
-  LECTIO_OFFLINE_REFLECTION,
-} from './lectio-steps';
+import { selectLectioReflection } from './lectio-reflection.logic';
+import { LECTIO_INTRO_DOC, LECTIO_METHOD_DOC } from './lectio-steps';
 
 export interface LectioSaintBrief {
   id: string;
@@ -29,7 +26,17 @@ export interface LectioDay {
   saints: LectioSaintBrief[];
   reflectionText: string | null;
   reflectionAttribution: string | null;
-  reflectionSourceUrl: string | null;
+  reflectionDocumentId: string | null;
+  reflectionUnitIndex: number;
+  /** Longer slice of the same corpus unit. Optional section. */
+  deepText: string | null;
+  /**
+   * Vatican News commentary only when the cache is this civil day.
+   * Never replaces the offline reflection and is never packed.
+   */
+  onlineExtraText: string | null;
+  onlineExtraAttribution: string | null;
+  onlineExtraSourceUrl: string | null;
   methodDoc: typeof LECTIO_METHOD_DOC;
   introDoc: typeof LECTIO_INTRO_DOC;
 }
@@ -73,18 +80,24 @@ export function buildLectioDay(args: {
   const lit = liturgicalDateOf(now);
   const readings = lecturasForLiturgicalDate(lit);
   const gospel = readings.find((r) => r.role === 'gospel') || null;
+  const offline = selectLectioReflection(lit);
   const word = args.palabra || null;
-  const overlay = word?.reflection?.text ? word.reflection : null;
+  const extra =
+    word && word.dateIso === dateIso && word.reflection?.text ? word : null;
   return {
     dateIso,
     liturgicalLabel: liturgicalLabelEs(lit),
     readings,
     gospel,
     saints: args.saints || [],
-    reflectionText: overlay?.text || LECTIO_OFFLINE_REFLECTION.text,
-    reflectionAttribution:
-      overlay?.attribution || LECTIO_OFFLINE_REFLECTION.attribution,
-    reflectionSourceUrl: word?.sourceUrl || null,
+    reflectionText: offline.text,
+    reflectionAttribution: offline.attribution,
+    reflectionDocumentId: offline.documentId,
+    reflectionUnitIndex: offline.unitIndex,
+    deepText: offline.deep,
+    onlineExtraText: extra?.reflection?.text || null,
+    onlineExtraAttribution: extra?.reflection?.attribution || null,
+    onlineExtraSourceUrl: extra?.sourceUrl || null,
     methodDoc: LECTIO_METHOD_DOC,
     introDoc: LECTIO_INTRO_DOC,
   };

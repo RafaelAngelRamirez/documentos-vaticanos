@@ -131,6 +131,14 @@
   margin-top: 10px;
 }
 
+.lectio-reflection {
+  margin-top: 22px;
+}
+
+.lectio-reflection .quote {
+  margin-top: 0;
+}
+
 .lectio-more {
   margin-top: 28px;
   border-top: 1px solid var(--app-line, var(--line));

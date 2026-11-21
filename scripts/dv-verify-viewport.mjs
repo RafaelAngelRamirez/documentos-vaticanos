@@ -39,6 +39,12 @@ const FEATURES = {
     selector: 'app-bnav',
     mobileChrome: true,
   },
+  lectio: {
+    path: '/lectio',
+    text: 'Lectio divina',
+    selector: '[data-testid="lectio-reflection"]',
+    lectioReflection: true,
+  },
 };
 
 function delegate(cmd) {
@@ -151,6 +157,42 @@ async function drive(name) {
       lines.push(`bnav ${count}`);
       if (count !== feature.bnav) failed = true;
     }
+    if (feature.lectioReflection) {
+      const placed = await page.evaluate(() => {
+        const quote = document.querySelector('[data-testid="lectio-reflection"]');
+        const attr = document.querySelector('[data-testid="lectio-reflection-attr"]');
+        const more = document.querySelector('[data-testid="lectio-more"]');
+        const box = quote ? quote.getBoundingClientRect() : null;
+        const style = quote ? getComputedStyle(quote) : null;
+        return {
+          inDetails: !!(quote && quote.closest('details')),
+          text: quote ? quote.textContent.trim() : '',
+          attr: attr ? attr.textContent.trim() : '',
+          visible: !!(
+            box &&
+            box.height > 0 &&
+            style &&
+            style.display !== 'none' &&
+            style.visibility !== 'hidden'
+          ),
+          moreClosed: !!(more && !more.open),
+        };
+      });
+      lines.push(`reflection_visible ${placed.visible}`);
+      lines.push(`reflection_in_details ${placed.inDetails}`);
+      lines.push(`reflection_attr ${placed.attr}`);
+      lines.push(`more_closed ${placed.moreClosed}`);
+      lines.push(`reflection_excerpt ${placed.text.slice(0, 140)}`);
+      if (
+        !placed.visible ||
+        placed.inDetails ||
+        !placed.attr ||
+        !placed.moreClosed ||
+        placed.text.length < 40
+      ) {
+        failed = true;
+      }
+    }
     if (feature.mobileChrome) {
       const chrome = await page.evaluate(() => {
         const host = document.querySelector('app-bnav');
@@ -214,6 +256,6 @@ if (cmd === 'launch') {
 } else if (cmd === 'cleanup') {
   delegate('cleanup');
 } else {
-  console.log('usage: dv-verify-viewport.mjs launch|doctor|drive <lector|biblioteca>|cleanup');
+  console.log('usage: dv-verify-viewport.mjs launch|doctor|drive <lector|biblioteca|lectio>|cleanup');
   process.exit(2);
 }

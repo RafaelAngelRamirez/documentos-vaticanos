@@ -9,7 +9,7 @@ import { SantoralService } from '../santoral/santoral.service';
 import { liturgicalDateOf } from '../liturgia/liturgical-date.logic';
 import { lecturasForLiturgicalDate } from '../liturgia/lecturas-del-dia.logic';
 import { snippet } from '../lectio/lectio-day.logic';
-import { PalabraDelDiaService } from '../lectio/palabra-del-dia.service';
+import { selectLectioReflection } from '../lectio/lectio-reflection.logic';
 import {
   DAILY_NOTIF_HORIZON_DAYS,
   DailyNotifDayInput,
@@ -38,7 +38,6 @@ export class DailyNotificationsService {
   constructor(
     private readonly prefs: NotificationPrefsService,
     private readonly santoral: SantoralService,
-    private readonly palabra: PalabraDelDiaService,
     private readonly router: Router,
   ) {}
 
@@ -109,23 +108,21 @@ export class DailyNotificationsService {
 
   private buildDays(prefs: DailyNotificationPrefs): DailyNotifDayInput[] {
     const now = new Date();
-    const cached = this.palabra.loadCached();
     const days: DailyNotifDayInput[] = [];
     for (let i = 0; i < DAILY_NOTIF_HORIZON_DAYS; i++) {
       const date = new Date(now.getFullYear(), now.getMonth(), now.getDate() + i);
       const saints = saintsOfDay(this.saints, date);
       const first = saints[0];
-      const readings = lecturasForLiturgicalDate(liturgicalDateOf(date));
+      const lit = liturgicalDateOf(date);
+      const readings = lecturasForLiturgicalDate(lit);
       const gospel = readings.find((r) => r.role === 'gospel');
+      const offline = selectLectioReflection(lit);
       days.push({
         date,
         saintName: first ? calendarSaintLabel(first) : null,
         saintId: first?.id || null,
         gospelCite: gospel?.cite || null,
-        reflectionPreview:
-          prefs.reflection && cached?.reflection?.text
-            ? snippet(cached.reflection.text, 80)
-            : null,
+        reflectionPreview: prefs.reflection ? snippet(offline.text, 80) : null,
       });
     }
     return days;
