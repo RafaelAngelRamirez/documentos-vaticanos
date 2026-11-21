@@ -23,7 +23,19 @@ function main() {
 
   assert.ok(/path:\s*'lectio'/.test(routing), 'route /lectio');
   assert.ok(/app-pasaje/.test(html), 'passage reader on lectio');
+  assert.ok(/data-testid=["']lectio-more["']/.test(html), 'optional day detail');
+  const readAt = html.indexOf('data-testid="lectio-gospel-read"');
+  const pasajeAt = html.indexOf('<app-pasaje');
+  const moreAt = html.indexOf('data-testid="lectio-more"');
+  const stepsAt = html.indexOf('lectio-steps');
+  const litAt = html.indexOf('data-testid="lectio-lit"');
+  assert.ok(readAt > 0 && readAt < pasajeAt, 'Leer sits above the passage');
+  assert.ok(pasajeAt < moreAt, 'passage is outside the optional section');
+  assert.ok(moreAt < litAt && moreAt < stepsAt, 'liturgy and steps are optional');
   assert.ok(/resolveCitedPassageFromCite/.test(ts), 'shared cited-passage resolver');
+  const gospelFn = ts.slice(ts.indexOf('openGospel'), ts.indexOf('listenPassage'));
+  assert.ok(/showPassage/.test(gospelFn), 'Leer shows the cited passage');
+  assert.ok(!/openReading|navigate\(/.test(gospelFn), 'Leer stays on /lectio');
   assert.ok(/resolveCitedPassageFromCite/.test(inicioTs), 'inicio uses shared resolver');
   assert.ok(/listenPassage/.test(ts + html), 'listen speaks the passage on screen');
   assert.ok(/data-testid=["']lectio-gospel-read["']/.test(html));

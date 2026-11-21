@@ -1,6 +1,6 @@
 feature lectio
 action GET /lectio
-action_url http://127.0.0.1:4219/lectio
+action_url http://127.0.0.1:4200/lectio
 chromium /usr/local/bin/google-chrome
-result_url http://127.0.0.1:4219/lectio
-excerpt DV Documentos Vaticanos Inicio Biblioteca Estudio Padres Papas Doctores Santoral Temas D 2026-11-17 Lectio divina Martes de la 33ª semana del Tiempo Ordinario LECTURA DEL DÍA LC 19,1-10 Leer el Evangelio Escuchar Primera lectura Ap 3,1-6.14-22 Salmo Sal 15 Evangelio Lc 19,1-10 RE
+result_url http://127.0.0.1:4200/lectio
+excerpt DV Documentos Vaticanos Inicio Biblioteca Estudio Padres Papas Doctores Santoral Temas D 2026-11-21 Lectio divina LECTURA DEL DÍA Lc 20,27-40 Leer el Evangelio Escuchar 27Se le acercaron algunos saduceos, que niegan la resurrección, 28y le dijeron: «Maestro, Moisés nos ha ordenad

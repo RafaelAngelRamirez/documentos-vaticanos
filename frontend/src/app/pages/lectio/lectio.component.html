@@ -10,22 +10,13 @@
   </div>
 
   <div class="fbody lectio-body" [attr.data-tick]="localeTick">
-    <p class="app-eyebrow" data-testid="lectio-date">{{ day.dateIso }}</p>
-    <h1 class="app-title-md serif">{{ t('lectio.title') }}</h1>
-    <p class="app-muted lectio-lit" *ngIf="day.liturgicalLabel">
-      {{ day.liturgicalLabel }}
-    </p>
+    <p class="lectio-date" data-testid="lectio-date">{{ day.dateIso }}</p>
+    <h1 class="lectio-title serif">{{ t('lectio.title') }}</h1>
 
-    <section class="sect lectio-block" aria-labelledby="lectio-gospel-h">
+    <section class="lectio-block lectio-reading" aria-labelledby="lectio-gospel-h">
       <h2 id="lectio-gospel-h" class="lectio-h">{{ t('lectio.reading') }}</h2>
       <ng-container *ngIf="day.gospel as g">
         <p class="lectio-cite">{{ pasajeCite || g.cite }}</p>
-        <app-pasaje
-          *ngIf="pasajeVerses.length"
-          data-testid="lectio-gospel-excerpt"
-          [verses]="pasajeVerses"
-          [label]="pasajeCite || g.cite"
-        ></app-pasaje>
         <div class="lectio-actions">
           <button
             type="button"
@@ -46,6 +37,12 @@
             {{ t('lectio.listen_gospel') }}
           </button>
         </div>
+        <app-pasaje
+          *ngIf="pasajeVerses.length"
+          data-testid="lectio-gospel-excerpt"
+          [verses]="pasajeVerses"
+          [label]="pasajeCite || g.cite"
+        ></app-pasaje>
       </ng-container>
       <p class="app-muted" *ngIf="!day.gospel" data-testid="lectio-no-gospel">
         {{ t('lectio.no_gospel') }}
@@ -66,58 +63,70 @@
       </ul>
     </section>
 
-    <section class="sect lectio-block" aria-labelledby="lectio-refl-h">
-      <h2 id="lectio-refl-h" class="lectio-h">{{ t('lectio.reflection') }}</h2>
-      <ng-container *ngIf="day.reflectionText">
-        <blockquote class="quote" data-testid="lectio-reflection">
-          {{ day.reflectionText }}
-        </blockquote>
-        <div class="lectio-actions">
-          <button
-            type="button"
-            class="gbtn"
-            data-testid="lectio-reflection-listen"
-            (click)="listenReflection()"
-          >
-            {{ t('lectio.listen_reflection') }}
-          </button>
-        </div>
-        <p class="app-muted lectio-attr" *ngIf="day.reflectionAttribution">
-          {{ day.reflectionAttribution }}
-        </p>
-        <a
-          *ngIf="day.reflectionSourceUrl"
-          class="app-lang-link"
-          [href]="day.reflectionSourceUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {{ t('lectio.source_vatican_news') }}
-        </a>
-      </ng-container>
-      <p class="app-muted" *ngIf="!day.reflectionText" data-testid="lectio-reflection-fallback">
-        {{ t('lectio.reflection_fallback') }}
-      </p>
-    </section>
+    <details class="lectio-more" data-testid="lectio-more">
+      <summary>{{ t('lectio.more') }}</summary>
 
-    <section class="sect lectio-block" aria-labelledby="lectio-steps-h">
-      <h2 id="lectio-steps-h" class="lectio-h">{{ t('lectio.steps') }}</h2>
-      <ol class="lectio-steps">
-        <li *ngFor="let s of steps" [attr.data-step]="s.id">
-          <div class="lectio-step-latin">{{ s.latin }}</div>
-          <div class="lectio-step-label">{{ t(s.labelKey) }}</div>
-          <p class="lectio-step-q">{{ t(s.questionKey) }}</p>
-        </li>
-      </ol>
-      <button
-        type="button"
-        class="gbtn"
-        data-testid="lectio-open-vd"
-        (click)="openMethod()"
-      >
-        {{ t('lectio.open_method') }}
-      </button>
-    </section>
+      <p class="lectio-lit" *ngIf="day.liturgicalLabel" data-testid="lectio-lit">
+        {{ day.liturgicalLabel }}
+      </p>
+
+      <section class="lectio-block" aria-labelledby="lectio-refl-h">
+        <h2 id="lectio-refl-h" class="lectio-h">{{ t('lectio.reflection') }}</h2>
+        <ng-container *ngIf="day.reflectionText">
+          <blockquote class="quote" data-testid="lectio-reflection">
+            {{ day.reflectionText }}
+          </blockquote>
+          <div class="lectio-actions">
+            <button
+              type="button"
+              class="gbtn"
+              data-testid="lectio-reflection-listen"
+              (click)="listenReflection()"
+            >
+              {{ t('lectio.listen_reflection') }}
+            </button>
+          </div>
+          <p class="app-muted lectio-attr" *ngIf="day.reflectionAttribution">
+            {{ day.reflectionAttribution }}
+          </p>
+          <a
+            *ngIf="day.reflectionSourceUrl"
+            class="app-lang-link"
+            [href]="day.reflectionSourceUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ t('lectio.source_vatican_news') }}
+          </a>
+        </ng-container>
+        <p
+          class="app-muted"
+          *ngIf="!day.reflectionText"
+          data-testid="lectio-reflection-fallback"
+        >
+          {{ t('lectio.reflection_fallback') }}
+        </p>
+      </section>
+
+      <section class="lectio-block" aria-labelledby="lectio-steps-h">
+        <h2 id="lectio-steps-h" class="lectio-h">{{ t('lectio.steps') }}</h2>
+        <ol class="lectio-steps">
+          <li *ngFor="let s of steps" [attr.data-step]="s.id">
+            <div class="lectio-step-latin">{{ s.latin }}</div>
+            <div class="lectio-step-label">{{ t(s.labelKey) }}</div>
+            <p class="lectio-step-q">{{ t(s.questionKey) }}</p>
+          </li>
+        </ol>
+        <button
+          type="button"
+          class="gbtn"
+          data-testid="lectio-open-vd"
+          (click)="openMethod()"
+        >
+          {{ t('lectio.open_method') }}
+        </button>
+      </section>
+    </details>
   </div>
 
   <app-bnav current="inicio"></app-bnav>
