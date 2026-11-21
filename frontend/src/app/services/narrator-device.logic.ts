@@ -87,7 +87,8 @@ export function deviceVoiceId(raw: DeviceEngineVoice): string {
 /**
  * Misma forma para los dos motores.
  * `index` sigue siendo el del motor (Capacitor habla por índice).
- * El orden de la lista es el del ciclo: locales primero, luego idioma y nombre.
+ * El orden del ciclo es el del motor: primero las locales, en el orden
+ * en que el motor las devolvió. El índice de cada voz no cambia.
  */
 export function mapDeviceEngineVoices(
   raws: readonly DeviceEngineVoice[] | null | undefined,
@@ -106,14 +107,10 @@ export function mapDeviceEngineVoices(
     };
   });
   voices.sort((a, b) => {
-    const aLocal = a.local !== false;
-    const bLocal = b.local !== false;
-    if (aLocal !== bLocal) return aLocal ? -1 : 1;
-    return (
-      a.lang.localeCompare(b.lang) ||
-      a.name.localeCompare(b.name) ||
-      a.id.localeCompare(b.id)
-    );
+    const aLocal = a.local !== false ? 0 : 1;
+    const bLocal = b.local !== false ? 0 : 1;
+    if (aLocal !== bLocal) return aLocal - bLocal;
+    return a.index - b.index;
   });
   return voices;
 }

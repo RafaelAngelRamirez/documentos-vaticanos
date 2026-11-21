@@ -82,8 +82,13 @@ async function main() {
   const apk = device.mapDeviceEngineVoices(apkRaw);
   assert.deepStrictEqual(
     web.map((voice) => voice.id),
+    ['es-ES-local', 'es-MX-local', 'es-ES-cloud'],
+    'locals stay in engine order, then remote voices',
+  );
+  assert.deepStrictEqual(
     apk.map((voice) => voice.id),
-    'cycle order follows lang and name, not the engine list',
+    ['es-MX-local', 'es-ES-local', 'es-ES-cloud'],
+    'each engine keeps its own order after the local cut',
   );
   assert.deepStrictEqual(
     web.map((voice) => voice.lang),
