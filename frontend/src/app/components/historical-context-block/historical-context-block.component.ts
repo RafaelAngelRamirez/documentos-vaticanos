@@ -20,10 +20,6 @@ import {
   speakableHistoricalContextChunks,
 } from 'src/app/core/context/historical-context-resolve.logic';
 import { NarratorService } from 'src/app/services/narrator.service';
-import {
-  NarratorPreferencesService,
-  resolvePreferredVoice,
-} from 'src/app/services/narrator-preferences.service';
 import { speechLangForDocumentLocale } from 'src/app/services/speech-lang.logic';
 
 /**
@@ -63,7 +59,6 @@ export class HistoricalContextBlockComponent implements OnChanges, OnDestroy {
 
   constructor(
     private readonly narrator: NarratorService,
-    private readonly narrPrefs: NarratorPreferencesService,
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -159,23 +154,11 @@ export class HistoricalContextBlockComponent implements OnChanges, OnDestroy {
     this.expanded = true;
     const gen = ++this.speakGen;
     this.speaking = true;
-    const lang = this.speechLang();
-    const prefix = lang.split(/[-_]/)[0].toLowerCase();
-    const voices = await this.narrator.listVoices(prefix);
-    const preferred = resolvePreferredVoice(voices, this.narrPrefs.voiceId);
-    const voice =
-      preferred &&
-      (preferred.lang || '').toLowerCase().startsWith(prefix)
-        ? preferred
-        : null;
+    const plan = await this.narrator.planUtterance(this.speechLang());
     try {
       for (const chunk of this.speakChunks) {
         if (gen !== this.speakGen) return;
-        const ok = await this.narrator.speak(chunk, {
-          lang,
-          rate: 1,
-          voice,
-        });
+        const ok = await this.narrator.speak(chunk, plan);
         if (!ok || gen !== this.speakGen) return;
       }
     } finally {

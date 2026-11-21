@@ -147,10 +147,10 @@ export class LectioComponent implements OnInit, OnDestroy {
     const locale =
       this.corpus.getMeta(this.bibleDocId)?.locale ||
       this.readerPrefs.resolveContentLocale();
-    await this.narrator.speak(text, {
-      lang: speechLangForDocumentLocale(locale),
-      rate: 1,
-    });
+    const plan = await this.narrator.planUtterance(
+      speechLangForDocumentLocale(locale),
+    );
+    await this.narrator.speak(text, plan);
   }
 
   openMethod(): void {
@@ -249,9 +249,9 @@ export class LectioComponent implements OnInit, OnDestroy {
     const locale =
       this.corpus.getMeta(this.bibleDocId)?.locale ||
       this.readerPrefs.resolveContentLocale();
-    await this.narrator.speak(text, {
-      lang: speechLangForDocumentLocale(locale),
-      rate: 1,
-    });
+    const plan = await this.narrator.planUtterance(
+      speechLangForDocumentLocale(locale),
+    );
+    await this.narrator.speak(text, plan);
   }
 }

@@ -79,7 +79,6 @@ import {
   langPrefixOf,
   paragraphToFollowOnShow,
   parseReadAloudCheckpoint,
-  pickDeviceVoice,
   planSpeak,
   utteranceRate,
   serializeReadAloudCheckpoint,
@@ -87,6 +86,7 @@ import {
   type ReadAloudPhase,
 } from 'src/app/services/read-aloud.logic';
 import { planTrackStep } from 'src/app/services/read-aloud-media.logic';
+import { pickSavedDeviceVoice } from 'src/app/services/narrator-device.logic';
 import { coverNavCommandsForDocumentId } from 'src/app/core/santoral/santoral-units.logic';
 import {
   clipSelectionExcerpt,
@@ -659,11 +659,14 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.applyGlobalVoice();
   }
 
-  /** Voz de dispositivo guardada. No pisa `voiceId` si falta o es Grok. */
+  /** Voz de dispositivo de este idioma. No pisa `voiceId` si falta o es Grok. */
   private applyGlobalVoice(): void {
-    this.narrVoice = pickDeviceVoice(
+    this.narrVoice = pickSavedDeviceVoice(
       this.narrVoices,
-      this.narrPrefs.voiceId,
+      {
+        voiceId: this.narrPrefs.voiceId,
+        voiceByLang: this.narrPrefs.snapshot.voiceByLang,
+      },
       this.speechLangPrefix(),
     );
   }
@@ -673,7 +676,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     const next = cycleDeviceVoice(this.narrVoices, this.narrVoice?.id ?? null);
     if (!next) return;
     this.narrVoice = next;
-    this.narrPrefs.setVoiceId(this.narrVoice.id);
+    this.narrPrefs.rememberDeviceVoice(this.speechLangPrefix(), this.narrVoice.id);
     this.flashFeedback(`Voz: ${this.narrVoiceName}`);
     if (this.narrPhase !== 'playing') return;
     void this.narrator.retune({

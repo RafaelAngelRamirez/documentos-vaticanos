@@ -53,19 +53,22 @@ async function main() {
   );
   const lectorSrc = fs.readFileSync(LECTOR, 'utf8');
   assert.ok(
-    lectorSrc.includes('pickDeviceVoice'),
+    lectorSrc.includes('pickSavedDeviceVoice'),
     'lector speaks with a device voice',
   );
   assert.ok(lectorSrc.includes('applyGlobalVoice'), 'lector re-applies voice on speak');
-  assert.ok(lectorSrc.includes('setVoiceId'), 'cycleVoice persists global voiceId');
+  assert.ok(
+    lectorSrc.includes('rememberDeviceVoice'),
+    'cycleVoice persists the device voice for that language',
+  );
   assert.ok(lectorSrc.includes('startNarratorFrom'), 'start waits/resolves global voice');
   assert.ok(
     lectorSrc.includes('narrPrefs.voiceId') || lectorSrc.includes('this.narrPrefs.voiceId'),
     'lector reads global voiceId',
   );
   const histSrc = fs.readFileSync(HIST, 'utf8');
-  assert.ok(histSrc.includes('resolvePreferredVoice'), 'historical context uses global voice');
-  assert.ok(histSrc.includes('narrPrefs.voiceId') || histSrc.includes('this.narrPrefs.voiceId'));
+  assert.ok(histSrc.includes('planUtterance'), 'historical context uses the shared plan');
+  assert.ok(svc.includes('planNarratorUtterance'), 'service plans lang, rate and voice');
   const backup = fs.readFileSync(BACKUP, 'utf8');
   assert.ok(backup.includes('narratorPrefsForBackup'), 'backup strips key');
   const logicSrc = fs.readFileSync(LOGIC, 'utf8');
@@ -119,6 +122,19 @@ async function main() {
   const back = parseNarratorDevicePrefs(ser);
   assert.strictEqual(back.voiceId, 'grok:ara', 'voiceId survives round-trip');
   assert.strictEqual(back.xaiApiKey, 'xai-local-only');
+  assert.deepStrictEqual(back.voiceByLang, {});
+  const byLang = parseNarratorDevicePrefs(
+    JSON.stringify({
+      voiceId: 'grok:eve',
+      voiceByLang: { es: 'es-ES-local', en: 'grok:ara', 'en-US': 'en-US-local' },
+    }),
+  );
+  assert.strictEqual(byLang.voiceId, 'grok:eve');
+  assert.deepStrictEqual(byLang.voiceByLang, {
+    es: 'es-ES-local',
+    en: 'en-US-local',
+  });
+  assert.deepStrictEqual(parseNarratorDevicePrefs('{}').voiceByLang, {});
   assert.ok(NARRATOR_PREFS_STORAGE_KEY.startsWith('dv.narr'));
 
   section('resolvePreferredVoice matches global id; missing does not invent');
