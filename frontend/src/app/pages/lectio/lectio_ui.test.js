@@ -40,6 +40,18 @@ function main() {
   assert.ok(/listenPassage/.test(ts + html), 'listen speaks the passage on screen');
   assert.ok(/data-testid=["']lectio-gospel-read["']/.test(html));
   assert.ok(/data-testid=["']lectio-gospel-listen["']/.test(html));
+  assert.ok(/data-testid=["']lectio-reflection["']/.test(html));
+  assert.ok(/data-testid=["']lectio-reflection-attr["']/.test(html));
+  assert.ok(/data-testid=["']lectio-open-reflection["']/.test(html));
+  assert.ok(/data-testid=["']lectio-deep["']/.test(html));
+  assert.ok(/data-testid=["']lectio-online-extra["']/.test(html));
+  const reflectionAt = html.indexOf('data-testid="lectio-reflection"');
+  assert.ok(
+    pasajeAt < reflectionAt && reflectionAt < moreAt,
+    'essential reflection sits between the passage and the optional section',
+  );
+  assert.ok(/selectLectioReflection/.test(read('core/lectio/lectio-day.logic.ts')));
+  assert.ok(/word\.dateIso === dateIso/.test(read('core/lectio/lectio-day.logic.ts')));
   assert.ok(/data-testid=["']lectio-reflection-listen["']/.test(html));
   assert.ok(/listenReflection/.test(ts));
   assert.ok(/lectio\.listen_reflection/.test(html));

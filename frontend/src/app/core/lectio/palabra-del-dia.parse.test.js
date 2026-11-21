@@ -79,6 +79,11 @@ async function main() {
   );
 
   assert.strictEqual(parsePalabraDelDiaRss(''), null);
+  assert.strictEqual(
+    parsePalabraDelDiaRss(FIXTURE, '2026-09-12'),
+    null,
+    'another day is not today',
+  );
   console.log('ok palabra-del-dia.parse');
 }
 

@@ -51,13 +51,35 @@ async function main() {
   assert.strictEqual(day.methodDoc.documentId, 'vd-es');
   assert.strictEqual(day.methodDoc.consecutivo, '87');
   assert.strictEqual(day.saints[0].id, 'bruno');
-  assert.strictEqual(day.reflectionText, 'Palabras del Papa.');
+  assert.notStrictEqual(day.reflectionText, 'Palabras del Papa.');
+  assert.ok(day.reflectionText && day.reflectionText.length > 40);
+  assert.ok(day.reflectionAttribution);
+  assert.strictEqual(day.onlineExtraText, 'Palabras del Papa.');
+  assert.strictEqual(day.onlineExtraAttribution, 'Francisco');
+  assert.match(day.onlineExtraSourceUrl || '', /vaticannews/);
   assert.ok(day.gospel && day.gospel.role === 'gospel', 'OT Friday has packed gospel');
   assert.match(day.gospel.cite, /Lc 6/);
 
+  const stale = buildLectioDay({
+    now: d,
+    palabra: {
+      dateIso: '2026-09-10',
+      title: 'ayer',
+      sourceUrl: 'https://www.vaticannews.va/es/evangelio-de-hoy/2026/09/10.html',
+      firstReading: null,
+      gospel: null,
+      reflection: { text: 'Comentario de ayer.', attribution: 'Francisco' },
+    },
+  });
+  assert.strictEqual(stale.onlineExtraText, null);
+  assert.strictEqual(stale.reflectionText, day.reflectionText);
+
   const offline = buildLectioDay({ now: d });
-  assert.ok(offline.reflectionText && offline.reflectionText.length > 80);
-  assert.match(offline.reflectionAttribution || '', /Verbum Domini/);
+  assert.strictEqual(offline.reflectionText, day.reflectionText);
+  assert.strictEqual(offline.onlineExtraText, null);
+  assert.ok(offline.reflectionAttribution);
+  const next = buildLectioDay({ now: new Date(2026, 8, 12, 10, 0, 0) });
+  assert.notStrictEqual(next.reflectionText, offline.reflectionText);
   console.log('ok lectio-day.logic');
 }
 

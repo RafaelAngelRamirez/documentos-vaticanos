@@ -197,8 +197,7 @@ export function parsePalabraDelDiaRss(
   }
   if (!parsed.length) return null;
   if (forDateIso) {
-    const hit = parsed.find((p) => p.dateIso === forDateIso);
-    if (hit) return hit;
+    return parsed.find((p) => p.dateIso === forDateIso) || null;
   }
   return parsed[0];
 }

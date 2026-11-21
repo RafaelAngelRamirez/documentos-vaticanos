@@ -63,6 +63,50 @@
       </ul>
     </section>
 
+    <section
+      class="lectio-block lectio-reflection"
+      aria-labelledby="lectio-refl-h"
+      *ngIf="day.reflectionText"
+    >
+      <h2 id="lectio-refl-h" class="lectio-h">{{ t('lectio.reflection') }}</h2>
+      <blockquote class="quote" data-testid="lectio-reflection">
+        {{ day.reflectionText }}
+      </blockquote>
+      <p
+        class="lectio-attr"
+        data-testid="lectio-reflection-attr"
+        *ngIf="day.reflectionAttribution"
+      >
+        {{ day.reflectionAttribution }}
+      </p>
+      <div class="lectio-actions">
+        <button
+          type="button"
+          class="gbtn"
+          data-testid="lectio-reflection-listen"
+          (click)="listenReflection()"
+        >
+          {{ t('lectio.listen_reflection') }}
+        </button>
+        <button
+          type="button"
+          class="gbtn"
+          data-testid="lectio-open-reflection"
+          *ngIf="day.reflectionDocumentId"
+          (click)="openReflection()"
+        >
+          {{ t('lectio.open_source') }}
+        </button>
+      </div>
+    </section>
+    <p
+      class="app-muted"
+      *ngIf="!day.reflectionText"
+      data-testid="lectio-reflection-fallback"
+    >
+      {{ t('lectio.reflection_fallback') }}
+    </p>
+
     <details class="lectio-more" data-testid="lectio-more">
       <summary>{{ t('lectio.more') }}</summary>
 
@@ -70,42 +114,36 @@
         {{ day.liturgicalLabel }}
       </p>
 
-      <section class="lectio-block" aria-labelledby="lectio-refl-h">
-        <h2 id="lectio-refl-h" class="lectio-h">{{ t('lectio.reflection') }}</h2>
-        <ng-container *ngIf="day.reflectionText">
-          <blockquote class="quote" data-testid="lectio-reflection">
-            {{ day.reflectionText }}
-          </blockquote>
-          <div class="lectio-actions">
-            <button
-              type="button"
-              class="gbtn"
-              data-testid="lectio-reflection-listen"
-              (click)="listenReflection()"
-            >
-              {{ t('lectio.listen_reflection') }}
-            </button>
-          </div>
-          <p class="app-muted lectio-attr" *ngIf="day.reflectionAttribution">
-            {{ day.reflectionAttribution }}
-          </p>
-          <a
-            *ngIf="day.reflectionSourceUrl"
-            class="app-lang-link"
-            [href]="day.reflectionSourceUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ t('lectio.source_vatican_news') }}
-          </a>
-        </ng-container>
-        <p
-          class="app-muted"
-          *ngIf="!day.reflectionText"
-          data-testid="lectio-reflection-fallback"
-        >
-          {{ t('lectio.reflection_fallback') }}
+      <section
+        class="lectio-block"
+        *ngIf="day.deepText"
+        data-testid="lectio-deep"
+        aria-labelledby="lectio-deep-h"
+      >
+        <h2 id="lectio-deep-h" class="lectio-h">{{ t('lectio.deep') }}</h2>
+        <blockquote class="quote">{{ day.deepText }}</blockquote>
+      </section>
+
+      <section
+        class="lectio-block"
+        *ngIf="day.onlineExtraText"
+        data-testid="lectio-online-extra"
+        aria-labelledby="lectio-online-h"
+      >
+        <h2 id="lectio-online-h" class="lectio-h">{{ t('lectio.online_extra') }}</h2>
+        <blockquote class="quote">{{ day.onlineExtraText }}</blockquote>
+        <p class="app-muted lectio-attr" *ngIf="day.onlineExtraAttribution">
+          {{ day.onlineExtraAttribution }}
         </p>
+        <a
+          *ngIf="day.onlineExtraSourceUrl"
+          class="app-lang-link"
+          [href]="day.onlineExtraSourceUrl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ t('lectio.source_vatican_news') }}
+        </a>
       </section>
 
       <section class="lectio-block" aria-labelledby="lectio-steps-h">

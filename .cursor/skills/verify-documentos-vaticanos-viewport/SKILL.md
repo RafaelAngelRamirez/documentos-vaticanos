@@ -50,6 +50,8 @@ El binario es `DV_VERIFY_CHROMIUM`, o `/usr/bin/chromium` si existe, el mismo qu
 - Acción. `GET /leyendo/cic-es/punto/2`.
 - Resultado. La URL contiene `/leyendo/cic-es/u/2`. `app-lector` está en el DOM. `app-punto` es visible. `.bnav` cuenta 0 (el lector no lleva barra inferior a ningún ancho). `viewport_actual` es `390x844`. `inner` width es menor que 1024.
 
+`drive lectio` abre `/lectio` a 390×844. La cita `data-testid="lectio-reflection"` está visible, fuera de `lectio-more`, con atribución, y Detalle del día sigue cerrado.
+
 `drive biblioteca` es la prueba del cromo móvil. A menos de 1024 px la biblioteca muestra `.only-mobile` y `app-bnav`, y oculta `.only-desktop`. El enlace `Biblioteca` de la barra de escritorio (`app-wbar`) no cuenta: a 390 px no es el cromo visible.
 
 - Acción. `GET /biblioteca`.
@@ -78,5 +80,6 @@ node scripts/dv-verify-viewport.mjs launch
 node scripts/dv-verify-viewport.mjs doctor
 node scripts/dv-verify-viewport.mjs drive lector
 node scripts/dv-verify-viewport.mjs drive biblioteca
+node scripts/dv-verify-viewport.mjs drive lectio
 node scripts/dv-verify-viewport.mjs cleanup
 ```

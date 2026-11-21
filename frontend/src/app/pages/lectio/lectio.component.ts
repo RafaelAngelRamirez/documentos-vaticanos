@@ -163,6 +163,14 @@ export class LectioComponent implements OnInit, OnDestroy {
     await this.narrator.speak(text, plan);
   }
 
+  openReflection(): void {
+    const docId = this.day.reflectionDocumentId;
+    if (!docId) return;
+    this.navigation.openReading(docId, {
+      unitIndex: this.day.reflectionUnitIndex,
+    });
+  }
+
   openMethod(): void {
     const docId = this.day.methodDoc.documentId;
     this.sub.add(

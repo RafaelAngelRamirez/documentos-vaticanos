@@ -1,0 +1,528 @@
+/**
+ * Verbatim extracts already in the corpus. Generated from content.json;
+ * the unit test checks each string is still a substring of that unit.
+ * Do not put Vatican News text here.
+ */
+export const LECTIO_REFLECTION_CATALOG = {
+  "version": 1,
+  "note": "Extractos literales de obras ya empaquetadas. No incluye Vatican News. El texto canónico sigue en content.json de cada obra.",
+  "entries": [
+    {
+      "id": "adv-magnificat",
+      "season": "advent",
+      "feast": null,
+      "text": "Esto resplandece con particular brillo en el Magnificat. En cierto sentido, aquí se ve cómo ella se identifica con la Palabra, entra en ella; en este maravilloso cántico de fe, la Virgen alaba al Señor con su misma Palabra",
+      "deep": "En cierto sentido, aquí se ve cómo ella se identifica con la Palabra, entra en ella; en este maravilloso cántico de fe, la Virgen alaba al Señor con su misma Palabra: «El Magníficat –un retrato de su alma, por decirlo así– está completamente tejido por los hilos tomados de la Sagrada Escritura, de la Palabra de Dios. Así se pone de relieve que la Palabra de Dios es verdaderamente su propia casa, de la cual sale y entra con toda naturalidad",
+      "attribution": "Benedicto XVI, Verbum Domini n. 28",
+      "documentId": "vd-es",
+      "unitIndex": 27,
+      "consecutivo": "28"
+    },
+    {
+      "id": "adv-dialogo",
+      "season": "advent",
+      "feast": null,
+      "text": "En este diálogo con Dios nos comprendemos a nosotros mismos y encontramos respuesta a las cuestiones más profundas que anidan en nuestro corazón. La Palabra de Dios, en efecto, no se contrapone al hombre, ni acalla sus deseos auténticos, sino que más bien los ilumina, purificándolos y perfeccionándolos",
+      "deep": "Qué importante es descubrir en la actualidad que sólo Dios responde a la sed que hay en el corazón de todo ser humano",
+      "attribution": "Benedicto XVI, Verbum Domini n. 23",
+      "documentId": "vd-es",
+      "unitIndex": 22,
+      "consecutivo": "23"
+    },
+    {
+      "id": "adv-salmos",
+      "season": "advent",
+      "feast": null,
+      "text": "La Palabra divina nos introduce a cada uno en el coloquio con el Señor: el Dios que habla nos enseña cómo podemos hablar con Él",
+      "deep": "Pensamos espontáneamente en el Libro de los Salmos, donde se nos ofrecen las palabras con que podemos dirigirnos a él, presentarle nuestra vida en coloquio ante él y transformar así la vida misma en un movimiento hacia él",
+      "attribution": "Benedicto XVI, Verbum Domini n. 24",
+      "documentId": "vd-es",
+      "unitIndex": 23,
+      "consecutivo": "24"
+    },
+    {
+      "id": "adv-espera",
+      "season": "advent",
+      "feast": null,
+      "text": "Ni es tampoco que Dios aprobara aquel tiempo de iniquidad, sino que estaba preparando el tiempo actual de justicia, a fin de que, convictos en aquel tiempo por nuestras propias obras de ser indignos de la vida, fuéramos hechos ahora dignos de ella por la clemencia de Dios",
+      "deep": "Y cuando nuestra maldad llegó a su colmo y se puso totalmente de manifiesto que la sola paga de ella que podíamos esperar era castigo y muerte, venido el momento que Dios tenía predeterminado para mostrarnos en adelante su clemencia y poder (¡oh, benignidad y amor excesivo de Dios!), no nos aborreció, no nos arrojó de sí, no nos guardó resentimiento alguno; antes bien se mostró longánime, nos soportó; Él mismo, por pura misericordia, cargó sobre sí nuestros pecados; Él mismo entregó a su propio Hijo como rescate por nosotros",
+      "attribution": "Carta a Diogneto IX. Traducción Ruiz Bueno (BAC 1950), ya en el corpus.",
+      "documentId": "carta-diogneto-es",
+      "unitIndex": 12,
+      "consecutivo": "13"
+    },
+    {
+      "id": "nav-manifestacion",
+      "season": "christmas",
+      "feast": null,
+      "text": "Mas todo eso no pasa de monstruosidades y desvarío de hechiceros; y lo cierto es que ningún hombre vio ni conoció a Dios, sino que fue Él mismo quien se manifestó. Ahora bien, se manifestó por la fe, única a quien se le concede ver a Dios",
+      "deep": "Y habiendo concebido un grande e inefable designio, lo comunicó sólo con su Hijo",
+      "attribution": "Carta a Diogneto VIII. Traducción Ruiz Bueno (BAC 1950), ya en el corpus.",
+      "documentId": "carta-diogneto-es",
+      "unitIndex": 11,
+      "consecutivo": "12"
+    },
+    {
+      "id": "nav-maria-fe",
+      "season": "christmas",
+      "feast": null,
+      "text": "María es dichosa porque tiene fe, porque ha creído, y en esta fe ha acogido en el propio seno al Verbo de Dios para entregarlo al mundo",
+      "deep": "La alegría que recibe de la Palabra se puede extender ahora a todos los que, en la fe, se dejan transformar por la Palabra de Dios",
+      "attribution": "Benedicto XVI, Verbum Domini n. 124",
+      "documentId": "vd-es",
+      "unitIndex": 123,
+      "consecutivo": "124"
+    },
+    {
+      "id": "nav-rosario",
+      "season": "christmas",
+      "feast": null,
+      "text": "Al recordar la relación inseparable entre la Palabra de Dios y María de Nazaret, junto con los Padres sinodales, invito a promover entre los fieles, sobre todo en la vida familiar, las plegarias marianas, como una ayuda para meditar los santos misterios narrados por la Escritura",
+      "deep": "Un medio de gran utilidad, por ejemplo, es el rezo personal y comunitario del santo Rosario, que recorre junto a María los misterios de la vida de Cristo, y que el Papa Juan Pablo II ha querido enriquecer con los misterios de la luz",
+      "attribution": "Benedicto XVI, Verbum Domini n. 88",
+      "documentId": "vd-es",
+      "unitIndex": 87,
+      "consecutivo": "88"
+    },
+    {
+      "id": "nav-designio",
+      "season": "christmas",
+      "feast": null,
+      "text": "Llegados, por decirlo así, al corazón de la «Cristología de la Palabra», es importante subrayar la unidad del designio divino en el Verbo encarnado",
+      "deep": "Por eso, el Nuevo Testamento, de acuerdo con las Sagradas Escrituras, nos presenta el misterio pascual como su más íntimo cumplimiento",
+      "attribution": "Benedicto XVI, Verbum Domini n. 13",
+      "documentId": "vd-es",
+      "unitIndex": 12,
+      "consecutivo": "13"
+    },
+    {
+      "id": "cua-pecado",
+      "season": "lent",
+      "feast": null,
+      "text": "La Palabra de Dios revela también inevitablemente la posibilidad dramática por parte de la libertad del hombre de sustraerse a este diálogo de alianza con Dios, para el que hemos sido creados. La Palabra divina, en efecto, desvela también el pecado que habita en el corazón del hombre",
+      "deep": "Con mucha frecuencia, tanto en el Antiguo como en el Nuevo Testamento, encontramos la descripción del pecado como un no prestar oído a la Palabra, como ruptura de la Alianza y, por tanto, como la cerrazón frente a Dios que llama a la comunión con él",
+      "attribution": "Benedicto XVI, Verbum Domini n. 26",
+      "documentId": "vd-es",
+      "unitIndex": 25,
+      "consecutivo": "26"
+    },
+    {
+      "id": "cua-juicio",
+      "season": "lent",
+      "feast": null,
+      "text": "La Palabra divina ilumina la existencia humana y mueve a la conciencia a revisar en profundidad la propia vida, pues toda la historia de la humanidad está bajo el juicio de Dios",
+      "deep": "En el capítulo veinticinco del Evangelio de Mateo, el Hijo del hombre considera que todo lo que hacemos o dejamos de hacer a uno sólo de sus «humildes hermanos», se lo hacemos o dejamos de hacérselo a Él: «Tuve hambre y me disteis de comer, tuve sed y me disteis de beber, fui forastero y me hospedasteis, estuve desnudo y me vestisteis, enfermo y me visitasteis, en la cárcel y vinisteis a verme",
+      "attribution": "Benedicto XVI, Verbum Domini n. 99",
+      "documentId": "vd-es",
+      "unitIndex": 98,
+      "consecutivo": "99"
+    },
+    {
+      "id": "cua-fe",
+      "season": "lent",
+      "feast": null,
+      "text": "La respuesta propia del hombre al Dios que habla es la fe",
+      "deep": "En esto se pone de manifiesto que «para acoger la Revelación, el hombre debe abrir la mente y el corazón a la acción del Espíritu Santo que le hace comprender la Palabra de Dios, presente en las sagradas Escrituras",
+      "attribution": "Benedicto XVI, Verbum Domini n. 25",
+      "documentId": "vd-es",
+      "unitIndex": 24,
+      "consecutivo": "25"
+    },
+    {
+      "id": "cua-rescate",
+      "season": "lent",
+      "feast": null,
+      "text": "Él mismo, por pura misericordia, cargó sobre sí nuestros pecados; Él mismo entregó a su propio Hijo como rescate por nosotros; al Santo por los pecadores, al Inocente por los malvados, al Justo por los injustos, al Incorruptible por los corruptibles, al Inmortal por los mortales",
+      "deep": "Porque, ¿qué otra cosa podría cubrir nuestros pecados sino la justicia suya? ¿En quién otro podíamos ser justificados nosotros, inicuos e impíos, sino en el solo Hijo de Dios",
+      "attribution": "Carta a Diogneto IX. Traducción Ruiz Bueno (BAC 1950), ya en el corpus.",
+      "documentId": "carta-diogneto-es",
+      "unitIndex": 12,
+      "consecutivo": "13"
+    },
+    {
+      "id": "cua-escucha",
+      "season": "lent",
+      "feast": null,
+      "text": "Si bien es verdad que la liturgia es el lugar privilegiado para la proclamación, la escucha y la celebración de la Palabra de Dios, es cierto también que este encuentro ha de ser preparado en los corazones de los fieles y, sobre todo, profundizado y asimilado por ellos",
+      "deep": "En efecto, la vida cristiana se caracteriza esencialmente por el encuentro con Jesucristo que nos llama a seguirlo",
+      "attribution": "Benedicto XVI, Verbum Domini n. 72",
+      "documentId": "vd-es",
+      "unitIndex": 71,
+      "consecutivo": "72"
+    },
+    {
+      "id": "pas-espiritu",
+      "season": "easter",
+      "feast": null,
+      "text": "Puesto que la Palabra de Dios llega a nosotros en el cuerpo de Cristo, en el cuerpo eucarístico y en el cuerpo de las Escrituras, mediante la acción del Espíritu Santo, sólo puede ser acogida y comprendida verdaderamente gracias al mismo Espíritu",
+      "deep": "Sin la acción eficaz del «Espíritu de la Verdad» no se pueden comprender las palabras del Señor",
+      "attribution": "Benedicto XVI, Verbum Domini n. 16",
+      "documentId": "vd-es",
+      "unitIndex": 15,
+      "consecutivo": "16"
+    },
+    {
+      "id": "pas-ireneo",
+      "season": "easter",
+      "feast": null,
+      "text": "Como recuerda san Ireneo: «Los que no participan del Espíritu no obtienen del pecho de su madre el nutrimento de la vida, no reciben nada de la fuente más pura que brota del cuerpo de Cristo",
+      "deep": "Puesto que la Palabra de Dios llega a nosotros en el cuerpo de Cristo, en el cuerpo eucarístico y en el cuerpo de las Escrituras, mediante la acción del Espíritu Santo, sólo puede ser acogida y comprendida verdaderamente gracias al mismo Espíritu",
+      "attribution": "San Ireneo de Lyon, citado en Verbum Domini n. 16",
+      "documentId": "vd-es",
+      "unitIndex": 15,
+      "consecutivo": "16"
+    },
+    {
+      "id": "pas-imitador",
+      "season": "easter",
+      "feast": null,
+      "text": "El que toma sobre sí la carga de su prójimo; el que está pronto a hacer bien a su inferior en aquello justamente en que él es superior; el que, suministrando a los necesitados lo mismo que él recibió de Dios, se convierte en Dios de los que reciben de su mano, ése es el verdadero imitador de Dios",
+      "deep": "Porque no está la felicidad en dominar tiránicamente sobre nuestro prójimo, ni en querer estar por encima de los más débiles, ni en enriquecerse y violentar a los necesitados",
+      "attribution": "Carta a Diogneto X. Traducción Ruiz Bueno (BAC 1950), ya en el corpus.",
+      "documentId": "carta-diogneto-es",
+      "unitIndex": 14,
+      "consecutivo": "15"
+    },
+    {
+      "id": "pas-escucha",
+      "season": "easter",
+      "feast": null,
+      "text": "Por eso, nuestro tiempo ha de ser cada día más el de una nueva escucha de la Palabra de Dios y de una nueva evangelización",
+      "deep": "Redescubrir el puesto central de la Palabra divina en la vida cristiana nos hace reencontrar de nuevo así el sentido más profundo de lo que el Papa Juan Pablo II ha pedido con vigor: continuar la missio ad gentes y emprender con todas las fuerzas la nueva evangelización, sobre todo en aquellas naciones donde el Evangelio se ha olvidado o padece la indiferencia de cierta mayoría a causa de una difundida secularización",
+      "attribution": "Benedicto XVI, Verbum Domini n. 122",
+      "documentId": "vd-es",
+      "unitIndex": 121,
+      "consecutivo": "122"
+    },
+    {
+      "id": "pas-mision",
+      "season": "easter",
+      "feast": null,
+      "text": "El Espíritu del Resucitado capacita así nuestra vida para el anuncio eficaz de la Palabra en todo el mundo. Ésta es la experiencia de la primera comunidad cristiana, que vio cómo iba creciendo la Palabra mediante la predicación y el testimonio",
+      "deep": "Quisiera referirme aquí, en particular, a la vida del apóstol Pablo, un hombre poseído enteramente por el Señor –«vivo yo, pero no soy yo, es Cristo quien vive en mí»– y por su misión: «¡Ay de mí si no anuncio el Evangelio",
+      "attribution": "Benedicto XVI, Verbum Domini n. 91",
+      "documentId": "vd-es",
+      "unitIndex": 90,
+      "consecutivo": "91"
+    },
+    {
+      "id": "ord-liturgia",
+      "season": "ordinary",
+      "feast": null,
+      "text": "Más aún, hay que decir que Cristo mismo «está presente en su palabra, pues es Él mismo el que habla cuando se lee en la Iglesia la Sagrada Escritura»",
+      "deep": "Por tanto, «la celebración litúrgica se convierte en una continua, plena y eficaz exposición de esta Palabra de Dios. Así, la Palabra de Dios, expuesta continuamente en la liturgia, es siempre viva y eficaz por el poder del Espíritu Santo, y manifiesta el amor operante del Padre, amor indeficiente",
+      "attribution": "Benedicto XVI, Verbum Domini n. 52",
+      "documentId": "vd-es",
+      "unitIndex": 51,
+      "consecutivo": "52"
+    },
+    {
+      "id": "ord-santos",
+      "season": "ordinary",
+      "feast": null,
+      "text": "La interpretación de la Sagrada Escritura quedaría incompleta si no se estuviera también a la escucha de quienes han vivido realmente la Palabra de Dios, es decir, los santos",
+      "deep": "Así, la interpretación más profunda de la Escritura proviene precisamente de los que se han dejado plasmar por la Palabra de Dios a través de la escucha, la lectura y la meditación asidua",
+      "attribution": "Benedicto XVI, Verbum Domini n. 48",
+      "documentId": "vd-es",
+      "unitIndex": 47,
+      "consecutivo": "48"
+    },
+    {
+      "id": "ord-agustin",
+      "season": "ordinary",
+      "feast": null,
+      "text": "Como dice san Agustín: «Tu oración es un coloquio con Dios. Cuando lees, Dios te habla; cuando oras, hablas tú a Dios",
+      "deep": "Orígenes, uno de los maestros en este modo de leer la Biblia, sostiene que entender las Escrituras requiere, más incluso que el estudio, la intimidad con Cristo y la oración",
+      "attribution": "San Agustín, citado en Verbum Domini n. 86",
+      "documentId": "vd-es",
+      "unitIndex": 85,
+      "consecutivo": "86"
+    },
+    {
+      "id": "ord-lectio",
+      "season": "ordinary",
+      "feast": null,
+      "text": "Sin embargo, se ha prestado una mayor atención a la lectio divina, que es verdaderamente «capaz de abrir al fiel no sólo el tesoro de la Palabra de Dios sino también de crear el encuentro con Cristo, Palabra divina y viviente",
+      "deep": "Quisiera recordar aquí brevemente cuáles son los pasos fundamentales: se comienza con la lectura del texto, que suscita la cuestión sobre el conocimiento de su contenido auténtico: ¿Qué dice el texto bíblico en sí mismo",
+      "attribution": "Benedicto XVI, Verbum Domini n. 87",
+      "documentId": "vd-es",
+      "unitIndex": 86,
+      "consecutivo": "87"
+    },
+    {
+      "id": "ord-pobres",
+      "season": "ordinary",
+      "feast": null,
+      "text": "La Sagrada Escritura manifiesta la predilección de Dios por los pobres y necesitados",
+      "deep": "En efecto, «los primeros que tienen derecho al anuncio del Evangelio son precisamente los pobres, no sólo necesitados de pan, sino también de palabras de vida",
+      "attribution": "Benedicto XVI, Verbum Domini n. 107",
+      "documentId": "vd-es",
+      "unitIndex": 106,
+      "consecutivo": "107"
+    },
+    {
+      "id": "ord-paz",
+      "season": "ordinary",
+      "feast": null,
+      "text": "En el contexto actual, es necesario más que nunca redescubrir la Palabra de Dios como fuente de reconciliación y paz, porque en ella Dios reconcilia en sí todas las cosas: Cristo «es nuestra paz», que derriba los muros de división",
+      "deep": "Una vez más, deseo reiterar que la religión nunca puede justificar intolerancia o guerras. No se puede utilizar la violencia en nombre de Dios",
+      "attribution": "Benedicto XVI, Verbum Domini n. 102",
+      "documentId": "vd-es",
+      "unitIndex": 101,
+      "consecutivo": "102"
+    },
+    {
+      "id": "ord-forasteros",
+      "season": "ordinary",
+      "feast": null,
+      "text": "Habitan sus propias patrias, pero como forasteros; toman parte en todo como ciudadanos y todo lo soportan como extranjeros; toda tierra extraña es para ellos patria, y toda patria, tierra extraña",
+      "deep": "Están en la carne, pero no viven según la carne. Pasan el tiempo en la tierra, pero tienen su ciudadanía en el cielo",
+      "attribution": "Carta a Diogneto V. Traducción Ruiz Bueno (BAC 1950), ya en el corpus.",
+      "documentId": "carta-diogneto-es",
+      "unitIndex": 8,
+      "consecutivo": "9"
+    },
+    {
+      "id": "ord-alma",
+      "season": "ordinary",
+      "feast": null,
+      "text": "Habita el alma en el cuerpo, pero no procede del cuerpo: los cristianos habitan en el mundo, pero no son del mundo",
+      "deep": "El alma inmortal habita en una tienda mortal; así los cristianos viven como de paso en moradas corruptibles, mientras esperan la incorrupción en los cielos",
+      "attribution": "Carta a Diogneto VI. Traducción Ruiz Bueno (BAC 1950), ya en el corpus.",
+      "documentId": "carta-diogneto-es",
+      "unitIndex": 9,
+      "consecutivo": "10"
+    },
+    {
+      "id": "trid-silencio",
+      "season": "triduum",
+      "feast": null,
+      "text": "Como pone de manifiesto la cruz de Cristo, Dios habla por medio de su silencio. El silencio de Dios, la experiencia de la lejanía del Omnipotente y Padre, es una etapa decisiva en el camino terreno del Hijo de Dios, Palabra encarnada. Colgado del leño de la cruz, se quejó del dolor causado por este silencio: «Dios mío, Dios mío, ¿por qué me has abandonado",
+      "deep": null,
+      "attribution": "Benedicto XVI, Verbum Domini n. 21",
+      "documentId": "vd-es",
+      "unitIndex": 20,
+      "consecutivo": "21"
+    },
+    {
+      "id": "fiesta-navidad",
+      "season": "christmas",
+      "feast": "christmas",
+      "text": "El Hijo mismo es la Palabra, el Logos; la Palabra eterna se ha hecho pequeña, tan pequeña como para estar en un pesebre. Se ha hecho niño para que la Palabra esté a nuestro alcance",
+      "deep": "Ahora, la Palabra no sólo se puede oír, no sólo tiene una voz, sino que tiene un rostro que podemos ver: Jesús de Nazaret",
+      "attribution": "Benedicto XVI, Verbum Domini n. 12",
+      "documentId": "vd-es",
+      "unitIndex": 11,
+      "consecutivo": "12"
+    },
+    {
+      "id": "fiesta-epifania",
+      "season": "christmas",
+      "feast": "epiphany",
+      "text": "Mas todo eso no pasa de monstruosidades y desvarío de hechiceros; y lo cierto es que ningún hombre vio ni conoció a Dios, sino que fue Él mismo quien se manifestó",
+      "deep": "Ahora bien, en tanto mantenía en secreto y guardaba su sabio consejo, parecía que no se cuidaba y que nada de nosotros le importaba; mas cuando nos lo reveló por medio de su Hijo amado y nos manifestó lo que tenía dispuesto, desde el principio, todo nos lo dio juntamente",
+      "attribution": "Carta a Diogneto VIII. Traducción Ruiz Bueno (BAC 1950), ya en el corpus.",
+      "documentId": "carta-diogneto-es",
+      "unitIndex": 11,
+      "consecutivo": "12"
+    },
+    {
+      "id": "fiesta-maria-madre",
+      "season": "christmas",
+      "feast": "mary-mother",
+      "text": "Recordemos las palabras de santa Isabel: «Dichosa tú, que has creído, porque lo que te ha dicho el Señor se cumplirá",
+      "deep": "María es dichosa porque tiene fe, porque ha creído, y en esta fe ha acogido en el propio seno al Verbo de Dios para entregarlo al mundo",
+      "attribution": "Benedicto XVI, Verbum Domini n. 124",
+      "documentId": "vd-es",
+      "unitIndex": 123,
+      "consecutivo": "124"
+    },
+    {
+      "id": "fiesta-sagrada-familia",
+      "season": "christmas",
+      "feast": "holy-family",
+      "text": "Al recordar la relación inseparable entre la Palabra de Dios y María de Nazaret, junto con los Padres sinodales, invito a promover entre los fieles, sobre todo en la vida familiar, las plegarias marianas, como una ayuda para meditar los santos misterios narrados por la Escritura",
+      "deep": "Es conveniente que se acompañe el anuncio de cada misterio con breves pasajes de la Biblia relacionados con el misterio enunciado, para favorecer así la memorización de algunas expresiones significativas de la Escritura relacionadas con los misterios de la vida de Cristo",
+      "attribution": "Benedicto XVI, Verbum Domini n. 88",
+      "documentId": "vd-es",
+      "unitIndex": 87,
+      "consecutivo": "88"
+    },
+    {
+      "id": "fiesta-bautismo",
+      "season": "christmas",
+      "feast": "baptism",
+      "text": "Por lo demás, la Sagrada Escritura es la que nos indica la presencia del Espíritu Santo en la historia de la salvación y, en particular, en la vida de Jesús, a quien la Virgen María concibió por obra del Espíritu Santo; al comienzo de su misión pública, en la orilla del Jordán, lo ve que desciende sobre sí en forma de paloma",
+      "deep": "Después, Jesús resucitado, llevando en su carne los signos de la pasión, infundió el Espíritu, haciendo a los suyos partícipes de su propia misión",
+      "attribution": "Benedicto XVI, Verbum Domini n. 15",
+      "documentId": "vd-es",
+      "unitIndex": 14,
+      "consecutivo": "15"
+    },
+    {
+      "id": "fiesta-inmaculada",
+      "season": "advent",
+      "feast": "immaculate-conception",
+      "text": "Al estar íntimamente penetrada por la Palabra de Dios, puede convertirse en madre de la Palabra encarnada",
+      "deep": "Habla y piensa con la Palabra de Dios; la Palabra de Dios se convierte en palabra suya, y su palabra nace de la Palabra de Dios",
+      "attribution": "Benedicto XVI, Verbum Domini n. 28",
+      "documentId": "vd-es",
+      "unitIndex": 27,
+      "consecutivo": "28"
+    },
+    {
+      "id": "fiesta-asuncion",
+      "season": "ordinary",
+      "feast": "assumption",
+      "text": "Jesús muestra la verdadera grandeza de María, abriendo así también para todos nosotros la posibilidad de esa bienaventuranza que nace de la Palabra acogida y puesta en práctica",
+      "deep": "Por eso, recuerdo a todos los cristianos que nuestra relación personal y comunitaria con Dios depende del aumento de nuestra familiaridad con la Palabra divina",
+      "attribution": "Benedicto XVI, Verbum Domini n. 124",
+      "documentId": "vd-es",
+      "unitIndex": 123,
+      "consecutivo": "124"
+    },
+    {
+      "id": "fiesta-ceniza",
+      "season": "lent",
+      "feast": "ash-wednesday",
+      "text": "Por el contrario, el Evangelio nos recuerda que cada momento de nuestra existencia es importante y debe ser vivido intensamente, sabiendo que todos han de rendir cuentas de su propia vida",
+      "deep": "En el capítulo veinticinco del Evangelio de Mateo, el Hijo del hombre considera que todo lo que hacemos o dejamos de hacer a uno sólo de sus «humildes hermanos», se lo hacemos o dejamos de hacérselo a Él: «Tuve hambre y me disteis de comer, tuve sed y me disteis de beber, fui forastero y me hospedasteis, estuve desnudo y me vestisteis, enfermo y me visitasteis, en la cárcel y vinisteis a verme",
+      "attribution": "Benedicto XVI, Verbum Domini n. 99",
+      "documentId": "vd-es",
+      "unitIndex": 98,
+      "consecutivo": "99"
+    },
+    {
+      "id": "fiesta-ramos",
+      "season": "lent",
+      "feast": "palm-sunday",
+      "text": "Colgado del leño de la cruz, se quejó del dolor causado por este silencio: «Dios mío, Dios mío, ¿por qué me has abandonado",
+      "deep": "Como pone de manifiesto la cruz de Cristo, Dios habla por medio de su silencio. El silencio de Dios, la experiencia de la lejanía del Omnipotente y Padre, es una etapa decisiva en el camino terreno del Hijo de Dios, Palabra encarnada",
+      "attribution": "Benedicto XVI, Verbum Domini n. 21",
+      "documentId": "vd-es",
+      "unitIndex": 20,
+      "consecutivo": "21"
+    },
+    {
+      "id": "fiesta-jueves-santo",
+      "season": "triduum",
+      "feast": "holy-thursday",
+      "text": "Jesús lleva a cumplimiento en sí mismo la antigua figura: «El pan de Dios es el que baja del cielo y da la vida al mundo... Yo soy el pan de vida»",
+      "deep": "De este modo, en el misterio de la Eucaristía se muestra cuál es el verdadero maná, el auténtico pan del cielo: es el Logos de Dios que se ha hecho carne, que se ha entregado a sí mismo por nosotros en el misterio pascual",
+      "attribution": "Benedicto XVI, Verbum Domini n. 54",
+      "documentId": "vd-es",
+      "unitIndex": 53,
+      "consecutivo": "54"
+    },
+    {
+      "id": "fiesta-viernes-santo",
+      "season": "triduum",
+      "feast": "good-friday",
+      "text": "Jesús, prosiguiendo hasta el último aliento de vida en la obediencia, invocó al Padre en la oscuridad de la muerte. En el momento de pasar a través de la muerte a la vida eterna, se confió a Él: «Padre, a tus manos encomiendo mi espíritu",
+      "deep": "Como pone de manifiesto la cruz de Cristo, Dios habla por medio de su silencio",
+      "attribution": "Benedicto XVI, Verbum Domini n. 21",
+      "documentId": "vd-es",
+      "unitIndex": 20,
+      "consecutivo": "21"
+    },
+    {
+      "id": "fiesta-vigilia",
+      "season": "triduum",
+      "feast": "easter-vigil",
+      "text": "El Verbo de Dios nos ha comunicado la vida divina que transfigura la faz de la tierra, haciendo nuevas todas las cosas",
+      "deep": "Su Palabra no sólo nos concierne como destinatarios de la revelación divina, sino también como sus anunciadores",
+      "attribution": "Benedicto XVI, Verbum Domini n. 91",
+      "documentId": "vd-es",
+      "unitIndex": 90,
+      "consecutivo": "91"
+    },
+    {
+      "id": "fiesta-pascua",
+      "season": "easter",
+      "feast": "easter",
+      "text": "En la Palabra de Dios, también nosotros hemos oído, visto y tocado el Verbo de la Vida",
+      "deep": "Por gracia, hemos recibido el anuncio de que la vida eterna se ha manifestado, de modo que ahora reconocemos estar en comunión unos con otros, con quienes nos han precedido en el signo de la fe y con todos los que, diseminados por el mundo, escuchan la Palabra, celebran la Eucaristía y dan testimonio de la caridad",
+      "attribution": "Benedicto XVI, Verbum Domini n. 123",
+      "documentId": "vd-es",
+      "unitIndex": 122,
+      "consecutivo": "123"
+    },
+    {
+      "id": "fiesta-ascension",
+      "season": "easter",
+      "feast": "ascension",
+      "text": "Él, el enviado del Padre para cumplir su voluntad, nos atrae hacia sí y nos hace partícipes de su vida y misión",
+      "deep": "El Espíritu del Resucitado capacita así nuestra vida para el anuncio eficaz de la Palabra en todo el mundo",
+      "attribution": "Benedicto XVI, Verbum Domini n. 91",
+      "documentId": "vd-es",
+      "unitIndex": 90,
+      "consecutivo": "91"
+    },
+    {
+      "id": "fiesta-pentecostes",
+      "season": "easter",
+      "feast": "pentecost",
+      "text": "Cuanto más sepamos ponernos a disposición de la Palabra divina, tanto más podremos constatar que el misterio de Pentecostés está vivo también hoy en la Iglesia de Dios. El Espíritu del Señor sigue derramando sus dones sobre la Iglesia para que seamos guiados a la verdad plena, desvelándonos el sentido de las Escrituras y haciéndonos anunciadores creíbles de la Palabra de salvación en el mundo",
+      "deep": "La comunicación de este anuncio –nos recuerda el apóstol Juan– se nos ha dado «para que nuestra alegría sea completa",
+      "attribution": "Benedicto XVI, Verbum Domini n. 123",
+      "documentId": "vd-es",
+      "unitIndex": 122,
+      "consecutivo": "123"
+    },
+    {
+      "id": "fiesta-trinidad",
+      "season": "ordinary",
+      "feast": "trinity",
+      "text": "Esto tiene que ver con el hecho de que la comunicación que Dios hace de sí mismo implica siempre la relación entre el Hijo y el Espíritu Santo, a quienes Ireneo de Lyon llama precisamente «las dos manos del Padre",
+      "deep": "En efecto, no se comprende auténticamente la revelación cristiana sin tener en cuenta la acción del Paráclito",
+      "attribution": "Benedicto XVI, Verbum Domini n. 15",
+      "documentId": "vd-es",
+      "unitIndex": 14,
+      "consecutivo": "15"
+    },
+    {
+      "id": "fiesta-corpus",
+      "season": "ordinary",
+      "feast": "corpus-christi",
+      "text": "Palabra y Eucaristía se pertenecen tan íntimamente que no se puede comprender la una sin la otra: la Palabra de Dios se hace sacramentalmente carne en el acontecimiento eucarístico",
+      "deep": "La Eucaristía nos ayuda a entender la Sagrada Escritura, así como la Sagrada Escritura, a su vez, ilumina y explica el misterio eucarístico",
+      "attribution": "Benedicto XVI, Verbum Domini n. 55",
+      "documentId": "vd-es",
+      "unitIndex": 54,
+      "consecutivo": "55"
+    },
+    {
+      "id": "fiesta-sagrado-corazon",
+      "season": "ordinary",
+      "feast": "sacred-heart",
+      "text": "¡Oh dulce trueque, oh obra insondable, oh beneficios inesperados! ¡Que la iniquidad de muchos quedara oculta en un solo Justo y la justicia de uno sólo justificara a muchos inicuos",
+      "deep": "Y cuando nuestra maldad llegó a su colmo y se puso totalmente de manifiesto que la sola paga de ella que podíamos esperar era castigo y muerte, venido el momento que Dios tenía predeterminado para mostrarnos en adelante su clemencia y poder (¡oh, benignidad y amor excesivo de Dios!), no nos aborreció, no nos arrojó de sí, no nos guardó resentimiento alguno; antes bien se mostró longánime, nos soportó; Él mismo, por pura misericordia, cargó sobre sí nuestros pecados; Él mismo entregó a su propio Hijo como rescate por nosotros",
+      "attribution": "Carta a Diogneto IX. Traducción Ruiz Bueno (BAC 1950), ya en el corpus.",
+      "documentId": "carta-diogneto-es",
+      "unitIndex": 12,
+      "consecutivo": "13"
+    },
+    {
+      "id": "fiesta-cristo-rey",
+      "season": "ordinary",
+      "feast": "christ-the-king",
+      "text": "De este modo, la Iglesia expresa su conciencia de que Jesucristo es la Palabra definitiva de Dios; él es «el primero y el último",
+      "deep": "Él ha dado su sentido definitivo a la creación y a la historia; por eso, estamos llamados a vivir el tiempo, a habitar la creación de Dios dentro de este ritmo escatológico de la Palabra",
+      "attribution": "Benedicto XVI, Verbum Domini n. 14",
+      "documentId": "vd-es",
+      "unitIndex": 13,
+      "consecutivo": "14"
+    },
+    {
+      "id": "fiesta-todos-santos",
+      "season": "ordinary",
+      "feast": "all-saints",
+      "text": "En efecto, «viva lectio est vita bonorum». Así, la interpretación más profunda de la Escritura proviene precisamente de los que se han dejado plasmar por la Palabra de Dios a través de la escucha, la lectura y la meditación asidua",
+      "deep": "La interpretación de la Sagrada Escritura quedaría incompleta si no se estuviera también a la escucha de quienes han vivido realmente la Palabra de Dios, es decir, los santos",
+      "attribution": "Benedicto XVI, Verbum Domini n. 48",
+      "documentId": "vd-es",
+      "unitIndex": 47,
+      "consecutivo": "48"
+    }
+  ]
+} as const;
