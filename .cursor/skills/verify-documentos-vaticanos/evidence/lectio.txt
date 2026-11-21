@@ -3,4 +3,4 @@ action GET /lectio
 action_url http://127.0.0.1:4219/lectio
 chromium /usr/local/bin/google-chrome
 result_url http://127.0.0.1:4219/lectio
-excerpt DV Documentos Vaticanos Inicio Biblioteca Estudio Padres Papas Doctores Santoral Temas D 2026-11-21 Lectio divina Sábado de la 33ª semana del Tiempo Ordinario LECTURA DEL DÍA LC 20,27-40 Leer el Evangelio Escuchar Primera lectura Ap 11,4-12 Salmo Sal 144 Evangelio Lc 20,27-40 REF
+excerpt DV Documentos Vaticanos Inicio Biblioteca Estudio Padres Papas Doctores Santoral Temas D 2026-11-21 Lectio divina LECTURA DEL DÍA Lc 20,27-40 Leer el Evangelio Escuchar 27Se le acercaron algunos saduceos, que niegan la resurrección, 28y le dijeron: «Maestro, Moisés nos ha ordenad

@@ -200,6 +200,7 @@ async function main() {
     'settings.notifications',
     'inicio.lectio_today',
     'lectio.title',
+    'lectio.more',
     'lectio.listen_reflection',
     'lectio.step.lectio_q',
     'reader.loading',

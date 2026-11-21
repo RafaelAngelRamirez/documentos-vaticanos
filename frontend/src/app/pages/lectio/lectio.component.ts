@@ -119,9 +119,19 @@ export class LectioComponent implements OnInit, OnDestroy {
     return this.i18n.t(key);
   }
 
+  /** Cited verses only. Stays on /lectio; does not open the bible document. */
   openGospel(autoNarr = false): void {
     const gospel = this.day.gospel;
     if (!gospel || this.opening) return;
+    if (
+      !autoNarr &&
+      this.pasajeCite === gospel.cite &&
+      this.pasajeVerses.length &&
+      this.pasajeSpeech.trim()
+    ) {
+      this.focusPassage();
+      return;
+    }
     this.showPassage(gospel.cite, autoNarr, true);
   }
 

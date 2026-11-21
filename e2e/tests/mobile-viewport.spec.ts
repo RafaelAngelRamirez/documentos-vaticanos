@@ -414,6 +414,19 @@ test.describe('viewport móvil 390×844', () => {
     expect(gospelNumbers).toEqual(['1', '5', '10']);
     await expect(gospel).toContainText('Zaqueo');
     await expect(gospel).not.toContainText('fuera de la cita');
+    await expect(page.getByTestId('lectio-more')).not.toHaveAttribute('open');
+    await expect(page.getByRole('heading', { name: 'Los cinco pasos' })).toBeHidden();
+    const verseBox = await gospel.getByTestId('pasaje-verse').first().boundingBox();
+    const readBox = await page.getByTestId('lectio-gospel-read').boundingBox();
+    expect(verseBox).toBeTruthy();
+    expect(readBox).toBeTruthy();
+    expect(verseBox!.y).toBeGreaterThanOrEqual(0);
+    expect(readBox!.y + readBox!.height).toBeLessThanOrEqual(748);
+    expect(verseBox!.y + verseBox!.height).toBeLessThanOrEqual(748);
+    await page.getByTestId('lectio-gospel-read').click();
+    await expect(page).toHaveURL(/\/lectio$/);
+    await expect(page).not.toHaveURL(/\/leyendo/);
+    await expect(gospel.getByTestId('pasaje-verse')).toHaveCount(3);
 
     await page.locator('[data-testid="lectio-reading"][data-cite="Ap 3,1-6.14-22"]').click();
     await expect(gospel.getByTestId('pasaje-verse')).toHaveCount(4);
@@ -444,6 +457,73 @@ test.describe('viewport móvil 390×844', () => {
     const inner = await page.evaluate(() => window.innerWidth);
     expect(inner).toBeLessThan(1024);
   });
+  });
+
+  test.describe('lectio pericopa', () => {
+    test.use({ serviceWorkers: 'block' });
+
+    test('perícopa citada completa en el primer viewport', async ({ page }) => {
+      test.setTimeout(120_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      await page.clock.setFixedTime(new Date(2026, 10, 17, 12, 0, 0));
+      await page.addInitScript(() => {
+        const spoken: string[] = [];
+        (window as unknown as { __spoken: string[] }).__spoken = spoken;
+        const synth = window.speechSynthesis;
+        synth.cancel = () => undefined;
+        synth.getVoices = () => [];
+        synth.speak = (utterance: SpeechSynthesisUtterance) => {
+          spoken.push(utterance.text);
+          utterance.onend?.(new Event('end') as SpeechSynthesisEvent);
+        };
+      });
+
+      await page.goto('/lectio');
+      await expect(page.getByRole('heading', { name: 'Lectio divina' })).toBeVisible();
+      const gospel = page.getByTestId('lectio-gospel-excerpt');
+      await expect(gospel).toBeVisible({ timeout: 90_000 });
+      const numbers = await gospel
+        .getByTestId('pasaje-verse')
+        .evaluateAll((els) => els.map((el) => el.getAttribute('data-verse')));
+      expect(numbers).toEqual(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']);
+      await expect(gospel).toContainText('Jericó');
+      await expect(gospel).toContainText('Zaqueo');
+      await expect(gospel).toContainText('lo que estaba perdido');
+      await expect(gospel).not.toContainText('iba a aparecer de un momento a otro');
+
+      await expect(page.getByTestId('lectio-more')).not.toHaveAttribute('open');
+      await expect(page.getByTestId('lectio-lit')).toBeHidden();
+      await expect(page.getByRole('heading', { name: 'Los cinco pasos' })).toBeHidden();
+
+      const box = await gospel.getByTestId('pasaje-verse').first().boundingBox();
+      const readBox = await page.getByTestId('lectio-gospel-read').boundingBox();
+      expect(box).toBeTruthy();
+      expect(readBox).toBeTruthy();
+      expect(box!.y).toBeGreaterThanOrEqual(0);
+      expect(readBox!.y + readBox!.height).toBeLessThanOrEqual(748);
+      expect(box!.y + box!.height).toBeLessThanOrEqual(748);
+
+      await page.getByTestId('lectio-gospel-read').click();
+      await expect(page).toHaveURL(/\/lectio$/);
+      await expect(page).not.toHaveURL(/\/leyendo|bible-pueblo/);
+      await expect(gospel.getByTestId('pasaje-verse')).toHaveCount(10);
+
+      await page.getByTestId('lectio-gospel-listen').click();
+      await expect(page).toHaveURL(/\/lectio$/);
+      await expect
+        .poll(async () =>
+          page.evaluate(
+            () => (window as unknown as { __spoken: string[] }).__spoken.at(-1) || '',
+          ),
+        )
+        .toContain('Zaqueo');
+      const spoken = await page.evaluate(
+        () => (window as unknown as { __spoken: string[] }).__spoken.at(-1) || '',
+      );
+      expect(spoken).toContain('Jericó');
+      expect(spoken).toContain('lo que estaba perdido');
+      expect(spoken).not.toContain('iba a aparecer de un momento a otro');
+    });
   });
 
   test.describe('cita compartida', () => {

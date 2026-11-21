@@ -166,7 +166,8 @@ const FEATURES = {
   lectio: {
     path: '/lectio',
     text: 'Lectio divina',
-    selector: '[data-testid="lectio-date"], h1.app-title-md',
+    selector:
+      '[data-testid="lectio-gospel-excerpt"], [data-testid="lectio-no-gospel"]',
   },
   historial: {
     path: '/historial',

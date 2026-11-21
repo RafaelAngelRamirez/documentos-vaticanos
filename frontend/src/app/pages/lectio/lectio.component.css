@@ -6,18 +6,36 @@
 }
 
 .lectio-body {
-  padding: 28px 24px 32px;
+  padding: 12px 24px 24px;
   max-width: 480px;
   margin: 0 auto;
 }
 
+.lectio-date {
+  margin: 0;
+  font-size: 13px;
+  color: var(--app-muted, var(--muted));
+}
+
+.lectio-title {
+  margin: 2px 0 0;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
 .lectio-lit {
-  margin: 4px 0 0;
+  margin: 12px 0 0;
   font-size: 14px;
 }
 
+.lectio-reading {
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
 .lectio-block {
-  margin-top: 28px;
+  margin-top: 22px;
 }
 
 .lectio-h {
@@ -39,7 +57,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 12px;
+  margin-top: 10px;
+}
+
+.lectio-actions .primary,
+.lectio-actions .gbtn {
+  width: auto;
+  flex: 1 1 calc(50% - 4px);
+  margin-top: 0;
+  padding: 12px 10px;
+  font-size: 14px;
 }
 
 .lectio-readings {
@@ -102,4 +129,39 @@
 .app-lang-link {
   display: inline-block;
   margin-top: 10px;
+}
+
+.lectio-more {
+  margin-top: 28px;
+  border-top: 1px solid var(--app-line, var(--line));
+}
+
+.lectio-more > summary {
+  list-style: none;
+  cursor: pointer;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--app-font-sans, 'IBM Plex Sans', sans-serif);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--app-muted, var(--muted));
+}
+
+.lectio-more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.lectio-more > summary::after {
+  content: '▸';
+  color: var(--app-muted, var(--muted));
+  font-size: 14px;
+}
+
+.lectio-more[open] > summary::after {
+  content: '▾';
 }
