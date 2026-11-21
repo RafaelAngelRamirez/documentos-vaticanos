@@ -1,7 +1,7 @@
 feature ajustes
 action GET /ajustes
 action_url http://127.0.0.1:4219/ajustes
-chromium /usr/local/bin/google-chrome
+chromium /usr/bin/google-chrome
 result_url http://127.0.0.1:4219/ajustes
 excerpt Ajustes DV Sin sesión La lectura funciona sin cuenta APARIENCIA Tema de la aplicación Sepia, claro, oscuro o según el sistema Mono Sepia Claro Oscuro Sistema IDIOMA DE LA INTERFAZ Idioma de la interfaz Textos de menús, botones y chrome de la app Español English 中文 हिन्दी العربية 
 narrador visible

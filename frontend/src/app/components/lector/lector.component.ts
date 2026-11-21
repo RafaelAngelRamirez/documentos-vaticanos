@@ -56,6 +56,10 @@ import {
   resolveCitedPassageFromLocalRef,
   type CitedPassage,
 } from 'src/app/core/reading/resolve-cited-passage.logic';
+import {
+  citedPassageForPatristic,
+  parsePatristicCite,
+} from 'src/app/core/reading/patristic-cite.logic';
 import type { Article } from 'src/app/core/corpus/corpus.models';
 import {
   NarratorService,
@@ -169,6 +173,8 @@ export class LectorComponent implements OnInit, OnDestroy {
     label: string;
     status: 'loading' | 'ready' | 'missing';
     passage: CitedPassage | null;
+    /** PG / PL. Closed until the reader opens “Edición”. */
+    note: string | null;
   } | null = null;
   private citeLoadSub: Subscription | null = null;
 
@@ -475,38 +481,48 @@ export class LectorComponent implements OnInit, OnDestroy {
    */
   onCitationPreview(event: CitationPreview): void {
     const local = event.seg.local;
-    if (!local) return;
-    const docId = parseDocumentId(local.idDocumento);
-    const anchor = parseUnitIndex(local.idPunto);
-    if (!docId || anchor == null) return;
+    const patristic = event.seg.patristic
+      ? parsePatristicCite(event.seg.label || '')
+      : null;
+    if (!local && !patristic) return;
+    const docId = patristic
+      ? parseDocumentId(patristic.documentId)
+      : parseDocumentId(local?.idDocumento);
+    const anchor = local ? parseUnitIndex(local.idPunto) : 0;
+    if (!docId || (!patristic && anchor == null)) return;
     const documentId = documentIdKey(docId);
     const label = event.seg.label?.trim() || documentId;
+    const note = patristic?.editionNote ?? null;
     this.citeLoadSub?.unsubscribe();
-    this.quickCite = { label, status: 'loading', passage: null };
-    this.citeLoadSub = this.corpus
-      .ensureForCitedPassage(documentId, {
-        citeLabel: label,
-        anchorIndex: anchor,
-      })
-      .subscribe({
+    this.quickCite = { label, status: 'loading', passage: null, note };
+    const load$ = patristic
+      ? this.corpus.ensureLoaded(documentId)
+      : this.corpus.ensureForCitedPassage(documentId, {
+          citeLabel: label,
+          anchorIndex: anchor ?? 0,
+        });
+    this.citeLoadSub = load$.subscribe({
       next: (doc) => {
         if (!this.quickCite || this.quickCite.label !== label) return;
         const units = (doc.documento || []) as Article[];
-        const passage = resolveCitedPassageFromLocalRef(
-          documentId,
-          anchor,
-          label,
-          units,
-        );
+        const passage = patristic
+          ? citedPassageForPatristic(patristic, units)
+          : resolveCitedPassageFromLocalRef(
+              documentId,
+              anchor ?? 0,
+              label,
+              units,
+            );
         this.quickCite = {
           label,
           status: passage?.verses.length ? 'ready' : 'missing',
           passage,
+          note,
         };
       },
       error: () => {
         if (!this.quickCite || this.quickCite.label !== label) return;
-        this.quickCite = { label, status: 'missing', passage: null };
+        this.quickCite = { label, status: 'missing', passage: null, note };
       },
     });
   }

@@ -27,4 +27,5 @@ Preconditions:
 ## Gotchas
 
 - Theme changes write `reader.prefs.v1` in that browser context only. The drive does not click a theme.
+- When the base manifest already lists `kind: patristic` without `packId: patristica` (the web ship), Ajustes does not ask for the patrística zip. The line is `[data-testid="patristic-in-base"]`. The install control (`patristic-pack-install`) stays for a manifest that does not list those works. The drive does not open that control.
 - The fbar title is the proof at 1280px. Do not require the mobile-only bottom nav to be visible. `styles.css` hides `.bnav` from 1024px up.
