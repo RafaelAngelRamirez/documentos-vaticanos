@@ -23,14 +23,14 @@ async function main() {
   for (const needle of [
     'read-aloud.logic',
     'toggleReadAloud',
-    'pickDeviceVoice',
+    'pickSavedDeviceVoice',
     'planSpeak',
     'afterUtterance',
     'parseReadAloudCheckpoint',
     'changeReadAloudRate',
     'setRate',
     'applyGlobalVoice',
-    'setVoiceId',
+    'rememberDeviceVoice',
     'startNarratorFrom',
   ]) {
     assert.ok(lectorSrc.includes(needle), `lector wires ${needle}`);

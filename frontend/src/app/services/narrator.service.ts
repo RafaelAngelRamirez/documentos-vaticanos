@@ -12,6 +12,15 @@ import {
   xaiTtsSpeakUrl,
   xaiTtsVoicesUrl,
 } from './narrator-grok.logic';
+import {
+  canonicalSpeechLang,
+  deviceCatalogForPrefix,
+  deviceVoiceId,
+  engineVoiceIndex,
+  mapDeviceEngineVoices,
+  planNarratorUtterance,
+  type DeviceEngineVoice,
+} from './narrator-device.logic';
 import { NarratorPreferencesService } from './narrator-preferences.service';
 import {
   estimateSpeakCharIndex,
@@ -75,10 +84,13 @@ export {
  *   (`dv.narr.prefs.v1` → xaiApiKey) llamando a `https://api.x.ai/v1/tts`.
  *   La clave no se sube a la nube; sin key o sin red → solo sistema.
  *
- * Selección de voz:
- * - Web: `SpeechSynthesisUtterance.voice`.
- * - Nativo: índice / lang del plugin.
+ * Selección de voz (los dos motores de dispositivo):
+ * el id es `voiceURI` (o nombre + idioma). Al hablar se busca ese id
+ * en el catálogo fresco. En la web se asigna esa voz; en Capacitor se
+ * pasa el índice que ese id tiene ahora. Una voz que ya no está deja
+ * la voz por defecto del idioma, igual en los dos.
  * - Grok: descarga audio de xAI y reproduce con `HTMLAudioElement`.
+ *   Sigue siendo opcional y con red.
  *
  * Cambiar voz, acento (`lang`) o velocidad durante la locución no
  * vuelve al inicio: `retune` sigue en la palabra o frase actual.
@@ -127,35 +139,10 @@ export class NarratorService {
     if (!this.supported) return [];
     const p = prefix.toLowerCase();
 
-    let system: NarratorVoice[] = [];
-
-    if (this.native) {
-      try {
-        const { voices } = await TextToSpeech.getSupportedVoices();
-        system = (voices ?? [])
-          .map((v, index) => ({
-            id: v.voiceURI || `${v.lang}#${index}`,
-            name: v.name || v.lang,
-            lang: v.lang,
-            index,
-            provider: 'system' as const,
-          }))
-          .filter((v) => (v.lang ?? '').toLowerCase().startsWith(p));
-      } catch {
-        system = [];
-      }
-    } else {
-      const all = await this.webVoices();
-      system = all
-        .map((v, index) => ({
-          id: v.voiceURI || `${v.lang}#${index}`,
-          name: v.name || v.lang,
-          lang: v.lang,
-          index,
-          provider: 'system' as const,
-        }))
-        .filter((v) => (v.lang ?? '').toLowerCase().startsWith(p));
-    }
+    const raw = this.native
+      ? await this.nativeEngineVoices()
+      : await this.webEngineVoices();
+    const system = deviceCatalogForPrefix(mapDeviceEngineVoices(raw), p);
 
     const grok = this.narrPrefs.grokEnabled
       ? await this.fetchGrokVoices()
@@ -230,6 +217,52 @@ export class NarratorService {
     }
   }
 
+  /**
+   * Lang, ritmo guardado y voz (dispositivo o Grok si esa es la preferencia
+   * y el idioma coincide). Lectio, portada y contexto usan este plan.
+   * La sesión del lector no: ahí Grok no se pronuncia.
+   */
+  async planUtterance(
+    lang: string,
+    rate?: number,
+  ): Promise<{ lang: string; rate: number; voice: NarratorVoice | null }> {
+    const canonical = canonicalSpeechLang(lang) || 'es-ES';
+    const voices = await this.listVoices(canonical.split('-')[0] || 'es');
+    return planNarratorUtterance({
+      voices,
+      voiceId: this.narrPrefs.voiceId,
+      voiceByLang: this.narrPrefs.snapshot.voiceByLang,
+      lang: canonical,
+      rate: rate ?? this.narrPrefs.rate,
+    });
+  }
+
+  private async nativeEngineVoices(): Promise<DeviceEngineVoice[]> {
+    try {
+      const { voices } = await TextToSpeech.getSupportedVoices();
+      return (voices ?? []).map((voice, index) => ({
+        voiceURI: voice.voiceURI,
+        name: voice.name,
+        lang: voice.lang,
+        localService: voice.localService,
+        index,
+      }));
+    } catch {
+      return [];
+    }
+  }
+
+  private async webEngineVoices(): Promise<DeviceEngineVoice[]> {
+    const all = await this.webVoices();
+    return all.map((voice, index) => ({
+      voiceURI: voice.voiceURI,
+      name: voice.name,
+      lang: voice.lang,
+      localService: voice.localService,
+      index,
+    }));
+  }
+
   /** `speechSynthesis.getVoices()` con espera de `voiceschanged`. */
   private webVoices(): Promise<SpeechSynthesisVoice[]> {
     const synth = window.speechSynthesis;
@@ -262,7 +295,8 @@ export class NarratorService {
     this.dropLive(false);
     await this.stopPlaybackEngines();
     const gen = this.generation;
-    const lang = opts.voice?.lang ?? opts.lang ?? 'es-ES';
+    const lang =
+      canonicalSpeechLang(opts.voice?.lang ?? opts.lang) || 'es-ES';
     const rate = opts.rate ?? 1;
     return new Promise<boolean>((resolve) => {
       if (this.generation !== gen) {
@@ -501,19 +535,44 @@ export class NarratorService {
     const token = ++this.engineToken;
     live.token = token;
     live.startedAt = Date.now();
-    const grok = isGrokVoice(live.voice) && this.narrPrefs.grokEnabled;
-    if (grok) this.clearCursor(live);
-    else this.armCursor(live);
-
-    if (grok && live.voice) {
+    if (isGrokVoice(live.voice) && this.narrPrefs.grokEnabled && live.voice) {
+      this.clearCursor(live);
       void this.speakGrok(live, token);
       return;
     }
+    this.armCursor(live);
     if (this.native) {
       void this.speakNative(live, token);
       return;
     }
     this.speakWeb(live, token);
+  }
+
+  /** La misma identidad que el catálogo: voiceURI, o nombre + idioma. */
+  private matchWebVoice(
+    voice: NarratorVoice | null,
+  ): SpeechSynthesisVoice | undefined {
+    if (!voice || isGrokVoice(voice)) return undefined;
+    const voices = window.speechSynthesis.getVoices();
+    return voices.find(
+      (candidate, index) =>
+        deviceVoiceId({
+          voiceURI: candidate.voiceURI,
+          name: candidate.name,
+          lang: candidate.lang,
+          localService: candidate.localService,
+          index,
+        }) === voice.id,
+    );
+  }
+
+  /** Índice fresco. Si el id ya no está, el motor usa su voz por defecto. */
+  private async matchNativeVoiceIndex(
+    voice: NarratorVoice | null,
+  ): Promise<number | null> {
+    if (!voice || isGrokVoice(voice)) return null;
+    const mapped = mapDeviceEngineVoices(await this.nativeEngineVoices());
+    return engineVoiceIndex(mapped, voice.id);
   }
 
   /** Web Speech. El `charIndex` del límite es la palabra o la frase actual. */
@@ -530,12 +589,8 @@ export class NarratorService {
       const u = new SpeechSynthesisUtterance(live.text);
       u.lang = live.lang;
       u.rate = live.rate;
-      if (live.voice) {
-        const match = synth
-          .getVoices()
-          .find((v) => v.voiceURI === live.voice!.id);
-        if (match) u.voice = match;
-      }
+      const match = this.matchWebVoice(live.voice);
+      if (match) u.voice = match;
       u.onboundary = (ev: SpeechSynthesisEvent) => {
         if (this.live !== live || live.token !== token) return;
         const idx = ev.charIndex;
@@ -553,6 +608,8 @@ export class NarratorService {
     try {
       await TextToSpeech.stop().catch(() => undefined);
       if (this.live !== live || live.token !== token || live.settled) return;
+      const voiceIndex = await this.matchNativeVoiceIndex(live.voice);
+      if (this.live !== live || live.token !== token || live.settled) return;
       await TextToSpeech.speak({
         text: live.text,
         lang: live.lang,
@@ -560,9 +617,7 @@ export class NarratorService {
         pitch: 1,
         volume: 1,
         category: 'playback',
-        ...(live.voice && live.voice.index >= 0
-          ? { voice: live.voice.index }
-          : {}),
+        ...(voiceIndex != null ? { voice: voiceIndex } : {}),
       });
       this.finish(live, token, true);
     } catch {

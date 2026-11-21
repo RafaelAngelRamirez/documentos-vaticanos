@@ -27,8 +27,15 @@ import {
 import {
   NarratorService,
   NarratorVoice,
+  isGrokVoice,
   narrVoicePillLabel,
 } from 'src/app/services/narrator.service';
+import { speechLangForDocumentLocale } from 'src/app/services/speech-lang.logic';
+import {
+  cycleListedVoice,
+  langPrefixOf,
+  pickSavedDeviceVoice,
+} from 'src/app/services/narrator-device.logic';
 import {
   GrokServerStatus,
   NarratorDevicePrefs,
@@ -170,8 +177,9 @@ export class AjustesComponent implements OnInit, OnDestroy {
       })
     );
     this.sub.add(
-      this.i18n.locale$.subscribe(() => {
+      this.i18n.locale$.subscribe((locale) => {
         this.localeTick++;
+        void this.refreshNarratorSection(locale);
       })
     );
     this.sub.add(
@@ -188,7 +196,6 @@ export class AjustesComponent implements OnInit, OnDestroy {
     if (this.prefs.keepAwake) {
       void this.requestWakeLock();
     }
-    void this.refreshNarratorSection();
     void this.refreshPatristicPack();
   }
 
@@ -395,19 +402,26 @@ export class AjustesComponent implements OnInit, OnDestroy {
     return Boolean(this.narratorPrefs.xaiApiKey);
   }
 
-  /** Cicla la voz preferida del dispositivo (sistema + Grok si aplica). */
+  /** Prefijo del idioma de la interfaz. El lector usa el del documento. */
+  private narrLangPrefix(locale?: string): string {
+    return langPrefixOf(
+      speechLangForDocumentLocale(locale || this.prefs.uiLocale),
+    );
+  }
+
+  /**
+   * Mismo ciclo que el lector para las voces del dispositivo.
+   * Grok, si está en la lista, entra al final y no pisa la voz offline.
+   */
   cycleNarrVoice(): void {
-    if (this.narrVoices.length < 1) return;
-    if (this.narrVoices.length === 1) {
-      this.narrVoice = this.narrVoices[0];
-      this.narratorPrefs.setVoiceId(this.narrVoice.id);
+    const next = cycleListedVoice(this.narrVoices, this.narrVoice?.id ?? null);
+    if (!next) return;
+    this.narrVoice = next;
+    if (isGrokVoice(next)) {
+      this.narratorPrefs.setVoiceId(next.id);
       return;
     }
-    const i = this.narrVoice
-      ? this.narrVoices.findIndex((v) => v.id === this.narrVoice!.id)
-      : -1;
-    this.narrVoice = this.narrVoices[(i + 1) % this.narrVoices.length];
-    this.narratorPrefs.setVoiceId(this.narrVoice.id);
+    this.narratorPrefs.rememberDeviceVoice(this.narrLangPrefix(), next.id);
   }
 
   get narrVoiceName(): string {
@@ -426,7 +440,10 @@ export class AjustesComponent implements OnInit, OnDestroy {
     return this.narrator.supported;
   }
 
-  private async refreshNarratorSection(): Promise<void> {
+  private narrRefreshGen = 0;
+
+  private async refreshNarratorSection(locale?: string): Promise<void> {
+    const gen = ++this.narrRefreshGen;
     if (!this.narrator.supported) {
       this.narrVoices = [];
       this.narrVoice = null;
@@ -435,13 +452,25 @@ export class AjustesComponent implements OnInit, OnDestroy {
     }
     this.grokStatus = 'checking';
     const probe = await this.narrator.probeGrokStatus();
+    if (gen !== this.narrRefreshGen) return;
     this.grokStatus = probe.status;
     this.grokVoiceCount = probe.voiceCount;
-    this.narrVoices = await this.narrator.listVoices('es');
+    const prefix = this.narrLangPrefix(locale);
+    this.narrVoices = await this.narrator.listVoices(prefix);
+    if (gen !== this.narrRefreshGen) return;
     const saved = this.narratorPrefs.voiceId;
-    // Match global prefs only. Incomplete catalog (Grok offline, etc.) must
-    // NOT overwrite voiceId — UI falls back to null / "Voz del sistema".
-    this.narrVoice = resolvePreferredVoice(this.narrVoices, saved);
+    // Catálogo incompleto (Grok sin red, voz de otro motor) no pisa voiceId.
+    const resolved = resolvePreferredVoice(this.narrVoices, saved);
+    this.narrVoice =
+      resolved ??
+      pickSavedDeviceVoice(
+        this.narrVoices,
+        {
+          voiceId: saved,
+          voiceByLang: this.narratorPrefs.snapshot.voiceByLang,
+        },
+        prefix,
+      );
   }
 
   exportarDatos(): void {

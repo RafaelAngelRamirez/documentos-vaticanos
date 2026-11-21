@@ -22,7 +22,7 @@ Preconditions:
 - The browser context is a fresh anonymous session (the helper does this).
 - UI locale is the default Spanish catalog (`frontend/src/assets/i18n/es.json`).
 
-- **Open settings.** Run `node .cursor/skills/verify-documentos-vaticanos/scripts/dv-verify.mjs drive ajustes`. The title `Ajustes` is visible and `[data-testid="ajustes-ui-locale"]` is attached.
+- **Open settings.** Run `node .cursor/skills/verify-documentos-vaticanos/scripts/dv-verify.mjs drive ajustes`. The title `Ajustes` is visible and `[data-testid="ajustes-ui-locale"]` is attached. The evidence also records `narrador visible` when the Narrador section is on the page. The 280-character excerpt stops at the language row.
 
 ## Gotchas
 

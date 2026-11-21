@@ -119,9 +119,19 @@ export class LectioComponent implements OnInit, OnDestroy {
     return this.i18n.t(key);
   }
 
+  /** Cited verses only. Stays on /lectio; does not open the bible document. */
   openGospel(autoNarr = false): void {
     const gospel = this.day.gospel;
     if (!gospel || this.opening) return;
+    if (
+      !autoNarr &&
+      this.pasajeCite === gospel.cite &&
+      this.pasajeVerses.length &&
+      this.pasajeSpeech.trim()
+    ) {
+      this.focusPassage();
+      return;
+    }
     this.showPassage(gospel.cite, autoNarr, true);
   }
 
@@ -147,10 +157,10 @@ export class LectioComponent implements OnInit, OnDestroy {
     const locale =
       this.corpus.getMeta(this.bibleDocId)?.locale ||
       this.readerPrefs.resolveContentLocale();
-    await this.narrator.speak(text, {
-      lang: speechLangForDocumentLocale(locale),
-      rate: 1,
-    });
+    const plan = await this.narrator.planUtterance(
+      speechLangForDocumentLocale(locale),
+    );
+    await this.narrator.speak(text, plan);
   }
 
   openMethod(): void {
@@ -249,9 +259,9 @@ export class LectioComponent implements OnInit, OnDestroy {
     const locale =
       this.corpus.getMeta(this.bibleDocId)?.locale ||
       this.readerPrefs.resolveContentLocale();
-    await this.narrator.speak(text, {
-      lang: speechLangForDocumentLocale(locale),
-      rate: 1,
-    });
+    const plan = await this.narrator.planUtterance(
+      speechLangForDocumentLocale(locale),
+    );
+    await this.narrator.speak(text, plan);
   }
 }

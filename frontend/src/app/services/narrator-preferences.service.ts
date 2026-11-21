@@ -8,6 +8,7 @@ import {
   hasXaiApiKey,
   normalizeNarratorRate,
   normalizeXaiApiKey,
+  normalizeVoiceByLang,
   parseNarratorDevicePrefs,
   serializeNarratorDevicePrefs,
   shouldFetchGrokVoices,
@@ -23,6 +24,7 @@ export {
   maskXaiApiKey,
   hasXaiApiKey,
   normalizeNarratorRate,
+  normalizeVoiceByLang,
   normalizeXaiApiKey,
   narratorPrefsForBackup,
 } from './narrator-prefs.logic';
@@ -86,8 +88,32 @@ export class NarratorPreferencesService {
     if (partial.rate !== undefined) {
       next.rate = normalizeNarratorRate(partial.rate);
     }
+    if (partial.voiceByLang !== undefined) {
+      next.voiceByLang = normalizeVoiceByLang(partial.voiceByLang);
+    }
     this.subject.next(next);
     this.persist(next);
+  }
+
+  /**
+   * Guarda la voz de dispositivo de un idioma y la deja como voz preferida.
+   * Un id `grok:` solo actualiza `voiceId`: no entra en `voiceByLang`.
+   */
+  rememberDeviceVoice(langPrefix: string, voiceId: string | null): void {
+    const id = voiceId == null ? '' : String(voiceId).trim();
+    if (!id) {
+      this.setVoiceId(null);
+      return;
+    }
+    const prefix = String(langPrefix || '').split(/[-_]/)[0].toLowerCase();
+    if (!/^[a-z]{2,3}$/.test(prefix) || id.startsWith('grok:')) {
+      this.setVoiceId(id);
+      return;
+    }
+    this.update({
+      voiceId: id,
+      voiceByLang: { ...this.snapshot.voiceByLang, [prefix]: id },
+    });
   }
 
   setGrokEnabled(enabled: boolean): void {
