@@ -464,3 +464,11 @@
   margin-top: 12px;
   padding-right: 4px;
 }
+
+.cite-quick-more {
+  margin-top: 14px;
+}
+
+.cite-quick-more summary {
+  cursor: pointer;
+}

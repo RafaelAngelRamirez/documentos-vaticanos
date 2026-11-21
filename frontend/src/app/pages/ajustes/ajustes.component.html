@@ -77,43 +77,50 @@
 
     <div class="sect">{{ t('settings.reading') }}</div>
     <div class="offok hair">
-      ✓<span class="offtx"
-        >El corpus base viene en la app y se lee sin conexión. La patrística
-        se instala una vez y se queda en el aparato.</span
+      ✓<span
+        class="offtx"
+        [attr.data-testid]="patristicInBase ? 'patristic-in-base' : null"
+        >{{
+          patristicInBase
+            ? 'El corpus de esta app, patrística incluida, se lee sin conexión.'
+            : 'El corpus base viene en la app y se lee sin conexión. La patrística se instala una vez y se queda en el aparato.'
+        }}</span
       >
     </div>
-    <div class="setrow">
-      <span class="setk"
-        >Patrística<span class="seth"
-          >Si el paquete no está, la obra no está. No se pide por red.</span
-        ></span
-      >
-      <span class="stepbtn mini">
-        <button
-          type="button"
-          class="szbtn"
-          data-testid="patristic-pack-install"
-          [disabled]="patristicBusy"
-          (click)="patristicFile.click()"
+    <ng-container *ngIf="patristicShelfReady && !patristicInBase">
+      <div class="setrow">
+        <span class="setk"
+          >Patrística<span class="seth"
+            >Si el paquete no está, la obra no está. No se pide por red.</span
+          ></span
         >
-          {{ patristicBusy ? 'Instalando' : 'Instalar' }}
-        </button>
-      </span>
-    </div>
-    <div class="setrow">
-      <span class="setk">{{ patristicStatus }}</span>
-    </div>
-    <p class="fs13 muted" *ngIf="patristicError" data-testid="patristic-pack-error">
-      {{ patristicError }}
-    </p>
-    <input
-      #patristicFile
-      type="file"
-      accept=".zip,application/zip"
-      hidden
-      data-testid="patristic-pack-file"
-      (change)="onPatristicPack($event)"
-    />
+        <span class="stepbtn mini">
+          <button
+            type="button"
+            class="szbtn"
+            data-testid="patristic-pack-install"
+            [disabled]="patristicBusy"
+            (click)="patristicFile.click()"
+          >
+            {{ patristicBusy ? 'Instalando' : 'Instalar' }}
+          </button>
+        </span>
+      </div>
+      <div class="setrow">
+        <span class="setk">{{ patristicStatus }}</span>
+      </div>
+      <p class="fs13 muted" *ngIf="patristicError" data-testid="patristic-pack-error">
+        {{ patristicError }}
+      </p>
+      <input
+        #patristicFile
+        type="file"
+        accept=".zip,application/zip"
+        hidden
+        data-testid="patristic-pack-file"
+        (change)="onPatristicPack($event)"
+      />
+    </ng-container>
     <div class="setrow">
       <span class="setk">{{ t('settings.font_size') }}</span>
       <span class="stepbtn mini">

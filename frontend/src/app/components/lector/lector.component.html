@@ -400,5 +400,12 @@
         [label]="quickCite.label"
       ></app-pasaje>
     </div>
+    <details
+      *ngIf="quickCite.status === 'ready' && quickCite.note"
+      class="cite-quick-more"
+    >
+      <summary class="fs13 muted">Edición</summary>
+      <p class="fs13 muted">{{ quickCite.note }}</p>
+    </details>
   </dv-sheet>
 </div>

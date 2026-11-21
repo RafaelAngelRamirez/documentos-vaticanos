@@ -5,6 +5,18 @@
  */
 
 export const PATRISTIC_PACK_ID = 'patristica';
+
+/**
+ * The web ship already lists these works (no packId). The APK removes them
+ * and they return only from the installed zip, which sets packId.
+ */
+export function baseManifestIncludesPatristic(
+  docs: readonly { kind?: string; packId?: string }[] | null | undefined,
+): boolean {
+  return (docs || []).some(
+    (doc) => doc?.kind === 'patristic' && doc.packId !== PATRISTIC_PACK_ID,
+  );
+}
 export const PATRISTIC_PACK_VERSION = 1;
 
 export interface PatristicPackDocument {

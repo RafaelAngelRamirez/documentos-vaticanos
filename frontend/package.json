@@ -61,7 +61,8 @@
     "test:anotaciones": "bash ../scripts/node-strip-types.sh src/app/services/anotaciones.logic.test.js",
     "test:spa-fallback": "node tools/spa-fallback.test.js",
     "lint": "node ../node_modules/eslint/bin/eslint.js -c eslint.config.mjs \"src/**/*.ts\" \"src/**/*.html\" \"src/**/*.css\" \"electron/**/*.js\"",
-    "test:cite-map": "bash ../scripts/node-strip-types.sh src/app/core/liturgia/cite-map.logic.test.js"
+    "test:cite-map": "bash ../scripts/node-strip-types.sh src/app/core/liturgia/cite-map.logic.test.js",
+    "test:patristic-cite": "bash ../scripts/node-strip-types.sh src/app/core/reading/patristic-cite.logic.test.js"
   },
   "dependencies": {
     "@angular/animations": "^16.0.1",

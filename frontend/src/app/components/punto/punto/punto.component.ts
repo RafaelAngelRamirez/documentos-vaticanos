@@ -20,6 +20,7 @@ import {
   parseDocumentId,
   parseUnitIndex,
 } from 'src/app/core/reading/cite';
+import { findPatristicSpans } from 'src/app/core/reading/patristic-cite.logic';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { ReferencesService } from 'src/app/core/account/references.service';
@@ -42,6 +43,8 @@ export type ContentSegment =
       index: number;
       local?: { idDocumento: string; idPunto: string };
       url?: string;
+      /** Opens the shared passage sheet. The label is the cite, not a route. */
+      patristic?: boolean;
     };
 
 export type RefSegment = Extract<ContentSegment, { type: 'ref' }>;
@@ -192,12 +195,7 @@ export class PuntoComponent implements OnInit, OnDestroy {
 
     while ((match = REF_PLACEHOLDER.exec(raw)) !== null) {
       const textBefore = raw.slice(lastIndex, match.index);
-      if (textBefore) {
-        segments.push({
-          type: 'text',
-          html: this.formatTextSegment(textBefore, terms, userHl),
-        });
-      }
+      this.appendPlain(segments, textBefore, terms, userHl);
 
       const refIndex = Number(match[1]);
       const ref: Referencia | undefined = refs[refIndex];
@@ -207,14 +205,63 @@ export class PuntoComponent implements OnInit, OnDestroy {
     }
 
     const tail = raw.slice(lastIndex);
-    if (tail || segments.length === 0) {
+    if (tail) {
+      this.appendPlain(segments, tail, terms, userHl);
+    } else if (segments.length === 0) {
       segments.push({
         type: 'text',
-        html: this.formatTextSegment(tail, terms, userHl),
+        html: this.formatTextSegment('', terms, userHl),
       });
     }
 
     return segments;
+  }
+
+  /**
+   * Plain prose, plus a patristic cite whose section or chapter is already
+   * in the offline corpus. The cite becomes a link; the rest stays text.
+   */
+  private appendPlain(
+    segments: ContentSegment[],
+    text: string,
+    terms: string[] | undefined,
+    userHl: string[]
+  ): void {
+    if (!text) return;
+    const spans = findPatristicSpans(text);
+    if (!spans.length) {
+      segments.push({
+        type: 'text',
+        html: this.formatTextSegment(text, terms, userHl),
+      });
+      return;
+    }
+    let cursor = 0;
+    for (const span of spans) {
+      if (span.start > cursor) {
+        segments.push({
+          type: 'text',
+          html: this.formatTextSegment(
+            text.slice(cursor, span.start),
+            terms,
+            userHl
+          ),
+        });
+      }
+      segments.push({
+        type: 'ref',
+        label: span.label,
+        index: -1,
+        patristic: true,
+      });
+      cursor = span.end;
+    }
+    if (cursor < text.length) {
+      segments.push({
+        type: 'text',
+        html: this.formatTextSegment(text.slice(cursor), terms, userHl),
+      });
+    }
   }
 
   /** Subrayados del usuario para esta unidad (diseño 4A). */
@@ -389,20 +436,54 @@ export class PuntoComponent implements OnInit, OnDestroy {
     });
   }
 
+  /** Patristic cites that are not already a link inside the paragraph. */
+  get patristicFootnotes(): string[] {
+    const inline = new Set<string>();
+    for (const seg of this.segments) {
+      if (seg.type === 'ref' && seg.patristic) inline.add(seg.label);
+    }
+    const out: string[] = [];
+    const seen = new Set<string>();
+    for (const ref of this._infoPunto?.article?.referencias ?? []) {
+      const raw = ref?.descripcion?.trim();
+      if (!raw || ref.local?.idDocumento) continue;
+      const spans = findPatristicSpans(raw);
+      if (spans.length !== 1) continue;
+      const label = spans[0].label;
+      if (inline.has(label) || seen.has(label)) continue;
+      seen.add(label);
+      out.push(label);
+    }
+    return out;
+  }
+
+  openPatristicLabel(label: string, event?: Event): void {
+    event?.preventDefault();
+    event?.stopPropagation();
+    const text = (label || '').trim();
+    if (!text) return;
+    this.citationPreview.emit({
+      seg: { type: 'ref', label: text, index: -1, patristic: true },
+      documentId: this.documentId,
+    });
+  }
+
   openRef(seg: ContentSegment, event?: Event): void {
     event?.preventDefault();
     event?.stopPropagation();
 
-    if (seg.type !== 'ref' || !seg.local) {
+    if (seg.type !== 'ref' || (!seg.local && !seg.patristic)) {
       return;
     }
 
-    const { idDocumento, idPunto } = seg.local;
-    const id = parseDocumentId(idDocumento);
-    const unitIndex = parseUnitIndex(idPunto);
-    if (!id || unitIndex == null) return;
+    if (seg.local) {
+      const { idDocumento, idPunto } = seg.local;
+      const id = parseDocumentId(idDocumento);
+      const unitIndex = parseUnitIndex(idPunto);
+      if (!id || unitIndex == null) return;
+    }
 
-    // Bible and doc-to-doc: one sheet via the shared resolver. No stack push.
+    // Bible, doc-to-doc, and a located patristic passage: one sheet.
     this.citationPreview.emit({ seg, documentId: this.documentId });
   }
 

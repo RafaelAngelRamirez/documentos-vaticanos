@@ -14,20 +14,32 @@
     <ng-container *ngFor="let seg of segments">
       <span *ngIf="seg.type === 'text'" [innerHTML]="seg.html"></span>
       <a
-        *ngIf="seg.type === 'ref' && seg.local"
+        *ngIf="seg.type === 'ref' && (seg.local || seg.patristic)"
         href="javascript:void(0)"
         class="ref-link"
         [attr.title]="seg.label"
+        [attr.data-testid]="seg.patristic ? 'patristic-cite' : null"
         (click)="openRef(seg, $event)"
         >{{ seg.label }}</a
       >
       <span
-        *ngIf="seg.type === 'ref' && !seg.local"
+        *ngIf="seg.type === 'ref' && !seg.local && !seg.patristic"
         class="ref-unresolved"
         title="Sin destino offline"
         >{{ seg.label }}</span
       >
     </ng-container>
+    <span class="punto-local-refs" *ngIf="patristicFootnotes.length">
+      <a
+        *ngFor="let label of patristicFootnotes"
+        href="javascript:void(0)"
+        class="ref-link"
+        data-testid="patristic-cite"
+        [attr.title]="label"
+        (click)="openPatristicLabel(label, $event)"
+        >{{ label }}</a
+      >
+    </span>
     <span class="punto-local-refs" *ngIf="localRefs.length">
       <a
         *ngFor="let r of localRefs"

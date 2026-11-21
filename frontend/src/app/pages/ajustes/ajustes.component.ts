@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, firstValueFrom } from 'rxjs';
 import { AppFbarComponent } from 'src/app/components/app-fbar/app-fbar.component';
 import { BnavComponent } from 'src/app/components/bnav/bnav.component';
 import { AuthService } from 'src/app/core/auth/auth.service';
@@ -10,6 +10,7 @@ import {
 } from 'src/app/core/downloads/app-update.logic';
 import { AppUpdateService } from 'src/app/core/downloads/app-update.service';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
+import { baseManifestIncludesPatristic } from 'src/app/core/corpus/patristic-pack.logic';
 import { localeLabel } from 'src/app/core/corpus/document-locale.logic';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { UI_LOCALES } from 'src/app/core/i18n/ui-i18n.logic';
@@ -129,6 +130,12 @@ export class AjustesComponent implements OnInit, OnDestroy {
   patristicStatus = 'Sin instalar';
   patristicError: string | null = null;
   patristicBusy = false;
+  /**
+   * True when the base manifest already lists the works. The web ship does.
+   * The install control stays hidden until this is known, so it does not flash.
+   */
+  patristicInBase = false;
+  patristicShelfReady = false;
 
   constructor(
     private readerPrefs: ReaderPreferencesService,
@@ -187,12 +194,21 @@ export class AjustesComponent implements OnInit, OnDestroy {
 
   async refreshPatristicPack(): Promise<void> {
     try {
+      const docs = await firstValueFrom(this.corpus.loadManifest());
+      this.patristicInBase = baseManifestIncludesPatristic(docs);
+      if (this.patristicInBase) {
+        this.patristicStatus = '';
+        return;
+      }
       const status = await this.corpus.patristicPackStatus();
       this.patristicStatus = status.installed
         ? `${status.documentCount} obras en el aparato`
         : 'Sin instalar';
     } catch {
+      this.patristicInBase = false;
       this.patristicStatus = 'Sin instalar';
+    } finally {
+      this.patristicShelfReady = true;
     }
   }
 

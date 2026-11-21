@@ -1,6 +1,7 @@
 /**
- * One door for cited-only passages: day reading, bible cross-refs, and
- * doc-to-doc refs. UI (pasaje / hoja) and preload (ensureLoaded) feed this;
+ * One door for cited-only passages: day reading, bible cross-refs,
+ * doc-to-doc refs, and a patristic section already cut to unit indexes.
+ * UI (pasaje / hoja) and preload (ensureLoaded) feed this;
  * they do not invent a second extract path.
  */
 
@@ -414,6 +415,56 @@ function singleUnitPassage(
     verses,
     speechText: passageSpeechText(verses),
   };
+}
+
+/**
+ * Units already chosen (a patristic section or chapter).
+ * The sheet draws these indexes and no others.
+ */
+export function resolveCitedPassageFromUnitIndexes(
+  documentId: string,
+  displayLabel: string,
+  units: readonly PassageUnitLike[] | null | undefined,
+  indexes: readonly number[],
+): CitedPassage | null {
+  const label = (displayLabel || '').trim() || documentId;
+  if (!documentId || !units?.length || !indexes?.length) return null;
+  const verses: CitedVerse[] = [];
+  let prev = -2;
+  for (const index of indexes) {
+    if (!Number.isInteger(index) || index < 0 || index >= units.length) {
+      continue;
+    }
+    const unit = units[index];
+    if (!unit) continue;
+    const stored =
+      typeof unit.index_array === 'number' ? unit.index_array : index;
+    const section = leadingSectionNumber(unit.contenido);
+    const text = plainUnitText(unit.contenido, section);
+    if (!text) continue;
+    verses.push({
+      index: stored,
+      chapter: 0,
+      verse: section,
+      text,
+      spanBreakBefore: verses.length > 0 && index !== prev + 1,
+    });
+    prev = index;
+  }
+  if (!verses.length) return null;
+  return {
+    documentId,
+    displayLabel: label,
+    verses,
+    speechText: passageSpeechText(verses),
+  };
+}
+
+function leadingSectionNumber(raw: string | null | undefined): number {
+  const match = String(raw || '').match(/^\s*(\d{1,3})\.\s/);
+  if (!match) return 0;
+  const n = Number(match[1]);
+  return Number.isInteger(n) ? n : 0;
 }
 
 function unitAt(
