@@ -31,7 +31,14 @@ export type LiturgicalFeast =
   | 'holy-family'
   | 'immaculate-conception'
   | 'assumption'
-  | 'all-saints';
+  | 'all-saints'
+  | 'joseph'
+  | 'annunciation'
+  | 'john-baptist'
+  | 'peter-paul'
+  | 'transfiguration'
+  | 'exaltation-cross'
+  | 'all-souls';
 
 export interface LiturgicalDate {
   season: LiturgicalSeason;
@@ -47,7 +54,7 @@ export interface LiturgicalDate {
   month: number;
   /** Civil day 1–31. */
   day: number;
-  /** Ranked temporal/sanctoral solemnity when it replaces the feria. */
+  /** Celebration that replaces the feria, or an Ordinary Sunday it outranks. */
   feast?: LiturgicalFeast;
 }
 
@@ -145,6 +152,22 @@ export function holyFamilyDate(christmasYear: number): Date {
   return d;
 }
 
+/**
+ * St Joseph (19 Mar) and the Annunciation (25 Mar) replace a Lenten feria.
+ * A Sunday of Lent and the ferias of Holy Week outrank them.
+ */
+function lentFeriaSolemnity(
+  month: number,
+  day: number,
+  weekday: number,
+  week: number,
+): LiturgicalFeast | undefined {
+  if (weekday === 0 || week >= 6) return undefined;
+  if (month === 3 && day === 19) return 'joseph';
+  if (month === 3 && day === 25) return 'annunciation';
+  return undefined;
+}
+
 /** Baptism of the Lord (Sunday after 6 Jan, or the next Sunday if 6 Jan is Sunday). */
 export function baptismDate(christmasEndYear: number): Date {
   const jan6 = utcDate(christmasEndYear, 1, 6);
@@ -205,7 +228,10 @@ export function liturgicalDateOf(d: Date): LiturgicalDate {
         season: 'lent',
         week: 0,
         weekday,
-        feast: weekday === 3 ? 'ash-wednesday' : undefined,
+        feast:
+          weekday === 3
+            ? 'ash-wednesday'
+            : lentFeriaSolemnity(month, day, weekday, 0),
       });
     }
     const week = Math.max(1, Math.round((cmp(sun, lent1) / 86400000) / 7) + 1);
@@ -213,7 +239,10 @@ export function liturgicalDateOf(d: Date): LiturgicalDate {
       season: 'lent',
       week,
       weekday,
-      feast: weekday === 0 && week >= 6 ? 'palm-sunday' : undefined,
+      feast:
+        weekday === 0 && week >= 6
+          ? 'palm-sunday'
+          : lentFeriaSolemnity(month, day, weekday, week),
     });
   }
   if (cmp(u, easter) >= 0 && cmp(u, pentecost) <= 0) {
@@ -259,8 +288,13 @@ export function liturgicalDateOf(d: Date): LiturgicalDate {
   if (cmp(u, trinity) === 0) feast = 'trinity';
   else if (cmp(u, corpus) === 0) feast = 'corpus-christi';
   else if (cmp(u, sacredHeart) === 0) feast = 'sacred-heart';
+  else if (month === 6 && day === 24) feast = 'john-baptist';
+  else if (month === 6 && day === 29) feast = 'peter-paul';
+  else if (month === 8 && day === 6) feast = 'transfiguration';
   else if (month === 8 && day === 15) feast = 'assumption';
+  else if (month === 9 && day === 14) feast = 'exaltation-cross';
   else if (month === 11 && day === 1) feast = 'all-saints';
+  else if (month === 11 && day === 2) feast = 'all-souls';
 
   if (cmp(u, pentecost) > 0 && cmp(u, adv1) < 0) {
     const weeksBefore = Math.round((cmp(ctk, sun) / 86400000) / 7);

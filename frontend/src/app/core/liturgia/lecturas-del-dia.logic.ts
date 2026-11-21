@@ -28,7 +28,7 @@ type OlmCites = {
 
 type Abc = 'A' | 'B' | 'C';
 
-/** Packed OLM Sundays may omit a cycle (harvest gaps). cycleRow falls back to A. */
+/** A missing Sunday cycle still falls back to A. The OT 7–12 gaps are filled. */
 type SundayCycles = Partial<Record<Abc, OlmCites>>;
 
 const PACK = pack as {
@@ -65,6 +65,65 @@ const FIXED_DATES: Record<string, OlmCites> = {
     psalm: 'Sal 24',
     second: '1Jn 3,1-3',
     gospel: 'Mt 5,1-12a',
+  },
+  '03-19': {
+    first: '2S 7,4-5a.12-14a.16',
+    psalm: 'Sal 89,2-3.4-5.27+29',
+    second: 'Rm 4,13.16-18.22',
+    gospel: 'Mt 1,16.18-21.24a',
+  },
+  '03-25': {
+    first: 'Is 7,10-14;8,10',
+    psalm: 'Sal 40,7-8.8b-9.10.11',
+    second: 'Hb 10,4-10',
+    gospel: 'Lc 1,26-38',
+  },
+  '06-24': {
+    first: 'Is 49,1-6',
+    psalm: 'Sal 139,1-3.13-14',
+    second: 'Hch 13,22-26',
+    gospel: 'Lc 1,57-66.80',
+  },
+  '06-29': {
+    first: 'Hch 12,1-11',
+    psalm: 'Sal 34,2-3.4-5.6-7.8-9',
+    second: '2Tm 4,6-8.17-18',
+    gospel: 'Mt 16,13-19',
+  },
+  '09-14': {
+    first: 'Nm 21,4b-9',
+    psalm: 'Sal 78,1-2.34-35.36-37.38',
+    second: 'Flp 2,6-11',
+    gospel: 'Jn 3,13-17',
+  },
+  // One formulary from the funeral commons (OLM 1011–1016).
+  '11-02': {
+    first: 'Sb 3,1-9',
+    psalm: 'Sal 23,1-3.4.5.6',
+    second: 'Rm 6,3-9',
+    gospel: 'Jn 6,37-40',
+  },
+};
+
+/** Transfiguration gospel follows the Sunday cycle (OLM 614). */
+const TRANSFIGURATION: Record<Abc, OlmCites> = {
+  A: {
+    first: 'Dn 7,9-10.13-14',
+    psalm: 'Sal 97,1-2.5-6.9',
+    second: '2P 1,16-19',
+    gospel: 'Mt 17,1-9',
+  },
+  B: {
+    first: 'Dn 7,9-10.13-14',
+    psalm: 'Sal 97,1-2.5-6.9',
+    second: '2P 1,16-19',
+    gospel: 'Mc 9,2-10',
+  },
+  C: {
+    first: 'Dn 7,9-10.13-14',
+    psalm: 'Sal 97,1-2.5-6.9',
+    second: '2P 1,16-19',
+    gospel: 'Lc 9,28b-36',
   },
 };
 
@@ -135,6 +194,7 @@ function weekdayRow(grid: OlmCites[][] | undefined, week: number, weekday: numbe
 function feastRow(feast: LiturgicalFeast | undefined, cycle: Abc): OlmCites | null {
   if (!feast) return null;
   if (feast === 'easter-vigil') return EASTER_VIGIL[cycle];
+  if (feast === 'transfiguration') return TRANSFIGURATION[cycle];
   const row = PACK.feasts[feast];
   if (!row) return null;
   if ('gospel' in row || 'first' in row) {
@@ -165,8 +225,9 @@ function ordinaryWeekday(info: LiturgicalDate): LecturaItem[] {
 /**
  * Readings for a classified liturgical date.
  * Packed OLM citations for Advent, Christmas, Lent, Easter, Triduum,
- * Sundays of Ordinary Time, and major solemnities. OT weekdays stay on
- * the existing ferial tables.
+ * Sundays of Ordinary Time, and solemnities that replace the feria.
+ * Advent ferias are one set: the weekday year (I/II) does not apply.
+ * OT weekdays stay on the ferial tables.
  */
 export function lecturasForLiturgicalDate(info: LiturgicalDate): LecturaItem[] {
   const cycle = info.sundayCycle;
