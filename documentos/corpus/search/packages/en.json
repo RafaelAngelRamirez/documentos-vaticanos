@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "locale": "en",
+  "packages": [
+    {
+      "id": "base",
+      "file": "en-base.dvix",
+      "docs": 415,
+      "terms": 44976,
+      "rawBytes": 3850891
+    },
+    {
+      "id": "padres",
+      "file": "en-padres.dvix",
+      "docs": 3,
+      "terms": 10521,
+      "rawBytes": 333218
+    }
+  ]
+}

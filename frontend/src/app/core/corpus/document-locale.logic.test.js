@@ -270,6 +270,35 @@ async function main() {
   assert.ok(searchAll.some((d) => d.id === 'ca-en'));
   assert.ok(!searchAll.some((d) => d.id === 'ca-en-ai'));
 
+  // contentHash mirrors collapse (Sedula Mater: apost_letters + motu_proprio)
+  const mirrors = [
+    meta('20160815-sedula-mater-20160815-en', 'en', {
+      contentHash: '0fea06ce33d6',
+      translationProvenance: 'official',
+    }),
+    meta('20160815-sedula-mater-en', 'en', {
+      contentHash: '0fea06ce33d6',
+      translationProvenance: 'official',
+    }),
+    meta('ca-en', 'en', {
+      contentHash: 'unique-ca',
+      translationProvenance: 'official',
+    }),
+  ];
+  const collapsedMirrors = L.collapseMirrorEditions(mirrors);
+  assert.strictEqual(collapsedMirrors.length, 2);
+  assert.ok(
+    collapsedMirrors.some((d) => d.id === '20160815-sedula-mater-en'),
+    'keeps the shorter sedula id',
+  );
+  assert.ok(
+    !collapsedMirrors.some((d) => d.id === '20160815-sedula-mater-20160815-en'),
+    'drops the redundant-date sedula mirror',
+  );
+  const searchMirrors = L.listSearchUniverse(mirrors, 'en', false);
+  assert.ok(searchMirrors.some((d) => d.id === '20160815-sedula-mater-en'));
+  assert.ok(!searchMirrors.some((d) => d.id === '20160815-sedula-mater-20160815-en'));
+
   // Real manifest collapse smoke
   if (fs.existsSync(MANIFEST)) {
     const man = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
@@ -351,6 +380,14 @@ async function main() {
     assert.ok(
       !searchEnReal.some((d) => d.id === 'ca-es'),
       'en search universe does not include ca-es',
+    );
+    assert.ok(
+      searchEnReal.some((d) => d.id === '20160815-sedula-mater-en'),
+      'en search keeps canonical sedula mater',
+    );
+    assert.ok(
+      !searchEnReal.some((d) => d.id === '20160815-sedula-mater-20160815-en'),
+      'en search drops sedula mater mirror',
     );
 
     console.log(`OK: manifest collapse ${all} → ${collapsed.length} (pref=es)`);

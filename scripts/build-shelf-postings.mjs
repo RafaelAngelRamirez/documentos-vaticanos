@@ -6,6 +6,8 @@
  * El gzip −9 se mide y no se embarca: el APK ya comprime el archivo.
  *
  *   node --experimental-strip-types scripts/build-shelf-postings.mjs
+ *   LOCALES=en node --experimental-strip-types scripts/build-shelf-postings.mjs
+ *   LOCALES=es,en node --experimental-strip-types scripts/build-shelf-postings.mjs
  */
 
 import { createRequire, register } from 'node:module';
@@ -47,7 +49,10 @@ const OUT_DIRS = [
   path.join(ROOT, 'search/packages'),
   path.resolve('frontend/src/assets/corpus/search/packages'),
 ];
-const LOCALE = 'es';
+const LOCALES = String(process.env.LOCALES || 'es')
+  .split(',')
+  .map((part) => part.trim().toLowerCase())
+  .filter(Boolean);
 const PACKAGES = ['base', 'padres'];
 
 function postingsOf(value) {
@@ -124,10 +129,10 @@ function avgTokensFor(docs) {
   return avg;
 }
 
-function buildPackage(metas, packageId) {
-  const docs = L.docsForPackage(metas, LOCALE, packageId);
+function buildPackage(metas, locale, packageId) {
+  const docs = L.docsForPackage(metas, locale, packageId);
   const t0 = performance.now();
-  console.log(`==> ${packageId}: ${docs.length} obras`);
+  console.log(`==> ${locale}/${packageId}: ${docs.length} obras`);
   const avgTokens = avgTokensFor(docs);
   console.log(`    medias`, avgTokens);
   const terms = new Map();
@@ -171,7 +176,7 @@ function buildPackage(metas, packageId) {
   }));
   const tEncode = performance.now();
   const bytes = L.encodeShelfPackage({
-    locale: LOCALE,
+    locale,
     packageId,
     avgTokens,
     docs: shelfDocs,
@@ -181,18 +186,19 @@ function buildPackage(metas, packageId) {
   const tDecode = performance.now();
   const decoded = L.decodeShelfPackage(bytes);
   const decodeMs = performance.now() - tDecode;
+  const probeTerm = locale === 'en' ? 'mercy' : 'eucaristia';
   const loops = 200;
   const tLook = performance.now();
   let units = 0;
   for (let i = 0; i < loops; i++) {
-    units = L.postingUnitCount(decoded, 'eucaristia').units;
+    units = L.postingUnitCount(decoded, probeTerm).units;
   }
   const lookupUs = ((performance.now() - tLook) * 1000) / loops;
   const gz = zlib.gzipSync(bytes, { level: 9 });
   const buildMs = Math.round(performance.now() - t0);
   const info = {
     id: packageId,
-    file: `${LOCALE}-${packageId}.dvix`,
+    file: `${locale}-${packageId}.dvix`,
     docs: decoded.docCount,
     terms: decoded.terms.size,
     rawBytes: bytes.length,
@@ -201,13 +207,13 @@ function buildPackage(metas, packageId) {
     encodeMs: Math.round(encodeMs),
     decodeMs: Math.round(decodeMs),
     lookupUs: Math.round(lookupUs),
-    eucaristia: L.postingUnitCount(decoded, 'eucaristia'),
+    [probeTerm]: L.postingUnitCount(decoded, probeTerm),
     droppedDigitKeys: droppedDigits,
     avgTokens,
     postings: kept,
   };
   console.log(
-    `    ${info.file} raw ${info.rawBytes} gzip ${info.gzipBytes} build ${info.buildMs} ms lookup ${info.lookupUs} µs eucaristia ${units}`,
+    `    ${info.file} raw ${info.rawBytes} gzip ${info.gzipBytes} build ${info.buildMs} ms lookup ${info.lookupUs} µs ${probeTerm} ${units}`,
   );
   return { bytes, info };
 }
@@ -221,35 +227,75 @@ function writeBoth(name, data) {
   }
 }
 
+function readExistingMedicion() {
+  const file = path.join(OUT_DIRS[0], 'medicion.json');
+  if (!fs.existsSync(file)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
 const manifest = JSON.parse(
   fs.readFileSync(path.join(ROOT, 'manifest.json'), 'utf8'),
 );
 const metas = manifest.documents || [];
-const built = [];
-for (const packageId of PACKAGES) {
-  const { bytes, info } = buildPackage(metas, packageId);
-  writeBoth(info.file, bytes);
-  built.push(info);
+const previous = readExistingMedicion();
+const byLocale = {
+  ...(previous?.byLocale || {}),
+};
+if (previous?.locale && previous?.packages && !byLocale[previous.locale]) {
+  byLocale[previous.locale] = {
+    locale: previous.locale,
+    packages: previous.packages,
+  };
 }
 
+for (const locale of LOCALES) {
+  const built = [];
+  for (const packageId of PACKAGES) {
+    const { bytes, info } = buildPackage(metas, locale, packageId);
+    writeBoth(info.file, bytes);
+    built.push(info);
+  }
+  byLocale[locale] = {
+    locale,
+    packages: built,
+  };
+  writeBoth(
+    `${locale}.json`,
+    JSON.stringify(
+      {
+        version: 1,
+        locale,
+        packages: built.map((info) => ({
+          id: info.id,
+          file: info.file,
+          docs: info.docs,
+          terms: info.terms,
+          rawBytes: info.rawBytes,
+        })),
+      },
+      null,
+      2,
+    ) + '\n',
+  );
+  console.log(
+    'ok',
+    locale,
+    built.map((info) => `${info.id} ${info.rawBytes}`).join(', '),
+  );
+}
+
+const esPackages = byLocale.es?.packages || previous?.packages || [];
 const medicion = {
   version: 1,
-  locale: LOCALE,
+  locale: 'es',
   measuredAt: new Date().toISOString(),
   node: process.version,
-  note: 'El gzip −9 es la medida. El archivo que lee la app es el crudo.',
-  packages: built,
+  note: 'El gzip −9 es la medida. El archivo que lee la app es el crudo. byLocale guarda cada idioma.',
+  packages: esPackages,
+  byLocale,
 };
-writeBoth(`${LOCALE}.json`, JSON.stringify({
-  version: 1,
-  locale: LOCALE,
-  packages: built.map((info) => ({
-    id: info.id,
-    file: info.file,
-    docs: info.docs,
-    terms: info.terms,
-    rawBytes: info.rawBytes,
-  })),
-}, null, 2) + '\n');
 writeBoth('medicion.json', JSON.stringify(medicion, null, 2) + '\n');
-console.log('ok', built.map((info) => `${info.id} ${info.rawBytes}`).join(', '));
