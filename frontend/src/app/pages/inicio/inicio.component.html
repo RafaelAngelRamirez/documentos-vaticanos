@@ -52,6 +52,13 @@
               {{ loadingLectura[r.id] || t('inicio.read') }}
             </button>
           </div>
+          <p
+            class="wsaints-intro muted"
+            *ngIf="lecturaError[r.id] && !passages[r.id]?.length"
+            data-testid="inicio-lectura-error"
+          >
+            {{ t('inicio.read_failed') }}
+          </p>
           <app-pasaje
             *ngIf="passages[r.id]?.length"
             data-testid="inicio-pasaje"

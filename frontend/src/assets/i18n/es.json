@@ -204,6 +204,7 @@
   "reader.read": "Leer",
   "inicio.listen": "▶ Escuchar",
   "inicio.read": "Leer ›",
+  "inicio.read_failed": "No se pudo abrir esta lectura.",
   "clase.mine": "Mis clases",
   "clase.need_teacher": "Para armar y exportar hace falta el papel de maestro.",
   "clase.title_field": "Título",

@@ -257,6 +257,7 @@ async function main() {
     'reader.read',
     'inicio.listen',
     'inicio.read',
+    'inicio.read_failed',
   ];
   for (const loc of LOCALES) {
     for (const key of required) {
@@ -310,6 +311,7 @@ async function main() {
     'reader.read',
     'inicio.listen',
     'inicio.read',
+    'inicio.read_failed',
   ];
   for (const loc of LOCALES.filter((l) => l !== 'es')) {
     for (const key of newChromeKeys) {
@@ -356,6 +358,7 @@ async function main() {
       'inicio.lectio_today',
       'inicio.listen',
       'inicio.read',
+      'inicio.read_failed',
     ],
     explorar: [
       'explore.title',

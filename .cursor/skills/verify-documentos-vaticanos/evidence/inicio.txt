@@ -1,6 +1,6 @@
 feature inicio
 action GET /inicio
-action_url http://127.0.0.1:4200/inicio
+action_url http://127.0.0.1:4219/inicio
 chromium /usr/bin/google-chrome
-result_url http://127.0.0.1:4200/inicio
+result_url http://127.0.0.1:4219/inicio
 excerpt DV Los grandes textos, para leer con calma Concilios, encíclicas, el Catecismo y los Padres de la Iglesia. Sin distracciones, también sin conexión. Empezar 22 de noviembre LECTURAS DEL DÍA 34º domingo del Tiempo Ordinario Primera lectura Ez 34,11-12.15-17 ▶ Escuchar Leer › Salmo 

@@ -204,6 +204,7 @@
   "reader.read": "Read",
   "inicio.listen": "▶ Listen",
   "inicio.read": "Read ›",
+  "inicio.read_failed": "This reading could not be opened.",
   "clase.mine": "My classes",
   "clase.need_teacher": "Building and exporting a class requires the teacher role.",
   "clase.title_field": "Title",

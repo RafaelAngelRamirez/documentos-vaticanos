@@ -70,6 +70,22 @@ async function main() {
     { from: 100, to: 102 },
   ]);
 
+  const bare = [];
+  bare[1] = { contenido: '2 dos olivos' };
+  bare[3] = { contenido: '4 el hueco' };
+  bare[4] = { contenido: '9 despues del salto' };
+  const jumped = citeMod.parseLectionaryPassage('Ap 7,2.9');
+  const stamped = mapMod.addressUnitsFromCiteMap(bare, map, jumped);
+  assert.strictEqual(stamped[1].biblia.libro, 'apocalipsis');
+  assert.strictEqual(stamped[1].biblia.versiculo, 2);
+  assert.ok(!stamped[3].biblia);
+  const shown = citeMod.collectCitedVerses(stamped, jumped);
+  assert.deepStrictEqual(
+    shown.map((verse) => verse.verse),
+    [2, 9],
+  );
+  assert.ok(!shown.some((verse) => verse.text.includes('hueco')));
+
   console.log('ok cite-map.logic');
 }
 

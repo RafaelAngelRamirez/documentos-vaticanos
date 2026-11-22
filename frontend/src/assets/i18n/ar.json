@@ -204,6 +204,7 @@
   "reader.read": "اقرأ",
   "inicio.listen": "▶ استمع",
   "inicio.read": "اقرأ ›",
+  "inicio.read_failed": "تعذّر فتح هذه القراءة.",
   "clase.mine": "دروسي",
   "clase.need_teacher": "إعداد الدرس وتصديره يحتاج دور المعلّم.",
   "clase.title_field": "العنوان",
