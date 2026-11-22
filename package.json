@@ -31,7 +31,7 @@
     "test:unlinked-refs": "npm --prefix scripts-descarga run test:unlinked-refs",
     "inventory:unlinked-refs": "npm --prefix scripts-descarga run inventory:unlinked-refs",
     "test:corpus-structure": "node scripts-descarga/corpus_structure_contract.test.js && node scripts/corpus-sync-assets.test.js",
-    "test:psalms-es": "npm --prefix scripts-descarga run test:psalms-es",
+    "test:psalms-es": "bash scripts/node-strip-types.sh scripts-descarga/psalms_es_verse_counts.test.js",
     "repair:psalms-es": "npm --prefix scripts-descarga run repair:psalms-es",
     "test:electron-paths": "npm --prefix frontend run test:electron-paths",
     "dev:api": "npm --prefix backend run dev",

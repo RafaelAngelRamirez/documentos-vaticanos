@@ -2,7 +2,8 @@
  * Offline gate: Spanish Psalms verse counts and completeness vs frozen ESL0506
  * fixtures (not live network). Proves the pack no longer drops continuation lines.
  *
- * Run: node scripts-descarga/psalms_es_verse_counts.test.js
+ * Cheap CI has no scripts-descarga node_modules — no linkedom. Run via:
+ *   bash scripts/node-strip-types.sh scripts-descarga/psalms_es_verse_counts.test.js
  */
 'use strict';
 
@@ -10,7 +11,6 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 const { pathToFileURL } = require('url');
-const { parseHTML } = require('linkedom');
 
 const HERE = __dirname;
 const REPO = path.resolve(HERE, '..');
@@ -21,6 +21,62 @@ const CONTENT_PATH = path.join(
   'documentos/corpus/documents/bible-pueblo-de-dios-es/content.json',
 );
 const PARSE_TS = path.join(HERE, 'src/bible/psalm_verse_parse.ts');
+
+const ENTITIES = {
+  nbsp: ' ',
+  amp: '&',
+  lt: '<',
+  gt: '>',
+  quot: '"',
+  apos: "'",
+  ntilde: 'ñ',
+  Ntilde: 'Ñ',
+  aacute: 'á',
+  eacute: 'é',
+  iacute: 'í',
+  oacute: 'ó',
+  uacute: 'ú',
+  Aacute: 'Á',
+  Eacute: 'É',
+  Iacute: 'Í',
+  Oacute: 'Ó',
+  Uacute: 'Ú',
+  uuml: 'ü',
+  Uuml: 'Ü',
+  iquest: '¿',
+  iexcl: '¡',
+  laquo: '«',
+  raquo: '»',
+  mdash: '—',
+  ndash: '–',
+};
+
+function decodeEntities(raw) {
+  return String(raw || '')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) =>
+      String.fromCharCode(parseInt(h, 16)),
+    )
+    .replace(/&([a-zA-Z]+);/g, (m, name) =>
+      Object.prototype.hasOwnProperty.call(ENTITIES, name)
+        ? ENTITIES[name]
+        : m,
+    );
+}
+
+/** Zero-dep extract of p.MsoNormal text (same nodes the ESL0506 scraper reads). */
+function msoNormalParagraphs(html) {
+  const paras = [];
+  const re = /<p\s+class=["']?MsoNormal["']?[^>]*>([\s\S]*?)<\/p>/gi;
+  let m;
+  while ((m = re.exec(html))) {
+    const t = decodeEntities(m[1].replace(/<[^>]+>/g, ' '))
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (t) paras.push(t);
+  }
+  return paras;
+}
 
 function loadCounts() {
   assert.ok(fs.existsSync(COUNTS_PATH), `missing ${COUNTS_PATH}`);
@@ -49,8 +105,7 @@ async function loadParser() {
 
 function parseFixtureChapter(parser, htmlPath) {
   const html = fs.readFileSync(htmlPath, 'utf8');
-  const { document } = parseHTML(html);
-  return parser.parsePsalmChapterDocument(document);
+  return parser.foldPsalmParagraphs(msoNormalParagraphs(html));
 }
 
 async function main() {
@@ -92,7 +147,6 @@ async function main() {
     `total salmos verses corpus=${totalGot} source=${expected.totalVerses}`,
   );
 
-  // Psalm 23: the historical truncation dropped «El Señor es mi pastor».
   const p23 = (texts['23'] || []).join(' ').toLowerCase();
   assert.ok(
     p23.includes('señor es mi pastor'),
@@ -103,7 +157,6 @@ async function main() {
     'Sal 23 must include «nada me puede faltar» from ESL0506',
   );
 
-  // Parser unit checks against frozen HTML (22 = 16c trap; 23 = multi-line verses).
   const parser = await loadParser();
   const html22 = path.join(FIXTURE, 'html', '__PGR.HTM');
   const html23 = path.join(FIXTURE, 'html', '__PGS.HTM');
@@ -122,7 +175,6 @@ async function main() {
   assert.ok(joined23.includes('señor es mi pastor'));
   assert.ok(joined23.includes('nada me puede faltar'));
 
-  // Letter-suffix opener must append, not start a verse.
   const folded = parser.foldPsalmParagraphs([
     '1 Primero.',
     'continuación',
