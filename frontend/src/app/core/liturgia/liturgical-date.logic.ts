@@ -294,7 +294,9 @@ export function liturgicalDateOf(d: Date): LiturgicalDate {
   else if (month === 8 && day === 15) feast = 'assumption';
   else if (month === 9 && day === 14) feast = 'exaltation-cross';
   else if (month === 11 && day === 1) feast = 'all-saints';
-  else if (month === 11 && day === 2) feast = 'all-souls';
+  // All Souls is not a solemnity: a Sunday of Ordinary Time keeps its Mass.
+  // The impeded day is not transferred.
+  else if (month === 11 && day === 2 && weekday !== 0) feast = 'all-souls';
 
   if (cmp(u, pentecost) > 0 && cmp(u, adv1) < 0) {
     const weeksBefore = Math.round((cmp(ctk, sun) / 86400000) / 7);

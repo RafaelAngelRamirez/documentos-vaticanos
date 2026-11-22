@@ -100,6 +100,13 @@ async function main() {
   assert.match(g(2028, 8, 6), /Lc 9,28/, 'Transfiguration C');
   assert.match(g(2026, 9, 14), /Jn 3,13-17/);
   assert.match(g(2026, 11, 2), /Jn 6,37-40/, 'All Souls replaces the feria');
+  assert.match(g(2025, 11, 2), /Lc 19,1-10/, 'OT Sunday 31 C outranks All Souls');
+  assert.notStrictEqual(liturgicalDateOf(new Date(2025, 10, 2)).feast, 'all-souls');
+  assert.notStrictEqual(
+    liturgicalDateOf(new Date(2025, 10, 3)).feast,
+    'all-souls',
+    'All Souls is not transferred to Monday',
+  );
   assert.match(g(2025, 12, 27), /Jn 20,2-8/, 'St John replaces the octave feria');
   assert.match(g(2026, 12, 27), /Lc 2,22-40/, 'Holy Family keeps the Sunday');
 
