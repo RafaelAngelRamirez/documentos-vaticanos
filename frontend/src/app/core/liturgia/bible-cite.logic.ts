@@ -413,6 +413,268 @@ export interface BibleUnitLike {
   index_array?: number;
 }
 
+const BIBLE_PACK_LOCALES = ['es', 'en', 'ar', 'hi', 'zh'] as const;
+
+/**
+ * Packed bible id for a content locale. English and the other siblings
+ * share the Spanish unit index; they do not carry their own `biblia` marks.
+ */
+export function biblePackIdForLocale(
+  locale: string | null | undefined,
+): string {
+  const code = (locale || 'es')
+    .toString()
+    .trim()
+    .toLowerCase()
+    .split(/[-_]/)[0];
+  const loc = (BIBLE_PACK_LOCALES as readonly string[]).includes(code)
+    ? code
+    : 'es';
+  return `bible-pueblo-de-dios-${loc}`;
+}
+
+/**
+ * Vatican.va English book tokens → the lectionary code the cite-map uses.
+ * Lectionary codes themselves (`Mt`, `Gn`, `1Jn`) are recognized separately.
+ */
+const ENGLISH_BOOK_ALIAS: Record<string, string> = {
+  gen: 'Gn',
+  genesis: 'Gn',
+  exod: 'Ex',
+  exodus: 'Ex',
+  lev: 'Lv',
+  leviticus: 'Lv',
+  num: 'Nm',
+  numbers: 'Nm',
+  deut: 'Dt',
+  deuteronomy: 'Dt',
+  josh: 'Jos',
+  joshua: 'Jos',
+  judg: 'Jue',
+  judges: 'Jue',
+  ruth: 'Rt',
+  '1sam': '1S',
+  '1samuel': '1S',
+  '2sam': '2S',
+  '2samuel': '2S',
+  '1kgs': '1R',
+  '1kings': '1R',
+  '2kgs': '2R',
+  '2kings': '2R',
+  '1chr': '1Cro',
+  '1chronicles': '1Cro',
+  '2chr': '2Cro',
+  '2chronicles': '2Cro',
+  ezra: 'Esd',
+  neh: 'Ne',
+  nehemiah: 'Ne',
+  tob: 'Tb',
+  tobit: 'Tb',
+  judith: 'Jdt',
+  esth: 'Est',
+  esther: 'Est',
+  '1macc': '1M',
+  '1maccabees': '1M',
+  '2macc': '2M',
+  '2maccabees': '2M',
+  ps: 'Sal',
+  psalm: 'Sal',
+  psalms: 'Sal',
+  prov: 'Pr',
+  proverbs: 'Pr',
+  eccl: 'Qo',
+  qoh: 'Qo',
+  song: 'Ct',
+  cant: 'Ct',
+  wis: 'Sb',
+  wisdom: 'Sb',
+  sir: 'Si',
+  sirach: 'Si',
+  isa: 'Is',
+  isaiah: 'Is',
+  jer: 'Jr',
+  jeremiah: 'Jr',
+  lam: 'Lm',
+  lamentations: 'Lm',
+  bar: 'Ba',
+  baruch: 'Ba',
+  ezek: 'Ez',
+  ezekiel: 'Ez',
+  dan: 'Dn',
+  daniel: 'Dn',
+  hos: 'Os',
+  hosea: 'Os',
+  joel: 'Jl',
+  amos: 'Am',
+  obad: 'Ab',
+  obadiah: 'Ab',
+  jonah: 'Jon',
+  mic: 'Mi',
+  micah: 'Mi',
+  nah: 'Na',
+  nahum: 'Na',
+  hab: 'Ha',
+  habakkuk: 'Ha',
+  zeph: 'So',
+  zephaniah: 'So',
+  hag: 'Ag',
+  haggai: 'Ag',
+  zech: 'Za',
+  zechariah: 'Za',
+  mal: 'Ml',
+  malachi: 'Ml',
+  matt: 'Mt',
+  matthew: 'Mt',
+  mk: 'Mc',
+  mark: 'Mc',
+  lk: 'Lc',
+  luke: 'Lc',
+  john: 'Jn',
+  acts: 'Hch',
+  rom: 'Rm',
+  romans: 'Rm',
+  '1cor': '1Co',
+  '1corinthians': '1Co',
+  '2cor': '2Co',
+  '2corinthians': '2Co',
+  gal: 'Ga',
+  galatians: 'Ga',
+  eph: 'Ef',
+  ephesians: 'Ef',
+  phil: 'Flp',
+  philippians: 'Flp',
+  colossians: 'Col',
+  '1thess': '1Ts',
+  '1thessalonians': '1Ts',
+  '2thess': '2Ts',
+  '2thessalonians': '2Ts',
+  '1tim': '1Tm',
+  '1timothy': '1Tm',
+  '2tim': '2Tm',
+  '2timothy': '2Tm',
+  tit: 'Tt',
+  titus: 'Tt',
+  phlm: 'Flm',
+  philem: 'Flm',
+  heb: 'Hb',
+  hebrews: 'Hb',
+  jas: 'St',
+  james: 'St',
+  '1pet': '1P',
+  '1peter': '1P',
+  '2pet': '2P',
+  '2peter': '2P',
+  '1john': '1Jn',
+  '2john': '2Jn',
+  '3john': '3Jn',
+  jude: 'Judas',
+  rev: 'Ap',
+  revelation: 'Ap',
+};
+
+function aliasBook(token: string): string | null {
+  const key = token
+    .normalize('NFD')
+    .replace(/\p{M}/gu, '')
+    .replace(/\./g, '')
+    .toLowerCase();
+  if (ENGLISH_BOOK_ALIAS[key]) return ENGLISH_BOOK_ALIAS[key];
+  for (const code of Object.keys(LECT_BOOK_SLUG)) {
+    if (code.toLowerCase() === key) return code;
+  }
+  return null;
+}
+
+function stripCiteLead(raw: string): string {
+  return raw.trim().replace(/^(?:cf\.|cfr\.|ver)\s+/i, '').trim();
+}
+
+/** `5:12` and `2:20, 4:14-16` become the comma / semicolon form the parser knows. */
+function normalizeVerseBody(body: string): string | null {
+  let text = body.trim();
+  if (!text) return null;
+  text = text.replace(/,\s*(?=\d+\s*:)/g, ';');
+  text = text.replace(/(\d)\s*:\s*(?=\d)/g, '$1,');
+  text = text.replace(/\s+/g, '');
+  if (!/^\d/.test(text)) return null;
+  if (/[e-zE-ZÁÉÍÓÚáéíóúÑñ]/.test(text)) return null;
+  return text;
+}
+
+function lectionaryFastLabel(raw: string): string {
+  return stripCiteLead(raw).replace(
+    /^([1-3])\s+([A-Za-zÁÉÍÓÚáéíóúÑñ]+)/u,
+    '$1$2',
+  );
+}
+
+interface BookChunk {
+  code: string;
+  spec: string;
+}
+
+function chunkOf(part: string, current: string | null): BookChunk | null {
+  const glued = stripCiteLead(part).replace(/^([1-3])\s+/u, '$1');
+  const match = glued.match(/^([1-3]?[A-Za-z]+)\s+(.+)$/);
+  let code = current;
+  let body = glued;
+  if (match) {
+    const aliased = aliasBook(match[1]);
+    if (aliased) {
+      code = aliased;
+      body = match[2];
+    } else if (!current) {
+      return null;
+    }
+  }
+  if (!code) return null;
+  const spec = normalizeVerseBody(body);
+  if (!spec) return null;
+  return { code, spec };
+}
+
+/**
+ * One or more bible passages named by a footnote label.
+ * Spanish lectionary form (`Mt 5,12`, `Ap 3,1-6.14-22`) stays as it is.
+ * English Vatican form (`Mt 5:12`, `Gen 17:1`, `2 Tim 1:5`) uses the same
+ * books. A label with no book (`12:1`) is not a citation.
+ * Returns null when any piece is not a bible cite, so a patristic note
+ * does not become a link.
+ */
+export function parseBibleCites(
+  raw: string | null | undefined,
+): ParsedPassage[] | null {
+  const display = (raw || '').trim();
+  if (!display) return null;
+  const direct = parseLectionaryPassage(lectionaryFastLabel(display));
+  if (direct && bookSlugForCode(direct.code)) return [direct];
+
+  const parts = display
+    .split(';')
+    .map((part) => part.trim())
+    .filter(Boolean);
+  if (!parts.length) return null;
+  const groups: { code: string; specs: string[] }[] = [];
+  let current: string | null = null;
+  for (const part of parts) {
+    const chunk = chunkOf(part, current);
+    if (!chunk) return null;
+    current = chunk.code;
+    const last = groups[groups.length - 1];
+    if (last && last.code === chunk.code) last.specs.push(chunk.spec);
+    else groups.push({ code: chunk.code, specs: [chunk.spec] });
+  }
+  const passages: ParsedPassage[] = [];
+  for (const group of groups) {
+    const parsed = parseLectionaryPassage(
+      `${group.code} ${group.specs.join(';')}`,
+    );
+    if (!parsed || !bookSlugForCode(parsed.code)) return null;
+    passages.push(parsed);
+  }
+  return passages.length ? passages : null;
+}
+
 export function findBibleUnitIndex(
   units: BibleUnitLike[] | null | undefined,
   cite: ParsedCite,

@@ -20,6 +20,7 @@ import {
   parseDocumentId,
   parseUnitIndex,
 } from 'src/app/core/reading/cite';
+import { parseBibleCites } from 'src/app/core/liturgia/bible-cite.logic';
 import { findPatristicSpans } from 'src/app/core/reading/patristic-cite.logic';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/core/auth/auth.service';
@@ -45,6 +46,11 @@ export type ContentSegment =
       url?: string;
       /** Opens the shared passage sheet. The label is the cite, not a route. */
       patristic?: boolean;
+      /**
+       * Bible label with no stored `local` (English `Mt 5:12`, `Gen 17:1`).
+       * The sheet uses the Spanish cite-map and the reader's bible pack.
+       */
+      bible?: boolean;
     };
 
 export type RefSegment = Extract<ContentSegment, { type: 'ref' }>;
@@ -290,6 +296,7 @@ export class PuntoComponent implements OnInit, OnDestroy {
       index,
       local,
       url: ref?.url,
+      bible: !local && parseBibleCites(label) != null,
     };
   }
 
@@ -472,7 +479,7 @@ export class PuntoComponent implements OnInit, OnDestroy {
     event?.preventDefault();
     event?.stopPropagation();
 
-    if (seg.type !== 'ref' || (!seg.local && !seg.patristic)) {
+    if (seg.type !== 'ref' || (!seg.local && !seg.patristic && !seg.bible)) {
       return;
     }
 

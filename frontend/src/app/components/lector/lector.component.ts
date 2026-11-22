@@ -52,7 +52,9 @@ import { DvSheetComponent } from '../dv-sheet/dv-sheet.component';
 import { RelatedUnitsPanelComponent } from '../related-units/related-units-panel.component';
 import { PasajeComponent } from '../pasaje/pasaje.component';
 import { WbarComponent } from '../wbar/wbar.component';
+import { biblePackIdForLocale } from 'src/app/core/liturgia/bible-cite.logic';
 import {
+  resolveCitedPassageFromCite,
   resolveCitedPassageFromLocalRef,
   type CitedPassage,
 } from 'src/app/core/reading/resolve-cited-passage.logic';
@@ -484,12 +486,17 @@ export class LectorComponent implements OnInit, OnDestroy {
     const patristic = event.seg.patristic
       ? parsePatristicCite(event.seg.label || '')
       : null;
-    if (!local && !patristic) return;
+    const bible = event.seg.bible === true && !local && !patristic;
+    if (!local && !patristic && !bible) return;
     const docId = patristic
       ? parseDocumentId(patristic.documentId)
-      : parseDocumentId(local?.idDocumento);
+      : bible
+        ? parseDocumentId(
+            biblePackIdForLocale(this.readerPrefs.resolveContentLocale()),
+          )
+        : parseDocumentId(local?.idDocumento);
     const anchor = local ? parseUnitIndex(local.idPunto) : 0;
-    if (!docId || (!patristic && anchor == null)) return;
+    if (!docId || (!patristic && !bible && anchor == null)) return;
     const documentId = documentIdKey(docId);
     const label = event.seg.label?.trim() || documentId;
     const note = patristic?.editionNote ?? null;
@@ -499,7 +506,7 @@ export class LectorComponent implements OnInit, OnDestroy {
       ? this.corpus.ensureLoaded(documentId)
       : this.corpus.ensureForCitedPassage(documentId, {
           citeLabel: label,
-          anchorIndex: anchor ?? 0,
+          ...(bible ? {} : { anchorIndex: anchor ?? 0 }),
         });
     this.citeLoadSub = load$.subscribe({
       next: (doc) => {
@@ -507,12 +514,14 @@ export class LectorComponent implements OnInit, OnDestroy {
         const units = (doc.documento || []) as Article[];
         const passage = patristic
           ? citedPassageForPatristic(patristic, units)
-          : resolveCitedPassageFromLocalRef(
-              documentId,
-              anchor ?? 0,
-              label,
-              units,
-            );
+          : bible
+            ? resolveCitedPassageFromCite(documentId, label, units)
+            : resolveCitedPassageFromLocalRef(
+                documentId,
+                anchor ?? 0,
+                label,
+                units,
+              );
         this.quickCite = {
           label,
           status: passage?.verses.length ? 'ready' : 'missing',
