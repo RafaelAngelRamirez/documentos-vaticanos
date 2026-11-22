@@ -126,6 +126,26 @@ test.describe('viewport móvil 390×844', () => {
     expect(inner).toBeLessThan(1024);
   });
 
+  test('Amoris laetitia en inglés sigue después de Nº 1–2', async ({ page }) => {
+    expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+    await page.goto('/leyendo/esortazione-ap-20160319-amoris-laetitia-en');
+    await expect(page.locator('app-lector')).toBeVisible({ timeout: 60_000 });
+    const head = page.locator('.rhead');
+    await expect(head).toBeVisible({ timeout: 60_000 });
+    await expect(head).not.toHaveText('Nº 1–2');
+    await expect(page.locator('app-punto').first()).toContainText('The Joy of Love');
+    await expect(page.locator('app-punto').nth(2)).toContainText(
+      'time is greater than space',
+    );
+    const before = await page.locator('app-punto').count();
+    expect(before).toBeGreaterThan(2);
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await expect
+      .poll(async () => page.locator('app-punto').count(), { timeout: 20_000 })
+      .toBeGreaterThan(before);
+    await expect(head).toContainText(/Nº 1–1\d/);
+  });
+
   test('lector selección sin menú nativo apilado', async ({ page }) => {
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
     await page.addInitScript(() => {
