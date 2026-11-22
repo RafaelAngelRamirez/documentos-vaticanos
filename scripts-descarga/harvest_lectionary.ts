@@ -6,6 +6,10 @@
  * supplies the body.
  *
  *   npx ts-node --transpile-only harvest_lectionary.ts --from-dir /tmp/lectionary-src
+ *
+ * Do not overwrite olm-pack.ts with a fresh harvest. The pack now carries
+ * OLM corrections (OT Sundays 7B–12C, Pentecost B/C, Trinity A, Corpus A,
+ * Palm Sunday B/C, 27 December) that this HTML pass got wrong or omitted.
  */
 import * as fs from 'fs';
 import * as path from 'path';
