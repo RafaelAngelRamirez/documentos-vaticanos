@@ -1,8 +1,9 @@
 /**
  * Patristic citations that can open the shared passage sheet.
- * Only a work already in the offline corpus, and only when one section
- * or chapter can be cut out of it. A BAC volume whose paragraph cannot
- * be isolated stays plain text: the sheet must not open the whole book.
+ * Only a work already in the offline corpus, and only when one section,
+ * chapter, or book/chapter/paragraph can be cut out of it. A BAC volume
+ * whose paragraph cannot be isolated stays plain text: the sheet must not
+ * open the whole book. Confessions and De Trinitate cut the NPNF paragraph.
  */
 
 import {
@@ -13,6 +14,8 @@ import {
 
 export const ATHANASIUS_INCARNATION_ID = 'atanasio-de-incarnatione-en';
 export const DIOGNETUS_ID = 'carta-diogneto-es';
+export const AUGUSTINE_CONFESSIONS_ID = 'npnf-agustin-confesiones-en';
+export const AUGUSTINE_TRINITY_ID = 'npnf-agustin-de-trinitate-en';
 
 /** A passage longer than this is the book, not the cite. */
 const MAX_PASSAGE_UNITS = 8;
@@ -35,9 +38,35 @@ const ROMAN_TO_N: Record<string, number> = {
 const ROMAN_ALT =
   'XII|XI|X|IX|VIII|VII|VI|V|IV|III|II|I';
 
+/** Books of Confessions (13) and De Trinitate (15). Longer first. */
+const BOOK_ROMAN: Record<string, number> = {
+  XV: 15,
+  XIV: 14,
+  XIII: 13,
+  XII: 12,
+  XI: 11,
+  X: 10,
+  IX: 9,
+  VIII: 8,
+  VII: 7,
+  VI: 6,
+  V: 5,
+  IV: 4,
+  III: 3,
+  II: 2,
+  I: 1,
+};
+
+const BOOK_ALT =
+  'XV|XIV|XIII|XII|XI|X|IX|VIII|VII|VI|V|IV|III|II|I|\\d{1,2}';
+
+const WORK_ALT =
+  'The\\s+Confessions|Confessiones|Confesiones|Confessions|On\\s+the\\s+Holy\\s+Trinity|De\\s+Trinitate';
+
 export type PatristicLocate =
   | { kind: 'section'; section: number }
-  | { kind: 'chapters'; chapters: number[] };
+  | { kind: 'chapters'; chapters: number[] }
+  | { kind: 'bookParagraph'; book: number; chapter: number; paragraph: number };
 
 export interface PatristicCite {
   documentId: string;
@@ -73,6 +102,7 @@ export function findPatristicSpans(text: string): PatristicSpan[] {
   const hits: RawHit[] = [];
   collectIncarnation(raw, hits);
   collectDiognetus(raw, hits);
+  collectAugustine(raw, hits);
   hits.sort((a, b) => a.start - b.start || b.end - a.end);
   const kept: RawHit[] = [];
   for (const hit of hits) {
@@ -176,12 +206,74 @@ function chapterNumber(token: string): number | null {
   return n;
 }
 
+function collectAugustine(text: string, hits: RawHit[]): void {
+  const re = new RegExp(
+    `(${WORK_ALT})\\s*,?\\s*(${BOOK_ALT})\\s*[,.;]\\s*(${BOOK_ALT})\\s*[,.;]\\s*(${BOOK_ALT})(?:\\s*:\\s*((?:PG|PL|CCL)\\s+\\d+\\s*,\\s*\\d+[A-Za-z]?))?`,
+    'gi',
+  );
+  for (const match of text.matchAll(re)) {
+    const start = match.index ?? 0;
+    const prev = start > 0 ? text[start - 1] : '';
+    if (/[A-Za-zÁÉÍÓÚáéíóúüÜ]/.test(prev)) continue;
+    const before = text.slice(Math.max(0, start - 64), start);
+    if (/Novaciano|Novatian|Hilary|Hilario/i.test(before)) continue;
+    if (/\d\.\s+\d/.test(match[0])) continue;
+    const pg = match[5] ? match[5].replace(/\s+/g, ' ').trim() : '';
+    if (pg && /^(?:PL\s+(?:3|10)|CCL\s+(?:4|62))\b/i.test(pg)) continue;
+    const after = text.slice(endOf(start, match[0]), endOf(start, match[0]) + 12);
+    if (pairList(match[0]) && /^\s*,\s*\d/.test(after)) continue;
+    const book = addressNumber(match[2], 15);
+    const chapter = addressNumber(match[3], 60);
+    const paragraph = addressNumber(match[4], 80);
+    if (book == null || chapter == null || paragraph == null) continue;
+    const title = match[1];
+    const documentId = /trinitate|holy\s+trinity/i.test(title)
+      ? AUGUSTINE_TRINITY_ID
+      : AUGUSTINE_CONFESSIONS_ID;
+    const where = `libro ${book}, capítulo ${chapter}, parágrafo ${paragraph}`;
+    const editionNote = pg
+      ? `${pg}. El texto es el ${where} de la edición NPNF que viaja en el corpus.`
+      : `El texto es el ${where} de la edición NPNF que viaja en el corpus.`;
+    hits.push({
+      start,
+      end: start + match[0].length,
+      label: match[0].trim(),
+      documentId,
+      editionNote,
+      locate: { kind: 'bookParagraph', book, chapter, paragraph },
+    });
+  }
+}
+
+function endOf(start: number, raw: string): number {
+  return start + raw.length;
+}
+
+/** `2,8; 2,10` is a list of pairs, not book, chapter, paragraph. */
+function pairList(raw: string): boolean {
+  return /\d\s*;\s*\d+\s*$/.test(raw.trim()) || /[IVXLC]+\s*;\s*\d+\s*$/i.test(raw.trim());
+}
+
+function addressNumber(token: string, max: number): number | null {
+  const text = (token || '').trim().toUpperCase();
+  const roman = BOOK_ROMAN[text];
+  const n = roman || (/^\d{1,3}$/.test(text) ? Number(text) : 0);
+  if (!Number.isInteger(n) || n < 1 || n > max) return null;
+  return n;
+}
+
 function locateUnits(
   units: readonly PassageUnitLike[],
   locate: PatristicLocate,
 ): number[] | null {
   if (locate.kind === 'section') return locateSection(units, locate.section);
-  return locateChapters(units, locate.chapters);
+  if (locate.kind === 'chapters') return locateChapters(units, locate.chapters);
+  return locateBookParagraph(
+    units,
+    locate.book,
+    locate.chapter,
+    locate.paragraph,
+  );
 }
 
 function locateSection(
@@ -228,6 +320,56 @@ function locateChapters(
 
 function leadingSection(raw: string | null | undefined): number {
   const match = String(raw || '').match(/^\s*(\d{1,3})\.\s/);
+  if (!match) return 0;
+  const n = Number(match[1]);
+  return Number.isInteger(n) ? n : 0;
+}
+
+function locateBookParagraph(
+  units: readonly PassageUnitLike[],
+  book: number,
+  chapter: number,
+  paragraph: number,
+): number[] | null {
+  let bookAt = -1;
+  let bookEnd = units.length;
+  for (let i = 0; i < units.length; i++) {
+    const n = leadingBook(units[i]?.contenido);
+    if (n === book && bookAt < 0) bookAt = i;
+    else if (bookAt >= 0 && n > 0) {
+      bookEnd = i;
+      break;
+    }
+  }
+  if (bookAt < 0) return null;
+  let chapterAt = -1;
+  let chapterEnd = bookEnd;
+  for (let i = bookAt + 1; i < bookEnd; i++) {
+    const n = leadingNpChapter(units[i]?.contenido);
+    if (n === chapter && chapterAt < 0) chapterAt = i;
+    else if (chapterAt >= 0 && n > 0) {
+      chapterEnd = i;
+      break;
+    }
+  }
+  if (chapterAt < 0) return null;
+  const hits: number[] = [];
+  for (let i = chapterAt + 1; i < chapterEnd; i++) {
+    if (leadingSection(units[i]?.contenido) === paragraph) hits.push(i);
+  }
+  if (hits.length !== 1) return null;
+  return [hits[0]];
+}
+
+function leadingBook(raw: string | null | undefined): number {
+  const match = String(raw || '').match(/^\s*Book\s+(\d{1,2})\.\s*$/);
+  if (!match) return 0;
+  const n = Number(match[1]);
+  return Number.isInteger(n) ? n : 0;
+}
+
+function leadingNpChapter(raw: string | null | undefined): number {
+  const match = String(raw || '').match(/^\s*Chapter\s+(\d{1,3})\./);
   if (!match) return 0;
   const n = Number(match[1]);
   return Number.isInteger(n) ? n : 0;

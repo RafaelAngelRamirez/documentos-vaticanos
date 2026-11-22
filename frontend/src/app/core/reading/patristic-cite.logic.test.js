@@ -121,17 +121,185 @@ async function main() {
   section('the title alone does not open the letter');
   assert.strictEqual(cite.parsePatristicCite('Carta a Diogneto'), null);
   assert.strictEqual(
-    cite.parsePatristicCite('San Agustín, Confessiones, 1,1,1'),
-    null,
-  );
-  assert.strictEqual(
-    cite.parsePatristicCite('S. Agustín, De Trinitate, 15,26,47'),
-    null,
-  );
-  assert.strictEqual(
     cite.parsePatristicCite('Clemente de Alejandría, Paedagogus 1, 6, 42'),
     null,
   );
+  assert.strictEqual(
+    cite.parsePatristicCite('Novaciano, De Trinitate, 29'),
+    null,
+  );
+  assert.strictEqual(
+    cite.parsePatristicCite('Novaciano, De Trinitate, 2, 1, 2'),
+    null,
+  );
+  assert.strictEqual(
+    cite.parsePatristicCite('De Trinitate, XXIX, 9-10: CCL 4, 70'),
+    null,
+  );
+  assert.strictEqual(cite.parsePatristicCite('De Trinitate, 16, 1, 1'), null);
+  assert.strictEqual(
+    cite.parsePatristicCite(
+      'St. Hilary, De Trinitate, VIII, 19, 21: PL 10, 250',
+    ),
+    null,
+  );
+  assert.strictEqual(
+    cite.parsePatristicCite('Confesiones, 2,8; 2,10; 2,14'),
+    null,
+  );
+  assert.strictEqual(
+    cite.parsePatristicCite('De Trinitate, 1. 15, 11'),
+    null,
+  );
+
+  section('Confessiones 1,1,1 opens that NPNF paragraph');
+  const confCite = cite.parsePatristicCite('San Agustín, Confessiones, 1,1,1');
+  assert.ok(confCite);
+  assert.strictEqual(confCite.documentId, cite.AUGUSTINE_CONFESSIONS_ID);
+  assert.deepStrictEqual(confCite.locate, {
+    kind: 'bookParagraph',
+    book: 1,
+    chapter: 1,
+    paragraph: 1,
+  });
+  const confUnits = loadUnits(cite.AUGUSTINE_CONFESSIONS_ID);
+  const confPassage = cite.citedPassageForPatristic(confCite, confUnits);
+  assert.ok(confPassage);
+  assert.strictEqual(confPassage.verses.length, 1);
+  assert.ok(confPassage.verses[0].text.includes('Great art Thou'));
+  assert.ok(confPassage.verses[0].text.includes('restless'));
+  assert.ok(!confPassage.verses[0].text.startsWith('1.'));
+  assert.strictEqual(confPassage.verses[0].verse, 1);
+  assert.ok(confPassage.verses.length < confUnits.length);
+
+  section('De Trinitate 15,26,47 opens that NPNF paragraph');
+  const trinityCite = cite.parsePatristicCite(
+    'S. Agustín, De Trinitate, 15,26,47',
+  );
+  assert.ok(trinityCite);
+  assert.strictEqual(trinityCite.documentId, cite.AUGUSTINE_TRINITY_ID);
+  assert.deepStrictEqual(trinityCite.locate, {
+    kind: 'bookParagraph',
+    book: 15,
+    chapter: 26,
+    paragraph: 47,
+  });
+  const trinityUnits = loadUnits(cite.AUGUSTINE_TRINITY_ID);
+  const trinityPassage = cite.citedPassageForPatristic(
+    trinityCite,
+    trinityUnits,
+  );
+  assert.ok(trinityPassage);
+  assert.strictEqual(trinityPassage.verses.length, 1);
+  assert.ok(
+    trinityPassage.verses[0].text.includes(
+      'Holy Spirit had already proceeded',
+    ),
+  );
+  assert.strictEqual(trinityPassage.verses[0].verse, 47);
+  assert.ok(trinityPassage.verses.length < trinityUnits.length);
+
+  section('the footnotes that name these two works');
+  const amoris = cite.parsePatristicCite('Confesiones, 8, 3, 7: PL 32, 752.');
+  assert.ok(amoris);
+  assert.strictEqual(amoris.documentId, cite.AUGUSTINE_CONFESSIONS_ID);
+  assert.deepStrictEqual(amoris.locate, {
+    kind: 'bookParagraph',
+    book: 8,
+    chapter: 3,
+    paragraph: 7,
+  });
+  assert.ok(amoris.editionNote.startsWith('PL 32, 752. '));
+  const restored = cite.citedPassageForPatristic(amoris, confUnits);
+  assert.ok(restored.verses[0].text.includes('delights at finding'));
+
+  const dce = cite.parsePatristicCite(
+    'De Trinitate, VIII, 8, 12: CCL 50, 287.',
+  );
+  assert.ok(dce);
+  assert.deepStrictEqual(dce.locate, {
+    kind: 'bookParagraph',
+    book: 8,
+    chapter: 8,
+    paragraph: 12,
+  });
+  assert.ok(dce.editionNote.startsWith('CCL 50, 287. '));
+  const love = cite.citedPassageForPatristic(dce, trinityUnits);
+  assert.ok(love.verses[0].text.includes('I do not know what I love'));
+
+  const dotted = cite.parsePatristicCite('Confessiones, 7,7.11');
+  assert.deepStrictEqual(dotted.locate, {
+    kind: 'bookParagraph',
+    book: 7,
+    chapter: 7,
+    paragraph: 11,
+  });
+  const evil = cite.citedPassageForPatristic(dotted, confUnits);
+  assert.ok(evil.verses[0].text.includes('Whence is evil'));
+
+  const bare = cite.parsePatristicCite('San Agustín, Confessiones 9, 6, 14');
+  assert.deepStrictEqual(bare.locate, {
+    kind: 'bookParagraph',
+    book: 9,
+    chapter: 6,
+    paragraph: 14,
+  });
+
+  const semi = cite.parsePatristicCite('Confessiones, 10, 29; 40');
+  assert.deepStrictEqual(semi.locate, {
+    kind: 'bookParagraph',
+    book: 10,
+    chapter: 29,
+    paragraph: 40,
+  });
+  const command = cite.citedPassageForPatristic(semi, confUnits);
+  assert.ok(command.verses[0].text.includes('Give what Thou commandest'));
+
+  const mixed =
+    'Cf. S. Agustín, De libero arbitrio, 3, 21, 59: PL 32, 1300; De Trinitate, 2, 1, 2: PL 42, 845.';
+  const mixedSpans = cite.findPatristicSpans(mixed);
+  assert.strictEqual(mixedSpans.length, 1);
+  assert.strictEqual(mixedSpans[0].cite.documentId, cite.AUGUSTINE_TRINITY_ID);
+  assert.deepStrictEqual(mixedSpans[0].cite.locate, {
+    kind: 'bookParagraph',
+    book: 2,
+    chapter: 1,
+    paragraph: 2,
+  });
+  assert.ok(!mixedSpans[0].label.includes('libero'));
+  const rule = cite.citedPassageForPatristic(mixedSpans[0].cite, trinityUnits);
+  assert.ok(rule.verses[0].text.includes('canonical rule'));
+
+  section('a repeated paragraph in one chapter is not a passage');
+  const repeated = [
+    { contenido: 'Book 1.' },
+    { contenido: 'Chapter 1. Opening' },
+    { contenido: '1. Alpha' },
+    { contenido: '1. Beta' },
+  ];
+  assert.strictEqual(
+    cite.citedPassageForPatristic(confCite, repeated),
+    null,
+  );
+  const scoped = [
+    { contenido: 'Book 1.' },
+    { contenido: 'Chapter 1. Opening' },
+    { contenido: '1. Only here' },
+    { contenido: 'Chapter 2. Next' },
+    { contenido: '2. Other' },
+  ];
+  assert.strictEqual(
+    cite.citedPassageForPatristic(
+      {
+        ...confCite,
+        locate: { kind: 'bookParagraph', book: 1, chapter: 2, paragraph: 1 },
+      },
+      scoped,
+    ),
+    null,
+  );
+  const only = cite.citedPassageForPatristic(confCite, scoped);
+  assert.ok(only.verses[0].text.includes('Only here'));
 
   section('the reader and settings use this door');
   const punto = fs.readFileSync(
