@@ -2,9 +2,10 @@
  * Búsqueda offline por estantes.
  *
  * Un paquete es un índice invertido compacto (tabla de obras + postings en
- * varint). La consulta suma el df de los paquetes presentes y ordena con
- * BM25. El texto del corpus no se reescribe: el archivo sale de index.json
- * y el tf se cuenta al leer el fragmento que se va a pintar.
+ * varint). La consulta abre solo el término pedido: el resto de los postings
+ * no se materializa. Suma el df de los paquetes presentes y ordena con BM25.
+ * El texto del corpus no se reescribe: el archivo sale de index.json y el tf
+ * se cuenta al leer el fragmento que se va a pintar, no el libro entero.
  *
  * node: bash scripts/node-strip-types.sh src/app/core/search/shelf-search.logic.test.js
  */
@@ -514,6 +515,15 @@ export function collectCandidates(
   return [...byUnit.values()];
 }
 
+/**
+ * Obras que se abren por estante antes de la primera pintura.
+ * El tope viejo (24 libros enteros) dejaba «gracia» ~50 s en «Cargando…».
+ */
+export const SHELF_OPEN_DOCS = 4;
+
+/** Unidades de cada obra cuyo texto se lee para puntuar y mostrar el fragmento. */
+export const SHELF_OPEN_UNITS = 8;
+
 /** Documentos a abrir: oficiales primero, y entre ellos los que más unidades traen. */
 export function docsToHydrate(
   candidates: readonly ShelfCandidate[],
@@ -547,6 +557,67 @@ export function docsToHydrate(
     }
   }
   return ids;
+}
+
+/**
+ * Unidades cuyo texto hace falta para la pintura.
+ * Reparte los aciertos de cada obra: no se queda con el principio del libro
+ * ni abre el resto de las obras del estante.
+ */
+export function unitsToOpen(
+  candidates: readonly ShelfCandidate[],
+  shelves: readonly string[],
+  opts: { maxDocsPerShelf?: number; maxUnitsPerDoc?: number } = {},
+): ShelfCandidate[] {
+  const maxDocs = opts.maxDocsPerShelf ?? SHELF_OPEN_DOCS;
+  const maxUnits = opts.maxUnitsPerDoc ?? SHELF_OPEN_UNITS;
+  const wanted = new Set(shelves);
+  const byShelf = new Map<string, Map<string, ShelfCandidate[]>>();
+  for (const hit of candidates) {
+    if (!hit || !wanted.has(hit.shelf)) continue;
+    let docs = byShelf.get(hit.shelf);
+    if (!docs) {
+      docs = new Map();
+      byShelf.set(hit.shelf, docs);
+    }
+    const list = docs.get(hit.documentId);
+    if (list) list.push(hit);
+    else docs.set(hit.documentId, [hit]);
+  }
+  const out: ShelfCandidate[] = [];
+  for (const shelf of shelves) {
+    const docs = byShelf.get(shelf);
+    if (!docs) continue;
+    const ranked = [...docs.entries()].sort((a, b) => {
+      const ao = a[1][0]?.official && !a[1][0]?.ai ? 0 : 1;
+      const bo = b[1][0]?.official && !b[1][0]?.ai ? 0 : 1;
+      if (ao !== bo) return ao - bo;
+      if (b[1].length !== a[1].length) return b[1].length - a[1].length;
+      return a[0].localeCompare(b[0]);
+    });
+    for (const [, units] of ranked.slice(0, Math.max(0, maxDocs))) {
+      const sorted = units
+        .slice()
+        .sort((a, b) => a.unitIndex - b.unitIndex);
+      out.push(...sampleEven(sorted, Math.max(1, maxUnits)));
+    }
+  }
+  return out;
+}
+
+function sampleEven<T>(items: readonly T[], max: number): T[] {
+  if (items.length <= max) return items.slice();
+  const out: T[] = [];
+  const seen = new Set<number>();
+  const last = items.length - 1;
+  const slots = Math.max(1, max);
+  for (let i = 0; i < slots; i++) {
+    const idx = slots === 1 ? 0 : Math.round((i * last) / (slots - 1));
+    if (seen.has(idx)) continue;
+    seen.add(idx);
+    out.push(items[idx]);
+  }
+  return out;
 }
 
 function countTerm(tokens: readonly string[], term: string): number {
@@ -727,6 +798,163 @@ class Reader {
       if (shift > 35) throw new Error('varint largo');
     }
   }
+
+  tell(): number {
+    return this.i;
+  }
+
+  seek(pos: number): void {
+    if (pos < 0 || pos > this.buf.length) throw new Error('fin de archivo');
+    this.i = pos;
+  }
+}
+
+/**
+ * Postings de un término, leídos cuando la consulta los pide.
+ * El índice guarda el offset; no las listas de los otros términos.
+ */
+class ShelfTermIndex extends Map<string, TermPostings> {
+  private readonly decoded = new Map<string, TermPostings>();
+  private readonly bytes: Uint8Array;
+  private readonly at: Map<string, number>;
+
+  constructor(bytes: Uint8Array, at: Map<string, number>) {
+    super();
+    this.bytes = bytes;
+    this.at = at;
+  }
+
+  /** Cuántos términos ya se expandieron. La carga fría tiene que seguir en cero. */
+  decodedCount(): number {
+    return this.decoded.size;
+  }
+
+  override get size(): number {
+    return this.at.size;
+  }
+
+  override has(key: string): boolean {
+    return this.at.has(key);
+  }
+
+  override get(key: string): TermPostings | undefined {
+    const cached = this.decoded.get(key);
+    if (cached) return cached;
+    const pos = this.at.get(key);
+    if (pos == null) return undefined;
+    const reader = new Reader(this.bytes);
+    reader.seek(pos);
+    const row = readTermBody(reader);
+    this.decoded.set(key, row);
+    return row;
+  }
+
+  override keys(): IterableIterator<string> {
+    return this.at.keys();
+  }
+}
+
+function skipTermBody(reader: Reader): void {
+  reader.u32();
+  const groupsN = reader.varint();
+  for (let g = 0; g < groupsN; g++) {
+    reader.varint();
+    const unitsN = reader.varint();
+    for (let u = 0; u < unitsN; u++) reader.varint();
+  }
+}
+
+function readTermBody(reader: Reader): TermPostings {
+  const df = reader.u32();
+  const groupsN = reader.varint();
+  const groups: { docOrdinal: number; units: number[] }[] = [];
+  for (let g = 0; g < groupsN; g++) {
+    const docOrdinal = reader.varint();
+    const unitsN = reader.varint();
+    const units: number[] = [];
+    let prev = 0;
+    for (let u = 0; u < unitsN; u++) {
+      prev += reader.varint();
+      units.push(prev);
+    }
+    groups.push({ docOrdinal, units });
+  }
+  return { df, groups };
+}
+
+interface ShelfHead {
+  version: number;
+  locale: string;
+  packageId: string;
+  docCount: number;
+  avgTokens: Record<string, number>;
+  docs: ShelfDoc[];
+  termCount: number;
+}
+
+function assertShelfMagic(reader: Reader): void {
+  for (const byte of MAGIC) {
+    if (reader.u8() !== byte) throw new Error('no es un índice de estante');
+  }
+}
+
+function readShelfHead(reader: Reader): ShelfHead {
+  const version = reader.u8();
+  if (version !== FORMAT_VERSION) throw new Error('versión de índice desconocida');
+  const locale = reader.str();
+  const packageId = reader.str();
+  const docCount = reader.u32();
+  const shelfCount = reader.u16();
+  const avgTokens: Record<string, number> = {};
+  for (let i = 0; i < shelfCount; i++) {
+    const shelf = reader.str();
+    avgTokens[shelf] = reader.f32();
+  }
+  const declared = reader.u32();
+  if (declared !== docCount) throw new Error('cabecera de obras inconsistente');
+  const docs: ShelfDoc[] = [];
+  for (let i = 0; i < docCount; i++) {
+    const id = reader.str();
+    const shelf = reader.str();
+    const flags = reader.u8();
+    const unitCount = reader.u32();
+    docs.push({
+      id,
+      shelf,
+      official: (flags & 1) === 1,
+      ai: (flags & 2) === 2,
+      unitCount,
+    });
+  }
+  const termCount = reader.u32();
+  return { version, locale, packageId, docCount, avgTokens, docs, termCount };
+}
+
+function indexTermOffsets(reader: Reader, termCount: number): Map<string, number> {
+  const at = new Map<string, number>();
+  for (let i = 0; i < termCount; i++) {
+    const term = reader.str();
+    const pos = reader.tell();
+    skipTermBody(reader);
+    if (term) at.set(term, pos);
+  }
+  return at;
+}
+
+function finishShelfPackage(
+  raw: Uint8Array,
+  head: ShelfHead,
+  at: Map<string, number>,
+): ShelfPackage {
+  return {
+    version: head.version,
+    locale: head.locale,
+    packageId: head.packageId,
+    docCount: head.docCount,
+    avgTokens: head.avgTokens,
+    docs: head.docs,
+    terms: new ShelfTermIndex(raw, at),
+  };
 }
 
 export function encodeShelfPackage(input: EncodeShelfPackageInput): Uint8Array {
@@ -776,57 +1004,32 @@ export function encodeShelfPackage(input: EncodeShelfPackageInput): Uint8Array {
 
 export function decodeShelfPackage(raw: Uint8Array): ShelfPackage {
   const reader = new Reader(raw);
-  for (const byte of MAGIC) {
-    if (reader.u8() !== byte) throw new Error('no es un índice de estante');
-  }
-  const version = reader.u8();
-  if (version !== FORMAT_VERSION) throw new Error('versión de índice desconocida');
-  const locale = reader.str();
-  const packageId = reader.str();
-  const docCount = reader.u32();
-  const shelfCount = reader.u16();
-  const avgTokens: Record<string, number> = {};
-  for (let i = 0; i < shelfCount; i++) {
-    const shelf = reader.str();
-    avgTokens[shelf] = reader.f32();
-  }
-  const declared = reader.u32();
-  if (declared !== docCount) throw new Error('cabecera de obras inconsistente');
-  const docs: ShelfDoc[] = [];
-  for (let i = 0; i < docCount; i++) {
-    const id = reader.str();
-    const shelf = reader.str();
-    const flags = reader.u8();
-    const unitCount = reader.u32();
-    docs.push({
-      id,
-      shelf,
-      official: (flags & 1) === 1,
-      ai: (flags & 2) === 2,
-      unitCount,
-    });
-  }
-  const termCount = reader.u32();
-  const terms = new Map<string, TermPostings>();
-  for (let i = 0; i < termCount; i++) {
+  assertShelfMagic(reader);
+  const head = readShelfHead(reader);
+  return finishShelfPackage(raw, head, indexTermOffsets(reader, head.termCount));
+}
+
+/**
+ * Igual que {@link decodeShelfPackage}, cediendo el hilo mientras recorre
+ * el diccionario. El paquete de Padres son cientos de miles de términos.
+ */
+export async function decodeShelfPackageIdle(
+  raw: Uint8Array,
+): Promise<ShelfPackage> {
+  const reader = new Reader(raw);
+  assertShelfMagic(reader);
+  const head = readShelfHead(reader);
+  const at = new Map<string, number>();
+  for (let i = 0; i < head.termCount; i++) {
     const term = reader.str();
-    const df = reader.u32();
-    const groupsN = reader.varint();
-    const groups: { docOrdinal: number; units: number[] }[] = [];
-    for (let g = 0; g < groupsN; g++) {
-      const docOrdinal = reader.varint();
-      const unitsN = reader.varint();
-      const units: number[] = [];
-      let prev = 0;
-      for (let u = 0; u < unitsN; u++) {
-        prev += reader.varint();
-        units.push(prev);
-      }
-      groups.push({ docOrdinal, units });
+    const pos = reader.tell();
+    skipTermBody(reader);
+    if (term) at.set(term, pos);
+    if ((i & 8191) === 8191) {
+      await new Promise((resolve) => setTimeout(resolve, 0));
     }
-    terms.set(term, { df, groups });
   }
-  return { version, locale, packageId, docCount, avgTokens, docs, terms };
+  return finishShelfPackage(raw, head, at);
 }
 
 export function postingUnitCount(
