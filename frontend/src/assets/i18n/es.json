@@ -73,6 +73,7 @@
   "reader.language_aria": "Idioma del texto",
   "reader.markers": "Marcadores",
   "reader.index": "Índice",
+  "reader.index_empty": "Sin capítulos detectados · desplácese en el lector para navegar por unidades.",
   "reader.prefs_aria": "Ajustes de lectura",
   "reader.prefs_title": "Ajustes de lectura",
   "reader.doc_start": "Inicio del documento",

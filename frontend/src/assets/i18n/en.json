@@ -73,6 +73,7 @@
   "reader.language_aria": "Text language",
   "reader.markers": "Bookmarks",
   "reader.index": "Index",
+  "reader.index_empty": "No chapters detected · scroll in the reader to move by unit.",
   "reader.prefs_aria": "Reading settings",
   "reader.prefs_title": "Reading settings",
   "reader.doc_start": "Start of the document",

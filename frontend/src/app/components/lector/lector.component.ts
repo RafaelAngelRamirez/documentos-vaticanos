@@ -49,9 +49,14 @@ import {
   type UnitIndex,
 } from 'src/app/core/reading/cite';
 import { DvSheetComponent } from '../dv-sheet/dv-sheet.component';
+import { DocTocComponent } from '../reading-cover/doc-toc.component';
 import { RelatedUnitsPanelComponent } from '../related-units/related-units-panel.component';
 import { PasajeComponent } from '../pasaje/pasaje.component';
 import { WbarComponent } from '../wbar/wbar.component';
+import {
+  buildDocumentToc,
+  type TocEntry,
+} from 'src/app/services/document-toc.logic';
 import { biblePackIdForLocale } from 'src/app/core/liturgia/bible-cite.logic';
 import {
   resolveCitedPassageFromCite,
@@ -122,6 +127,7 @@ interface ThemeOption {
     FormsModule,
     PuntoModule,
     DvSheetComponent,
+    DocTocComponent,
     PasajeComponent,
     WbarComponent,
     RelatedUnitsPanelComponent,
@@ -146,6 +152,11 @@ export class LectorComponent implements OnInit, OnDestroy {
 
   prefsOpen = false;
   prefs: ReaderPreferences = this.readerPrefs.snapshot;
+
+  /** Sheet del índice de navegación (wbar «Index» / «Índice»). */
+  indexOpen = false;
+  chapters: TocEntry[] = [];
+  private indexLoadSub: Subscription | null = null;
 
   /** Índice global (index_array) de la unidad visible — alimenta rfoot. */
   visibleIndex = 0;
@@ -312,6 +323,7 @@ export class LectorComponent implements OnInit, OnDestroy {
         atBottom: y + window.innerHeight >= doc.scrollHeight - 48,
         uiOpen:
           this.prefsOpen ||
+          this.indexOpen ||
           this.notaOpen ||
           !!this.quickCite ||
           this.narrPlaying,
@@ -445,6 +457,8 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.loadSub = null;
     this.citeLoadSub?.unsubscribe();
     this.citeLoadSub = null;
+    this.indexLoadSub?.unsubscribe();
+    this.indexLoadSub = null;
     this.sub.unsubscribe();
     this.io?.disconnect();
     if (typeof window !== 'undefined') {
@@ -1100,6 +1114,75 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.vocabOpen = false;
   }
 
+  /** Abre o cierra el sheet del índice. No navega a la ficha del documento. */
+  toggleIndex(): void {
+    if (this.indexOpen) {
+      this.closeIndex();
+      return;
+    }
+    this.openIndex();
+  }
+
+  closeIndex(): void {
+    this.indexOpen = false;
+    this.indexLoadSub?.unsubscribe();
+    this.indexLoadSub = null;
+  }
+
+  get indexEmptyHint(): string {
+    return this.i18n.t('reader.index_empty');
+  }
+
+  /** Salto desde una fila del índice: misma obra, sin apilar cita. */
+  onSelectIndex(entry: TocEntry): void {
+    const id = this.document?.id;
+    if (!id || typeof entry?.unitIndex !== 'number') return;
+    this.closeIndex();
+    this.navigationService.openReading(id, {
+      unitIndex: entry.unitIndex,
+      stack: 'keep',
+    });
+  }
+
+  private openIndex(): void {
+    const id = this.document?.id;
+    if (!id) return;
+    // Cuerpo completo para landmarks; ensureWindow puede dejar agujeros.
+    if (this.document?.partial || !this.chapters.length) {
+      this.indexLoadSub?.unsubscribe();
+      this.indexLoadSub = this.corpus.ensureLoaded(id).subscribe({
+        next: (loaded) => {
+          if (this.document?.id !== id) return;
+          this.chapters = buildDocumentToc(loaded.documento, {
+            documentId: id,
+            kind: loaded.meta.kind,
+          });
+          this.indexOpen = true;
+        },
+        error: () => {
+          if (this.document?.id !== id) return;
+          this.rebuildChaptersFromWindow();
+          this.indexOpen = true;
+        },
+      });
+      return;
+    }
+    this.indexOpen = true;
+  }
+
+  private rebuildChaptersFromWindow(): void {
+    const id = this.document?.id;
+    if (!id || !this.document?.documento) {
+      this.chapters = [];
+      return;
+    }
+    const meta = this.corpus.getMeta(id);
+    this.chapters = buildDocumentToc(this.document.documento, {
+      documentId: id,
+      kind: meta?.kind,
+    });
+  }
+
   togglePrefs(): void {
     this.prefsOpen = !this.prefsOpen;
   }
@@ -1333,6 +1416,8 @@ export class LectorComponent implements OnInit, OnDestroy {
     }
 
     this.loadSub?.unsubscribe();
+    this.closeIndex();
+    this.chapters = [];
     this.loading = true;
     this.slowLoad = false;
     this.load_error = null;

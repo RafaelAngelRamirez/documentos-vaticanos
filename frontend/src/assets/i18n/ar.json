@@ -73,6 +73,7 @@
   "reader.language_aria": "لغة النص",
   "reader.markers": "العلامات",
   "reader.index": "الفهرس",
+  "reader.index_empty": "لا فصول مكتشفة · تنقّل في القارئ بالوحدات.",
   "reader.prefs_aria": "إعدادات القراءة",
   "reader.prefs_title": "إعدادات القراءة",
   "reader.doc_start": "بداية الوثيقة",

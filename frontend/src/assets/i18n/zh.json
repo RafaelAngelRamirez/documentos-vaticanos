@@ -73,6 +73,7 @@
   "reader.language_aria": "文本语言",
   "reader.markers": "书签",
   "reader.index": "目录",
+  "reader.index_empty": "未检测到章节 · 请在阅读器中按单元滚动。",
   "reader.prefs_aria": "阅读设置",
   "reader.prefs_title": "阅读设置",
   "reader.doc_start": "文献开头",
