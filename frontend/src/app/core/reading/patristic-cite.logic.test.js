@@ -172,6 +172,34 @@ async function main() {
   assert.strictEqual(confPassage.verses[0].verse, 1);
   assert.ok(confPassage.verses.length < confUnits.length);
 
+  section('Confesiones, I, 1 is book I chapter 1 paragraph 1');
+  const fichaConf = cite.parsePatristicCite('Confesiones, I, 1');
+  assert.ok(fichaConf);
+  assert.strictEqual(fichaConf.documentId, cite.AUGUSTINE_CONFESSIONS_ID);
+  assert.deepStrictEqual(fichaConf.locate, {
+    kind: 'bookParagraph',
+    book: 1,
+    chapter: 1,
+    paragraph: 1,
+  });
+  const fichaConfPassage = cite.citedPassageForPatristic(fichaConf, confUnits);
+  assert.ok(fichaConfPassage);
+  assert.strictEqual(fichaConfPassage.verses.length, 1);
+  assert.ok(fichaConfPassage.verses[0].text.includes('Great art Thou'));
+  assert.ok(fichaConfPassage.verses[0].text.includes('restless'));
+  assert.ok(fichaConfPassage.verses.length < confUnits.length);
+
+  section('De Trinitate, I, 1 is the opening NPNF paragraph');
+  const fichaTri = cite.parsePatristicCite('De Trinitate, I, 1');
+  assert.ok(fichaTri);
+  assert.strictEqual(fichaTri.documentId, cite.AUGUSTINE_TRINITY_ID);
+  assert.deepStrictEqual(fichaTri.locate, {
+    kind: 'bookParagraph',
+    book: 1,
+    chapter: 1,
+    paragraph: 1,
+  });
+
   section('De Trinitate 15,26,47 opens that NPNF paragraph');
   const trinityCite = cite.parsePatristicCite(
     'S. Agustín, De Trinitate, 15,26,47',
@@ -185,6 +213,14 @@ async function main() {
     paragraph: 47,
   });
   const trinityUnits = loadUnits(cite.AUGUSTINE_TRINITY_ID);
+  const fichaTriPassage = cite.citedPassageForPatristic(fichaTri, trinityUnits);
+  assert.ok(fichaTriPassage);
+  assert.strictEqual(fichaTriPassage.verses.length, 1);
+  assert.ok(
+    fichaTriPassage.verses[0].text.includes('following dissertation'),
+  );
+  assert.ok(fichaTriPassage.verses.length < trinityUnits.length);
+
   const trinityPassage = cite.citedPassageForPatristic(
     trinityCite,
     trinityUnits,
@@ -325,6 +361,49 @@ async function main() {
   assert.ok(ajustes.includes('patristic-in-base'));
   assert.ok(ajustes.includes('patristicShelfReady && !patristicInBase'));
   assert.ok(ajustesTs.includes('baseManifestIncludesPatristic'));
+
+  section('a cold citation says it is downloading');
+  const progress = await import(
+    pathToFileURL(
+      path.join(HERE, '../corpus/download-progress.logic.ts'),
+    ).href
+  );
+  assert.strictEqual(progress.citedDownloadCaption(null), 'Descargando…');
+  assert.strictEqual(
+    progress.citedDownloadCaption({ loaded: 0, total: null }),
+    'Descargando…',
+  );
+  assert.strictEqual(
+    progress.citedDownloadCaption({ loaded: 50, total: 200 }),
+    'Descargando… 25%',
+  );
+  assert.strictEqual(
+    progress.citedDownloadCaption({ loaded: 200, total: 200 }),
+    'Descargando… 99%',
+  );
+
+  section('inicio and the ficha use this door');
+  const inicio = fs.readFileSync(
+    path.join(HERE, '../../pages/inicio/inicio.component.ts'),
+    'utf8',
+  );
+  const padre = fs.readFileSync(
+    path.join(HERE, '../../pages/padre-detalle/padre-detalle.component.ts'),
+    'utf8',
+  );
+  const corpus = fs.readFileSync(
+    path.join(HERE, '../corpus/corpus.service.ts'),
+    'utf8',
+  );
+  assert.ok(inicio.includes('ensureForCitedPassage'));
+  assert.ok(inicio.includes('loadingLectura'));
+  assert.ok(inicio.includes("Descargando…"));
+  assert.ok(!inicio.includes('Abriendo…'));
+  assert.ok(padre.includes('citedPassageForPatristic'));
+  assert.ok(padre.includes('ensureLoaded'));
+  assert.ok(padre.includes('quoteCite'));
+  assert.ok(corpus.includes("ngsw-bypass"));
+  assert.ok(corpus.includes('downloadProgress$'));
 
   console.log('\npatristic-cite.logic.test.js OK');
 }

@@ -8,6 +8,28 @@ import { expect, type Page, test } from '@playwright/test';
  * browser back hierarchy, Sal 15 shown-number, and the cited-verse passage.
  */
 
+function coldBibleUnit(
+  index: number,
+  libro: string,
+  chapter: number,
+  verse: number,
+  text: string,
+) {
+  return {
+    index_array: index,
+    consecutivo: String(index),
+    contenido: `${verse} ${text}`,
+    referencias: [],
+    biblia: {
+      libro,
+      capitulo: String(chapter),
+      versiculo: verse,
+      consecutivo_versiculo: `${libro} ${chapter}, ${verse}`,
+      index_general: String(index),
+    },
+  };
+}
+
 function bibleUnit(
   libro: string,
   chapter: string,
@@ -457,6 +479,250 @@ test.describe('viewport móvil 390×844', () => {
     const inner = await page.evaluate(() => window.innerWidth);
     expect(inner).toBeLessThan(1024);
   });
+  });
+
+  test.describe('citas en carga fría', () => {
+    test.use({ serviceWorkers: 'block' });
+
+    test('lecturas y Agustín abren solo el texto citado', async ({ page }) => {
+      test.setTimeout(90_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      await page.clock.setFixedTime(new Date(2026, 10, 21, 12, 0, 0));
+
+      let releaseBible: () => void = () => undefined;
+      const bibleGate = new Promise<void>((resolve) => {
+        releaseBible = resolve;
+      });
+      let releaseConf: () => void = () => undefined;
+      const confGate = new Promise<void>((resolve) => {
+        releaseConf = resolve;
+      });
+      let releaseTri: () => void = () => undefined;
+      const triGate = new Promise<void>((resolve) => {
+        releaseTri = resolve;
+      });
+      const bypasses: string[] = [];
+      page.on('request', (req) => {
+        const url = req.url();
+        if (
+          url.includes('bible-pueblo-de-dios-es') ||
+          url.includes('npnf-agustin-')
+        ) {
+          const value = req.headers()['ngsw-bypass'];
+          if (value) bypasses.push(value);
+        }
+      });
+
+      const books: Record<string, Record<string, Record<string, number>>> = {
+        apocalipsis: { '11': {} },
+        'evangelio segun san lucas': { '20': {} },
+      };
+      const apUnits = [];
+      const lcUnits = [];
+      for (let verse = 4; verse <= 12; verse++) {
+        const index = 35425 + (verse - 4);
+        books.apocalipsis['11'][String(verse)] = index;
+        apUnits.push(
+          coldBibleUnit(
+            index,
+            'apocalipsis',
+            11,
+            verse,
+            verse === 4 ? 'dos olivos ante el Señor' : `apocalipsis ${verse}`,
+          ),
+        );
+      }
+      for (let verse = 27; verse <= 40; verse++) {
+        const index = 30357 + (verse - 27);
+        books['evangelio segun san lucas']['20'][String(verse)] = index;
+        lcUnits.push(
+          coldBibleUnit(
+            index,
+            'evangelio segun san lucas',
+            20,
+            verse,
+            verse === 27
+              ? 'los saduceos niegan la resurrección'
+              : `lucas ${verse}`,
+          ),
+        );
+      }
+      const citeMap = JSON.stringify({ v: 1, books });
+      const npnf = (paragraph: string) =>
+        JSON.stringify([
+          { consecutivo: '0', contenido: 'Book 1.' },
+          { consecutivo: '1', contenido: 'Chapter 1.' },
+          { consecutivo: '2', contenido: paragraph },
+        ]);
+
+      await page.route(/bible-pueblo-de-dios-es\//, async (route) => {
+        const url = route.request().url();
+        if (url.includes('chunks.json')) {
+          await route.fulfill({
+            contentType: 'application/json',
+            body: JSON.stringify({ unitCount: 35652, chunkSize: 500 }),
+          });
+          return;
+        }
+        if (url.includes('cite-map.json')) {
+          await route.fulfill({
+            contentType: 'application/json',
+            body: citeMap,
+          });
+          return;
+        }
+        if (url.includes('/c/')) {
+          await bibleGate;
+          const body = url.includes('/c/70.json')
+            ? JSON.stringify(apUnits)
+            : url.includes('/c/60.json')
+              ? JSON.stringify(lcUnits)
+              : '[]';
+          await route.fulfill({ contentType: 'application/json', body });
+          return;
+        }
+        await route.fulfill({
+          status: 404,
+          contentType: 'application/json',
+          body: '',
+        });
+      });
+
+      await page.route(/npnf-agustin-(?:confesiones|de-trinitate)-en\//, async (route) => {
+        const url = route.request().url();
+        if (url.includes('chunks.json') || url.includes('/c/')) {
+          await route.fulfill({ status: 404, body: '' });
+          return;
+        }
+        if (url.includes('index.json')) {
+          await route.fulfill({
+            contentType: 'application/json',
+            body: JSON.stringify({ indice: {}, indice_por_punto: {} }),
+          });
+          return;
+        }
+        if (!url.includes('content.json')) {
+          await route.fulfill({ status: 404, body: '' });
+          return;
+        }
+        const conf = url.includes('confesiones');
+        await (conf ? confGate : triGate);
+        await route.fulfill({
+          contentType: 'application/json',
+          body: npnf(
+            conf
+              ? '1. Great art Thou, and our heart is restless until it rests in thee.'
+              : '1. The following dissertation concerning the Trinity opens the work.',
+          ),
+        });
+      });
+
+      try {
+        await page.goto('/inicio');
+        const ap = page.locator('[data-lectura-id="first-0"]');
+        const lc = page.locator('[data-lectura-id="gospel-2"]');
+        await expect(ap).toContainText('Ap 11,4-12', { timeout: 30_000 });
+        await expect(lc).toContainText('Lc 20,27-40');
+
+        const apChunk = page.waitForRequest(
+          (req) =>
+            req.url().includes('bible-pueblo-de-dios-es') &&
+            req.url().includes('/c/70.json'),
+        );
+        await ap.getByTestId('inicio-lectura-read').click();
+        await expect(ap.getByTestId('inicio-lectura-read')).toContainText(
+          'Descargando',
+        );
+        await apChunk;
+        await expect(ap.getByTestId('inicio-lectura-read')).toContainText(
+          'Descargando',
+        );
+        expect(page.url()).toMatch(/\/inicio/);
+
+        const lcChunk = page.waitForRequest(
+          (req) =>
+            req.url().includes('bible-pueblo-de-dios-es') &&
+            req.url().includes('/c/60.json'),
+        );
+        await lc.getByTestId('inicio-lectura-read').click();
+        await expect(lc.getByTestId('inicio-lectura-read')).toContainText(
+          'Descargando',
+        );
+        await lcChunk;
+        await expect(ap.getByTestId('inicio-lectura-read')).toContainText(
+          'Descargando',
+        );
+
+        releaseBible();
+        await expect(ap.getByTestId('inicio-pasaje')).toContainText(
+          'dos olivos',
+          { timeout: 15_000 },
+        );
+        await expect(lc.getByTestId('inicio-pasaje')).toContainText(
+          'saduceos',
+          { timeout: 15_000 },
+        );
+        await expect(ap.getByTestId('inicio-pasaje')).toBeVisible();
+        await expect(lc.getByTestId('inicio-pasaje')).toBeVisible();
+        await expect(ap.getByTestId('inicio-lectura-read')).toHaveText('Leer ›');
+        expect(page.url()).toMatch(/\/inicio$/);
+        expect(bypasses.length).toBeGreaterThan(0);
+        expect(bypasses.every((value) => value === 'true')).toBe(true);
+
+        await page.goto('/padres/agustin-hipona');
+        await expect(page.getByTestId('quote-cite')).toHaveText(
+          'Confesiones, I, 1',
+          { timeout: 30_000 },
+        );
+        const confReq = page.waitForRequest(
+          (req) =>
+            req.url().includes('npnf-agustin-confesiones-en') &&
+            req.url().includes('content.json'),
+        );
+        await page.getByTestId('quote-cite').click();
+        await expect(page.getByTestId('padre-cite-progress')).toContainText(
+          'Descargando',
+        );
+        await confReq;
+        releaseConf();
+        const pasaje = page.getByTestId('padre-pasaje');
+        await expect(pasaje).toContainText('restless', { timeout: 15_000 });
+        await expect(pasaje).toContainText('Great art Thou');
+        expect(page.url()).toMatch(/\/padres\/agustin-hipona$/);
+
+        const triReq = page.waitForRequest(
+          (req) =>
+            req.url().includes('npnf-agustin-de-trinitate-en') &&
+            req.url().includes('content.json'),
+        );
+        await page
+          .getByTestId('obra-cite')
+          .filter({ hasText: 'De Trinitate' })
+          .click();
+        await expect(page.getByTestId('padre-cite-progress')).toContainText(
+          'Descargando',
+        );
+        await triReq;
+        releaseTri();
+        await expect(pasaje).toContainText('following dissertation', {
+          timeout: 15_000,
+        });
+        expect(page.url()).toMatch(/\/padres\/agustin-hipona$/);
+
+        await page
+          .getByTestId('obra-cite')
+          .filter({ hasText: 'Confesiones' })
+          .click();
+        await expect(pasaje).toContainText('restless', { timeout: 15_000 });
+        await expect(pasaje).not.toContainText('following dissertation');
+        expect(page.url()).toMatch(/\/padres\/agustin-hipona$/);
+        expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      } finally {
+        releaseBible();
+        releaseConf();
+        releaseTri();
+      }
+    });
   });
 
   test.describe('lectio pericopa', () => {

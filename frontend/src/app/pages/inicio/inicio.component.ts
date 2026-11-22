@@ -27,6 +27,7 @@ import {
 } from 'src/app/core/santoral/santoral-units.logic';
 import { PasajeComponent } from 'src/app/components/pasaje/pasaje.component';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
+import { citedDownloadCaption } from 'src/app/core/corpus/download-progress.logic';
 import { Article } from 'src/app/core/corpus/corpus.models';
 import {
   liturgicalDateOf,
@@ -133,11 +134,12 @@ export class InicioComponent implements OnInit, OnDestroy {
   /** Daily Mass readings (OT ferial + Sunday) resolved to the bible pack. */
   lecturasToday: LecturaItem[] = [];
   liturgicalLabel = '';
-  listeningLecturaId: string | null = null;
-  pasajeId: string | null = null;
-  pasajeVerses: CitedVerse[] = [];
-  private pasajeSpeech = '';
-  private pasajeToken = 0;
+  /** Caption while that row's citation is still fetching. Other rows stay free. */
+  loadingLectura: Record<string, string> = {};
+  /** Cited verses that stay under the row after the fetch. Keyed by lectura id. */
+  passages: Record<string, CitedVerse[]> = {};
+  private speechById: Record<string, string> = {};
+  private lecturaToken: Record<string, number> = {};
   private bibleDocId = 'bible-pueblo-de-dios-es';
 
   private sub = new Subscription();
@@ -213,6 +215,17 @@ export class InicioComponent implements OnInit, OnDestroy {
           this.saintsTodayLoading = false;
           this.saintsTodayError = true;
         },
+      }),
+    );
+
+    this.sub.add(
+      this.corpus.downloadProgress$.subscribe((progress) => {
+        const ids = Object.keys(this.loadingLectura);
+        if (!ids.length) return;
+        const caption = citedDownloadCaption(progress);
+        const next = { ...this.loadingLectura };
+        for (const id of ids) next[id] = caption;
+        this.loadingLectura = next;
       }),
     );
 
@@ -309,44 +322,54 @@ export class InicioComponent implements OnInit, OnDestroy {
 
   /**
    * The row shows only the verses named in the citation (shared resolver).
-   * Escuchar speaks that list. The full bible is not opened.
+   * Escuchar speaks that list. The full bible is not opened. A second row
+   * can load while the first is still fetching; each passage stays put.
    */
   private openLecturaAt(r: LecturaItem, autoNarr: boolean): void {
-    if (!r.cite || this.listeningLecturaId) return;
-    const token = ++this.pasajeToken;
-    this.listeningLecturaId = r.id;
-    this.pasajeId = r.id;
-    this.pasajeVerses = [];
-    this.pasajeSpeech = '';
+    if (!r.cite || this.loadingLectura[r.id]) return;
+    const token = (this.lecturaToken[r.id] || 0) + 1;
+    this.lecturaToken[r.id] = token;
+    this.loadingLectura = {
+      ...this.loadingLectura,
+      [r.id]: 'Descargando…',
+    };
     this.sub.add(
       this.corpus
         .ensureForCitedPassage(this.bibleDocId, { citeLabel: r.cite })
         .subscribe({
         next: (doc) => {
-          if (token !== this.pasajeToken) return;
-          this.listeningLecturaId = null;
+          if (token !== this.lecturaToken[r.id]) return;
+          this.clearLecturaLoading(r.id);
           const units = (doc.documento || []) as Article[];
           const resolved = resolveCitedPassageFromCite(
             this.bibleDocId,
             r.cite,
             units,
           );
-          this.pasajeVerses = resolved?.verses ?? [];
-          this.pasajeSpeech = resolved?.speechText ?? '';
-          if (autoNarr) void this.speakPasaje();
+          this.passages = {
+            ...this.passages,
+            [r.id]: resolved?.verses ?? [],
+          };
+          this.speechById[r.id] = resolved?.speechText ?? '';
+          if (autoNarr) void this.speakPasaje(r.id);
         },
         error: () => {
-          if (token !== this.pasajeToken) return;
-          this.listeningLecturaId = null;
-          this.pasajeVerses = [];
-          this.pasajeSpeech = '';
+          if (token !== this.lecturaToken[r.id]) return;
+          this.clearLecturaLoading(r.id);
         },
       }),
     );
   }
 
-  private async speakPasaje(): Promise<void> {
-    const text = this.pasajeSpeech.trim();
+  private clearLecturaLoading(id: string): void {
+    if (!this.loadingLectura[id]) return;
+    const next = { ...this.loadingLectura };
+    delete next[id];
+    this.loadingLectura = next;
+  }
+
+  private async speakPasaje(id: string): Promise<void> {
+    const text = (this.speechById[id] || '').trim();
     if (!text) return;
     await this.narrator.cancel();
     const locale =

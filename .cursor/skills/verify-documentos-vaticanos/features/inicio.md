@@ -13,7 +13,7 @@ Inicio is the welcome screen. It shows the mark DV, the button Empezar, today's 
 
 - Open `/inicio`.
 - Tap Empezar. The app goes to the library.
-- Tap a reading's Leer button when the list is present. The lector opens that unit.
+- Tap a reading's Leer button when the list is present. The cited verses stay under that row. The URL stays on `/inicio`. While the pack is still arriving the button says `Descargando…`.
 - Open any unknown path such as `/no-such-verify-route`. The pages catch-all sends you to Inicio.
 
 ## Driving it with dv-verify

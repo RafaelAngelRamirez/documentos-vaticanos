@@ -208,7 +208,7 @@ function chapterNumber(token: string): number | null {
 
 function collectAugustine(text: string, hits: RawHit[]): void {
   const re = new RegExp(
-    `(${WORK_ALT})\\s*,?\\s*(${BOOK_ALT})\\s*[,.;]\\s*(${BOOK_ALT})\\s*[,.;]\\s*(${BOOK_ALT})(?:\\s*:\\s*((?:PG|PL|CCL)\\s+\\d+\\s*,\\s*\\d+[A-Za-z]?))?`,
+    `(${WORK_ALT})\\s*,?\\s*(${BOOK_ALT})\\s*[,.;]\\s*(${BOOK_ALT})(?:\\s*[,.;]\\s*(${BOOK_ALT}))?(?:\\s*:\\s*((?:PG|PL|CCL)\\s+\\d+\\s*,\\s*\\d+[A-Za-z]?))?`,
     'gi',
   );
   for (const match of text.matchAll(re)) {
@@ -224,7 +224,9 @@ function collectAugustine(text: string, hits: RawHit[]): void {
     if (pairList(match[0]) && /^\s*,\s*\d/.test(after)) continue;
     const book = addressNumber(match[2], 15);
     const chapter = addressNumber(match[3], 60);
-    const paragraph = addressNumber(match[4], 80);
+    // "Confesiones, I, 1" names the book and the chapter. The opening
+    // paragraph of that chapter is the text the ficha quotes.
+    const paragraph = match[4] ? addressNumber(match[4], 80) : 1;
     if (book == null || chapter == null || paragraph == null) continue;
     const title = match[1];
     const documentId = /trinitate|holy\s+trinity/i.test(title)

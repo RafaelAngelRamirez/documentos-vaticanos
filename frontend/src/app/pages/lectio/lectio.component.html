@@ -25,7 +25,7 @@
             [disabled]="opening"
             (click)="openGospel(false)"
           >
-            {{ t('lectio.read_gospel') }}
+            {{ opening ? openingCaption : t('lectio.read_gospel') }}
           </button>
           <button
             type="button"
@@ -34,7 +34,7 @@
             [disabled]="opening"
             (click)="listenPassage()"
           >
-            {{ t('lectio.listen_gospel') }}
+            {{ opening ? openingCaption : t('lectio.listen_gospel') }}
           </button>
         </div>
         <app-pasaje

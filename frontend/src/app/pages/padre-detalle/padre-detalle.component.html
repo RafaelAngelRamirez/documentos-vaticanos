@@ -8,10 +8,26 @@
   [subtitle]="p.role"
   [quote]="p.quote"
   [quoteSource]="p.quoteSource"
+  [quoteCite]="quoteCite"
   [works]="works"
   [themes]="p.themes"
+  (quoteOpen)="openCite($event)"
+  (citeOpen)="openCite($event)"
 >
   <div ficha-after-quote>
+    <p
+      *ngIf="citeStatus"
+      class="fs12 muted"
+      data-testid="padre-cite-progress"
+    >
+      {{ citeStatus }}
+    </p>
+    <app-pasaje
+      *ngIf="pasajeVerses.length"
+      data-testid="padre-pasaje"
+      [verses]="pasajeVerses"
+      [label]="pasajeLabel"
+    ></app-pasaje>
     <app-reading-ctas
       *ngIf="primaryWorkId"
       layout="stack"
