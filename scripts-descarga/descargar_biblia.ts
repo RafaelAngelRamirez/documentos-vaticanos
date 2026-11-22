@@ -9,6 +9,7 @@ import { GenerarPuntoBiblia } from "./models/punto-versiculo.model";
 import { Biblia, Versiculo } from "./models/biblia.model";
 import abreviaciones from "./models/data/abreviaciones_biblia.json";
 import { ConfigDocumento } from "./models/config_documento.model";
+import { parsePsalmChapterDocument } from "./src/bible/psalm_verse_parse";
 
 export class Bible extends GeneralDownload {
   get_download_data(): DownloadData {
@@ -87,44 +88,15 @@ export class Bible extends GeneralDownload {
   }
 
   _obtener_contenido_capitulo(datos: BibleBook) {
-    const document = datos.document;
-    function obtener_versiculo(versiculo: string) {
-      // El versiculo más grande es el 176, entonces
-      // solo necesitamos comprobar los tres primeros
-      // digitos para saber el número.
-      let tres_caracteres = versiculo.slice(0, 3);
-      try {
-        let vers = parseInt(tres_caracteres.trim());
-        return vers;
-       } catch (error: any) {
-        return undefined;
-      }
-    }
-
-    const versiculos: TrasnportData[] = [];
-    Array.from(document.querySelectorAll("p.MsoNormal")).forEach((p) => {
-      let contenido = p.textContent ?? "";
-      contenido = this._clean_special_characters(contenido);
-      contenido = contenido.trim();
-
-      const num_versiculo = obtener_versiculo(contenido);
-      // En el caso de los salmos, por algúna extraña razón, en lugar
-      // de utilizar un \n para el salto de linea crearon otro objeto
-      // p.MsoNormal. Entonces, cuando no tengamos un versiculo válido
-      // hay que concatenarlo al anterior.
-
-      contenido = this._clean_special_characters(contenido);
-      let _nuevo_vers = this.nuevo_versiculo();
-      if (!num_versiculo) {
-        _nuevo_vers.contenido.concat(" " + contenido);
-      } else {
-        _nuevo_vers.versiculo = num_versiculo;
-        _nuevo_vers.contenido = contenido;
-        versiculos.push(_nuevo_vers);
-      }
+    // Psalms (and some other books) split one verse across several
+    // p.MsoNormal nodes. foldPsalmParagraphs concatenates continuations
+    // and ignores letter-suffix openers like "16c …" (parseInt false friends).
+    return parsePsalmChapterDocument(datos.document).map((v) => {
+      const row = this.nuevo_versiculo();
+      row.versiculo = v.versiculo;
+      row.contenido = v.contenido;
+      return row;
     });
-
-    return versiculos;
   }
 
   _obtener_contenido_intro(datos: BibleBook) {
