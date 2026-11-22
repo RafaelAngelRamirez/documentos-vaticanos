@@ -45,6 +45,9 @@ const {
   emptyShelfMessage,
   looksLikeIndexUnit,
   postingUnitCount,
+  unitsToOpen,
+  SHELF_OPEN_DOCS,
+  SHELF_OPEN_UNITS,
 } = require('./shelf-search.logic.ts');
 
 const BUSCADOR = path.resolve(
@@ -391,6 +394,47 @@ assert.ok(
   /!hasPoints/.test(shelfGate),
   'el gate de estantes no traga .12 / puntuación',
 );
+const paintAt = buscador.indexOf('private paintShelves');
+const paintEnd = buscador.indexOf('private applyShelfPaint');
+assert.ok(paintAt > 0 && paintEnd > paintAt, 'paintShelves existe');
+const paint = buscador.slice(paintAt, paintEnd);
+assert.ok(
+  paint.includes('ensureUnitTexts'),
+  'la pintura abre unidades, no el libro',
+);
+assert.ok(
+  !paint.includes('ensureLoadedMany'),
+  'la pintura no puede volver a ensureLoadedMany',
+);
+assert.ok(
+  !paint.includes('docsToHydrate'),
+  'la pintura no abre un tope de obras enteras',
+);
+assert.strictEqual(SHELF_OPEN_DOCS, 4);
+assert.strictEqual(SHELF_OPEN_UNITS, 8);
+const muchos = [];
+for (let d = 0; d < 30; d++) {
+  const n = d === 7 ? 50 : 10;
+  for (let u = 0; u < n; u++) {
+    muchos.push({
+      documentId: `doc-${String(d).padStart(2, '0')}`,
+      shelf: 'enciclica',
+      official: true,
+      ai: false,
+      unitIndex: u * 100,
+      matches: [{ term: 'gracia', via: 'palabra' }],
+    });
+  }
+}
+const abiertas = unitsToOpen(muchos, ['enciclica']);
+const obras = new Set(abiertas.map((hit) => hit.documentId));
+assert.strictEqual(obras.size, SHELF_OPEN_DOCS);
+assert.ok(abiertas.length <= SHELF_OPEN_DOCS * SHELF_OPEN_UNITS);
+assert.ok(obras.has('doc-07'), 'la obra con más aciertos entra');
+assert.ok(
+  abiertas.some((hit) => hit.documentId === 'doc-07' && hit.unitIndex > 0),
+  'no se queda solo con la primera unidad',
+);
 
 function readPkg(name) {
   const file = path.join(PACKAGES, name);
@@ -438,9 +482,20 @@ const padres = decodeShelfPackage(readPkg('es-padres.dvix'));
 assert.strictEqual(padres.packageId, 'padres');
 assert.ok(padres.docs.length > 0);
 assert.ok(padres.docs.every((doc) => doc.shelf === 'padres'));
+assert.strictEqual(padres.terms.size, padresInfo.terms);
+assert.strictEqual(padres.terms.has('gracia'), true);
+assert.strictEqual(padres.terms.decodedCount(), 0);
 for (const term of padres.terms.keys()) {
   assert.strictEqual(/[0-9]/.test(term), false, term);
 }
+assert.strictEqual(
+  padres.terms.decodedCount(),
+  0,
+  'recorrer las claves no expande los postings',
+);
+const gracia = padres.terms.get('gracia');
+assert.ok(gracia && gracia.df > 0 && gracia.groups.length > 0);
+assert.strictEqual(padres.terms.decodedCount(), 1);
 assert.strictEqual(
   fs.statSync(path.join(PACKAGES, 'es-padres.dvix')).size,
   padresInfo.rawBytes,

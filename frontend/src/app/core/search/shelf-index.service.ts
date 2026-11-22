@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, map, shareReplay } from 'rxjs/operators';
+import { catchError, mergeMap, shareReplay } from 'rxjs/operators';
 import {
-  decodeShelfPackage,
+  decodeShelfPackageIdle,
   type ShelfPackage,
 } from './shelf-search.logic';
 
@@ -69,8 +69,8 @@ export class ShelfIndexService {
     const req = this.http
       .get(`${SHELF_PACKAGE_ROOT}/${file}`, { responseType: 'arraybuffer' })
       .pipe(
-        map((buf) => {
-          const pkg = decodeShelfPackage(new Uint8Array(buf));
+        mergeMap(async (buf) => {
+          const pkg = await decodeShelfPackageIdle(new Uint8Array(buf));
           this.decoded.set(key, pkg);
           return pkg;
         }),

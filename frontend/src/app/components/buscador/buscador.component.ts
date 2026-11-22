@@ -13,7 +13,10 @@ import {
   parseDocumentId,
   parseUnitIndex,
 } from 'src/app/core/reading/cite';
-import { CorpusService } from 'src/app/core/corpus/corpus.service';
+import {
+  CorpusService,
+  type OpenedUnit,
+} from 'src/app/core/corpus/corpus.service';
 import { ReaderPreferencesService } from 'src/app/services/reader-preferences.service';
 import {
   parseSearchInput,
@@ -36,13 +39,15 @@ import {
 import { ShelfIndexService } from 'src/app/core/search/shelf-index.service';
 import {
   SHELF_STORAGE_KEY,
+  SHELF_OPEN_DOCS,
+  SHELF_OPEN_UNITS,
   collectCandidates,
-  docsToHydrate,
   emptyShelfMessage,
   expandQueryTerms,
   rankShelves,
   resolveEnabledShelves,
   scoreCandidates,
+  unitsToOpen,
   visibleShelves,
   type HydratedUnit,
   type ShelfCandidate,
@@ -118,8 +123,10 @@ export class BuscadorComponent implements OnInit, OnDestroy {
   private shelfTexts = new Map<string, HydratedUnit>();
   private hydratedDocs = new Set<string>();
   private hydratedById = new Map<string, DocumentoDatos>();
+  /** Unidades que ya se intentaron abrir en esta consulta. */
+  private triedUnits = new Set<string>();
   private shelfVisibleCap: Record<string, number> = {};
-  private shelfDocCap = 24;
+  private shelfDocCap = SHELF_OPEN_DOCS;
   /** Si el paquete de estantes no está, se vuelve a la lista por obra. */
   private forceFlat = false;
 
@@ -869,8 +876,9 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     this.shelfTexts.clear();
     this.hydratedDocs.clear();
     this.hydratedById.clear();
+    this.triedUnits.clear();
     this.shelfVisibleCap = {};
-    this.shelfDocCap = 24;
+    this.shelfDocCap = SHELF_OPEN_DOCS;
     this.shelfLocale =
       (locale || 'es').trim().toLowerCase().split(/[-_]/)[0] || 'es';
     this.shelfFolded = parsed.contentTerms[0] || '';
@@ -970,8 +978,18 @@ export class BuscadorComponent implements OnInit, OnDestroy {
       this.shelfQueryParts,
       shelves,
     );
-    const ids = docsToHydrate(candidates, this.shelfDocCap);
-    const missing = ids.filter((id) => !this.hydratedDocs.has(id));
+    const widest = shelves.reduce(
+      (n, id) => Math.max(n, this.shelfVisibleCap[id] || 3),
+      3,
+    );
+    const open = unitsToOpen(candidates, shelves, {
+      maxDocsPerShelf: this.shelfDocCap,
+      maxUnitsPerDoc: Math.max(SHELF_OPEN_UNITS, widest * 2),
+    });
+    const missing = open.filter((hit) => {
+      const key = `${hit.documentId}:${hit.unitIndex}`;
+      return !this.shelfTexts.has(key) && !this.triedUnits.has(key);
+    });
     if (!missing.length) {
       this.applyShelfPaint(candidates, shelves, myGen);
       return;
@@ -979,37 +997,64 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     this.loading_docs = true;
     this.sub.add(
       this.corpus
-        .ensureLoadedMany(missing, {
-          concurrency: DEFAULT_BODY_LOAD_CONCURRENCY,
-          isCancelled: () => myGen !== this.searchGen,
-        })
+        .ensureUnitTexts(
+          missing.map((hit) => ({
+            documentId: hit.documentId,
+            unitIndex: hit.unitIndex,
+          })),
+          {
+            concurrency: DEFAULT_BODY_LOAD_CONCURRENCY,
+            isCancelled: () => myGen !== this.searchGen,
+          },
+        )
         .subscribe({
-          next: (docs) => {
+          next: (units) => {
             if (myGen !== this.searchGen) return;
-            for (const doc of docs) {
-              const id = doc.id || doc.nombre || '';
-              if (!id) continue;
-              this.hydratedDocs.add(id);
-              this.hydratedById.set(id, doc);
-              for (const hit of candidates) {
-                if (hit.documentId !== id) continue;
-                const article = doc.documento?.[hit.unitIndex];
-                if (!article) continue;
-                this.shelfTexts.set(`${id}:${hit.unitIndex}`, {
-                  text: article.contenido || '',
-                  consecutivo: article.consecutivo,
-                });
-              }
+            for (const unit of units) this.rememberShelfUnit(unit);
+            for (const hit of missing) {
+              this.triedUnits.add(`${hit.documentId}:${hit.unitIndex}`);
             }
             this.applyShelfPaint(candidates, shelves, myGen);
           },
           error: () => {
             if (myGen !== this.searchGen) return;
-            for (const id of missing) this.hydratedDocs.add(id);
+            for (const hit of missing) {
+              this.triedUnits.add(`${hit.documentId}:${hit.unitIndex}`);
+            }
             this.applyShelfPaint(candidates, shelves, myGen);
           },
         }),
     );
+  }
+
+  private rememberShelfUnit(unit: OpenedUnit): void {
+    const id = unit.documentId;
+    const key = `${id}:${unit.unitIndex}`;
+    this.triedUnits.add(key);
+    this.hydratedDocs.add(id);
+    let shell = this.hydratedById.get(id);
+    if (!shell) {
+      const meta = unit.meta;
+      shell = {
+        id,
+        nombre: meta.title || meta.shortTitle || id,
+        title: meta.title,
+        shortTitle: meta.shortTitle,
+        locale: meta.locale,
+        sourceUrl: meta.sourceUrl,
+        documento: [],
+        indice: { indice: {}, indice_por_punto: {} },
+        partial: true,
+      };
+      this.hydratedById.set(id, shell);
+    }
+    const article = unit.article;
+    if (article.index_array == null) article.index_array = unit.unitIndex;
+    shell.documento[unit.unitIndex] = article;
+    this.shelfTexts.set(key, {
+      text: article.contenido || '',
+      consecutivo: article.consecutivo,
+    });
   }
 
   private applyShelfPaint(

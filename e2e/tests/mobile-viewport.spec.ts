@@ -272,6 +272,35 @@ test.describe('viewport móvil 390×844', () => {
     await expect(page.locator('app-root')).toBeVisible();
   });
 
+  test.describe('búsqueda en frío', () => {
+    test.use({ serviceWorkers: 'block' });
+
+    test('gracia no espera el corpus entero', async ({ page }) => {
+      test.setTimeout(60_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      const content: string[] = [];
+      const indexes: string[] = [];
+      page.on('request', (req) => {
+        const url = req.url();
+        if (url.includes('/content.json')) content.push(url);
+        if (url.includes('/index.json')) indexes.push(url);
+      });
+      await page.goto('/buscar');
+      const box = page.getByRole('searchbox', {
+        name: 'Búsqueda en el texto: palabra, frase o intención',
+      });
+      await expect(box).toBeVisible();
+      await box.fill('gracia');
+      await expect(page.locator('.srow').first()).toBeVisible({ timeout: 20_000 });
+      await expect(
+        page.getByText('Cargando documentos para la búsqueda…'),
+      ).toHaveCount(0);
+      expect(indexes, indexes.slice(0, 8).join('\n')).toEqual([]);
+      expect(content.length).toBeGreaterThan(0);
+      expect(content.length).toBeLessThanOrEqual(20);
+    });
+  });
+
   test('portada de documento', async ({ page }) => {
     expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
     await page.goto('/documento/cic-es');

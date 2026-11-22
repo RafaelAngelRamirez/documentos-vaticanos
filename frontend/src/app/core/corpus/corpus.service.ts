@@ -65,6 +65,14 @@ import { isPopeDocumentId } from '../papacy/papacy-units.logic';
 import { SantoralService } from '../santoral/santoral.service';
 import { isSaintDocumentId } from '../santoral/santoral-units.logic';
 
+/** Una unidad ya copiada fuera del caché del motor. */
+export interface OpenedUnit {
+  documentId: string;
+  unitIndex: number;
+  article: Article;
+  meta: DocumentMeta;
+}
+
 export interface EnsureLoadedManyOptions {
   /** Max concurrent ensureLoaded calls (default 6). */
   concurrency?: number;
@@ -414,6 +422,61 @@ export class CorpusService {
     return from(
       this.engine.ensureWindow(documentId, focusIndex, radius) as Promise<LoadedDocument>
     );
+  }
+
+  /**
+   * Texto de las unidades que la búsqueda va a pintar.
+   * Una ventana por unidad, copiada al momento: la ventana siguiente de la
+   * misma obra no se queda con el artículo anterior. No pide index.json.
+   */
+  ensureUnitTexts(
+    units: readonly { documentId: string; unitIndex: number }[],
+    options: EnsureLoadedManyOptions = {},
+  ): Observable<OpenedUnit[]> {
+    const byDoc = new Map<string, number[]>();
+    for (const unit of units) {
+      const id = (unit?.documentId || '').trim();
+      if (!id || !Number.isInteger(unit.unitIndex) || unit.unitIndex < 0) {
+        continue;
+      }
+      const list = byDoc.get(id);
+      if (list) {
+        if (!list.includes(unit.unitIndex)) list.push(unit.unitIndex);
+      } else {
+        byDoc.set(id, [unit.unitIndex]);
+      }
+    }
+    const ids = [...byDoc.keys()];
+    if (!ids.length) return of([]);
+    return from(
+      mapPool(
+        ids,
+        options.concurrency ?? DEFAULT_BODY_LOAD_CONCURRENCY,
+        async (id) => {
+          const found: OpenedUnit[] = [];
+          for (const unitIndex of byDoc.get(id) || []) {
+            if (options.isCancelled?.()) return found;
+            try {
+              const loaded = await firstValueFrom(
+                this.ensureWindow(id, unitIndex, 0),
+              );
+              const article = loaded.documento?.[unitIndex];
+              if (!article || typeof article.contenido !== 'string') continue;
+              found.push({
+                documentId: loaded.meta.id,
+                unitIndex,
+                article,
+                meta: loaded.meta,
+              });
+            } catch {
+              return found;
+            }
+          }
+          return found;
+        },
+        options.isCancelled,
+      ),
+    ).pipe(map((groups) => groups.flatMap((group) => group || [])));
   }
 
   /** Fill more units of a windowed document (scroll / narrator). */
