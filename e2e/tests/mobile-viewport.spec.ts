@@ -319,6 +319,61 @@ test.describe('viewport móvil 390×844', () => {
       expect(content.length).toBeGreaterThan(0);
       expect(content.length).toBeLessThanOrEqual(20);
     });
+
+    test('mercy en inglés no espera el corpus entero ni duplica sedula', async ({
+      page,
+    }) => {
+      test.setTimeout(60_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      await page.addInitScript(() => {
+        localStorage.setItem(
+          'reader.prefs.v1',
+          JSON.stringify({
+            theme: 'mono',
+            font: 'serif',
+            fontSizePx: 18,
+            lineHeight: 1.65,
+            maxWidthCh: 65,
+            keepAwake: false,
+            contentLocale: 'en',
+            uiLocale: 'en',
+          }),
+        );
+      });
+      const content: string[] = [];
+      const indexes: string[] = [];
+      page.on('request', (req) => {
+        const url = req.url();
+        if (url.includes('/content.json')) content.push(url);
+        if (url.includes('/index.json')) indexes.push(url);
+      });
+      await page.goto('/buscar');
+      // aria-label stays Spanish; contentLocale=en selects en.json shelves.
+      const box = page.getByRole('searchbox', {
+        name: 'Búsqueda en el texto: palabra, frase o intención',
+      });
+      await expect(box).toBeVisible({ timeout: 30_000 });
+      const started = Date.now();
+      await box.fill('mercy');
+      // Visibility headroom matches «gracia» (20 s). The product bar is the
+      // fill→paint elapsed below; CI seeds cic-en + dm-en so that stays under 10 s.
+      await expect(page.locator('.srow').first()).toBeVisible({ timeout: 20_000 });
+      const elapsed = Date.now() - started;
+      expect(elapsed, `cold mercy painted in ${elapsed}ms`).toBeLessThan(10_000);
+      await expect(
+        page.getByText('Cargando documentos para la búsqueda…'),
+      ).toHaveCount(0);
+      expect(indexes, indexes.slice(0, 8).join('\n')).toEqual([]);
+      expect(content.length).toBeGreaterThan(0);
+      expect(content.length).toBeLessThanOrEqual(20);
+      const sedula = page.locator('.srow', { hasText: /sedula mater/i });
+      const sedulaCount = await sedula.count();
+      if (sedulaCount > 0) {
+        const labels = await sedula.allTextContents();
+        const n6 = labels.filter((t) => /Nº\s*6/i.test(t) || /\b6\b/.test(t));
+        expect(n6.length, n6.join(' | ')).toBeLessThanOrEqual(1);
+      }
+    });
   });
 
   test('portada de documento', async ({ page }) => {
