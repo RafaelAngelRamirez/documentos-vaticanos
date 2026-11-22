@@ -355,7 +355,9 @@ test.describe('viewport móvil 390×844', () => {
       await expect(box).toBeVisible({ timeout: 30_000 });
       const started = Date.now();
       await box.fill('mercy');
-      await expect(page.locator('.srow').first()).toBeVisible({ timeout: 10_000 });
+      // Visibility headroom matches «gracia» (20 s). The product bar is the
+      // fill→paint elapsed below; CI seeds cic-en + dm-en so that stays under 10 s.
+      await expect(page.locator('.srow').first()).toBeVisible({ timeout: 20_000 });
       const elapsed = Date.now() - started;
       expect(elapsed, `cold mercy painted in ${elapsed}ms`).toBeLessThan(10_000);
       await expect(
