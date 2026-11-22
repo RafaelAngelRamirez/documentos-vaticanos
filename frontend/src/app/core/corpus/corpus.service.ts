@@ -622,6 +622,26 @@ export class CorpusService {
     documentId: string,
     opts: { citeLabel?: string; anchorIndex?: number },
   ): Promise<LoadedDocument> {
+    const label = (opts.citeLabel || '').trim();
+    const anchor = opts.anchorIndex;
+    const passages: ParsedPassage[] | null = label
+      ? parseBibleCites(label)
+      : null;
+
+    // Bible cites always go through the cite-map stamp, even when the pack
+    // is already fully cached without `biblia` (EN and siblings). Skipping
+    // that stamp made Lectura rápida fall back to another number.
+    if (passages?.length && isOfflineBibleId(documentId)) {
+      const opened = await this.openBibleCitation(documentId, passages);
+      if (opened) return opened;
+      // A sibling map exists, so the verses are addressable. Do not pull
+      // every chunk of a translation that has no verse marks: that download
+      // is what sat on “Descargando…” and then came back empty.
+      if (await this.bibleCiteMapDocument(documentId)) {
+        throw new Error(`cited bible passage missing: ${documentId}`);
+      }
+    }
+
     const cachedFull = this.engine.getLoaded(documentId) as
       | LoadedDocument
       | undefined;
@@ -629,8 +649,6 @@ export class CorpusService {
       return cachedFull;
     }
 
-    const label = (opts.citeLabel || '').trim();
-    const anchor = opts.anchorIndex;
     if (
       !isOfflineBibleId(documentId) &&
       label &&
@@ -644,19 +662,7 @@ export class CorpusService {
       }
     }
 
-    const passages: ParsedPassage[] | null = label
-      ? parseBibleCites(label)
-      : null;
-    if (passages?.length && isOfflineBibleId(documentId)) {
-      const opened = await this.openBibleCitation(documentId, passages);
-      if (opened) return opened;
-      // A sibling map exists, so the verses are addressable. Do not pull
-      // every chunk of a translation that has no verse marks: that download
-      // is what sat on “Descargando…” and then came back empty.
-      if (await this.bibleCiteMapDocument(documentId)) {
-        throw new Error(`cited bible passage missing: ${documentId}`);
-      }
-    } else if (passages?.length === 1) {
+    if (passages?.length === 1) {
       const passage = passages[0];
       const map = await this.loadCiteMap(documentId);
       if (map) {

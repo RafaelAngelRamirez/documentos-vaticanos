@@ -134,6 +134,10 @@ function indexesForSpan(
  * A translation pack keeps the Spanish unit index but drops `biblia`.
  * Stamp the cited verses onto those units so the passage resolver can
  * read them. Verses the citation skips stay unmarked.
+ *
+ * Always write the cited chapter/verse, even when the unit already has
+ * `biblia.libro`. A stale or wrong `versiculo` must not win over the label
+ * the reader tapped (Lectura rápida shows that number).
  */
 export function addressUnitsFromCiteMap<
   T extends CiteUnitLike & { contenido?: string },
@@ -146,17 +150,19 @@ export function addressUnitsFromCiteMap<
   const slug = passage ? bookSlugForCode(passage.code) : null;
   const book = slug && map?.books ? map.books[slug] : undefined;
   if (!book || !passage || !slug) return list;
+  const code = passage.code;
   for (const span of passage.spans) {
     for (const ref of verseRefsForSpan(book, span)) {
       const unit = list[ref.index];
-      if (!unit || unit.biblia?.libro) continue;
+      if (!unit) continue;
       list[ref.index] = {
         ...unit,
         biblia: {
+          ...(unit.biblia || {}),
           libro: slug,
           capitulo: String(ref.chapter),
           versiculo: ref.verse,
-          consecutivo_versiculo: `${slug} ${ref.chapter}, ${ref.verse}`,
+          consecutivo_versiculo: `${code} ${ref.chapter}, ${ref.verse}`,
           index_general: String(ref.index),
         },
       } as T;

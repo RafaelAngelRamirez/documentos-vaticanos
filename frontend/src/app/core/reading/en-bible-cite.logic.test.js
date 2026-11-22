@@ -119,6 +119,45 @@ async function main() {
   assert.ok(mtShown.verses[0].text.includes('Rejoice and be glad'));
   assert.strictEqual(String(mtShown.verses[0].index), String(esRefs[0].local.idPunto));
 
+  // Stale/wrong versiculo on a unit that already has biblia.libro must not
+  // paint «32» when the reader tapped Mt 5:12 (Rafa v0.0.70).
+  const mtIdx = Number(esRefs[0].local.idPunto);
+  const corrupt = enBible.slice();
+  corrupt[mtIdx] = {
+    ...enBible[mtIdx],
+    biblia: {
+      libro: 'evangelio segun san mateo',
+      capitulo: '5',
+      versiculo: 32,
+      consecutivo_versiculo: 'Mt 5, 32',
+      index_general: String(mtIdx),
+    },
+  };
+  const restamped = mapMod.addressUnitsFromCiteMap(corrupt, map, mt[0]);
+  assert.strictEqual(restamped[mtIdx].biblia.versiculo, 12);
+  const fixed = resolve.resolveCitedPassageFromCite(
+    'bible-pueblo-de-dios-en',
+    'Mt 5:12',
+    restamped,
+  );
+  assert.ok(fixed);
+  assert.deepStrictEqual(
+    fixed.verses.map((v) => v.verse),
+    [12],
+  );
+  assert.ok(fixed.verses[0].text.includes('Rejoice and be glad'));
+  assert.ok(!fixed.verses[0].text.startsWith('12'));
+
+  const fromLocal = resolve.resolveCitedPassageFromLocalRef(
+    'bible-pueblo-de-dios-en',
+    mtIdx,
+    'Mt 5:12',
+    corrupt,
+  );
+  assert.ok(fromLocal);
+  assert.strictEqual(fromLocal.verses[0].verse, 12);
+  assert.ok(fromLocal.verses[0].text.includes('Rejoice and be glad'));
+
   const gnShown = resolve.resolveCitedPassageFromCite(
     'bible-pueblo-de-dios-en',
     'Gen 17:1',
