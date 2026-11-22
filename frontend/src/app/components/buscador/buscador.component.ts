@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription, forkJoin, of } from 'rxjs';
+import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { Subscription, of } from 'rxjs';
 import { catchError, map, switchMap, take } from 'rxjs/operators';
 import { BuscadorService, TermsProcessed } from './buscador.service';
 import { IndiceDocumentos as DocumentoDatos } from 'src/app/core/corpus/corpus.models';
@@ -125,6 +125,8 @@ export class BuscadorComponent implements OnInit, OnDestroy {
   private hydratedById = new Map<string, DocumentoDatos>();
   /** Unidades que ya se intentaron abrir en esta consulta. */
   private triedUnits = new Set<string>();
+  /** Obras cuyo texto ya se está pidiendo. */
+  private openingDocs = new Set<string>();
   private shelfVisibleCap: Record<string, number> = {};
   private shelfDocCap = SHELF_OPEN_DOCS;
   /** Si el paquete de estantes no está, se vuelve a la lista por obra. */
@@ -137,6 +139,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     private readerPrefs: ReaderPreferencesService,
     private topics: TopicIndexService,
     private shelfIndex: ShelfIndexService,
+    private zone: NgZone,
   ) {}
 
   ngOnInit(): void {
@@ -877,6 +880,7 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     this.hydratedDocs.clear();
     this.hydratedById.clear();
     this.triedUnits.clear();
+    this.openingDocs.clear();
     this.shelfVisibleCap = {};
     this.shelfDocCap = SHELF_OPEN_DOCS;
     this.shelfLocale =
@@ -902,29 +906,37 @@ export class BuscadorComponent implements OnInit, OnDestroy {
             label: shelf.label,
             on: this.enabledShelfIds.includes(shelf.id),
           }));
-          const needed = new Set<string>(['base']);
-          if (this.enabledShelfIds.includes('padres')) needed.add('padres');
-          const loads = entries
-            .filter((entry) => needed.has(entry.id))
-            .map((entry) =>
-              this.shelfIndex.load(this.shelfLocale, entry.id, entry.file),
-            );
-          if (!loads.length) {
+          const base = entries.find((entry) => entry.id === 'base');
+          if (!base) {
             this.fallBackToDocumentIndex();
             return;
           }
+          const padres = this.enabledShelfIds.includes('padres')
+            ? entries.find((entry) => entry.id === 'padres')
+            : undefined;
+          const paintPackages = (packages: ShelfPackage[]) => {
+            if (myGen !== this.searchGen) return;
+            this.shelfPackages = packages;
+            this.paintShelves(myGen);
+          };
           this.sub.add(
-            forkJoin(loads).subscribe({
-              next: (packages) => {
+            this.shelfIndex.load(this.shelfLocale, base.id, base.file).subscribe({
+              next: (basePkg) => {
                 if (myGen !== this.searchGen) return;
-                this.shelfPackages = packages.filter(
-                  (pkg): pkg is ShelfPackage => !!pkg,
-                );
-                if (!this.shelfPackages.length) {
+                if (!basePkg) {
                   this.fallBackToDocumentIndex();
                   return;
                 }
-                this.paintShelves(myGen);
+                paintPackages([basePkg]);
+                if (!padres) return;
+                this.sub.add(
+                  this.shelfIndex
+                    .load(this.shelfLocale, padres.id, padres.file)
+                    .subscribe((padresPkg) => {
+                      if (myGen !== this.searchGen || !padresPkg) return;
+                      paintPackages([basePkg, padresPkg]);
+                    }),
+                );
               },
               error: () => {
                 if (myGen !== this.searchGen) return;
@@ -988,13 +1000,28 @@ export class BuscadorComponent implements OnInit, OnDestroy {
     });
     const missing = open.filter((hit) => {
       const key = `${hit.documentId}:${hit.unitIndex}`;
-      return !this.shelfTexts.has(key) && !this.triedUnits.has(key);
+      if (this.shelfTexts.has(key) || this.triedUnits.has(key)) return false;
+      return !this.openingDocs.has(hit.documentId);
     });
     if (!missing.length) {
       this.applyShelfPaint(candidates, shelves, myGen);
       return;
     }
-    this.loading_docs = true;
+    for (const hit of missing) this.openingDocs.add(hit.documentId);
+    if (!this.rows.length) this.loading_docs = true;
+    const finishDoc = (documentId: string, units: OpenedUnit[]) => {
+      this.zone.run(() => {
+        if (myGen !== this.searchGen) return;
+        this.openingDocs.delete(documentId);
+        for (const unit of units) this.rememberShelfUnit(unit);
+        for (const hit of missing) {
+          if (hit.documentId === documentId) {
+            this.triedUnits.add(`${hit.documentId}:${hit.unitIndex}`);
+          }
+        }
+        if (this.shelfTexts.size) this.repaintShelves(myGen);
+      });
+    };
     this.sub.add(
       this.corpus
         .ensureUnitTexts(
@@ -1005,26 +1032,44 @@ export class BuscadorComponent implements OnInit, OnDestroy {
           {
             concurrency: DEFAULT_BODY_LOAD_CONCURRENCY,
             isCancelled: () => myGen !== this.searchGen,
+            onDocument: finishDoc,
           },
         )
         .subscribe({
-          next: (units) => {
-            if (myGen !== this.searchGen) return;
-            for (const unit of units) this.rememberShelfUnit(unit);
-            for (const hit of missing) {
-              this.triedUnits.add(`${hit.documentId}:${hit.unitIndex}`);
-            }
-            this.applyShelfPaint(candidates, shelves, myGen);
+          next: () => {
+            this.zone.run(() => {
+              if (myGen !== this.searchGen) return;
+              for (const hit of missing) {
+                this.openingDocs.delete(hit.documentId);
+                this.triedUnits.add(`${hit.documentId}:${hit.unitIndex}`);
+              }
+              this.repaintShelves(myGen);
+            });
           },
           error: () => {
-            if (myGen !== this.searchGen) return;
-            for (const hit of missing) {
-              this.triedUnits.add(`${hit.documentId}:${hit.unitIndex}`);
-            }
-            this.applyShelfPaint(candidates, shelves, myGen);
+            this.zone.run(() => {
+              if (myGen !== this.searchGen) return;
+              for (const hit of missing) {
+                this.openingDocs.delete(hit.documentId);
+                this.triedUnits.add(`${hit.documentId}:${hit.unitIndex}`);
+              }
+              this.repaintShelves(myGen);
+            });
           },
         }),
     );
+  }
+
+  /** Vuelve a pintar con los paquetes que ya llegaron, sin tapar filas ya visibles. */
+  private repaintShelves(myGen: number): void {
+    if (myGen !== this.searchGen) return;
+    const shelves = this.enabledShelfIds;
+    const candidates = collectCandidates(
+      this.shelfPackages,
+      this.shelfQueryParts,
+      shelves,
+    );
+    this.applyShelfPaint(candidates, shelves, myGen);
   }
 
   private rememberShelfUnit(unit: OpenedUnit): void {

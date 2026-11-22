@@ -83,6 +83,11 @@ export interface EnsureLoadedManyOptions {
    * failing the whole batch.
    */
   softFail?: boolean;
+  /**
+   * Aviso por obra, en cuanto esa obra termina. La búsqueda pinta sin
+   * esperar a la biblia ni al resto del lote.
+   */
+  onDocument?: (documentId: string, units: OpenedUnit[]) => void;
 }
 
 @Injectable({
@@ -446,7 +451,10 @@ export class CorpusService {
         byDoc.set(id, [unit.unitIndex]);
       }
     }
-    const ids = [...byDoc.keys()];
+    const ids = [...byDoc.keys()].sort((a, b) => {
+      const heavy = (id: string) => (id.includes('bible') ? 1 : 0);
+      return heavy(a) - heavy(b) || a.localeCompare(b);
+    });
     if (!ids.length) return of([]);
     return from(
       mapPool(
@@ -454,9 +462,9 @@ export class CorpusService {
         options.concurrency ?? DEFAULT_BODY_LOAD_CONCURRENCY,
         async (id) => {
           const found: OpenedUnit[] = [];
-          for (const unitIndex of byDoc.get(id) || []) {
-            if (options.isCancelled?.()) return found;
-            try {
+          try {
+            for (const unitIndex of byDoc.get(id) || []) {
+              if (options.isCancelled?.()) break;
               const loaded = await firstValueFrom(
                 this.ensureWindow(id, unitIndex, 0),
               );
@@ -468,10 +476,11 @@ export class CorpusService {
                 article,
                 meta: loaded.meta,
               });
-            } catch {
-              return found;
             }
+          } catch {
+            /* la obra no está: se pinta el resto */
           }
+          options.onDocument?.(id, found);
           return found;
         },
         options.isCancelled,
