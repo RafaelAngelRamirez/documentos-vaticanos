@@ -122,6 +122,22 @@ function textLen(units: TrasnportData[]): number {
   return units.reduce((acc, u) => acc + (u.contenido || '').length, 0);
 }
 
+/**
+ * vatican.va sometimes publishes only a cover: a language bar and a PDF link.
+ * vatican_prose keeps that chrome and the import used to store it as the
+ * exhortation (Amoris laetitia en, two units, «Nº 1–2»).
+ */
+function isPdfCoverStub(units: TrasnportData[]): boolean {
+  if (units.length >= 8) return false;
+  const blob = units
+    .map((u) => (u.contenido || '').replace(/\s+/g, ' ').trim())
+    .join('\n');
+  if (/download\s+pdf/i.test(blob)) return true;
+  return /^[A-Z]{2}(?:_[A-Z]{2})?(?:\s+-\s+[A-Z]{2}(?:_[A-Z]{2})?){4,}/m.test(
+    blob,
+  );
+}
+
 function loadExisting(): {
   ids: Set<string>;
   urls: Set<string>;
@@ -263,7 +279,12 @@ async function main(): Promise<void> {
       }
       const units = pickUnits(page.html);
       const chars = textLen(units);
-      if (units.length < 1 || (units.length === 1 && chars < 400) || chars < 250) {
+      if (
+        units.length < 1 ||
+        (units.length === 1 && chars < 400) ||
+        chars < 250 ||
+        isPdfCoverStub(units)
+      ) {
         skip += 1;
         report.push({
           id,
