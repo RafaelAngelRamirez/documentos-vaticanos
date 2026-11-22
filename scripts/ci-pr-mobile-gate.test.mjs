@@ -36,6 +36,9 @@ assert.doesNotMatch(yml, /solo se registra/);
 
 assert.match(gate, /--project=mobile-390/);
 assert.match(gate, /usage: ci-agent-gate\.sh \[all\|map\|check\|evidence\|lector\|mobile\]/);
+assert.match(gate, /seed_doc cic-en/);
+assert.match(gate, /seed_doc dm-en/);
+assert.match(gate, /seed_doc 20160815-sedula-mater-en/);
 assert.match(cheap, /node scripts\/ci-pr-mobile-gate\.test\.mjs/);
 
 console.log('ci-pr-mobile-gate.test.mjs ok');

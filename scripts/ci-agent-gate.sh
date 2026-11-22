@@ -182,6 +182,11 @@ run_mobile() {
   seed_bible
   seed_doc lg-es
   seed_doc esortazione-ap-20160319-amoris-laetitia-en
+  # EN cold search («mercy») opens the densest EN hits first; without these
+  # bodies the SPA falls back to index.html and no .srow paints in time.
+  seed_doc cic-en
+  seed_doc dm-en
+  seed_doc 20160815-sedula-mater-en
   local dist port srv ec ready
   dist="$(reader_dist)"
   port="${E2E_PORT:-4173}"

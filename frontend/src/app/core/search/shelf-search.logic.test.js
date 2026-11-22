@@ -501,6 +501,34 @@ assert.strictEqual(
   padresInfo.rawBytes,
 );
 
+const enManifest = JSON.parse(
+  fs.readFileSync(path.join(PACKAGES, 'en.json'), 'utf8'),
+);
+assert.strictEqual(enManifest.locale, 'en');
+assert.ok(enManifest.packages.some((pkg) => pkg.id === 'base'));
+assert.ok(enManifest.packages.some((pkg) => pkg.id === 'padres'));
+const enBaseInfo =
+  medicion.byLocale?.en?.packages?.find((pkg) => pkg.id === 'base') ||
+  enManifest.packages.find((pkg) => pkg.id === 'base');
+const enBase = decodeShelfPackage(readPkg('en-base.dvix'));
+assert.strictEqual(enBase.packageId, 'base');
+assert.strictEqual(enBase.locale, 'en');
+assert.strictEqual(enBase.docs.length, enBaseInfo.docs);
+assert.ok(enBase.docs.some((doc) => doc.id === 'cic-en' || doc.id === 'ccc-en' || doc.shelf === 'catecismo'));
+assert.ok(
+  enBase.docs.some((doc) => doc.id === '20160815-sedula-mater-en'),
+  'estante EN incluye sedula mater canónico',
+);
+assert.ok(
+  !enBase.docs.some((doc) => doc.id === '20160815-sedula-mater-20160815-en'),
+  'estante EN no incluye el espejo de sedula mater',
+);
+assert.ok(postingUnitCount(enBase, 'mercy').units > 0, 'mercy en el índice EN');
+assert.strictEqual(
+  fs.statSync(path.join(PACKAGES, 'en-base.dvix')).size,
+  enBaseInfo.rawBytes,
+);
+
 console.log(
-  `shelf-search.logic.test.js ok base ${baseInfo.rawBytes} gzip ${baseInfo.gzipBytes} lookup ${baseInfo.lookupUs}µs padres ${padresInfo.rawBytes}`,
+  `shelf-search.logic.test.js ok base ${baseInfo.rawBytes} gzip ${baseInfo.gzipBytes} lookup ${baseInfo.lookupUs}µs padres ${padresInfo.rawBytes} en-base ${enBaseInfo.rawBytes}`,
 );
