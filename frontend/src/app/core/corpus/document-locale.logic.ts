@@ -52,6 +52,8 @@ export interface LocaleMeta {
   sourceNote?: string;
   /** Provenance of this pack's text when known. */
   translationProvenance?: 'official' | 'ai';
+  /** Normalized body fingerprint; shared by mirror catalog rows. */
+  contentHash?: string;
   author?: string;
   compiler?: string;
   bodyPath?: string;
@@ -350,8 +352,48 @@ function collapseOfficialOverAiPerLocale<T extends LocaleMeta>(
 }
 
 /**
+ * Among catalog mirrors that share a contentHash, keep one row.
+ * Prefer official over AI, then the shorter id (drops redundant date slugs),
+ * then lexicographic id. Rows without a hash stay as-is.
+ */
+export function collapseMirrorEditions<T extends LocaleMeta>(
+  metas: readonly T[],
+): T[] {
+  if (!metas?.length) return [];
+  const byHash = new Map<string, T[]>();
+  const bare: T[] = [];
+  for (const meta of metas) {
+    const hash = (meta.contentHash || '').trim();
+    if (!hash) {
+      bare.push(meta);
+      continue;
+    }
+    const list = byHash.get(hash);
+    if (list) list.push(meta);
+    else byHash.set(hash, [meta]);
+  }
+  const out: T[] = [...bare];
+  for (const group of byHash.values()) {
+    if (group.length === 1) {
+      out.push(group[0]);
+      continue;
+    }
+    const sorted = [...group].sort((a, b) => {
+      const aiA = isAiEdition(a) ? 1 : 0;
+      const aiB = isAiEdition(b) ? 1 : 0;
+      if (aiA !== aiB) return aiA - aiB;
+      if (a.id.length !== b.id.length) return a.id.length - b.id.length;
+      return a.id.localeCompare(b.id);
+    });
+    out.push(sorted[0]);
+  }
+  return out.sort((a, b) => a.id.localeCompare(b.id));
+}
+
+/**
  * Default search universe for a resolved content locale.
- * One edition per family in that locale (official over AI).
+ * One edition per family in that locale (official over AI), then one row
+ * per contentHash so vatican.va mirrors do not duplicate hits.
  * `allLocales`: every language, still dropping AI siblings of an official pack.
  */
 export function listSearchUniverse<T extends LocaleMeta>(
@@ -360,11 +402,15 @@ export function listSearchUniverse<T extends LocaleMeta>(
   allLocales = false,
 ): T[] {
   if (!metas?.length) return [];
-  if (allLocales) return collapseOfficialOverAiPerLocale(metas);
+  if (allLocales) {
+    return collapseMirrorEditions(collapseOfficialOverAiPerLocale(metas));
+  }
   const loc = normalizeLocaleCode(preferredLocale);
-  if (!loc) return collapseOfficialOverAiPerLocale(metas);
+  if (!loc) {
+    return collapseMirrorEditions(collapseOfficialOverAiPerLocale(metas));
+  }
   const scoped = metas.filter((m) => localeOf(m) === loc);
-  return listPreferredEditions(scoped, loc);
+  return collapseMirrorEditions(listPreferredEditions(scoped, loc));
 }
 
 /** All editions sharing a family with `documentId` (including itself). */

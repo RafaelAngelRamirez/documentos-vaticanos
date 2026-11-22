@@ -1,9 +1,9 @@
 {
   "version": 1,
   "locale": "es",
-  "measuredAt": "2026-10-27T06:42:46.221Z",
+  "measuredAt": "2026-11-22T20:14:32.279Z",
   "node": "v22.23.4",
-  "note": "El gzip −9 es la medida. El archivo que lee la app es el crudo.",
+  "note": "El gzip −9 es la medida. El archivo que lee la app es el crudo. byLocale guarda cada idioma.",
   "packages": [
     {
       "id": "base",
@@ -64,5 +64,133 @@
       },
       "postings": 9364736
     }
-  ]
+  ],
+  "byLocale": {
+    "es": {
+      "locale": "es",
+      "packages": [
+        {
+          "id": "base",
+          "file": "es-base.dvix",
+          "docs": 356,
+          "terms": 68495,
+          "rawBytes": 4877136,
+          "gzipBytes": 3042176,
+          "buildMs": 2634,
+          "encodeMs": 383,
+          "decodeMs": 188,
+          "lookupUs": 8,
+          "eucaristia": {
+            "df": 95,
+            "units": 679,
+            "byShelf": {
+              "magisterio": 200,
+              "concilio": 18,
+              "enciclica": 102,
+              "exhortacion": 160,
+              "codigo": 38,
+              "catecismo": 161
+            }
+          },
+          "droppedDigitKeys": 0,
+          "avgTokens": {
+            "magisterio": 99,
+            "concilio": 103.8,
+            "enciclica": 122.4,
+            "exhortacion": 129.4,
+            "biblia": 23.2,
+            "codigo": 72,
+            "catecismo": 53.8
+          },
+          "postings": 2243192
+        },
+        {
+          "id": "padres",
+          "file": "es-padres.dvix",
+          "docs": 45,
+          "terms": 637593,
+          "rawBytes": 26069503,
+          "gzipBytes": 15699989,
+          "buildMs": 15094,
+          "encodeMs": 3212,
+          "decodeMs": 2075,
+          "lookupUs": 2,
+          "eucaristia": {
+            "df": 30,
+            "units": 162,
+            "byShelf": {
+              "padres": 162
+            }
+          },
+          "droppedDigitKeys": 114545,
+          "avgTokens": {
+            "padres": 181.6
+          },
+          "postings": 9364736
+        }
+      ]
+    },
+    "en": {
+      "locale": "en",
+      "packages": [
+        {
+          "id": "base",
+          "file": "en-base.dvix",
+          "docs": 415,
+          "terms": 44976,
+          "rawBytes": 3850891,
+          "gzipBytes": 2451650,
+          "buildMs": 1850,
+          "encodeMs": 330,
+          "decodeMs": 37,
+          "lookupUs": 13,
+          "mercy": {
+            "df": 151,
+            "units": 572,
+            "byShelf": {
+              "magisterio": 86,
+              "concilio": 4,
+              "enciclica": 272,
+              "exhortacion": 149,
+              "catecismo": 61
+            }
+          },
+          "droppedDigitKeys": 0,
+          "avgTokens": {
+            "magisterio": 67.2,
+            "concilio": 90,
+            "enciclica": 126.4,
+            "exhortacion": 104.4,
+            "codigo": 36.4,
+            "catecismo": 50.2
+          },
+          "postings": 1693457
+        },
+        {
+          "id": "padres",
+          "file": "en-padres.dvix",
+          "docs": 3,
+          "terms": 10521,
+          "rawBytes": 333218,
+          "gzipBytes": 165768,
+          "buildMs": 162,
+          "encodeMs": 36,
+          "decodeMs": 5,
+          "lookupUs": 1,
+          "mercy": {
+            "df": 3,
+            "units": 68,
+            "byShelf": {
+              "padres": 68
+            }
+          },
+          "droppedDigitKeys": 166,
+          "avgTokens": {
+            "padres": 210
+          },
+          "postings": 132395
+        }
+      ]
+    }
+  }
 }
