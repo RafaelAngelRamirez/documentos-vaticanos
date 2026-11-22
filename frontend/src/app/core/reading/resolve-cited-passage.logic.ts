@@ -7,7 +7,7 @@
 
 import {
   collectCitedVerses,
-  parseLectionaryPassage,
+  parseBibleCites,
   passageSpeechText,
   type BibleUnitLike,
   type CitedVerse,
@@ -58,9 +58,20 @@ export function resolveCitedPassageFromCite(
 ): CitedPassage | null {
   const displayLabel = (cite || '').trim();
   if (!displayLabel || !documentId) return null;
-  const passage = parseLectionaryPassage(normalizeCiteForParse(displayLabel));
-  if (!passage) return null;
-  const verses = collectCitedVerses(units, passage);
+  const passages = parseBibleCites(displayLabel);
+  if (!passages?.length) return null;
+  const verses: CitedVerse[] = [];
+  for (const passage of passages) {
+    const part = collectCitedVerses(units, passage);
+    for (let i = 0; i < part.length; i++) {
+      const verse = part[i];
+      verses.push(
+        verses.length > 0 && i === 0
+          ? { ...verse, spanBreakBefore: true }
+          : verse,
+      );
+    }
+  }
   if (!verses.length) return null;
   return {
     documentId,

@@ -16,7 +16,7 @@ import {
   citeMapPathFromBody,
   type IndexedDocument,
 } from './corpus-load.logic';
-import { parseLectionaryPassage } from '../liturgia/bible-cite.logic';
+import { parseBibleCites } from '../liturgia/bible-cite.logic';
 import type { ParsedPassage } from '../liturgia/bible-cite.logic';
 import {
   addressUnitsFromCiteMap,
@@ -29,7 +29,6 @@ import {
   documentParagraphNumber,
   indexOfParagraphNumber,
   isOfflineBibleId,
-  normalizeCiteForParse,
   parseDocumentUnitSpans,
   type DocumentUnitSpan,
 } from '../reading/resolve-cited-passage.logic';
@@ -528,13 +527,16 @@ export class CorpusService {
    */
   private async openBibleCitation(
     documentId: string,
-    passage: ParsedPassage,
+    passages: readonly ParsedPassage[],
   ): Promise<LoadedDocument | null> {
     const mapDocId = await this.bibleCiteMapDocument(documentId);
     if (!mapDocId) return null;
     const map = await this.loadCiteMap(mapDocId);
     if (!map) return null;
-    const indexes = unitIndexesForPassage(map, passage);
+    const indexes: number[] = [];
+    for (const passage of passages) {
+      indexes.push(...unitIndexesForPassage(map, passage));
+    }
     if (!indexes.length) return null;
     const loaded = await this.loadCitedRanges(
       documentId,
@@ -542,7 +544,7 @@ export class CorpusService {
       mergeUnitRanges(indexes),
       indexes,
     );
-    return this.citedBibleDocument(loaded, map, passage);
+    return this.citedBibleDocument(loaded, map, passages);
   }
 
   private async bibleCiteMapDocument(
@@ -601,13 +603,12 @@ export class CorpusService {
   private citedBibleDocument(
     loaded: LoadedDocument,
     map: BibleCiteMap,
-    passage: ParsedPassage,
+    passages: readonly ParsedPassage[],
   ): LoadedDocument {
-    const documento = addressUnitsFromCiteMap(
-      loaded.documento,
-      map,
-      passage,
-    ) as Article[];
+    let documento = loaded.documento;
+    for (const passage of passages) {
+      documento = addressUnitsFromCiteMap(documento, map, passage) as Article[];
+    }
     return { ...loaded, documento };
   }
 
@@ -643,11 +644,11 @@ export class CorpusService {
       }
     }
 
-    const passage: ParsedPassage | null = label
-      ? parseLectionaryPassage(normalizeCiteForParse(label))
+    const passages: ParsedPassage[] | null = label
+      ? parseBibleCites(label)
       : null;
-    if (passage && isOfflineBibleId(documentId)) {
-      const opened = await this.openBibleCitation(documentId, passage);
+    if (passages?.length && isOfflineBibleId(documentId)) {
+      const opened = await this.openBibleCitation(documentId, passages);
       if (opened) return opened;
       // A sibling map exists, so the verses are addressable. Do not pull
       // every chunk of a translation that has no verse marks: that download
@@ -655,7 +656,8 @@ export class CorpusService {
       if (await this.bibleCiteMapDocument(documentId)) {
         throw new Error(`cited bible passage missing: ${documentId}`);
       }
-    } else if (passage) {
+    } else if (passages?.length === 1) {
+      const passage = passages[0];
       const map = await this.loadCiteMap(documentId);
       if (map) {
         const indexes = unitIndexesForPassage(map, passage);
