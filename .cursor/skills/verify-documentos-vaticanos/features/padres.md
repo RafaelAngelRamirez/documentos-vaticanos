@@ -13,6 +13,7 @@ Padres lists Church Fathers by era and opens a person ficha. The list path is `p
 - Open `/padres` from the desktop link Padres.
 - Tap a name. The URL becomes `/padres/:id`.
 - On the ficha, tap Comenzar la lectura or the listen control to open the lector.
+- On `agustin-hipona`, tap `Confesiones, I, 1` or the rows Confesiones and De Trinitate. The ficha shows that NPNF paragraph. The URL stays on `/padres/agustin-hipona`.
 
 ## Driving it with dv-verify
 
@@ -28,4 +29,5 @@ Preconditions:
 ## Gotchas
 
 - The desktop heading is `h2.h2.only-desktop`. At 1280px it is visible. On a narrow viewport the fbar carries the same i18n string.
-- Comenzar la lectura is omitted when `primaryWorkId` is missing. `agustin-hipona` has works in `padres.ts`.
+- Comenzar la lectura is omitted when `primaryWorkId` is missing. `agustin-hipona` has works in `padres.ts`. It still opens the first work (`agustin-01-primeros-escritos-es`).
+- Confesiones and De Trinitate on that ficha are buttons (`data-testid="obra-cite"`). They open the NPNF paragraph through `citedPassageForPatristic`, not the BAC volume. The quote source is `data-testid="quote-cite"`.

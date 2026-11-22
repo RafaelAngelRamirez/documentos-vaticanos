@@ -1,11 +1,11 @@
 feature lector
 viewport 390x844
 action GET /leyendo/cic-es/punto/2
-action_url http://127.0.0.1:4219/leyendo/cic-es/punto/2
-browser /usr/local/bin/google-chrome
+action_url http://127.0.0.1:4200/leyendo/cic-es/punto/2
+browser /usr/bin/google-chrome
 viewport_actual 390x844
 inner 390x844
 app-punto visible
 bnav 0
-result_url http://127.0.0.1:4219/leyendo/cic-es/u/2
-excerpt ← Catecismo Aa ▸ Vocabulario parecido Nº 1–17 Inicio del documento ★ CARTA APOSTÓLICA « LAETAMUR MAGNOPERE »★ por la que se aprueba la edición típica latina del Catecismo de la Iglesia Católica ★ A los Venerables Hermanos Cardenales, Patriarcas, Arzobispos, Obispos, Presbíteros,
+result_url http://127.0.0.1:4200/leyendo/cic-es/u/2
+excerpt ← Catecismo Aa ▸ Vocabulario parecido Nº 1–17 Inicio del documento ★ CARTA APOSTÓLICA « LAETAMUR MAGNOPERE »★ por la que se aprueba la edición típica latina del Catecismo de la Iglesia Católica ★ A los Venerables Hermanos Cardenales, Patriarcas, Arzobispos, Obispos, Presbíteros, 

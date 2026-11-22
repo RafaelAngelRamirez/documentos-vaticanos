@@ -1,0 +1,6 @@
+feature padres-detalle
+action GET /padres/agustin-hipona
+action_url http://127.0.0.1:4200/padres/agustin-hipona
+chromium /usr/bin/google-chrome
+result_url http://127.0.0.1:4200/padres/agustin-hipona
+excerpt DV Documentos Vaticanos Inicio Biblioteca Estudio Padres Papas Doctores Santoral Temas D ← Padres PADRE LATINO · 354–430 Agustín de Hipona Obispo, doctor de la gracia «Nos hiciste, Señor, para ti, y nuestro corazón está inquieto hasta que descanse en ti.» Confesiones, I, 1 Comenz

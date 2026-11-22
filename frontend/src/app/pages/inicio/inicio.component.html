@@ -36,25 +36,26 @@
             <button
               type="button"
               class="wsaints-listen"
-              [disabled]="listeningLecturaId === r.id"
+              [disabled]="!!loadingLectura[r.id]"
               data-testid="inicio-lectura-listen"
               (click)="listenLectura(r, $event)"
             >
-              {{ listeningLecturaId === r.id ? 'Abriendo…' : t('inicio.listen') }}
+              {{ loadingLectura[r.id] || t('inicio.listen') }}
             </button>
             <button
               type="button"
               class="wsaints-cta wsaints-cta-btn"
+              [disabled]="!!loadingLectura[r.id]"
               data-testid="inicio-lectura-read"
               (click)="openLectura(r)"
             >
-              {{ t('inicio.read') }}
+              {{ loadingLectura[r.id] || t('inicio.read') }}
             </button>
           </div>
           <app-pasaje
-            *ngIf="pasajeId === r.id && pasajeVerses.length"
+            *ngIf="passages[r.id]?.length"
             data-testid="inicio-pasaje"
-            [verses]="pasajeVerses"
+            [verses]="passages[r.id]"
             [label]="r.cite"
           ></app-pasaje>
         </li>

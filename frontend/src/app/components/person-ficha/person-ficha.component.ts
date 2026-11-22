@@ -12,6 +12,11 @@ export interface PersonWorkLink {
   title: string;
   documentId?: string;
   sourceUrl?: string;
+  /**
+   * When set, the row opens this citation (NPNF paragraph) instead of the
+   * whole `documentId` volume.
+   */
+  citeLabel?: string;
 }
 
 /**
@@ -43,7 +48,20 @@ export interface PersonWorkLink {
 
       <div class="fbody">
         <div class="quote" *ngIf="quote">«{{ quote }}»</div>
-        <div class="fs12 muted" style="margin-top: 8px" *ngIf="quoteSource">
+        <button
+          *ngIf="quoteCite"
+          type="button"
+          class="fs12 muted quote-cite"
+          data-testid="quote-cite"
+          (click)="quoteOpen.emit(quoteCite)"
+        >
+          {{ quoteSource || quoteCite }}
+        </button>
+        <div
+          class="fs12 muted"
+          style="margin-top: 8px"
+          *ngIf="!quoteCite && quoteSource"
+        >
           {{ quoteSource }}
         </div>
 
@@ -55,15 +73,25 @@ export interface PersonWorkLink {
           {{ worksHeading }}
         </div>
         <ng-container *ngFor="let w of works; let i = index">
+          <button
+            *ngIf="w.citeLabel as cite"
+            type="button"
+            class="toc"
+            data-testid="obra-cite"
+            (click)="citeOpen.emit(cite)"
+          >
+            <span class="tnum">{{ i + 1 }}</span>
+            <span>{{ w.title }}</span>
+          </button>
           <a
-            *ngIf="w.documentId as docId"
+            *ngIf="!w.citeLabel && w.documentId as docId"
             class="toc obra-link"
             [routerLink]="['/documento', docId]"
           >
             <span class="tnum">{{ i + 1 }}</span>
             <span>{{ w.title }}</span>
           </a>
-          <div *ngIf="!w.documentId" class="toc obra-pending">
+          <div *ngIf="!w.citeLabel && !w.documentId" class="toc obra-pending">
             <span class="tnum">{{ i + 1 }}</span>
             <span>{{ w.title }}</span>
             <span class="fs12 muted"> · {{ pendingLabel }}</span>
@@ -117,6 +145,10 @@ export class PersonFichaComponent {
   @Input() subtitle: string | null | undefined;
   @Input() quote: string | null | undefined;
   @Input() quoteSource: string | null | undefined;
+  /** When set, the quote source is a button that emits this citation. */
+  @Input() quoteCite: string | null | undefined;
+  @Output() quoteOpen = new EventEmitter<string>();
+  @Output() citeOpen = new EventEmitter<string>();
   @Input() works: PersonWorkLink[] = [];
   @Input() worksHeading = 'Obras en la biblioteca';
   @Input() worksEmptyLabel = 'Obras próximamente en el corpus.';

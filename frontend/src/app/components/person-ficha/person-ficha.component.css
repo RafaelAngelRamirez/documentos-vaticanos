@@ -99,6 +99,26 @@
   cursor: pointer;
 }
 
+button.toc,
+button.quote-cite {
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+}
+
+button.quote-cite {
+  width: auto;
+  display: inline;
+  margin-top: 8px;
+  padding: 0;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
 .theme-chip:not(.static):hover,
 .theme-chip:not(.static):active {
   border-color: var(--acc);

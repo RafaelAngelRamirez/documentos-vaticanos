@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
-import { Observable, firstValueFrom, from, of } from 'rxjs';
+import { BehaviorSubject, Observable, firstValueFrom, from, of } from 'rxjs';
+import type { DownloadBytes } from './download-progress.logic';
 import { map, shareReplay, switchMap } from 'rxjs/operators';
 import {
   Article,
@@ -80,6 +81,15 @@ export interface EnsureLoadedManyOptions {
 export class CorpusService {
   private readonly engine: CorpusLoadEngine;
   private packStorePromise: Promise<PatristicPackStore> | null = null;
+  /**
+   * Bytes of the corpus file in flight. Citation screens read this so a
+   * cold fetch shows “Descargando…” instead of sitting on “Abriendo…”.
+   * `ngsw-bypass` keeps that fetch off the asset prefetch queue.
+   */
+  private readonly progressState = new BehaviorSubject<DownloadBytes | null>(
+    null,
+  );
+  readonly downloadProgress$ = this.progressState.asObservable();
 
   /** In-flight Observable wrappers so concurrent subscribers share one request. */
   private manifestInflight$: Observable<DocumentMeta[]> | null = null;
@@ -95,10 +105,49 @@ export class CorpusService {
     private readonly injector: Injector
   ) {
     this.engine = new CorpusLoadEngine({
-      httpGet: <T>(url: string) => firstValueFrom(this.http.get<T>(url)),
+      httpGet: <T>(url: string) => this.httpGet<T>(url),
       store: durableStore,
       readLocalJson: (url) => this.readPatristicJson(url),
       installedPack: () => this.installedPatristicMetas(),
+    });
+  }
+
+  /**
+   * Corpus GET that returns as soon as the network does. The service
+   * worker otherwise holds the first citation behind a prefetch of
+   * `/assets/**` (the bible pack) and the row never leaves “Abriendo…”.
+   */
+  private httpGet<T>(url: string): Promise<T> {
+    this.progressState.next({ loaded: 0, total: null });
+    return new Promise<T>((resolve, reject) => {
+      const sub = this.http
+        .get(url, {
+          headers: { 'ngsw-bypass': 'true' },
+          observe: 'events',
+          reportProgress: true,
+          responseType: 'json',
+        })
+        .subscribe({
+          next: (event) => {
+            if (event.type === HttpEventType.DownloadProgress) {
+              this.progressState.next({
+                loaded: event.loaded,
+                total: typeof event.total === 'number' ? event.total : null,
+              });
+            } else if (event.type === HttpEventType.Response) {
+              sub.unsubscribe();
+              if (event.body == null) {
+                reject(new Error(`empty corpus response ${url}`));
+                return;
+              }
+              resolve(event.body as T);
+            }
+          },
+          error: (err: unknown) => {
+            sub.unsubscribe();
+            reject(err);
+          },
+        });
     });
   }
 
@@ -586,7 +635,7 @@ export class CorpusService {
         citeMapPathFromBody(meta.bodyPath),
       );
       try {
-        const raw = await firstValueFrom(this.http.get<BibleCiteMap>(url));
+        const raw = await this.httpGet<BibleCiteMap>(url);
         const ok =
           raw &&
           raw.v === 1 &&

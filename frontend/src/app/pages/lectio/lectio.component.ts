@@ -8,6 +8,7 @@ import { PasajeComponent } from 'src/app/components/pasaje/pasaje.component';
 import { WbarComponent } from 'src/app/components/wbar/wbar.component';
 import { Article } from 'src/app/core/corpus/corpus.models';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
+import { citedDownloadCaption } from 'src/app/core/corpus/download-progress.logic';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import {
   LectioDay,
@@ -50,6 +51,7 @@ export class LectioComponent implements OnInit, OnDestroy {
   pasajeCite = '';
   bibleDocId = '';
   opening = false;
+  openingCaption = 'Descargando…';
   localeTick = 0;
   private pasajeSpeech = '';
   private pasajeToken = 0;
@@ -70,6 +72,12 @@ export class LectioComponent implements OnInit, OnDestroy {
     this.sub.add(
       this.i18n.locale$.subscribe(() => {
         this.localeTick++;
+      }),
+    );
+    this.sub.add(
+      this.corpus.downloadProgress$.subscribe((progress) => {
+        if (!this.opening) return;
+        this.openingCaption = citedDownloadCaption(progress);
       }),
     );
     this.rebuild();
@@ -223,6 +231,7 @@ export class LectioComponent implements OnInit, OnDestroy {
     this.pasajeSpeech = '';
     if (!cite || !this.bibleDocId) return;
     const token = ++this.pasajeToken;
+    this.openingCaption = 'Descargando…';
     this.opening = true;
     this.sub.add(
       this.corpus

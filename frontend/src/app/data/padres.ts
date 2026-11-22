@@ -4,6 +4,8 @@ export interface PadreObra {
   title: string;
   /** documentId en el corpus si existe; si no, solo etiqueta. */
   documentId?: string;
+  /** Citation opened on the ficha (NPNF paragraph), not the whole volume. */
+  citeLabel?: string;
 }
 
 export interface Padre {
@@ -228,10 +230,18 @@ export const PADRES: Padre[] = [
     quoteSource: 'Confesiones, I, 1',
     works: [
       { title: "San Agustín Introducción y primeros escritos", documentId: 'agustin-01-primeros-escritos-es' },
-      { title: "Confesiones", documentId: 'agustin-02-confesiones-es' },
+      {
+        title: 'Confesiones',
+        documentId: 'agustin-02-confesiones-es',
+        citeLabel: 'Confesiones, I, 1',
+      },
       { title: "Obras Filosóficas", documentId: 'agustin-03-obras-filosoficas-es' },
       { title: "Obras apologeticas", documentId: 'agustin-04-obras-apologeticas-es' },
-      { title: "De Trinitate", documentId: 'agustin-05-de-trinitate-es' },
+      {
+        title: 'De Trinitate',
+        documentId: 'agustin-05-de-trinitate-es',
+        citeLabel: 'De Trinitate, I, 1',
+      },
       { title: "Tratados sobre la gracia 1", documentId: 'agustin-06-gracia-1-es' },
       { title: "Sermones 1", documentId: 'agustin-07-sermones-1-es' },
       { title: "Cartas 1", documentId: 'agustin-08-cartas-1-es' },
