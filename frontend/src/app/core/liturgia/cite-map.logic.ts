@@ -77,18 +77,28 @@ export function unitIndexesForPassage(
   return out;
 }
 
-function indexesForSpan(
+interface VerseRef {
+  index: number;
+  chapter: number;
+  verse: number;
+}
+
+function verseRefsForSpan(
   book: Record<string, Record<string, number>>,
   span: PassageSpan,
-): number[] {
-  const out: number[] = [];
+): VerseRef[] {
+  const out: VerseRef[] = [];
+  const push = (chapter: number, verse: number): void => {
+    const index = book[String(chapter)]?.[String(verse)];
+    if (typeof index === 'number') out.push({ index, chapter, verse });
+  };
   if (span.start == null) {
     const chapterMap = book[String(span.chapter)] || {};
     const verses = Object.keys(chapterMap)
       .map(Number)
       .filter((n) => Number.isFinite(n))
       .sort((a, b) => a - b);
-    for (const verse of verses) out.push(chapterMap[String(verse)]);
+    for (const verse of verses) push(span.chapter, verse);
     return out;
   }
   if (span.chapterEnd != null && span.verseEnd != null) {
@@ -99,20 +109,60 @@ function indexesForSpan(
         .filter((n) => Number.isFinite(n))
         .sort((a, b) => a - b);
       for (const verse of verses) {
-        if (ch === span.chapter && verse < span.start) continue;
+        if (ch === span.chapter && verse < (span.start ?? 0)) continue;
         if (ch === span.chapterEnd && verse > span.verseEnd) continue;
-        out.push(chapterMap[String(verse)]);
+        push(ch, verse);
       }
     }
     return out;
   }
   const end = span.end ?? span.start;
-  const chapterMap = book[String(span.chapter)] || {};
   for (let verse = span.start; verse <= end; verse++) {
-    const idx = chapterMap[String(verse)];
-    if (typeof idx === 'number') out.push(idx);
+    push(span.chapter, verse);
   }
   return out;
+}
+
+function indexesForSpan(
+  book: Record<string, Record<string, number>>,
+  span: PassageSpan,
+): number[] {
+  return verseRefsForSpan(book, span).map((ref) => ref.index);
+}
+
+/**
+ * A translation pack keeps the Spanish unit index but drops `biblia`.
+ * Stamp the cited verses onto those units so the passage resolver can
+ * read them. Verses the citation skips stay unmarked.
+ */
+export function addressUnitsFromCiteMap<
+  T extends CiteUnitLike & { contenido?: string },
+>(
+  units: readonly (T | null | undefined)[] | null | undefined,
+  map: BibleCiteMap | null | undefined,
+  passage: ParsedPassage | null | undefined,
+): T[] {
+  const list: T[] = units ? (units.slice() as T[]) : [];
+  const slug = passage ? bookSlugForCode(passage.code) : null;
+  const book = slug && map?.books ? map.books[slug] : undefined;
+  if (!book || !passage || !slug) return list;
+  for (const span of passage.spans) {
+    for (const ref of verseRefsForSpan(book, span)) {
+      const unit = list[ref.index];
+      if (!unit || unit.biblia?.libro) continue;
+      list[ref.index] = {
+        ...unit,
+        biblia: {
+          libro: slug,
+          capitulo: String(ref.chapter),
+          versiculo: ref.verse,
+          consecutivo_versiculo: `${slug} ${ref.chapter}, ${ref.verse}`,
+          index_general: String(ref.index),
+        },
+      } as T;
+    }
+  }
+  return list;
 }
 
 /**

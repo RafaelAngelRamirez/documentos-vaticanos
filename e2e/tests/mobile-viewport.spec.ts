@@ -8,6 +8,32 @@ import { expect, type Page, test } from '@playwright/test';
  * browser back hierarchy, Sal 15 shown-number, and the cited-verse passage.
  */
 
+const SHIP_CHUNK = 500;
+
+/** Ship chunk: dense slice, no index_array, same placement as corpus-compress. */
+function shipChunk(
+  chunkIndex: number,
+  byIndex: Record<number, unknown>,
+): string {
+  const start = chunkIndex * SHIP_CHUNK;
+  const units = [];
+  for (let i = 0; i < SHIP_CHUNK; i++) {
+    const index = start + i;
+    units.push(
+      byIndex[index] || {
+        consecutivo: String(index),
+        contenido: `relleno ${index}`,
+      },
+    );
+  }
+  return JSON.stringify(units);
+}
+
+/** Translation unit: text at the Spanish index, no verse metadata. */
+function plainBibleUnit(index: number, text: string) {
+  return { consecutivo: String(index), contenido: text };
+}
+
 function coldBibleUnit(
   index: number,
   libro: string,
@@ -722,6 +748,135 @@ test.describe('viewport móvil 390×844', () => {
         releaseConf();
         releaseTri();
       }
+    });
+
+    test('domingo 34 en carga fría abre solo los versículos citados', async ({
+      page,
+    }) => {
+      test.setTimeout(60_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      await page.addInitScript(() => {
+        localStorage.setItem(
+          'reader.prefs.v1',
+          JSON.stringify({
+            theme: 'mono',
+            font: 'serif',
+            fontSizePx: 18,
+            lineHeight: 1.65,
+            maxWidthCh: 65,
+            keepAwake: false,
+            contentLocale: 'en',
+            uiLocale: 'en',
+          }),
+        );
+      });
+      await page.clock.setFixedTime(new Date(2026, 10, 22, 12, 0, 0));
+
+      const books: Record<string, Record<string, Record<string, number>>> = {
+        ezequiel: {
+          '34': {
+            '11': 13772,
+            '12': 13773,
+            '13': 13774,
+            '14': 13775,
+            '15': 13776,
+            '16': 13777,
+            '17': 13778,
+          },
+        },
+        'evangelio segun san mateo': { '25': {} },
+      };
+      const ez: Record<number, unknown> = {
+        13772: plainBibleUnit(13772, '11 I myself will look for my sheep'),
+        13773: plainBibleUnit(13773, '12 like a shepherd among scattered sheep'),
+        13774: plainBibleUnit(13774, '13 I will bring them out from the nations'),
+        13775: plainBibleUnit(13775, '14 I will feed them in good pastures'),
+        13776: plainBibleUnit(13776, '15 I myself will pasture my sheep'),
+        13777: plainBibleUnit(13777, '16 I will seek the lost'),
+        13778: plainBibleUnit(13778, '17 I will judge between sheep and sheep'),
+      };
+      const mt: Record<number, unknown> = {};
+      for (let verse = 31; verse <= 46; verse++) {
+        const index = 28592 + (verse - 31);
+        books['evangelio segun san mateo']['25'][String(verse)] = index;
+        mt[index] = coldBibleUnit(
+          index,
+          'evangelio segun san mateo',
+          25,
+          verse,
+          verse === 31
+            ? 'Cuando el Hijo del hombre venga en su gloria'
+            : `mateo ${verse}`,
+        );
+      }
+      const citeMap = JSON.stringify({ v: 1, books });
+      const spec = JSON.stringify({ v: 1, unitCount: 35652, chunkSize: 500 });
+      const bibleUrls: string[] = [];
+      page.on('request', (req) => {
+        if (req.url().includes('bible-pueblo-de-dios-')) bibleUrls.push(req.url());
+      });
+
+      await page.route(/bible-pueblo-de-dios-(?:en|es)\//, async (route) => {
+        const url = route.request().url();
+        const edition = url.includes('bible-pueblo-de-dios-en') ? 'en' : 'es';
+        const json = (body: string) =>
+          route.fulfill({ contentType: 'application/json', body });
+        if (url.includes('chunks.json')) return json(spec);
+        if (url.includes('cite-map.json')) {
+          if (edition === 'en') return route.fulfill({ status: 404, body: '' });
+          return json(citeMap);
+        }
+        if (url.includes('content.json') || url.includes('index.json')) {
+          return route.fulfill({ status: 404, body: '' });
+        }
+        const chunk = url.match(/\/c\/(\d+)\.json/);
+        if (!chunk) return route.fulfill({ status: 404, body: '' });
+        const n = Number(chunk[1]);
+        if (edition === 'en' && n === 27) return json(shipChunk(27, ez));
+        if (edition === 'es' && n === 57) return json(shipChunk(57, mt));
+        return route.fulfill({ status: 404, body: '' });
+      });
+
+      const manifest = page.waitForResponse(
+        (res) => res.url().includes('/assets/corpus/manifest.json') && res.ok(),
+      );
+      await page.goto('/inicio');
+      await manifest;
+      const first = page.locator('[data-lectura-id="first-0"]');
+      const gospel = page.locator('[data-lectura-id="gospel-3"]');
+      await expect(first).toContainText('Ez 34,11-12.15-17', { timeout: 30_000 });
+      await expect(gospel).toContainText('Mt 25,31-46');
+      await expect(first.getByTestId('inicio-lectura-read')).toHaveText('Read ›');
+
+      const started = Date.now();
+      await first.getByTestId('inicio-lectura-read').click();
+      const ezPasaje = first.getByTestId('inicio-pasaje');
+      await expect(ezPasaje).toContainText('look for my sheep', { timeout: 3_000 });
+      expect(Date.now() - started).toBeLessThan(3_000);
+      await expect(ezPasaje).toContainText('pasture my sheep');
+      await expect(ezPasaje).not.toContainText('from the nations');
+      await expect(ezPasaje).not.toContainText('good pastures');
+      const ezNumbers = await ezPasaje
+        .getByTestId('pasaje-verse')
+        .evaluateAll((els) => els.map((el) => el.getAttribute('data-verse')));
+      expect(ezNumbers).toEqual(['11', '12', '15', '16', '17']);
+      await expect(first.getByTestId('inicio-lectura-read')).toHaveText('Read ›');
+      expect(page.url()).toMatch(/\/inicio$/);
+      expect(bibleUrls.some((url) => url.includes('content.json'))).toBe(false);
+      expect(bibleUrls.some((url) => url.includes('/c/0.json'))).toBe(false);
+      expect(
+        bibleUrls.some((url) => url.includes('bible-pueblo-de-dios-en/c/27.json')),
+      ).toBe(true);
+
+      await gospel.getByTestId('inicio-lectura-read').click();
+      const mtPasaje = gospel.getByTestId('inicio-pasaje');
+      await expect(mtPasaje).toContainText('Hijo del hombre', { timeout: 3_000 });
+      await expect(mtPasaje).not.toContainText('look for my sheep');
+      expect(page.url()).toMatch(/\/inicio$/);
+      expect(
+        bibleUrls.some((url) => url.includes('bible-pueblo-de-dios-es/c/57.json')),
+      ).toBe(true);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
     });
   });
 

@@ -204,6 +204,7 @@
   "reader.read": "पढ़ें",
   "inicio.listen": "▶ सुनें",
   "inicio.read": "पढ़ें ›",
+  "inicio.read_failed": "यह पाठ नहीं खुल सका।",
   "clase.mine": "मेरी कक्षाएँ",
   "clase.need_teacher": "कक्षा बनाने और निर्यात करने के लिए शिक्षक की भूमिका चाहिए।",
   "clase.title_field": "शीर्षक",

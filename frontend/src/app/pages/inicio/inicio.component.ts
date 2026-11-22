@@ -138,6 +138,8 @@ export class InicioComponent implements OnInit, OnDestroy {
   loadingLectura: Record<string, string> = {};
   /** Cited verses that stay under the row after the fetch. Keyed by lectura id. */
   passages: Record<string, CitedVerse[]> = {};
+  /** The fetch ended without text. The row does not snap back to Leer. */
+  lecturaError: Record<string, boolean> = {};
   private speechById: Record<string, string> = {};
   private lecturaToken: Record<string, number> = {};
   private bibleDocId = 'bible-pueblo-de-dios-es';
@@ -329,6 +331,7 @@ export class InicioComponent implements OnInit, OnDestroy {
     if (!r.cite || this.loadingLectura[r.id]) return;
     const token = (this.lecturaToken[r.id] || 0) + 1;
     this.lecturaToken[r.id] = token;
+    this.clearLecturaError(r.id);
     this.loadingLectura = {
       ...this.loadingLectura,
       [r.id]: 'Descargando…',
@@ -346,19 +349,36 @@ export class InicioComponent implements OnInit, OnDestroy {
             r.cite,
             units,
           );
+          if (!resolved?.verses.length) {
+            this.markLecturaError(r.id);
+            return;
+          }
+          this.clearLecturaError(r.id);
           this.passages = {
             ...this.passages,
-            [r.id]: resolved?.verses ?? [],
+            [r.id]: resolved.verses,
           };
-          this.speechById[r.id] = resolved?.speechText ?? '';
+          this.speechById[r.id] = resolved.speechText ?? '';
           if (autoNarr) void this.speakPasaje(r.id);
         },
         error: () => {
           if (token !== this.lecturaToken[r.id]) return;
           this.clearLecturaLoading(r.id);
+          this.markLecturaError(r.id);
         },
       }),
     );
+  }
+
+  private markLecturaError(id: string): void {
+    this.lecturaError = { ...this.lecturaError, [id]: true };
+  }
+
+  private clearLecturaError(id: string): void {
+    if (!this.lecturaError[id]) return;
+    const next = { ...this.lecturaError };
+    delete next[id];
+    this.lecturaError = next;
   }
 
   private clearLecturaLoading(id: string): void {

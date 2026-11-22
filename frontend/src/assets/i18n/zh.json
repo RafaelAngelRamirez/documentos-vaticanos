@@ -204,6 +204,7 @@
   "reader.read": "阅读",
   "inicio.listen": "▶ 聆听",
   "inicio.read": "阅读 ›",
+  "inicio.read_failed": "无法打开这段读经。",
   "clase.mine": "我的课程",
   "clase.need_teacher": "编写并导出课程需要教师身份。",
   "clase.title_field": "标题",

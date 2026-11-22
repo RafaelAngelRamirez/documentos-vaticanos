@@ -19,9 +19,11 @@ import {
 import { parseLectionaryPassage } from '../liturgia/bible-cite.logic';
 import type { ParsedPassage } from '../liturgia/bible-cite.logic';
 import {
+  addressUnitsFromCiteMap,
   mergeUnitRanges,
   unitIndexesForPassage,
   type BibleCiteMap,
+  type UnitRange,
 } from '../liturgia/cite-map.logic';
 import {
   documentParagraphNumber,
@@ -443,6 +445,100 @@ export class CorpusService {
     return from(this.loadForCitedPassage(documentId, opts));
   }
 
+  /** Edition whose units carry `biblia` and therefore a cite-map. */
+  private readonly structuredBibleId = 'bible-pueblo-de-dios-es';
+
+  /**
+   * Cited verses only. Indexes come from the edition that has a cite-map
+   * (Spanish, when the translation dropped `biblia`). The text is the
+   * reader's edition; if that chunk is missing, the structured edition.
+   * Never the whole bible.
+   */
+  private async openBibleCitation(
+    documentId: string,
+    passage: ParsedPassage,
+  ): Promise<LoadedDocument | null> {
+    const mapDocId = await this.bibleCiteMapDocument(documentId);
+    if (!mapDocId) return null;
+    const map = await this.loadCiteMap(mapDocId);
+    if (!map) return null;
+    const indexes = unitIndexesForPassage(map, passage);
+    if (!indexes.length) return null;
+    const loaded = await this.loadCitedRanges(
+      documentId,
+      mapDocId,
+      mergeUnitRanges(indexes),
+      indexes,
+    );
+    return this.citedBibleDocument(loaded, map, passage);
+  }
+
+  private async bibleCiteMapDocument(
+    documentId: string,
+  ): Promise<string | null> {
+    if (await this.loadCiteMap(documentId)) return documentId;
+    if (
+      documentId !== this.structuredBibleId &&
+      (await this.loadCiteMap(this.structuredBibleId))
+    ) {
+      return this.structuredBibleId;
+    }
+    return null;
+  }
+
+  private async loadCitedRanges(
+    preferredId: string,
+    mapDocId: string,
+    ranges: UnitRange[],
+    indexes: number[],
+  ): Promise<LoadedDocument> {
+    const tryId = async (id: string): Promise<LoadedDocument | null> => {
+      try {
+        let loaded: LoadedDocument | undefined;
+        for (const range of ranges) {
+          loaded = (await this.engine.ensureUnits(
+            id,
+            range.from,
+            range.to,
+          )) as LoadedDocument;
+        }
+        if (!loaded || !this.indexesHaveText(loaded, indexes)) return null;
+        return loaded;
+      } catch {
+        return null;
+      }
+    };
+    const preferred = await tryId(preferredId);
+    if (preferred) return preferred;
+    if (mapDocId !== preferredId) {
+      const fallback = await tryId(mapDocId);
+      if (fallback) return fallback;
+    }
+    throw new Error(`cited bible window missing: ${preferredId}`);
+  }
+
+  private indexesHaveText(doc: LoadedDocument, indexes: number[]): boolean {
+    const units = doc.documento;
+    if (!units) return false;
+    return indexes.every((index) => {
+      const text = units[index]?.contenido;
+      return typeof text === 'string' && text.trim().length > 0;
+    });
+  }
+
+  private citedBibleDocument(
+    loaded: LoadedDocument,
+    map: BibleCiteMap,
+    passage: ParsedPassage,
+  ): LoadedDocument {
+    const documento = addressUnitsFromCiteMap(
+      loaded.documento,
+      map,
+      passage,
+    ) as Article[];
+    return { ...loaded, documento };
+  }
+
   private readonly citeMapCache = new Map<string, BibleCiteMap | null>();
   private readonly citeMapInflight = new Map<
     string,
@@ -478,7 +574,16 @@ export class CorpusService {
     const passage: ParsedPassage | null = label
       ? parseLectionaryPassage(normalizeCiteForParse(label))
       : null;
-    if (passage) {
+    if (passage && isOfflineBibleId(documentId)) {
+      const opened = await this.openBibleCitation(documentId, passage);
+      if (opened) return opened;
+      // A sibling map exists, so the verses are addressable. Do not pull
+      // every chunk of a translation that has no verse marks: that download
+      // is what sat on “Descargando…” and then came back empty.
+      if (await this.bibleCiteMapDocument(documentId)) {
+        throw new Error(`cited bible passage missing: ${documentId}`);
+      }
+    } else if (passage) {
       const map = await this.loadCiteMap(documentId);
       if (map) {
         const indexes = unitIndexesForPassage(map, passage);
