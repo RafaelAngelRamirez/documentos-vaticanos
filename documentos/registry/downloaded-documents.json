@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-12T01:14:09.290Z",
+  "updatedAt": "2026-11-22T20:03:07.153Z",
   "documents": [
     {
       "id": "a-concilio-constantinopolitano-i-en",
@@ -5289,15 +5289,16 @@
       "sourceUrls": [
         "https://www.vatican.va/archive/ESL0506/__P1.HTM"
       ],
-      "firstDownloadedAt": null,
-      "lastDownloadedAt": "2026-07-11T21:48:18.597Z",
-      "unitCount": 35652,
+      "firstDownloadedAt": "2026-11-22T20:03:07.153Z",
+      "lastDownloadedAt": "2026-11-22T20:03:07.153Z",
+      "unitCount": 35645,
       "status": "active",
       "corpusPaths": {
         "content": "documents/bible-pueblo-de-dios-es/content.json",
-        "index": "documents/bible-pueblo-de-dios-es/index.json"
+        "index": "documents/bible-pueblo-de-dios-es/index.json",
+        "meta": "documents/bible-pueblo-de-dios-es/meta.json"
       },
-      "notes": "Seeded from existing corpus (migrated)."
+      "notes": "Full scrape still via `npm run biblia`. Adapter is a registry stub until a future rewrite."
     },
     {
       "id": "bible-pueblo-de-dios-hi",
