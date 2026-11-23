@@ -401,14 +401,23 @@ function singleUnitPassage(
   const index =
     typeof unit.index_array === 'number' ? unit.index_array : anchorIndex;
   const biblia = unit.biblia;
+  const fromLabel = parseBibleCites(displayLabel)?.[0]?.spans?.[0];
+  const citedVerse =
+    fromLabel && fromLabel.start != null && fromLabel.start > 0
+      ? fromLabel.start
+      : null;
+  const citedChapter =
+    fromLabel && fromLabel.chapter > 0 ? fromLabel.chapter : null;
   const verse =
-    biblia && Number.isFinite(Number(biblia.versiculo))
+    citedVerse ??
+    (biblia && Number.isFinite(Number(biblia.versiculo))
       ? Number(biblia.versiculo)
-      : consecutivoNum(unit.consecutivo);
+      : consecutivoNum(unit.consecutivo));
   const chapter =
-    biblia && Number.isFinite(Number(biblia.capitulo))
+    citedChapter ??
+    (biblia && Number.isFinite(Number(biblia.capitulo))
       ? Number(biblia.capitulo)
-      : 0;
+      : 0);
   const text = plainUnitText(unit.contenido, verse > 0 ? verse : 0);
   if (!text) return null;
   const verses: CitedVerse[] = [

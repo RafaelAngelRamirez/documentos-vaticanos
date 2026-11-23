@@ -345,29 +345,47 @@ export function collectCitedVerses(
   const seen = new Set<string>();
   const out: CitedVerse[] = [];
   let spanOrdinal = 0;
-  const push = (row: IndexedVerse, breakBefore: boolean): void => {
-    const key = `${row.chapter}:${row.verse}`;
+  /**
+   * `citedChapter` / `citedVerse` are the address the label named.
+   * Prefer them over unit metadata so Lectura rápida never paints another
+   * number when `biblia.versiculo` is stale or wrong.
+   */
+  const push = (
+    row: IndexedVerse,
+    breakBefore: boolean,
+    citedChapter?: number,
+    citedVerse?: number,
+  ): void => {
+    const chapter = citedChapter ?? row.chapter;
+    const verse = citedVerse ?? row.verse;
+    const key = `${chapter}:${verse}`;
     if (seen.has(key)) return;
     seen.add(key);
     out.push({
       index: row.index,
-      chapter: row.chapter,
-      verse: row.verse,
-      text: plainVerseText(row.contenido, row.verse),
+      chapter,
+      verse,
+      text: plainVerseText(row.contenido, verse),
       spanBreakBefore: breakBefore,
     });
   };
   for (const span of passage.spans) {
     const breakBefore = spanOrdinal > 0;
     let added = 0;
-    const pushSpan = (row: IndexedVerse): void => {
+    const pushSpan = (
+      row: IndexedVerse,
+      citedChapter?: number,
+      citedVerse?: number,
+    ): void => {
       const before = out.length;
-      push(row, breakBefore && added === 0);
+      push(row, breakBefore && added === 0, citedChapter, citedVerse);
       if (out.length > before) added += 1;
     };
     const chapter = storedChapter(span.chapter);
     if (span.start == null) {
-      for (const row of byChapter.get(chapter) || []) pushSpan(row);
+      for (const row of byChapter.get(chapter) || []) {
+        pushSpan(row, chapter, row.verse);
+      }
     } else if (span.chapterEnd != null && span.verseEnd != null) {
       const endChapter = storedChapter(span.chapterEnd);
       const chapters = [...byChapter.keys()]
@@ -377,14 +395,15 @@ export function collectCitedVerses(
         for (const row of byChapter.get(ch) || []) {
           if (ch === chapter && row.verse < span.start) continue;
           if (ch === endChapter && row.verse > span.verseEnd) continue;
-          pushSpan(row);
+          pushSpan(row, ch, row.verse);
         }
       }
     } else {
       const end = span.end ?? span.start;
       for (let verse = span.start; verse <= end; verse++) {
         const row = byKey.get(`${chapter}:${verse}`);
-        if (row) pushSpan(row);
+        // Verse number is the one the label cites, not a stale biblia.versiculo.
+        if (row) pushSpan(row, chapter, verse);
       }
     }
     if (added > 0) spanOrdinal += 1;
