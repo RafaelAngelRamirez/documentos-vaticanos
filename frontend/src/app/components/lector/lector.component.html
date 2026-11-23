@@ -9,7 +9,7 @@
     mode="reader"
     [readerTitle]="readerChromeTitle"
     (prefsClick)="togglePrefs()"
-    (indexClick)="goBack()"
+    (indexClick)="toggleIndex()"
   ></app-wbar>
 
   <!-- 2B mobile chrome: back · title · Aa (content locale lives in Settings) -->
@@ -237,6 +237,20 @@
     <div class="fs12 muted tc" style="margin-top: 12px">
       Las notas se guardan en este dispositivo
     </div>
+  </dv-sheet>
+
+  <dv-sheet
+    *ngIf="indexOpen"
+    [label]="t('reader.index')"
+    (closed)="closeIndex()"
+  >
+    <div class="fs12 muted shead">{{ t('reader.index') }}</div>
+    <app-doc-toc
+      [entries]="chapters"
+      [showHeading]="false"
+      [emptyHint]="indexEmptyHint"
+      (select)="onSelectIndex($event)"
+    ></app-doc-toc>
   </dv-sheet>
 
   <dv-sheet

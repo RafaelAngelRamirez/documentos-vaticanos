@@ -73,6 +73,7 @@
   "reader.language_aria": "पाठ की भाषा",
   "reader.markers": "बुकमार्क",
   "reader.index": "अनुक्रमणिका",
+  "reader.index_empty": "कोई अध्याय नहीं मिला · इकाई के अनुसार पाठक में स्क्रॉल करें।",
   "reader.prefs_aria": "पठन सेटिंग्स",
   "reader.prefs_title": "पठन सेटिंग्स",
   "reader.doc_start": "दस्तावेज़ की शुरुआत",
