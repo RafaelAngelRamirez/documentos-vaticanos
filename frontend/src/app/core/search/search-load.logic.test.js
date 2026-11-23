@@ -167,8 +167,14 @@ async function main() {
     'buscador must use ensureIndexForLocale (PR2b)',
   );
   assert.ok(
-    /\bensureLoadedMany\b/.test(buscadorSrc),
-    'buscador must hydrate snippets via ensureLoadedMany',
+    /\bensureUnitTexts\b/.test(buscadorSrc) ||
+      /\bensureLoadedMany\b/.test(buscadorSrc),
+    'buscador must hydrate snippets via ensureUnitTexts',
+  );
+  assert.ok(
+    /\bqueryPending\b/.test(buscadorSrc) &&
+      buscadorSrc.includes('this.procesar_busqueda(pending)'),
+    'buscador replays pending /buscar?q= terms after subscribe',
   );
   assert.ok(
     !/\bensureAllLoaded\b/.test(relatedSrc),

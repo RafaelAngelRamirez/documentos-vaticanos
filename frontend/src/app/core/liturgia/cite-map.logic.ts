@@ -131,6 +131,82 @@ function indexesForSpan(
 }
 
 /**
+ * Fill every mapped unit with `biblia` from the cite-map. Used for bible
+ * translations that kept the Spanish unit index but dropped structure
+ * (TOC + «Nº 0» headers). Does not overwrite a unit that already has
+ * `biblia.libro`.
+ */
+export function stampAllUnitsFromCiteMap<
+  T extends CiteUnitLike & { contenido?: string },
+>(
+  units: readonly (T | null | undefined)[] | null | undefined,
+  map: BibleCiteMap | null | undefined,
+): T[] {
+  const list: T[] = units ? (units.slice() as T[]) : [];
+  if (!map?.books) return list;
+  for (const [libro, chapters] of Object.entries(map.books)) {
+    if (!chapters || typeof chapters !== 'object') continue;
+    for (const [capitulo, verses] of Object.entries(chapters)) {
+      if (!verses || typeof verses !== 'object') continue;
+      for (const [versiculo, index] of Object.entries(verses)) {
+        if (typeof index !== 'number' || !Number.isInteger(index) || index < 0) {
+          continue;
+        }
+        const unit = list[index];
+        if (!unit) continue;
+        if (unit.biblia?.libro) continue;
+        const verseNum = Number(versiculo);
+        list[index] = {
+          ...unit,
+          biblia: {
+            ...(unit.biblia || {}),
+            libro,
+            capitulo: String(capitulo),
+            versiculo: Number.isFinite(verseNum) ? verseNum : 0,
+            consecutivo_versiculo: `${abbrevForLibro(libro)} ${capitulo}, ${versiculo}`,
+            index_general: String(index),
+          },
+        } as T;
+      }
+    }
+  }
+  return list;
+}
+
+/** Short label for consecutivo_versiculo when the pack has no verse string. */
+function abbrevForLibro(libro: string): string {
+  const raw = String(libro || '').trim().toLowerCase();
+  if (!raw) return 'Bib';
+  const known: Record<string, string> = {
+    genesis: 'Gn',
+    exodo: 'Ex',
+    levitico: 'Lv',
+    numeros: 'Nm',
+    deuteronomio: 'Dt',
+    josue: 'Jos',
+    jueces: 'Jue',
+    rut: 'Rut',
+    'primer libro de samuel': '1 S',
+    'segundo libro de samuel': '2 S',
+    'primer libro de los reyes': '1 R',
+    'segundo libro de los reyes': '2 R',
+    'evangelio segun san mateo': 'Mt',
+    'evangelio segun san marcos': 'Mc',
+    'evangelio segun san lucas': 'Lc',
+    'evangelio segun san juan': 'Jn',
+    apocalipsis: 'Ap',
+  };
+  if (known[raw]) return known[raw];
+  const words = raw.split(/\s+/).filter(Boolean);
+  if (words.length === 1) return words[0].slice(0, 3).replace(/^\w/, (c) => c.toUpperCase());
+  return words
+    .filter((w) => !['de', 'del', 'la', 'el', 'los', 'las', 'san', 'santa', 'segun'].includes(w))
+    .map((w) => w.charAt(0).toUpperCase())
+    .join('')
+    .slice(0, 4) || raw.slice(0, 3);
+}
+
+/**
  * A translation pack keeps the Spanish unit index but drops `biblia`.
  * Stamp the cited verses onto those units so the passage resolver can
  * read them. Verses the citation skips stay unmarked.

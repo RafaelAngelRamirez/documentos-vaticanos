@@ -21,6 +21,7 @@ import {
   ReadingProgressService,
 } from 'src/app/services/reading-progress.service';
 import {
+  buildBibleTocFromCiteMap,
   buildDocumentToc,
   TocEntry,
 } from 'src/app/services/document-toc.logic';
@@ -294,13 +295,33 @@ export class DocumentoDetalleComponent implements OnInit, OnDestroy {
           this.sub.add(
             this.corpus.ensureLoaded(this.meta.id).subscribe({
               next: (loaded) => {
-                this.chapters = buildDocumentToc(loaded.documento, {
-                  documentId: this.meta!.id,
-                  kind: this.meta!.kind,
+                const id = this.meta!.id;
+                const kind = this.meta!.kind;
+                const built = buildDocumentToc(loaded.documento, {
+                  documentId: id,
+                  kind,
                 });
                 this.relatedSeed = relatedSeedForDocument(
                   this.meta!,
                   loaded.documento || [],
+                );
+                if (
+                  built.length ||
+                  (kind || '').toLowerCase() !== 'bible'
+                ) {
+                  this.chapters = built;
+                  return;
+                }
+                this.sub.add(
+                  this.corpus.ensureCiteMap(id).subscribe({
+                    next: (map) => {
+                      const fromMap = buildBibleTocFromCiteMap(map);
+                      this.chapters = fromMap.length ? fromMap : built;
+                    },
+                    error: () => {
+                      this.chapters = built;
+                    },
+                  }),
                 );
               },
               error: () => {

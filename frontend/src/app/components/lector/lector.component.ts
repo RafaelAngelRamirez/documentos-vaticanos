@@ -54,10 +54,14 @@ import { RelatedUnitsPanelComponent } from '../related-units/related-units-panel
 import { PasajeComponent } from '../pasaje/pasaje.component';
 import { WbarComponent } from '../wbar/wbar.component';
 import {
+  buildBibleTocFromCiteMap,
   buildDocumentToc,
+  unitDisplayLabel,
   type TocEntry,
 } from 'src/app/services/document-toc.logic';
 import { biblePackIdForLocale } from 'src/app/core/liturgia/bible-cite.logic';
+import { stampAllUnitsFromCiteMap } from 'src/app/core/liturgia/cite-map.logic';
+import type { BibleCiteMap } from 'src/app/core/liturgia/cite-map.logic';
 import {
   resolveCitedPassageFromCite,
   resolveCitedPassageFromLocalRef,
@@ -1153,16 +1157,11 @@ export class LectorComponent implements OnInit, OnDestroy {
       this.indexLoadSub = this.corpus.ensureLoaded(id).subscribe({
         next: (loaded) => {
           if (this.document?.id !== id) return;
-          this.chapters = buildDocumentToc(loaded.documento, {
-            documentId: id,
-            kind: loaded.meta.kind,
-          });
-          this.indexOpen = true;
+          this.applyToc(loaded.documento, id, loaded.meta.kind);
         },
         error: () => {
           if (this.document?.id !== id) return;
           this.rebuildChaptersFromWindow();
-          this.indexOpen = true;
         },
       });
       return;
@@ -1174,12 +1173,44 @@ export class LectorComponent implements OnInit, OnDestroy {
     const id = this.document?.id;
     if (!id || !this.document?.documento) {
       this.chapters = [];
+      this.indexOpen = true;
       return;
     }
     const meta = this.corpus.getMeta(id);
-    this.chapters = buildDocumentToc(this.document.documento, {
-      documentId: id,
-      kind: meta?.kind,
+    this.applyToc(this.document.documento, id, meta?.kind);
+  }
+
+  /**
+   * Auto TOC, then cite-map book landmarks when the translation dropped
+   * `biblia` (Bible EN). Opens the sheet when ready.
+   */
+  private applyToc(
+    units: Article[] | null | undefined,
+    documentId: string,
+    kind?: string | null,
+  ): void {
+    const built = buildDocumentToc(units, {
+      documentId,
+      kind: kind || undefined,
+    });
+    if (built.length || (kind || '').toLowerCase() !== 'bible') {
+      this.chapters = built;
+      this.indexOpen = true;
+      return;
+    }
+    this.indexLoadSub?.unsubscribe();
+    this.indexLoadSub = this.corpus.ensureCiteMap(documentId).subscribe({
+      next: (map) => {
+        if (this.document?.id !== documentId) return;
+        const fromMap = buildBibleTocFromCiteMap(map);
+        this.chapters = fromMap.length ? fromMap : built;
+        this.indexOpen = true;
+      },
+      error: () => {
+        if (this.document?.id !== documentId) return;
+        this.chapters = built;
+        this.indexOpen = true;
+      },
     });
   }
 
@@ -1432,8 +1463,7 @@ export class LectorComponent implements OnInit, OnDestroy {
           const doc = this.corpus.toIndiceDocumentos(loaded);
           this.clearSlowLoad();
           this.loading = false;
-          this.document = doc;
-          this.focusUnit(place, generation);
+          this.adoptDocument(doc, () => this.focusUnit(place, generation));
         },
         error: (err) => {
           if (this.navigationService.generation !== generation) return;
@@ -1617,19 +1647,20 @@ export class LectorComponent implements OnInit, OnDestroy {
         next: (fresh) => {
           if (this.document?.id !== key) return;
           const mapped = this.corpus.toIndiceDocumentos(fresh);
-          this.document = mapped;
-          this.actual_articles = this._get_articles(
-            this.actual_inferior_limit,
-            this.actual_superior_limit,
-          );
-          const id = parseDocumentId(mapped.id);
-          const visible = parseUnitIndex(this.visibleIndex);
-          const focus = parseUnitIndex(this.focusIndex);
-          if (id && visible != null && focus != null && !this.closing) {
-            this.reportVisible(
-              cite(id, unitToReportAfterFill(visible, focus)),
+          this.adoptDocument(mapped, () => {
+            this.actual_articles = this._get_articles(
+              this.actual_inferior_limit,
+              this.actual_superior_limit,
             );
-          }
+            const id = parseDocumentId(mapped.id);
+            const visible = parseUnitIndex(this.visibleIndex);
+            const focus = parseUnitIndex(this.focusIndex);
+            if (id && visible != null && focus != null && !this.closing) {
+              this.reportVisible(
+                cite(id, unitToReportAfterFill(visible, focus)),
+              );
+            }
+          });
         },
         error: (err) => console.error(err),
       })
@@ -1649,25 +1680,68 @@ export class LectorComponent implements OnInit, OnDestroy {
     return info?.article?.index_array ?? _i;
   }
 
+  private citeMapStamp: BibleCiteMap | null | undefined;
+  private citeMapStampDoc = '';
+
+  /**
+   * Adopt a loaded body. Bible translations without `biblia` get structure
+   * from the Spanish cite-map (same indexes) so headers are not «Nº 0».
+   */
+  private adoptDocument(
+    doc: NonNullable<typeof this.document>,
+    then?: () => void,
+  ): void {
+    const docId = doc.id || '';
+    const kind = (this.corpus.getMeta(docId)?.kind || '').toLowerCase();
+    const sample = doc.documento?.find((u) => !!u);
+    const needsStamp = kind === 'bible' && !!sample && !sample.biblia?.libro;
+    if (!needsStamp || !docId) {
+      this.document = doc;
+      then?.();
+      return;
+    }
+    if (this.citeMapStampDoc === docId && this.citeMapStamp) {
+      this.document = {
+        ...doc,
+        documento: stampAllUnitsFromCiteMap(doc.documento, this.citeMapStamp),
+      };
+      then?.();
+      return;
+    }
+    this.document = doc;
+    then?.();
+    this.sub.add(
+      this.corpus.ensureCiteMap(docId).subscribe({
+        next: (map) => {
+          if (this.document?.id !== docId || !map) return;
+          this.citeMapStamp = map;
+          this.citeMapStampDoc = docId;
+          const current = this.document;
+          this.document = {
+            ...current,
+            documento: stampAllUnitsFromCiteMap(current.documento, map),
+          };
+          this.actual_articles = this._get_articles(
+            this.actual_inferior_limit,
+            this.actual_superior_limit,
+          );
+        },
+      }),
+    );
+  }
+
   /** Etiqueta de unidad para un índice global del documento. */
   private unidadLabelAt(index: number): string {
     const art = this.document?.documento[index];
-    return (
-      art?.biblia?.consecutivo_versiculo ||
-      (art?.consecutivo && art.consecutivo !== 'no-encontrado'
-        ? art.consecutivo
-        : String(index + 1))
-    );
+    return unitDisplayLabel(art, index);
   }
 
   private unidadLabelDe(info: ArticleInfo | undefined): string {
     const art = info?.article;
     if (!art) return '';
-    return (
-      art.biblia?.consecutivo_versiculo ||
-      (art.consecutivo && art.consecutivo !== 'no-encontrado'
-        ? art.consecutivo
-        : String((art.index_array ?? 0) + 1))
+    return unitDisplayLabel(
+      art,
+      typeof art.index_array === 'number' ? art.index_array : undefined,
     );
   }
 

@@ -1,0 +1,7 @@
+feature lector-bible-en-toc
+action GET /leyendo/bible-pueblo-de-dios-en/u/0
+index_open force click Index
+empty_hint 0
+toc_rows 76
+header_sample Nº Gn (not Nº 0)
+note cite-map stamp from bible-pueblo-de-dios-es + buildBibleTocFromCiteMap.

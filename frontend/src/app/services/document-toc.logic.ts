@@ -59,6 +59,37 @@ export interface BuildDocumentTocOptions {
   curated?: TocEntry[];
 }
 
+/**
+ * Amoris laetitia — 325 numbered paragraphs, no chapter headings in the
+ * packed body (EN or ES). Landmarks follow the official chapter starts;
+ * unitIndex = consecutivo − 1.
+ */
+const AMORIS_LAETITIA_TOC_ES: TocEntry[] = [
+  { num: '—', title: 'Introducción', unitIndex: 0 },
+  { num: 'I', title: 'A la luz de la Palabra', unitIndex: 7 },
+  { num: 'II', title: 'La realidad y los desafíos de las familias', unitIndex: 30 },
+  { num: 'III', title: 'La mirada puesta en Jesús: vocación de la familia', unitIndex: 57 },
+  { num: 'IV', title: 'El amor en el matrimonio', unitIndex: 88 },
+  { num: 'V', title: 'Amor que se vuelve fecundo', unitIndex: 119 },
+  { num: 'VI', title: 'Algunas perspectivas pastorales', unitIndex: 198 },
+  { num: 'VII', title: 'Fortalecer la educación de los hijos', unitIndex: 259 },
+  { num: 'VIII', title: 'Acompañar, discernir e integrar la fragilidad', unitIndex: 290 },
+  { num: 'IX', title: 'Espiritualidad matrimonial y familiar', unitIndex: 312 },
+];
+
+const AMORIS_LAETITIA_TOC_EN: TocEntry[] = [
+  { num: '—', title: 'Introduction', unitIndex: 0 },
+  { num: 'I', title: 'In the light of the Word', unitIndex: 7 },
+  { num: 'II', title: 'The experiences and challenges of families', unitIndex: 30 },
+  { num: 'III', title: 'Looking to Jesus: the vocation of the family', unitIndex: 57 },
+  { num: 'IV', title: 'Love in marriage', unitIndex: 88 },
+  { num: 'V', title: 'Love made fruitful', unitIndex: 119 },
+  { num: 'VI', title: 'Some pastoral perspectives', unitIndex: 198 },
+  { num: 'VII', title: 'Towards a better education of children', unitIndex: 259 },
+  { num: 'VIII', title: 'Accompanying, discerning and integrating weakness', unitIndex: 290 },
+  { num: 'IX', title: 'The spirituality of marriage and the family', unitIndex: 312 },
+];
+
 /** Small curated maps for high-value packs whose units lack heading text. */
 export const CURATED_TOC_OVERRIDES: Record<string, TocEntry[]> = {
   // Dei Verbum — chapters are editorial, not unit titles in content.
@@ -82,6 +113,8 @@ export const CURATED_TOC_OVERRIDES: Record<string, TocEntry[]> = {
       unitIndex: 20,
     },
   ],
+  'esortazione-ap-20160319-amoris-laetitia-es': AMORIS_LAETITIA_TOC_ES,
+  'esortazione-ap-20160319-amoris-laetitia-en': AMORIS_LAETITIA_TOC_EN,
 };
 
 const DEFAULT_MAX = 80;
@@ -302,6 +335,97 @@ export function buildBibleBookToc(units: TocUnit[]): TocEntry[] {
     });
   }
   return out;
+}
+
+/**
+ * Compact cite-map shape (libro → capítulo → versículo → unitIndex).
+ * Kept local so this module stays free of Angular / HTTP imports.
+ */
+export interface TocCiteMap {
+  books: Record<string, Record<string, Record<string, number>>>;
+}
+
+/**
+ * Bible TOC from a cite-map when the packed body dropped `biblia`
+ * (English Pueblo de Dios and siblings). Same unit indexes as ES.
+ */
+export function buildBibleTocFromCiteMap(
+  map: TocCiteMap | null | undefined,
+  opts?: { maxEntries?: number },
+): TocEntry[] {
+  const books = map?.books;
+  if (!books || typeof books !== 'object') return [];
+  const maxEntries = opts?.maxEntries ?? DEFAULT_MAX;
+  const out: TocEntry[] = [];
+  for (const [libro, chapters] of Object.entries(books)) {
+    if (!libro || !chapters || typeof chapters !== 'object') continue;
+    let start = Number.POSITIVE_INFINITY;
+    for (const verses of Object.values(chapters)) {
+      if (!verses || typeof verses !== 'object') continue;
+      for (const idx of Object.values(verses)) {
+        if (typeof idx === 'number' && Number.isInteger(idx) && idx >= 0) {
+          if (idx < start) start = idx;
+        }
+      }
+    }
+    if (!Number.isFinite(start)) continue;
+    const title = formatBibleBookTitle(libro);
+    out.push({
+      num: bibleBookNum(
+        { biblia: { libro, consecutivo_versiculo: '' } },
+        libro,
+        out.length,
+      ),
+      title,
+      unitIndex: start,
+    });
+    if (out.length >= maxEntries) break;
+  }
+  return out;
+}
+
+/**
+ * Reader / cover label for a unit. Skips bare «0» and bible title rows
+ * (`capitulo`/`versiculo` 0 → book abbrev only).
+ */
+export function unitDisplayLabel(
+  unit: TocUnit | null | undefined,
+  fallbackIndex?: number,
+): string {
+  if (!unit) {
+    return typeof fallbackIndex === 'number' && fallbackIndex >= 0
+      ? String(fallbackIndex + 1)
+      : '';
+  }
+  const b = unit.biblia;
+  if (b?.libro) {
+    const cap = String(b.capitulo ?? '').trim();
+    const verseNum =
+      typeof (b as { versiculo?: number }).versiculo === 'number'
+        ? (b as { versiculo?: number }).versiculo
+        : Number.NaN;
+    const isTitle =
+      cap === '0' ||
+      verseNum === 0 ||
+      /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ.]+\s+0,\s*0$/.test(
+        (b.consecutivo_versiculo || '').trim(),
+      );
+    if (isTitle) {
+      return bibleBookNum(unit, b.libro, 0);
+    }
+    if (b.consecutivo_versiculo?.trim()) {
+      return b.consecutivo_versiculo.trim();
+    }
+  }
+  const raw = (unit.consecutivo ?? '').trim();
+  if (raw && raw !== 'no-encontrado' && raw !== '0') return raw;
+  if (typeof fallbackIndex === 'number' && fallbackIndex >= 0) {
+    return String(fallbackIndex + 1);
+  }
+  if (typeof unit.index_array === 'number' && unit.index_array >= 0) {
+    return String(unit.index_array + 1);
+  }
+  return '';
 }
 
 /**

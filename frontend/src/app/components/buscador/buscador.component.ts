@@ -170,6 +170,25 @@ export class BuscadorComponent implements OnInit, OnDestroy {
         this.procesar_busqueda(terminos);
       }),
     );
+    // `/buscar?q=…` emite en el constructor del padre antes de este
+    // subscribe. EventEmitter no replay: sin esto la caja muestra la
+    // consulta y la página se queda en blanco.
+    const pending = this.busadorService.terminos;
+    if (this.queryPending(pending)) {
+      this.terminos = pending;
+      this.procesar_busqueda(pending);
+    }
+  }
+
+  /** True when the service already holds a query the child must paint. */
+  private queryPending(terminos: TermsProcessed | null | undefined): boolean {
+    if (!terminos) return false;
+    if (terminos.mode === 'topic' && terminos.topicSlug) return true;
+    if ((terminos.contentTerms?.length ?? 0) > 0) return true;
+    if ((terminos.terminos?.length ?? 0) > 0) return true;
+    if ((terminos.puntos?.length ?? 0) > 0) return true;
+    const raw = (terminos.rawQuery || '').trim();
+    return raw.length > 0;
   }
 
   /** Subscribe loadPack once per locale (shareReplay inside service). */
