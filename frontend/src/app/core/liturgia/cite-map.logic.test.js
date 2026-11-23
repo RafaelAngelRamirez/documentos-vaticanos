@@ -86,6 +86,29 @@ async function main() {
   );
   assert.ok(!shown.some((verse) => verse.text.includes('hueco')));
 
+  const bareBible = [];
+  bareBible[0] = { contenido: 'Title genesis', consecutivo: '0' };
+  bareBible[1] = { contenido: '1 In the beginning', consecutivo: '1' };
+  bareBible[10] = { contenido: 'Title exodus', consecutivo: '0' };
+  const structureMap = {
+    v: 1,
+    books: {
+      genesis: { 0: { 0: 0 }, 1: { 1: 1 } },
+      exodo: { 0: { 0: 10 } },
+    },
+  };
+  const stampedAll = mapMod.stampAllUnitsFromCiteMap(bareBible, structureMap);
+  assert.strictEqual(stampedAll[0].biblia.libro, 'genesis');
+  assert.strictEqual(stampedAll[0].biblia.capitulo, '0');
+  assert.strictEqual(stampedAll[1].biblia.versiculo, 1);
+  assert.strictEqual(stampedAll[10].biblia.libro, 'exodo');
+  // Already structured units are left alone
+  const keep = mapMod.stampAllUnitsFromCiteMap(
+    [{ biblia: { libro: 'kept', capitulo: '9', versiculo: 9 } }],
+    structureMap,
+  );
+  assert.strictEqual(keep[0].biblia.libro, 'kept');
+
   console.log('ok cite-map.logic');
 }
 

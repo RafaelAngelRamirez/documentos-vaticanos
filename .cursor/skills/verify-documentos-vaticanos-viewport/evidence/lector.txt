@@ -2,7 +2,7 @@ feature lector
 viewport 390x844
 action GET /leyendo/cic-es/punto/2
 action_url http://127.0.0.1:4219/leyendo/cic-es/punto/2
-browser playwright-chromium
+browser /usr/bin/google-chrome
 viewport_actual 390x844
 inner 390x844
 app-punto visible

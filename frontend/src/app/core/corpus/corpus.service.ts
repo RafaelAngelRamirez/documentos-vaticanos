@@ -800,6 +800,20 @@ export class CorpusService {
     return indexOfParagraphNumber(doc, target);
   }
 
+  /**
+   * Cite-map for TOC / labels. Uses this edition when it has one; otherwise
+   * the Spanish twin that kept `biblia` (same unit indexes).
+   */
+  ensureCiteMap(documentId: string): Observable<BibleCiteMap | null> {
+    return from(
+      (async () => {
+        const mapId = await this.bibleCiteMapDocument(documentId);
+        if (!mapId) return null;
+        return this.loadCiteMap(mapId);
+      })(),
+    );
+  }
+
   private async loadCiteMap(
     documentId: string,
   ): Promise<BibleCiteMap | null> {

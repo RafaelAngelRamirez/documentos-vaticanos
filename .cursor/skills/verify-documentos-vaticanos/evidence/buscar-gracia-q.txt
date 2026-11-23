@@ -1,0 +1,8 @@
+feature buscar-gracia-q
+action GET /buscar?q=gracia
+base http://127.0.0.1:4219
+viewport 390x844
+result rows>=1
+elapsed_ms 518
+label 5 pasajes en 2 estantes
+note Replays BuscadorService.terminos on BuscadorComponent init (EventEmitter race).

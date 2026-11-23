@@ -211,8 +211,11 @@ async function main() {
     'document-detail can open reader at unitIndex',
   );
   assert.ok(
-    detalleHtml.includes('class="toc"') || detalleHtml.includes("class='toc'"),
-    'template still renders .toc',
+    detalleHtml.includes('class="toc') ||
+      detalleHtml.includes("class='toc") ||
+      detalleHtml.includes('app-doc-toc') ||
+      detalleHtml.includes('[chapters]'),
+    'template still renders TOC (cover chapters / .toc)',
   );
   // Hard-coded map of a few IDs must not be the exclusive source
   assert.ok(
@@ -230,10 +233,12 @@ async function main() {
   const {
     buildDocumentToc,
     buildBibleBookToc,
+    buildBibleTocFromCiteMap,
     buildHeadingToc,
     formatBibleBookTitle,
     formatHeadingEntry,
     normalizeTocLabel,
+    unitDisplayLabel,
     CURATED_TOC_OVERRIDES,
   } = mod;
 
@@ -323,6 +328,66 @@ async function main() {
     flatToc.length,
     0,
     `flat body without headings → empty TOC, got ${flatToc.length}`,
+  );
+
+  section('Amoris laetitia curated TOC');
+  const amorisBody = Array.from({ length: 325 }, (_, i) => ({
+    consecutivo: String(i + 1),
+    contenido: `${i + 1}. Paragraph body for the exhortation landmark test.`,
+  }));
+  const amorisEn = buildDocumentToc(amorisBody, {
+    documentId: 'esortazione-ap-20160319-amoris-laetitia-en',
+    kind: 'magisterium',
+  });
+  assert.ok(amorisEn.length >= 9, `Amoris EN chapters, got ${amorisEn.length}`);
+  assert.strictEqual(amorisEn[0].unitIndex, 0);
+  assert.strictEqual(amorisEn[1].unitIndex, 7);
+  assert.ok(/light of the Word/i.test(amorisEn[1].title));
+  const amorisEs = buildDocumentToc(amorisBody, {
+    documentId: 'esortazione-ap-20160319-amoris-laetitia-es',
+  });
+  assert.ok(amorisEs.length >= 9, `Amoris ES chapters, got ${amorisEs.length}`);
+  assert.ok(/Palabra/i.test(amorisEs[1].title));
+
+  section('bible cite-map TOC + unitDisplayLabel');
+  const citeToc = buildBibleTocFromCiteMap({
+    books: {
+      genesis: { 0: { 0: 0 }, 1: { 1: 1, 2: 2 } },
+      exodo: { 0: { 0: 10 }, 1: { 1: 11 } },
+    },
+  });
+  assert.strictEqual(citeToc.length, 2);
+  assert.strictEqual(citeToc[0].unitIndex, 0);
+  assert.strictEqual(citeToc[1].unitIndex, 10);
+  assert.ok(/G[eé]nesis/i.test(citeToc[0].title));
+  assert.strictEqual(
+    unitDisplayLabel({
+      consecutivo: '0',
+      biblia: {
+        libro: 'genesis',
+        capitulo: '0',
+        versiculo: 0,
+        consecutivo_versiculo: 'Gn 0, 0',
+      },
+    }, 0),
+    'Gn',
+  );
+  assert.strictEqual(
+    unitDisplayLabel({ consecutivo: '0' }, 0),
+    '1',
+    'bare 0 falls back to index+1 until cite-map stamps',
+  );
+  assert.strictEqual(
+    unitDisplayLabel({
+      consecutivo: '1',
+      biblia: {
+        libro: 'genesis',
+        capitulo: '1',
+        versiculo: 1,
+        consecutivo_versiculo: 'Gn 1, 1',
+      },
+    }, 1),
+    'Gn 1, 1',
   );
   // No throw on null/empty
   assert.deepStrictEqual(buildDocumentToc(null), []);
