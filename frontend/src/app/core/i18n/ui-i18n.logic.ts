@@ -143,17 +143,23 @@ export interface StoredLocalePrefs {
 }
 
 function clampContentLocale(raw: unknown): ContentLocalePref {
-  const rawLoc = (raw ?? 'system').toString().trim();
-  if (!rawLoc || rawLoc === 'system') return 'system';
-  return rawLoc.toLowerCase().split(/[-_]/)[0] || 'system';
+  // Missing key → product default (Spanish corpus). Explicit `system` still follows the device.
+  if (raw == null) return 'es';
+  const rawLoc = String(raw).trim();
+  if (!rawLoc) return 'es';
+  if (rawLoc === 'system') return 'system';
+  return rawLoc.toLowerCase().split(/[-_]/)[0] || 'es';
 }
 
 /**
  * Locale fields for `reader.prefs.v1`.
  *
- * - No JSON / empty: first launch — UI from device, content `system`.
+ * - No JSON / empty: first launch — UI from device, content Spanish (`es`).
+ *   The published reader is Spanish-first; an English `navigator.language` must
+ *   not empty `/buscar` for «gracia» by loading `en-*.dvix` on a cold visit.
  * - Saved JSON: stored values win (independent UI vs content).
- * - Old blobs missing `uiLocale`: keep Spanish (do not surprise existing installs).
+ * - Old blobs missing `uiLocale`: keep Spanish UI (do not surprise existing installs).
+ * - Old blobs missing `contentLocale`: Spanish corpus (same product default).
  * - Invalid JSON: same as first launch.
  */
 export function localePrefsFromStorage(
@@ -162,7 +168,7 @@ export function localePrefsFromStorage(
 ): StoredLocalePrefs {
   if (raw == null || raw === '') {
     return {
-      contentLocale: 'system',
+      contentLocale: 'es',
       uiLocale: defaultUiLocaleFromDevice(navigatorLanguage),
     };
   }
@@ -175,15 +181,21 @@ export function localePrefsFromStorage(
       parsed != null &&
       parsed.uiLocale != null &&
       String(parsed.uiLocale).trim() !== '';
+    const hasContent =
+      parsed != null &&
+      parsed.contentLocale != null &&
+      String(parsed.contentLocale).trim() !== '';
     return {
-      contentLocale: clampContentLocale(parsed?.contentLocale),
+      contentLocale: hasContent
+        ? clampContentLocale(parsed.contentLocale)
+        : 'es',
       uiLocale: hasUi
         ? resolveUiLocale(String(parsed.uiLocale))
         : DEFAULT_UI_LOCALE,
     };
   } catch {
     return {
-      contentLocale: 'system',
+      contentLocale: 'es',
       uiLocale: defaultUiLocaleFromDevice(navigatorLanguage),
     };
   }

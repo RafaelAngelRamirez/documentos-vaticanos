@@ -16,7 +16,7 @@ This directory is the maintained source for verifying the user-facing web app. R
 - Start from a healthy doctor. Each drive uses a new browser context.
 - Prefer the URL, `data-testid`, ARIA name, and component selector named in the feature file.
 - Run every command from the repo root, exactly as written.
-- The helper pins `reader.prefs.v1` to `uiLocale: es` and `contentLocale: es` before paint. Assert the Spanish catalog. A bare browser with an English `navigator.language` would show `en.json` instead.
+- The helper pins `reader.prefs.v1` to `uiLocale: es` and `contentLocale: es` before paint. Assert the Spanish catalog. A bare browser with empty prefs still defaults content to `es` (UI may follow `navigator.language`); only an explicit `contentLocale: "en"` or `"system"` with an English device loads `en.json`.
 
 ## Proof and skip reporting
 

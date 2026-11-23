@@ -1,0 +1,10 @@
+feature buscar-gracia-en-us
+action Playwright mobile-390 «gracia con navegador en-US sin prefs usa estantes ES»
+base http://127.0.0.1:4219
+navigator.language en-US
+reader.prefs.v1 absent
+shelf packs es.json es-base.dvix es-padres.dvix (no en-base.dvix)
+.result .srow visible
+elapsed_ms < 2000
+count not 0 pasajes en 0 estantes
+tip local after contentLocale default es
