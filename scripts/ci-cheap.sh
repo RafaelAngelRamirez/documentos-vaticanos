@@ -27,6 +27,7 @@ npm --prefix frontend run test:sync-journal
 npm --prefix frontend run test:unpack-ship-index
 npm --prefix frontend run test:shelf-search
 node scripts-descarga/corpus_structure_contract.test.js
+bash scripts/node-strip-types.sh scripts-descarga/psalms_es_verse_counts.test.js
 node scripts/corpus-sync-assets.test.js
 node scripts/patristic-pack.test.js
 node scripts/patristic-pack.js proof --canonical documentos/corpus --check --out scripts/proof/patristic-pack-hash.ndjson

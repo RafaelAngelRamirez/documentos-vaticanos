@@ -1,6 +1,6 @@
 {
   "name": "scripts-descarga",
-  "version": "0.0.70",
+  "version": "0.0.71",
   "description": "",
   "main": "index.ts",
   "scripts": {
@@ -46,6 +46,9 @@
     "scrape:decrees": "npm run scrape:ur && npm run scrape:aa && npm run resolve:refs",
     "test:scrape": "npx ts-node --transpile-only scrape_source.ts --source ur --offline --skip-write && npx ts-node --transpile-only scrape_source.ts --source aa --offline --skip-write && npx ts-node --transpile-only scrape_source.ts --source cds --offline --skip-write && npx ts-node --transpile-only scrape_source.ts --source cdc --offline --skip-write --force",
     "fix:bible-labels": "npx ts-node --transpile-only fix_bible_labels.ts",
+    "repair:psalms-es": "npx ts-node --transpile-only repair_psalms_es.ts",
+    "sync:bible-twins-psalm-slots": "npx ts-node --transpile-only sync_bible_twins_psalm_slots.ts",
+    "test:psalms-es": "bash ../scripts/node-strip-types.sh psalms_es_verse_counts.test.js",
     "pipeline:corpus": "npm run migrate:corpus && npm run resolve:refs",
     "padres:extract": "npx ts-node --transpile-only extract_pdf_text.ts",
     "padres:import": "npx ts-node --transpile-only import_plain_text.ts",

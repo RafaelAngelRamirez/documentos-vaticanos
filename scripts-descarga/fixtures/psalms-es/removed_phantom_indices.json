@@ -1,0 +1,4 @@
+{
+  "note": "Old bible unit indices that were letter-suffix continuations (16c, 14c, …) wrongly stored as separate verses. The ES repair folds them into the previous verse; twin locales append the same slot then drop it; corpus local.idPunto values are shifted with this list.",
+  "indices": [15537, 15779, 15807, 15808, 16586, 16772, 17726]
+}
