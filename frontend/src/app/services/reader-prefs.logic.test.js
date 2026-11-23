@@ -29,6 +29,8 @@ async function main() {
   assert.strictEqual(same.theme, 'mono');
   assert.strictEqual(same.font, 'serif');
   assert.strictEqual(same.keepAwake, false);
+  assert.strictEqual(same.contentLocale, 'es');
+  assert.strictEqual(DEFAULT_READER_PREFERENCES.contentLocale, 'es');
 
   const bounded = clampReaderPreferences({
     ...base,
@@ -83,9 +85,14 @@ async function main() {
   assert.strictEqual(broken.fontSizePx, 18);
   assert.strictEqual(broken.lineHeight, 1.65);
   assert.strictEqual(broken.maxWidthCh, 65);
-  assert.strictEqual(broken.contentLocale, 'system');
+  assert.strictEqual(broken.contentLocale, 'es');
   assert.strictEqual(broken.uiLocale, 'en');
   assert.strictEqual(clampUiLocale('HI'), 'hi');
+  const followDevice = clampReaderPreferences({
+    ...base,
+    contentLocale: 'system',
+  });
+  assert.strictEqual(followDevice.contentLocale, 'system');
 
   const merged = mergeReaderPreferences(base, {
     fontSizePx: 22,

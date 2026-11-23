@@ -320,6 +320,48 @@ test.describe('viewport móvil 390×844', () => {
       expect(content.length).toBeLessThanOrEqual(20);
     });
 
+    test('gracia con navegador en-US sin prefs usa estantes ES', async ({
+      page,
+    }) => {
+      test.setTimeout(60_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      // Override the suite pin: empty prefs + en-US must still load es-*.dvix.
+      await page.addInitScript(() => {
+        localStorage.removeItem('reader.prefs.v1');
+        Object.defineProperty(navigator, 'language', {
+          configurable: true,
+          get: () => 'en-US',
+        });
+      });
+      const shelfPacks: string[] = [];
+      page.on('request', (req) => {
+        const url = req.url();
+        if (url.includes('/assets/corpus/search/packages/')) {
+          shelfPacks.push(url);
+        }
+      });
+      await page.goto('/buscar');
+      const box = page.getByRole('searchbox', {
+        name: 'Búsqueda en el texto: palabra, frase o intención',
+      });
+      await expect(box).toBeVisible({ timeout: 30_000 });
+      const started = Date.now();
+      await box.fill('gracia');
+      await expect(page.locator('.srow').first()).toBeVisible({ timeout: 20_000 });
+      const elapsed = Date.now() - started;
+      expect(elapsed, `cold gracia (en-US) painted in ${elapsed}ms`).toBeLessThan(
+        10_000,
+      );
+      await expect(
+        page.getByText('Cargando documentos para la búsqueda…'),
+      ).toHaveCount(0);
+      await expect(page.getByText(/0 pasajes en 0 estantes/)).toHaveCount(0);
+      const joined = shelfPacks.join('\n');
+      expect(joined, joined).toMatch(/\/packages\/es\.json/);
+      expect(joined, joined).toMatch(/es-base\.dvix/);
+      expect(joined, joined).not.toMatch(/en-base\.dvix/);
+    });
+
     test('mercy en inglés no espera el corpus entero ni duplica sedula', async ({
       page,
     }) => {

@@ -217,7 +217,7 @@ export class ReaderPreferencesService {
       const raw = localStorage.getItem(READER_PREFS_STORAGE_KEY);
       const locales = localePrefsFromStorage(raw, nav);
       if (!raw) {
-        // First launch: content follows device via `system`; UI matches device.
+        // First launch: Spanish corpus; UI matches device (see localePrefsFromStorage).
         return {
           ...DEFAULT_READER_PREFERENCES,
           ...locales,

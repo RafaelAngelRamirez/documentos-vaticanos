@@ -27,7 +27,7 @@ export interface ReaderPreferences {
   keepAwake: boolean;
   /**
    * Idioma de los textos del corpus cuando hay varias ediciones.
-   * `system` → locale del dispositivo; fallback de catálogo `es`.
+   * Por defecto `es` (lector en español). `system` → locale del dispositivo.
    */
   contentLocale: ContentLocalePref;
   /**
@@ -46,7 +46,8 @@ export const DEFAULT_READER_PREFERENCES: ReaderPreferences = {
   lineHeight: 1.65,
   maxWidthCh: 65,
   keepAwake: false,
-  contentLocale: 'system',
+  /** Spanish corpus on cold visit; Ajustes can switch to `system` or another pack. */
+  contentLocale: 'es',
   /** Placeholder; first load / reset use the device locale. */
   uiLocale: 'es',
 };
@@ -99,11 +100,13 @@ export function clampReaderPreferences(
 ): ReaderPreferences {
   const migrated =
     LEGACY_THEME_MAP[prefs.theme as string] ?? (prefs.theme as ReaderTheme);
-  const rawLoc = (prefs.contentLocale ?? 'system').toString().trim();
+  const rawLoc = (prefs.contentLocale ?? 'es').toString().trim();
   const contentLocale: ContentLocalePref =
-    !rawLoc || rawLoc === 'system'
-      ? 'system'
-      : rawLoc.toLowerCase().split(/[-_]/)[0] || 'system';
+    !rawLoc
+      ? 'es'
+      : rawLoc === 'system'
+        ? 'system'
+        : rawLoc.toLowerCase().split(/[-_]/)[0] || 'es';
   return {
     theme: THEME_CYCLE.includes(migrated) ? migrated : 'mono',
     font: FONT_CYCLE.includes(prefs.font) ? prefs.font : 'serif',

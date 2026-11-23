@@ -59,12 +59,13 @@ async function main() {
   assert.strictEqual(L.defaultUiLocaleFromDevice(''), 'es');
 
   // localePrefsFromStorage — device vs persisted override (independent fields)
+  // Cold visit: UI from device, corpus Spanish so /buscar «gracia» hits es-*.dvix.
   const firstEn = L.localePrefsFromStorage(null, 'en-GB');
   assert.strictEqual(firstEn.uiLocale, 'en');
-  assert.strictEqual(firstEn.contentLocale, 'system');
+  assert.strictEqual(firstEn.contentLocale, 'es');
   const firstZh = L.localePrefsFromStorage('', 'zh-CN');
   assert.strictEqual(firstZh.uiLocale, 'zh');
-  assert.strictEqual(firstZh.contentLocale, 'system');
+  assert.strictEqual(firstZh.contentLocale, 'es');
   const saved = L.localePrefsFromStorage(
     JSON.stringify({ uiLocale: 'ar', contentLocale: 'en', theme: 'mono' }),
     'zh-CN',
@@ -82,17 +83,21 @@ async function main() {
     'ar-EG',
   );
   assert.strictEqual(oldBlob.uiLocale, 'es', 'legacy blob without uiLocale stays es');
-  assert.strictEqual(oldBlob.contentLocale, 'system');
+  assert.strictEqual(
+    oldBlob.contentLocale,
+    'es',
+    'legacy blob without contentLocale defaults to es',
+  );
   const bad = L.localePrefsFromStorage('{not json', 'en-US');
   assert.strictEqual(bad.uiLocale, 'en');
-  assert.strictEqual(bad.contentLocale, 'system');
+  assert.strictEqual(bad.contentLocale, 'es');
   // UI and content stay independent when only one is set
   const onlyUi = L.localePrefsFromStorage(
     JSON.stringify({ uiLocale: 'hi' }),
     'en-US',
   );
   assert.strictEqual(onlyUi.uiLocale, 'hi');
-  assert.strictEqual(onlyUi.contentLocale, 'system');
+  assert.strictEqual(onlyUi.contentLocale, 'es');
   const onlyContent = L.localePrefsFromStorage(
     JSON.stringify({ contentLocale: 'la', uiLocale: 'zh' }),
     'en-US',
