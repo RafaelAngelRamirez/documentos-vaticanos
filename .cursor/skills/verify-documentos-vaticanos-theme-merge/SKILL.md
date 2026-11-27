@@ -94,7 +94,7 @@ El script nombra:
 | --- | --- |
 | `scripts/verify-theme-merge-identity.js` | `themeMergeAction`, `planThemeMerges`, `signedCreateThenMerge`, `themeDeviceId` en `backend/src/routes/sync-theme.logic.ts`, bajo el supuesto de entradas que arma `sync.ts` |
 
-**Sync commit:** `cc4602df53dbc55a45f402d6001005fdc6427153` (master `0.0.74` al confirmar que esta verificación describe ese código).
+**Sync commit:** `51505a27` (rama `cursor/verify-theme-merge-identity-0773`; `sync-theme.logic.ts` igual que master `cc4602df` / `0.0.74` al confirmar).
 
 Mueve el sync commit adelante solo después de confirmar que la verificación sigue describiendo el código en el commit nuevo. Si el código cubierto cambió y no re-corriste esto, usa `/maintain-formal-verification-skill`.
 
