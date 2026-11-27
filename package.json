@@ -52,6 +52,7 @@
     "test:version-display": "bash scripts/node-strip-types.sh frontend/src/app/core/downloads/version-display.logic.test.js",
     "test:clases": "bash scripts/node-strip-types.sh frontend/src/app/core/account/clases.logic.test.js",
     "test:sync-journal": "npm --prefix frontend run test:sync-journal",
+    "test:theme-merge-identity": "bash scripts/node-strip-types.sh .cursor/skills/verify-documentos-vaticanos-theme-merge/scripts/verify-theme-merge-identity.js",
     "test:app-update": "bash scripts/node-strip-types.sh frontend/src/app/core/downloads/app-update.logic.test.js",
     "test:apk-javahome": "node scripts/package-apk.javahome.test.js",
     "test:narrator-grok": "npm --prefix frontend run test:narrator-grok",

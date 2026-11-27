@@ -121,7 +121,7 @@ Un refactor que mueve una ruta, un selector o el modo de llegar a la pantalla ac
 
 ## Skills
 
-Las skills de este repo son `build-documentos-vaticanos`, `release-documentos-vaticanos`, `n8n-documentos-vaticanos`, `verify-documentos-vaticanos`, `verify-documentos-vaticanos-viewport` y el onboarding. La prueba móvil canónica es `verify-documentos-vaticanos-viewport` (`node scripts/dv-verify-viewport.mjs`, lector y biblioteca). `verify-documentos-vaticanos-android` queda fuera del gate y no se usa. Investigar, planificar, corregir y describir la arquitectura se leen en el mapa, en los docs del #52 y en `docs/agent-workflow.md`. No hay una skill aparte para cada una de esas cuatro.
+Las skills de este repo son `build-documentos-vaticanos`, `release-documentos-vaticanos`, `n8n-documentos-vaticanos`, `verify-documentos-vaticanos`, `verify-documentos-vaticanos-viewport`, `verify-documentos-vaticanos-theme-merge` y el onboarding. La prueba móvil canónica es `verify-documentos-vaticanos-viewport` (`node scripts/dv-verify-viewport.mjs`, lector y biblioteca). La verificación formal de identidad de temas en el merge es `verify-documentos-vaticanos-theme-merge` (`yarn test:theme-merge-identity`). `verify-documentos-vaticanos-android` queda fuera del gate y no se usa. Investigar, planificar, corregir y describir la arquitectura se leen en el mapa, en los docs del #52 y en `docs/agent-workflow.md`. No hay una skill aparte para cada una de esas cuatro.
 
 ## Ramas
 
