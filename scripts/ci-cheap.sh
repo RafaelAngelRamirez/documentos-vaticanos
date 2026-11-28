@@ -16,6 +16,7 @@ npm --prefix frontend run test:review
 npm --prefix frontend run test:reader-bars
 npm --prefix frontend run test:selection-menu
 npm --prefix frontend run test:mobile-flows
+npm --prefix frontend run test:sheet-dismiss
 npm --prefix frontend run test:speech-prep
 npm --prefix frontend run test:lectio
 npm --prefix frontend run test:cite-map

@@ -461,6 +461,7 @@
 .cite-quick-body {
   max-height: min(52vh, 420px);
   overflow: auto;
+  overscroll-behavior: contain;
   margin-top: 12px;
   padding-right: 4px;
 }
