@@ -36,6 +36,7 @@ Preconditions:
 - The helper pins `uiLocale` to `es`. Without that pin, Chromium in English renders `Start of the document` from `en.json` instead of `Inicio del documento`.
 - The first open of `cic-es` reads a large `content.json`. The helper waits up to 60 seconds. A timeout is a failed drive, not a pass.
 - Bars hide on scroll. `.bnav` is absent on this route at every width. Do not confuse a hidden fbar with the product bottom nav.
+- A long document (the Catechism from point 1, and the same pattern elsewhere) extends the rendered window forward. Units already off screen are the ones dropped. The viewport stays on the unit that was on screen. The scroll-spy `replaceUrl` does not call `scrollIntoView`. Logic: `frontend/src/app/core/shell/reader-window.logic.ts`.
 - `punto/:user` is the legacy unit segment. For this smoke the action is `2`, not a user id. `readingCommands` replaces it with `/u/:unitIndex`. Assert `/leyendo/cic-es/u/2`, not the `punto` URL.
 - Canonical address is the route cite (`documentId` + `unitIndex`) stored as the URL, with prefs in `reader.prefs.v1`. Drive fails if localStorage holds `document_id`, `article_selected`, `actual_index`, `dv.settings`, or `dv.pos.*`. Those keys still exist as legacy names in `cite.ts`.
 - Drive fails if this page loads four or more `content.json` bodies (`ensureAllLoaded`) or links `design-product.css` / `design-reading.css`. One open document through `ensureWindow` is the canonical load. Styles live in `frontend/src/styles.css`. See `docs/debt-hotspots.md`.
