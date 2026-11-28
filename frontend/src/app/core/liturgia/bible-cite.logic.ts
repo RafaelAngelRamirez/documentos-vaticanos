@@ -172,7 +172,7 @@ export function parseLectionaryPassage(
 ): ParsedPassage | null {
   const display = (raw || '').trim();
   if (!display) return null;
-  const match = display.match(CITE_RE);
+  const match = loosenBibleCiteLabel(display).match(CITE_RE);
   if (!match) return null;
   const spans: PassageSpan[] = [];
   for (const segment of match[2].split(';')) {
@@ -189,6 +189,13 @@ function parseSegment(segment: string): PassageSpan[] | null {
   if (!text) return null;
   if (!text.includes(',') && text.includes(':')) {
     text = text.replace(':', ',');
+  }
+  // `Jr 2-3. 31` is a chapter list, not verses of chapter 1.
+  if (!text.includes(',') && /\d\s*-\s*\d+\s*\.\s*\d/.test(text)) return null;
+  // Period standing in for the chapter/verse comma (`Jn 3.16`, `Mt. 5.13-14`).
+  // A dot that follows a comma stays a verse jump (`1-6.14-22`).
+  if (!text.includes(',') && /^\d+\s*\.\s*\d/.test(text)) {
+    text = text.replace(/^(\d+)\s*\.\s*/, '$1,');
   }
   if (/^\d+$/.test(text)) {
     const chapter = Number(text);
@@ -605,7 +612,31 @@ function aliasBook(token: string): string | null {
 }
 
 function stripCiteLead(raw: string): string {
-  return raw.trim().replace(/^(?:cf\.|cfr\.|ver)\s+/i, '').trim();
+  return raw.trim().replace(/^(?:cfr\.?|cf\.?|ver)\s+/i, '').trim();
+}
+
+/**
+ * Fold irregular spacing and a period or comma glued to the book token
+ * (`Jn , 22`, `Ml ,1, 11`, `Jn. 22`, `Lc. 2, 22-39`) into the form the
+ * lectionary parser already accepts. The corpus string is not rewritten;
+ * only this parse copy changes. A dot or comma is moved only when the
+ * token is a known book, so `S.Th. 1` and `q. 2` stay put.
+ */
+function loosenBibleCiteLabel(raw: string): string {
+  let text = raw
+    .replace(/[\u00A0\u2000-\u200B\u202F\u205F]/g, ' ')
+    .replace(/[ \t]+/g, ' ')
+    .replace(/\s+,/g, ',')
+    .trim();
+  text = text.replace(
+    /(^|[;\s])((?:[1-3]\s*)?[A-Za-zÁÉÍÓÚáéíóúÑñ]{1,16})[.,](?=\s*\d)/gu,
+    (full, lead: string, token: string) => {
+      const glued = token.replace(/\s+/g, '');
+      if (!aliasBook(glued)) return full;
+      return `${lead}${token} `;
+    },
+  );
+  return text.replace(/[ \t]+/g, ' ').trim();
 }
 
 /** `5:12` and `2:20, 4:14-16` become the comma / semicolon form the parser knows. */
@@ -633,7 +664,10 @@ interface BookChunk {
 }
 
 function chunkOf(part: string, current: string | null): BookChunk | null {
-  const glued = stripCiteLead(part).replace(/^([1-3])\s+/u, '$1');
+  const glued = stripCiteLead(loosenBibleCiteLabel(part)).replace(
+    /^([1-3])\s+/u,
+    '$1',
+  );
   const match = glued.match(/^([1-3]?[A-Za-z]+)\s+(.+)$/);
   let code = current;
   let body = glued;
@@ -656,7 +690,10 @@ function chunkOf(part: string, current: string | null): BookChunk | null {
  * One or more bible passages named by a footnote label.
  * Spanish lectionary form (`Mt 5,12`, `Ap 3,1-6.14-22`) stays as it is.
  * English Vatican form (`Mt 5:12`, `Gen 17:1`, `2 Tim 1:5`) uses the same
- * books. A label with no book (`12:1`) is not a citation.
+ * books. A space before a comma (`Jn , 22`, `Ml ,1, 11`) and a period
+ * after the book or in place of the chapter comma (`Jn. 22`, `Lc. 2, 22-39`)
+ * parse to the same spans. `display` stays the source label. A label with
+ * no book (`12:1`) is not a citation.
  * Returns null when any piece is not a bible cite, so a patristic note
  * does not become a link.
  */
