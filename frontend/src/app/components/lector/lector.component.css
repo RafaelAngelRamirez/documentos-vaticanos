@@ -5,9 +5,12 @@
   color: var(--ink);
 }
 
-/* iOS callout; Chrome Android ActionMode is dismissed by clearing Selection. */
+/* iOS callout; Chrome Android ActionMode is dismissed by clearing Selection.
+   Scroll anchoring is ours: the window drops units above the viewport and
+   then restores scrollY. The browser must not apply a second adjustment. */
 .rtxt {
   -webkit-touch-callout: none;
+  overflow-anchor: none;
 }
 
 .app.rpaper {
@@ -446,6 +449,70 @@
   margin-top: 16px;
 }
 
+.cite-quick-origin {
+  margin: 8px 0 0;
+}
+
+.cite-quick-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.cite-quick-btn,
+.cite-quick-open {
+  min-height: 48px;
+  padding: 12px 10px;
+  font-family: var(--app-font-sans, 'IBM Plex Sans', sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cite-quick-btn {
+  flex: 1;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--btnb);
+}
+
+.cite-quick-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.cite-quick-open {
+  width: 100%;
+  margin-top: 12px;
+  color: var(--accink);
+  background: var(--acc);
+  border: none;
+}
+
+.cite-quick-original {
+  border-left: 2px solid var(--acc);
+  padding-left: 10px;
+}
+
+.cite-quick-context-verse {
+  margin: 0 0 10px;
+  font-family: var(--app-font-serif, 'EB Garamond', Georgia, serif);
+  font-size: 18px;
+  line-height: 1.45;
+  color: var(--app-muted, var(--muted));
+}
+
+.cite-quick-context-verse .pasaje-num {
+  margin-right: 6px;
+  font-family: var(--app-font-sans, 'IBM Plex Sans', sans-serif);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  vertical-align: super;
+}
+
 .cite-quick-label {
   font-family: var(--app-font-serif, 'EB Garamond', Georgia, serif);
   font-size: 1.35rem;
@@ -461,6 +528,7 @@
 .cite-quick-body {
   max-height: min(52vh, 420px);
   overflow: auto;
+  overscroll-behavior: contain;
   margin-top: 12px;
   padding-right: 4px;
 }

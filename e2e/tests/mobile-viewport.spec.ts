@@ -1121,6 +1121,81 @@ test.describe('viewport móvil 390×844', () => {
       await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/14/);
     });
 
+    test('deslizar la hoja hacia abajo la cierra', async ({ page }) => {
+      test.setTimeout(120_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      await stubOfflineBible(page);
+
+      await page.goto('/leyendo/cic-es/punto/14');
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/14/, { timeout: 60_000 });
+      await expect(page.locator('app-punto').first()).toBeVisible({ timeout: 60_000 });
+
+      const cite = page.getByRole('link', { name: 'Ef 4, 13' }).first();
+      await expect(cite).toBeVisible({ timeout: 30_000 });
+      await cite.click();
+
+      const sheet = page.getByRole('dialog', { name: 'Lectura rápida' });
+      await expect(sheet).toBeVisible();
+      await expectCitedText(sheet, 'hasta que todos lleguemos a la unidad de la fe');
+
+      const heading = sheet.locator('.cite-quick-label');
+      const box = await heading.boundingBox();
+      expect(box).not.toBeNull();
+      const startX = box!.x + Math.min(box!.width / 2, 140);
+      const startY = box!.y + box!.height / 2;
+      await page.mouse.move(startX, startY);
+      await page.mouse.down();
+      await page.mouse.move(startX, startY + 160, { steps: 12 });
+      await page.mouse.up();
+
+      await expect(sheet).toHaveCount(0);
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/14/);
+      await expect(page.locator('app-punto').first()).toBeVisible();
+    });
+
+    test('el texto citado desplazado no cierra la hoja', async ({ page }) => {
+      test.setTimeout(120_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      await stubOfflineBible(page);
+
+      await page.goto('/leyendo/cic-es/punto/51');
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/51/, { timeout: 60_000 });
+      const cite = page.getByRole('link', { name: 'cf. St 2, 14-26' }).first();
+      await expect(cite).toBeVisible({ timeout: 30_000 });
+      await cite.click();
+
+      const sheet = page.getByRole('dialog', { name: 'Lectura rápida' });
+      await expect(sheet).toBeVisible();
+      const body = sheet.getByTestId('cite-quick-body');
+      await expectCitedText(sheet, 'santiago verso 14');
+      const canScroll = await body.evaluate(
+        (el) => el.scrollHeight > el.clientHeight + 1,
+      );
+      expect(canScroll).toBe(true);
+      await body.evaluate((el) => {
+        el.scrollTop = 80;
+      });
+      expect(await body.evaluate((el) => el.scrollTop)).toBeGreaterThan(20);
+
+      const box = await body.boundingBox();
+      expect(box).not.toBeNull();
+      const x = box!.x + 48;
+      const y = box!.y + 36;
+      await page.mouse.move(x, y);
+      await page.mouse.down();
+      await page.mouse.move(x, y + 140, { steps: 10 });
+      await page.mouse.up();
+
+      await expect(sheet).toBeVisible();
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/51/);
+      expect(await body.evaluate((el) => el.scrollTop)).toBeGreaterThan(20);
+
+      await body.hover();
+      await page.mouse.wheel(0, 200);
+      await expect(sheet).toBeVisible();
+      await expect(body).toContainText('santiago verso 14');
+    });
+
     test('cita bíblica discontinua en la hoja', async ({ page }) => {
       test.setTimeout(120_000);
       expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
@@ -1237,6 +1312,128 @@ test.describe('viewport móvil 390×844', () => {
 
       await pressBrowserBack(page);
       await expect(sheet).toHaveCount(0);
+    });
+
+    test('antes, origen y documento citado', async ({ page }) => {
+      test.setTimeout(120_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      await stubOfflineBible(page);
+
+      await page.goto('/leyendo/cic-es/punto/14');
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/14/, { timeout: 60_000 });
+      const cite = page.getByRole('link', { name: 'Ef 4, 13' }).first();
+      await expect(cite).toBeVisible({ timeout: 30_000 });
+      await cite.click();
+
+      const sheet = page.getByRole('dialog', { name: 'Lectura rápida' });
+      await expectCitedText(sheet, 'hasta que todos lleguemos a la unidad de la fe');
+      const origin = sheet.getByTestId('cite-quick-origin');
+      await expect(origin).toContainText('Catecismo de la Iglesia Católica');
+      await expect(origin).toContainText('Nº 15');
+      await expect(origin).toHaveAttribute('data-origin-index', '14');
+      await expect(sheet.getByTestId('cite-quick-context')).toHaveCount(0);
+
+      await sheet.getByTestId('cite-quick-before').click();
+      const before = sheet.locator('[data-testid="cite-quick-context"][data-place="before"]');
+      await expect(before).toContainText('contexto anterior de efesios');
+      await expect(sheet.getByTestId('cite-quick-original')).toContainText(
+        'hasta que todos lleguemos a la unidad de la fe',
+      );
+      await expect(sheet.getByTestId('pasaje-verse')).toHaveCount(1);
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/14/);
+
+      const openIndex = await sheet
+        .getByTestId('cite-quick-open')
+        .getAttribute('data-open-index');
+      expect(openIndex).toBeTruthy();
+      await sheet.getByTestId('cite-quick-open').click();
+      await expect(page).toHaveURL(
+        new RegExp(`/leyendo/bible-pueblo-de-dios-es/u/${openIndex}(?:$|[?#])`),
+        { timeout: 30_000 },
+      );
+      await expect(sheet).toHaveCount(0);
+      await expect(page.locator(`app-punto[data-unit="${openIndex}"]`)).toContainText(
+        'hasta que todos lleguemos a la unidad de la fe',
+        { timeout: 60_000 },
+      );
+    });
+
+    test('después conserva la cita y el párrafo vecino', async ({ page }) => {
+      test.setTimeout(120_000);
+      expect(page.viewportSize()).toEqual({ width: 390, height: 844 });
+      await stubOfflineBible(page);
+      await stubOfflineCt(page);
+
+      await page.goto('/leyendo/cic-es/punto/51');
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/51/, { timeout: 60_000 });
+      const james = page.getByRole('link', { name: 'cf. St 2, 14-26' }).first();
+      await expect(james).toBeVisible({ timeout: 30_000 });
+      await james.click();
+
+      const sheet = page.getByRole('dialog', { name: 'Lectura rápida' });
+      await expectCitedText(sheet, 'santiago verso 14');
+      await expect(sheet.getByTestId('cite-quick-body')).not.toContainText(
+        'santiago verso 27',
+      );
+      await sheet.getByTestId('cite-quick-after').click();
+      const after = sheet.locator(
+        '[data-testid="cite-quick-context"][data-place="after"]',
+      );
+      await expect(after).toContainText('santiago verso 27');
+      await expect(sheet.getByTestId('cite-quick-original')).toContainText(
+        'santiago verso 14',
+      );
+      await expect(sheet.getByTestId('cite-quick-original')).toContainText(
+        'santiago verso 26',
+      );
+      const cited = await sheet
+        .getByTestId('cite-quick-original')
+        .getByTestId('pasaje-verse')
+        .evaluateAll((els) => els.map((el) => el.getAttribute('data-verse')));
+      expect(cited).not.toContain('27');
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/51/);
+      await pressBrowserBack(page);
+      await expect(sheet).toHaveCount(0);
+
+      await page.goto('/leyendo/cic-es/punto/79');
+      await expect(page).toHaveURL(/\/leyendo\/cic-es\/u\/79/, { timeout: 60_000 });
+      const ct = page.getByRole('link', { name: 'CT 18' }).first();
+      await expect(ct).toBeVisible({ timeout: 30_000 });
+      await ct.click();
+      const docSheet = page.getByRole('dialog', { name: 'Lectura rápida' });
+      await expectCitedText(docSheet, 'catequesis no puede disociarse');
+      await expect(docSheet.getByTestId('cite-quick-origin')).toHaveAttribute(
+        'data-origin-index',
+        '79',
+      );
+      await expect(docSheet.getByTestId('cite-quick-body')).not.toContainText(
+        'unidad fuera de la cita',
+      );
+      await docSheet.getByTestId('cite-quick-before').click();
+      await expect(
+        docSheet.locator('[data-testid="cite-quick-context"][data-place="before"]'),
+      ).toContainText('unidad fuera de la cita');
+      await docSheet.getByTestId('cite-quick-after').click();
+      await expect(
+        docSheet.locator('[data-testid="cite-quick-context"][data-place="after"]'),
+      ).toContainText('unidad fuera de la cita');
+      await expect(docSheet.getByTestId('cite-quick-original')).toContainText(
+        'catequesis no puede disociarse',
+      );
+      const docOpen = await docSheet
+        .getByTestId('cite-quick-open')
+        .getAttribute('data-open-index');
+      expect(docOpen).toBeTruthy();
+      await docSheet.getByTestId('cite-quick-open').click();
+      await expect(page).toHaveURL(
+        new RegExp(`/leyendo/ct-es/u/${docOpen}(?:$|[?#])`),
+        { timeout: 30_000 },
+      );
+      await expect(docSheet).toHaveCount(0);
+      await expect(page.locator(`app-punto[data-unit="${docOpen}"]`)).toContainText(
+        'catequesis no puede disociarse',
+        { timeout: 60_000 },
+      );
     });
   });
   test('voz y velocidad siguen en la palabra', async ({ page }) => {
@@ -1457,6 +1654,13 @@ async function stubOfflineBible(page: Page): Promise<void> {
     };
   };
   put(
+    33832,
+    'carta a los efesios',
+    4,
+    12,
+    'contexto anterior de efesios',
+  );
+  put(
     33833,
     'carta a los efesios',
     4,
@@ -1464,7 +1668,13 @@ async function stubOfflineBible(page: Page): Promise<void> {
     'hasta que todos lleguemos a la unidad de la fe',
   );
   for (let verse = 14; verse <= 26; verse++) {
-    put(34841 + verse, 'carta de santiago', 2, verse, `santiago verso ${verse}`);
+    put(
+      34841 + verse,
+      'carta de santiago',
+      2,
+      verse,
+      `santiago verso ${verse} ` + 'palabra '.repeat(24),
+    );
   }
   put(34841 + 27, 'carta de santiago', 2, 27, 'santiago verso 27');
   const body = JSON.stringify(units);

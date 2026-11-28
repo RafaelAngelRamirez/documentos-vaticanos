@@ -93,7 +93,7 @@
           [attr.data-unit]="article.article.index_array"
           [attr.data-idx]="actual_inferior_limit + i"
           [class.narrando]="narrPlaying && actual_inferior_limit + i === narrIndex"
-          (citationPreview)="onCitationPreview($event)"
+          (citationPreview)="onCitationPreview($event, article)"
         ></app-punto>
       </div>
 
@@ -393,7 +393,46 @@
     (closed)="closeQuickCite()"
   >
     <div class="fs12 muted shead">Lectura rápida</div>
+    <p
+      class="fs13 cite-quick-origin"
+      data-testid="cite-quick-origin"
+      [attr.data-origin-index]="quickCite.originIndex"
+      [attr.data-origin-title]="quickCite.originTitle"
+    >
+      <span class="fs12 muted">Origen</span>
+      {{ quickCite.originTitle
+      }}<ng-container *ngIf="quickCite.originUnit">
+        · Nº {{ quickCite.originUnit }}</ng-container
+      >
+    </p>
     <h2 class="cite-quick-label">{{ quickCite.label }}</h2>
+    <div class="cite-quick-actions" *ngIf="quickCite.status === 'ready'">
+      <button
+        type="button"
+        class="cite-quick-btn"
+        data-testid="cite-quick-before"
+        (click)="expandQuickCite('before')"
+        [disabled]="!quickCite.canBefore || quickCite.contextBusy"
+      >
+        Abrir antes
+      </button>
+      <button
+        type="button"
+        class="cite-quick-btn"
+        data-testid="cite-quick-after"
+        (click)="expandQuickCite('after')"
+        [disabled]="!quickCite.canAfter || quickCite.contextBusy"
+      >
+        Abrir después
+      </button>
+    </div>
+    <p
+      *ngIf="quickCite.contextNote"
+      class="fs13 muted cite-quick-status"
+      data-testid="cite-quick-context-note"
+    >
+      {{ quickCite.contextNote }}
+    </p>
     <p *ngIf="quickCite.status === 'loading'" class="fs13 muted cite-quick-status">
       Leyendo el corpus…
     </p>
@@ -409,11 +448,47 @@
       class="cite-quick-body"
       data-testid="cite-quick-body"
     >
-      <app-pasaje
-        [verses]="quickCite.passage.verses"
-        [label]="quickCite.label"
-      ></app-pasaje>
+      <p
+        *ngFor="let v of quickCite.before"
+        class="cite-quick-context-verse"
+        data-testid="cite-quick-context"
+        data-place="before"
+        [attr.data-verse]="v.verse"
+      >
+        <span class="pasaje-num" *ngIf="v.verse > 0">{{ v.verse }}</span
+        >{{ v.text }}
+      </p>
+      <div
+        #quickOriginal
+        class="cite-quick-original"
+        data-testid="cite-quick-original"
+      >
+        <app-pasaje
+          [verses]="quickCite.passage.verses"
+          [label]="quickCite.label"
+        ></app-pasaje>
+      </div>
+      <p
+        *ngFor="let v of quickCite.after"
+        class="cite-quick-context-verse"
+        data-testid="cite-quick-context"
+        data-place="after"
+        [attr.data-verse]="v.verse"
+      >
+        <span class="pasaje-num" *ngIf="v.verse > 0">{{ v.verse }}</span
+        >{{ v.text }}
+      </p>
     </div>
+    <button
+      *ngIf="quickCite.status === 'ready' && quickCite.openIndex != null"
+      type="button"
+      class="cite-quick-open"
+      data-testid="cite-quick-open"
+      [attr.data-open-index]="quickCite.openIndex"
+      (click)="openCitedDocument()"
+    >
+      Abrir documento
+    </button>
     <details
       *ngIf="quickCite.status === 'ready' && quickCite.note"
       class="cite-quick-more"
