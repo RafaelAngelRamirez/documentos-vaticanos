@@ -15,7 +15,7 @@ import {
   NavigationStart,
   Router,
 } from '@angular/router';
-import { Subscription, combineLatest } from 'rxjs';
+import { Subscription, combineLatest, firstValueFrom } from 'rxjs';
 import { IndiceDocumentos } from 'src/app/core/corpus/corpus.models';
 import { BackService } from 'src/app/services/back.service';
 import { NavigationService } from 'src/app/services/navigation.service';
@@ -62,6 +62,10 @@ import {
 import { biblePackIdForLocale } from 'src/app/core/liturgia/bible-cite.logic';
 import { stampAllUnitsFromCiteMap } from 'src/app/core/liturgia/cite-map.logic';
 import type { BibleCiteMap } from 'src/app/core/liturgia/cite-map.logic';
+import {
+  stepCitedContext,
+  type CitedContextVerse,
+} from 'src/app/core/reading/cited-passage-context.logic';
 import {
   resolveCitedPassageFromCite,
   resolveCitedPassageFromLocalRef,
@@ -120,6 +124,31 @@ const SLOW_LOAD_MS = 800;
 interface ThemeOption {
   value: ReaderTheme;
   label: string;
+}
+
+/** Hoja de lectura rápida: cita, origen y contexto vecino. */
+interface QuickCite {
+  label: string;
+  status: 'loading' | 'ready' | 'missing';
+  passage: CitedPassage | null;
+  /** PG / PL. Closed until the reader opens “Edición”. */
+  note: string | null;
+  originTitle: string;
+  originUnit: string;
+  /** Array index of the paragraph that held the tapped citation. */
+  originIndex: number | null;
+  citedDocumentId: string | null;
+  /** First cited unit. Abrir documento opens here. */
+  openIndex: number | null;
+  unitCount: number;
+  edgeBefore: number;
+  edgeAfter: number;
+  before: CitedContextVerse[];
+  after: CitedContextVerse[];
+  canBefore: boolean;
+  canAfter: boolean;
+  contextBusy: boolean;
+  contextNote: string | null;
 }
 
 /** Pantalla 2B/4A/4B · Lectura con selección de texto y notas locales. */
@@ -186,14 +215,11 @@ export class LectorComponent implements OnInit, OnDestroy {
    * Shared cited-passage sheet (bible or doc-to-doc).
    * Back closes it before climbing the reader hierarchy.
    */
-  quickCite: {
-    label: string;
-    status: 'loading' | 'ready' | 'missing';
-    passage: CitedPassage | null;
-    /** PG / PL. Closed until the reader opens “Edición”. */
-    note: string | null;
-  } | null = null;
+  quickCite: QuickCite | null = null;
   private citeLoadSub: Subscription | null = null;
+  /** Drops a context load that outlives the sheet. */
+  private contextGen = 0;
+  @ViewChild('quickOriginal') quickOriginal?: ElementRef<HTMLElement>;
 
   /** F4: barras auto-ocultables al desplazar. */
   barsHidden = false;
@@ -459,6 +485,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     this.narrator.releaseReadAloudSession();
     this.loadSub?.unsubscribe();
     this.loadSub = null;
+    this.contextGen += 1;
     this.citeLoadSub?.unsubscribe();
     this.citeLoadSub = null;
     this.indexLoadSub?.unsubscribe();
@@ -499,7 +526,7 @@ export class LectorComponent implements OnInit, OnDestroy {
    * Citation click: load the target pack and show only the cited units
    * through the shared resolver. Route and cite stack stay put.
    */
-  onCitationPreview(event: CitationPreview): void {
+  onCitationPreview(event: CitationPreview, source?: ArticleInfo): void {
     const local = event.seg.local;
     const patristic = event.seg.patristic
       ? parsePatristicCite(event.seg.label || '')
@@ -518,8 +545,10 @@ export class LectorComponent implements OnInit, OnDestroy {
     const documentId = documentIdKey(docId);
     const label = event.seg.label?.trim() || documentId;
     const note = patristic?.editionNote ?? null;
+    const origin = this.quickCiteOrigin(source);
+    this.contextGen += 1;
     this.citeLoadSub?.unsubscribe();
-    this.quickCite = { label, status: 'loading', passage: null, note };
+    this.quickCite = this.emptyQuickCite(label, 'loading', null, note, origin);
     const load$ = patristic
       ? this.corpus.ensureLoaded(documentId)
       : this.corpus.ensureForCitedPassage(documentId, {
@@ -540,24 +569,264 @@ export class LectorComponent implements OnInit, OnDestroy {
                 label,
                 units,
               );
-        this.quickCite = {
+        const unitCount = Math.max(
+          units.length,
+          doc.meta?.unitCount ?? 0,
+        );
+        this.quickCite = this.emptyQuickCite(
           label,
-          status: passage?.verses.length ? 'ready' : 'missing',
+          passage?.verses.length ? 'ready' : 'missing',
           passage,
           note,
-        };
+          origin,
+          documentId,
+          unitCount,
+        );
       },
       error: () => {
         if (!this.quickCite || this.quickCite.label !== label) return;
-        this.quickCite = { label, status: 'missing', passage: null, note };
+        this.quickCite = this.emptyQuickCite(label, 'missing', null, note, origin);
       },
     });
   }
 
   closeQuickCite(): void {
+    this.contextGen += 1;
     this.citeLoadSub?.unsubscribe();
     this.citeLoadSub = null;
     this.quickCite = null;
+  }
+
+  /** One neighboring verse or paragraph, inside the sheet. */
+  expandQuickCite(direction: 'before' | 'after'): void {
+    const start = this.quickCite;
+    if (
+      !start ||
+      start.status !== 'ready' ||
+      start.contextBusy ||
+      !start.citedDocumentId
+    ) {
+      return;
+    }
+    if (direction === 'before' && !start.canBefore) return;
+    if (direction === 'after' && !start.canAfter) return;
+    const gen = ++this.contextGen;
+    const label = start.label;
+    const documentId = start.citedDocumentId;
+    this.quickCite = { ...start, contextBusy: true, contextNote: null };
+    void this.fillQuickCiteContext(gen, label, documentId, direction);
+  }
+
+  /** Cited work at the first cited unit. The source stays on the stack. */
+  openCitedDocument(): void {
+    const cite = this.quickCite;
+    if (!cite?.citedDocumentId || cite.openIndex == null) return;
+    const documentId = cite.citedDocumentId;
+    const unitIndex = cite.openIndex;
+    this.closeQuickCite();
+    this.navigationService.openReading(documentId, {
+      unitIndex,
+      stack: 'push',
+    });
+  }
+
+  private quickCiteOrigin(source?: ArticleInfo): {
+    originTitle: string;
+    originUnit: string;
+    originIndex: number | null;
+  } {
+    const originTitle = this.meta?.title || this.documentTitle;
+    const originUnit = source
+      ? this.unidadLabelDe(source)
+      : this.unidadLabelAt(this.visibleIndex);
+    const stamped = source?.article?.index_array;
+    const originIndex =
+      typeof stamped === 'number'
+        ? stamped
+        : source
+          ? null
+          : this.visibleIndex;
+    return { originTitle, originUnit, originIndex };
+  }
+
+  private emptyQuickCite(
+    label: string,
+    status: QuickCite['status'],
+    passage: CitedPassage | null,
+    note: string | null,
+    origin: {
+      originTitle: string;
+      originUnit: string;
+      originIndex: number | null;
+    },
+    citedDocumentId: string | null = null,
+    unitCount = 0,
+  ): QuickCite {
+    const indexes = (passage?.verses ?? [])
+      .map((verse) => verse.index)
+      .filter((index) => Number.isInteger(index) && index >= 0);
+    const edgeBefore = indexes.length ? Math.min(...indexes) : 0;
+    const edgeAfter = indexes.length ? Math.max(...indexes) : -1;
+    const openIndex = passage?.verses.length ? passage.verses[0].index : null;
+    return {
+      label,
+      status,
+      passage,
+      note,
+      ...origin,
+      citedDocumentId: passage ? citedDocumentId : null,
+      openIndex,
+      unitCount,
+      edgeBefore,
+      edgeAfter,
+      before: [],
+      after: [],
+      canBefore: indexes.length > 0 && edgeBefore > 0,
+      canAfter: indexes.length > 0 && unitCount > 0 && edgeAfter + 1 < unitCount,
+      contextBusy: false,
+      contextNote: null,
+    };
+  }
+
+  private async fillQuickCiteContext(
+    gen: number,
+    label: string,
+    documentId: string,
+    direction: 'before' | 'after',
+  ): Promise<void> {
+    let units: Article[] | null = null;
+    for (let stepNo = 0; stepNo < 12; stepNo++) {
+      if (!this.sameQuickCite(gen, label)) return;
+      const cite = this.quickCite;
+      if (!cite) return;
+      const edge = direction === 'before' ? cite.edgeBefore : cite.edgeAfter;
+      let step = stepCitedContext(units, edge, direction, cite.unitCount);
+      if (step.kind === 'load') {
+        try {
+          const doc = await firstValueFrom(
+            this.corpus.ensureUnits(documentId, step.index, step.index + 1),
+          );
+          if (!this.sameQuickCite(gen, label)) return;
+          units = (doc.documento || []) as Article[];
+          const unitCount = Math.max(
+            cite.unitCount,
+            units.length,
+            doc.meta?.unitCount ?? 0,
+          );
+          if (unitCount !== cite.unitCount && this.quickCite) {
+            this.quickCite = { ...this.quickCite, unitCount };
+          }
+          step = stepCitedContext(
+            units,
+            edge,
+            direction,
+            this.quickCite?.unitCount ?? unitCount,
+          );
+          if (step.kind === 'load') step = { kind: 'skip', edge: step.index };
+        } catch {
+          this.noteQuickCiteContext(
+            gen,
+            label,
+            'No se pudo leer el contexto en este dispositivo.',
+          );
+          return;
+        }
+      }
+      if (!this.sameQuickCite(gen, label) || !this.quickCite) return;
+      if (step.kind === 'end') {
+        const grew =
+          direction === 'before'
+            ? this.quickCite.before.length > 0
+            : this.quickCite.after.length > 0;
+        this.quickCite = {
+          ...this.quickCite,
+          contextBusy: false,
+          canBefore:
+            direction === 'before' ? false : this.quickCite.canBefore,
+          canAfter: direction === 'after' ? false : this.quickCite.canAfter,
+          contextNote: grew
+            ? null
+            : 'No hay más texto en el corpus de este dispositivo.',
+        };
+        return;
+      }
+      if (step.kind === 'skip') {
+        this.moveQuickCiteEdge(direction, step.edge);
+        continue;
+      }
+      this.pushQuickCiteVerse(direction, step.verse, step.edge);
+      this.keepCitedOriginalInView();
+      return;
+    }
+    this.noteQuickCiteContext(
+      gen,
+      label,
+      'No hay más texto en el corpus de este dispositivo.',
+    );
+  }
+
+  private sameQuickCite(gen: number, label: string): boolean {
+    return (
+      this.contextGen === gen &&
+      !!this.quickCite &&
+      this.quickCite.label === label
+    );
+  }
+
+  private moveQuickCiteEdge(
+    direction: 'before' | 'after',
+    edge: number,
+  ): void {
+    const cite = this.quickCite;
+    if (!cite) return;
+    const edgeBefore = direction === 'before' ? edge : cite.edgeBefore;
+    const edgeAfter = direction === 'after' ? edge : cite.edgeAfter;
+    this.quickCite = {
+      ...cite,
+      edgeBefore,
+      edgeAfter,
+      canBefore: edgeBefore > 0,
+      canAfter: cite.unitCount > 0 && edgeAfter + 1 < cite.unitCount,
+    };
+  }
+
+  private pushQuickCiteVerse(
+    direction: 'before' | 'after',
+    verse: CitedContextVerse,
+    edge: number,
+  ): void {
+    const cite = this.quickCite;
+    if (!cite) return;
+    const edgeBefore = direction === 'before' ? edge : cite.edgeBefore;
+    const edgeAfter = direction === 'after' ? edge : cite.edgeAfter;
+    this.quickCite = {
+      ...cite,
+      before: direction === 'before' ? [verse, ...cite.before] : cite.before,
+      after: direction === 'after' ? [...cite.after, verse] : cite.after,
+      edgeBefore,
+      edgeAfter,
+      canBefore: edgeBefore > 0,
+      canAfter: cite.unitCount > 0 && edgeAfter + 1 < cite.unitCount,
+      contextBusy: false,
+      contextNote: null,
+    };
+  }
+
+  private noteQuickCiteContext(gen: number, label: string, note: string): void {
+    if (!this.sameQuickCite(gen, label) || !this.quickCite) return;
+    this.quickCite = {
+      ...this.quickCite,
+      contextBusy: false,
+      contextNote: note,
+    };
+  }
+
+  private keepCitedOriginalInView(): void {
+    const el = this.quickOriginal?.nativeElement;
+    if (!el || typeof el.scrollIntoView !== 'function') return;
+    setTimeout(() => {
+      el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    }, 0);
   }
 
   get narrSupported(): boolean {
