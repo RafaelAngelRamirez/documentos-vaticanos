@@ -66,15 +66,6 @@ jobs:
           code=$?
           echo "code=$code" >> "$GITHUB_OUTPUT"
           exit "$code"
-      - name: Evidence policy
-        id: evidence
-        continue-on-error: true
-        run: |
-          set +e
-          bash scripts/ci-agent-gate.sh evidence
-          code=$?
-          echo "code=$code" >> "$GITHUB_OUTPUT"
-          exit "$code"
       - name: Package web
         run: npm --prefix frontend run build
       - name: Mobile 390
@@ -90,6 +81,20 @@ jobs:
         run: |
           set +e
           bash scripts/ci-agent-gate.sh lector
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
+      # The drive rewrites evidence/lector.txt. The policy accepts that
+      # regeneration, so this step follows the drive instead of requiring a
+      # hand-edited copy when the smoke text is unchanged.
+      - name: Evidence policy
+        id: evidence
+        continue-on-error: true
+        env:
+          DV_EVIDENCE_REGENERATED: lector
+        run: |
+          set +e
+          bash scripts/ci-agent-gate.sh evidence
           code=$?
           echo "code=$code" >> "$GITHUB_OUTPUT"
           exit "$code"

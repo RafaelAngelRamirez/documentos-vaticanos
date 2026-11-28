@@ -33,6 +33,15 @@ import { PuntoModule } from '../punto/punto.module';
 import { CorpusService } from 'src/app/core/corpus/corpus.service';
 import { UiI18nService } from 'src/app/core/i18n/ui-i18n.service';
 import { barsAfterScroll } from 'src/app/core/shell/reader-bars.logic';
+import {
+  READER_GROW_BURST,
+  READER_LOOKAHEAD_PX,
+  READER_MAX_RENDERED,
+  extendRenderedRange,
+  holdUnitForExtend,
+  routeFocusAction,
+  scrollDeltaToHoldAnchor,
+} from 'src/app/core/shell/reader-window.logic';
 import { AnotacionesService } from 'src/app/services/anotaciones.service';
 import {
   adoptSpiedUnit,
@@ -112,8 +121,6 @@ import {
 } from 'src/app/core/reading/selection-menu.logic';
 
 const CONTEXT_SIZE = 5;
-/** Max units kept in the DOM (sliding window). */
-const MAX_RENDERED = 28;
 /** Show the hydration / prayer copy if the body is still loading. */
 const SLOW_LOAD_MS = 800;
 
@@ -241,6 +248,14 @@ export class LectorComponent implements OnInit, OnDestroy {
   private persistTimer: ReturnType<typeof setTimeout> | null = null;
   /** Unit the route asked for, until that unit leaves the viewport. */
   private pinnedUnit: UnitIndex | null = null;
+  /** Unit last written by the scroll spy. Its route echo must not re-scroll. */
+  private reportedUnit: number | null = null;
+  private sentinelEl?: HTMLElement;
+  private pendingAnchor: { unit: number; top: number } | null = null;
+  private pendingGrow = false;
+  private settleGen = 0;
+  private settleWaits = 0;
+  private growBurst = 0;
   /** False until scrollIntoView has run for `pinnedUnit`. */
   private pinScrolled = false;
   /** True once a navigation has left the reader, or this view is tearing down. */
@@ -258,6 +273,7 @@ export class LectorComponent implements OnInit, OnDestroy {
         this.selHold = false;
         this.selPop = null;
       }
+      if (!this.jumpGuardsBars) this.growBurst = 0;
       this.updateBarsVisibility();
       this.updateVisibleUnit();
     });
@@ -362,7 +378,8 @@ export class LectorComponent implements OnInit, OnDestroy {
 
   @ViewChild('sentinel')
   set sentinelRef(el: ElementRef<HTMLElement> | undefined) {
-    this.attachObserver(el?.nativeElement);
+    this.sentinelEl = el?.nativeElement;
+    this.attachObserver(this.sentinelEl);
   }
 
   /** Tick so chrome labels re-resolve when UI locale changes. */
@@ -453,6 +470,7 @@ export class LectorComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.closing = true;
+    this.settleGen++;
     this.unregisterBack?.();
     this.unregisterBack = null;
     this.stopNarrator();
@@ -885,11 +903,25 @@ export class LectorComponent implements OnInit, OnDestroy {
    */
   private ensureNarrVisible(index: number): void {
     const total = this.document?.documento.length ?? 0;
-    while (index >= this.actual_superior_limit && this.actual_superior_limit < total) {
+    let guard = 0;
+    while (
+      index >= this.actual_superior_limit &&
+      this.actual_superior_limit < total &&
+      guard++ < total
+    ) {
+      const before = this.actual_superior_limit;
       this.load_next();
+      if (this.actual_superior_limit <= before) break;
     }
-    while (index < this.actual_inferior_limit && this.actual_inferior_limit > 0) {
+    guard = 0;
+    while (
+      index < this.actual_inferior_limit &&
+      this.actual_inferior_limit > 0 &&
+      guard++ < total
+    ) {
+      const before = this.actual_inferior_limit;
       this.load_before();
+      if (this.actual_inferior_limit >= before) break;
     }
     setTimeout(() => {
       const el = document.querySelector(`app-punto[data-idx="${index}"]`);
@@ -1442,10 +1474,29 @@ export class LectorComponent implements OnInit, OnDestroy {
     const generation = this.navigationService.seenRoute(place);
     const key = documentIdKey(place.documentId);
     if (this.document?.id === key) {
+      const rendered = this.actual_articles.some(
+        (article) => article.article.index_array === place.unitIndex,
+      );
+      const action = routeFocusAction({
+        sameDocument: true,
+        routeUnit: place.unitIndex,
+        reportedUnit: this.reportedUnit,
+        rendered,
+      });
+      if (action === 'keep') {
+        this.paintGeneration = generation;
+        this.focusIndex = place.unitIndex;
+        return;
+      }
       this.focusUnit(place, generation);
       return;
     }
 
+    this.reportedUnit = null;
+    this.pendingAnchor = null;
+    this.pendingGrow = false;
+    this.growBurst = 0;
+    this.settleGen++;
     this.loadSub?.unsubscribe();
     this.closeIndex();
     this.chapters = [];
@@ -1481,6 +1532,7 @@ export class LectorComponent implements OnInit, OnDestroy {
   private focusUnit(place: Cite, generation: number): void {
     this.paintGeneration = generation;
     this.focusIndex = place.unitIndex;
+    this.visibleIndex = place.unitIndex;
     const rendered = this.actual_articles.some(
       (article) => article.article.index_array === place.unitIndex,
     );
@@ -1571,14 +1623,7 @@ export class LectorComponent implements OnInit, OnDestroy {
 
     this.actual_inferior_limit = inferior_limit;
     this.actual_superior_limit = superior_limit;
-    this.trimRenderedWindow(this.focusIndex);
-    this.actual_articles = this._get_articles(
-      this.actual_inferior_limit,
-      this.actual_superior_limit,
-    );
-    if (this.windowHasHoles(this.actual_inferior_limit, this.actual_superior_limit)) {
-      void this.fillWindowIfNeeded();
-    }
+    this.fillWindowIfNeeded(() => this.scheduleSettle(null, true));
   }
 
   /** 5C → 5D: si se pidió «Escuchar con narrador», arrancar al cargar. */
@@ -1594,44 +1639,49 @@ export class LectorComponent implements OnInit, OnDestroy {
   }
 
   load_before() {
-    let new_inferior_limit = this.actual_inferior_limit - this.quantity_to_load;
-    if (new_inferior_limit < 0) new_inferior_limit = 0;
-    this.actual_inferior_limit = new_inferior_limit;
-    this.trimRenderedWindow(this.visibleIndex);
-    void this.fillWindowIfNeeded();
+    this.extendWindow('up');
   }
 
   load_next() {
-    let new_superior_limit = this.actual_superior_limit + this.quantity_to_load;
-
-    const document_size = this.document?.documento.length ?? 0;
-
-    if (new_superior_limit > document_size) new_superior_limit = document_size;
-    this.actual_superior_limit = new_superior_limit;
-    this.trimRenderedWindow(this.visibleIndex);
-    void this.fillWindowIfNeeded();
+    this.extendWindow('down');
   }
 
-  /** Keep only ~MAX_RENDERED units around the current visible index. */
-  private trimRenderedWindow(anchorIndex: number): void {
+  /**
+   * Append ahead, or prepend behind, without recentering.
+   * Downward extends never drop the units the reader is moving into.
+   */
+  private extendWindow(direction: 'down' | 'up'): void {
     const total = this.document?.documento.length ?? 0;
-    let lo = this.actual_inferior_limit;
-    let hi = this.actual_superior_limit;
-    if (hi - lo <= MAX_RENDERED) return;
-    const half = Math.floor(MAX_RENDERED / 2);
-    lo = Math.max(0, anchorIndex - half);
-    hi = Math.min(total, lo + MAX_RENDERED);
-    this.actual_inferior_limit = lo;
-    this.actual_superior_limit = hi;
+    const next = extendRenderedRange(
+      { lo: this.actual_inferior_limit, hi: this.actual_superior_limit },
+      total,
+      this.quantity_to_load,
+      direction,
+      READER_MAX_RENDERED,
+      holdUnitForExtend(this.firstVisibleUnit()),
+    );
+    if (
+      next.lo === this.actual_inferior_limit &&
+      next.hi === this.actual_superior_limit
+    ) {
+      return;
+    }
+    const anchor = this.captureAnchor(next.lo, next.hi);
+    this.actual_inferior_limit = next.lo;
+    this.actual_superior_limit = next.hi;
+    this.fillWindowIfNeeded(() =>
+      this.scheduleSettle(anchor, direction === 'down'),
+    );
   }
 
-  private fillWindowIfNeeded(): void {
+  private fillWindowIfNeeded(done?: () => void): void {
     const doc = this.document;
     if (!doc?.id) {
       this.actual_articles = this._get_articles(
         this.actual_inferior_limit,
         this.actual_superior_limit
       );
+      done?.();
       return;
     }
     const from = this.actual_inferior_limit;
@@ -1639,6 +1689,7 @@ export class LectorComponent implements OnInit, OnDestroy {
     const holes = this.windowHasHoles(from, to);
     if (!holes && !doc.partial) {
       this.actual_articles = this._get_articles(from, to);
+      done?.();
       return;
     }
     const key = doc.id;
@@ -1660,9 +1711,13 @@ export class LectorComponent implements OnInit, OnDestroy {
                 cite(id, unitToReportAfterFill(visible, focus)),
               );
             }
+            done?.();
           });
         },
-        error: (err) => console.error(err),
+        error: (err) => {
+          console.error(err);
+          done?.();
+        },
       })
     );
   }
@@ -1745,6 +1800,111 @@ export class LectorComponent implements OnInit, OnDestroy {
     );
   }
 
+  /** First unit that still intersects the viewport, or the spied index. */
+  private firstVisibleUnit(): number {
+    if (typeof window === 'undefined') return this.visibleIndex;
+    const height = window.innerHeight || 0;
+    const nodes =
+      this.host.nativeElement.querySelectorAll<HTMLElement>('app-punto');
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes[i];
+      const rect = node.getBoundingClientRect();
+      if (rect.bottom <= 0 || rect.top >= height) continue;
+      const unit = Number(node.getAttribute('data-unit'));
+      if (Number.isInteger(unit)) return unit;
+    }
+    return this.visibleIndex;
+  }
+
+  /** A unit that will still be mounted, measured before the DOM swap. */
+  private captureAnchor(
+    nextLo: number,
+    nextHi: number,
+  ): { unit: number; top: number } | null {
+    if (typeof window === 'undefined') return null;
+    const nodes =
+      this.host.nativeElement.querySelectorAll<HTMLElement>('app-punto');
+    const line = window.innerHeight * 0.35;
+    let chosen: HTMLElement | null = null;
+    let fallback: HTMLElement | null = null;
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes[i];
+      const unit = Number(node.getAttribute('data-unit'));
+      if (!Number.isInteger(unit) || unit < nextLo || unit >= nextHi) continue;
+      if (!fallback) fallback = node;
+      if (node.getBoundingClientRect().top <= line) chosen = node;
+    }
+    const el = chosen ?? fallback;
+    if (!el) return null;
+    const unit = Number(el.getAttribute('data-unit'));
+    return { unit, top: el.getBoundingClientRect().top };
+  }
+
+  private restoreAnchor(anchor: { unit: number; top: number } | null): void {
+    if (!anchor || this.closing || typeof window === 'undefined') return;
+    const el = this.host.nativeElement.querySelector(
+      `app-punto[data-unit="${anchor.unit}"]`,
+    );
+    if (!el) return;
+    const delta = scrollDeltaToHoldAnchor(
+      anchor.top,
+      el.getBoundingClientRect().top,
+    );
+    if (Math.abs(delta) < 0.5) return;
+    this.armJumpGuard();
+    window.scrollBy(0, delta);
+  }
+
+  /** After paint: hold the anchor, then load again if the sentinel is still near. */
+  private scheduleSettle(
+    anchor: { unit: number; top: number } | null,
+    grow: boolean,
+  ): void {
+    if (anchor && !this.pendingAnchor) this.pendingAnchor = anchor;
+    if (grow) this.pendingGrow = true;
+    const gen = ++this.settleGen;
+    this.settleWaits = 0;
+    const run = (): void => {
+      if (gen !== this.settleGen || this.closing) return;
+      // Let the route jump scrollIntoView land before a grow adjusts scroll.
+      if (this.pinnedUnit != null && !this.pinScrolled && this.settleWaits < 8) {
+        this.settleWaits++;
+        setTimeout(run, 20);
+        return;
+      }
+      this.settleWaits = 0;
+      const hold = this.pendingAnchor;
+      const doGrow = this.pendingGrow;
+      this.pendingAnchor = null;
+      this.pendingGrow = false;
+      this.restoreAnchor(hold);
+      if (doGrow) this.growIfNeeded();
+    };
+    this.zone.run(() => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(run);
+      });
+    });
+  }
+
+  /**
+   * The intersection observer fires when the sentinel enters the margin.
+   * It does not fire again while the sentinel stays inside it, so a short
+   * page would load one slice and stop. Keep extending until the sentinel
+   * is past the lookahead, bounded per gesture.
+   */
+  private growIfNeeded(): void {
+    if (this.closing || this.loading || !this.canLoadNext) return;
+    if (this.growBurst >= READER_GROW_BURST) return;
+    const el = this.sentinelEl;
+    if (!el || typeof window === 'undefined') return;
+    if (el.getBoundingClientRect().top > window.innerHeight + READER_LOOKAHEAD_PX) {
+      return;
+    }
+    this.growBurst++;
+    this.load_next();
+  }
+
   /** Carga por tramos al desplazar (diseño 2B: scroll infinito). */
   private attachObserver(el?: HTMLElement): void {
     this.io?.disconnect();
@@ -1752,13 +1912,15 @@ export class LectorComponent implements OnInit, OnDestroy {
     if (!el || typeof IntersectionObserver === 'undefined') return;
     this.io = new IntersectionObserver(
       (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting && this.canLoadNext && !this.loading) {
-            this.load_next();
-          }
+        if (
+          entries.some((entry) => entry.isIntersecting) &&
+          this.canLoadNext &&
+          !this.loading
+        ) {
+          this.zone.run(() => this.load_next());
         }
       },
-      { rootMargin: '600px 0px' }
+      { rootMargin: `${READER_LOOKAHEAD_PX}px 0px` },
     );
     this.io.observe(el);
   }
@@ -1827,6 +1989,7 @@ export class LectorComponent implements OnInit, OnDestroy {
   private reportVisible(place: Cite, replaceRoute = true): void {
     const article = this.document?.documento?.[place.unitIndex];
     if (!article || article.index_array !== place.unitIndex) return;
+    this.reportedUnit = place.unitIndex;
     const rawLabel = article.consecutivo;
     const label =
       rawLabel && rawLabel !== 'no-encontrado' ? rawLabel : undefined;

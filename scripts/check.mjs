@@ -66,6 +66,7 @@ function cheapTests() {
     ['frontend test:unit-bookmark', 'npm', ['--prefix', 'frontend', 'run', 'test:unit-bookmark']],
     ['frontend test:review', 'npm', ['--prefix', 'frontend', 'run', 'test:review']],
     ['frontend test:reader-bars', 'npm', ['--prefix', 'frontend', 'run', 'test:reader-bars']],
+    ['frontend test:reader-window', 'npm', ['--prefix', 'frontend', 'run', 'test:reader-window']],
     ['frontend test:selection-menu', 'npm', ['--prefix', 'frontend', 'run', 'test:selection-menu']],
     ['frontend test:mobile-flows', 'npm', ['--prefix', 'frontend', 'run', 'test:mobile-flows']],
     ['frontend test:sheet-dismiss', 'npm', ['--prefix', 'frontend', 'run', 'test:sheet-dismiss']],

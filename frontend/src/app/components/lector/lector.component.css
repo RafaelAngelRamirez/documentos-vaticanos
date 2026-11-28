@@ -5,9 +5,12 @@
   color: var(--ink);
 }
 
-/* iOS callout; Chrome Android ActionMode is dismissed by clearing Selection. */
+/* iOS callout; Chrome Android ActionMode is dismissed by clearing Selection.
+   Scroll anchoring is ours: the window drops units above the viewport and
+   then restores scrollY. The browser must not apply a second adjustment. */
 .rtxt {
   -webkit-touch-callout: none;
+  overflow-anchor: none;
 }
 
 .app.rpaper {

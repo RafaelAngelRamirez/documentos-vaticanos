@@ -14,6 +14,7 @@ npm --prefix frontend run test:reader-prefs
 npm --prefix frontend run test:unit-bookmark
 npm --prefix frontend run test:review
 npm --prefix frontend run test:reader-bars
+npm --prefix frontend run test:reader-window
 npm --prefix frontend run test:selection-menu
 npm --prefix frontend run test:mobile-flows
 npm --prefix frontend run test:sheet-dismiss
